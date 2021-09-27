@@ -121,7 +121,7 @@ Create an optimized distribution for a particular API-M profile.
     ```
     
     ``` tab="Example:Windows"
-    <PRODUCT_HOME>/bin/api-manager.bat -Dprofile=gateway-worker
+    <API-M_HOME>/bin/api-manager.bat -Dprofile=gateway-worker
     ```    
 
 ### Method 2 - Optimizing while starting the server
