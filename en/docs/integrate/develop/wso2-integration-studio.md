@@ -2,6 +2,10 @@
 
 WSO2 Integration Studio is your development environment for designing, developing, debugging, and testing integration solutions. As an integration developer, you can execute all the phases of the development lifecycle using this tool. When your integration solutions are production-ready, you can easily push the artifacts to your continuous integration/continuous deployment pipeline.
 
+!!! Tip
+    The base of the WSO2 Integration Studio is Eclipse IDE. You can install any supported Eclipse plugin for Integration
+    Studio by navigating to **Help** -> **Install New Software**.
+
 ## Getting Started
 
 When you open WSO2 Integration Studio, you will see the **Getting Started** view in the tool's workbench. 
