@@ -5,7 +5,7 @@ A REST API artifact you create from WSO2 Integration Studio is exposed to consum
 Follow the steps given below to publish REST APIs from the Micro Integrator to the API-M runtime.
 
 !!! tip "Related Tutorials"
-        To try out an end-to-end use case where an integration service is created and used as a managed API, see the tutorial: [Exposing an Integration Service as a Managed API]({{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial).
+        To try out an end-to-end use case where an integration service is created and used as a managed API, see tutorials: [Exposing an Integration Service as a Managed API]({{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial) and [Exposing an Integration SOAP Service as a Managed API]({{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial-for-proxy-services).
 
 ## Prerequisites
 

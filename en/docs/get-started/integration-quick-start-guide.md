@@ -378,3 +378,4 @@ The REST API you deployed in the Micro Integrator is an **integration service** 
 - [Develop your first integration solution]({{base_path}}/integrate/develop/integration-development-kickstart).
 - Try out the **examples** available in the [Integrate section of our documentation]({{base_path}}/integrate/integration-overview/).
 - Try out the entire developer guide on [Exposing an Integration Service as a Managed API]({{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial/).
+- Try out the entire developer guide on [Exposing an Integration SOAP Service as a Managed API]({{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial-for-proxy-services/).
