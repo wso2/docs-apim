@@ -6,7 +6,7 @@ is used for mapping a proxy URL with the actual URL of your
 server, which allows clients to access the server with the proxy
 URL.
 
-In the following hypothetical scenario, devportal, publisher, admin, and carbon console apps are hosted in the knnect.lk domain as follows.
+In the following hypothetical scenario, Developer Portal, publisher, admin, and carbon console apps are hosted in the knnect.lk domain as follows.
 
 1. https://knnect.lk/apim/devportal/
 2. https://knnect.lk/apim/publisher/

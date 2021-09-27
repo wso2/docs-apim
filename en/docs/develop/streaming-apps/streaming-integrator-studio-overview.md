@@ -102,7 +102,7 @@ The **File** menu includes the following options.
     ![The design view of Siddhi application]({{base_path}}/assets/img/streaming/streaming-integrator-studio-overview/siddhi-app-design-view.png)
 
 -   **Import Sample**
-    Click this to import a sample from the samples diretory to a new tab. The sample opens in an untitled Siddhi file.
+    Click this to import a sample from the samples directory to a new tab. The sample opens in an untitled Siddhi file.
      Once you save it, it can be accessed from the `workspace` directory.
 
 -   **Save**
@@ -199,7 +199,7 @@ The **Tools** menu provides access to the following tools that are shipped with 
 
 - **File Explorer**
 
-    The file explorer. This is also avaible in the [Side Panel](#StreamProcessorStudioOverview-SidePanel).
+    The file explorer. This is also available in the [Side Panel](#StreamProcessorStudioOverview-SidePanel).
 
 - **Extension Installer**
 

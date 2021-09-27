@@ -1,0 +1,11 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+h2_1.4.199.
+wip
+Informix
+3.70.JC8
+4.10.JC2
+changing-to-ibm-informix

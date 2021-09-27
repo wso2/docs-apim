@@ -1,0 +1,24 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+versioning
+log4j.properties
+tenantloader-1
+SymmetricKeyInternalCryptoProvider
+cryptor
+NEW_IS_HOME
+API_M
+_auth_failure_handler_.xml
+_backend_failure_handler_.xml
+_block_api_handler_.xml
+_graphql_failure_handler_.xml
+_threat_fault_.xml
+_throttle_out_handler_.xml
+_token_fault_.xml
+fault.xml
+main.xml
+client-trustore
+carbon.logging
+commons.logging

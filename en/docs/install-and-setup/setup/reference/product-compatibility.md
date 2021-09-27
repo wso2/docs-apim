@@ -171,5 +171,5 @@ Given below are the OS and JDK incompatibilities we have come across while testi
 |--------------------|----------------------------|---------------|
 |macOS High Sierra   |10.13.1 (17B1003)           |JDK1.8.0_20<br/>JDK1.8.0_144<br/>JDK1.8.0_152<br/>JDK1.8.0_162|
 |macOS High Sierra   |10.13.2                     |JDK1.8.0_144<br/>JDK1.8.0_152|
-|Ubunto              |14.04                       |JDK1.8.0_151<br/>JDK1.8.0_152<br/>JDK1.8.0_161|
-|Ubunto              |16.04                       |JDK1.8.0_151<br/>JDK1.8.0_152<br/>JDK1.8.0_161<br/>JDK1.8.0_162|
+|Ubuntu              |14.04                       |JDK1.8.0_151<br/>JDK1.8.0_152<br/>JDK1.8.0_161|
+|Ubuntu              |16.04                       |JDK1.8.0_151<br/>JDK1.8.0_152<br/>JDK1.8.0_161<br/>JDK1.8.0_162|

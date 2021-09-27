@@ -43,7 +43,7 @@ Follow the instructions below to set up an Oracle database.
 
 ### Executing db scripts to create tables on Oracle database
 
-1.  To create tables in the registry and user manager database (`WSO2_SHARED_DB`), login to the database via client and execute the relevant sql file. 
+1.  To create tables in the registry and user manager database (`WSO2_SHARED_DB`), login to the database via client and execute the relevant SQL file. 
      
     For example, let's consider `shared_db` as the database.
 
@@ -51,7 +51,7 @@ Follow the instructions below to set up an Oracle database.
     SQL> @<API-M_HOME>/dbscripts/oracle.sql
     ```
 
-2.  To create tables in the apim database (`WSO2AM_DB`), login to the database via client and execute the relevant sql file. 
+2.  To create tables in the apim database (`WSO2AM_DB`), login to the database via client and execute the relevant SQL file. 
      
     For example, let's consider `apim_db` as the database.
 

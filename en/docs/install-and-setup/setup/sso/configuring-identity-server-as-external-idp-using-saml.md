@@ -8,7 +8,7 @@ WSO2 Identity Server acts as an identity service provider of systems enabled wit
 
 -   Download the API Manager distribution from [https://wso2.com/api-management/](https://wso2.com/api-management/).
 
--   Download the Identity Server distirbution from [https://wso2.com/identity-and-access-management/](https://wso2.com/identity-and-access-management/).
+-   Download the Identity Server distribution from [https://wso2.com/identity-and-access-management/](https://wso2.com/identity-and-access-management/).
 
     !!! Info
         To use WSO2 IS as the Key Manager, download the **WSO2 Identity Server 5.10.0 as a Key Manager** pack, with pre-packaged Key Manager features. The instructions are given below:
@@ -49,7 +49,7 @@ WSO2 Identity Server acts as an identity service provider of systems enabled wit
 
 3.  Edit the created Service Provider:
 
-    1.  Expand the **Inbound Authentication Configuration** secition and configure **SAML2 Web SSO Configuration** by providing the following information:
+    1.  Expand the **Inbound Authentication Configuration** section and configure **SAML2 Web SSO Configuration** by providing the following information:
 
         <table>
         <tbody>

@@ -201,7 +201,7 @@ By default, the Micro Integrator is **internally** configured with a port offset
 
 ## Streaming Integrator Ports
 
-Listed below are the default ports used by the Streaming Integrator runtime and the Streaming Integrator Tooling runtime. The defualt port offset in these runtimes are `0` and `3` respectively.
+Listed below are the default ports used by the Streaming Integrator runtime and the Streaming Integrator Tooling runtime. The default port offset in these runtimes are `0` and `3` respectively.
 
 !!! Info
     See the instructions on [changing the default SI ports]({{base_path}}/install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset/#changing-the-default-si-ports).

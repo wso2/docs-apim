@@ -5,7 +5,7 @@ Listed below are some of the advantages of moving to API-M 4.0.0 from the ESB.
 -	The Micro Integrator of API-M 4.0.0 is now the most improved version of the battle-tested WSO2 ESB runtime.
 
 	!!! Tip
-		WSO2 ESB 5.0, the ESB profile of WSO2 EI 6.x, the Micro Integrator of WSO2 EI 7.x, as well as the Micro Integrator of WSO2 API-M 4.0.0 contains versions of the same WSO2 ESB runtine. 
+		WSO2 ESB 5.0, the ESB profile of WSO2 EI 6.x, the Micro Integrator of WSO2 EI 7.x, as well as the Micro Integrator of WSO2 API-M 4.0.0 contains versions of the same WSO2 ESB runtime. 
 
 -	All the ESB runtimes of WSO2 can use the same developer tool ([WSO2 Integration Studio](../../../integrate/develop/wso2-integration-studio)) for developing integrations. 
 
@@ -18,7 +18,7 @@ Listed below are some of the advantages of moving to API-M 4.0.0 from the ESB.
 
 Upgrading to WSO2 API-M 4.0.0 is recommended for the following requirements:
 
--	You need to expose integrations as managed APIs so that integration solutions can be managed and monitized in an API marketplace. 
+-	You need to expose integrations as managed APIs so that integration solutions can be managed and monetized in an API marketplace. 
 -	You need to switch to a microservices architecture from the conventional centralized architecture.
 -	You need a more lightweight, user-friendly version of the battle-tested WSO2 ESB.
 -	You need a more lightweight, container-friendly runtime in a centralized architecture.

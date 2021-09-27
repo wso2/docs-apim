@@ -10,7 +10,7 @@ Enterprises and companies who want to use Choreo Insights collaboratively can ut
 
 1. Sign in to [Choreo console](https://console.choreo.dev/login/) using your credentials. 
 
-     If you are not a registered user, you will have to signup beforehand.
+     If you are not a registered user, you will have to sign up beforehand.
 
 2. Click on the user profile in the top right corner of the screen and select **Settings**. 
    

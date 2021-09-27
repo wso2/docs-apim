@@ -48,8 +48,8 @@ sample Siddhi application syntax that defines a stream. It shows how the distrib
 this example, data is partitioned from tenant domain. For more information, see [Siddhi Query Guide - Distributed Sink](https://siddhi.io/en/v4.x/docs/query-guide/#distributed-sink).
 
 !!! note
-    In the following example, the definition of the `Request` stream(Request stream) only includes the logicto send events out for load balancers via http for each
-    partition. In addition, there should be a logic to consume eventsfrom outside and direct them to the `Request` stream.
+    In the following example, the definition of the `Request` stream(Request stream) only includes the logic to send events out for load balancers via http for each
+    partition. In addition, there should be a logic to consume events from outside and direct them to the `Request` stream.
 
 e.g.,
 
