@@ -78,7 +78,7 @@ To edit the existing sequence follow the steps below.
 
 ### Applying the Regular Expression Policy
 
-You can apply the pre-defined Regular Expression Policy through the UI. Follow the instructions below to apply the 
+You can apply the predefined Regular Expression Policy through the UI. Follow the instructions below to apply the 
 regex\_policy in sequence.
 
 1.  Create an API or edit an existing API.

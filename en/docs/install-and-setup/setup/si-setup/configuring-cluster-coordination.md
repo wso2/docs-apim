@@ -13,7 +13,7 @@ arbitrarily selected among the members of the cluster. The RDBMS
 coordination strategy that is used for cluster coordination works on the
 concept of heartbeats where the members of the cluster periodically send
 heartbeat signals via the datasource to the leader of the cluster. If
-the leader node does not detect a pre configured consecutive number of
+the leader node does not detect a preconfigured consecutive number of
 heartbeats from a specific node, the relevant node is removed from the
 cluster. Similarly, if the leader node fails to update its heartbeat,
 the cluster re-elects a new leader.

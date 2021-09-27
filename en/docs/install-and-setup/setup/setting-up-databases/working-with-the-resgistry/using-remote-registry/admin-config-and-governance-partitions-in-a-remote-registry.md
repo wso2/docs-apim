@@ -21,7 +21,7 @@ In a production setup, it is recommended to use an Oracle or MySQL database for 
     mysql -u root -p
 ```
 
-2. E nter the password when prompted.
+2. Enter the password when prompted.
 
 3. Create 'registrydb' database.
 
