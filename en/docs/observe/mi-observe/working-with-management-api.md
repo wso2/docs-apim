@@ -257,7 +257,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/applications`
 
-	**Description**: This operation provides you a list of available Applications.
+	**Description**: This operation provides you a list of available active and faulty Applications.
 
 	**Example**:
 
@@ -267,10 +267,18 @@ The management API has multiple resources to provide information regarding the d
 
 	```bash tab='Response'
 	{
-	  "count": 1,
-	  "list": [
+	  "totalCount": 2,
+	  "activeCount": 1,
+	  "faultyCount": 1,
+	  "activeList": [
 	    {
 	      "name": "SampleServicesCompositeApplication",
+	      "version": "1.0.0"
+	    }
+	  ],
+	  "faultyList": [
+	    {
+	      "name": "FaultyCAppCompositeExporter",
 	      "version": "1.0.0"
 	    }
 	  ]
@@ -284,6 +292,23 @@ The management API has multiple resources to provide information regarding the d
 	**Example**:
 	```
 	curl -X GET "https://localhost:9164/management/applications?carbonAppName=HelloCApp" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
+	```
+
+### DOWNLOAD CARBON APPLICATION
+
+-	**Resource**: `/applications`
+
+	**Description**: Download a carbon application.
+
+    **Example**:
+    
+  	```bash
+		wget \
+    	  https://localhost:9164/management/applications?carbonAppName=myHttpServiceCompositeExporter_1.0.0.car \
+    	  -O myHttpServiceCompositeExporter_1.0.0.car \
+    	  --header 'Authorization: Bearer TOKEN' \
+    	  --header 'accept: application/octet-stream' \
+    	  --no-check-certificate -i
 	```
 
 ### GET ENDPOINTS
@@ -825,6 +850,102 @@ The management API has multiple resources to provide information regarding the d
 	    "javaHome": "/Library/Java/JavaVirtualMachines/jdk1.8.0_171.jdk/Contents/Home/jre"
 	}
 	```
+
+### SHUTDOWN SERVER
+
+-	**Resource**: `/server`
+
+	**Description**: Shutdown the micro integrator server instance forcefully.
+
+	**Example**:
+
+	```bash tab='Request'
+		curl -X PATCH \
+    	  https://localhost:9164/management/server \
+    	  -H 'authorization: Bearer TOKEN' \
+    	  -H 'content-type: application/json' \
+    	  -d '{
+    		"status": "shutdown"
+    	}' -k -i
+	```
+
+  	```bash tab='Response'
+  	{
+	"Message":"The server will start to shutdown."
+	}
+  	```
+
+### SHUTDOWN SERVER GRACEFULLY
+
+-	**Resource**: `/server`
+
+	**Description**: Shutdown the micro integrator server instance gracefully.
+
+	**Example**:
+
+	```bash tab='Request'
+		curl -X PATCH \
+    	  https://localhost:9164/management/server \
+    	  -H 'authorization: Bearer TOKEN' \
+    	  -H 'content-type: application/json' \
+    	  -d '{
+    		"status": "shutdownGracefully"
+    	}' -k -i
+	```
+
+  	```bash tab='Response'
+  	{
+	"Message":"The server will start to shutdown gracefully."
+	}
+  	```
+
+### RESTART SERVER
+
+-	**Resource**: `/server`
+
+	**Description**: Restart the micro integrator server instance forcefully.
+
+	**Example**:
+
+	```bash tab='Request'
+		curl -X PATCH \
+    	  https://localhost:9164/management/server \
+    	  -H 'authorization: Bearer TOKEN' \
+    	  -H 'content-type: application/json' \
+    	  -d '{
+    		"status": "restart"
+    	}' -k -i
+	```
+
+  	```bash tab='Response'
+  	{
+	"Message":"The server will start to restart."
+	}
+  	```
+
+### RESTART SERVER GRACEFULLY
+
+-	**Resource**: `/server`
+
+	**Description**: Restart the micro integrator server instance gracefully.
+
+	**Example**:
+
+	```bash tab='Request'
+		curl -X PATCH \
+    	  https://localhost:9164/management/server \
+    	  -H 'authorization: Bearer TOKEN' \
+    	  -H 'content-type: application/json' \
+    	  -d '{
+    		"status": "restartGracefully"
+    	}' -k -i
+	```
+
+  	```bash tab='Response'
+  	{
+	"Message":"The server will start to restart gracefully."
+	}
+  	```
 
 ### GET DATA SERVICES
 
