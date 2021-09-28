@@ -28,7 +28,7 @@ A basic infrastructure has already been created for you to try out the scenarios
 
 1. Clone https://github.com/wso2/samples-apim/tree/master/apim-tutorial 
 2. Start the setup using the command `docker-compose up -d`.
-3. You can view the logs using the command `docker-compose logs -d`.
+3. You can view the logs using the command `docker-compose logs -f`.
 4. It might take 5-10 minutes for setup to complete (if it is the first time, based on your download speed it might take longer). 
 5. When you see the below log you can start working on the scenarios.
     ```
