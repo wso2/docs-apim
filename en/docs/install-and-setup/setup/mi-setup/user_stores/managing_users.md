@@ -12,7 +12,7 @@ WSO2 Micro Integrator requires <b>user</b> credentials for <i>authentication</i>
 
 -	Authentication for integration use cases
 
-	Some integration use cases require authentication by <b>dynamic username token</b> and similar <b>[WS-Security]({{base_path}}/reference/mi-security-reference/security-implementation)</b> options. If you already have an external RDBMS or LDAP user store with pre-defined roles, you can have role-based authentication for your WS-Security user cases. 
+	Some integration use cases require authentication by <b>dynamic username token</b> and similar <b>[WS-Security]({{base_path}}/reference/mi-security-reference/security-implementation)</b> options. If you already have an external RDBMS or LDAP user store with predefined roles, you can have role-based authentication for your WS-Security user cases. 
 
 	 User authentication is also required for [securing REST API artifacts]({{base_path}}/integrate/develop/advanced-development/applying-security-to-an-api).
 

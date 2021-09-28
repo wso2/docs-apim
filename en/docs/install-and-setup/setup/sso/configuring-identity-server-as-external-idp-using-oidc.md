@@ -2,7 +2,7 @@
 
 WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document explains how to connect WSO2 Identity Server (or WSO2 Identity Server as a Keymanager) as a third party Identity provider to API-Manager.
 
-## Pre-requisites
+## Prerequisites
 
 -   Download the API Manager distribution from [https://wso2.com/api-management/](https://wso2.com/api-management/).
 -   Download the Identity Server distribution from [https://wso2.com/identity-and-access-management/](https://wso2.com/identity-and-access-management/).

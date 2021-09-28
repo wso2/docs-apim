@@ -54,7 +54,7 @@ This section explains the common types of definitions and queries that are inclu
 
 ### Queries
 
-Queries define the logical processing and selections that must be executed for streaming events. They consume from the pre-defined streams/ windows/ tables/ aggregations, process them in a streaming manner, and insert the output to another stream, window or table. For more information about Siddhi queries, see [Queries at Siddhi Streaming SQL Guide](https://siddhi-io.github.io/siddhi/documentation/siddhi-4.x/query-guide-4.x/#query).
+Queries define the logical processing and selections that must be executed for streaming events. They consume from the predefined streams/ windows/ tables/ aggregations, process them in a streaming manner, and insert the output to another stream, window or table. For more information about Siddhi queries, see [Queries at Siddhi Streaming SQL Guide](https://siddhi-io.github.io/siddhi/documentation/siddhi-4.x/query-guide-4.x/#query).
 
 ### Streams
 
