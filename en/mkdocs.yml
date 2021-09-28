@@ -774,6 +774,7 @@ nav:
                     - Enabling Logs for a Component: observe/micro-integrator/classic-observability-logs/enabling-logs-for-a-component.md
                     - Monitoring Logs: observe/micro-integrator/classic-observability-logs/monitoring-logs.md
                     - Monitoring Correlation Logs: observe/micro-integrator/classic-observability-logs/monitoring-correlation-logs.md
+                    - Monitoring Correlation Logs: observe/micro-integrator/classic-observability-logs/monitoring-mi-audit-logs.md
                 - Metrics:
                     - JMX Monitoring: observe/micro-integrator/classic-observability-metrics/jmx-monitoring.md
                     - SNMP Monitoring: observe/micro-integrator/classic-observability-metrics/snmp-monitoring.md
