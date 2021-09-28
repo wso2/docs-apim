@@ -61,7 +61,7 @@ To add a new certificate please follow the steps below.
 1. Convert the certificate into pem format
  
     ```tab="Format"
-        openssl x509 -in <INPUT CERTIFICATE> -out <OUT_PUT_FILE_NAME>.pem
+    openssl x509 -in <INPUT CERTIFICATE> -out <OUT_PUT_FILE_NAME>.pem
     ```
 
     ```tab="Example"
