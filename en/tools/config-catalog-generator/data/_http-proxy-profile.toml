@@ -2,7 +2,11 @@
 
 #Option 1
 [transport.passthru_http.sender.parameters]
-proxyProfiles = "<targetHosts>example.one.com,example.two.com</targetHosts><proxyHost>example.proxy.com"</proxyHost><proxyPort>8080</proxyPort><proxyUserName>ProxyUser</proxyUserName><proxyPassword>password</proxyPassword></profile>"
+proxyProfiles = "&lt;targetHosts&gt;example.one.com,example.two.com&lt;/targetHosts&gt;
+&lt;proxyHost&gt;example.proxy.com&lt;/proxyHost&gt;
+&lt;proxyPort&gt;8080&lt;/proxyPort&gt;
+&lt;proxyUserName&gt;ProxyUser&lt;/proxyUserName&gt;
+&lt;proxyPassword&gt;password&lt;/proxyPassword&gt;&lt;/profile&gt;"
 
 #Option 2
 [[transport.http.proxy_profile]]
