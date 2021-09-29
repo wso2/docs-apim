@@ -20,7 +20,7 @@ In Mutual TLS, in addition to the client verifying the server, the server also v
 
     2. Create the certificate
 
-        The following command creates a self-signed certificate for the backend. Note the CN and SAN values. Having both in the backend cert is necessary for the router to complete hostname verification when creating a connection with the backend. 
+        The following command creates a self-signed certificate for the backend. Note the CN and SAN values. Having both in the backend certificate is necessary for the router to complete hostname verification when creating a connection with the backend. 
 
         ```
         openssl req -x509 -new -key backend.key -out backend.pem -subj "/CN=example.com" -reqexts SAN -extensions SAN -config <(cat /etc/ssl/openssl.cnf <(printf "[SAN]\nsubjectAltName=DNS:example.com,DNS:www.example.com")) 
