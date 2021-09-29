@@ -26,7 +26,7 @@ In Mutual TLS, in addition to the client verifying the server, the server also v
         openssl req -x509 -new -key backend.key -out backend.pem -subj "/CN=example.com" -reqexts SAN -extensions SAN -config <(cat /etc/ssl/openssl.cnf <(printf "[SAN]\nsubjectAltName=DNS:example.com,DNS:www.example.com")) 
         ```
 
-    3. Add the cert in `backend.pem` to the router as decribed in [Adding Certificates to Specific Clusters]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/transport-security/#adding-certificates-to-specific-clusters).
+    3. Add the certificate in `backend.pem` to the router as described in [Adding Certificates to Specific Clusters]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/transport-security/#adding-certificates-to-specific-clusters).
 
     Important: The ciphers configured [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/transport-security/#configuration) must match the ciphers supported by your backend.
 
