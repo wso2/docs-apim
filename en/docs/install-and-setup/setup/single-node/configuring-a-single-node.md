@@ -26,15 +26,15 @@ Follow the instructions below to configure and deploy API-M using a single node:
     `wso2carbon.jks` is configured with private key and self signed public key pair for all purposes, such as encrypting 
     sensitive information, communicating over SSL etc. 
     
-    In a **production setup**, it is advised to set up several different keystores with separate trust chains for different use cases. For more information, see [Recommendations for setting up keystores in WSO2 products]({{base_path}}/administer/product-security/configuring-keystores/configuring-keystores-in-wso2-api-manager/#recommendations-for-setting-up-keystores).
+    In a **production setup**, it is advised to set up several different keystores with separate trust chains for different use cases. For more information, see [Recommendations for setting up keystores in WSO2 products]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/#recommendations-for-setting-up-keystores).
 
-To create an all purpose keystore or multiple keystores for authentication and protection of data, follow the steps in [Creating New Keystores]({{base_path}}/administer/product-security/configuring-keystores/keystore-basics/creating-new-keystores/).
+To create an all purpose keystore or multiple keystores for authentication and protection of data, follow the steps in [Creating New Keystores]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/).
 
 ## Step 2 - Configure the Load Balancer
 
 In order to access the WSO2 API-M Portals and Gateway in both WSO2 API-M instances, you need to front the system with a load balancer. You can use any load balancer that is available to your system.
 
-Follow the steps in [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer) to configure the load balancer/reverse proxy which is fronting the API-M instance in the demiliterized zone (DMZ).
+Follow the steps in [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer) to configure the load balancer/reverse proxy which is fronting the API-M instance in the demiliterized zone (DMZ).
 
 ??? tip
     For example, if you are using the hostname `api.am.wso2.com` is used to access all portals (publisher, store, admin, and carbon) and `gw.am.wso2.com` is used to invoke APIs, the `deployment.toml` in `<API-M_HOME>/repository/conf` directory, should have the following reverse proxy configurations.
