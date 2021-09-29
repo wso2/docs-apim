@@ -2,7 +2,7 @@
 
 In Mutual TLS, in addition to the client verifying the server, the server also verifies the client. By having Mutual TLS between Choreo Connect and the backend, both of the following security measures are applied.
 
-- The router in Choreo Connect only creates connections with a verified set of backend servers
+- The router in Choreo Connect only creates connections with a verified set of backend servers.
 - Backend servers would only accept connections by a previously introduced set of router instances.
 
 ## Export the Certificates
