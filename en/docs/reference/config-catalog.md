@@ -9050,7 +9050,11 @@ sender.parameters.SO_TIMEOUT = 60000</code></pre>
 
 #Option 1
 [transport.passthru_http.sender.parameters]
-proxyProfiles = "<targetHosts>example.one.com,example.two.com</targetHosts><proxyHost>example.proxy.com"</proxyHost><proxyPort>8080</proxyPort><proxyUserName>ProxyUser</proxyUserName><proxyPassword>password</proxyPassword></profile>"
+proxyProfiles = "<targetHosts>example.one.com,example.two.com</targetHosts>
+<proxyHost>example.proxy.com"</proxyHost>
+<proxyPort>8080</proxyPort>
+<proxyUserName>ProxyUser</proxyUserName>
+<proxyPassword>password</proxyPassword></profile>"
 
 #Option 2
 [[transport.http.proxy_profile]]
@@ -9225,7 +9229,11 @@ bypass_hosts = ["localhost"]</code></pre>
 
 #Option 1
 [transport. passthru_https.sender.parameters]
-proxyProfiles = "<targetHosts>example.one.com,example.two.com</targetHosts><proxyHost>example.proxy.com"</proxyHost><proxyPort>3128</proxyPort><proxyUserName>ProxyUser</proxyUserName><proxyPassword>password</proxyPassword></profile>"
+proxyProfiles = "<targetHosts>example.one.com,example.two.com</targetHosts>
+<proxyHost>example.proxy.com"</proxyHost>
+<proxyPort>3128</proxyPort>
+<proxyUserName>ProxyUser</proxyUserName>
+<proxyPassword>password</proxyPassword></profile>"
 
 #Option 2
 [[transport.http. secured_proxy_profile]]
