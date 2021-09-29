@@ -33,7 +33,7 @@ In Mutual TLS, in addition to the client verifying the server, the server also v
 For Mutual TLS, in additon to the [configurations done for TLS]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/transport-security/#adding-certificates-to-specific-clusters), the cert of the router must also exist in the backend truststore.
 ### Add the Router Certificate to the Backend Truststore
 
-- If the backend truststore is in `.jks` format use:
+- If the backend truststore is in `.jks` format, use:
 
     ```
     keytool -import -file mg.pem -alias router -keystore backend-truststore.jks
