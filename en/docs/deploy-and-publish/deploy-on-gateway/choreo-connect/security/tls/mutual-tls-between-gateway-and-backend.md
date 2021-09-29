@@ -18,7 +18,7 @@ In Mutual TLS, in addition to the client verifying the server, the server also v
         openssl genpkey -out backend.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
         ```
 
-    2. Create the certificate
+    2. Create the certificate.
 
         The following command creates a self-signed certificate for the backend. Note the CN and SAN values. Having both in the backend certificate is necessary for the router to complete hostname verification when creating a connection with the backend. 
 
