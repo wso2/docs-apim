@@ -26,11 +26,11 @@ In Mutual TLS, in addition to the client verifying the server, the server also v
         openssl req -x509 -new -key backend.key -out backend.pem -subj "/CN=example.com" -reqexts SAN -extensions SAN -config <(cat /etc/ssl/openssl.cnf <(printf "[SAN]\nsubjectAltName=DNS:example.com,DNS:www.example.com")) 
         ```
 
-    3. Add the cert in `backend.pem` to the router as decribed in [Add a Certificate to Choreo Connect Router as a Trusted Certificate]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/transport-security/#add-a-certificate-to-choreo-connect-router-as-a-trusted-certificate).
+    3. Add the cert in `backend.pem` to the router as decribed in [Add a Certificate to Choreo Connect Router as a Trusted Certificate]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/transport-security/#adding-certificates-to-specific-clusters).
 
     Important: The ciphers configured [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/transport-security/#configuration) must match the ciphers supported by your backend.
 
-For Mutual TLS, in additon to the [configurations done for TLS]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/transport-security/#add-a-certificate-to-choreo-connect-router-as-a-trusted-certificate), the cert of the router must also exist in the backend truststore.
+For Mutual TLS, in additon to the [configurations done for TLS]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/transport-security/#adding-certificates-to-specific-clusters), the cert of the router must also exist in the backend truststore.
 ### Add the Router Certificate to the Backend Truststore
 
 - If the backend truststore is in `.jks` format use:
