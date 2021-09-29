@@ -12,7 +12,7 @@ In Mutual TLS, in addition to the client verifying the server, the server also v
 
     For TLS, if the backend cert has not been added to the Choreo Connect Router truststore already, use the following commands to create a key and a certificate for the backend, and add the certificate to the Router truststore.
 
-    1. Generate a private key for the backend
+    1. Generate a private key for the backend.
 
         ```
         openssl genpkey -out backend.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
