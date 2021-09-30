@@ -11,13 +11,20 @@ default_cache_timeout = 15
 
 These configurations apply globally to all caches. You can override these values for specific caches using the UI or different configuration files as discussed under each section below.
 
--   [API Gateway cache](#api-gateway-cache)
--   [Resource cache](#resource-cache)
--   [Key Manager cache](#key-manager-cache)
--   [Response cache](#response-cache)
--   [JWT Claims cache](#jwt-claims-cache)
--   [Publisher cache](#publisher-cache)
--   [Developer Portal cache](#developer-portal-cache)
+- [Configuring Caching](#configuring-caching)
+  - [API Gateway cache](#api-gateway-cache)
+    - [Clearing the API Gateway cache](#clearing-the-api-gateway-cache)
+  - [Resource cache](#resource-cache)
+  - [Key Manager cache](#key-manager-cache)
+    - [OAuth cache](#oauth-cache)
+  - [Response cache](#response-cache)
+  - [JWT claims cache](#jwt-claims-cache)
+  - [Publisher cache](#publisher-cache)
+    - [Publisher-roles cache](#publisher-roles-cache)
+  - [Developer Portal cache](#developer-portal-cache)
+    - [Tag cache](#tag-cache)
+    - [Recently-added-API cache](#recently-added-api-cache)
+    - [Scopes cache](#scopes-cache)
 
 !!! tip
     In a distributed environment, the caching configurations you do in one node replicates equally in all nodes.
@@ -32,7 +39,7 @@ When caching is enabled at the Gateway and a request hits the Gateway, it first 
 
 By default, the API Gateway cache is enabled. This can be disabled by modifying the following attribute in the `<PRODUCT_HOME>/repository/conf/deployment.toml` file.
 
-``` java
+```
 [apim.cache.gateway_token]
 enable = false
 ```
@@ -45,7 +52,7 @@ This feature is enabled by default and token revocation events are published by 
 
 If you need to change the default behavior, you can implement the `org.wso2.carbon.apimgt.notification.TokenRevocationNotifier` interface and plug new implementation using the following configuration in the `deployment.toml` file.
 
-```toml
+```
 [apim.token.revocation]
 notifier_impl="org.wso2.carbon.apimgt.notification.TokenRevocationNotifier"
 ```
@@ -62,9 +69,9 @@ Users can make requests to an API by calling any one of the HTTP methods of the 
 
 Note that if you update an API, the resource cache gets invalidated and the changes are reflected within a few minutes.
 
-By default, the resource cache is enabled.  This can be disabled by modifying the following attribute in the `<PRODUCT_HOME>/repository/conf/deployment.toml` file.
+By default, the resource cache is enabled.  This can be disabled by modifying the following attribute in the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
-``` java
+```
 [apim.cache.resource]
 enable = false
 ```
@@ -87,34 +94,42 @@ For information on how to enable JWT claims caching, see [JWT claims Caching]({{
 
 ## Publisher cache
 
--   **Publisher-roles cache:** This indicates whether the role cache needs to be enabled in the Publisher. It is disabled by default. If this is disabled, for all API publisher calls, there will be a call to the Key Manager. It expires in 15 minutes by default. It is highly recommended to enable this cache. However, if the system is in a state where the role addition and deletion happen seamlessly, the caching will not happen as expected.
+### Publisher-roles cache
 
-    ``` java
-    [apim.cache.publisher_roles]
-    enable = true
-    ```
+This indicates whether the role cache needs to be enabled in the Publisher. It is disabled by default. If this is disabled, for all API publisher calls, there will be a call to the Key Manager. It expires in 15 minutes by default. It is highly recommended to enable this cache. However, if the system is in a state where the role addition and deletion happen seamlessly, the caching will not happen as expected.
+
+```
+[apim.cache.publisher_roles]
+enable = true
+```
 
 ## Developer Portal cache
 
 The Developer Portal has several caches to reduce the page load times and increase its responsiveness when multiple users access it simultaneously.
 
--   **Tag cache:** This cache saves the API's tags after they have been retrieved from the Registry. If your APIs and associated tags change frequently, it is recommended to configure a smaller cache refresh time (in milliseconds). This cache is disabled by default. To enable it, uncomment the following element in the `<APIM_HOME>/repository/conf/deployment.toml` file.
+### Tag cache
 
-    ``` java
-    [apim.cache.tags]
-    expiry_time = "2m"
-    ```
+This cache saves the API's tags after they have been retrieved from the Registry. If your APIs and associated tags change frequently, it is recommended to configure a smaller cache refresh time (in milliseconds). This cache is disabled by default. To enable it, uncomment the following element in the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
--   **Recently-added-API cache:** This cache saves the five most recently added APIs. It is disabled by default. If you have multiple API modifications during a short time period, it is recommended to not enable this cache. To enable it, uncomment the following section in `<APIM_HOME>/repository/conf/deployment.toml` file and set enable to `true`.
+``` java
+[apim.cache.tags]
+expiry_time = "2m"
+```
 
-    ``` java
-    [apim.cache.recent_apis]
-    enable = true
-    ```
+### Recently-added-API cache
+
+This cache saves the five most recently added APIs. It is disabled by default. If you have multiple API modifications during a short time period, it is recommended to not enable this cache. To enable it, uncomment the following section in the `<API-M_HOME>/repository/conf/deployment.toml` file and set enable to `true`.
+
+``` java
+[apim.cache.recent_apis]
+enable = true
+```
     
--   **Scopes cache:** This specifies whether scopes are taken from the cache or not. It is disabled by default. If you are modifying application subscriptions frequently, modifying the user roles frequently, or updating the subscribed APIs frequently, it is recommended to not enable this cache. To enable it, uncomment the following section in `<APIM_HOME>/repository/conf/deployment.toml` file and set enable to `true`.
+### Scopes cache
 
-    ``` java
-    [apim.cache.scopes]
-    enable = true
-    ```
+This specifies whether scopes are taken from the cache or not. It is disabled by default. If you are modifying application subscriptions frequently, modifying the user roles frequently, or updating the subscribed APIs frequently, it is recommended to not enable this cache. To enable it, uncomment the following section in the `<API-M_HOME>/repository/conf/deployment.toml` file and set enable to `true`.
+
+``` java
+[apim.cache.scopes]
+enable = true
+```
