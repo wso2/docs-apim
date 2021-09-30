@@ -31,7 +31,7 @@ appender.AUDIT_LOGFILE.filter.threshold.type = ThresholdFilter
 appender.AUDIT_LOGFILE.filter.threshold.level = INFO
 ```
 
-The log growth of Audit Logs can be managed by using the configurations that are discussed in the [Managing Log Growth]({{base_path}}/administer/product-administration/monitoring/logging/managing-log-growth) guide.
+The log growth of Audit Logs can be managed by using the configurations that are discussed in the [Managing Log Growth]({{base_path}}/administer/logging-and-monitoring/logging/managing-log-growth) guide.
 
 ## Audit Log actions
 
