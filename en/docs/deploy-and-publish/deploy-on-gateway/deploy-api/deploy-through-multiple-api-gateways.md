@@ -117,7 +117,7 @@ Make sure to start instance 1 first before starting the other two instances.
      
 2.  Click **Deployments** and click **Deploy New Revision**.
 
-    <a href="{{base_path}}/assets/img/learn/api-revisions-mutiple-gateways.png"><img src="{{base_path}}/assets/img/learn/api-revisions-mutiple-gateways.png" title="Api Revisions Multiple Gateways" width="80%" alt="Api Revisions Multiple Gateways"/></a>
+    <a href="{{base_path}}/assets/img/learn/api-revisions-mutiple-gateways.png"><img src="{{base_path}}/assets/img/learn/api-revisions-mutiple-gateways.png" title="API Revisions Multiple Gateways" width="80%" alt="API Revisions Multiple Gateways"/></a>
     
     Note that the two Gateway environments are listed there
 
