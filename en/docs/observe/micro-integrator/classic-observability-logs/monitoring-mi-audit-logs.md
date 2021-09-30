@@ -16,7 +16,7 @@ Audit logs are enabled by default in WSO2 Micro integrator (WSO2 MI) via the fol
     appender.AUDIT_LOGFILE.fileName = ${sys:carbon.home}/repository/logs/audit.log
     appender.AUDIT_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/audit-%d{MM-dd-yyyy}.log
     appender.AUDIT_LOGFILE.layout.type = PatternLayout
-    appender.AUDIT_LOGFILE.layout.pattern = [%d] %5p {%c} - %m%ex%n
+    appender.AUDIT_LOGFILE.layout.pattern = [%d] %5p {% raw %}{%c}{% endraw %} - %m%ex%n
     appender.AUDIT_LOGFILE.policies.type = Policies
     appender.AUDIT_LOGFILE.policies.time.type = TimeBasedTriggeringPolicy
     appender.AUDIT_LOGFILE.policies.time.interval = 1
