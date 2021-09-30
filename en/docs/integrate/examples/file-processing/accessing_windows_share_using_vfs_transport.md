@@ -101,7 +101,7 @@ Windows share URI format for SMB v2/3 use cases is shown below.
 ```
 smb2://[username]:[password]@[hostname]:[port]/[absolute-path
 ```
-You can use the proxy given below to test the SMB2 functionality
+You can use the proxy given below to test the SMB2 functionality.
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
