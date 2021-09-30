@@ -89,9 +89,9 @@ If your system connects to the service through a proxy server/firewall, you need
 
 ## Step 4 - View the Analytics Dashboards
 
-Invoke APIs and open [Choreo Insights](https://console.choreo.dev/insights) to view the dashboards.
+Invoke APIs and access the [Choreo Console](https://console.choreo.dev/) and click **Insights** to view the dashboards. Make sure you are logged in, to view the dashboard.
 
-For more detailed information on the Choreo Insights dashboards and their usage, see the [Choreo Insights Overview]({{base_path}}/api-analytics/viewing/analytics-pages-overview).
+For more detailed information on the Choreo Insights dashboards and their usage, go to the [View API Insights](https://wso2.com/choreo/docs/insights/view-api-insights/) page of the Choreo documentation.
 
 ## What's Next?
 
