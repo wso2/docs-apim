@@ -776,6 +776,7 @@ nav:
                     - Enabling Logs for a Component: observe/micro-integrator/classic-observability-logs/enabling-logs-for-a-component.md
                     - Monitoring Logs: observe/micro-integrator/classic-observability-logs/monitoring-logs.md
                     - Monitoring Correlation Logs: observe/micro-integrator/classic-observability-logs/monitoring-correlation-logs.md
+                    - Monitoring Audit Logs: observe/micro-integrator/classic-observability-logs/monitoring-mi-audit-logs.md
                 - Metrics:
                     - JMX Monitoring: observe/micro-integrator/classic-observability-metrics/jmx-monitoring.md
                     - SNMP Monitoring: observe/micro-integrator/classic-observability-metrics/snmp-monitoring.md
@@ -1903,7 +1904,6 @@ plugins:
               'administer/product-administration/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager/'
               'administer/product-administration/multitenancy/managing-tenants.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/multitenancy/managing-tenants/'
               'administer/product-administration/multitenancy/configuring-the-tenant-loading-policy.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/multitenancy/configuring-the-tenant-loading-policy/'
-              'administer/product-administration/monitoring/logging/managing-log-growth.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/logging/managing-log-growth/'
               'administer/product-administration/monitoring/logging/masking-sensitive-information-in-logs.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs/'
               'administer/product-administration/monitoring/working-with-observability.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/monitoring/working-with-observability/'
               'administer/product-administration/monitoring/monitoring-with-opentracing.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/monitoring/monitoring-with-opentracing/'
