@@ -57,7 +57,7 @@ https_endpoint = "https://localhost:8245"
 ```
 
 !!! tip
-        If you have multiple Gateways that support one type of key (e.g., when there are two Gateways that support the production keys, as seen in the above code snippet.), the environments you add via the `<API-M_HOME>/repository/conf/deployment.toml` file will be visible in a drop-down list of the API **Try Out** tab, which is in the Developer Portal of instance 1. This allows subscribers to send API requests to any selected Gateway.
+        If you have multiple Gateways that support one type of key (e.g., when there are two Gateways that support the production keys, as seen in the above code snippet), the environments you add via the `<API-M_HOME>/repository/conf/deployment.toml` file will be visible in a drop-down list of the API **Try Out** tab, which is in the Developer Portal of instance 1. This allows subscribers to send API requests to any selected Gateway.
 
 [![API tryout tab]({{base_path}}/assets/img/learn/devportal-tryout-multiple-gateways.png)]({{base_path}}/assets/img/learn/devportal-tryout-multiple-gateways.png)
 
