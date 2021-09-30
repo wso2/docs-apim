@@ -40,7 +40,7 @@ It is now available to download from [here](https://wso2.com/api-management/#).
 ### New features
 - **[Audit log support for MI]({{base_path}}/observe/micro-integrator/classic-observability-logs/monitoring-mi-audit-logs.md)**
 
-  Audit log capability let you to add logging for Micro integrator management API. Collecting audit logs are important when finding changes happen to the Micro integrator instance and who changed it.
+  The audit log capability enables you to add logging for the Micro Integrator management API. Collecting audit logs are important when finding changes that happen to the Micro Integrator instance and identifying who made the changes.
 
 ## **Streaming Integrator**
 
