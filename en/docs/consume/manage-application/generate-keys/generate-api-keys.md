@@ -36,7 +36,31 @@ Follow the instructions below to generate/renew application keys:
 
 !!! tip
     When you generate access tokens for APIs that are protected by scopes, you can select the respective [scopes]({{base_path}}/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/) and thereafter, generate the token for it.
-  
+
+## Generate application keys with PKCE Enabled.
+
+PKCE is a commonly used security measure to secure the applications that are executing in the same domain. As an example to mobile applications running on a single device can get the other application’s auth code and request a token if the domain is the same. To overcome this issue Proof Key for Code Exchange is introduced.
+
+To enable PKCE you need to ticke the option as blow when generating the keys.
+
+[![Enabling PKCE]({{base_path}}/assets/img/learn/key_generation_with_pkce.png)]({{base_path}}/assets/img/learn/key_generation_with_pkce.png)
+
+Following are the options associated with when enabling PKCE
+
+1.  Support PKCE Plain text 
+
+     When this option is enabled the code chanllenger and code verifier used will be in plain text. The recomanded way is to use SHA 256 algorythm which is the default when this option is not selected.
+
+     [![Enabling plain text support for PKCE]({{base_path}}/assets/img/learn/key_generation_with_pkce_bypass_secret.png)]({{base_path}}/assets/img/learn/key_generation_with_pkce_bypass_secret.png)
+
+
+2. Public client
+
+     This option will allow client to authenticate without secret.
+
+     [![Enabling Public client for PKCE]({{base_path}}/assets/img/learn/key_generation_with_pkce_plain.png)]({{base_path}}/assets/img/learn/key_generation_with_pkce_plain.png)
+
+
 ## Generate application keys using Okta Key Manager
 
 Follow the instructions below to generate keys using the Okta Key Manager:
