@@ -38,8 +38,8 @@ given in the following example:
 | enableBoxcarring   | An OPTIONAL boolean to enable theboxcarringfeature.                                                                                    |
 | txManagerJNDIName  | An OPTIONAL JNDI name for overriding the standard JNDI location for locating the JTA transaction manager                               |
 | serviceNamespace   | An OPTIONAL URI to uniquely identify the web service.                                                                                  |
-| serviceGroup       | An OPTIONAL name that is used to categorizedata-servicesin different groups.                                                           |
-| serviceStatus      | An OPTIONAL string to enable WIP (specifiesweatherthe data service is deployed or work in progress) support.                           |
+| serviceGroup       | An OPTIONAL name that is used to categorize data services in different groups.                                                           |
+| serviceStatus      | An OPTIONAL string to enable WIP (specifies whether the data service is deployed or work in progress) support.                           |
 | transports         | An OPTIONAL string to enable the transports required for the data service. The possible values are "http", "https", "JMS" and "local". |
 
 

@@ -9510,7 +9510,7 @@ proxyProfiles = "<profile><targetHosts>example.com</targetHosts><proxyHost>local
 
 
 
-## Websocket Transport
+## WebSocket Transport
 
 
 <div class="mb-config-catalog">
@@ -9634,7 +9634,7 @@ sender.parameter.customParameter = ""</code></pre>
 
 
 
-## Secure Websocket Transport
+## Secure WebSocket Transport
 
 
 <div class="mb-config-catalog">

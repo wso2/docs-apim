@@ -116,7 +116,7 @@ See the instructions on [configuring the API Gateway]({{base_path}}/api-analytic
 
 In a **production setup**, ensure that you have taken into account the respective security hardening factors 
 (e.g., changing and encrypting the default passwords, configuring JVM security etc.) and other production deployment 
-guidelines (e.g., tuning parameters, backup and recovery remmendations etc.) before deploying WSO2 API-M node. 
+guidelines (e.g., tuning parameters, backup and recovery recommendations etc.) before deploying WSO2 API-M node. 
 
 For more information on security hardening guidelines, see [Security Guidelines for Production Deployment]({{base_path}}/install-and-setup/deploying-wso2-api-manager/security-guidelines-for-production-deployment/).
 

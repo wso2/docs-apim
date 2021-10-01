@@ -229,7 +229,7 @@ curl -X PUT "https://localhost:9443/siddhi-apps" -H "accept: application/json" -
 <tbody>
 <tr class="odd">
 <th>Description</th>
-<td>Delets an existing Siddhi application.</td>
+<td>Delete an existing Siddhi application.</td>
 </tr>
 <tr class="even">
 <th>API Context</th>

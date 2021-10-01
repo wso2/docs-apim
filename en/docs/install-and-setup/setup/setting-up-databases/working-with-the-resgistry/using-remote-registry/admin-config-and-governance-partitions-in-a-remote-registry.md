@@ -21,7 +21,7 @@ In a production setup, it is recommended to use an Oracle or MySQL database for 
     mysql -u root -p
 ```
 
-2. E nter the password when prompted.
+2. Enter the password when prompted.
 
 3. Create 'registrydb' database.
 
@@ -132,7 +132,7 @@ Change the values of the relevant elements accordingly. **
 
 ***Configuring registry.xml file***
 
-4. Navigate to $CARBON\_ HOME/repository/conf/registry.xm l file and specify the following configurations for both server instances setup in step 1.
+4. Navigate to $CARBON\_ HOME/repository/conf/registry.xml file and specify the following configurations for both server instances setup in step 1.
 
 Add a new db config to the datasource configuration done in step 3 above. For example,
 

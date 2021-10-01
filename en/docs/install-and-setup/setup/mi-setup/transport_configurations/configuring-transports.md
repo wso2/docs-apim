@@ -4,7 +4,7 @@ A transport protocol is responsible for carrying messages that are in a specific
 
 ## Configuring the HTTP/HTTPS transport
 
-The HTTP and HTTPS passthrough transports are enabled by default in the Micro Integrator.
+The HTTP and HTTPS Pass-Through transports are enabled by default in the Micro Integrator.
 
 See the following sections for a complete list of HTTP/HTTPS parameter.
 
@@ -45,7 +45,7 @@ This will restrict simultaneous open incoming connections to 2. To disable throt
 
 ### Verifying certificate revocation
 
-The default HTTPS transport listener (Secured Passthrough) and transport sender can verify with the certificate authority whether a certificate is still trusted before it completes an SSL connection. If the certificate authority has revoked the certificate, a connection will not be completed.
+The default HTTPS transport listener (Secured Pass-Through) and transport sender can verify with the certificate authority whether a certificate is still trusted before it completes an SSL connection. If the certificate authority has revoked the certificate, a connection will not be completed.
 
 When this feature is enabled, the transport listener verifies client
 certificates when a client tries to make an HTTPS connection with the
@@ -59,7 +59,7 @@ certificate authority at the handshake phase of the SSL protocol. If the
 OCSP is not supported by the certificate authority, the Micro Integrator uses Certified Revocation Lists (CRL) instead. The verification
 process checks all the certificates in a certificate chain.
 
-To enable this feature for the HTTP passthrough, add the following parameters for the HTTP transport receiver and sender in the deployment.toml file:
+To enable this feature for the HTTP Pass-Through, add the following parameters for the HTTP transport receiver and sender in the deployment.toml file:
 
 ```toml tab='Passthrough Listener'
 [transport.http]
@@ -304,16 +304,16 @@ To enable the MQTT transport listener and sender, set the following parameters t
 listener.enable = false
 sender.enable = false
 ```
-## Configuring the Websocket transport
+## Configuring the WebSocket transport
 
-To enable the Websocket transport sender, set the following parameters to `true` in the `deployment.toml` file (stored in the `MI_HOME/conf` directory).
+To enable the WebSocket transport sender, set the following parameters to `true` in the `deployment.toml` file (stored in the `MI_HOME/conf` directory).
 
 ```toml
 [transport.ws]
 sender.enable = false
 ```
 
-To enable the **secured** Websocket transport sender, set the following parameters to `true` in the `deployment.toml` file (stored in the `MI_HOME/conf` directory.
+To enable the **secured** WebSocket transport sender, set the following parameters to `true` in the `deployment.toml` file (stored in the `MI_HOME/conf` directory.
 
 ```toml
 [transport.wss]
@@ -468,4 +468,4 @@ See the following topics for instructions on how to configure the Micro Integrat
 
 ## Configuring the Multi-HTTPS transport
 
-This transport is similar to the HTTPS passthrough transport, but it allows you to have different SSL profiles with separate truststores and keystores for different hosts using the same WSO2 Micro Integrator. It can listen to different host IPs and ports for incoming HTTPS connections, and each IP/Port will have a separate SSL profile configured.
+This transport is similar to the HTTPS Pass-Through transport, but it allows you to have different SSL profiles with separate truststores and keystores for different hosts using the same WSO2 Micro Integrator. It can listen to different host IPs and ports for incoming HTTPS connections, and each IP/Port will have a separate SSL profile configured.

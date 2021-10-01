@@ -104,13 +104,13 @@ The following table lists the properties that need to add to configure the CORS 
  
 | Properties                    | Type    | Description                                                              |
 |-------------------------------|---------|--------------------------------------------------------------------------|
-| corsConfigurationEnabled      | Boolean | Specifies whether CORs is enabled                                        |
+| corsConfigurationEnabled      | Boolean | Specifies whether CORS is enabled                                        |
 | accessControlAllowOrigins     | String  | Specifies the allowed origins                                            |
 | accessControlAllowCredentials | Boolean | Specifies whether the response to the request can be exposed to the page |
 | accessControlAllowHeaders     | String  | Specifies the allowed headers.                                           |
 | accessControlAllowMethods     | String  | Specifies the allowed HTTP methods.                                      |
  
-The following example enables the CORs configuration of the API, by allowing all origins.
+The following example enables the CORS configuration of the API, by allowing all origins.
        ```
         x-wso2-cors:
             corsConfigurationEnabled: true

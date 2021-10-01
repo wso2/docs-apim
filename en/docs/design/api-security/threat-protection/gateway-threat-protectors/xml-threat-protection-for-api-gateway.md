@@ -140,7 +140,7 @@ To edit the existing sequence follow the steps below.
 
 ### Applying the XML validator policy
 
-You can apply the pre-defined XML Policy through the UI. Follow the instructions below to apply the xml\_validator in sequence.
+You can apply the predefined XML Policy through the UI. Follow the instructions below to apply the xml\_validator in sequence.
 
 -   Create an API or edit an existing API.
 

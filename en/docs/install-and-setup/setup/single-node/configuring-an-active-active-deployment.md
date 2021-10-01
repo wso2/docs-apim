@@ -34,7 +34,7 @@ ___________________________________
 To create an all purpose keystore or multiple keystores for authentication and protection of data, follow the steps in [Creating New Keystores]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/). 
 
 !!! tip
-    You should use the same keystore and trusstore for SSL in both WSO2 API-M instances.
+    You should use the same keystore and truststore for SSL in both WSO2 API-M instances.
 
 ## Step 2 - Configure the Load Balancer
 
@@ -232,7 +232,7 @@ See the instructions on [configuring the API Gateway]({{base_path}}/api-analytic
 
 In a **production setup**, ensure that you have taken into account the respective security hardening factors 
 (e.g., changing and encrypting the default passwords, configuring JVM security etc.) and other production deployment 
-guidelines (e.g., tuning parameters, backup and recovery remmendations etc.) before deploying WSO2 API-M nodes. 
+guidelines (e.g., tuning parameters, backup and recovery recommendations etc.) before deploying WSO2 API-M nodes. 
 
 For more information on security hardening guidelines, see [Security Guidelines for Production Deployment]({{base_path}}/install-and-setup/deploying-wso2-api-manager/security-guidelines-for-production-deployment/).
 

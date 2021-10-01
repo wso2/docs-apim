@@ -1,6 +1,6 @@
 # Exposing an Integration SOAP Service as a Managed API
 
-Managed APIs refer to the APIs that are managed using WSO2 API Manager, namely REST APIs, GraphQL APIs, SOAP APIs, and Streaming APIs. This guide explains how to create a Proxy Service (SOAP backend) for the integration solution, generate relevant metadata for the corresponding Proxy service, publish the WSDL definition in the WSO2 API Manager Service Catalog and then creating a **SOAP Passthrough API**.
+Managed APIs refer to the APIs that are managed using WSO2 API Manager, namely REST APIs, GraphQL APIs, SOAP APIs, and Streaming APIs. This guide explains how to create a Proxy Service (SOAP backend) for the integration solution, generate relevant metadata for the corresponding Proxy service, publish the WSDL definition in the WSO2 API Manager Service Catalog and then creating a **SOAP Pass-Through API**.
 
 Also, this demonstrates how the integration components and API management components of WSO2 API Manager 4.1.0 work together to enable API-led integration.
 
@@ -262,7 +262,7 @@ Successfully updated the service catalog
 ```
 
 
-### Step 7: Create and Deploy the Proxy Service as a SOAP Passthrough API
+### Step 7: Create and Deploy the Proxy Service as a SOAP Pass-Through API
 
 **Create the API**
 
@@ -369,7 +369,7 @@ Now, let's assume you are an API consumer who wants to use the API. As a consume
 !!! Tip
     For detailed instructions, see [Subscribe to an API]({{base_path}}/consume/manage-subscription/subscribe-to-an-api/).
 
-### Step 10: Use the SOAP Passthrough API
+### Step 10: Use the SOAP Pass-Through API
 
 !!! Info "Before you begin"
 

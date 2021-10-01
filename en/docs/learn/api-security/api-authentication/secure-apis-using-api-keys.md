@@ -209,7 +209,7 @@ WSO2 API Manager allows API keys to be restricted based on two approaches.
 
 #### 1) IP address restriction
 
-The IP address restriction allows only the clients with specific IP addresses can use the token. The IP addresses can be specificed 
+The IP address restriction allows only the clients with specific IP addresses can use the token. The IP addresses can be specified 
 in the following formats.
 
 - IPv4 (e.g., `192.168.1.2`)

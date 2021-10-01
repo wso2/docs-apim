@@ -1,6 +1,6 @@
 # Am300Regular Expression Threat Protection for API Gateway
 
-WSO2 API Manager provides predefined regex patterns to sanitize the request from SQL injection attacks. The attacks may depend on the API traffic at runtime. The API developers should identify the common attacks and select the appropriate restrictive measures. This feature extracts the data from XML, JSON payloads, Queryparam, URI path, headers and validates the content against pre defined regular expressions. If any predefined regex keyword is matched with the content, the API request is considered as a threat and it is blocked and rejected. This secures the backend resources from activities that make the system vulnerable.  You can configure your own restriction patterns to thwart various attacks such as the following:
+WSO2 API Manager provides predefined regex patterns to sanitize the request from SQL injection attacks. The attacks may depend on the API traffic at runtime. The API developers should identify the common attacks and select the appropriate restrictive measures. This feature extracts the data from XML, JSON payloads, Queryparam, URI path, headers and validates the content against predefined regular expressions. If any predefined regex keyword is matched with the content, the API request is considered as a threat and it is blocked and rejected. This secures the backend resources from activities that make the system vulnerable. You can configure your own restriction patterns to thwart various attacks such as the following:
 
 -   JavaScript Injection
 -   Server-side Include Injection
@@ -65,7 +65,7 @@ To edit the existing sequence follow the steps below.
 
 ### Applying the Regular Expression Policy
 
-You can apply the pre-defined Regular Expression Policy through the UI. Follow the instructions below to apply the regex\_policy in sequence.
+You can apply the predefined Regular Expression Policy through the UI. Follow the instructions below to apply the regex\_policy in sequence.
 
 1.  Create an API or edit an existing API.
 2.  Go to **Message Mediation Policies** under the **Implement** tab.

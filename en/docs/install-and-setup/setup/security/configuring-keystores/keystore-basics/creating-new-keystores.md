@@ -100,7 +100,7 @@ You now have a keystore (.jks file) with a private key and a self-signed public 
 
 ## Adding CA-signed certificates to keystores
 
-Now, let's look at how you can get a CA-signed certificate for your keystores. **Note** that you do not need to create a new keystore everytime you need add a CA-signed certificate.
+Now, let's look at how you can get a CA-signed certificate for your keystores. **Note** that you do not need to create a new keystore every time you need add a CA-signed certificate.
 
 ### Step 1: Generating a CA-signed certificate
 
