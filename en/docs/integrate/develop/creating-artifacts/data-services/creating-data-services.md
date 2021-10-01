@@ -343,7 +343,7 @@ datasource and automatically creates the SELECT, INSERT, UPDATE, and DELETE oper
 	
     <a href="{{base_path}}/assets/img/integrate/tutorials/data_services/generate_dataservice_select_datasource.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/generate_dataservice_select_datasource.png" width="700"></a>
 
-4. 	Select the driver to connect to the datasource.  There are two ways to select a driver:
+4. 	Select the driver to connect to the datasource. There are two ways to select a driver:
 
 	-	You can use an existing driver from the Integration Studio. You can select the driver version from the drop down.
 
