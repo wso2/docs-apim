@@ -329,7 +329,7 @@ The data service should now have the resource added.
 
 ### Generate Data Service from a Datasource
 
-Follow the steps given below to automatically creates a data service using a given datasource structure. 
+Follow the steps given below to automatically create a data service using a given datasource structure. 
 When generating a data service, the server takes its table structure according to the structure specified in the 
 datasource and automatically creates the SELECT, INSERT, UPDATE, and DELETE operations.
 
