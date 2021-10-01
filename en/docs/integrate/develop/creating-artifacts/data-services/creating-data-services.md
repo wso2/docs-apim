@@ -355,7 +355,7 @@ datasource and automatically creates the SELECT, INSERT, UPDATE, and DELETE oper
 
     Then click **Fetch Table** to list down all avaialble tables in the selected datasource.
 
-5. 	From the list of tables select the tables, and the REST resource methods that you want in the generated dataservice.
+5. 	From the list of tables, select the tables and the REST resource methods that you want in the generated data service.
 
 	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/select_tables.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/select_tables.png" width="700"></a>
 
