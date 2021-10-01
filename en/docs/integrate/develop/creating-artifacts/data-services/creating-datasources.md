@@ -38,6 +38,11 @@ Shown below is the sample configuration that is created. You can now update the 
 </datasource>
 ```
 
+!!!	Tip
+    You can generate dataservices for the created datasource. 
+    You can follow the steps given in [Generate Data Services]({{base_path}}/integrate/develop/creating-artifacts/data-services/creating-data-services/#generate-data-service-from-a-datasource)
+
+
 ## Examples
 
 -	<a href="{{base_path}}/integrate/examples/data_integration/carbon-data-service">Exposing a Carbon Datasource</a>
