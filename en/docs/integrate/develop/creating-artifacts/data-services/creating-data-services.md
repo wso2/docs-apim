@@ -339,7 +339,7 @@ datasource and automatically creates the SELECT, INSERT, UPDATE, and DELETE oper
 2.	In the **New Data Service** wizard that opens, select **Generate Data Service from Datasource** and click **Next**.
 	  <a href="{{base_path}}/assets/img/integrate/tutorials/data_services/generate_dataservice.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/generate_dataservice.png" width="700"></a>
 
-3. 	From the wizard select the datasource that you have configured in step 1.
+3. 	From the wizard, select the datasource that you have configured in step 1.
 	
     <a href="{{base_path}}/assets/img/integrate/tutorials/data_services/generate_dataservice_select_datasource.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/generate_dataservice_select_datasource.png" width="700"></a>
 
