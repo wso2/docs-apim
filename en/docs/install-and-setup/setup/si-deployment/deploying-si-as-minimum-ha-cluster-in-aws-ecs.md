@@ -19,7 +19,7 @@ Once a node becomes the active node, it performs the following:
 - Starts the Siddhi applications in runtime and opens all the ports mentioned in the Siddhi applications.<br/>
 - Starts the binary and thrift transports.<br/>
 - Starts the REST endpoints.<br/>
-- Once a new member (i.e., passive node) joins the cluster, the active node checks the `WSO2_CLUSTER_DB` database for the host and port of ther other member's event syncing server. Once this information is retrieved, it sends the input events received by the cluster to that event syncing server.
+- Once a new member (i.e., passive node) joins the cluster, the active node checks the `WSO2_CLUSTER_DB` database for the host and port of the other member's event syncing server. Once this information is retrieved, it sends the input events received by the cluster to that event syncing server.
 
 ### Operating the nodes
 

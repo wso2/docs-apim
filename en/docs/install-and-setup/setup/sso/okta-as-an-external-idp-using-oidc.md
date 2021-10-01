@@ -2,7 +2,7 @@
 
 Follow the instructions below to connect Okta as a third-party Identity Provider to WSO2 API Manager.
 
-## Pre-requisites
+## Prerequisites
 
 Before you begin, make sure you do the following.
 

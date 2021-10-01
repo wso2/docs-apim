@@ -120,5 +120,5 @@ To configure the Streaming Integrator nodes and deploy them as an active-active 
 3. Configure a database, and then update the default configuration for the `TEST_DB` data source with parameter values suitable for your requirements.
 
 !!! warning
-    As explained in above the events are processed in multiple active nodes. Eventhough this is usually a stateful operation, you can overcome the node-dependent calculations via distributed aggregation. This allows WSO2 SI to execute scripts that depend on incremental distributed aggregation.<br/><br/>
+    As explained in above the events are processed in multiple active nodes. Even though this is usually a stateful operation, you can overcome the node-dependent calculations via distributed aggregation. This allows WSO2 SI to execute scripts that depend on incremental distributed aggregation.<br/><br/>
     However, an active-active deployment can affect alerts because alerts also depend on some in-memory stateful operations such as windows. Due to this, alerts can be generated based on the events received by specific node. Thus the alerts are node-dependent, and you need to disable them to run scripts with distributed incremental aggregation.

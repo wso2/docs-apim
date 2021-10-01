@@ -6,7 +6,7 @@ required for the user scenario. Furthermore, a custom IdP Client can be
 written to encompass the required user store connection and
 authentication.
 
-IdP clients can be switched by specifying te required IdP client in the
+IdP clients can be switched by specifying the required IdP client in the
 `auth.configs:` section in the
 `<SI_HOME>/conf/server/deployment.yaml` file.
 
@@ -215,7 +215,7 @@ The parameters used in the above configurations areas follows:
 
 | Parameter                                            | Default Value                      | Description                                              |
 |------------------------------------------------------|------------------------------------|----------------------------------------------------------|
-| `              userManager > adminRole             ` | `              admin             ` | The name of the role that has administration privilages. |
+| `              userManager > adminRole             ` | `              admin             ` | The name of the role that has administration privileges. |
 
   
 
@@ -365,7 +365,7 @@ When writing a custom IdP client, the following two interfaces must be
 implemented:
 
 -   [IdPClientFactory](https://github.com/wso2/carbon-analytics-common/blob/master/components/authentication/org.wso2.carbon.analytics.idp.client/src/main/java/org/wso2/carbon/analytics/idp/client/core/spi/IdPClientFactory.java)
-    : This is a factory OSGi service that initialtes the custom IdP
+    : This is a factory OSGi service that initializes the custom IdP
     client using the properties from
     `          IdPClientConfiguration.         `
 -   [IdPClient](https://github.com/wso2/carbon-analytics-common/blob/master/components/authentication/org.wso2.carbon.analytics.idp.client/src/main/java/org/wso2/carbon/analytics/idp/client/core/api/IdPClient.java)

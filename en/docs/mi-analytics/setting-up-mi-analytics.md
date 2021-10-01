@@ -252,4 +252,4 @@ ei_analytics.password = "admin"
 
 ## What's Next?
 
-If you have successfully set up your anlaytics deployment, see the instructions on [using the analytics portal]({{base_path}}/observe/mi-observe/using-the-analytics-dashboard).
+If you have successfully set up your analytics deployment, see the instructions on [using the analytics portal]({{base_path}}/observe/mi-observe/using-the-analytics-dashboard).

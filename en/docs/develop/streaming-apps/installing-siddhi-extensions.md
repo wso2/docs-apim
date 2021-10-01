@@ -1,9 +1,9 @@
 # Installing Siddhi Extensions
 
-Streaming Integrator Tooling uses Siddhi extensions to connect with various data sources. Siddhi extensions can be installed or un-installed using the Extension Installer.
+Streaming Integrator Tooling uses Siddhi extensions to connect with various data sources. Siddhi extensions can be installed or uninstalled using the Extension Installer.
 
 !!!Tip
-    The Extension Installer can install/un-install extensions within Streaming Integrator Tooling. When deploying Siddhi applications in Streaming Integrator Server, these have to be manually done. For more information, see [Downloading and Installing Siddhi Extensions]({{base_path}}/streaming/connectors/installing-siddhi-extensions).
+    The Extension Installer can install/uninstall extensions within Streaming Integrator Tooling. When deploying Siddhi applications in Streaming Integrator Server, these have to be manually done. For more information, see [Downloading and Installing Siddhi Extensions]({{base_path}}/streaming/connectors/installing-siddhi-extensions).
 
 ## Managing Siddhi extensions
 
@@ -29,7 +29,7 @@ To access the Extension installer and find the extensions you need to install/un
     ![Extension Installer]({{base_path}}/assets/img/streaming/streaming-integrator-studio-overview/extension-installer.png)
 
 
-3. Locate the extension that you want to install/un-install. You can enter the name, or a part of the name of the relevant extension in the **Search** field. It filters one or more extensions that match the entered key word.
+3. Locate the extension that you want to install/uninstall. You can enter the name, or a part of the name of the relevant extension in the **Search** field. It filters one or more extensions that match the entered key word.
 
     !!!info
         The status of the extension can be one of the following.<br/><br/>
@@ -55,20 +55,20 @@ To access the Extension installer and find the extensions you need to install/un
     ![Status Change as Installed]({{base_path}}/assets/img/streaming/installing-siddhi-extensions/installed-status.png)
 
 
-### Un-installing an extension
+### Uninstalling an extension
 
-1. To un-install an extension, click **UnInstall** for it.
+1. To uninstall an extension, click **UnInstall** for it.
 
     ![Installed Extension]({{base_path}}/assets/img/streaming/installing-siddhi-extensions/an-installed-extension.png)
 
-    Then click **UnInstall** in the confirmation dialog box that appears to confirm whether you want to proceed to un-install the extension.
+    Then click **UnInstall** in the confirmation dialog box that appears to confirm whether you want to proceed to uninstall the extension.
 
 
-2. If the extension you are un-installing has shared dependencies with one or more other extensions, a message appears with information as shown in the example below.
+2. If the extension you are uninstalling has shared dependencies with one or more other extensions, a message appears with information as shown in the example below.
 
     ![Shared Dependencies Exist Dialog Box]({{base_path}}/assets/img/streaming/installing-siddhi-extensions/shared-dependencies-exist-dialog-box.png)
 
-    The names of the other extensions are in bold. The dependencies each extension shares with the extension you are deleting are listed under the extension name. In this example, the extension being un-installed shares the `mysql-connector-java` dependency with the `rdbms-mysql` extension, and the `siddhi-io-cdc` dependency with the `cdc-oracle`, `cdc-postgresql`, `cdc-mssql`, and `cdc-mongodb` extensions.
+    The names of the other extensions are in bold. The dependencies each extension shares with the extension you are deleting are listed under the extension name. In this example, the extension being uninstalled shares the `mysql-connector-java` dependency with the `rdbms-mysql` extension, and the `siddhi-io-cdc` dependency with the `cdc-oracle`, `cdc-postgresql`, `cdc-mssql`, and `cdc-mongodb` extensions.
 
 
     If you want to proceed, click **Confirm**.
@@ -79,7 +79,7 @@ To access the Extension installer and find the extensions you need to install/un
     If there are no shared dependencies, click **UnInstall** in the confirmation dialog that appears to confirm whether you want to proceed to un-install the extension.
 
 
-3. Once the un-installation is completed, restart Streaming Integrator Tooling for the un-installation to be effective.
+3. Once the uninstallation is completed, restart Streaming Integrator Tooling for the uninstallation to be effective.
 
 
 ## Manually installable dependencies
@@ -98,13 +98,13 @@ The dialog box displays all the dependencies that need to be manually installed.
 
 - **Instructions** to download (and depending on the dependency, to convert) the JAR of the dependency.
 
-- **Installation Location** where the downloaded JAR (and depending on the dependency, the converted OSGi bundle) needs to be placed in order to install the dependency. The following table especifies the directory in which you need to place the JAR/OSGi bundle depending on the installation location.
+- **Installation Location** where the downloaded JAR (and depending on the dependency, the converted OSGi bundle) needs to be placed in order to install the dependency. The following table specifies the directory in which you need to place the JAR/OSGi bundle depending on the installation location.
 
     |**Installation Location**|**Directory**|
     |---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
     |**bundle in runtime**|Place the OSGi bundle you downloaded/converted in either the `<SI_HOME>/lib` or the `<SI_HOME>/bundles` directory based on the instructions.|
     |**jar in runtime**   |Place the non-OSGi bundle you downloaded in the `<SI_HOME>/jars` directory.                                                                 |
-    |**jar in samples**   |Place the non-OSGi bundle you dowloaded in the `<SI_HOME>/samples/sample-clients/lib` directory.                                            |
+    |**jar in samples**   |Place the non-OSGi bundle you downloaded in the `<SI_HOME>/samples/sample-clients/lib` directory.                                            |
 
 
 ## Configuring Extension Dependencies

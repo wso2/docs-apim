@@ -4,7 +4,7 @@ Setting up involves doing the required configurations for the API Manager and it
 
 - **Updating the component**
 
-    This involves applying the latest [WSO2 updates](https://wso2.com/updates) to each component so that each componety is updated with the latest bug fixes and software improvement.
+    This involves applying the latest [WSO2 updates](https://wso2.com/updates) to each component so that each component is updated with the latest bug fixes and software improvement.
 
 - **Configuring databases**
 
@@ -83,7 +83,7 @@ In addition, the component-specific setup tasks are as follows:
 
     - [**Setting up the file-based registry**]({{base_path}}/install-and-setup/setup/mi-setup/deployment/file_based_registry)
     
-        The Micro Integrator is shipped with a file-system-based registry to store registry artifects. This section explains the default directory structure of the registry and how to change it if required.
+        The Micro Integrator is shipped with a file-system-based registry to store registry artifacts. This section explains the default directory structure of the registry and how to change it if required.
     
     -*[**Setting up message brokers**]({{base_path}}/install-and-setup/setup/mi-setup/brokers/deploy-rabbitMQ)
     

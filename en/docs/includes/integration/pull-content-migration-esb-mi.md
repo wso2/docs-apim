@@ -18,7 +18,7 @@ Listed below are some of the advantages of moving to API-M 4.0.0 from the ESB.
 
 Upgrading to WSO2 API-M 4.0.0 is recommended for the following requirements:
 
--	You need to expose integrations as managed APIs so that integration solutions can be managed and monitized in an API marketplace. 
+-	You need to expose integrations as managed APIs so that integration solutions can be managed and monetized in an API marketplace. 
 -	You need to switch to a microservices architecture from the conventional centralized architecture.
 -	You need a more lightweight, user-friendly version of the battle-tested WSO2 ESB.
 -	You need a more lightweight, container-friendly runtime in a centralized architecture.

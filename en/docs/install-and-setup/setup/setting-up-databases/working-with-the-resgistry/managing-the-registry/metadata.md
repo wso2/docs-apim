@@ -17,7 +17,7 @@ For example,
 ![]({{base_path}}/assets/attachments/22185146/22514191.png)
 #### Creating a checkpoint
 
-T o create a checkpoint, click on the **Create Checkpoint** link:
+To create a checkpoint, click on the **Create Checkpoint** link:
 
 ![]({{base_path}}/assets/attachments/126562605/126562606.png)
 
@@ -44,7 +44,8 @@ This page gives the following information:
     -   **Delete Version History** - Delete the version history
 
 !!! info
-To learn more about restoring to a previous version, see  read [here](https://docs.wso2.com/display/Governance460/Managing+Versions+of+a+Resource) .
+    To learn more about restoring to a previous version, see  read [here](https://docs.wso2.com/display/Governance460/Managing+Versions+of+a+Resource).
+
 !!! info
-**NOTE** : Versions and checkpoints are not available for [Symbolic Links](https://docs.wso2.com/display/Governance460/Link+Creation#LinkCreation-ASymbolicLink) and [Remote Links](https://docs.wso2.com/display/Governance460/Link+Creation#LinkCreation-ARemoteLink) .
+    **NOTE**: Versions and checkpoints are not available for [Symbolic Links](https://docs.wso2.com/display/Governance460/Link+Creation#LinkCreation-ASymbolicLink) and [Remote Links](https://docs.wso2.com/display/Governance460/Link+Creation#LinkCreation-ARemoteLink).
 
