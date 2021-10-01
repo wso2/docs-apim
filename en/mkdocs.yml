@@ -395,6 +395,7 @@ nav:
                 - Creating a Data Service: integrate/develop/creating-artifacts/data-services/creating-data-services.md
                 - Creating a Data Service Input Validator: integrate/develop/creating-artifacts/data-services/creating-input-validators.md
                 - Adding Connectors: integrate/develop/creating-artifacts/adding-connectors.md
+                - Generate Service Catalog Metadata Artifacts: integrate/develop/generate-service-catalog-metadata.md
             - Creating Custom Artifacts:
                 - Creating a Custom Inbound Endpoint: integrate/develop/customizations/creating-custom-inbound-endpoint.md
                 - Creating a Custom Mediator: integrate/develop/customizations/creating-custom-mediators.md

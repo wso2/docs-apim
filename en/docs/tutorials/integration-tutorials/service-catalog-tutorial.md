@@ -33,6 +33,9 @@ The following concepts and artifacts are used in this tutorial:
 ## Let's get started!
 
 Follow the steps given below to build this use case and try it out.
+    !!! Note
+        For more information on generating metadata artifacts if you are using an older Integration Studio workspace, see [Generating Service Catalog Metadata Artifact]({{base_path}}/integrate/develop/generate-service-catalog-metadata.md).
+
 
 ### Step 1: Develop the integration service
 
