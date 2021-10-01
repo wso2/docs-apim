@@ -334,7 +334,7 @@ When generating a data service, the server takes its table structure according t
 datasource and automatically creates the SELECT, INSERT, UPDATE, and DELETE operations.
 
 1. 	Create a datasource project and add a datasource in the current workspace. You can 
-	refer [Creating a Datasource]({{base_path}}/integrate/develop/creating-artifacts/data-services/creating-datasources)  for more information.
+	refer [Creating a Datasource]({{base_path}}/integrate/develop/creating-artifacts/data-services/creating-datasources) for more information.
 
 2.	In the **New Data Service** wizard that opens, select **Generate Data Service from Datasource** and click **Next**.
 	  <a href="{{base_path}}/assets/img/integrate/tutorials/data_services/generate_dataservice.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/generate_dataservice.png" width="700"></a>
