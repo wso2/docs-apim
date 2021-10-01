@@ -396,7 +396,7 @@ See the example .toml file given below.
                     <div class="mb-config-example">
 <pre><code class="toml">[adapter.consul]
   enable = false
-  URL = "https://169.254.1.1:8501" # scheme + host ip + port
+  url = "https://169.254.1.1:8501" # scheme + host ip + port
   pollInterval = 5 # seconds
   aclToken = "d3a2a719-4221-8c65-5212-58d4727427ac"
   mgwServiceName = "wso2"
