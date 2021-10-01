@@ -268,7 +268,7 @@ Now, let's create a REST resource that can be used to invoke the query.
 
 !!!	Tip
     Alternatively, you can generate a data service from a datasource. 
-    You can refer [Generate Data Services]({{base_path}}/integrate/develop/creating-artifacts/data-services/creating-data-services/#generate-data-service-from-a-datasource)
+    For more information, refer [Generate Data Services]({{base_path}}/integrate/develop/creating-artifacts/data-services/creating-data-services/#generate-data-service-from-a-datasource).
 
 
 ### Step 3: Package the artifacts
