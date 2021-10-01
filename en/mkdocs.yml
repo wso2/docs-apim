@@ -276,7 +276,9 @@ nav:
                     - Authorization:
                         - Scope Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authorization/scope-validation.md
                         - Subscription Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authorization/subscription-validation.md
-                    - Transport Security: deploy-and-publish/deploy-on-gateway/choreo-connect/security/transport-security.md
+                    - Transport Security:
+                        - Configuration and Managing Certificates: deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/transport-security.md
+                        - Mutual TLS Between Choreo Connect and Backend: deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/mutual-tls-between-gateway-and-backend.md
                     - Enabling CORS: deploy-and-publish/deploy-on-gateway/choreo-connect/security/enabling-cors.md
                     - Use a Custom Authorization Header: deploy-and-publish/deploy-on-gateway/choreo-connect/security/use-a-custom-authorization-header.md
                     - Rejecting Revoked Tokens: deploy-and-publish/deploy-on-gateway/choreo-connect/security/rejecting-revoked-tokens.md
@@ -774,6 +776,7 @@ nav:
                     - Enabling Logs for a Component: observe/micro-integrator/classic-observability-logs/enabling-logs-for-a-component.md
                     - Monitoring Logs: observe/micro-integrator/classic-observability-logs/monitoring-logs.md
                     - Monitoring Correlation Logs: observe/micro-integrator/classic-observability-logs/monitoring-correlation-logs.md
+                    - Monitoring Audit Logs: observe/micro-integrator/classic-observability-logs/monitoring-mi-audit-logs.md
                 - Metrics:
                     - JMX Monitoring: observe/micro-integrator/classic-observability-metrics/jmx-monitoring.md
                     - SNMP Monitoring: observe/micro-integrator/classic-observability-metrics/snmp-monitoring.md
@@ -1689,7 +1692,6 @@ plugins:
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager/'
               'install-and-setup/deploying-wso2-api-manager/changing-the-hostname.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/deployment-best-practices/changing-the-hostname/'
               'install-and-setup/deploying-wso2-api-manager/changing-the-default-ports-with-offset.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset/'
-              'install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer/'
               'install-and-setup/deploying-wso2-api-manager/configuring-message-builders-formatters.md': 'https://apim.docs.wso2.com/en/3.2.0/deploy/api-gateway/message-mediation/configuring-message-builders-formatters/'
               'install-and-setup/deploying-wso2-api-manager/configuring-rsync-for-deployment-synchronization.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-rsync/'
               'install-and-setup/deploying-wso2-api-manager/deploying-api-manager-with-kubernetes-or-openshift-resources.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources/'
@@ -1902,7 +1904,6 @@ plugins:
               'administer/product-administration/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager/'
               'administer/product-administration/multitenancy/managing-tenants.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/multitenancy/managing-tenants/'
               'administer/product-administration/multitenancy/configuring-the-tenant-loading-policy.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/multitenancy/configuring-the-tenant-loading-policy/'
-              'administer/product-administration/monitoring/logging/managing-log-growth.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/logging/managing-log-growth/'
               'administer/product-administration/monitoring/logging/masking-sensitive-information-in-logs.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs/'
               'administer/product-administration/monitoring/working-with-observability.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/monitoring/working-with-observability/'
               'administer/product-administration/monitoring/monitoring-with-opentracing.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/monitoring/monitoring-with-opentracing/'
@@ -1917,7 +1918,6 @@ plugins:
               'administer/product-configurations/common-runtime-and-configuration-artifacts.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/reference/common-runtime-and-configuration-artifacts/'
               'administer/product-configurations/customizing-the-management-console.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/advance-configurations/customizing-the-management-console/'
               'administer/product-configurations/adding-internationalization.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/customizations/adding-internationalization/'
-              'administer/product-security/configuring-keystores/configuring-keystores-in-wso2-api-manager.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/'
               'administer/product-security/configuring-keystores/keystore-basics/creating-new-keystores.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/'
               'administer/product-security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore/'
               'administer/product-security/configuring-keystores/keystore-basics/about-asymetric-cryptography.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography/'

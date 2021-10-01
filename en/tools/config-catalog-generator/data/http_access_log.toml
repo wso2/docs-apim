@@ -1,0 +1,2 @@
+[http_access_log]
+useLogger = true
