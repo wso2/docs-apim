@@ -11,21 +11,6 @@ default_cache_timeout = 15
 
 These configurations apply globally to all caches. You can override these values for specific caches using the UI or different configuration files as discussed under each section below.
 
-- [Configuring Caching](#configuring-caching)
-  - [API Gateway cache](#api-gateway-cache)
-    - [Clearing the API Gateway cache](#clearing-the-api-gateway-cache)
-  - [Resource cache](#resource-cache)
-  - [Key Manager cache](#key-manager-cache)
-    - [OAuth cache](#oauth-cache)
-  - [Response cache](#response-cache)
-  - [JWT claims cache](#jwt-claims-cache)
-  - [Publisher cache](#publisher-cache)
-    - [Publisher-roles cache](#publisher-roles-cache)
-  - [Developer Portal cache](#developer-portal-cache)
-    - [Tag cache](#tag-cache)
-    - [Recently-added-API cache](#recently-added-api-cache)
-    - [Scopes cache](#scopes-cache)
-
 !!! tip
     In a distributed environment, the caching configurations you do in one node replicates equally in all nodes.
 
