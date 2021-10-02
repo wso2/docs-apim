@@ -37,7 +37,7 @@ Follow the instructions below to make sure that the Client Credentials grant typ
 1. Navigate back to the **OAuth2 Keys** page (in case you have navigated away from it).
 2. Click **GENERATE KEYS** to generate the Production keys.
 
-### Step 4 - Encode the consumer key and consumer secret key
+### Step 4 - Encode the consumer key and consumer secret pair
 
 Combine the consumer key and consumer secret key in the format `consumer-key:consumer-secret` and encode the combined string using [base64](http://base64encode.org/).
    
