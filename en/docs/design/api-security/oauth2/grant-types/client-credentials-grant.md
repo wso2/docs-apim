@@ -13,9 +13,6 @@ The client can request an access token using only its client credentials with th
 
 ## Invoking the Token API to generate the tokens
 
-!!! tip
-    The examples here use the `PizzaShack` REST API, which was created in [Create a REST API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/).
-
 ### Step 1 - Access the WSO2 Developer Portal
 
 Sign in to the WSO2 Developer Portal (`https://<hostname>:9443/devportal`).
