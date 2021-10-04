@@ -186,7 +186,7 @@ CREATE TABLE `ApiUserPerAppAgg_<granularity>` (
     | `gatewayType` | The type of the Gateway (Synapse/Micro). |
     | `label` | The label of the API (if specified). |
     | `regionalID` | The region ID if multi-data centers are configured for analytics. |
-    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by the `AGG_TIMESTAMP` based on the granularity. |
+    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by the `AGG_EVENT_TIMESTAMP` based on the granularity. |
 
 ### ApiResPathPerApp
 This aggregation contains summarized data about API usage by resources and it is also derived from the request event stream.
