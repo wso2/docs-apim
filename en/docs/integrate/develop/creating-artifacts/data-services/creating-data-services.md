@@ -329,21 +329,21 @@ The data service should now have the resource added.
 
 ### Generate Data Service from a Datasource
 
-Follow the steps given below to automatically creates a data service using a given datasource structure. 
+Follow the steps given below to automatically create a data service using a given datasource structure. 
 When generating a data service, the server takes its table structure according to the structure specified in the 
 datasource and automatically creates the SELECT, INSERT, UPDATE, and DELETE operations.
 
 1. 	Create a datasource project and add a datasource in the current workspace. You can 
-	refer [Creating a Datasource]({{base_path}}/integrate/develop/creating-artifacts/data-services/creating-datasources)  for more information.
+	refer [Creating a Datasource]({{base_path}}/integrate/develop/creating-artifacts/data-services/creating-datasources) for more information.
 
 2.	In the **New Data Service** wizard that opens, select **Generate Data Service from Datasource** and click **Next**.
 	  <a href="{{base_path}}/assets/img/integrate/tutorials/data_services/generate_dataservice.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/generate_dataservice.png" width="700"></a>
 
-3. 	From the wizard select the datasource that you have configured in step 1.
+3. 	From the wizard, select the datasource that you have configured in step 1.
 	
     <a href="{{base_path}}/assets/img/integrate/tutorials/data_services/generate_dataservice_select_datasource.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/generate_dataservice_select_datasource.png" width="700"></a>
 
-4. 	Select the driver to connect to the datasource.  There are two ways to select a driver:
+4. 	Select the driver to connect to the datasource. There are two ways to select a driver:
 
 	-	You can use an existing driver from the Integration Studio. You can select the driver version from the drop down.
 
@@ -355,7 +355,7 @@ datasource and automatically creates the SELECT, INSERT, UPDATE, and DELETE oper
 
     Then click **Fetch Table** to list down all avaialble tables in the selected datasource.
 
-5. 	From the list of tables select the tables, and the REST resource methods that you want in the generated dataservice.
+5. 	From the list of tables, select the tables and the REST resource methods that you want in the generated data service.
 
 	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/select_tables.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/select_tables.png" width="700"></a>
 
