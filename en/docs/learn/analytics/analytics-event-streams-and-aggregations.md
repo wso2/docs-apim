@@ -236,7 +236,7 @@ CREATE TABLE `ApiResPathPerApp_<granularity>` (
     | `gatewayType` | The type of the Gateway (Synapse/Micro). |
     | `label` | The label of the API (if specified). |
     | `regionalID` | The region ID if multi-data centers are configured for analytics. |
-    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by `AGG_TIMESTAMP` based on the granularity. |
+    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by `AGG_EVENT_TIMESTAMP` based on the granularity. |
 
 ### **ApiPerDestinationAgg**
 This aggregation contains summarized data of API destinations and is derived from the request event stream.
@@ -280,7 +280,7 @@ CREATE TABLE `ApiPerDestinationAgg_<granularity>` (
     | `gatewayType` | The type of the Gateway (Synapse/Micro). |
     | `label` | The label of the API (if specified). |
     | `regionalID` | The region ID if multi-data centers are configured for analytics. |
-    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by `AGG_TIMESTAMP` based on the granularity. |
+    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by `AGG_EVENT_TIMESTAMP` based on the granularity. |
 
 ### **ApiVersionPerAppAgg**
 This aggregation contains summarized data about API usage and is also derived from the request event stream.
@@ -327,7 +327,7 @@ CREATE TABLE `ApiVersionPerAppAgg_<granularity>` (
     | `gatewayType` | The type of the gateway (Synapse/Micro). |
     | `label` | The label of the API (if specified). |
     | `regionalID` | The region ID if multi-data centers are configured for analytics. |
-    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by `AGG_TIMESTAMP` based on the granularity. |
+    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by `AGG_EVENT_TIMESTAMP` based on the granularity. |
     | `AGG_SUM_quotaExceededValue` | A binary value (0 or 1) to indicate whether the request is throttled (1) or not (0). |
 
 
@@ -381,7 +381,7 @@ CREATE TABLE `ApiExeTime_<granularity>` (
     | `apiCreatorTenantDomain` | The tenant domain of the API creator. |
     | `regionalID` | The region ID if multi-data centers are configured for analytics. |
     | `AGG_SUM_responseTime` | The average time of the API response when received to the gateway. |
-    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by `AGG_TIMESTAMP` based on the granularity. |
+    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by `AGG_EVENT_TIMESTAMP` based on the granularity. |
     | `AGG_SUM_serviceTime` | The average time taken to serve the API request at the API-M server end. |
     | `AGG_SUM_backendTime` | The average time taken to process the request at the backend. |
     | `AGG_SUM_securityLatency` | The average time taken for authentication. |
@@ -434,7 +434,7 @@ CREATE TABLE `ApiUserBrowserAgg_<granularity>` (
     | `gatewayType` | The type of the gateway (Synapse/Micro). |
     | `label` | The label of the API (if specified). |
     | `regionalID` | The region ID if multi-data centers are configured for analytics. |
-    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by `AGG_TIMESTAMP` based on the granularity. |
+    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by `AGG_EVENT_TIMESTAMP` based on the granularity. |
 
 ### APIM_ReqCountAgg
 
@@ -599,7 +599,7 @@ CREATE TABLE `ApiFaultyInvocationAgg_<granularity>` (
     | `applicationName` | The name of the client application used to invoke the API. |
     | `requestTimestamp` | The timestamp of the API request when received to the gateway. |
     | `regionalID` | The region ID if multi-data centers are configured for analytics. |
-    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by `AGG_TIMESTAMP` based on granularity. |
+    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by `AGG_EVENT_TIMESTAMP` based on granularity. |
 
 
 ### ApiThrottledOutAgg
@@ -652,7 +652,7 @@ CREATE TABLE `ApiThrottledOutAgg_<granularity>` (
     | `gatewayType` | The type of the gateway (Synapse/Micro). |
     | `regionalID` | The region ID if multi-data centers are configured for analytics. |
     | `AGG_LAST_EVENT_TIMESTAMP` | The timestamp at which the latest API request(event) belonging to the respective time range starting from when the AGG_TIMESTAMP was made. |
-    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by `AGG_TIMESTAMP` based on granularity. |
+    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by `AGG_EVENT_TIMESTAMP` based on granularity. |
 
 
 ### ApiErrorAnalysisAgg
@@ -709,4 +709,4 @@ CREATE TABLE `ApiErrorAnalysisAgg_<granularity>` (
     | `AGG_SUM_responseCount` | The number of responses received from the backend within the relevant time interval specified by `AGG_TIMESTAMP` based on the granularity. |
     | `AGG_SUM_faultCount` | The number of faulty invocation that occurred within the relevant time interval specified by th`AGG_TIMESTAMP` based on the granularity. |
     | `AGG_SUM_throttledCount` | The number of throttled out requests that occurred within the relevant time interval specified by the `AGG_TIMESTAMP` based on the granularity. |
-    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by the `AGG_TIMESTAMP` based on granularity. |
+    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by the `AGG_EVENT_TIMESTAMP` based on granularity. |
