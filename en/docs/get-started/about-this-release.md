@@ -69,6 +69,9 @@ It is now available to download from [here](https://wso2.com/integration/integra
 
 ### New features
 
+- **[Generate data service definitions using a given datasource]({{base_path}}/integrate/develop/creating-artifacts/data-services/creating-data-services/#generate-data-service-from-a-datasource)**
+
+  This feature allows you to generate dataservice definitions by pointing to an existing datasource in the workspace without creating that from scratch.
 
 ## **Micro Integrator Dashboard**
 
