@@ -10,21 +10,21 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
 
 1. Click **CREATE API** and click **Import Open API**.
 
-    <a href="{{base_path}}/assets/img/learn/create-api-existing-rest-api-link.png"><img src="{{base_path}}/assets/img/learn/create-api-existing-rest-api-link.png" alt="importing open api"></a>
+    <a href="{{base_path}}/assets/img/learn/prototype-api/create-api-existing-rest-api-link.png"><img src="{{base_path}}/assets/img/learn/prototype-api/create-api-existing-rest-api-link.png" alt="importing open api"></a>
 
 2. Upload the OpenAPI URL or OpenAPI File and click **Next**.
 
-    <a href="{{base_path}}/assets/img/learn/create-api-using-openapi-url-filled.png"><img src="{{base_path}}/assets/img/learn/create-api-using-openapi-url-filled.png" alt="create api form for existing api"></a>
+    <a href="{{base_path}}/assets/img/learn/prototype-api/create-api-using-openapi-url-filled.png"><img src="{{base_path}}/assets/img/learn/prototype-api/create-api-using-openapi-url-filled.png" alt="create api form for existing api"></a>
     
 3. Provide the API name, context, and version. Thereafter, click **Create**.
 
-    <a href="{{base_path}}/assets/img/learn/create-api-form-swagger-petstore-filled.png"><img src="{{base_path}}/assets/img/learn/create-api-form-swagger-petstore-filled.png" alt="provide api details"></a>
+    <a href="{{base_path}}/assets/img/learn/prototype-api/create-api-form-swagger-petstore-filled.png"><img src="{{base_path}}/assets/img/learn/prototype-api/create-api-form-swagger-petstore-filled.png" alt="provide api details"></a>
          
     Now you will be directed to the API overview page.
 
-4. Click **Endpoints** to navigate to the Endpoints page and select **Prototype Implementation** as the endpoint type.
+4. Click **Endpoints** to navigate to the Endpoints page and select **Mock Implementation** as the endpoint type.
 
-    <a href="{{base_path}}/assets/img/learn/create-api-prototype-endpoint-add-swagger-petstore.png"><img src="{{base_path}}/assets/img/learn/create-api-prototype-endpoint-add-swagger-petstore.png" alt="select prototype implementation"></a>
+    <a href="{{base_path}}/assets/img/learn/prototype-api/create-api-prototype-mock-impl-swagger-petstore.png"><img src="{{base_path}}/assets/img/learn/prototype-api/create-api-prototype-mock-impl-swagger-petstore.png" alt="select prototype implementation"></a>
 
 5. Click and expand any of the methods that contain a sample/mock payload to view the inline script that has been generated.
 
@@ -67,8 +67,15 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
 
       ```
       // **GENERATED CODE** //
-      
-      responses[200]["application/json"] = {                 // Mock response payload stored as a variable
+
+      var responseCode = mc.getProperty('query.param.responseCode');
+      var responseCodeSC;
+      var responses = [];
+
+      if (!responses[200]) {
+      responses [200] = [];
+      }
+      responses[200]["application/json"] = {
         "id" : 10,
         "name" : "doggie",
         "category" : {
@@ -81,10 +88,10 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
           "name" : "string"
         } ],
         "status" : "available"
-      };                                                
-      
+      };
+
       // **MANUALLY ADDED CODE** //
-      
+
       if (mc.getProperty('uri.var.petId') == 1) {          // Get the path parameter 'petID' to check the condition
         responses[200]["application/json"] = {
           "id" : 1,
@@ -101,9 +108,42 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
           "status" : "available"
         }
       }
-      
-      mc.setProperty('CONTENT_TYPE', 'application/json');  // Set the content type of the payload to the message context 
-      mc.setPayloadJSON(response200json);                  // Set the new payload to the message context
+
+      if (!responses[400]) {
+        responses[400] = [];
+      }
+      responses[400]["application/json"] = "";
+
+      if (!responses[404]) {
+        responses[404] = [];
+      }
+      responses[404]["application/json"] = "";
+
+      responses[501] = [];
+      responses[501]["application/json"] = {
+      "code" : 501,
+      "description" : "Not Implemented"}
+
+      if (responseCode == null) {
+      responseCode = 200;
+      }
+
+      if (!responses[responseCode]) {
+        if (responses["default"]) {
+          responseCode = "default"
+        } else {
+          responseCode = 501;
+        }
+      }
+      if (responseCode === "default") {
+        responseCodeSC = mc.getProperty('query.param.responseCode');
+      } else {
+        responseCodeSC = responseCode;
+      }
+
+      mc.setProperty('CONTENT_TYPE', 'application/json');               // Set the content type of the payload to the message context 
+      mc.setProperty('HTTP_SC', responseCodeSC + "");
+      mc.setPayloadJSON(responses[responseCode]["application/json"]);   // Set the new payload to the message context
 
       ```
     
@@ -129,25 +169,59 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
 
      <a href="{{base_path}}/assets/img/learn/create-api-prototype-click-save.png"><img src="{{base_path}}/assets/img/learn/create-api-prototype-click-save.png" alt="save inline scripts page"></a>
 
-## Step 2 - Deploy the API as a prototype
+## Step 2 - Configure security for the prototype API
 
-1. Click **Lifecycle** to navigate to the Lifecycle page.
+!!! note 
+    By default, security is enabled for all the resources of the prototype API and you will need a subscription to invoke the API.
 
-2. Click **Deploy as a Prototype** to deploy the API as a prototype.
+1. Click **Resources** to navigate to the Resources page.
 
-    <a href="{{base_path}}/assets/img/learn/create-api-prototype-lc-page-petstore.png"><img src="{{base_path}}/assets/img/learn/create-api-prototype-lc-page-petstore.png" alt="deploy as prototype"></a>
+    <a href="{{base_path}}/assets/img/learn/prototype-api/create-prototype-api-resource-page.png"><img src="{{base_path}}/assets/img/learn/prototype-api/create-prototype-api-resource-page.png" alt="select resource page"></a>
 
-## Step 3 - Invoke the API
+2. To disable security for a resource, use the security checkbox after expanding any method.
+
+    <a href="{{base_path}}/assets/img/learn/prototype-api/create-prototype-api-resource-disable-sec.png"><img src="{{base_path}}/assets/img/learn/prototype-api/create-prototype-api-resource-disable-sec.png" alt="disable security for a resource of prototype api"></a>
+
+    !!! tip 
+        To disable security for all the resources, use the lock icon as shown below,
+
+        <a href="{{base_path}}/assets/img/learn/prototype-api/create-prototype-api-resource-disable-all-sec.png"><img src="{{base_path}}/assets/img/learn/prototype-api/create-prototype-api-resource-disable-all-sec.png" alt="disable security for all resources of prototype api"></a>
+
+    !!! note
+        Skip the following and continue from [Step 3 - Deploy the API as a prototype]({{base_path}}/design/prototype-api/create-a-mock-api-with-an-inline-script/#step-3-deploy-the-api-as-a-prototype) if you have disabled security for all the resources.
+
+3. To create a subscription, click **Subscriptions**.
+
+4. Select the required Business plans and click **Save**.
+
+    <a href="{{base_path}}/assets/img/learn/prototype-api/create-prototype-api-subscription.png"><img src="{{base_path}}/assets/img/learn/prototype-api/create-prototype-api-subscription.png" alt="select prototype bussiness plan"></a>
+
+## Step 3 - Deploy the API as a prototype
+
+1. Click **Deployments** to navigate to the Deployments page. Provide a description for the revision if required and click **Deploy**.
+
+    <a href="{{base_path}}/assets/img/learn/prototype-api/create-prototype-api-deployment.png"><img src="{{base_path}}/assets/img/learn/prototype-api/create-prototype-api-deployment.png" alt="create a deployment"></a>
+
+2. Click **Lifecycle** to navigate to the Lifecycle page.
+
+3. Click **Prototype** to deploy the API as a prototype.
+
+    <a href="{{base_path}}/assets/img/learn/prototype-api/create-prototype-api-life-cycle-prototype.png"><img src="{{base_path}}/assets/img/learn/prototype-api/create-prototype-api-life-cycle-prototype.png" alt="deploy as prototype"></a>
+
+## Step 4 - Invoke the API
 
 1. Click **View in Developer Portal** to navigate to the Developer Portal after the API is deployed.
 
-2. Click **Try Out** to navigate to the API Console.
+    !!! note 
+        If you have enabled security for the prototype API, follow the [Subscribe to an API]({{base_path}}/consume/manage-subscription/subscribe-to-an-api/) guide to subscribe and obtain an access token to invoke the prototype API.
 
-     <a href="{{base_path}}/assets/img/learn/create-api-prototype-dev-portal-overview-petstore.png"><img src="{{base_path}}/assets/img/learn/create-api-prototype-dev-portal-overview-petstore.png" alt="try out prototype"></a>
+2. Click **Try Out** to navigate to the API Console. If you have enabled security, you can either use the access token got from the above step or use the **GET TEST KEY** option. Otherwise, leave the Access Token field empty.
+
+     <a href="{{base_path}}/assets/img/learn/prototype-api/create-prototype-api-dev-portal-tryout-petstore.png"><img src="{{base_path}}/assets/img/learn/prototype-api/create-prototype-api-dev-portal-tryout-petstore.png" alt="try out prototype"></a>
 
 3. Expand any method and click **Try it out**.
 
-     [![Tryout click]({{base_path}}/assets/img/learn/create-api-prototype-tryout-click.png)]({{base_path}}/assets/img/learn/create-api-prototype-tryout-click.png)
+     [![Tryout click]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-tryout-click.png)]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-tryout-click.png)
 
 4. Enter the value for the parameter and click **Execute** to invoke the API.
 
@@ -156,24 +230,24 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
 
     1. For `petId : " 0 " `
 
-         [![Tryout for petid0]({{base_path}}/assets/img/learn/create-api-prototype-tryout-execute-petid0.png)]({{base_path}}/assets/img/learn/create-api-prototype-tryout-execute-petid0.png)
+         [![Tryout for petid0]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-tryout-execute-petid0.png)]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-tryout-execute-petid0.png)
  
         The response payload that is defined in the generated script is returned.
    
-        [![Response for petid0]({{base_path}}/assets/img/learn/create-api-prototype-execute-response-petid0.png)]({{base_path}}/assets/img/learn/create-api-prototype-execute-response-petid0.png)
+        [![Response for petid0]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-execute-response-petid0.png)]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-execute-response-petid0.png)
 
     2. For `petId : " 1 " `
 
-        [![Tryout for petid1]({{base_path}}/assets/img/learn/create-api-prototype-tryout-execute-petid1.png)]({{base_path}}/assets/img/learn/create-api-prototype-tryout-execute-petid1.png)
+        [![Tryout for petid1]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-tryout-execute-petid1.png)]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-tryout-execute-petid1.png)
 
         The response payload defined in the manually modified script is returned.
 
-        [![Response for petid1]({{base_path}}/assets/img/learn/create-api-prototype-execute-response-petid1.png)]({{base_path}}/assets/img/learn/create-api-prototype-execute-response-petid1.png)
+        [![Response for petid1]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-execute-response-petid1.png)]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-execute-response-petid1.png)
    
    
 You have successfully created an API with an inline script, deployed it as a prototype, and invoked it via the integrated API Console.
 
-An API can also be prototyped by moving the API to the `PROTOTYPED` state by changing the API lifecycle state and providing the prototype endpoints.
+An API can also be prototyped by moving the API to the `PROTOTYPED` state by changing the API lifecycle state.
 
 For more information, see the [Deploy and Test Prototype APIs]({{base_path}}/design/prototype-api/deploy-and-test-mock-apis) tutorial.
 
