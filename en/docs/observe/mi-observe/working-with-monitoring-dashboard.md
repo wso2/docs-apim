@@ -70,8 +70,7 @@ Follow the steps given below to configure the MI servers to publish data to the 
     If the Micro Integrator server is deployed in a Kubernetes environment, add the following configuration to the `deployment.toml` file. 
     
     Note: This capability is released as a product update on <b>22/09/2021</b>. If you do not have this update, you can [get the latest updates](https://updates.docs.wso2.com/en/latest/updates/overview/#!) now.
-    
-    Limitation: Currently the dashboard does not support deployments with replicas.
+    <br/>Limitation: However when there are replicas in the deployment, the write operations will not work properly.
 
     If communicating via Ingress, use the following configuration:
     ```toml
