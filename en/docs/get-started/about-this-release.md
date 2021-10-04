@@ -73,6 +73,10 @@ It is now available to download from [here](https://wso2.com/integration/integra
 
   This feature allows you to generate data service definitions by pointing to an existing datasource in the workspace without creating that from scratch.
 
+- **[Generating Service Catalog Metadata Artifacts]({{base_path}}/integrate/develop/generate-service-catalog-metadata.md)**
+
+  This feature generates metadata artifacts for the APIs and Proxy services has been created inside the older Integration Studio workspaces
+
 ## **Micro Integrator Dashboard**
 
 The Micro Integrator dashboard can connect to multiple Micro Integrator server instances and monitor artifacts and logs from a selected cluster or group of server nodes.
