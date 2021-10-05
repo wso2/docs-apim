@@ -1277,6 +1277,7 @@ nav:
             - Installing the MI Dashboard:
                 - Installing the MI Dashboard: install-and-setup/install/installing-the-product/installing-mi-dashboard.md
                 - Running the MI Dashboard: install-and-setup/install/installing-the-product/running-the-mi-dashboard.md
+                - Running the MI Dashboard as a Windows Service: install-and-setup/install/installing-the-product/running-the-mi-dashboard-as-windows-service.md
             - Installing the Streaming Integrator (SI):
                 - Installing the SI: install-and-setup/install/installing-the-product/installing-si.md
                 - Installing Siddhi Extensions: develop/streaming-apps/installing-siddhi-extensions.md
