@@ -5,7 +5,7 @@
 
 The information displayed in this dashboard is as follows.
 
-![Aggregation statistics dashboard]({{base_path}}/assets/img/streaming/streaming-integrator-grafana-dashboard/aggregation_statistics_dashboard.png)
+![Aggregation statistics dashboard]({{base_path}}/assets/img/streaming/streaming-integrator-grafana-dashboard/aggregation_statistics_dashboard.jpg)
 
 ## Aggregation Statistics Summary Table
 

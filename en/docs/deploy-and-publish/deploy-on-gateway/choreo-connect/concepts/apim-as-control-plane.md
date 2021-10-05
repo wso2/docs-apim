@@ -1,9 +1,61 @@
-# Choreo Connect with API Manager as Control Plane.
+# Choreo Connect with API Manager as Control Plane
 
 Choreo Connect can connect to API Manager running on cloud or on-premise as its control plane. Choreo Connect can be configured to connect with
 APIM control plane, therefore the user actions like API deploying, application creation, key generation, subscription creation etc are received by the Choreo Connect seamlessly.
 
 [![]({{base_path}}/assets/img/deploy/mgw/mgw_overview.png)]({{base_path}}/assets/img/deploy/mgw/mgw_overview.png)
+
+## Configuring Choreo Connect with API Manager
+
+!!! info
+    **Before you begin**
+
+    - Make sure you have installed Docker and Docker Compose on your machine.
+
+    - Download the latest [Choreo Connect release](https://github.com/wso2/product-microgateway/releases) and extract it to a folder of your choice. The extracted folder will be referred to as `CHOREO-CONNECT_HOME` here onwards.
+
+    - This guide assumes that you have already started the WSO2 API Manager instance. If not, download the latest [release](https://github.com/wso2/product-apim/releases) and follow the steps [here](https://github.com/wso2/product-apim#installation--running).
+
+### Step 1 - Find the APIM IP Address
+
+In order to tell Choreo Connect where API Manager (APIM) is located, find out the IP that can be used to access the API Manager instance. If you are trying out WSO2 API Manager locally, the private IP retrieved using `hostname -I` or `ipconfig` would do.
+
+### Step 2 - Update the Choreo Connect Configuration File
+
+Open the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/config.toml` file in a text editor and update it as follows.
+
+In the `[controlPlane.eventHub]` section,
+
+ - set `enabled` to true
+ - update `serviceUrl` and `eventHub` endpoints with with the IP of API Manager. (Search for `apim` and replace them with the IP. Or else, add an entry to the `/etc/hosts` file as `<ip-of-apim> apim`)
+ - if you want to use a Gateway Environment other than the default, update `environmentLabels` with the name of the new Gateway Environment. If not, leave the value `"Default"` as it is.
+
+ Example
+ ``` yaml
+ [controlPlane.eventHub]
+  enabled = true
+  serviceUrl = "https://<apim-ip>:9443/"
+  username="admin"
+  password="$env{cp_admin_pwd}"
+  environmentLabels = ["Default"]
+  retryInterval = 5
+  skipSSLVerification=true
+  # Message broker connection URL of the control plane
+  [controlPlane.eventHub.jmsConnectionParameters]
+    eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@<apim-ip>:5672?retries='10'&connectdelay='30'"]
+ ``` 
+
+!!! tip
+
+    In API Manager, a new Gateway Environment can be created from the Admin Portal (available at `https:<apim-host>:<apim-port>/admin`) **Gateways** tab.
+
+### Step 3 - Start Choreo Connect
+
+Now, let's start Choreo Connect. Navigate to `CHOREO-CONNECT_HOME/docker-compose/choreo-connect` and execute the following command.
+
+``` bash
+docker-compose up -d
+```
 
 ## Deploying API from Publisher portal
 Following steps explains how API is getting deployed in Choreo Connect upon API deploying action triggered in the publisher portal
@@ -48,7 +100,7 @@ Choreo Connect supports [resource level]({{base_path}}/deploy-and-publish/deploy
 #### Distributed rate limiting
 In a deployment with multiple Choreo Connect instances, throttling becomes a challenge with node local throttling as the throttling
 decision is made based on the local counter within each node. If we proceed with the node local throttling in such
-environment, the API user would be allowed to send multiples of the throttling limit.I.e. if the throttling limit is set to 10,
+environment, the API user would be allowed to send multiples of the throttling limit. I.e., if the throttling limit is set to 10,
 if we have 3 gateways in a cluster, it will allow 30 requests to pass to the backend before all three gateways
 throttle out requests. This will put an unexpected load on the backend. To address this requirement, Choreo Connect
 supports distributed throttling where it is able to work with a central traffic management solution. In this case,
@@ -57,7 +109,7 @@ multiple Choreo Connect instances can connect with WSO2 API Manager
 and perform rate-limiting precisely. Find information on how to enable distributed rate limiting from [here](https://mg.docs.wso2.com/en/latest/publish/rate-limiting/distributed-throttling/#distributed-throttling).
 
 !!! note
-    If you start the WSO2 API Manager without providing any profile, it runs as All in One Node (All the profiles are activated). For testing purposes, you can simply start the API Manager following the [quick start guide]({{apim_path}}/getting-started/quick-start-guide/) and test.
+    If you start the WSO2 API Manager without providing any profile, it runs as All in One Node (All the profiles are activated). For testing purposes, you can simply start the API Manager following the [quick start guide]({{base_path}}/getting-started/quick-start-guide/) and test.
 
 ### Different levels of throttling
 
@@ -65,20 +117,20 @@ and perform rate-limiting precisely. Find information on how to enable distribut
 
 Subscription-level throttling tiers are set to an API during the API implementation. When a user subscribes to the API through the developer portal, the subscription-level throttling tiers selected for the API will be listed from which one can be selected.
 
-Based on the selected tier, a subscriber will be throttled out upon reaching the maximum number of requests specified in the tier, see [subscription-level throttling (API Publisher)]({{apim_path}}/deploy/ap-microgateway/rate-limiting/setting-throttling-limits/#subscription-level-throttling-api-publisher).
+Based on the selected tier, a subscriber will be throttled out upon reaching the maximum number of requests specified in the tier, see [subscription-level throttling (API Publisher)]({{apim_path}}/deploy-and-publish/choreo-connect/rate-limiting/setting-throttling-limits/#subscription-level-throttling-api-publisher).
 
 #### Application-level throttling (application developer)
 
-Application-level throttling tiers are defined at the time an application is created in the API Developer Portal as shown [here](https://apim.docs.wso2.com/en/latest/learn/rate-limiting/setting-throttling-limits/#application-level-throttling-application-developer). The limits are restricted per token for a specific application.
+Application-level throttling tiers are defined at the time an application is created in the API Developer Portal as shown [here]({{base_path}}/design/rate-limiting/setting-throttling-limits/#application-level-throttling-application-developer). The limits are restricted per token for a specific application.
 
 An application is a logical collection of one or more APIs. An API is subscribed to an application. A single access token generated for an application can be used to invoke all the APIs subscribed to that application.
 
 An application can be used to support environment restrictions. For e.g., if there is an infrastructure limitation to serve a maximum number of requests at a given time, a throttling tier can be set to an application to avoid the system being overloaded.
 
-For more information on application-level throttling tiers, see [application-level Throttling tiers](https://apim.docs.wso2.com/en/latest/learn/rate-limiting/adding-new-throttling-policies/#adding-a-new-application-level-throttling-tier).
+For more information on application-level throttling tiers, see [Application-Level Throttling tiers]({{base_path}}/design/rate-limiting/setting-throttling-limits/#application-level-throttling-application-developer).
 
 
-##Revoked Tokens
+## Revoked Tokens
 
 Choreo Connect is required to be notified when a token is revoked by the Security Token Service (STS).
 When Choreo Connect is working with JWT formatted self-contained access tokens, it does not communicate with the STS for checking the validity of the token. It considers any token with a trusted signature as valid as long as the token is not expired. 
@@ -106,4 +158,4 @@ For more information on how to enable and work with this feature, check [How to 
 
 ## Third party Key Managers
 
-Choreo Connect connects with the event hub to receive key manager events when actions such as add, update, delete happens in API Manager. Also during the startup, it pulls the key manager configuration details of third party keymanagers which are resided on API Manager admin portal in order to get the events that has happened before starting the Choreo Connect.
+Third Party Key Managers can be registered at APIM Admin Portal. The issuer data are used for JWT token validation in Choreo Connect. During the Choreo Connect startup, it is  connected with the event hub and pull the list of existing Key Managers. The data are stored in issuer data store at Enforcer. If the same token service has found at `config.toml` file, the configuration data in that issuer will be overridden with Key Manager Configurations comes from APIM Admin Portal. Whenever a Key Manager event (add, update, delete) receives to Choreo Connect, issuer data store will be updated accordingly. But if it still persists in `config.toml`, delete events will not be proceed.

@@ -20,7 +20,7 @@ different roles and have access to different resources and tools. For
 example:
 
 -   **Developer**: Uses WSO2 Integration Studio to
-    create services and Composite Applications (Capps) and push project
+    create services and Composite Applications (CApps) and push project
     artifacts to a source code repository, such as GitHub. Typically,
     the developer has no access to QA or Production resources.
 -   **DevOps or Operations team member**: Uses scripts to pull the applications created by the

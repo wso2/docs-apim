@@ -1,39 +1,55 @@
-# Importing Certificates to the API Microgateway Truststore
+# Importing Certificates to the API Choreo Connect Truststore
 
-For signature validation of JWTs, you need to add the public certificate of the Identity Provider to the truststore of the API Microgateway. Follow the steps given below to import the certificate.
+For signature validation of JWTs and to connect to external key manager endpoints, the public certificate of the external key manager should be added to the Choreo Connect Enforcer.
+
+Follow the steps below to add a new certificate to the enforcer trusted certs.
 
 1.  Convert the public certificate to a PEM format. For example,
 
-    ``` java
-    openssl x509 -inform der -in public_certificate.cert -out certificate.pem
-    ```
+    `openssl x509 -inform der -in public_certificate.cert -out certificate.pem`
 
-2.  Import the certificate to the truststore. The `           ballerinaTruststore.p12          ` resides in the generated distribution of the API Microgateway runtime and toolkit in the following locations.
-
-    ``` java
-    keytool -import -keystore <MGW_TOOLKIT_HOME>/lib/platform/bre/security/ballerinaTruststore.p12 -alias wso2carbonjwt -file certificate.pem
-    ```
-    
-    !!! note
-        Do not unzip the platform.zip in <MGW_TOOLKIT_HOME>/lib/ manually. After you use any toolkit command such as `micro-gw init petstore`, it will be automatically unzipped with necessary contents.
-
-    ``` java
-    keytool -import -keystore <MGW_RUNTIME_HOME>/runtime/bre/security/ballerinaTruststore.p12 -alias wso2carbonjwt -file certificate.pem
-    ```
+2.  Add the certificate to the relevant components resource folder `<CHOREO-CONNECT_HOME>/docker-compose/resources/<component>/security/truststore` directory.
 
     !!! note
-        Use the keytool that comes in JDK 8u60 or later.
+        For signature validation of JWTs, you need to add the public certificate of the Identity Provider to the truststore of the API Choreo Connect. 
+        Therefore add public certificate of identity provider in PEM format to `<CHOREO-CONNECT_HOME>/docker-compose/resources/enforcer/security/truststore` directory.
+        
+3.  Restart the component.
+   
+   `docker restart choreo-connect_enforcer_1`
+   
+## Adding a Certificate to Adapter Truststore
 
-### Default Certificates and aliases in WSO2 Microgateway 3.2.0 Truststore
+The trusted certificate location is configured as a volume mount for Adapter in the docker-compose.yaml file as below.
 
-The default truststore of WSO2 Microgateway ballerinaTruststore.p12 already contains default public certificates of the following products under the following aliases.
+``` tab="docker-compose.yaml"
+volumes:
+        - ../resources/adapter/security:/home/wso2/security
+```
 
-| Product default certificate | Alias         |
-|-----------------------------|---------------|
-| WSO2 API Manager 2.6.0      | wso2apim      |
-| WSO2 API Manager 3.0.0      | wso2carbonnew |
-| WSO2 API Manager 3.1.0      | wso2apim310   |
-| WSO2 API Manager 3.2.0      | wso2apim310   |
-| WSO2 Analytics 3.0.0        | wso2sp        |
+This mounts both the key store and truststore locations to the container.
 
+To add a new certificate Choreo Connect component, it should be done by adding the pem formatted certificate to the *truststore* location of that particular component.
 
+For an example, if a new certificate (router/enforcer or control plane) needs to be added to the adapter component,
+
+1. The certificate should be converted to PEM formate if it is not.
+2. Copy the PEM certificate into `<CHOREO-CONNECT_HOME>/resources/adapter/security/truststore` directory.
+3. Restart the adapter container.
+
+## Changing the Private Certificate of a Component
+If it is required to change the private certificate of a component, follow the steps below.
+
+1. Generate a new key pair for the component.
+   
+2. Copy the private key and certificate (in PEM format) into `<CHOREO-CONNECT_HOME>/resources/<COMPONENT>/security/keystore` directory.
+
+    Ex: To change the certificate of Adapter component, copy the new certificate to `<CHOREO-CONNECT_HOME>/resources/adapter/security/keystore` directory.
+
+3. If the certificate/ key name is changed, edit the corresponding configuration in `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect or choreo-connect-with-apim/conf/config.toml` file. Otherwise, use the same name as `mg.pem` and `mg.key` for the new certificate and key.
+
+4. Copy the public certificate (in PEM format) into the other two components. `<CHOREO-CONNECT_HOME>/resources/<COMPONENT>/security/truststore`
+
+    Ex: Copy the certificate to `<CHOREO-CONNECT_HOME>/resources/enforcer/security/keystore` and `<CHOREO-CONNECT_HOME>/resources/router/security/keystore`
+
+5. Restart the components.

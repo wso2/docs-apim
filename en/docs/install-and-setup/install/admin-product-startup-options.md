@@ -3,14 +3,14 @@
 Given below are the options that are available when starting a WSO2 product. The product startup scripts are stored in the `<PRODUCT_HOME>/bin/` directory. When you execute the startup script, you can pass a system property by appending it next to the start-up script as shown below.
 
 ``` java
-    sh wso2server.sh -<startup option>
+    sh api-manager.sh -<startup option>
 ```
 
 For example:
 
 ``` java
-    ./wso2server.sh -Dsetup (In Linux)
-    wso2server.bat -Dsetup (In Windows)
+    ./api-manager.sh -Dsetup (In Linux)
+    api-manager.bat -Dsetup (In Windows)
 ```
 
 Listed below are some general options that can be used for starting the server.

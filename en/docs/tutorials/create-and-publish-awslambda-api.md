@@ -18,7 +18,7 @@ Follow the steps below to create and publish an AWS Lambda API:
 
     !!!note
          **You do not need to enter the Endpoint during the initial process of creating the API.**
-         For more information on the possible API details that you can add, see [Create a REST API]({{base_path}}/design/create-api/create-a-rest-api)
+         For more information on the possible API details that you can add, see [Create a REST API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api)
 
 Now, you have created a new REST API successfully. 
 
@@ -58,7 +58,7 @@ Now, you have created a new REST API successfully.
 
     1. Click delete, as shown below, to remove all the existing resources.
 
-          [![Delete all existing resources]({{base_path}}/assets/img/learn/delete-all-existing-resources.jpg)]({{base_path}}/assets/img/learn/delete-all-existing-resources.jpg)
+          [![Delete all existing resources]({{base_path}}/assets/img/learn/delete-all-existing-resources.png)]({{base_path}}/assets/img/learn/delete-all-existing-resources.png)
 
     2. Add a new resource.
           1. Select **POST** as HTTP Verb.
@@ -84,6 +84,9 @@ Now, you have created a new REST API successfully.
 5. Click **SAVE**.
 
     [![Save resources]({{base_path}}/assets/img/learn/resource-save.png)]({{base_path}}/assets/img/learn/resource-save.png)
+
+!!! note
+    Parameter mapping (path, query, and header) is not yet supported and you have to add these parameters to the payload before you send it.
 
 ## Step 4 - Publish the AWS Lambda API
 

@@ -7,7 +7,7 @@ The following media types have Apache Solr based indexers by default, which are 
 -   Text : text/plain
 -   PDF : application/pdf
 -   MS word : application/msword
--   MS Powerpoint : application/vnd.ms-powerpoint
+-   MS PowerPoint : application/vnd.ms-powerpoint
 -   MS Excel : application/vnd.ms-excel
 -   XML : application/xml
 

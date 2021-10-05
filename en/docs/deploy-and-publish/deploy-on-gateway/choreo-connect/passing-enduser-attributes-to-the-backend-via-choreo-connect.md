@@ -4,7 +4,7 @@
 
 ## Enabling the default backend JWT generator
 
-Before passing end user attributes, you need to enable and configure the JWT implementation, as mentioned below in WSO2 Microgateway.
+Before passing end user attributes, you need to enable and configure the JWT implementation, as mentioned below in Choreo Connect.
 
 1. Navigate to the `CHOREO-CONNECT_HOME/docker-compose/choreo-connect/conf/config.toml` file.
 
@@ -25,12 +25,12 @@ Before passing end user attributes, you need to enable and configure the JWT imp
 
 {!./includes/deploy/backend-jwt-note.md!}
 
-When generating the backend JWT, it retrieves the claims from the invoked JWT. If you need to change the way that JWT is generated in WSO2 API Microgateway, such as by adding additional claims or by completely changing the JWT, follow the instructions below to implement the customized Gateway JWT generation:
+When generating the backend JWT, it retrieves the claims from the invoked JWT. If you need to change the way that JWT is generated in Choreo Connect, such as by adding additional claims or by completely changing the JWT, follow the instructions below to implement the customized Gateway JWT generation:
 
 1. Write your own JWTGenerator class extending the `org.wso2.carbon.apimgt.common.gateway.jwtgenerator.AbstractAPIMgtGatewayJWTGenerator` class.
 
     !!! info
-        WSO2 API Microgateway uses the [AbstractAPIMgtGatewayJWTGenerator](https://github.com/wso2/carbon-apimgt/blob/master/components/apimgt/org.wso2.carbon.apimgt.common.gateway/src/main/java/org/wso2/carbon/apimgt/common/gateway/jwtgenerator/AbstractAPIMgtGatewayJWTGenerator.java) class to support JWT generation within the Microgateway.
+        Choreo Connect uses the [AbstractAPIMgtGatewayJWTGenerator](https://github.com/wso2/carbon-apimgt/blob/master/components/apimgt/org.wso2.carbon.apimgt.common.gateway/src/main/java/org/wso2/carbon/apimgt/common/gateway/jwtgenerator/AbstractAPIMgtGatewayJWTGenerator.java) class to support JWT generation within Choreo Connect.
 
     ```java
         package org.wso2.carbon.test;

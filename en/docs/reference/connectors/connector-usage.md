@@ -10,7 +10,7 @@ Connectors can be added and used as part of the integration logic of your integr
 
 All the connectors are hosted in the [Integration Connector Store](https://store.wso2.com/store/assets/esbconnector/list). You can download the connector from the store as a .zip file. 
 
-<img src="{{base_path}}/assets/img/integrate/connectors/connector-store.png" title="Connector store" width="700" alt="Connector store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/connector-store.jpg" title="Connector store" width="700" alt="Connector store"/>
 
 The source code for connectors can also be found in the specific [WSO2 extensions GitHub repository](https://github.com/wso2-extensions/).
 
@@ -71,7 +71,7 @@ For recently updated connector versions, you need to create a connection, add co
 
 For recently updated connector versions, this is available from WSO2 Integration Studio 7.1.0 onwards. When creating a connection you can provide configuration values and they will get saved as a local-entry internally. 
 
-<img src="{{base_path}}/assets/img/integrate/connectors/connection-configuration.png" title="Connection configuration" width="450" alt="Connection configuration"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/connection-configuration.jpg" title="Connection configuration" width="450" alt="Connection configuration"/>
 
 ### For connector versions that were not updated recently
 
@@ -117,13 +117,13 @@ Please refer to the reference documentation of the connector for details.
 
 Connector implementations will have DEBUG and TRACE level logs. You can enable them to see in detail what is going on with the connector. 
 
-* See [Configuring Log4j2 Properties section of the documentation]({{base_path}}/observe/mi-observe/logs/configuring_log4j_properties/) on how to enable DEBUG logs specifically for a Java package and on how to view the logs.
+* See [Configuring Log4j2 Properties section of the documentation]({{base_path}}/observe/micro-integrator/classic-observability-logs/configuring-log4j2-properties/) on how to enable DEBUG logs specifically for a Java package and on how to view the logs.
 
 * To get the package name of the connector implementation, refer the [How to contribute section of the overview page of connector documentation]({{base_path}}/reference/connectors/connectors-overview/#contribute-to-the-connector-project). 
 
 ### Enable wire logging 
 
-For SaaS connectors that use the HTTP transport of the integration runtime, developers can enable wire logs to see details of the messages that are sent from the runtime to the back-end service and the response sent back. This is useful to check the exact message that is sent out by the connector to the back-end service. See [documentation on monitoring wire logs]({{base_path}}/observe/mi-observe/logs/monitoring_logs/#wire-logs) for instructions on how to enable wire logs. 
+For SaaS connectors that use the HTTP transport of the integration runtime, developers can enable wire logs to see details of the messages that are sent from the runtime to the back-end service and the response sent back. This is useful to check the exact message that is sent out by the connector to the back-end service. See [documentation on monitoring wire logs]({{base_path}}/observe/micro-integrator/classic-observability-logs/monitoring-logs/#wire-logs) for instructions on how to enable wire logs. 
 
 ### Mediation debug 
 

@@ -1,7 +1,7 @@
 # Enabling Tracing with OpenTracing
 
 In a distributed API Manager architecture, tracing a message is important to debug and observe a message path. This is known as distributed tracing. OpenTracing allows you to enable distributed tracing for WSO2 API Manager.
-OpenTracing aims to be an open, vendor-neutral standard for distributed systems instrumentation. It offers a way for developers to follow the thread — to trace requests from beginning to end across touchpoints and understand distributed systems at scale. Open tracing will also help to trace the message and identify the latencies that took place in each process or method. Thereby, open tracing will help you to carry out a time-related analysis.
+OpenTracing aims to be an open, vendor-neutral standard for distributed systems instrumentation. It offers a way for developers to follow the thread — to trace requests from beginning to end across touch points and understand distributed systems at scale. Open tracing will also help to trace the message and identify the latencies that took place in each process or method. Thereby, open tracing will help you to carry out a time-related analysis.
 
  WSO2 API Manager supports the following types of ways to retrieve instrumented data.
 
@@ -66,7 +66,19 @@ For more information, see [Open Tracer Configurations]({{base_path}}/reference/c
 
 
 ## Enabling Log Tracing
-1. Copy the following configuration into the `deployment.toml` file.
+
+1. Navigate to the `<APIM_HOME>/conf/log4j2.properties` file and locate the following configuration.
+
+    ```
+    logger.trace.name = trace
+    ```
+2. Change the above configuration as follows.
+
+    ```
+    logger.trace.name = tracer
+    ```
+
+3. Copy the following configuration into the `deployment.toml` file.
 
     ```toml
     [apim.open_tracer]
@@ -74,7 +86,7 @@ For more information, see [Open Tracer Configurations]({{base_path}}/reference/c
     log_tracer.enable = true
     ```
 
-2. Start the server.
+4. Start the server.
 
     After you invoke the APIs you will be able to see tracing data in the `wso2-apimgt-open-tracing.log` in the `<API-M_HOME>/repository/logs` folder.
 

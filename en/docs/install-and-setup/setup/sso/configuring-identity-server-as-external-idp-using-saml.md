@@ -4,11 +4,11 @@ The Single Sign-On with the SAML 2.0 feature in WSO2 API Manager is implemented 
 
 WSO2 Identity Server acts as an identity service provider of systems enabled with single sign-on, while the Web applications act as SSO service providers. Using this feature, you can configure SSO with SAML 2.0 across the API Publisher and Developer Portal. After configuring, you can access the Developer Portal or the API Publisher with a single authentication attempt.
 
-## Pre-requisites
+## prerequisites
 
 -   Download the API Manager distribution from [https://wso2.com/api-management/](https://wso2.com/api-management/).
 
--   Download the Identity Server distirbution from [https://wso2.com/identity-and-access-management/](https://wso2.com/identity-and-access-management/).
+-   Download the Identity Server distribution from [https://wso2.com/identity-and-access-management/](https://wso2.com/identity-and-access-management/).
 
     !!! Info
         To use WSO2 IS as the Key Manager, download the **WSO2 Identity Server 5.10.0 as a Key Manager** pack, with pre-packaged Key Manager features. The instructions are given below:
@@ -49,7 +49,7 @@ WSO2 Identity Server acts as an identity service provider of systems enabled wit
 
 3.  Edit the created Service Provider:
 
-    1.  Expand the **Inbound Authentication Configuration** secition and configure **SAML2 Web SSO Configuration** by providing the following information:
+    1.  Expand the **Inbound Authentication Configuration** section and configure **SAML2 Web SSO Configuration** by providing the following information:
 
         <table>
         <tbody>

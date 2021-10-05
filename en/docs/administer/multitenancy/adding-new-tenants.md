@@ -42,13 +42,13 @@ You can invoke these operations using a SOAP client like SOAP UI as follows:
     **In Linux**
 
     ``` java
-        sh wso2server.sh
+        sh api-manager.sh
     ```
 
     **In Windows**
 
     ``` java
-            wso2server.bat
+            api-manager.bat
     ```
 
         !!! tip
@@ -61,13 +61,13 @@ You can invoke these operations using a SOAP client like SOAP UI as follows:
         **In Linux**
 
         ``` java
-                sh wso2server.sh -DosgiConsole
+                sh api-manager.sh -DosgiConsole
         ```
 
         **In Windows**
 
         ``` java
-                    wso2server.bat -DosgiConsole
+                    api-manager.bat -DosgiConsole
         ```
 
     2.  When the server is started, hit the enter/return key several times to get the OSGI shell in the console.
@@ -81,7 +81,7 @@ You can invoke these operations using a SOAP client like SOAP UI as follows:
     -   For `TenantMgtAdminService: https://localhost:9443/services/TenantMgtAdminService?wsdl`
     -   For `RemoteTenantManagerService: https://localhost:9443/services/RemoteTenantManagerService?wsdl`
 
-    This assumes that you are running the SOAP UI client from the same machine as the product instance. Note that there are several operations shown in the SOAP UI after importing the wsdl file:
+    This assumes that you are running the SOAP UI client from the same machine as the product instance. Note that there are several operations shown in the SOAP UI after importing the WSDL file:
 
     ![]({{base_path}}/assets/attachments/126562777/126562782.png)
         !!! warning

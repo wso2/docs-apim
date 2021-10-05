@@ -14,8 +14,7 @@ The deployment options for a scalable streaming integrator depends on the statel
 The following topics provide detailed descriptions of two approaches.
 
 !!! tip "System Requirements"
-    For system requirements for this deployment, see [Installing the Streaming Integrator in a Virtual Machine]({{base_path}}/install-and-setup/install/installing-the-product/installing-si-in-vm).
-
+    For system requirements for this deployment, see [Installing the Streaming Integrator in a Virtual Machine]({{base_path}}/install-and-setup/install/installing-the-product/installing-si).
 
 ## Stateless scalable high availability (HA) deployment
 
@@ -23,9 +22,7 @@ In stateless scenarios, the system does not work with any in-memory state. Thus 
  
 This is depicted in the diagram below.
 
-![overview]({{base_path}}/assets/img/streaming/deploying-si-as-a-scalable-cluster/stateless-deployment-overview.png)
-
-
+[![overview]({{base_path}}/assets/img/streaming/deploying-si-as-a-scalable-cluster/stateless-deployment-overview.png){: style="width:60%"}]({{base_path}}/assets/img/streaming/deploying-si-as-a-scalable-cluster/stateless-deployment-overview.png)
 
 ## Stateful scalable high availability (HA) deployment
 
@@ -38,7 +35,7 @@ partitioning where one bucket of partitioned data is processed only in one speci
 
 The following is a high level diagram of event flow and components to achieve scalable, stateful, and highly available deployment.
 
-![overview]({{base_path}}/assets/img/streaming/deploying-si-as-a-scalable-cluster/stateful-deployment-overview.png)
+[![overview]({{base_path}}/assets/img/streaming/deploying-si-as-a-scalable-cluster/stateful-deployment-overview.png){: style="width:80%"}]({{base_path}}/assets/img/streaming/deploying-si-as-a-scalable-cluster/stateful-deployment-overview.png)
 
 The following sections describe each component in detail and how to configure them with WSO2 Streaming Integrator.
 
@@ -51,8 +48,8 @@ sample Siddhi application syntax that defines a stream. It shows how the distrib
 this example, data is partitioned from tenant domain. For more information, see [Siddhi Query Guide - Distributed Sink](https://siddhi.io/en/v4.x/docs/query-guide/#distributed-sink).
 
 !!! note
-    In the following example, the definition of the `Request` stream(Request stream) only includes the logicto send events out for load balancers via http for each
-    partition. In addition, there should be a logic to consume eventsfrom outside and direct them to the `Request` stream.
+    In the following example, the definition of the `Request` stream(Request stream) only includes the logic to send events out for load balancers via http for each
+    partition. In addition, there should be a logic to consume events from outside and direct them to the `Request` stream.
 
 e.g.,
 

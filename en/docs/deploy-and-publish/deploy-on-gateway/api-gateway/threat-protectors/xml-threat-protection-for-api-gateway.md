@@ -91,7 +91,7 @@ To edit the existing sequence follow the steps below.
 
 ### Applying the XML validator policy
 
-You can apply the pre-defined XML Policy through the UI. Follow the instructions below to apply the xml\_validator 
+You can apply the predefined XML Policy through the UI. Follow the instructions below to apply the xml\_validator 
 in sequence.
 
 -   Create an API or edit an existing API.
@@ -102,7 +102,8 @@ in sequence.
 
 -   Select `xml_validator` from the drop-down menu for Common Policies.
 
-    ![]({{base_path}}/assets/img/learn/mediation-xml_validator.png)
+    <a href="{{base_path}}/assets/img/learn/mediation-xml-validator.png"><img src="{{base_path}}/assets/img/learn/mediation-xml-validator.png" width="70%" alt="Select XML validator from the drop-down menu"></a> 
+
     
 -   Scroll down the page and click **Save** to save the changes.
 

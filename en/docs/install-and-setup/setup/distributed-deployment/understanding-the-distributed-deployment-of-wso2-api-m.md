@@ -1,37 +1,51 @@
-# Understanding the Distributed Deployment of WSO2 API-M
+# API-M Distributed Deployment - Overview
 
-Before understanding how to deploy WSO2 API Manager (WSO2 API-M), let's understand the WSO2 API-M distributed deployment better.
+Before deploying WSO2 API Manager (WSO2 API-M), let's understand how the WSO2 API-M distributed deployment works.
+According to the recommended [deployment patterns]({{base_path}}/install-and-setup/setup/deployment-overview/#simple-scalable-deployment), a distributed deployment includes API-M server nodes that separately run the [API-M profiles]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles). An API-M profile is a server instance that only runs specific components of the API-M server.
 
-## Understanding the WSO2 API-M architecture
+## API-M Profiles
 
-WSO2 API Manager uses the following main components:
+Listed below are the different profiles available in WSO2 API Manager. 
 
-|                     |                                                                                                                                                       |
-|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Publisher**       | Enables API providers to easily publish their APIs, share documentation, provision API keys, and gather feedback on API features, quality, and usage. |
-| **Developer Portal**           | Enables consumers to self-register, discover API functionality, subscribe to APIs, evaluate them, and interact with API publishers.                   |
-| **Key Manager**     | Responsible for all security and key-related operations.                                                                                              |
-| **Gateway**         | Responsible for securing, protecting, managing, and scaling API calls.                                                                                |
-| **Traffic Manager** | Used to make a decision on throttling. It also works as an event hub for broadcasting controller events such as throttling events, block conditions, revoke token retrieval events, API events, API policy events, application events, application policy events, application keys events, subscription events, and subscription policy events.                                                                                                               |
+<table>
+    <tr>
+        <th>
+            Profile
+        </td>
+        <th>
+            Description
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Gateway Profile
+        </td>
+        <td>
+            <p>Only starts the components related to the API Gateway.</p>
+            <p>This profile starts the back-end features for data processing.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Control Plane Profile
+        </td>
+        <td>
+            Starts all the API-M components (Traffic Manager, Key Manager, Publisher, Developer Portal) excluding the Gateway.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Traffic Manager Profile
+        </td>
+        <td>
+            Only starts the Traffic Manager component.
+        </td>
+    </tr>
+</table>
 
-For more information on the above, see the main components of a distributed system.
+## Databases used by API-M profiles
 
-API Manager uses the following internal datastores to store temporary internal system data required by the local instance of the API Manager.
-
--   **Carbon database** - Stores general internal data related to the product.
-
--   **Message Broker database** - Stores the product's message broker related data.
-
-!!! note
-    Product users should not configure the above datastores to use an external RDBMS. These datastores will be managed locally by the respective product instance.
-
-Additionally, API Manager uses the following databases, which are shared among the server nodes. These are responsible for storing user-specific application data.
-
--   **API Manager database** - Stores information related to the APIs along with the API subscription details. The Key Manager Server uses this database to store user access tokens that are used for verification of API calls. The API Manager database is also referred to as **WSO2\_AM\_DB** and **apimgtdb**.
--   **Shared database** - Stores information related to users and API metadata. In previous versions of API Manager a distinction was made between the user management database(used to store users and user roles) and the registry database(used to store API metadata). But now the Shared database will unify these requirements under one single database instance. This helps to reduce the complexity of the deployment. The Shared database user related information is accessed by the Key Manager Server, Developer Portal, and Publisher. The Shared database API metadata is accessed by the Publisher and Developer Portal. Optionally if you are planning to create this setup for a multi-tenanted environment (create and work with tenants), the Gateway and Key Manager components will also need to access API metadata in this database. The Shared database is also referred to as  **WSO2\_SHARED\_DB** and **shareddb**.
-
-
-WSO2 API Manager components use the databases as follows:
+When you run the API-M server as separate profiles, databases are used as shown below.
 
 <table>
 <thead>
@@ -50,30 +64,18 @@ database</strong></p>
 </thead>
 <tbody>
 <tr class="odd">
-<td><p><strong>Publisher</strong></p></td>
-<td><p>Used</p></td>
-<td><p>Used</p></td>
-
-</tr>
-<tr class="even">
-<td><p><strong>Developer Portal</strong></p></td>
-<td><p>Used</p></td>
-<td><p>Used</p></td>
-
-</tr>
-<tr class="odd">
-<td><p><strong>Key Manager</strong></p></td>
+<td><p><strong>Control Plane profile</strong></p></td>
 <td><p>Used</p></td>
 <td><p>Used</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>Gateway</strong></p></td>
+<td><p><strong>Gateway profile</strong></p></td>
 <td><p>Not used</p></td>
-<td><p>Used (in multi-tenancy mode/ in multiple gateway mode when Google Analytics is used)</p></td>
+<td><p>Used (in multi-tenancy mode/ in multiple gateway mode when Google Analytics is used)</p></td>
 
 </tr>
 <tr class="odd">
-<td><strong>Traffic Manager</strong></td>
+<td><strong>Traffic Manager profile</strong></td>
 <td>Used</td>
 <td>Used</td>
 
@@ -81,247 +83,68 @@ database</strong></p>
 </tbody>
 </table>
 
-When we consider a distributed deployment of WSO2 API Manager, we have the option of separating the five components and clustering each component as needed. Let's look more closely at how the API Manager components are deployed separately.
+## API-M Components
+
+Listed below are the five components in the API-M server. When you run the recommended API-M profiles, the components (from the below list) that are required for operating the functionalities related to each profile are used.
+
+<table>
+    <tr>
+        <th>
+            Component
+        </th>
+        <th>
+            Description
+        </th>
+    </tr>
+    <tr>
+        <td>
+            Gateway
+        </td>
+        <td>
+            Responsible for securing, protecting, managing, and scaling API calls.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Key Manager
+        </td>
+        <td>
+            Responsible for all security and key-related operations.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Traffic Manager
+        </td>
+        <td>
+            Used to make a decision on throttling. It also works as an event hub for broadcasting controller events such as throttling events, block conditions, revoke token retrieval events, API events, API policy events, application events, application policy events, application keys events, subscription events, and subscription policy events.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Publisher
+        </td>
+        <td>
+            Enables API providers to easily publish their APIs, share documentation, provision API keys, and gather feedback on API features, quality, and usage.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Developer Portal
+        </td>
+        <td>
+            Enables consumers to self-register, discover API functionality, subscribe to APIs, evaluate them, and interact with API publishers.
+        </td>
+    </tr>
+</table>
 
 ## Understanding the distributed deployment
 
-In the following diagram, the five components are set up in a distributed deployment, and the five databases are connected to the relevant components respectively. The entire setup is also fronted by a load balancer.
+The following diagram depicts how the Control Plane, Traffic Manager and Gateway profiles communicate in a distributed deployment setup, and also the database connections of each node.
 
+[![Distributed deployment]({{base_path}}/assets/img/setup-and-install/db-connections-distributed-deployment.png){: style="width:78%"}]({{base_path}}/assets/img/setup-and-install/db-connections-distributed-deployment.png)
 
-[![Understanding the distributed deployment]({{base_path}}/assets/img/setup-and-install/db-connections-distributed-deployment.png)]({{base_path}}/assets/img/setup-and-install/db-connections-distributed-deployment.png)
+## What's Next?
 
-??? "Click here for more details on default communication ports among components."
-    [![Communication ports among components]({{base_path}}/assets/img/setup-and-install/communication-among-port.png)]({{base_path}}/assets/img/setup-and-install/communication-among-port.png)
-    **Open port among profiles**
-    <table>
-    <thead>
-    <tr class="header">
-    <th>Client</th>
-    <th>Server</th>
-    <th>Port</th>
-    <th>Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td>Gateway</td>
-    <td>Key Manager</td>
-    <td>9443</td>
-        <td>
-            Token validation, token, revoke, authorize endpoint, block condition, revoke tokens
-        </td>
-    </tr>
-    <tr class="even">
-    <td>Gateway</td>
-    <td>Analytics Worker</td>
-    <td>7612</td>
-        <td>
-            Publishing analytics events
-        </td>
-     </tr>
-    <tr class="odd">
-    <td>Gateway</td>
-    <td>Analytics Worker</td>
-    <td>7712</td>
-        <td>
-            Authenticate to publishing analytics events
-        </td>
-    </tr>
-    <tr class="even">
-    <td>Gateway</td>
-    <td>Traffic Manager</td>
-    <td>9611</td>
-        <td>
-            Publishing throttling events
-        </td>
-    </tr>
-    <tr class="odd">
-    <td>Gateway</td>
-    <td>Traffic Managerr</td>
-    <td>9711</td>
-        <td>
-            Authenticate to publishing throttling events
-        </td>
-    </tr>
-    <tr class="even">
-    <td>Publisher</td>
-    <td>Traffic Manager</td>
-    <td>9443</td>
-        <td>
-            Deploying throttling policy via admin portal
-        </td>
-    </tr>
-    <tr class="odd">
-    <td>Publisher</td>
-    <td>Traffic Manager</td>
-    <td>9611</td>
-        <td>
-            Publishing events like block condition, token revocation
-        </td>
-    </tr>
-    <tr class="even">
-    <td>Publisher</td>
-    <td>Traffic Manager</td>
-    <td>9711</td>
-        <td>
-            Authenticate to publishing events
-        </td>
-    </tr>
-    <tr class="odd">
-    <td>Publisher</td>
-    <td>Gateway</td>
-    <td>9443</td>
-        <td>
-          Deploy API artifacts
-        </td>
-    </tr>
-    <tr class="even">
-    <td>Publisher</td>
-    <td>Analytics Worker</td>
-    <td>7612</td>
-         <td>
-            Publishing alert analytics events
-         </td>
-    </tr>
-    <tr class="odd">
-    <td>Publisher</td>
-    <td>Analytics Worker</td>
-    <td>7712</td>
-        <td>
-            Authenticate to Publishing alert analytics events
-        </td>
-    </tr>
-    <tr class="even">
-    <td>Publisher</td>
-    <td>Analytics Worker</td>
-    <td>7444</td>
-        <td>
-            Fetch all the generated alerts
-        </td>
-    </tr>
-    <tr class="odd">
-    <td>Dev Portal</td>
-    <td>Key Manager</td>
-    <td>9443</td>
-         <td>
-            Register auth app and generate app keys
-         </td>
-    </tr>
-    <tr class="even">
-    <td>Dev Portal</td>
-    <td>Gateway</td>
-    <td>8243</td>
-         <td>
-            Token endpoint and revoke endpoint
-         </td>
-    </tr>
-    <tr class="odd">
-    <td>Dev Portal</td>
-    <td>Analytics Worker</td>
-    <td>7612</td>
-    <td>
-        Publishing alert analytics events
-    </td>
-    </tr>
-    <tr class="even">
-    <td>Dev Portal</td>
-    <td>Analytics Worker</td>
-    <td>7712</td>
-        <td>
-           Authenticate to publishing alert analytics events
-        </td>
-    </tr>
-    <tr class="odd">
-    <td>Analytics Dashboard</td>
-    <td>Analytics Worker</td>
-    <td>9444</td>
-         <td>
-            Deploy business rules
-         </td>
-    </tr>
-    <tr class="even">
-    <td>Analytics Dashboard</td>
-    <td>Publisher</td>
-    <td>9443</td>
-         <td>
-            Use admin and publisher REST APIs
-         </td>
-    </tr>
-    <tr class="odd">
-    <td>Analytics Dashboard</td>
-    <td>Dev Portal</td>
-    <td>9443</td>
-         <td>
-            Use Dev-Portal portal REST APIs
-         </td>
-    </tr>
-    </tbody>
-    </table>
-    **Open port for Load balancer/User**
-    <table>
-    <thead>
-    <tr class="header">
-    <th>Server</th>
-    <th>Port</th>
-    <th>Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td>Key Manager</td>
-    <td>9443</td>
-        <td>
-            Token endpoint and identity REST APIs/web apps
-        </td>
-    </tr>
-    <tr class="even">
-    <td>Gateway</td>
-    <td>8243</td>
-        <td>
-            Gateway nio HTTPS
-        </td>
-     </tr>
-    <tr class="odd">
-    <td>Gateway</td>
-    <td>8280</td>
-        <td>
-            Gateway nio HTTP
-        </td>
-    </tr>
-    <tr class="even">
-    <td>Gateway</td>
-    <td>8099</td>
-        <td>
-            Gateway WS(Web socket)
-        </td>
-    </tr>
-    <tr class="odd">
-    <td>Gateway</td>
-    <td>9099</td>
-        <td>
-            Gateway WSS(Web socket secure)
-        </td>
-    </tr>
-    <tr class="even">
-    <td>Publisher</td>
-    <td>9443</td>
-        <td>
-            Publisher portal, Admin and Publisher REST API
-        </td>
-    </tr>
-    <tr class="odd">
-    <td>Dev Portal</td>
-    <td>9443</td>
-        <td>
-            Dev portal and Rest API
-        </td>
-    </tr>
-    <tr class="even">
-    <td>Analytics Dashboard</td>
-    <td>9643</td>
-        <td>
-            Analytics dashboard and business rule portals
-        </td>
-    </tr>
-    </tbody>
-    </table>
+-   Find out more about [running API-M profiles]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles).
+-   See the instructions on [configuring a distributed API-M deployment]({{base_path}}/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup).

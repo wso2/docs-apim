@@ -247,3 +247,7 @@ Now, you have created and configured the WebSocket API successfully.
           </div></html>
 
 You have successfully created and published your first WebSocket API, subscribed to it, obtained an access token for testing, and tested your API with the access token.
+
+### Troubleshooting
+
+If you require more detailed logs in the WebSocket API flow in order to troubleshoot and debug an error in your scenario, see [Troubleshooting WebSocket APIs]({{base_path}}/troubleshooting/troubleshooting-websocket-api/).

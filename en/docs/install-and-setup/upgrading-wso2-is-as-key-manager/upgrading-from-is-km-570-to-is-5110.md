@@ -1,6 +1,6 @@
 # Upgrading WSO2 IS as Key Manager to 5.11.0
 
-The following information describes how to upgrade your **WSO2 API Manager (WSO2 API-M)** environment **from APIM 2.6.0 to 4.0.0** when **WSO2 Identity Server (WSO2 IS)** is the **Key Manager** in the pre migrated setup.
+The following information describes how to upgrade your **WSO2 API Manager (WSO2 API-M)** environment **from APIM 2.6.0 to 4.0.0** when **WSO2 Identity Server (WSO2 IS)** is the **Key Manager** in the pre-migrated setup.
 
 !!! note
     -   You can follow the below information in either one of the following situations:
@@ -81,11 +81,12 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
         custom_webapps = ["/keymanager-operations/"]
         ```
 
-3. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-km-connector-1.0.15.zip).
+3. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-extensions-1.2.10.zip).
 
 4. Extract the distribution and copy the following JAR files to the `<IS_HOME>/repository/components/dropins` directory.
-    -   wso2is.key.manager.core-1.0.x
-    -   wso2is.notification.event.handlers_1.0.x
+
+     - `wso2is.key.manager.core-1.2.10.jar`
+     - `wso2is.notification.event.handlers_1.2.10.jar`
 
 5. Add `keymanager-operations.war` from the extracted distribution to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
@@ -93,7 +94,7 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
 
 1. Follow Step 2 and 3 under [Step 2 - Upgrade API Manager to 4.0.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-400/#step-2-upgrade-api-manager-to-400) to backup and upgrade the WSO2 API-M `WSO2AM_DB` from 2.6.0 to 4.0.0. This will be used as the `identity_db` in IS 5.11.0.
 
-2. Folllow the guidelines in [WSO2 IS 5.11.0 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/) to migrate your current IS as KM 5.7.0 distribution to IS 5.11.0.
+2. Follow the guidelines in [WSO2 IS 5.11.0 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/) to migrate your current IS as KM 5.7.0 distribution to IS 5.11.0.
 
     !!! Important
         When following the instructions in [Migration the configurations](https://is.docs.wso2.com/en/5.11.0/setup/migrating-preparing-for-migration/#migrating-the-configurations) section of IS 5.11.0 migration guide, make sure to
@@ -214,8 +215,3 @@ Follow the steps mentioned in [Upgrading API-M from 2.6.0 to 4.0.0]({{base_path}
     [user_store]
     type = "database_unique_id"
     ```
-
-!!! note
-    Prior to WSO2 API Manager 4.0.0, the distributed deployment comprised of five main product profiles, namely Publisher, Developer Portal, Gateway, Key Manager, and Traffic Manager. However, the new architecture in APIM 4.0.0 only has three profiles, namely Gateway, Traffic Manager, and Default.
-    All the data is persisted in databases **from WSO2 API-M 4.0.0 onwards**. Therefore, it is recommended to execute the migration client in the Default profile.
-    For more details on the WSO2 API-M 4.0.0 distributed deployment, see [WSO2 API Manager distributed documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m).

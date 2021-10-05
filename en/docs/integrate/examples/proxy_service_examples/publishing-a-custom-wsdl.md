@@ -37,7 +37,7 @@ Following is a sample proxy service configuration that we can used to implement 
 ## Build and run
 
 The wsdl file `sample_proxy_1.wsdl` can be downloaded from  [sample_proxy_1.wsdl](https://github.com/wso2-docs/WSO2_EI/blob/master/samples-protocol-switching/sample_proxy_1.wsdl). 
-The wsdl uri needs to be updated with the path to the sample_proxy_1.wsdl file
+The wsdl URI needs to be updated with the path to the sample_proxy_1.wsdl file
 
 Set up the back-end service:
 

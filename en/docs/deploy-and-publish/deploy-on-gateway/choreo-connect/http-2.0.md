@@ -7,7 +7,7 @@ WSO2 API Microgateway, default configurations is to communicate using HTTP2, and
 
 ### HTTP 2.0 Configuration of API Microgateway
 
-HTTP2 can be configured in the listeners of the Microgateway to communicate with external clients(downstream) and as well as in http clients to 
+HTTP2 can be configured in the listeners of the Microgateway to communicate with external clients(downstream) and as well as in HTTP clients to 
 communicate with upstream back end services.
 
 #### Listener level HTTP2 configuration
@@ -19,7 +19,7 @@ enable=true
 ```
 
 #### Upstream backend service HTTP2 configuration
-By default communication with upstream clients over http2 is enabled. You can find the default configurations in the file `<MICROGW_HOME>/conf/default-micro-gw.conf.template` as below.
+By default communication with upstream clients over HTTP2 is enabled. You can find the default configurations in the file `<MICROGW_HOME>/conf/default-micro-gw.conf.template` as below.
 
 ``` toml
 [httpClients]

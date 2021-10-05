@@ -7,7 +7,7 @@ You can register tenant domains using the Management Console of WSO2 products.
 !!! info
     When multitenancy is enabled and a tenant becomes inactive for a long period of time, the tenant is unloaded from the server's memory. By default, the time period is 30 minutes. After that, the tenant has to log in again before sending requests to the server.
 
-    You change the default time period allowed for tenant inactiveness by adding `-Dtenant.idle.time=<time_in_minutes>` java property to the product's startup script ( `./wso2server.sh` file for Linux and `wso2server.bat` for Windows) as shown below:
+    You change the default time period allowed for tenant inactiveness by adding `-Dtenant.idle.time=<time_in_minutes>` java property to the product's startup script ( `./api-manager.sh` file for Linux and `api-manager.bat` for Windows) as shown below:
 
     ``` java
         JAVA_OPTS \
@@ -58,7 +58,7 @@ WSO2 Carbon supports the following methods for sharing resources among tenants:
 -   **Private Jet mode** : This method allows the load of a tenant ID to be deployed in a single tenant mode. A single tenant is allocated an entire service cluster. The purpose of this approach is to allow special privileges (such as priority processing and improved performance) to a tenant.
 -   **Separation at hardware level** : This method allows different tenants to share a common set of resources, but each tenant has to run its own operating system. This approach helps to achieve a high level of isolation, but it also incurs a high overhead cost.
 -   **Separation at JVM level** : This method allows tenants to share the same operating system. This is done by enabling each tenant to run a separate JVM instance in the operating system.
--   **Native multitenancy** : This method involves allowing all the tenants to share a single JVM instance. This method minimises the overhead cost.
+-   **Native multitenancy** : This method involves allowing all the tenants to share a single JVM instance. This method minimizes the overhead cost.
 
 ### Tenant loading policy
 

@@ -14,7 +14,7 @@ Follow the instructions below to comment and reply to an API:
 
 2. Click on an API.
 
-    [![Select an API]({{base_path}}/assets/img/design/community-features/select-publisher-api.png)]({{base_path}}/assets/img/design/community-features/select-publisher-api.png)
+    [![Select an API]({{base_path}}/assets/img/learn/select-api.png)]({{base_path}}/assets/img/learn/select-api.png)
 
 3. Optionally, **Add a comment**.
     

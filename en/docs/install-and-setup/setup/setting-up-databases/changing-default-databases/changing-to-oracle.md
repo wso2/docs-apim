@@ -39,7 +39,7 @@ Follow the instructions below to set up an Oracle database.
 !!! info
     If you get a `"timezone region not found"` error when using the `ojdbc6.jar` file with WSO2 servers, set the Java property as follows: `export JAVA_OPTS="-Duser.timezone='+05:30'"        `
 
-    The value of this property should be the GMT difference of the country. If it is necessary to set this property permanently, define it inside the `wso2server.sh` as a new `JAVA_OPT` property.
+    The value of this property should be the GMT difference of the country. If it is necessary to set this property permanently, define it inside the `api-manager.sh` as a new `JAVA_OPT` property.
 
 ### Executing db scripts to create tables on Oracle database
 
@@ -69,7 +69,7 @@ Follow the instructions below to set up an Oracle database.
     ERROR ApplicationRegistry org.wso2.andes.kernel.AndesException: Connecting to database failed with jndi lookup : WSO2MBStoreDB. data source username : wso2carbon. SQL Error message : General error: java.lang.ArrayIndexOutOfBoundsException
     ```
 
-     1. Replace the MB store database with the default H2 MB store database from a fresh WSO2 API-M 3.2.0 pack.
+     1. Replace the MB store database with the default H2 MB store database from a fresh WSO2 API-M distribution.
 
      2. Restart the server.
 
@@ -101,7 +101,7 @@ Follow the instructions below to change the type of the default datasource.
     
     ``` tab="Format"
     type = "oracle"
-    url = "jdbc:oracle:thin:@localhost:1521/<DATABASE_NAME>"
+    url = "jdbc:oracle:thin:<DB_host>:1521:<sid>"
     username = "<USER_NAME>"
     password = "<PASSWORD>"
     driver = "oracle.jdbc.driver.OracleDriver"
@@ -111,7 +111,7 @@ Follow the instructions below to change the type of the default datasource.
     ``` tab="Example"
     [database.shared_db]
     type = "oracle"
-    url = "jdbc:oracle:thin:@localhost:1521/shared_db"
+    url = "jdbc:oracle:thin:@localhost:1521/orcl1"
     username = "sharedadmin"
     password = "sharedadmin"
     driver = "oracle.jdbc.driver.OracleDriver"
@@ -119,12 +119,18 @@ Follow the instructions below to change the type of the default datasource.
     
     [database.apim_db]
     type = "oracle"
-    url = "jdbc:oracle:thin:@localhost:1521/apim_db"
+    url = "jdbc:oracle:thin:@localhost:1521/orcl2"
     username = "apimadmin"
     password = "apimadmin"
     driver = "oracle.jdbc.driver.OracleDriver"
     validationQuery = "SELECT 1 FROM DUAL"
     ```
+
+    !!! important "Configuring the 'url'"
+        Note that you can use `service_name` instead of the `sid` to configure the `url`. A sample is given below.
+        ```
+        url = “jdbc:oracle:thin:<DB_host>:1521/<service_name>”
+        ```
 
 1. You can update the configuration elements given below for your database connection.
    
@@ -143,7 +149,7 @@ Follow the instructions below to change the type of the default datasource.
     
     ``` tab="Format"
     type = "oracle"
-    url = "jdbc:oracle:thin:@localhost:1521/<DATABASE_NAME>"
+    url = "jdbc:oracle:thin:<DB_host>:1521:<sid>"
     username = "<USER_NAME>"
     password = "<PASSWORD>"
     driver = "oracle.jdbc.driver.OracleDriver"
@@ -156,7 +162,7 @@ Follow the instructions below to change the type of the default datasource.
     ``` tab="Example"
     [database.shared_db]
     type = "oracle"
-    url = "jdbc:oracle:thin:@localhost:1521/shared_db"
+    url = "jdbc:oracle:thin:@localhost:1521/orcl1"
     username = "sharedadmin"
     password = "sharedadmin"
     driver = "oracle.jdbc.driver.OracleDriver"
@@ -167,7 +173,7 @@ Follow the instructions below to change the type of the default datasource.
     
     [database.apim_db]
     type = "oracle"
-    url = "jdbc:oracle:thin:@localhost:1521/apim_db"
+    url = "jdbc:oracle:thin:@localhost:1521/orcl2"
     username = "apimadmin"
     password = "apimadmin"
     driver = "oracle.jdbc.driver.OracleDriver"
@@ -175,6 +181,12 @@ Follow the instructions below to change the type of the default datasource.
     pool_options.maxActive = 50
     pool_options.maxWait = 30000
     ```
+
+    !!! important "Configuring the 'url'"
+        Note that you can use `service_name` instead of the `sid` to configure the `url`. A sample is given below.
+        ```
+        url = “jdbc:oracle:thin:<DB_host>:1521/<service_name>”
+        ```
 
     !!! info
         For more information on other parameters that can be defined in the `<API-M_HOME>/repository/conf/deployment.toml` file, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
@@ -195,7 +207,7 @@ Follow the instructions below to change the type of the default datasource.
         ``` tab="Example"
         [database.local]
         type = "oracle"
-        url = "jdbc:oracle:thin:@localhost:1521/carbon_db"
+        url = "jdbc:oracle:thin:@localhost:1521/orcl"
         username = "carbonadmin"
         password = "carbonadmin"
         driver = "oracle.jdbc.driver.OracleDriver"

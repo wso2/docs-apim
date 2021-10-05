@@ -1,6 +1,4 @@
-# Building a Jenkins CI/CD Pipeline for Micro Integrator
-
-## Overview
+# CI/CD for Integrations - Overview
 
 Continuous integration(CI) and continuous deployment(CD) for Integration is a must for delivering changes more frequently and reliably. 
 Different organizations have different ways of addressing the problem. 

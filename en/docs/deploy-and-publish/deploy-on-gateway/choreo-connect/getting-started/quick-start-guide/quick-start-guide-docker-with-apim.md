@@ -8,7 +8,7 @@ Make sure to install and set up [Docker](https://www.docker.com).
 
 ### Step 1 - Download and setup Choreo Connect distribution zip
 
-Latest Choreo Connect distribution can be downloaded from the [page.](https://wso2.com/api-management/api-microgateway/) Extract the Choreo Connect distribution zip. Extracted folder will be called as `CC_HOME` hereafter.
+Latest Choreo Connect distribution can be downloaded from the [page](https://wso2.com/api-management/api-microgateway/). Extract the Choreo Connect distribution zip. Extracted folder will be called as `CC_HOME` hereafter.
 
 ### Step 2 - Configure Choreo Connect to Connect to API Manager
 
@@ -22,7 +22,7 @@ Let's edit the `config.toml` like below to enable the event hub.
 
 ### Step 3 - Start Choreo Connect and API Manager
 
-First we need to add the host entry to `/etc/hosts` file in order to access the API Manager publisher and dev portal.
+First we need to add the host entry to `/etc/hosts` file in order to access the API Manager publisher and Developer Portal.
 Add the following entry to `/etc/hosts` file
 
 ``` java
@@ -46,14 +46,14 @@ docker ps | grep choreo-connect-
 
 ### Step 4 - Deploy Sample API from API Manager
 
-1. First login to the API Manager publisher portal by accessing the url https://apim:9443/publisher/
+1. First login to the API Manager Publisher Portal by accessing the URL https://apim:9443/publisher/
 
 2. Click on the REST API card and then click on the `Deploy Sample API` button. This will deploy the sample PizzaShack API.
 
     [![]({{base_path}}/assets/img/deploy/mgw/deploy-sample-api.png)]({{base_path}}/assets/img/deploy/mgw/deploy-sample-api.png)
 
 3. Then click on the `Endpoints` from the left-hand side menu inside the PizzaShackAPI. Change the production endpoint and
-sandbox endpoint url as `http://apim:9763/am/sample/pizzashack/v1/api/`. Then save the changes by clicking save button.
+sandbox endpoint URL as `http://apim:9763/am/sample/pizzashack/v1/api/`. Then save the changes by clicking save button.
 
     [![]({{base_path}}/assets/img/deploy/mgw/endpoint-tab.png)]({{base_path}}/assets/img/deploy/mgw/endpoint-tab.png)
 
@@ -90,5 +90,5 @@ curl -k -X GET "https://localhost:9095/pizzashack/1.0.0/menu" -H "accept: applic
 ```
 
 !!! info
-    Note the port 9095 in above curl command which is the Choreo Connect port. Hence we are invoking the API
+    Note that the port 9095 in the above curl command is the Choreo Connect port. Hence, it can be inferred that you are invoking the API
     via Choreo Connect.

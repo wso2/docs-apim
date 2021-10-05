@@ -60,7 +60,7 @@ Yes, you can do this using the **Features** menu under the **Configure** menu of
 
 ### How can I change the memory allocation for the API Manager?
 
-The memory allocation settings are stored in the `<API-M_HOME>/bin/wso2server.sh` file.
+The memory allocation settings are stored in the `<API-M_HOME>/bin/api-manager.sh` file.
 
 ### How do I start up only selected components of the API Manager?
 
@@ -235,7 +235,7 @@ Use the `<API-M_HOME>/bin/chpasswd.sh` script.
 
 ### How can I manage session timeouts for the management console?
 
-To configure session timeouts, see [Configuring the session time-out]({{base_path}}/install-and-setup/install/running-the-product/#configuring-the-session-time-out).
+To configure session timeouts, see [Configuring the session time-out]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#configuring-the-session-time-out).
 
 ### How can I add authentication headers to messages going out of the API Gateway to the backend?
 
@@ -428,7 +428,7 @@ At the time of an error, you can use a tool called Carbon Dump (`carbondump.sh`
 
 ### How can I clean up the REG\_LOG table?
 
-The `REG_LOG` table contains all the registry operations performed for all the registry resources in the system. When you clean up this table, you need to keep the latest record from every resource path to maintain atleast one resource reference in case of reindexing. Exceute the following query to clean this table.
+The `REG_LOG` table contains all the registry operations performed for all the registry resources in the system. When you clean up this table, you need to keep the latest record from every resource path to maintain at least one resource reference in case of reindexing. Execute the following query to clean this table.
 
 ``` java
 CREATE TABLE reg_log_ids_to_KEEP (

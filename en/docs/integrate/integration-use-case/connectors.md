@@ -85,11 +85,11 @@ The following are documented connectors available from the [connector store](htt
             <td>The File Connector uses the <a href="https://commons.apache.org/proper/commons-vfs/">Apache Commons VFS</a> I/O functionalities to execute operations related to the file system and allows you to easily manipulate files based on your requirement.</td>
         </tr>
         <tr>
-            <td><a href="{{base_path}}/reference/connectors/ISO8583-connector/ISO8583-connector-overview/">ISO8583</a></td>
+            <td><a href="{{base_path}}/reference/connectors/iso8583-connector/iso8583-connector-overview/">ISO8583</a></td>
             <td>The ISO8583 message format is used for financial transactions such as ATM, POS, Credit Card, Mobile Banking, Internet Banking, KIOSK, e-commerce, etc.</td>
         </tr>
         <tr>
-            <td><a href="{{base_path}}/reference/connectors/ISO8583-connector/ISO8583-inbound-endpoint-example/">ISO8583 Inbound Endpoint</a></td>
+            <td><a href="{{base_path}}/reference/connectors/iso8583-connector/iso8583-inbound-endpoint-example/">ISO8583 Inbound Endpoint</a></td>
             <td>The ISO8583 inbound endpoint is a listening inbound endpoint that can consume ISO8583 standard messages.</td>
         </tr>
         <tr>

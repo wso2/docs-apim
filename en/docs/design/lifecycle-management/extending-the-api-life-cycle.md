@@ -140,7 +140,7 @@ The above configuration includes the following important information:
 
     The state transition events that occur in the default API life cycle is shown in the following diagram:
 
-    ![]({{base_path}}/assets/img/learn/lifecycle_tab.png)
+    ![]({{base_path}}/assets/img/learn/lifecycle-tab-publisher.png)
 
 The **Lifecycle** tab in the Publisher, shows the current state of an API, the target events defined in the API life cycle for that state, and the set of checklist items.
 
@@ -158,13 +158,13 @@ If you customize the default API life cycle configuration including states, tran
 With the integration of the registry life cycle to the API life cycle of API Manager, it is possible to extend the existing API life cycle and customize it according to your preference.
 
 !!! tip
-    Consider the following points when extending and customising the API life cycle XML configuration.
+    Consider the following points when extending and customizing the API life cycle XML configuration.
 
     -   Do not change the life cycle name since it needs to be engaged with the APIs dynamically.
     -   Make sure you keep the **PUBLISHED** and **PROTOTYPED** states as those two states will be used by API Publisher in the API creation wizard.
 
 
-Following are some extention points where the default API life cycle can be extended by modifying above mentioned XML configuration of the API life cycle.
+Following are some extension points where the default API life cycle can be extended by modifying above mentioned XML configuration of the API life cycle.
 
 -   [Define your own life cycle states]({{base_path}}/design/lifecycle-management/customize-api-life-cycle/) in the API life cycle
 -   Change the state transition events as per the environmental preferences

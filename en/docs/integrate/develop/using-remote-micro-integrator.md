@@ -6,7 +6,7 @@ The following instructions can be used to run your artifacts in a remote Micro I
 
 ## Deploy and run artifacts in a remote instance
 
-1.	[Download and install]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer) the Micro Integrator server and on your computer. 
+1.	[Download and install]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi) the Micro Integrator server and on your computer. 
 2.	[Package your Synapse artifacts]({{base_path}}/integrate/develop/packaging-artifacts) from WSO2 Integration Studio.
 
 However, when your solutions are ready to be moved to your production environments, it is recommended to use a **CICD pipeline**.
@@ -41,7 +41,7 @@ However, when your solutions are ready to be moved to your production environmen
 1.  To deploy the C-App project to your server, select the composite application from the list, click <b>Add</b> to move it to the configured list, and then click <b>Finish</b>.
     <img src="{{base_path}}/assets/img/integrate/testing-integrations/new-server-add-capps.png" width="500">
 
-2.  On the <b>Servers</b> tab, note that the server is currently stopped. Click the <img src="{{base_path}}/assets/img/integrate/common/play-head-icon.png" width="20"> icon on the tool bar. If prompted to save changes to any of the artifact files you created earlier, click <b>Yes</b>.
+2.  On the <b>Servers</b> tab, note that the server is currently stopped. Click the <img src="{{base_path}}/assets/img/integrate/common/play-head-icon.jpg" width="20"> icon on the tool bar. If prompted to save changes to any of the artifact files you created earlier, click <b>Yes</b>.
 
     <img src="{{base_path}}/assets/img/integrate/testing-integrations/new-server-start.png" width="500">   
 
@@ -59,7 +59,7 @@ However, when your solutions are ready to be moved to your production environmen
 
 ## Disable graceful shutdown (Only for testing)
 
-By default, the graceful shutdown capability is enabled in the Micro Integrator distribution. This means that the server will not immediately shut down when there are incomplete HTTP messaging transactions that are still active. These are transactions that are processed by the HTTP/S passthru transport.
+By default, the graceful shutdown capability is enabled in the Micro Integrator distribution. This means that the server will not immediately shut down when there are incomplete HTTP messaging transactions that are still active. These are transactions that are processed by the HTTP/S PassThrough transport.
 
 For example, consider a delay in receiving the response from the backend (which should be returned to the messaging client). Because graceful shutdown is enabled, the Micro Integrator will wait until the time specified by the following parameter in the server configuration file (`deployment.toml` file) is exceeded before shutting down.
 

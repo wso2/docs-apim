@@ -27,7 +27,7 @@ Follow the instructions below to manage the API lifecycle appropriately:
 
 2.  Click on the API for which you need to change its lifecycle state.
 
-     <a href="{{base_path}}/assets/img/learn/select-created-api.png" ><img src="{{base_path}}/assets/img/learn/select-created-api.png" alt="Select API" title="Select API" width="35%" /></a>
+     <a href="{{base_path}}/assets/img/learn/select-created-api.png" ><img src="{{base_path}}/assets/img/learn/select-created-api.png" alt="Select API" title="Select API" width="40%" /></a>
 
 3.  Click **Lifecycle**.
 

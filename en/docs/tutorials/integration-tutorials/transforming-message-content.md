@@ -50,7 +50,7 @@ The client message format must be transformed to the back-end service message fo
 
 ### Step 1: Set up the workspace
 
-Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/tooling/) based on your operating system.
+Download the relevant [WSO2 Integration Studio](https://wso2.com/api-management/tooling/) based on your operating system.
 
 ### Step 2: Develop the integration artifacts
 
@@ -61,11 +61,11 @@ An Integration project is a maven multi module project, which will contain all t
 1.  Open **WSO2 Integration Studio**.
 2.  Click **New Integration Project** in the **Getting Started** tab as shown below. 
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.png" width="700">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.jpg" width="700">
 
     This will open the <b>New Integration Project</b> dialog box.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-simple-message-project.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-simple-message-project.jpg" width="500">
 
 3.  Enter `SampleServices` as the project name and select the following check boxes to create the required modules.
     -   **Create ESB Configs**
@@ -206,7 +206,7 @@ Let's create an Endpoint to represent the Hospital Service back-end service.
 
 #### Define the mediation flow
 
-Let's configure the API resource with the data transforrmation logic.
+Let's configure the API resource with the data transformation logic.
 
 1.  Drag a **Property** mediator from the **Mediators** palette to the In Sequence of the API resource and name it **Get Hospital**. 
 
@@ -391,7 +391,7 @@ Let's configure the API resource with the data transforrmation logic.
 
     <img src="{{base_path}}/assets/img/integrate/tutorials/message-transformation/data-mapper-properties.png">
 
-16.  Add a Call mediator from the **Mediators** palette and add the HospitalServicesEP endpont from the **Defined Endpoints** palette to the empty box adjoining the Call mediator.
+16.  Add a Call mediator from the **Mediators** palette and add the HospitalServicesEP endpoint from the **Defined Endpoints** palette to the empty box adjoining the Call mediator.
 
       <img src="{{base_path}}/assets/img/integrate/tutorials/message-transformation/add-call-mediator-for-transformation.png">
 

@@ -45,7 +45,7 @@ by using an XPath function. You can use any of the <a href="{{base_path}}/refere
     </li>
   </ul>
 <p>For names of the generic properties that come by default, see <a href="{{base_path}}/reference/mediators/property-reference/generic-Properties">Generic Properties</a> . You can select them from the drop-down list if you are adding the Property Mediator as shown below.</p>
-<p><img src="{{base_path}}/assets/img/integrate/mediators/119131214/119131215.png" title="generic properties list" width="800" alt="generic properties list" /></p>
+<p><img src="{{base_path}}/assets/img/integrate/mediators/119131214/119131215.jpg" title="generic properties list" width="800" alt="generic properties list" /></p>
 </div></td>
 </tr>
 <tr class="even">
@@ -127,6 +127,7 @@ If the <strong>Expression</strong> option is selected for the <strong>Set Action
 <li><strong>Registry</strong>: This scope is used to retrieve properties within the registry .</li>
 <li><strong>System</strong>: This scope is used to retrieve Java system properties.</li>
 <li><strong>Environment</strong>: This scope is used to retrieve environment variables ('env').</li>
+<li><strong>File</strong>: This scope is used to retrieve properties defined in the `file.properties` configuration file ('file').</li>
 </ul>
 <p>For a detailed explanation of each scope, see <a href="{{base_path}}/reference/mediators/property-reference/accessing-properties-with-xpath">Accessing Properties with XPath</a>.</p></td>
 </tr>
@@ -183,7 +184,7 @@ For example, the following Synapse configuration retrieves the
 ```
 
 !!! Info
-    You can use the following syntaxes to read properties or resources stored in the `         gov        ` or `         conf        ` Registries. When specifying the path to the resource, do not give the absolute path. Instead, use the `         gov        ` or `         conf        ` prefixes.
+    You can use the following syntax to read properties or resources stored in the `gov` or `conf` Registries. When specifying the path to the resource, do not give the absolute path. Instead, use the `gov` or `conf` prefixes.
 
 #### Reading a property stored under a collection
 

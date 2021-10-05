@@ -11,7 +11,7 @@ A **data service** provides a web service interface to access data that is stor
 
 ### Step 1: Set up the workspace
 
--   Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/tooling/) based on your operating system. The path to the extracted/installed folder is referred to as `MI_TOOLING_HOME` throughout this tutorial.
+-   Download the relevant [WSO2 Integration Studio](https://wso2.com/api-management/tooling/) based on your operating system. The path to the extracted/installed folder is referred to as `MI_TOOLING_HOME` throughout this tutorial.
 
 -   To demonstrate how data services work, we will use a MySQL database as the datasource. Follow the steps given below to set up a MySQL database:
 
@@ -62,7 +62,7 @@ Data Service Module. Follow the steps given below to create a module:
 All the data services' artifacts that you create should be stored in a
 Data Service Module. Follow the steps given below to create a module:
 
-1.  Right click on the created **Maven Multi Module Project** and goto 
+1.  Right click on the created **Maven Multi Module Project** and go to 
     **New -> Data Service Configs**.  
 2.  In the **New Data Service Configs** dialog box that opens, give a name
     for the config module and click **Next**.
@@ -265,6 +265,11 @@ Now, let's create a REST resource that can be used to invoke the query.
     </table>
        
 4.  Save the resource.
+
+!!!	Tip
+    Alternatively, you can generate a data service from a datasource. 
+    For more information, refer [Generate Data Services]({{base_path}}/integrate/develop/creating-artifacts/data-services/creating-data-services/#generate-data-service-from-a-datasource).
+
 
 ### Step 3: Package the artifacts
 

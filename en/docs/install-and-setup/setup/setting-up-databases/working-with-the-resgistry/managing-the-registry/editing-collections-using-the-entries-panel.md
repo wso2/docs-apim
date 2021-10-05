@@ -7,8 +7,8 @@ If you select a collection, in its detailed view, you can see the Entries panel 
 -   Add Resource
 -   Add Collection
 -   Create Link
--   Child r esource/collection information such as name, created date and author
--   The Info link specifying m edia type, feed, rating .
+-   Child resource/collection information such as name, created date and author
+-   The Info link specifying media type, feed, rating .
 -   The Actions link to rename, move, copy or delete a resource/collection
 
         !!! info

@@ -32,7 +32,7 @@ In this example, it will be assumed that WSO2 IS and WSO2 API-M are up and runni
 
      [![Add Service Provider]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/create-external-sp.png)]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/create-external-sp.png)
              
-4.  Click **Inbound Authentication Configuration** --> **OAuth/OpenId Connect Configuration** --> **Configure** to add a new OAuth2 client.
+4.  Click **Inbound Authentication Configuration** --> **OAuth/OpenID Connect Configuration** --> **Configure** to add a new OAuth2 client.
 
      [![Add Oauth app]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/add-oauth-app.png)]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/add-oauth-app.png)
 
@@ -42,7 +42,7 @@ In this example, it will be assumed that WSO2 IS and WSO2 API-M are up and runni
     
      If you do not have a **Callback Url**, you can clear the **Code** and **Implicit** authorization grant types and add the OAuth2 client.
     
-     <a href="{{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/register-oauth-app.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/register-oauth-app.png" alt="Register Oauth app" 
+     <a href="{{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/register-oauth-app.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/register-oauth-app.png" alt="Register OAuth app" 
           title="Register Oauth app"/></a>  
     
     Now you have successfully created an OAuth2 client and generated a consumer key and consumer secret for it. 
@@ -57,7 +57,7 @@ Follow the instructions below to provision the out-of-band OAuth2 client that yo
 
 2.  Enable the option to provide out-of-band keys. 
 
-     Open `<API-M_HOME>/repository/conf/deployment.toml` file in a text editor and add the following config under the `apim.devportal` configuration.
+     Open `<API-M_HOME>/repository/conf/deployment.toml` file in a text editor and add the following configuration under the `apim.devportal` configuration.
 
     ``` toml
     [apim.devportal]
@@ -72,7 +72,7 @@ Follow the instructions below to provision the out-of-band OAuth2 client that yo
         enable_provisioned_app_validation = false
         ```
 
-3.  [Start the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#starting-the-server).
+3.  [Start the server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server).
 
 4.  Sign in to the Developer Portal.
 

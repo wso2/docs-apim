@@ -558,6 +558,17 @@ view the output as follows:
 
     {"newValue" : "<pqr>abc</pqr>"}
 
+If you want to evaluate a valid JSON object as a string, you need to use `literal="true"` in the PayloadFactoryMediator as indicated below,
+
+```
+<payloadFactory media-type="json">
+    <format> { "message":{ "payload": "$1" } } 
+    </format>
+    <args>
+        <arg evaluator="xml" expression="$ctx:jsonPayload" literal="true" />
+    </args>
+</payloadFactory> 
+```
 
 ### Adding a custom SOAP header
 
@@ -1051,7 +1062,7 @@ In this example, the value for the “argument one” key is replaced by the fir
 
 ### Handling optional values
 
-Some of the input paramters you specify in the FreeMarker template (payload, properties, and arguments) may be optional. This 
+Some of the input parameters you specify in the FreeMarker template (payload, properties, and arguments) may be optional. This 
 means that the value can be null or empty during runtime. It is important to handle optional parameters in the FreeMarker template to avoid runtime issues due to null or empty values. FreeMarker
 [documentation](https://freemarker.apache.org/docs/dgui_template_exp.html#dgui_template_exp_missing)
 describes methods for handling optional parameters properly. The following example shows how to handle optional values in a

@@ -12,7 +12,7 @@ The result of the query should be as follows when you query to view the records
 
 ### Step 1: Set up the workspace
 
-Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/tooling/) based on your operating system.
+Download the relevant [WSO2 Integration Studio](https://wso2.com/api-management/tooling/) based on your operating system.
 
 Let's setup a MySQL database:
 
@@ -69,7 +69,7 @@ Create an integration project with the following modules: **ESB Configs** and **
         </out>
     </sequence>
     ```
-2.  Create the Fault sequence with tthe following configuration. See the instructions on [creating a sequence]({{base_path}}/integrate/develop/creating-artifacts/creating-reusable-sequences).
+2.  Create the Fault sequence with the following configuration. See the instructions on [creating a sequence]({{base_path}}/integrate/develop/creating-artifacts/creating-reusable-sequences).
 
     ```xml	
     <sequence name="fault" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
@@ -84,7 +84,7 @@ Create an integration project with the following modules: **ESB Configs** and **
 
 #### Create the `FileProxy`
 
-1.  Create a proxy service named `FileProxy` with the following configuration. See the instructons on [creating a proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service).
+1.  Create a proxy service named `FileProxy` with the following configuration. See the instructions on [creating a proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service).
 
     ```xml
     <proxy xmlns="http://ws.apache.org/ns/synapse" name="FileProxy" transports="vfs" startOnLoad="true" trace="disable">

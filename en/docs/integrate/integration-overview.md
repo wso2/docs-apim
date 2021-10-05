@@ -11,10 +11,10 @@ Let's get started with the integration capabilities and concepts of the Micro In
 <div>
     <div class="content">
         <!-- card -->
-        <div class="card" onclick="location.href='{{base_path}}/get-started/quick-start-guide/integration-qsg';">
+        <div class="card img" onclick="location.href='{{base_path}}/get-started/quick-start-guide/integration-qsg';">
             <div class="line"></div>
             <div class="card-icon">
-                <i class="material-icons md-36">timer</i>
+                <img src='{{base_path}}/assets/img/integrate/quick-start.png' alt="integration quick start" />
             </div>
             <div class="card-content" >
                 <p class="title">Quick Start with Integration</p>
@@ -23,10 +23,10 @@ Let's get started with the integration capabilities and concepts of the Micro In
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card" onclick="location.href='{{base_path}}/integrate/develop/integration-development-kickstart';">
+        <div class="card img" onclick="location.href='{{base_path}}/integrate/develop/integration-development-kickstart';">
             <div class="line"></div>
             <div class="card-icon">
-                <i class="material-icons md-36">timer</i>
+                <img src='{{base_path}}/assets/img/integrate/first-service.png' alt="develop first integration" />
             </div>
             <div class="card-content">
                 <p class="title">Develop your First Integration</p>
@@ -35,10 +35,10 @@ Let's get started with the integration capabilities and concepts of the Micro In
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card" onclick="location.href='{{base_path}}/integrate/integration-key-concepts';">
+        <div class="card img" onclick="location.href='{{base_path}}/integrate/integration-key-concepts';">
             <div class="line"></div>
             <div class="card-icon">
-                <i class="material-icons md-36">timer</i>
+                <img src='{{base_path}}/assets/img/integrate/key-concepts.png' alt="integration key concepts" />
             </div>
             <div class="card-content">
                 <p class="title">Key Concepts of Integration</p>
@@ -55,11 +55,9 @@ You can now leverage the integration capabilities as well as the API management 
 
 ### API-led Integration
 
-WSO2 API Manager enables you to build integration services from the ground up using [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/) and publish them as managed APIs. WSO2 Integration Studio is used to develop and test these integration services, after which, they can be registered in the **Service Catalog** of the API management layer at the time of deployment.
+WSO2 API Manager consists of an API management layer as well as an integration layer, which enables API-led integration through a single platform. The integration layer (Micro Integrator) is used for running the integration APIs, which are developed using WSO2 Integration Studio. The API management layer is used for converting the integration APIs into experience APIs and making them discoverable to developers. 
 
-<img src="{{base_path}}/assets/img/integrate/intro/api-led-integration-2.png" width="500">
-
-Integrations are building blocks that enables connectivity with SaaS applications, services and microservices, databases, files, message brokers, and also propriety and legacy systems.
+See <a href="{{base_path}}/integrate/api-led-integration">API-led Integration</a> for more information.
 
 ### Microservices Integration
 
@@ -79,7 +77,7 @@ At the heart of the Micro Integrator server is an event-driven, standards-based 
 
 See the topics in the following sections for details and instructions.
 
-### Integration Capabilities
+### Integration Use Cases
 
 Learn about the main integration capabilities of the Micro Integrator of WSO2 API Manager. You can also follow the [tutorials](#integration-tutorials) on each of these use cases to gain hands-on knowledge.
 
@@ -173,6 +171,44 @@ Learn about the main integration capabilities of the Micro Integrator of WSO2 AP
     </div>
 </div>
 
+### Integration Development
+
+Learn how to set up the development environment and build integration solutions.
+
+<div>
+    <div class="content">
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_path}}/integrate/develop/wso2-integration-studio';">
+            <div class="line"></div>
+            <div class="card-content" >
+                <p class="title">Quick Tour - WSO2 Integration Studio</p>
+                <p class="hint">Get an overview of the developer tool that you will use for developing integrations.</p>
+            </div>
+        </div>
+        <!-- end card -->
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_path}}/integrate/develop/installing-wso2-integration-studio';">
+            <div class="line"></div>
+            <div class="card-content" >
+                <p class="title">Install WSO2 Integration Studio</p>
+                <p class="hint">Install and set up WSO2 Integration Studio.</p>
+            </div>
+        </div>
+        <!-- end card -->
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_path}}/integrate/develop/intro-integration-development';">
+            <div class="line"></div>
+            <div class="card-content">
+                <p class="title">Development Workflow</p>
+                <p class="hint">Get an overview of the integration development workflow.</p>
+            </div>
+        </div>
+        <!-- end card -->
+    </div>
+</div>
+
+See the **Developing Integrations** section in the left-hand navigator for more topics on working with integrations.
+
 ### Management and Observability
 
 Learn about the dashboards, tools, and solutions that are available for managing and monitoring integrations deployed in the Micro Integrator.
@@ -198,7 +234,7 @@ Learn about the dashboards, tools, and solutions that are available for managing
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card" onclick="location.href='{{base_path}}/install-and-setup/setup/mi-setup/observability/observability-deployment-strategy';">
+        <div class="card" onclick="location.href='{{base_path}}/observe/micro-integrator/cloud-native-observability-overview';">
             <div class="line"></div>
             <div class="card-content">
                 <p class="title">Observability for Integrations</p>
@@ -254,6 +290,15 @@ Learn how to set up a Micro Integrator deployment and configure the deployment a
         </div>
         <!-- end card -->
         <!-- card -->
+        <div class="card" onclick="location.href='{{base_path}}/install-and-setup/setup/mi-setup/user_stores/managing_users';">
+            <div class="line"></div>
+            <div class="card-content" >
+                <p class="title">User Management</p>
+                <p class="hint">Configure a user store and manage users and roles in the Micro Integrator.</p>
+            </div>
+        </div>
+        <!-- end card -->
+        <!-- card -->
         <div class="card" onclick="location.href='{{base_bath}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller';">
             <div class="line"></div>
             <div class="card-content">
@@ -275,6 +320,11 @@ Learn how to implement various integration use cases, deploy them in the Micro I
     <tr>
         <td>
             <a href="{{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial">Exposing an Integration Service as a Managed API</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="{{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial-for-proxy-services">Exposing an Integration SOAP Service as a Managed API</a>
         </td>
     </tr>
     </table>
@@ -429,7 +479,7 @@ Learn how to implement various integration use cases, deploy them in the Micro I
                 </li>
                 <li>Proxy Services 
                     <ul>
-                        <li><a href="{{base_path}}/integrate/examples/proxy_service_examples/Introduction-to-Proxy-Services">Using a Simple Proxy Service</a></li>
+                        <li><a href="{{base_path}}/integrate/examples/proxy_service_examples/introduction-to-proxy-services">Using a Simple Proxy Service</a></li>
                         <li><a href="{{base_path}}/integrate/examples/proxy_service_examples/publishing-a-custom-wsdl">Publishing a Custom WSDL</a></li>
                         <li><a href="{{base_path}}/integrate/examples/proxy_service_examples/exposing-proxy-via-inbound">Exposing a Proxy Service via Inbound Endpoints</a></li>
                         <li><a href="{{base_path}}/integrate/examples/proxy_service_examples/securing-proxy-services">Securing a Proxy Service</a></li>
@@ -505,7 +555,7 @@ Learn how to implement various integration use cases, deploy them in the Micro I
                     <ul>
                         <li><a href="{{base_path}}/integrate/examples/transport_examples/tcp-transport-examples">Using the TCP Transport</a></li>
                         <li><a href="{{base_path}}/integrate/examples/transport_examples/fix-transport-examples">Using the FIX Transport</a></li>
-                        <li><a href="{{base_path}}/integrate/examples/transport_examples/Pub_Sub_using_MQTT">Using the MQTT Transport</a></li>
+                        <li><a href="{{base_path}}/integrate/examples/transport_examples/pub-sub-using-mqtt">Using the MQTT Transport</a></li>
                     </ul>
                 </li>
             </ul>

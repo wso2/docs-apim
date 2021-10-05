@@ -1,4 +1,4 @@
-After the APIs are exposed via WSO2 API Microgateway, you can invoke an API with a valid token(JWT or opaque access token) or an API key.  Let's use WSO2 API Microgateway's API key endpoint to obtain an API key in order to access the API.
+After the APIs are exposed via Choreo Connect, you can invoke an API with a valid token(JWT or opaque access token) or an API key.  Let's use Choreo Connect's API key endpoint to obtain an API key in order to access the API.
    
 The below command will retrieve an APIKey token and set it to the shell variable `TOKEN`.
         

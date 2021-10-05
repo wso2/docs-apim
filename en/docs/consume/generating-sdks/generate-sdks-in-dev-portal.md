@@ -12,13 +12,13 @@ Follow the instructions below to generate and download client-side SDKs via the 
 
 2. Click on the API for which you want to generate a client-side SDK (e.g., `PizzaShackAPI`).
 
-     [![API Overview]({{base_path}}/assets/img/learn/select-api-dev-portal.png)]({{base_path}}/assets/img/learn/select-api-dev-portal.png)
+     [![API Overview]({{base_path}}/assets/img/consume/select-api-dev-portal.png)]({{base_path}}/assets/img/consume/select-api-dev-portal.png)
  
 3.  Click **SDKs**. 
 
      The default SDKs that you can download appear. 
 
-     [![Default SDKs]({{base_path}}/assets/img/learn/default-sdks.png)]({{base_path}}/assets/img/learn/default-sdks.png)
+     [![Default SDKs]({{base_path}}/assets/img/consume/default-sdks.png)]({{base_path}}/assets/img/consume/default-sdks.png)
     
 4.  Click **Download** to download the required SDK. 
 
@@ -41,4 +41,4 @@ Follow the instructions below to configure the languages available for SDK gener
     supported_languages = ["android", "java", "scala", "csharp", "dart", "flash", "groovy", "javascript"]
     ```
     
-3.  [Restart the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/) to apply the configuration changes.
+3.  [Restart the server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/) to apply the configuration changes.

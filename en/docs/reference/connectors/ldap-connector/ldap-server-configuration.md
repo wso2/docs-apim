@@ -49,7 +49,7 @@ To use the LDAP connector, add the `<ldap.init>` element in your configuration b
     ```
 
 
-You can follow the steps below to import your LDAP certificate into wso2ei client’s keystore as follows:
+You can follow the steps below to import your LDAP certificate into the Micro Integrator client’s keystore as follows:
 
 1. To encrypt the connections, you need to configure a certificate authority (https://www.digitalocean.com/community/tutorials/how-to-encrypt-openldap-connections-using-starttls) 
 and use it to sign the keys for the LDAP server.
@@ -301,7 +301,7 @@ You can save the LDAP configuration as a [local entry]({{base_path}}/integrate/d
             "objectClass":"inetOrgPerson",
             "attributes":"mail,uid,givenName,manager,objectGUID",
             "filters":{
-                "manager":"cn=sales-group,ou=sales,dc=example,dc=com","uid":"rajjaz"},
+                "manager":"cn=sales-group,ou=sales,dc=example,dc=com","uid":"rajjaz","createTimestamp >":"20210412000000.0Z"},
             "onlyOneReference":"false"
         }
     }

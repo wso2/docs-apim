@@ -1,15 +1,15 @@
 # Kafka Inbound 
 ## Introduction
 
-The Kafka inbound endpoint provides the functionalilties of the <a href="http://kafka.apache.org/documentation.html">Kafka</a> messaging system. Kafka maintains feeds of messages in topics. Producers write data to topics and consumers read from topics. The Kafka inbound endpoint serves as a message consumer by creating a connection to ZooKeeper and requesting messages for a topic, topics, or topic filters.
+The Kafka inbound endpoint provides the functionalities of the <a href="http://kafka.apache.org/documentation.html">Kafka</a> messaging system. Kafka maintains feeds of messages in topics. Producers write data to topics and consumers read from topics. The Kafka inbound endpoint serves as a message consumer by creating a connection to ZooKeeper and requesting messages for a topic, topics, or topic filters.
 
 ## Properties
 
-Listed below are the properties used for [creating an Kafka inbound endpiont]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
+Listed below are the properties used for [creating an Kafka inbound endpoint]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
 
 ### Required Properties
 
-The following properties are required when [creating a Kafka inbound endpiont]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
+The following properties are required when [creating a Kafka inbound endpoint]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
 
 <table>
   <tr>
@@ -96,7 +96,7 @@ The following properties are required when [creating a Kafka inbound endpiont]({
 
 ### Optional Properties
 
-The following optional properties can be configured when [creating a Kafka inbound endpiont]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
+The following optional properties can be configured when [creating a Kafka inbound endpoint]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
 
 <table>
    <thead>

@@ -78,7 +78,7 @@ The parameters are described below.
 
 -  `parameter.concurrent_consumer`: The concurrent threads that need to be started in order to consume messages (when polling). 
 
-    If the JMS queue fills up at a high rate and the queue is long, you can improve the performance by increasing the number of concurrent consumers. If there are more messages to be consumed while the running threads are busy, then additional threads are started until the total number of threads reache the value of the maximum number of concurrent consumers (i.e., `MaxConcurrentConsumers`). 
+    If the JMS queue fills up at a high rate and the queue is long, you can improve the performance by increasing the number of concurrent consumers. If there are more messages to be consumed while the running threads are busy, then additional threads are started until the total number of threads reach the value of the maximum number of concurrent consumers (i.e., `MaxConcurrentConsumers`). 
 
     !!! Info
         -   The maximum number of concurrent consumers (or the number of JMS proxies) that can be deployed is limited by the base transport worker pool that is used by the JMS transport. The size of this worker pool can be configured via the system property `lst_t_core` and `lst_t_max` as described above. The number of concurrent producers are generally limited by the Synapse core worker pool.

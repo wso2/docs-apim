@@ -8,7 +8,7 @@ The **Default Version** option means that you make this version the default in a
 
 Example:
 
-If you mark `http://<hostname>:<port>/phoneverify/2.0` as the default version when the API has 1.0 and 3.0 versions as well, requests made to `http://<hostname>:<port>/phoneverify/` get automatically routed to version 2.0.
+If you mark `http://<hostname>:<port>/pizzashack/2.0.0` as the default version when the API has 1.0.0 and 3.0.0 versions as well, requests made to `http://<hostname>:<port>/pizzashack/` get automatically routed to version 2.0.0.
 
 If you mark any version of an API as the default, two API URLs are listed in its **Overview** tab in the Developer Portal. One URL appears with the version and the other URL appears without the version. You can invoke the default version of an API using either one of the latter mentioned URLs.
    

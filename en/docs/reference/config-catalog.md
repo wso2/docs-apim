@@ -1,4 +1,4 @@
-# Configuration Catalog
+# API Manager Configuration Catalog
 
 The new configuration model based on the toml format is introduced from API Manager 3.0.0 onwards. In older versions of the product, users had to modify different configuration files depending on the components related to the specific feature they were configuring. With this update, all configuration files have been merged to make configurations easier. Therefore, the `<API-M_HOME>/repository/conf/deployment.toml` file is the single source used to configure and tune the various features in API Manager.
 
@@ -1166,7 +1166,7 @@ local_claim = "http://wso2.org/claims/givenname"</code></pre>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[apim.gateway.environment]]
-name = "Production and Sandbox"
+name = "Default"
 type = "hybrid"
 display_in_api_console = true
 description = "This is a hybrid gateway that handles both production and sandbox token traffic."
@@ -1443,7 +1443,7 @@ https_endpoint = "https://localhost:${https.nio.port}"</code></pre>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[apim.gateway.environment]]
-name = "Production and Sandbox"
+name = "Default"
 type = "hybrid"
 display_in_api_console = true
 description = "This is a hybrid gateway that handles both production and sandbox token traffic."
@@ -4599,7 +4599,7 @@ If a token is revoked, the notification will be sent to the JMS topic. Write a c
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>(Only applicable if the Microgateway is used)If set to FALSE, works as persistent.</p>
+                                        <p>(Only applicable if Choreo Connect is used). If set to FALSE, works as persistent.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -4618,7 +4618,7 @@ If a token is revoked, the notification will be sent to the JMS topic. Write a c
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Notifications will be persisted to etcd. At the microgateway server startup, the etcd will be queried by the microgateway.</p>
+                                        <p>Notifications will be persisted to etcd. At the Choreo Connect startup, the etcd will be queried by Choreo Connect.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -9510,7 +9510,7 @@ proxyProfiles = "<profile><targetHosts>example.com</targetHosts><proxyHost>local
 
 
 
-## Websocket Transport
+## WebSocket Transport
 
 
 <div class="mb-config-catalog">
@@ -9634,7 +9634,7 @@ sender.parameter.customParameter = ""</code></pre>
 
 
 
-## Secure Websocket Transport
+## Secure WebSocket Transport
 
 
 <div class="mb-config-catalog">
@@ -13608,6 +13608,25 @@ UserCoreCacheTimeOut = 5 </code></pre>
                                         <p>User core cache expiration duration</p>
                                     </div>
                                 </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>CaseInsensitiveUsername</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Set the value to false for case insensitive JDBC user stores</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -13694,3 +13713,56 @@ class="org.wso2.carbon.apimgt.gateway.handlers.custom.customer_handler"
     </section>
 </div>
 
+## HTTP Access Logs
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+            <input name="92" type="checkbox" id="_tab_92">
+                <label class="tab-selector" for="_tab_92"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[http_access_log]
+useLogger = true</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[http_access_log]</code>
+
+                            <p>
+                                This includes configuration for HTTP access log records. 
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>useLogger</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Allows logs to get written into the `<APIM_HOME>repository/logs/wso2carbon.log` or any other log file and show up on the console.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

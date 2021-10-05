@@ -1,0 +1,3 @@
+[[enforcer.throttling.publisher.urlGroup]]
+  receiverURLs = ["tcp://localhost:9611"]
+  authURLs = ["ssl://localhost:9711"]

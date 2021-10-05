@@ -24,8 +24,8 @@ When using the tool, you have to provide the process ID (pid) of the Carbon inst
 For example,
 
 ``` java
-    In Linux: sh carbondump.sh -carbonHome /home/user/wso2carbon-3.2.0/ -pid 5151
-    In Windows: carbondump.bat -carbonHome c:\wso2carbon-3.2.0\ -pid 5151
+    In Linux: sh carbondump.sh -carbonHome /home/user/wso2carbon-4.0.0/ -pid 5151
+    In Windows: carbondump.bat -carbonHome c:\wso2carbon-4.0.0\ -pid 5151
 ```
 The tool captures the following information about the system:
 
@@ -35,7 +35,7 @@ The tool captures the following information about the system:
 -   Memory information of the Java process \*\* Java heap memory dump
     -   Histogram of the heap
     -   Objects waiting for finalization
-    -   Java heap summary. GC algo used, etc.
+    -   Java heap summary. GC algorithm used, etc.
     -   Statistics on permgen space of Java heap
 -   Information about the running Carbon instance \*\* Product name and version
     -   Carbon framework version (This includes the patched version)

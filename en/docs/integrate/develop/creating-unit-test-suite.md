@@ -65,7 +65,7 @@ Once you have created a Unit Test Suite in WSO2 Integration Studio, you can find
         !!! Note
             For APIs, you also need to specify the **Request Path** and **Request Method** in the this section. The **Request Path** indicates the URL mapping of the API resource. If the URL mapping consists some parameter(s), replace those with values. Also the **Request Method** indicates the REST method of the resource.   
     
-    3.  In the **Assertions** section, you can add multiple assertion belonging to two types: **AssertEquals** check the whether the mediated result and expected values are equeal. **AssertNotNull** checks whether the mediated result is not null.
+    3.  In the **Assertions** section, you can add multiple assertion belonging to two types: **AssertEquals** check the whether the mediated result and expected values are equal. **AssertNotNull** checks whether the mediated result is not null.
     
         ![Add Assertions]({{base_path}}/assets/img/integrate/create_project/synapse_unit_test/add-assertion.png)
     
@@ -181,11 +181,11 @@ Mock services give the opportunity to simulate the actual endpoint.
         
         - If you are trying to mock an endpoint `http://petstore.com/pets`, the wizard should look like below now.
         
-        ![Mock Service with one sub context]({{base_path}}/assets/img/integrate/create_project/synapse_unit_test/mockservice-context-sample.PNG) 
+        ![Mock Service with one sub context]({{base_path}}/assets/img/integrate/create_project/synapse_unit_test/mockservice-context-sample.png) 
         
         - If you are going to mock the same endpoint with an additional sub context (e.g., `http://petstore.com/pets/id` ), you can add it to the same mock service as shown below. 
         
-        ![Mock Service with additional sub Contexts]({{base_path}}/assets/img/integrate/create_project/synapse_unit_test/mockservice-subcontext-sample.PNG) 
+        ![Mock Service with additional sub Contexts]({{base_path}}/assets/img/integrate/create_project/synapse_unit_test/mockservice-subcontext-sample.png) 
 
 Once you have entered the required details, click **Add**. It will list the resource under the **Add Service Resource** table with **Sub Context** and **Method**. After that click **Finish** to create a Mock Service. It will locate under the **test → resources → mock-services** directory.
 

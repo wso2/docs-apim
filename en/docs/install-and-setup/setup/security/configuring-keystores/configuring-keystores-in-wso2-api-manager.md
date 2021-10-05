@@ -8,7 +8,7 @@ In WSO2 API Manager, there are three different keystores in use.
 2. Secondary Keystore (TLS Connections)
 3. Internal Keystore
 
-Primary Keystore is used for sigining and encryption for the data which is externally exposed. Example use cases are signing SAML response, OAuth ID Token Signing and signing JWTs.
+Primary Keystore is used for signing and encryption for the data which is externally exposed. Example use cases are signing SAML response, OAuth ID Token Signing and signing JWTs.
 
 Secondary Keystore is used for authenticating communication over SSL/TLS. This is used in various transports used by WSO2 API Manager including servlet transport (used for webapps), Synapse transport (used in gateway), thrift, binary and JMS.
 
@@ -17,7 +17,7 @@ Internal Keystore is used for encrypting internal critical data including passwo
 The `wso2carbon.jks` keystore file, which is shipped with all WSO2 products, is used as the default keystore for all functions. However, in a production environment, it is recommended to [create new keystores]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores) with new keys and certificates. If you have created a new keystore and updated the `client-truststore.jks` file, you must update the `<API-M_HOME>/repository/conf/deployment.toml` file in order to make the keystore work.
 
 !!! info
-    If you want to change the default truststore details, you can do it by adding the configurations under `[truststore]` field in the `<API-M_HOME>/repository/conf/deployment.toml`. Refer the below example which defines the `type` of the truststore as "JKS" (Java KeyStore), the `file_name` of the trustore as "modified-client-truststore.jks" and the `password` as "modified_password".
+    If you want to change the default truststore details, you can do it by adding the configurations under `[truststore]` field in the `<API-M_HOME>/repository/conf/deployment.toml`. Refer the below example which defines the `type` of the truststore as "JKS" (Java KeyStore), the `file_name` of the truststore as "modified-client-truststore.jks" and the `password` as "modified_password".
 
     ```toml
     [truststore]
@@ -50,13 +50,13 @@ The elements in the above configuration are described below:
 | **key_password**  | Private key password                                             |
 
 !!! Important
-    Your private key password (**key_password**) and keystore password (**password**) should be the same. This is due to a limitation of some of the internal 3rd party components used by WSO2 API Mananger.
+    Your private key password (**key_password**) and keystore password (**password**) should be the same. This is due to a limitation of some of the internal 3rd party components used by WSO2 API Manager.
 
 By default, the primary keystore configured as above is used for internal data encryption (encrypting data in internal data stores and configuration files) as well as for signing messages that are communicated with external parties. In other words, if we define the primary keystore only, it will be used as both Secondary Keystore (TLS) and Internal Keystore. However, it is sometimes a common requirement to have separate keystores for SSL/TSL connections, communicating messages with external parties (such as JWT, SAML, OIDC id\_token signing) and for encrypting information in internal data stores. This is because, for signing messages and external communications, the keystore certificates need to be frequently renewed. However, for encrypting information in internal data stores, the keystore certificates should not be changed frequently because the data that is already encrypted will become unusable every time the certificate changes.
 
 ## Configuring the Secondary Keystore for TLS connections
 
-In order to configure a seperate keystore as the secondary keystore, add below configurations to `deployment.toml`.
+In order to configure a separate keystore as the secondary keystore, add below configurations to `deployment.toml`.
 
 ```toml
 [keystore.tls]
@@ -69,7 +69,7 @@ key_password =  "passwd12#"
 
 ## Configuring the Internal Keystore
 
-Configuring a seperate internal keystore facilitates you to keep the certificate used for those encryptions unchanged while the certificate used for signing are changed. For that, add below configurations to `deployment.toml`. 
+Configuring a separate internal keystore facilitates you to keep the certificate used for those encryptions unchanged while the certificate used for signing are changed. For that, add below configurations to `deployment.toml`. 
 
 ```toml
 [keystore.internal]
@@ -82,7 +82,7 @@ key_password =  "passwd12#"
 
 !!! warning
     Using a totally new keystore for internal data encryption in an existing deployment will make already encrypted data unusable. In such cases, an appropriate data migration effort is needed.
-    Hence, if you have already been using the same keystore for both primary and internal keystores for sometime and later decided to use a seperate internal keystore, use the current keystore for internal keystore and use the new keystore for primary keystore instead. This avoids unnecessary data migration.
+    Hence, if you have already been using the same keystore for both primary and internal keystores for sometime and later decided to use a separate internal keystore, use the current keystore for internal keystore and use the new keystore for primary keystore instead. This avoids unnecessary data migration.
 
 
     ```toml

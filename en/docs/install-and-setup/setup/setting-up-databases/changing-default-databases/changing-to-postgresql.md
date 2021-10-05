@@ -36,7 +36,7 @@ Follow the  instructions below to set up the PostgreSQL database and users.
     postgres# grant all privileges on database <DATABASE_NAME> to apimadmin;
     ```
    
-1. Log out from the postgres command prompt by executing the following command:
+1. Log out from the Postgres command prompt by executing the following command:
    
    ```sh
    postgres# quit;
@@ -78,7 +78,7 @@ Follow the  instructions below to set up the PostgreSQL database and users.
     ERROR ApplicationRegistry org.wso2.andes.kernel.AndesException: Connecting to database failed with jndi lookup : WSO2MBStoreDB. data source username : wso2carbon. SQL Error message : General error: java.lang.ArrayIndexOutOfBoundsException
     ```
 
-     1. Replace the MB store database with the default H2 MB store database from a fresh WSO2 API-M 3.2.0 pack.
+     1. Replace the MB store database with the default H2 MB store database from a fresh WSO2 API-M distribution.
 
      2. Restart the server.
 

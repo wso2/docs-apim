@@ -33,21 +33,23 @@ The following concepts and artifacts are used in this tutorial:
 ## Let's get started!
 
 Follow the steps given below to build this use case and try it out.
+    !!! Note
+        For more information on generating metadata artifacts if you are using an older Integration Studio workspace, see [Generating Service Catalog Metadata Artifact]({{base_path}}/integrate/develop/generate-service-catalog-metadata.md).
+
 
 ### Step 1: Develop the integration service
 
 Follow the instructions given in this section to create and configure the required artifacts.
 
-1.  Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/tooling/) based on your operating system.
+1.  Download the relevant [WSO2 Integration Studio](https://wso2.com/api-management/tooling/) based on your operating system.
 2.  Open **WSO2 Integration Studio**.
 3.  Click **New Integration Project** in the **Getting Started** tab as shown below.
 
-    <img src="{{base_path}}/assets/img/integrate/create_project/create-integration-project.png" width="700">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.jpg" width="700">
 
     This will open the <b>New Integration Project</b> dialog box.
 
-4.  Enter `ServiceCatalogSample` as the project name and select the following check boxes to create the required 
-    modules.
+4.  Enter `ServiceCatalogSample` as the project name and select the following check boxes to create the required modules.
     -   **Create ESB Configs**
     -   **Create Composite Exporter**
 
@@ -196,7 +198,7 @@ When the **HealthcareAPI** is created, the following two new files are created i
 
 Let's update the metadata of the integration service.
 
-1.  Open the `HealthcareAPI_metadata.yaml` file from the project exporer.
+1.  Open the `HealthcareAPI_metadata.yaml` file from the project explorer.
 2.  Update the following values in the file.
 
     <table>
@@ -230,7 +232,7 @@ Let's update the metadata of the integration service.
                 <code>http://localhost:8290/healthcare</code>
             </td>
             <td>
-                This is the URL of the API when it gets deployed in the Micro Integrator. You (as the integration developer) may not know this URL during development. Therefore, you can parameterize the URL to be resolved later using environment variables. By default, the <code>{host}</code> and <code>{port}</code> values are parameterized with placeholders.</br></br>
+                This is the URL of the API when it gets deployed in the Micro Integrator. You (as the integration developer) may not know this URL during development. Therefore, you can parameterize the URL to be resolved later using environment variables. By default, the <code>{MI_HOST}</code> and <code>{MI_PORT}</code> values are parameterized with placeholders.</br></br>
                 You can configure the serviceUrl in the following ways:
                 <ul>
                     <li>
@@ -238,10 +240,10 @@ Let's update the metadata of the integration service.
                         <b>Let's use this option for this tutorial.</b>
                     </li>
                     <li>
-                        Parameterize using the host and port combination. For example: <code>http://{host}:{port}/healthcare</code>.
+                        Parameterize using the host and port combination. For example: <code>http://{MI_HOST}:{MI_PORT}/healthcare</code>.
                     </li>
                     <li>
-                        Parameterize using a preconfigured URL. For example: <code>http://{url}/healthcare</code>.
+                        Parameterize using a preconfigured URL. For example: <code>http://{MI_URL}/healthcare</code>.
                     </li>
                 </ul>
             </td>
@@ -303,9 +305,9 @@ Let's enable this client for the embedded Micro Integrator of WSO2 Integration S
     If you chose to parameterize the `serviceUrl` in the metadata file, you must inject the parameterized values as environment variables. Shown below are example placeholder values that you may have used in the `serviceUrl` followed by the corresponding environment variables. 
 
     ```bash
-    {host}  :  localhost
-    {port}  :  8290
-    {url}   :  localhost:8290
+    {MI_HOST}  :  localhost
+    {MI_PORT}  :  8290
+    {MI_URL}   :  localhost:8290
     ```
 
     !!! Tip
@@ -315,7 +317,7 @@ Let's enable this client for the embedded Micro Integrator of WSO2 Integration S
 
 Package the artifacts in your composite exporter module to be able to deploy the artifacts in the server.
 
-1.  Open the `pom.xml` file of the **ServiceCatalogSampleCompositeExporter** module.
+1.  Open the `pom.xml` file of the **ServiceCatalogSampleCompositeExporter** module.
 2.  Ensure that the following artifacts are selected in the POM file.
 
     -   `HealthcareAPI`
@@ -338,18 +340,19 @@ Let's deploy the [packaged artifacts](#step-3-package-the-artifacts) in the embe
     When you do this step: 
 
     1.  The Micro Integrator first reads the metadata files. 
-    2.  If you used placeholders in the metadata file, theey are replaced with environment variable values and a ZIP file is created.
+    2.  If you used placeholders in the metadata file, they are replaced with environment variable values and a ZIP file is created.
     3.  Finally, it uploads the metadata to the API management runtime.
 
 1.  Right-click the composite exporter module and click **Export Project Artifacts and Run**.
 2.  In the dialog box that opens, confirm that the required artifacts from the composite exporter module are selected.
 3.  Click **Finish**.
 
-The artifacts are deployed in the embedded Micro Integrator and the Micro Integrator starts. The integration service is also deployed in the **Service Catalog** during server start up. You will see the following in the server start up log.
+The artifacts are deployed in the embedded Micro Integrator and the Micro Integrator starts. The integration service is also deployed in the **Service Catalog** during server startup. You will see the following in the server start-up log.
 
 ```bash
 Successfully updated the service catalog
 ```
+
 
 ### Step 7: Create and Deploy the API
 
@@ -362,24 +365,15 @@ Let's expose the integration service as a managed API.
     !!! Tip
         Use `admin` as the user name and password.
 
-2.  Open the **Service Catalog** from the view shown below.
+2.  You can also click the **hamburger** icon on the upper-left and click **Services** to see the available services.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/open-service-catalog.png" alt="open service catalag">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/open-service-catalog.png" alt="open service catalag" width="400">
 
-    !!! Tip
-        You can also click the **hamburger** icon on the upper-left and click **Service Catalog**. 
-
-        <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/select-service-catalog.png" width="200">
-
-3.  See that the healthcare integration service is listed.
-
-    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/services-listing-page-publisher.png" alt="service catalog listings">
-
-4.  Open the HealthcareAPI
+3.  Open HealthcareAPI from the above list.
 
     <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/new-service-api-view.png" alt="API created from service catalog">
 
-5.  Click **Create API** in the above screen to open the **Create API** dialog box.
+4.  Click **Create API** in the above screen to open the **Create API** dialog box.
 
     <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/create-api-from-service.png" alt="create api dialog box">
 
@@ -405,7 +399,7 @@ Let's allocate some business plans for the API.
 
     <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview-business-plan.png" alt="click to add business plan">
 
-3.  Select atleast one business plan for the API and save.
+3.  Select at least one business plan for the API and save.
  
     <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-business-plans.png" alt="add business plans to api">
 
@@ -474,7 +468,7 @@ Now, let's assume you are an API consumer who wants to use the API. As a consume
     Let's start the back-end hospital service.
 
     1.  Download the JAR file of the back-end service from [here](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/Hospital-Service-JDK11-2.0.0.jar).
-    2.  Open a terminal, navigate to the location where your saved the back-end service.
+    2.  Open a terminal, navigate to the location where you saved the back-end service.
     3.  Execute the following command to start the service:
 
         ```bash
@@ -560,7 +554,7 @@ Now, let's test the use case by sending a simple client request that invokes the
 
     <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-try-it-execute.png">
 
-You will get the response message from the Healthcare service, if you send the category as `surgery`:
+You will get the response message from the Healthcare service, if you send the category as `surgery`:
 
 ```json
 [

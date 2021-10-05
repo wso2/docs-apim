@@ -1,11 +1,11 @@
-# Building a Jenkins CI/CD Pipeline for Dev First Approach
+# Building a Jenkins CI/CD Pipeline for Developer First Approach
 
 By using a developer-first approach, an organization can adopt to have minimal interaction between the API developer 
 and API Publisher Portal. First, an API developer develops his/her own backend microservice and creates an OpenAPI 
 Specification for it. Thereafter, he/she can create an API using that OpenAPI specification and deploy it to the desired 
 WSO2 API Manager (WSO2 API-M) environment without accessing the Publisher Portal directly.
 
-Let us create a CI/CD pipeline using Jenkins as the automation tool and Github as the source code management repository. Let us use Postman to write the test scripts in order to test the API that is deployed in WSO2 API-M.
+Let us create a CI/CD pipeline using Jenkins as the automation tool and GitHub as the source code management repository. Let us use Postman to write the test scripts in order to test the API that is deployed in WSO2 API-M.
 
 ## Prerequisites
 
@@ -18,7 +18,7 @@ in your Jenkins server.
 
 3.  Download and setup [WSO2 API-M 4.0.0](https://wso2.com/api-management/) in Development and Production environment servers. 
      
-     For more information, see [installation-prerequisites]({{base_path}}/install-and-setup/installation-guide/installation-prerequisites/).
+     For more information, see [installation-prerequisites]({{base_path}}/install-and-setup/install/installation-prerequisites/).
 
 4. Download and setup [WSO2 API Controller 4.0.0 version](https://wso2.com/api-management/tooling/) to the Jenkins server and the
 developer machines. 
@@ -76,7 +76,7 @@ Run the following sample command to initialize an API Project using the apictl b
 When running the above command, you can inject data into the definition template using environment variables. 
     
 !!! info
-    When you create an API Project, APIs are generated using a default template. To further finetune the process of creating the API and to include organization-specific common API related details, you can use a custom API Definition file. 
+    When you create an API Project, APIs are generated using a default template. To further fine tune the process of creating the API and to include organization-specific common API related details, you can use a custom API Definition file. 
     For more information, see [Initialize an API project]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach/#initialize-an-api-project).
 
 !!! tip
@@ -139,7 +139,7 @@ Follow the instructions below to use a GitHub Webhook to trigger the Jenkins Pip
         
     -   The deployment to environments can be done automatically using `apictl`.
 
-1. Configure your source code repository in GitHub with a webhook to automatically start a Jenkins pipeline after you commit any changes. 
+1. Configure your source code repository in GitHub with a WebHook to automatically start a Jenkins pipeline after you commit any changes. 
         
 2. Add the two environments using the following sample `apictl` commands.
 
@@ -192,7 +192,7 @@ Follow the instructions below to use a GitHub Webhook to trigger the Jenkins Pip
         values here so that they will be injected into the API during the deployment.
     
 
-Upon committing and pushing any changes to the remote repository, the webhook will automatically trigger a pipeline build on 
+Upon committing and pushing any changes to the remote repository, the WebHook will automatically trigger a pipeline build on 
 the Jenkins server.  
 
 A successful pipeline build will have a similar console output to the following.     
@@ -212,7 +212,7 @@ A successful pipeline build will have a similar console output to the following.
 
 After the pipeline status changes to **SUCCESS**, when you navigate to the API Publisher in the dev and prod environments, you can see the **SampleStore** API is in the `PUBLISHED` state. 
 
-If you check the endpoints, you can see the endpoint URLs are updated according to the dev and production environment configs. 
+If you check the endpoints, you can see the endpoint URLs are updated according to the dev and production environment configurations. 
 
 [![]({{base_path}}/assets/img/learn/api-controller/dev-samplestoreapi.png)]({{base_path}}/assets/img/learn/api-controller/dev-samplestoreapi.png)
 

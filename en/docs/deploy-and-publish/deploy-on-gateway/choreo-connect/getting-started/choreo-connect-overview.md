@@ -8,7 +8,7 @@ The WSO2 Choreo Connect is a lightweight message processor for APIs. The Choreo 
 
 ## Choreo Connect Components
 
-Choreo Connect has three basic components. Each component does a vital part during request processing, and single unit of Choreo Connect is a collection of all three components.
+Choreo Connect consists of the following three components.
 
 ### 1. Router
 
@@ -31,9 +31,9 @@ The adapter is the component that is responsible for that. Adapter will pass the
 There are two different ways API can be received by the adapter.
 
 1. Adapter can receive an API from APIM control plane(publisher)
-2. Adapter can receive APIs via pushing the API project from the command line tool [APICTL]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller.md)
+2. Adapter can receive APIs via pushing the API project from the command line tool [APICTL]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller)
 
-Choreo Connect can be used mainly in the follwoing two modes.
+Choreo Connect can be used mainly in the following two modes.
 
 1. [Choreo Connect with API Manager as control plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane)
 2. [Choreo Connect As a standalone gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway)

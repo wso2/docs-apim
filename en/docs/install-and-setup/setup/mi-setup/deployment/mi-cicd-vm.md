@@ -1,8 +1,6 @@
-[![VM based CI/CD for Micro Integrator]({{base_path}}/assets/img/deploy/mi-cicd-VM.png)]({{base_path}}/assets/img/deploy/mi-cicd-VM.png)
-
-#### Overview
-
 There are two kinds of jobs in Jenkins that we need to maintain. One for the Integration project repositories. Another kind is for the Deployment Descriptor repositories. 
+
+[![VM based CI/CD for Micro Integrator]({{base_path}}/assets/img/deploy/mi-cicd-vm.png)]({{base_path}}/assets/img/deploy/mi-cicd-vm.png)
 
 #### Integration Project Build Job
 - We need to maintain one Jenkins job per Integration Project repository.
@@ -56,7 +54,7 @@ There are two kinds of jobs in Jenkins that we need to maintain. One for the Int
 5. [Set up Jenkins server](#setting-up-jenkins-server)
 6. Login to the Jenkins server using the credentials given in the Dockerfile of Jenkins instance.
 7. Navigate to the project build job and trigger a build.
-8. Create webhooks in relevant GitHub repositories pointing to the Jenkins server. (Source & Deployment)
+8. Create WebHooks in relevant GitHub repositories pointing to the Jenkins server. (Source & Deployment)
 9. [Set up Nexus server](#setting-up-nexus-server)
 10. Login to the Nexus server using the credentials given in the Dockerfile of nexus instance and confirm that the ‘Integration’ repository has been created.
 11. Go to the Jenkins server and perform a maven release by giving release and development versions.
@@ -78,9 +76,9 @@ There are two kinds of jobs in Jenkins that we need to maintain. One for the Int
 
 ##### Setting up Jenkins Server
 
-1. Docker scripts for setting up a Jenkins environment are provided here. This will spin up a preconfigured Docker image. By default, 4 Jenkins jobs will be created. One project for the Integration project and three more for the environment descriptor repos (dev, staging, prod). 
+1. Docker scripts for setting up a Jenkins environment are provided here. This will spin up a preconfigured Docker image. By default, 4 Jenkins jobs will be created. One project for the Integration project and three more for the environment descriptor repositories (dev, staging, prod). 
 
-2. Both the Integration project, and descriptor repos will be in GitHub.
+2. Both the Integration project, and descriptor repositories will be in GitHub.
 
     Note: You can customize the Docker scripts to create Jenkins jobs for multiple Integration projects.
 

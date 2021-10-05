@@ -1,11 +1,8 @@
-# Manage Integrations
+# Deploying Integrations using the Operator
 
 The Kubernetes API operator (**k8s-api-operator**) provides first-class support for Micro Integrator deployments in the Kubernetes ecosystem. It uses the **Integration custom resource** (`integration_cr.yaml` file) that is available in the Kubernetes exporter module (exported from WSO2 Integration Studio) and deploys the integration in your Kubernetes environment.
 
-The operator is configured with an NGINX Ingress controller by default, which exposes the deployed integration through HTTP/HTTPS protocols. If required, you can use the operator's configuration mapper (`integration_controller_conf.yaml` file) to update ingress controller configurations. Also, you can use the same file to disable ingress controller creation when applying the operator if you plan to use a custom ingress controller.
-                                                                                                                                                                                                                                                    
-
-
+The operator is configured with an NGINX Ingress controller by default, which exposes the deployed integration through HTTP/HTTPS protocols. If required, you can use the operator's configuration mapper (`integration_controller_conf.yaml` file) to update ingress controller configurations. Also, you can use the same file to disable ingress controller creation when applying the operator if you plan to use a custom ingress controller.                                                                                                                                                                                                                                       
 ##  Prerequisites (system requirements)
 
 Listed below are the system requirements for deploying integration solutions in Kubernetes using the K8s API Operator.
@@ -15,20 +12,20 @@ Listed below are the system requirements for deploying integration solutions in 
 
 - [Kubernetes](https://kubernetes.io/docs/setup/) cluster and **v1.14+** client. 
 - [Docker](https://docs.docker.com/)
-- [Install K8s API Operator]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/install.md)
+- [Install K8s API Operator]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/install)
 
 ## Deploy integration solutions in K8s
 
 !!! Tip
     To try the end-to-end process of deploying integration solutions on Kubernetes, see the integration examples: 
 
-    - [Hello World example]({{base_path}}/install-and-setup/setup/mi-setup/deployment/integration-samples/hello-world)
-    - [Message Routing example]({{base_path}}/install-and-setup/setup/mi-setup/deployment/integration-samples/content-based-routing)
-    - [JMS Sender/Receiver exampe]({{base_path}}/install-and-setup/setup/mi-setup/deployment/integration-samples/jms-sender-receiver)
+    - [Hello World example]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world)
+    - [Message Routing example]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing)
+    - [JMS Sender/Receiver exampe]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver)
 
 Given below are the main steps your will follow when you deploy integration solutions in a Kubernetes cluster.
 
-1.  Be sure that the [system requirements](#prerequisites-system-requirements) are fulfilled, and that the [K8s API operator](https://operatorhub.io/operator/api-operator) is installed in your Kubernetes environment.
+1.  Be sure that the [system requirements](#prerequisites-system-requirements) are fulfilled, and that the [K8s API operator]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/install) is installed in your Kubernetes environment.
 2.  Your integration solution should be prepared using **WSO2 Integration Studio** as follows:
 
     1. Create the integration solution.
@@ -76,7 +73,7 @@ Given below are the main steps your will follow when you deploy integration solu
           value: "https://reqres.in/api"
         - name: SECRET_USERNAME
           valueFrom:
-            secretKeyRef:
+            secretRef:
               name: backend-user
               key: backend-username
         - name: CONFIGMAP_USERNAME
@@ -87,7 +84,7 @@ Given below are the main steps your will follow when you deploy integration solu
       envFrom:
         - configMapRef:
             name: CONFIG_MAP_NAME
-        - secretKeyRef:
+        - secretRef:
             name: SECRET_NAME   
     ```
 
@@ -440,7 +437,7 @@ The K8s API operator allows you to update the Docker images used in Kubernetes p
 kubectl delete pod <POD-NAME>
 ```
 
-When you run the above command, Kubernetes will spawn another temporary pod, which has the same behaviour of the pod we have deleted. Then the deleted pod will restart by pulling the latest tag from the Docker image path. 
+When you run the above command, Kubernetes will spawn another temporary pod, which has the same behavior of the pod we have deleted. Then the deleted pod will restart by pulling the latest tag from the Docker image path. 
 
 !!! Note 
     Here we are recommending to use a different image path for the updated integration solution. Otherwise, (because the Docker image is re-pulled from the existing deployment) some traffic from outside might get lost. 
@@ -569,7 +566,7 @@ The operator gives you the flexibility of defining liveness and readiness probes
 
 You can configure the default probe definition in the `integration_controller_conf.yaml` file as shown below. 
 
-The Micro Integrator is considered **live** when it is accepting HTTP/HTTPS traffic. Usually, it listens for HTTP traffic on the passthrough port (default 8290). Liveness of the Micro Integrator pod is checked by a ping to that port.
+The Micro Integrator is considered **live** when it is accepting HTTP/HTTPS traffic. Usually, it listens for HTTP traffic on the PassThrough port (default 8290). Liveness of the Micro Integrator pod is checked by a ping to that port.
 
 The  Micro Integrator is **ready** to accept traffic only when all the CApps are successfully deployed. The API with the `/healthz` path, which is exposed through the HTTP inbound port (default 9201) is used to check the readiness.
 

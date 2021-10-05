@@ -2,7 +2,7 @@
 
 ## What you'll build
 
-When you integrate the systems in your organizaion, it is also necessary to integrate with third-party systems and its capabilities to enhance your services. WSO2 Micro Integrator uses **Connectors** for the purpose of referring the APIs of third-party systems.
+When you integrate the systems in your organization, it is also necessary to integrate with third-party systems and its capabilities to enhance your services. WSO2 Micro Integrator uses **Connectors** for the purpose of referring the APIs of third-party systems.
 
 **In this tutorial**, when a client sends an appointment reservation request to the Micro Integrator, the client should receive an email confirming the appointment reservation details. To build this use case, you can add an Email connector to the mediation flow.
 
@@ -10,7 +10,7 @@ When you integrate the systems in your organizaion, it is also necessary to inte
 
 ### Step 1: Set up the workspace
 
-Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/tooling/) based on your operating system.
+Download the relevant [WSO2 Integration Studio](https://wso2.com/api-management/tooling/) based on your operating system.
 
 ### Step 2: Develop the integration artifacts
 
@@ -21,11 +21,11 @@ An Integration project is a maven multi module project, which will contain all t
 1.  Open **WSO2 Integration Studio**.
 2.  Click **New Integration Project** in the **Getting Started** tab as shown below. 
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.png" width="700">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.jpg" width="700">
 
     This will open the <b>New Integration Project</b> dialog box.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-simple-message-project.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-simple-message-project.jpg" width="500">
 
 3.  Enter `SampleServices` as the project name and select the following check boxes to create the required modules.
     -   **Create ESB Configs**
@@ -175,7 +175,7 @@ Let's create an HTTP endpoint to represent the Hospital Service.
 1. Right click on **Sample Services Configs** module in the Project Explorer and select **Add or Remove Connector/Module**.
 2. Select **Add Connector/module** and click **Next**. You are now connected to the [WSO2 Connector store](https://store.wso2.com).
 3. Find **Email** from the list of connectors and click the **Download** button (for the Email connector). 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/119132294/import-gmail-connector.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/119132294/import-gmail-connector.jpg" width="500">
 
 4. Click **Finish**.
    The connector is now downloaded to your workspace in WSO2 Integration Studio and the connector operations are available in the Email Connector palette.  
@@ -288,7 +288,7 @@ You can now start updating the API resource with the mediation flow.
       </tr>
     </table>
 
-4.  Add a Call mediator from the **Mediators** palette and add the HospitalServicesEP endpont from the **Defined Endpoints** palette to the empty box adjoining the Call mediator.
+4.  Add a Call mediator from the **Mediators** palette and add the HospitalServicesEP endpoint from the **Defined Endpoints** palette to the empty box adjoining the Call mediator.
 
     !!! Info
         Using the Call mediator allows us to define other service invocations following this mediator.

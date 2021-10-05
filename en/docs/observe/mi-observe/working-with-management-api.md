@@ -17,7 +17,7 @@ The management API is secured using JWT authentication by default. Therefore, wh
 Follow the steps given below to acquire the JWT token.
 
 1.	First, encode your username:password in Basic Auth format (encoded in base64). For example, use the default `admin:admin` credentials.
-2.	Invoke the `/login` resource of the API with your encoded credintials as shown below.
+2.	Invoke the `/login` resource of the API with your encoded credentials as shown below.
   	```bash
   	curl -X GET "https://localhost:9164/management/login" -H "accept: application/json" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -i
   	```
@@ -33,7 +33,7 @@ Follow the steps given below to acquire the JWT token.
 You can now use this token when you invoke a [resource](#accessing-api-resources).
 
 !!! Info
-     When the default JWT security handler is engaged, all the management API resources except `/login` is protected by JWT auth. Therefore, it is necessary to send the token as a bearer token when invoking the API resources.
+     When the default JWT security handler is engaged, all the management API resources except `/login` are protected by JWT auth. Therefore, it is necessary to send the token as a bearer token when invoking the API resources.
 
 ```bash
 curl -X GET "https://localhost:9164/management/inbound-endpoints" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%”
@@ -41,7 +41,7 @@ curl -X GET "https://localhost:9164/management/inbound-endpoints" -H "accept: ap
 
 ### Log out from management API
 
-Invoke the `/logout` resource to revoke the JWT token you used for [invoking the api resource](#invoking-an-api-resource).
+Invoke the `/logout` resource to revoke the JWT token you used for [invoking the API resource](#invoking-an-api-resource).
 
 ```bash
 curl -X GET "https://localhost:9164/management/logout" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
@@ -257,7 +257,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/applications`
 
-	**Description**: This operation provides you a list of available Applications.
+	**Description**: This operation provides you a list of available active and faulty Applications.
 
 	**Example**:
 
@@ -267,10 +267,18 @@ The management API has multiple resources to provide information regarding the d
 
 	```bash tab='Response'
 	{
-	  "count": 1,
-	  "list": [
+	  "totalCount": 2,
+	  "activeCount": 1,
+	  "faultyCount": 1,
+	  "activeList": [
 	    {
 	      "name": "SampleServicesCompositeApplication",
+	      "version": "1.0.0"
+	    }
+	  ],
+	  "faultyList": [
+	    {
+	      "name": "FaultyCAppCompositeExporter",
 	      "version": "1.0.0"
 	    }
 	  ]
@@ -284,6 +292,23 @@ The management API has multiple resources to provide information regarding the d
 	**Example**:
 	```
 	curl -X GET "https://localhost:9164/management/applications?carbonAppName=HelloCApp" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
+	```
+
+### DOWNLOAD CARBON APPLICATION
+
+-	**Resource**: `/applications`
+
+	**Description**: Download a carbon application.
+
+    **Example**:
+    
+  	```bash
+		wget \
+    	  https://localhost:9164/management/applications?carbonAppName=myHttpServiceCompositeExporter_1.0.0.car \
+    	  -O myHttpServiceCompositeExporter_1.0.0.car \
+    	  --header 'Authorization: Bearer TOKEN' \
+    	  --header 'accept: application/octet-stream' \
+    	  --no-check-certificate -i
 	```
 
 ### GET ENDPOINTS
@@ -362,7 +387,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/apis`
 
-	**Description**: Retrieves a list of available apis.
+	**Description**: Retrieves a list of available APIs.
 
 	**Example**:
 
@@ -388,13 +413,13 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/apis?apiName={api}`
 
-	**Description**: Retrieves information related to a specified api.
+	**Description**: Retrieves information related to a specified API.
 
 ### ENABLE/DISABLE MESSAGING TRACING for APIs
 
 -	**Resource**: `/apis`
 
-	**Description**: Enable or disable message tracing for a specified api.
+	**Description**: Enable or disable message tracing for a specified API.
 
 	**Example**:
 
@@ -825,6 +850,102 @@ The management API has multiple resources to provide information regarding the d
 	    "javaHome": "/Library/Java/JavaVirtualMachines/jdk1.8.0_171.jdk/Contents/Home/jre"
 	}
 	```
+
+### SHUTDOWN SERVER
+
+-	**Resource**: `/server`
+
+	**Description**: Shutdown the micro integrator server instance forcefully.
+
+	**Example**:
+
+	```bash tab='Request'
+		curl -X PATCH \
+    	  https://localhost:9164/management/server \
+    	  -H 'authorization: Bearer TOKEN' \
+    	  -H 'content-type: application/json' \
+    	  -d '{
+    		"status": "shutdown"
+    	}' -k -i
+	```
+
+  	```bash tab='Response'
+  	{
+	"Message":"The server will start to shutdown."
+	}
+  	```
+
+### SHUTDOWN SERVER GRACEFULLY
+
+-	**Resource**: `/server`
+
+	**Description**: Shutdown the micro integrator server instance gracefully.
+
+	**Example**:
+
+	```bash tab='Request'
+		curl -X PATCH \
+    	  https://localhost:9164/management/server \
+    	  -H 'authorization: Bearer TOKEN' \
+    	  -H 'content-type: application/json' \
+    	  -d '{
+    		"status": "shutdownGracefully"
+    	}' -k -i
+	```
+
+  	```bash tab='Response'
+  	{
+	"Message":"The server will start to shutdown gracefully."
+	}
+  	```
+
+### RESTART SERVER
+
+-	**Resource**: `/server`
+
+	**Description**: Restart the micro integrator server instance forcefully.
+
+	**Example**:
+
+	```bash tab='Request'
+		curl -X PATCH \
+    	  https://localhost:9164/management/server \
+    	  -H 'authorization: Bearer TOKEN' \
+    	  -H 'content-type: application/json' \
+    	  -d '{
+    		"status": "restart"
+    	}' -k -i
+	```
+
+  	```bash tab='Response'
+  	{
+	"Message":"The server will start to restart."
+	}
+  	```
+
+### RESTART SERVER GRACEFULLY
+
+-	**Resource**: `/server`
+
+	**Description**: Restart the micro integrator server instance gracefully.
+
+	**Example**:
+
+	```bash tab='Request'
+		curl -X PATCH \
+    	  https://localhost:9164/management/server \
+    	  -H 'authorization: Bearer TOKEN' \
+    	  -H 'content-type: application/json' \
+    	  -d '{
+    		"status": "restartGracefully"
+    	}' -k -i
+	```
+
+  	```bash tab='Response'
+  	{
+	"Message":"The server will start to restart gracefully."
+	}
+  	```
 
 ### GET DATA SERVICES
 

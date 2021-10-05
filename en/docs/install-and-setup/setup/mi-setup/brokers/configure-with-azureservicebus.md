@@ -13,7 +13,7 @@ Follow the instructions below to set up and configure Micro Integrator to work w
 
 ### Setting up Azure Service Bus
 
-To set this up, configure a queue in Azure Service Bus to work with the synapse config. 
+To set this up, configure a queue in Azure Service Bus to work with the synapse configuration. 
 
 Service Bus queues can be used to communicate between various on-premise and cloud applications and components. Using queues enables you to scale your applications more easily, and enable more resiliency to your architecture.
 
@@ -38,7 +38,7 @@ Now the WSO2 enterprise integrator should be configured to work with Azure Servi
 
 The messaging flow is as shown below.
 
-![]({{base_path}}/assets/img/integrate/broker-configs/azure-service-bus.png)
+![]({{base_path}}/assets/img/integrate/broker-configs/azure-service-bus.jpg)
 
 To set up the messaging flow in WSO2 Integration Studio, create synapse artifacts to create a consumer and a producer. 
 

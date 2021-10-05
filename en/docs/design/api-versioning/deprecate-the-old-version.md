@@ -10,7 +10,7 @@ When you publish a new version of an API, you have to maintain the old versions 
 
      `https://<hostname>:9443/publisher`
 
-2.  Click on the API that you created in the [previous tutorial]({{base_path}}/design/api-versioning/create-a-new-api-version/) (e.g., `PhoneVerification 2.0.0`).
+2.  Click on the API that you created in the [previous tutorial]({{base_path}}/design/api-versioning/create-a-new-api-version/) (e.g., `PizzaShackAPI 2.0.0`).
 
 3.  Click **Lifecycle**. The API Lifecycle page appears.
 

@@ -30,7 +30,7 @@ Follow the steps below to add a certificate to an endpoint:
     |-------------|---------------------------------------------------|
     | interval    | The time taken to load the newly added certificate in **milliseconds**. Default 10 mins. (600000ms) Minimum interval : 60000ms (1 min)|
 
-- If you are using a different default truststore/keystore configuration and defined it in the `[transport.passthru_https.sender]` or `[keystore.primary]` sections within the `deployment.toml` file, make sure to modify the keystore and truststore configurations for **default ssl profile** in  `<API-M_HOME>/repository/conf/deployment.toml` as follows.
+- If you are using a different default truststore/keystore configuration and defined it in the `[transport.passthru_https.sender]` or `[keystore.primary]` sections within the `deployment.toml` file, make sure to modify the keystore and truststore configurations for **default SSL profile** in  `<API-M_HOME>/repository/conf/deployment.toml` as follows.
 
     ``` tab="Format"
     [keystore.tls]
@@ -58,7 +58,7 @@ Follow the steps below to add a certificate to an endpoint:
     password = "wso2carbon"
     ```
 
-- If you are using a seperate keystore and truststore pair (per custom ssl profile) for each endpoint domain, add the configuration for each **custom ssl profile** in  `<API-M_HOME>/repository/conf/deployment.toml` as follows.
+- If you are using a separate keystore and truststore pair (per custom SSL profile) for each endpoint domain, add the configuration for each **custom SSL profile** in  `<API-M_HOME>/repository/conf/deployment.toml` as follows.
 
     ``` tab="Format"
     [[keystore.ssl_profile.custom]]
@@ -125,7 +125,7 @@ Follow the steps below to add a certificate to an endpoint:
 
 1.  Sign in to the API Publisher. 
 
-2. [Create a new API]({{base_path}}/design/create-api/create-a-rest-api/) or click on an existing API.
+2. [Create a new API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/) or click on an existing API.
 
 3.  Click **Endpoints** and click **General Endpoint Configuration** to expand that section. 
     [![Open General Endpoint Configuration]({{base_path}}/assets/img/learn/open-general-endpoint-configuration.png)]({{base_path}}/assets/img/learn/open-general-endpoint-configuration.png)
@@ -133,6 +133,7 @@ Follow the steps below to add a certificate to an endpoint:
    [![Click on Add Certificate]({{base_path}}/assets/img/learn/click-add-certificate.png)]({{base_path}}/assets/img/learn/click-add-certificate.png)
    
     The Upload Certificate dialog box appears.
+
     [![Upload Certificate Dialog]({{base_path}}/assets/img/learn/upload-certificate-open.png)]({{base_path}}/assets/img/learn/upload-certificate-open.png)
 
     *  Enter the following information and click **Save**.

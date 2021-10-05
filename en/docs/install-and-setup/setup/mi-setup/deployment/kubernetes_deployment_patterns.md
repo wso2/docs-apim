@@ -1,4 +1,4 @@
-# Kubernetes Deployment Patterns
+# Micro Integrator Deployment Patterns on Kubernetes
 
 These are the deployment patterns you can use when deploying your WSO2 Micro Integrator-based integration solutions in a Kubernetes environment.
 
@@ -8,7 +8,7 @@ When you deploy your integrations, the main concern is to ensure high availabili
 
 The following diagram depicts a single worker node deployment, which contains a single pod (single replica).
 
-<img src="{{base_path}}/assets/img/integrate/k8s_deployment/k8s-single-pod.png">
+<img src="{{base_path}}/assets/img/integrate/k8s_deployment/k8s-single-pod.png" width="300">
 
 A single worker node will reduce your management overheads when you build an on-premise cluster (does not apply to cloud instances). Also, there will be lower costs and resource requirements when compared to a multiple node cluster.
 
@@ -22,12 +22,12 @@ The failure of this single worker node will take down the entire Micro Integrato
 
 ## Multiple Replicas
 
-The following diagram depicts a kubernetes cluster with multiple replicas of an integration deployment, which is scaled across multiple worker nodes. 
+The following diagram depicts a Kubernetes cluster with multiple replicas of an integration deployment, which is scaled across multiple worker nodes. 
 
 !!! Note
 	In this example, one node only carries one replica of a pod. However, depending on the capacity of your worker node, you can maintain multiple pod replicas in a single worker node.
 
-<img src="{{base_path}}/assets/img/integrate/k8s_deployment/k8s-muliple-workers-single-pod.png">
+<img src="{{base_path}}/assets/img/integrate/k8s_deployment/k8s-muliple-workers-single-pod.png" width="700">
 
 When you have multiple instances of an application, you need a way to distribute the traffic to all of them. Therefore, the cluster should be fronted by an <b>Ingress</b> or an <b>external load balancer service</b> (given that your Kubernetes environment supports external load balancers) that will distribute network traffic to all pods of the exposed deployment.
 
@@ -37,7 +37,7 @@ This deployment pattern is suitable for handling high incoming traffic because t
 
 ### High availability
 
-This approach ensures high availability in your cluster. If one worker node fails, the traffic will be routed to another worker node. Similarly, if one pod replica fails, the traffic will be routed to another replica that runs concurrently at a given point of time. The pods will not experience any downtime because new pods don't need to be spawned everytime one pod fails.
+This approach ensures high availability in your cluster. If one worker node fails, the traffic will be routed to another worker node. Similarly, if one pod replica fails, the traffic will be routed to another replica that runs concurrently at a given point of time. The pods will not experience any downtime because new pods don't need to be spawned every time one pod fails.
 
 ### Rolling updates
 

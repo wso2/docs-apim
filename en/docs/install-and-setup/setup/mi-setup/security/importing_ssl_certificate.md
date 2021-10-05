@@ -1,6 +1,6 @@
 # Adding SSL Certificates to Keystores
 
-Follow the steps given below to add a new [CA-signed certificate]({{base_path}}/reference/mi-security-reference/using_keystores) to your [keystores]({{base_path}}/reference/mi-security-reference/using_keystores). Note that you do not need to create a new keystore everytime you need a CA-signed certificate.
+Follow the steps given below to add a new [CA-signed certificate]({{base_path}}/reference/mi-security-reference/using_keystores) to your [keystores]({{base_path}}/reference/mi-security-reference/using_keystores). Note that you do not need to create a new keystore every time you need a CA-signed certificate.
 
 ## Generating SSL certificates for keystores
 

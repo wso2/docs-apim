@@ -18,7 +18,7 @@ Listed below are some of the advantages of moving to API-M 4.0.0 from the ESB.
 
 Upgrading to WSO2 API-M 4.0.0 is recommended for the following requirements:
 
--	You need to expose integrations as managed APIs so that integration solutions can be managed and monitized in an API marketplace. 
+-	You need to expose integrations as managed APIs so that integration solutions can be managed and monetized in an API marketplace. 
 -	You need to switch to a microservices architecture from the conventional centralized architecture.
 -	You need a more lightweight, user-friendly version of the battle-tested WSO2 ESB.
 -	You need a more lightweight, container-friendly runtime in a centralized architecture.
@@ -29,7 +29,7 @@ Upgrading to WSO2 API-M 4.0.0 is recommended for the following requirements:
 
 Note the following:
 
--	Ports are different in the Micro Integrator of API-M 4.0.0. Find out about [ports in the Micro Integrator](../../../install-and-setup/setup/mi-setup/changing_default_ports).
+-	Ports are different in the Micro Integrator of API-M 4.0.0. Find out about [ports in the Micro Integrator](../../../install-and-setup/setup/reference/default-product-ports/#micro-integrator-ports).
 -	The Micro Integrator of API-M 4.0.0 contains changes that impact your migration process. Be sure to read the [Comparison: ESB vs the Micro Integrator](../../../get-started/about-this-release/#compare-this-release-with-previous-esbs) before you start the migration.
 
--	Note that API-M 4.0.0 is a **WUM-only release**, which means that manual patches are not allowed. You can use [WSO2 Update Manager(WUM)](https://updates.docs.wso2.com/en/latest/updates/overview) to get the latest fixes or updates for this release..
+-	Note that API-M 4.0.0 does not allow manual patches. You can use [WSO2 Updates](https://updates.docs.wso2.com/en/latest/updates/overview) to get the latest fixes or updates for this release..

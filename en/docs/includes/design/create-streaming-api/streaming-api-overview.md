@@ -41,7 +41,7 @@ The actions a **topic** allows you to do are "Subscribe" and/or "Publish".
 - **Subscribe** - A topic of this type allows traffic from the server (backend) to the client. 
 - **Publish** - A topic of this type allows traffic from the client to the server.
 
-WSO2 API Manager (WSO2 API-M) supports Streaming APIs via the following main protocols, which are compatible with HTTP.
+The [Streaming Integrator component](../../../../streaming/streaming-overview/) in WSO2 API Manager (WSO2 API-M) supports Streaming APIs via the following main protocols, which are compatible with HTTP.
 
 - **[WebSocket](../../../../use-cases/streaming-usecase/create-streaming-api/create-a-websocket-streaming-api)**
 - **[WebSub (WebHook)](../../../../use-cases/streaming-usecase/create-streaming-api/create-a-websub-streaming-api)**

@@ -1,11 +1,11 @@
 # Receiving JSON Events via RabbitMQ
 
 ## Purpose:
-This application demonstrates how to configure WSO2 Streaming Integrator Tooling to receive events to the `SweetProductionStream` via rabbitmq broker in JSON format using default mapping and log the events in `LowProductionAlertStream` to the output console.
+This application demonstrates how to configure WSO2 Streaming Integrator Tooling to receive events to the `SweetProductionStream` via RabbitMQ broker in JSON format using default mapping and log the events in `LowProductionAlertStream` to the output console.
 
 ## Prerequisites:
 1. Save this sample.
-2. Install the rabbitmq server using the following command
+2. Install the RabbitMQ server using the following command
     ```bash
     sudo apt-get install rabbitmq-server.
     ```
@@ -24,10 +24,10 @@ This application demonstrates how to configure WSO2 Streaming Integrator Tooling
     ```
     * ReceiveRabbitmqInJSONFormat.siddhi - Started Successfully!
     ```
-Check whether the exchange 'rabbitmq_sample' is created in the rabbitmq server or not. To check that you can visit http://localhost:15672/.
+Check whether the exchange 'rabbitmq_sample' is created in the RabbitMQ server or not. To check that you can visit http://localhost:15672/.
 
 ## Testing the Sample:
-##### Publish events with rabbitmq sample publisher:
+##### Publish events with RabbitMQ sample publisher:
 Open a terminal and issue command from the `{WSO2SIHome}/samples/sample-clients/rabbitmq-producer` and run `ant` command.
 If you want to publish custom number of events, you need to run `ant` command as follows:
 ```bash

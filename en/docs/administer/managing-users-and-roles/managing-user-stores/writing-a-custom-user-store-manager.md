@@ -50,7 +50,7 @@ options.
 <thead>
 <tr class="header">
 <th>Available methods</th>
-<th>Default behaviour</th>
+<th>Default behavior</th>
 <th>Reasons for overriding</th>
 </tr>
 </thead>
@@ -105,7 +105,7 @@ options.
 <thead>
 <tr class="header">
 <th>Available methods</th>
-<th>Default behaviour</th>
+<th>Default behavior</th>
 </tr>
 </thead>
 <tbody>
@@ -170,7 +170,7 @@ options.
 
 ### Read methods
 
-| Available methods                                                                                                                       | Default behaviour                                                                                                                                                                          |
+| Available methods                                                                                                                       | Default behavior                                                                                                                                                                          |
 |-----------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `                boolean doCheckExistingUser(String userName)               `                                                           | Returns whether the provided `               userName              ` already exists in the user store.                                                                                     |
 | `                boolean doCheckExistingRole(String roleName)               `                                                           | Returns whether the provided roleName already exists in the user store.                                                                                                                    |
@@ -237,7 +237,7 @@ JDBC user store manager. For this sample, the following tools are used
 to implement the custom user store manager.
 
 -   Java 1.6.0
--   IDE (Eclipse, InteliJ IDEA, etc.)
+-   IDE (Eclipse, IntelliJ IDEA, etc.)
 -   Apache Maven
 
 ### Setting up the implementation
@@ -252,9 +252,9 @@ To set up this implementation, do the following.
         Note that the version number of the carbon dependencies
         seen below have to be updated according to the carbon kernel version
         that the particular product version is compatible with. For example,
-        WSO2 API-M 3.2.0 is built on top of carbon kernel version **4.6.0**
+        WSO2 API Manager is built on top of carbon kernel version **4.6.1**
         therefore, the version given in the sample POM file below is
-        **4.6.0**. Change this value accordingly based on the relevant
+        **4.6.1**. Change this value accordingly based on the relevant
         carbon kernel version of the product you are using by referring to
         this [release
         matrix](https://wso2.com/products/carbon/release-matrix/).

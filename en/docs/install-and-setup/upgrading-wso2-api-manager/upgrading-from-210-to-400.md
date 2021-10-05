@@ -8,6 +8,9 @@ The following information describes how to upgrade your API Manager server **fro
 !!! Attention
     If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, first you have to follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.11.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-530-to-is-5110) instead of below steps.    
 
+!!! Attention
+    As the on-premise analytics data cannot be migrated to the Cloud, you need to maintain the old analytics server and keep the UI running for as long as you need that data (e.g., 3 months) after migrating to the new version of analytics in WSO2 API-M 4.0.0.
+    
 !!! note "If you are using PostgreSQL"
     The DB user needs to have superuser role to run the migration client and the relevant scripts
     ```
@@ -405,12 +408,12 @@ Follow the instructions below to move all the existing API Manager configuration
     !!! Attention
         If there is a error similar to this when running the db script for ***mssql***
         ``` java
-            SQL Error [5074] [S0001]: The object '<SOME_ID>' is dependent on column 'ACCESS_TOKEN'.
+        SQL Error [5074] [S0001]: The object '<SOME_ID>' is dependent on column 'ACCESS_TOKEN'.
         ```
         Use the ID mentioned in the error to run the sql statement below. This will drop a default constraint created by the database
         ```java
-            ALTER TABLE AM_SUBSCRIPTION_KEY_MAPPING
-            DROP CONSTRAINT <SOME_ID>;
+        ALTER TABLE AM_SUBSCRIPTION_KEY_MAPPING
+        DROP CONSTRAINT <SOME_ID>;
         ```
 
     ??? info "DB Scripts"
@@ -3334,7 +3337,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     1.  Download the identity component migration resources and unzip it in a local directory.
   
-        Navigate to the [latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest) and download the `wso2is-migration-x.x.x.zip` under Assets.
+        Navigate to the [latest release tag](https://github.com/wso2-extensions/apim-identity-migration-resources/tags) and download the `wso2is-migration-x.x.x.zip` under Assets.
 
     2.  Copy the `migration-resources` folder from the extracted folder to the `<API-M_4.0.0_HOME>` directory.
 
@@ -3381,11 +3384,11 @@ Follow the instructions below to move all the existing API Manager configuration
             If you are migrating your user stores to the new user store managers with the unique ID capabilities, Follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/latest/setup/migrating-userstore-managers/) before moving to the next step
         
         ```tab="Linux / Mac OS"
-        sh wso2server.sh -Dmigrate -Dcomponent=identity
+        sh api-manager.sh -Dmigrate -Dcomponent=identity
         ```
 
         ```tab="Windows"
-        wso2server.bat -Dmigrate -Dcomponent=identity
+        api-manager.bat -Dmigrate -Dcomponent=identity
         ```
 
         !!! note
@@ -3426,23 +3429,25 @@ Follow the instructions below to move all the existing API Manager configuration
             ```
            
             ??? info "DB Scripts"
-            ```tab="MySQL"
-            DROP PROCEDURE IF EXISTS ALTER_UM_USER;
-            DELIMITER $$
-            CREATE PROCEDURE ALTER_UM_USER()
-            BEGIN
-                IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA=DATABASE() AND TABLE_NAME='UM_USER') THEN
-                    IF NOT EXISTS(SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA=DATABASE() AND TABLE_NAME='UM_USER' AND COLUMN_NAME='UM_USER_ID') THEN
-                        ALTER TABLE `UM_USER` ADD COLUMN `UM_USER_ID` CHAR(36) NOT NULL DEFAULT 'NONE';
-                        UPDATE UM_USER SET UM_USER_ID = UUID();
-                        ALTER TABLE `UM_USER` ADD UNIQUE(UM_USER_ID, UM_TENANT_ID);
-                    END IF;
-                END IF;
-            END $$
-            DELIMITER ;
-            CALL ALTER_UM_USER();
 
-        Once it is done, re-run the command above.
+                ```mysql tab="MySQL"
+                DROP PROCEDURE IF EXISTS ALTER_UM_USER;
+                DELIMITER $$
+                CREATE PROCEDURE ALTER_UM_USER()
+                BEGIN
+                    IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA=DATABASE() AND TABLE_NAME='UM_USER') THEN
+                        IF NOT EXISTS(SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA=DATABASE() AND TABLE_NAME='UM_USER' AND COLUMN_NAME='UM_USER_ID') THEN
+                            ALTER TABLE `UM_USER` ADD COLUMN `UM_USER_ID` CHAR(36) NOT NULL DEFAULT 'NONE';
+                            UPDATE UM_USER SET UM_USER_ID = UUID();
+                            ALTER TABLE `UM_USER` ADD UNIQUE(UM_USER_ID, UM_TENANT_ID);
+                        END IF;
+                    END IF;
+                END $$
+                DELIMITER ;
+                CALL ALTER_UM_USER();
+                ```
+
+                Once it is done, re-run the command above.
             
     8.  After you have successfully completed the migration, stop the server and remove the following files and folders.
 
@@ -3450,13 +3455,21 @@ Follow the instructions below to move all the existing API Manager configuration
 
         -   Remove the `migration-resources` directory, which is in the `<API-M_4.0.0_HOME>` directory.
 
-        -   If you ran WSO2 API-M as a Windows Service when doing the identity component migration , then you need to remove the following parameters in the command line arguments section (CMD_LINE_ARGS) of the wso2server.bat file.
+        -   If you ran WSO2 API-M as a Windows Service when doing the identity component migration , then you need to remove the following parameters in the command line arguments section (CMD_LINE_ARGS) of the api-manager.bat file.
 
             ```
             -Dmigrate -Dcomponent=identity
             ```
 
 7.  Migrate the API Manager artifacts.
+
+    !!! Note
+        Modify the `[apim.gateway.environment]` tag in the `<API-M_HOME>/repository/conf/deployment.toml` file, the name should change to "Production and Sandbox". By default, it is set as `Default` in API Manager 4.0.0.
+    
+        ```toml
+        [[apim.gateway.environment]]
+        name = "Production and Sandbox"
+        ```
 
     You have to run the following migration client to update the API Manager artifacts.
     
@@ -3467,11 +3480,11 @@ Follow the instructions below to move all the existing API Manager configuration
     3.  Start the API-M server as follows.
 
         ``` tab="Linux / Mac OS"
-        sh wso2server.sh -DmigrateFromVersion=2.1.0
+        sh api-manager.sh -DmigrateFromVersion=2.1.0
         ```
 
         ``` tab="Windows"
-        wso2server.bat -DmigrateFromVersion=2.1.0
+        api-manager.bat -DmigrateFromVersion=2.1.0
         ```     
 
     4. Shutdown the API-M server.
@@ -3479,6 +3492,36 @@ Follow the instructions below to move all the existing API Manager configuration
        -   Remove the `org.wso2.carbon.apimgt.migrate.client-4.0.0.jar` file, which is in the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
 
        -   Remove the `migration-resources` directory, which is in the `<API-M_4.0.0_HOME>` directory.
+
+    5. Execute the following DB script in the respective AM database.
+
+        ??? info "DB Scripts"
+            ```tab="DB2"
+            ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID)
+            /
+        
+            ```
+            
+            ```tab="MySQL"
+            ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID);
+    
+            ```
+                    
+            ```tab="MSSQL"
+            ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID);
+    
+            ``` 
+
+            ```tab="PostgreSQL"
+            ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID);
+    
+            ```
+                    
+            ```tab="Oracle"
+            ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID)
+            /
+    
+            ```
 
 8.  Re-index the artifacts in the registry.
 
@@ -3498,10 +3541,14 @@ Follow the instructions below to move all the existing API Manager configuration
     3.  Add the following configuration in `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file.
         
         ```
+        
         [indexing]
         re_indexing= 1
+        
         ```
-
+        
+        Note that you need to increase the value of `re_indexing` by one each time you need to re-index.
+        
         !!! info 
              If you use a clustered/distributed API Manager setup, do the above change in deployment.toml of Publisher and Devportal nodes
 
@@ -3516,11 +3563,11 @@ Follow the instructions below to move all the existing API Manager configuration
 1.  Restart the WSO2 API-M server.
 
     ```tab="Linux / Mac OS"
-    sh wso2server.sh
+    sh api-manager.sh
     ```
 
     ```tab="Windows"
-    wso2server.bat
+    api-manager.bat
     ```
 
 This concludes the upgrade process.
@@ -3531,19 +3578,52 @@ This concludes the upgrade process.
 !!! note
    - If you are using a migrated API and wants to consume it via an application which supports JWT authentication (default type in API-M 4.0.0), you need to republish the API. Without republishing the API, JWT authentication doesn't work as it looks for a local entry which will get populated while publishing.
     You can consume the migrated API via an OAuth2 application without an issue.
-    
-   - API-M 4.0.0 synapse artifacts have been removed from the file system and are managed via database. At server startup the synapse configs are loaded to the memory from the Traffic Manager.
-  
-   - When Migrating a Kubernetes environment to a newer API Manager version it is recommended to do the data migration in a single container and then do the deployment.    
 
-   - Prior to WSO2 API Manager 4.0.0, the distributed deployment consisted of five main product profiles, namely Publisher, Developer Portal, Gateway, Key Manager, and Traffic Manager. However, the new architecture in APIM 4.0.0 only has three profiles, namely Gateway, Traffic Manager, and Default.
-   
-     All the data is persisted in databases **from WSO2 API-M 4.0.0 onwards**. Therefore, it is recommended to execute the migration client in the Default profile.
-     
-     For more details on the WSO2 API-M 4.0.0 distributed deployment, see [WSO2 API Manager distributed documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m).
+    - API-M 4.0.0 synapse artifacts have been removed from the file system and are managed via database. At server startup the synapse configs are loaded to the memory from the Traffic Manager.
+
+    - When Migrating a Kubernetes environment to a newer API Manager version it is recommended to do the data migration in a single container and then do the deployment.    
+
+    - Prior to WSO2 API Manager 4.0.0, the distributed deployment comprised of five main product profiles, namely Publisher, Developer Portal, Gateway, Key Manager, and Traffic Manager. However, the new architecture in APIM 4.0.0 only has three profiles, namely Gateway, Traffic Manager, and Default.
+
+        All the data is persisted in databases **from WSO2 API-M 4.0.0 onwards**. Therefore, it is recommended to execute the migration client in the Default profile.
+        
+        For more details on the WSO2 API-M 4.0.0 distributed deployment, see [WSO2 API Manager distributed documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m).
 
    - If you have done any customizations to the **default sequences** that ship with product, you may merge the customizations. Also note that the fault messages have been changed from XML to JSON in API-M 4.0.0.  
 
-   - Prior to WSO2 API Manager 4.0.0, the distributed deployment consisted of five main product profiles, namely Publisher, Developer Portal, Gateway, Key Manager, and Traffic Manager. However, the new architecture in APIM 4.0.0 only has three profiles, namely Gateway, Traffic Manager, and Default.
-     All the data is persisted in databases **from WSO2 API-M 4.0.0 onwards**. Therefore, it is recommended to execute the migration client in the Default profile.
-     For more details on the WSO2 API-M 4.0.0 distributed deployment, see [WSO2 API Manager distributed documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m).
+ !!! important
+ 
+     **From WSO2 API_M 4.0.0 onwards** error responses in API calls has changed from XML to JSON format.
+     If you have developed client applications to handle XML error responses you give have to change the client applications to handle the JSON responses.
+     As an example for a 404 error response previously it was as follows
+        
+         <am:fault xmlns:am="http://wso2.org/apimanager">
+            <am:code>404</am:code>
+            <am:type>Status report</am:type>
+            <am:message>Not Found</am:message>
+            <am:description>The requested resource is not available.</am:description>
+         </am:fault>
+      
+     In API-M 4.0.0 onwards the above response will changed as follows.
+     
+         {
+            "code":"404",
+            "type":"Status report",
+            "message":"Not Found",
+            "description":"The requested resource is not available."
+         }
+      
+ !!! important
+         
+     In API-M 4.0.0 following fault sequences were changed to send JSON responses as mentioned above. If you have done any custom changes to any of the following sequences previously,
+     you have to add those custom changes manually to these changed files. 
+     
+     -   _auth_failure_handler_.xml
+     -   _backend_failure_handler_.xml
+     -   _block_api_handler_.xml
+     -   _graphql_failure_handler_.xml
+     -   _threat_fault_.xml
+     -   _throttle_out_handler_.xml
+     -   _token_fault_.xml
+     -   fault.xml
+     -   main.xml

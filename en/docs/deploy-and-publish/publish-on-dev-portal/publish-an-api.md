@@ -4,9 +4,9 @@
 
 Follow the steps below to publish an API using WSO2 API Manager.
 
-1.  Sign in to the API Publisher `https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher` ). Upon signing in, the list of APIs in the API Publisher is listed. Please refer [create an API guide]({{base_path}}/design/create-api/create-a-rest-api/) to create a new API. 
+1.  Sign in to the API Publisher `https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher` ). Upon signing in, the list of APIs in the API Publisher is listed. Please refer [create an API guide]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/) to create a new API. 
 
-     The list of APIs in the API Publisher appears. If there are no APIs created, [create an API]({{base_path}}/design/create-api/create-a-rest-api/) before starting.
+     The list of APIs in the API Publisher appears. If there are no APIs created, [create an API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/) before starting.
 
 2.  Click on an API that is in the **CREATED** state.
 
@@ -26,12 +26,7 @@ Follow the steps below to publish an API using WSO2 API Manager.
     [![Publish API requirements]({{base_path}}/assets/img/learn/publish-api-requirements.png)]({{base_path}}/assets/img/learn/publish-api-requirements.png)
 
     
-4.  If the latter mentioned requirements are satisfied, click **PUBLISH** to push the API. 
-    
-     If required, you can select the following options when publishing the API. 
-
-     -   **Require re-subscription when publish the API** : If selected, it invalidates the current user subscriptions and forces the users to subscribe again. 
-     -   **Deprecate old versions after publish the API** : If selected, all prior versions of the API that are published will be set to the DEPRECATED state automatically.
+4.  If the latter mentioned requirements are satisfied, click **PUBLISH** to push the API.
 
      [![Publish API]({{base_path}}/assets/img/learn/publish-api.png)]({{base_path}}/assets/img/learn/publish-api.png) 
         
@@ -39,6 +34,6 @@ Follow the steps below to publish an API using WSO2 API Manager.
 
      [![Published lifecycle state]({{base_path}}/assets/img/learn/api-state-change-to-publish.png)]({{base_path}}/assets/img/learn/api-state-change-to-publish.png) 
      
-5. Nagivate to the Developer Portal (`https://<hostname>:9443/devportal`).
+5. Navigate to the Developer Portal (`https://<hostname>:9443/devportal`).
      
      Note that the API that you published is visible under the **APIs** listing.

@@ -7,7 +7,12 @@ By default, APIs are secured with application security. However, if you want to 
 ### Application Security
 Application security can be provided in the API and resource levels. The following are the API authentication types granted by Choreo Connect.
 
--   [JWT authentication]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-jwt-self-contained-jwt/) <!-- TODO: Enable once the feature is completed for MGW 4.0.0
+-   [JWT authentication]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-jwt-self-contained-jwt/) 
+
+-   [Internal-Key authentication]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/internal-key-authentication/)
+
+
+<!-- TODO: Enable once the feature is completed for MGW 4.0.0
    [Opaque token authentication]({{base_path}}/publish/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-opaque-tokens/)
    [Basic authentication]({{base_path}}/publish/security/api-authentication/basic-authentication/)
    [API Key authentication]({{base_path}}/publish/security/api-authentication/api-key-authentication/)

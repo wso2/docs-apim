@@ -1,7 +1,7 @@
 # Minimum High Availability (HA) Deployment
 
 The minimum high availability deployment mainly focuses on providing high availability that ensures the prevention of data loss if the
-system suffers a failure due to one or more unforeseeable reasons. One of the main adavantages of this deployment pattern is that it uses minimum
+system suffers a failure due to one or more unforeseeable reasons. One of the main advantages of this deployment pattern is that it uses minimum
 amount of infrastructure resources possible. Thus deployment pattern is run with only two Streaming integration servers.
 
 In the minimum HA setup, one node is assigned as the active node while the other node is assigned as the passive node.
@@ -18,12 +18,11 @@ into the system.
 For a two-node minimum HA cluster to work, only the active node should receive events. By design, you can only send 
 events to the active node. To achieve this, you can use a load balancing mechanism that sends events in a failover manner as depicted in the diagram below.
 
-
-![overview]({{base_path}}/assets/img/streaming/deploying-si-as-minimum-ha-cluster/minimum-two-node-ha.png)
+[![overview]({{base_path}}/assets/img/streaming/deploying-si-as-minimum-ha-cluster/minimum-two-node-ha.png){: style="width:90%"}]({{base_path}}/assets/img/streaming/deploying-si-as-minimum-ha-cluster/minimum-two-node-ha.png)
 
 !!! info "Before you begin:"
     Before configuring a minimum HA cluster, you need to complete the following prerequisites:<br/>
-      - For each WSO2 SI instance, you need a CPU with four cores, and a total memory of 4GB. For more information, see [Installing the Streaming Integrator in a Virtual Machine]({{base_path}}/install-and-setup/install/installing-the-product/installing-si-in-vm).<br/>
+      - For each WSO2 SI instance, you need a CPU with four cores, and a total memory of 4GB. For more information, see [Installing the Streaming Integrator in a Virtual Machine]({{base_path}}/install-and-setup/install/installing-the-product/installing-si).<br/>
       <br/>
       - Download and install two binary packs of WSO2 SI..<br/>
       <br/>
@@ -179,7 +178,7 @@ To configure the HA cluster, follow the steps below:
 
     - `type`: To enable two-node minimum HA, set the type property to `ha`.
 
-    - `passiveNodeDetailsWaitTimeOutMillis`: The time duration (in miliseconds) to wait until the details of the passive node are available in the database so that the active node can retrieve them. Once this time duration elapses, a timeout occurs and the system sleeps for a time duration specified via the `passiveNodeDetailsRetrySleepTimeMillis` parameter.
+    - `passiveNodeDetailsWaitTimeOutMillis`: The time duration (in milliseconds) to wait until the details of the passive node are available in the database so that the active node can retrieve them. Once this time duration elapses, a timeout occurs and the system sleeps for a time duration specified via the `passiveNodeDetailsRetrySleepTimeMillis` parameter.
 
     - `passiveNodeDetailsRetrySleepTimeMillis`: The time duration (in milliseconds) to sleep before retying to retrieve details of the passive node again. This applies when the system has timed out after an attempt to retrieve these details.
 

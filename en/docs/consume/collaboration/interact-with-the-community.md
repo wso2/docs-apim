@@ -19,9 +19,9 @@ To rate an API,
      
     `https://localhost:9443/devportal`
 
-     [![Select an API]({{base_path}}/assets/img/consume/community-features/apis-select-devportal.png)]({{base_path}}/assets/img/consume/community-features/apis-select-devportal.png)
-
 2.  Click on a published API.
+
+    [![Select an API]({{base_path}}/assets/img/consume/community-features/apis-select-devportal.png)]({{base_path}}/assets/img/consume/community-features/apis-select-devportal.png)
 
      The **Overview** page appears.
 

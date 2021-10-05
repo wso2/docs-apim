@@ -8,7 +8,7 @@ The [Salesforce streaming API](https://developer.salesforce.com/docs/atlas.en-us
 
 The Salesforce inbound endpoint is a listening inbound endpoint that can consume messages from Salesforce. This injects messages to an integration sequence. However, for simplicity of this example, we will just log the message. You can extend the sample as required using WSO2 [mediators]({{base_path}}/reference/mediators/about-mediators/). 
 
-In this exmple we can trigger the notifications to the Salesforce Inbound Endpoint via creating the `Platform events` or `PushTopic` methods. Please note that our example configurations are based on creating the `PushTopic` method. You can use the instructions given in the [sf-rest inbound endpoint configuration]({{base_path}}/reference/connectors/salesforce-connectors/sf-rest inbound endpoint configuration/) documentation.
+In this example we can trigger the notifications to the Salesforce Inbound Endpoint via creating the `Platform events` or `PushTopic` methods. Please note that our example configurations are based on creating the `PushTopic` method. You can use the instructions given in the [sf-rest inbound endpoint configuration]({{base_path}}/reference/connectors/salesforce-connectors/sf-rest inbound endpoint configuration/) documentation.
 
 The following diagram illustrates all the required functionality of the Salesforce inbound operations that you are going to build. 
 
@@ -74,7 +74,7 @@ Now that you have configured the Salesforce Inbound Endpoint, use the following 
 **CApp (Carbon Application)** is the deployable artefact on the integration runtime. Let us see how we can export integration logic we developed into a CApp. To export the `Solution Project` as a CApp, a `Composite Application Project` needs to be created. Usually, when a solution project is created, this project is automatically created by Integration Studio. If not, you can specifically create it by navigating to  **File** -> **New** -> **Other** -> **WSO2** -> **Distribution** -> **Composite Application Project**. 
 
 1. Right click on Composite Application Project and click on **Export Composite Application Project**.</br> 
-  <img src="{{base_path}}/assets/img/integrate/connectors/capp-project1.png" title="Export as a Carbon Application" width="300" alt="Export as a Carbon Application" />
+  <img src="{{base_path}}/assets/img/integrate/connectors/capp-project1.jpg" title="Export as a Carbon Application" width="300" alt="Export as a Carbon Application" />
 
 2. Select an **Export Destination** where you want to save the .car file. 
 
@@ -111,7 +111,7 @@ Now that you have configured the Salesforce Inbound Endpoint, use the following 
    ```
    You will get a set of account names and the respective IDs as the output. At the same time, in the server console, you can see the following message.
    
-   **Expected respons**
+   **Expected response**
    
    ```   
    To: , MessageID: urn:uuid:2D8F9AFA30E66278831587368713372, Direction: request, Payload: {"event":{"createdDate":"2020-04-20T07:45:12.686Z","replayId":4,"type":"created"},"sobject":{"Id":"0012x0000048j9mAAA","Name":"Manager"}}

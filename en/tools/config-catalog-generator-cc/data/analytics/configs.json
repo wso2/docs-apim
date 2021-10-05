@@ -1,0 +1,167 @@
+{
+  "configs": [
+    {
+      "title": "Enable Analytics",
+      "options": [
+        {
+          "name": "analytics",
+          "required": true,
+          "description": "Analytics configurations for Choreo Connect.",
+          "params": [
+            {
+              "name": "enabled",
+              "type": "boolean",
+              "required": true,
+              "default": "false",
+              "description": "Enable/Disable Analytics in Choreo Connect."
+            }
+          ]
+        }
+      ],
+      "exampleFile": "analytics.toml"
+    },
+    {
+      "title": "Adapter Configurations for Analytics",
+      "options": [
+        {
+          "name": "adapter",
+          "required": false,
+          "description": "",
+          "params": [
+            {
+              "name": "bufferFlushInterval",
+              "type": "string",
+              "required": false,
+              "default": "1s",
+              "description": ""
+            },
+            {
+              "name": "bufferSizeBytes",
+              "type": "integer",
+              "required": false,
+              "default": "16384",
+              "description": ""
+            },
+            {
+              "name": "gRPCRequestTimeout",
+              "type": "integer",
+              "required": false,
+              "default": "20s",
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "exampleFile": "adapter.toml"
+    },
+    {
+      "title": "Enforcer configurations for Analytics",
+      "options": [
+        {
+          "name": "enforcer.configProperties",
+          "required": true,
+          "description": "",
+          "params": [
+            {
+              "name": "authURL",
+              "type": "string",
+              "required": true,
+              "default": "$env{analytics_authURL}",
+              "description": ""
+            },
+            {
+              "name": "authToken",
+              "type": "string",
+              "required": true,
+              "default": "$env{analytics_authToken}",
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "exampleFile": "enforcer.toml"
+    },
+    {
+      "title": "Enforcer Log Receiver Configurations for Analytics",
+      "options": [
+        {
+          "name": "enforcer.LogReceiver",
+          "required": false,
+          "description": "",
+          "params": [
+            {
+              "name": "port",
+              "type": "integer",
+              "required": true,
+              "default": "18090",
+              "description": ""
+            },
+            {
+              "name": "maxMessageSize",
+              "type": "integer",
+              "required": false,
+              "default": "1000000000",
+              "description": ""
+            },
+            {
+              "name": "maxHeaderLimit",
+              "type": "integer",
+              "required": false,
+              "default": "8192",
+              "description": ""
+            },
+            {
+              "name": "keepAliveTime",
+              "type": "integer",
+              "required": false,
+              "default": "600",
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "exampleFile": "log_receiver.toml"
+    },
+    {
+      "title": "Enforcer Log Receiver Pool Configurations for Analytics",
+      "options": [
+        {
+          "name": "enforcer.LogReceiver.threadPool",
+          "required": false,
+          "description": "",
+          "params": [
+            {
+              "name": "coreSize",
+              "type": "integer",
+              "required": false,
+              "default": "10",
+              "description": ""
+            },
+            {
+              "name": "maxSize",
+              "type": "integer",
+              "required": true,
+              "default": "100",
+              "description": ""
+            },
+            {
+              "name": "keepAliveTime",
+              "type": "integer",
+              "required": false,
+              "default": "600",
+              "description": ""
+            },
+            {
+              "name": "queueSize",
+              "type": "integer",
+              "required": false,
+              "default": "1000",
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "exampleFile": "log_receiver_pool.toml"
+    }
+  ]
+}

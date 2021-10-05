@@ -31,7 +31,7 @@ Follow these steps to set up the Integration Project and import Dayforce connect
 {!reference/connectors/importing-connector-to-integration-studio.md!} 
 
 1. Right click on the created ESB Solution Project and select, -> **New** -> **Rest API** to create the REST API.
-   <img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.png" 
+   <img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.jpg" 
    title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
 2. Specify the API name as `DayforceConnectorTestAPI` and API context as `/dayforceconnector`. You can go to the 

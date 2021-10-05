@@ -12,7 +12,7 @@ Let's look at how a proxy service reads HL7 messages stored in a file system and
 Given below is a proxy service that is configured to detect HL7 files (`.hl7`) in the folder specified by the `transport.vfs.FileURI` parameter. Note that the VFS content type is set to `application/edi-hl7` MIME type with an optional charset encoding. When you save the .hl7 file to the `home/user/test/in` folder, the proxy service invokes the HL7 builders/formatters and builds the HL7 message into its equivalent XML format. It then forwards the message to the VFS endpoint `/tmp/out`.
 
 !!! Info
-    Be sure to replace file directories specied below with actual directories in your own file system.
+    Be sure to replace file directories specified below with actual directories in your own file system.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -66,7 +66,7 @@ Now, let's look at how we can receive an HL7 message and transfer it to a file s
 When the following proxy service runs, an HL7 service will start listening on the port defined by the `transport.hl7.Port` parameter. When the HL7 message arrives, the proxy will send an ACK back to the client as specified in the `HL7_RESULT_MODE` property. The HL7 message is then processed and sent to the VFS endpoint, which will save the HL7 message to the given directory.
 
 !!! Info
-    Be sure to replace file directories specied below with actual directories in your own file system. 
+    Be sure to replace file directories specified below with actual directories in your own file system. 
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -122,7 +122,7 @@ The following configuration is similar to the previous example, but it illustrat
 Given below is a proxy service that will detect .hl7 files in the `transport.vfs.FileURI` directory and send them to the HL7 endpoint.
 
 !!! Info
-    Be sure to replace file directories specied below with actual directories in your own file system.
+    Be sure to replace file directories specified below with actual directories in your own file system.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

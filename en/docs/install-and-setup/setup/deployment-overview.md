@@ -11,7 +11,7 @@ This deployment consists of an API-M cluster with two nodes of the API-M runtime
 !!! Note 
     Two nodes of each component is used to ensure minimum high availability in all components.
 
-<a href="{{base_path}}/assets/img/setup-and-install/basic-ha-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/basic-ha-deployment.png" alt="standard HA deployment" width="500"></a>
+<a href="{{base_path}}/assets/img/setup-and-install/basic-ha-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/basic-ha-deployment.png" alt="standard HA deployment" width="50%"></a>
 
 ### API-M cluster
 
@@ -45,7 +45,7 @@ Although API-M nodes are capable of handling in-jvm multitenancy, Micro Integrat
 !!! Note
     The basic deployment suggests two nodes of each runtime to ensure minimum high availability. However, you can independently scale them depending on the resource requirements for each tenant.
 
-<a href="{{base_path}}/assets/img/setup-and-install/basic-ha-with-multitenancy.png"><img src="{{base_path}}/assets/img/setup-and-install/basic-ha-with-multitenancy.png" alt="standard HA with multitenancy" width="700"></a>
+<a href="{{base_path}}/assets/img/setup-and-install/basic-ha-with-multitenancy.png"><img src="{{base_path}}/assets/img/setup-and-install/basic-ha-with-multitenancy.png" alt="standard HA with multitenancy" width="80%"></a>
 
 ### API-M cluster
 
@@ -79,7 +79,7 @@ You need to set up three clusters of the different components and runtimes as th
 !!! Note
     The basic deployment suggests two nodes of each runtime to ensure minimum high availability. However, you can independently scale them depending on the requirements.
 
-<a href="{{base_path}}/assets/img/setup-and-install/basic-scalable-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/basic-scalable-deployment.png" alt="simple scalability" width="650"></a>
+<a href="{{base_path}}/assets/img/setup-and-install/basic-scalable-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/basic-scalable-deployment.png" alt="simple scalability" width="80%"></a>
 
 ### API-M cluster
 
@@ -91,7 +91,7 @@ The API-M layer of this deployment consists of two clusters of API-M components 
             Control Plane Cluster
         </th>
         <td>
-            The APIM control plane consists of two nodes of the <b>Core</b> API-M profile (Publisher, Devportal, Key Manager, Traffic Manager). The two node cluster is the simplest deployment for this pattern. If required you can scale the number of nodes.
+            The APIM control plane consists of two nodes of the <b>Control Pane</b> API-M profile (Publisher, Devportal, Key Manager, Traffic Manager). The two node cluster is the simplest deployment for this pattern. If required you can scale the number of nodes.
         </td>
     </tr>
     <tr>
@@ -108,7 +108,7 @@ To set up this cluster, see the instructions on <a href="{{base_path}}/install-a
 
 ### Integration cluster
 
-The integration cluster consist of a minimum of two ndes of the integration runtime (Micro Integrator/Streaming Integrator). See the following links for instructions on how to set up this cluster.
+The integration cluster consist of a minimum of two nodes of the integration runtime (Micro Integrator/Streaming Integrator). See the following links for instructions on how to set up this cluster.
 
 <ul>
     <li>
@@ -118,4 +118,3 @@ The integration cluster consist of a minimum of two ndes of the integration runt
         <a href="{{base_path}}/install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster">Streaming Integrator Cluster with Minimum High Availability</a>
     </li>
 </ul>
-

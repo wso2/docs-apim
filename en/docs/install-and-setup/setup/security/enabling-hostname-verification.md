@@ -9,7 +9,7 @@ If hostname verification is disabled for your product, the hostnames (that are a
 
 ### Configuring hostname verification
 
-The hostname verification is **disabled** by default. This is done using the `org.opensaml.httpclient.https.disableHostnameVerification` and `httpclient.hostnameVerifier` properties in the product's startup script ( `wso2server.sh` for Linux and `wso2server.bat` for Windows) as shown below. The product startup script is stored in the `<PRODUCT_HOME>/bin` directory. This property will be effective during server startup.
+The hostname verification is **disabled** by default. This is done using the `org.opensaml.httpclient.https.disableHostnameVerification` and `httpclient.hostnameVerifier` properties in the product's startup script ( `api-manager.sh` for Linux and `api-manager.bat` for Windows) as shown below. The product startup script is stored in the `<PRODUCT_HOME>/bin` directory. This property will be effective during server startup.
 
 ```  
     -Dorg.opensaml.httpclient.https.disableHostnameVerification=true \

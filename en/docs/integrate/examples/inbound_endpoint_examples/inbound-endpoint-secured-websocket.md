@@ -1,4 +1,4 @@
-# Using the Secure Websocket Inbound Endpoint
+# Using the Secure WebSocket Inbound Endpoint
 
 If you need to read and transform the content of WebSocket frames, the
 information in incoming WebSocket frames is not sufficient because the
@@ -109,7 +109,7 @@ Create the artifacts:
 3. Create the [mediation sequences]({{base_path}}/integrate/develop/creating-artifacts/creating-reusable-sequences) and [inbound endpoint]({{base_path}}/integrate/develop/creating-an-inbound-endpoint) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 
-Starting the Websocket client:
+Starting the WebSocket client:
 
 -  Download the netty artifacts zip file from [here](https://github.com/wso2-docs/ESB) and extract it. The extracted folder will be shown as `ESB`
 -  Open a terminal, navigate to `ESB/ESB-Artifacts/Netty_artifacts_for_WebSocket_samples` and execute the following command to start the WebSocket server on port 8082:

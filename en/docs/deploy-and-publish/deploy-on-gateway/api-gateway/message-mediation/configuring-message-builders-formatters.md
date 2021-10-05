@@ -151,7 +151,7 @@ The default message builder or message formatter for a given content type can be
     application_binary = "org.apache.axis2.format.BinaryFormatter"
     ```
 
-3. Save the changes and [restart the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#starting-the-server) to get the changes applied.
+3. Save the changes and [restart the server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server) to get the changes applied.
 
 
 ## Custom message builders and formatters

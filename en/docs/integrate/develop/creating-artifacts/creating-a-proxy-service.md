@@ -105,7 +105,7 @@ To add service-level transport parameters:
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_proxy_service/service-level-params.png" width="700">
 
-2.  Click the **plus** <img src="{{base_path}}/assets/img/integrate/common/plus-icon.png" width="20"> icon and add the parameter name and value as a key-value pair:
+2.  Click the **plus** <img src="{{base_path}}/assets/img/integrate/common/plus-icon.jpg" width="20"> icon and add the parameter name and value as a key-value pair:
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_proxy_service/service-level-params-dialog.png" width="500">
 
@@ -128,7 +128,7 @@ Click the **Source** tab to view the XML-based synapse configuration (source cod
 
 ## Examples
 
--   [Using a Simple Proxy Service]({{base_path}}/integrate/examples/proxy_service_examples/Introduction-to-Proxy-Services)
+-   [Using a Simple Proxy Service]({{base_path}}/integrate/examples/proxy_service_examples/introduction-to-proxy-services)
 -   [Publishing a Custom WSDL]({{base_path}}/integrate/examples/proxy_service_examples/publishing-a-custom-wsdl)
 -   [Exposing a Proxy Service via Inbound Endpoint]({{base_path}}/integrate/examples/proxy_service_examples/exposing-proxy-via-inbound)
 -   [Securing Proxy Services]({{base_path}}/integrate/examples/proxy_service_examples/securing-proxy-services)

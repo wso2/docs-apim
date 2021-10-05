@@ -36,7 +36,7 @@ Follow the instructions below to use API key Authentication in WSO2 API Manager.
 
 ### Step 1 - Create and publish an API
 
-Create and publish an API that is secured with the API key security scheme as the application-level security. Let's work with the sample app for this purpose.
+Create, publish and deploy an API that is secured with the API key security scheme as the application-level security. Let's work with the sample app for this purpose.
 
 1. Sign in to the Publisher.  
     
@@ -44,9 +44,9 @@ Create and publish an API that is secured with the API key security scheme as th
 
 2. Click **DEPLOY SAMPLE API** to deploy the sample PizzaShack API.
 
-3. Click **Runtime Configurations** and select **Application Level Security**.
+3. Click **Develop -> API Configurations -> Runtime** and select **Application Level Security**.
 
-4. Select **API Key** and click **SAVE**.
+4. Select **API Key** and click **Save and Deploy**.
 
      [![Configure API key authentication]({{base_path}}/assets/img/learn/api-key-option.png)]({{base_path}}/assets/img/learn/api-key-option.png)
 
@@ -84,7 +84,7 @@ Create and publish an API that is secured with the API key security scheme as th
 
      By default, the API Key does not expire. However, optionally, you can define a validity period for the token as follows:
 
-    1. When you click **Generate Keys,** uncheck the **API Key with infinite validity period** option in the pop-up.
+    1. When you click **Generate Keys,** deselect the **API Key with infinite validity period** option in the pop-up.
 
     2. Enter the expiry time in seconds.
      
@@ -181,7 +181,7 @@ WSO2 API Manager allows API keys to be restricted based on two approaches.
 
 #### 1) IP address restriction
 
-The IP address restriction allows only the clients with specific IP addresses can use the token. The IP addresses can be specificed 
+The IP address restriction allows only the clients with specific IP addresses can use the token. The IP addresses can be specified 
 in the following formats.
 
 - IPv4 (e.g., `192.168.1.2`)
@@ -196,15 +196,15 @@ in the following formats.
 
     [![IP Restricted API key]({{base_path}}/assets/img/learn/ip-api-key.png)]({{base_path}}/assets/img/learn/ip-api-key.png)
 
-#### 2) HTTP referer restriction
+#### 2) HTTP referrer restriction
 
-When the HTTP referer restriction has been enabled, only the specific HTTP referrers can use the token. Therefore, by using this restriction, when API clients run on web browsers, you can limit the access to an API through only specific web pages. The referrer can be specified in the following formats.
+When the HTTP referrer restriction has been enabled, only the specific HTTP referrers can use the token. Therefore, by using this restriction, when API clients run on web browsers, you can limit the access to an API through only specific web pages. The referrer can be specified in the following formats.
 
 - A specific URL with an exact path: `www.example.com/path`
 - Any URL in a single subdomain, using a wildcard asterisk (*): `sub.example.com/*`
 - Any subdomain or path URLs in a single domain, using wildcard asterisks (\*): `*.example.com/*`
 
-**Generating an API key with the HTTP referer restriction**
+**Generating an API key with the HTTP referrer restriction**
 
 1. Navigate to API key generation window of that specific application in the Developer Portal.
 
