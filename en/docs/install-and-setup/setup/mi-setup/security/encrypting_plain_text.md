@@ -134,3 +134,27 @@ export env_carbon_sec=<ENCRYPTED_VALUE>
 ### In a Kubernetes environment
 
 If you are in a Kubernetes environment, you should have generated a .yaml file with the encrypted secrets using the WSO2 API Controller, **apictl**. See [defining dynamic secrets](#dynamic-secrets).
+
+### Start server as a background job
+
+If you start the Micro Integrator as a background job, you will not be able to provide password values on the command line. Therefore, you must start the server in "daemon" mode as explained below.
+
+1. Create a new file in the MI_HOME directory. The file should be named according to your OS as explained below.
+
+    * For Linux: The file name should be `password-tmp`.
+    * For Windows: The file name should be `password-tmp.txt`.
+
+    !!! Note
+        When you start the server, the keystore password will be picked from this new file. Note that this file is automatically deleted from the file system after the server starts. Therefore, the admin has to create a new text file every time the server starts.
+
+        Alternatively, if you want to retain the password file after the server starts, the file should be named as follows:
+
+        * For Linux: The file name should be `password-persist`
+        * For Windows: The file name should be `password-persist.txt`
+
+2. Add the primary keystore password (which is "wso2carbon" by default) to the new file and save. By default, the password provider assumes that both private key and keystore passwords are the same. If not, the private key password must be entered in the second line of the file.
+
+3. Now, start the server as a background process by running the following command.
+   ```bash
+   ./micro-integrator.sh start
+   ```
