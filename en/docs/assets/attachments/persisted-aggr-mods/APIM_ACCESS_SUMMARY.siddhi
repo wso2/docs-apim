@@ -1,0 +1,138 @@
+/*
+    Copyright (c) 2018-2021, WSO2 Inc. (http://wso2.com) All Rights Reserved.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/
+
+@App:name('APIM_ACCESS_SUMMARY')
+@App:description('Do aggregations to the request events and store in the database.')
+
+@source(type='inMemory' , topic='APIM_REQUEST')
+define stream Request (meta_clientType string, applicationConsumerKey string, applicationName string, applicationId string, applicationOwner string, apiContext string,apiName string, apiVersion string, apiResourcePath string, apiResourceTemplate string, apiMethod string, apiCreator string, apiCreatorTenantDomain string, apiTier string, apiHostname string, username string, userTenantDomain string, userIp string, userAgent string, requestTimestamp long, throttledOut bool, responseTime long, serviceTime long, backendTime long, responseCacheHit bool, responseSize long, protocol string, responseCode int, destination string, securityLatency long, throttlingLatency long, requestMedLat long, responseMedLat long, backendLatency long, otherLatency long, gatewayType string, label string);
+
+
+define stream geoTempStream(apiName string, apiVersion string, apiContext string, apiCreator string, apiCreatorTenantDomain string, username string, userTenantDomain string, country string, city string, requestTimestamp long);
+
+@Async(buffer.size = '131072', workers = '5', batch.size.max = '32768')
+define stream GeoIntrim(apiName string, apiVersion string, apiContext string, apiCreator string, apiCreatorTenantDomain string, username string, userTenantDomain string, userIp string, requestTimestamp long);
+
+define stream MergedStream (
+    apiName string, apiVersion string, apiContext string, apiCreator string, apiCreatorTenantDomain string, apiHostname string, applicationId string, applicationName string, 
+    quotaExceededValue int, requestTimestamp long, gatewayType string, label string,
+    
+    operatingSystem string, browser string,
+    
+    apiResourceTemplate string, apiMethod string,
+    destination string,
+    applicationOwner string, username string, userTenantDomain string,
+    responseTime long, serviceTime long, backendTime long, securityLatency long, throttlingLatency long, requestMedLat long, responseMedLat long, backendLatency long, otherLatency long
+);
+
+
+-- Aggregations
+
+--Geo Location Aggregations
+@store(type = 'rdbms', datasource = 'APIM_ANALYTICS_DB')
+@purge(enable='true', interval='60 min', @retentionPeriod(sec='5 minutes', min='3 hours', hours='3 days', days='3 months', months='2 years'))
+@persistedAggregation(enable="false")
+define aggregation GeoLocationAgg
+from geoTempStream
+select apiName, apiVersion, apiCreator, apiCreatorTenantDomain, username, userTenantDomain, country, city, count() as totalCount, 'default' as regionalID
+group by apiContext, country, city
+aggregate by requestTimestamp every seconds...years;
+
+/*Merged old aggregations: ApiVersionPerAppAgg, ApiResPathPerApp, ApiPerDestinationAgg, ApiUserPerAppAgg, ApiUserBrowserAgg, ApiExeTime */
+@store(type = 'rdbms', datasource = 'APIM_ANALYTICS_DB', 
+    field.length = "applicationId:40, apiHostname:200, apiMethod:20, regionalID:20, SHARD_ID:20, username:150, userTenantDomain:150, apiCreator:150, apiCreatorTenantDomain:150, operatingSystem:100, browser:100")
+@purge(enable='true', interval='60 min', @retentionPeriod(sec='5 minutes', min='3 hours', hours='3 days', days='3 months', months='2 years'))
+@persistedAggregation(enable="false")
+define aggregation MergedAggregation 
+from MergedStream
+select apiName, apiVersion, apiContext, apiCreator, apiCreatorTenantDomain, apiHostname, applicationName, count() as totalRequestCount, sum(quotaExceededValue) as aboveQuotaCount, gatewayType,
+    label, 'default' as regionalID,
+    applicationId, apiResourceTemplate, apiMethod,
+    destination,
+    applicationOwner, username, userTenantDomain,
+    operatingSystem, browser,
+    sum(responseTime) as responseTime, sum(serviceTime) as serviceTime, sum(backendTime) as backendTime, sum(securityLatency) as securityLatency, sum(throttlingLatency) as throttlingLatency, sum(requestMedLat) as requestMedLat,
+        sum(responseMedLat) as responseMedLat, sum(backendLatency) as backendLatency, sum(otherLatency) as otherLatency
+group by apiContext, apiHostname, applicationId,
+    apiResourceTemplate, apiMethod,
+    destination,
+    username, userTenantDomain,
+    apiCreator, apiCreatorTenantDomain, operatingSystem, browser
+aggregate by requestTimestamp every seconds...years;
+
+
+@store(type = 'rdbms', datasource = 'APIM_ANALYTICS_DB')
+@primaryKey('apiName', 'apiCreator', 'apiVersion', 'apiCreatorTenantDomain')
+define table ApiLastAccessSummary (apiContext string, apiName string, apiVersion string, apiCreator string, apiCreatorTenantDomain string, applicationOwner string, lastAccessTime long);
+
+-- Queries
+
+@info(name='Add to buffer')
+from Request
+select apiName, apiVersion, apiContext, apiCreator, apiCreatorTenantDomain, username, userTenantDomain, userIp, requestTimestamp
+insert into GeoIntrim;
+
+@info(name='Resolve geo attributes')
+from GeoIntrim
+select apiName, apiVersion, apiContext, apiCreator, apiCreatorTenantDomain, username, userTenantDomain, ifThenElse(geo:findCountryFromIP(userIp)=="", "N/A", geo:findCountryFromIP(userIp)) as country, ifThenElse(geo:findCityFromIP(userIp)=="", "N/A", geo:findCityFromIP(userIp)) as city, requestTimestamp
+insert into geoTempStream;
+
+
+/* Merged the old queries: 'Resolve api usage', 'Resolve user agent', 'Trim attribute values' */
+@info(name='Resolve api usage and user agent')
+from Request
+select apiName, apiVersion, apiContext, apiCreator, apiCreatorTenantDomain, apiHostname, applicationId, applicationName, ifThenElse(throttledOut, 1, 0) as quotaExceededValue, requestTimestamp, gatewayType, label,
+    ifThenElse(userAgent is null, 'Other', env:getUserAgentProperty(userAgent,'os')) as operatingSystem, ifThenElse(userAgent is null, 'Other', env:getUserAgentProperty(userAgent,'browser')) as browser,
+    apiResourceTemplate, apiMethod,
+    destination,
+    applicationOwner, username, userTenantDomain,
+    responseTime, serviceTime, backendTime, securityLatency, throttlingLatency, requestMedLat, responseMedLat, backendLatency, otherLatency
+insert into browserTrimStream;
+
+@info(name='Trim browser value') -- This was added as a fix to an error when connecting to Mysql RDBMS when UTF8 character set is used (https://github.com/wso2/analytics-solutions/issues/182).
+from browserTrimStream
+select apiName, apiVersion, apiContext, apiCreator, apiCreatorTenantDomain, apiHostname, applicationId, applicationName, 
+    quotaExceededValue, requestTimestamp, gatewayType, label,
+    operatingSystem, ifThenElse(str:length(browser)>200, str:substr(browser,0,200), browser) as browser,
+    apiResourceTemplate, apiMethod,
+    destination,
+    applicationOwner, username, userTenantDomain,
+    responseTime, serviceTime, backendTime, securityLatency, throttlingLatency, requestMedLat, responseMedLat, backendLatency, otherLatency
+insert into MergedStream;
+
+-- Filter the event with the most recent request timestamp
+@info(name='Batch Requests')
+from Request
+select apiContext, apiName, apiVersion, apiCreator, apiCreatorTenantDomain, applicationOwner, requestTimestamp
+group by apiName, apiCreatorTenantDomain, apiCreator
+output last every 1 minutes
+insert into RequestInterim;
+
+@info(name='Filter events to check latest timestamp')
+from RequestInterim as R left outer join ApiLastAccessSummary as S
+on R.apiName == S.apiName and R.apiCreatorTenantDomain == S.apiCreatorTenantDomain and R.apiCreator == S.apiCreator and R.apiVersion == S.apiVersion
+select R.apiContext, R.apiName, R.apiVersion, R.apiCreator, R.apiCreatorTenantDomain, R.applicationOwner, R.requestTimestamp as lastAccessTime
+having R.requestTimestamp >= S.lastAccessTime or S.lastAccessTime is null
+insert into ApiLastAccessUpdateStream;
+
+@info(name='Upate/Insert ApiLastAccessSummary')
+from ApiLastAccessUpdateStream
+select apiContext, apiName, apiVersion, apiCreator,apiCreatorTenantDomain, applicationOwner, lastAccessTime
+update or insert into ApiLastAccessSummary
+set ApiLastAccessSummary.apiContext = apiContext, ApiLastAccessSummary.apiVersion = apiVersion, ApiLastAccessSummary.applicationOwner = applicationOwner, ApiLastAccessSummary.lastAccessTime = lastAccessTime
+on ApiLastAccessSummary.apiName == apiName and ApiLastAccessSummary.apiCreatorTenantDomain == apiCreatorTenantDomain and ApiLastAccessSummary.apiCreator == apiCreator and ApiLastAccessSummary.apiVersion == apiVersion;
+
+
