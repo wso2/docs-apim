@@ -122,7 +122,15 @@ The steps below show how access tokens are generated for the authorization code 
 8.  Select **Remember my consent** to remember the access to your profile information.
 
     [![Provide Consent]({{base_path}}/assets/img/learn/authorization-code-consent-page.png)]({{base_path}}/assets/img/learn/authorization-code-consent-page.png)   
-    
+
+    !!! tip
+        If you want the consent page to show the **application name** as the **display name**, add the following entry to the `deployment.toml` file in the `<API-M_HOME>/repository/conf/` folder.
+
+        ``` toml
+        [oauth]
+        show_display_name_in_consent_page = true
+        ```
+
 9.  Provide following information in the redirected page and click on **Get Access token**.
 
     <table>
