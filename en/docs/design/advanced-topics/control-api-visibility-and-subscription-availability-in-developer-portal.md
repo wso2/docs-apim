@@ -78,10 +78,9 @@ The diagram below depicts the relationship between the API's visibility and subs
 
 ### Limitations
 
-Listed below are the known limitations of cross tenant subscription feature.
+Listed below are the known limitations of the cross tenant subscription feature.
 
 -   Cross tenant subscription is not applicable for APIs with any resource scopes (API/Shared scopes).
-
 -   User-to-role based API features are not applicable for cross tenant subscriptions.
 
 ### Control subscription availability using the API Publisher
