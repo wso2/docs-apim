@@ -9187,6 +9187,7 @@ proxyProfiles = "&lt;targetHosts&gt;example.one.com,example.two.com&lt;/targetHo
 &lt;proxyPassword&gt;password&lt;/proxyPassword&gt;&lt;/profile&gt;"
 
 #Option 2
+#This is available via WSO2 Updates 2, level 37 and is effective from 7th October 2021 (2021-10-07).
 [[transport.http.proxy_profile]]
 target_hosts = ["example.one.com","example.two.com"]
 proxy_host = "example.proxy.com"
@@ -9366,6 +9367,7 @@ proxyProfiles = "&lt;targetHosts&gt;example.one.com,example.two.com&lt;/targetHo
 &lt;proxyPassword&gt;password&lt;/proxyPassword&gt;&lt;/profile&gt;"
 
 #Option 2
+#This is available via WSO2 Updates 2, level 37 and is effective from 7th October 2021 (2021-10-07).
 [[transport.http. secured_proxy_profile]]
 target_hosts = ["example.one.com","example.two.com"]
 proxy_host = "example.proxy.com"
