@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-[transport.passthru_https.sender.parameters]
-proxyProfiles = "<profile><targetHosts>example.com</targetHosts><proxyHost>localhost</proxyHost><proxyPort>8080</proxyPort><proxyUserName>squidUser</proxyUserName><proxyPassword>password</proxyPassword></profile>"
-=======
 #You can use one of the two options listed below for the configuration
 
 #Option 1

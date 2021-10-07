@@ -9176,8 +9176,25 @@ sender.parameters.SO_TIMEOUT = 60000</code></pre>
                 <label class="tab-selector" for="_tab_61"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[transport.passthru_http.sender.parameters]
-proxyProfiles = "<profile><targetHosts>example.com</targetHosts><proxyHost>localhost</proxyHost><proxyPort>8080</proxyPort><proxyUserName>squidUser</proxyUserName><proxyPassword>password</proxyPassword></profile>"</code></pre>
+<pre><code class="toml">#You can use one of the two options listed below for the configuration
+
+#Option 1
+[transport.passthru_http.sender.parameters]
+proxyProfiles = "&lt;targetHosts&gt;example.one.com,example.two.com&lt;/targetHosts&gt;
+&lt;proxyHost&gt;example.proxy.com&lt;/proxyHost&gt;
+&lt;proxyPort&gt;8080&lt;/proxyPort&gt;
+&lt;proxyUserName&gt;ProxyUser&lt;/proxyUserName&gt;
+&lt;proxyPassword&gt;password&lt;/proxyPassword&gt;&lt;/profile&gt;"
+
+#Option 2
+#This is available via WSO2 Updates 2, level 37 and is effective from 7th October 2021 (2021-10-07).
+[[transport.http.proxy_profile]]
+target_hosts = ["example.one.com","example.two.com"]
+proxy_host = "example.proxy.com"
+proxy_port = "8080"
+proxy_username = "ProxyUser"
+proxy_password = "password"
+bypass_hosts = ["localhost"]</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -9339,8 +9356,27 @@ proxyProfiles = "<profile><targetHosts>example.com</targetHosts><proxyHost>local
                 <label class="tab-selector" for="_tab_62"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[transport.passthru_https.sender.parameters]
-proxyProfiles = "<profile><targetHosts>example.com</targetHosts><proxyHost>localhost</proxyHost><proxyPort>8080</proxyPort><proxyUserName>squidUser</proxyUserName><proxyPassword>password</proxyPassword></profile>"</code></pre>
+<pre><code class="toml">#You can use one of the two options listed below for the configuration
+
+#Option 1
+[transport. passthru_https.sender.parameters]
+proxyProfiles = "&lt;targetHosts&gt;example.one.com,example.two.com&lt;/targetHosts&gt;
+&lt;proxyHost&gt;example.proxy.com&lt;/proxyHost&gt;
+&lt;proxyPort&gt;3128&lt;/proxyPort&gt;
+&lt;proxyUserName&gt;ProxyUser&lt;/proxyUserName&gt;
+&lt;proxyPassword&gt;password&lt;/proxyPassword&gt;&lt;/profile&gt;"
+
+#Option 2
+#This is available via WSO2 Updates 2, level 37 and is effective from 7th October 2021 (2021-10-07).
+[[transport.http. secured_proxy_profile]]
+target_hosts = ["example.one.com","example.two.com"]
+proxy_host = "example.proxy.com"
+proxy_port = "3128"
+proxy_username = "ProxyUser"
+proxy_password = "password"
+bypass_hosts = ["localhost"]
+>>>>>>> 024a6645f... Generate and add config catalog
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
