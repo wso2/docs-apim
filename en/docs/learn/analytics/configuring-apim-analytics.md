@@ -13,25 +13,25 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
 
 1.  Download and install WSO2 API-M.
 
-     WSO2 API-M via the [WSO2 API Manager page](https://wso2.com/api-management/install/). 
-    
+     WSO2 API-M via the [WSO2 API Manager page](https://wso2.com/api-management/install/).
+
      For more information on installing WSO2 API-M, see the [Installation Guide]({{base_path}}/install-and-setup/install/installation-prerequisites).
 
-     [![apim download page]({{base_path}}/assets/img/learn/apim-download-page.png)]({{base_path}}/assets/img/learn/apim-download-page.png)   
-    
+     [![apim download page]({{base_path}}/assets/img/learn/apim-download-page.png)]({{base_path}}/assets/img/learn/apim-download-page.png)
+
 2.  Download and install WSO2 API-M Analytics.
 
-    To download WSO2 API-M Analytics go to the [WSO2 API Manager page](https://wso2.com/api-management/install/), click **DOWNLOAD** to expand the installation options. Scroll down past the installation options to navigate to the **OTHER RESOURCES** section, and click **Analytics**. 
+    To download WSO2 API-M Analytics go to the [WSO2 API Manager page](https://wso2.com/api-management/install/), click **DOWNLOAD** to expand the installation options. Scroll down past the installation options to navigate to the **OTHER RESOURCES** section, and click **Analytics**.
 
     <img src="{{base_path}}/assets/img/learn/analytics-download-page.png" width="400">
-    
+
        <html><div class="admonition warning">
        <p class="admonition-title">Note</p>
        <p>If you are following the quick setup, make sure that both the binaries (the unzipped API-M pack and the unzipped Analytics pack) are inside the same directory, because the default configurations such as database connection URLs, etc. are configured assuming that both the packs are inside the same folder.</p>
        <img src="{{base_path}}/assets/img/learn/analytics-quick-setup.png" width="300">
        </div>
        </html>
-                  
+
 3.  Enable Analytics.
 
      1. Open the `<API-M_HOME>/repository/conf/deployment.toml` file.
@@ -41,35 +41,35 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
         [apim.analytics]
         enable = true
         ```
-        
+
      3. Save the change.
 
 4.  Start the Worker profile of the Analytics Server.
-    
+
     Navigate to the `<API-M_ANALYTICS_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
-    
+
     -   On Windows: `worker.bat --run              `
     -   On Linux/Mac OS: `sh worker.sh               `
 
 5.  Start the API Manager server.
-    
+
      Navigate to the `<API-M_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
-    
+
      - On Windows: `wso2server.bat --run`
-     - On Linux/Mac OS: `sh wso2server.sh` 
-    
+     - On Linux/Mac OS: `sh wso2server.sh`
+
     !!! info
         If API-M Analytics is properly configured in WSO2 API Manager, when you start up the API Manager server, which is after the WSO2 API-M Analytics server, you will see the following log message in the terminal that is running the API-M Analytics server.
-            
-        INFO {org.wso2.carbon.databridge.core.DataBridge} - user admin connected   
- 
+
+        INFO {org.wso2.carbon.databridge.core.DataBridge} - user admin connected
+
      <a name="dashboard"></a>
 
 6.  Start the Dashboard profile of the Analytics Server.
-    
+
     Navigate to the `<API-M_ANALYTICS_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
-    
-    -   On Windows: `dashboard.bat --run` 
+
+    -   On Windows: `dashboard.bat --run`
     -   On Linux/Mac OS: `sh dashboard.sh`
 
 7.  Optionally, if you wish to access the business rules via the Dashboard node, you can use the dashboard profile that we started in the <a href="#dashboard">previous step</a>.
@@ -96,13 +96,13 @@ Follow the instructions below if you wish to set up API-M Analytics for a produc
 
  Download and install WSO2 API-M via the [WSO2 API Manager page](https://wso2.com/api-management/install/). Click **DOWNLOAD** and go to **INSTALLATION OPTIONS**.
  <br/>For more information on installing WSO2 API-M, see the [Installation Guide]({{base_path}}/install-and-setup/install/installation-prerequisites).
-    
+
 ### Step 2 - Download and install WSO2 API-M Analytics
 
 To download WSO2 API-M Analytics go to the [WSO2 API Manager page](https://wso2.com/api-management/install/), click **DOWNLOAD** to expand the installation options. Scroll down past the installation options to navigate to the **OTHER RESOURCES** section, and click **Analytics**.
 
 <img src="{{base_path}}/assets/img/learn/analytics-download-page.png" width="400">
-    
+
 ### Step 3 - Configure WSO2 API Manager to publish statistics
 
 Follow the instructions below to do the required configurations for WSO2 API-M to publish statistics in the WSO2 API-M Analytics server.
@@ -234,7 +234,7 @@ Follow the instructions below to do the required configurations for WSO2 API-M t
     <td>
     <p>Array of event receiver Auth URLs.</p>
     </td>
-    </tr>   
+    </tr>
     <tr class="even">
     <td><code>type</code></td>
     <td>Event publishing mechanism</td>
@@ -252,7 +252,7 @@ Follow the instructions below to do the required configurations for WSO2 API-M t
 ### Step 4 - Configure Analytics
 
 !!! warning
-    When configuring API-M Analytics, change only the required properties(which are mentioned in the respective documentation) 
+    When configuring API-M Analytics, change only the required properties(which are mentioned in the respective documentation)
     of the deployment.yaml file of either worker or dashboard runtime. Do not change other default values as it may result in an erroneous state.
 
   API-M Analytics contains two runtimes, namely worker and dashboard. The worker is responsible for the summarization of the collected data and the dashboard is responsible to represent the summarised data in the dashboards. Therefore, two separate JVMs are required. As a best practice, the worker and dashboard runtime can have the same analytics binary. This helps when managing the deployment and when applying WUM updates. However, it is up to the dev-ops engineer to decide whether to use the same binary (pack) or two binaries for the two runtimes.
@@ -269,17 +269,17 @@ Follow the instructions below to do the required configurations for WSO2 API-M t
         ```sql tab="MS SQL"
         ALTER DATABASE <DB-NAME> COLLATE SQL_Latin1_General_CP1_CS_AS ;
         ```
-  
-  - The Worker supports an [Active-Active]({{base_path}}/install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-active) deployment and an [Active-Passive]({{base_path}}/install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-passive) deployment. 
+
+  - The Worker supports an [Active-Active]({{base_path}}/install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-active) deployment and an [Active-Passive]({{base_path}}/install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-passive) deployment.
   - As the dashboard is used only to render the data there is no active-active or active-passive concept. However, based on the High-availability (HA) requirement it can be configured as Active-Active or Active-Passive by defining the `loadbalance` configuration.
-      
+
 #### Step 4.1 - Configure the Analytics Worker
 
   1. Open the `<API-M_ANALYTICS_HOME>/conf/worker/deployment.yaml` file.
   2. Edit the `APIM_ANALYTICS_DB` section.
         ``` yaml
         A sample for MySQL is shown below.
-        
+
         - name: APIM_ANALYTICS_DB
             description: "The datasource used for APIM statistics aggregated data."
             jndiConfig:
@@ -298,22 +298,36 @@ Follow the instructions below to do the required configurations for WSO2 API-M t
                 validationTimeout: 30000
                 isAutoCommit: false
         ```
-  3. Point the following data sources to external databases. 
-     
+  3. Point the following data sources to external databases.
+
      None of the following databases need DB scripts. The tables will be automatically created.
      - `GEO_LOCATION_DATA` (Only if you need Geo-location based statistics.)
+
+!!! note
+    In your deployment, if the average TPS is more than 500, we recommend you to perform the following modifications in the WSO2 API Manager Analytics pack.
+
+    ##### Modify Siddhi files:
+    1. Download the [APIM_ACCESS_SUMMARY.siddhi]({{base_path}}/assets/attachments/persisted-aggr-mods/APIM_ACCESS_SUMMARY.siddhi) file, and replace the existing file at `<ANALYTICS_HOME>/wso2/worker/deployment/siddhi-files/APIM_ACCESS_SUMMARY.siddhi`.
+
+    ##### Modify widgets:
+    1. Download the [dashboard-artifacts.zip]({{base_path}}/assets/attachments/persisted-aggr-mods/dashboard-artifacts.zip) ZIP file and extract to a preferred location (refered as `<EXTRACTED_DIR>`).
+    2. Copy each directory in `<EXTRACTED_DIR>/widgets` directory to `<ANALYTICS_HOME>/wso2/dashboard/deployment/web-ui-apps/analytics-dashboard/extensions/widgets` directory replacing the existing items.
+
+    ##### Modify dashboards:
+    1. Copy each files in `<EXTRACTED_DIR>/dashboards` to `<ANALYTICS_HOME>/wso2/dashboard/resources/dashboards` directory replacing the existing files.
+    2. Start the server.
 
 #### Step 4.2 - Configure the Analytics Dashboard
 
   1. Open the `<API-M_ANALYTICS_HOME>/conf/dashboard/deployment.yaml` file.
   2. Edit the `APIM_ANALYTICS_DB` and `AM_DB` sections, and point to your desired type of database.
-   
+
     !!! note
         In the below configuration, the database defined as `am_db` is the same database which is defined under `[database.apim_db]` configuration in the **deployment.toml** file of the WSO2 API Manager.
         <hr>
         **If you are configuring the `AM_DB` databases in Oracle**, apart from the following configurations, you need to add the `alter session set NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'` section to the `AM_DB` datasource that you configured with Oracle.
          In the following example `APIM_ANALYTICS_DB` is configured with Oracle.
-         
+
          ``` java
          - name: APIM_ANALYTICS_DB
            description: "The datasource used for APIM statistics aggregated data."
@@ -334,10 +348,10 @@ Follow the instructions below to do the required configurations for WSO2 API-M t
                  validationTimeout: 30000
                  isAutoCommit: false
          ```
-    
+
     ``` yaml
      A sample for MySQL is shown below.
-     
+
     - name: AM_DB
         description: Main datasource used by API Manager
         jndiConfig:
@@ -371,20 +385,20 @@ Follow the instructions below to do the required configurations for WSO2 API-M t
              idleTimeout: 60000
              connectionTestQuery: SELECT 1
              validationTimeout: 30000
-             isAutoCommit: false           
+             isAutoCommit: false
     ```
-    
-  3. Point the following data sources to external databases. 
-     
+
+  3. Point the following data sources to external databases.
+
      None of the following databases need DB scripts. The tables will be automatically created.
       - `WSO2_DASHBOARD_DB`
       - `BUSINESS_RULES_DB`
-      - `WSO2_PERMISSIONS_DB`    
-         
+      - `WSO2_PERMISSIONS_DB`
+
   4. Configure the Dashboard IdP configurations.
-  
+
      The Dashboard IDP configurations are used to point to the same user store and STS API Manager support. As a result, the same users and roles can be used to log in to the dashboards. Similar to the API-M portals, the OAuth2 Authorization code flow is used to log in to the Dashboard Portal. By default, SSO (Single Sign-On) is enabled for analytics dashboards.
-  
+
      These configurations need to be done under the `auth.configs` namespace as shown below and need to be changed according to the APIM deployment.
 
       ```
@@ -410,9 +424,9 @@ Follow the instructions below to do the required configurations for WSO2 API-M t
         devPortalUrl: https://localhost:9443
         externalLogoutUrl: https://localhost:9443/oidc/logout
       ```
-  
+
      The details of the properties related to the IdP configuration are as follows:
-  
+
       |<div style="width:170px">**Property**</div>            |**Default Value**                    |**Description**                 |
       |-------------------------------------------------------|-------------------------------------|--------------------------------|
       | `adminScope` | apim_analytics:admin_carbon.super | The Admin scope that is used for the permissions in the dashboards.|
@@ -432,21 +446,21 @@ Follow the instructions below to do the required configurations for WSO2 API-M t
       | `publisherUrl`| https://localhost:9443 | URL that the API Manager Publisher is running.|
       | `devPortalUrl`| https://localhost:9443 | URL that the API Manager Developer Portal  is running.|
       | `externalLogoutUrl`| https://localhost:9443/oidc/logout | The URL used to log out from the external IdP provider (API Manager) side in the SSO. This should be pointed to the API Manager Publisher node URL.|
-         
-### Step 5 - Include third-party libraries and database drivers 
+
+### Step 5 - Include third-party libraries and database drivers
 
 API-M Analytics supports both OSGi and Non-OSGi libraries. When integrating a third-party library or DB driver, you need to include it in the appropriate location.
 
 If the library is -
 
 - **OSGi** - Add it to the `<API-M_ANALYTICS_HOME>/lib` directory and restart.
-- **Non-OSGi** - Add it to the `<API-M_ANALYTICS_HOME>/jars` directory and restart.  
+- **Non-OSGi** - Add it to the `<API-M_ANALYTICS_HOME>/jars` directory and restart.
 
 ### Step 6 - Configure the keystores
 
 In the SSL handshake between the API Manager and the API Manager Analytics servers, the client (i.e., API Manager) needs to verify the certificate presented by the server (i.e., API Manager Analytics). For this purpose, the client stores the trusted certificate of the server in the `client-truststore.jks` keystore.
 
-- If you use a custom keystore in API Manager and/or API Manager Analytics, import the public key certificate of API Manager Analytics into the `client-truststore.jks` file of the API Manager. 
+- If you use a custom keystore in API Manager and/or API Manager Analytics, import the public key certificate of API Manager Analytics into the `client-truststore.jks` file of the API Manager.
 - To export the public key from the server and import it into the client's trust store, follow the steps given in [Adding CA-signed certificates to keystores]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-1-generating-a-ca-signed-certificate).
 
 For more information, see [Configuring Keystores in API-M Analytics]({{base_path}}/learn/analytics/configuring-keystores-in-apim-analytics/#configuring-keystores-in-api-m-analytics).
