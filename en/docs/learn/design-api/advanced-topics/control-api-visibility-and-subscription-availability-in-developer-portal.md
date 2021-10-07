@@ -75,6 +75,9 @@ Subscription availability can be one of the following options:
 The diagram below depicts the relationship between the API's visibility and subscription availability:
 [![]({{base_path}}/assets/img/learn/api-visibility-relationship.png)]({{base_path}}/assets/img/learn/api-visibility-relationship.png)
 
+!!! note
+     The experience of cross tenant subscriptions is different to what it was in previous versions. For example, if a tenant named "A" visits the Developer Portal of a tenant named "B", the tenant "A" user will need to generate keys again with the key manager of tenant "B". Therefore, a given application created in the Developer Portal by tenant "A" can have different consumer keys for a given key manager type as they generate keys in different tenants.
+
 
 ### Control subscription availability using the API Publisher
 

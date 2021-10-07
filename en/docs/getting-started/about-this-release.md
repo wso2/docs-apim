@@ -158,8 +158,6 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
      
 ### Deprecated features and functionalities
 
-- **Cross tenant Subscription**
-
 - **[Admin Portal](https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/admin-apis/admin-v0.17/admin-v0.17/) v0.17 based REST APIs**.
 
 - **[Implicit Grant]({{base_path}}/learn/api-security/oauth2/grant-types/implicit-grant)**
