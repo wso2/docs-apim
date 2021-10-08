@@ -33,5 +33,14 @@ Navigate to `<API-M_HOME>/repository/conf/deployment.toml` and add the following
 
 With this configuration, each log line is checked for all the configured patterns. If any match is found, it is masked with ‘\*\*\*\*\*’.
 
+!!! danger "Using single quotes in TOML configs to avoid parsing escape characters"
+    If the strings defined in the `deployment.toml` file are within double quotes, it is parsed along with the escape characters. To avoid this, use single quotes when you need to add escape characters as shown in the example below.
+    ```
+    [masking_pattern.properties]
+    "ACCT_ID" = '(?<=accountId\':)(.*)(?=\')' 
+    "ACCT_ID.replace_pattern"='(.?).(?=.*)'
+    "ACCT_ID.replacer"="*"
+    ```
+
 !!! warning
     There can be a performance impact when using this feature with many masking patterns since each log line is matched with each of the patterns. So it is highly advisable only to use the most necessary patterns.
