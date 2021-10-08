@@ -69,7 +69,7 @@ Follow the steps given below to configure the MI servers to publish data to the 
     
     If the Micro Integrator server is deployed in a Kubernetes environment, add the following configuration to the `deployment.toml` file. 
 
-    Limitation: Currently the dashboard does not support deployments with replicas.
+    <br/>Limitation: When there are replicas in the deployment, the write operations will not work properly.
 
     If communicating via Ingress, use the following configuration:
     ```toml
