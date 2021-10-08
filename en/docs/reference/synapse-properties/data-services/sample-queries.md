@@ -153,6 +153,9 @@ You can add the SQL query using the mapping name:
 
 <img src="{{base_path}}/assets/img/integrate/data-services/dynamic-query.png" width="500" alt="dynamic query for data service">
 
+!!! info
+	 To avoid any errors, the value we pass to the query param must be URL encoded. You may refer to https://www.w3schools.com/tags/ref_urlencode.ASP and do the encoding.
+	 
 For example, see the following data service configuration:
 
 ```xml
