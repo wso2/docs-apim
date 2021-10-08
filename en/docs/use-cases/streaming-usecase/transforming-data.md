@@ -157,7 +157,7 @@ In this example, the input event that reports only the name of the product and t
 
 When you want to perform more advanced transformations that are not supported by the inline operators of the WSO2 Streaming Integrator, you can use one or more of the Siddhi extensions from the [Siddhi Store](https://store.wso2.com/store/assets/analyticsextension/list).
 
-Some of these extensions are shipped with the WSO2 Streaming Integrator by default. If you want to use a Siddhi extension that is not shipped by default, you need to download and install it following the instructions in [Downloading and Installing Siddhi Extensions]({{base_path}}/streaming/connectors/installing-siddhi-extensions).
+Some of these extensions are shipped with the WSO2 Streaming Integrator by default. If you want to use a Siddhi extension that is not shipped by default, you need to download and install it following the instructions in [Downloading and Installing Siddhi Extensions]({{base_path}}/reference/streaming-connectors/downloading-and-installing-siddhi-extensions/).
 
 The following table describes the complete list of extensions that provide data transformation functionality.
 

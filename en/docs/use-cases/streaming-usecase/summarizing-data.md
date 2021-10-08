@@ -143,7 +143,7 @@ For this, you can update the `ProductionAggregatesApp` Siddhi application that y
     
         The above query joins the `ProductionsSummaryRetyrievalStream` stream and the `ProductionAggregation` aggregation. The `ProductionsSummaryRetyrievalStream` stream is assigned `b` as the short name, and the aggregation is assigned `a`. Therefore, `a.name == b.name` specifies that a matching event is identified when the value for the `name` attribute is the same. 
 
-        For more information about how to perform joins, see [Enriching Data]({{base_path}}/use-cases/streaming-usecase/enriching-data#enriching-data).
+        For more information about how to perform joins, see [Enriching Data]({{base_path}}/use-cases/streaming-usecase/enriching-data/#enriching-data).
         
     - `within` clause 
     

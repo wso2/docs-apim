@@ -108,7 +108,7 @@ To try out the example given above, follow the steps below:
     
 ### Publishing data on demand via store queries
 
-To understand how to publish data on demand, see [Correlating Data]({{base_path}}/correlating-data)
+To understand how to publish data on demand, see [Correlating Data]({{base_path}}/use-cases/streaming-usecase/correlating-data)
 
 ### Supported databases
 
@@ -123,13 +123,13 @@ WSO2 Streaming supports the following database types via Siddhi extensions:
 
 ### Supported Mappers
 
-Mappers determine the format in which the event is published. For information about transforming events by changing the format in which the data is published, see [Transforming Data]({{base_path}}/use-cases/streaming-usecase/transforming-data#transforming-the-message-format-when-publishing-data).
+Mappers determine the format in which the event is published. For information about transforming events by changing the format in which the data is published, see [Transforming Data]({{base_path}}/use-cases/streaming-usecase/transforming-data/#transforming-the-message-format-when-publishing-data).
 
 The mapper available for loading data to databases is [Keyvalue](https://siddhi-io.github.io/siddhi-map-keyvalue/api/2.1.0/#sinkmapper).
 
 ## Writing data to files
 
-WSO2 Streaming allows you to write data into files so that the data can be available in a static manner for further processing. You can write the data received from another source unchanged or after processing it. This is achieved by defining an output [stream](https://ei.docs.wso2.com/en/7.2.0/streaming-integrator/guides/loading-and-writing-date/) and then connecting a [sink](https://siddhi.io/en/v5.1/docs/query-guide/#sink) of the [file](https://siddhi-io.github.io/siddhi-io-file/api/2.0.10/#sink) type.
+WSO2 Streaming allows you to write data into files so that the data can be available in a static manner for further processing. You can write the data received from another source unchanged or after processing it. This is achieved by defining an output [stream]({{base_path}}/use-cases/streaming-usecase/loading-and-writing-date/) and then connecting a [sink](https://siddhi.io/en/v5.1/docs/query-guide/#sink) of the [file](https://siddhi-io.github.io/siddhi-io-file/api/2.0.10/#sink) type.
 
 ![Loading Data to Databases]({{base_path}}/assets/img/streaming/loading-and-writing-data/load-data-to-file.png)
 
