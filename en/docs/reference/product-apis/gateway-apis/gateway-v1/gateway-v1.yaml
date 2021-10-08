@@ -303,7 +303,7 @@ paths:
 
       description: |
         This operation is used to get the API information from storage. If the Tenant domain is not provided
-        carbon.super will be picked as the Tenant domain.
+        carbon.super will be picked as the Tenant domain. This is available as a WUM update or WSO2 Updates 2 and is effective from 28th August 2021 (2021-08-28).
       parameters:
         - name: context
           description: |
@@ -349,7 +349,7 @@ paths:
 
       description: |
         This operation is used to get the subscription information of an API from storage. If the Tenant domain is not provided
-        carbon.super will be picked as the Tenant domain.
+        carbon.super will be picked as the Tenant domain. This is available as a WUM update or WSO2 Updates 2 and is effective from 28th August 2021 (2021-08-28).
       parameters:
         - name: apiId
           description: |
@@ -390,7 +390,7 @@ paths:
 
       description: |
         This operation is used to get the application information from storage. If the Tenant domain is not
-        provided carbon.super will be picked as the Tenant domain.
+        provided carbon.super will be picked as the Tenant domain. This is available as a WUM update or WSO2 Updates 2 and is effective from 28th August 2021 (2021-08-28).
       parameters:
         - name: name
           description: |
@@ -435,7 +435,7 @@ paths:
 
       description: |
         This operation is used to get the subscription information of an API from storage. If the Tenant domain is not provided
-        carbon.super will be picked as the Tenant domain.
+        carbon.super will be picked as the Tenant domain. This is available as a WUM update or WSO2 Updates 2 and is effective from 28th August 2021 (2021-08-28).
       parameters:
         - name: apiUUID
           description: |
