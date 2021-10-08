@@ -2,7 +2,7 @@
 
 This section explains as to how you can attach a custom workflow to the **application registration** operation in the API Manager. 
 
-[Application creation]({{base_path}}/consume-api/manage-application/advanced-topics/adding-an-application-creation-workflow) and **Application registration** are different workflows. After an application is created, you can subscribe to available APIs, but you get the consumer key/secret and access tokens only after registering the application. There are two types of registrations with regard to an application: production and sandbox. The following are the situations in which you need to change the default application registration workflow:
+[Application creation]({{base_path}}/consume/manage-application/advanced-topics/adding-an-application-creation-workflow) and **Application registration** are different workflows. After an application is created, you can subscribe to available APIs, but you get the consumer key/secret and access tokens only after registering the application. There are two types of registrations with regard to an application: production and sandbox. The following are the situations in which you need to change the default application registration workflow:
 
 -  To only issue sandbox keys when creating production keys is deferred until testing is complete.
 -  To restrict untrusted applications from creating production keys. You allow only the creation of sandbox keys.
@@ -116,7 +116,7 @@ This section explains as to how you can attach a custom workflow to the **applic
 ## Step 1 - Configure the Business Process server
 
 1.  Download [WSO2 Enterprise Integrator](https://wso2.com/enterprise-integrator/6.5.0).
-2.  Set an offset of 2 to the default EI port in the `<EI_HOME>/wso2/business-process/conf/carbon.xml` file. This prevents port conflicts that occur when you start more than one WSO2 product on the same server. For more information, see [Changing the Default Ports with Offset]({{base_path}}/install-and-setup/deploying-wso2-api-manager/changing-the-default-ports-with-offset/).
+2.  Set an offset of 2 to the default EI port in the `<EI_HOME>/wso2/business-process/conf/carbon.xml` file. This prevents port conflicts that occur when you start more than one WSO2 product on the same server. For more information, see [Changing the Default Ports with Offset]({{base_path}}/install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset/).
 
     ``` java
     <Offset>2</Offset>
