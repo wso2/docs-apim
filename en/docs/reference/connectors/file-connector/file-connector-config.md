@@ -1986,6 +1986,8 @@ The following operations allow you to work with the File Connector version 4. Cl
         </tr>
     </table>
 
+    > NOTE: The latest File connector (v4.0.7 onwards) supports decompressing the .gz files.
+
     **Response** 
 
     ```xml
