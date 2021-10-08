@@ -49,7 +49,8 @@ Data Service Module. Follow the steps given below to create a module:
 
 1.  Open **WSO2 Integration Studio** and click **New Maven Multi Module Project** in 
     the **Getting Started** tab as shown below.  
-    ![]({{base_path}}/assets/img/create_project/create_mmm_project.png)
+
+    ![]({{base_path}}/assets/img/integrate/create_project/create_mmm_project.png)
 
 2.  In the **Maven Modules Creation** dialog box that opens, give a name
     (artifactId) for the project.
@@ -145,7 +146,9 @@ configured in the previous step:
     | SQL Query  | select EmployeeNumber, FirstName, LastName, Email from Employees where EmployeeNumber=:EmployeeNumber|
 
 4.  Click **Input Mappings** to expand the section. 
+
     ![]({{base_path}}/assets/img/integrate/tutorials/data_services/input_mapping_expanded.png)
+
 5.  Click **Generate** to generate input mappings automatically.
 
     !!! Tip
@@ -238,9 +241,13 @@ configured in the previous step:
 Now, let's create a REST resource that can be used to invoke the query.
 
 1.  Click **Resources** to expand the section. 
+
     <img src="{{base_path}}/assets/img/integrate/tutorials/data_services/resource_expanded.png">
+
 2.  Click **Add New** to open the **Create Resource** page.
+
     <img src="{{base_path}}/assets/img/integrate/tutorials/data_services/create_resource.png" width="500">
+
 3.  Enter the following resource details.
 
     <table>
@@ -266,9 +273,8 @@ Now, let's create a REST resource that can be used to invoke the query.
        
 4.  Save the resource.
 
-!!!	Tip
-    Alternatively, you can generate a data service from a datasource. 
-    For more information, refer [Generate Data Services]({{base_path}}/integrate/develop/creating-artifacts/data-services/creating-data-services/#generate-data-service-from-a-datasource).
+!!!	tip
+    Alternatively, you can generate a data service from a datasource. For more information, refer [Generate Data Services]({{base_path}}/integrate/develop/creating-artifacts/data-services/creating-data-services/#generate-data-service-from-a-datasource).
 
 
 ### Step 3: Package the artifacts

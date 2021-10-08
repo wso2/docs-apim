@@ -1,0 +1,108 @@
+{
+    "replacementPatterns": [
+      {
+        "pattern": "{{base_path}}/",
+        "replacement": "{{BASEURL}}/"
+      },
+      {
+        "pattern": "/$",
+        "replacement": ".md"
+      },
+      {
+        "pattern": "a$",
+        "replacement": "a.md"
+      },
+      {
+        "pattern": "b$",
+        "replacement": "b.md"
+      },
+      {
+        "pattern": "c$",
+        "replacement": "c.md"
+      },
+      {
+        "pattern": "e$",
+        "replacement": "e.md"
+      },
+      {
+        "pattern": "f$",
+        "replacement": "f.md"
+      },
+      {
+        "pattern": "h$",
+        "replacement": "h.md"
+      },
+      {
+        "pattern": "i$",
+        "replacement": "i.md"
+      },
+      {
+        "pattern": "j$",
+        "replacement": "j.md"
+      },
+      {
+        "pattern": "k$",
+        "replacement": "k.md"
+      },
+      {
+        "pattern": "l$",
+        "replacement": "l.md"
+      },
+      {
+        "pattern": "m$",
+        "replacement": "m.md"
+      },
+      {
+        "pattern": "n$",
+        "replacement": "n.md"
+      },
+      {
+        "pattern": "o$",
+        "replacement": "o.md"
+      },
+      {
+        "pattern": "p$",
+        "replacement": "p.md"
+      },
+      {
+        "pattern": "q$",
+        "replacement": "q.md"
+      },
+      {
+        "pattern": "r$",
+        "replacement": "r.md"
+      },
+      {
+        "pattern": "s$",
+        "replacement": "s.md"
+      },
+      {
+        "pattern": "t$",
+        "replacement": "t.md"
+      },
+      {
+        "pattern": "u$",
+        "replacement": "u.md"
+      },
+      {
+        "pattern": "v$",
+        "replacement": "v.md"
+      },
+      {
+        "pattern": "w$",
+        "replacement": "w.md"
+      },
+      {
+        "pattern": "x$",
+        "replacement": "x.md"
+      },
+      {
+        "pattern": "y$",
+        "replacement": "y.md"
+      },
+      {
+        "pattern": "z$",
+        "replacement": "z.md"
+      }
+    ]
+}

@@ -64,7 +64,7 @@ Now the Key Manager is configured.
 
 Let’s invoke an API using a token generated from Keycloak.
 
-1. Log on to Railco tenant domain’s Developer Portal [https://localhost:9443/devportal/]https://localhost:9443/devportal/() using tom@railco.com and password _user123_.
+1. Log on to Railco tenant domain’s Developer Portal [https://localhost:9443/devportal/](https://localhost:9443/devportal/) using tom@railco.com and password _user123_.
 2. Go to the **Applications** page and select **KeyCloakAPP**. This application is already subscribed to the **RailCoTrainAPI**. 
 3. Select **Production Keys → OAuth2 Tokens** . You will see a tab for **Keycloak**
     

@@ -7,7 +7,7 @@ Go through the guidelines given below before attempting to upgrade the productio
     To upgrade **from a version older than 1.8.0**, follow the instructions in the document that was released immediately after your current release and upgrade incrementally.
 
 !!! info
-    For more information about this release, see [About this Release]({{base_path}}/getting-started/about-this-release).
+    For more information about this release, see [About this Release]({{base_path}}/get-started/about-this-release).
 
 
 1.  If you already have a [WSO2 subscription](https://wso2.com/subscription), reach out to our support team through 
