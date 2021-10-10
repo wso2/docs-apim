@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this tutorial, let's learn how you can handle streaming data that has errors (e.g., events that do not have values for certain attributes). WSO2 Streaming Integrator allows you to log such events, direct them to a separate stream or store them in a data store. If these errors occur at the time of publishing (e.g., due to a connection error), WSO2 SI also provides the option to wait and then resume to publish once the connection is stable again. For detailed information about different ways to handle errors, see the [Handling Errors guide]({{base_path}}/use-cases/streaming-tutorials/handling-errors).
+In this tutorial, let's learn how you can handle streaming data that has errors (e.g., events that do not have values for certain attributes). WSO2 Streaming Integrator allows you to log such events, direct them to a separate stream or store them in a data store. If these errors occur at the time of publishing (e.g., due to a connection error), WSO2 SI also provides the option to wait and then resume to publish once the connection is stable again. For detailed information about different ways to handle errors, see the [Handling Errors guide]({{base_path}}/streaming/getting-started/handle-errors/).
 
 In this scenario, you are handling erroneous events by directing them to a MySQL store.
 
@@ -391,7 +391,7 @@ application as follows:
 
 2. In the **Siddhi Apps to Deploy** section, select the check box for the **StoreRdbmsError.siddhi** application. In the **Servers** section, select the check box for the server you added. Then click **Deploy**.
 
-    ![Select StoreRdbmsError Siddhi Application and Server]({{base_path}}/assets/img/streaming/handling-requests-with-errors/select-store-rdbms-error-app-and-server.png)
+    ![Select StoreRdbmsError Siddhi Application and Server]({{base_path}}/assets/img/streaming/handling-requests-with-errors/select-siddhi-app-and-server.png)
 
     The following log is displayed in the Streaming Integrator console.
     
@@ -434,18 +434,18 @@ To manage the error in the Error Store Explorer, follow the procedure below:
 
     As a result, an error is displayed as follows.
 
-    ![Error Store Explorer]({{base_path}}/assets/img/streaming/handling-requests-with-errors/error-store-explorer-with-StoreRdbmsError.png)
+    ![Error Store Explorer]({{base_path}}/assets/img/streaming/handling-requests-with-errors/error-store-explorer-with-sink-transport-error-test.png)
 
     This indicates that the event was dropped due to database constrained violation.
 
 2. To view details of the error, click **Detailed Info**. The following is displayed.
 
-    ![Error Entry]({{base_path}}/assets/img/streaming/handling-requests-with-errors/error-entry-for-StoreRdbmsError.png)
+    ![Error Entry]({{base_path}}/assets/img/streaming/handling-requests-with-errors/error-entry-for-sink-transport-error-test.png)
 
     The erroneous event is displayed as a editable table as shown below. Change the value of batchID from `1` to `2` and 
     click **Replay**.
 
-    ![Replay Error]({{base_path}}/assets/img/streaming/handling-requests-with-errors/replay-error-StoreRdbmsError.png)
+    ![Replay Error]({{base_path}}/assets/img/streaming/handling-requests-with-errors/replay-error.png)
 
     As a result, the **Error Entry** dialog box closes, and the **Error Store Explorer** dialog box is displayed with 
     no errors.
