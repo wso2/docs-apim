@@ -12,16 +12,26 @@ environments:
       endpoints:
           production:
               url: <production_endpoint_url>
-              config:
-                  retryTimeOut: <no_of_retries_before_suspension>
-                  retryDelay: <retry_delay_in_ms>
-                  factor: <suspension_factor>
           sandbox:
               url: <sandbox_endpoint_url>
               config:
+                  factor: <suspension_factor>
+                  suspendMaxDuration: <maximum_suspend_time_duration>
+                  suspendDuration: <suspend_time_duration>
+                  suspendErrorCode: 
+                      - <suspend_error_code_1>
+                      - <suspend_error_code_2>
+                      - ......................
+                      - <suspend_error_code_n>
                   retryTimeOut: <no_of_retries_before_suspension>
                   retryDelay: <retry_delay_in_ms>
-                  factor: <suspension_factor>
+                  retryErroCode:
+                      - <retry_error_code_1>
+                      - <retry_error_code_2>
+                      - ....................
+                      - <retry_error_code_n>
+                  actionSelect: <action_discard_or_fault>
+                  actionDuration: <action_time_duration>
       security:
           enabled: <whether_security_is_enabled>
           type: <endpoint_authentication_type_basic_or_digest>
@@ -69,7 +79,19 @@ The following code snippet contains sample configuration of the parameter file.
               production:
                   url: 'https://test.wso2.com'
                   config:
+                      factor: 3
+                      suspendMaxDuration: 25000
+                      suspendDuration: 45000
+                      suspendErrorCode: 
+                          - "101504"
+                          - "101501"
                       retryTimeOut: $RETRY
+                      retryDelay: 23000
+                      retryErroCode:
+                          - "101503" 
+                          - "101504"
+                      actionSelect: discard
+                      actionDuration: 75000
               sandbox:
                   url: 'https://test.sandbox.wso2.com'
           security:
