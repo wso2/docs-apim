@@ -111,6 +111,12 @@ The following code snippet contains sample configuration of the parameter file.
                   alias: Prod2
                   path: ~/.certs/prod2.crt
     ```
+
+!!! warning
+    [Configuring OAuth 2.0 Endpoint Security]({{base_path}}/learn/api-controller/advanced-topics/configuring-different-endpoint-security-types/#configuring-oauth-20-endpoint-security) using the parameters file has been introduced via an U2/WUM update and is effective from 8th October 2021 (2021-10-08).  
+    
+    For more information on how to update using U2, see [Updates 2.0 Documentation](https://updates.docs.wso2.com/en/latest/updates/overview/). For more information on how to update using WUM, see the documentation [Using WSO2 Update Manager](https://docs.wso2.com/display/updates100/Using+WSO2+Update+Manager).
+
 Instead of the default `api_params.yaml`, you can provide a custom parameter file using `--params` flag. A sample command will be as follows.
 
 !!! example
