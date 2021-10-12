@@ -12,6 +12,24 @@ environments:
       endpoints:
           production:
               url: <production_endpoint_url>
+              config:
+                  factor: <suspension_factor>
+                  suspendMaxDuration: <maximum_suspend_time_duration>
+                  suspendDuration: <suspend_time_duration>
+                  suspendErrorCode: 
+                      - <suspend_error_code_1>
+                      - <suspend_error_code_2>
+                      - ......................
+                      - <suspend_error_code_n>
+                  retryTimeOut: <no_of_retries_before_suspension>
+                  retryDelay: <retry_delay_in_ms>
+                  retryErroCode:
+                      - <retry_error_code_1>
+                      - <retry_error_code_2>
+                      - ....................
+                      - <retry_error_code_n>
+                  actionSelect: <action_discard_or_fault>
+                  actionDuration: <action_time_duration>
           sandbox:
               url: <sandbox_endpoint_url>
               config:
