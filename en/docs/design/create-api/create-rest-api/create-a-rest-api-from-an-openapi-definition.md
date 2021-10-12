@@ -218,3 +218,16 @@ The Transport Level Security defines the transport protocol on which the API is 
 Now, a REST API from an OpenAPI Definition has been created and configured successfully. 
 
 Next, [deploy the API]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/), [test the API]({{base_path}}/design/create-api/create-rest-api/test-a-rest-api/) and finally [publish the API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api).
+
+## See Also
+
+Learn more on the concepts that you need to know when creating a REST API:
+
+-   [Endpoints]({{base_path}}/design/endpoints/endpoint-types/)
+-   [API Security]({{base_path}}/design/api-security/api-authentication/secure-apis-using-oauth2-tokens/)
+-   [Rate Limiting]({{base_path}}/design/rate-limiting/introducing-throttling-use-cases/)
+-   [Life Cycle Management]({{base_path}}/design/lifecycle-management/api-lifecycle/)
+-   [API Monetization]({{base_path}}/design/api-monetization/monetizing-an-api/)
+-   [API Visibility]({{base_path}}/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/)
+-   [API Documentation]({{base_path}}/design/api-documentation/add-api-documentation/)
+-   [Custom Properties]({{base_path}}/design/create-api/adding-custom-properties-to-apis/)
