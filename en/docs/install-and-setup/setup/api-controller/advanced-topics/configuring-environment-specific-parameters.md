@@ -145,15 +145,43 @@ environments:
               production:
                   url: <production_endpoint_url>
                   config:
+                      factor: <suspension_factor>
+                      suspendMaxDuration: <maximum_suspend_time_duration>
+                      suspendDuration: <suspend_time_duration>
+                      suspendErrorCode: 
+                          - <suspend_error_code_1>
+                          - <suspend_error_code_2>
+                          - ......................
+                          - <suspend_error_code_n>
                       retryTimeOut: <no_of_retries_before_suspension>
                       retryDelay: <retry_delay_in_ms>
-                      factor: <suspension_factor>
+                      retryErroCode:
+                          - <retry_error_code_1>
+                          - <retry_error_code_2>
+                          - ....................
+                          - <retry_error_code_n>
+                      actionSelect: <action_discard_or_fault>
+                      actionDuration: <action_time_duration>
               sandbox:
                   url: <sandbox_endpoint_url>
                   config:
+                      factor: <suspension_factor>
+                      suspendMaxDuration: <maximum_suspend_time_duration>
+                      suspendDuration: <suspend_time_duration>
+                      suspendErrorCode: 
+                          - <suspend_error_code_1>
+                          - <suspend_error_code_2>
+                          - ......................
+                          - <suspend_error_code_n>
                       retryTimeOut: <no_of_retries_before_suspension>
                       retryDelay: <retry_delay_in_ms>
-                      factor: <suspension_factor>
+                      retryErroCode:
+                          - <retry_error_code_1>
+                          - <retry_error_code_2>
+                          - ....................
+                          - <retry_error_code_n>
+                      actionSelect: <action_discard_or_fault>
+                      actionDuration: <action_time_duration>
           security:
               production:
                   enabled: <whether_security_is_enabled_for_production_endpoint>
@@ -218,7 +246,19 @@ The following code snippet contains sample configuration of the parameters file 
                 production:
                     url: 'https://test.wso2.com'
                     config:
+                        factor: 3
+                        suspendMaxDuration: 25000
+                        suspendDuration: 45000
+                        suspendErrorCode: 
+                            - "101504"
+                            - "101501"
                         retryTimeOut: $RETRY
+                        retryDelay: 23000
+                        retryErroCode:
+                            - "101503" 
+                            - "101504"
+                        actionSelect: discard
+                        actionDuration: 75000
                 sandbox:
                     url: 'https://test.sandbox.wso2.com'
             security:
@@ -278,15 +318,43 @@ environments:
                           production:
                               url: <production_endpoint_url_for_api_1>
                               config:
-                                  retryTimeOut: <no_of_retries_before_suspension_for_api_1>
-                                  retryDelay: <retry_delay_in_ms_for_api_1>
-                                  factor: <suspension_factor_for_api_1>
+                                  factor: <production_suspension_factor_for_api_1>
+                                  suspendMaxDuration: <production_maximum_suspend_time_duration_for_api_1>
+                                  suspendDuration: <production_suspend_time_duration_for_api_1>
+                                  suspendErrorCode: 
+                                      - <production_suspend_error_code_1_for_api_1>
+                                      - <production_suspend_error_code_2_for_api_1>
+                                      - ..........................................
+                                      - <production_suspend_error_code_n_for_api_1>
+                                  retryTimeOut: <production_no_of_retries_before_suspension_for_api_1>
+                                  retryDelay: <production_retry_delay_in_ms_for_api_1>
+                                  retryErroCode:
+                                      - <production_retry_error_code_1_for_api_1>
+                                      - <production_retry_error_code_2_for_api_1>
+                                      - ........................................
+                                      - <production_retry_error_code_n_for_api_1>
+                                  actionSelect: <production_action_for_api_1_discard_or_fault>
+                                  actionDuration: <production_action_time_duration_for_api_1>
                           sandbox:
                               url: <sandbox_endpoint_url_for_api_1>
                               config:
-                                  retryTimeOut: <no_of_retries_before_suspension_for_api_1>
-                                  retryDelay: <retry_delay_in_ms_for_api_1>
-                                  factor: <suspension_factor_for_api_1>
+                                  factor: <sandbox_suspension_factor_for_api_1>
+                                  suspendMaxDuration: <sandbox_maximum_suspend_time_duration_for_api_1>
+                                  suspendDuration: <sandbox_suspend_time_duration_for_api_1>
+                                  suspendErrorCode: 
+                                      - <sandbox_suspend_error_code_1_for_api_1>
+                                      - <sandbox_suspend_error_code_2_for_api_1>
+                                      - .......................................
+                                      - <sandbox_suspend_error_code_n_for_api_1>
+                                  retryTimeOut: <sandbox_no_of_retries_before_suspension_for_api_1>
+                                  retryDelay: <sandbox_retry_delay_in_ms_for_api_1>
+                                  retryErroCode:
+                                      - <sandbox_retry_error_code_1_for_api_1>
+                                      - <sandbox_retry_error_code_2_for_api_1>
+                                      - .....................................
+                                      - <sandbox_retry_error_code_n_for_api_1>
+                                  actionSelect: <sandbox_action_for_api_1_discard_or_fault>
+                                  actionDuration: <sandbox_action_time_duration_for_api_1>
                       security:
                           production:
                               enabled: <whether_security_is_enabled_for_production_endpoint_for_api_1>
@@ -318,15 +386,43 @@ environments:
                           production:
                               url: <production_endpoint_url_for_api_2>
                               config:
-                                  retryTimeOut: <no_of_retries_before_suspension_for_api_2>
-                                  retryDelay: <retry_delay_in_ms_for_api_2>
-                                  factor: <suspension_factor_for_api_2>
+                                  factor: <production_suspension_factor_for_api_2>
+                                  suspendMaxDuration: <production_maximum_suspend_time_duration_for_api_2>
+                                  suspendDuration: <production_suspend_time_duration_for_api_2>
+                                  suspendErrorCode: 
+                                      - <production_suspend_error_code_1_for_api_2>
+                                      - <production_suspend_error_code_2_for_api_2>
+                                      - ..........................................
+                                      - <production_suspend_error_code_n_for_api_2>
+                                  retryTimeOut: <production_no_of_retries_before_suspension_for_api_2>
+                                  retryDelay: <production_retry_delay_in_ms_for_api_2>
+                                  retryErroCode:
+                                      - <production_retry_error_code_1_for_api_2>
+                                      - <production_retry_error_code_2_for_api_2>
+                                      - ........................................
+                                      - <production_retry_error_code_n_for_api_2>
+                                  actionSelect: <production_action_for_api_2_discard_or_fault>
+                                  actionDuration: <production_action_time_duration_for_api_2>
                           sandbox:
                               url: <sandbox_endpoint_url_for_api_2>
                               config:
-                                  retryTimeOut: <no_of_retries_before_suspension_for_api_2>
-                                  retryDelay: <retry_delay_in_ms_for_api_2>
-                                  factor: <suspension_factor_for_api_2>
+                                  factor: <sandbox_suspension_factor_for_api_2>
+                                  suspendMaxDuration: <sandbox_maximum_suspend_time_duration_for_api_2>
+                                  suspendDuration: <sandbox_suspend_time_duration_for_api_2>
+                                  suspendErrorCode: 
+                                      - <sandbox_suspend_error_code_1_for_api_2>
+                                      - <sandbox_suspend_error_code_2_for_api_2>
+                                      - .......................................
+                                      - <sandbox_suspend_error_code_n_for_api_2>
+                                  retryTimeOut: <sandbox_no_of_retries_before_suspension_for_api_2>
+                                  retryDelay: <sandbox_retry_delay_in_ms_for_api_2>
+                                  retryErroCode:
+                                      - <sandbox_retry_error_code_1_for_api_2>
+                                      - <sandbox_retry_error_code_2_for_api_2>
+                                      - .....................................
+                                      - <sandbox_retry_error_code_n_for_api_2>
+                                  actionSelect: <sandbox_action_for_api_2_discard_or_fault>
+                                  actionDuration: <sandbox_action_time_duration_for_api_2>
                       security:
                           production:
                               enabled: <whether_security_is_enabled_for_production_endpoint_for_api_2>
@@ -379,7 +475,19 @@ The following code snippet contains sample configuration of the parameters file 
                           production:
                               url: https://prod1.wso2.com
                               config:
+                                  factor: 3
+                                  suspendMaxDuration: 25000
+                                  suspendDuration: 45000
+                                  suspendErrorCode: 
+                                      - "101504"
+                                      - "101501"
                                   retryTimeOut: $RETRY
+                                  retryDelay: 23000
+                                  retryErroCode:
+                                      - "101503" 
+                                      - "101504"
+                                  actionSelect: discard
+                                  actionDuration: 75000
                           sandbox:
                               url: https://sand2.wso2.com
                       security:
