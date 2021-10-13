@@ -750,7 +750,7 @@ To delete records in the `StockTable` table via streams, follow the steps below:
        
 ### Perform CRUD operations via REST API
 
-In this section, let's perform CRUD operations via the [Store API]({{base_path}}/ref/store-APIs)
+In this section, let's perform CRUD operations via the [Store API]({{base_path}}/develop/streaming-apps/store-apis/)
 
 #### Insert records
 
