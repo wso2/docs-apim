@@ -97,7 +97,7 @@ Follow the instructions below to generate keys using the Keycloak as the Key Man
 
 2. Click **Production Keys** or **Sandbox Keys** based on the environment for which you need to generate keys.
       
-      Let's assume that you are working in a production environment. Therefore, click **Production Keys**.
+      If you are working in a production environment, click **Production Keys**.
 
 3. Click **Keycloak**.
 
