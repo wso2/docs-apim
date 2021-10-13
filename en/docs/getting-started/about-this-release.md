@@ -193,6 +193,14 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
      
        The prepackaged WSO2 Identity Server as a Key Manager has been removed. When needed, make sure to use WSO2 Identity Server 5.10.0 as the Key Manager.
 
+## U2/WUM updates
+
+This section lists out the features that were updated or introduced newly to WSO2 API-M 3.2.0 via U2/WUM updates.
+
+| Updated or newly introduced feature | The date of the update |
+| ----------------------------------- | ---------------------- |
+| [Configuring OAuth 2.0 Endpoint Security Using the Parameters File via API Controller (apictl)]({{base_path}}/learn/api-controller/advanced-topics/configuring-different-endpoint-security-types/#configuring-oauth-20-endpoint-security) | 8 October, 2021 | 
+
 ## Compatible WSO2 product versions
 
 WSO2 API-M 3.2.0 is based on WSO2 Carbon 4.6.0 and is expected to be compatible with any of the WSO2 products that are based on any Carbon 4.6.x version, except when using [WSO2 Identity Server as a Key Manager]({{base_path}}/install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager/), you need to specifically use WSO2 Identity Server 5.10.0 when working with WSO2 API-M 3.2.0. If you get any compatibility issues, please [contact team WSO2](http://wso2.com/support/). For information on the third-party software required with API-M 3.2.0, see [Installation Prerequisites]({{base_path}}/install-and-setup/installation-guide/installation-prerequisites/). For more information on the products in each Carbon platform release, see the [Release Matrix](http://wso2.com/products/carbon/release-matrix/).

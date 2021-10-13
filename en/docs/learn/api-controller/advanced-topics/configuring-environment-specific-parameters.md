@@ -13,15 +13,43 @@ environments:
           production:
               url: <production_endpoint_url>
               config:
+                  factor: <suspension_factor>
+                  suspendMaxDuration: <maximum_suspend_time_duration>
+                  suspendDuration: <suspend_time_duration>
+                  suspendErrorCode: 
+                      - <suspend_error_code_1>
+                      - <suspend_error_code_2>
+                      - ......................
+                      - <suspend_error_code_n>
                   retryTimeOut: <no_of_retries_before_suspension>
                   retryDelay: <retry_delay_in_ms>
-                  factor: <suspension_factor>
+                  retryErroCode:
+                      - <retry_error_code_1>
+                      - <retry_error_code_2>
+                      - ....................
+                      - <retry_error_code_n>
+                  actionSelect: <action_discard_or_fault>
+                  actionDuration: <action_time_duration>
           sandbox:
               url: <sandbox_endpoint_url>
               config:
+                  factor: <suspension_factor>
+                  suspendMaxDuration: <maximum_suspend_time_duration>
+                  suspendDuration: <suspend_time_duration>
+                  suspendErrorCode: 
+                      - <suspend_error_code_1>
+                      - <suspend_error_code_2>
+                      - ......................
+                      - <suspend_error_code_n>
                   retryTimeOut: <no_of_retries_before_suspension>
                   retryDelay: <retry_delay_in_ms>
-                  factor: <suspension_factor>
+                  retryErroCode:
+                      - <retry_error_code_1>
+                      - <retry_error_code_2>
+                      - ....................
+                      - <retry_error_code_n>
+                  actionSelect: <action_discard_or_fault>
+                  actionDuration: <action_time_duration>
       security:
           enabled: <whether_security_is_enabled>
           type: <endpoint_authentication_type_basic_or_digest>
@@ -69,7 +97,19 @@ The following code snippet contains sample configuration of the parameter file.
               production:
                   url: 'https://test.wso2.com'
                   config:
+                      factor: 3
+                      suspendMaxDuration: 25000
+                      suspendDuration: 45000
+                      suspendErrorCode: 
+                          - "101504"
+                          - "101501"
                       retryTimeOut: $RETRY
+                      retryDelay: 23000
+                      retryErroCode:
+                          - "101503" 
+                          - "101504"
+                      actionSelect: discard
+                      actionDuration: 75000
               sandbox:
                   url: 'https://test.sandbox.wso2.com'
           security:
@@ -89,6 +129,12 @@ The following code snippet contains sample configuration of the parameter file.
                   alias: Prod2
                   path: ~/.certs/prod2.crt
     ```
+
+!!! warning
+    [Configuring OAuth 2.0 Endpoint Security]({{base_path}}/learn/api-controller/advanced-topics/configuring-different-endpoint-security-types/#configuring-oauth-20-endpoint-security) using the parameters file has been introduced via an U2/WUM update and is effective from 8th October 2021 (2021-10-08).  
+    
+    For more information on how to update using U2, see [Updates 2.0 Documentation](https://updates.docs.wso2.com/en/latest/updates/overview/). For more information on how to update using WUM, see the documentation [Using WSO2 Update Manager](https://docs.wso2.com/display/updates100/Using+WSO2+Update+Manager).
+
 Instead of the default `api_params.yaml`, you can provide a custom parameter file using `--params` flag. A sample command will be as follows.
 
 !!! example
@@ -98,7 +144,7 @@ Instead of the default `api_params.yaml`, you can provide a custom parameter fil
 
 !!! info
     -   Production/Sandbox backends for each environment can be specified in the parameter file with additional configurations, such as timeouts.
-    -   Under the security field, if the `enabled` attribute is `true`, you must specify the `username`, `password` and the `type` (can be either only `basic` or `digest`). If the `enabled` attribute is `false`, then none of the security parameters will be set. If the `enabled` attribute is not set (blank), then the security parameters in api.yaml file will be considered.
     -   Certificates (Endpoint certificates and MutualSSL certificates) for each URL can be configured in the parameter file. For certificates, a valid path to the certificate file is required. 
     -   The parameter file supports detecting environment variables during the API import process. You can use the usual notation. For example, `url: $DEV_PROD_URL`.  If an environment variable is not set, the tool will fail. In addition, the system will also request for a set of required environment variables.
     - To learn about setting up different endpoint types such as HTTP/REST, HTTP/SOAP (with load balancing and failover), Dynamic and AWS Lambda, refer the section [Configuring Different Endpoint Types]({{base_path}}/learn/api-controller/advanced-topics/configuring-different-endpoint-types).
+    -   To learn about setting up different endpoint security types such as Basic, Digest and OAuth 2.0, refer the section [Configuring Different Endpoint Security Types]({{base_path}}/learn/api-controller/advanced-topics/configuring-different-endpoint-security-types).
