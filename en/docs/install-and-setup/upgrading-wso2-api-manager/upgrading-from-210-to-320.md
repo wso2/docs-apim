@@ -336,7 +336,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
     !!! attention "If you are using another DB type"
-        If you are using another DB type other than **H2** or **MySQL** or **Oracle**, when defining the DB related configurations in the `deployment.toml` file, you need to add the `driver` and `validationQuery` parameters additionally as given below.
+        If you are using another DB type other than **MySQL** or **Oracle**, when defining the DB related configurations in the `deployment.toml` file, you need to add the `driver` and `validationQuery` parameters additionally as given below.
 
         ```tab="MSSQL"
         [database.apim_db]
@@ -377,9 +377,6 @@ Follow the instructions below to move all the existing API Manager configuration
         driver = "com.ibm.db2.jcc.DB2Driver"
         validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
         ```
-
-    !!! note
-        It is recommended to use the default H2 database for the `WSO2_MB_STORE_DB` database in API-Manager. So do **not** migrate `WSO2_MB_STORE_DB` database from API-M 2.1.0 version to API-M 3.2.0 version, and use the **default H2** `WSO2_MB_STORE_DB` database available in API-M 3.2.0 version.
 
 4.  Update `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the correct database for user management purposes.
 

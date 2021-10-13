@@ -334,7 +334,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
     !!! attention "If you are using another DB type"
-        If you are using another DB type other than **H2** or **MySQL** or **Oracle**, when defining the DB related configurations in the `deployment.toml` file, you need to add the `driver` and `validationQuery` parameters additionally as given below.
+        If you are using another DB type other than **MySQL** or **Oracle**, when defining the DB related configurations in the `deployment.toml` file, you need to add the `driver` and `validationQuery` parameters additionally as given below.
 
         ```tab="MSSQL"
         [database.apim_db]
@@ -1254,7 +1254,7 @@ columns
         value to **true** in the `APIM_ANALYTICS_DB` 
 
     ??? attention "If you are using another DB type"
-        If you are using another DB type other than **H2** or **MySQL** or **Oracle**, when defining the DB related configurations in the `deployment.toml` file for API Manager database, you need to add the `driver` and `validationQuery` parameters optionally. For example MSSQL database configuration is as follows for the API Manager database.
+        If you are using another DB type other than *MySQL** or **Oracle**, when defining the DB related configurations in the `deployment.toml` file for API Manager database, you need to add the `driver` and `validationQuery` parameters optionally. For example MSSQL database configuration is as follows for the API Manager database.
  
         ```
         [database.apim_db]
