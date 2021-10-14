@@ -119,7 +119,7 @@ Let's create our first project with the name "petstore" by adding the [OpenAPI d
 
     1. Access the Publisher in WSO2 API Manager.
     
-         [https://apim.wso2.com/publisher/apis](https://apim.wso2.com/publisher/apis)
+         [https://apim:9443/publisher/apis](https://apim:9443/publisher/apis)
     
          You can see the **SwaggerPetstore** API is created. 
          

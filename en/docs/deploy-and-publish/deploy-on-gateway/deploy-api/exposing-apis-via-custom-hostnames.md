@@ -225,7 +225,7 @@ Extract WSO2 API Manager to a new directory. Let's refer to this directory as `A
 
 4. Save and close the `<APIM-HOME-2>/repository/conf/deployment.toml` file. 
 
-5. [Start the second WSO2 API Manager server](({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server)).
+5. [Start the second WSO2 API Manager server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-api-m-server).
 
 ### Step 3 - Assign the custom hostname to an API
 

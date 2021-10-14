@@ -42,11 +42,11 @@ docker ps | grep choreo-connect-
 ```
 
 !!! info
-    Note that the docker-compose deploy API Manager with basic configurations. In order to deploy API Manager in production grade docker setup artifacts from [APIM page.](https://wso2.com/api-management/) This docker-compose scripts is provided for try out purposes only.
+    Note that the docker-compose deploys the API Manager with basic configurations. In order to deploy API Manager in a production grade Docker, setup artifacts from the [API Manager page](https://wso2.com/api-management/). The docker-compose scripts are provided for the purpose of trying it out only.
 
 ### Step 4 - Deploy Sample API from API Manager
 
-1. First login to the API Manager Publisher Portal by accessing the URL https://apim:9443/publisher/
+1. First log in to the API Manager Publisher Portal by accessing the URL: https://apim:9443/publisher/.
 
 2. Click on the REST API card and then click on the `Deploy Sample API` button. This will deploy the sample PizzaShack API.
 

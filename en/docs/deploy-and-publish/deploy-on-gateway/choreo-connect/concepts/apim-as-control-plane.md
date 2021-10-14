@@ -95,7 +95,7 @@ with API Manager's Traffic manager component in order to publish and receive thr
 
 To rate limit requests globally, the [distributed rate limiting](https://mg.docs.wso2.com/en/latest/publish/rate-limiting/distributed-throttling/#distributed-throttling) option can be used.
 
-Choreo Connect supports [resource level]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/rate-limiting/adding-throttling-policies/), [subscription level](#subscription-level-throttling-api-subscriber) and [application level throttling](#application-level-throttling-application-developer).
+Choreo Connect supports [resource level]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/rate-limiting/adding-throttling-policies), [subscription level](#subscription-level-throttling-api-subscriber) and [application level throttling](#application-level-throttling-application-developer).
 
 #### Distributed rate limiting
 In a deployment with multiple Choreo Connect instances, throttling becomes a challenge with node local throttling as the throttling
@@ -105,11 +105,11 @@ if we have 3 gateways in a cluster, it will allow 30 requests to pass to the bac
 throttle out requests. This will put an unexpected load on the backend. To address this requirement, Choreo Connect
 supports distributed throttling where it is able to work with a central traffic management solution. In this case,
 multiple Choreo Connect instances can connect with WSO2 API Manager
-([WSO2 Traffic Manager]({{apim_path}}/install-and-setup/setup/distributed-deployment/product-profiles/))
+([WSO2 Traffic Manager]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles)
 and perform rate-limiting precisely. Find information on how to enable distributed rate limiting from [here](https://mg.docs.wso2.com/en/latest/publish/rate-limiting/distributed-throttling/#distributed-throttling).
 
 !!! note
-    If you start the WSO2 API Manager without providing any profile, it runs as All in One Node (All the profiles are activated). For testing purposes, you can simply start the API Manager following the [quick start guide]({{base_path}}/getting-started/quick-start-guide/) and test.
+    If you start the WSO2 API Manager without providing any profile, it runs as All in One Node (All the profiles are activated). For testing purposes, you can simply start the API Manager following the [quick start guide]({{base_path}}/getting-started/quick-start-guide) and test.
 
 ### Different levels of throttling
 
@@ -117,7 +117,7 @@ and perform rate-limiting precisely. Find information on how to enable distribut
 
 Subscription-level throttling tiers are set to an API during the API implementation. When a user subscribes to the API through the developer portal, the subscription-level throttling tiers selected for the API will be listed from which one can be selected.
 
-Based on the selected tier, a subscriber will be throttled out upon reaching the maximum number of requests specified in the tier, see [subscription-level throttling (API Publisher)]({{apim_path}}/deploy-and-publish/choreo-connect/rate-limiting/setting-throttling-limits/#subscription-level-throttling-api-publisher).
+Based on the selected tier, a subscriber will be throttled out upon reaching the maximum number of requests specified in the tier, see [subscription-level throttling (API Publisher)]({{base_path}}/deploy-and-publish/choreo-connect/rate-limiting/setting-throttling-limits/#subscription-level-throttling-api-publisher).
 
 #### Application-level throttling (application developer)
 
