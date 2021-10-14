@@ -19,7 +19,7 @@ This section is a step-by-step guide to create, publish, and invoke an API using
 
 In this sample scenario, you implement a full lifecycle of an API using WSO2 API Manager.
 
-<a href="{{base_path}}/assets/img/get_started/apim-qsg-diagram.png"><img src="{{base_path}}/assets/img/get_started/apim-qsg-diagram.png" width="1400" height="900"></a>
+<a href="{{base_path}}/assets/img/get_started/apim-qsg-diagram.png"><img src="{{base_path}}/assets/img/get_started/apim-qsg-diagram.png" width="60%"></a>
 
 1. Creating and publishing an API via the Publisher Portal of WSO2 API-M.
 2. Deploy the API in a Gateway environment.
