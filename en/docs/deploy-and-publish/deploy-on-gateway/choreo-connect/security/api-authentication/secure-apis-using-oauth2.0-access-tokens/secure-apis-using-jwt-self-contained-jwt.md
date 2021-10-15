@@ -36,7 +36,7 @@ Importing the public certificate into the Choreo Connect trust store and configu
 To enable [subscription validation](#subscription-validation), enable `validateSubscription` and set `consumerKeyClaim` to the name of the claim in JWT which contains the consumer key of the application.
 
 ### Subscription Validation
-The [subscription]({{apim_path}}/consume/manage-subscription/subscribe-to-an-api/) validation is configurable for JWT tokens.
+The [subscription]({{base_path}}/consume/manage-subscription/subscribe-to-an-api/) validation is configurable for JWT tokens.
 
 If an external key manager is used directly with Choreo Connect, which will not know about the subscription details then, subscription validation can be turned off for that particular JWT issuers.
 
