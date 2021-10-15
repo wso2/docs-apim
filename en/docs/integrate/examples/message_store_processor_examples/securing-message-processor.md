@@ -1,5 +1,5 @@
 # Securing the Message Forwarding Processor
-This example demonstrates a use case where security policies are applied to the [message forwarding processor](../using-message-forwarding-processor).
+This example demonstrates a use case where security policies are applied to the [message forwarding processor]({{base_path}}/integrate/examples/message_store_processor_examples/using-message-forwarding-processor).
 
 ## Synapse configuration
 

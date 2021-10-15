@@ -35,7 +35,7 @@ The following should take place in this scenario:
 -   The Micro Integrator sends the transformed message in the form of WebSocket frames.
 
 !!! Tip
-    If necessary, you can use the [data mapper](../../references/mediators/data-mapper-mediator) to perform data transformation inside the Micro Integrator message flow. For example, you can perform JSON to JSON transformation. To do this, you have to explicitly apply the required data mapping logic for all WebSocket frames.
+    If necessary, you can use the [data mapper]({{base_path}}/reference/mediators/data-mapper-mediator) to perform data transformation inside the Micro Integrator message flow. For example, you can perform JSON to JSON transformation. To do this, you have to explicitly apply the required data mapping logic for all WebSocket frames.
 
 ## Synapse configuration
 
