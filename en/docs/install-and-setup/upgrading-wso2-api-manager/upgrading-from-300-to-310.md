@@ -49,46 +49,6 @@ But, if registry versioning was enabled by you in WSO2 API-M 3.0.0 setup, it is 
     
     From API-M 3.0.0 version onwards, those configurations are set to false by-default and since these configurations are now getting changed from old setup to new setup, you need to remove the versioning details from the database in order for the registry resources to work properly. For that, choose the relevant DB type and run the script against the DB that the registry resides in, to remove the registry versioning details.   
     ??? info "DB Scripts"
-        ```tab="H2"
-        -- Update the REG_PATH_ID column mapped with the REG_RESOURCE table --
-
-        UPDATE REG_RESOURCE_TAG SET REG_RESOURCE_TAG.REG_PATH_ID=(SELECT REG_RESOURCE.REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_TAG.REG_VERSION);
-
-        UPDATE REG_RESOURCE_COMMENT SET REG_RESOURCE_COMMENT.REG_PATH_ID=(SELECT REG_RESOURCE.REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_COMMENT.REG_VERSION);
-
-        UPDATE REG_RESOURCE_PROPERTY SET REG_RESOURCE_PROPERTY.REG_PATH_ID=(SELECT REG_RESOURCE.REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_PROPERTY.REG_VERSION);
-
-        UPDATE REG_RESOURCE_RATING SET REG_RESOURCE_RATING.REG_PATH_ID=(SELECT REG_RESOURCE.REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_RATING.REG_VERSION);
-
-        -- Delete versioned tags, were the PATH_ID will be null for older versions --
-
-        delete from REG_RESOURCE_PROPERTY where REG_PATH_ID is NULL;
-
-        delete from REG_RESOURCE_RATING where REG_PATH_ID is NULL;
-
-        delete from REG_RESOURCE_TAG where REG_PATH_ID is NULL;
-
-        delete from REG_RESOURCE_COMMENT where REG_PATH_ID is NULL;
-
-        delete from REG_PROPERTY where REG_ID NOT IN (select REG_PROPERTY_ID from REG_RESOURCE_PROPERTY);
-
-        delete from REG_TAG where REG_ID NOT IN (select REG_TAG_ID from REG_RESOURCE_TAG);
-
-        delete from REG_COMMENT where REG_ID NOT IN (select REG_COMMENT_ID from REG_RESOURCE_COMMENT);
-
-        delete from REG_RATING where REG_ID NOT IN (select REG_RATING_ID from REG_RESOURCE_RATING);
-
-        -- Update the REG_PATH_NAME column mapped with the REG_RESOURCE table --
-
-        UPDATE REG_RESOURCE_TAG SET REG_RESOURCE_TAG.REG_RESOURCE_NAME=(SELECT REG_RESOURCE.REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_TAG.REG_VERSION);
-
-        UPDATE REG_RESOURCE_PROPERTY SET REG_RESOURCE_PROPERTY.REG_RESOURCE_NAME=(SELECT REG_RESOURCE.REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_PROPERTY.REG_VERSION);
-
-        UPDATE REG_RESOURCE_COMMENT SET REG_RESOURCE_COMMENT.REG_RESOURCE_NAME=(SELECT REG_RESOURCE.REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_COMMENT.REG_VERSION);
-
-        UPDATE REG_RESOURCE_RATING SET REG_RESOURCE_RATING.REG_RESOURCE_NAME=(SELECT REG_RESOURCE.REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_RATING.REG_VERSION);           
-        ```
-    
         ```tab="DB2"
         -- Update the REG_PATH_ID column mapped with the REG_RESOURCE table --
 
@@ -371,7 +331,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
     !!! attention "If you are using another DB type"
-        If you are using another DB type other than **H2** or **MySQL** or **Oracle**, when defining the DB related configurations in the `deployment.toml` file, you need to add the `driver` and `validationQuery` parameters additionally as given below.
+        If you are using another DB type other than **MySQL** or **Oracle**, when defining the DB related configurations in the `deployment.toml` file, you need to add the `driver` and `validationQuery` parameters additionally as given below.
 
         ```tab="MSSQL"
         [database.apim_db]
@@ -458,35 +418,6 @@ Follow the instructions below to move all the existing API Manager configuration
 3.  Upgrade the WSO2 API Manager database from version 3.0.0 to version 3.1.0 by executing the relevant database script, from the scripts that are provided below, on the `WSO2AM_DB` database.
 
     ??? info "DB Scripts"
-        ```tab="H2"
-        CREATE TABLE IF NOT EXISTS AM_API_CATEGORIES (
-            UUID VARCHAR(50),
-            NAME VARCHAR(255),
-            DESCRIPTION VARCHAR(1024),
-            TENANT_ID INTEGER,
-            UNIQUE (NAME,TENANT_ID),
-            PRIMARY KEY (UUID)
-        );
-
-        ALTER TABLE AM_SYSTEM_APPS
-        ADD TENANT_DOMAIN VARCHAR(255) DEFAULT 'carbon.super';
-
-        CREATE TABLE IF NOT EXISTS AM_USER (
-            USER_ID VARCHAR(255) NOT NULL,
-            USER_NAME VARCHAR(255) NOT NULL,
-            PRIMARY KEY(USER_ID)
-        );
-
-        CREATE TABLE IF NOT EXISTS AM_SECURITY_AUDIT_UUID_MAPPING (
-            API_ID INTEGER NOT NULL,
-            AUDIT_UUID VARCHAR(255) NOT NULL,
-            PRIMARY KEY (API_ID),
-            FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID)
-        );      
-
-        DELETE FROM IDN_OAUTH2_SCOPE_BINDING WHERE SCOPE_BINDING IS NULL OR SCOPE_BINDING = '';      
-        ```
-    
         ```tab="DB2"
         CREATE TABLE AM_API_CATEGORIES (
             UUID VARCHAR(50) NOT NULL,
@@ -849,12 +780,6 @@ Follow the steps below to migrate APIM Analytics 3.0.0 to APIM Analytics 3.1.0
 Upgrade the WSO2 API Manager Analytics database from version 3.0.0 to version 3.1.0 by executing the relevant database script, from the scripts that are provided below, on the `APIM_ANALYTICS_DB` database.
 
 ??? info "DB Scripts"
-    ```tab="H2"
-    ALTER TABLE APILASTACCESSSUMMARY DROP PRIMARY KEY;
-    ALTER TABLE APILASTACCESSSUMMARY ALTER COLUMN APIVERSION VARCHAR(254) NOT NULL;
-    ALTER TABLE APILASTACCESSSUMMARY ADD PRIMARY KEY (APINAME,APIVERSION,APICREATOR,APICREATORTENANTDOMAIN);           
-    ```
-    
     ```tab="DB2"
     ALTER TABLE APILASTACCESSSUMMARY DROP PRIMARY KEY;
     ALTER TABLE APILASTACCESSSUMMARY ALTER COLUMN APIVERSION VARCHAR(254) NOT NULL;
