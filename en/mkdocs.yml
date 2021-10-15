@@ -470,7 +470,7 @@ nav:
             - Asynchronous Messaging:
                 - RabbitMQ Examples:
                     - Point to Point: integrate/examples/rabbitmq_examples/point-to-point-rabbitmq.md
-                    - deploy/Subscribe: integrate/examples/rabbitmq_examples/pub-sub-rabbitmq.md
+                    - Publish/Subscribe: integrate/examples/rabbitmq_examples/pub-sub-rabbitmq.md
                     - Guaranteed Delivery:
                         - Message Store and Message Processor: integrate/examples/rabbitmq_examples/store-forward-rabbitmq.md
                         - Retry failed messages with a delay: integrate/examples/rabbitmq_examples/retry-delay-failed-msgs-rabbitmq.md
