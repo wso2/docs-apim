@@ -44,46 +44,6 @@ Therefore, when migrating to API Manager 3.0.0, it is **required** to run the be
     From API-M 3.0.0 version onwards, those configurations are set to false and when the above configurations are turned off, you need to remove the versioning details from the database in order for the registry resources to work properly. Choose the relevant DB type and run the script against the DB that the registry resides in, to remove the registry versioning details.
     
     ??? info "DB Scripts"
-        ```tab="H2"
-        -- Update the REG_PATH_ID column mapped with the REG_RESOURCE table --
-
-        UPDATE REG_RESOURCE_TAG SET REG_RESOURCE_TAG.REG_PATH_ID=(SELECT REG_RESOURCE.REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_TAG.REG_VERSION);
-
-        UPDATE REG_RESOURCE_COMMENT SET REG_RESOURCE_COMMENT.REG_PATH_ID=(SELECT REG_RESOURCE.REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_COMMENT.REG_VERSION);
-
-        UPDATE REG_RESOURCE_PROPERTY SET REG_RESOURCE_PROPERTY.REG_PATH_ID=(SELECT REG_RESOURCE.REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_PROPERTY.REG_VERSION);
-
-        UPDATE REG_RESOURCE_RATING SET REG_RESOURCE_RATING.REG_PATH_ID=(SELECT REG_RESOURCE.REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_RATING.REG_VERSION);
-
-        -- Delete versioned tags, were the PATH_ID will be null for older versions --
-
-        delete from REG_RESOURCE_PROPERTY where REG_PATH_ID is NULL;
-
-        delete from REG_RESOURCE_RATING where REG_PATH_ID is NULL;
-
-        delete from REG_RESOURCE_TAG where REG_PATH_ID is NULL;
-
-        delete from REG_RESOURCE_COMMENT where REG_PATH_ID is NULL;
-
-        delete from REG_PROPERTY where REG_ID NOT IN (select REG_PROPERTY_ID from REG_RESOURCE_PROPERTY);
-
-        delete from REG_TAG where REG_ID NOT IN (select REG_TAG_ID from REG_RESOURCE_TAG);
-
-        delete from REG_COMMENT where REG_ID NOT IN (select REG_COMMENT_ID from REG_RESOURCE_COMMENT);
-
-        delete from REG_RATING where REG_ID NOT IN (select REG_RATING_ID from REG_RESOURCE_RATING);
-
-        -- Update the REG_PATH_NAME column mapped with the REG_RESOURCE table --
-
-        UPDATE REG_RESOURCE_TAG SET REG_RESOURCE_TAG.REG_RESOURCE_NAME=(SELECT REG_RESOURCE.REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_TAG.REG_VERSION);
-
-        UPDATE REG_RESOURCE_PROPERTY SET REG_RESOURCE_PROPERTY.REG_RESOURCE_NAME=(SELECT REG_RESOURCE.REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_PROPERTY.REG_VERSION);
-
-        UPDATE REG_RESOURCE_COMMENT SET REG_RESOURCE_COMMENT.REG_RESOURCE_NAME=(SELECT REG_RESOURCE.REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_COMMENT.REG_VERSION);
-
-        UPDATE REG_RESOURCE_RATING SET REG_RESOURCE_RATING.REG_RESOURCE_NAME=(SELECT REG_RESOURCE.REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_RATING.REG_VERSION);           
-        ```
-    
         ```tab="DB2"
         -- Update the REG_PATH_ID column mapped with the REG_RESOURCE table --
 
@@ -370,9 +330,6 @@ Follow the instructions below to move all the existing API Manager configuration
         username = "username"
         password = "password"
         ```
-    
-    !!! attention "If you are using another DB type"
-        If you are using another DB type other than **H2** or **MySQL**, when defining the DB related configurations in the `deployment.toml` file, you need to add the `driver` and `validationQuery` parameters additionally as given below.
 
         ```tab="MSSQL"
         [database.apim_db]
@@ -413,9 +370,6 @@ Follow the instructions below to move all the existing API Manager configuration
         driver = "com.ibm.db2.jcc.DB2Driver"
         validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
         ```
-
-    !!! note
-        It is recommended to use the default H2 database for the `WSO2_MB_STORE_DB` database in API-Manager. So do **not** migrate `WSO2_MB_STORE_DB` database from API-M 2.5.0 version to API-M 3.0.0 version, and use the **default H2** `WSO2_MB_STORE_DB` database available in API-M 3.0.0 version.
 
 4.  If you have used separate DB for user management in your previous setup and you have defined the `[database.user]` as mentioned in the above step, then you need to update `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the correct database for user management purposes. **Note** that the data_source name cannot be changed and it should be **WSO2USER_DB**.
 
@@ -472,112 +426,6 @@ Follow the instructions below to move all the existing API Manager configuration
 3.   Upgrade the WSO2 API Manager database from version 2.5.0 to version 3.0.0 by executing the relevant database script, provided below, on the `WSO2AM_DB` database.
 
     ??? info "DB Scripts"
-        ```tab="H2"
-        DROP TABLE IF EXISTS AM_ALERT_TYPES;
-
-        CREATE TABLE IF NOT EXISTS AM_ALERT_TYPES (
-                ALERT_TYPE_ID INTEGER AUTO_INCREMENT,
-                ALERT_TYPE_NAME VARCHAR(256) NOT NULL ,
-                STAKE_HOLDER VARCHAR(100) NOT NULL,
-                PRIMARY KEY (ALERT_TYPE_ID)
-        );
-
-        INSERT INTO AM_ALERT_TYPES (ALERT_TYPE_NAME, STAKE_HOLDER) VALUES ('AbnormalResponseTime', 'publisher');
-
-        INSERT INTO AM_ALERT_TYPES (ALERT_TYPE_NAME, STAKE_HOLDER) VALUES ('AbnormalBackendTime', 'publisher');
-
-        INSERT INTO AM_ALERT_TYPES (ALERT_TYPE_NAME, STAKE_HOLDER) VALUES ('AbnormalRequestsPerMin', 'subscriber');
-
-        INSERT INTO AM_ALERT_TYPES (ALERT_TYPE_NAME, STAKE_HOLDER) VALUES ('AbnormalRequestPattern', 'subscriber');
-
-        INSERT INTO AM_ALERT_TYPES (ALERT_TYPE_NAME, STAKE_HOLDER) VALUES ('UnusualIPAccess', 'subscriber');
-
-        INSERT INTO AM_ALERT_TYPES (ALERT_TYPE_NAME, STAKE_HOLDER) VALUES ('FrequentTierLimitHitting', 'subscriber');
-
-        INSERT INTO AM_ALERT_TYPES (ALERT_TYPE_NAME, STAKE_HOLDER) VALUES ('ApiHealthMonitor', 'publisher');
-
-        ALTER TABLE AM_CERTIFICATE_METADATA DROP CONSTRAINT IF EXISTS END_POINT_CONSTRAINT;
-
-        CREATE TABLE IF NOT EXISTS AM_SYSTEM_APPS (
-            ID int(11) NOT NULL AUTO_INCREMENT,
-            NAME VARCHAR(50) NOT NULL,
-            CONSUMER_KEY VARCHAR(512) NOT NULL,
-            CONSUMER_SECRET VARCHAR(512) NOT NULL,
-            CREATED_TIME TIMESTAMP(6) DEFAULT CURRENT_TIMESTAMP(6),
-            UNIQUE (NAME),
-            UNIQUE (CONSUMER_KEY),
-            PRIMARY KEY (ID)
-        );
-
-        CREATE TABLE IF NOT EXISTS AM_API_CLIENT_CERTIFICATE (
-            TENANT_ID INT(11) NOT NULL,
-            ALIAS VARCHAR(45) NOT NULL,
-            API_ID INTEGER NOT NULL,
-            CERTIFICATE BLOB NOT NULL,
-            REMOVED BOOLEAN NOT NULL DEFAULT 0,
-            TIER_NAME VARCHAR (512),
-            FOREIGN KEY (API_ID) REFERENCES AM_API (API_ID) ON DELETE CASCADE ON UPDATE CASCADE,
-            PRIMARY KEY (ALIAS,TENANT_ID, REMOVED)
-        );
-
-        ALTER TABLE AM_POLICY_SUBSCRIPTION
-            ADD (
-                MONETIZATION_PLAN VARCHAR(25) NULL DEFAULT NULL,
-                FIXED_RATE VARCHAR(15) NULL DEFAULT NULL,
-                BILLING_CYCLE VARCHAR(15) NULL DEFAULT NULL,
-                PRICE_PER_REQUEST VARCHAR(15) NULL DEFAULT NULL,
-                CURRENCY VARCHAR(15) NULL DEFAULT NULL
-            );
-
-        CREATE TABLE IF NOT EXISTS AM_MONETIZATION_USAGE (
-            ID VARCHAR(100) NOT NULL,
-            STATE VARCHAR(50) NOT NULL,
-            STATUS VARCHAR(50) NOT NULL,
-            STARTED_TIME VARCHAR(50) NOT NULL,
-            PUBLISHED_TIME VARCHAR(50) NOT NULL,
-            PRIMARY KEY (ID)
-        );
-
-        ALTER TABLE AM_API_COMMENTS
-        MODIFY COLUMN COMMENT_ID VARCHAR(255) NOT NULL;
-
-        ALTER TABLE AM_API_RATINGS
-        MODIFY COLUMN RATING_ID VARCHAR(255) NOT NULL;
-
-        CREATE TABLE IF NOT EXISTS AM_NOTIFICATION_SUBSCRIBER (
-            UUID VARCHAR(255),
-            CATEGORY VARCHAR(255),
-            NOTIFICATION_METHOD VARCHAR(255),
-            SUBSCRIBER_ADDRESS VARCHAR(255) NOT NULL,
-            PRIMARY KEY(UUID,SUBSCRIBER_ADDRESS)
-        );
-
-        ALTER TABLE AM_EXTERNAL_STORES
-        ADD LAST_UPDATED_TIME TIMESTAMP(6) DEFAULT CURRENT_TIMESTAMP(6);
-
-        CREATE TABLE IF NOT EXISTS AM_API_PRODUCT_MAPPING (
-            API_PRODUCT_MAPPING_ID INTEGER AUTO_INCREMENT,
-            API_ID INTEGER,
-            URL_MAPPING_ID INTEGER,
-            FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE,
-            FOREIGN KEY (URL_MAPPING_ID) REFERENCES AM_API_URL_MAPPING(URL_MAPPING_ID) ON DELETE CASCADE,
-            PRIMARY KEY(API_PRODUCT_MAPPING_ID)
-        );
-
-        ALTER TABLE AM_API
-            ADD API_TYPE VARCHAR(10) NULL DEFAULT NULL;
-
-        CREATE TABLE IF NOT EXISTS AM_REVOKED_JWT (
-            UUID VARCHAR(255) NOT NULL,
-            SIGNATURE VARCHAR(2048) NOT NULL,
-            EXPIRY_TIMESTAMP BIGINT NOT NULL,
-            TENANT_ID INTEGER DEFAULT -1,
-            TOKEN_TYPE VARCHAR(15) DEFAULT 'DEFAULT',
-            TIME_CREATED TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            PRIMARY KEY (UUID)
-        );          
-        ```
-    
         ```tab="DB2"
         DROP TABLE AM_ALERT_TYPES
         /
@@ -1664,7 +1512,7 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
         When performing Analytics migration in WSO2 API-M Analytics 3.0.0, you need to set the **defaultAutoCommit** value to **true** in the `APIM_ANALYTICS_DB` and `WSO2AM_STATS_DB` datasource configurations.
 
     ??? attention "If you are using another DB type"
-        If you are using another DB type other than **H2** or **MySQL**, when defining the DB related configurations in the `deployment.toml` file, you need to add the `driver` and `validationQuery` parameters optionally. For example MSSQL database configuration is as follows for the API Manager database.
+        If you are using another DB type other than **MySQL**, when defining the DB related configurations in the `deployment.toml` file, you need to add the `driver` and `validationQuery` parameters optionally. For example MSSQL database configuration is as follows for the API Manager database.
 
         ```
         [database.apim_db]
