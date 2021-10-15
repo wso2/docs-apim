@@ -234,9 +234,9 @@ In a **production setup**, ensure that you have taken into account the respectiv
 (e.g., changing and encrypting the default passwords, configuring JVM security etc.) and other production deployment 
 guidelines (e.g., tuning parameters, backup and recovery recommendations etc.) before deploying WSO2 API-M nodes. 
 
-For more information on security hardening guidelines, see [Security Guidelines for Production Deployment]({{base_path}}/install-and-setup/deploying-wso2-api-manager/security-guidelines-for-production-deployment/).
+For more information on security hardening guidelines, see [Security Guidelines for Production Deployment]({{base_path}}/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/).
 
-For more information on other production deployment guidelines, see [Production Deployment Guidelines]({{base_path}}/install-and-setup/deploying-wso2-api-manager/production-deployment-guidelines/#common-guidelines-and-checklist).
+For more information on other production deployment guidelines, see [Production Deployment Guidelines]({{base_path}}//install-and-setup/setup/deployment-best-practices/production-deployment-guidelines/#common-guidelines-and-checklist/).
 
 ## Step 12 - Start the WSO2 API-M Servers
 
