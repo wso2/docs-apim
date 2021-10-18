@@ -47,7 +47,7 @@ Let's see what each handler does:
  the value `top` . This is useful when you want to execute your own extensions before our default handlers in 
  situations like doing additional security checks such as signature verification on access tokens before executing the 
  default security handler.
-    See [Adding Mediation Extensions](../../../extensions/adding-mediation-extensions).
+    See [Adding Mediation Extensions]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests).
 
 ### Using APILogMessageHandler
 

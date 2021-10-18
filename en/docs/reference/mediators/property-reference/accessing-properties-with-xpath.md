@@ -21,9 +21,8 @@ specified string.
 
 Syntax:
 
--   `           base64Encode(string value)          `
--   `           base64Encode(string value, string charset)          `
-    `                     `
+-   `base64Encode(string value)`
+-   `base64Encode(string value, string charset)`
 
 ### base64Decode() function
 
@@ -32,30 +31,29 @@ base64-encoded value.
 
 Syntax:
 
--   `           base64Decode(string encodedValue)          `
--   `           base64Decode(string           encodedValue           , string charset)          `
-    `                     `
+-   `base64Decode(string encodedValue)`
+-   `base64Decode(string encodedValue, string charset)`
 
 ### get-property() function
 
-The `get-property()` function allows any XPath expression used in a configuration to look up information from the current message context. Using the [Property mediator]({{base_path}}/reference/mediators/property-Mediator), you can retrieve properties from the message context and header.
+The `get-property()` function allows any XPath expression used in a configuration to look up information from the current message context. Using the [Property mediator]({{base_path}}/reference/mediators/property-mediator), you can retrieve properties from the message context and header.
 
 The syntax of the function takes the following format.
 
--   `          get-property(String propertyName)         `
--   `          get-property(String scope, String propertyName)         `
+-   `get-property(String propertyName)`
+-   `get-property(String scope, String propertyName)`
 
 The function accepts scope as an optional parameter. It retrieves a
 message property at the given scope, which can be one of the following.
 
-If you provide only the property name without the scope, the default s
-`         ynapse        ` scope will be used.
+If you provide only the property name without the scope, the default 
+`synapse` scope will be used.
 
 !!! Info
     When the result of an XPath evaluation results in a single XML node, the
     evaluator will return the text content of this node by default
     (equivalent of doing /root/body/node/text()). If you want to retrieve
-    the node itself, you can configure the [Enrich mediator]({{base_path}}/reference/mediators/enrich-Mediator) as shown
+    the node itself, you can configure the [Enrich mediator]({{base_path}}/reference/mediators/enrich-mediator) as shown
     in the following example.
     ``` xml
     <inSequence>
@@ -84,10 +82,10 @@ If you provide only the property name without the scope, the default s
     
 #### Synapse scope
 
-When the scope of a property mediator is `         synapse        ` ,
+When the scope of a property mediator is `synapse` ,
 its value is available throughout both the in sequence and the out
 sequence. In addition to the user-defined properties, you can retrieve
-the following special properties from the `         synapse        `
+the following special properties from the `synapse`
 scope.
 
 |                 |                                                                                                                                                                   |
@@ -104,7 +102,7 @@ scope.
 | OperationName   | Operation name corresponding to the message. A proxy service with a WSDL can have different operations. If the WSDL is not defined, ESB defines fixed operations. |
 
   
-To access a property with the `         synapses        ` cope inside the `         mediate()        ` method of a mediator, you can include the following configuration in a custom mediator created using the [Class mediator]({{base_path}}/reference/mediators/class-Mediator):
+To access a property with the `synapses` cope inside the `mediate()` method of a mediator, you can include the following configuration in a custom mediator created using the [Class mediator]({{base_path}}/reference/mediators/class-mediator):
 
 ``` java
 public boolean mediate(org.apache.synapse.MessageContext mc) {  
@@ -117,17 +115,17 @@ return true;
 
 #### axis2 scope
 
-When the scope of a property mediator is `         axis2        ` , its
+When the scope of a property mediator is `axis2` , its
 value is available only throughout the sequence for which the property
 is defined (e.g., if you add the property to an in sequence, its value
 will be available only throughout the in sequence). You can retrieve
-message context properties within the `         axis2        ` scope
+message context properties within the `axis2` scope
 using the following syntax.  
   
 Syntax:  
-`         get-property('axis2', String propertyName)        `
+`get-property('axis2', String propertyName)`
 
-To access a property with the `axis2` scope inside the `mediate()` method of a mediator, you can include the following configuration in a custom mediator created using the [Class mediator]({{base_path}}/reference/mediators/class-Mediator):
+To access a property with the `axis2` scope inside the `mediate()` method of a mediator, you can include the following configuration in a custom mediator created using the [Class mediator]({{base_path}}/reference/mediators/class-mediator):
 
 ``` java
 public boolean mediate(org.apache.synapse.MessageContext mc) {  
@@ -143,11 +141,11 @@ return true;
 
 #### axis2-client
 
-This is similar to the `         synapse                          `
+This is similar to the `synapse`
 scope. The difference is that it can be accessed inside the
-`         mediate()        ` method of a mediator by including one of
+`mediate()` method of a mediator by including one of
 the following configurations in a custom mediator, created using the
-[Class mediator]({{base_path}}/reference/mediators/class-Mediator) :
+[Class mediator]({{base_path}}/reference/mediators/class-mediator) :
 
 ``` java
 public boolean mediate(org.apache.synapse.MessageContext mc) {  
@@ -168,13 +166,13 @@ return true;
 
 #### transport scope
 
-When the scope of a property mediator is `         transport        ` ,
+When the scope of a property mediator is `transport` ,
 it will be added to the transport header of the outgoing message from
 the ESB profile. You can retrieve message context properties within the
-`         transport        ` scope using the following syntax.  
+`transport` scope using the following syntax.  
   
 Syntax:  
-`get-property('transport', String propertyName)        `
+`get-property('transport', String propertyName)`
 
 #### registry scope
 
@@ -208,15 +206,15 @@ Syntax:
 #### operation scope
 
 You can retrieve a property in the operation context level from the
-`         operation        ` scope. The properties within
-iterated/cloned message with the `         operation        ` scope are
+`operation` scope. The properties within
+iterated/cloned message with the `operation` scope are
 preserved in the in sequence even if you have configured your API
 resources to be sent through the fault sequence when faults exist. A
-given property with the `         operation        ` scope only exists
+given property with the `operation` scope only exists
 in a single request and can be accessed by a single resource. The
 properties in this scope are passed to the error handler when the
-`         FORCE_ERROR_ON_SOAP_FAULT        ` property is set to
-`         true        ` . See `FORCE_ERROR_ON_SOAP_FAULT` section in [Generic Properties]({{base_path}}/reference/mediators/property-reference/generic-Properties) for more information.
+`FORCE_ERROR_ON_SOAP_FAULT` property is set to
+`true`. See `FORCE_ERROR_ON_SOAP_FAULT` section in [Generic Properties]({{base_path}}/reference/mediators/property-reference/generic-properties) for more information.
 
 Syntax:  
 `         get-property('operation', String propertyName)        `
@@ -246,7 +244,7 @@ The SOAP 1.1 or 1.2 body element. For example, the expression **$body//getQuote*
 
 1.  Deploy the following proxy service using instructions in [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service).  
       
-    Note the property, `           <property xmlns:m0="                                                  http://services.samples                                               " name="stockprop" expression="$body//m0:getQuote"/>          ` in the configuration. It is used to log the first `           <m0:getQuote>          ` element of the request SOAP body.
+    Note the property, `<property xmlns:m0="http://services.samples" name="stockprop" expression="$body//m0:getQuote"/>` in the configuration. It is used to log the first `<m0:getQuote>` element of the request SOAP body.
 
     ```
     <proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
@@ -292,7 +290,7 @@ below.
 
 1.  Deploy the following proxy service using instructions in [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service).  
       
-    Note the property, `           <property xmlns:wsa="                                                  http://www.w3.org/2005/08/addressing                                               " name="stockprop" expression="$header/wsa:To"/>          ` in the configuration. It is used to log the value of **wsa:To**
+    Note the property, `<property xmlns:wsa="http://www.w3.org/2005/08/addressing" name="stockprop" expression="$header/wsa:To"/> ` in the configuration. It is used to log the value of **wsa:To**
     header of the SOAP request.
 
     ```
@@ -341,7 +339,7 @@ example below.
 
 1.  Deploy the following proxy service. For instructions, see [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service).  
       
-    Note the property, `           <property name="stockprop" expression="$axis2:REST_URL_POSTFIX"/>          ` in the configuration which is used to log the REST_URL_POSTFIX
+    Note the property, ` <property name="stockprop" expression="$axis2:REST_URL_POSTFIX"/>` in the configuration which is used to log the REST_URL_POSTFIX
     value of the request message.
 
     ```
@@ -378,9 +376,9 @@ example below.
     ```
 
 In this example, the property definition,
-`         <property name="stockprop" expression="$axis2:REST_URL_POSTFIX"/>        `
+`<property name="stockprop" expression="$axis2:REST_URL_POSTFIX"/>`
 is equivalent to
-`         <property name="stockprop" expression="get-property('axis2','REST_URL_POSTFIX')"/>        `
+`<property name="stockprop" expression="get-property('axis2','REST_URL_POSTFIX')"/>`
 
 Similarly, you can use $axis2 prefix with [HTTP Transport Properties](http-transport-properties.md).
 
@@ -437,7 +435,7 @@ name="stockerrorprop" expression="$ctx:ERROR\_MESSAGE"/\> is equivalent
 to \<property name="stockerrorprop"
 expression="get-property('ERROR\_MESSAGE')"/\>.  
   
-Similarly, you can use $ctx prefix with [Generic Properties]({{base_path}}/reference/property-reference/generic-Properties) .
+Similarly, you can use $ctx prefix with [Generic Properties]({{base_path}}/reference/property-reference/generic-properties) .
 
 ### $trp
 
@@ -534,7 +532,7 @@ The prefix used to get the URI element of a request URL.
 
 The prefix used to refer to a particular parameter value passed
 externally by an invoker such as the [Call Template
-Mediator](_Call_Template_Mediator_) .
+Mediator]({{base_path}}/reference/mediators/call-template-mediator).
 
 **Example of $func usage:**
 
