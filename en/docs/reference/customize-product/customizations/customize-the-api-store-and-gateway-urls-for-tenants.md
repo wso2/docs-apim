@@ -202,5 +202,8 @@ Carry out the following steps to configure NGINX as the load balancer to support
            }
     }
     ```
+!!! note
+    When adding the `customUrl` parameter, make sure to add the valid context the developer portal is accessed from.
+
 
 Now you should be able to access the developer portal and the gateways using custom URLs defined.
