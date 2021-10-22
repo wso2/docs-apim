@@ -477,6 +477,9 @@ The following table summarizes sample JSONPath expressions and their outputs:
 </tbody>
 </table>
 
+!!! Info
+    During mediation, evaluating expressions against a property does not modify the original payload. The changes will be reflected within the property itself and hence, it cannot be expected to get applied for the rest of the mediation similar to payload modification.
+    
 We can also evaluate a JSONPath expression against a property that contains a JSON payload.
 
 To evaluate a JSONPath expression against a  property, use the following syntax.
