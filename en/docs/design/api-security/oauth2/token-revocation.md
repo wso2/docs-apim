@@ -12,7 +12,9 @@ The parameters required to invoke the following API are as follows:
 
 -   `token` - The token to be revoked
 
--   `<base64 encoded (clientId:clientSecret)>` - Use a base64 encoder (e.g., <https://www.base64encode.org/> ) to encode your client ID and client secret using the following format: `<clientId>:<clientSecret>` Thereafter, enter the encoded value for this parameter.
+-   `<base64 encoded (clientId:clientSecret)>` - Use a base64 encoder to encode your client ID and client secret using the following format. WSO2 does not recommend the use of online base64 encoders for this purpose.
+
+     `<clientId>:<clientSecret>` Thereafter, enter the encoded value for this parameter.
 
 -   `token_type_hint` = This parameter is **optional**. If you do not specify this parameter, then WSO2 Identity Server (WSO2 IS) will search in both key spaces (access and refresh) and if it finds a matching token then it will be revoked. Therefore, if this parameter it not specified the token revocation process takes longer. However, if you specify this parameter then WSO2 IS only searches in the respective token key space, hence the token revocation process is much faster.
 

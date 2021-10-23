@@ -710,7 +710,7 @@ You can use the admin REST API, which is available in WSO2 API Manager, to publi
     curl -X POST -H "Authorization: Basic <base64encoded-admin-account-credentials>" -H "Content-Type: application/json" -d @payload.json https://localhost:9443/client-registration/v0.17/register
     ```
 
-    -   `<base64encoded-admin-account-credentials>` - [base64 encoded](https://www.base64encode.org) admin user account credentials (in `<username>:<password>` format).
+    -   `<base64encoded-admin-account-credentials>` - base64 encoded admin user account credentials (in `<username>:<password>` format). WSO2 does not recommend the use of online base64 encoders for this purpose.
     - `payload.json` should take the following format.
         ```json
         "callbackUrl": "www.google.lk",
@@ -726,7 +726,7 @@ You can use the admin REST API, which is available in WSO2 API Manager, to publi
     curl -X POST https://localhost:8243/token -H 'Authorization: Basic <base64encoded-registeration-credentials>' -d 'grant_type=password&username=admin&password=admin&scope=apim:monetization_usage_publish'
     ```
       
-    -   `<base64encoded-registeration-credentials>` - [base64 encoded](https://www.base64encode.org) client credentials received as the response in the client registration step (in `<client-id>:<client-secret>` format).
+    -   `<base64encoded-registeration-credentials>` - base64 encoded client credentials received as the response in the client registration step (in `<client-id>:<client-secret>` format). WSO2 does not recommend the use of online base64 encoders for this purpose.
     
 3.  Publish usage data to the Stripe billing engine.
 
