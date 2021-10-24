@@ -1,7 +1,7 @@
 
 Follow the instructions below to publish analytics data to the analytics cloud via the API Gateway:
 
-1. Open the `<API-M_HOME>/repository/conf/deployment.toml` file and uncomment the following config segment.
+1. Open the `<API-M_HOME>/repository/conf/deployment.toml` file and update the `[apim.analytics]` config segment as follows:
 
      ```toml
      [apim.analytics]
