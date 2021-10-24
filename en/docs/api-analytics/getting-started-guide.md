@@ -6,42 +6,39 @@ title: API Analytics Getting Started Guide - WSO2 API Manager 4.0.0
 
 API Manager offers analytics as a cloud service. Therefore, you need to register with the analytics cloud in order to use API Manager Analytics. Follow the instructions below to get started with analytics:
 
-## Step 1 - Sign up with Choreo
+## Step 1 - Sign in to Choreo
 
-Follow the instructions below to sign up with Choreo.
+Follow the instructions below to sign in to Choreo.
 
 1. Navigate to Choreo using the following URL. 
     
      [https://console.choreo.dev](https://console.choreo.dev).
 
-2. Sign-up to Choreo.
-
-!!! info
-    Note that the approval for your sign-up request may not take place immediately. Check your email for the invitation email, as Choreo sends out new invites every day.
+2. Sign-in to Choreo.
+   
+    [![Choreo sign-in options]({{base_path}}/assets/img/observe/sign-in-choreo.png){: style="width:30%"}]({{base_path}}/assets/img/observe/sign-in-choreo.png)
 
 ## Step 2 - Register your environment
 
 Follow the instructions below to register your on-premise environment:
 
-1. Sign in to the [Choreo Console](https://console.choreo.dev) using your credentials.
-
-2. Click on the user profile in the top right corner of the screen and select **Settings**.
+1. Click on the user profile in the top right corner of the screen and select **Settings**.
 
      [![Settings Menu]({{base_path}}/assets/img/observe/settings-menu.png)]({{base_path}}/assets/img/observe/settings-menu.png)
 
-3. If you are a member of multiple organizations, select the appropriate organization from the top left-hand corner. 
+2. If you are a member of multiple organizations, select the appropriate organization from the top left-hand corner. 
    
      For more information on handling users with role-based access control in organizations, see [Role-based Access Control for API Analytics]({{base_path}}/api-analytics/role-based-access-control).
 
      [![Org Selector]({{base_path}}/assets/img/observe/organization-selector.png)]({{base_path}}/assets/img/observe/organization-selector.png)
 
-4. Select the **On-prem Keys** tab and click **Generate keys**.
+3. Select the **On-prem Keys** tab and click **Generate keys**.
 
      [![On-prem Key]({{base_path}}/assets/img/observe/on-prem-key.png)]({{base_path}}/assets/img/observe/on-prem-key.png)
 
-5. Enter a suitable name for your environment (e.g., customer1-dev).
+4. Enter a suitable name for your environment (e.g., customer1-dev).
 
-6. Click **Generate**.
+5. Click **Generate**.
    
       <div class="admonition info">
       <p class="admonition-title">Info</p>
@@ -69,7 +66,7 @@ Follow the instructions below to register your on-premise environment:
       </table>
       </div>
 
-7. Copy the key that was generated before closing the dialog box.
+6. Copy the key that was generated before closing the dialog box.
 
 ## Step 3 - Configure the Gateway
 
