@@ -79,7 +79,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
     - content - json-eval($.content)
     - contentType - json-eval($.contentType)
  
-9. Drag and drop the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to respond the response from sending the email as shown below.
+9. Drag and drop the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator) to respond the response from sending the email as shown below.
    <img src="{{base_path}}/assets/img/integrate/connectors/email-conn-6.png" title="Adding the respond mediator." width="800" alt="Adding the respond mediator."/>
 
 10. Create the next API resource, which is `/retrieve` by dragging and dropping another API resource to the design view. This API resource will retrieve filters from the incoming HTTP post request from which to filter the email messages such as the subject, retrieve the emails, retrieve email body and respond back.
@@ -105,15 +105,15 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
     
     - Subject Regex: json-eval($.subjectRegex)
     
-14. We will next iterate the response received and obtain the email content of each email using the `getEmailBody` operation. In order to do this, drag and drop the [Foreach Mediator]({{base_path}}/reference/mediators/foreach-mediator/) as shown below and enter `//emails/email` as the Foreach Expression in the properties window.
+14. We will next iterate the response received and obtain the email content of each email using the `getEmailBody` operation. In order to do this, drag and drop the [Foreach Mediator]({{base_path}}/reference/mediators/foreach-mediator) as shown below and enter `//emails/email` as the Foreach Expression in the properties window.
     <img src="{{base_path}}/assets/img/integrate/connectors/email-conn-9.png" title="Adding foreach mediator." width="800" alt="Adding foreach mediator."/>
 
-15. Inside the [Foreach Mediator]({{base_path}}/reference/mediators/foreach-mediator/), drag and drop the `getEmailBody` operation as shown below and provide the `//email/index/text()` expression as the Email Index.
+15. Inside the [Foreach Mediator]({{base_path}}/reference/mediators/foreach-mediator), drag and drop the `getEmailBody` operation as shown below and provide the `//email/index/text()` expression as the Email Index.
     <img src="{{base_path}}/assets/img/integrate/connectors/email-conn-10.png" title="Adding getEmailBody operation." width="800" alt="Adding getEmailBody operation."/>
 
-    > **NOTE**: Further, you can use `getAttachment` operation to retrieve attachment content if there are any. Refer [Reference Documentation](email-connector-config/) to learn more.
+    > **NOTE**: Further, you can use `getAttachment` operation to retrieve attachment content if there are any. Refer [Reference Documentation]({{base_path}}/reference/connectors/email-connector-config) to learn more.
 
-16. Next, we will use a [Payload Factory Mediator]({{base_path}}/reference/mediators/payloadfactory-mediator/), to add the email content to the same response we received from `list` operation and configure the Payload mediator as shown below.
+16. Next, we will use a [Payload Factory Mediator]({{base_path}}/reference/mediators/payloadfactory-mediator), to add the email content to the same response we received from `list` operation and configure the Payload mediator as shown below.
     <img src="{{base_path}}/assets/img/integrate/connectors/email-conn-11.png" title="Adding payload factory mediator." width="800" alt="Adding payload facotry mediator."/>
     
     Enter following as the payload:
@@ -127,12 +127,12 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
     </email>
     ```
     
-    Here, you may observe that we are obtaining `TEXT_CONTENT` property which is being set when getEmailBody is invoked to retrieve the email content. You can find the list of similar properties set in this operation [here]({{base_path}}/reference/connectors/email-connector/email-connector-config/).
+    Here, you may observe that we are obtaining `TEXT_CONTENT` property which is being set when getEmailBody is invoked to retrieve the email content. You can find the list of similar properties set in this operation [here]({{base_path}}/reference/connectors/email-connector/email-connector-config).
 
-17. Drag and drop a [Property Mediator]({{base_path}}/reference/mediators/property-mediator/) and set the Property name as 'messageType' and the value as application/json. This is added so that the response will be in json.
+17. Drag and drop a [Property Mediator]({{base_path}}/reference/mediators/property-mediator) and set the Property name as 'messageType' and the value as application/json. This is added so that the response will be in json.
     <img src="{{base_path}}/assets/img/integrate/connectors/email-conn-12.png" title="Adding property mediator." width="800" alt="Adding property mediator."/>
 
-18. Finally, drag and drop the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) after the 'foreach' mediator to respond the response of retrieved emails.
+18. Finally, drag and drop the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator) after the 'foreach' mediator to respond the response of retrieved emails.
     <img src="{{base_path}}/assets/img/integrate/connectors/email-conn-13.png" title="Adding property mediator." width="800" alt="Adding property mediator."/>
 
 19. You can find the complete API XML configuration below. You can go to the source view and copy paste the following config.
@@ -269,5 +269,4 @@ You should get a response like below.
 
 ## What's Next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
 * To customize this example for your own scenario, see [Email Connector Configuration]({{base_path}}/reference/connectors/email-connector/email-connector-config/) documentation for all operation details of the connector.

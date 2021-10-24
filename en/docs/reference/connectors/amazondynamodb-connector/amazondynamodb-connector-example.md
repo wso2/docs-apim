@@ -28,11 +28,11 @@ All seven operations are exposed via an API. The API with the context `/resource
 
 For more information about these operations, please refer to the [Amazon DynamoDB connector reference guide]({{base_path}}/reference/connectors/amazondynamodb-connector/amazondynamodb-connector-configuration).
 
-> **Note**: Before invoking the API, you need to configure message builders/formatters in deployment.toml. See [Setting up the Amazon DynamoDB Connector](amazondynamodb-connector-configuration) documentation for more information.
+> **Note**: Before invoking the API, you need to configure message builders/formatters in deployment.toml. See [Setting up the Amazon DynamoDB Connector]({{base_path}}/reference/connectors/amazondynamodb-connector/amazondynamodb-connector-configuration) documentation for more information.
 
 The following diagram shows the overall solution. The user creates a table, stores some employee details (items) into the table, and then receives it back. To invoke each operation, the user uses the same API. 
 
-<img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamoDB-connector-example.jpg" title="Amazon DynamoDB connector example" width="800" alt="Amazon DynamoDB connector example"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-connector-example.jpg" title="Amazon DynamoDB connector example" width="800" alt="Amazon DynamoDB connector example"/>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
