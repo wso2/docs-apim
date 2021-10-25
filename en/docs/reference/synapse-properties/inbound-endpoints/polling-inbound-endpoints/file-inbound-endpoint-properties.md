@@ -10,7 +10,7 @@ See the list of [VFS parameters]({{base_path}}/reference/synapse-properties/tran
 
 ## Processing Sub Directories
 
-VFS Inbound endpoints are capable of handling files inside sub directories of the specified url. Please note the
+VFS Inbound endpoints are capable of handling files inside sub directories of the specified URL. Please note the
  following configurations that required to achieve the requirement.
  
  -   Configure the input file url to read sub files within sub directories. Please note `/*` at the end which is
