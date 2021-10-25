@@ -13,7 +13,7 @@ See the list of [VFS parameters]({{base_path}}/reference/synapse-properties/tran
 VFS Inbound endpoints are capable of handling files inside sub directories of the specified URL. Please note the
  following configurations that required to achieve the requirement.
  
- -   Configure the input file url to read sub files within sub directories. Please note `/*` at the end which is
+ -   Configure the input file URL to read sub files within sub directories. Please note `/*` at the end, which is
   mandatory to achieve the requirement.
  
      ```bash 
