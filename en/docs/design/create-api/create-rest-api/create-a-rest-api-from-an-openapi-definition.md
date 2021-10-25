@@ -141,7 +141,7 @@ You will notice that all the API resources are created automatically when the Op
 5. Click **Save** to save the changes.
    
     !!! note
-        If you have already deployed your API, click on the dropdown option and click **Save and deploy** so that your API will be redeployed, and your changes will appear in the API Gateway.
+        If you have already deployed your API, click on the dropdown option, and click **Save and deploy** so that your API will be redeployed, and your changes will appear in the API Gateway.
 
 ### Endpoints
 
@@ -162,7 +162,7 @@ You will notice that all the API resources are created automatically when the Op
 3. Click **Save** to save the changes.
    
     !!! note
-        If you have already deployed your API, click on the dropdown option and click **Save and deploy** so that your API will be redeployed, and your changes will appear in the API Gateway.
+        If you have already deployed your API, click on the dropdown option, and click **Save and deploy** so that your API will be redeployed, and your changes will appear in the API Gateway.
 
      [![]({{base_path}}/assets/img/learn/add-endpoint-configuration-for-pet-store-api.png)]({{base_path}}/assets/img/learn/add-endpoint-configuration-for-pet-store-api.png)
 
@@ -217,7 +217,7 @@ The Transport Level Security defines the transport protocol on which the API is 
 
 Now, a REST API from an OpenAPI Definition has been created and configured successfully. 
 
-Next, [deploy the API]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/), [test the API]({{base_path}}/design/create-api/create-rest-api/test-a-rest-api/) and finally [publish the API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api).
+Next, [deploy the API]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/), [test the API]({{base_path}}/design/create-api/create-rest-api/test-a-rest-api/), and finally [publish the API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api).
 
 ## See Also
 
