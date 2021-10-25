@@ -9,11 +9,11 @@ Follow the instructions below to deploy a new revision for an API:
     
       The Deployments page appears as follows when you do not have any existing revisions.
 
-      [![New revision](/../../assets/img/design/revision/deploy-first-revision.png){: style="width:80%"}](/../../assets/img/design/revision/deploy-first-revision.png)
+      [![New revision](/../../../assets/img/design/revision/deploy-first-revision.png){: style="width:80%"}](/../../../assets/img/design/revision/deploy-first-revision.png)
 
       The Deployments page appears as follows when you have at least one revision.
 
-      [![Deploy new revision option](/../../assets/img/design/revision/deploy-new-revision.png)](/../../assets/img/design/revision/deploy-new-revision.png)
+      [![Deploy new revision option](/../../../assets/img/design/revision/deploy-new-revision.png)](/../../../assets/img/design/revision/deploy-new-revision.png)
 
 3. Click **Deploy New Revision**.
 
@@ -27,4 +27,4 @@ Follow the instructions below to deploy a new revision for an API:
 !!! warning
     You cannot deploy more than 5 revisions. If you want to deploy a new revision after the maximum allowed number of revisions are reached, you need to delete one of the existing revisions.
 
-     [![Delete revision if max count is reached](/../../assets/img/design/revision/delete-and-deploy-revision.png){: style="width:60%"}](/../../assets/img/design/revision/delete-and-deploy-revision.png)
+     [![Delete revision if max count is reached](/../../../assets/img/design/revision/delete-and-deploy-revision.png){: style="width:60%"}](/../../../assets/img/design/revision/delete-and-deploy-revision.png)
