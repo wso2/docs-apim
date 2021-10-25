@@ -156,7 +156,7 @@ Click the following topics for a description of the concepts that you need to kn
     For more information on Endpoints, see [Working with Endpoints](https://docs.wso2.com/display/AM2xx/Working+with+Endpoints) .
 
     ![]({{base_path}}/assets/attachments/103327814/103327780.png)
-    For additional information, see [Enabling CORS for APIs]({{base_path}}/design/advanced-topics/enabling-cors-for-apis) and [Adding Mediation Extensions](_Adding_Mediation_Extensions_) . For details on adding and managing certificates, see [Dynamic SSL Certificate Installation](_Add_SSL_Certificates_for_Endpoints_) .
+    For additional information, see [Enabling CORS for APIs]({{base_path}}/design/advanced-topics/enabling-cors-for-apis) and [Adding Mediation Extensions]({{base_path}}/reference/customize-product/extending-api-manager/extending-gateway/writing-custom-handlers). For details on adding and managing certificates, see [Dynamic SSL Certificate Installation](_Add_SSL_Certificates_for_Endpoints_) .
 
         !!! info
     You can deploy your API as a **Prototyped API** in the **Implement** tab. A prototyped API is usually a mock implementation made public in order to get feedback about its usability. You can implement it **inline** or by specifying an **endpoint** .
@@ -205,20 +205,20 @@ Click the following topics for a description of the concepts that you need to kn
     ![]({{base_path}}/assets/attachments/103327814/103327777.png)
 
 
-    For more information on **maximum backend throughput** and **advanced throttling policies** , see [Working with Throttling](_Rate_Limiting_) .
+    For more information on **maximum backend throughput** and **advanced throttling policies**, see [Working with Throttling]({{base_path}}/design/rate-limiting/introducing-throttling-use-cases).
 
 11. Click **Save & Publish** . This publishes the API that you just created to the Developer Portal so that subscribers can use it.
 
         !!! tip
-    You can save partially complete or completed APIs without publishing it. Select the API and click on the **Lifecycle** tab to manage the API Lifecycle .
+    You can save partially complete or completed APIs without publishing it. Select the API and click on the **Lifecycle** tab to manage the API Lifecycle.
 
 
 You have created an API.
 
 **Related Tutorials**
 
--   [Create and Publish an API from a Swagger Definition](_Create_and_Publish_an_API_from_a_Swagger_Definition_)
--   [Create a Prototyped API with an Inline Script](_Create_a_Mock_API_with_an_Inline_Script_)
--   [Create a WebSocket API](_Create_a_WebSocket_API_)
--   [Create and Publish a SOAP API](_Create_and_Publish_a_SOAP_API_)
+-   [Create and Publish an API from a Swagger Definition]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition)
+-   [Create a Prototyped API with an Inline Script]({{base_path}}/design/prototype-api/create-a-mock-api-with-an-inline-script)
+-   [Create a WebSocket API]({{base_path}}/design/create-api/create-streaming-api/create-a-websocket-streaming-api)
+-   [Create and Publish a SOAP API]({{base_path}}/design/create-api/create-rest-api/expose-a-soap-service-as-a-rest-api)
 
