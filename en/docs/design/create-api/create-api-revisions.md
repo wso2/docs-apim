@@ -52,7 +52,7 @@ Follow the instructions below to create a new revision from your existing API:
 
 2. Navigate to the **Deploy** section and click **Deployments**.
 
-3. Click **+** in the revision bar indicator.
+3. Click **+** in the revision timeline.
     
       [![Create new revision]({{base_path}}/assets/img/design/revision/create-revision.png)]({{base_path}}/assets/img/design/revision/create-revision.png)
 
@@ -80,7 +80,7 @@ Follow the instructions below if you need to undeploy a revision from a Gateway 
 
 ## Delete a revision
 
-If you need to delete a specific revision, click on the **Delete** button that corresponds to the respective revision in the revision bar indicator as shown below.
+If you need to delete a specific revision, click on the **Delete** button that corresponds to the respective revision in the revision timeline as shown below.
 
 !!! note
     - If a revision is already deployed in a specific environment, you cannot delete it. 
@@ -95,7 +95,7 @@ API revisions can not be updated. Therefore, when you update an API via the Publ
 !!! note
     If you do not create a revision with your latest changes before restoring a previous revision, your latest changes in the Current API will be lost.
 
-If you need to revert these changes and restore a specific revision, click on the **Restore** button in the revision bar indicator, as shown below. Thereby, this will restore that specific revision into the Current API, overriding the changes that are currently available in the Current API. As the restore option will only update the Current API in the Publisher and Developer Portal, it does not have any effect on the deployed revisions. 
+If you need to revert these changes and restore a specific revision, click on the **Restore** button in the revision timeline, as shown below. Thereby, this will restore that specific revision into the Current API, overriding the changes that are currently available in the Current API. As the restore option will only update the Current API in the Publisher and Developer Portal, it does not have any effect on the deployed revisions. 
 
 [![Restore a revision]({{base_path}}/assets/img/design/revision/restore-revision.png)]({{base_path}}/assets/img/design/revision/restore-revision.png)
 
