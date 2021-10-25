@@ -52,7 +52,7 @@ Follow the instructions below to create a new revision from your existing API:
 
 2. Navigate to the **Deploy** section and click **Deployments**.
 
-3. Click **+**.
+3. Click **+** in the revision timeline.
     
       [![Create new revision]({{base_path}}/assets/img/design/revision/create-revision.png)]({{base_path}}/assets/img/design/revision/create-revision.png)
 
@@ -80,7 +80,7 @@ Follow the instructions below if you need to undeploy a revision from a Gateway 
 
 ## Delete a revision
 
-If you need to delete a specific revision, click on the **Delete** button that corresponds to the respective revision in the revision list as shown below.
+If you need to delete a specific revision, click on the **Delete** button that corresponds to the respective revision in the revision timeline as shown below.
 
 !!! note
     - If a revision is already deployed in a specific environment, you cannot delete it. 
@@ -90,15 +90,12 @@ If you need to delete a specific revision, click on the **Delete** button that c
 
 ## Restore a revision
 
-When you are updating the API from the Publisher Portal, you are updating the working copy of the API. A change in a mediation policy, a change in security configurations, a change to the documentation or simply changing the description of the API will deviate 
-the working copy of the API from the latest revision. If the API is in `Published` state, the working copy of the API is 
-displayed at the Developer Portal. 
+API revisions can not be updated. Therefore, when you update an API via the Publisher Portal, the changes will get reflected in the **Current API**, which is the current state of the API. Any changes to the API, such as a change in a mediation policy, security configurations, documentation or simply changing the description of the API, etc., will deviate the state of the Current API from the latest revision. If the API is in the `Published` state, the changes available in the Current API state are displayed in the Developer Portal. 
 
-If you need to revert these changes and restore a specific revision, click on the **Restore** 
-button in the revision list, as shown below. This will restore the revision into the working copy, overriding the changes done in the working copy.
-As restore will only update the working copy in the Publisher and Developer Portal, it does not have any effect on the deployed revisions. 
+!!! note
+    If you do not create a revision with your latest changes before restoring a previous revision, your latest changes in the Current API will be lost.
+
+If you need to revert these changes and restore a specific revision, click on the **Restore** button in the revision timeline, as shown below. Thereby, this will restore that specific revision into the Current API, overriding the changes that are currently available in the Current API. As the restore option will only update the Current API in the Publisher and Developer Portal, it does not have any effect on the deployed revisions. 
 
 [![Restore a revision]({{base_path}}/assets/img/design/revision/restore-revision.png)]({{base_path}}/assets/img/design/revision/restore-revision.png)
 
-!!! note
-    If you have not made a revision of the latest changes before restoring a previous revision, changes in the working copy will be lost. 
