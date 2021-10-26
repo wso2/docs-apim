@@ -4,7 +4,7 @@ The prototype implementation in WSO2 API Manager gives users the ability to prot
 
 Let's create a prototyped API with mock response payloads, deploy it as a prototype, and invoke it using the API Console, which is integrated into the Developer Portal.
 
-For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/v3/openapi.json`
+Let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/v3/openapi.json`
 
 ## Step 1 - Create a prototype API with mock response payloads
 
@@ -12,11 +12,11 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
 
     <a href="{{base_path}}/assets/img/learn/prototype-api/create-api-existing-rest-api-link.png"><img src="{{base_path}}/assets/img/learn/prototype-api/create-api-existing-rest-api-link.png" alt="importing open api"></a>
 
-2. Upload the OpenAPI URL or OpenAPI File and click **Next**.
+2. Enter the OpenAPI URL or upload the OpenAPI file and click **Next**.
 
     <a href="{{base_path}}/assets/img/learn/prototype-api/create-api-using-openapi-url-filled.png"><img src="{{base_path}}/assets/img/learn/prototype-api/create-api-using-openapi-url-filled.png" alt="create api form for existing api"></a>
     
-3. Provide the API name, context, and version. Thereafter, click **Create**.
+3. Provide the API name, context, version, and endpoint. Thereafter, click **Create**.
 
     <a href="{{base_path}}/assets/img/learn/prototype-api/create-api-form-swagger-petstore-filled.png"><img src="{{base_path}}/assets/img/learn/prototype-api/create-api-form-swagger-petstore-filled.png" alt="provide api details"></a>
          
@@ -161,7 +161,7 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
       | No      | setFrom(reference)                 | This is used to set the value that specifies the sender of the message.                                                                                       |
       | No      | setReplyTo(reference)              | This is used to set the value that specifies the receiver of the replies to the message.                                                                      |
       | Yes     | getPayloadJSON()                   | This gets the JSON representation of a SOAP Body payload.                                                                                                      |
-      | No      | setPayloadJSON( payload )          | This sets the JSON representation of a payload obtained via the `             getPayloadJSON()            ` method and sets it in the current message context. |
+      | No      | setPayloadJSON(payload)          | This sets the JSON representation of a payload obtained via the `             getPayloadJSON()            ` method and sets it in the current message context. |
       | Yes     | getProperty(name)                  | This gets a property from the current message context.                                                                                                         |
       | No      | setProperty(key, value)            | This is used to set a property in the current message context. The previously set property values are replaced by this method.                                 |
       
@@ -178,12 +178,12 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
 
     <a href="{{base_path}}/assets/img/learn/prototype-api/create-prototype-api-resource-page.png"><img src="{{base_path}}/assets/img/learn/prototype-api/create-prototype-api-resource-page.png" alt="select resource page"></a>
 
-2. To disable security for a resource, use the security checkbox after expanding any method.
+2. To disable security for a resource, use the security slidebar after expanding any method.
 
     <a href="{{base_path}}/assets/img/learn/prototype-api/create-prototype-api-resource-disable-sec.png"><img src="{{base_path}}/assets/img/learn/prototype-api/create-prototype-api-resource-disable-sec.png" alt="disable security for a resource of prototype api"></a>
 
     !!! tip 
-        To disable security for all the resources, use the lock icon as shown below,
+        To disable security for all the resources, use the lock icon as shown below.
 
         <a href="{{base_path}}/assets/img/learn/prototype-api/create-prototype-api-resource-disable-all-sec.png"><img src="{{base_path}}/assets/img/learn/prototype-api/create-prototype-api-resource-disable-all-sec.png" alt="disable security for all resources of prototype api"></a>
 
@@ -198,13 +198,15 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
 
 ## Step 3 - Deploy the API as a prototype
 
-1. Click **Deployments** to navigate to the Deployments page. Provide a description for the revision if required and click **Deploy**.
+1. Click **Deployments**, which is under **Deploy**, to navigate to the Deployments page.
+
+2. Provide a description for the revision if required and click **Deploy**.
 
     <a href="{{base_path}}/assets/img/learn/prototype-api/create-prototype-api-deployment.png"><img src="{{base_path}}/assets/img/learn/prototype-api/create-prototype-api-deployment.png" alt="create a deployment"></a>
 
-2. Click **Lifecycle** to navigate to the Lifecycle page.
+3. Click **Lifecycle** to navigate to the Lifecycle page.
 
-3. Click **Prototype** to deploy the API as a prototype.
+4. Click **Prototype** to deploy the API as a prototype.
 
     <a href="{{base_path}}/assets/img/learn/prototype-api/create-prototype-api-life-cycle-prototype.png"><img src="{{base_path}}/assets/img/learn/prototype-api/create-prototype-api-life-cycle-prototype.png" alt="deploy as prototype"></a>
 
@@ -215,15 +217,16 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
     !!! note 
         If you have enabled security for the prototype API, follow the [Subscribe to an API]({{base_path}}/consume/manage-subscription/subscribe-to-an-api/) guide to subscribe and obtain an access token to invoke the prototype API.
 
-2. Click **Try Out** to navigate to the API Console. If you have enabled security, you can either use the access token got from the above step or use the **GET TEST KEY** option. Otherwise, leave the Access Token field empty.
+2. Click **Try Out** to navigate to the API Console. 
+3. If you have enabled security, you can either use the access token that you got from the above step or use the **GET TEST KEY** option. Otherwise, leave the Access Token field empty.
 
      <a href="{{base_path}}/assets/img/learn/prototype-api/create-prototype-api-dev-portal-tryout-petstore.png"><img src="{{base_path}}/assets/img/learn/prototype-api/create-prototype-api-dev-portal-tryout-petstore.png" alt="try out prototype"></a>
 
-3. Expand any method and click **Try it out**.
+4. Expand any method and click **Try it out**.
 
      [![Tryout click]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-tryout-click.png)]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-tryout-click.png)
 
-4. Enter the value for the parameter and click **Execute** to invoke the API.
+5. Enter the value for the parameter and click **Execute** to invoke the API.
 
     !!! note 
         The payload that you gave as a JSON/XML output appears in the response for each respective parameter provided.
@@ -250,22 +253,3 @@ You have successfully created an API with an inline script, deployed it as a pro
 An API can also be prototyped by moving the API to the `PROTOTYPED` state by changing the API lifecycle state.
 
 For more information, see the [Deploy and Test Prototype APIs]({{base_path}}/design/prototype-api/deploy-and-test-mock-apis) tutorial.
-
-<div class="admonition info">
-<p class="admonition-title">Related Guides</p>
-
-<p>
-    <ul>
-    <li>Create and Publish an API
-<ul>
-          <li> <a href="{{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api">Create and Publish an API</a></li>
-
-          <li> <a href="{{base_path}}/design/create-api/create-rest-api/create-a-rest-api">Create and Publish an API</a> </li>
-    </ul>
-    <li>
-    <a href="{{base_path}}/design/create-api/create-a-websocket-api">Create a WebSocket API </a>
-</li>
-<li>
-    <a href="{{base_path}}/design/create-api/create-rest-api/create-a-rest-api-from-a-swagger-definition">Create an API from an OpenAPI definition</a></li>
-  </p>
-  </div>
