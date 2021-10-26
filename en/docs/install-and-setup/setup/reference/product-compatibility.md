@@ -34,12 +34,14 @@ The **WSO2 API-M** runtime is tested with the following JDKs:
 
 The **WSO2 API-M** runtime is tested with the following databases:
 
-|**DBMS**     |**Versions**|
-|--------------|-----------|
-|MySQL         | 5.7, 8    |
-|Oracle        | 12c, 19c  |
-|Microsoft SQL Server| 2017|
-|PostgreSQL            |10 |
+<html>
+<ul>
+<li>MySQL 5.7, 8</li>
+<li>Oracle 12c, 19c</li>
+<li>Microsoft SQL Server 2017</li>
+<li>PostgreSQL 10, 13.2</li>
+</ul>
+</html>
 
 #### Tested Web Browsers
 
