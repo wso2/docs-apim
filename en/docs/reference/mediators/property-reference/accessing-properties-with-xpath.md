@@ -435,7 +435,7 @@ name="stockerrorprop" expression="$ctx:ERROR\_MESSAGE"/\> is equivalent
 to \<property name="stockerrorprop"
 expression="get-property('ERROR\_MESSAGE')"/\>.  
   
-Similarly, you can use $ctx prefix with [Generic Properties]({{base_path}}/reference/property-reference/generic-properties) .
+Similarly, you can use $ctx prefix with [Generic Properties]({{base_path}}/reference/property-reference/generic-properties).
 
 ### $trp
 
