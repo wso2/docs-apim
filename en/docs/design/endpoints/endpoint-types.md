@@ -15,7 +15,7 @@ An Endpoint is a specific destination for a message such as an address, WSDL, a 
 | AWS Lambda      | An AWS Lambda endpoint can be used to invoke AWS Lambda functions through WSO2 API Gateway. For more information on creating APIs with AWS Lambda endpoint, please refer [Create and Publish an AWS Lambda API]({{base_path}}/tutorials/create-and-publish-awslambda-api/). |
 
 !!! note
-    - **Prototype Endpoints** and **Prototype Implementation** will be available only for the APIs which are in **CREATED** or **PROTOTYPED** state.
+    - The **Mock Implementation** will be only available for APIs that are in the **CREATED** or **PROTOTYPED** state.
 
 **Note the following:**
 
