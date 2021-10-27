@@ -146,8 +146,3 @@ Start the server with `./integrator.sh -debug <port>` and connect to that port f
 Click on the **Report Issue** button on the connector store page for the connector. You will get diverted to the GitHub repository of the connector. Please report your issues there. 
 
 It is preferable to create another issue at WSO2 Micro Integrator project and link that issue. Specify the title of the issue as `[Connector]<title>`.
-
-## Contact Us
-
-* Mailing list: dev@wso2.org
-* Slack channel: [https://wso2-ei.slack.com/](https://wso2-ei.slack.com/)
