@@ -76,7 +76,7 @@ The examples here use the `StarWarsAPI` GraphQL API, which was created in [Creat
  
 10. Click **Execute**.
 
-     [![Execute GraphQL Query]({{base_path}}/assets/img/learn/graphql-console-execute-query.png)]({{base_path}}/assets/img/learn/graphql-console-execute-quey.png)
+     [![Execute GraphQL Query]({{base_path}}/assets/img/learn/graphql-console-execute-query.png)]({{base_path}}/assets/img/learn/graphql-console-execute-query.png)
 
     !!! info "Troubleshooting"
         If you **cannot invoke the API's HTTPS endpoint** (this causes the **SSLPeerUnverified exception**), it could be because the security certificate issued by the server is not trusted by your browser. 

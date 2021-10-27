@@ -44,8 +44,7 @@ Following are the integration artifacts (proxy service) that we can used to impl
 
 To test this sample, the following files and directories should be created:
 1.  Download the provider [jar](https://repo1.maven.org/maven2/jcifs/jcifs/1.3.17/jcifs-1.3.17.jar) and place it in <MI_HOME>/lib directory and continue with the feature.
-    Please note that, since the above library is licensed under LGPL version 2.1 and by downloading and 
-    installing the library you will have to comply with the terms of LGPL version 2.1 and its restrictions as found in https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html."
+    Please note that, since the above library is licensed under LGPL version 2.1 and by downloading and installing the library you will have to comply with the terms of LGPL version 2.1 and its restrictions as found in [https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html).
     
 2.  Create the file directories:
 

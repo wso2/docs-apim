@@ -1,0 +1,8 @@
+{
+    "replacementPatterns": [
+      {
+        "pattern": "{{base_path}}/",
+        "replacement": "https://apim.docs.wso2.com/en/4.0.x/"
+      }
+    ]
+}

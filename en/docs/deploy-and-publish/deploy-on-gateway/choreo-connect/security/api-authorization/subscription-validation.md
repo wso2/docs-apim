@@ -1,6 +1,6 @@
 # Subscription Validation
 
-The [subscription]({{apim_path}}/learn/consume-api/manage-subscription/subscribe-to-an-api/) validation is configurable per issuer basis. In order to mandate the subscriptions, subscription validation can be enabled.
+The [subscription]({{base_path}}/learn/consume-api/manage-subscription/subscribe-to-an-api/) validation is configurable per issuer basis. In order to mandate the subscriptions, subscription validation can be enabled.
 If validation has failed, it will send an error message with error code 900908.
 
 In Choreo Connect subscription validation can be done in two ways.

@@ -41,8 +41,6 @@ To test the sample application, simulate a single event for it as follows:
 
 3. Enter attribute values as follows.
 
-   ![Attribute Values]({{base_path}}/assets/img/streaming/execution-geo-sample/attribute-values.png).
-
    | **Attribute**         | **Value**      |
    |-----------------------|----------------|
    | **latitude**          | `8.116553`     |

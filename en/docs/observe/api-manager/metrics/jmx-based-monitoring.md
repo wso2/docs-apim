@@ -221,7 +221,7 @@ If you have [JMX enabled for a datasource connected to the product](#enabling-jm
 
 [![Datasource mbean]({{base_path}}/assets/img/administer/datasource-mbean.png)]({{base_path}}/assets/img/administer/datasource-mbean.png)
 
-**Example:** If you have JMX enabled for the default Carbon datasource in the `master-datasources.xml.` file, the [JDBC connection pool parameters](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html) that are configured for the Carbon datasource will be listed as attributes as shown below. See the [performance tuning guide]({{base_path}}install-and-setup/setup/deployment-best-practices/tuning-performance) for instructions on how these parameters are configured for a datasource.
+**Example:** If you have JMX enabled for the default Carbon datasource in the `master-datasources.xml.` file, the [JDBC connection pool parameters](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html) that are configured for the Carbon datasource will be listed as attributes as shown below. See the [performance tuning guide]({{base_path}}/install-and-setup/setup/deployment-best-practices/tuning-performance) for instructions on how these parameters are configured for a datasource.
 
 [![Attributes mbeans]({{base_path}}/assets/img/administer/attributes-mbeans.png)]({{base_path}}/assets/img/administer/attributes-mbeans.png)
 

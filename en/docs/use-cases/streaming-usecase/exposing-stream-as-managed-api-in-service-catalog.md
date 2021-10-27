@@ -153,4 +153,4 @@ Follow the instructions below to view the service catalog entry in WSO2 API Mana
 
 - [Learn more on the available Streaming APIs]({{base_path}}/use-cases/streaming-usecase/create-streaming-api/streaming-api-overview). 
 
-- [Learn how you can use a **third-party Streaming Provider** together with the Streaming Integrator in WSO2 API-M to create a Streaming API]({{base_path}}/get-started/quick-start-guide/streaming-qsg).
+- [Learn how you can use a **third-party Streaming Provider** together with the Streaming Integrator in WSO2 API-M to create a Streaming API]({{base_path}}/get-started/streaming-quick-start-guide/).

@@ -144,7 +144,7 @@ Once the API resource is created, the design view of the `           HealthcareA
 !!! Note
     - The top part of the canvas is the **In sequence**, which controls how incoming messages are mediated.
     - The middle part of the canvas is the **Out sequence**, which controls how responses are handled. In this case, a **Send** mediator is already in place to send responses back to the requesting client.
-    - The bottom part of the canvas is the **Fault sequence**, which allows you to configure how to handle messages when an error occurs (for more information, see [Error Handling](../../../references/error_handling)).
+    - The bottom part of the canvas is the **Fault sequence**, which allows you to configure how to handle messages when an error occurs (for more information, see [Error Handling]({{base_path}}/troubleshooting/error_handling-mi)).
 
 <img src="{{base_path}}/assets/img/integrate/tutorials/119132413/119132425.png">
 

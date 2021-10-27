@@ -97,7 +97,7 @@ WSO2 Streaming Integrator supports the following transport types to send message
 
 ### Supported mappers
 
-Mappers determine the format in which the event is published. For information about transforming events by changing the format in which the data is published, see [Transforming Data]({{base_path}}/use-cases/streaming-usecase/transforming-data#transforming-the-message-format-when-publishing-data).
+Mappers determine the format in which the event is published. For information about transforming events by changing the format in which the data is published, see [Transforming Data]({{base_path}}/use-cases/streaming-usecase/transforming-data/#transforming-the-message-format-when-publishing-data).
 
 The following are the supported mappers when you publish data to destinations.
 
