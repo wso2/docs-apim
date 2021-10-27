@@ -355,7 +355,6 @@ nav:
             - SaaS and B2B Connectivity: integrate/integration-use-case/connectors.md
             - Data Integration: integrate/integration-use-case/data-integration-overview.md
             - Protocol Switching: integrate/integration-use-case/protocol-switching-overview.md
-            - Gateway: integrate/integration-use-case/gateway-overview.md
             - File Processing: integrate/integration-use-case/file-processing-overview.md
             - Periodic Execution of Integration Processes: integrate/integration-use-case/scheduled-task-overview.md
         - Develop Integrations:
