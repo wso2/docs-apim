@@ -105,7 +105,7 @@ if we have 3 gateways in a cluster, it will allow 30 requests to pass to the bac
 throttle out requests. This will put an unexpected load on the backend. To address this requirement, Choreo Connect
 supports distributed throttling where it is able to work with a central traffic management solution. In this case,
 multiple Choreo Connect instances can connect with WSO2 API Manager
-([WSO2 Traffic Manager]({{apim_path}}/install-and-setup/setup/distributed-deployment/product-profiles/))
+([WSO2 Traffic Manager]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles)
 and perform rate-limiting precisely. Find information on how to enable distributed rate limiting from [here](https://mg.docs.wso2.com/en/latest/publish/rate-limiting/distributed-throttling/#distributed-throttling).
 
 !!! note
@@ -117,7 +117,7 @@ and perform rate-limiting precisely. Find information on how to enable distribut
 
 Subscription-level throttling tiers are set to an API during the API implementation. When a user subscribes to the API through the developer portal, the subscription-level throttling tiers selected for the API will be listed from which one can be selected.
 
-Based on the selected tier, a subscriber will be throttled out upon reaching the maximum number of requests specified in the tier, see [subscription-level throttling (API Publisher)]({{apim_path}}/deploy-and-publish/choreo-connect/rate-limiting/setting-throttling-limits/#subscription-level-throttling-api-publisher).
+Based on the selected tier, a subscriber will be throttled out upon reaching the maximum number of requests specified in the tier, see [subscription-level throttling (API Publisher)]({{base_path}}/deploy-and-publish/choreo-connect/rate-limiting/setting-throttling-limits/#subscription-level-throttling-api-publisher).
 
 #### Application-level throttling (application developer)
 

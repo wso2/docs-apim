@@ -10,7 +10,7 @@ API has the `/publishMessages` context. It publishes messages via the topic to t
 
 ## Set up Kafka
 
-Before you begin, set up Kafka by following the instructions in [Setting up Kafka](setting-up-kafka.md).
+Before you begin, set up Kafka by following the instructions in [Setting up Kafka]({{base_path}}/reference/connectors/kafka-connector/setting-up-kafka).
 
 ## Configure the connector in WSO2 Integration Studio
 
@@ -169,5 +169,4 @@ This demonstrates how the Kafka connector publishes Avro messages to Kafka broke
    
 ## What's next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers](../../../../setup/installation/run_in_containers).
-* To customize this example for your own scenario, see [Kafka Connector Configuration](kafka-connector-config.md) documentation.
+* To customize this example for your own scenario, see [Kafka Connector Configuration]({{base_path}}/reference/connectors/kafka-connector/kafka-connector-config) documentation.

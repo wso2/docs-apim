@@ -26,13 +26,13 @@ All seven operations are exposed via an API. The API with the context `/resource
 * `/listtable` : Retrieve information about the created tables.
 * `/deletetable` : Remove created table in the Amazon DynamoDB.
 
-For more information about these operations, please refer to the [Amazon DynamoDB connector reference guide]({{base_path}}/reference/connectors/amazondynamodb-connector/amazondynamodb-connector-configuration/).
+For more information about these operations, please refer to the [Amazon DynamoDB connector reference guide]({{base_path}}/reference/connectors/amazondynamodb-connector/amazondynamodb-connector-configuration).
 
-> **Note**: Before invoking the API, you need to configure message builders/formatters in deployment.toml. See [Setting up the Amazon DynamoDB Connector](amazondynamodb-connector-configuration/) documentation for more information.
+> **Note**: Before invoking the API, you need to configure message builders/formatters in deployment.toml. See [Setting up the Amazon DynamoDB Connector]({{base_path}}/reference/connectors/amazondynamodb-connector/amazondynamodb-connector-configuration) documentation for more information.
 
 The following diagram shows the overall solution. The user creates a table, stores some employee details (items) into the table, and then receives it back. To invoke each operation, the user uses the same API. 
 
-<img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamoDB-connector-example.jpg" title="Amazon DynamoDB connector example" width="800" alt="Amazon DynamoDB connector example"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-connector-example.jpg" title="Amazon DynamoDB connector example" width="800" alt="Amazon DynamoDB connector example"/>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
@@ -341,7 +341,7 @@ Now follow the steps below to add resources to the API.
     
 #### Get a response.   
  
-When you are invoking the created API, the request of the message is going through the each resource. Finally, it is passed to the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/). The Respond Mediator stops the processing on the current message and sends the message back to the client as a response. 
+When you are invoking the created API, the request of the message is going through the each resource. Finally, it is passed to the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator). The Respond Mediator stops the processing on the current message and sends the message back to the client as a response. 
 
 Drag and drop **respond mediator** to the **Design view**.
 
@@ -940,4 +940,4 @@ Invoke the API as shown below using the curl command. Curl Application can be do
    ```
 ## What's next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
+* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/install/installing-the-product/run_in_containers).

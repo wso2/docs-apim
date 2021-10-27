@@ -961,7 +961,7 @@ All ESB versions prior to EI 6.6.0 use <b>log4j</b>. In the Micro Integrator, th
 See the topics given below to configure log4j2 in the Micro Integrator.
 
 -   [Log4j2 properties]({{base_path}}/observe/micro-integrator/classic-observability-logs/configuring-log4j2-properties)
--   [Correlation logs]({{base_path}}/install-and-setup/setup/mi-setup/observability)
+-   [Correlation logs]({{base_path}}/observe/micro-integrator/classic-observability-logs/monitoring-correlation-logs)
 -   [Wire logs]({{base_path}}/integrate/develop/using-wire-logs)
 -   [Service-level logs]({{base_path}}/integrate/develop/enabling-logs-for-services)
 -   [REST API Access logs]({{base_path}}/integrate/develop/enabling-logs-for-api)

@@ -1,21 +1,20 @@
 # Create and Publish an API
 
-**API creation** is the process of linking an existing backend API implementation to the [API Publisher](_Key_Concepts_) so that you can manage and monitor the [API's lifecycle](_Key_Concepts_) , documentation, security, community, and subscriptions. Alternatively, you can provide the API implementation in-line in the [API Publisher](_Key_Concepts_) itself.
+**API creation** is the process of linking an existing backend API implementation to the [API Publisher]({{base_path}}/get-started/key-concepts) so that you can manage and monitor the [API's lifecycle]({{base_path}}/get-started/key-concepts) , documentation, security, community, and subscriptions. Alternatively, you can provide the API implementation in-line in the [API Publisher]({{base_path}}/get-started/key-concepts) itself.
 
 !!! note
 Click the following topics for a description of the concepts that you need to know when creating an API:
 
--   [API visibility](_Key_Concepts_)
--   [Resources](_Key_Concepts_)
--   [Endpoints](_Key_Concepts_)
--   [Throttling tiers](_Key_Concepts_)
--   [Sequences](_Key_Concepts_)
--   [Response caching](_Configuring_Caching_)
+-   [API visibility]({{base_path}}/get-started/key-concepts)
+-   [Resources]({{base_path}}/get-started/key-concepts)
+-   [Endpoints]({{base_path}}/get-started/key-concepts)
+-   [Throttling tiers]({{base_path}}/get-started/key-concepts)
+-   [Sequences]({{base_path}}/get-started/key-concepts)
+-   [Response caching]({{base_path}}/install-and-setup/setup/advance-configurations/configuring-caching)
 
 
-1.  Sign in to the WSO2 API Publisher.
-`https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher` ). Use **admin** as the username and password.
-``
+1.  Sign in to the WSO2 API Publisher via `https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher` ). Use **admin** as the username and password.
+
 2.  Close the interactive tutorial that starts automatically if you are a first-time user, and click **ADD NEW API** .
 
         !!! tip
@@ -63,7 +62,7 @@ Click the following topics for a description of the concepts that you need to kn
 
     ![]({{base_path}}/assets/attachments/103327814/103327784.png)
 
-    For more information on URL patterns, see [API Resources](_Key_Concepts_) .
+    For more information on URL patterns, see [API Resources]({{base_path}}/get-started/key-concepts) .
 
 5.  After you add the resource, click it's `GET` method to expand it. Update the value for **Produces** as `application/xml` and the value for **Consumes** as `application/json` .
 
@@ -93,7 +92,7 @@ Click the following topics for a description of the concepts that you need to kn
     To import an existing swagger definition from a file or a URL, click **Import** . Click **Edit Source** to manually edit the API swagger definition.
 
 
-7.  Once done, click **Next: Implement &gt;** .
+7.  Once done, click **Next: Implement &gt;**.
     Alternatively, click **Save** to save all the changes made to the API. You can come back later to edit it further by selecting the API and clicking **Edit** . For details about the states of the API, see Manage the API Lifecycle .
 
         !!! info
@@ -108,11 +107,11 @@ Click the following topics for a description of the concepts that you need to kn
 
     You can use the following data type categories, supported by [swagger](http://docs.swagger.io/spec.html#433-data-type-fields) .
 
-    -   [`primitive            `](http://docs.swagger.io/spec.html#431-primitives) (input/output)
-    -`containers` (as arrays/sets) (input/output)
-    -`complex` (as models) (input/output)
-    -   [`void            `](http://docs.swagger.io/spec.html#432-void) (output)
-    -   [`file            `](http://docs.swagger.io/spec.html#434-file) (input)
+    - [`primitive`](http://docs.swagger.io/spec.html#431-primitives) (input/output)
+    - `containers` (as arrays/sets) (input/output)
+    - `complex` (as models) (input/output)
+    - [`void`](http://docs.swagger.io/spec.html#432-void) (output)
+    - [`file`](http://docs.swagger.io/spec.html#434-file) (input)
 
 
 8.  Click the **Managed API** option.
@@ -157,7 +156,7 @@ Click the following topics for a description of the concepts that you need to kn
     For more information on Endpoints, see [Working with Endpoints](https://docs.wso2.com/display/AM2xx/Working+with+Endpoints) .
 
     ![]({{base_path}}/assets/attachments/103327814/103327780.png)
-    For additional information, see [Enabling CORS for APIs](_Enabling_CORS_for_APIs_) and [Adding Mediation Extensions](_Adding_Mediation_Extensions_) . For details on adding and managing certificates, see [Dynamic SSL Certificate Installation](_Add_SSL_Certificates_for_Endpoints_) .
+    For additional information, see [Enabling CORS for APIs]({{base_path}}/design/advanced-topics/enabling-cors-for-apis) and [Adding Mediation Extensions]({{base_path}}/reference/customize-product/extending-api-manager/extending-gateway/writing-custom-handlers). For details on adding and managing certificates, see [Dynamic SSL Certificate Installation](_Add_SSL_Certificates_for_Endpoints_) .
 
         !!! info
     You can deploy your API as a **Prototyped API** in the **Implement** tab. A prototyped API is usually a mock implementation made public in order to get feedback about its usability. You can implement it **inline** or by specifying an **endpoint** .
@@ -206,20 +205,20 @@ Click the following topics for a description of the concepts that you need to kn
     ![]({{base_path}}/assets/attachments/103327814/103327777.png)
 
 
-    For more information on **maximum backend throughput** and **advanced throttling policies** , see [Working with Throttling](_Rate_Limiting_) .
+    For more information on **maximum backend throughput** and **advanced throttling policies**, see [Working with Throttling]({{base_path}}/design/rate-limiting/introducing-throttling-use-cases).
 
 11. Click **Save & Publish** . This publishes the API that you just created to the Developer Portal so that subscribers can use it.
 
         !!! tip
-    You can save partially complete or completed APIs without publishing it. Select the API and click on the **Lifecycle** tab to manage the API Lifecycle .
+    You can save partially complete or completed APIs without publishing it. Select the API and click on the **Lifecycle** tab to manage the API Lifecycle.
 
 
 You have created an API.
 
 **Related Tutorials**
 
--   [Create and Publish an API from a Swagger Definition](_Create_and_Publish_an_API_from_a_Swagger_Definition_)
--   [Create a Prototyped API with an Inline Script](_Create_a_Mock_API_with_an_Inline_Script_)
--   [Create a WebSocket API](_Create_a_WebSocket_API_)
--   [Create and Publish a SOAP API](_Create_and_Publish_a_SOAP_API_)
+-   [Create and Publish an API from a Swagger Definition]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition)
+-   [Create a Prototyped API with an Inline Script]({{base_path}}/design/prototype-api/create-a-mock-api-with-an-inline-script)
+-   [Create a WebSocket API]({{base_path}}/design/create-api/create-streaming-api/create-a-websocket-streaming-api)
+-   [Create and Publish a SOAP API]({{base_path}}/design/create-api/create-rest-api/expose-a-soap-service-as-a-rest-api)
 

@@ -626,7 +626,7 @@ Let's use the
 
 2.  Create a subscription policy.  
      
-     Specify the subscription policy-related data based on your monetization goals. For more information, see [Adding a new subscription-level throttling policy](/learn/rate-limiting/adding-new-throttling-policies#Adding-a-new-subscription---level-throttling-tier).
+     Specify the subscription policy-related data based on your monetization goals. For more information, see [Adding a new subscription-level throttling policy]({{base_path}}/design/rate-limiting/adding-new-throttling-policies/#adding-a-new-subscription-level-rate-limiting-tier).
 
      <html>
       <div class="admonition note">

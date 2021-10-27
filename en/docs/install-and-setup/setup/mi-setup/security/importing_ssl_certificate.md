@@ -68,4 +68,4 @@ Follow the steps given below to import the CA-signed public key certificate into
 
 ## What's next?
 
-If required, [renew the CA-signed certificate]({{base_path}})({{base_path}}/install-and-setup/setup/mi-setup/security/renewing_ca_signed_certificate_in_keystore) in your keystore and trust store.
+If required, [renew the CA-signed certificate]({{base_path}}/install-and-setup/setup/mi-setup/security/renewing_ca_signed_certificate_in_keystore) in your keystore and trust store.

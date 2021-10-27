@@ -119,7 +119,7 @@ Let's create three different HTTP endpoints for the above services.
 You have now created the three endpoints for the hospital back-end services that will be used to make appointment reservations.
 
 !!! Tip
-    You can also create a single endpoint where the differentiation of the hospital name can be handled using a variable in the URI template. See the tutorial on [Exposing Several Services as a Single Service](exposing-several-services-as-a-single-service).
+    You can also create a single endpoint where the differentiation of the hospital name can be handled using a variable in the URI template. See the tutorial on [Exposing Several Services as a Single Service]({{base_path}}/tutorials/integration-tutorials/exposing-several-services-as-a-single-service).
 
     Using three different endpoints is advantageous when the back-end services are very different from one another and/or when there is a requirement to configure error handling differently for each of them.
 
@@ -395,7 +395,7 @@ You have successfully created all the artifacts that are required for routing me
 
 Package the artifacts in your composite application module (SampleServicesCompositeExporter) to be able to deploy the artifacts in the server.
 
-1.  Open the `          pom.xml         ` file in the composite exporter module.
+1.  Open the `pom.xml` file in the composite exporter module.
 2.  Ensure that the following artifacts are selected in the POM file.
 
     -   `HealthcareAPI`

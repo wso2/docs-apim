@@ -128,7 +128,7 @@ It is now available to download from [here](https://wso2.com/api-management/#).
     
 	You can now use the **FreeMarker** template to write the payload. This is particularly useful when defining complex JSON payloads.
 
-- **[OAuth endpoint](reference/synapse-properties/endpoint-properties/)**
+- **[OAuth endpoint]({{base_path}}/reference/synapse-properties/endpoint-properties/)**
     
 	A message exit point or an endpoint defines an external destination for a message. Typically, this is the address of a proxy service that acts as the front-end to the actual service. You can configure the endpoint artifacts with any attributes or semantics needed for communicating with that service. An endpoint could represent a URL, a mailbox, a JMS queue, a TCP socket, etc., along with the settings needed for the connection.
 
