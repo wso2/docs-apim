@@ -50,7 +50,7 @@ Data Service Module. Follow the steps given below to create a module:
 1.  Open **WSO2 Integration Studio** and click **New Maven Multi Module Project** in 
     the **Getting Started** tab as shown below.  
 
-    ![]({{base_path}}/assets/img/integrate/create_project/create_mmm_project.png)
+    [![Create a Maven Multi Module Project]({{base_path}}/assets/img/integrate/create_project/create_mmm_project.png)]({{base_path}}/assets/img/integrate/create_project/create_mmm_project.png)
 
 2.  In the **Maven Modules Creation** dialog box that opens, give a name
     (artifactId) for the project.
