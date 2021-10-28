@@ -82,6 +82,7 @@ The integration tutorials walk you through the main capabilities and features of
                 <li><a href="{{base_path}}/tutorials/integration-tutorials/using-the-gmail-connector">Sending Emails from an Integration Service</a></li>
                 <li><a href="{{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial">Exposing an Integration Service as a Managed API</a></li>
                 <li><a href="{{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial-for-proxy-services">Exposing an Integration SOAP Service as a Managed API</a></li>
+                <li><a href="{{base_path}}/tutorials/integration-tutorials/sap-integration">Integrating with SAP</a></li>
             </ul>
         </td>
     </tr>
