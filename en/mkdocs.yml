@@ -1592,7 +1592,7 @@ nav:
               - Periodically Executing Integration Processes: tutorials/integration-tutorials/using-scheduled-tasks.md
               - Using Inbound Endpoints: tutorials/integration-tutorials/using-inbound-endpoints.md
               - Reusing Mediation Sequences: tutorials/integration-tutorials/using-templates.md
-              #- Integrating with SAP: tutorials/integration-tutorials/sap-integration.md
+              - Integrating with SAP: tutorials/integration-tutorials/sap-integration.md
           - Streaming Tutorials:
               - Tutorials Overview: use-cases/streaming-tutorials/tutorials-overview.md
               - Exposing a Kafka Topic as a Managed WebSocket API: use-cases/streaming-tutorials/expose-a-kafka-topic-as-a-managed-websocket-api.md
