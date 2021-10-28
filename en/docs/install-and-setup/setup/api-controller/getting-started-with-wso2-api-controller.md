@@ -14,13 +14,14 @@
 
 2.  Extract the downloaded archive of the apictl to the desired location.
 3.  Navigate to the working directory where the executable apictl resides.
-4.  Execute the following command to start the apictl.
+4.  Add the current working directory to your system's `$PATH` variable to be able to access the executable from anywhere.
+5.  Execute the following command to start the apictl.
 
     !!! Warn
         If you have previously used an apictl old version, backup and remove `/home/<user>/.wso2apictl` directory and reconfigure the environments using the commands as explained below in [Add an environment](#add-an-environment) section.
 
     ``` go
-    ./apictl
+    apictl
     ```
 
     The directory structure for the configuration files (`<USER_HOME>/.wso2apictl`) will be created upon the execution of the `apictl` command.
@@ -36,7 +37,6 @@
         set APICTL_CONFIG_DIR=C:\Users\wso2user\CLI
         ```
 
-5.  Add the location of the extracted folder to your system's `$PATH` variable to be able to access the executable from anywhere.
 
     !!! Tip    
         For further instructions, execute the following command.
