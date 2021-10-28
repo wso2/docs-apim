@@ -559,7 +559,7 @@ nav:
                     - Using HL7 Messages with File Systems: integrate/examples/hl7-examples/file_transfer_using_hl7.md
             - Working with Transactions: integrate/examples/working-with-transactions.md
             - JSON Examples: integrate/examples/json_examples/json-examples.md
-            - Integrating Mi with SI: integrate/examples/integrating-mi-with-si.md
+            - Integrating MI with SI: integrate/examples/integrating-mi-with-si.md
     - Streaming:
           - Streaming Overview: streaming/streaming-overview.md
           - Streaming Key Concepts: streaming/streaming-key-concepts.md
