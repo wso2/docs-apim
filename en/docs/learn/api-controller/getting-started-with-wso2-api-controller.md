@@ -14,7 +14,8 @@ WSO2 API Controller(CTL) is a command-line tool for managing API Manager environ
 
 2.  Extract the downloaded archive of the CTL Tool to the desired location.
 3.  Navigate to the working directory where the executable CTL Tool resides.
-4.  Execute the following command to start the CTL Tool.
+4.  Add the current working directory to your system's `$PATH` variable to be able to access the executable from anywhere.
+5.  Execute the following command to start the CTL Tool.
 
     ``` go
     ./apictl
@@ -31,9 +32,6 @@ WSO2 API Controller(CTL) is a command-line tool for managing API Manager environ
         ```go tab="Windows"
         set APICTL_CONFIG_DIR=C:\Users\wso2user\CLI
         ```
-
-5.  Add the location of the extracted folder to your system's `$PATH` variable to be able to access the executable from anywhere.
-
 
     !!! Tip    
         For further instructions, execute the following command.
