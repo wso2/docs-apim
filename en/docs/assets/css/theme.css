@@ -891,13 +891,13 @@ html .md-footer-meta.md-typeset a,
 .md-sidebar__scrollwrap {
     width: 12.1rem;
 }
-# .beta-badge {
+.beta-badge {
     display: inline-block;
     background: #ffd600;
     font-size: 14px;
     padding: 5px;
     line-height: 1;
-# }
+}
 .errorcode tbody tr>:nth-child(1) {
     color: white;
     background-color: hsl(14, 100%, 63%);
