@@ -133,48 +133,48 @@ WSO2 API Manager 4.1.0 is based on WSO2 Carbon 4.6.1 and is expected to be compa
 
 - Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release]().
 
-- Known Issues - All the open issues pertaining to WSO2 API Manager 4.1.0 are reported [here]().
+- Known Issues - All the open issues pertaining to WSO2 API Manager 4.1.0 are reported [here](https://github.com/wso2/product-apim/issues?q=is%3Aopen+is%3Aissue).
 
 **Micro Integrator**
 
 - Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/micro-integrator/milestone/25?closed=1).
 
-- Known Issues - All the open issues pertaining to WSO2 API Manager 4.1.0 are reported [here]().
+- Known Issues - All the open issues pertaining to WSO2 API Manager 4.1.0 are reported [here](https://github.com/wso2/micro-integrator/issues?q=is%3Aopen+is%3Aissue).
 
 **Streaming Integrator**
 
-- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release]().
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/streaming-integrator/milestone/17?closed=1).
 
-- Known Issues - All the open issues pertaining to WSO2 API Manager 4.1.0 are reported [here]().
+- Known Issues - All the open issues pertaining to WSO2 API Manager 4.1.0 are reported [here](https://github.com/wso2/streaming-integrator/issues?q=is%3Aopen+is%3Aissue).
 
 **API Controller**
 
-- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release]().
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/product-apim-tooling/milestone/11?closed=1).
 
-- Known Issues - All the open issues pertaining to WSO2 API Manager 4.1.0 are reported [here]().
+- Known Issues - All the open issues pertaining to WSO2 API Manager 4.1.0 are reported [here](https://github.com/wso2/product-apim-tooling/issues?q=is%3Aopen+is%3Aissue).
 
 **Integration Studio**
 
-- Fixed Issues - See [details of all the changes including new features, improvements, and bug fixes in this milestone release]().
+- Fixed Issues - See [details of all the changes including new features, improvements, and bug fixes in this milestone release](https://github.com/wso2/integration-studio/milestone/11?closed=1).
 
-- Known Issues - All the open issues pertaining to WSO2 Integration Studio are reported [here]().
+- Known Issues - All the open issues pertaining to WSO2 Integration Studio are reported [here](https://github.com/wso2/integration-studio/issues?q=is%3Aopen+is%3Aissue).
 
 **Micro Integrator Dashboard**
 
-- Fixed Issues - See [details of all the changes including new features, improvements, and bug fixes in this release]().
+- Fixed Issues - See [details of all the changes including new features, improvements, and bug fixes in this release](https://github.com/wso2/product-mi-tooling/milestone/1?closed=1).
 
-- Known Issues - All the open issues pertaining to WSO2 Integration Studio are reported [here]().
+- Known Issues - All the open issues pertaining to WSO2 Integration Studio are reported [here](https://github.com/wso2/product-mi-tooling/issues?q=is%3Aopen+is%3Aissue).
 
 **Streaming Integrator Tooling**
 
-- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release]().
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/streaming-integrator/milestone/17?closed=1).
 
-- Known Issues - All the open issues pertaining to WSO2 API Manager 4.1.0 are reported [here]().
+- Known Issues - All the open issues pertaining to WSO2 API Manager 4.1.0 are reported [here](https://github.com/wso2/streaming-integrator-tooling/issues?q=is%3Aopen+is%3Aissue).
 
 **Choreo Connect**
 
 - Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release]()
-- Known Issues - All the open issues are reported [here]().
+- Known Issues - All the open issues are reported [here](https://github.com/wso2/product-microgateway/issues?q=is%3Aopen+is%3Aissue+label%3Aenvoy-gw).
 
 **Kubernetes API Operator**
 
