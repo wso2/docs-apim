@@ -4156,12 +4156,6 @@ definitions:
       subscriptionCount:
         type: integer
         readOnly: true
-      keys:
-        type: array
-        items:
-          $ref: '#/definitions/ApplicationKey'
-        example: []
-        readOnly: true
       attributes:
         type: object
         additionalProperties:
