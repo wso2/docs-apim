@@ -43,7 +43,7 @@ The **WSO2 API-M** runtime is tested with the following databases:
 
 #### Tested WSO2 Products
 
-The following is a list of other WSO2 products that are tested with WSO2 API Manager 4.0.0.
+The following is a list of other WSO2 products that have been tested with WSO2 API Manager 4.0.0.
 
 - [WSO2 Enterprise Integrator 6.6.0](https://wso2.com/enterprise-integrator/6.6.0#)
 - [WSO2 Identity Server 5.11.0](https://wso2.com/identity-and-access-management/#)
