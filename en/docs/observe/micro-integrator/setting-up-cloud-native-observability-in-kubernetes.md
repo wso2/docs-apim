@@ -200,9 +200,8 @@ stat.tracer.collect_mediation_properties= true
 
 [opentracing]
 enable = true
-logs = true
-manager_host = Manager_hostname
-agent_host = Agent_hostname
+jaeger.sampler.manager_host="hostname"
+jaeger.sender.agent_host="hostname"
 ```
 
 !!! tip
