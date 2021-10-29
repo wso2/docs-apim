@@ -122,6 +122,11 @@ enable = true
 data_source = "WSO2_TRANSACTION_DB"
 update_interval = 2
 ```
+    !!! info
+        If you are using MySQL version - 8.0.x, you should add the driver name in the configuration as:
+        ``` java
+        driver="com.mysql.cj.jdbc.Driver"
+        ```
 
 {!includes/integration/pull-content-user-store-db-id.md!}
 
