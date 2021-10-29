@@ -4,7 +4,7 @@ WSO2 API Manager is a complete platform for building, integrating, and exposing 
 
 For more information on WSO2 API Manager, see the [overview]({{base_path}}/getting-started/overview/).
 
-The **WSO2 API Manager 4.1.0** is the latest **WSO2 API Manager release** and is the successor of **WSO2 API Manager 4.0.0**. It contains the following components, which have new features and enhancements:
+**WSO2 API Manager 4.1.0** is the latest **WSO2 API Manager release** and is the successor of **WSO2 API Manager 4.0.0**. It contains the following components, which have new features and enhancements:
 
 ## **API Manager**
 
@@ -47,6 +47,11 @@ It is now available to download from [here](https://wso2.com/api-management/#).
 
   The Audit Log capability allows you to add logging for the Micro Integrator Management API. Maintaining Audit Logs allows you to identify the changes that took place in the Micro Integrator instance and also to identify as to who made those changes.
 
+- **[File Inbound Endpoint Sub Directory Processing Capability.]({{base_path}}/reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/file-inbound-endpoint-properties)**
+
+  VFS Inbound Endpoints are capable of handling files inside sub directories of the specified URL. This enables users to process files recursively inside a directory.
+
+
 ## **Streaming Integrator**
 
 Streaming Integrator serves the streaming-based integrations and acts as the event stream provider for Streaming APIs in the data plane of the API Manager platform. This is a newly added component into WSO2 API Manager 4.0.0.
@@ -73,11 +78,11 @@ It is now available to download from [here](https://wso2.com/integration/integra
 
 ### New features
 
-- **[Generate data service definitions using a given datasource]({{base_path}}/integrate/develop/creating-artifacts/data-services/creating-data-services/#generate-data-service-from-a-datasource)**
+- **[Generate Data Service Definitions Using a Given Datasource]({{base_path}}/integrate/develop/creating-artifacts/data-services/creating-data-services/#generate-data-service-from-a-datasource)**
 
   This feature allows you to generate data service definitions by pointing to an existing datasource in the workspace without creating that from scratch.
 
-- **[Generating Service Catalog Metadata Artifacts]({{base_path}}/integrate/develop/generate-service-catalog-metadata.md)**
+- **[Generating Service Catalog Metadata Artifacts]({{base_path}}/integrate/develop/generate-service-catalog-metadata)**
 
   This feature generates metadata artifacts for the APIs and Proxy services has been created inside the older Integration Studio workspaces
 
@@ -89,6 +94,9 @@ It is now available to download from [here](https://github.com/wso2/micro-integr
 
 ### New features
 
+- **[MI Dashboard Login Related Enhancements (SSO Capability)]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi-dashboard/#configuring-single-sign-on-with-openid-connect)**
+
+  Users can use OIDC based Single Sign-On to log in to the WSO2 Micro Integrator Monitoring Dashboard.
 
 ## **Streaming Integrator Tooling**
 
@@ -98,6 +106,9 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 
 ### New features
 
+- **Add support for SMB and Webdav protocols**
+
+  This feature adds support to read from or write to files opened via SMB and Webdav protocols.
 
 ## Choreo Connect
 
