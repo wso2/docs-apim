@@ -360,14 +360,6 @@ See the topics given below to manage APIs, API products, Apps, etc. in the API-M
     </tr>
     <tr>
         <th>
-            <a href="{{base_path}}/install-and-setup/setup/api-controller/managing-microgateways/managing-microgateways-with-ctl">Managing Microgateways</a>
-        </th>
-        <td>
-            Explains how to interract with multiple microgateways via the API Controller
-        </td>
-    </tr>
-    <tr>
-        <th>
             <a>Advanced Topics</a>
         </th>
         <td>
