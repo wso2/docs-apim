@@ -56,7 +56,7 @@ TID: [2020-09-24 23:00:04,634]  INFO {org.wso2.config.mapper.ConfigParser} - Ini
 
 The API log file covers the logs related to APIs deployed in the Micro Integrator. By default, all APIs in the server will print logs to this common log file (`wso2-mi-api.log`). Shown below are some sample logs printed when the Healthcare API and the UserInfoRESTAPI are being used.
 
-If you have [individual log files]({{base_path}}/integrate/develop/enabling-logs-for-api/) configured for APIs, you can download the log file that is specific to the API.
+If you have [individual log files]({{base_path}}/integrate/develop/monitoring-api-level-logs/) configured for APIs, you can download the log file that is specific to the API.
 
 ```bash
 [2020-11-10 08:44:15,258]  INFO {API_LOGGER.UserInfoRestAPI} - Initializing API: UserInfoRestAPI
@@ -73,7 +73,7 @@ If you have [individual log files]({{base_path}}/integrate/develop/enabling-logs
 
 The service log file covers the logs related to proxy services deployed in the Micro Integrator. By default, all services in the server will print logs to this common log file (`wso2-mi-service.log`). Shown below are some sample logs printed when the Healthcare API and the UserInfoRESTAPI are being used.
 
-If you have [individual log files]({{base_path}}/integrate/develop/enabling-logs-for-services/) configured for services, you can download the log file that is specific to the service.
+If you have [individual log files]({{base_path}}/integrate/develop/monitoring-service-level-logs/) configured for services, you can download the log file that is specific to the service.
 
 ```bash
 [2020-10-14 10:16:15,399]  INFO {SERVICE_LOGGER.hl7testproxy} - Building Axis service for Proxy service : hl7testproxy
