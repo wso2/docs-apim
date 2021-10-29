@@ -172,7 +172,7 @@ This logger generates logs for services deployed in the Micro Integrator. It ref
     logger.SERVICE_LOGGER.name = SERVICE_LOGGER.TestProxy
     ```
 
-    See the instructions on [monitoring per-service logs]({{base_path}}/integrate/develop/enabling-logs-for-services).
+    See the instructions on [monitoring per-service logs]({{base_path}}/integrate/develop/monitoring-service-level-logs).
 
 ```xml tab='SERVICE_LOGGER'
 logger.SERVICE_LOGGER.name= SERVICE_LOGGER
