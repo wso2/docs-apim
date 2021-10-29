@@ -6,21 +6,22 @@
 
 1.  Download **apictl** based on your preferred platform (i.e., Mac, Windows, Linux).
 
-    - [For MacOS]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.0.0-macosx-x64.tar.gz)
-    - [For Linux 32-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.0.0-linux-i586.tar.gz)
-    - [For Linux 64-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.0.0-linux-x64.tar.gz)
-    - [For Windows 32-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.0.0-windows-i586.zip)
-    - [For Windows 64-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.0.0-windows-x64.zip)
+    - [For MacOS]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.1.0-macosx-x64.tar.gz)
+    - [For Linux 32-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.1.0-linux-i586.tar.gz)
+    - [For Linux 64-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.1.0-linux-x64.tar.gz)
+    - [For Windows 32-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.1.0-windows-i586.zip)
+    - [For Windows 64-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.1.0-windows-x64.zip)
 
 2.  Extract the downloaded archive of the apictl to the desired location.
 3.  Navigate to the working directory where the executable apictl resides.
-4.  Execute the following command to start the apictl.
+4.  Add the current working directory to your system's `$PATH` variable to be able to access the executable from anywhere.
+5.  Execute the following command to start the apictl.
 
     !!! Warn
         If you have previously used an apictl old version, backup and remove `/home/<user>/.wso2apictl` directory and reconfigure the environments using the commands as explained below in [Add an environment](#add-an-environment) section.
 
     ``` go
-    ./apictl
+    apictl
     ```
 
     The directory structure for the configuration files (`<USER_HOME>/.wso2apictl`) will be created upon the execution of the `apictl` command.
@@ -36,7 +37,6 @@
         set APICTL_CONFIG_DIR=C:\Users\wso2user\CLI
         ```
 
-5.  Add the location of the extracted folder to your system's `$PATH` variable to be able to access the executable from anywhere.
 
     !!! Tip    
         For further instructions, execute the following command.

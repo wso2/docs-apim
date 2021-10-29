@@ -420,8 +420,8 @@ nav:
             - Debugging Integrations:
                 - Mediation Debugging: integrate/develop/debugging-mediation.md
                 - Using Wire Logs: integrate/develop/using-wire-logs.md
-                #- Monitoring Service-Level Logs: integrate/develop/enabling-logs-for-services.md
-                #- Monitoring API-Level Logs: integrate/develop/enabling-logs-for-api.md
+                - Monitoring Service-Level Logs: integrate/develop/monitoring-service-level-logs.md
+                - Monitoring API-Level Logs: integrate/develop/monitoring-api-level-logs.md
                 - Endpoint Tracing: integrate/develop/endpoint-trace-logs.md
             - Advanced Development Tasks:
                 - Injecting Parameters: integrate/develop/injecting-parameters.md
@@ -562,7 +562,7 @@ nav:
                     - Using HL7 Messages with File Systems: integrate/examples/hl7-examples/file_transfer_using_hl7.md
             - Working with Transactions: integrate/examples/working-with-transactions.md
             - JSON Examples: integrate/examples/json_examples/json-examples.md
-            - Integrating Mi with SI: integrate/examples/integrating-mi-with-si.md
+            - Integrating MI with SI: integrate/examples/integrating-mi-with-si.md
     - Streaming:
           - Streaming Overview: streaming/streaming-overview.md
           - Streaming Key Concepts: streaming/streaming-key-concepts.md
@@ -1598,7 +1598,7 @@ nav:
               - Periodically Executing Integration Processes: tutorials/integration-tutorials/using-scheduled-tasks.md
               - Using Inbound Endpoints: tutorials/integration-tutorials/using-inbound-endpoints.md
               - Reusing Mediation Sequences: tutorials/integration-tutorials/using-templates.md
-              #- Integrating with SAP: tutorials/integration-tutorials/sap-integration.md
+              - Integrating with SAP: tutorials/integration-tutorials/sap-integration.md
           - Streaming Tutorials:
               - Tutorials Overview: use-cases/streaming-tutorials/tutorials-overview.md
               - Exposing a Kafka Topic as a Managed WebSocket API: use-cases/streaming-tutorials/expose-a-kafka-topic-as-a-managed-websocket-api.md

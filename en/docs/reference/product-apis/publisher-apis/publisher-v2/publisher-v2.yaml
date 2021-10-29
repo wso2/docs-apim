@@ -1669,8 +1669,8 @@ paths:
             - apim:api_publish
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-            "https://127.0.0.1:9443/api/am/publisher/v2/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/deploy-revision?revisionId=e0824883-3e86-403a-aec1-22bbc454eb7c"'
+          source: 'curl -k -X POST -H "Authorization: Bearer 41b268bd-0765-39f8-ba6f-926ac0abaeb9" 
+                -H "Content-Type:application/json" -d @payload.json "https://127.0.0.1:9443/api/am/publisher/v2/apis/15f7cb26-721e-4dd6-b05c-be854bb19d0c/deploy-revision?revisionId=b9b9b4f0-1e24-4fbc-90ed-5fd66063f95e"'
 
   /apis/{apiId}/undeploy-revision:
     #--------------------------------------------
