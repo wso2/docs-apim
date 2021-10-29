@@ -417,8 +417,8 @@ nav:
             - Debugging Integrations:
                 - Mediation Debugging: integrate/develop/debugging-mediation.md
                 - Using Wire Logs: integrate/develop/using-wire-logs.md
-                #- Monitoring Service-Level Logs: integrate/develop/enabling-logs-for-services.md
-                #- Monitoring API-Level Logs: integrate/develop/enabling-logs-for-api.md
+                - Monitoring Service-Level Logs: integrate/develop/monitoring-service-level-logs.md
+                - Monitoring API-Level Logs: integrate/develop/monitoring-api-level-logs.md
                 - Endpoint Tracing: integrate/develop/endpoint-trace-logs.md
             - Advanced Development Tasks:
                 - Injecting Parameters: integrate/develop/injecting-parameters.md
