@@ -60,7 +60,7 @@ By default, when you enable logs for a component, the logs get printed to the se
 
 By default, all loggers print logs to the destinations configured for the [root logger]({{base_path}}/observe/micro-integrator/classic-observability-logs/configuring-log4j2-properties/#root-logs). If you want to print logs to new destinations, you can define new [appenders]({{base_path}}/observe/micro-integrator/classic-observability-logs/configuring-log4j2-properties/#log4j2-appenders). 
 
-For example, you will define new appenders when you want to have [per-service log files]({{base_path}}/integrate/develop/enabling-logs-for-services/) or [per-api log files]({{base_path}}/integrate/develop/enabling-logs-for-api/).
+For example, you will define new appenders when you want to have [per-service log files]({{base_path}}/integrate/develop/monitoring-service-level-logs/) or [per-api log files]({{base_path}}/integrate/develop/monitoring-api-level-logs/).
 
 ## What's Next?
 
