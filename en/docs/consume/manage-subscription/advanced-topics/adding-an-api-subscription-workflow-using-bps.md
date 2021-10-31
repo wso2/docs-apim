@@ -1,6 +1,6 @@
 # Adding an API Subscription Workflow
 
-This section explains how to attach a custom workflow to the API subscription operation in the API Manager. First, see [Workflow Extensions](_Managing_Workflow_Extensions_) for information on different types of workflows executors.
+This section explains how to attach a custom workflow to the API subscription operation in the API Manager. First, see [Workflow Extensions]({{base_path}}/reference/customize-product/extending-api-manager/extending-workflows/customizing-a-workflow-extension) for information on different types of workflows executors.
 
 Attaching a custom workflow to API subscription enables you to add throttling tiers to an API that consumers cannot choose at the time of subscribing. Only admins can set these tiers to APIs. When a consumer subscribes to an API, he/she has to subscribe to an application in order to get access to the API. However, when API subscription workflow is enabled, when the consumer subscribes to an application, it initially is in the `On Hold` state, and he/she can not use the API, using its production or sandbox keys, until their subscription is approved.
 

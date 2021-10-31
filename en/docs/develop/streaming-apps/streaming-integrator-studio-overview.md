@@ -214,7 +214,7 @@ The **Tools** menu provides access to the following tools that are shipped with 
     -   Single Simulation
     -   Feed Simulation
 
-    For detailed information about event simulation, see [Simulating Events](_Simulating_Events_).
+    For detailed information about event simulation, see [Simulating Events]({{base_path}}/develop/streaming-apps/testing-a-siddhi-application/#simulating-events).
     The event simulator can also be accessed from the [Side Panel](#StreamProcessorStudioOverview-SidePanel).
 
 - **Error Store Explorer**

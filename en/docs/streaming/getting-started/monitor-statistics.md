@@ -187,10 +187,10 @@ To generate some statistics and view them, follow the procedure below.
     ![CDC Streaming Statistics]({{base_path}}/assets/img/streaming/quick-start-guide-101/cdc-streaming-statistics.png)
     
 !!! tip "What's Next?"
-    - To learn more about the key concepts of the Streaming Integrator component, see [Streaming Integrator Key Concepts]({{base_path}}/streaming/streaming-key-concepts.md).<br/>    
-    - For more hands-on experience with Streaming Integrator component, try the [Streaming Integrator Tutorials]({{base_path}}/use-cases/streaming-tutorials/tutorials-overview.md).<br/>    
+    - To learn more about the key concepts of the Streaming Integrator component, see [Streaming Integrator Key Concepts]({{base_path}}/streaming/streaming-key-concepts).<br/>    
+    - For more hands-on experience with Streaming Integrator component, try the [Streaming Integrator Tutorials]({{base_path}}/use-cases/streaming-tutorials/tutorials-overview).<br/>    
     - To learn about use cases specific to the Streaming Integrator component, see [Streaming Integrator Use Cases]({{base_path}}/use-cases/streaming-usecase/use-cases).<br/>
-    -  Learn how to run WSO2 Streaming Integrator in containerized environments, try [Running SI with Docker and Kubernetes](use-cases/streaming-tutorials/running-si-with-docker-and-kubernetes)
+    -  Learn how to run WSO2 Streaming Integrator in containerized environments, try [Running SI with Docker and Kubernetes]({{base_path}}/use-cases/streaming-tutorials/running-si-with-docker-and-kubernetes)
 
     
 

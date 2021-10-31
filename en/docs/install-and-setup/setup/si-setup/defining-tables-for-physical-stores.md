@@ -26,7 +26,7 @@ in the following ways:
 -   **As references in the deployment file** : In order to do this, the
     store configuration needs to be defined for the relevant deployment
     environment in the
-    `           <SP_HOME>/conf/<PROFILE>/deployment.yaml          ` file
+    `<SP_HOME>/conf/<PROFILE>/deployment.yaml` file
     as a ref (i.e., in a separate section siddhi: and subsection refs:)
     as shown in the example below.  
 
@@ -55,7 +55,7 @@ in the following ways:
 
       
     Then you need to refer to that store via the
-    `           @store          ` annotation as in the Siddhi
+    `@store` annotation as in the Siddhi
     application as shown in the example below.
 
     ``` sql
@@ -67,10 +67,10 @@ in the following ways:
 
 -   **Using WSO2 data sources configuration** : Once a data source
     defined in the wso2.datasources section of the file,
-    `           <SP_HOME>/conf/<PROFILE>/deployment.yaml,          ` the
+    `<SP_HOME>/conf/<PROFILE>/deployment.yaml`, the
     same connection can be used across different Siddhi applications.
     This is done by specifying the data source to which you need to
-    connect via the `           @store          ` annotation in the
+    connect via the `@store` annotation in the
     following format.
 
     ``` xml
@@ -93,7 +93,7 @@ in the following ways:
     ```
 
     For more information about definig datasources, see [Configuring
-    Datasources](_Configuring_Datasources_) .
+    Datasources]({{base_path}}/install-and-setup/setup/si-setup/configuring-data-sources).
 
 The following database types are currently supported for WSO2 SP.
 

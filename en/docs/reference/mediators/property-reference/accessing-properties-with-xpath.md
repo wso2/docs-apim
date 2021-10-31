@@ -380,7 +380,7 @@ In this example, the property definition,
 is equivalent to
 `<property name="stockprop" expression="get-property('axis2','REST_URL_POSTFIX')"/>`
 
-Similarly, you can use $axis2 prefix with [HTTP Transport Properties](http-transport-properties.md).
+Similarly, you can use $axis2 prefix with [HTTP Transport Properties]({{base_path}}/reference/mediators/property-reference/http-transport-properties).
 
 ### $ctx
 

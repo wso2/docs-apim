@@ -131,7 +131,7 @@ The flow of synchronous token persistence is as follows:
         !!! tip
     Enabling synchronous token persistence
 
-    To enable synchronous token persistence, follow the steps in the [Enabling Authentication Session Persistence](_Enabling_Authentication_Session_Persistence_) tutorial and **set the `<poolsize>` property to 0** .
+    To enable synchronous token persistence, follow the steps in the [Enabling Authentication Session Persistence](https://is.docs.wso2.com/en/latest/learn/authentication-session-persistence/) tutorial and **set the `<poolsize>` property to 0** .
 
 
 #### Asynchronous token persistence (When PoolSize &gt; 0)
