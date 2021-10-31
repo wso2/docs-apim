@@ -115,7 +115,7 @@ before `</Handlers>`.
     you need to maintain a customized velocity template file that needs to be manually merged when you upgrade your 
     product to a newer version. Therefore, it is recommended to use custom Handlers when you wish to specify the exact 
     order of execution of JARs as this can not be done with 
-    [Mediators](../../../extensions/adding-mediation-extensions) .
+    [Mediators]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests).
 
 
 Custom Handler is a way of extending API Manager which the product offer to change the API flow through the API Gateway. 
@@ -131,7 +131,7 @@ is <a href="{{base_path}}/assets/attachments/learn/api-authentication-handler.ja
 support any custom authentication mechanism by writing your own authentication handler class.
 
 Given below is an example implementation. Please find the complete project archive 
-[org.wso2.carbon.test.authenticator.zip](https://docs.wso2.com/download/attachments/57743326/org.wso2.carbon.test.authenticator.zip?version=1&modificationDate=1516171792000&api=v2) . 
+[org.wso2.carbon.test.authenticator.zip](https://docs.wso2.com/download/attachments/57743326/org.wso2.carbon.test.authenticator.zip?version=1&modificationDate=1516171792000&api=v2). 
 You can download, unzip and build the project using maven and Java 7 or 8.
 
 ``` java
@@ -206,7 +206,7 @@ Make sure to update the pom file for the above project you created(or downloaded
 `<APIM_HOME>/repository/components/lib` directory.
 
     !!! note
-        If the jar you created is non-OSGI, you should place the jar in the  `<APIM_HOME>/repository/components/lib` directory. <br>
+        If the jar you created is non-OSGI, you should place the jar in the `<APIM_HOME>/repository/components/lib` directory. <br>
         If the jar you created is OSGI, then you should place the jar in the `<APIM_HOME>/repository/components/dropins` driectory.
 
 2.  Engage the custom handler using the API template as explained below:

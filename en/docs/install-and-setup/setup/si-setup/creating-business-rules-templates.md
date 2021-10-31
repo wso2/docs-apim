@@ -220,7 +220,7 @@ Possible deployment statuses are as follows:
 - **Partially Undeployed:** The business rule has been previously deployed, and then undeployed only in some of the nodes in the Streaming Integrator cluster.
 
 !!!info
-    **Required nodes** are configured with respect to a rule template. For detailed instructions, see [Deploying business rules in SI server](#deploying-business-rules-in-si-server).
+    **Required nodes** are configured with respect to a rule template. For detailed instructions, see [Deploying business rules in SI server](#deploying-business-rules).
 
 
 ### Deleting business rules
@@ -247,8 +247,8 @@ To create a business template using the Business Rules Template editor, follow t
         The default URL is `http://localhost:9390/template-editor`. If required, you can change the host name (i.e., `localhost`) or the web UI application name (i.e., `template-editor`). For instructions, see [Changing the Host Name and Context Path of SI Tooling]({{base_path}}/install-and-setup/setup/si-setup/change-hostname-and-context-path).
 
 
-3. The Template Editor opens as shown below. There are two views from which you can interact and create a template group. **Design view** allows you to visualize a template group and interact with it. **Code view** allows you to interact with a template group by typing content. (For more information about template group structure, see
-    [Business Rules Templates](business-rules-templates).)
+3. The Template Editor opens as shown below. There are two views from which you can interact and create a template group. **Design view** allows you to visualize a template group and interact with it. **Code view** allows you to interact with a template group by typing content. For more information about template group structure, see
+    [Business Rules Templates](#business-rules-templates).
 
     !!!warning
         Do not template sensitive information such as passwords in a Siddhi application or expose them directly in a Siddhi application. For detailed instructions to protect sensitive data by obfuscating them, see [Protecting Sensitive Data via the Secure Vault]({{base_path}}/install-and-setup/setup/si-setup/protecting-sensitive-data-via-the-secure-vault).
