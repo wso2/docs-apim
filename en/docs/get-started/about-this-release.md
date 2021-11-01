@@ -60,6 +60,9 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 
 ### New features
 
+- **Add support for SMB and WebDAV protocols**
+
+  This feature adds support to read from or write to files opened via SMB and WebDAV protocols.
 
 ## **API Controller (apictl)**
 
@@ -103,12 +106,6 @@ It is now available to download from [here](https://github.com/wso2/micro-integr
 The Streaming Integrator Tooling is a developer tool to develop Siddhi applications and simulate events for testing purposes.
 
 It is now available to download from [here](https://github.com/wso2/streaming-integrator-tooling/releases/).
-
-### New features
-
-- **Add support for SMB and Webdav protocols**
-
-  This feature adds support to read from or write to files opened via SMB and Webdav protocols.
 
 ## Choreo Connect
 
