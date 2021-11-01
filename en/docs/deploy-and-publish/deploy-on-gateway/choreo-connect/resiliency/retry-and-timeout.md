@@ -26,7 +26,7 @@ Having the above retry policy would make the router retry atmost three times if 
 !!! note "Important to Note"
     Adding the retry policy via the OpenAPI definition in API-M is not yet supported. In the API-M UI, a retry count can be specified via the [Endpoints tab]({{base_path}}/design/endpoints/resiliency/endpoint-timeouts/) when configuring production and sandbox endpoints. The retry functionality in Choreo Connect would work when the value for "retries before suspension" is set. Please not that this value does not lead to a suspension of the endpoint when run with Choreo Connect. The status codes to retry would be the list of status codes defined in Choreo Connect at a global level. 
 
-Here the interval between two retries is a random number between 0 and (2^N-1)B. N is the retry number and B is the default base interval of 25ms. The interval between the retries being random, prevents a backend from getting spike of retry requests (when triggered by many clients), and mitigates a potential unavailability of the backend that could occur due to the retries itself. 
+Here the interval between two retries is a random number between 0 and (2^N-1)B. N is the retry number and B is the default base interval of 25ms. The interval between the retries being random, prevents a backend from getting spike of retry requests (when triggered by many clients), and mitigates a potential unavailability of the backend that could occur due to the retries itself. For more information, click [here](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/router_filter#config-http-filters-router-x-envoy-max-retries)
 
 The following values can be set in config.toml related to the retry behaviour.
 
@@ -41,7 +41,7 @@ The following values can be set in config.toml related to the retry behaviour.
   statusCodes = [ 504 ]
 ```
 
-The next section explains the timeout. It is recommended to always set a timeout when a retry policy is added. The [timeout covers the entire duration](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/router_filter#config-http-filters-router-x-envoy-max-retries) for all retry requests including the time gaps between the requests, and therefore has a direct effect on the time the client would have to wait for a response. A default global timeout will be applied if not set at an endpoint level. 
+The next section explains the timeout. It is recommended to always set a timeout when a retry policy is added. The [timeout covers the entire duration](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/router_filter#config-http-filters-router-x-envoy-max-retries) for all retry requests including the time gaps between the requests, and therefore has a direct relation to the time the client would have to wait for a response. A default global timeout will be applied if not set at an endpoint level. 
 
 ## Configuring a Timeout
 
