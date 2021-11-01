@@ -4,90 +4,97 @@ WSO2 API Manager is a complete platform for building, integrating, and exposing 
 
 For more information on WSO2 API Manager, see the [overview]({{base_path}}/getting-started/overview/).
 
-**WSO2 API Manager 4.1.0** is the latest **WSO2 API Manager release** and is the successor of **WSO2 API Manager 4.0.0**. It contains the following components, which have new features and enhancements:
+The **WSO2 API Manager 4.1.0 Milestone 1 (M1)** is the latest **WSO2 API Manager release** and is the successor of **WSO2 API Manager 4.0.0**. It contains the following components, which have new features and enhancements:
 
 ## **API Manager**
 
 The API Manager component addresses all aspects of API management in the platform. It consists of an API Gateway, API Publisher, Developer Portal, Key Manager, and Traffic Manager.
 
-It is now available to download from [here](https://wso2.com/api-management/#).
+It is now available to download from [here](https://github.com/wso2/product-apim/releases).
 
 ### New features
 
--  **[Exposing an Integration SOAP Service as a Managed API]({{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial-for-proxy-services/)**
+-  **[Exposing an Integration SOAP Service as a Managed API]({{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial-for-proxy-services/) (M1)**
 
      WSO2 API Manager includes a Service Catalog where developers can register their backend services as Managed APIs. Through the Service Catalog, now SOAP integration services are made discoverable to the API Management layer so that SOAP PassThrough API proxies can directly be created using them.
 
--  **[PKCE Support]({{base_path}}/consume/manage-application/generate-keys/generate-api-keys/#generating-application-keys-with-pkce-enabled/)**
+-  **[PKCE Support]({{base_path}}/consume/manage-application/generate-keys/generate-api-keys/#generating-application-keys-with-pkce-enabled/) (M1)**
   
      WSO2 API Manager supports Proof Key for Code Exchange (PKCE) when generating application keys. This is a security measure to secure the applications that are executing in the same domain.
 
-### Deprecated features and functionalities
+### Improvements
 
-The support for these features will be removed from subsequent versions starting from WSO2 API Manager 4.1.0.
+- **[Authentication for Prototype APIs]({{base_path}}/design/prototype-api/create-a-mock-api-with-an-inline-script/#step-2-configure-security-for-the-prototype-api) (M1)**
 
-### Removed features and functionalities
+	 Authentication for Prototype APIs is available by default so that the client apps can also be created using authentication to test out the APIs. If needed you can disable authentication for Prototype APIs at the resource level or API level.
 
-These features are unsupported and removed from WSO2 API Manager 4.1.0 onwards.
+<! --- ### Deprecated features and functionalities
 
-### Key changes
+<! --- The support for these features will be removed from subsequent versions starting from WSO2 API Manager 4.1.0.
 
+<! --- ### Removed features and functionalities
+
+<! --- These features are unsupported and removed from WSO2 API Manager 4.1.0 onwards.
+
+<! --- ### Key changes --->
 
 ## **Micro Integrator**
 
-The Micro Integrator is a cloud-native, standards-based messaging engine and an integration framework with a configuration-based runtime environment for integrating APIs, services, data, SaaS, proprietary, and legacy systems. This is a newly added component to WSO2 API Manager 4.0.0.
+The Micro Integrator is a cloud-native, standards-based messaging engine and an integration framework with a configuration-based runtime environment for integrating APIs, services, data, SaaS, proprietary, and legacy systems.
 
 This serves the integration needs for the data plane of the API Manager platform.
 
-It is now available to download from [here](https://wso2.com/api-management/#).
+It is now available to download from [here](https://github.com/wso2/micro-integrator/releases).
 
 ### New features
 
-- **[Audit Log support]({{base_path}}/observe/micro-integrator/classic-observability-logs/monitoring-mi-audit-logs)**
+- **[Audit Log support]({{base_path}}/observe/micro-integrator/classic-observability-logs/monitoring-mi-audit-logs) (M1)**
 
-  The Audit Log capability allows you to add logging for the Micro Integrator Management API. Maintaining Audit Logs allows you to identify the changes that took place in the Micro Integrator instance and also to identify as to who made those changes.
+  	 The Audit Log capability allows you to add logging for the Micro Integrator Management API. Maintaining Audit Logs allows you to identify the changes that took place in the Micro Integrator instance and also to identify as to who made those changes.
 
 - **[File Inbound Endpoint Sub Directory Processing Capability.]({{base_path}}/reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/file-inbound-endpoint-properties)**
 
-  VFS Inbound Endpoints are capable of handling files inside sub directories of the specified URL. This enables users to process files recursively inside a directory.
+     VFS Inbound Endpoints are capable of handling files inside sub directories of the specified URL. This enables users to process files recursively inside a directory.
 
 
 ## **Streaming Integrator**
 
-Streaming Integrator serves the streaming-based integrations and acts as the event stream provider for Streaming APIs in the data plane of the API Manager platform. This is a newly added component into WSO2 API Manager 4.0.0.
+Streaming Integrator serves the streaming-based integrations and acts as the event stream provider for Streaming APIs in the data plane of the API Manager platform.
 
-It is now available to download from [here](https://github.com/wso2/streaming-integrator/releases/download/v4.0.0/wso2si-4.0.0.zip).
+It is now available to download from [here](https://github.com/wso2/streaming-integrator/releases).
 
-### New features
-
+<<<<<<< HEAD
 - **Add support for SMB and WebDAV protocols**
 
   This feature adds support to read from or write to files opened via SMB and WebDAV protocols.
+=======
+<! --- ### New features --->
+>>>>>>> c8634612060ed5bb4ee48034f14de55f2b71df42
 
 ## **API Controller (apictl)**
 
 WSO2 API Controller (apictl) is a command-line tool providing the capability to move APIs, API Products, and Applications across environments and to perform CI/CD operations. It can also be used to perform these same tasks on a Kubernetes deployment. In addition, apictl can be used as a developer CLI tool for Choreo Connect. Furthermore, it can perform Micro Integrator server-specific operations such as monitoring Synapse artifacts and performing MI management/administrative tasks from the command line.
 
-It is now available to download from [here](https://wso2.com/api-management/tooling/).
+It is now available to download from [here](https://github.com/wso2/product-apim-tooling/releases).
 
-### New features
+<! --- ### New features--->
 
 
 ## **WSO2 Integration Studio**
 
-WSO2 Integration Studio is an open-source development environment used to design and develop integration scenarios for WSO2 Micro Integrator.
+WSO2 Integration Studio is an open-source development environment used to design and develop integration scenarios for WSO2 Micro Integrator. 
 
 It is now available to download from [here](https://wso2.com/integration/integration-studio/).
 
 ### New features
 
-- **[Generate Data Service Definitions Using a Given Datasource]({{base_path}}/integrate/develop/creating-artifacts/data-services/creating-data-services/#generate-data-service-from-a-datasource)**
+- **[Generate Data Service Definitions Using a Given Datasource]({{base_path}}/integrate/develop/creating-artifacts/data-services/creating-data-services/#generate-data-service-from-a-datasource) (M1)**
 
-  This feature allows you to generate data service definitions by pointing to an existing datasource in the workspace without creating that from scratch.
+     This feature allows you to generate data service definitions by pointing to an existing datasource in the workspace without creating that from scratch.
 
-- **[Generating Service Catalog Metadata Artifacts]({{base_path}}/integrate/develop/generate-service-catalog-metadata)**
+- **[Generating Service Catalog Metadata Artifacts]({{base_path}}/integrate/develop/generate-service-catalog-metadata) (M1)**
 
-  This feature generates metadata artifacts for the APIs and Proxy services has been created inside the older Integration Studio workspaces
+     This feature generates metadata artifacts for the APIs and Proxy services that have been created inside the older Integration Studio workspaces.
 
 ## **Micro Integrator Dashboard**
 
@@ -99,7 +106,7 @@ It is now available to download from [here](https://github.com/wso2/micro-integr
 
 - **[MI Dashboard Login Related Enhancements (SSO Capability)]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi-dashboard/#configuring-single-sign-on-with-openid-connect)**
 
-  Users can use OIDC based Single Sign-On to log in to the WSO2 Micro Integrator Monitoring Dashboard.
+     Users can use OIDC based Single Sign-On to log in to the WSO2 Micro Integrator Monitoring Dashboard.
 
 ## **Streaming Integrator Tooling**
 
@@ -107,11 +114,21 @@ The Streaming Integrator Tooling is a developer tool to develop Siddhi applicati
 
 It is now available to download from [here](https://github.com/wso2/streaming-integrator-tooling/releases/).
 
+<<<<<<< HEAD
 ## Choreo Connect
+=======
+### New features
+
+- **Add support for SMB and Webdav protocols**
+
+  This feature adds support to read from or write to files opened via SMB and Webdav protocols.
+
+## **Choreo Connect**
+>>>>>>> c8634612060ed5bb4ee48034f14de55f2b71df42
 
 The Choreo Connect is a lightweight gateway for APIs. It is used for message security, transport security, routing, and other common API Management related quality of services. It can collect information required for usage metering and throttling capabilities. The Choreo Connect natively supports scaling in highly decentralized environments including microservice architecture.
 
-#### New features
+<! --- #### New features --->
 
 
 ## **Kubernetes API Operator**
@@ -123,7 +140,7 @@ The API operator for Kubernetes provides first-class support for Micro Integrato
 It is now available to download from [here](https://github.com/wso2/k8s-api-operator/releases/).
 K8s API Operator v2.0.0 is compatible with API Manager v4.0.0.
 
-### New features
+<! --- ### New features --->
 
 
 ## **Compatible WSO2 product versions**
@@ -138,48 +155,48 @@ WSO2 API Manager 4.1.0 is based on WSO2 Carbon 4.6.1 and is expected to be compa
 
 - Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release]().
 
-- Known Issues - All the open issues pertaining to WSO2 API Manager 4.1.0 are reported [here]().
+- Known Issues - All the open issues pertaining to WSO2 API Manager 4.1.0 are reported [here](https://github.com/wso2/product-apim/issues?q=is%3Aopen+is%3Aissue).
 
 **Micro Integrator**
 
-- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release]().
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/micro-integrator/milestone/25?closed=1).
 
-- Known Issues - All the open issues pertaining to WSO2 API Manager 4.1.0 are reported [here]().
+- Known Issues - All the open issues pertaining to WSO2 API Manager 4.1.0 are reported [here](https://github.com/wso2/micro-integrator/issues?q=is%3Aopen+is%3Aissue).
 
 **Streaming Integrator**
 
-- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release]().
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/streaming-integrator/milestone/17?closed=1).
 
-- Known Issues - All the open issues pertaining to WSO2 API Manager 4.1.0 are reported [here]().
+- Known Issues - All the open issues pertaining to WSO2 API Manager 4.1.0 are reported [here](https://github.com/wso2/streaming-integrator/issues?q=is%3Aopen+is%3Aissue).
 
 **API Controller**
 
-- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release]().
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/product-apim-tooling/milestone/11?closed=1).
 
-- Known Issues - All the open issues pertaining to WSO2 API Manager 4.1.0 are reported [here]().
+- Known Issues - All the open issues pertaining to WSO2 API Manager 4.1.0 are reported [here](https://github.com/wso2/product-apim-tooling/issues?q=is%3Aopen+is%3Aissue).
 
 **Integration Studio**
 
-- Fixed Issues - See [details of all the changes including new features, improvements, and bug fixes in this milestone release]().
+- Fixed Issues - See [details of all the changes including new features, improvements, and bug fixes in this milestone release](https://github.com/wso2/integration-studio/milestone/11?closed=1).
 
-- Known Issues - All the open issues pertaining to WSO2 Integration Studio are reported [here]().
+- Known Issues - All the open issues pertaining to WSO2 Integration Studio are reported [here](https://github.com/wso2/integration-studio/issues?q=is%3Aopen+is%3Aissue).
 
 **Micro Integrator Dashboard**
 
-- Fixed Issues - See [details of all the changes including new features, improvements, and bug fixes in this release]().
+- Fixed Issues - See [details of all the changes including new features, improvements, and bug fixes in this release](https://github.com/wso2/product-mi-tooling/milestone/1?closed=1).
 
-- Known Issues - All the open issues pertaining to WSO2 Integration Studio are reported [here]().
+- Known Issues - All the open issues pertaining to WSO2 Integration Studio are reported [here](https://github.com/wso2/product-mi-tooling/issues?q=is%3Aopen+is%3Aissue).
 
 **Streaming Integrator Tooling**
 
-- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release]().
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/streaming-integrator/milestone/17?closed=1).
 
-- Known Issues - All the open issues pertaining to WSO2 API Manager 4.1.0 are reported [here]().
+- Known Issues - All the open issues pertaining to WSO2 API Manager 4.1.0 are reported [here](https://github.com/wso2/streaming-integrator-tooling/issues?q=is%3Aopen+is%3Aissue).
 
 **Choreo Connect**
 
 - Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release]()
-- Known Issues - All the open issues are reported [here]().
+- Known Issues - All the open issues are reported [here](https://github.com/wso2/product-microgateway/issues?q=is%3Aopen+is%3Aissue+label%3Aenvoy-gw).
 
 **Kubernetes API Operator**
 

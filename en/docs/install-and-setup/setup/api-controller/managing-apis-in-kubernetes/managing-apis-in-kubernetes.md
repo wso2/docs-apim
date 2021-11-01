@@ -20,7 +20,7 @@
 
     -  Ensure that the API Operator is deployed in the Kubernetes cluster. Please refer [API Operator documentation](https://github.com/wso2/k8s-api-operator/tree/master) for detailed steps.
     
-    -  Then deploy Microgateway in Kubernetes cluster. Please refer [Steps for deploying  Microgateway in Kubernetes](https://github.com/wso2/product-microgateway/blob/envoy-gw/resources/k8s-artifacts/K8S-README.md#deployment-with-wso2-api-operator-for-kubernetes).
+    -  Then deploy Microgateway in Kubernetes cluster. Please refer [Steps for deploying  Microgateway in Kubernetes]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-kubernetes/).
 
 ## Add an API to Kubernetes cluster
 
