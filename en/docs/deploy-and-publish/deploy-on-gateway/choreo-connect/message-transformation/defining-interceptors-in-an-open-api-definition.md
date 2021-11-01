@@ -1,0 +1,244 @@
+# Defining Interceptors in an OpenAPI Definition
+
+You can define interceptors on an API level (per API) and on a resource level (per resource).
+If you define a request/response interceptor on an API level **and** a resource level, the API level interceptor will be
+overridden by the resource level interceptor for that resource.
+
+For an API, you can define
+
+- one of request or response interceptor
+- or both of request and response interceptor
+
+base on your requirement for the mediation.
+
+
+## Request flow Interceptor
+
+You can define the request flow interceptor as follows in the Open API Definition with the extension `x-wso2-request-interceptor`.
+[Description of Keys of Interceptor Open API Extension](#description-of-keys-of-interceptor-open-api-extension) explains
+detailed description of the keys.
+
+``` yaml tab="Format"
+x-wso2-request-interceptor:
+  scheme: <one of [http|https]>
+  host: <host>
+  port: <port>
+  includes: # any of following
+    - request_headers
+    - request_body
+    - request_trailers
+    - invocation_context
+  requestTimeout: OPTIONAL <request timeout in seconds>
+  clusterTimeout: OPTIONAL <override interceptor cluster timeout in seconds>
+```
+
+``` yaml tab="Example API Level"
+.
+.
+info:
+  version: 1.0.5
+  title: PizzaShackAPI
+x-wso2-basePath: /v2
+x-wso2-production-endpoints:
+    urls:
+    - https://localhost:2380/v2
+x-wso2-request-interceptor:
+  scheme: http
+  host: host.request.interceptor
+  port: 9081
+  includes:
+    - request_headers
+    - invocation_context
+.
+.
+```
+
+``` yaml tab="Example Resource Level"
+.
+.
+info:
+  version: 1.0.5
+  title: PizzaShackAPI
+x-wso2-basePath: /v2
+x-wso2-production-endpoints:
+    urls:
+    - https://localhost:2380/v2
+paths:
+    /pet/findByStatus:
+        x-wso2-production-endpoints:
+            urls:
+            -  https://localhost:2380/v1
+        x-wso2-request-interceptor:
+            scheme: http
+            host: host.request.interceptor
+            port: 9081
+            includes:
+            - request_body
+        get:
+            tags:
+            - pets
+            summary: Finds Pets by status
+            description: Multiple status values can be provided with comma separated strings
+            operationId: findPetsByStatus
+            parameters:
+            - name: status
+              in: query
+              description: Status values that need to be considered for filter
+        .
+        .
+    /pet/{petId}:
+        get:
+.
+.
+```
+
+<!-- The content of the below warning is same as the info notice in the file
+deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/request-flow-interceptor.md -->
+!!! info
+    If you update the request body before reaching the backend, make sure to add `request_body` to the `includes` section
+    of the Open API Specification. You may have a scenario like, what ever the request body from the client, based on a header value
+    you define your own request body to be sent to the backend. Even though you do not read the request body, the above inclusion
+    should be done to update the request body.
+
+## Response flow Interceptor
+
+You can use the extension `x-wso2-response-interceptor` to define the interceptor for response flow.
+It is same as the request flow, but additionally following values are supported in the `includes` section of the extension.
+
+```yaml
+includes:
+ - response_headers
+ - response_body
+ - response_trailers
+```
+
+``` yaml tab="Format"
+x-wso2-response-interceptor:
+  scheme: <one of [http|https]>
+  host: <host>
+  port: <port>
+  includes: # any of following
+    - request_headers
+    - request_body
+    - request_trailers
+    - response_headers
+    - response_body
+    - response_trailers
+    - invocation_context
+  requestTimeout: OPTIONAL <request timeout in seconds>
+  clusterTimeout: OPTIONAL <override interceptor cluster timeout in seconds>
+```
+
+``` yaml tab="Example API Level"
+.
+.
+info:
+  version: 1.0.5
+  title: PizzaShackAPI
+x-wso2-basePath: /v2
+x-wso2-production-endpoints:
+    urls:
+    - https://localhost:2380/v2
+x-wso2-response-interceptor:
+  scheme: http
+  host: host.request.interceptor
+  port: 9081
+  includes:
+    - request_headers
+    - request_body
+    - response_headers
+.
+.
+```
+
+``` yaml tab="Example Resource Level"
+.
+.
+info:
+  version: 1.0.5
+  title: PizzaShackAPI
+x-wso2-basePath: /v2
+x-wso2-production-endpoints:
+    urls:
+    - https://localhost:2380/v2
+paths:
+    /pet/findByStatus:
+        x-wso2-production-endpoints:
+            urls:
+            -  https://localhost:2380/v1
+        x-wso2-response-interceptor:
+            scheme: http
+            host: host.request.interceptor
+            port: 9081
+            includes:
+            - request_body
+            - invocation_context
+        get:
+            tags:
+            - pets
+            summary: Finds Pets by status
+            description: Multiple status values can be provided with comma separated strings
+            operationId: findPetsByStatus
+            parameters:
+            - name: status
+              in: query
+              description: Status values that need to be considered for filter
+        .
+        .
+    /pet/{petId}:
+        get:
+.
+.
+```
+
+<!-- The content of the below warning is same as the info notice in the file
+deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/response-flow-interceptor.md -->
+!!! info
+    If you update the response body before reaching the client, make sure to add `response_body` to the `includes` section
+    of the Open API Specification. You may have a scenario like, what ever the response body from the backend, based on a header value
+    you define your own response body to be sent to the client. Even though you do not read the response body, the above inclusion
+    should be done to update the response body.
+
+## Description of Keys of Interceptor Open API Extension
+
+Following is the description of each key in the extension.
+
+| Open API Extension Key | Description                                                                                                            |
+|------------------------|------------------------------------------------------------------------------------------------------------------------|
+| scheme                 | HTTP protocol of interceptor service. One of `[http\|https]`                                                           |
+| host                   | Host of the interceptor service                                                                                        |
+| port                   | Port of the interceptor service                                                                                        |
+| includes               | Defines what should be included in the request body to interceptor service.                                            |
+| requestTimeout         | Optional. Timeout in seconds to connect to interceptor service.                                                        |
+| clusterTimeout         | Optional. Override the interceptor cluster timeout (in seconds) value, default to cluster timeout value in config.toml |
+
+### Inclusions in Request from Choreo Connect Router to Interceptor Service
+
+Based on the `includes` defined in the extension, the request from Choreo Connect Router to Interceptor Service includes only the specified information from **client request** or **backend response**.
+For example, with this configuration you can instruct the Choreo Connect Router to not include request body from
+the client and stop buffering the client request body and save the size of the request payload to interceptor service.
+In the same way you can use only required inclusions based on you requirement and tune the interception flow.
+
+Following are the possible values for the `includes` in the extension. Content of the ***Invocation Context*** is 
+
+- Inclusions in **request** flow interception.
+
+    | Inclusion Key      | Description                                   |
+    |--------------------|-----------------------------------------------|
+    | request_headers    | Includes the request headers from the client  |
+    | request_body       | Includes the request body from the client     |
+    | request_trailers   | Includes the request trailers from the client |
+    | invocation_context | Includes detailed information of the request  |  
+
+- Inclusions in **response** flow interception.
+
+    | Inclusion Key      | Description                                     |
+    |--------------------|-------------------------------------------------|
+    | request_headers    | Includes the request headers from the client    |
+    | request_body       | Includes the request body from the client       |
+    | request_trailers   | Includes the request trailers from the client   |
+    | response_headers   | Includes the response headers from the backend  |
+    | response_body      | Includes the response body from the backend     |
+    | response_trailers  | Includes the response trailers from the backend |
+    | invocation_context | Includes detailed information of the request    |
+
