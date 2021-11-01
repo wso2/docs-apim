@@ -52,13 +52,20 @@ It is now available to download from [here](https://github.com/wso2/micro-integr
 
   	 The Audit Log capability allows you to add logging for the Micro Integrator Management API. Maintaining Audit Logs allows you to identify the changes that took place in the Micro Integrator instance and also to identify as to who made those changes.
 
+- **[File Inbound Endpoint Sub Directory Processing Capability.]({{base_path}}/reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/file-inbound-endpoint-properties)**
+
+     VFS Inbound Endpoints are capable of handling files inside sub directories of the specified URL. This enables users to process files recursively inside a directory.
+
+
 ## **Streaming Integrator**
 
 Streaming Integrator serves the streaming-based integrations and acts as the event stream provider for Streaming APIs in the data plane of the API Manager platform.
 
 It is now available to download from [here](https://github.com/wso2/streaming-integrator/releases).
 
-<! --- ### New features --->
+- **Add support for SMB and WebDAV protocols**
+
+  This feature adds support to read from or write to files opened via SMB and WebDAV protocols.
 
 ## **API Controller (apictl)**
 
@@ -77,7 +84,7 @@ It is now available to download from [here](https://wso2.com/integration/integra
 
 ### New features
 
-- **[Generate data service definitions using a given datasource]({{base_path}}/integrate/develop/creating-artifacts/data-services/creating-data-services/#generate-data-service-from-a-datasource) (M1)**
+- **[Generate Data Service Definitions Using a Given Datasource]({{base_path}}/integrate/develop/creating-artifacts/data-services/creating-data-services/#generate-data-service-from-a-datasource) (M1)**
 
      This feature allows you to generate data service definitions by pointing to an existing datasource in the workspace without creating that from scratch.
 
@@ -91,8 +98,11 @@ The Micro Integrator dashboard can connect to multiple Micro Integrator server i
 
 It is now available to download from [here](https://github.com/wso2/micro-integrator/releases/).
 
-<! --- ### New features --->
+### New features
 
+- **[MI Dashboard Login Related Enhancements (SSO Capability)]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi-dashboard/#configuring-single-sign-on-with-openid-connect)**
+
+     Users can use OIDC based Single Sign-On to log in to the WSO2 Micro Integrator Monitoring Dashboard.
 
 ## **Streaming Integrator Tooling**
 
@@ -100,9 +110,7 @@ The Streaming Integrator Tooling is a developer tool to develop Siddhi applicati
 
 It is now available to download from [here](https://github.com/wso2/streaming-integrator-tooling/releases/).
 
-<! --- ### New features --->
-
-## **Choreo Connect**
+## Choreo Connect
 
 The Choreo Connect is a lightweight gateway for APIs. It is used for message security, transport security, routing, and other common API Management related quality of services. It can collect information required for usage metering and throttling capabilities. The Choreo Connect natively supports scaling in highly decentralized environments including microservice architecture.
 
