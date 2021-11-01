@@ -63,13 +63,9 @@ Streaming Integrator serves the streaming-based integrations and acts as the eve
 
 It is now available to download from [here](https://github.com/wso2/streaming-integrator/releases).
 
-<<<<<<< HEAD
 - **Add support for SMB and WebDAV protocols**
 
   This feature adds support to read from or write to files opened via SMB and WebDAV protocols.
-=======
-<! --- ### New features --->
->>>>>>> c8634612060ed5bb4ee48034f14de55f2b71df42
 
 ## **API Controller (apictl)**
 
@@ -114,17 +110,7 @@ The Streaming Integrator Tooling is a developer tool to develop Siddhi applicati
 
 It is now available to download from [here](https://github.com/wso2/streaming-integrator-tooling/releases/).
 
-<<<<<<< HEAD
 ## Choreo Connect
-=======
-### New features
-
-- **Add support for SMB and Webdav protocols**
-
-  This feature adds support to read from or write to files opened via SMB and Webdav protocols.
-
-## **Choreo Connect**
->>>>>>> c8634612060ed5bb4ee48034f14de55f2b71df42
 
 The Choreo Connect is a lightweight gateway for APIs. It is used for message security, transport security, routing, and other common API Management related quality of services. It can collect information required for usage metering and throttling capabilities. The Choreo Connect natively supports scaling in highly decentralized environments including microservice architecture.
 
