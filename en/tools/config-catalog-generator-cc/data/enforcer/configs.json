@@ -580,7 +580,7 @@
       "exampleFile": "throttling_credentials.toml"
     },
     {
-      "title": "Binary Throttle publishing url group configurations",
+      "title": "Binary Throttle publishing URL group configurations",
       "options": [
         {
           "name": "enforcer.throttling.publisher.URLGroup",

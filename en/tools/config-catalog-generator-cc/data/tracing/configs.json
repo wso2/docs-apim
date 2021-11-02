@@ -1,0 +1,93 @@
+{
+  "configs": [
+    {
+      "title": "Tracing Configurations",
+      "options": [
+        {
+          "name": "tracing",
+          "required": false,
+          "description": "",
+          "params": [
+            {
+              "name": "enabled",
+              "type": "boolean",
+              "required": true,
+              "default": false,
+              "description": "Enable/Disable tracing in Choreo Connect"
+            },
+            {
+              "name": "type",
+              "type": "string",
+              "required": false,
+              "default": "zipkin",
+              "description": "Type of trace exporter (e.g: azure, zipkin). Use `zipkin` for jaeger"
+            }
+          ]
+        }
+      ],
+      "exampleFile": "tracing.toml"
+    },
+    {
+      "title": "Tracer Configuration Properties",
+      "options": [
+        {
+          "name": "tracing.configProperties",
+          "required": true,
+          "description": "Configurations specific to each tracer configured in `tracing.type`",
+          "params": [
+            {
+              "name": "endpoint",
+              "type": "string",
+              "required": true,
+              "default": "/api/v2/spans",
+              "description": "Tracing data receiver's endpoint path. Applicable only for Jaeger and Zipkin tracers"
+            },
+            {
+              "name": "host",
+              "type": "string",
+              "required": true,
+              "default": "jaeger",
+              "description": "Tracing data receiver's host. Applicable only for Jaeger and Zipkin tracers"
+            },
+            {
+              "name": "port",
+              "type": "string",
+              "required": true,
+              "default": "9411",
+              "description": "Tracing data receiver host's port. Applicable only for Jaeger and Zipkin tracers"
+            },
+            {
+              "name": "connectionString",
+              "type": "string",
+              "required": true,
+              "default": "\"\"",
+              "description": "Azure App Insights connection string. Applicable only for Azure Insights"
+            },
+            {
+              "name": "instrumentationName",
+              "type": "string",
+              "required": false,
+              "default": "CHOREO-CONNECT",
+              "description": "Reference name for the Choreo Connect service in the tracer."
+            },
+            {
+              "name": "maximumTracesPerSecond",
+              "type": "string",
+              "required": false,
+              "default": "2",
+              "description": "Number of trace events to publish per second"
+            },
+            {
+              "name": "maxPathLength",
+              "type": "string",
+              "required": false,
+              "default": "256",
+              "description": "Maximum length of the request path to extract and include in the HttpUrl tag."
+            }
+          ]
+        }
+      ],
+      "exampleFile": "tracing_properties.toml"
+    }
+  ]
+}
