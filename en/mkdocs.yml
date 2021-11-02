@@ -267,6 +267,7 @@ nav:
                     - Authentication:
                         - API Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-authentication.md
                         - Internal Key Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/internal-key-authentication.md
+                        - API Key Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-key-authentication.md
                         - Secure APIs Using OAuth2.0 Access Tokens:
                             - Secure APIs using JWT - Self Contained JWT: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-jwt-self-contained-jwt.md
                         # - Mutual SSL Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/mutual-ssl-authentication.md
