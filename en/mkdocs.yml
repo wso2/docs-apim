@@ -19,7 +19,7 @@
 site_name: WSO2 API Manager Documentation 4.1.0
 site_description: Documentation for WSO2 API Manager
 site_author: WSO2
-site_url: https://apim.docs.wso2.com/en/4.0.x/
+site_url: https://apim.docs.wso2.com/en/4.1.0/
 
 # Repository
 repo_name: wso2/docs-apim
@@ -358,7 +358,6 @@ nav:
             - SaaS and B2B Connectivity: integrate/integration-use-case/connectors.md
             - Data Integration: integrate/integration-use-case/data-integration-overview.md
             - Protocol Switching: integrate/integration-use-case/protocol-switching-overview.md
-            - Gateway: integrate/integration-use-case/gateway-overview.md
             - File Processing: integrate/integration-use-case/file-processing-overview.md
             - Periodic Execution of Integration Processes: integrate/integration-use-case/scheduled-task-overview.md
         - Develop Integrations:
@@ -2117,4 +2116,4 @@ extra:
           link: https://www.linkedin.com/company/wso2
     site_version: 4.1.0
     #base_path: http://localhost:8000
-    base_path: https://apim.docs.wso2.com/en/4.0.x
+    base_path: https://apim.docs.wso2.com/en/4.1.0

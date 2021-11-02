@@ -1,22 +1,22 @@
 # API Authentication
 
-Choreo Connect provides the ability to secure APIs in API level and resource levels. The following section would concisely guide you through the available security options in the Choreo Connect. API security can be divided into two main categories; namely, Application-level security and Transport level security.
+Choreo Connect provides the ability to secure APIs in API level and resource levels. The following section would concisely guide you through the available security options in Choreo Connect. API security can be divided into two main categories; namely, Application-level security and Transport-level security.
 
-By default, APIs are secured with application security. However, if you want to disable all security for API/Resource, you can achieve it by following the document on [Disabling Security]({{base_path}}/publish/security/api-authentication/api-authentication/).
+By default, APIs are secured with application security. However, if you want to disable all security for API/resource, for more information, see [Disabling Security]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/disabling-security/).
 
 ### Application Security
 Application security can be provided in the API and resource levels. The following are the API authentication types granted by Choreo Connect.
 
--   [JWT authentication]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-jwt-self-contained-jwt/) 
+-   [JWT Authentication]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-jwt-self-contained-jwt/) 
 
--   [Internal-Key authentication]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/internal-key-authentication/)
+-   [Internal Key Authentication]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/internal-key-authentication/)
 
--   [API-Key authentication]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-key-authentication/)
+-   [API Key Authentication]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-key-authentication/)
 
 <!-- TODO: Enable once the feature is completed for MGW 4.0.0
    [Opaque token authentication]({{base_path}}/publish/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-opaque-tokens/)
    [Basic authentication]({{base_path}}/publish/security/api-authentication/basic-authentication/)
-   [API Key authentication]({{base_path}}/publish/security/api-authentication/api-key-authentication/)
+
 -->
 
 <!-- TODO: Enable once the feature is completed for MGW 4.0.0
