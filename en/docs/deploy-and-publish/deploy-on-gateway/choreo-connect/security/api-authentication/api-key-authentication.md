@@ -14,13 +14,13 @@ Follow the instructions below to enable API Key Authentication using OpenAPI def
 
 -  **Step 1 - Define the API Key security scheme**
 
-     Security schemes must be defined on the OpenAPI definition under `securitySchemes`. One or more API key security schemes can be used (as in logical OR) simultaneously. Define the API Key security scheme as follows:
+     Security schemes must be defined on the OpenAPI definition under `securitySchemes`. One or more API Key security schemes can be used simultaneously, similar to a logical OR operator. Define the API Key security scheme as follows:
 
-      | Parameter | Description |
-      | ----------| --------------|
-      | `name`    | Specify a unique name. This name will be used to refer to the scheme on API level or resource level. |
-      | `in`      | This can be either `header` or `query`. |
-      | `type`    | Specify `apiKey` as the type. |
+      | Field Name | Description   |
+      | -----------| --------------|
+      | `name`     | Specify a unique name. This name will be used to refer to the scheme on API level or resource level. |
+      | `in`       | This can be either `header` or `query`. |
+      | `type`     | Specify `apiKey` as the type. |
 
       The following example defines an API Key security scheme named `apiKeyAuth`, which sends `X-API-Key` as a request header. Here, `apiKeyAuth` is the name provided for the security scheme and `X-API-Key` is the name for the header.
 
