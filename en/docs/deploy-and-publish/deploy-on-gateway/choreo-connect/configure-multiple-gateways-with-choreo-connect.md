@@ -149,7 +149,7 @@ For instance, if you are configuring a single adapter for two environments "chor
           - ADAPTER_HOST_NAME=adapter
           - ADAPTER_HOST=adapter
           - ADAPTER_XDS_PORT=18000
-          - ENFORCER_LABEL=choreo-connect-2
+          - ENFORCER_LABEL=choreo-connect-1
           - ENFORCER_REGION=UNKNOWN
           - XDS_MAX_MSG_SIZE=4194304
           - XDS_MAX_RETRIES=3
