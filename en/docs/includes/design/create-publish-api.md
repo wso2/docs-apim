@@ -9,5 +9,5 @@
 
 4. Select **API Key** and click **Save and Deploy**.
 
-     [![Configure API key authentication](https://apim.docs.wso2.com/en/4.1.0/assets/img/learn/api-key-option.png)](https://apim.docs.wso2.com/en/4.1.0/assets/img/learn/api-key-option.png)
+     [![Configure API key authentication](https://apim.docs.wso2.com/en/4.1.0/assets/img/learn/api-key-option.png)](https://apim.docs.wso2.com/en/4.0.0/assets/img/learn/api-key-option.png)
      
