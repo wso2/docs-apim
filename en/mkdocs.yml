@@ -255,6 +255,8 @@ nav:
                     - Defining Endpoints in an OpenAPI Definition: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/defining-endpoints-in-an-openapi-definition.md
                     - Overriding Endpoint Information: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/overriding-endpoints-for-imported-apis.md
                     - Defining a Backend Security Scheme: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/defining-a-backend-security-scheme.md
+                - Extensions:
+                    - Add Custom Filters: deploy-and-publish/deploy-on-gateway/choreo-connect/extensions/custom-filters.md
                 - HTTP 2.0: deploy-and-publish/deploy-on-gateway/choreo-connect/http-2.0.md
                 - Rate Limiting:
                     - Enabling distributed throttling: deploy-and-publish/deploy-on-gateway/choreo-connect/rate-limiting/distributed-throttling.md
