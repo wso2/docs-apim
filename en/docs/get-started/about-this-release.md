@@ -10,13 +10,15 @@ The **WSO2 API Manager 4.1.0 Milestone 1 (M1)** is the latest **WSO2 API Mana
 
 The API Manager component addresses all aspects of API management in the platform. It consists of an API Gateway, API Publisher, Developer Portal, Key Manager, and Traffic Manager.
 
-It is now available to download from [here](https://github.com/wso2/product-apim/releases).
+<table>
+<tr>
+<td>
+API Manager 4.1.0-M1</td>
+<td><a href="https://github.com/wso2/product-apim/releases/download/v4.1.0-m1/wso2am-4.1.0-m1.zip">download</a></td>
+</tr>
+</table>
 
 ### New features
-
--  **[Exposing an Integration SOAP Service as a Managed API]({{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial-for-proxy-services/) (M1)**
-
-     WSO2 API Manager includes a Service Catalog where developers can register their backend services as Managed APIs. Through the Service Catalog, now SOAP integration services are made discoverable to the API Management layer so that SOAP PassThrough API proxies can directly be created using them.
 
 -  **[PKCE Support]({{base_path}}/consume/manage-application/generate-keys/generate-api-keys/#generating-application-keys-with-pkce-enabled/) (M1)**
   
@@ -26,7 +28,7 @@ It is now available to download from [here](https://github.com/wso2/product-apim
 
 - **[Authentication for Prototype APIs]({{base_path}}/design/prototype-api/create-a-mock-api-with-an-inline-script/#step-2-configure-security-for-the-prototype-api) (M1)**
 
-	 Authentication for Prototype APIs is available by default so that the client apps can also be created using authentication to test out the APIs. If needed you can disable authentication for Prototype APIs at the resource level or API level.
+	 Authentication for Prototype APIs is available by default so that the client apps can also be created using authentication to test out the APIs. If needed, you can disable authentication for Prototype APIs at the resource level or API level.
 
 <! --- ### Deprecated features and functionalities
 
@@ -44,63 +46,115 @@ The Micro Integrator is a cloud-native, standards-based messaging engine and an 
 
 This serves the integration needs for the data plane of the API Manager platform.
 
-It is now available to download from [here](https://github.com/wso2/micro-integrator/releases).
+<table>
+<tr>
+<td>Micro Integrator  4.1.0-M1</td> 
+<td><a href="https://github.com/wso2/micro-integrator/releases/download/v4.1.0-m1/wso2mi-4.1.0-m1.zip">download</a></td>
+</tr>
+</table>
 
 ### New features
+
+-  **[Exposing an Integration SOAP Service as a Managed API]({{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial-for-proxy-services/) (M1)**
+
+     WSO2 API Manager includes a Service Catalog where developers can register their backend services as Managed APIs. Through the Service Catalog, now SOAP integration services are made discoverable to the API Management layer so that SOAP PassThrough API proxies can directly be created using them.
 
 - **[Audit Log support]({{base_path}}/observe/micro-integrator/classic-observability-logs/monitoring-mi-audit-logs) (M1)**
 
   	 The Audit Log capability allows you to add logging for the Micro Integrator Management API. Maintaining Audit Logs allows you to identify the changes that took place in the Micro Integrator instance and also to identify as to who made those changes.
 
-- **[File Inbound Endpoint Sub Directory Processing Capability.]({{base_path}}/reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/file-inbound-endpoint-properties)**
+- **[File Inbound Endpoint Sub Directory Processing Capability]({{base_path}}/reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/file-inbound-endpoint-properties) (M1)**
 
-     VFS Inbound Endpoints are capable of handling files inside sub directories of the specified URL. This enables users to process files recursively inside a directory.
-
+     VFS Inbound Endpoints are capable of handling files inside sub-directories of the specified URL. This enables users to process files recursively inside a directory.
 
 ## **Streaming Integrator**
 
 Streaming Integrator serves the streaming-based integrations and acts as the event stream provider for Streaming APIs in the data plane of the API Manager platform.
 
-It is now available to download from [here](https://github.com/wso2/streaming-integrator/releases).
+<table>
+<tr>
+<td>Streaming Integrator  4.1.0-M1</td> 
+<td><a href="https://github.com/wso2/streaming-integrator/releases/download/v4.1.0-m1/wso2si-4.1.0-m1.zip">download</a>
+</td> 
+</tr>
+</table>
+
+### New features
 
 - **Add support for SMB and WebDAV protocols**
 
-  This feature adds support to read from or write to files opened via SMB and WebDAV protocols.
+     This feature adds support to read from or write to files opened via SMB and WebDAV protocols.
+
+### Improvements
+
+- Improved CDC functionalities
+
+- Improved MongoDB store 
 
 ## **API Controller (apictl)**
 
 WSO2 API Controller (apictl) is a command-line tool providing the capability to move APIs, API Products, and Applications across environments and to perform CI/CD operations. It can also be used to perform these same tasks on a Kubernetes deployment. In addition, apictl can be used as a developer CLI tool for Choreo Connect. Furthermore, it can perform Micro Integrator server-specific operations such as monitoring Synapse artifacts and performing MI management/administrative tasks from the command line.
 
-It is now available to download from [here](https://github.com/wso2/product-apim-tooling/releases).
+<table>
+<tr>
+<td>API Controller 4.1.0-M1</td>
+<td><a href="https://github.com/wso2/product-apim-tooling/releases/tag/v4.1.0-m1">download</a></td>
+</tr>
+</table>
 
 <! --- ### New features--->
 
+### Improvements
+
+- The list of improvements are available [here](https://github.com/wso2/product-apim-tooling/issues?q=is%3Aissue+label%3A4.1.0+is%3Aclosed+label%3A%22Type%2FImprovement%22+).
 
 ## **WSO2 Integration Studio**
 
 WSO2 Integration Studio is an open-source development environment used to design and develop integration scenarios for WSO2 Micro Integrator. 
 
-It is now available to download from [here](https://wso2.com/integration/integration-studio/).
+<table>
+<tr>
+<td>Integration Studio  8.1.0-M1</td>
+<td><a href="https://github.com/wso2/integration-studio/releases/tag/v8.1.0-m1">download</a></td>
+<tr>
+</table>
 
 ### New features
 
-- **[Generate Data Service Definitions Using a Given Datasource]({{base_path}}/integrate/develop/creating-artifacts/data-services/creating-data-services/#generate-data-service-from-a-datasource) (M1)**
+- **[Auto-generation support for data services using a given data source]({{base_path}}/integrate/develop/creating-artifacts/data-services/creating-data-services/#generate-data-service-from-a-datasource) (M1)**
 
      This feature allows you to generate data service definitions by pointing to an existing datasource in the workspace without creating that from scratch.
 
-- **[Generating Service Catalog Metadata Artifacts]({{base_path}}/integrate/develop/generate-service-catalog-metadata) (M1)**
+- **[Exposing proxy services via Service Catalog for WSO2 APIM]({{base_path}}/integrate/develop/generate-service-catalog-metadata) (M1)**
 
      This feature generates metadata artifacts for the APIs and Proxy services that have been created inside the older Integration Studio workspaces.
+
+- Integrated APIM Tooling into Integration Studio (M1)
+
+### Improvements
+
+- Capability to generate metadata files for APIs and Proxy services for older ESB projects (M1).
+
+- HTTPS support for unit tests of APIs (M1)
+
+- Option to hide/show connectors on-demand (M1)
+
+- JSON and YAML templates as registry resources (M1)
 
 ## **Micro Integrator Dashboard**
 
 The Micro Integrator dashboard can connect to multiple Micro Integrator server instances and monitor artifacts and logs from a selected cluster or group of server nodes.
 
-It is now available to download from [here](https://github.com/wso2/micro-integrator/releases/).
+<table>
+<tr>
+<td>Micro Integrator Tooling  4.1.0-M1</td>
+<td><a href="https://github.com/wso2/micro-integrator/releases/download/v4.1.0-m1/wso2mi-dashboard-4.1.0-m1.zip">download</a></td>
+<tr>
+</table>
 
 ### New features
 
-- **[MI Dashboard Login Related Enhancements (SSO Capability)]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi-dashboard/#configuring-single-sign-on-with-openid-connect)**
+- **[Single Sign-on with OpenID Connect]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi-dashboard/#configuring-single-sign-on-with-openid-connect)**
 
      Users can use OIDC based Single Sign-On to log in to the WSO2 Micro Integrator Monitoring Dashboard.
 
@@ -108,15 +162,29 @@ It is now available to download from [here](https://github.com/wso2/micro-integr
 
 The Streaming Integrator Tooling is a developer tool to develop Siddhi applications and simulate events for testing purposes.
 
-It is now available to download from [here](https://github.com/wso2/streaming-integrator-tooling/releases/).
+<table>
+<tr>
+<td>Streaming Integrator Tooling  4.1.0-M1</td>
+<td><a href="https://github.com/wso2/streaming-integrator-tooling/releases/download/v4.1.0-m1/wso2si-tooling-4.1.0-m1.zip">download</a></td>
+</tr>
+</table>
 
+## New Features
+
+- Support for SMB and WebDAV file protocols (M1)
+
+## Improvements
+
+- Improved CDC functionalities.
+
+<!-- Hiding coz there was noting new for M1
 ## Choreo Connect
 
 The Choreo Connect is a lightweight gateway for APIs. It is used for message security, transport security, routing, and other common API Management related quality of services. It can collect information required for usage metering and throttling capabilities. The Choreo Connect natively supports scaling in highly decentralized environments including microservice architecture.
 
 <! --- #### New features --->
 
-
+<!-- Hiding coz there was noting new for M1
 ## **Kubernetes API Operator**
 
 Microservices are increasingly being deployed on Kubernetes. As a result, it is important to expose these microservices as well documented, easy to consume, managed APIs so that they can be used to develop great applications. The API operator for Kubernetes makes APIs a first-class citizen in the Kubernetes ecosystem. Similar to deploying microservices, you can now use this operator to deploy APIs for individual microservices or compose several microservices into individual APIs. With this, users can expose their microservice as managed APIs in the Kubernetes environment without any additional work.
@@ -128,7 +196,6 @@ K8s API Operator v2.0.0 is compatible with API Manager v4.0.0.
 
 <! --- ### New features --->
 
-
 ## **Compatible WSO2 product versions**
 
 WSO2 API Manager 4.1.0 is based on WSO2 Carbon 4.6.1 and is expected to be compatible with any of the WSO2 products that are based on any Carbon 4.6.x version. If you encounter any compatibility issues, please [contact team WSO2](http://wso2.com/support/). For more information on the products in each Carbon platform release, see the [Release Matrix](http://wso2.com/products/carbon/release-matrix/).
@@ -139,9 +206,9 @@ WSO2 API Manager 4.1.0 is based on WSO2 Carbon 4.6.1 and is expected to be compa
 
 **API Manager**
 
-- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release]().
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/product-apim/issues?q=is%3Aissue+milestone%3AAPIM-4.1.0-M1+is%3Aclosed+).
 
-- Known Issues - All the open issues pertaining to WSO2 API Manager 4.1.0 are reported [here](https://github.com/wso2/product-apim/issues?q=is%3Aopen+is%3Aissue).
+- Known Issues - All the open issues pertaining to WSO2 API Manager 4.1.0 are reported [here](https://github.com/wso2/product-apim/issues?q=is%3Aopen+is%3Aissue+label%3A4.x.x).
 
 **Micro Integrator**
 
