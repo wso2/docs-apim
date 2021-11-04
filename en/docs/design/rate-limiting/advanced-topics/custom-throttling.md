@@ -9,7 +9,7 @@ For example, the following sample custom policy allows the admin user to send 5 
 1.  Sign in to the Admin Portal using the URL (https://&lt;ip\_address&gt;:&lt;port&gt;/admin) and your admin credentials (admin/admin by default).
 2.  Click **Rate Limiting Policies** tab and click **Custom Policies** tab.
 
-    [![Add Custom policy page]({{base_path}}/assets/img/learn/custom_policy_left_tag.png)]({{base_path}}/assets/img/learn/custom_policy_left_tag.png)
+    [![Add Custom policy page]({{base_path}}/assets/img/learn/custom_policy_left_tag.png){: style="width:30%"}]({{base_path}}/assets/img/learn/custom_policy_left_tag.png)
 
 3.  To add a new policy, click **Define Policy**.
 

@@ -2,21 +2,9 @@
 
 This page walks you through how to manually configure and deploy WSO2 API Manager in a single standalone instance, without using a distributed or HA deployment patterns. 
 
-<a href="{{base_path}}/assets/img/setup-and-install/single-node-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/single-node-apim-deployment.png" alt="single-node api-m deployment"></a>
+<a href="{{base_path}}/assets/img/setup-and-install/single-node-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/single-node-apim-deployment.png" width="70%" alt="single-node api-m deployment"></a>
 
 Follow the instructions below to configure and deploy API-M using a single node:
-
-- [Configuring a Single Node](#configuring-a-single-node)
-  - [Step 1 - Create a SSL Certificate](#step-1---create-a-ssl-certificate)
-  - [Step 2 - Configure the Load Balancer](#step-2---configure-the-load-balancer)
-  - [Step 3 - Configure the Databases](#step-3---configure-the-databases)
-  - [Step 4 - Configure Gateway URLs to Expose APIs](#step-4---configure-gateway-urls-to-expose-apis)
-  - [Step 5 - Configure Dev Portal URL in Publisher](#step-5---configure-dev-portal-url-in-publisher)
-  - [Step 6 - Configure API-M Analytics](#step-6---configure-api-m-analytics)
-  - [Step 7 - Configure Production Hardening](#step-7---configure-production-hardening)
-  - [Step 8 - Start the WSO2 API-M server](#step-8---start-the-wso2-api-m-server)
-
-----------------------------
 
 ## Step 1 - Create a SSL Certificate
 

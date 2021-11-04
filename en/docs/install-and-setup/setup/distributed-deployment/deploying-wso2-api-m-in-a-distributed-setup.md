@@ -90,6 +90,8 @@ Follow the instructions given below to configure the Gateway node so that it can
 
 {!includes/install_setup/configuring_gateway_node.md!}
 
+{!includes/design/redis-counter-note.md!}
+
 ### Configure the Control Plane nodes
 
 Follow the steps given below to configure the Control Plane nodes to communicate with the Gateway.
