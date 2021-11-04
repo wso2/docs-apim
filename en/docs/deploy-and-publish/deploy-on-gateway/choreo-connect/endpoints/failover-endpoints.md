@@ -1,20 +1,20 @@
-# Fail Over Endpoints With Choreo Connect.
+# Failover Endpoints.
 
 Failover endpoints provide uninterrupted API invocation capability to the users even though there is a failure in a given API endpoint. When failover is enabled, the traffic that comes to the relevant resource is always routed to the first endpoint. Thereafter, the traffic is routed to second endpoint only if the first endpoint is not available.
 
-Similar to the load balancing, Choreo Connect (CC) provides fail over handling capability with below two WSO2 product combinations.
+Similar to the load balancing, Choreo Connect (CC) provides failover capability with below two WSO2 product combinations.
 
-- [Choreo Connect Fail Over Endpoints With APIM]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/fail-over-endpoints-with-choreo-connect/#choreo-connect-fail-over-endpoints-with-apim). 
-- [Choreo Connect Fail Over Endpoints With APICTL]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/fail-over-endpoints-with-choreo-connect/#choreo-connect-fail-over-endpoints-with-apictl).
+- [Failover Endpoints With APIM]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/failover-endpoints/#failover-endpoints-with-apim). 
+- [Failover Endpoints With APICTL]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/failover-endpoints/#failover-endpoints-with-apictl).
 
 Below section explains how to configure failover endpoints considering above products.
 
-## Choreo Connect Fail Over Endpoints With APIM
+## Failover Endpoints With APIM
 
 !!! Important
     Currently WSO2 API Manager allows to add failover endpoints only to the API level.
 
-### Step 1 - Define Fail Over Endpoints In Publisher
+### Step 1 - Define Failover Endpoints In Publisher
 
 After creating an API in the APIM publisher, select the API you want to provide failover capability.
 
@@ -43,13 +43,13 @@ Example is given below:
 curl -k -X GET "https://localhost:9095/pizzashack/1.0.0/menu" -H "accept: application/json" -H "Authorization: Bearer <COPIED_TOKEN>"
 ```
 
-## Choreo Connect Fail Over Endpoints With APICTL
+## Failover Endpoints With APICTL
 
 In this approach you can define failover endpoints in API level as well as in resource level. Below section demonstrates how to add failover endpoints in those two levels.
 
 ### Step 1 - Define Failover Endpoints In The OpenAPI Definition file.
 
-### Choreo Connect Failover Endpoints In API Level
+### Failover Endpoints In API Level
 
 Below section demonstrates how to define failover endpoints for API level in an OpenAPI definition file.
 
@@ -74,7 +74,7 @@ x-wso2-production-endpoints:
 ...
 ```
 
-### Choreo Connect Failover Endpoints In Resource Level
+### Failover Endpoints In Resource Level
 
 Below section demonstrates how to define failover endpoints for resource level in an Open API definition file.
 
@@ -112,6 +112,6 @@ paths:
 ...
 ```
 
-### Step 2 - Deploy the API Project And Invoke the API With failover Endpoints
+### Step 2 - Deploy the API Project And Invoke With failover Endpoints
 
 After defining API in the Open API definition file deploy it in the Choreo Connect as described in [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker/#step-1-download-and-setup-choreo-connect-distribution-zip-and-apictl-command-line-tool).
