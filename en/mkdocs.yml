@@ -253,6 +253,8 @@ nav:
                 - Endpoints:
                     - Endpoint Types: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/endpoint-types.md
                     - Defining Endpoints in an OpenAPI Definition: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/defining-endpoints-in-an-openapi-definition.md
+                    - High Availability for Endpoints with Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/high-availability-for-endpoints-with-choreo-connect.md
+                    - Fail Over Endpoints with Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/fail-over-endpoints-with-choreo-connect.md
                     - Overriding Endpoint Information: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/overriding-endpoints-for-imported-apis.md
                     - Defining a Backend Security Scheme: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/defining-a-backend-security-scheme.md
                     - Advanced Endpoint Configurations:
