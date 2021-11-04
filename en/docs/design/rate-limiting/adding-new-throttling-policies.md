@@ -2,7 +2,6 @@
 
 WSO2 API Manager admins can add new rate limiting policies and define extra properties to the rate limiting policies. To get started, click on the level of rate limiting that you want to add a new policy to:
 
-- [Adding New Rate Limiting Policies](#adding-new-rate-limiting-policies)
   - [Adding a new advanced rate limiting policy](#adding-a-new-advanced-rate-limiting-policy)
   - [Adding a new application-level rate limiting tier](#adding-a-new-application-level-rate-limiting-tier)
   - [Adding a new subscription-level rate limiting tier](#adding-a-new-subscription-level-rate-limiting-tier)
