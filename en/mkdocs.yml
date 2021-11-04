@@ -173,8 +173,8 @@ nav:
                         - Query Depth Limit: design/rate-limiting/graphql-api/query-depth-limitation.md
                         - Query Complexity Limit: design/rate-limiting/graphql-api/query-complexity-limitation.md
                 - Advanced Topics:
-                        - Custom Throttling: design/rate-limiting/advanced-topics/custom-throttling.md
-                        - Configuring Distributed Counter With Redis: design/rate-limiting/advanced-topics/configuring-distributed-counter-with-redis.md
+                        - Custom Rate Limiting: design/rate-limiting/advanced-topics/custom-throttling.md
+                        - Configuring Rate Limiting for an API Gateway Cluster: design/rate-limiting/advanced-topics/configuring-rate-limiting-api-gateway-cluster.md
         - API Monetization:
             - Monetizing an API: design/api-monetization/monetizing-an-api.md
         - Advanced Topics:
