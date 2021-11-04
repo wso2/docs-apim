@@ -24,7 +24,7 @@ It is now available to download from [here](https://github.com/wso2/product-apim
 
 - **[Ability to configure Rate Limiting for an API Gateway Cluster]({{base_path}}/design/rate-limiting/advanced-topics/configuring-rate-limiting-api-gateway-cluster/) (M2)**
 
-     Ability to configure Rate Limiting for an API Gateway Cluster via the Redis server so that the request counters will be replicated across the API Gateway cluster when working with multiple API Gateway nodes.
+     Ability to configure Rate Limiting for an API Gateway Cluster via the Redis server so that the request counters maintained for burst control and backend rate limiting will be replicated across the API Gateway cluster when working with multiple API Gateway nodes.
 
 ### Improvements
 
