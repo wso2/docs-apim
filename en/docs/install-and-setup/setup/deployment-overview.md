@@ -118,3 +118,61 @@ The integration cluster consist of a minimum of two nodes of the integration run
         <a href="{{base_path}}/install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster">Streaming Integrator Cluster with Minimum High Availability</a>
     </li>
 </ul>
+
+## Simple scalable deployment with Traffic Manager separation
+
+This pattern allows you to scale the deployment on demand. The **simple scalable deployment with Traffic Manager separation** deployment pattern shown below illustrates a deployment that uses minimum resources. However, this setup can easily be scaled. This deployment pattern can be used only when you need to run the Traffic Manager nodes separately due to deployment complexities.
+
+You need to set up three clusters of the different components and runtimes as they have different scaling requirements.
+
+!!! Note
+    The basic deployment suggests two nodes of each runtime to ensure minimum high availability. However, you can independently scale them depending on the requirements.
+
+
+<a href="{{base_path}}/assets/img/setup-and-install/basic-scalable-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/basic-scalable-deployment.png" alt="simple scalability" width="80%"></a>
+
+### API-M cluster
+
+The API-M layer of this deployment consists of two clusters of API-M components as follows:
+
+<table>
+    <tr>
+        <th>
+            Control Plane Cluster
+        </th>
+        <td>
+            The APIM control plane consists of two nodes of the <b>Control Pane</b> API-M profile (Publisher, Devportal, Key Manager, Traffic Manager). The two node cluster is the simplest deployment for this pattern. If required you can scale the number of nodes.
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Gateway Cluster
+        </th>
+        <td>
+            The Gateway profile of API-M is deployed as a separate cluster so that we can scale it to match the traffic requirements. The simplest deployment for this pattern consists of a two node Gateway cluster. If required you can scale the number of nodes.
+        </td>
+    </tr>
+    tr>
+        <th>
+            Traffic Manager Cluster
+        </th>
+        <td>
+            The Traffic Manager profile of API-M is deployed as a separate cluster so that we can scale it to match the traffic requirements. The simplest deployment for this pattern consists of a two node Traffic Manager cluster. If required you can scale the number of nodes.
+        </td>
+    </tr>
+</table>
+
+To set up this cluster, see the instructions on <a href="{{base_path}}/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup">Setting up a Distributed API-M deployment</a>.
+
+### Integration cluster
+
+The integration cluster consist of a minimum of two nodes of the integration runtime (Micro Integrator/Streaming Integrator). See the following links for instructions on how to set up this cluster.
+
+<ul>
+    <li>
+        <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei">Micro Integrator Cluster with Minimum High Availability</a>
+    </li>
+    <li>
+        <a href="{{base_path}}/install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster">Streaming Integrator Cluster with Minimum High Availability</a>
+    </li>
+</ul>

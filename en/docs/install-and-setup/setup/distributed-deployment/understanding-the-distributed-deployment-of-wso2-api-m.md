@@ -140,7 +140,17 @@ Listed below are the five components in the API-M server. When you run the recom
 
 ## Understanding the distributed deployment
 
-The following diagram depicts how the Control Plane, Traffic Manager and Gateway profiles communicate in a distributed deployment setup, and also the database connections of each node.
+In a typical distributed deployment, all API-M components (excluding the API-M Gateway) run in the Control Plane. However, you have the option of separating the Traffic Manager from the Control Plane. With this, there are two patterns under which we can configure a distributed deployment for API-M. They are as follows.
+
+### Simple Scalable Deployment
+
+The following diagram depicts how the Control Plane and Gateway profiles communicate in a distributed deployment setup, and also the database connections of each node. To learn how to configure this deployment, refer [configuring a distributed API-M deployment]({{base_path}}/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup).
+
+[![Distributed deployment]({{base_path}}/assets/img/setup-and-install/db-connections-distributed-deployment.png){: style="width:78%"}]({{base_path}}/assets/img/setup-and-install/db-connections-distributed-deployment.png)
+
+### Simple Scalable Deployment with Traffic Manager Separation
+
+The following diagram depicts how the Control Plane, Traffic Manager and Gateway profiles communicate in a distributed deployment setup, and also the database connections of each node. Separating out the Traffic Manager Component from the Control plane might be needed if any deployment complexities are present in your environment. To learn how to configure this deployment, refer [configuring a distributed API-M deployment]({{base_path}}/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-tm-separated).
 
 [![Distributed deployment]({{base_path}}/assets/img/setup-and-install/db-connections-distributed-deployment.png){: style="width:78%"}]({{base_path}}/assets/img/setup-and-install/db-connections-distributed-deployment.png)
 
@@ -148,3 +158,4 @@ The following diagram depicts how the Control Plane, Traffic Manager and Gateway
 
 -   Find out more about [running API-M profiles]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles).
 -   See the instructions on [configuring a distributed API-M deployment]({{base_path}}/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup).
+-   See the instructions on [configuring a distributed API-M deployment with Traffic Manager separated]({{base_path}}/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-tm-separated).
