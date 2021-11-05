@@ -59,7 +59,7 @@ Before deploying the API project, edit the file `deployment_environments.yaml`.
 
 ```yaml
 type: deployment_environments
-version: v4.0.0
+version: v4.1.0
 data:
  -
    displayOnDevportal: true
@@ -95,7 +95,7 @@ data:
     
     ```yaml
     type: deployment_environments
-    version: v4.0.0
+    version: v4.1.0
     data:
      -
        displayOnDevportal: true
