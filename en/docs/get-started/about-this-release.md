@@ -30,9 +30,9 @@ API Manager 4.1.0-M1</td>
 
 ### Improvements
 
-- **[Authentication for Prototype APIs]({{base_path}}/design/prototype-api/create-a-mock-api-with-an-inline-script/#step-2-configure-security-for-the-prototype-api) (M1)**
+- **Authentication for Prototype APIs (M1)**
 
-	 Authentication for Prototype APIs is available by default so that the client apps can also be created using authentication to test out the APIs. If needed, you can disable authentication for Prototype APIs at the resource level or API level.
+	 Authentication for Prototype APIs is available by default so that the client apps can also be created using authentication to test out the APIs. If needed you can [disable authentication for Prototype APIs]({{base_path}}/design/prototype-api/create-a-prototype-api/)) at the resource level or API level.
 
 <! --- ### Deprecated features and functionalities
 
