@@ -3,19 +3,20 @@
 WSO2 API Manager utilizes the vendor extensions support in [Open API specification](#https://swagger.io/docs/specification/openapi-extensions/), to store operations such as throttling, against each API.
 As per the current implementation, following extensions are supported by API Manager:
  
--   [x-auth-type](#x-auth-type)
--   [x-throttling-tier](#x-throttling-tier)
--   [x-wso2-auth-header](#x-wso2-auth-header)
--   [x-wso2-cors](#x-wso2-cors)
--   [x-wso2-production-endpoints](#x-wso2-production-endpoints)
--   [x-wso2-sandbox-endpoints](#x-wso2-sandbox-endpoints)
--   [x-wso2-basePath](#x-wso2-basePath)
--   [x-wso2-transports](#x-wso2-transports)
--   [x-scopes-bindings](#x-scopes-bindings)
--   [x-scopes-mappings](#x-scopes-mappings)
--   [x-wso2-soap](#x-wso2-soap)
--   [x-wso2-mutual-ssl](#x-wso2-mutual-ssl)
--   [x-wso2-auth-header](#x-wso2-auth-header)
+- [x-auth-type](#x-auth-type)
+- [x-throttling-tier](#x-throttling-tier)
+- [x-wso2-auth-header](#x-wso2-auth-header)
+- [x-wso2-cors](#x-wso2-cors)
+- [x-wso2-endpoints](#x-wso2-endpoints)
+- [x-wso2-production-endpoints](#x-wso2-production-endpoints)
+- [x-wso2-sandbox-endpoints](#x-wso2-sandbox-endpoints)
+- [x-wso2-basePath](#x-wso2-basePath)
+- [x-wso2-transports](#x-wso2-transports)
+- [x-scopes-bindings](#x-scopes-bindings)
+- [x-scopes-mappings](#x-scopes-mappings)
+- [x-wso2-soap](#x-wso2-soap)
+- [x-wso2-mutual-ssl](#x-wso2-mutual-ssl)
+- [x-wso2-auth-header](#x-wso2-auth-header)
  
 ## x-auth-type
  
@@ -131,7 +132,8 @@ The following example enables the CORS configuration of the API, by allowing all
  
 ## x-wso2-production-endpoints
  
-**x-wso2-production-endpoints** specifies the production endpoint configuration and applied at root level API definition.
+**x-wso2-production-endpoints** specifies the production endpoint configuration and applied at root level or resource 
+level in API definitions.
  
 The following table lists the attributes that can be configured under x-wso2-production-endpoints:
  
@@ -150,7 +152,8 @@ The following example illustrates how to define **x-wso2-production-endpoints** 
  
 ## x-wso2-sandbox-endpoints
  
-**x-wso2-sandbox-endpoints** specifies the sandbox endpoint configuration and applied at root level API definition.
+**x-wso2-sandbox-endpoints** specifies the sandbox endpoint configuration and applied at root level or resource level 
+in API definitions.
  
 The following table lists the attributes that can be configured under x-wso2-sandbox-endpoints:
  
@@ -166,6 +169,40 @@ The following example illustrates how to define **x-wso2-sandbox-endpoints** ext
                 - 'https://petstore.swagger.io/v2'
             type: http
        ```
+
+## x-wso2-endpoints
+
+**x-wso2-endpoints** defines the endpoint configuration globally which thereafter can be referred to using one of the
+following extensions.
+
+- **x-wso2-production-endpoints**
+- **x-wso2-sandbox-endpoints**
+
+When there are resource level endpoints, there could be same endpoint in multiple resources, it will cause data
+duplication in the OpenAPI definition. In order to avoid that, endpoints can provide under the reference model
+(by referring to x-wso2-endpoints).
+
+The following table lists the attributes that can be configured under x-wso2-endpoints:
+
+| Properties    | Type   | Description                                                                           |
+|---------------|--------|---------------------------------------------------------------------------------------|
+| endpoint name | String | Specifies name for the endpoint                                                       |
+| urls          | String | Specifies the endpoint URL                                                            |
+
+The following example illustrates how to define **x-wso2-endpoints** extension:
+        ```
+        ...
+        x-wso2-production-endpoints: "#/x-wso2-endpoints/myEndpoint1"
+        ...
+        x-wso2-endpoints:
+          - myEndpoint1:
+              urls:
+              - https://localhost:2380/v1
+          - myEndpoint2:
+              urls:
+              - https://localhost:2382/v2
+        ...
+        ```
 
 ## x-wso2-basePath
  
