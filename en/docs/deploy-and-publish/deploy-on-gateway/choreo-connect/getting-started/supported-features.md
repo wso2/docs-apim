@@ -21,7 +21,7 @@ API Manager product. Following is a list of key features supported by Choreo Con
 - API/Resource, application and subscription level throttling.
 - Advance throttling, custom policies and the blocking conditions.
 - Publish analytics to the Choreo cloud.
-- Back-end JWT generation (Passing end user details to the back end services).
+- Backend JWT generation (Passing end user details to the back end services).
 - Provide custom header name for authentication header and configuration to enable/disable authentication header from outbound request.   
 - Fetch and deploy key managers added by API Manager admin portal.
 - Define multiple key managers from the configurations.
