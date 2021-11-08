@@ -59,15 +59,15 @@ nav:
           - About this Release: get-started/about-this-release.md
     - Design APIs:
         - Design APIs Overview: design/design-api-overview.md
-        - Create a New API:
-            - Create a REST API:
+        - Create APIs:
+            - REST APIs:
                 - Create a REST API: design/create-api/create-rest-api/create-a-rest-api.md
                 - Create a REST API from an OpenAPI Definition: design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition.md
                 - Expose a SOAP Service as a REST API: design/create-api/create-rest-api/expose-a-soap-service-as-a-rest-api.md
                 - Generate REST API from SOAP Backend: design/create-api/create-rest-api/generate-rest-api-from-soap-backend.md
                 - Test a REST API: design/create-api/create-rest-api/test-a-rest-api.md
-            - Create a GraphQL API: design/create-api/create-a-graphql-api.md
-            - Create a Streaming API:
+            - GraphQL APIs: design/create-api/create-a-graphql-api.md
+            - Streaming APIs:
                 - Streaming API Overview: design/create-api/create-streaming-api/streaming-api-overview.md
                 - Create a WebSocket API: design/create-api/create-streaming-api/create-a-websocket-streaming-api.md
                 - Create a WebSub/WebHook API: design/create-api/create-streaming-api/create-a-websub-streaming-api.md
@@ -79,10 +79,8 @@ nav:
         - Create API Revisions: design/create-api/create-api-revisions.md
         - Adding Custom Properties to APIs: design/create-api/adding-custom-properties-to-apis.md
         - Change the Thumbnail of an API: design/create-api/change-api-thumbnail.md
-        - Prototype APIs:
-                - Create a Prototype API with an Inline Script: design/prototype-api/create-a-mock-api-with-an-inline-script.md
-                - Deploy and Test Prototype APIs: design/prototype-api/deploy-and-test-mock-apis.md
-        - Create API Product:
+        - Create Prototype APIs: design/prototype-api/create-a-prototype-api.md
+        - Create API Products:
                 - API Product Overview: design/create-api-product/api-product-overview.md
                 - Create an API Product: design/create-api-product/create-api-product.md
         - Endpoints:
@@ -2095,6 +2093,8 @@ plugins:
               'api-analytics/viewing/view-api-analytics-on-alerts.md': 'https://wso2.com/choreo/docs/insights/derive-insights/#alerts'
               'api-analytics/viewing/download-api-analytics-reports.md': 'https://wso2.com/choreo/docs/insights/derive-insights/#reports'
               'install-and-setup/setup/mi-setup/observability/observability-deployment-strategy.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/micro-integrator/cloud-native-observability-overview/'
+              'design/prototype-api/create-a-mock-api-with-an-inline-script.md': 'https://apim.docs.wso2.com/en/4.1.0/design/prototype-api/create-a-prototype-api'
+              'design/prototype-api/deploy-and-test-mock-apis.md': 'https://apim.docs.wso2.com/en/4.1.0/design/prototype-api/create-a-prototype-api'
 
     # Extra
 extra_css:
