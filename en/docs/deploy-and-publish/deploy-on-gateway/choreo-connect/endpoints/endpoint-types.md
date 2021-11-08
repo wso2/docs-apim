@@ -13,7 +13,7 @@ Choreo Connect supports a range of different endpoint types, allowing it to conn
 </tr>
 <tr>
 <td>WebSocket Endpoint</td>
-<td>A HTTP based streaming endpoint implemented based on the WebSocket protocol. Once a connection is established with the endpoint, a channel that enables two way communication is created providing pub sub capabilities. </td>
+<td>An HTTP based streaming endpoint implemented based on the WebSocket protocol. Once a connection is established with the endpoint, a channel that enables two way communication is created providing pub sub capabilities. </td>
 </tr>
 <tr><td>Mock Implementation</td>
 <td>The Mock Implementation uses the built-in JavaScript engine of Synapse to mock the responses and can be used per HTTP resource of the API. For more information on the Mock Implementation, see <a href="{{base_path}}/design/prototype-api/create-a-prototype-api/#mock-implementation">Create a Prototype API</a>.</br>
