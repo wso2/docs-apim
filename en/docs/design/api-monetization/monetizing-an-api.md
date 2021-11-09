@@ -523,7 +523,7 @@ Let's use the
         ``` java tab="Example"
          [apim.analytics]
          enable = true
-         config_endpoint = "https://analytics-event-auth.st.choreo.dev/auth/v1"
+         config_endpoint = "https://analytics-event-auth.choreo.dev/auth/v1"
          auth_token = "xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
         ```    
    
