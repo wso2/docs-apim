@@ -523,7 +523,7 @@ Let's use the
         ``` java tab="Example"
          [apim.analytics]
          enable = true
-         config_endpoint = "https://analytics-event-auth.st.choreo.dev/auth/v1"
+         config_endpoint = "https://analytics-event-auth.choreo.dev/auth/v1"
          auth_token = "xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
         ```    
    
@@ -536,7 +536,7 @@ Let's use the
 
          ``` java tab="Example"
          [apim.monetization]
-         analytics_query_api_endpoint= "https://analytics-api.st.choreo.dev/query-api"
+         analytics_query_api_endpoint= "https://analytics-api.choreo.dev/query-api"
          ```     
    
     3. Define the Access Token required to access the above Query API. 
