@@ -69,7 +69,7 @@ Let's use the
 
     3. In the prompted screen click **+ Create** and select the Account type as Standard and select the Country. If you haven't enabled OAuth for standard accounts, the **Continue** button will be disabled. Click **enable OAuth for Standard Accounts** in the pop-up that appears on **Continue** button.
 
-        [![Enable oauth]({{base_path}}/assets/img/learn/monetization_enable_oauth.png)]({{base_path}}/assets/img/learn/monetization_enable_oauth.png)
+        [![Enable oauth]({{base_path}}/assets/img/learn/monetization_enable_oauth.png){: style="width:60%"}]({{base_path}}/assets/img/learn/monetization_enable_oauth.png)
     
     4. Enable **OAuth for Standard Accounts** under **OAuth Settings** in the prompted screen. Then, go back to the previous step and create a connected account. This will provide a one-time-use Standard onboarding link which would take the following format. The Tenant Admin can share this with the API Publisher.
     
@@ -523,7 +523,7 @@ Let's use the
         ``` java tab="Example"
          [apim.analytics]
          enable = true
-         config_endpoint = "https://analytics-event-auth.st.choreo.dev/auth/v1"
+         config_endpoint = "https://analytics-event-auth.choreo.dev/auth/v1"
          auth_token = "xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
         ```    
    
@@ -536,7 +536,7 @@ Let's use the
 
          ``` java tab="Example"
          [apim.monetization]
-         analytics_query_api_endpoint= "https://analytics-api.st.choreo.dev/query-api"
+         analytics_query_api_endpoint= "https://analytics-api.choreo.dev/query-api"
          ```     
    
     3. Define the Access Token required to access the above Query API. 
