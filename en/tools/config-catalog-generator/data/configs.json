@@ -5115,6 +5115,101 @@
                 }
             ],
             "exampleFile": "custom_keystore.toml"
-        }                                                                                    
+        },
+        {
+            "title": "Restricting access to web portals - Management console",
+            "options": [
+                {
+                    "name": "admin_console.control_access",
+                    "required": false,
+                    "description": "This adds a RemoteAddrValve Tomcat valve in the `<API-M_HOME>/repository/conf/tomcat/carbon/META-INF/context.xml` file and it will only apply to the Carbon management console, and thereby all outside requests to the management console will be blocked.",
+                    "params": [                   
+                         {
+                            "name": "enable",
+                            "type": "string",
+                            "required": false,
+                            "default": "true",
+                            "possible": "",
+                            "description": ""
+                        },
+                        {
+                            "name": "allow",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": ""
+                        }                                                                                                                                                                                                                                                                            
+                    ]
+                }
+            ],
+            "exampleFile": "admin_console.control_access.toml"
+        },
+        {
+            "title": "Restricting access to web portals - Web applications",
+            "options": [
+                {
+                    "name": "web_app.control_access",
+                    "required": false,
+                    "description": "This will add a RemoteAddrValve Tomcat valve in the `<API-M_HOME>/repository/conf/tomcat/context.xml` file and it will apply to each web application hosted on the Carbon server. Therefore, all outside requests to any web application will be blocked.",
+                    "params": [                   
+                         {
+                            "name": "enable",
+                            "type": "string",
+                            "required": false,
+                            "default": "true",
+                            "possible": "",
+                            "description": ""
+                        },
+                        {
+                            "name": "allow",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": ""
+                        }                                                                                                                                                                                                                                                                            
+                    ]
+                }
+            ],
+            "exampleFile": "web_app.control_access.toml"
+        },
+        {
+            "title": "Restricting access to web portals - Servlets",
+            "options": [
+                {
+                    "name": "servlet_access_control_filter",
+                    "required": false,
+                    "description": "This will add Remote Address Filter to the web.xml file (stored in the `<API-M_HOME>/repository/conf/tomcat/` directory) by mapping that filter to the servlet URL. In the Remote Address Filter that you add, you can specify the IP addresses that should be allowed to access the servlet.",
+                    "params": [                   
+                         {
+                            "name": "filter_name",
+                            "type": "string",
+                            "required": false,
+                            "default": "true",
+                            "possible": "",
+                            "description": ""
+                        },
+                        {
+                            "name": "allow_ip_regex",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": ""
+                        },
+                        {
+                            "name": "url_pattern",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": ""
+                        }                                                                                                                                                                                                                                                                            
+                    ]
+                }
+            ],
+            "exampleFile": "servlet_access_control_filter.toml"
+        }                                                                                   
     ]
 }
