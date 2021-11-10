@@ -172,7 +172,7 @@ The following example illustrates how to define **x-wso2-sandbox-endpoints** ext
 
 ## x-wso2-endpoints
 
-**x-wso2-endpoints** defines the endpoint configuration globally which thereafter can be referred to using one of the
+**x-wso2-endpoints** defines the endpoint configuration globally, which thereafter can be referred to using one of the
 following extensions.
 
 - **x-wso2-production-endpoints**
