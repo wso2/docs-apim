@@ -22,7 +22,7 @@ Extract the Choreo Connect distribution zip. Extracted folder will be called as 
 ### Step 2 - Initialize an API project
 
 Navigate to a preferred workspace folder using the command line. This is the location that is used to store the Choreo Connect project.
-Run the following command to create a project named "petstore".  This will create the folder structure for the artifacts to be included. Use the --oas option to include the API definition to the project as follows.
+Run the following command to create a project named "petstore". This creates the folder structure for the artifacts to be included. Use the --oas option to include the API definition to the project as follows.
 
 ``` java
 apictl init petstore --oas <api definition path>
