@@ -225,7 +225,7 @@ Follow the instructions given below to configure the Gateway node so that it can
 
             ```
 
-    3. Open the deployment.toml files of each Gateway node and add the cluster hostname. For example, if the hostname is `gw.am.wso2.com` the configuration will be:
+    3. Open the `deployment.toml` files of each Gateway node and add the cluster hostname. For example, if the hostname is `gw.am.wso2.com` the configuration will be:
 
         ```toml
         [server]
