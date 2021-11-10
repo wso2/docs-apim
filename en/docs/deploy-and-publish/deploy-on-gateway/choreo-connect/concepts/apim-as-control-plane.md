@@ -14,7 +14,7 @@ APIM control plane, therefore the user actions like API deploying, application c
 
     - Download the latest [Choreo Connect release](https://github.com/wso2/product-microgateway/releases) and extract it to a folder of your choice. The extracted folder will be referred to as `CHOREO-CONNECT_HOME` here onwards.
 
-    - This guide assumes that you have already started the WSO2 API Manager instance. If not, download the latest [release](https://github.com/wso2/product-apim/releases) and follow the steps described in [here](https://github.com/wso2/product-apim#installation--running).
+    - This guide assumes that you have already started the WSO2 API Manager instance. If not, download the latest [release](https://github.com/wso2/product-apim/releases) and follow the steps described [here](https://github.com/wso2/product-apim#installation--running).
 
 ### Step 1 - Find the APIM IP Address
 
