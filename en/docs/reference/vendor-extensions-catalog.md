@@ -178,7 +178,7 @@ following extensions.
 - **x-wso2-production-endpoints**
 - **x-wso2-sandbox-endpoints**
 
-When there are resource level endpoints, there could be same endpoint in multiple resources, it will cause data
+When there are resource level endpoints, the same endpoint can be available in multiple resources - this causes data
 duplication in the OpenAPI definition. In order to avoid that, endpoints can provide under the reference model
 (by referring to x-wso2-endpoints).
 
