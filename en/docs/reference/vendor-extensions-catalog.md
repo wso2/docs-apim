@@ -179,7 +179,7 @@ following extensions.
 - **x-wso2-sandbox-endpoints**
 
 When there are resource level endpoints, the same endpoint can be available in multiple resources - this causes data
-duplication in the OpenAPI definition. In order to avoid that, endpoints can provide under the reference model
+duplication in the OpenAPI definition. In order to avoid that, endpoints can be provided under the reference model
 (by referring to x-wso2-endpoints).
 
 The following table lists the attributes that can be configured under x-wso2-endpoints:
