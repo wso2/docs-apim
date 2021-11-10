@@ -79,7 +79,7 @@ You need to set up three clusters of the different components and runtimes as th
 !!! Note
     The basic deployment suggests two nodes of each runtime to ensure minimum high availability. However, you can independently scale them depending on the requirements.
 
-<a href="{{base_path}}/assets/img/setup-and-install/basic-scalable-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/basic-scalable-deployment.png" alt="simple scalability" width="80%"></a>
+<a href="{{base_path}}/assets/img/setup-and-install/basic-scalable-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/basic-scalable-deployment.png" alt="Simple scalability" width="80%"></a>
 
 ### API-M cluster
 
@@ -129,7 +129,7 @@ You need to set up three clusters of the different components and runtimes as th
     The basic deployment suggests two nodes of each runtime to ensure minimum high availability. However, you can independently scale them depending on the requirements.
 
 
-<a href="{{base_path}}/assets/img/setup-and-install/basic-scalable-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/basic-scalable-deployment.png" alt="simple scalability" width="80%"></a>
+<a href="{{base_path}}/assets/img/setup-and-install/deployment-pattern4.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-pattern4.png" alt="Simple scalability with Traffic Manager separation" width="80%"></a>
 
 ### API-M cluster
 
@@ -162,7 +162,7 @@ The API-M layer of this deployment consists of two clusters of API-M components 
     </tr>
 </table>
 
-To set up this cluster, see the instructions on <a href="{{base_path}}/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup">Setting up a Distributed API-M deployment</a>.
+To set up this cluster, see the instructions on <a href="{{base_path}}/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-tm-separated">Setting up a Distributed API-M deployment</a>.
 
 ### Integration cluster
 

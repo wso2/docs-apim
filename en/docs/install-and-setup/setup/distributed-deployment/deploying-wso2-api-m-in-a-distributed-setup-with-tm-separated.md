@@ -42,6 +42,8 @@ Given below are the API-M nodes you can have in a distributed deployment.
     </tr>
 </table>
 
+<a href="{{base_path}}/assets/img/setup-and-install/deployment-tm.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-tm.png" width="85%"></a>
+
 ## Step 1 - Install WSO2 API-M
 
 To install and set up the API-M servers:
@@ -83,8 +85,6 @@ Let's configure the API-M nodes in the deployment.
 ### Configure the Gateway nodes
 
 Configure the Gateway to communicate with the Control Plane and the Traffic Manager nodes.
-
-<a href="{{base_path}}/assets/img/setup-and-install/gateway-connections.png"><img src="{{base_path}}/assets/img/setup-and-install/gateway-connections.png" width="60%"></a>
 
 Follow the instructions given below to configure the Gateway node so that it can communicate with the Control Plane node:
 
