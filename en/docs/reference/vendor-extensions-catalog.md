@@ -132,7 +132,7 @@ The following example enables the CORS configuration of the API, by allowing all
  
 ## x-wso2-production-endpoints
  
-**x-wso2-production-endpoints** specifies the production endpoint configuration and applied at root level or resource 
+**x-wso2-production-endpoints** specifies the production endpoint configuration and is applied at root level or resource 
 level in API definitions.
  
 The following table lists the attributes that can be configured under x-wso2-production-endpoints:
