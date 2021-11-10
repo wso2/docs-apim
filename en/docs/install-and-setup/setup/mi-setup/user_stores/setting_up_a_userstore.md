@@ -10,17 +10,21 @@ Find out about [user credentials in the Micro Integrator]({{base_path}}/install-
 
 The default user store of the Micro Integrator is file-based. You can open the `deployment.toml` file and add new users to the file-based user store as shown below. You can [encrypt the plain text]({{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text) using **secure vault**.
 
+!!! Tip
+    Set `user.is_admin` to `true` to grant admin privileges to a user in the file-based user store.
+
 ```toml
 [[internal_apis.users]]
 user.name = "user-1"
 user.password = "pwd-1"
+user.is_admin = true
 
 [[internal_apis.users]]
 user.name = "user-2"
 user.password = "pwd-2"
 ``` 
 
-The users in this store can only access the management API and related tools ([Micro Integrator dashboard]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard)/[API Controller]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller). That is, the file-based user store only supports user authentication for the management API. If you want to use **authentication for integration use cases** or **authorization**, you need an [LDAP](#configuring-an-ldap-user-store) or [RDBMS](#configuring-an-rdbms-user-store) user store.
+The users in this store can only access the management API and related tools ([Micro Integrator dashboard]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard)/[API Controller]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller). That is, the file-based user store only supports user authentication and authorization for the management API. If you want to use **authentication for integration use cases**, you need an [LDAP](#configuring-an-ldap-user-store) or [RDBMS](#configuring-an-rdbms-user-store) user store.
 
 ## Disabling the file-based user store
 
