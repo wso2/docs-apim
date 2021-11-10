@@ -14,7 +14,7 @@ APIM control plane, therefore the user actions like API deploying, application c
 
     - Download the latest [Choreo Connect release](https://github.com/wso2/product-microgateway/releases) and extract it to a folder of your choice. The extracted folder will be referred to as `CHOREO-CONNECT_HOME` here onwards.
 
-    - This guide assumes that you have already started the WSO2 API Manager instance. If not, download the latest [release](https://github.com/wso2/product-apim/releases) and follow the steps [here](https://github.com/wso2/product-apim#installation--running).
+    - This guide assumes that you have already started the WSO2 API Manager instance. If not, download the latest [release](https://github.com/wso2/product-apim/releases) and follow the steps described [here](https://github.com/wso2/product-apim#installation--running).
 
 ### Step 1 - Find the APIM IP Address
 
@@ -26,9 +26,9 @@ Open the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/config.toml` 
 
 In the `[controlPlane.eventHub]` section,
 
- - set `enabled` to true
- - update `serviceUrl` and `eventHub` endpoints with with the IP of API Manager. (Search for `apim` and replace them with the IP. Or else, add an entry to the `/etc/hosts` file as `<ip-of-apim> apim`)
- - if you want to use a Gateway Environment other than the default, update `environmentLabels` with the name of the new Gateway Environment. If not, leave the value `"Default"` as it is.
+ - Set `enabled` to true
+ - Update `serviceUrl` and `eventHub` endpoints with the IP of API Manager. (Search for `apim` and replace them with the IP. Alternatively, add an entry to the `/etc/hosts` file as `<ip-of-apim> apim`)
+ - If you want to use a Gateway Environment other than the default, update `environmentLabels` with the name of the new Gateway Environment. If not, leave the value `"Default"` as it is.
 
  Example
  ``` yaml
@@ -60,7 +60,7 @@ docker-compose up -d
 ## Deploying API from Publisher portal
 Following steps explains how API is getting deployed in Choreo Connect upon API deploying action triggered in the publisher portal
 
-1. Configure Choreo Connect `[controlPlane]` configuration section to point to the API Manager
+1. Configure Choreo Connect `[controlPlane]` configuration section to point to the API Manager.
 2. User creates a revision of the API from API Manager publisher portal.
 3. Select the Choreo Connect as the gateway environment and deploys the API.
 4. Adapter component of Choreo Connect receives the event of API deploying from the API Manager event hub component.
@@ -72,14 +72,14 @@ Following steps explains how API is getting deployed in Choreo Connect upon API 
 Choreo Connect connects with event hub to receive different events in order to validate the subscriptions.
 The following set of events are received by the Choreo Connect in order to perform the subscription validation.
 
-1. API Deploying events
-2. Application creation Event
-3. Application key generation event (Generation of consumer key and secret)
+1. API Deploying events.
+2. Application creation event.
+3. Application key generation event (generation of consumer key and secret).
 4. Subscribing an API to application event.
 
 And also adapter pull the following details belonging to a particular tenant during the startup as well, in order to
 get the events that has happened before the starting of the gateway. Adapter will have list of environments assigned to it.
-Adapter will pull the APIs that are deployed in the specified set of environments only
+Adapter will pull the APIs that are deployed in the specified set of environments only.
 
 1. Pull all the APIs deployed for matching environments for a specific tenant.
 2. Pull all the applications created for a specific tenant.

@@ -12,7 +12,7 @@ Choreo Connect consists of the following three components.
 
 ### 1. Router
 
-Router is the component that is responsible for routing the traffic from different clients to the desired destination(service).
+Router is the component that is responsible for routing the traffic from different clients to the desired destination (service).
 Choreo Connect uses the [Envoy Proxy](https://www.envoyproxy.io/) as the core component which does the traffic routing.
 The APIs are exposed to the external clients using the router.
 
@@ -26,17 +26,17 @@ forward the request to the actual backend or reply back to the client with an er
 ### 3. Adapter
 
 Router and Enforcer have a data plane API that can be used to dynamically configure them.
-When an API needs to be deployed on the Choreo Connect we need to translate that API definition to the format understood by the Router(convert the API into routes) and Enforcer.
+When an API needs to be deployed in Choreo Connect, you need to translate that API definition to the format understood by the Router (convert the API into routes) and Enforcer.
 The adapter is the component that is responsible for that. Adapter will pass the data to the both the router and the enforcer.
 There are two different ways API can be received by the adapter.
 
-1. Adapter can receive an API from APIM control plane(publisher)
+1. Adapter can receive an API from APIM control plane (publisher)
 2. Adapter can receive APIs via pushing the API project from the command line tool [APICTL]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller)
 
 Choreo Connect can be used mainly in the following two modes.
 
 1. [Choreo Connect with API Manager as control plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane)
-2. [Choreo Connect As a standalone gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway)
+2. [Choreo Connect as a standalone gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway)
 
 ## Choreo Connect Request Flow
 

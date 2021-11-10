@@ -1,8 +1,8 @@
 # Choreo Connect Supported Features
 
 The latest version v0.9.0 of Choreo Connect does not support all the features provided by 
-API Manager product. In contrast to API gateway Choreo Connect(the API Microgateway) support subset of features offered by the 
-API Manager product. Following is a list of key features supported by Choreo Connect
+API Manager product. In contrast to API gateway, Choreo Connect (the API Microgateway) support subset of features offered by the 
+API Manager product. Following is a list of key features supported by Choreo Connect.
 
 - Deploying APIs from publisher portal.
 - Deploy new revisions of APIs from publisher portal.
@@ -17,11 +17,11 @@ API Manager product. Following is a list of key features supported by Choreo Con
 - Scope validation for JWT OAuth2 bearer tokens.
 - Applying CORS configuration from publisher portal.
 - Support full lifecycle states of APIs like created, prototyped, blocked, deprecated, published and etc.
-- Support virtual hosts(Vhosts) to expose the APIs.  
+- Support virtual hosts (Vhosts) to expose the APIs.  
 - API/Resource, application and subscription level throttling.
 - Advance throttling, custom policies and the blocking conditions.
 - Publish analytics to the Choreo cloud.
-- Back end JWT generation (Passing end user details to the back end services).
+- Backend JWT generation (Passing end user details to the back end services).
 - Provide custom header name for authentication header and configuration to enable/disable authentication header from outbound request.   
 - Fetch and deploy key managers added by API Manager admin portal.
 - Define multiple key managers from the configurations.
