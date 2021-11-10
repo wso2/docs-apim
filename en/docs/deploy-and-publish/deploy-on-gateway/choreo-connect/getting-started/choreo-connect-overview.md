@@ -26,7 +26,7 @@ forward the request to the actual backend or reply back to the client with an er
 ### 3. Adapter
 
 Router and Enforcer have a data plane API that can be used to dynamically configure them.
-When an API needs to be deployed on the Choreo Connect we need to translate that API definition to the format understood by the Router (convert the API into routes) and Enforcer.
+When an API needs to be deployed in Choreo Connect, you need to translate that API definition to the format understood by the Router (convert the API into routes) and Enforcer.
 The adapter is the component that is responsible for that. Adapter will pass the data to the both the router and the enforcer.
 There are two different ways API can be received by the adapter.
 
