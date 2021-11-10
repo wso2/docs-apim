@@ -152,7 +152,7 @@ The following example illustrates how to define **x-wso2-production-endpoints** 
  
 ## x-wso2-sandbox-endpoints
  
-**x-wso2-sandbox-endpoints** specifies the sandbox endpoint configuration and applied at root level or resource level 
+**x-wso2-sandbox-endpoints** specifies the sandbox endpoint configuration and is applied at root level or resource level 
 in API definitions.
  
 The following table lists the attributes that can be configured under x-wso2-sandbox-endpoints:
