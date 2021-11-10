@@ -2,7 +2,7 @@
 
 The WSO2 API-M server can be deployed as an [all-in-one deployment]({{base_path}}/install-and-setup/setup/single-node/all-in-one-deployment-overview) or as a distributed deployment. In the distributed setup, the [API-M server profiles]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles) are deployed as separate API-M nodes. 
 
-Given below are the API-M nodes you can have in a distributed deployment with Traffic Manager included within the Control Plane.
+Given below are the API-M nodes you can have in a distributed deployment by default.
 
 !!! Tip
     To enable high availability, you need a minimum of two nodes running each profile.
@@ -401,20 +401,6 @@ Once you have successfully configured all the API-M nodes in the deployment, you
     ``` java tab="Windows"
     cd <API-M_HOME>\bin\
     api-manager.bat --run -Dprofile=control-plane
-    ```
-
--   Start the Traffic Manager nodes
-
-    Open a terminal, navigate to the `<API-M-TRAFFIC-MANAGER-HOME>/bin` folder, and execute the following command:
-
-    ``` java tab="Linux/Mac OS"
-    cd <API-M_HOME>/bin/
-    sh api-manager.sh -Dprofile=traffic-manager
-    ```
-
-    ``` java tab="Windows"
-    cd <API-M_HOME>\bin\
-    api-manager.bat --run -Dprofile=traffic-manager
     ```
 
 For more information on starting API-M profiles, see [API-M Profiles]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles).
