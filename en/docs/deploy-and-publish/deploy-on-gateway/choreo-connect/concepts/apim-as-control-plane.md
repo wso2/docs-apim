@@ -27,7 +27,7 @@ Open the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/config.toml` 
 In the `[controlPlane.eventHub]` section,
 
  - Set `enabled` to true
- - Update `serviceUrl` and `eventHub` endpoints with with the IP of API Manager. (Search for `apim` and replace them with the IP. Or else, add an entry to the `/etc/hosts` file as `<ip-of-apim> apim`)
+ - Update `serviceUrl` and `eventHub` endpoints with the IP of API Manager. (Search for `apim` and replace them with the IP. Alternatively, add an entry to the `/etc/hosts` file as `<ip-of-apim> apim`)
  - If you want to use a Gateway Environment other than the default, update `environmentLabels` with the name of the new Gateway Environment. If not, leave the value `"Default"` as it is.
 
  Example
