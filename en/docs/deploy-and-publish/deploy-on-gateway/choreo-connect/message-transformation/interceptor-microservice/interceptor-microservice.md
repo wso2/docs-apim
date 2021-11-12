@@ -1,8 +1,8 @@
 # Interceptor Microservice
 
 Interceptor microservice defines your logic of the transformation. You can update payload body, headers and trailers
-of the *request to/response from* the backend. In case if you want to direct respond to the client without the request
-reach to the backend or change the endpoint dynamically that request should reach you can use interceptors.
+of the *request to/response from* the backend. You can also use interceptors to directly respond to the client without letting the request
+reach the backend or even dynamically change the endpoint of the request.
 
 Use the following Open API Definition to build your interceptor service with a programming language of your choice.
 

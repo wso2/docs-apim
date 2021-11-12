@@ -18,31 +18,32 @@ You can define interceptors on an API level (per API) and on a resource level (p
 If you define a request/response interceptor on an API level **and** a resource level, the API level interceptor will be
 overridden by the resource level interceptor for that resource.
 
-The flow of the request from client to backend through the interceptor service and the response from backend to client through
-the interceptor service is shown in the following diagram.
+The flow of the request from client to backend through the request interceptor service and the response from backend to client through
+the response interceptor service is shown in the following diagram.
 
 <img src="{{base_path}}/assets/img/deploy/mgw/interceptors-overview.png" alt="Choreo Connect Interceptors request flow" width="650px"/>
 
 | Numbers | Description                                                                                                                                    |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1,2,3   | Enforce the request.                                                                                                                           |
-| 4,5     | If request is valid (i.e. authenticated, not rate-limited etc.) Router calls the interceptor service and get instructions for transformations. |
-| 6,7     | Response from the backend.                                                                                                                     |
-| 8,9     | Response flow interception same as the request flow interception.                                                                              |
-| 10      | Respond to the client.                                                                                                                         |
+| 1        | Client request                                                                  |
+| 2,3     | Request validation flow via the Enforcer                          |
+| 4,5     | If the request is valid (i.e. authenticated, not rate-limited etc.) then the Router forwards the request to the Interceptor Service and allows the request to be transformed |
+| 6,7     | Response from the backend                                                                                                                    |
+| 8,9     | Response also goes through the Interceptor Service just like during the request flow                            |
+| 10      | Response to the client                                                                                                                             |
 
 Adding an interceptor requires following 2 steps. </br>
 
-1. [Implement the interceptor microservice, following the Interceptor Open API Definition.]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/interceptor-microservice/)
-2. [Refer the interceptor in the API to engage it in the request/response flow.]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/defining-interceptora-in-an-open-api-definition/)
+1. [Implement an interceptor microservice adhering to the Interceptor Open API Definition.]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/interceptor-microservice-open-api-definition.md)
+2. [Refer to the interceptor service from the client facing API definition to engage with it in the request/response flow.]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/defining-interceptors-in-an-open-api-definition.md)
 
 !!! info
-    Following limitations are exists with request/response body manipulation.
+    Following are not supported during request/response body manipulation.
 
     - Large payload manipulation. Maximum supported payload size is 1MiB.
     - Content types (eg: `multipart/form-data`) with binary payloads.
 
-    However you can use interceptors to modify headers, trailers with above mensioned scenrios.
+    However you can use interceptors to modify headers, trailers with above mentioned scenarios.
 
 
 
