@@ -95,10 +95,10 @@ paths:
 <!-- The content of the below warning is same as the info notice in the file
 deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/request-flow-interceptor.md -->
 !!! info
-    If you update the request body before reaching the backend, make sure to add `request_body` to the `includes` section
-    of the Open API Specification. You may have a scenario, where you define your own request body to be sent to the backend,
-     only based on a header value. Even though you do not read the request body, the above inclusion
-    should be done to update the request body.
+    If you update the request body before reaching the backend, ensure to add `request_body` to the `includes` section
+    of the Open API Specification. You may have a scenario like, whatever the request body from the client, you define
+    your own request body (say, based on a header value) to send to the backend. Even though you do not read the
+    request body, you should do the above inclusion.
 
 ## Response flow Interceptor
 

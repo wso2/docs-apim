@@ -3,13 +3,13 @@
 ## Sample 1: JSON to XML transformation for a Legacy Backend - Book Store
 
 Let's say we have a legacy backend "Book Store". The resource `/books` with the method `POST` accepts an XML request to add a new book.
-The value of the header `password` should be `admin` otherwise it returns `401` HTTP status code.
-If book got added successfully then the returned HTTP code is `200`.
+The value of the header `password` should be `admin` otherwise it returns the `401` HTTP status code.
+If the book got added successfully then the returned HTTP code is `200`.
 
-Let's say our requirement is to make the API to accepts JSON payload and if book get created success, respond it with the
-HTTP status code `201` and we are happy about the response returned from the backend so no need to modify the response.
+Let's say our requirement is to make the API accepts JSON payload and if the book gets created success, respond to it
+with the HTTP status code `201` and we are happy about the response returned from the backend so no need to modify the response.
 
-Following diagram describes what we are planning to do as in our requirements.
+The following diagram describes what we are planning to do as in our requirements.
 
 <img src="{{base_path}}/assets/img/deploy/mgw/interceptor-example-json-to-xml.png" alt="Interceptor sample JSON to XML" width="880px"/>
 
@@ -42,7 +42,7 @@ Clone the repository and change to the cloned path.
 
 #### Directly invoke the backend
 
-The port of the backend server is bind to the host in the docker-compose.yaml. So we can test it first.
+The port of the backend server is bound to the host in the docker-compose.yaml. So we can test it first.
 Check the HTTP status code as well.
 
 ```shell
