@@ -495,6 +495,46 @@ Member properties can be used to associate configuration data with an endpoint.
       </tr>
 </table>
 
+### Basic Auth Properties
+
+The following properties <b>only</b> apply to HTTP endpoint.
+
+The `basicAuth` element contains the following parameters that are used to configure basic authentication for the endpoint.
+
+<table>
+    <tr>
+        <th>Property</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>username</td>
+        <td>
+            User's username to invoke the defined endpoint.
+        </td>
+    </tr>
+    <tr>
+        <td>password</td>
+        <td>
+            User's password to invoke the defined endpoint.
+        </td>
+    </tr>
+</table>
+
+The following is an HTTP endpoint configured with basic authentication.
+
+```xml
+<endpoint name="FoodEP" xmlns="http://ws.apache.org/ns/synapse">
+    <http method="get" uri-template="http://localhost:9192/service/foodservice">
+        <authentication>
+            <basicAuth>
+                  <username>admin</username>
+                  <password>admin</password>
+            </basicAuth>
+        </authentication>
+    </http>
+</endpoint>
+```
+
 ### OAuth Properties
 
 The following properties <b>only</b> apply to HTTP endpoint. 
