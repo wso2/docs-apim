@@ -1,6 +1,6 @@
 # Interceptor Microservice Open API Definition
 
-Following is the Open API definition of the interceptor microservice that you need to be implemented.
+Following is the Open API definition of the interceptor microservice that you need to implement.
 
 ``` yaml
 openapi: 3.0.0

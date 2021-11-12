@@ -1,9 +1,9 @@
-# Interceptor Contexts Information
+# Interceptor Context and Invocation Context
 
 ## Interceptor Context
 
 Interceptor context is a string to string map that can be shared with request flow interceptor and response flow interceptor.
-From the request interceptor you can set it in the response body of the interceptor, and the Choreo Connect Router will add them
+From the request interceptor, you can set it in the response body of the request interceptor, and Choreo Connect Router will add them
 to the request it made to the response interceptor. Following is a sample interceptor context.
 
 ```json
@@ -18,6 +18,7 @@ to the request it made to the response interceptor. Following is a sample interc
 
 Invocation context describes the request information. This is an optional object that you can request from
 Choreo Connect Router to your interceptor service by referring it in the `includes` in Open API Definition.
+Invocation context has the following information.
 
 ``` json tab="Format"
 {
