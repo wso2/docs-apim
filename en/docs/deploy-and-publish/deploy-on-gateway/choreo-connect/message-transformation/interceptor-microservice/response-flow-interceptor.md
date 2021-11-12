@@ -4,11 +4,11 @@ Intercept the Response to the client and update headers, trailer and body before
 
 ## Request and Response for Interceptor
 
-In this section you can find the content of the request to/response from the interceptor service.
+In this section, you can find the content of the request to/response from the interceptor service.
 
 ### 1. Request from the Choreo Connect Router to Interceptor Service
 
-Following is the request received from the Choreo Connect Router when you enable response interceptor.
+Following is the request received from the Choreo Connect Router when you enable the response interceptor.
 
 ``` json tab="Format"
 {
@@ -65,7 +65,7 @@ Following is the request received from the Choreo Connect Router when you enable
 
 ### 2. Response from the Interceptor Service to Choreo Connect Router
 
-Following is the response that interceptor service should respond to the Choreo Connect Router when you enable response interceptor.
+Following is the response that interceptor service should respond to the Choreo Connect Router when you enable the response interceptor.
 
 ``` json tab="Format"
 {
@@ -127,7 +127,7 @@ Following is the response that interceptor service should respond to the Choreo 
 <!-- The content of the below warning is same as the info notice in the file
 deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/defining-interceptors-in-an-open-api-definition.md -->
 !!! warning
-    If you update the response body before reaching the client, make sure to add `response_body` to the `includes` section
-    of the Open API Specification. You may have a scenario like, what ever the response body from the backend, based on a header value
-    you define your own response body to be sent to the client. Even though you do not read the response body, the above inclusion
-    should be done to update the response body.
+    If you update the response body before reaching the client, ensure to add `response_body` to the `includes` section
+    of the Open API Specification. You may have a scenario like, whatever the response body from the backend, you define
+    your own response body (say, based on a header value) to send to the client. Even though you do not read the
+    response body, you should do the above inclusion.

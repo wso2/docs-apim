@@ -4,11 +4,11 @@ Intercept the request to the backend and update headers, trailer and body before
 
 ## Request and Response for Interceptor
 
-In this section you can find the content of the request to/response from the interceptor service.
+In this section, you can find the content of the request to/response from the interceptor service.
 
 ### 1. Request from the Choreo Connect Router to Interceptor Service
 
-Following is the request received from the Choreo Connect Router when you enable request interceptor.
+Following is the request received from the Choreo Connect Router when you enable the request interceptor.
 
 ``` json tab="Format"
 {
@@ -48,7 +48,7 @@ Following is the request received from the Choreo Connect Router when you enable
 
 ### 2. Response from the Interceptor Service to Choreo Connect Router
 
-Following is the response that interceptor service should respond to the Choreo Connect Router when you enable request interceptor.
+Following is the response that the interceptor service should respond to the Choreo Connect Router when you enable the request interceptor.
 
 ``` json tab="Format"
 {
@@ -125,16 +125,16 @@ Following is the response that interceptor service should respond to the Choreo 
 <!-- The content of the below warning is same as the info notice in the file
 deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/defining-interceptors-in-an-open-api-definition.md -->
 !!! warning
-    If you update the request body before reaching the backend, make sure to add `request_body` to the `includes` section
-    of the Open API Specification. You may have a scenario like, what ever the request body from the client, based on a header value
-    you define your own request body to be sent to the backend. Even though you do not read the request body, the above inclusion
-    should be done to update the request body. 
+    If you update the request body before reaching the backend, ensure to add `request_body` to the `includes` section
+    of the Open API Specification. You may have a scenario like, whatever the request body from the client, you define
+    your own request body (say, based on a header value) to send to the backend. Even though you do not read the
+    request body, you should do the above inclusion.
 
 ## Direct Respond
 
-You can direct respond to the client without reaching the backend service. In the response of the interceptor you have to set
-the `directRespond` value to `true`. Following is a sample response of an interceptor service. Note that the body should be
-base64 encoded.
+You can directly respond to the client without reaching the backend service. In the response of the interceptor,
+you have to set the `directRespond` value to `true`. Following is a sample response of an interceptor service.
+Note that the body should be base64 encoded.
 
 ``` json
 {
@@ -149,13 +149,14 @@ base64 encoded.
 
 ## Dynamic Endpoint
 
-You can select the endpoint that the request should be directed with the logic of your interceptor service.
-Before respond the "Dynamic Endpoint" name in the interceptor response, you have to define all the available endpoints
-defined with the extension `x-wso2-endpoints`. Refer [Defining Endpoints in an OpenAPI Definition]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/defining-endpoints-in-an-openapi-definition/).
+You can select the endpoint (or the backend) that the request should get directed with the logic of your interceptor service.
+First, you have to define all the available endpoints defined with the extension `x-wso2-endpoints`.
+Refer [Defining Endpoints in an OpenAPI Definition]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/defining-endpoints-in-an-openapi-definition/).
+Then, you can include the "Dynamic Endpoint" name in the interceptor response.
 
 !!! warning
     The endpoint URLs that you provide in the `x-wso2-endpoints` should have the same base path as in the `x-wso2-production-endpoints`.
-    If you define some other base path, it will not result into the expected behaviour.
+    If you define some other base path, it will not result in the expected behaviour.
 
     Example:
 
@@ -195,7 +196,7 @@ x-wso2-endpoints:
       type: loadbalance
 ```
 
-Following is a part of a response from interceptor. You can do the same i.e. modify headers, trailers and body with dynamic endpoints.
+Following is a part of a response from the interceptor. You can do the same i.e. modify headers, trailers and body with dynamic endpoints.
 ```json
 {
   "dynamicEndpoint": {
