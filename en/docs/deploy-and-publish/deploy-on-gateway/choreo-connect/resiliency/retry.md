@@ -1,12 +1,16 @@
-# Retry
+# Configuring Retry Policies in Choreo Connect
 
-There can be scenarios where the backend endpoint is unavailable for a short period of time, due to the load or due to a transient error. Choreo Connect supports handling such sceraios by configuring a retry policy which would make the router retry the HTTP request on befalf of the client.
+The backend endpoint can be unavailable for a short period of time due to various reasons, such as due to the load or due to a transient error. Choreo Connect handles such scenarios by configuring a Retry Policy which would make the router retry the HTTP request on behalf of the client. You can configure a Retry Policy at the [endpoint level](#endpoint-level-retry-policy). In addition, you can set [Global Level Retry Policy Configurations](#global-level-retry-policy-configurations), which you can use to enforce limitations on the defined Endpoint Level Retry Policies.
 
-## Configuring a Retry Policy
+## Endpoint Level Retry Policy
 
-Choreo Connect accepts a retry policy in following format. This can be included in the OpenAPI definition under `x-wso2-production-endpoint` and/or `x-wso2-sandbox-endpoint` when deploying via apictl.
+You can define a Retry Policy for an endpoint in the `x-wso2-production-endpoint` and/or `x-wso2-sandbox-endpoint` OpenAPI extension of the API's OpenAPI definition, based on the endpoint type (i.e., production or sandbox), when [deploying an API **via the apictl (CLI Tool)**]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-via-apictl/).
 
-```
+**Example:**
+
+For example, if the Retry Policy is defined as follows, it will result in the router retrying three times if the backend responds with a 504 status code.
+
+``` bash tab="Production Endpoint"
 x-wso2-production-endpoints:
     urls:
       - https://localhost:2380/v3
@@ -17,33 +21,58 @@ x-wso2-production-endpoints:
           - 504
 ```
 
-!!! note ""
-    - count       - The number of additional retry attempts before giving up   
-    - statusCodes - The HTTP status codes to retry
+``` bash tab="Sandbox Endpoint"
+x-wso2-sandbox-endpoints:
+    urls:
+      - https://localhost:2380/v3
+    advanceEndpointConfig:
+      retryConfig:
+        count: 3
+        statusCodes:
+          - 504
+```
 
-Having the above retry policy would make the router retry atmost three times if the backend responds with a 504. 
+| **Field** | **Description** |
+|-------|-------------|
+| count | The number of additional retry attempts before giving up. |
+| statusCodes | The HTTP status codes to retry. The accepted HTTP status code range is as follows: 401 to 598 |
 
-!!! note "Important to Note"
-    Adding the retry policy via the OpenAPI definition in API-M is not yet supported. In the API-M UI, a retry count can be specified via the [Endpoints tab]({{base_path}}/design/endpoints/resiliency/endpoint-timeouts/) when configuring production and sandbox endpoints. The retry functionality in Choreo Connect would work when the value for "retries before suspension" is set. Please not that this value does not lead to a suspension of the endpoint when run with Choreo Connect. The status codes to retry would be the list of status codes defined in Choreo Connect at a global level. 
+When a Retry Policy is executed, the interval between two retries is a random number between `0` and `(2^N-1)B`. 
 
-Here the interval between two retries is a random number between 0 and (2^N-1)B. N is the retry number and B is the default base interval of 25ms. The interval between the retries being random, prevents a backend from getting spike of retry requests (when triggered by many clients), and mitigates a potential unavailability of the backend that could occur due to the retries itself. For more information, click [here](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/router_filter#config-http-filters-router-x-envoy-max-retries)
+- `N` is the retry number.
+- `B` is the default base interval of `25ms` (milliseconds). 
+- The interval between the retries being random prevents a backend from getting a spike of retry requests (when triggered by many clients) and mitigates the potential unavailability of the backend that could occur due to the retries. 
 
-!!! tip
+For more information, see [x-envoy-max-retries](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/router_filter#config-http-filters-router-x-envoy-max-retries) in the official Envoy documentation.
 
-    The following global values can be set in config.toml related to the retry behaviour.
+!!! note
+    - At the moment, WSO2 API Manager does not support adding a Retry Policy via the WSO2 API Manager (WSO2 API-M) UI.
+    - If required, when configuring the production and sandbox endpoints, you can also specify the retry count in the Endpoints page via the WSO2 API Manager UI. For more information, see [Endpoint timeouts]({{base_path}}/design/endpoints/resiliency/endpoint-timeouts/).
+    - The retry functionality in Choreo Connect will work when the value for **Retries Before Suspension** is set via the WSO2 API-M UI. However, when run with Choreo Connect, this **does not lead to a suspension of the endpoint**, unlike when run with an API Gateway.
+    - If the retry functionality is set via the **Retries Before Suspension** field in the WSO2 API-M UI, the global level status codes in Choreo Connect will be considered when the retrying process takes place.
 
-    ```
-    [router.upstream.retry]
-      # Maximum value that can be set as the count within retry configs in an OpenAPI definition or API-M UI
-      maxRetryCount = 5
-      # Base interval for the Envoy's exponential retry back off algorithm
-      baseIntervalInMillis = 25
-      # HTTP status codes, the retry mechanism will be enabled for.
-      # Used when retry config is set via API-M UI or all given status codes are out of range.
-      statusCodes = [ 504 ]
-    ```
+## Global Level Retry Policy Configurations
 
-The next section explains the timeout. It is recommended to always set a timeout when a retry policy is added. If not, the default global timeout will be applied.
+!!! note
+    The Global Level Retry Policy Configurations are **applicable only when Endpoint Level Retry Policies are defined**. 
 
+You can define the Global Level Retry Policy in the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/config.toml` file by using the following configuration. If the Endpoint Level Retry Policies and the Global Level Retry Policies are not defined, the default values available for the Global Level Retry Policies are applied.
 
- 
+```
+[router.upstream.retry]
+  maxRetryCount = 5
+  baseIntervalInMillis = 25
+  statusCodes = [ 504 ]
+```
+
+| **Field** | **Description** |
+|-----------|-----------------|
+| maxRetryCount | Maximum value that can be set as the count within the retry configurations in an OpenAPI definition or when configured via the WSO2 API-M UI. |
+| baseIntervalInMillis | Base interval for the Envoy's exponential retry back off algorithm. |
+| statusCodes | The retry mechanism will be enabled for the HTTP status codes that are specified in this list. This is used when the retry configuration is set via the WSO2 API-M UI by setting the [**Retries Before Suspension** field]({{base_path}}/design/endpoints/resiliency/endpoint-timeouts/) or when all the status codes specified in the Endpoint Level Retry Policy are out of range. |
+
+For more information with regard to the Global Level Retry Policy Configurations, see [Upstream Retry]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/router-configurations/#upstream-retry).
+
+## See Also
+
+- [Timeout]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/resiliency/timeout) - WSO2 recommends that you always set a timeout when adding a retry policy. If not, the default global timeout will be applied.

@@ -79,7 +79,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>host for Listener of Router.</p>
+                                        <p>Host for the listener of Router.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -98,7 +98,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Host for secured listener of Router.</p>
+                                        <p>Host for the secured listener of Router.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -117,7 +117,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Port for listener of Router.</p>
+                                        <p>Port for the listener of Router.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -174,7 +174,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The amount of time the Router will wait for an upstream TCP connection to be established.</p>
+                                        <p>The time duration that the Router will wait for an upstream TCP connection to be established.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -253,7 +253,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The amount of time that the Router will wait for the entire request to be received by the upstream, from the time the request was initiated by the client.</p>
+                                        <p>The time duration that the Router waits for the request to be received by the upstream, starting from the time it was initiated at the client.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -272,7 +272,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The amount of time that the Router will wait for the request headers to be received by the upstream, from the time the request was initiated by the client.</p>
+                                        <p>The time duration that the Router waits for the request headers to be received by the upstream, starting from the time it was initiated at the client.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -291,7 +291,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The amount of time that the Router will allow a stream to exist with no upstream or downstream activity. This timeout is applied to regular requests/responses as well as streaming requests/responses, and can be overridden by router.upstream.timeouts.routeIdleTimeoutInSeconds.</p>
+                                        <p>The time duration that the Router will allow a stream to exist with no upstream or downstream activity. This timeout is applied to regular requests/responses as well as streaming requests/responses, and can be overridden by router.upstream.timeouts.routeIdleTimeoutInSeconds</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -324,7 +324,7 @@ See the example .toml file given below.
 
 
 
-## Router Keystore
+## Upstream Timeout
 
 
 <div class="mb-config-catalog">
@@ -334,6 +334,103 @@ See the example .toml file given below.
             
             <input name="4" type="checkbox" id="_tab_4">
                 <label class="tab-selector" for="_tab_4"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[router.upstream.timeouts]
+  routeTimeoutInSeconds = 60
+  maxRouteTimeoutInSeconds = 60
+  routeIdleTimeoutInSeconds = 300
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[router.upstream.timeouts]</code>
+                            
+                            <p>
+                                Timeout settings related to routes. This will be applicable globally for all the APIs in Choreo Connect.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>routeTimeoutInSeconds</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>60</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>This is the value that gets overridden by the timeout set at the endpoint level.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>maxRouteTimeoutInSeconds</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>60</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Maximum value accepted as the endpoint level timeout. If a larger timeout is set as the Endpoint Level Route Timeout, this value will replace the provided Endpoint Level Route Timeout.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>routeIdleTimeoutInSeconds</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>300</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The backend (upstream) connection idle timeout. The time duration that the request’s stream may be idle.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## Router Keystore
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="5" type="checkbox" id="_tab_5">
+                <label class="tab-selector" for="_tab_5"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[adapter.keystore]
@@ -408,8 +505,8 @@ See the example .toml file given below.
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="5" type="checkbox" id="_tab_5">
-                <label class="tab-selector" for="_tab_5"><i class="icon fa fa-code"></i></label>
+            <input name="6" type="checkbox" id="_tab_6">
+                <label class="tab-selector" for="_tab_6"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[router.cors]
@@ -561,13 +658,14 @@ allowCredentials = false
 
 ## Upstream Retry
 
+
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="6" type="checkbox" id="_tab_6">
-                <label class="tab-selector" for="_tab_6"><i class="icon fa fa-code"></i></label>
+            <input name="7" type="checkbox" id="_tab_7">
+                <label class="tab-selector" for="_tab_7"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[router.upstream.retry]
@@ -583,7 +681,7 @@ allowCredentials = false
                             <code>[router.upstream.retry]</code>
                             
                             <p>
-                                The configurations for the Choreo Connect router when retrying upstream clusters
+                                The configurations for the Choreo Connect router when retrying upstream clusters.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -603,7 +701,7 @@ allowCredentials = false
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Maximum value that can be set as the count within endpoint level retry configs</p>
+                                        <p>Maximum value that can be set as the count within the Endpoint Level Retry configuration.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -641,104 +739,7 @@ allowCredentials = false
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>HTTP status codes that would switch on the retry mechanism when an endpoint level retry config is set. The list here is used when retry config is set via API-M UI or or all given status codes are out of range.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
-
-
-
-## Upstream Timeout
-
-
-<div class="mb-config-catalog">
-    <section>
-        <div class="mb-config-options">
-            <div class="superfences-tabs">
-            
-            <input name="7" type="checkbox" id="_tab_7">
-                <label class="tab-selector" for="_tab_7"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
-                    <div class="mb-config-example">
-<pre><code class="toml">[router.upstream.timeouts]
-  routeTimeoutInSeconds = 60
-  maxRouteTimeoutInSeconds = 60
-  routeIdleTimeoutInSeconds = 300
-</code></pre>
-                    </div>
-                </div>
-                <div class="doc-wrapper">
-                    <div class="mb-config">
-                        <div class="config-wrap">
-                            <code>[router.upstream.timeouts]</code>
-                            
-                            <p>
-                                Timeout settings related to routes. This will be applicable globally for all the APIs in Choreo Connect.
-                            </p>
-                        </div>
-                        <div class="params-wrap">
-                            <div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>routeTimeoutInSeconds</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> integer </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>60</code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p>This is the value that gets overridden by the timeout set at the endpoint level.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>maxRouteTimeoutInSeconds</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> integer </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>60</code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Maximum value accepted as the endpoint level timeout. If a larger timeout is set, maxRouteTimeoutInSeconds will replace the provided endpoint level timeout.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>routeIdleTimeoutInSeconds</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> integer </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>300</code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p>The backend (upstream) connection idle timeout. The amount of time the request’s stream may be idle.</p>
+                                        <p>HTTP status codes that would switch on the retry mechanism when an Endpoint Level Retry configuration is set. The list here is used when the retry configuration is set via the WSO2 API-M UI or when all given status codes are out of range.</p>
                                     </div>
                                 </div>
                             </div>
