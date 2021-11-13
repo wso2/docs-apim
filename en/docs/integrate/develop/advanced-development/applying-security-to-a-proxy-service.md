@@ -116,37 +116,37 @@ Create a Soap UI project with the relevant security settings and then send the r
 
 1.  Create a “SOAP Project” in SOAP UI using the WSDL URL of the proxy service (e.g.: http://localhost:8280/services/SampleProxy?wsdl)
 
-    <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/create-soapui-project.jpg" width="600">
+    <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/create-soapui-project.jpg"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/create-soapui-project.jpg" width="60%"></a>
 
 2.  Double click on the created SOAP project, click on “WS-Security-Configuration” -> “Keystores”, and add the WSO2 keystore.
 
-    <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/create-keystore.jpg" width="600">
+    <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/create-keystore.jpg"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/create-keystore.jpg" width="60%"></a>
     
 3.  We need to enter keystore password for the keystore configuration. 
 4.  Click on “Outgoing WS-Security Configuration”, and add a new policy by specifying a name. (Name can be anything).
 
-    <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/create-outgoing-wss-configuration.jpg" width="600">
+    <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/create-outgoing-wss-configuration.jpg"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/create-outgoing-wss-configuration.jpg" width="60%"></a>
     
 5.  Add required WSS entries for the created configuration (What you need add will vary according to the policy you are using). Explanation about adding three main sections is given below.
 
     - Adding **Signature**  
     
-    <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-signature-entry.jpg" width="600">
+    <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-signature-entry.jpg"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-signature-entry.jpg" width="60%"></a>
     
     - Adding **Timestamp**
     
-    <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-timestamp-entry.jpg" width="600">
+    <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-timestamp-entry.jpg"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-timestamp-entry.jpg" width="60%"></a>
     
     - Adding **Encryption**
     
-    <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-encryption-entry.jpg" width="600">
+    <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-encryption-entry.jpg">><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-encryption-entry.jpg" width="60%"></a>
     
     !!! Info
         Note: Please note that the order of the WS entries matters. So always add the above one after the other (If you are adding only two sections, you need to maintain the order).
         
 6.  Once we are done with WS security configurations, we have to specify the created WS-policy under “Outgoing WSS” at the request “Authorization”.
 
-    <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-with-out-policy.jpg" width="700">
+    <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-with-out-policy.jpg"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-with-out-policy.jpg" width="70%"></a>
    
 7.  Now you can invoke the Proxy Service. 
 
@@ -154,9 +154,9 @@ Create a Soap UI project with the relevant security settings and then send the r
 
     When defining Outgoing WS-Security Configuration, you need to pick on the WS entries based on your WS policy.
     
-    Eg:
+    For example:
     
-    - Non Repudiation policy needs only Timestamp and Signature. Confidentiality needs all three : Timestamp, Signature and Encryption.
+    - Non Repudiation policy needs only Timestamp and Signature. Confidentiality needs all three: Timestamp, Signature and Encryption.
     - For UsernameToken policy, you do not need to provide a Outgoing WS-Security Configuration. Providing the basic auth configuration is enough.
     
-        <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-username-token.jpg" width="700">
+        <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-username-token.jpg"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-username-token.jpg" width="70%"></a>
