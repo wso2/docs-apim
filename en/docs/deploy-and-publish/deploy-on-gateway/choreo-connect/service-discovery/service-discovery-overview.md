@@ -68,7 +68,7 @@ consul(<service_name>,<default_host>)
 ```
 
 ```java tab="Example"
-consul(pet,https://10.10.1.5:5000)'
+consul(pet,https://10.10.1.5:5000)
 ```
 
 Example 2:<br>
