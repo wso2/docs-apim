@@ -16,7 +16,7 @@ to setup the APICTL in your development environment.
 
 #### Step 1.2 - Download and Extract Choreo Connect distribution zip
 
-Latest Choreo Connect distribution can be downloaded from the [page](https://wso2.com/api-management/api-microgateway/).
+Latest Choreo Connect distribution can be downloaded from the [page](https://github.com/wso2/product-microgateway/releases).
 Extract the Choreo Connect distribution zip. Extracted folder will be called as `CHOREO-CONNECT_HOME` hereafter.
 
 ### Step 2 - Initialize an API project

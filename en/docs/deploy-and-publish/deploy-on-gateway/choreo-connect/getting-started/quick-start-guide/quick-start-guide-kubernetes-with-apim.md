@@ -20,9 +20,9 @@ Let's get started...
 
 ## Step 1 - Setup Choreo Connect and K8s API Operator in Kubernetes
 
-1.  Download the Choreo Connect v0.9.0 from
-    [GitHub release page's](https://github.com/wso2/product-microgateway/releases/tag/v0.9.0) assets section and extract it
-    to a folder of your choice. Let's refer to this folder as `<CHOREO-CONNECT_HOME>`.
+1.  Download and Extract Choreo Connect distribution zip
+
+    Latest Choreo Connect distribution can be downloaded from the [page](https://github.com/wso2/product-microgateway/releases). Extract the Choreo Connect distribution zip. Extracted folder will be called as `CHOREO-CONNECT_HOME` hereafter.
 
 2.  Add the Kubernetes configurations for Choreo Connect and API Manager using the kubectl tool.
 
