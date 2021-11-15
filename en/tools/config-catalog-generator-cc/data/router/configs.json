@@ -123,7 +123,7 @@
               "type": "integer",
               "required": false,
               "default": 60,
-              "description": "Maximum value accepted as the endpoint level timeout. If a larger timeout is set as the Endpoint Level Route Timeout, this value will replace the provided Endpoint Level Route Timeout."
+              "description": "Maximum value accepted as the endpoint level timeout. If a larger timeout is set as the Endpoint Level Upstream Timeout, this value will replace the provided Endpoint Level Upstream Timeout."
             },
             {
               "name": "routeIdleTimeoutInSeconds",

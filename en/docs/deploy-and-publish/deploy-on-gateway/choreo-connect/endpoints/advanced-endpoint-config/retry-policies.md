@@ -75,4 +75,4 @@ For more information with regard to the Global Level Retry Policy Configurations
 
 ## See Also
 
-- [Timeout]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/resiliency/timeout) - WSO2 recommends that you always set a timeout when adding a retry policy. If not, the default global timeout will be applied.
+- [Timeout]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/advanced-endpoint-config/timeout)

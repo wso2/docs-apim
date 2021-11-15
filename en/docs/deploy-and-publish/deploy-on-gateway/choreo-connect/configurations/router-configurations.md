@@ -388,7 +388,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Maximum value accepted as the endpoint level timeout. If a larger timeout is set as the Endpoint Level Route Timeout, this value will replace the provided Endpoint Level Route Timeout.</p>
+                                        <p>Maximum value accepted as the endpoint level timeout. If a larger timeout is set as the Endpoint Level Upstream Timeout, this value will replace the provided Endpoint Level Upstream Timeout.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
