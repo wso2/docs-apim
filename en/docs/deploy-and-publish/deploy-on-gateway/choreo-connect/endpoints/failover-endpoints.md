@@ -35,9 +35,9 @@ After creating an API in the API Publisher, select the API you want to provide t
 
 ### Step 2 - Invoke API Endpoint Via The Choreo Connect.
 
-After obtaining a valid JWT token, you can invoke the API as described in [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker-with-apim/#step-6-invoke-the-api-via-choreo-connect). 
+After obtaining a valid JWT token, you can invoke the API as described in [the Choreo Connect Quick Start Guide with Docker]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker-with-apim/#step-6-invoke-the-api-via-choreo-connect). 
 
-Example is given below:
+An example is given below:
 
 ``` java
 curl -k -X GET "https://localhost:9095/pizzashack/1.0.0/menu" -H "accept: application/json" -H "Authorization: Bearer <COPIED_TOKEN>"
@@ -45,13 +45,13 @@ curl -k -X GET "https://localhost:9095/pizzashack/1.0.0/menu" -H "accept: applic
 
 ## Failover Endpoints With APICTL
 
-In this approach you can define failover endpoints in API level as well as in resource level. Below section demonstrates how to add failover endpoints in those two levels.
+In this approach you can define failover endpoints in API level as well as in resource level. The following section demonstrates how to add failover endpoints in those two levels.
 
 ### Step 1 - Define Failover Endpoints In The OpenAPI Definition file.
 
 ### Failover Endpoints In API Level
 
-Below section demonstrates how to define failover endpoints for API level in an OpenAPI definition file.
+The following configuration demonstrates how to define failover endpoints for API level in an OpenAPI definition file.
 
 ``` yaml tab="Format"
 openapi: <version>
@@ -76,7 +76,7 @@ x-wso2-production-endpoints:
 
 ### Failover Endpoints In Resource Level
 
-Below section demonstrates how to define failover endpoints for resource level in an Open API definition file.
+The following configuration demonstrates how to define failover endpoints for resource level in an Open API definition file.
 
 ``` yaml tab="Format"
 openapi: <version>
@@ -114,4 +114,4 @@ paths:
 
 ### Step 2 - Deploy the API Project And Invoke With failover Endpoints
 
-After defining API in the Open API definition file deploy it in the Choreo Connect as described in [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker/#step-1-download-and-setup-choreo-connect-distribution-zip-and-apictl-command-line-tool).
+After defining an API in the Open API definition file, deploy it in the Choreo Connect as described in [the Choreo Connect Quick Start Guide for Docker]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker/#step-1-download-and-setup-choreo-connect-distribution-zip-and-apictl-command-line-tool).
