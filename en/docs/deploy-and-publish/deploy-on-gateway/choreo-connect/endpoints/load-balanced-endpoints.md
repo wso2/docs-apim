@@ -19,16 +19,16 @@ After creating an API in the APIM publisher, select the API you want to apply lo
  
 1.  Click **Develop -> API Configurations -> Endpoints**.
 
-    1.1. Under the **Load balanced and Failover Configurations** and select the endpoint type as **Load Balanced**.
+    1. 1. Under the **Load balanced and Failover Configurations** and select the endpoint type as **Load Balanced**.
 
-    1.2. Provide the service URLs that you want to handle load balancing.
+    1. 2. Provide the service URLs that you want to handle load balancing.
 
     !!! info
         Click the + sign in the text box after adding each service URL to provide multiple service endpoints.
 
-    [![Add load balanced endpoints in APIM](https://apim.docs.wso2.com/en/4.1.0/assets/img/learn/load-balance-and-fail-over.png)](https://apim.docs.wso2.com/en/4.1.0/assets/img/learn/load-balance-and-fail-over.png)
+    [![Add load balanced endpoints in APIM]({{base_path}}/assets/img/learn/load-balance-and-fail-over.png)]({{base_path}}/assets/img/learn/load-balance-and-fail-over.png)
 
-    [![Add load balanced endpoints addition in APIM](https://apim.docs.wso2.com/en/4.1.0/assets/img/learn/load-balanced-configurations.png)](https://apim.docs.wso2.com/en/4.1.0/assets/img/learn/load-balanced-configurations.png)
+    [![Add load balanced endpoints addition in APIM]({{base_path}}/assets/img/learn/load-balanced-configurations.png)]({{base_path}}/assets/img/learn/load-balanced-configurations.png)
     
 2.  Click **Save & Deploy**.
 
