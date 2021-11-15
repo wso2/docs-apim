@@ -45,7 +45,7 @@ Clone the repository and change to the cloned path.
       - Go
 4. Change to the directory `samples/interceptors/<PROGRAMMING_LANGUAGE>` and start the docker compose setup with the legacy backend and interceptor service.
     ```shell
-    docker compose up
+    docker-compose up
     ```
 
 #### Directly invoke the backend
