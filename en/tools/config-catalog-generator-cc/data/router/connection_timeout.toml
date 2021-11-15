@@ -1,0 +1,5 @@
+[router.connectionTimeout]
+  requestTimeoutInSeconds = 0
+  requestHeadersTimeoutInSeconds = 0 
+  streamIdleTimeoutInSeconds = 300
+  idleTimeoutInSeconds = 3600

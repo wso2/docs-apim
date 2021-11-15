@@ -1,0 +1,4 @@
+[router.upstream.timeouts]
+  routeTimeoutInSeconds = 60
+  maxRouteTimeoutInSeconds = 60
+  routeIdleTimeoutInSeconds = 300
