@@ -19,7 +19,7 @@ In the config-toml-configmap.yaml file, go to the \[adapter.consul] section and 
   enable = true
   url = "http://consul-server:8500"
   pollInterval = 5
-  aclToken = "d3a2a719-4221-8c65-5212-58d4727427ac"
+  ACLToken = "d3a2a719-4221-8c65-5212-58d4727427ac"
   mgwServiceName = "choreo-connect"
   serviceMeshEnabled = true
   caCertFile = "/home/wso2/security/truststore/consul/consul-agent-ca.pem"
@@ -29,7 +29,7 @@ In the config-toml-configmap.yaml file, go to the \[adapter.consul] section and 
 
 <ol>
 <li> Change the `url` to the URL of the Consul agent you want to connect to.<br></li>
-<li>Change the `aclToken` to the token you generated from the previous step.<br></li> 
+<li>Change the `ACLToken` to the token you generated from the previous step.<br></li> 
 <li>`serviceMeshEnabled` should be set to `true`.<br></li>
 <li>Configure `mgwServiceName` as choreo-connect.<br></li>
 <li>Add the `caCertFile`, `certFile`, and `keyFile` you generated from the previous step.<br></li>

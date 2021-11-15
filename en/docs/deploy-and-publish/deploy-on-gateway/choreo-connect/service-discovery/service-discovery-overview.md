@@ -25,7 +25,7 @@ Add the following configuration under the Adapter section to the main configurat
   enable = true
   url = "https://169.254.1.1:8501"
   pollInterval = 5
-  aclToken = "d3a2a719-4221-8c65-5212-58d4727427ac"
+  ACLToken = "d3a2a719-4221-8c65-5212-58d4727427ac"
   mgwServiceName = "choreo-connect"
   serviceMeshEnabled = true
   caCertFile = "/home/wso2/security/truststore/consul/consul-agent-ca.pem"
@@ -40,7 +40,7 @@ The following table describes above configuration.
 | `enable`                              | Set this to `true` to enable Consul service discovery. |
 | `url`                                 | The `URL` of the [Consul HTTP API](https://www.consul.io/api-docs#http-api-structure).|
 | `pollInterval`                        | The time interval (in seconds) in which the Choreo Connect should fetch updates from the Consul service catalog.|
-| `aclToken`                            | [Access Control Token](https://learn.hashicorp.com/tutorials/consul/access-control-setup-production) generated using Consul. You should grant read access to services when creating the token|
+| `ACLToken`                            | [Access Control Token](https://learn.hashicorp.com/tutorials/consul/access-control-setup-production) generated using Consul. You should grant read access to services when creating the token|
 | `mgwServiceName`                      | Choreo Connect natively integrates with Consul service mesh. Therefore a service name is required to be defined in order to grant access to other services in mesh. |
 | `serviceMeshEnabled`                  | Set this to `true` if service mesh is enabled in Consul |
 | `caFile`                              | CaFile is the optional path to the CA certificate used for Consul communication, defaults to the system bundle if not specified.|
