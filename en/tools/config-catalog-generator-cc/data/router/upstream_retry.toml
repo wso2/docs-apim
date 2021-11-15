@@ -1,0 +1,4 @@
+[router.upstream.retry]
+  maxRetryCount = 5
+  baseIntervalInMillis = 25
+  statusCodes = [ 504 ]
