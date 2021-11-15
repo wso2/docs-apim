@@ -4,19 +4,19 @@ Failover endpoints provide uninterrupted API invocation capability to the users 
 
 Similar to the load balancing, Choreo Connect (CC) provides failover capability with below two WSO2 product combinations.
 
-- [Failover Endpoints With APIM]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/failover-endpoints/#failover-endpoints-with-apim). 
+- [Failover Endpoints With API Manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/failover-endpoints/#failover-endpoints-with-apim). 
 - [Failover Endpoints With APICTL]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/failover-endpoints/#failover-endpoints-with-apictl).
 
-Below section explains how to configure failover endpoints considering above products.
+The following section explains how to configure failover endpoints considering the above products.
 
 ## Failover Endpoints With APIM
 
 !!! Important
-    Currently WSO2 API Manager allows to add failover endpoints only to the API level.
+    Currently WSO2 API Manager allows you to add failover endpoints only to the API level.
 
 ### Step 1 - Define Failover Endpoints In Publisher
 
-After creating an API in the APIM publisher, select the API you want to provide failover capability.
+After creating an API in the API Publisher, select the API you want to provide the failover capability.
 
 1.  Click **Develop -> API Configurations -> Endpoints**.
 
