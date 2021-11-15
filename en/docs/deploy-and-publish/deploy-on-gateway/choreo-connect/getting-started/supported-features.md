@@ -1,6 +1,6 @@
 # Choreo Connect Supported Features
 
-Choreo Connect's most recent version v1.0.0 does not support all of the API Manager's functionalities. In contrast to default API gateway, Choreo Connect (the API Microgateway) only offers a fraction of the API Manager product's functionality. The following is a list of Choreo Connect's important features.
+Choreo Connect's most recent version (v1.0.0) does not support all of the API Manager's functionalities. In contrast to the default API Gateway, Choreo Connect (the API Microgateway) only offers a fraction of the API Manager product's functionality. The following is a list of Choreo Connect's important features.
 
 
 - API Manager as Control Plane
@@ -67,7 +67,7 @@ The Choreo Connect currently does not support the following major functionalitie
 - Create streaming APIs from Async API specifications
 - Analytics for the web socket APIs
 - GraphQL APIs
-- Grpc APIs
+- gRPC APIs
 - API Products
 - Mutual SSL authentication for APIs
 - Basic Authentication for APIs
