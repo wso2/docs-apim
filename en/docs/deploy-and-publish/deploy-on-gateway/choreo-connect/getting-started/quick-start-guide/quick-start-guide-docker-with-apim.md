@@ -6,11 +6,11 @@ Lets' deploy an API from API Manager (control plane) and invoke via the Choreo C
 
 Make sure to install and set up [Docker](https://www.docker.com).
 
-### Step 1 - Download and setup Choreo Connect distribution zip
+### Step 1 - Download and extract Choreo Connect distribution .zip file
 
-Latest Choreo Connect distribution can be downloaded from the [page](https://wso2.com/api-management/api-microgateway/). Extract the Choreo Connect distribution zip. Extracted folder will be called as `CC_HOME` hereafter.
+Latest Choreo Connect distribution can be downloaded from the [GitHub repository](https://github.com/wso2/product-microgateway/releases). Extract the Choreo Connect distribution .zip file. The extracted folder will be called as `CHOREO-CONNECT_HOME` hereafter.
 
-### Step 2 - Configure Choreo Connect to Connect to API Manager
+### Step 2 - Configure Choreo Connect to connect to API Manager
 
 We have to enable the `[controlPlane.eventHub]` in the `config.toml` file in the `CHOREO-CONNECT_HOME/docker-compose/choreo-connect-with-apim/conf` directory.
 Let's edit the `config.toml` like below to enable the event hub.
