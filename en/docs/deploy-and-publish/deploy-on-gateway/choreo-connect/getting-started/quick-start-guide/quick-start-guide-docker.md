@@ -8,15 +8,15 @@ Make sure to install and set up [Docker](https://www.docker.com).
 
 ### Step 1 - Download and setup Choreo Connect distribution zip and APICTL (Command Line Tool)
 
-#### Step 1.1 - Download and Install APICTL
+#### Step 1.1 - Download and install APICTL
 
 APICTL is a CLI tool which can be used to deploy undeploy APIs into Choreo Connect clusters.
 Refer [Download and initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool)
 to setup the APICTL in your development environment.
 
-#### Step 1.2 - Download and Extract Choreo Connect distribution zip
+#### Step 1.2 - Download and extract Choreo Connect distribution .zip file
 
-Latest Choreo Connect distribution can be downloaded from the [page](https://wso2.com/api-management/api-microgateway/).
+Latest Choreo Connect distribution can be downloaded from the [GitHub repository](https://github.com/wso2/product-microgateway/releases).
 Extract the Choreo Connect distribution zip. Extracted folder will be called as `CHOREO-CONNECT_HOME` hereafter.
 
 ### Step 2 - Initialize an API project
