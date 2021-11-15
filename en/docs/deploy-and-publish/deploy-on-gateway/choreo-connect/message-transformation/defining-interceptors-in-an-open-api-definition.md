@@ -219,7 +219,8 @@ For example, with this configuration you can instruct the Choreo Connect Router 
 the client and stop buffering the client request body and save the size of the request payload to interceptor service.
 In the same way you can use only required inclusions based on you requirement and tune the interception flow.
 
-Following are the possible values for the `includes` in the extension. Content of the ***Invocation Context*** is 
+Following are the possible values for the `includes` in the extension. More information on ***Invocation Context*** is can be found in
+[Interceptor Context and Invocation Context](http://localhost:8000/deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/interceptor-context-and-invocation-context/#invocation-context)
 
 - Inclusions in **request** flow interception.
 
