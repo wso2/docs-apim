@@ -20,16 +20,16 @@ After creating an API in the API Publisher, select the API you want to provide t
 
 1.  Click **Develop -> API Configurations -> Endpoints**.
 
-    1.1. Under the **Load balance and Failover Configurations** and select the endpoint type as **Failover**.
+    1. 1. Under the **Load balance and Failover Configurations** and select the endpoint type as **Failover**.
 
-    1.2. Provide the service URLs that you want to use with failover scenarios.
+    1. 2. Provide the service URLs that you want to use with failover scenarios.
 
     !!! info
         Click the + sign in the text box after adding each service URL to provide multiple service endpoints.
 
-    [![Add load balance endpoints in APIM](https://apim.docs.wso2.com/en/4.1.0/assets/img/learn/load-balance-and-fail-over.png)](https://apim.docs.wso2.com/en/4.1.0/assets/img/learn/load-balance-and-fail-over.png)
+    [![Add load balance endpoints in APIM]({{base_path}}/assets/img/learn/load-balance-and-fail-over.png)](https://apim.docs.wso2.com/en/4.1.0/assets/img/learn/load-balance-and-fail-over.png)
 
-    [![Add failover endpoints addition in APIM](https://apim.docs.wso2.com/en/4.1.0/assets/img/learn/failover-configured.png)](https://apim.docs.wso2.com/en/4.1.0/assets/img/learn/load-balanced-configurations.png)
+    [![Add failover endpoints addition in APIM]({{base_path}}/assets/img/learn/failover-configured.png)](https://apim.docs.wso2.com/en/4.1.0/assets/img/learn/load-balanced-configurations.png)
     
 2.  Click **Save & Deploy**.
 
