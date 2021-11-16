@@ -2,7 +2,7 @@
 
 You can use interceptors in Choreo Connect to carry out transformations and mediation on the requests and responses.
 Request interceptor gets triggered before sending the request to the backend. Response interceptor gets triggered before
-responding to the client. Here, an interceptor is a separate microservice that handle the request, response or
+responding to the client. Here, an interceptor is a separate microservice that handles the request, response, or
 both request and response transformations.
 
 If you are an API developer, you can write a custom request/response interceptor microservice in any programming
@@ -34,16 +34,16 @@ The following diagram illustrates the request flow from the client to the backen
 
 Adding an interceptor requires the following two steps.
 
-1. [Implement an interceptor microservice adhering to the Interceptor Open API Definition.]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/interceptor-microservice/)
-2. [Refer to the interceptor service from the client-facing API definition to engage with it in the request/response flow.]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/defining-interceptors-in-an-open-api-definition/)
+1. [Implement an interceptor microservice adhering to the Interceptor Open API Definition]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/interceptor-microservice/).
+2. [Refer to the interceptor service from the client-facing API definition to engage with it in the request/response flow]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/defining-interceptors-in-an-open-api-definition/).
 
 !!! info
-    Following are not supported during request/response **body manipulation**.
+    The following are not supported during request/response **body manipulation**.
 
     - Large payload manipulation. Maximum supported payload size is 1MiB.
-    - Content types (eg: `multipart/form-data`) with binary payloads.
+    - Content types (e.g., `multipart/form-data`) with binary payloads.
 
-    However you can use interceptors to modify headers, trailers with above mentioned scenarios.
+    However, you can use interceptors to modify headers and trailers with the above mentioned scenarios.
 
 
 
