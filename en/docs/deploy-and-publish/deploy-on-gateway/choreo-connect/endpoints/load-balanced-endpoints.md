@@ -113,4 +113,4 @@ paths:
 
 ### Step 2 - Deploy the API Project And Invoke With Load Balanced Endpoints
 
-After defining API in the Open API definition file deploy it in the Choreo Connect as described in [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker/#step-1-download-and-setup-choreo-connect-distribution-zip-and-apictl-command-line-tool).
+After defining an API in the Open API definition file, deploy it in Choreo Connect as described [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker/#step-1-download-and-setup-choreo-connect-distribution-zip-and-apictl-command-line-tool).
