@@ -139,7 +139,7 @@ Create a Soap UI project with the relevant security settings and then send the r
     
     - Adding **Encryption**
     
-    <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-encryption-entry.jpg">><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-encryption-entry.jpg" width="60%"></a>
+    <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-encryption-entry.jpg"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-encryption-entry.jpg" width="60%"></a>
     
     !!! Info
         Note: Please note that the order of the WS entries matters. So always add the above one after the other (If you are adding only two sections, you need to maintain the order).
