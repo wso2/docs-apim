@@ -19,7 +19,7 @@ After creating an API in the APIM publisher, select the API you want to apply lo
  
 1.  Click **Develop -> API Configurations -> Endpoints**.
 
-    1. 1. Under the **Load balanced and Failover Configurations** and select the endpoint type as **Load Balanced**.
+    1. Under the **Load balanced and Failover Configurations** and select the endpoint type as **Load Balanced**.
 
     1. 2. Provide the service URLs that you want to handle load balancing.
 
