@@ -34,7 +34,7 @@ After creating an API in the APIM publisher, select the API you want to apply lo
 
 ### Step 2 - Invoke API Endpoint Via The Choreo Connect.
 
-After obtaining a valid JWT token, you can invoke APIs as described in [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker-with-apim/#step-6-invoke-the-api-via-choreo-connect). 
+After obtaining a valid JWT token, you can invoke APIs as described [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker-with-apim/#step-6-invoke-the-api-via-choreo-connect). 
 
 Example is given below:
 
