@@ -4,19 +4,18 @@ You can define interceptors on an API level (per API) and on a resource level (p
 If you define a request/response interceptor on an API level **and** a resource level, the API level interceptor will be
 overridden by the resource level interceptor for that resource.
 
-For an API, you can define
+For an API, you can define:
 
-- one of request or response interceptor
-- or both of request and response interceptor
+- one of the request or response interceptors
+- or both of the request and response interceptors
 
-base on your requirement for the mediation.
+based on your requirement for the mediation.
 
 
 ## Request flow Interceptor
 
 You can define the request flow interceptor as follows in the Open API Definition with the extension `x-wso2-request-interceptor`.
-[Description of Keys of Interceptor Open API Extension](#description-of-keys-of-interceptor-open-api-extension) explains
-detailed description of the keys.
+For a detailed description of the keys, see [Description of Keys of Interceptor Open API Extension](#description-of-keys-of-interceptor-open-api-extension).
 
 ``` yaml tab="Format"
 x-wso2-request-interceptor:
@@ -96,14 +95,14 @@ paths:
 deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/request-flow-interceptor.md -->
 !!! info
     If you update the request body before reaching the backend, ensure to add `request_body` to the `includes` section
-    of the Open API Specification. You may have a scenario like, whatever the request body from the client, you define
-    your own request body (say, based on a header value) to send to the backend. Even though you do not read the
-    request body, you should do the above inclusion.
+    of the Open API Specification. Your scenario might be that regardless of the request body from the client,
+    you define your own request body (say, based on a header value) to send to the backend.
+    Even though you do not read the request body, you should include the above condition.
 
 ## Response flow Interceptor
 
-You can use the extension `x-wso2-response-interceptor` to define the interceptor for response flow.
-It is same as the request flow, but additionally following values are supported in the `includes` section of the extension.
+You can use the extension `x-wso2-response-interceptor` to define the interceptor for the response flow.
+It is the same as the request flow, but additionally the following values are supported in the `includes` section of the extension.
 
 ```yaml
 includes:
@@ -220,7 +219,7 @@ the client and stop buffering the client request body and save the size of the r
 In the same way you can use only required inclusions based on you requirement and tune the interception flow.
 
 Following are the possible values for the `includes` in the extension. More information on ***Invocation Context*** is can be found in
-[Interceptor Context and Invocation Context](http://localhost:8000/deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/interceptor-context-and-invocation-context/#invocation-context)
+[Interceptor Context and Invocation Context]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/interceptor-context-and-invocation-context/#invocation-context)
 
 - Inclusions in **request** flow interception.
 

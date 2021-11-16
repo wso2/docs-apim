@@ -126,9 +126,9 @@ Following is the response that the interceptor service should respond to the Cho
 deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/defining-interceptors-in-an-open-api-definition.md -->
 !!! warning
     If you update the request body before reaching the backend, ensure to add `request_body` to the `includes` section
-    of the Open API Specification. You may have a scenario like, whatever the request body from the client, you define
-    your own request body (say, based on a header value) to send to the backend. Even though you do not read the
-    request body, you should do the above inclusion.
+    of the Open API Specification. Your scenario might be that regardless of the request body from the client,
+    you define your own request body (say, based on a header value) to send to the backend.
+    Even though you do not read the request body, you should include the above condition.
 
 ## Direct Respond
 

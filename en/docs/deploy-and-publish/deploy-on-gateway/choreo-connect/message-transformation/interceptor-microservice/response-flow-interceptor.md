@@ -65,7 +65,7 @@ Following is the request received from the Choreo Connect Router when you enable
 
 ### 2. Response from the Interceptor Service to Choreo Connect Router
 
-Following is the response that interceptor service should respond to the Choreo Connect Router when you enable the response interceptor.
+The following is the response that interceptor service should respond to the Choreo Connect Router when you enable the response interceptor.
 
 ``` json tab="Format"
 {
