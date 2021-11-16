@@ -96,7 +96,7 @@ apictl mg login k8s -u admin -p admin -k
 ```
 
 !!! info
-    Following apictl commands are being executed with -k flag to avoid SSL verification with the Choreo Connect.
+    Following APICTL commands are being executed with -k flag to avoid SSL verification with the Choreo Connect.
     To communicate via https without skipping SSL verification (without -k flag), add the cert of Choreo Connect into `/home/<your-pc-username>/.wso2apictl/certs`.
 
 ### Step 3.3 - Deploy the API in Choreo Connect
@@ -117,7 +117,7 @@ apictl mg deploy api -f petstore -e k8s -k
 ### Step 4.1 - Obtain a token
 
 After the APIs are exposed via WSO2 Choreo Connect, you can invoke an API with a valid token(JWT) or using a test key.  
-Let's use WSO2 Choreo Connect's test key endpoint to obtain an test key in order to access the API. Refer [Generate a Test JWT]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt) for more details.
+Let's use WSO2 Choreo Connect's test key endpoint to obtain a test key in order to access the API. Refer [Generate a Test JWT]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt) for more details.
 
 ``` shell tab="Sample Token"
 TOKEN=$(curl -X POST "https://gw.wso2.com/testkey" -d "scope=read:pets" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -v)
