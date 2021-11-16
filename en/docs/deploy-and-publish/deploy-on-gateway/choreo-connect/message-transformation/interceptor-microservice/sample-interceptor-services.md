@@ -18,15 +18,11 @@ The same microservice is used to handle both request and response interception.
 
 ```yaml
 x-wso2-request-interceptor:
-  scheme: https
-  host: xml-interceptor
-  port: 9081
+  serviceURL: https://xml-interceptor:9081
   includes:
     - request_body
 x-wso2-response-interceptor:
-  scheme: https
-  host: xml-interceptor
-  port: 9081
+  serviceURL: https://xml-interceptor:9081
 ```
 
 
