@@ -34,6 +34,29 @@ Enabling observability is simple in the new API Manager. All that needs to be do
 !!! note
     When observability is enabled in WSO2 API Manager, a separate log file named `correlation.log` is created in the `<API-M_HOME>/repository/logs` directory.
 
+#### Light observablitity
+
+!!! warning
+    Note that this feature has been introduced via an U2/WUM update and is effective from 29th October 2021 (2021-10-29). 
+
+    For more information on how to update using U2, see [Updates 2.0 Documentation](https://updates.docs.wso2.com/en/latest/updates/overview/). For more information on how to update using WUM, see the documentation [Using WSO2 Update Manager](https://docs.wso2.com/display/updates100/Using+WSO2+Update+Manager).
+
+To enable light observability add the following config before the `org.wso2.carbon.bootstrap.Bootstrap $` line in
+the startup scripts.
+```
+-DenableMessageTrackingLogs=true \
+```
+
+**Linux/Mac OS**
+
+- Add the above configuration as a system property to the `<API-M_HOME>/bin/wso2server.sh` file.
+
+**Windows**
+
+- Add the above configuration as a system property to the `<API-M_HOME>/bin/wso2server.bat` file.
+- After invoking an API navigate to `<API-M_HOME>/repository/logs/correlation.log` and verify the
+logs.
+
 ### Method call logs
 
 When correlation logging is enabled, the API Manager logs the time taken to execute certain important methods of the following modules.
