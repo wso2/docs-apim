@@ -172,6 +172,12 @@ x-wso2-endpoints:
 ```     
 ### Related Links
 
+Choreo Connect supports the following endpoint features.
+
+- [Load Balanced Endpoints]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/load-balanced-endpoints/): Provides load balancing for the whole API or for a given resource.
+
+- [Failover Endpoints]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/failover-endpoints/): Handles failover scenarios for the whole API or for a given resource.
+
 !!! info
         -   [Overriding Endpoint Information]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/overriding-endpoints-for-imported-apis/)
         This link will be useful when you need to override the endpoint URL of an API just before starting Choreo Connect, since the original endpoint that was added while it was in a different environment does not suit the current environment.
