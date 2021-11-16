@@ -19,9 +19,7 @@ For a detailed description of the keys, see [Description of Keys of Interceptor 
 
 ``` yaml tab="Format"
 x-wso2-request-interceptor:
-  scheme: <one of [http|https]>
-  host: <host>
-  port: <port>
+  serviceURL: [http|https]://<host>[:<port>]
   includes: # any of following
     - request_headers
     - request_body
@@ -42,9 +40,7 @@ x-wso2-production-endpoints:
     urls:
     - https://localhost:2380/v2
 x-wso2-request-interceptor:
-  scheme: http
-  host: host.request.interceptor
-  port: 9081
+  serviceURL: http://host.request.interceptor:9081
   includes:
     - request_headers
     - invocation_context
@@ -68,9 +64,7 @@ paths:
             urls:
             -  https://localhost:2380/v1
         x-wso2-request-interceptor:
-            scheme: http
-            host: host.request.interceptor
-            port: 9081
+            serviceURL: http://host.request.interceptor:9081
             includes:
             - request_body
         get:
@@ -113,9 +107,7 @@ includes:
 
 ``` yaml tab="Format"
 x-wso2-response-interceptor:
-  scheme: <one of [http|https]>
-  host: <host>
-  port: <port>
+  serviceURL: [http|https]://<host>[:<port>]
   includes: # any of following
     - request_headers
     - request_body
@@ -139,9 +131,7 @@ x-wso2-production-endpoints:
     urls:
     - https://localhost:2380/v2
 x-wso2-response-interceptor:
-  scheme: http
-  host: host.request.interceptor
-  port: 9081
+  serviceURL: http://host.response.interceptor:9081
   includes:
     - request_headers
     - request_body
@@ -166,9 +156,7 @@ paths:
             urls:
             -  https://localhost:2380/v1
         x-wso2-response-interceptor:
-            scheme: http
-            host: host.request.interceptor
-            port: 9081
+            serviceURL: http://host.response.interceptor:9081
             includes:
             - request_body
             - invocation_context
@@ -204,9 +192,7 @@ Following is the description of each key in the extension.
 
 | Open API Extension Key | Description                                                                                                            |
 |------------------------|------------------------------------------------------------------------------------------------------------------------|
-| scheme                 | HTTP protocol of interceptor service. One of `[http\|https]`                                                           |
-| host                   | Host of the interceptor service                                                                                        |
-| port                   | Port of the interceptor service                                                                                        |
+| serviceURL             | Service URL of the interceptor service                                                                                 |
 | includes               | Defines what should be included in the request body to interceptor service.                                            |
 | requestTimeout         | Optional. Timeout in seconds to connect to interceptor service.                                                        |
 | clusterTimeout         | Optional. Override the interceptor cluster timeout (in seconds) value, default to cluster timeout value in config.toml |
