@@ -15,7 +15,7 @@ Follow the instructions below to add advanced UI customizations to the Developer
 1. Navigate to the `<API-M_HOME>/repository/deployment/server/jaggeryapps` directory in a terminal and run the following command.
 
      ```js
-     npm install
+     npm ci
      ```
 
      This will install the dependencies for the `lerna` package manager.
