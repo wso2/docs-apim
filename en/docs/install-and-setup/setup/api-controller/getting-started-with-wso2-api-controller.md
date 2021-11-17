@@ -6,11 +6,11 @@
 
 1.  Download **apictl** based on your preferred platform (i.e., Mac, Windows, Linux).
 
-    - [For MacOS]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.0.0-macosx-x64.tar.gz)
-    - [For Linux 32-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.0.0-linux-i586.tar.gz)
-    - [For Linux 64-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.0.0-linux-x64.tar.gz)
-    - [For Windows 32-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.0.0-windows-i586.zip)
-    - [For Windows 64-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.0.0-windows-x64.zip)
+    - [For MacOS]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.0.1-macosx-x64.tar.gz)
+    - [For Linux 32-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.0.1-linux-i586.tar.gz)
+    - [For Linux 64-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.0.1-linux-x64.tar.gz)
+    - [For Windows 32-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.0.1-windows-i586.zip)
+    - [For Windows 64-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.0.1-windows-x64.zip)
 
 2.  Extract the downloaded archive of the apictl to the desired location.
 3.  Navigate to the working directory where the executable apictl resides.
@@ -69,8 +69,8 @@ Run the following apictl command to check the version.
 -   **Response**
 
     ```bash
-    Version: 4.0.0
-    Build Date: 2020-12-11 13:22:12 UTC
+    Version: 4.0.1
+    Build Date: 2021-11-19 09:11:47 UTC
     ```
 
 !!!note
@@ -153,7 +153,7 @@ You can add environments by either manually editing the `<USER_HOME>/.wso2apictl
 apictl add env <environment-name>
 ```
 
-1.  Make sure that the WSO2 API Manager (WSO2 API-M) 4.0.0 version is started and that the 4.0.0 version of apictl is set up.     
+1.  Make sure that the WSO2 API Manager (WSO2 API-M) 4.0.0 version is started and that the 4.0.1 version of apictl is set up.     
 For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
 2.  Run the following apictl command to add an environment.
 
@@ -292,7 +292,7 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
 
 ## Remove an environment
 
-1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.0 version of apictl is set up.  
+1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.1 version of apictl is set up.  
 For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
 2.  Run the following apictl command to remove an environment.
 
@@ -321,7 +321,7 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
 
 ## Get environments
 
-1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.0 version of apictl is set up.    
+1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.1 version of apictl is set up.    
 For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
 2.  Run the following apictl command to list the environments.  
 
@@ -362,7 +362,7 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
 
 After adding an environment, you can log in to the WSO2 API-M instance in that environment using credentials.
 
-1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.0 version of apictl is set up.   
+1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.1 version of apictl is set up.   
 For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
 2.  Run any of the following apictl commands to log in to the environment.
 
@@ -422,7 +422,7 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
 
 ## Logout from an environment
 
-1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.0 version of apictl is set up.   
+1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.1 version of apictl is set up.   
 For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
 
 2.  Run the following command to log out from the current session of the WSO2 API-M environment.

@@ -20,7 +20,7 @@ in your Jenkins server.
      
      For more information, see [installation-prerequisites]({{base_path}}/install-and-setup/install/installation-prerequisites/).
 
-4. Download and setup [WSO2 API Controller 4.0.0 version](https://wso2.com/api-management/tooling/) to the Jenkins server and the
+4. Download and setup [WSO2 API Controller 4.0.1 version](https://wso2.com/api-management/tooling/) to the Jenkins server and the
 developer machines. 
      
      For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).  
