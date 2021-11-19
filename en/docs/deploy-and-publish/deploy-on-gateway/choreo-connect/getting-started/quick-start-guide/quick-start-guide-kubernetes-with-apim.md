@@ -44,19 +44,19 @@ Let's get started...
 
 ## Step 2 - Deploy Sample API from API Manager
 
-1. First log in to the API Manager Publisher Portal by accessing the URL: [https://apim.wso2.com/publisher/](https://apim.wso2.com/publisher/).
+1. First, sign in to the API Manager Publisher Portal by accessing the following URL and providing credentials (the username and password is admin): [https://apim.wso2.com/publisher/](https://apim.wso2.com/publisher/).
 
 2. Click on the REST API card and then click on the `Deploy Sample API` button. This will deploy the sample PizzaShack API.
    [![]({{base_path}}/assets/img/deploy/mgw/deploy-sample-api.png)]({{base_path}}/assets/img/deploy/mgw/deploy-sample-api.png)
 
 3. Then click on the `Endpoints` from the left-hand side menu inside the PizzaShackAPI. Change the production endpoint and
-   sandbox endpoint URL as `http://wso2apim:9763/am/sample/pizzashack/v1/api/`. Then save the changes by clicking save button.
-   Here `wso2apim` is the kubernetes service name of the API-M instance.
+   sandbox endpoint URL as `http://wso2apim:9763/am/sample/pizzashack/v1/api/`. Then save the changes by clicking the **Save** button.
+   Here `wso2apim` is the Kubernetes service name of the API-M instance.
    [![]({{base_path}}/assets/img/deploy/mgw/endpoint-tab.png)]({{base_path}}/assets/img/deploy/mgw/endpoint-tab.png)
    [![]({{base_path}}/assets/img/deploy/mgw/endpoint-edit-k8s.png)]({{base_path}}/assets/img/deploy/mgw/endpoint-edit-k8s.png)
 
 5. Follow the [deploy an API]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api) guide to deploy
-   the changes done to the API in to the Choreo Connect.
+   the changes done to the API in to Choreo Connect.
 
 ## Step 3 - Subscribing to API and Get a Token
 
