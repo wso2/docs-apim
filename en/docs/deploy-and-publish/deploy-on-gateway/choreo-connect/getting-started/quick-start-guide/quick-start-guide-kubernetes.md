@@ -43,7 +43,7 @@ Let's create our first project with the name "petstore" by adding the [OpenAPI d
 
 1. Download and install APICTL
 
-    APICTL is a CLI tool which can be used to deploy undeploy APIs into Choreo Connect clusters.
+    APICTL is a CLI tool that can be used to deploy undeploy APIs into Choreo Connect clusters.
     Refer [Download and initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool)
     to set up the APICTL in your development environment.
     
@@ -73,7 +73,7 @@ Let's create our first project with the name "petstore" by adding the [OpenAPI d
 ### Step 3.1 - Add Choreo Connect Cluster as Environment to APICTL
 
 To use APICTL with Choreo Connect, we need to add the Choreo Connect cluster as an environment in the APICTL.
-Basically the adapter URL will be added as the gateway environment, and the added environment can be used in the subsequent commands.
+Basically, the adapter URL will be added as the Gateway environment, and the added environment can be used in the subsequent commands.
 
 ``` shell tab="Format"
 apictl mg add env <ENVIRONMENT_NAME> --adapter <ADAPTER_URL>
@@ -83,7 +83,7 @@ apictl mg add env <ENVIRONMENT_NAME> --adapter <ADAPTER_URL>
 apictl mg add env k8s --adapter https://adapter.wso2.com
 ```
 
-### Step 3.2 - Login to Choreo Connect Cluster
+### Step 3.2 - Log in to the Choreo Connect Cluster
 
 Next you need to log in to the Choreo Connect environment (log in to the adapter) in order to deploy the API in Choreo Connect.
 
@@ -97,7 +97,7 @@ apictl mg login k8s -u admin -p admin -k
 
 !!! info
     Following APICTL commands are being executed with -k flag to avoid SSL verification with the Choreo Connect.
-    To communicate via https without skipping SSL verification (without -k flag), add the cert of Choreo Connect into `/home/<your-pc-username>/.wso2apictl/certs`.
+    To communicate via HTTPS without skipping SSL verification (without -k flag), add the cert of Choreo Connect into `/home/<your-pc-username>/.wso2apictl/certs`.
 
 ### Step 3.3 - Deploy the API in Choreo Connect
 
@@ -129,7 +129,7 @@ TOKEN=$(curl -X POST "https://gw.wso2.com/testkey" -d "scope=read:pets" -H "Auth
 
 ### Step 4.2 - Invoke the API
 
-Execute the following command to Invoke the API using the test key: You can now invoke the API running on the WSO2 Choreo Connect using the following cURL command.
+Execute the following command to invoke the API using the test key: You can now invoke the API running on WSO2 Choreo Connect using the following cURL command.
 
 ``` shell tab="Format"
 curl -X GET "<hostname>:<port>/<API-context>/<API-resource>" -H "Authorization: Bearer $TOKEN" -k
