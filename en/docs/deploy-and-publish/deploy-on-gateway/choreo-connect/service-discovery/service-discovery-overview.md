@@ -55,7 +55,7 @@ The following table describes above configuration.
         - If Consul agent's [verify_incoming](https://www.consul.io/docs/agent/options#verify_incoming) configuration is set to `true`, the certificate and private key have to be signed by the same CA that the Consul agents' certificates are signed.
 
 
-## How to define the endpoints
+## Defining the endpoints
 
 ### Syntax for defining the Consul upstream endpoints
 
