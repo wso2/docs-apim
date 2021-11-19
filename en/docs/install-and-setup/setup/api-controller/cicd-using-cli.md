@@ -29,7 +29,7 @@ Let us check out the basic building blocks for creating a CI/CD pipeline with WS
      
      For more information, see [installation Prerequisites]({{base_path}}/install-and-setup/install/installation-prerequisites/).
 
-2.  Download and setup apictl 4.0.0 version. 
+2.  Download and setup apictl 4.0.1 version. 
 
      For more information, see [Download and initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).  
 
