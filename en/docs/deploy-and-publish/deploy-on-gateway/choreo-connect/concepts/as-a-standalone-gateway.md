@@ -84,16 +84,13 @@ Choreo Connect supports the following OpenAPI Extensions. You can use these exte
         -   Application & Application User
         -   Application
         -   Application User
-    -   However, if you want to expose API/ resource without security, you can also use the `x-wso2-disable-security` extension. Find more information about this extension from [here](https://mg.docs.wso2.com/en/latest/publish/security/api-authentication/disabling-security/#disabling-security).
+    -   However, if you want to expose API/ resource without security, you can also use the `x-wso2-disable-security` extension. Find more information about this extension from [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/disabling-security/#disabling-security).
 
 You can find some samples on how these OpenAPI extensions are used in [OpenAPI definitions](https://github.com/wso2/product-microgateway/blob/master/samples/).
 
 ## Subscription Validation for Self Contained JWTs
 
 To authorize an API request with the self-contained JWT token under an issuer with subscription validation, the API name and version should be listed under `subscribedAPIs` claim of the JWT token.
-
-!!! note
-    When an older version of WSO2 API Manager (3.1.* and below) is used as the key manager it sends the subscribed APIs as a list in the JWT under the `subscribedAPIs` claim. Therefore it is required to have the corresponding API name and version listed under `subscribedAPIs` claim to authorize the API request when JWT tokens issued by older API Manager versions are used.
 
 ## Caching
 
@@ -105,6 +102,6 @@ Choreo Connect contains the following caching mechanisms to increase the perform
 
 Choreo Connect will accept JWTs as OAuth tokens issued by a trusted key manager as a valid token.
 
-The OAuth token is saved in OAuth cache, which is enabled by default. If a cache entry does not exist in the cache, it calls the Key Manager server. This process is carried out using Web service calls. After the Key Manager server returns the validation information, it gets stored in the Choreo Connect cache.
+The OAuth token is kept in the default OAuth cache, which is enabled. It verifies the token by validating the signature, token expiration, and other factors if a cache entry does not present in the cache. If the certificate information isn't available, the JWKS endpoint is used to get the certificate information. The token is saved in the Choreo Connect cache after it has been verified.
 
-Unless an OAuth token is expired or revoked, Choreo Connect uses the cache to the authentication. This method reduces the number of Web service calls to the Key Manager server.
+

@@ -5,8 +5,8 @@ Let's host your first API on Choreo Connect using Kubernetes.
 ## Before you begin
 
 1.  Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
-2.  Set up a [Kubernetes](https://Kubernetes.io/docs/setup/) cluster v1.14 or above.
-      - Minimum CPU : 2vCPU
+2.  Setup a [Kubernetes](https://Kubernetes.io/docs/setup/) cluster v1.14 or above.
+      - Minimum CPU : 3vCPU
       - Minimum Memory : 2GB
 3.  Deploy an ingress controller - [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/) for this sample.
 
@@ -65,7 +65,7 @@ Let's create our first project with the name "petstore" by adding the [OpenAPI d
     The project is now initialized. A directory with the name "petstore" has been created.
 
 !!! info
-    -   For more information on the API project directory that gets created, see [APICTL Getting Sterted]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller).
+    -   For more information on the API project directory that gets created, see [APICTL Getting Started]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller).
 
 ## Step 3 - Deploy the API Project
 

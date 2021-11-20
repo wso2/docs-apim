@@ -35,10 +35,10 @@ When a create/remove/an update operation happens for the keyManagers resides on 
 Multiple event listening endpoints can be defined as an array to use for the connection, along with optional failover parameters. 
 
 Sample configuration for `eventListeningEndpoints` for JMS receiver can be defined as follows.
-```
-[controlPlane.eventHub.jmsConnectionParameters]
- eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@apim:5672?retries='10'&connectdelay='30'",
- "amqp://admin:$env{cp_admin_pwd}@apim:5673?retries='20'&connectdelay='30'"]
+```toml
+[controlPlane.brokerConnectionParameters]
+    eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@apim:5672?retries='10'&connectdelay='30'",
+                               "amqp://admin:$env{cp_admin_pwd}@apim:5673?retries='20'&connectdelay='30'"]
 ```
 
 | Optional parameters| Default Value| Description|
@@ -49,18 +49,21 @@ Sample configuration for `eventListeningEndpoints` for JMS receiver can be defin
 
 ### Event Hub Configuration
 
-``` toml
-# Control plane's eventHub details
-[controlPlane]
+ ``` toml
+ [controlPlane]
   enabled = true
-  serviceUrl = "https://apim:9443/"
+  serviceUrl = "https://<apim-ip>:9443/"
   username="admin"
   password="$env{cp_admin_pwd}"
   environmentLabels = ["Default"]
   retryInterval = 5
   skipSSLVerification=true
-  # Message broker connection URL of the control plane
-  [controlPlane.eventHub.jmsConnectionParameters]
-    eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@apim:5672?retries='5'&connectdelay='30'"]
 
-```
+  [controlPlane.brokerConnectionParameters]
+    eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@<apim-ip>:5672?retries='10'&connectdelay='30'"]
+    reconnectInterval = 5000
+    reconnectRetryCount = 60
+
+  [controlPlane.httpClient] 
+    requestTimeOut = 30
+ ``` 
