@@ -8,7 +8,7 @@ The following is a list of Choreo Connect's important features.
 
 - API Manager as a Control Plane
     - Deploying and managing APIs (REST, WebSocket)
-    - Deploying APIs with prototype endpoints
+    - Deploying Prototype APIs
     - Testing APIs with internal test keys via the WSO2 API Manager Publisher Portal
     - Subscription blocking/unblocking via the WSO2 API Manager Publisher Portal
     - Applying CORS configuration via the WSO2 API Manager Publisher Portal
