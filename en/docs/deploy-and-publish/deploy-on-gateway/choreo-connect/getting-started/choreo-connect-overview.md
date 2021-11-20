@@ -14,13 +14,9 @@ Choreo Connect consists of the following three components.
 - [Enforcer](#enforcer)
 - [Adapter](#adapter)
 
-<<<<<<< HEAD
-Router is the component that is responsible for routing the traffic from different clients to the desired destination(service).
-=======
 ### Router
 
 The Router is the component that is responsible for routing the traffic from different clients to the desired destination (service).
->>>>>>> 3c7824a0a... partly fixes #5014
 Choreo Connect uses the [Envoy Proxy](https://www.envoyproxy.io/) as the core component which does the traffic routing.
 Choreo Connect exposes the APIs to external clients using the Router.
 
