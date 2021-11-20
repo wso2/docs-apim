@@ -1,4 +1,4 @@
-# Failover Endpoints.
+# Failover Endpoints
 
 Failover endpoints provide uninterrupted API invocation capability to the users even though there is a failure in a given API endpoint. When failover is enabled, the traffic that comes to the relevant resource is always routed to the first endpoint. Thereafter, the traffic is routed to second endpoint only if the first endpoint is not available.
 

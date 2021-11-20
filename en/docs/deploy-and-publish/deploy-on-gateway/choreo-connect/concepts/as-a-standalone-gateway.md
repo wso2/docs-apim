@@ -33,11 +33,11 @@ In Choreo Connect, version 3.0.x series the open API definition required 2 manda
 
 `x-wso2-basePath` is used to group all HTTP resources of the OpenAPI under a single context. Therefore, it will be exposed as a sub resource of a single API using Choreo Connect. This is how Choreo Connect logically separates one API from the other. The `x-wso2-production-endpoints` refers to the actual backend service implementation of the API. Therefore, the latter mentioned details are mandatory to expose an API using Choreo Connect.
 
-**But with 3.1.0 onwards none of the WSO2 specific open API extensions are mandatory.** Choreo Connect resolves base path and back end URL as below
+**But with 3.1.0 onwards none of the WSO2 specific open API extensions are mandatory.** Choreo Connect resolves base path and back end URL as follows:
 
-1. **For swagger 2.0**
+- **For swagger 2.0**
     The swagger 2.0 specification  defines a way of providing the [base path and the host](https://swagger.io/docs/specification/2-0/api-host-and-base-path/) of the service. If the swagger specifies the combination of **schemes, basePath and host** attributes, Choreo Connect will drive the back end service URL using host and schemes, and derive the base path using the base path attribute
-2. **For Open API 3.0**
+- **For Open API 3.0**
     The open API 3.0 specification defines a way of providing [server](https://swagger.io/docs/specification/api-host-and-base-path/) URL of the API defines by the open API definition. Choreo Connect derive the base path and the back end service URL using the **servers** object defined in the open API definition.
     For if the server URL is defined as ex: `http://test.com/v2` then Choreo Connect will resolve backend service URL as the given URL and it will also expose the API using the base path(context) /v2.
 
@@ -57,8 +57,8 @@ Following properties of the open API is not recommended to be edited, as it will
     **Open API servers object**
 
     ``` yml
-        servers:
-        - url: https://api.example.com/v1 
+    servers:
+    - url: https://api.example.com/v1 
     ```
 
  Then Choreo Connect will expose the API using the base path(or context) /v1 if the `x-wso2-basePath` extension is not present. Then editing the last part of the servers URL(/v1) will expose API as a different context.
@@ -68,24 +68,24 @@ Following properties of the open API is not recommended to be edited, as it will
   
 Choreo Connect supports the following OpenAPI Extensions. You can use these extensions to override information with regard to API specifications.
   
-   | Extension                         | Description                                                                                                            | Required/ Optional             |
-   |-----------------------------------|------------------------------------------------------------------------------------------------------------------------|--------------------------------|
-   | `x-wso2-basePath`                 | Base path that the gateway exposes the API.                                                                            | Optional → API level only      |
-   | `x-wso2-production-endpoints`     | Specifies the actual backend of the service.                                                                           | Optional → API/Resource level  |
-   | `x-wso2-sandbox-endpoints`        | Specifies the sandbox endpoint of the service if available.                                                            | Optional → API/Resource level  |
-   | `x-wso2-throttling-tier`          | Specifies the rate limiting for the API or resource.                                                                  | Optional → API/Resource level  |-->
-   | `x-wso2-cors`                     | Specifies the Cross-Origin Resource Sharing (CORS) configuration for the API.                                          | Optional → API level only      |
-   | `x-wso2-disable-security`         | Enables the resource to be invoked without authentication.                                                             | Optional → API/Resource level  |
-   | `x-wso2-auth-header`              | Specify the authorization header for the API in which either bearer or basic token is sent                             | Optional → API level only  |
+| Extension                         | Description                                                                                                            | Required/ Optional             |
+|-----------------------------------|------------------------------------------------------------------------------------------------------------------------|--------------------------------|
+| `x-wso2-basePath`                 | Base path that the gateway exposes the API.                                                                            | Optional → API level only      |
+| `x-wso2-production-endpoints`     | Specifies the actual backend of the service.                                                                           | Optional → API/Resource level  |
+| `x-wso2-sandbox-endpoints`        | Specifies the sandbox endpoint of the service if available.                                                            | Optional → API/Resource level  |
+| `x-wso2-throttling-tier`          | Specifies the rate limiting for the API or resource.                                                                  | Optional → API/Resource level  |-->
+| `x-wso2-cors`                     | Specifies the Cross-Origin Resource Sharing (CORS) configuration for the API.                                          | Optional → API level only      |
+| `x-wso2-disable-security`         | Enables the resource to be invoked without authentication.                                                             | Optional → API/Resource level  |
+| `x-wso2-auth-header`              | Specify the authorization header for the API in which either bearer or basic token is sent                             | Optional → API level only  |
 
-   !!! note
-       -  Choreo Connect supports only  the `"x-auth-type": "None"` option to disable the security. Therefore, the following concepts of the auth types in WSO2 API Manager will not work with the Choreo Connect.
-           -   Application & Application User
-           -   Application
-           -   Application User
-       -   However, if you want to expose API/ resource without security, you can also use the `x-wso2-disable-security` extension. Find more information about this extension from [here](https://mg.docs.wso2.com/en/latest/publish/security/api-authentication/disabling-security/#disabling-security).
+!!! note
+    -  Choreo Connect supports only  the `"x-auth-type": "None"` option to disable the security. Therefore, the following concepts of the auth types in WSO2 API Manager will not work with the Choreo Connect.
+        -   Application & Application User
+        -   Application
+        -   Application User
+    -   However, if you want to expose API/ resource without security, you can also use the `x-wso2-disable-security` extension. Find more information about this extension from [here](https://mg.docs.wso2.com/en/latest/publish/security/api-authentication/disabling-security/#disabling-security).
 
-   You can find some samples on how these OpenAPI extensions are used in [Open API definitions](https://github.com/wso2/product-microgateway/blob/master/samples/).
+You can find some samples on how these OpenAPI extensions are used in [OpenAPI definitions](https://github.com/wso2/product-microgateway/blob/master/samples/).
 
 ## Subscription Validation for Self Contained JWTs
 
