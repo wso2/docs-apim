@@ -22,31 +22,38 @@ To enable distributed throttling, change the below configurations in `<CHOREO-CO
     # The message broker context factory
     jmsConnectionInitialContextFactory = "org.wso2.andes.jndi.PropertiesFileInitialContextFactory"
     # The message broker connection URL
-    jmsConnectionProviderUrl = "amqp://admin:$env{tm_admin_pwd}@carbon/carbon?brokerlist='tcp://{API-M_HOST/TM_HOST}:5672'"
+    jmsConnectionProviderURL = "amqp://admin:$env{tm_admin_pwd}@carbon/carbon?brokerlist='tcp://apim:5672'"
     # Throttling configurations related to event publishing using a binary connection
     [enforcer.throttling.publisher]
       # Credentials required to establish connection between Traffic Manager
       username = "admin"
       password = "$env{tm_admin_pwd}"
       # Receiver URL and the authentication URL of the Traffic manager node/nodes
-      [[enforcer.throttling.publisher.urlGroup]]
-        receiverURLs = ["tcp://{API-M_HOST/TM_HOST}:9611"]
-        authURLs = ["ssl://{API-M_HOST/TM_HOST}:9711"]
+      [[enforcer.throttling.publisher.URLGroup]]
+        receiverURLs = ["tcp://apim:9611"]
+        authURLs = ["ssl://apim:9711"]
+
       # Data publisher object pool configurations
       [enforcer.throttling.publisher.pool]
+        # Maximum idle number of connections
         maxIdleDataPublishingAgents = 1000
+        # Minimum idle number of connections
         initIdleObjectDataPublishingAgents = 200
-        # Data publisher thread pool configurations
+        # Thread pool core size
         publisherThreadPoolCoreSize = 200
+        # The maximum size of the thread pool
         publisherThreadPoolMaximumSize = 1000
+        # The timeframe after which the publisher thread pool is terminated in seconds
         publisherThreadPoolKeepAliveTime = 200
+
+      # Data publisher agent configurations
       [enforcer.throttling.publisher.agent]
         # SSL Protocols
         sslEnabledProtocols = "TLSv1.2"
-        # ciphers
-        ciphers="TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDH_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256  ,TLS_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_DSS_WITH_AES_128_GCM_SHA256  ,TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA,TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA,SSL_RSA_WITH_3DES_EDE_CBC_SHA, TLS_ECDH_ECDSA_WITH_3DES_EDE_CBC_SHA,TLS_ECDH_RSA_WITH_3DES_EDE_CBC_SHA,SSL_DHE_RSA_WITH_3DES_EDE_CBC_SHA, SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA,TLS_EMPTY_RENEGOTIATION_INFO_SCSV"
-        # The size of the queue event disruptor which handles events before they are published.
-        # The value specified should always be the result of an exponent with 2 as the base.
+        # Ciphers
+        ciphers = "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDH_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256  ,TLS_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_DSS_WITH_AES_128_GCM_SHA256  ,TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA,TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA,SSL_RSA_WITH_3DES_EDE_CBC_SHA, TLS_ECDH_ECDSA_WITH_3DES_EDE_CBC_SHA,TLS_ECDH_RSA_WITH_3DES_EDE_CBC_SHA,SSL_DHE_RSA_WITH_3DES_EDE_CBC_SHA, SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA,TLS_EMPTY_RENEGOTIATION_INFO_SCSV"
+        # The size of the queue event disruptor which handles events before they are published
+        # The value specified should always be the result of an exponent with 2 as the base
         queueSize = 32768
         # The maximum number of events in a batch sent to the queue event disruptor at a given time
         batchSize = 200
@@ -85,7 +92,7 @@ There can be situations where certain APIs require more granular level of thrott
    Same as the header conditions, this allows applying a specific limit to a certain query parameter value.
 
 4. JWT claim conditions.
-   This type of condition will evaluate the [backend jwt]({{base_path}}/deploy/api-microgateway/passing-enduser-attributes-to-the-backend-using-jwt) and check if it has a specific claim value in it to set the throttle limit.
+   This type of condition will evaluate the [backend jwt]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/passing-enduser-attributes-to-the-backend-via-choreo-connect/) and check if it has a specific claim value in it to set the throttle limit.
 
 #### Configure and enable conditional throttling
 Conditional throttling is done via the Advanced throttling policies in API Manager.
@@ -107,4 +114,4 @@ Conditional throttling is done via the Advanced throttling policies in API Manag
 
 3. Define the Advance Throttle Policy containing the required conditions in WSO2 API Manager. To do this follow [Adding a new advanced throttling policy]({{base_path}}/design/rate-limiting/adding-new-throttling-policies/#adding-a-new-advanced-throttling-policy)
 4. Create an API in API Publisher and assign the created Advanced Throttling policy to the API. [Advanced throttling (API publisher)]({{base_path}}/design/rate-limiting/setting-throttling-limits/#advanced-throttling-api-publisher)
-5. Deploy the API in Choreo-Connect ([Deploy an API via API Manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect/#via-api-manager)).
+5. Deploy the API in Choreo-Connect ([Deploy an API via API Manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-via-apim/)).

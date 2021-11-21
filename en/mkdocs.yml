@@ -286,7 +286,6 @@ nav:
                             - Secure APIs using JWT - Self Contained JWT: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-jwt-self-contained-jwt.md
                         # - Mutual SSL Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/mutual-ssl-authentication.md
                         - Configuring an External Key Manager: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/configuring-an-external-key-manager.md
-                        - Making Application Security Optional: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/making-application-security-optional.md
                         - Disabling Security: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/disabling-security.md
                     - Authorization:
                         - Scope Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authorization/scope-validation.md
