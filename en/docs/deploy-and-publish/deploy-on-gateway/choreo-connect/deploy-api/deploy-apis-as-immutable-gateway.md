@@ -27,7 +27,7 @@ apictl init petstore --oas https://petstore.swagger.io/v2/swagger.json
 
 !!! note
 
-    Instead of initializing the api project, you can [export the apis from api manager]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/migrating-apis-to-different-environments.md) as well.
+    Instead of initializing the API project, you can [export the APIs from API Manager]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/migrating-apis-to-different-environments) as well.
 
 ## Step 3 - Copy the project to the resources/enforcer/artifacts/apis directory
 
