@@ -22,7 +22,7 @@ To enable distributed throttling, change the below configurations in `<CHOREO-CO
     # The message broker context factory
     jmsConnectionInitialContextFactory = "org.wso2.andes.jndi.PropertiesFileInitialContextFactory"
     # The message broker connection URL
-    jmsConnectionProviderURL = "amqp://admin:$env{tm_admin_pwd}@carbon/carbon?brokerlist='tcp://apim:5672'"
+    jmsConnectionProviderURL = "amqp://admin:$env{tm_admin_pwd}@carbon/carbon?brokerlist='tcp://{API-M_HOST/TM_HOST}:5672'"
     # Throttling configurations related to event publishing using a binary connection
     [enforcer.throttling.publisher]
       # Credentials required to establish connection between Traffic Manager
@@ -30,8 +30,8 @@ To enable distributed throttling, change the below configurations in `<CHOREO-CO
       password = "$env{tm_admin_pwd}"
       # Receiver URL and the authentication URL of the Traffic manager node/nodes
       [[enforcer.throttling.publisher.URLGroup]]
-        receiverURLs = ["tcp://apim:9611"]
-        authURLs = ["ssl://apim:9711"]
+        receiverURLs = ["tcp://{API-M_HOST/TM_HOST}:9611"]
+        authURLs = ["ssl://{API-M_HOST/TM_HOST}:9711"]
 
       # Data publisher object pool configurations
       [enforcer.throttling.publisher.pool]
