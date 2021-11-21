@@ -34,7 +34,7 @@ apictl init petstore --oas https://petstore.swagger.io/v2/swagger.json
 The created apictl project needs to be copied to `docker-compose/resources/adapter/artifacts/apis` directory. These
 apictl projects could be copied either in directory format or in zipped format. 
 The apictl project can be the API artifact exported from the API Manager as well. 
-The docker-compose file would mount that directory to the `/home/wso2/artifacts/apis`. 
+The docker-compose file mounts that directory to the `/home/wso2/artifacts/apis`. 
 All the apictl projects in the directory will be deployed during the startup. 
 
 
