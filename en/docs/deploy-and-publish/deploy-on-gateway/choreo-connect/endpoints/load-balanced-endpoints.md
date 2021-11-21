@@ -1,4 +1,4 @@
-# Load Balanced Endpoints.
+# Load Balanced Endpoints
 
 In load balanced API endpoints, the traffic that comes to the resource is routed to the mentioned endpoint addresses based on the round-robin algorithm.
 Choreo Connect (CC) provides load balancing capability with below two WSO2 product combinations.

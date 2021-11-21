@@ -3,7 +3,7 @@
 Choreo Connect can connect to API Manager running on cloud or on-premise as its control plane. Choreo Connect can be configured to connect with
 APIM control plane, therefore the user actions like API deploying, application creation, key generation, subscription creation etc are received by the Choreo Connect seamlessly.
 
-[![]({{base_path}}/assets/img/deploy/mgw/mgw_overview.png)]({{base_path}}/assets/img/deploy/mgw/mgw_overview.png)
+[![Choreo Connect Overview]({{base_path}}/assets/img/deploy/mgw/mgw_overview.png){: style="width:80%"}]({{base_path}}/assets/img/deploy/mgw/mgw_overview.png)
 
 ## Configuring Choreo Connect with API Manager
 
