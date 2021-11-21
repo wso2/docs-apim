@@ -19,7 +19,7 @@ Let's create your first project "petstore" using an open API definition. The fol
 
 !!! warning
 
-    If you have used a previous version of apictl before, remember to delete the directories `.wso2apictl` and `.wso2apictl.local` that are located in your home directory. Deleting them will make the newer apictl create them again, with content compatible with the current version.
+    If you have used a previous version of apictl before, remember to delete the directories `.wso2apictl` and `.wso2apictl.local` that are located in your home directory. Deleting them will make the newer apictl create them again with content compatible with the current version.
 
 ``` bash
 apictl init petstore --oas https://petstore.swagger.io/v2/swagger.json
