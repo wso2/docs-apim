@@ -138,6 +138,47 @@
       "exampleFile": "upstream_timeout.toml"
     },
     {
+      "title": "Upstream Health",
+      "options": [
+        {
+          "name": "router.upstream.health",
+          "required": false,
+          "description": "Health configuration for upstream clusters",
+          "params": [
+            {
+              "name": "timeout",
+              "type": "integer",
+              "required": false,
+              "default": 1,
+              "description": "Time in seconds to wait for a health check response"
+            },
+            {
+              "name": "interval",
+              "type": "integer",
+              "required": false,
+              "default": 10,
+              "description": "Interval betweenn health checks in seconds"
+            },
+            {
+              "name": "unhealthyThreshold",
+              "type": "integer",
+              "required": false,
+              "default": 2,
+              "description": "Number of unhealthy health checks required before a host is marked unhealthy"
+            },
+            {
+              "name": "healthyThreshold",
+              "type": "integer",
+              "required": false,
+              "default": 2,
+              "description": "Number of healthy health checks required before a host is marked healthy"
+            }
+          ]
+        }
+      ],
+      "exampleFile": "upstream_health.toml"
+    },
+    {
       "title": "Router Keystore",
       "options": [
         {
