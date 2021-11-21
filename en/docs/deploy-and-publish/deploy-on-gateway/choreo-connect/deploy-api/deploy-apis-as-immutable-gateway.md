@@ -5,7 +5,7 @@ For that, the apictl projects needs to be mounted to the `docker-compose/resourc
 (default location) of the adapter. 
 
 
-## Step 1 - Download apictl and Set the Path Variable 
+## Step 1 - Download apictl and set the path variable 
 
 First download [apictl](https://github.com/wso2/product-apim-tooling/releases) locally and extract it into a folder of your choice. Then, add its location to your PATH variable.
 
