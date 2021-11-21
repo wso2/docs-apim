@@ -47,7 +47,7 @@ All the apictl projects in the directory will be deployed during the startup.
 
 !!! note
 
-    If this configuration is set to true, the mounted api projects will be deployed during the startup. But the it will not have
+    If this configuration is set to true, the mounted API projects are deployed during startup. However, they will not have
     the immutable nature as the APIs could be added after startup using apictl.
 
 !!! note
