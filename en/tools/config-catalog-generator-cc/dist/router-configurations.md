@@ -421,7 +421,7 @@ See the example .toml file given below.
 
 
 
-## Router Keystore
+## Upstream Health
 
 
 <div class="mb-config-catalog">
@@ -431,6 +431,122 @@ See the example .toml file given below.
             
             <input name="5" type="checkbox" id="_tab_5">
                 <label class="tab-selector" for="_tab_5"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[router.upstream.health]
+  timeout = 1
+  interval = 10
+  unhealthyThreshold = 2
+  healthyThreshold = 2</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[router.upstream.health]</code>
+                            
+                            <p>
+                                Health configuration for upstream clusters
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>timeout</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>1</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Time in seconds to wait for a health check response</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>interval</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>10</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Interval betweenn health checks in seconds</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>unhealthyThreshold</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>2</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Number of unhealthy health checks required before a host is marked unhealthy</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>healthyThreshold</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>2</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Number of healthy health checks required before a host is marked healthy</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## Router Keystore
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="6" type="checkbox" id="_tab_6">
+                <label class="tab-selector" for="_tab_6"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[adapter.keystore]
@@ -505,8 +621,8 @@ See the example .toml file given below.
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="6" type="checkbox" id="_tab_6">
-                <label class="tab-selector" for="_tab_6"><i class="icon fa fa-code"></i></label>
+            <input name="7" type="checkbox" id="_tab_7">
+                <label class="tab-selector" for="_tab_7"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[router.cors]
@@ -664,8 +780,8 @@ allowCredentials = false
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="7" type="checkbox" id="_tab_7">
-                <label class="tab-selector" for="_tab_7"><i class="icon fa fa-code"></i></label>
+            <input name="8" type="checkbox" id="_tab_8">
+                <label class="tab-selector" for="_tab_8"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[router.upstream.retry]
@@ -761,8 +877,8 @@ allowCredentials = false
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="8" type="checkbox" id="_tab_8">
-                <label class="tab-selector" for="_tab_8"><i class="icon fa fa-code"></i></label>
+            <input name="9" type="checkbox" id="_tab_9">
+                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[router.upstream.tls]
