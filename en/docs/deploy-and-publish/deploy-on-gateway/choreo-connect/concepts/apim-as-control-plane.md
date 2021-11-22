@@ -121,7 +121,7 @@ and perform rate-limiting precisely. Find information on how to enable distribut
 
 #### Advanced rate limiting (API publisher)
 
-Advanced rate limiting policies are applied when you are Publishing an API. It can be further divided into the following two levels base on the applicability.
+Advanced rate limiting policies are applied when you are Publishing an API. It can be further divided into the following two levels based on the applicability.
 
 - API level rate limiting
 - Resource level (operational level) rate limiting
