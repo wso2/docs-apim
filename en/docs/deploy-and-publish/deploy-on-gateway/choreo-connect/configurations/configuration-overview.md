@@ -42,7 +42,7 @@ following configuration, you need to declare the `CC_Adapter_Server_Users_0_User
 username = "John"
 ```
 
-If the toml key contains a dot, those characters should be replaced with underscore for the relevant 
+If the TOML key contains a dot, those characters should be replaced with underscore for the relevant 
 environment variable. `cc_analytics_enforcer_configProperties_publisher_reporter_class` is the 
 environment variable for the following configuration.
 
