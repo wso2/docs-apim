@@ -395,10 +395,10 @@ See the example .toml file given below.
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[adapter.consul]
-  enable = false
-  URL = "https://169.254.1.1:8501" # scheme + host ip + port
+  enabled = false
+  url = "https://169.254.1.1:8501" # scheme + host ip + port
   pollInterval = 5 # seconds
-  aclToken = "d3a2a719-4221-8c65-5212-58d4727427ac"
+  ACLToken = "d3a2a719-4221-8c65-5212-58d4727427ac"
   mgwServiceName = "wso2"
   serviceMeshEnabled = false
   # certs for tls
@@ -420,7 +420,7 @@ See the example .toml file given below.
                         <div class="params-wrap">
                             <div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>enable</code> </span>
+                                  <span class="param-name-wrap"> <code>enabled</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -479,7 +479,7 @@ See the example .toml file given below.
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>aclToken</code> </span>
+                                  <span class="param-name-wrap"> <code>ACLToken</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>

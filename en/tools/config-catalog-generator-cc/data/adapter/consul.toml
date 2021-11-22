@@ -1,8 +1,8 @@
 [adapter.consul]
-  enable = false
+  enabled = false
   url = "https://169.254.1.1:8501" # scheme + host ip + port
   pollInterval = 5 # seconds
-  aclToken = "d3a2a719-4221-8c65-5212-58d4727427ac"
+  ACLToken = "d3a2a719-4221-8c65-5212-58d4727427ac"
   mgwServiceName = "wso2"
   serviceMeshEnabled = false
   # certs for tls

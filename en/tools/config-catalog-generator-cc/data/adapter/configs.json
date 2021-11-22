@@ -129,7 +129,7 @@
           "description": "Configurations related to Consul",
           "params": [
             {
-              "name": "enable",
+              "name": "enabled",
               "type": "boolean",
               "required": true,
               "default": "false",
@@ -150,7 +150,7 @@
               "description": "The time interval (in seconds) in which the Choreo Connect should fetch updates from the Consul service catalog."
             },
             {
-              "name": "aclToken",
+              "name": "ACLToken",
               "type": "string",
               "required": true,
               "description": "Access Control Token generated using Consul. You should grant read access to services when creating the token"

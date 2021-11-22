@@ -49,6 +49,40 @@
       "exampleFile": "auth_service.toml"
     },
     {
+      "title": "Filters",
+      "options": [
+        {
+          "name": "filters",
+          "required": false,
+          "description": "The configurations for engaging custom filters in the Enforcer.",
+          "params": [
+            {
+              "name": "className",
+              "type": "string",
+              "required": true,
+              "default": "",
+              "description": "Fully qualified class name of the custom filter implementation."
+            },
+            {
+              "name": "position",
+              "type": "integer",
+              "required": true,
+              "default": "",
+              "description": "Position should be the final position (including already available filters) after all the filters engaged. Position starts from 1."
+            },
+            {
+              "name": "configProperties",
+              "type": "string",
+              "required": false,
+              "default": "",
+              "description": "Filter specific custom configurations. Only `(string, string)` key-value pairs are accepted"
+            }
+          ]
+        }
+      ],
+      "exampleFile": "filters.toml"
+    },
+    {
       "title": "Auth Service thread pool",
       "options": [
         {
@@ -149,6 +183,33 @@
         }
       ],
       "exampleFile": "cache.toml"
+    },
+    {
+      "title": "Management",
+      "options": [
+        {
+          "name": "management",
+          "required": true,
+          "description": "The configuration for admin credentials of the Enforcer",
+          "params": [
+            {
+              "name": "username",
+              "type": "string",
+              "required": true,
+              "default": "admin",
+              "description": "Username"
+            },
+            {
+              "name": "password",
+              "type": "string",
+              "required": true,
+              "default": "admin",
+              "description": "Password"
+            }
+          ]
+        }
+      ],
+      "exampleFile": "management.toml"
     },
     {
       "title": "JWT Generator",
