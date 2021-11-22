@@ -10,7 +10,7 @@ Before passing end user attributes, you need to enable and configure the JWT imp
 
 2. Enable and configure the backend JWT implementation.
 
-     The following is the basic configuration that you need to have in place to enable backend JWT. For more information, on the other backend JWT configurations, see [JWT generation configuration details](#jwt-generation-configuration-details).
+     The following is the basic configuration that you need to have in place to enable backend JWT. For more information, on the other backend JWT configurations, see [JWT generation configuration details](#backend-jwt-generator-configuration-details).
 
     ```toml
     [enforcer.jwtGenerator]
@@ -72,7 +72,7 @@ When generating the backend JWT, it retrieves the claims from the invoked JWT. I
 
 3. Enable and configure the JWT implementation.
 
-     - For more information, see [JWT generation configuration details](#jwt-generation-configuration-details).
+     - For more information, see [JWT generation configuration details](#backend-jwt-generator-configuration-details).
 
      - Set `enforcer.jwtGenerator.gatewayGeneratorImpl` to your customized class name.
 
@@ -83,11 +83,10 @@ When generating the backend JWT, it retrieves the claims from the invoked JWT. I
 
 4. Start the server.
 
-     For more information, see the [Quick Start Guide]({{base_path}}/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-overview/).
+     For more information, see the [Quick Start Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-overview/).
     
 ## Backend JWT generator configuration details
 
-{!./includes/deploy/backend-jwt-gw-note.md!}
 
 The following is a sample configuration.
 
@@ -96,9 +95,12 @@ The following is a sample configuration.
     enable = true
     encoding = "base64" # base64,base64url
     claimDialect = "http://wso2.org/claims"
+    convertDialect = false
     header = "X-JWT-Assertion"
     signingAlgorithm = "SHA256withRSA"
+    enableUserClaims = false
     gatewayGeneratorImpl = "org.wso2.carbon.test.CustomGatewayJWTGenerator"
+    claimsExtractorImpl = "org.wso2.carbon.apimgt.impl.token.ExtendedDefaultClaimsRetriever"
     publicCertificatePath = "/home/wso2/security/truststore/mg.pem"
     privateKeyPath = "/home/wso2/security/keystore/mg.key"
 ```
@@ -123,22 +125,39 @@ The relevant elements in the JWT generation configuration are described below. I
 <td><pre><code>enforcer.jwtGenerator.header</code></pre></td>
 <td>The name of the HTTP header to which the JWT is attached.</td>
 <td>X-JWT-Assertion</td>
+</tr>
 <tr class="even">
 <td><pre><code>enforcer.jwtGenerator.claimDialect</code></pre></td>
 <td><div class="content-wrapper">
 <p>The JWT access token contains all claims that are defined in the <code>enforcer.jwtGenerator.claimDialect</code> element. The default value of this element is <code>http://wso2.org/claims</code>. To get the list of a specific user's claims that need to be included in the JWT, uncomment this element after enabling the JWT. It will include all claims in <code>http://wso2.org/claims</code> to the JWT access token.</p>
 </div></td>
 <td>http://wso2.org/claims</td>
+</tr>
+<tr class="even">
+<td><pre><code>enforcer.jwtGenerator.convertDialect</code></pre></td>
+<td>Remap the OIDC claims into the configured dialect.</td>
+<td>false</td>
+</tr>
 <tr class="even">
 <td><pre><code>enforcer.jwtGenerator.signingAlgorithm</code></pre></td>
 <td><p>The signing algorithm is used to sign the JWT. The general format of the JWT is <code>              {token header}.{claims list}.{signature}</code>. When `NONE` is specified as the algorithm, signing is turned off and the JWT looks as <code>{token header}.{claims list}</code> with two strings delimited by a period and a period at the end.</p>
 <p>This element can have only two values - the default values are <code>SHA256withRSA</code> or <code>NONE</code>.</p></td>
 <td>SHA256withRSA</td>
 </tr>
+<tr class="even">
+<td><pre><code>enforcer.jwtGenerator.enableUserClaims</code></pre></td>
+<td><p>Enable/disable user claims in the token.</p></td>
+<td><code>false</code></td>
+</tr>
 <tr class="odd">
 <td><pre><code>enforcer.jwtGenerator.gatewayGeneratorImpl</code></pre></td>
 <td><p>Fully qualified custom JWT generator to used in JWT(Self Contained) Access Tokens.</p></td>
 <td><code>org.wso2.carbon.apimgt.common.gateway.jwtgenerator.APIMgtGatewayJWTGeneratorImpl</code></td>
+</tr>
+<tr class="even">
+<td><pre><code>enforcer.jwtGenerator.claimsExtractorImpl</code></pre></td>
+<td><p>Fully qualified custom Claim Retriever to add custom claims into JWT.</p></td>
+<td><code>org.wso2.carbon.apimgt.impl.token.ExtendedDefaultClaimsRetriever</code></td>
 </tr>
 <tr class="even">
 <td><pre><code>enforcer.jwtGenerator.publicCertificatePath</code></pre></td>
