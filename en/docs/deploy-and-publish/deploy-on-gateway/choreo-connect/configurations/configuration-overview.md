@@ -59,7 +59,7 @@ a single string where the values are separated with a comma.
 stringArray = ["foo"]
 ```
 
-To override the above configuration, following command needs to be executed.
+You need to execute the following command to override the above configuration.
 
 ```
 export cc_category_stringArray="foo, bar"
