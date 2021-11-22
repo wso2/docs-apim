@@ -66,7 +66,7 @@ export cc_category_stringArray="foo, bar"
 ```
 
 
-## Resolve Configuration values from environment using $env{variable} assignment
+## Resolving configuration values from the environment using the $env{variable} assignment
 
 In addition to previously mentioned approach, the choreo-connect configuration values can be resolved from environment via assigning the property with the value "$env{variable_name}". Refer to the example below.
 
