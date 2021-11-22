@@ -34,7 +34,7 @@ Port = 9843
 ```
 
 If the property to be overridden is a property of an array, the array index should also be appended to the 
-environment variable. (Index will depend on the order you define in the toml file.). To override the 
+environment variable. (Index will depend on the order you define in the .toml file). To override the 
 following configuration, you need to declare the `CC_Adapter_Server_Users_0_Username` environment variable.
 declared.
 
