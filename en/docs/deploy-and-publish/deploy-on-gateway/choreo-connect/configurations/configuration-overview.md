@@ -33,7 +33,7 @@ To override a configuration value like the following, the user needs to declare 
 Port = 9843
 ```
 
-If the property to be overridden is a property of an array, Array Index should also be appended to the 
+If the property to be overridden is a property of an array, the array index should also be appended to the 
 environment variable. (Index will depend on the order you define in the toml file.). To override the 
 following configuration, `CC_Adapter_Server_Users_0_Username` is the environment variable needs to be
 declared.
