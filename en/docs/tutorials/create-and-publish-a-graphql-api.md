@@ -56,6 +56,8 @@ Follow the instructions in this tutorial to design, publish, and invoke a GraphQ
 
         Once the above steps are done, the Star Wars server will be running on `http://localhost:8080`. We can use
         `http://localhost:8080/graphql` as the endpoint when creating the API. 
+
+        Once you provide the HTTP URL as the backend endpoint, WSO2 API-M will internally derive the corresponding Websocket URL `ws://localhost:8080/graphql`. Henceforth, API-M Gateway will use this Websocket URL as the backend subscription endpoint of the GraphQL API.
     
     Let's create an API named "StarWarsAPI" using the following sample data.
       <html>
@@ -206,9 +208,18 @@ Now, you have created and configured the GraphQL API successfully.
     
 2. Click on the GraphQL API.
    
-     The API overview appears.
- 
-     [![StarWarsAPI API overview]({{base_path}}/assets/img/learn/api-overview.png)]({{base_path}}/assets/img/learn/api-overview.png)
+      The API overview appears.
+   
+      [![StarWarsAPI API overview]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/api-overview.png)]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/api-overview.png)
+      
+      <html>
+         <div class="admonition info">
+            <p class="admonition-title">Info</p>
+            <p>
+            Note the both HTTP and Websocket URLs of Gateway displaying for the GraphQL API. The HTTP Gateway URL is to invoke the query and mutation operations of the GraphQL API. The Websocket Gateway URL is to invoke the subscription operations of the GraphQL API.
+            </p>
+         </div> 
+      </html>
 
 3. Optionally, download the API schema if required.
 
@@ -227,11 +238,11 @@ Now, you have created and configured the GraphQL API successfully.
 
     1. Click **TRY OUT**.
     
-         [![Try Out Wizard]({{base_path}}/assets/img/learn/try-out-graphql.png)]({{base_path}}/assets/img/learn/try-out-graphql.png)
+         [![Try Out Wizard]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/try-out-graphql.png)]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/try-out-graphql.png)
          
          This will create a subscription for DefaultApplication and generate consumer key, consumer secret pair for the DefaultApplication. Click **TRY OUT** on the pop-up window to navigate to the try-out console. 
 
-         [![Try Out Popup]({{base_path}}/assets/img/learn/try-out-graphql-popup.png)]({{base_path}}/assets/img/learn/try-out-graphql-popup.png)
+         [![Try Out Popup]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/try-out-graphql-popup.png)]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/try-out-graphql-popup.png)
 
 5. Try out the operations.
     1. Click **GET TEST KEY**.
@@ -257,7 +268,7 @@ Now, you have created and configured the GraphQL API successfully.
 
          ```
 
-         [![Execute GraphQL Query]({{base_path}}/assets/img/learn/graphql-console-execute-query.png)]({{base_path}}/assets/img/learn/graphql-console-execute-query.png)
+         [![Execute GraphQL Query]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/graphql-console-execute-query.png)]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/graphql-console-execute-query.png)
 
          <html>
          <div class="admonition note">
@@ -271,4 +282,53 @@ Now, you have created and configured the GraphQL API successfully.
 
         [![Response of GraphQL Query]({{base_path}}/assets/img/learn/graphql-response-query.png)]({{base_path}}/assets/img/learn/graphql-response-query.png)
 
-You have successfully created and published your first GraphQL API, subscribed to it, obtained an access token for testing and tested your API with the access token.
+You have successfully created and published your first GraphQL API, subscribed to it, obtained an access token for testing and tested your query operation of your API with the access token.
+
+### Step 4 - Invoke the GraphQL API Subscription endpoint
+
+1. To try out subscription operations, make sure you still have the access token  present in the text box which was generated in Step 2 - 5 (a). If not, click **GET TEST KEY** to generate a token. 
+
+2. Enter the following sample payload as the StarWarsAPI reviewAdded subscription request to get real time updates about addition of new reviews.
+   ```
+   subscription {
+      reviewAdded(episode: JEDI) {
+         stars
+         episode
+
+         commentary
+      }
+   }
+   ```
+
+      <html>
+         <div class="admonition note">
+            <p class="admonition-title">Note</p>
+            <p>If you are going to invoke Subscription Operation, payload should be started with `subscription` keyword.</p>
+         </div> 
+      </html>
+
+3. Click **Execute**. If you inspect the network calls from your browser developer tools, you could see the messages passed between the GraphiQL client and the backend.
+
+      [![Response of GraphQL Subscription Init]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/graphql-sub-init-response.png)]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/graphql-sub-init-response.png)
+   
+      As you can see, a successful websocket connection is established between the client and backend via WSO2 API-M Gateway.
+
+4. While keeping the Developer portal web browser page opened, separately open a terminal and directly invoke backend API’s `createReview` mutation operation by executing the following command.
+
+      ```
+      curl -X POST "http://localhost:8080/graphql" -H  "accept: application/json" -H  "Content-Type: application/json" -d '{"query":"mutation {createReview(episode: JEDI, review: { stars: 3, commentary: \"Excellent\"}) { stars   episode   commentary }}","variables":null}' -k
+      ```
+
+      When the mutation is successful, the GraphQL backend will send following as response:
+      ```
+      {"data":{"createReview":{"stars":3,"episode":"JEDI","commentary":"Excellent"}}}
+      ```
+
+5. Now go back to the Developer portal browser page and notice the subscription event response received, corresponding to the mutation operation we did in Step 4.
+
+      [![Response Event of GraphQL Subscription]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/try-out-sub-event.png)]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/try-out-sub-event.png)
+
+      You have now successfully tested GraphQL subscriptions of your API.
+
+
+
