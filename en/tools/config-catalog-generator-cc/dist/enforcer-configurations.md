@@ -225,7 +225,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Position should be the final position (including already available filters) after all the filters engaged. Position starts from 1.</p>
+                                        <p>Position should be the final position (including already available filters) after all the filters are engaged. Position starts from 1.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -244,7 +244,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Filter specific custom configurations. Only `(string, string)` key-value pairs are accepted</p>
+                                        <p>Filter specific custom configurations. Only `(string, string)` key-value pairs are accepted.</p>
                                     </div>
                                 </div>
                             </div>
@@ -569,7 +569,7 @@ password = "admin"</code></pre>
                             <code>[management]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                The configuration for admin credentials of the Enforcer
+                                The configurations for the Enforcer admin credentials.
                             </p>
                         </div>
                         <div class="params-wrap">

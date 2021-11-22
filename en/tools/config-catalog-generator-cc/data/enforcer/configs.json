@@ -68,14 +68,14 @@
               "type": "integer",
               "required": true,
               "default": "",
-              "description": "Position should be the final position (including already available filters) after all the filters engaged. Position starts from 1."
+              "description": "Position should be the final position (including already available filters) after all the filters are engaged. Position starts from 1."
             },
             {
               "name": "configProperties",
               "type": "string",
               "required": false,
               "default": "",
-              "description": "Filter specific custom configurations. Only `(string, string)` key-value pairs are accepted"
+              "description": "Filter specific custom configurations. Only `(string, string)` key-value pairs are accepted."
             }
           ]
         }
@@ -190,7 +190,7 @@
         {
           "name": "management",
           "required": true,
-          "description": "The configuration for admin credentials of the Enforcer",
+          "description": "The configurations for the Enforcer admin credentials.",
           "params": [
             {
               "name": "username",
