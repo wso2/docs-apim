@@ -135,7 +135,7 @@ The relevant elements in the JWT generation configuration are described below. I
 </tr>
 <tr class="even">
 <td><pre><code>enforcer.jwtGenerator.convertDialect</code></pre></td>
-<td>Remap the OIDC claims into the configured dialect</td>
+<td>Remap the OIDC claims into the configured dialect.</td>
 <td>false</td>
 </tr>
 <tr class="even">
@@ -146,7 +146,7 @@ The relevant elements in the JWT generation configuration are described below. I
 </tr>
 <tr class="even">
 <td><pre><code>enforcer.jwtGenerator.enableUserClaims</code></pre></td>
-<td><p>Enable/disable user claims in the token</p></td>
+<td><p>Enable/disable user claims in the token.</p></td>
 <td><code>false</code></td>
 </tr>
 <tr class="odd">
