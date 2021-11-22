@@ -20,7 +20,7 @@ Only the Adapter component reads the `config.toml` file. Then the Enforcer and R
 
 ## Override Configuration values with Environment Variables. 
 
-The configurations provided within `config.toml` can be overridden with environment variables. Since 
+The configurations provided within `config.toml` can be overridden with environment variables. As 
 the `config.toml` file is processed within adapter first, the environment variables should be assigned
 to the adapter environment. The variables are case-insensitive.
 
