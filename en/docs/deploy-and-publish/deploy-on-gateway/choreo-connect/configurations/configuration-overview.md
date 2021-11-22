@@ -22,7 +22,7 @@ Only the Adapter component reads the `config.toml` file. Then the Enforcer and R
 
 The configurations provided within `config.toml` can be overridden with environment variables. As 
 the `config.toml` file is processed within adapter first, the environment variables should be assigned
-to the adapter environment. The variables are case-insensitive.
+to the Adapter environment. The variables are case-insensitive.
 
 To override a configuration value like the following, the user needs to declare the environment variable
 `CC_Adapter_Server_Port`. The value could be a boolean, a float, a string or an integer value.
