@@ -11,7 +11,7 @@ The following are the Choreo Connect related configuration files.
 
 ## Configurations Overview
 
-Only the adapter component reads the `config.toml` file. Then the enforcer and router components fetches the relevant configurations via XDS caches. 
+Only the Adapter component reads the `config.toml` file. Then the Enforcer and Router components fetches the relevant configurations via XDS caches. 
 
 !!! note
 
