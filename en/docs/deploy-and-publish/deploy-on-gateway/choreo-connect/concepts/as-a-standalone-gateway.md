@@ -79,12 +79,12 @@ Choreo Connect supports the following OpenAPI Extensions. You can use these exte
    | `x-wso2-disable-security`         | Enables the resource to be invoked without authentication.                                                             | Optional → API/Resource level  |
    | `x-wso2-auth-header`              | Specify the authorization header for the API in which either bearer or basic token is sent                             | Optional → API level only  |
 
-   !!! note
-       -  Choreo Connect supports only  the `"x-auth-type": "None"` option to disable the security. Therefore, the following concepts of the auth types in WSO2 API Manager will not work with the Choreo Connect.
-           -   Application & Application User
-           -   Application
-           -   Application User
-       -   However, if you want to expose API/ resource without security, you can also use the `x-wso2-disable-security` extension. Find more information about this extension from [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/disabling-security/#disabling-security).
+!!! note
+    -  Choreo Connect supports only  the `"x-auth-type": "None"` option to disable the security. Therefore, the following concepts of the auth types in WSO2 API Manager will not work with the Choreo Connect.
+        -   Application & Application User
+        -   Application
+        -   Application User
+    -   However, if you want to expose API/ resource without security, you can also use the `x-wso2-disable-security` extension. Find more information about this extension from [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/disabling-security/#disabling-security).
 
    You can find some samples on how these OpenAPI extensions are used in [Open API definitions](https://github.com/wso2/product-microgateway/blob/master/samples/).
 
