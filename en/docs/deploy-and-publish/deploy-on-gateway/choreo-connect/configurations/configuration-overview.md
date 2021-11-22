@@ -76,7 +76,7 @@ In addition to the previously mentioned approach, the choreo-connect configurati
     password = "$env{tm_admin_pwd}"
 ```    
 
-In this case, the resolution of the env_variable is different compared to previous approach. For enforcer and analytics.enforcer configurations resolution happens using enforcer environment variables. For other configurations, the environment variable assignment should happen in adapter environment. 
+In this case, the resolution of the `env_variable` is different compared to previous approach. The Enforcer environment variables are used to resolve the `enforcer` and `analytics.enforcer` configurations. For other configurations, the environment variable assignment should happen in the Adapter environment. 
 
 For the above example, the user should assign the environment variable `tm_admin_pwd` to the Enforcer.
 
