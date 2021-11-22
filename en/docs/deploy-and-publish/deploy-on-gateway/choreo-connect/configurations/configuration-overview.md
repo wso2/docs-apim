@@ -78,7 +78,7 @@ In addition to previously mentioned approach, the choreo-connect configuration v
 
 In this case, the resolution of the env_variable is different compared to previous approach. For enforcer and analytics.enforcer configurations resolution happens using enforcer environment variables. For other configurations, the environment variable assignment should happen in adapter environment. 
 
-For the above example, the user should assign the environment variable `tm_admin_pwd` to the enforcer.
+For the above example, the user should assign the environment variable `tm_admin_pwd` to the Enforcer.
 
 !!! Note
 
