@@ -143,35 +143,35 @@
         {
           "name": "router.upstream.health",
           "required": false,
-          "description": "Health configuration for upstream clusters",
+          "description": "Health configuration for upstream clusters.",
           "params": [
             {
               "name": "timeout",
               "type": "integer",
               "required": false,
               "default": 1,
-              "description": "Time in seconds to wait for a health check response"
+              "description": "Time in seconds to wait for a health check response."
             },
             {
               "name": "interval",
               "type": "integer",
               "required": false,
               "default": 10,
-              "description": "Interval betweenn health checks in seconds"
+              "description": "Interval between health checks in seconds."
             },
             {
               "name": "unhealthyThreshold",
               "type": "integer",
               "required": false,
               "default": 2,
-              "description": "Number of unhealthy health checks required before a host is marked unhealthy"
+              "description": "Number of unhealthy health checks required before a host is marked as unhealthy."
             },
             {
               "name": "healthyThreshold",
               "type": "integer",
               "required": false,
               "default": 2,
-              "description": "Number of healthy health checks required before a host is marked healthy"
+              "description": "Number of healthy health checks required before a host is marked as healthy."
             }
           ]
         }
