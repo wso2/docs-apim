@@ -15,7 +15,7 @@ Only the Adapter component reads the `config.toml` file. Then the Enforcer and R
 
 !!! note
 
-    The enforcer component fetches the relevant configurations only once from the adapter in its lifetime. If the adapter restart happens with a configuration change which contains changes related to enforcer, the enforcer also needs to be restarted again.
+    The Enforcer component fetches the relevant configurations only once from the Adapter in its lifetime. If the Adapter is restarted with a configuration change which contains changes related to Enforcer, the Enforcer also needs to be restarted again.
 
 
 ## Override Configuration values with Environment Variables. 
