@@ -125,11 +125,11 @@ Conditional Rate Limiting is done via the Advanced Rate Limiting policies in API
 
 2. Define the Advance Throttle Policy containing the required conditions in WSO2 API Manager. 
      
-     For more information, see [Adding a new advanced throttling policy]({{base_path}}/design/rate-limiting/adding-new-throttling-policies/#adding-a-new-advanced-throttling-policy).
+     For more information, see [Adding New Rate Limiting Policies]({{base_path}}/design/rate-limiting/adding-new-throttling-policies/#adding-a-new-advanced-throttling-policy).
 
 3. Create an API in API Publisher and assign the created Advanced Throttling policy to the API. 
    
-     For more information, see [Advanced throttling (API Publisher)]({{base_path}}/design/rate-limiting/setting-throttling-limits/#advanced-throttling-api-publisher).
+     For more information, see [Advanced Rate Limiting (API Publisher)]({{base_path}}/design/rate-limiting/setting-throttling-limits/#advanced-rate-limiting-api-publisher).
 
 4. Deploy the API in Choreo Connect.
 
