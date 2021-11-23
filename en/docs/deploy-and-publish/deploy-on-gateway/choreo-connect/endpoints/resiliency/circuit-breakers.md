@@ -8,7 +8,7 @@ Based on the circuit breaker configuration, the router (i.e. Envoy) will open th
 !!! note
     Circuit breakers are enabled by default and have modest default values.
 
-The following is the format of the vendor extension which requires for enabling circuit breaking for an endpoint cluster in Choreo Connect.
+The following is the format of the vendor extension that is required to enable circuit breaking for an endpoint cluster in Choreo Connect.
 
 ```yaml tab="Production Endpoint"
 x-wso2-production-endpoints:
