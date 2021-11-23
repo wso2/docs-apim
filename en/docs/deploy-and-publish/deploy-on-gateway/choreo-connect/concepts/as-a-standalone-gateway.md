@@ -77,7 +77,7 @@ Choreo Connect supports the following OpenAPI Extensions. You can use these exte
    | `x-wso2-throttling-tier`          | Specifies the rate limiting for the API or resource.                                                                  | Optional → API/Resource level  |-->
    | `x-wso2-cors`                     | Specifies the Cross-Origin Resource Sharing (CORS) configuration for the API.                                          | Optional → API level only      |
    | `x-wso2-disable-security`         | Enables the resource to be invoked without authentication.                                                             | Optional → API/Resource level  |
-   | `x-wso2-auth-header`              | Specify the authorization header for the API in which either bearer or basic token is sent                             | Optional → API level only  |
+   | `x-wso2-auth-header`              | Specify the authorization header for the API to which either bearer or basic token is sent                             | Optional → API level only  |
 
 !!! note
     -  Choreo Connect supports only  the `"x-auth-type": "None"` option to disable the security. Therefore, the following concepts of the auth types in WSO2 API Manager will not work with the Choreo Connect.
