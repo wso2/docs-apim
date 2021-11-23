@@ -236,13 +236,13 @@ nav:
                     - Choreo Connect Analytics: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/choreo-connect-analytics.md
                 - Deploy an API:
                     - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/overview.md
-                    - Deploy via API Manager: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-via-apim.md
+                    - Deploy via WSO2 API Manager: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-via-apim.md
                     - Deploy via apictl: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-via-apictl.md
                     - Deploy a WebSocket API in Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-web-socket-api.md
                     - Deploy an API with Virtual Hosts: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-with-virtual-hosts.md
                 - Configurations:
                     - Configuration Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configuration-overview.md
-                    - Configuring Log4j2 Properties: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-log4j.md
+                    - Configuring Log4j2 Properties: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-log4j2.md
                     - Main Configurations:
                         - Adapter: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/adapter-configurations.md
                         - Enforcer: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/enforcer-configurations.md
@@ -260,7 +260,7 @@ nav:
                             - Retry Policies: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/advanced-endpoint-config/retry-policies.md
                             - Timeouts: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/advanced-endpoint-config/timeout.md
                 - Rate Limiting:
-                    - Enabling distributed throttling: deploy-and-publish/deploy-on-gateway/choreo-connect/rate-limiting/distributed-throttling.md
+                    - Enabling Distributed Rate Limiting: deploy-and-publish/deploy-on-gateway/choreo-connect/rate-limiting/distributed-throttling.md
                 - Message Transformation:
                     - Message Transformation: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/message-transformation-overview.md
                     - Interceptor Microservice:
@@ -2108,8 +2108,9 @@ plugins:
               'api-analytics/viewing/view-api-analytics-on-alerts.md': 'https://wso2.com/choreo/docs/insights/derive-insights/#alerts'
               'api-analytics/viewing/download-api-analytics-reports.md': 'https://wso2.com/choreo/docs/insights/derive-insights/#reports'
               'install-and-setup/setup/mi-setup/observability/observability-deployment-strategy.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/micro-integrator/cloud-native-observability-overview/'
-              'design/prototype-api/create-a-mock-api-with-an-inline-script.md': 'https://apim.docs.wso2.com/en/4.1.0/design/prototype-api/create-a-prototype-api'
-              'design/prototype-api/deploy-and-test-mock-apis.md': 'https://apim.docs.wso2.com/en/4.1.0/design/prototype-api/create-a-prototype-api'
+              'design/prototype-api/create-a-mock-api-with-an-inline-script.md': 'https://apim.docs.wso2.com/en/4.1.0/design/prototype-api/create-a-prototype-api/'
+              'design/prototype-api/deploy-and-test-mock-apis.md': 'https://apim.docs.wso2.com/en/4.1.0/design/prototype-api/create-a-prototype-api/'
+              'deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-log4j.md': 'https://apim.docs.wso2.com/en/4.1.0/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-log4j2/'
 
     # Extra
 extra_css:

@@ -1,4 +1,6 @@
-# Via API Manager
+# Using WSO2 API Manager to Deploy a REST API in Choreo Connect
+
+Follow the instructions below to use the WSO2 API Manager Publisher Portal to deploy a REST type API in Choreo Connect:
 
 ## Step 1 - Configure Choreo Connect with API Manager
 

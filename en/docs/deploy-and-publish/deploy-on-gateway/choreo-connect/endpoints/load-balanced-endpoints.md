@@ -1,19 +1,16 @@
 # Load Balanced Endpoints
 
-In load balanced API endpoints, the traffic that comes to the resource is routed to the mentioned endpoint addresses based on the round-robin algorithm.
-Choreo Connect (CC) provides load balancing capability with below two WSO2 product combinations.
+When you use Load Balanced API Endpoints, the traffic that comes to the resource is routed to the mentioned endpoint addresses based on the round-robin algorithm. You can enable load balancing capabilities with Choreo Connect (CC) when working with the following two WSO2 products.
 
-- [Load Balanced Endpoints With APIM]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/load-balanced-endpoints/#load-balanced-endpoints-with-apim). 
-- [Load Balanced Endpoints With APICTL]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/load-balanced-endpoints/#load-balanced-endpoints-with-apictl).
+- [Load Balanced Endpoints With WSO2 API Manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/load-balanced-endpoints/#load-balanced-endpoints-with-apim)
+- [Load Balanced Endpoints With APICTL]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/load-balanced-endpoints/#load-balanced-endpoints-with-apictl)
 
-Below section explains how to configure load balanced endpoints considering above products.
-
-## Load Balanced Endpoints With APIM
+## Load Balanced Endpoints with APIM
 
 !!! Important
     Currently WSO2 API Manager allows to add load balanced endpoints only to the API level.
 
-### Step 1 - Define Load Balanced Endpoints In Publisher
+### Step 1 - Define the Load Balanced Endpoints in the Publisher
 
 After creating an API in the APIM publisher, select the API you want to apply load balanced capability.
  
@@ -113,4 +110,4 @@ paths:
 
 ### Step 2 - Deploy the API Project And Invoke With Load Balanced Endpoints
 
-After defining an API in the Open API definition file, deploy it in Choreo Connect as described [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker/#step-1-download-and-setup-choreo-connect-distribution-zip-and-apictl-command-line-tool).
+After defining an API in the OpenAPI definition file, [deploy it in Choreo Connect]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker/#step-1-download-and-setup-choreo-connect-distribution-zip-and-apictl-command-line-tool).

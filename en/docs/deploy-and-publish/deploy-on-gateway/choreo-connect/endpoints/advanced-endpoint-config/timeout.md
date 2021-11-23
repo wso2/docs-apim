@@ -58,7 +58,14 @@ The following is a list of the Global Level Timeouts that you can set in Choreo 
 </tr>
 </table>
 
-You can define any of the above Global Level Timeouts in the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/config.toml` file by using the following configuration. These timeouts are applied for all the APIs that are deployed in Choreo Connect. Out of the above list of timeouts, only the Route Timeout can be defined at the Endpoint Level if required. If the Endpoint Level Upstream Timeouts and Global Level Timeouts are not defined, the default values available for the Global Level Timeouts are applied.
+Follow the instructions below to define Global Level Timeouts:
+
+{!includes/deploy/cc-configuration-file.md!}
+
+1. Use the following configurations to define the Global Level Timeouts.
+
+    !!! note
+        These timeouts are applied for all the APIs that are deployed in Choreo Connect. Out of the above list of timeouts, only the Route Timeout can be defined at the Endpoint Level if required. If the Endpoint Level Upstream Timeouts and Global Level Timeouts are not defined, the default values available for the Global Level Timeouts are applied.
 
 ``` 
 [router]

@@ -1,4 +1,6 @@
-# Deploy an API via apictl (the CLI tool) 
+# Using apictl (the CLI Tool) to Deploy a REST API in Choreo Connect
+
+Follow the instructions below to use the apictl (the CLI Tool) to deploy a REST type API in Choreo Connect:
 
 !!! info
     **Before you begin**

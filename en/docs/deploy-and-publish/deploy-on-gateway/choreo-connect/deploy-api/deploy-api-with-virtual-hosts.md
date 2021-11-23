@@ -1,4 +1,4 @@
-# Deploy API to Choreo Connect with Virtual Hosts
+# Deploying an API to Choreo Connect with Virtual Hosts
 
 There are two ways to add an API to Choreo Connect. For more info refer {{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/overview/
 
