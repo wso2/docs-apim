@@ -6,7 +6,7 @@ Based on the circuit breaker configuration, the router (i.e. Envoy) will open th
 ## Enable circuit breakers for API endpoints
 
 !!! note
-    Circuit breakers are enabled by default and have modest default values.
+    Circuit breakers are enabled by default and have moderate default values.
 
 The following is the format of the vendor extension that is required to enable circuit breaking for an endpoint cluster in Choreo Connect.
 
