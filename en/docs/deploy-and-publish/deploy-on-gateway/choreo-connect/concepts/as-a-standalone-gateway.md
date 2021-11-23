@@ -71,7 +71,7 @@ Choreo Connect supports the following OpenAPI Extensions. You can use these exte
   
    | Extension                         | Description                                                                                                            | Required/ Optional             |
    |-----------------------------------|------------------------------------------------------------------------------------------------------------------------|--------------------------------|
-   | `x-wso2-basePath`                 | Base path that the gateway exposes the API.                                                                            | Optional → API level only      |
+   | `x-wso2-basePath`                 | Base path that the Gateway uses to expose the API.                                                                            | Optional → API level only      |
    | `x-wso2-production-endpoints`     | Specifies the actual backend of the service.                                                                           | Optional → API/Resource level  |
    | `x-wso2-sandbox-endpoints`        | Specifies the sandbox endpoint of the service if available.                                                            | Optional → API/Resource level  |
    | `x-wso2-throttling-tier`          | Specifies the rate limiting for the API or resource.                                                                  | Optional → API/Resource level  |-->
