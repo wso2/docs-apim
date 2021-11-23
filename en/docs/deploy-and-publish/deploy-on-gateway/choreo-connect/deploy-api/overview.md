@@ -1,4 +1,4 @@
-# Deploy an API to Choreo Connect
+# Deploying an API to Choreo Connect
 
 You can use either one of the following methods to add APIs to Choreo Connect.
 
