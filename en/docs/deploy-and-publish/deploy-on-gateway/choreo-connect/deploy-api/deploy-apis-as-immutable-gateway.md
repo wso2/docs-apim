@@ -1,4 +1,4 @@
-# Deploy APIs as immutable gateway
+# Deploy APIs as Immutable Gateway
 
 When deploying APIs as an immutable Gateway, the APIs are deployed during startup. After startup, no APIs can be added using apictl. 
 For that, the apictl projects needs to be mounted to the `docker-compose/resources/adapter/artifacts/apis` directory 
