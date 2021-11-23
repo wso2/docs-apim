@@ -9,7 +9,7 @@ Envoy xDS protocol is implemented on top of gRPC. This allows both the server an
 WSO2 xDS implementation is mainly used for communication between Adapter and Enforcer. Using this communication link, Enforcer receives all latest updates of resources required during the startup and runtime. These resources can be APIs, Configurations, Subscriptions, Revoked Tokens etc. Enforcer then uses above data to populate in memory data structures and validate requests based on provided configurations.
 
 Following is the request/response flow of Adapter -> Enforcer xDS communication.
-1. During startup the Enforcer sends the initial [`DiscoveryRequest`]({{envoy_path}}/api-v3/service/discovery/v3/discovery.proto#service-discovery-v3-discoveryrequest) to the Adapter.
+1. During startup, the Enforcer sends the initial [`DiscoveryRequest`]({{envoy_path}}/api-v3/service/discovery/v3/discovery.proto#service-discovery-v3-discoveryrequest) to the Adapter.
     
     This request mainly specifies the expected type of the resource (e.g.,: API, Config, Application, Subscription) by xDS client (Enforcer).
 2. The Adapter checks if new resources are available in its cache, for the requested resource type.
