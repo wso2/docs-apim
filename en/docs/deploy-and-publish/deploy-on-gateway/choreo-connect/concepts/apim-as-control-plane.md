@@ -165,7 +165,7 @@ When working with Real-time Notifications, Choreo Connect uses a Publisher- Subs
 
 #### Persistent Notifier
 
-When using Persistent Notifications, Choreo Connect uses a persistent storage mechanism to link the Security Token Service (STS) and the WSO2 API Choreo Connect servers. Whenever a token revoke request is received, the STS publishes a message to the persistent storage. When a new  Choreo Connect server spins up, it pulls the list of revoked tokens from the persistent storage, and stores them in the revoked jti (JWT ID) cache. The latter mentioned process only takes place once, and the state of the token is preserved. The state of the revoked token is used at restarts and when new API Choreo Connects join the cluster of Choreo Connect servers. By default,  Choreo Connect can use WSO2 API Manager as its persistent storage when working with persistent notifications. 
+When using Persistent Notifications, Choreo Connect uses a persistent storage mechanism to link the Security Token Service (STS) and the WSO2 API Choreo Connect servers. Whenever a token revoke request is received, the STS publishes a message to the persistent storage. When a new  Choreo Connect server spins up, it pulls the list of revoked tokens from the persistent storage, and stores them in the revoked jti (JWT ID) cache. The latter mentioned process only takes place once, and the state of the token is preserved. The state of the revoked token is used at restarts and when new API Choreo Connects join the cluster of Choreo Connect servers. By default, Choreo Connect can use WSO2 API Manager as its persistent storage when working with persistent notifications. 
 
 
 ## Third party Key Managers
