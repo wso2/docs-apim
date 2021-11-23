@@ -28,7 +28,7 @@ In Mutual TLS, in addition to the client verifying the server, the server also v
 
     3. Add the certificate in `backend.pem` to the router as described in [Adding Certificates to Specific Clusters]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/transport-security/#adding-certificates-to-specific-clusters).
 
-    Important: The ciphers configured [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/transport-security/#configuration) must match the ciphers supported by your backend.
+    Important: The ciphers configured [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/transport-security/#configuration) must match the ciphers supported by your backend.
 
 For Mutual TLS, in addition to the [configurations done for TLS]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/transport-security/#adding-certificates-to-specific-clusters), the certificate of the router must also exist in the backend truststore.
 ### Add the Router Certificate to the Backend Truststore

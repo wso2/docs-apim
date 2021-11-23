@@ -446,7 +446,7 @@ See the example .toml file given below.
                             <code>[router.upstream.health]</code>
                             
                             <p>
-                                Health configuration for upstream clusters
+                                Health configuration for upstream clusters.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -466,7 +466,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Time in seconds to wait for a health check response</p>
+                                        <p>Time in seconds to wait for a health check response.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -485,7 +485,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Interval betweenn health checks in seconds</p>
+                                        <p>Interval between health checks in seconds.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -504,7 +504,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Number of unhealthy health checks required before a host is marked unhealthy</p>
+                                        <p>Number of unhealthy health checks required before a host is marked as unhealthy.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -523,7 +523,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Number of healthy health checks required before a host is marked healthy</p>
+                                        <p>Number of healthy health checks required before a host is marked as healthy.</p>
                                     </div>
                                 </div>
                             </div>

@@ -30,14 +30,14 @@ You can enable or disable subscription validation using the following configurat
         # Configurations for retrieving API and subscription data from API Manager.
         [controlPlane]
         enabled = false
-        serviceUrl = "https://apim:9443/"
-        username="admin"
-        password="$env{cp_admin_pwd}"
+        serviceURL = "https://apim:9443/"
+        username = "admin"
+        password = "$env{cp_admin_pwd}"
         environmentLabels = ["Default"]
         retryInterval = 5
-        skipSSLVerification=true
+        skipSSLVerification = true
         # Message broker connection URL of the control plane
-            [controlPlane.jmsConnectionParameters]
+        [controlPlane.brokerConnectionParameters]
             eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@apim:5672?retries='10'&connectdelay='30'"]
     ```
 

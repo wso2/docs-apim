@@ -100,18 +100,8 @@ Optionally, if you need to change the default behavior (i.e., the maximum number
 
     If you have already started the API-M server, restart it.
 
-3. Sign in to the WSO2 API-M Management Console as the tenant admin.
+4. Follow the steps provided in [Advanced Configurations]({{base_path}}/administer/advanced-configurations) section.
 
-      `https://<hostname>:9443/carbon`
-
-4. Click **Main** --> **Resources** --> **Browse**.
-
-5. Enter the following path in **Location:** and click **Go**.
-
-      `/_system/config/apimgt/applicationdata/tenant-conf.json`
-    
-    ![Resources page]({{base_path}}/assets/img/learn/tenant-config.png)
-
-6. Change the following configuration in the `tenant-conf.json` file.  
+5. Change the following configuration in the Advanced Configuration.  
 
     `"EnableRecommendation" : true`

@@ -50,7 +50,7 @@ The following is a list of Choreo Connect's important features.
 
 - API Insights and Observability
     - Publish analytics to the Choreo Cloud
-    - Open Tracing support: Jager, Zipkin, and Azure App Insights 
+    - Open Tracing support: Jaeger, Zipkin, and Azure App Insights 
 
 - Troubleshooting 
     - Enforcer REST API for troubleshooting purposes
