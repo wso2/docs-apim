@@ -557,19 +557,9 @@ Let's use the
 
     1.  Start the WSO2 API Manager server.
 
-    2.  Sign in to the WSO2 API-M Management Console.
-       
-         `https://<hostname>:9443/carbon`
+    2. Follow the steps provided in [Advanced Configurations]({{base_path}}/administer/advanced-configurations) section.
 
-    3. Click **Main**, navigate to **Resources**, and click **Browse**.
-    
-    4. Enter the following path in **Location:** and click **Go**.
-
-         `/_system/config/apimgt/applicationdata/tenant-conf.json`
-
-         [![Resources page]({{base_path}}/assets/img/learn/tenant-config.png)]({{base_path}}/assets/img/learn/tenant-config.png)
-    
-    5. Add the following configuration in the `tenant-conf.json` file using the WSO2 API-M Management Console.  
+    3. Add the following configuration to the Advanced Configurations.  
 
         ``` json tab="Format"
         "MonetizationInfo": {
