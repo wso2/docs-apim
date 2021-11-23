@@ -1,4 +1,6 @@
 [enforcer.tracing.configProperties]
-  endpoint = "http://jaeger:14268/api/traces"
+  host = "jaeger"
+  port = "9411"
+  endpoint = "/api/v2/spans"
   instrumentationName = "CHOREO-CONNECT"
   maximumTracesPerSecond = "2"
