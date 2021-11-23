@@ -1,6 +1,6 @@
 # Circuit Breakers
 
-In case of backend failure it is always better to fail quickly and relieve the back pressure from the actual backend, so it can recover quickly. The Choreo Connect supports various types of distributed circuit breakers offered by the Envoy. 
+In case of backend failure, it is always better to fail quickly and relieve the back pressure from the actual backend, so it can recover quickly. Choreo Connect supports various types of distributed circuit breakers offered by Envoy. 
 Based on the circuit breaker configuration, the router (i.e. Envoy) will open the circuit and handle the consequent request by itself till the backend recovers. 
 
 ## Enable circuit breakers for API endpoints
