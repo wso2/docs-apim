@@ -59,7 +59,7 @@ The project is now initialized. A directory with the name "petstore" has been cr
     ```
 
 !!! info
-    -   For more information on the API project directory that gets created, see [APICTL Getting Sterted]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller).
+    -   For more information on the API project directory that gets created, see [APICTL Getting Started]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller).
 
 ### Step 3 - Start Choreo Connect
 
