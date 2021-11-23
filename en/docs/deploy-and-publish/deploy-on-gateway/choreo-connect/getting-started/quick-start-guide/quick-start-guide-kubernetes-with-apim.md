@@ -6,8 +6,8 @@ Let's host your first API on Choreo Connect using Kubernetes.
 
 1.  Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
 2.  Set up a [Kubernetes](https://Kubernetes.io/docs/setup/) cluster v1.14 or above.
-      - Minimum CPU : 2vCPU
-      - Minimum Memory : 2GB
+      - Minimum CPU : 4vCPU
+      - Minimum Memory : 3GB
 3.  Deploy an ingress controller - [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/) for this sample.
 
 ## Objectives
