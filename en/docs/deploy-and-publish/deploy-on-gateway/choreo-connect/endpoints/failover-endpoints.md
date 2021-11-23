@@ -1,8 +1,8 @@
 # Failover Endpoints
 
-Failover endpoints provide uninterrupted API invocation capability to the users even though there is a failure in a given API endpoint. When failover is enabled, the traffic that comes to the relevant resource is always routed to the first endpoint. Thereafter, the traffic is routed to second endpoint only if the first endpoint is not available.
+When you use Failover Endpoints, even though a failure may occur in a given API Endpoint it provides users with an uninterrupted API invocation experience. When failover is enabled, the traffic that comes to the relevant resource is always routed to the first endpoint. Thereafter, the traffic is routed to second endpoint only if the first endpoint is not available.
 
-Similar to the load balancing, Choreo Connect (CC) provides failover capability with below two WSO2 product combinations.
+You can enable load balancing capabilities with Choreo Connect (CC) when working with the following two WSO2 products.
 
 - [Failover Endpoints With API Manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/failover-endpoints/#failover-endpoints-with-apim). 
 - [Failover Endpoints With APICTL]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/failover-endpoints/#failover-endpoints-with-apictl).

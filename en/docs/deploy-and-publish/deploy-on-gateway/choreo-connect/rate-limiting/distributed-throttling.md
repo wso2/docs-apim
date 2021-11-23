@@ -1,12 +1,12 @@
-# Distributed throttling
+# Distributed Rate Limiting
 
-To learn about the concepts of throttling in Choreo Connect, please follow the [APIM As Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/#rate-limiting).
+To learn about the concepts of Rate Limiting (Throttling) in Choreo Connect, see [API-M As a Control Plane - Rate Limiting]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/#rate-limiting).
 
-## Enable Distributed Throttling
+## Enable Distributed Rate Limiting
 
-Throttling (Rate Limiting) in Choreo Connect works with API Manager (Traffic Manager).
+Rate Limiting in Choreo Connect works with API Manager (Traffic Manager).
 
-To enable distributed throttling, change the below configurations in `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/config.toml` file as required.
+To enable distributed Rate Limiting, change the following configurations in the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/config.toml` file as required.
 
 ``` toml
   # Throttling configurations
@@ -78,9 +78,9 @@ To enable distributed throttling, change the below configurations in `<CHOREO-CO
         secureEvictionTimePeriod = 5500
         secureMinIdleTimeInPool = 5000
 ```
-### Conditional throttling
+### Conditional Rate Limiting
 
-There can be situations where certain APIs require more granular level of throttling. Assume you want to provide limited access to a certain IP range or a type of client application (identified by User-Agent header). For these scenarios, a simple throttle policy with API/resource level limits is not sufficient. To address complex throttling requirements as above, Choreo Connect is capable of throttling requests based on several conditions. The following types of conditions are supported.
+There can be situations where certain APIs require more granular level of Rate Limiting. Assume you want to provide limited access to a certain IP range or a type of client application (identified by User-Agent header). For these scenarios, a simple throttle policy with API/resource level limits is not sufficient. To address complex throttling requirements as above, Choreo Connect is capable of throttling requests based on several conditions. The following types of conditions are supported.
 
 1. Specific IP or IP range conditions. 
    This condition can be used to provide specific limits to a certain IP address or a range of IP addresses.
@@ -94,22 +94,23 @@ There can be situations where certain APIs require more granular level of thrott
 4. JWT claim conditions.
    This type of condition will evaluate the [backend jwt]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/passing-enduser-attributes-to-the-backend-via-choreo-connect/) and check if it has a specific claim value in it to set the throttle limit.
 
-#### Configure and enable conditional throttling
-Conditional throttling is done via the Advanced throttling policies in API Manager.
+#### Configure and enable conditional Rate Limiting
+
+Conditional Rate Limiting is done via the Advanced Rate Limiting policies in API Manager.
 
 1. Open `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/config.toml` file
 2. Add/Enable below configurations to enable the required condition type.
 
     ```toml
-      [enforcer.throttling]
-        # Connect with the central traffic manager
-        enableGlobalEventPublishing = false
-        # Enable global advanced throttling based on request header conditions
-        enableHeaderConditions = false
-        # Enable global advanced throttling based on request query parameter conditions
-        enableQueryParamConditions = false
-        # Enable global advanced throttling based on jwt claim conditions
-        enableJwtClaimConditions = false
+   [enforcer.throttling]
+     # Connect with the central traffic manager
+     enableGlobalEventPublishing = false
+     # Enable global advanced throttling based on request header conditions
+     enableHeaderConditions = false
+     # Enable global advanced throttling based on request query parameter conditions
+     enableQueryParamConditions = false
+     # Enable global advanced throttling based on jwt claim conditions
+     enableJwtClaimConditions = false
     ```
 
 3. Define the Advance Throttle Policy containing the required conditions in WSO2 API Manager. To do this follow [Adding a new advanced throttling policy]({{base_path}}/design/rate-limiting/adding-new-throttling-policies/#adding-a-new-advanced-throttling-policy)

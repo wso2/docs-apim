@@ -56,22 +56,27 @@ For more information, see [x-envoy-max-retries](https://www.envoyproxy.io/docs/e
 !!! note
     The Global Level Retry Policy Configurations are **applicable only when Endpoint Level Retry Policies are defined**. 
 
-You can define the Global Level Retry Policy in the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/config.toml` file by using the following configuration. If the Endpoint Level Retry Policies and the Global Level Retry Policies are not defined, the default values available for the Global Level Retry Policies are applied.
+{!includes/deploy/cc-configuration-file.md!}
 
-```
-[router.upstream.retry]
-  maxRetryCount = 5
-  baseIntervalInMillis = 25
-  statusCodes = [ 504 ]
-```
+1. Use the following configurations to define the Global Level Retry Policy.
 
-| **Field** | **Description** |
-|-----------|-----------------|
-| maxRetryCount | Maximum value that can be set as the count within the retry configurations in an OpenAPI definition or when configured via the WSO2 API-M UI. |
-| baseIntervalInMillis | Base interval for the Envoy's exponential retry back off algorithm. |
-| statusCodes | The retry mechanism will be enabled for the HTTP status codes that are specified in this list. This is used when the retry configuration is set via the WSO2 API-M UI by setting the [**Retries Before Suspension** field]({{base_path}}/design/endpoints/resiliency/endpoint-timeouts/) or when all the status codes specified in the Endpoint Level Retry Policy are out of range. |
+    !!! note
+        If the Endpoint Level Retry Policies and the Global Level Retry Policies are not defined, the default values available for the Global Level Retry Policies are applied.
 
-For more information with regard to the Global Level Retry Policy Configurations, see [Upstream Retry]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/router-configurations/#upstream-retry).
+    ```
+    [router.upstream.retry]
+      maxRetryCount = 5
+      baseIntervalInMillis = 25
+      statusCodes = [ 504 ]
+    ```
+
+     | **Field** | **Description** |
+     |-----------|-----------------|
+     | maxRetryCount | Maximum value that can be set as the count within the retry configurations in an OpenAPI definition or when configured via the WSO2 API-M UI. |
+     | baseIntervalInMillis | Base interval for the Envoy's exponential retry back off algorithm. |
+     | statusCodes | The retry mechanism will be enabled for the HTTP status codes that are specified in this list. This is used when the retry configuration is set via the WSO2 API-M UI by setting the [**Retries Before Suspension** field]({{base_path}}/design/endpoints/resiliency/endpoint-timeouts/) or when all the status codes specified in the Endpoint Level Retry Policy are out of range. |
+
+     For more information with regard to the Global Level Retry Policy Configurations, see [Upstream Retry]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/router-configurations/#upstream-retry).
 
 ## See Also
 
