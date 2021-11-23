@@ -28,7 +28,7 @@ x-wso2-sandbox-endpoints:
 |-------|-------------|
 | timeoutInMillis | The Endpoint Level Upstream Timeout needs to be defined in Milliseconds. |
 
-The timeout covers the entire duration for all retry requests, including the time gaps between the requests, and therefore directly relates to the time the client would have to wait for a response. For more information, see [x-envoy-max-retries](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/router_filter#config-http-filters-router-x-envoy-max-retries) in the official Envoy documentation. The Global Level Route Timeout is applied if you have not set an Endpoint Level Upstream Timeout.
+The timeout covers the entire duration for all retry requests, including the time gaps between the requests, and therefore directly relates to the time the client would have to wait for a response. For more information, see [x-envoy-max-retries]({{envoy_path}}/configuration/http/http_filters/router_filter#config-http-filters-router-x-envoy-max-retries) in the official Envoy documentation. The Global Level Route Timeout is applied if you have not set an Endpoint Level Upstream Timeout.
 
 ## Global Level Timeouts
 
@@ -98,7 +98,7 @@ For more information with regard to the latter mentioned configurations with reg
 
 !!! Info
 
-    For more in-depth information on how the above configurations affect the router, refer to the [Timeouts](https://www.envoyproxy.io/docs/envoy/latest/faq/configuration/timeouts) in the official Envoy documentation. The following is a mapping between the above configuration and the Envoy (Router) specific configurations.
+    For more in-depth information on how the above configurations affect the router, refer to the [Timeouts]({{envoy_path}}/faq/configuration/timeouts) in the official Envoy documentation. The following is a mapping between the above configuration and the Envoy (Router) specific configurations.
 
     | **Choreo Connect Specific Term**     | **Envoy (Router) Specific Term**             |
     | ---------------------------------------------- | -------------------------------------------- |
@@ -112,4 +112,4 @@ For more information with regard to the latter mentioned configurations with reg
 
 ## See Also
 
-- [Retry Policies]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/advanced-endpoint-config/retry-policies)
+- [Circuit Breakers]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/resiliency/circuit-breakers)
