@@ -257,9 +257,10 @@ nav:
                     - Failover Endpoints: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/failover-endpoints.md
                     - Overriding Endpoint Information: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/overriding-endpoints-for-imported-apis.md
                     - Defining a Backend Security Scheme: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/defining-a-backend-security-scheme.md
-                    - Advanced Endpoint Configurations:
-                            - Retry Policies: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/advanced-endpoint-config/retry-policies.md
-                            - Timeouts: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/advanced-endpoint-config/timeout.md
+                    - Resiliency:
+                            - Retry Policies: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/resiliency/retry-policies.md
+                            - Timeouts: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/resiliency/timeout.md
+                            - Circuit Breakers: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/resiliency/circuit-breakers.md
                 - Rate Limiting:
                     - Enabling Distributed Rate Limiting: deploy-and-publish/deploy-on-gateway/choreo-connect/rate-limiting/distributed-throttling.md
                 - Message Transformation:
@@ -2135,3 +2136,4 @@ extra:
     site_version: 4.1.0
     #base_path: http://localhost:8000
     base_path: https://apim.docs.wso2.com/en/4.1.0
+    envoy_path: https://www.envoyproxy.io/docs/envoy/v1.20.0

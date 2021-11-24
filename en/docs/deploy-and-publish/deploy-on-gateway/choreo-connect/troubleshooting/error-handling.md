@@ -2,7 +2,7 @@
 
 ### Error Codes
 
-In the event of errors occurring during runtime, the Router responds with specific error codes to identify the exact error. The table below lists and describes such error codes. To find more about above error codes, see [Envoy's response flags documentation](https://www.envoyproxy.io/docs/envoy/v1.20.0/configuration/observability/access_log/usage#config-access-log-format-response-flags).
+In the event of errors occurring during runtime, the Router responds with specific error codes to identify the exact error. The table below lists and describes such error codes. To find more about above error codes, see [Envoy's response flags documentation]({{envoy_path}}/configuration/observability/access_log/usage#config-access-log-format-response-flags).
 
 | Error Code | Envoy Error Code | Description                                                         |
 |------------|------------------|---------------------------------------------------------------------|
