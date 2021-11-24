@@ -97,7 +97,7 @@ directory and add below handler before `</Handlers>` .
     
     ``` java
     logger.log-msg-handler.name = org.wso2.carbon.apimgt.gateway.handlers.logging.APILogMessageHandler
-    logger.log-msg-handler.name = DEBUG
+    logger.log-msg-handler.level = DEBUG
     ```
     Append the `log-msg-handler` logger name to `loggers` configuration which is a comma separated list of all active loggers. Sample configuration can be seen below.
 
@@ -295,5 +295,3 @@ Make sure to update the pom file for the above project you created(or downloaded
     ```
 
 3.  Restart the API Manager server.
-
-
