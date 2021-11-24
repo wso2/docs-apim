@@ -12,7 +12,7 @@ Following sections will guide you on how to take heap dumps from each component 
 The Adapter is implemented in Go lang and, therefore, it exposes standard `pprof` ([GO pprof pkg](https://pkg.go.dev/net/http/pprof)) based Go profiling endpoints in `localhost`.
 Follow the steps below to take a heap dump of the Adapter.
 
-1. Log into the Adapter container's shell or in kubernetes, port-forward the port `6060` from Adapter to localhost. This step is required because Adapter's `pprof` endpoints are only exposed via localhost for safety.
+1. Log into the Adapter container's shell or in Kubernetes, port-forward the port `6060` from Adapter to localhost. This step is required because Adapter's `pprof` endpoints are only exposed via localhost for safety.
 
     ```bash tab="Docker Compose"
     docker-compose exec adapter sh
