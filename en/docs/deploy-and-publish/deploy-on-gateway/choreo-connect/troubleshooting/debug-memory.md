@@ -1,4 +1,4 @@
-# Taking Memory Dumps
+# Debugging Memory Issues
 
 As with any software product, there can be instances where WSO2 Choreo Connect cluster fails due to a memory resource exhaustion. The heap dumps will always point you towards the cause of the memory leak. Therefore, it is important to be able to retrieve heap dumps from an environment at the point when an error occurs. This will avoid the necessity of reproducing the exact issue again (particularly in the case of production issues). A resource exhaustion can happen for two reasons:
 
