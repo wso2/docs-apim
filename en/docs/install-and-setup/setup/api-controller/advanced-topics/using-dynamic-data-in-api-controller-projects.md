@@ -97,7 +97,7 @@ For example, consider we need to send a special header to the backend when calli
 
     ```yaml
     type: api
-    version: v4.0.0
+    version: v4.1.0
     data:
         name: SwaggerPetstore
         description: 'This is a sample server Petstore server.  You can find out more about

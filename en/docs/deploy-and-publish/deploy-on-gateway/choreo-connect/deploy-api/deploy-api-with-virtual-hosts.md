@@ -1,17 +1,14 @@
-# Deploy API to Choreo Connect with Virtual Hosts
+# Deploying an API to Choreo Connect with Virtual Hosts
 
-There are two ways to add an API to Choreo Connect. For more info refer {{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/overview/
+There are two ways to add an API to Choreo Connect. For more information, see [Deploying an API to Choreo Connect]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/overview/).
 
-1. [Via API Manager](#via-api-manager)
-2. [Via the API Controller (apictl)](#via-the-api-controller-apictl)
+- [Via API Manager](#via-api-manager)
+- [Via the API Controller (apictl)](#via-the-api-controller-apictl)
 
 !!! info
     **Before you begin**
 
-    This guide assumes that you already have a Choreo Connect instance that is up and running.
-    If not, refer to the [Quick Start Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-with-apim)
-    on how to install and run Choreo Connect. To learn more about Choreo Connect, have a look at the
-    [Overview of Choreo Connect]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview). 
+    This guide assumes that you already have a Choreo Connect instance that is up and running. If not, checkout the [Quick Start Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-overview) on how to install and run Choreo Connect. To learn more about Choreo Connect, have a look at the [Overview of Choreo Connect]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview).
 
 ## Via API Manager
 
@@ -59,7 +56,7 @@ Before deploying the API project, edit the file `deployment_environments.yaml`.
 
 ```yaml
 type: deployment_environments
-version: v4.0.0
+version: v4.1.0
 data:
  -
    displayOnDevportal: true
@@ -95,7 +92,7 @@ data:
     
     ```yaml
     type: deployment_environments
-    version: v4.0.0
+    version: v4.1.0
     data:
      -
        displayOnDevportal: true

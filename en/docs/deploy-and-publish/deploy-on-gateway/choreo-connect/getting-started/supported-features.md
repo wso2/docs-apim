@@ -1,46 +1,79 @@
 # Choreo Connect Supported Features
 
-The latest version v0.9.0 of Choreo Connect does not support all the features provided by 
-API Manager product. In contrast to API gateway Choreo Connect(the API Microgateway) support subset of features offered by the 
-API Manager product. Following is a list of key features supported by Choreo Connect
+Choreo Connect's most recent version (v1.0.0) does not support all of WSO2 API Manager's (WSO2 API-M) functionalities. In contrast to the default API Gateway, Choreo Connect (the API Microgateway) only offers a fraction of WSO2 API Manager product functionalities. 
 
-- Deploying APIs from publisher portal.
-- Deploy new revisions of APIs from publisher portal.
-- Deploy APIs with prototype endpoints.
-- Test APIs with internal test keys from publisher portal 
-- Deploy/undeploy APIs using the command line tool APICTL.
-- Web socket APIS (JWT authentication and throttling supported) 
-- JWT based OAuth2 authentication.
-- JWT revocation.  
-- Subscription validation.
-- Subscription blocking/unblocking from publisher portal.
-- Scope validation for JWT OAuth2 bearer tokens.
-- Applying CORS configuration from publisher portal.
-- Support full lifecycle states of APIs like created, prototyped, blocked, deprecated, published and etc.
-- Support virtual hosts(Vhosts) to expose the APIs.  
-- API/Resource, application and subscription level throttling.
-- Advance throttling, custom policies and the blocking conditions.
-- Publish analytics to the Choreo cloud.
-- Back end JWT generation (Passing end user details to the back end services).
-- Provide custom header name for authentication header and configuration to enable/disable authentication header from outbound request.   
-- Fetch and deploy key managers added by API Manager admin portal.
-- Define multiple key managers from the configurations.
-- Subscription validation with self-contained tokens.
-- Integrate with Consul for service discovery.
-- Integrate with Consul Service Mesh.
-- Support basic auth protected basic end services
-- Support publishing APIs to multiple gateway environments
+## Supported Features
 
-The following key features are not supported by the Choreo Connect as of now they will be added in the future releases.
+The following is a list of Choreo Connect's important features.
 
-- Streaming APIs like SSE, web sub and etc.
-- Create streaming APIs from Async API specifications.
-- Analytics for the web socket APIs.
+- API Manager as a Control Plane
+    - Deploying and managing APIs (REST, WebSocket)
+    - Deploying Prototype APIs
+    - Testing APIs with internal test keys via the WSO2 API Manager Publisher Portal
+    - Subscription blocking/unblocking via the WSO2 API Manager Publisher Portal
+    - Applying CORS configuration via the WSO2 API Manager Publisher Portal
+    - Adding Key Managers via the WSO2 API Manager Admin Portal
+    - WebSocket APIs (JWT authentication and rate limiting supported)
+    - Support for virtual hosts (Vhosts) to expose the APIs
+    - Publishing APIs to multiple Gateway environments
+
+- Security
+    - JWT based OAuth2 authentication
+    - JWT revocation
+    - Defining multiple Key Managers via the configurations
+    - Subscription validation with WSO2 API Manager
+    - Subscription validation with self-contained tokens
+    - Scope validation for JWT OAuth2 bearer tokens
+    - Backend JWT generation (Passing end user details to the backend services)
+    - Support for API keys
+
+- Rate Limiting
+    - API/Resource, application, and subscription level rate limiting 
+    - Advanced rate limiting, custom policies, and the blocking conditions
+
+- Mediation and Message transformation
+    - Request/Response Interceptors for APIs
+
+- Service Discovery
+    - Integrate with Consul for service discovery
+    - Integrate with Consul Service Mesh
+
+- Endpoints
+    - Dynamic endpoint support
+    - Advanced endpoint configurations
+        - Retry and Timeouts
+        - Circuit breaker
+        - Load balance endpoints
+        - Failover endpoints
+    - Support Basic Auth protected endpoints
+    - Mutual transport level security for Gateway to backend
+
+- API Insights and Observability
+    - Publish analytics to the Choreo Cloud
+    - Open Tracing support: Jaeger, Zipkin, and Azure App Insights 
+
+- Troubleshooting 
+    - Enforcer REST API for troubleshooting purposes
+
+- Configurations
+    - Environment variable support for configurations
+
+- Other
+    - Immutable API artifact deploy support
+    - Custom filter support at Enforcer
+    - Deploy/undeploy APIs using the command line tool (APICTL)
+
+## Unsupported Features
+
+The Choreo Connect currently does not support the following major functionalities. However, they will be implemented in future iterations.
+
+- Streaming APIs, namely SSE and WebSub/WebHook
+- Creating streaming APIs from AsyncAPI specifications
+- Analytics for the WebSocket APIs
 - GraphQL APIs
-- API Products.  
-- Mutual SSL authentication for APIs.
-- Application level securities like basic auth and API keys.
-- Message transformation and mediation.
-- Bandwidth based throttling.
+- gRPC APIs
+- API Products
+- Mutual SSL authentication for APIs
+- Basic Authentication for APIs
+- Bandwidth based rate limiting
   
-

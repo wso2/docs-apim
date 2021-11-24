@@ -85,7 +85,7 @@ The access log format will be as follow. It will print the server time, trace Id
 ### Enable access logs.
 
 Configure the following in the `log_config.toml` in the directory `<CHOREO-CONNECT_HOME>/docker-compose/<choreo-connect>/conf/`.
-Please follow [command operators](https://www.envoyproxy.io/docs/envoy/v1.17.0/configuration/observability/access_log/usage#command-operators) for more information on the supported options for log format, `format` configuration.  
+Please follow [command operators]({{envoy_path}}/configuration/observability/access_log/usage#command-operators) for more information on the supported options for log format, `format` configuration.  
 
 ```toml
 [accessLogs]
@@ -110,18 +110,19 @@ Provide the log level as trailing arguments for the envoy command as follows.
 --component-log-level upstream:debug,connection:trace
 ```
 
-Please follow [Command line options](https://www.envoyproxy.io/docs/envoy/v1.17.0/operations/cli) for more information.
+Please follow [Command line options]({{envoy_path}}/operations/cli) for more information.
 
 For example, Add following line to the docker-compose.yaml in the directory `<CHOREO-CONNECT_HOME>/docker-compose/<choreo-connect>/`.
 
 ```yaml
-router:
-    command: ["/usr/local/bin/envoy", "-c /etc/envoy.yaml", "-l", "trace"]
+  router:
+    environment:
+      - TRAILING_ARGS=--log-level trace
 ```
 
 ### Admin portal
 
-The admin interface can be used to view statistics, envoy configurations, etc. For more information, please follow [Envoy admin interface](https://www.envoyproxy.io/docs/envoy/v1.17.0/start/quick-start/admin)
+The admin interface can be used to view statistics, envoy configurations, etc. For more information, please follow [Envoy admin interface]({{envoy_path}}/start/quick-start/admin)
 Configure host and port for the envoy admin interface and expose it.
 
 !!! note

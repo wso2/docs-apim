@@ -1,0 +1,599 @@
+#   Copyright (c) 2021, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+#
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+################################################################################
+---
+openapi: 3.0.0
+info:
+  title: Choreo Connect - Enforcer Admin API
+  description: |
+    This document specifies a **RESTful API** for **Choreo Connect - Enforcer**.
+
+    It's difficult to diagnose an authentication problem in API invocation due to token validation failure even with an active subscription on the Choreo Connect side.
+    The reason for this is because we are unable to examine and validate if subscription-related data exists in the in-memory data mappings.
+    This admin rest API gets the information from the data maps that are stored in memory.
+
+    # Authentication
+    The Enforcer REST API is protected using Basic Authentication. The credentials are defined in the config.toml as follows.
+    
+    ```
+    [enforcer.management]
+      username = "admin"
+      password = "admin"
+    ```
+
+    **Sample request**
+    ```
+    curl 'https://localhost:9001/api/info?version=1.0.0&context=/pizzashack/1.0.0' \
+    -H 'Authorization: Basic YWRtaW46YWRtaW4=' -k
+    ```
+    Following is a sample response after invoking the above curl.
+    ```
+    {
+        "apiId": 2,
+        "provider": "admin",
+        "name": "PizzaShackAPI",
+        "version": "1.0.0",
+        "context": "/pizzashack/1.0.0",
+        "tier": "",
+        "apiType": null,
+        "apiUUID": "cb8e6ad0-76c2-4d90-b8f7-4f8d784c025a",
+        "lcState": "PUBLISHED",
+        "subscriptions": [
+            {
+                "subscriptionId": "364502d9-5ae8-4329-8741-c98edc468ec5",
+                "policyId": "Unlimited",
+                "apiUUID": "cb8e6ad0-76c2-4d90-b8f7-4f8d784c025a",
+                "appUUID": "a6356fbb-b880-4fd0-8047-74a98ad5a798",
+                "subscriptionState": "UNBLOCKED",
+                "timeStamp": 0,
+                "applicationInfo": {
+                    "id": 1,
+                    "uuid": "a6356fbb-b880-4fd0-8047-74a98ad5a798",
+                    "name": "DefaultApplication",
+                    "subId": 1,
+                    "subName": "admin",
+                    "policy": "Unlimited",
+                    "tokenType": null,
+                    "tenantDomain": "carbon.super",
+                    "groupIds": [],
+                    "consumerKey": "BVanBDv0EX6fEIv6dpB4fommINQa"
+                }
+            }
+        ],
+        "defaultVersion": false
+    }
+    ```
+  contact:
+    name: WSO2
+    url: http://wso2.com/choreo/choreo-connect/
+    email: architecture@wso2.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+  - url: https://apis.enforcer.cc.wso2.com
+paths:
+  /api/info:
+    get:
+      tags:
+      - APIs
+      summary: Get API subscription information
+      description: |
+       Get the subscription information of an API by providing the API version and API context.
+      operationId: getAPIInfo
+      parameters:
+      - name: version
+        in: query
+        description: API Version
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: context
+        in: query
+        description: API Context
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: API subscription information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIInfo'
+        "400":
+          description: Bad input parameters
+      x-code-samples:
+        - lang: Curl
+          source: 'curl "https://localhost:9001/api/info?version=1.0.0&context=/pizzashack/1.0.0" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k'
+  /apis:
+    get:
+      tags:
+      - APIs
+      summary: Searche APIs from the API map
+      description: |
+        By passing in the appropriate options, you can search the APIs deployed in the enforcer.
+      operationId: getAPIs
+      parameters:
+      - name: name
+        in: query
+        description: Name of the API
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: version
+        in: query
+        description: API Version
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: context
+        in: query
+        description: API Context
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: apiUUID
+        in: query
+        description: API UUID
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: Number of records per page
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        description: The page number
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: API details that matched with the search criteria
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIList'
+        "400":
+          description: Bad input parameters
+      x-code-samples:
+        - lang: Curl
+          source: 'curl "https://localhost:9001/apis?name=PizzaShackAPI" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k'
+  /applications:
+    get:
+      tags:
+      - Applications
+      summary: Search applications from the application map
+      description: |
+        By passing in the appropriate options, you can search for
+        available applications.
+      operationId: getApplications
+      parameters:
+      - name: orgId
+        in: query
+        description: UUID of the organization
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: name
+        in: query
+        description: Name of the Application
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: appUUID
+        in: query
+        description: Application uuid
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: consumerKey
+        in: query
+        description: application consumer key
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Application details that matched with the search criteria
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationList'
+        "400":
+          description: Bad input parameters
+      x-code-samples:
+        - lang: Curl
+          source: 'curl "https://localhost:9001/applications?orgId=carbon.super" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k'
+  /subscriptions:
+    get:
+      tags:
+      - Subscriptions
+      summary: Search subscriptions from the subscription map
+      description: |
+        By passing in the appropriate options, you can search for
+        subscriptions.
+      operationId: getSubscriptions
+      parameters:
+      - name: apiUUID
+        in: query
+        description: API UUID
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: appUUID
+        in: query
+        description: Application UUID
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: state
+        in: query
+        description: Subscription state
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Subscription details that matched with the search criteria
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriptionList'
+        "400":
+          description: Bad input parameters
+      x-code-samples:
+        - lang: Curl
+          source: 'curl "https://localhost:9001/subscriptions?apiUUID=cb8e6ad0-76c2-4d90-b8f7-4f8d784c025a" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k'
+  /throttling_policies/application:
+    get:
+      tags:
+      - Throttling Policies
+      summary: Search application policy from the application policy map
+      description: |
+        By passing in the appropriate options, you can search for
+        available application policies.
+      operationId: getApplicationPolicies
+      parameters:
+      - name: name
+        in: query
+        description: Name of the application policy
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Applcation policy details that matched with the search criteria
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationPolicyList'
+        "400":
+          description: Bad input parameters
+      x-code-samples:
+        - lang: Curl
+          source: 'curl "https://localhost:9001/throttling_policies/application?name=Unlimited" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k'
+  /throttling_policies/subscription:
+    get:
+      tags:
+      - Throttling Policies
+      summary: Search subcription policy from the subscription policy map
+      description: |
+        By passing in the appropriate options, you can search for
+        available subscription policies.
+      operationId: getSubscriptionPolicies
+      parameters:
+      - name: name
+        in: query
+        description: Name of the Subscription policy
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Subscription policy details that matched with the search criteria
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriptionPolicyList'
+        "400":
+          description: Bad input parameters
+      x-code-samples:
+        - lang: Curl
+          source: 'curl "https://localhost:9001/throttling_policies/subscription?name=Unlimited" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k'
+  /revoked_tokens:
+    get:
+      tags:
+      - Revoked Tokens
+      summary: Search revoked tokens from the revoked tokens map
+      description: |
+        By passing in the appropriate options, you can search for
+        the revoked tokens.
+      operationId: getRevokedTokens
+      parameters:
+      - name: token
+        in: query
+        description: The JWT or the JTI of the jwt
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Revoked token details that matched with the search criteria
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RevokedTokenList'
+        "400":
+          description: Bad input parameters
+      x-code-samples:
+        - lang: Curl
+          source: 'curl "https://localhost:9001/revoked_tokens?token=<TOKEN>" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k'
+components:
+  schemas:
+    APIInfo:
+      properties:
+        apiUUID:
+          type: string
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        name:
+          type: string
+          example: PizzaShackAPI
+        version:
+          type: string
+          example: 1.0.0
+        context:
+          type: string
+          example: /pizzashack
+        policy:
+          type: string
+          example: 10PerMin
+        apiType:
+          type: string
+          example: HTTP
+        lcState:
+          type: string
+          example: PUBLISHED
+        subscriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubscriptionInfo'
+    SubscriptionInfo:
+      type: object
+      properties:
+        subscriptionId:
+          type: string
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        policy:
+          type: string
+          example: 10PerMin
+        status:
+          type: string
+          example: Active
+        application:
+          $ref: '#/components/schemas/Application'
+    APIList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 1
+        apis:
+          type: array
+          items:
+            $ref: '#/components/schemas/API'
+    API:
+      type: object
+      properties:
+        apiUUID:
+          type: string
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        name:
+          type: string
+          example: PizzaShackAPI
+        version:
+          type: string
+          example: 1.0.0
+        context:
+          type: string
+          example: /pizzashack
+        provider:
+          type: string
+          example: admin
+        policy:
+          type: string
+          example: 10PerMin
+        apiType:
+          type: string
+          example: HTTP
+        lcState:
+          type: string
+          example: PUBLISHED
+    Application:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+          example: ACME Corporation
+        applicationUUID:
+          type: string
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        policy:
+          type: string
+          example: 10PerMin
+        subName:
+          type: string
+        subId:
+          type: integer
+          example: 1
+        tokenType:
+          type: string
+          example: PRODUCTION
+        tenantDomain:
+          type: string
+          example: carbon.super
+        consumerKey:
+          type: string
+          example: d290f1eed701748f0851
+    ApplicationList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 1
+        applications:
+          type: array
+          items:
+            $ref: '#/components/schemas/Application'
+    Subscription:
+      required:
+      - name
+      type: object
+      properties:
+        subscriptionId:
+          type: string
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        policyId:
+          type: string
+          example: 10PerMin
+        apiUUID:
+          type: string
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        appUUID:
+          type: string
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        subscriptionState:
+          type: string
+          example: BLOCKED
+    SubscriptionList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 1
+        subscriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Subscription'
+    SubscriptionPolicy:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        quotaType:
+          type: string
+        rateLimitCount:
+          type: integer
+          example: 1000
+        rateLimitTimeUnit:
+          type: string
+          example: second
+        tierName:
+          type: string
+          example: 10 Per Min
+        graphQLMaxComplexity:
+          type: integer
+          example: 10
+        graphQLMaxDepth:
+          type: integer
+          example: 3
+    SubscriptionPolicyList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 1
+        subscriptionPolicies:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubscriptionPolicy'
+    ApplicationPolicy:
+      type: object
+      properties:
+        tierName:
+          type: string
+          example: 5PerMin
+        quotaType:
+          type: string
+    ApplicationPolicyList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 1
+        applicationPolicies:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApplicationPolicy'
+    RevokedTokenList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 1
+        tokens:
+          type: array
+          items:
+            type: string

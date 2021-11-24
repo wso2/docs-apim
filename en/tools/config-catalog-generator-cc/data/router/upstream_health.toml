@@ -1,0 +1,5 @@
+[router.upstream.health]
+  timeout = 1
+  interval = 10
+  unhealthyThreshold = 2
+  healthyThreshold = 2

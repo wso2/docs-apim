@@ -32,7 +32,7 @@ To configure analytics with Choreo,
 
 5. Now open the `config.toml` located in `CHOREO-CONNECT_HOME/docker-compose/choreo-connect/conf` directory and find the [Analytics]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/analytics-configurations/) section and enable analytics by using the following configurations.
 
-    ``` yml
+    ``` toml
     [analytics]
     enabled = true
     [analytics.adapter]
@@ -63,8 +63,8 @@ To configure analytics with Choreo,
 
 Let's generate some traffic to see the Analytics in Choreo cloud.
 
-1. Deploy your API - Follow [this]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect/) according to your setup.
-2. Let's Invoke the API few times - [Invoke the API]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect/#invoke-the-api)
+1. Deploy your API - Follow [this]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-via-apim/#step-3-deploy-the-api-in-api-manager) according to your setup.
+2. Let's Invoke the API few times - [Invoke the API]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-via-apim/#step-4-invoke-the-api)
 3. Go to [Choreo Insights](https://console.choreo.dev/insights) to view statistics. 
 
 Here are some of the graphs generated in Choreo cloud.

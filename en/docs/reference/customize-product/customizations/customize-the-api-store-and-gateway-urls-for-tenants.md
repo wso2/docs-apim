@@ -62,21 +62,13 @@ The default URL of WSO2 API Manager Developer Portal (`https://<HostName>:9443/d
 
     ![]({{base_path}}/assets/img/develop/customizations/create-mapping-file.png)
 
-## Configure per tenant service provider creation for devportal
+## Configure per tenant service provider creation for the Developer Portal
 
 By default the developer portal is acting as SAAS app, which is shared among all the tenants. But when custom URLs are enabled for a given tenant, this particular SAAS application cannot be used(Due to custom callback URLs) for tenant login management. Hence, below steps has to be followed in order to enable service provider creation per tenant.
 
-1.  Log in to the management console ( `https://<HostName>:9443/carbon` ) as the **tenant admin**.
+1.  Carry out the steps provided in the [Advanced Configurations]({{base_path}}/administer/advanced-configurations) section.
 
-2.  In the **Main** menu, click **Browse** under **Resources**.
-
-    ![]({{base_path}}/assets/img/develop/customizations/browse-registry.png)
-
-3.  Navigate to `/_system/config/apimgt/applicationdata/tenant-conf.json` configuration file.
-
-    ![]({{base_path}}/assets/img/develop/customizations/tenant-conf.png )
-
-4.  Edit `tenant-conf.json` and add following new property to enable per tenant service provider creation for the respective tenant. Then save the content.
+2.  Edit the Advanced Configurations and add following new property to enable per tenant service provider creation for the respective tenant. Save the content.
 
     ```json
     "EnablePerTenantServiceProviderCreation": true

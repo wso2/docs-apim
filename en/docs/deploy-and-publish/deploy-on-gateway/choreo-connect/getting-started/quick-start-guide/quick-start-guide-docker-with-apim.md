@@ -6,11 +6,11 @@ Lets' deploy an API from API Manager (control plane) and invoke via the Choreo C
 
 Make sure to install and set up [Docker](https://www.docker.com).
 
-### Step 1 - Download and setup Choreo Connect distribution zip
+### Step 1 - Download and extract Choreo Connect distribution .zip file
 
-Latest Choreo Connect distribution can be downloaded from the [page](https://wso2.com/api-management/api-microgateway/). Extract the Choreo Connect distribution zip. Extracted folder will be called as `CC_HOME` hereafter.
+Latest Choreo Connect distribution can be downloaded from the [GitHub repository](https://github.com/wso2/product-microgateway/releases). Extract the Choreo Connect distribution .zip file. The extracted folder will be called as `CHOREO-CONNECT_HOME` hereafter.
 
-### Step 2 - Configure Choreo Connect to Connect to API Manager
+### Step 2 - Configure Choreo Connect to connect to API Manager
 
 We have to enable the `[controlPlane.eventHub]` in the `config.toml` file in the `CHOREO-CONNECT_HOME/docker-compose/choreo-connect-with-apim/conf` directory.
 Let's edit the `config.toml` like below to enable the event hub.
@@ -49,14 +49,11 @@ docker ps | grep choreo-connect-
 1. First log in to the API Manager Publisher Portal by accessing the URL: https://apim:9443/publisher/.
 
 2. Click on the REST API card and then click on the `Deploy Sample API` button. This will deploy the sample PizzaShack API.
-
     [![]({{base_path}}/assets/img/deploy/mgw/deploy-sample-api.png)]({{base_path}}/assets/img/deploy/mgw/deploy-sample-api.png)
 
 3. Then click on the `Endpoints` from the left-hand side menu inside the PizzaShackAPI. Change the production endpoint and
 sandbox endpoint URL as `http://apim:9763/am/sample/pizzashack/v1/api/`. Then save the changes by clicking save button.
-
     [![]({{base_path}}/assets/img/deploy/mgw/endpoint-tab.png)]({{base_path}}/assets/img/deploy/mgw/endpoint-tab.png)
-
     [![]({{base_path}}/assets/img/deploy/mgw/endpoint-edit.png)]({{base_path}}/assets/img/deploy/mgw/endpoint-edit.png)
 
 4. Follow the [deploy an API]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api) guide to deploy 

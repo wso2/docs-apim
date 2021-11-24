@@ -6,23 +6,22 @@ Let's host your first API on Choreo Connect using Kubernetes.
 
 1.  Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
 2.  Setup a [Kubernetes](https://Kubernetes.io/docs/setup/) cluster v1.14 or above.
-      - Minimum CPU : 2vCPU
+      - Minimum CPU : 3vCPU
       - Minimum Memory : 2GB
 3.  Deploy an ingress controller - [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/) for this sample.
 
 ## Objectives
 
-1.  Setup K8s API Operator in Kubernetes.
-2.  Create and deploy an API project.
-3.  Invoke the API using a generated key.
+1.  Create and deploy an API project.
+2.  Invoke the API using a generated key.
 
 Let's get started...
 
-## Step 1 - Setup Choreo Connect and K8s API Operator in Kubernetes
+## Step 1 - Setup Choreo Connect in Kubernetes
 
-1.  Download the Choreo Connect v0.9.0 from
-    [GitHub release page's](https://github.com/wso2/product-microgateway/releases/tag/v0.9.0) assets and extract them
-    to a folder of your choice. We will refer to this folder as the `CHOREO-CONNECT_HOME`.
+1.  Download and extract Choreo Connect distribution .zip file
+
+    Latest Choreo Connect distribution can be downloaded from the [GitHub repository](https://github.com/wso2/product-microgateway/releases). Extract the Choreo Connect distribution .zip file. The extracted folder will be called as `CHOREO-CONNECT_HOME` hereafter.
 
 2.  Apply the Kubernetes configurations for Choreo Connect using the kubectl tool.
 
@@ -30,15 +29,7 @@ Let's get started...
     kubectl apply -f <CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect
     ```
 
-3.  Install K8s API Operator by executing the following command.
-
-    ```bash
-    kubectl apply -f https://github.com/wso2/k8s-api-operator/releases/download/v2.0.0/api-operator-configs.yaml
-    ```
-    !!!info
-        For more information, see [Installing the API K8s Operator]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/install/)
-
-4.  Add the host entry to `/etc/hosts` file.
+3.  Add the host entry to `/etc/hosts` file.
 
     Add the following entry to `/etc/hosts` file in order to access the Choreo Connect Router and Adapter.
 
@@ -46,80 +37,104 @@ Let's get started...
     <INGRESS_ADDRESS>    gw.wso2.com    adapter.wso2.com
     ```
 
-## Step 2 - Create and deploy an API project
+## Step 2 - Initialize an API project
 
 Let's create our first project with the name "petstore" by adding the [OpenAPI definition](https://petstore.swagger.io/v2/swagger.json) of the petstore.
 
-1.  Create a Kubernetes ConfigMap with the API-CTL project.
+1. Download and install APICTL
+
+    APICTL is a CLI tool that can be used to deploy undeploy APIs into Choreo Connect clusters.
+    Refer [Download and initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool)
+    to set up the APICTL in your development environment.
     
-    Download the API controller (apictl) from the 
-    [GitHub release page's](https://github.com/wso2/product-apim-tooling/releases/tag/v4.0.0) assets and 
-    extract them to a folder of your choice.
+2. Now let's deploy our first API by creating an API resource in Kubernetes.
 
-    ```bash
-    export PATH=$PATH:<CLI_TOOL_EXTRACTED_LOCATION>
+    Navigate to a preferred workspace folder using the command line. This is the location that is used to store the Choreo Connect project.
+    Run the following command to create a project named "petstore". This creates the folder structure for the artifacts to be included. Use the --oas option to include the API definition to the project as follows.
+
+    ```shell
+    apictl init petstore --oas <api definition path>
     ```
-
-    ```bash
+    
+    Let's use the [Petstore sample open API definition](https://petstore.swagger.io/)
+    
+    ```shell
     apictl init petstore --oas https://petstore.swagger.io/v2/swagger.json
     ```
-
-    The project is now initialized. You should notice a directory with the name "petstore" being created in the location
-    where you executed the command.
     
-    Let's update endpoints as `https://petstore.swagger.io/v2` of the API by editing the `petstore/api.yaml` file.
+    The project is now initialized. A directory with the name "petstore" has been created.
 
-    ```yaml
-    endpointConfig:
-      endpoint_type: http
-      production_endpoints:
-        url: https://petstore.swagger.io/v2
-      sandbox_endpoints:
-        url: https://petstore.swagger.io/v2
-    ```
-    
-    Let's zip the created "petstore"` directory and create a Kubernetes Config Map.
+!!! info
+    -   For more information on the API project directory that gets created, see [APICTL Getting Started]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller).
 
-    ```bash
-    zip -r petstore.zip petstore/
-    kubectl create cm petstore-cm --from-file petstore.zip
-    ```
+## Step 3 - Deploy the API Project
 
-    !!! info
-        You can also create a Kubernetes configmap directly from the swagger definition.
-        
-        ```bash
-        kubectl create cm petstore-cm --from-literal=swagger="$(curl -k https://petstore.swagger.io/v2/swagger.json)"
-        ```
 
-2.  Now let's deploy our first API by creating an API resource in Kubernetes.
+### Step 3.1 - Add Choreo Connect Cluster as Environment to APICTL
 
-    ```bash
-    cat <<EOF | kubectl apply -f -
-    apiVersion: wso2.com/v1alpha2
-    kind: API
-    metadata:
-        name: petstore-api
-    spec:
-        swaggerConfigMapName: petstore-cm
-    EOF
-    ```
+To use APICTL with Choreo Connect, we need to add the Choreo Connect cluster as an environment in the APICTL.
+Basically, the adapter URL will be added as the Gateway environment, and the added environment can be used in the subsequent commands.
 
-## Step 3 - Invoke the API
+``` shell tab="Format"
+apictl mg add env <ENVIRONMENT_NAME> --adapter <ADAPTER_URL>
+```
 
-1.  The next step would be to invoke the API using a REST tool. Since APIs on the Choreo Connect are by default secured, 
-    we need a valid token in order to invoke the API.
-    Use the following sample token accepted by Choreo Connect to access the API. 
-    Let's set the token to the command line as a variable.
+``` shell tab="Example"
+apictl mg add env k8s --adapter https://adapter.wso2.com
+```
 
-    ```bash
-    TOKEN=$(curl -X POST "https://gw.wso2.com/testkey" -d "scope=read:pets" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -v)
-    ```
+### Step 3.2 - Log in to the Choreo Connect Cluster
 
-2.  We can now invoke the API running on the Choreo Connect using cURL as below.
+Next you need to log in to the Choreo Connect environment (log in to the adapter) in order to deploy the API in Choreo Connect.
 
-    ```bash
-    curl -X GET "https://gw.wso2.com/v2/pet/findByStatus?status=available" -H "accept: application/json" -H "Authorization:Bearer $TOKEN" -k
-    ```
+``` shell tab="Format"
+apictl mg login <ENVIRONMENT_NAME> -u <AUTHORIZED_USER_USERNAME> -p <USER_PASSWORD> -k
+```
 
-You have successfully created your first API on the Choreo Connect and invoked it.
+``` shell tab="Example"
+apictl mg login k8s -u admin -p admin -k
+```
+
+!!! info
+    Following APICTL commands are being executed with -k flag to avoid SSL verification with the Choreo Connect.
+    To communicate via HTTPS without skipping SSL verification (without -k flag), add the cert of Choreo Connect into `/home/<your-pc-username>/.wso2apictl/certs`.
+
+### Step 3.3 - Deploy the API in Choreo Connect
+
+Now let's deploy our first API to Choreo Connect using the project created in the step 3.
+Navigate to the location where the petstore project was initialized. Execute the following command to deploy the API in the Choreo Connect.
+
+``` shell tab="Format"
+apictl mg deploy api -f <PROJRECT_NAME> -e <ENVIRONMENT_NAME> -k
+```
+
+``` shell tab="Example"
+apictl mg deploy api -f petstore -e k8s -k
+```
+
+## Step 4 - Invoke the sample API
+
+### Step 4.1 - Obtain a token
+
+After the APIs are exposed via WSO2 Choreo Connect, you can invoke an API with a valid token(JWT) or using a test key.  
+Let's use WSO2 Choreo Connect's test key endpoint to obtain a test key in order to access the API. Refer [Generate a Test JWT]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt) for more details.
+
+``` shell tab="Sample Token"
+TOKEN=$(curl -X POST "https://gw.wso2.com/testkey" -d "scope=read:pets" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -v)
+```
+
+!!! info
+    More information
+    -   You can obtain a JWT token from any third-party secure token service or via the WSO2 API Manager.
+
+### Step 4.2 - Invoke the API
+
+Execute the following command to invoke the API using the test key: You can now invoke the API running on WSO2 Choreo Connect using the following cURL command.
+
+``` shell tab="Format"
+curl -X GET "<hostname>:<port>/<API-context>/<API-resource>" -H "Authorization: Bearer $TOKEN" -k
+```
+
+``` shell tab="Example"
+curl -X GET "https://gw.wso2.com/v2/pet/findByStatus?status=available" -H "accept: application/json" -H "Authorization:Bearer $TOKEN" -k
+```

@@ -2,9 +2,9 @@
 
 WSO2 API Manager admins can add new rate limiting policies and define extra properties to the rate limiting policies. To get started, click on the level of rate limiting that you want to add a new policy to:
 
--   [Advanced rate limiting policy](#adding-a-new-advanced-rate-limiting-policy)
--   [Application-level rate limiting tier](#adding-a-new-application-level-rate-limiting-tier)
--   [New subscription-level rate limiting tier](#adding-a-new-subscription-level-rate-limiting-tier)
+  - [Adding a new advanced rate limiting policy](#adding-a-new-advanced-rate-limiting-policy)
+  - [Adding a new application-level rate limiting tier](#adding-a-new-application-level-rate-limiting-tier)
+  - [Adding a new subscription-level rate limiting tier](#adding-a-new-subscription-level-rate-limiting-tier)
 
 ## Adding a new advanced rate limiting policy
 
@@ -28,7 +28,6 @@ You can add advanced rate limiting policies to both APIs and resources.
     </p>
     </div>
    
-
     [![Add advanced policy page]({{base_path}}/assets/img/learn/add-request-bandwith-advanced-policy.png)]({{base_path}}/assets/img/learn/add-request-bandwith-advanced-policy.png)
 
 
@@ -75,9 +74,9 @@ You can add advanced rate limiting policies to both APIs and resources.
 7.  Header condition and JWT claim condition values allow regex patterns to be defined.
     You can configure it to make either an exact match or a pattern match for the value using the regex values. For example:
     
-    [![Add advanced policy page]({{base_path}}/assets/img/learn/new-header-condition-regex.png)]({{base_path}}/assets/img/learn/new-header-condition-regex.png)
+    [![Add advanced policy page]({{base_path}}/assets/img/learn/new-header-condition-regex.png){:style="width:45%"}]({{base_path}}/assets/img/learn/new-header-condition-regex.png)
 
-    [![Add advanced policy page]({{base_path}}/assets/img/learn/new-jwt-condition-regex.png)]({{base_path}}/assets/img/learn/anew-jwt-condition-regex.png)
+    [![Add advanced policy page]({{base_path}}/assets/img/learn/new-jwt-condition-regex.png){:style="width:45%"}]({{base_path}}/assets/img/learn/anew-jwt-condition-regex.png)
 
     <div class="admonition info">
     <p class="admonition-title">Note</p>
@@ -127,7 +126,7 @@ Application-level rate limiting policies are applicable per access token generat
 
 4.  Fill in the required details and click **Save**.
 
-    [![Add application policy page]({{base_path}}/assets/img/learn/save-new-application-policy.png)]({{base_path}}/assets/img/learn/save-new-application-policy.png)
+    [![Add application policy page]({{base_path}}/assets/img/learn/save-new-application-policy.png){:style="width:45%"}]({{base_path}}/assets/img/learn/save-new-application-policy.png)
 
 You have added a new application-level rate limiting policy.
 
@@ -144,7 +143,8 @@ You have added a new application-level rate limiting policy.
     <p><b> Unauthenticated tier</b></p>
      <p>
     When you are adding a new Subscription level rate limiting tier, you will see the existing list of subscription tiers in the **Subscription Tier List**. In this list, you will find a tier named **Unauthenticated**, which has a request quota of 500. This is the subscription tier, which is automatically applied when the authentication type of your resources is **'None'.** That is when you can invoke APIs without tokens. And this tier is not visible in the rate limiting tier list of the application. </p>
-    </div>    
+    </div>
+
 4.  Fill in the details required by this form and click **Save** once you are done.
 
      [![Add subscription policy page]({{base_path}}/assets/img/design/rate-limiting/save-new-subscription-policy.png)]({{base_path}}/assets/img/design/rate-limiting/save-new-subscription-policy.png)
@@ -179,10 +179,8 @@ You have added a new application-level rate limiting policy.
     <div class="admonition info">
     <p class="admonition-title">Note</p>
     <p><b> Billing plan</b></p>
-    
-     **Free** - If all subscription tiers are defined as Free, the API uses the **Free billing plan** and the API is labeled as Free in the Developer Portal.              **Paid** - If all subscription tiers are defined as Paid, the API uses the **Commercial billing plan** and the API is labeled as Paid in the Developer Portal.       
-     **Freemium** - If the API has a combination of Free and Paid subscription tiers, the API uses the **Freemium billing plan** and the API is labeled as Freemium in the Developer Portal.                                                                                                                                                    <p>                                                            
-      This labeling happens on the Developer Portal only if monetization has been enabled. For information on how to enable monetization and how to tag subscription tiers, see [Configuring API Monetization Category Labels]({{base_path}}/design/api-monetization/configuring-api-monetization-category-labels/).   </p>                                                                                     
-    </div>                                                                           
-    You have now successfully added a new subscription-level rate limiting policy.
+    <ul>
+     <li><b>Free</b> - If all subscription tiers are defined as Free, the API uses the **Free billing plan** and the API is labeled as Free in the Developer Portal.              **Paid** - If all subscription tiers are defined as Paid, the API uses the **Commercial billing plan** and the API is labeled as Paid in the Developer Portal.</li>
+     <li><b>Freemium</b> - If the API has a combination of Free and Paid subscription tiers, the API uses the **Freemium billing plan** and the API is labeled as Freemium in the Developer Portal.</li></ul>
+     <p>This labeling happens on the Developer Portal only if monetization has been enabled. For information on how to enable monetization and how to tag subscription tiers, see [Configuring API Monetization Category Labels]({{base_path}}/design/api-monetization/configuring-api-monetization-category-labels/).</p></div>You have now successfully added a new subscription-level rate limiting policy.
     

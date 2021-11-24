@@ -13,21 +13,21 @@
               "type": "string",
               "required": true,
               "default": "0.0.0.0",
-              "description": "host for Listener of Router."
+              "description": "Host for the listener of Router."
             },
             {
               "name": "securedListenerHost",
               "type": "string",
               "required": true,
               "default": "0.0.0.0",
-              "description": "Host for secured listener of Router."
+              "description": "Host for the secured listener of Router."
             },
             {
               "name": "listenerPort",
               "type": "string",
               "required": true,
               "default": "9090",
-              "description": "Port for listener of Router."
+              "description": "Port for the listener of Router."
             },
             {
               "name": "securedListenerPort",
@@ -48,7 +48,7 @@
               "type": "integer",
               "required": false,
               "default": "20",
-              "description": "The timeout for new network connections to hosts in the cluster in seconds."
+              "description": "The time duration that the Router will wait for an upstream TCP connection to be established."
             },
             {
               "name": "enforcerResponseTimeoutInSeconds",
@@ -63,12 +63,128 @@
       "exampleFile": "router.toml"
     },
     {
-      "title": "Keystore",
+      "title": "Connection Timeout",
       "options": [
         {
-          "name": "keystore",
+          "name": "router.connectionTimeout",
+          "required": false,
+          "description": "Timeouts managed by the Envoy (Router) connection manager in Choreo Connect.",
+          "params": [
+            {
+              "name": "requestTimeoutInSeconds",
+              "type": "integer",
+              "required": false,
+              "default": 0,
+              "description": "The time duration that the Router waits for the request to be received by the upstream, starting from the time it was initiated at the client."
+            },
+            {
+              "name": "requestHeadersTimeoutInSeconds",
+              "type": "integer",
+              "required": false,
+              "default": 0,
+              "description": "The time duration that the Router waits for the request headers to be received by the upstream, starting from the time it was initiated at the client."
+            },
+            {
+              "name": "streamIdleTimeoutInSeconds",
+              "type": "integer",
+              "required": false,
+              "default": 300,
+              "description": "The time duration that the Router will allow a stream to exist with no upstream or downstream activity. This timeout is applied to regular requests/responses as well as streaming requests/responses, and can be overridden by router.upstream.timeouts.routeIdleTimeoutInSeconds"
+            },
+            {
+              "name": "idleTimeoutInSeconds",
+              "type": "integer",
+              "required": false,
+              "default": 3600,
+              "description": "The time at which a downstream connection will be terminated if there are no active streams."
+            }
+          ]
+        }
+      ],
+      "exampleFile": "connection_timeout.toml"
+    },
+    {
+      "title": "Upstream Timeout",
+      "options": [
+        {
+          "name": "router.upstream.timeouts",
+          "required": false,
+          "description": "Timeout settings related to routes. This will be applicable globally for all the APIs in Choreo Connect.",
+          "params": [
+            {
+              "name": "routeTimeoutInSeconds",
+              "type": "integer",
+              "required": false,
+              "default": 60,
+              "description": "This is the value that gets overridden by the timeout set at the endpoint level."
+            },
+            {
+              "name": "maxRouteTimeoutInSeconds",
+              "type": "integer",
+              "required": false,
+              "default": 60,
+              "description": "Maximum value accepted as the endpoint level timeout. If a larger timeout is set as the Endpoint Level Upstream Timeout, this value will replace the provided Endpoint Level Upstream Timeout."
+            },
+            {
+              "name": "routeIdleTimeoutInSeconds",
+              "type": "integer",
+              "required": false,
+              "default": 300,
+              "description": "The backend (upstream) connection idle timeout. The time duration that the request’s stream may be idle."
+            }
+          ]
+        }
+      ],
+      "exampleFile": "upstream_timeout.toml"
+    },
+    {
+      "title": "Upstream Health",
+      "options": [
+        {
+          "name": "router.upstream.health",
+          "required": false,
+          "description": "Health configuration for upstream clusters.",
+          "params": [
+            {
+              "name": "timeout",
+              "type": "integer",
+              "required": false,
+              "default": 1,
+              "description": "Time in seconds to wait for a health check response."
+            },
+            {
+              "name": "interval",
+              "type": "integer",
+              "required": false,
+              "default": 10,
+              "description": "Interval between health checks in seconds."
+            },
+            {
+              "name": "unhealthyThreshold",
+              "type": "integer",
+              "required": false,
+              "default": 2,
+              "description": "Number of unhealthy health checks required before a host is marked as unhealthy."
+            },
+            {
+              "name": "healthyThreshold",
+              "type": "integer",
+              "required": false,
+              "default": 2,
+              "description": "Number of healthy health checks required before a host is marked as healthy."
+            }
+          ]
+        }
+      ],
+      "exampleFile": "upstream_health.toml"
+    },
+    {
+      "title": "Router Keystore",
+      "options": [
+        {
+          "name": "router.keystore",
           "required": true,
-          "description": "The configurations of key store used in Choreo Connect Adapter",
+          "description": "The configurations of key store used in Choreo Connect Router",
           "params": [
             {
               "name": "certPath",
@@ -93,9 +209,9 @@
       "title": "CORS",
       "options": [
         {
-          "name": "cors",
+          "name": "router.cors",
           "required": false,
-          "description": "Cors configurations",
+          "description": "CORS configurations",
           "params": [
             {
               "name": "enabled",
@@ -141,10 +257,44 @@
       "exampleFile": "cors.toml"
     },
     {
+      "title": "Upstream Retry",
+      "options": [
+        {
+          "name": "router.upstream.retry",
+          "required": false,
+          "description": "The configurations for the Choreo Connect router when retrying upstream clusters.",
+          "params": [
+            {
+              "name": "maxRetryCount",
+              "type": "integer",
+              "required": false,
+              "default": 5,
+              "description": "Maximum value that can be set as the count within the Endpoint Level Retry configuration."
+            },
+            {
+              "name": "baseIntervalInMillis",
+              "type": "integer",
+              "required": false,
+              "default": 25,
+              "description": "Base interval for the Envoy's (Router's) exponential retry back off algorithm"
+            },
+            {
+              "name": "statusCodes",
+              "type": "list of integers",
+              "required": false,
+              "default": [ 504 ],
+              "description": "HTTP status codes that would switch on the retry mechanism when an Endpoint Level Retry configuration is set. The list here is used when the retry configuration is set via the WSO2 API-M UI or when all given status codes are out of range."
+            }
+          ]
+        }
+      ],
+      "exampleFile": "upstream_retry.toml"
+    },
+    {
       "title": "Upstream TLS",
       "options": [
         {
-          "name": "upstream.tls",
+          "name": "router.upstream.tls",
           "required": false,
           "description": "The configurations for SSL configuration related to the backend connection in Choreo Connect.",
           "params": [

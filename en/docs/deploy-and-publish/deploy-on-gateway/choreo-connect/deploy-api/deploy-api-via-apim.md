@@ -1,4 +1,6 @@
-# Via API Manager
+# Using WSO2 API Manager to Deploy a REST API in Choreo Connect
+
+Follow the instructions below to use the WSO2 API Manager Publisher Portal to deploy a REST type API in Choreo Connect:
 
 ## Step 1 - Configure Choreo Connect with API Manager
 
@@ -12,10 +14,10 @@ Follow the steps [here]({{base_path}}/design/create-api/create-rest-api/create-a
 
  The guide [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api) will explain how you could easily deploy the API you just created.
 
-That's it! To invoke the API follow the steps [here](#invoke-the-api).
+That's it! To invoke the API follow the steps [here](#step-4-invoke-the-api).
 
 
-During the startup, Choreo Connect will check the `config.toml` to see if the `controlPlane.eventHub` configuration has been enabled. If so, it will start fetching all the necessary artifacts that belongs to the gateway environment given in `environmentLabels`. These artifacts include deployed APIs, Applications, Subscriptions, Polices, information related to Key Managers, etc.
+During the startup, Choreo Connect will check the `config.toml` to see if the `controlPlane` configuration has been enabled. If so, it will start fetching all the necessary artifacts that belongs to the gateway environment given in `environmentLabels`. These artifacts include deployed APIs, Applications, Subscriptions, Polices, information related to Key Managers, etc.
 
 Whenever a new event occurs in API Manager such as an API being deployed, API Manager will notify Choreo Connect via Event Hub. Choreo Connect will then start fetching all the new artifacts related to its environment. 
 
@@ -34,4 +36,4 @@ Whenever a new event occurs in API Manager such as an API being deployed, API Ma
 {! ./includes/invoke-api-with-jwt.md !}
 
 <!-- brought the following here because the path becomes relative when included in the includes folder -->
-Refer to [Generate a Test JWT]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt.md) for more details.
+Refer to [Generate a Test JWT]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt) for more details.

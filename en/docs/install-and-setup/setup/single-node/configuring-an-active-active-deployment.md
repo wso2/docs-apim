@@ -2,24 +2,9 @@
 
 This page walks you through how to manually configure WSO2 API Manager (WSO2 API-M) with two active nodes that each has all the components of the API-M together in one instance (all-in-one instance).
 
-<a href="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png" alt="active-active apim deployment"></a>
+<a href="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png" width="70%" alt="active-active apim deployment"></a>
 
 Follow the instructions below to configure and deploy API-M by using an Active-Active deployment:
-
--   [Step 1 - Create a SSL Certificate](#step-1-create-a-ssl-certificate)
--   [Step 2 - Configure the Load Balancer](#step-2-configure-the-load-balancer)
--   [Step 3 - Configure the Databases](#step-3-configure-the-databases)
--   [Step 4 - Configure the Second WSO2 API-M Node](#step-4-configure-the-second-wso2-api-m-node)
--   [Step 5 - Configure the Artifact Synchronization](#step-5-configure-the-artifact-synchronization)
--   [Step 6 - Configure Publisher with the Gateway](#step-6-configure-publisher-with-the-gateway)
--   [Step 7 - Configure Gateway URLs to Expose APIs](#step-7-configure-gateway-urls-to-expose-apis)
--   [Step 8 - Configure Throttling](#step-8-configure-throttling)
--   [Step 9 - Optionally, enable distributed cache invalidation](#step-9-optionally-enable-distributed-cache-invalidation)  
--   [Step 10 - Configure API-M Analytics](#step-9-configure-api-m-analytics)
--   [Step 11 - Configure Production Hardening](#step-10-configure-production-hardening)
--   [Step 12 - Start the WSO2 API-M Servers](#step-11-start-the-wso2-api-m-servers)
-
-___________________________________
 
 ## Step 1 - Create a SSL Certificate
 
@@ -139,7 +124,7 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
     https_endpoint = "https://gw.am.wso2.com:${https.nio.port}"
     ```            
 
-## Step 8 - Configure Throttling
+## Step 8 - Configure Rate Limiting
 
 1.  Configure the data publisher in the `apim.throttling.url_group` section which comes under the `apim.throttling.url_group` block in the `<API-M_HOME>/repository/conf/deployment.toml` file of both nodes.
     
@@ -212,6 +197,8 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
         ```
 
     2.  Save your changes.
+
+{!includes/design/redis-counter-note.md!}
 
 ## Step 9 - Optionally, enable distributed cache invalidation
 

@@ -69,7 +69,7 @@ Let's use the
 
     3. In the prompted screen click **+ Create** and select the Account type as Standard and select the Country. If you haven't enabled OAuth for standard accounts, the **Continue** button will be disabled. Click **enable OAuth for Standard Accounts** in the pop-up that appears on **Continue** button.
 
-        [![Enable oauth]({{base_path}}/assets/img/learn/monetization_enable_oauth.png)]({{base_path}}/assets/img/learn/monetization_enable_oauth.png)
+        [![Enable oauth]({{base_path}}/assets/img/learn/monetization_enable_oauth.png){: style="width:60%"}]({{base_path}}/assets/img/learn/monetization_enable_oauth.png)
     
     4. Enable **OAuth for Standard Accounts** under **OAuth Settings** in the prompted screen. Then, go back to the previous step and create a connected account. This will provide a one-time-use Standard onboarding link which would take the following format. The Tenant Admin can share this with the API Publisher.
     
@@ -523,7 +523,7 @@ Let's use the
         ``` java tab="Example"
          [apim.analytics]
          enable = true
-         config_endpoint = "https://analytics-event-auth.st.choreo.dev/auth/v1"
+         config_endpoint = "https://analytics-event-auth.choreo.dev/auth/v1"
          auth_token = "xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
         ```    
    
@@ -536,7 +536,7 @@ Let's use the
 
          ``` java tab="Example"
          [apim.monetization]
-         analytics_query_api_endpoint= "https://analytics-api.st.choreo.dev/query-api"
+         analytics_query_api_endpoint= "https://analytics-api.choreo.dev/query-api"
          ```     
    
     3. Define the Access Token required to access the above Query API. 
@@ -557,19 +557,9 @@ Let's use the
 
     1.  Start the WSO2 API Manager server.
 
-    2.  Sign in to the WSO2 API-M Management Console.
-       
-         `https://<hostname>:9443/carbon`
+    2. Follow the steps provided in [Advanced Configurations]({{base_path}}/administer/advanced-configurations) section.
 
-    3. Click **Main**, navigate to **Resources**, and click **Browse**.
-    
-    4. Enter the following path in **Location:** and click **Go**.
-
-         `/_system/config/apimgt/applicationdata/tenant-conf.json`
-
-         [![Resources page]({{base_path}}/assets/img/learn/tenant-config.png)]({{base_path}}/assets/img/learn/tenant-config.png)
-    
-    5. Add the following configuration in the `tenant-conf.json` file using the WSO2 API-M Management Console.  
+    3. Add the following configuration to the Advanced Configurations.  
 
         ``` json tab="Format"
         "MonetizationInfo": {
