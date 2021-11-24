@@ -110,3 +110,5 @@ file within the distribution, then add the jar file to
 `docker-compose/resources/enforcer/dropins` directory.)
 
 7. Deploy the choreo-connect distribution and the filter would be engaged in Runtime.
+
+As a reference, you can use the sample custom filter implementation [here](https://github.com/wso2/product-microgateway/tree/main/samples/filters/sample-filter).
