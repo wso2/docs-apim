@@ -4,4 +4,4 @@
   enableQueryParamConditions = false
   enableJwtClaimConditions = false
   jmsConnectionInitialContextFactory = "org.wso2.andes.jndi.PropertiesFileInitialContextFactory"
-  jmsConnectionProviderUrl = "amqp://admin:$env{tm_admin_pwd}@carbon/carbon?brokerlist='tcp://localhost:5672'"
+  jmsConnectionProviderURL = "amqp://admin:$env{tm_admin_pwd}@carbon/carbon?brokerlist='tcp://localhost:5672'"
