@@ -1,5 +1,5 @@
 [enforcer.jwtGenerator]
-  enable = false
+  enabled = false
   encoding = "base64"
   claimDialect = "http://wso2.org/claims"
   convertDialect = false

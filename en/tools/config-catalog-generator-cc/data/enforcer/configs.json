@@ -4,7 +4,7 @@
       "title": "Auth Service",
       "options": [
         {
-          "name": "authService",
+          "name": "enforcer.authService",
           "required": true,
           "description": "The configurations of gRPC netty based server in Enforcer that handles the incoming requests in the Choreo Connect.",
           "params": [
@@ -52,7 +52,7 @@
       "title": "Filters",
       "options": [
         {
-          "name": "filters",
+          "name": "enforcer.filters",
           "required": false,
           "description": "The configurations for engaging custom filters in the Enforcer.",
           "params": [
@@ -86,7 +86,7 @@
       "title": "Auth Service thread pool",
       "options": [
         {
-          "name": "authService.threadPool",
+          "name": "enforcer.authService.threadPool",
           "required": true,
           "description": "The thread pool configurations of gRPC netty based server in Enforcer that handles the incoming requests in the Choreo Connect.",
           "params": [
@@ -127,7 +127,7 @@
       "title": "API Manager Credentials",
       "options": [
         {
-          "name": "apimCredentials",
+          "name": "enforcer.apimCredentials",
           "required": true,
           "description": "The credentials of the API Manager",
           "params": [
@@ -154,7 +154,7 @@
       "title": "Cache",
       "options": [
         {
-          "name": "cache",
+          "name": "enforcer.cache",
           "required": true,
           "description": "The configurations of token caching in the Choreo Connect.",
           "params": [
@@ -188,7 +188,7 @@
       "title": "Management",
       "options": [
         {
-          "name": "management",
+          "name": "enforcer.management",
           "required": true,
           "description": "The configurations for the Enforcer admin credentials.",
           "params": [
@@ -212,15 +212,35 @@
       "exampleFile": "management.toml"
     },
     {
+      "title": "REST Server",
+      "options": [
+        {
+          "name": "enforcer.restserver",
+          "required": true,
+          "description": "The configuration of the Enforcer Admin REST server.",
+          "params": [
+            {
+              "enabled": "enabled",
+              "type": "boolean",
+              "required": true,
+              "default": "true",
+              "description": "Enable/Disable Enforcer Admin REST server."
+            }
+          ]
+        }
+      ],
+      "exampleFile": "rest_server.toml"
+    },
+    {
       "title": "JWT Generator",
       "options": [
         {
-          "name": "jwtGenerator",
+          "name": "enforcer.jwtGenerator",
           "required": false,
           "description": "The configuration of the backend jwt generation in the Choreo Connect.",
           "params": [
             {
-              "name": "enable",
+              "name": "enabled",
               "type": "boolean",
               "required": true,
               "description": "Enable/Disable backend JWT generation"
@@ -306,12 +326,12 @@
       "title": "JWT Issuer",
       "options": [
         {
-          "name": "jwtIssuer",
+          "name": "enforcer.jwtIssuer",
           "required": false,
           "description": "The issuer configuration required to generate token at Choreo Connect.",
           "params": [
             {
-              "name": "enable",
+              "name": "enabled",
               "type": "boolean",
               "required": true,
               "default": "true",
@@ -367,25 +387,6 @@
               "required": false,
               "default": "3600",
               "description": "Validity period of the JWT in seconds."
-            },
-            {
-              "name": "caCertFile",
-              "type": "string",
-              "required": false,
-              "default": "/home/wso2/security/truststore/consul/consul-agent-ca.pem",
-              "description": "This is the optional path to the CA certificate used for Consul communication, defaults to the system bundle if not specified."
-            },
-            {
-              "name": "certFile",
-              "type": "string",
-              "required": false,
-              "description": "This is the optional path to the certificate for Consul communication. If this is set, then you also need to set keyFile."
-            },
-            {
-              "name": "keyFile",
-              "type": "string",
-              "required": false,
-              "description": "This is the optional path to the private key for Consul communication. If this is set, then you need to also set certFile."
             }
           ]
         }
@@ -396,7 +397,7 @@
       "title": "JWT Issuer User",
       "options": [
         {
-          "name": "jwtIssuer.jwtUser",
+          "name": "enforcer.jwtIssuer.jwtUser",
           "required": true,
           "description": "Configure allowed users to use the JWT generated by the Choreo Connect. You can provide multiple users.",
           "params": [
@@ -423,7 +424,7 @@
       "title": "Auth Header",
       "options": [
         {
-          "name": "security.authHeader",
+          "name": "enforcer.security.authHeader",
           "required": false,
           "description": "Configurations related to Authorization header",
           "params": [
@@ -450,7 +451,7 @@
       "title": "Token Service",
       "options": [
         {
-          "name": "security.tokenService",
+          "name": "enforcer.security.tokenService",
           "required": false,
           "description": "Configuration required to JWT token authorization. You can provide multiple JWT issuers.",
           "params": [
@@ -500,7 +501,7 @@
       "title": "Throttling",
       "options": [
         {
-          "name": "throttling",
+          "name": "enforcer.throttling",
           "required": false,
           "description": "Configurations related to Throttling",
           "params": [
@@ -538,6 +539,13 @@
               "required": true,
               "default": "org.wso2.andes.jndi.PropertiesFileInitialContextFactory",
               "description": "The message broker context factory."
+            },
+            {
+              "name": "jmsConnectionProviderURL",
+              "type": "string",
+              "required": true,
+              "default": "amqp://admin:$env{tm_admin_pwd}@carbon/carbon?brokerlist='tcp://apim:5672'",
+              "description": "The message broker connection URL."
             }
           ]
         }
@@ -548,7 +556,7 @@
       "title": "Binary Throttle publishing configurations",
       "options": [
         {
-          "name": "throttling.publisher",
+          "name": "enforcer.throttling.publisher",
           "required": true,
           "description": "Throttling configurations related to event publishing using a binary connection. The following are credentials required to establish connection between Traffic Manager",
           "params": [
@@ -575,7 +583,7 @@
       "title": "Binary Throttle publishing url group configurations",
       "options": [
         {
-          "name": "throttling.publisher.urlGroup",
+          "name": "enforcer.throttling.publisher.URLGroup",
           "required": true,
           "description": "Throttling configurations related to event publishing using a binary connection. The following are Receiver URL and the authentication URL of the Traffic manager node/nodes. You can provide multiple URL groups",
           "params": [
@@ -602,7 +610,7 @@
       "title": "Binary Throttle publishing pool configurations",
       "options": [
         {
-          "name": "throttling.publisher.pool",
+          "name": "enforcer.throttling.publisher.pool",
           "required": false,
           "description": "Throttling configurations related to event publishing using a binary connection. The following are data publisher object pool configurations",
           "params": [
@@ -650,7 +658,7 @@
       "title": "Binary Throttle publishing agent configurations",
       "options": [
         {
-          "name": "throttling.publisher.agent",
+          "name": "enforcer.throttling.publisher.agent",
           "required": true,
           "description": "Throttling configurations related to event publishing using a binary connection. The following are data publisher agent configurations",
           "params": [
@@ -753,7 +761,7 @@
               "description": "Maximum pool size for SSL connection pool configurations (for authentication)."
             },
             {
-              "name": "maxIdleConnections",
+              "name": "secureMaxIdleConnections",
               "type": "integer",
               "required": true,
               "default": "250",
@@ -777,6 +785,33 @@
         }
       ],
       "exampleFile": "throttling_agent.toml"
+    },
+    {
+      "title": "Metrics",
+      "options": [
+        {
+          "name": "enforcer.metrics",
+          "required": false,
+          "description": "Metrics Configurations for Choreo Connect.",
+          "params": [
+            {
+              "name": "enabled",
+              "type": "boolean",
+              "required": true,
+              "default": "false",
+              "description": "Enable/Disable Metrics."
+            },
+            {
+              "name": "type",
+              "type": "string",
+              "required": true,
+              "default": "azure",
+              "description": "Type of the metrics server."
+            }
+          ]
+        }
+      ],
+      "exampleFile": "metrics.toml"
     }
   ]
 }

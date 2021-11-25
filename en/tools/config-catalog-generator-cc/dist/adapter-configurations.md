@@ -58,7 +58,7 @@ See the example .toml file given below.
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[server]</code>
+                            <code>[adapter.server]</code>
                             <span class="badge-required">Required</span>
                             <p>
                                 This includes configurations required for configuring the deployment parameters that are used for identifying the Choreo Connect Adapter REST APIs.
@@ -193,7 +193,7 @@ See the example .toml file given below.
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[keystore]</code>
+                            <code>[adapter.keystore]</code>
                             <span class="badge-required">Required</span>
                             <p>
                                 The configurations of key store used in Choreo Connect Adapter
@@ -268,7 +268,7 @@ See the example .toml file given below.
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[truststore]</code>
+                            <code>[adapter.truststore]</code>
                             <span class="badge-required">Required</span>
                             <p>
                                 The configurations of trust store used in in the Choreo Connect Adapter.
@@ -326,7 +326,7 @@ See the example .toml file given below.
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[vhostMapping]</code>
+                            <code>[adapter.vhostMapping]</code>
                             
                             <p>
                                 Virtual host mappings.
@@ -411,7 +411,7 @@ See the example .toml file given below.
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[consul]</code>
+                            <code>[adapter.consul]</code>
                             
                             <p>
                                 Configurations related to Consul
