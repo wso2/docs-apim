@@ -1,6 +1,6 @@
 # Distributed Rate Limiting
 
-To learn about the concepts of Rate Limiting (Throttling) in Choreo Connect, see [API-M As a Control Plane - Rate Limiting]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/#rate-limiting).
+To learn about the concepts of Rate Limiting (Throttling) in Choreo Connect, see [API-M as a Control Plane - Rate Limiting]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/cc-rate-limiting).
 
 ## Enable Distributed Rate Limiting
 
@@ -8,9 +8,9 @@ Rate Limiting in Choreo Connect works with API Manager (Traffic Manager).
 
 Follow the instructions below to enable distributed Rate Limiting:
 
-{!includes/deploy/cc-configuration-file.md!}
+1. {!includes/deploy/cc-configuration-file.md!}
 
-1. Use the following configurations to enable distributed Rate Limiting.
+2. Use the following configurations to enable distributed Rate Limiting.
 
     ``` toml
      # Throttling configurations
@@ -107,9 +107,9 @@ There can be situations where certain APIs require more granular level of Rate L
 
 Conditional Rate Limiting is done via the Advanced Rate Limiting policies in API Manager.
 
-{!includes/deploy/cc-configuration-file.md!}
+1. {!includes/deploy/cc-configuration-file.md!}
 
-1. Add/enable the following configurations to enable the required condition type for Rate Limiting.
+2. Add/enable the following configurations to enable the required condition type for Rate Limiting.
 
     ```toml
     [enforcer.throttling]
@@ -123,14 +123,14 @@ Conditional Rate Limiting is done via the Advanced Rate Limiting policies in API
       enableJwtClaimConditions = false
     ```
 
-2. Define the Advance Throttle Policy containing the required conditions in WSO2 API Manager. 
+3. Define the Advance Throttle Policy containing the required conditions in WSO2 API Manager. 
      
      For more information, see [Adding New Rate Limiting Policies]({{base_path}}/design/rate-limiting/adding-new-throttling-policies/#adding-a-new-advanced-throttling-policy).
 
-3. Create an API in API Publisher and assign the created Advanced Throttling policy to the API. 
+4. Create an API in API Publisher and assign the created Advanced Throttling policy to the API. 
    
      For more information, see [Advanced Rate Limiting (API Publisher)]({{base_path}}/design/rate-limiting/setting-throttling-limits/#advanced-rate-limiting-api-publisher).
 
-4. Deploy the API in Choreo Connect.
+5. Deploy the API in Choreo Connect.
 
      For more information, see [Deploy an API via API Manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-via-apim/).
