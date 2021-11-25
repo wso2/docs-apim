@@ -1,6 +1,6 @@
 [controlPlane]
   enabled = false
-  serviceUrl = "https://docker.for.mac.localhost:9443/"
+  serviceURL = "https://docker.for.mac.localhost:9443/"
   username="admin"
   password="$env{cp_admin_pwd}"
   environmentLabels = ["Default"]

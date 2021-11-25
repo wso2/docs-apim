@@ -16,7 +16,7 @@
               "description": "Enable/Disable Choreo Connect Control plane."
             },
             {
-              "name": "serviceUrl",
+              "name": "serviceURL",
               "type": "string",
               "required": true,
               "default": "https://localhost:9443/",
@@ -66,7 +66,7 @@
       "title": "JMS connection Configurations",
       "options": [
         {
-          "name": "jmsConnectionParameters",
+          "name": "controlPlane.brokerConnectionParameters",
           "required": true,
           "description": "Message broker connection of the control plane.",
           "params": [
@@ -81,6 +81,26 @@
         }
       ],
       "exampleFile": "cp_jms.toml"
+    },
+    {
+      "title": "JMS connection Configurations",
+      "options": [
+        {
+          "name": "controlPlane.httpClient",
+          "required": false,
+          "description": "HTTP client configuration of the control plane.",
+          "params": [
+            {
+              "name": "requestTimeOut",
+              "type": "integer",
+              "required": false,
+              "default": "30",
+              "description": "Request timeout in seconds."
+            }
+          ]
+        }
+      ],
+      "exampleFile": "cp_http_client.toml"
     }
   ]
 }

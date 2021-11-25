@@ -32,7 +32,7 @@ See the example .toml file given below.
                     <div class="mb-config-example">
 <pre><code class="toml">[controlPlane]
   enabled = false
-  serviceUrl = "https://docker.for.mac.localhost:9443/"
+  serviceURL = "https://docker.for.mac.localhost:9443/"
   username="admin"
   password="$env{cp_admin_pwd}"
   environmentLabels = ["Default"]
@@ -71,7 +71,7 @@ See the example .toml file given below.
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>serviceUrl</code> </span>
+                                  <span class="param-name-wrap"> <code>serviceURL</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -214,7 +214,7 @@ See the example .toml file given below.
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[jmsConnectionParameters]</code>
+                            <code>[controlPlane.brokerConnectionParameters]</code>
                             <span class="badge-required">Required</span>
                             <p>
                                 Message broker connection of the control plane.
@@ -238,6 +238,62 @@ See the example .toml file given below.
                                     </div>
                                     <div class="param-description">
                                         <p>Message broker connection URL of the control plane.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## JMS connection Configurations
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="4" type="checkbox" id="_tab_4">
+                <label class="tab-selector" for="_tab_4"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[controlPlane.httpClient] 
+  requestTimeOut = 30</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[controlPlane.httpClient]</code>
+                            
+                            <p>
+                                HTTP client configuration of the control plane.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>requestTimeOut</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>30</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Request timeout in seconds.</p>
                                     </div>
                                 </div>
                             </div>
