@@ -68,7 +68,7 @@ environment variable.
     CC_Analytics_Enforcer_ConfigProperties_Publisher_Reporter_Class="org.example.CustomMetricReporter"
     ```
 
-- If the value of the configuration is a string, float or an integer array, those values needs to be provided as
+- If the value of the configuration is a string, float, or an integer array, those values needs to be provided as
 a single string where the values are separated with a comma. 
 
     ```
