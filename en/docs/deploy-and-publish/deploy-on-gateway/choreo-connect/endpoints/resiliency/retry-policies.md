@@ -56,9 +56,9 @@ For more information, see [x-envoy-max-retries]({{envoy_path}}/configuration/htt
 !!! note
     The Global Level Retry Policy Configurations are **applicable only when Endpoint Level Retry Policies are defined**. 
 
-{!includes/deploy/cc-configuration-file.md!}
+1. {!includes/deploy/cc-configuration-file.md!}
 
-1. Use the following configurations to define the Global Level Retry Policy.
+2. Use the following configurations to define the Global Level Retry Policy.
 
     !!! note
         If the Endpoint Level Retry Policies and the Global Level Retry Policies are not defined, the default values available for the Global Level Retry Policies are applied.

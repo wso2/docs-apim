@@ -4,7 +4,7 @@ Choreo Connect provides the capability to configure external key managers throug
 
 ### Step 1 - Configure Choreo Connect with API Manager
 
-Please refer [Configure Choreo Connect with API Manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/#configure-choreo-connect-with-api-manager).
+Please refer [Configure Choreo Connect with API Manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-apim).
 
 ### Step 2 - Add the external key manager to API Manager
 

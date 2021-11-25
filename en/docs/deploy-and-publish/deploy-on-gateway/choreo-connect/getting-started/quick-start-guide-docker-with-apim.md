@@ -1,6 +1,6 @@
-# Quick Start Guide with API Manager - Docker
+# Quick Start Guide
 
-Lets' deploy an API from API Manager (control plane) and invoke via the Choreo Connect.
+Let's deploy an API using WSO2 API Manager (WSO2 API-M) as the Control Plane and invoke it via the Choreo Connect.
 
 ## Before you begin...
 
@@ -87,5 +87,5 @@ curl -k -X GET "https://localhost:9095/pizzashack/1.0.0/menu" -H "accept: applic
 ```
 
 !!! info
-    Note that the port 9095 in the above curl command is the Choreo Connect port. Hence, it can be inferred that you are invoking the API
+    Note that the port 9095 in the above cURL command is the Choreo Connect port. Hence, it can be inferred that you are invoking the API
     via Choreo Connect.
