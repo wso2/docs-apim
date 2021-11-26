@@ -2,7 +2,7 @@
 
 ## Overview
 
-Choreo Connect can connect to WSO2 API Manager (WSO2 API-M), which is running on cloud or on-premise, as its Control Plane. You can configure Choreo Connect to connect with API-M as the Control Plane, so that the user actions, such as API deploying, application creation, key generation, subscription creation, etc. are received by Choreo Connect seamlessly.
+Choreo Connect can connect to WSO2 API Manager (WSO2 API-M), which is running on cloud or on-premise. You can configure Choreo Connect to connect with API-M as the Control Plane, so that the user actions, such as API deploying, application creation, key generation, subscription creation, etc. are received by Choreo Connect seamlessly.
 
 [![Choreo Connect Overview]({{base_path}}/assets/img/deploy/mgw/choreo-connect-overview.png){: style="width:80%"}]({{base_path}}/assets/img/deploy/mgw/choreo-connect-overview.png)
 
