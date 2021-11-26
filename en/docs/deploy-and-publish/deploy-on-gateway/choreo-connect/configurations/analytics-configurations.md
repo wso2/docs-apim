@@ -101,7 +101,7 @@ See the example .toml file given below.
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[adapter]</code>
+                            <code>[analytics.adapter]</code>
                             
                             <p>
                                 
@@ -196,7 +196,7 @@ See the example .toml file given below.
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[enforcer.configProperties]</code>
+                            <code>[analytics.enforcer.configProperties]</code>
                             <span class="badge-required">Required</span>
                             <p>
                                 
@@ -274,7 +274,7 @@ See the example .toml file given below.
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[enforcer.LogReceiver]</code>
+                            <code>[analytics.enforcer.LogReceiver]</code>
                             
                             <p>
                                 
@@ -391,7 +391,7 @@ See the example .toml file given below.
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[enforcer.LogReceiver.threadPool]</code>
+                            <code>[analytics.enforcer.LogReceiver.threadPool]</code>
                             
                             <p>
                                 

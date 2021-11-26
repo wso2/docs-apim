@@ -4,7 +4,7 @@
       "title": "Server",
       "options": [
         {
-          "name": "server",
+          "name": "adapter.server",
           "required": true,
           "description": "This includes configurations required for configuring the deployment parameters that are used for identifying the Choreo Connect Adapter REST APIs.",
           "params": [
@@ -52,7 +52,7 @@
       "title": "Keystore",
       "options": [
         {
-          "name": "keystore",
+          "name": "adapter.keystore",
           "required": true,
           "description": "The configurations of key store used in Choreo Connect Adapter",
           "params": [
@@ -79,7 +79,7 @@
       "title": "Truststore",
       "options": [
         {
-          "name": "truststore",
+          "name": "adapter.truststore",
           "required": true,
           "description": "The configurations of trust store used in in the Choreo Connect Adapter.",
           "params": [
@@ -99,7 +99,7 @@
       "title": "Virtual Host Mapping",
       "options": [
         {
-          "name": "vhostMapping",
+          "name": "adapter.vhostMapping",
           "required": false,
           "description": "Virtual host mappings.",
           "params": [
@@ -124,7 +124,7 @@
       "title": "Consul",
       "options": [
         {
-          "name": "consul",
+          "name": "adapter.consul",
           "required": false,
           "description": "Configurations related to Consul",
           "params": [

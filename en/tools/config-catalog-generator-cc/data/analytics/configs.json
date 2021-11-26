@@ -24,7 +24,7 @@
       "title": "Adapter Configurations for Analytics",
       "options": [
         {
-          "name": "adapter",
+          "name": "analytics.adapter",
           "required": false,
           "description": "",
           "params": [
@@ -58,7 +58,7 @@
       "title": "Enforcer configurations for Analytics",
       "options": [
         {
-          "name": "enforcer.configProperties",
+          "name": "analytics.enforcer.configProperties",
           "required": true,
           "description": "",
           "params": [
@@ -85,7 +85,7 @@
       "title": "Enforcer Log Receiver Configurations for Analytics",
       "options": [
         {
-          "name": "enforcer.LogReceiver",
+          "name": "analytics.enforcer.LogReceiver",
           "required": false,
           "description": "",
           "params": [
@@ -126,7 +126,7 @@
       "title": "Enforcer Log Receiver Pool Configurations for Analytics",
       "options": [
         {
-          "name": "enforcer.LogReceiver.threadPool",
+          "name": "analytics.enforcer.LogReceiver.threadPool",
           "required": false,
           "description": "",
           "params": [

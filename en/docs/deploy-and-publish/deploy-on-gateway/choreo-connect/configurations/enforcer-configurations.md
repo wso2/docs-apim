@@ -48,7 +48,7 @@ See the example .toml file given below.
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[authService]</code>
+                            <code>[enforcer.authService]</code>
                             <span class="badge-required">Required</span>
                             <p>
                                 The configurations of gRPC netty based server in Enforcer that handles the incoming requests in the Choreo Connect.
@@ -183,7 +183,7 @@ See the example .toml file given below.
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[filters]</code>
+                            <code>[enforcer.filters]</code>
                             
                             <p>
                                 The configurations for engaging custom filters in the Enforcer.
@@ -280,7 +280,7 @@ See the example .toml file given below.
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[authService.threadPool]</code>
+                            <code>[enforcer.authService.threadPool]</code>
                             <span class="badge-required">Required</span>
                             <p>
                                 The thread pool configurations of gRPC netty based server in Enforcer that handles the incoming requests in the Choreo Connect.
@@ -394,7 +394,7 @@ See the example .toml file given below.
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[apimCredentials]</code>
+                            <code>[enforcer.apimCredentials]</code>
                             <span class="badge-required">Required</span>
                             <p>
                                 The credentials of the API Manager
@@ -471,7 +471,7 @@ See the example .toml file given below.
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[cache]</code>
+                            <code>[enforcer.cache]</code>
                             <span class="badge-required">Required</span>
                             <p>
                                 The configurations of token caching in the Choreo Connect.
@@ -566,7 +566,7 @@ password = "admin"</code></pre>
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[management]</code>
+                            <code>[enforcer.management]</code>
                             <span class="badge-required">Required</span>
                             <p>
                                 The configurations for the Enforcer admin credentials.
@@ -622,7 +622,7 @@ password = "admin"</code></pre>
 
 
 
-## JWT Generator
+## REST Server
 
 
 <div class="mb-config-catalog">
@@ -634,8 +634,64 @@ password = "admin"</code></pre>
                 <label class="tab-selector" for="_tab_8"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
+<pre><code class="toml">[enforcer.restserver]
+enabled = true</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[enforcer.restserver]</code>
+                            <span class="badge-required">Required</span>
+                            <p>
+                                The configuration of the Enforcer Admin REST server.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code></code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>true</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable/Disable Enforcer Admin REST server.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## JWT Generator
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="9" type="checkbox" id="_tab_9">
+                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
 <pre><code class="toml">[enforcer.jwtGenerator]
-  enable = false
+  enabled = false
   encoding = "base64"
   claimDialect = "http://wso2.org/claims"
   convertDialect = false
@@ -652,7 +708,7 @@ password = "admin"</code></pre>
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[jwtGenerator]</code>
+                            <code>[enforcer.jwtGenerator]</code>
                             
                             <p>
                                 The configuration of the backend jwt generation in the Choreo Connect.
@@ -661,7 +717,7 @@ password = "admin"</code></pre>
                         <div class="params-wrap">
                             <div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>enable</code> </span>
+                                  <span class="param-name-wrap"> <code>enabled</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -891,8 +947,8 @@ password = "admin"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="9" type="checkbox" id="_tab_9">
-                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+            <input name="10" type="checkbox" id="_tab_10">
+                <label class="tab-selector" for="_tab_10"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[enforcer.jwtIssuer]
@@ -909,7 +965,7 @@ password = "admin"</code></pre>
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[jwtIssuer]</code>
+                            <code>[enforcer.jwtIssuer]</code>
                             
                             <p>
                                 The issuer configuration required to generate token at Choreo Connect.
@@ -918,7 +974,7 @@ password = "admin"</code></pre>
                         <div class="params-wrap">
                             <div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>enable</code> </span>
+                                  <span class="param-name-wrap"> <code>enabled</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -1072,63 +1128,6 @@ password = "admin"</code></pre>
                                         <p>Validity period of the JWT in seconds.</p>
                                     </div>
                                 </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>caCertFile</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>/home/wso2/security/truststore/consul/consul-agent-ca.pem</code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p>This is the optional path to the CA certificate used for Consul communication, defaults to the system bundle if not specified.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>certFile</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code></code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p>This is the optional path to the certificate for Consul communication. If this is set, then you also need to set keyFile.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>keyFile</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code></code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p>This is the optional path to the private key for Consul communication. If this is set, then you need to also set certFile.</p>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -1148,8 +1147,8 @@ password = "admin"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="10" type="checkbox" id="_tab_10">
-                <label class="tab-selector" for="_tab_10"><i class="icon fa fa-code"></i></label>
+            <input name="11" type="checkbox" id="_tab_11">
+                <label class="tab-selector" for="_tab_11"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[enforcer.jwtIssuer.jwtUser]]
@@ -1160,7 +1159,7 @@ password = "admin"</code></pre>
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[jwtIssuer.jwtUser]</code>
+                            <code>[enforcer.jwtIssuer.jwtUser]</code>
                             <span class="badge-required">Required</span>
                             <p>
                                 Configure allowed users to use the JWT generated by the Choreo Connect. You can provide multiple users.
@@ -1224,8 +1223,8 @@ password = "admin"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="11" type="checkbox" id="_tab_11">
-                <label class="tab-selector" for="_tab_11"><i class="icon fa fa-code"></i></label>
+            <input name="12" type="checkbox" id="_tab_12">
+                <label class="tab-selector" for="_tab_12"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[enforcer.security.authHeader]
@@ -1236,7 +1235,7 @@ password = "admin"</code></pre>
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[security.authHeader]</code>
+                            <code>[enforcer.security.authHeader]</code>
                             
                             <p>
                                 Configurations related to Authorization header
@@ -1300,8 +1299,8 @@ password = "admin"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="12" type="checkbox" id="_tab_12">
-                <label class="tab-selector" for="_tab_12"><i class="icon fa fa-code"></i></label>
+            <input name="13" type="checkbox" id="_tab_13">
+                <label class="tab-selector" for="_tab_13"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[enforcer.security.tokenService]]
@@ -1318,7 +1317,7 @@ password = "admin"</code></pre>
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[security.tokenService]</code>
+                            <code>[enforcer.security.tokenService]</code>
                             
                             <p>
                                 Configuration required to JWT token authorization. You can provide multiple JWT issuers.
@@ -1458,8 +1457,8 @@ password = "admin"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="13" type="checkbox" id="_tab_13">
-                <label class="tab-selector" for="_tab_13"><i class="icon fa fa-code"></i></label>
+            <input name="14" type="checkbox" id="_tab_14">
+                <label class="tab-selector" for="_tab_14"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[enforcer.throttling]
@@ -1468,14 +1467,14 @@ password = "admin"</code></pre>
   enableQueryParamConditions = false
   enableJwtClaimConditions = false
   jmsConnectionInitialContextFactory = "org.wso2.andes.jndi.PropertiesFileInitialContextFactory"
-  jmsConnectionProviderUrl = "amqp://admin:$env{tm_admin_pwd}@carbon/carbon?brokerlist='tcp://localhost:5672'"
+  jmsConnectionProviderURL = "amqp://admin:$env{tm_admin_pwd}@carbon/carbon?brokerlist='tcp://localhost:5672'"
 </code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[throttling]</code>
+                            <code>[enforcer.throttling]</code>
                             
                             <p>
                                 Configurations related to Throttling
@@ -1577,6 +1576,25 @@ password = "admin"</code></pre>
                                         <p>The message broker context factory.</p>
                                     </div>
                                 </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>jmsConnectionProviderURL</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>amqp://admin:$env{tm_admin_pwd}@carbon/carbon?brokerlist=&#39;tcp://apim:5672&#39;</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The message broker connection URL.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1596,8 +1614,8 @@ password = "admin"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="14" type="checkbox" id="_tab_14">
-                <label class="tab-selector" for="_tab_14"><i class="icon fa fa-code"></i></label>
+            <input name="15" type="checkbox" id="_tab_15">
+                <label class="tab-selector" for="_tab_15"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[enforcer.throttling.publisher]
@@ -1608,7 +1626,7 @@ password = "admin"</code></pre>
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[throttling.publisher]</code>
+                            <code>[enforcer.throttling.publisher]</code>
                             <span class="badge-required">Required</span>
                             <p>
                                 Throttling configurations related to event publishing using a binary connection. The following are credentials required to establish connection between Traffic Manager
@@ -1672,11 +1690,11 @@ password = "admin"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="15" type="checkbox" id="_tab_15">
-                <label class="tab-selector" for="_tab_15"><i class="icon fa fa-code"></i></label>
+            <input name="16" type="checkbox" id="_tab_16">
+                <label class="tab-selector" for="_tab_16"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[[enforcer.throttling.publisher.urlGroup]]
+<pre><code class="toml">[[enforcer.throttling.publisher.URLGroup]]
   receiverURLs = ["tcp://localhost:9611"]
   authURLs = ["ssl://localhost:9711"]</code></pre>
                     </div>
@@ -1684,7 +1702,7 @@ password = "admin"</code></pre>
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[throttling.publisher.urlGroup]</code>
+                            <code>[enforcer.throttling.publisher.URLGroup]</code>
                             <span class="badge-required">Required</span>
                             <p>
                                 Throttling configurations related to event publishing using a binary connection. The following are Receiver URL and the authentication URL of the Traffic manager node/nodes. You can provide multiple URL groups
@@ -1748,8 +1766,8 @@ password = "admin"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="16" type="checkbox" id="_tab_16">
-                <label class="tab-selector" for="_tab_16"><i class="icon fa fa-code"></i></label>
+            <input name="17" type="checkbox" id="_tab_17">
+                <label class="tab-selector" for="_tab_17"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[enforcer.throttling.publisher.pool]
@@ -1763,7 +1781,7 @@ password = "admin"</code></pre>
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[throttling.publisher.pool]</code>
+                            <code>[enforcer.throttling.publisher.pool]</code>
                             
                             <p>
                                 Throttling configurations related to event publishing using a binary connection. The following are data publisher object pool configurations
@@ -1884,8 +1902,8 @@ password = "admin"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="17" type="checkbox" id="_tab_17">
-                <label class="tab-selector" for="_tab_17"><i class="icon fa fa-code"></i></label>
+            <input name="18" type="checkbox" id="_tab_18">
+                <label class="tab-selector" for="_tab_18"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[enforcer.throttling.publisher.agent]
@@ -1913,7 +1931,7 @@ password = "admin"</code></pre>
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[throttling.publisher.agent]</code>
+                            <code>[enforcer.throttling.publisher.agent]</code>
                             <span class="badge-required">Required</span>
                             <p>
                                 Throttling configurations related to event publishing using a binary connection. The following are data publisher agent configurations
@@ -2188,7 +2206,7 @@ password = "admin"</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>maxIdleConnections</code> </span>
+                                  <span class="param-name-wrap"> <code>secureMaxIdleConnections</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -2241,6 +2259,82 @@ password = "admin"</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>Minimum idle time in pool for SSL connection pool configurations (for authentication).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## Metrics
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="19" type="checkbox" id="_tab_19">
+                <label class="tab-selector" for="_tab_19"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[enforcer.metrics]
+  enabled = false
+  type = "azure"</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[enforcer.metrics]</code>
+                            
+                            <p>
+                                Metrics Configurations for Choreo Connect.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enabled</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable/Disable Metrics.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>type</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>azure</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Type of the metrics server.</p>
                                     </div>
                                 </div>
                             </div>
