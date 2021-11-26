@@ -13,7 +13,7 @@ attacks.
 1.  Set up reCaptcha with the WSO2 API Manager. For instructions on
     how to do this and more information about reCaptcha, see [Setting Up
     ReCaptcha]({{base_path}}/install-and-setup/setup/security/logins-and-passwords/setting-up-recaptcha).
-2.  Start the API Manager and login to the management console.
+2.  Start the API Manager and sign in to the Management Console.
 3.  Click **List** under **Identity Providers** found in the **Main**
     tab.
 4.  Click **Resident Identity Provider** and expand the **Login Attempts Security** tab. Then, expand the **reCaptcha for SSO Login** tab.

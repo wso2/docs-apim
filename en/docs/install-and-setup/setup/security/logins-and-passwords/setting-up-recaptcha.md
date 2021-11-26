@@ -13,7 +13,7 @@ First, you will need to register and create an API key pair for the
 required domain. The key pair consists of a site key and secret. The
 site key is what is used when a reCaptcha widget is displayed on a page.
 After verification, a new parameter called
-`         g-recaptcha-response        ` appears on the form which the
+`g-recaptcha-response` appears on the form that the
 user submits. From the server side, you can verify the submitted captcha
 response by calling the Google API with the secret key.
 
@@ -24,7 +24,7 @@ Follow the steps provided below to configure this.
 1. Go to <https://www.google.com/recaptcha/admin>.
 
 2. You will see the following window. Fill in the fields to register
-    your api manager domain and click **Register**. The following
+   your API Manager domain and click **Register**. The following
     are sample values:
     -   **Label:** WSO2 API Manager
     -   Select the reCAPTCHA V2 or Invisible reCAPTCHA option.
@@ -33,7 +33,7 @@ Follow the steps provided below to configure this.
     ![configuring-recaptcha-api-keys]({{base_path}}/assets/img/learn/api-security/recaptcha/configuring-recaptcha-api-keys.png) 
 3. Take note of the site key and secret that you receive.
     ![note-site-key-secret]({{base_path}}/assets/img/learn/api-security/recaptcha/note-site-key-secret.png) 
-4. Open the `deployment.toml           ` file located in the `            <APIM_HOME>/repository/conf/         `
+4. Open the `deployment.toml` file located in the `<APIM_HOME>/repository/conf/`       `
     directory and add the following configurations.
 
     ``` toml 
@@ -67,14 +67,13 @@ Follow the steps provided below to configure this.
         ```
     
         Below is an example of how to include the URL paths of additional
-        authorization end points.
+        authorization endpoints.
     
         ``` toml
         redirect_urls="/authenticationendpointone/login.do,/authenticationendpointtwo/login.do"
         ```
-    
-5. Enabled the reCAPTCHA from the carbon console. (Identity Providers -> Resident -> Login Attempts Security -> reCaptcha for SSO Login -> Always prompt reCaptcha)
-   ![configuring-recaptcha-from-carbon-console]({{base_path}}/assets/img/learn/api-security/recaptcha/configuring-recaptcha-from-carbon-console.png)
+
+5. 5. Enabled the reCAPTCHA from the Carbon console. (**Identity Providers** -> **Resident** -> **Login Attempts Security** -> **reCaptcha for SSO Login** -> **Always prompt reCaptcha)**   ![configuring-recaptcha-from-carbon-console]({{base_path}}/assets/img/learn/api-security/recaptcha/configuring-recaptcha-from-carbon-console.png)
 
 6. Restart the WSO2 API Manager Publisher portal.
 
