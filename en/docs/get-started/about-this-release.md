@@ -71,6 +71,12 @@ This serves the integration needs for the data plane of the API Manager platform
 
      VFS Inbound Endpoints are capable of handling files inside sub-directories of the specified URL. This enables users to process files recursively inside a directory.
 
+### Improvements
+
+- **[File based user store improvement]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#file-based-user-store-default) (M2)**
+
+     The default user store of the Micro Integrator is file-based. This enables users to grant admin privileges to a user in the file-based user store.
+
 ## **Streaming Integrator**
 
 Streaming Integrator serves the streaming-based integrations and acts as the event stream provider for Streaming APIs in the data plane of the API Manager platform.
@@ -161,6 +167,10 @@ The Micro Integrator dashboard can connect to multiple Micro Integrator server i
 - **[Single Sign-on with OpenID Connect]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi-dashboard/#configuring-single-sign-on-with-openid-connect)**
 
      Users can use OIDC based Single Sign-On to log in to the WSO2 Micro Integrator Monitoring Dashboard.
+
+- **[Viewing Data Sources]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard/#step-6-monitor-mi-artifacts-and-logs) (M2)**
+
+     Users can view data sources deployed in Micro Integrator Runtimes.
 
 ## **Streaming Integrator Tooling**
 
