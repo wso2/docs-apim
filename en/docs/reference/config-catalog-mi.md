@@ -935,6 +935,7 @@ enable = true
 [[internal_apis.users]]
 user.name = "user-1"
 user.password = "pwd-1"
+user.is_admin = true
 
 [[internal_apis.users]]
 user.name = "user-2"
@@ -1022,6 +1023,27 @@ user.password = "pwd-2"
                                     </div>
                                     <div class="param-description">
                                         <p>Enter a password for the user specified by &#39;user.name&#39;. Note that this will overwrite the default &#39;admin&#39; password that is stored in the user store.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>user.is_admin</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Specifies whether or not the user has admin privileges.</p>
                                     </div>
                                 </div>
                             </div>
