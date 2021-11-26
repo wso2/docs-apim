@@ -5,6 +5,10 @@ WSO2 API Manager now supports integrating external third party Gateways and Brok
 ## Integrating the Solace Event Broker
 
 1. Go to the [Solace PubHub+](https://solace.com/products/event-broker/) portal.
+    
+    !!! tip
+        See the [Getting Started Guide]() for info on how to setup an account with Solace PubHub+.
+
 2. Create a new account.
    </br><a href="{{base_path}}/assets/img/tutorials/solace/create-new-account.png"><img src="{{base_path}}/assets/img/tutorials/solace/create-new-account.png" alt="Create new account" name="Create new account" width="600"></a>
 3. You will need the following information to integrate the broker with API Manager
@@ -55,6 +59,9 @@ Before you begin: Make sure that you have integrated the Solace event broker wit
     2. AsyncAPI File - If you select this option, click Browse File to Upload and upload a file, which contains a Solace AsyncAPI definition.
     Select your preferred method and click **NEXT**.
 
+    !!! info
+    If the Async API specification is a valid Solace Async API specification, the portal will display the `Identified as Solace Event Portal API` tag.
+
 4. Edit the Solace Async API information and click **Create**.
 
 !!! note
@@ -74,6 +81,9 @@ The topics will be created automatically from the Solace AsyncAPI definition pro
 
     !!! note
         The Solace API specification cannot be edited from the API manager Publisher portal. But the specification can be downloaded and changed externally to make the required changes. 
+
+    !!! warn
+    The current version of WSO2 API Manager **only** supports AsyncUnlimited Protocol as the API level subscription policy for Solace APIs. Once a subscription is made, that policy will be added automatically.
 
 
 ### Step 4 - Deploying the API to the Solace broker
