@@ -1,16 +1,17 @@
 # Analytics for Choreo Connect
+
 Choreo Connect Analytics provides reports, dashboards, statistics, and graphs for the APIs deployed on Choreo Connect.
 WSO2 Choreo Connect has the capability to publish events to the Choreo platform in order to generate analytics. This page describes the feature and explains how the feature could be used to generate useful analytics in order to gain important insights into the APIs deployed on the Choreo Connect. To learn more concepts on analytics, follow the [concepts]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/choreo-connect-analytics/).
 
 
-### Configuring Analytics for Choreo Connect
+## Configuring Analytics for Choreo Connect
 
 The following steps will describe how to configure Choreo Connect Analytics with Choreo portal.
 
 !!! note 
     Before you begin, make sure to go through [main configurations]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configuration-overview/) and [Configurations for Analytics]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/analytics-configurations/) and familiar with the configurations.
 
-##### STEP-1: Set up Analytics
+### Step 1 - Set up Analytics
 
 To configure analytics with Choreo,
 
@@ -19,7 +20,7 @@ To configure analytics with Choreo,
 3. Open the `docker-compose.yaml` file located in the `CHOREO-CONNECT_HOME/docker-compose/choreo-connect` or `CHOREO-CONNECT_HOME/docker-compose/choreo-connect-with-apim` based on your choice on the setup.
 
     !!! info
-        Choreo Connect can be configured to pulish Analytics to Choreo cloud in both [standalone mode]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker/#step-3-start-choreo-connect) and [with control plane mode]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker-with-apim/#step-3-start-choreo-connect-and-api-manager).
+        Choreo Connect can be configured to pulish Analytics to Choreo cloud in both [standalone mode]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-api-controller/#step-3-start-choreo-connect) and [with Control Plane mode]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/#step-3-start-choreo-connect-and-api-manager).
 
 4. Find the environment variables section under the `enforcer` and change the below variables.
 
@@ -59,18 +60,20 @@ To configure analytics with Choreo,
             queueSize = 1000
     ```
 
-##### STEP-2: Try it out
+### Step 2 - Try it out
 
 Let's generate some traffic to see the Analytics in Choreo cloud.
 
 1. Deploy your API - Follow [this]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-via-apim/#step-3-deploy-the-api-in-api-manager) according to your setup.
+
 2. Let's Invoke the API few times - [Invoke the API]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-via-apim/#step-4-invoke-the-api)
+
 3. Go to [Choreo Insights](https://console.choreo.dev/insights) to view statistics. 
 
 Here are some of the graphs generated in Choreo cloud.
 
-[![]({{base_path}}/assets/img/deploy/choreo-analytics-overview.png)]({{base_path}}/assets/img/deploy/choreo-analytics-overview.png)
+[![Choreo Analytics Overview]({{base_path}}/assets/img/deploy/choreo-analytics-overview.png)]({{base_path}}/assets/img/deploy/choreo-analytics-overview.png)
 
-[![]({{base_path}}/assets/img/deploy/choreo-analytics-traffic.png)]({{base_path}}/assets/img/deploy/choreo-analytics-traffic.png)
+[![Choreo Analytics Traffic]({{base_path}}/assets/img/deploy/choreo-analytics-traffic.png)]({{base_path}}/assets/img/deploy/choreo-analytics-traffic.png)
 
-[![]({{base_path}}/assets/img/deploy/choreo-analytics-latency.png)]({{base_path}}/assets/img/deploy/choreo-analytics-latency.png)
+[![Choreo Analytics Latency]({{base_path}}/assets/img/deploy/choreo-analytics-latency.png)]({{base_path}}/assets/img/deploy/choreo-analytics-latency.png)

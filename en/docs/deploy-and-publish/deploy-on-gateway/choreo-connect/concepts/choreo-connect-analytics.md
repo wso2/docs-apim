@@ -9,7 +9,7 @@ WSO2 Choreo Connect supports publishing Analytics as Real-Time events to an Anal
 
 Following diagram shows the process flow of a success request in Choreo Connect with Analytics enabled.
 
-[![Choreo Connect Analytics Architecture]({{base_path}}/assets/img/deploy/mgw/analytics-architecture.png)]({{base_path}}/assets/img/deploy/mgw/analytics-architecture.png)
+[![Choreo Connect Analytics Architecture]({{base_path}}/assets/img/deploy/mgw/choreo-connect-analytics-architecture.png)]({{base_path}}/assets/img/deploy/mgw/choreo-connect-analytics-architecture)
 
 There are two main components related to internal gRPC request for sending `StreamAccessLogsMessage` from `router` to `enforcer` and which is used to collect analytics data.
 

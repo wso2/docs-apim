@@ -1,11 +1,12 @@
-# Using WSO2 API Manager to Deploy a REST API in Choreo Connect
+# Deploying a REST API in Choreo Connect Using WSO2 API Manager
 
 Follow the instructions below to use the WSO2 API Manager Publisher Portal to deploy a REST type API in Choreo Connect:
 
 ## Step 1 - Configure Choreo Connect with API Manager
 
-- To start Choreo Connect with an existing API Manager instance, follow the steps [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/#configuring-choreo-connect-with-api-manager)
-- To start a complete deployment setup that includes an API Manager instance and a Choreo Connect instance already configured to work with API Manager, follow the steps [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker-with-apim)
+- To start Choreo Connect with an existing API Manager instance, follow the steps mentioned in the [Using Choreo Connect Deployed on Docker with WSO2 API Manager Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-apim)
+- To start a complete deployment setup that includes a WSO2 API Manager instance and a Choreo Connect instance already configured to work with API Manager, follow the steps in the [Quick Start Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim).
+
 ## Step 2 - Create an API in API Manager
 
 Follow the steps [here]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/).
@@ -32,6 +33,7 @@ Whenever a new event occurs in API Manager such as an API being deployed, API Ma
     - [Publish an API on the Developer Portal]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api)
 
 ##  Step 4 - Invoke the API
+
 {! ./includes/obtain-jwt.md !}
 {! ./includes/invoke-api-with-jwt.md !}
 

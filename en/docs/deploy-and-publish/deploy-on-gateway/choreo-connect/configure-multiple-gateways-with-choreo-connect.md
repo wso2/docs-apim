@@ -2,20 +2,22 @@
 
 Choreo Connect supports the configuration of multiple Gateways with API Manager or in stand-alone mode. There are two types of deployments to setup multiple Gateways.
 
-1. [Single adapter pattern](#single-adapter-pattern)
-2. [Distributed adapter pattern](#distributed-adapter-pattern)
+- [Configure Multiple Gateways with Choreo Connect](#configure-multiple-gateways-with-choreo-connect)
+  - [Single Adapter pattern](#single-adapter-pattern)
+  - [Distributed Adapter pattern](#distributed-adapter-pattern)
+  - [Configuration of environments](#configuration-of-environments)
 
-## Single adapter pattern
+## Single Adapter pattern
 
 You can use single adapter pattern to expose multiple Gateway environments through a single adapter.
 
-![]({{base_path}}/assets/img/deploy/mgw/single-adapter-pattern.png)
+[![Single Adapter Pattern]({{base_path}}/assets/img/deploy/mgw/single-adapter-pattern.png){: style="width:60%"}]({{base_path}}/assets/img/deploy/mgw/single-adapter-pattern.png)
 
-## Distributed adapter pattern
+## Distributed Adapter pattern
 
 You can use distributed adapter pattern to distribute the control of the environments to separate adapters.
 
-![]({{base_path}}/assets/img/deploy/mgw/distributed-adapter-pattern.png)
+[![Distributed Adapter Pattern]({{base_path}}/assets/img/deploy/mgw/distributed-adapter-pattern.png){: style="width:60%"}]({{base_path}}/assets/img/deploy/mgw/distributed-adapter-pattern.png)
 
 ## Configuration of environments
 
@@ -202,6 +204,6 @@ For instance, if you are configuring a single adapter for two environments "chor
 
 4. Add the Gateway environments "choreo-connect-1" and "choreo-connect-2" from the Gateways in the APIM admin portal.
 
-    ![]({{base_path}}/assets/img/deploy/mgw/add-gateway-environment.png)
+    [![Add Gateway Environment]({{base_path}}/assets/img/deploy/mgw/add-gateway-environment.png)]({{base_path}}/assets/img/deploy/mgw/add-gateway-environment.png)
 
 5. Deploy the API on the defined Gateway.
