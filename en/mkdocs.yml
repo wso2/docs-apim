@@ -1607,6 +1607,7 @@ nav:
             - Create and Publish an AWS Lambda API: tutorials/create-and-publish-awslambda-api.md
             - Expose a SOAP Service as a REST API: tutorials/expose-a-soap-service-as-a-rest-api.md
             - Edit an API by Modifying the API Definition: tutorials/edit-an-api-by-modifyng-the-api-definition.md
+            - Integrating API Manager with an External Broker and Gateway: tutorials/integrating-with-solace.md
           - Integration Tutorials:
               - Sending a Simple Message to a Service: tutorials/integration-tutorials/sending-a-simple-message-to-a-service.md
               - Message Routing:
