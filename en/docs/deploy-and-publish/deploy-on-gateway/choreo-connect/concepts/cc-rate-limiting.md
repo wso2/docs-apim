@@ -14,7 +14,7 @@ Choreo Connect supports Rate Limiting at the following levels:
 
 ## Distributed rate limiting
 
-In a deployment with multiple Choreo Connect instances, Rate Limiting becomes a challenge with node local Rate Limiting as the Rate Limiting decision is made based on the local counter within each node. If we proceed with the node local Rate Limiting in such
+In a deployment with multiple Choreo Connect instances, Rate Limiting becomes a challenge with node local Rate Limiting since the Rate Limiting decision is made based on the local counter within each node. If we proceed with the node local Rate Limiting in such
 environment, the API user would be allowed to send multiples of the Rate Limiting limit. I.e., if the Rate Limiting limit is set to 10, if we have 3 gateways in a cluster, it will allow 30 requests to pass to the backend before all three gateways
 throttle out requests. This will put an unexpected load on the backend. To address this requirement, Choreo Connect
 supports distributed Rate Limiting where it is able to work with a central traffic management solution. In this case,
