@@ -38,6 +38,7 @@ WSO2 API Manager now supports integrating external third party Gateways and Brok
         Organization = <Password of the Solace broker account>
         DevAccountName = <Password of the Solace broker account>
     ```
+    Note that only all these properties are **mandatory**, except `show_as_token_endpoint_url`.
 
 5. The Solace broker gateway is now available in the API Publisher.
     <a href="{{base_path}}/assets/img/tutorials/solace/view-solace-broker.png"><img src="{{base_path}}/assets/img/tutorials/solace/view-solace-broker.png" alt="View Solace Broker" name="View Solace Broker"></a>
