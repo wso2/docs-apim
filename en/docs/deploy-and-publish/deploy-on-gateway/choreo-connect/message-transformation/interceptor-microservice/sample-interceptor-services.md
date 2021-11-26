@@ -1,6 +1,6 @@
 # Sample Interceptor Services
 
-## Sample 1: JSON to XML transformation for a Legacy Backend - Book Store
+## Sample 1 - JSON to XML transformation for a Legacy Backend - Book Store
 
 Let's consider a legacy backend named "Book Store". The resource `/books` with the method `POST` accepts an XML
 request to add a new book. If the header `x-user: admin` is not present in the request to the server, it responds
@@ -25,14 +25,12 @@ x-wso2-response-interceptor:
   serviceURL: https://xml-interceptor:9081
 ```
 
-
-
-### Try out the sample
+## Try out the sample
 
 You can find the implementation of the interceptor service in the [Choreo Connect GitHub Repository](https://github.com/wso2/product-microgateway).
 Clone the repository and change to the cloned path.
 
-1. Start the Choreo-Connect Docker compose setup if you have not started it yet. Refer [Quick Start Guide - Docker]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker/#quick-start-guide-docker) for instructions.
+1. Start the Choreo-Connect Docker compose setup if you have not started it yet. Refer [Quick Start Guide - Docker]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-api-controller/#quick-start-guide-docker) for instructions.
 2. Find the sample interceptor implementations in the directory [samples/interceptors](https://github.com/wso2/product-microgateway/tree/main/samples/interceptors#readme).
    You can find implementations for following languages.
       - Ballerina
@@ -44,7 +42,7 @@ Clone the repository and change to the cloned path.
     docker-compose up
     ```
 
-#### Directly invoke the backend
+### Directly invoke the backend
 
 The port of the backend server is bound to the host in the docker-compose.yaml. So we can test it first.
 Check the HTTP status code in the response.
@@ -61,7 +59,7 @@ curl -X POST http://localhost:9080/books -d '<name>The Prisoner</name>' -H 'x-us
 
 The response body should be `<response>Error</response>` with the status code `401`.
 
-#### Invoke the API
+### Invoke the API
 
 First, change the directory to `samples/interceptors`.
 Now lets initialize the API and add the interceptor certificate to the project. You have already added the CA cert of the Choreo Connect router.

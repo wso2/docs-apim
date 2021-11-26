@@ -231,3 +231,4 @@ Learn more on the concepts that you need to know when creating a REST API:
 -   [API Visibility]({{base_path}}/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/)
 -   [API Documentation]({{base_path}}/design/api-documentation/add-api-documentation/)
 -   [Custom Properties]({{base_path}}/design/create-api/adding-custom-properties-to-apis/)
+-   [Template Patterns]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/template-patterns-for-choreo-connect/) - You can use these template patterns when defining OpenAPI (Swagger) definitions for APIs deployed on Choreo Connect.

@@ -1,6 +1,6 @@
-# Quick Start Guide - Kubernetes
+# Using Choreo Connect Deployed on Kubernetes with WSO2 API Controller
 
-Let's host your first API on Choreo Connect using Kubernetes.
+Let's deploy an API using WSO2 API Controller (apictl), which is the CLI Tool, on a Choreo Connect Kubernetes deployment.
 
 ## Before you begin
 
@@ -37,7 +37,7 @@ Let's get started...
     <INGRESS_ADDRESS>    gw.wso2.com    adapter.wso2.com
     ```
 
-## Step 2 - Initialize an API project
+## Step 2 - Initialize an API Project
 
 Let's create our first project with the name "petstore" by adding the [OpenAPI definition](https://petstore.swagger.io/v2/swagger.json) of the petstore.
 
@@ -68,7 +68,6 @@ Let's create our first project with the name "petstore" by adding the [OpenAPI d
     -   For more information on the API project directory that gets created, see [APICTL Getting Started]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller).
 
 ## Step 3 - Deploy the API Project
-
 
 ### Step 3.1 - Add Choreo Connect Cluster as Environment to APICTL
 

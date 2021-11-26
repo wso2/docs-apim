@@ -1,4 +1,4 @@
-# Choreo Connect Tenant Support.
+# Choreo Connect Tenant Support
 
 Choreo Connect supports only a single tenant. It can not expose APIs of different tenants. A single deployment of
 Adapter, Enforcer and Router should handle only a specific tenants API. If there are multiple tenants, the multiple deployments 

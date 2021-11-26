@@ -1,6 +1,6 @@
-# Quick Start Guide with API Manager - Kubernetes
+# Using Choreo Connect Deployed on Kubernetes with WSO2 API Manager
 
-Let's host your first API on Choreo Connect using Kubernetes.
+Let's deploy an API via the WSO2 API Manager Publisher Portal on a Choreo Connect Kubernetes deployment.
 
 ## Before you begin
 

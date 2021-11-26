@@ -39,7 +39,7 @@ For instructions, see the [Consul official documentation](https://www.consul.io/
      3. Set `serviceMeshEnabled` to `true`.
      4. Configure `mgwServiceName` as `choreo-connect`.
      5. Add the `caCertFile`, `certFile`, and `keyFile` files that you generated from the previous step.
-     6. [Apply the K8s artifacts for Choreo Connect]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-kubernetes/#step-1-setup-choreo-connect-in-kubernetes).
+     6. [Apply the K8s artifacts for Choreo Connect]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-api-controller/#step-1-setup-choreo-connect-in-kubernetes).
 
 ## Step 3 - Deploy the API
 
