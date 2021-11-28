@@ -23,7 +23,7 @@ Follow the steps provided below to configure this.
 
 1. Go to <https://www.google.com/recaptcha/admin>.
 
-2. You will see the window shown below. Fill in the fields to register
+2. You will see the following window. Fill in the fields to register
    your API Manager domain and click **Register**. The following
     are sample values:
     -   **Label:** WSO2 API Manager
@@ -73,7 +73,7 @@ Follow the steps provided below to configure this.
         redirect_urls="/authenticationendpointone/login.do,/authenticationendpointtwo/login.do"
         ```
 
-5. Enabled the reCAPTCHA from the Carbon console. (**Identity Providers** -> **Resident** -> **Login Attempts Security** -> **reCaptcha for SSO Login** -> **Always prompt reCaptcha)**   ![configuring-recaptcha-from-carbon-console]({{base_path}}/assets/img/learn/api-security/recaptcha/configuring-recaptcha-from-carbon-console.png)
+5. Enable reCAPTCHA from the Carbon console. (**Identity Providers** -> **Resident** -> **Login Attempts Security** -> **reCaptcha for SSO Login** -> **Always prompt reCaptcha)**   ![configuring-recaptcha-from-carbon-console]({{base_path}}/assets/img/learn/api-security/recaptcha/configuring-recaptcha-from-carbon-console.png)
 
 6. Restart the WSO2 API Manager Publisher portal.
 
