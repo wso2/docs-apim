@@ -23,7 +23,7 @@ Follow the steps provided below to configure this.
 
 1. Go to <https://www.google.com/recaptcha/admin>.
 
-2. You will see the following window. Fill in the fields to register
+2. You will see the window shown below. Fill in the fields to register
    your API Manager domain and click **Register**. The following
     are sample values:
     -   **Label:** WSO2 API Manager
@@ -33,7 +33,7 @@ Follow the steps provided below to configure this.
     ![configuring-recaptcha-api-keys]({{base_path}}/assets/img/learn/api-security/recaptcha/configuring-recaptcha-api-keys.png) 
 3. Take note of the site key and secret that you receive.
     ![note-site-key-secret]({{base_path}}/assets/img/learn/api-security/recaptcha/note-site-key-secret.png) 
-4. Open the `deployment.toml` file located in the `<APIM_HOME>/repository/conf/`       `
+4. Open the `deployment.toml` file located in the `<API-M_HOME>/repository/conf/`       `
     directory and add the following configurations.
 
     ``` toml 
@@ -66,14 +66,14 @@ Follow the steps provided below to configure this.
         redirect_urls="url1_path,url2_path"
         ```
     
-        Below is an example of how to include the URL paths of additional
-        authorization endpoints.
+        An example of how to include the URL paths of additional
+        authorization endpoints is given below.
     
         ``` toml
         redirect_urls="/authenticationendpointone/login.do,/authenticationendpointtwo/login.do"
         ```
 
-5. 5. Enabled the reCAPTCHA from the Carbon console. (**Identity Providers** -> **Resident** -> **Login Attempts Security** -> **reCaptcha for SSO Login** -> **Always prompt reCaptcha)**   ![configuring-recaptcha-from-carbon-console]({{base_path}}/assets/img/learn/api-security/recaptcha/configuring-recaptcha-from-carbon-console.png)
+5. Enabled the reCAPTCHA from the Carbon console. (**Identity Providers** -> **Resident** -> **Login Attempts Security** -> **reCaptcha for SSO Login** -> **Always prompt reCaptcha)**   ![configuring-recaptcha-from-carbon-console]({{base_path}}/assets/img/learn/api-security/recaptcha/configuring-recaptcha-from-carbon-console.png)
 
 6. Restart the WSO2 API Manager Publisher portal.
 
