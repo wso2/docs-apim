@@ -13,11 +13,11 @@ This will demonstrate a simple command line based chat room which has two channe
 
 1.  {!includes/sign-in-publisher.md!}
 
-2.  Click **CREATE API**, go to **Streaming API**, and click **WebSocket API**.
+2.  Click **Create API**, go to **Streaming API**, and click **WebSocket API**.
 
      <html><div class="admonition note">
       <p class="admonition-title">Note</p>
-      <p>The <b>CREATE</b> button will only appear for a user who has the <code>creator</code> role permission.</p>
+      <p>The <b>Create</b> button will only appear for a user who has the <code>creator</code> role permission.</p>
       </div>
      </html>
 
@@ -146,7 +146,7 @@ Now, you have created and configured the WebSocket API successfully.
 
 3. Subscribe to the API.
 
-    1. Click **Subscriptions** to go to the Subscriptions page and click **SUBSCRIPTION & KEY GENERATION WIZARD**.
+    1. Click **Subscriptions** to go to the Subscriptions page and click **Subscription & Key Generation Wizard**.
     
            This wizard takes you through the steps of creating a new application, subscribing, generating keys, and generating an access token to invoke the API. 
 
@@ -159,7 +159,7 @@ Now, you have created and configured the WebSocket API successfully.
 
          [![Key Generation Wizard]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-key-generation-wizard.png)]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-key-generation-wizard.png)
 
-    2. Copy the authorization token that appears, and click **FINISH**.
+    2. Copy the authorization token that appears, and click **Finish**.
 
          [![Authorization Token]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-subscription-token.png)]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-subscription-token.png)
 
