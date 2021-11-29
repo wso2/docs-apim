@@ -5210,6 +5210,27 @@
                 }
             ],
             "exampleFile": "servlet_access_control_filter.toml"
+        },
+        {
+            "title": "Web app listener configurations",
+            "options": [
+                {
+                    "name": "web_app.listener",
+                    "required": false,
+                    "description": "This can be configured to add custom Tomcat listener, as shown in the example.",
+                    "params": [                   
+                         {
+                            "name": "class_name",
+                            "type": "string",
+                            "required": true,
+                            "default": "true",
+                            "possible": "",
+                            "description": ""
+                        }                                                                                                                                                                                                                                                                            
+                    ]
+                }
+            ],
+            "exampleFile": "web_app.listener.toml"
         }                                                                                   
     ]
 }
