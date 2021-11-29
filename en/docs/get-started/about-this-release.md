@@ -4,7 +4,7 @@ WSO2 API Manager is a complete platform for building, integrating, and exposing 
 
 For more information on WSO2 API Manager, see the [overview]({{base_path}}/getting-started/overview/).
 
-The **WSO2 API Manager 4.1.0 Milestone 1 (M1)** is the latest **WSO2 API Manager release** and is the successor of **WSO2 API Manager 4.0.0**. It contains the following components, which have new features and enhancements:
+The **WSO2 API Manager 4.1.0 Milestone 2 (M2)** is the latest **WSO2 API Manager release** and is the successor of **WSO2 API Manager 4.0.0**. It contains the following components, which have new features and enhancements:
 
 ## **API Manager**
 
@@ -13,8 +13,8 @@ The API Manager component addresses all aspects of API management in the platfor
 <table>
 <tr>
 <td>
-API Manager 4.1.0-M1</td>
-<td><a href="https://github.com/wso2/product-apim/releases/download/v4.1.0-m1/wso2am-4.1.0-m1.zip">download</a></td>
+API Manager 4.1.0-M2</td>
+<td><a href="https://github.com/wso2/product-apim/releases/download/v4.1.0-m2/wso2am-4.1.0-m2.zip">download</a></td>
 </tr>
 </table>
 
@@ -27,6 +27,10 @@ API Manager 4.1.0-M1</td>
 - **[Ability to configure Rate Limiting for an API Gateway Cluster]({{base_path}}/design/rate-limiting/advanced-topics/configuring-rate-limiting-api-gateway-cluster/) (M2)**
 
      Ability to configure Rate Limiting for an API Gateway Cluster via the Redis server so that the request counters maintained for burst control and backend rate limiting will be replicated across the API Gateway cluster when working with multiple API Gateway nodes.
+     
+- **[Authentication support for end users using Token Exchange approach]({{base_path}}/administer/key-managers/configure-custom-connector/) (M2)**
+
+     Get an API Manager token by invoking the token endpoint of API Manager with the required parameters (i.e., the token obtained from external Identity Provider) and invoke the API with the exchanged token.
 
 ### Improvements
 
@@ -52,8 +56,8 @@ This serves the integration needs for the data plane of the API Manager platform
 
 <table>
 <tr>
-<td>Micro Integrator  4.1.0-M1</td> 
-<td><a href="https://github.com/wso2/micro-integrator/releases/download/v4.1.0-m1/wso2mi-4.1.0-m1.zip">download</a></td>
+<td>Micro Integrator  4.1.0-M2</td> 
+<td><a href="https://github.com/wso2/micro-integrator/releases/download/v4.1.0-m2/wso2mi-4.1.0-m2.zip">download</a></td>
 </tr>
 </table>
 
@@ -83,8 +87,8 @@ Streaming Integrator serves the streaming-based integrations and acts as the eve
 
 <table>
 <tr>
-<td>Streaming Integrator  4.1.0-M1</td> 
-<td><a href="https://github.com/wso2/streaming-integrator/releases/download/v4.1.0-m1/wso2si-4.1.0-m1.zip">download</a>
+<td>Streaming Integrator  4.1.0-M2</td> 
+<td><a href="https://github.com/wso2/streaming-integrator/releases/download/v4.1.0-m2/wso2si-4.1.0-m2.zip">download</a>
 </td> 
 </tr>
 </table>
@@ -107,8 +111,8 @@ WSO2 API Controller (apictl) is a command-line tool providing the capability to 
 
 <table>
 <tr>
-<td>API Controller 4.1.0-M1</td>
-<td><a href="https://github.com/wso2/product-apim-tooling/releases/tag/v4.1.0-m1">download</a></td>
+<td>API Controller 4.1.0-M2</td>
+<td><a href="https://github.com/wso2/product-apim-tooling/releases/tag/v4.1.0-m2">download</a></td>
 </tr>
 </table>
 
@@ -157,8 +161,8 @@ The Micro Integrator dashboard can connect to multiple Micro Integrator server i
 
 <table>
 <tr>
-<td>Micro Integrator Tooling  4.1.0-M1</td>
-<td><a href="https://github.com/wso2/micro-integrator/releases/download/v4.1.0-m1/wso2mi-dashboard-4.1.0-m1.zip">download</a></td>
+<td>Micro Integrator Tooling  4.1.0-M2</td>
+<td><a href="https://github.com/wso2/micro-integrator/releases/download/v4.1.0-m2/wso2mi-dashboard-4.1.0-m2.zip">download</a></td>
 <tr>
 </table>
 
@@ -178,8 +182,8 @@ The Streaming Integrator Tooling is a developer tool to develop Siddhi applicati
 
 <table>
 <tr>
-<td>Streaming Integrator Tooling  4.1.0-M1</td>
-<td><a href="https://github.com/wso2/streaming-integrator-tooling/releases/download/v4.1.0-m1/wso2si-tooling-4.1.0-m1.zip">download</a></td>
+<td>Streaming Integrator Tooling  4.1.0-M2</td>
+<td><a href="https://github.com/wso2/streaming-integrator-tooling/releases/download/v4.1.0-m2/wso2si-tooling-4.1.0-m2.zip">download</a></td>
 </tr>
 </table>
 
