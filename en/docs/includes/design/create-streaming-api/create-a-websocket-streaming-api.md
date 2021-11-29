@@ -97,7 +97,7 @@ Follow the instructions below to create a WebSocket API using the basic flow:
                     <p>Use one of the following endpoints.</p>
                     <ul>
                         <li>ws://ws.ifelse.io:80</li>
-                        <li>ws://ws.ifelse.io:443</li>
+                        <li>wss://ws.ifelse.io:443</li>
                     </ul>
                  </td>
              </tr>
