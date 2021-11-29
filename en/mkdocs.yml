@@ -329,6 +329,7 @@ nav:
             - Admin APIs:
                 - Admin API v0.15:
                     - Admin API v0.15: develop/product-apis/admin-apis/admin-v0.15/admin-v0.15.md
+            - Advanced Configurations: develop/product-apis/advanced-configurations.md
         - Admin Services: develop/wso2-admin-services.md
         - Working with the Source Code: develop/working-with-the-source-code.md
         - Java Documentation: develop/java-documentation.md
