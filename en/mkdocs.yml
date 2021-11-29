@@ -1210,6 +1210,7 @@ nav:
                     - Styling API Details Info Section: reference/customize-product/customizations/customizing-the-developer-portal/styling-api-details-info-section.md
                     - Styling the Logo and Header: reference/customize-product/customizations/customizing-the-developer-portal/styling-the-logo-and-header.md
                     - Enabling or Disabling Self Signup: reference/customize-product/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup.md
+                    - Configuring reCaptcha for Self-SignUp: reference/customize-product/customizations/customizing-the-developer-portal/configuring-recaptcha-for-self-signup.md
                 - Overriding the Publisher Portal Theme: reference/customize-product/customizations/overriding-the-publisher-portal-theme.md
                 - Log in to the Developer Portal using Social Media: reference/customize-product/customizations/log-in-to-the-dev-portal-using-social-media.md
                 - Directing the Root Context to the Developer Portal: reference/customize-product/customizations/directing-the-root-context-to-the-developer-portal.md
@@ -1343,6 +1344,8 @@ nav:
                             - Customizing Secure Vault: install-and-setup/setup/security/logins-and-passwords/carbon-secure-vault-implementation.md
                             - Set Passwords using Environment Variables/System Properties: install-and-setup/setup/security/logins-and-passwords/set-passwords-using-vars-and-sys-props.md
                             - Working with Encrypted Passwords: install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords.md
+                            - Setting Up ReCaptcha: install-and-setup/setup/security/logins-and-passwords/setting-up-recaptcha.md
+                            - Configuring reCaptcha for Single Sign On : install-and-setup/setup/security/logins-and-passwords/configuring-recaptcha-for-single-sign-on.md
                     - Configuring Keystores:
                         - Configuring Keystores in API Manager: install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager.md
                         - Keystore Basics:
