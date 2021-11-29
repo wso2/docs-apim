@@ -16,8 +16,8 @@ By default, each of the above Product REST APIs allows requests from all origins
 
 The origin will have the following syntax.
 
-``` tab="Origin Format"
-<scheme>"://"<hostname>[ ":" <port> ]
+``` tab="Format"
+<scheme>://<hostname>[ :<port> ]
 ```
 
 ``` tab="Example"
