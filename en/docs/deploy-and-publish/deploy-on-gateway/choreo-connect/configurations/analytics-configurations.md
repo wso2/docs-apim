@@ -20,10 +20,6 @@ See the example .toml file given below.
 ```
 
 
-
-
-
-
 ## Enable Analytics
 
 

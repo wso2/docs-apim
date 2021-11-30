@@ -27,11 +27,7 @@ See the example .toml file given below.
 ```
 
 
-
-
-
 ## Router
-
 
 <div class="mb-config-catalog">
     <section>
