@@ -4,7 +4,7 @@ Let's deploy an API via WSO2 API Controller (apictl), which is the CLI Tool, on 
 
 ## Before you begin...
 
-Make sure to install and set up [Docker](https://www.docker.com).
+Install and set up [Docker](https://www.docker.com).
 
 ## Step 1 - Download and setup Choreo Connect distribution zip and APICTL (Command Line Tool)
 

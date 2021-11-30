@@ -4,6 +4,8 @@ Choreo Connect (the API Microgateway) is an API Gateway for microservices, which
 
 WSO2 Choreo Connect is a lightweight message processor for APIs. You would need to use WSO2 Choreo Connect for message security, transport security, routing, and other common API Management related quality of services (QoS).
 
+The following diagram illustrates the basic architecture of Choreo Connect and showcases its main components.
+
 [![Choreo Connect Basic Architecture]({{base_path}}/assets/img/deploy/mgw/choreo-connect-basic-architecture.png){: style="width:70%"}]({{base_path}}/assets/img/deploy/mgw/choreo-connect-basic-architecture.png)
 
 ## Choreo Connect Components
@@ -16,9 +18,7 @@ Choreo Connect consists of the following three components.
 
 ### Router
 
-The Router is the component that is responsible for routing the traffic from different clients to the desired destination (service).
-Choreo Connect uses the [Envoy Proxy](https://www.envoyproxy.io/) as the core component which does the traffic routing.
-Choreo Connect exposes the APIs to external clients using the Router.
+The Router is the component that is responsible for routing the traffic from different clients to the desired destination (service). Choreo Connect uses the [Envoy Proxy](https://www.envoyproxy.io/) as the core component which does the traffic routing. Choreo Connect exposes the APIs to external clients using the Router.
 
 ### Enforcer
 
@@ -70,3 +70,5 @@ You can use Choreo Connect mainly in the following two modes.
 The request flow within Choreo Connect is depicted in the following diagram.
 
 [![Choreo Connect Request Flow]({{base_path}}/assets/img/deploy/mgw/choreo-connect-request-flow.png)]({{base_path}}/assets/img/deploy/mgw/choreo-connect-request-flow.png)
+
+When a client makes an API request, it is sent to the Router. The Router then forwards the request to the Enforcer. The Enforcer performs validations such as JWT access token validation, rate limiting, and other other validations. Once the API request has been validated, the Router forwards it to the backend service. The Router will respond to the client when the backend service responds. In addition, the Router sends stats about APIs to the Enforcer, and the Enforcer sends final analytics data to the Analytics Server.

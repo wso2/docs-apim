@@ -1,6 +1,6 @@
 # Choreo Connect Deployment Options
 
-Choreo Connect is a specialized form of WSO2 API Gateway, and is a lightweight gateway distribution that can be used to deploy a single API or multiple APIs. You can deploy Choreo Connect using one of the following options.
+Choreo Connect is a specialized form of WSO2 API Gateway, and is a lightweight Gateway distribution that can be used to deploy a single API or multiple APIs. You can deploy Choreo Connect using one of the following options.
 
 <table>
 <tr>
