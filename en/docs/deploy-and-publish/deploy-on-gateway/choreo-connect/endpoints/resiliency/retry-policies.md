@@ -43,7 +43,7 @@ When a Retry Policy is executed, the interval between two retries is a random nu
 - `B` is the default base interval of `25ms` (milliseconds). 
 - The interval between the retries being random prevents a backend from getting a spike of retry requests (when triggered by many clients) and mitigates the potential unavailability of the backend that could occur due to the retries. 
 
-For more information, see [x-envoy-max-retries](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/router_filter#config-http-filters-router-x-envoy-max-retries) in the official Envoy documentation.
+For more information, see [x-envoy-max-retries]({{envoy_path}}/configuration/http/http_filters/router_filter#config-http-filters-router-x-envoy-max-retries) in the official Envoy documentation.
 
 !!! note
     - At the moment, WSO2 API Manager does not support adding a Retry Policy via the WSO2 API Manager (WSO2 API-M) UI.
@@ -80,4 +80,4 @@ For more information, see [x-envoy-max-retries](https://www.envoyproxy.io/docs/e
 
 ## See Also
 
-- [Timeout]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/advanced-endpoint-config/timeout)
+- [Timeout]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/resiliency/timeout)

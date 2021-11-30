@@ -221,7 +221,7 @@ nav:
                 - Supported Features : deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features.md
                 - Quick Start Guide : deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim.md
                 - Concepts:
-                    - API Manager as Control Plane: 
+                    - API Manager as Control Plane:
                         - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane.md
                         - Event Hub: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/event-hub.md
                         - Rate Limiting: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/cc-rate-limiting.md
@@ -258,7 +258,7 @@ nav:
                         - Deploying via WSO2 API Controller: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-api-controller.md
                     - Kubernetes:
                         - Deploying via WSO2 API Manager: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim.md
-                        - Deploying via WSO2 API Controller: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-api-controller.md                
+                        - Deploying via WSO2 API Controller: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-api-controller.md
                 - Endpoints:
                     - Endpoint Types: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/endpoint-types.md
                     - Defining Endpoints in an OpenAPI Definition: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/defining-endpoints-in-an-openapi-definition.md
@@ -266,9 +266,10 @@ nav:
                     - Failover Endpoints: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/failover-endpoints.md
                     - Overriding Endpoint Information: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/overriding-endpoints-for-imported-apis.md
                     - Defining a Backend Security Scheme: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/defining-a-backend-security-scheme.md
-                    - Advanced Endpoint Configurations:
-                            - Retry Policies: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/advanced-endpoint-config/retry-policies.md
-                            - Timeouts: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/advanced-endpoint-config/timeout.md
+                    - Resiliency:
+                            - Retry Policies: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/resiliency/retry-policies.md
+                            - Timeouts: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/resiliency/timeout.md
+                            - Circuit Breakers: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/resiliency/circuit-breakers.md
                 - Rate Limiting:
                     - Enabling Distributed Rate Limiting: deploy-and-publish/deploy-on-gateway/choreo-connect/rate-limiting/distributed-throttling.md
                 - Message Transformation:
@@ -793,7 +794,7 @@ nav:
                 - Getting Started Guide - K8s Deployment: observe/micro-integrator/setting-up-cloud-native-observability-in-kubernetes.md
                 - View Statistics: observe/micro-integrator/viewing-cloud-native-observability-statistics.md
             - Classic Observability:
-                - Logs: 
+                - Logs:
                     - Configuring Logs: observe/micro-integrator/classic-observability-logs/configuring-log4j2-properties.md
                     - Enabling Logs for a Component: observe/micro-integrator/classic-observability-logs/enabling-logs-for-a-component.md
                     - Monitoring Logs: observe/micro-integrator/classic-observability-logs/monitoring-logs.md
@@ -1263,7 +1264,7 @@ nav:
             # Remove After added TCP dump - TCP-Based Messages: administer/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
             - Server Health: administer/logging-and-monitoring/monitoring/monitoring-server-health.md
         #- Monitoring Micro Integrator:
-            # Remove After added TCP dump 
+            # Remove After added TCP dump
             #- TCP Messages:
                 #- Starting TCPMon: observe/mi-observe/tcp/starting_tcp_mon.md
                 #- Message Monitoring with TCPMon: observe/mi-observe/tcp/message_monitoring_with_tcpmon.md
@@ -1730,7 +1731,7 @@ plugins:
               'install-and-setup/sso/okta-as-an-external-idp-using-oidc.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/sso/okta-as-an-external-idp-using-oidc/'
               'install-and-setup/sso/okta-as-an-external-idp-using-saml.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/sso/okta-as-an-external-idp-using-saml/'
               'install-and-setup/federating-oauth-applications.md': 'https://apim.docs.wso2.com/en/3.2.0/design/api-security/api-authentication/advanced-topics/federating-oauth-applications/'
-              'install-and-setup/setting-up-databases/overview.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/setting-up-databases/overview/'              
+              'install-and-setup/setting-up-databases/overview.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/setting-up-databases/overview/'
               'install-and-setup/install/installing-the-product/installing-the-product.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/install/installing-the-product/installing-api-m-runtime/'
               'install-and-setup/install/installing-the-product/installing-via-the-installer.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/install/installing-the-product/installing-api-m-runtime/'
               'install-and-setup/install/installing-the-product/installing-the-binary/installing-on-linux-or-os-x.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/install/installing-the-product/installing-api-m-runtime/'
@@ -2066,7 +2067,7 @@ plugins:
               #'observe/api-manager-analytics/analytics-usecases/finding-faulty-apis.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/usecases/finding-faulty-apis/'
               #'observe/api-manager-analytics/analytics-qos.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/qos/'
               #'observe/api-manager-analytics/querying-apim-analytics.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/analytics-api-guide/'
-              #'observe/api-manager-analytics/troubleshooting-analytics.md': 
+              #'observe/api-manager-analytics/troubleshooting-analytics.md':
               'observe/api-manager-analytics/overview-of-api-analytics.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/getting-started-guide/'
               'observe/mi-observe/using-the-analytics-dashboard.md': 'https://apim.docs.wso2.com/en/4.0.0/mi-analytics/using-the-analytics-dashboard/'
               'install-and-setup/setup/mi-setup/observability/setting-up-classic-observability-deployment.md': 'https://apim.docs.wso2.com/en/4.0.0/mi-analytics/setting-up-mi-analytics/'
@@ -2150,3 +2151,4 @@ extra:
     site_version: 4.0.0
     #base_path: http://localhost:8000
     base_path: https://apim.docs.wso2.com/en/4.0.0
+    envoy_path: https://www.envoyproxy.io/docs/envoy/v1.20.0
