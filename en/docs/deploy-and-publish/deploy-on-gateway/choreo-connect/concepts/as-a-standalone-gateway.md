@@ -1,27 +1,27 @@
 # Choreo Connect as a Standalone Gateway
 
-Choreo Connect can be used as a standalone gateway without the API Manager as the control plane. APIs can be deployed via
+Choreo Connect can be used as a standalone Gateway without the API Manager as the control plane. APIs can be deployed via
 APICTL. APICTL can be used to create API projects by including the open API definitions. These API projects can be directly pushed to adapter. The adapter will deploy the API in the enforcer and the router.
 
-When use as a standalone gateway, Choreo Connect can be used with an external Secure Token Service(STS)
-which will provide signed JWTs, and Choreo Connect will validate those JWTs in the incoming requests. When used as a standalone gateway Choreo Connect
+When use as a standalone Gateway, Choreo Connect can be used with an external Secure Token Service(STS)
+which will provide signed JWTs, and Choreo Connect will validate those JWTs in the incoming requests. When used as a standalone Gateway Choreo Connect
 will not apply the subscription validation using the event hub as the control plane is not available. In order to achieve subscription
 validation we need to have subscription data also included in the incoming authentication JWT, which is called as a
 self-contained token.
 
-## Defining gateway specific properties
+## Defining Gateway specific properties
 
-OpenAPI specification doesn't define all required properties for an API gateway. It's meant to be a descriptor of an REST endpoint.
-In this case that would be the OpenAPI definition of backend service or microservice. However, a developer of an API gateway should be able to define,
+OpenAPI specification doesn't define all required properties for an API Gateway. It's meant to be a descriptor of an REST endpoint.
+In this case that would be the OpenAPI definition of backend service or microservice. However, a developer of an API Gateway should be able to define,
 
 - Different types of endpoints
 - Gateway security
 - Rate limiting...
 
-and many other gateway specific features per API or per Resource.
+and many other Gateway specific features per API or per Resource.
 Since Choreo Connect is using the OpenAPI definition as the API descriptor, these additional properties should somehow go into OpenAPI definition maintained inside the API project. Choreo Connect utilizes OpenAPI Specification's vendor extensions for this purpose.
 
-So to define above mentioned additional API/ Resource specific gateway attributes, Choreo Connect introduces set of open API vendor extensions for developers.
+So to define above mentioned additional API/ Resource specific Gateway attributes, Choreo Connect introduces set of open API vendor extensions for developers.
 List of available extensions are documented [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/#openapi-extensions). 
 
 ### How to work with standard open API definition
@@ -71,7 +71,7 @@ Choreo Connect supports the following OpenAPI Extensions. You can use these exte
   
 | Extension                         | Description                                                                                                            | Required/ Optional             |
 |-----------------------------------|------------------------------------------------------------------------------------------------------------------------|--------------------------------|
-| `x-wso2-basePath`                 | Base path that the gateway exposes the API.                                                                            | Optional → API level only      |
+| `x-wso2-basePath`                 | Base path that the Gateway exposes the API.                                                                            | Optional → API level only      |
 | `x-wso2-production-endpoints`     | Specifies the actual backend of the service.                                                                           | Optional → API/Resource level  |
 | `x-wso2-sandbox-endpoints`        | Specifies the sandbox endpoint of the service if available.                                                            | Optional → API/Resource level  |
 | `x-wso2-throttling-tier`          | Specifies the rate limiting for the API or resource.                                                                  | Optional → API/Resource level  |-->
@@ -94,7 +94,7 @@ To authorize an API request with the self-contained JWT token under an issuer wi
 
 ## Caching
 
-Choreo Connect contains the following caching mechanisms to increase the performance of the gateway.
+Choreo Connect contains the following caching mechanisms to increase the performance of the Gateway.
 
 - [OAuth cache](#oauth-cache)
 
