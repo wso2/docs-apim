@@ -1,0 +1,2 @@
+[web_app.listener]
+class_name = "org.wso2.carbon.discovery.cxf.listeners.TomcatCxfDiscoveryListener"
