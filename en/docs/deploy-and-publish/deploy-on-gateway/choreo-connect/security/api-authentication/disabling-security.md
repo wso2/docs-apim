@@ -15,8 +15,8 @@ x-wso2-disable-security: true
 
 ``` yml tab="Resource Level"
 paths:
-  x-wso2-disable-security: true
  "/pet/findByStatus":
+     x-wso2-disable-security: true
     get:
       tags:
       - pet
