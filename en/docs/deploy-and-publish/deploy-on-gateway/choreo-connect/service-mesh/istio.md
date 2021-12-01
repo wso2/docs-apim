@@ -1,6 +1,6 @@
 # API Management in Istio Microservices Using Choreo Connect
 
-Choreo Connect can be integrated with the Istio service mesh to provide API management for Istio microservices. Microservices can be deployed in Istio and exposed as APIs via Choreo Connect. This enables a variety of API management quality of services (QoS) for the API, such as message security rate-limiting, observability, and message mediation. You can productize the APIs and provide them to application developers via the WSO2 Devportal using WSO2 API Manager.
+Choreo Connect can be integrated with the Istio service mesh to provide API management for Istio microservices. Microservices can be deployed in Istio and exposed as APIs via Choreo Connect. This enables a variety of API management quality of services (QoS) for the API, such as message security rate-limiting, observability, and message mediation. You can productize the APIs and provide them to application developers via the WSO2 Developer Portal using WSO2 API Manager.
 
 Choreo Connect can be integrated with Istio service mesh using the methods listed below.
 
