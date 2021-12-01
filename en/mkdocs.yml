@@ -285,6 +285,7 @@ nav:
                     - Service Discovery:  deploy-and-publish/deploy-on-gateway/choreo-connect/service-discovery/choreo-connect-and-service-discovery.md
                     - Service Mesh: deploy-and-publish/deploy-on-gateway/choreo-connect/service-discovery/choreo-connect-and-service-mesh.md
                     - Service Mesh in Kubernetes:  deploy-and-publish/deploy-on-gateway/choreo-connect/service-discovery/choreo-connect-and-k8s.md
+                - Service Mesh Integration: deploy-and-publish/deploy-on-gateway/choreo-connect/service-mesh/istio.md
                 - Security:
                     - Authentication:
                         - API Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-authentication.md
