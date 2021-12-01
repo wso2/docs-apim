@@ -5,7 +5,7 @@ Let's deploy an API using WSO2 API Controller (apictl), which is the CLI Tool, o
 ## Before you begin
 
 1.  Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
-2.  Setup a [Kubernetes](https://Kubernetes.io/docs/setup/) cluster v1.14 or above.
+2.  Setup a [Kubernetes](https://Kubernetes.io/docs/setup/) cluster v1.20 or above.
       - Minimum CPU : 3vCPU
       - Minimum Memory : 2GB
 3.  Deploy an ingress controller - [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/) for this sample.
