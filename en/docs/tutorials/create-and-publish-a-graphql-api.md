@@ -167,4 +167,4 @@ Now, you have created and configured the GraphQL API successfully.
 
     [![Response Event of GraphQL Subscription]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/try-out-sub-event.png)]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/try-out-sub-event.png)
 
-You have successfully created and published your first GraphQL API, subscribed to it, obtained an access token for testing, and tested the query operation of your API with the access token.
+You have successfully created and published your first GraphQL API, subscribed to it, obtained an access token for testing, and tested query and subscription operations of your API with the access token.
