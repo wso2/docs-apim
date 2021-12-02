@@ -27,8 +27,3 @@ If a read-only user (jane) is logged in to the publisher,she can see the publish
 
 ex: API detail view
 ![read-only-api-details]({{base_path}}/assets/img/learn/api-security/read-only-api-details.png)
-
-
- 
-
- 
