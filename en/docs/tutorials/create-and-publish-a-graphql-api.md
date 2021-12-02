@@ -163,7 +163,7 @@ Now, you have created and configured the GraphQL API successfully.
 
 5. Now go back to the Developer Portal browser page.
    
-    You can see that you have received the subscription event response that corresponds to the mutation operation you did in <a href="#5.2">Step 5.2</a>.
+    You can see that you have received the subscription event response that corresponds to the mutation operation you did in <a href="#5.2">Step 5.2 (4)</a>.
 
     [![Response Event of GraphQL Subscription]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/try-out-sub-event.png)]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/try-out-sub-event.png)
 
