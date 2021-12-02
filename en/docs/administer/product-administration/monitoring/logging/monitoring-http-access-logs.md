@@ -265,7 +265,7 @@ Follow the steps given below to enable access logs for the PassThrough or NIO tr
 </tr>
 <tr class="odd">
 <td><pre><code>%T</code></pre></td>
-<td><p>Time taken to process the request in seconds.</p></td>
+<td><p>Content type</p></td>
 </tr>
 <tr class="even">
 <td><pre><code>%u</code></pre></td>
