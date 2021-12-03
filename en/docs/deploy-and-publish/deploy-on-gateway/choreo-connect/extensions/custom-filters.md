@@ -79,7 +79,7 @@ Interface, the classloading happens in the enforcer. See the following sections 
 
 3. Since we use Java SPI (Service Provider Interface), we need to provide the provider configuration file
 `META-INF/services/org.wso2.choreo.connect.enforcer.commons.Filter`. If you are using Apache Maven, create the
-file inside the <Project>/src/main/resources directory. The content of the file needs to be the qualified class name
+file inside the `<PROJECT>/src/main/resources` directory. The content of the file needs to be the qualified class name
 of the filter implementation.
 
     ```
