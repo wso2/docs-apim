@@ -43,33 +43,33 @@ Follow the instructions below to design a WebSocket API.
     <tbody>
     <tr>
     <td>Name</td>
-    <td>EchoWebSocket</td>
+    <td>ifelseWebSocket</td>
     </tr>
     <tr>
     <td>Context</td>
-    <td>/echowebsocket</td>
+    <td>/ifelse</td>
     </tr>
     <tr>
     <td>Version</td>
-    <td>1.0</td>
+    <td>1.0.0</td>
     </tr>
     <tr>
     <td>Endpoint</td>
     <td><p>
     Use one of the following endpoints.
     <ul>
-    <li>ws://echo.websocket.org:80</li>
-    <li>wss://echo.websocket.org:443</li>
+    <li>ws://ws.ifelse.io:80</li>
+    <li>wss://ws.ifelse.io:443</li>
     </ul></td>
     </tr>
     <tr>
     <td>Business Plan</td>
-    <td>Gold, Silver</td>
+    <td>Unlimited</td>
     </tr>
     </tbody>
     </table>
     
-    [![Create a WebSocket API menu]({{base_path}}/assets/img/learn/create-web-socket-api.jpg)]({{base_path}}/assets/img/learn/create-web-socket-api.jpg)
+    [![Create a WebSocket API menu]({{base_path}}/assets/img/learn/create-web-socket-api.png)]({{base_path}}/assets/img/learn/create-web-socket-api.png)
 
     <html>
      <div class="admonition note">
@@ -78,11 +78,11 @@ Follow the instructions below to design a WebSocket API.
      </div>
      </html>
 
-4.  Click **CREATE** or **CREATE & PUBLISH**. 
+4.  Click **CREATE**. 
 
      The overview page of the created WebSocket API appears.
 
-     [![Overview of WebSocket API]({{base_path}}/assets/img/learn/overview-websocket-api.jpg)]({{base_path}}/assets/img/learn/overview-websocket-api.jpg)
+     [![Overview of WebSocket API]({{base_path}}/assets/img/learn/overview-websocket-api.png)]({{base_path}}/assets/img/learn/overview-websocket-api.png)
 
 5.  Optionally, enter the endpoint configurations.
 
@@ -96,7 +96,7 @@ Follow the instructions below to design a WebSocket API.
          - [Endpoint Suspension]({{base_path}}/learn/design-api/endpoints/resiliency/endpoint-suspension)
          - [Prevent API Suspension]({{base_path}}/learn/design-api/endpoints/resiliency/prevent-api-suspension)
 
-    [![View endpoint details]({{base_path}}/assets/img/learn/endpoint-view-of-websocket-api.jpg)]({{base_path}}/assets/img/learn/endpoint-view-of-websocket-api.jpg)
+    [![View endpoint details]({{base_path}}/assets/img/learn/endpoint-view-of-websocket-api.png)]({{base_path}}/assets/img/learn/endpoint-view-of-websocket-api.png)
 
 Now, you have successfully created and configured a WebSocket API. Next, let's [Publish your API]({{base_path}}/learn/design-api/publish-api/publish-an-api).
 

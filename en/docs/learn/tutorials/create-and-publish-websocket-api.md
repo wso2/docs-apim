@@ -34,18 +34,18 @@ Follow the instructions in this tutorial to design and publish API with a WebSoc
     <table>
     <thead>
     <tr>
-    <th><b>Field</b></th>
-    <th><b>Sample value</b></th>
+    <th>Field</th>
+    <th>Sample value</th>
     </tr>
     </thead>
     <tbody>
     <tr>
     <td>Name</td>
-    <td>EchoWebSocket</td>
+    <td>ifelseWebSocket</td>
     </tr>
     <tr>
     <td>Context</td>
-    <td>/echowebsocket</td>
+    <td>/ifelse</td>
     </tr>
     <tr>
     <td>Version</td>
@@ -56,18 +56,18 @@ Follow the instructions in this tutorial to design and publish API with a WebSoc
     <td><p>
     Use one of the following endpoints.
     <ul>
-    <li>ws://echo.websocket.org:80</li>
-    <li>wss://echo.websocket.org:443</li>
+    <li>ws://ws.ifelse.io:80</li>
+    <li>wss://ws.ifelse.io:443</li>
     </ul></td>
     </tr>
     <tr>
     <td>Business Plan</td>
-    <td>Gold, Silver</td>
+    <td>Unlimited</td>
     </tr>
     </tbody>
     </table>
     
-    [![Create a WebSocket API menu]({{base_path}}/assets/img/learn/create-web-socket-api.jpg)]({{base_path}}/assets/img/learn/create-web-socket-api.jpg)
+    [![Create a WebSocket API menu]({{base_path}}/assets/img/learn/create-web-socket-api.png)]({{base_path}}/assets/img/learn/create-web-socket-api.png)
 
     <html>
      <div class="admonition note">
@@ -76,11 +76,11 @@ Follow the instructions in this tutorial to design and publish API with a WebSoc
      </div>
      </html>
 
-4.  Click **CREATE** or **CREATE & PUBLISH**. 
+4.  Click **CREATE**. 
 
      The overview page of the created WebSocket API appears.
 
-     [![Overview of WebSocket API]({{base_path}}/assets/img/learn/overview-websocket-api.jpg)]({{base_path}}/assets/img/learn/overview-websocket-api.jpg)
+     [![Overview of WebSocket API]({{base_path}}/assets/img/learn/overview-websocket-api.png)]({{base_path}}/assets/img/learn/overview-websocket-api.png)
 
 5.  Optionally, enter the endpoint configurations.
 
@@ -94,7 +94,7 @@ Follow the instructions in this tutorial to design and publish API with a WebSoc
          - [Endpoint Suspension]({{base_path}}/learn/design-api/endpoints/resiliency/endpoint-suspension)
          - [Prevent API Suspension]({{base_path}}/learn/design-api/endpoints/resiliency/prevent-api-suspension)
 
-     [![View endpoint details]({{base_path}}/assets/img/learn/endpoint-view-of-websocket-api.jpg)]({{base_path}}/assets/img/learn/endpoint-view-of-websocket-api.jpg)
+     [![View endpoint details]({{base_path}}/assets/img/learn/endpoint-view-of-websocket-api.png)]({{base_path}}/assets/img/learn/endpoint-view-of-websocket-api.png)
 
 Now, you have created and configured the WebSocket API successfully.
 
@@ -116,7 +116,7 @@ Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to pu
 
 3. Subscribe to the API.
 
-    1. Click **KEY GENERATION WIZARD**.
+    1. Click **SUBSCRIPTION & KEY GENERATION WIZARD**.
     
          This wizard takes you through the steps of creating a new application, subscribing, generating keys, and generating an access token to invoke the API. 
 
@@ -127,11 +127,11 @@ Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to pu
          </p>
          </div>
 
-         [![Key generation wizard]({{base_path}}/assets/img/learn/websocket-api-credential-page.jpg)]({{base_path}}/assets/img/learn/websocket-api-credential-page.jpg)
+         [![Key generation wizard]({{base_path}}/assets/img/learn/websocket-api-credential-page.png)]({{base_path}}/assets/img/learn/websocket-api-credential-page.png)
 
     2. Copy the authorization token that appears.
 
-         [![Authorization token]({{base_path}}/assets/img/learn/websocket-api-key-generation-wizard.jpg)]({{base_path}}/assets/img/learn/websocket-api-key-generation-wizard.jpg)
+         [![Authorization token]({{base_path}}/assets/img/learn/websocket-api-key-generation-wizard.png)]({{base_path}}/assets/img/learn/websocket-api-key-generation-wizard.png)
 
 4. Try out the operations.
      
@@ -142,11 +142,11 @@ Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to pu
       2.  Invoke the API by using an authorization header by executing the following command.
         
            ``` java tab="WS"
-           wscat -c ws://localhost:9099/echowebsocket/1.0.0 -H "Authorization: Bearer [accesstoken]" 
+           wscat -c ws://localhost:9099/ifelse/1.0.0 -H "Authorization: Bearer [accesstoken]" 
            ```
 
            ``` java tab="WSS"
-           wscat -n -c wss://localhost:8099/echowebsocket/1.0.0 -H "Authorization: Bearer [accesstoken]"
+           wscat -n -c wss://localhost:8099/ifelse/1.0.0 -H "Authorization: Bearer [accesstoken]"
            ```
 
           <html>
@@ -156,11 +156,11 @@ Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to pu
               There are clients (especially browsers) that do not allow to add headers to the WebSocket handshake. In such cases, you can send the access token for the WebSocket API invocation as a query parameter named `access_token` by using the command below:</p>
 
            ``` java tab="WS"
-           wscat -c "ws://localhost:9099/echowebsocket/1.0.0?access_token=[accesstoken]" 
+           wscat -c "ws://localhost:9099/ifelse/1.0.0?access_token=[accesstoken]" 
            ```
   
            ``` java tab="WSS"
-           wscat -n -c "wss://localhost:8099/echowebsocket/1.0.0?access_token=[accesstoken]"
+           wscat -n -c "wss://localhost:8099/ifelse/1.0.0?access_token=[accesstoken]"
            ```
 
       <html>
