@@ -90,10 +90,11 @@ This will demonstrate a simple command line based chat room which has two channe
           
      4. Expand each topic, provide URL Mappings as follows, and click **Save**.
 
-          | **Topic** | **URL Mapping** |
-          |-----------|-----------------|
-          | /notifications | /notifications |
-          | /rooms/{roomID} | /rooms?room={uri.var.roomID} |
+           <table>
+           <tr><th><b>Topic</b> </th><th><b>URL Mapping</b></th></tr>
+           <tr><td>/notifications</td><td>/notifications</td></tr>
+           <tr><td>/rooms/{roomID}</td><td>/rooms?room={uri.var.roomID}</td></tr>
+           </table>
 
           URL Mapping provided for a topic will be appended to the WebSocket endpoint URL, which was provided when creating the API, and the traffic via the topic will be sent to & received from the resulting URL.
 
