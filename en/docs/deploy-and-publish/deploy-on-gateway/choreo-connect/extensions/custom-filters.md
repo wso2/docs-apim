@@ -108,6 +108,6 @@ the Authentication Filter.
 6. Mount the JAR file containing the Custom Filter to the `/home/wso2/lib/dropins`. (If you are using the docker-compose file within the distribution, then add the JAR file to
 `docker-compose/resources/enforcer/dropins` directory.)
 
-7. Deploy the choreo-connect distribution and the filter would be engaged during runtime.
+7. Deploy the Choreo Connect distribution and the filter would be engaged during runtime.
 
 As a reference, you can use the sample custom filter implementation [here](https://github.com/wso2/product-microgateway/tree/main/samples/filters/sample-filter).
