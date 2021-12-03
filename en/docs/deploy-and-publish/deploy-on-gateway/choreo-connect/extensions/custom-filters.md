@@ -86,7 +86,11 @@ of the filter implementation.
     org.example.tests.CustomFilter
     ```
 
-4. Build the project and create the JAR file.
+4. Build the project and create the JAR file. For Apache Maven, use the following.
+
+    ```
+    mvn clean install
+    ```
 
 5. Edit the enforcer related configuration within the config.toml file to include the custom filter. The `className` needs to
 be the fully qualified `className`. The position denotes the final filter position in the chain, when all the filters 
