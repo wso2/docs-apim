@@ -23,38 +23,6 @@ the scheduled failover message forwarding processor forwards messages to
 the original message store that the message was supposed to be
 temporarily stored.
 
-You can recover the session during mediation errors when `SessionAcknowledgement` is configured to `CLIENT_ACKNOWLEDGE`. Note that calling `session.recover` is not valid in a transacted session.
-
-If you need the application to call a method that must not be called on a transacted session, do the following:
-
-1. Use JMS transactions as follows.
-
-    ```xml
-    <parameter name="transport.jms.SessionTransacted">true</parameter>
-    <parameter name="transport.jms.SessionAcknowledgement">SESSION_TRANSACTED</parameter>
-    ```
-
-2. Configure the below property in the fault sequence above to rollback the message upon mediation failure (for guaranteed delivery),
-
-    ```xml
-    <property name="SET_ROLLBACK_ONLY" scope="axis2" type="STRING" value="true"/>
-    ```
-
-
-3. Use Client Acknowledgment of JMS as follows.
-
-    ```xml
-    <parameter name="transport.jms.SessionTransacted">false</parameter>
-    <parameter name="transport.jms.SessionAcknowledgement">CLIENT_ACKNOWLEDGE</parameter>
-    ```
-
-4. Configure a fault sequence to be executed and set the below property to recover the JMS session (to redeliver messages from the point last acknowledgement is received),
-
-    ```xml
-    <property name="SET_RECOVER" scope="axis2" type="STRING" value="true"/>
-    ```
-
-
 ## Synapse Configurations
 
 Given below are the synapse configurations that are required for mediating the above use case.
