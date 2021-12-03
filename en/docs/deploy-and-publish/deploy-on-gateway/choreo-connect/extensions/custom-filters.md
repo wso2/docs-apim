@@ -6,7 +6,7 @@ fails at a certain filter, the request will not be forwarded to the next filter 
 The inbuilt set of filters are the authentication filter and the throttling filter.
 
 Custom filters can be added to the existing filters within the enforcer, and they can be positioned based on the end user's preference.
-These filters are engaged for all the APIs deployed within Choreo-Connect.
+These filters are engaged for all the APIs deployed within Choreo Connect.
 
 Choreo-Connect provides a Java interface to implement custom filters. Then the developer needs to compile the
 filter implementation as a JAR file and mount it to the `/home/wso2/lib/dropins` directory within the enforcer. When
