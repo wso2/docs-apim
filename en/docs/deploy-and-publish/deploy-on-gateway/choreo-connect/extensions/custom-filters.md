@@ -47,7 +47,7 @@ Interface, the classloading happens in the enforcer. See the following sections 
     }
     ```
 
-    Here is the sample filter implementation which reads the property called `CustomProperty` from Filter 
+    Here is the sample filter implementation that reads the property called `CustomProperty` from Filter 
     Configuration and adds it as a header to the request.
 
     ```java
