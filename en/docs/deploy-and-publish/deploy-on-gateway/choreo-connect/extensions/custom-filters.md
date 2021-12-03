@@ -8,7 +8,7 @@ The inbuilt set of filters are the authentication filter and the throttling filt
 Custom filters can be added to the existing filters within the enforcer, and they can be positioned based on the end user's preference.
 These filters are engaged for all the APIs deployed within Choreo Connect.
 
-Choreo-Connect provides a Java interface to implement custom filters. Then the developer needs to compile the
+Choreo Connect provides a Java interface to implement custom filters. Then the developer needs to compile the
 filter implementation as a JAR file and mount it to the `/home/wso2/lib/dropins` directory within the enforcer. When
 the enforcer starts, the JAR files in that directory are added to the classpath. Using Java Service Provider
 Interface, the classloading happens in the enforcer. See the following sections for further details on how to implement this.
