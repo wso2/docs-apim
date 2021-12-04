@@ -309,7 +309,6 @@ nav:
                     - Use a Custom Authorization Header: deploy-and-publish/deploy-on-gateway/choreo-connect/security/use-a-custom-authorization-header.md
                     - Rejecting Revoked Tokens: deploy-and-publish/deploy-on-gateway/choreo-connect/security/rejecting-revoked-tokens.md
                     - Importing Certificates to the Choreo Connect Truststore: deploy-and-publish/deploy-on-gateway/choreo-connect/security/importing-certificates-to-the-choreo-connect-truststore.md
-                    - Define Security Using Extension: deploy-and-publish/deploy-on-gateway/choreo-connect/security/define-security-using-extension.md
                     - Generate a Test JWT: deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt.md
                 - Observability:
                     - Distributed Tracing: deploy-and-publish/deploy-on-gateway/choreo-connect/observability/distributed-tracing.md

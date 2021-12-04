@@ -270,17 +270,6 @@
                             <p><span style="font-weight: 400;">API level&nbsp;</span></p>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <p><span style="font-weight: 400;">x-wso2-application-security</span></p>
-                        </td>
-                        <td>
-                            <p><span style="font-weight: 400;">Specify application security (basic_auth, api_key, oauth2)</span></p>
-                        </td>
-                        <td>
-                            <p><span style="font-weight: 400;">API level/ Resource level</span></p>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
 

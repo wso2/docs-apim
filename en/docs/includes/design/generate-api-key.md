@@ -18,15 +18,15 @@
 
 5. Click **Subscribe**.
 
-     [![Subscribe to the API](https://apim.docs.wso2.com/en/4.0.0/assets/img/learn/subscribe-to-api.png)](https://apim.docs.wso2.com/en/4.0.0/assets/img/learn/subscribe-to-api.png)
+     [![Subscribe to the API]({{base_path}}/assets/img/learn/subscribe-to-api.png)]({{base_path}}/assets/img/learn/subscribe-to-api.png)
 
 6. Click **MANAGE APP**, corresponding to the application that you used to subscribe to the API.
 
-     [![View list of credentials](https://apim.docs.wso2.com/en/4.0.0/assets/img/learn/view-credentials-manage-app.png)](https://apim.docs.wso2.com/en/4.0.0/assets/img/learn/view-credentials-manage-app.png)
+     [![View list of credentials]({{base_path}}/assets/img/learn/view-credentials-manage-app.png)]({{base_path}}/assets/img/learn/view-credentials-manage-app.png)
 
 7. Click **API KEY** and click **GENERATE KEY**.
 
-     [![Generate API key](https://apim.docs.wso2.com/en/4.0.0/assets/img/learn/generate-api-key.png){: style="width:80%"}](https://apim.docs.wso2.com/en/4.0.0/assets/img/learn/generate-api-key.png)
+     [![Generate API key]({{base_path}}/assets/img/learn/generate-api-key.png){: style="width:80%"}]({{base_path}}/assets/img/learn/generate-api-key.png)
 
 8. Optionally, define a validity period for the token.
 
@@ -38,4 +38,4 @@
      
 9.  Copy the API key.
 
-     [![Copy API key](https://apim.docs.wso2.com/en/4.0.0/assets/img/learn/copy-api-key.png){: style="width:60%"}](https://apim.docs.wso2.com/en/4.0.0/assets/img/learn/copy-api-key.png)
+     [![Copy API key]({{base_path}}/assets/img/learn/copy-api-key.png){: style="width:60%"}]({{base_path}}/assets/img/learn/copy-api-key.png)
