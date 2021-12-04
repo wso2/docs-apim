@@ -4,30 +4,8 @@ API Key Authentication in WSO2 Choreo Connect is a simple authentication scheme 
 
 Follow the instructions below to use API Key Authentication with WSO2 Choreo Connect:
 
-- If you are using API Manager to deploy the API, follow [API Key Authentication with WSO2 API Manager](#api-key-authentication-with-wso2-api-manager).
+- If you are using API Manager to deploy the API, follow [API Key Authentication with WSO2 API Manager]({{base_path}}/design/api-security/api-authentication/secure-apis-using-api-keys).
 - If you are using APICTL to deploy the API, follow [API Key Authentication using OpenAPI security schemes](#api-key-authentication-using-openapi-security-schemes).
-
-## API Key Authentication with WSO2 API Manager
-
-!!! info
-    When you enable API authentication for an API and deploy the API via WSO2 API Manager, it will override the API Key Authentication 
-    defined in the OpenAPI definition.
-
-### Step 1 - Define API Key Authentication for the API
-
-Follow the instructions below to enable API Key Authentication in WSO2 API Manager via the Publisher Portal.
-
-{!includes/design/create-publish-api.md!}
-
-### Step 2 - Generate an API Key
-
-Follow the instructions below to generate an API Key via WSO2 API Manager Developer Portal:
-
-{!includes/design/generate-api-key.md!}
-
-### Step 3 - Invoke the API using the API Key
-
-{!includes/design/invoke-api-key.md!}
 
 ## API Key Authentication using OpenAPI security schemes
 
@@ -36,7 +14,7 @@ Follow the instructions below to enable API Key Authentication using OpenAPI sec
 !!! info
     When you enable API authentication for an API and deploy via WSO2 API Manager, it will override the API Key Authentication defined in the OpenAPI definition.
     Therefore, the following steps work for Choreo Connect when the API is not deployed via WSO2 API Manager. 
-    So use following steps when you want to enable API Key authentication when deploying an API using the APICTL.
+    So use the following steps when you want to enable API Key authentication when deploying an API using the APICTL.
 
 ### Step 1  - Define the API Key security scheme
 
@@ -54,14 +32,14 @@ The following example defines an API Key security scheme named `apiKeyAuth`, whi
     The following example shows how to define API Key security schemes in [OAS3](https://swagger.io/docs/specification/authentication/api-keys/). If you are using an OAS2 API definition, go to [this Swagger document](https://swagger.io/docs/specification/2-0/authentication/api-keys/) to get more information on defining API Key security in OAS2.
 
 ``` yml
-# step 1 - Define the apikey security scheme
+# step 1 - Define the API Key security scheme
 components:
  securitySchemes:
    ApiKeyAuth:        # arbitrary name for the security scheme
      type: apiKey
      in: header       # can be "header" or "query" 
      name: X-API-KEY  # name of the header or query parameter
-   appId:             # you can define several apikey security schemas
+   appId:             # you can define several API Key security schemas
      type: apiKey
      in: header
      name: X-APP-ID
@@ -76,7 +54,7 @@ A security scheme can be specified at a resource level or to the whole API by us
    The following code snippet is an example of how the API key can be applied to a specific resource.
 
   ``` yml
-   # step 2 - Specify the apikey security in operation level
+   # step 2 - Specify the API Key security in operation level
    "/pet/{petId}":
      get:
        tags:
@@ -101,15 +79,16 @@ A security scheme can be specified at a resource level or to the whole API by us
     The following code snippet is an example of how the API key can be applied globally to all operations.
 
      ``` yml
-     # step 2 - Specify the apikey security in api level
+     # step 2 - Specify the API Key security in api level
      security:
       - ApiKeyAuth: [] 
      ```
 
-### Step 2 - Generate an API Key
+### Step 3 - Generate an API Key
 
 Currently, only API Keys issued by WSO2 API Manager are allowed. 
 Hence, you need a valid API Key issued for the particular API Name and the version from WSO2 API Manager.
+Follow the steps mentioned on [generating the API Key documentation]({{base_path}}/design/api-security/api-authentication/secure-apis-using-api-keys/#using-api-keys-to-secure-an-api) to generate an API Key from API Manager.
 
 ### Step 3 - Invoke the API using the API Key
 
@@ -132,6 +111,8 @@ Use one of the following options to invoke APIs using an API key based on the me
       ```
 
 ## Additional Information
+
+### API key restriction for IP address and HTTP referrer
 
 Choreo Connect API Key Authentication supports API key restriction for IP address and HTTP referrer. 
 
