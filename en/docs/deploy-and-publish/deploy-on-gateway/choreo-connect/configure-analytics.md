@@ -77,3 +77,7 @@ Here are some of the graphs generated in Choreo cloud.
 [![Choreo Analytics Traffic]({{base_path}}/assets/img/deploy/choreo-analytics-traffic.png)]({{base_path}}/assets/img/deploy/choreo-analytics-traffic.png)
 
 [![Choreo Analytics Latency]({{base_path}}/assets/img/deploy/choreo-analytics-latency.png)]({{base_path}}/assets/img/deploy/choreo-analytics-latency.png)
+
+## See Also
+
+- [Publishing Analytics Events to External Systems]({{base_path}}/api-analytics/samples/publishing-analytics-events-to-external-systems)
