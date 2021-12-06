@@ -7,9 +7,9 @@ When using WSO2 API Manager as the control plane with Choreo Connect, it can be 
 Choreo Connect connects with event hub to receive different events in order to validate the subscriptions.
 The following set of events are received by the Choreo Connect in order to perform the subscription validation.
 
-- API Deploying events
-- Application creation Event
-- Application key generation event (Generation of consumer key and secret)
+- API Deploying events.
+- Application creation event.
+- Application key generation event (generation of consumer key and secret).
 - Subscribing an API to application event.
 
 And also adapter pull the following details belonging to a particular tenant during the startup as well, in order to
