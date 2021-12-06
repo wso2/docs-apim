@@ -103,7 +103,7 @@ iii) Enabling Logs
 ```
 
 ```text tab="Choreo Connect"
-i) Adding the jar
+i) Adding the .jar file.
 
     Place the created jar file inside `choreo-connect-1.0.0/docker-compose/resources/enforcer/dropins`
 
