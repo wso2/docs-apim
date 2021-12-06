@@ -123,7 +123,7 @@ iii) Enabling Logs
 
     To enable logging for a reporter, edit `log4j2.properties` file located inside `choreo-connect-1.0.0/docker-compose/choreo-connect-with-apim/conf`. 
 
-    a) Add an appender to the appenders list,
+    a) Add an appender to the appenders list:
 
         appenders = ENFORCER_ANALYTICS, ...(list of other available appenders)
 
