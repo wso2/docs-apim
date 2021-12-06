@@ -89,7 +89,7 @@ ii) Configuring deployment.toml
 
 iii) Enabling Logs
 
-    To enable logging for reporter, edit `log4j2.properties` file located inside `wso2am-4.0.0/repository/conf` 
+    To enable logging for a reporter, edit `log4j2.properties` file located inside `wso2am-4.0.0/repository/conf` 
 
     a) Add reporter to the loggers list,
 
