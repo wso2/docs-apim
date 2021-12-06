@@ -42,7 +42,7 @@ Let's assume you have two environments called "choreo-connect-1" and "choreo-con
         
 2. Start Choreo Connect deployment from docker-compose. 
 
-3. Add the Gateway environments "choreo-connect-1" and "choreo-connect-2" from the Gateways in the APIM admin portal.
+3. Add the Gateway environments "choreo-connect-1" and "choreo-connect-2" from the Gateways in the API Manager Admin Portal.
 
     [![Add Gateway Environment]({{base_path}}/assets/img/deploy/mgw/add-gateway-environment.png)]({{base_path}}/assets/img/deploy/mgw/add-gateway-environment.png)
 
