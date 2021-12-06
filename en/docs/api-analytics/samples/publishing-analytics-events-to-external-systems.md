@@ -74,7 +74,7 @@ Build the project using,
 This section will cover the steps required to configure WSO2 API Gateway and Choreo Connect for the sample created above. The steps covered are adding the .jar file, configuring the deployment.toml file, and enabling the logs.
 
 ```text tab="API-M Gateway"
-i) Adding the jar
+i) Adding the .jar file.
 
     Place the created jar file inside `wso2am-4.0.0/repository/components/lib`
 
