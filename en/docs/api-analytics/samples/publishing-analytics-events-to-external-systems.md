@@ -146,7 +146,7 @@ iii) Enabling Logs
         appender.ENFORCER_ANALYTICS.filter.threshold.type = ThresholdFilter
         appender.ENFORCER_ANALYTICS.filter.threshold.level = DEBUG
 
-    c) Add reporter to the loggers list,
+    c) Add a reporter to the loggers list:
 
         loggers = reporter, ...(list of other available loggers)
 
