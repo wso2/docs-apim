@@ -76,7 +76,7 @@ This section will cover the steps required to configure WSO2 API Gateway and Cho
 ```text tab="API-M Gateway"
 i) Adding the .jar file.
 
-    Place the created jar file inside `wso2am-4.0.0/repository/components/lib`
+    Place the created .jar file inside the `wso2am-4.0.0/repository/components/lib` file.
 
 ii) Configuring deployment.toml
 
