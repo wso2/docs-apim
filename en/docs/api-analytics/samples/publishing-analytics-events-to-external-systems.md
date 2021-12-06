@@ -71,7 +71,7 @@ Build the project using,
 
 ## Configuring the Sample
 
-This section will cover the steps required to configure WSO2 API-M Gateway and Choreo Connect for the sample created above. The steps covered are adding the jar, configuring deployment.toml and enabling the logs.
+This section will cover the steps required to configure WSO2 API-M Gateway and Choreo Connect for the sample created above. The steps covered are adding the .jar file, configuring the deployment.toml file, and enabling the logs.
 
 ```text tab="API-M Gateway"
 i) Adding the jar
