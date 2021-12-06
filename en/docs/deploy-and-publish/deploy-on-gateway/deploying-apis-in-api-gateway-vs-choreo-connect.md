@@ -19,7 +19,7 @@ Choreo Connect and the "traditional" API Gateway can be compared in different as
 |Isolated lockdown environments| Designed to work in a network isolated environment| Limited functionalities(affect on throttling/ analytics)|
 |Cloud ready              | Yes                                                     | Yes                               |
 |Automated API CI/CD flows| Supported with CLI tools                                |Supported with CLI tools           |
-|Update APIs              | Supports both Mutable gateway and Immutable gateway     | Mutable gateway                   |
+|Update APIs              | Supports both Mutable Gateway and Immutable Gateway     | Mutable Gateway                   |
 
 #### Security Comparison
 
