@@ -10,19 +10,29 @@ info:
 x-wso2-disable-security: true
   paths:
     "/pet/findByStatus":
-    get:
+      get:
 ```
 
 ``` yml tab="Resource Level"
 paths:
  "/pet/findByStatus":
-  get:
-    tags:
-    - pet
-    summary: Finds Pets by status
-    description: Multiple status values can be provided with comma separated strings
-    operationId: findPetsByStatus
     x-wso2-disable-security: true
+    get:
+      tags:
+      - pet
+      summary: Finds Pets by status
+      description: Multiple status values can be provided with comma separated strings
+      operationId: findPetsByStatus
 ```
 
-
+``` yml tab="Operation Level"
+paths:
+ "/pet/findByStatus":
+    get:
+      x-wso2-disable-security: true
+      tags:
+      - pet
+      summary: Finds Pets by status
+      description: Multiple status values can be provided with comma separated strings
+      operationId: findPetsByStatus
+```
