@@ -127,7 +127,7 @@ iii) Enabling Logs
 
         appenders = ENFORCER_ANALYTICS, ...(list of other available appenders)
 
-    b) Add bellow configurations after the appenders,
+    b) Add the following configurations after the appenders:
 
         appender.ENFORCER_ANALYTICS.type = RollingFile
         appender.ENFORCER_ANALYTICS.name = ENFORCER_ANALYTICS
