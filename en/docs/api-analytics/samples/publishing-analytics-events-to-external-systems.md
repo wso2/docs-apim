@@ -8,7 +8,7 @@ title: Publishing Analytics Events to External Systems - API Manager Documentati
 
 Instead of publishing analytics events to the cloud, It is also possible to log the same events and publish them to external systems. This guide will explain the steps required to do it. For demonstration purposes, we have selected ELK as the external system.
 
-This section will cover the steps required to create a sample, configure the created sample with WSO2 API-M and publish them to an external System (ELK).
+This section will cover the steps required to create a sample, configure the created sample with WSO2 API-M or Choreo Connect, and then publish it to an external System (ELK).
 
 ## Creating the Sample
 
@@ -71,33 +71,93 @@ Build the project using,
 
 ## Configuring the Sample
 
-This section will cover the steps required to configure WSO2 API-M for the sample created above. The steps covered are adding the jar, configuring deployment.toml and enabling the logs.
+This section will cover the steps required to configure WSO2 API-M Gateway and Choreo Connect for the sample created above. The steps covered are adding the .jar file, configuring the deployment.toml file, and enabling the logs.
 
-### Adding the jar
+```text tab="API-M Gateway"
+i) Adding the .jar file.
 
-Place the created jar file inside `wso2am-4.0.0/repository/components/lib`
+    Place the created .jar file inside the `wso2am-4.0.0/repository/components/lib` directory.
 
-### Configuring deployment.toml
+ii) Configuring the deployment.toml file.
 
-Edit `apim.analytics` configurations in the `deployment.toml` located inside `wso2am-4.0.0/repository/conf` with the following configuration.
+    Edit `apim.analytics` configurations in the `deployment.toml` file located inside `wso2am-4.0.0/repository/conf` with the following configuration.
 
-    [apim.analytics]
-    enable = true
-    properties."publisher.reporter.class" = "<FullyQualifiedClassNameOfMetricReporterImplClass>"
-    logger.reporter.level = "INFO"
+        [apim.analytics]
+        enable = true
+        properties."publisher.reporter.class" = "<FullyQualifiedClassNameOfMetricReporterImplClass>"
+        logger.reporter.level = "INFO"
 
-### Enabling Logs
+iii) Enabling Logs
 
-To enable logging for reporter, edit `log4j2.properties` file located inside `wso2am-4.0.0/repository/conf` 
+    To enable logging for a reporter, edit `log4j2.properties` file located inside `wso2am-4.0.0/repository/conf` directory. 
 
-Add reporter to the loggers list,
+    a) Add a reporter to the loggers list:
 
-    loggers = reporter, ...(list of other available loggers)
+        loggers = reporter, ...(list of other available loggers)
 
-Add bellow configurations after the loggers,
+    b) Add the following configurations after the loggers:
 
-    logger.reporter.name = <PackageName>
-    logger.reporter.level = INFO
+        logger.reporter.name = <PackageName>
+        logger.reporter.level = INFO
+
+```
+
+```text tab="Choreo Connect"
+i) Adding the .jar file.
+
+    Place the created .jar file inside the `choreo-connect-1.0.0/docker-compose/resources/enforcer/dropins` directory,
+
+ii) Configuring config.toml
+
+    Edit `analytics` configurations in the `config.toml` located inside `choreo-connect-1.0.0/docker-compose/choreo-connect-with-apim/conf` with the following configuration.
+
+    [analytics]
+        enabled = true
+        [analytics.enforcer]
+        [analytics.enforcer.configProperties]
+            authURL = "$env{analytics_authURL}"
+            authToken = "$env{analytics_authToken}"
+            "publisher.reporter.class" = "org.wso2.am.analytics.publisher.sample.reporter.CustomReporter"
+
+iii) Enabling Logs
+
+    To enable logging for a reporter, edit `log4j2.properties` file located inside `choreo-connect-1.0.0/docker-compose/choreo-connect-with-apim/conf`. 
+
+    a) Add an appender to the appenders list:
+
+        appenders = ENFORCER_ANALYTICS, ...(list of other available appenders)
+
+    b) Add the following configurations after the appenders:
+
+        appender.ENFORCER_ANALYTICS.type = RollingFile
+        appender.ENFORCER_ANALYTICS.name = ENFORCER_ANALYTICS
+        appender.ENFORCER_ANALYTICS.fileName = logs/enforcer_analytics.log
+        appender.ENFORCER_ANALYTICS.filePattern = /logs/enforcer_analytics-%d{MM-dd-yyyy}.log
+        appender.ENFORCER_ANALYTICS.layout.type = PatternLayout
+        appender.ENFORCER_ANALYTICS.layout.pattern = [%d] - %m%ex%n
+        appender.ENFORCER_ANALYTICS.policies.type = Policies
+        appender.ENFORCER_ANALYTICS.policies.time.type = TimeBasedTriggeringPolicy
+        appender.ENFORCER_ANALYTICS.policies.time.interval = 1
+        appender.ENFORCER_ANALYTICS.policies.time.modulate = true
+        appender.ENFORCER_ANALYTICS.policies.size.type = SizeBasedTriggeringPolicy
+        appender.ENFORCER_ANALYTICS.policies.size.size=10MB
+        appender.ENFORCER_ANALYTICS.strategy.type = DefaultRolloverStrategy
+        appender.ENFORCER_ANALYTICS.strategy.max = 20
+        appender.ENFORCER_ANALYTICS.filter.threshold.type = ThresholdFilter
+        appender.ENFORCER_ANALYTICS.filter.threshold.level = DEBUG
+
+    c) Add a reporter to the loggers list:
+
+        loggers = reporter, ...(list of other available loggers)
+
+    d) Add the following configurations after the loggers:
+
+        logger.reporter.name = org.wso2.am.analytics.publisher.sample.reporter
+        logger.reporter.level = INFO
+        logger.reporter.additivity = false
+        logger.reporter.appenderRef.rolling.ref = ENFORCER_ANALYTICS
+
+```
 
 ## Visualizing Logs
 
@@ -127,6 +187,7 @@ Make sure Elasticsearch is [up and running](https://www.elastic.co/guide/en/elas
 
 Add bellow configurations to feed WSO2 API-M logs in to Filebeat,
 
+```text tab="API-M Gateway"
 Replace `<API-M HOME>` with the location of your `API-M Home` directory.
 
     filebeat.inputs:
@@ -134,6 +195,17 @@ Replace `<API-M HOME>` with the location of your `API-M Home` directory.
     enabled: true
     paths:
         - /<API-M HOME>/repository/logs/wso2carbon.log
+```
+
+```text tab="Choreo Connect"
+Log data is available in `enforcer_analytics.log`
+
+    filebeat.inputs:
+    - type: log
+    enabled: true
+    paths:
+        - /home/wso2/logs/enforcer_analytics.log
+```
 
 [Set up](https://www.elastic.co/guide/en/beats/filebeat/7.13/filebeat-installation-configuration.html#setup-assets) assets
 
