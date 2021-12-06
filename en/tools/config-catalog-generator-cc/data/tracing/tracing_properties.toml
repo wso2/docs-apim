@@ -4,3 +4,4 @@
   endpoint = "/api/v2/spans"
   instrumentationName = "CHOREO-CONNECT"
   maximumTracesPerSecond = "2"
+  maxPathLength = "256"

@@ -76,6 +76,13 @@
               "required": false,
               "default": "2",
               "description": "Number of trace events to publish per second"
+            },
+            {
+              "name": "maxPathLength",
+              "type": "string",
+              "required": false,
+              "default": "256",
+              "description": "Maximum length of the request path to extract and include in the HttpUrl tag."
             }
           ]
         }

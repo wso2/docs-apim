@@ -50,6 +50,7 @@ Follow these steps to configure WSO2 Choreo Connect with Jaeger,
         endpoint = "/api/v2/spans"
         instrumentationName = "CHOREO-CONNECT"
         maximumTracesPerSecond = "2"
+        maxPathLength = "256"
     ```  
 1. Start Choreo Connect deployment.
 1. [Create and Deploy an API]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker-with-apim/)
@@ -74,6 +75,7 @@ Follow these steps to configure WSO2 Choreo Connect with Zipkin,
         endpoint = "/api/v2/spans"
         instrumentationName = "CHOREO-CONNECT"
         maximumTracesPerSecond = "2"
+        maxPathLength = "256"
     ```  
 1. Start Choreo Connect deployment.
 1. [Create and Deploy an API]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker-with-apim/)
