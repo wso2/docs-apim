@@ -14,10 +14,6 @@ See the example .toml file given below.
 ```
 
 
-
-
-
-
 ## control Plane Configurations
 
 

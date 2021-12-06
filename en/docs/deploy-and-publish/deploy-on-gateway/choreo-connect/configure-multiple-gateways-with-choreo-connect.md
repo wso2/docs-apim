@@ -2,10 +2,8 @@
 
 Choreo Connect supports the configuration of multiple Gateways with API Manager or in stand-alone mode. There are two types of deployments to setup multiple Gateways.
 
-- [Configure Multiple Gateways with Choreo Connect](#configure-multiple-gateways-with-choreo-connect)
-  - [Single Adapter pattern](#single-adapter-pattern)
-  - [Distributed Adapter pattern](#distributed-adapter-pattern)
-  - [Configuration of environments](#configuration-of-environments)
+- [Single Adapter pattern](#single-adapter-pattern)
+- [Distributed Adapter pattern](#distributed-adapter-pattern)
 
 ## Single Adapter pattern
 

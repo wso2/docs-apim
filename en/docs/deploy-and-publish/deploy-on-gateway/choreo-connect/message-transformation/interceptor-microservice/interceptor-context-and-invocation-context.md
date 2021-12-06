@@ -4,7 +4,7 @@
 
 Interceptor context is a string to string map that can be shared with request flow interceptor and response flow interceptor.
 From the request interceptor, you can set it in the response body of the request interceptor, and Choreo Connect Router will add them
-to the request it made to the response interceptor. Following is a sample interceptor context.
+to the request it made to the response interceptor. The following is a sample interceptor context.
 
 ```json
 {

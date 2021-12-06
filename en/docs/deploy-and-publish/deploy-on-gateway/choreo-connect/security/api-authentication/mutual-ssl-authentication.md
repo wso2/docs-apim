@@ -1,6 +1,6 @@
 # Mutual SSL Authentication
 
-Certificate-based authentication on the Microgateway is authenticating a request based on a digital certificate, before granting access to the backend. By way of certificate-based authentication, the Microgateway supports mutual SSL. In mutual SSL, both parties the client and the server identifies themselves in order to create a successful SSL connection. Mutual SSL allows a client to make a request without a username and password, provided that the server is aware of the client's certificate.
+Certificate-based authentication on the Choreo Connect is authenticating a request based on a digital certificate, before granting access to the backend. By way of certificate-based authentication, the Choreo Connect supports mutual SSL. In mutual SSL, both parties the client and the server identifies themselves in order to create a successful SSL connection. Mutual SSL allows a client to make a request without a username and password, provided that the server is aware of the client's certificate.
 
 ### Enabling Mutual SSL Authentication for an API
 
@@ -20,13 +20,13 @@ x-wso2-mutual-ssl: "mandatory" # can be "mandatory" or "optional"
 
 ### Support Mutual SSL Authentication for an API
 
-The Microgateway supports mutual SSL at the API level. It validates the certificate against per API by the name, version, and alias. There are two scenarios in Mutual SSL, the first one is Client directly connects with Microgateway and the second one is the load balancer in front of the Microgateway.
+The Choreo Connect supports mutual SSL at the API level. It validates the certificate against per API by the name, version, and alias. There are two scenarios in Mutual SSL, the first one is Client directly connects with Choreo Connect and the second one is the load balancer in front of Choreo Connect.
 
 ![Mutual SSL overview]({{base_path}}/assets/img/publish/mutualssl.png)
 
 1. <b> Mutual SSL configuration without Load Balancer.</b>
    
-    Update the mutual SSL configuration in the micro-gw.conf file residing in the <MICROGW_HOME>/conf directory. Here name is Swagger Petstore, version is 1.0.5, and aliasList is ballerina and wso2apim310.
+    Update the mutual SSL configuration in the micro-gw.conf file residing in the <CC_HOME>/conf directory. Here name is Swagger Petstore, version is 1.0.5, and aliasList is ballerina and wso2apim310.
 ```
     [mutualSSLConfig]
       [[mutualSSLConfig.api.certificates]]
@@ -37,7 +37,7 @@ The Microgateway supports mutual SSL at the API level. It validates the certific
 
 2. <b> Mutual SSL configuration with Load Balancer. </b>
     
-    If you are using a load balancer in front of Microgateway then you have to add additional configuration inside the mutualSSLConfig file. Here certificateHeadername is the header name which is appended by the load balancer to store the certificate. Here certificate header name is X-SSL-CERT.
+    If you are using a load balancer in front of Choreo Connect then you have to add additional configuration inside the mutualSSLConfig file. Here certificateHeadername is the header name which is appended by the load balancer to store the certificate. Here certificate header name is X-SSL-CERT.
 ```
     [mutualSSLConfig]
       [[mutualSSLConfig.api.certificates]]
@@ -48,14 +48,14 @@ The Microgateway supports mutual SSL at the API level. It validates the certific
 ``` 
    
 !!! note
-    If you do not need to validate the MTSL between the load balancer and the Micro gateway then you need to add an additional configuration other than the above. isClientCertificateValidationEnabled is set to true by default in the Microgateway which means it always validates the MTSL between the microgateway and Load balancer. 
+    If you do not need to validate the MTSL between the load balancer and the Micro gateway then you need to add an additional configuration other than the above. isClientCertificateValidationEnabled is set to true by default in Choreo Connect, which means it always validates the MTSL between Choreo Connect and Load balancer. 
 ``` 
     [mutualSSLConfig]
      isClientCertificateValidationEnabled = false   
 ```
-### Configure Client and WSO2 Microgateway for Mutual SSL
+### Configure Client and WSO2 Choreo Connect for Mutual SSL
 
-Add the client's public certificate to the WSO2 Microgateway's trustStorePath in listenerConfig configuration. Also, configure Microgateway's public certificate on the client-side. For more information [importing certificates to the WSO2 Microgateway Truststore]({{base_path}}/publish/security/importing-certificates-to-the-api-microgateway-truststore/)
+Add the client's public certificate to the WSO2 Choreo Connect's trustStorePath in listenerConfig configuration. Also, configure Choreo Connect's public certificate on the client-side. For more information [importing certificates to WSO2 Choreo Connect Truststore]({{base_path}}/publish/security/importing-certificates-to-the-api-microgateway-truststore/)
 
 ``` yml tab="micro-gw.conf"
 [listenerConfig]
@@ -75,7 +75,7 @@ Add the client's public certificate to the WSO2 Microgateway's trustStorePath in
 
 ### Invoking an API using certificate-based authentication
 
-When invoking an API, you can pass the certificate to the API Microgateway as follows.
+When invoking an API, you can pass the certificate to Choreo Connect as follows.
 
 !!! note
     In this tutorial, a self-signed certificate is added into the already available ballerina truststore.

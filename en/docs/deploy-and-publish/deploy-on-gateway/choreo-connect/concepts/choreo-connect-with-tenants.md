@@ -33,10 +33,9 @@ tenant.
  ``` 
 
 ### Configure Throttling with Choreo Connect for a Tenant
-Choreo Connect publishes tenant APIs traffic data to the Traffic Manager 
-component of the API Manager. Hence it needs to configure traffic data publishing endpoints and throttle decision receiving endpoints.
-In case of a tenant, still all the credentials under the configuration section `[enforcer.throttling]`
-should be **super tenant**
+Choreo Connect publishes tenant APIs traffic data to the Traffic Manager component of the API Manager. Hence it needs to configure traffic data publishing endpoints and throttle decision receiving endpoints.
+
+In case of a tenant, still all the credentials under the configuration section `[enforcer.throttling]` should be **super tenant**.
 
 ```toml
 # Throttling configurations

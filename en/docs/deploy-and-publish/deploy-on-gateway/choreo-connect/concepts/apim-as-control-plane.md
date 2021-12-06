@@ -8,15 +8,20 @@ Choreo Connect can connect to WSO2 API Manager (WSO2 API-M), which is running on
 
 ## Workflow When Deploying an API
 
-To deploy an API via API-M you need to,
+To deploy an API via WSO2 API Manager, you need to do the following:
+
 1. Configure the `[controlPlane]` Choreo Connect configuration section to point to WSO2 API Manager.
+
 2. Create a revision of the API via the API Manager Publisher Portal.
+
 3. Select Choreo Connect as the Gateway environment and deploy the API.
 
 Once an API is deployed to Choreo Connect via the WSO2 API Manager Publisher Portal, the following sequence of actions will take place.
 
 1. The API Manager [Event Hub]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/event-hub) component will send an API deploy event to the Adapter component in Choreo Connect.
+
 2. The Adapter will pull the API object from the Event Hub upon receiving the API deploy event.
+
 3. The Adapter will pass the API to the Router and Enforcer.
 
 ## See Also

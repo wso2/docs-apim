@@ -1,6 +1,6 @@
 # Communication Between the Components
 
-Communication between internal components of Choreo Connect (Adapter, Enforcer, Router and API-M Control Plane) are secured via Mutual SSL.
+Communication between internal components of Choreo Connect (Adapter, Enforcer, Router, and API-M Control Plane) are secured via Mutual SSL.
 
 Each component has its private-public key pair and truststore. In the adapter's case, it is configured using the `config.toml` file as indicated below.
 

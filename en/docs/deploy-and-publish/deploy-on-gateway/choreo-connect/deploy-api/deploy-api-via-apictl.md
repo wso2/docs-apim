@@ -69,7 +69,7 @@ apictl mg deploy api -f <path_to_the_API_project_just_created>/petstore -e dev -
 
 !!! Note 
 
-    Refer to the following content to learn more,
+    Refer to the following content to learn more.
 
     - [Managing Choreo Connect with apictl]({{base_path}}/install-and-setup/setup/api-controller/managing-choreo-connect/managing-choreo-connect-with-ctl)
     - [Choreo Connect as a Standalone Gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway)

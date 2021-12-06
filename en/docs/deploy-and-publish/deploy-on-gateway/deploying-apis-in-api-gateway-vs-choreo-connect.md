@@ -36,15 +36,14 @@ API Gateway and Choreo Connect both support different security mechanisms.
 
 |   **Feature**                                                  | **Choreo Connect**                                                                        |          **API Gateway**                                                                |
 |----------------------------------------------------|:-------------------------------------------------------------------------:|:-----------------------------------------------------------------------:|
-| SOAP backends                                      | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
+| SOAP backends                                      | ![(No)]({{base_path}}/assets/img/deploy/error.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
 | REST APIs                                          | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
 | JMS backends                                       | ![(No)]({{base_path}}/assets/img/deploy/error.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
 | GraphQL APIs                                       | ![(No)]({{base_path}}/assets/img/deploy/error.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
-| GRPC Services                                      | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   | ![(No)]({{base_path}}/assets/img/deploy/error.svg) |
-| Web socket APIs                                    | ![(No)]({{base_path}}/assets/img/deploy/error.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
-| Custom mediation/transformation                    | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
-| Advance throttling (header, IP, query param, jwt claims) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
-| Advance throttling (based on bandwidth) | ![(No)]({{base_path}}/assets/img/deploy/error.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
-| Schema validation                                  | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
+| Web Socket APIs                                    | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
+| Custom mediation/transformation                    | ![(No)]({{base_path}}/assets/img/deploy/error.svg)   | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
+| Advanced throttling (header, IP, query param, jwt claims) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
+| Advanced throttling (based on bandwidth) | ![(No)]({{base_path}}/assets/img/deploy/error.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
+| Schema validation                                  | ![(No)]({{base_path}}/assets/img/deploy/error.svg)   | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
 | JWT revocation                                     | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
 | Per resource Endpoints                             | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   | ![(No)]({{base_path}}/assets/img/deploy/error.svg) |

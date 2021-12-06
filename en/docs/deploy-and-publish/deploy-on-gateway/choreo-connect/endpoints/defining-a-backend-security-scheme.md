@@ -1,10 +1,10 @@
 # Defining a Backend Security Scheme
 
-### Defining a security scheme
+## Defining a security scheme
 
 The security scheme used for the API must be defined in the `securityConfig` section in the API definition. By default, Choreo Connect supports OAuth2.
 
-#### Specifying basic authentication for backend endpoints
+### Specifying basic authentication for backend endpoints
 
 When an actual backend service of the API is protected using basic authentication, the basic authentication parameters (username and password) must be sent to the backend. Hence, you need to define the endpoint security parameter in the api.yaml as follows.
 

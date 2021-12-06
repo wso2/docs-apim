@@ -29,9 +29,6 @@ See the example .toml file given below.
 ```
 
 
-
-
-
 ## Server
 
 

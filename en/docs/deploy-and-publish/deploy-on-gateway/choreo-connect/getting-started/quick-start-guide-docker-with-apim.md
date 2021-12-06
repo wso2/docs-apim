@@ -1,19 +1,18 @@
 # Quick Start Guide
 
-Let's deploy an API using WSO2 API Manager (WSO2 API-M) as the Control Plane and invoke it via the Choreo Connect.
+This is a step-by-step guide on how to quickly deploy an API using WSO2 API Manager (WSO2 API-M) as the Control Plane and invoke it via Choreo Connect.
 
 ## Before you begin...
 
-Make sure to install and set up [Docker](https://www.docker.com).
+Install and set up [Docker](https://www.docker.com).
 
 ### Step 1 - Download and extract Choreo Connect distribution .zip file
 
-Latest Choreo Connect distribution can be downloaded from the [GitHub repository](https://github.com/wso2/product-microgateway/releases). Extract the Choreo Connect distribution .zip file. The extracted folder will be called as `CHOREO-CONNECT_HOME` hereafter.
+The latest Choreo Connect distribution can be downloaded from the [GitHub repository](https://github.com/wso2/product-microgateway/releases). Extract the Choreo Connect distribution .zip file. The extracted folder will be referred to as `CHOREO-CONNECT_HOME` hereafter.
 
 ### Step 2 - Configure Choreo Connect to connect to API Manager
 
-We have to enable the `[controlPlane.eventHub]` in the `config.toml` file in the `CHOREO-CONNECT_HOME/docker-compose/choreo-connect-with-apim/conf` directory.
-Let's edit the `config.toml` like below to enable the event hub.
+Enable the `[controlPlane.eventHub]` in the `config.toml` file found in the `CHOREO-CONNECT_HOME/docker-compose/choreo-connect-with-apim/conf` directory. To enable the event hub, do the following configurations in the `config.toml` file as indicated below.
 
 ``` java
 [controlPlane.eventHub]
@@ -22,44 +21,43 @@ Let's edit the `config.toml` like below to enable the event hub.
 
 ### Step 3 - Start Choreo Connect and API Manager
 
-First we need to add the host entry to `/etc/hosts` file in order to access the API Manager publisher and Developer Portal.
-Add the following entry to `/etc/hosts` file
+Add the host entry to `/etc/hosts` file as shown below in order to access the API Manager Publisher and Developer Portal.
 
 ``` java
 127.0.0.1   apim
 ```
 
-Start the Choreo Connect and API Manager on docker by executing the docker compose script inside the `CHOREO-CONNECT_HOME/docker-compose/choreo-connect-with-apim` folder.
+Start Choreo Connect and API Manager on Docker by executing the Docker Compose script inside the `CHOREO-CONNECT_HOME/docker-compose/choreo-connect-with-apim` folder.
 
 ``` java
 docker-compose up -d
 ```
 
-Once containers are up and running, we can monitor the status of the containers using the following command
+Once the containers are up and running, you can monitor the status of the containers using the following command.
 
 ``` java
 docker ps | grep choreo-connect-
 ```
 
 !!! info
-    Note that the docker-compose deploy API Manager with basic configurations. In order to deploy API Manager in production grade docker setup artifacts from [APIM page.](https://wso2.com/api-management/) This docker-compose scripts is provided for try out purposes only.
+    Note that the Docker Compose script deploys WSO2 API Manager with basic configurations. In order to deploy WSO2 API Manager in production grade, use the Docker setup artifacts from [APIM page](https://wso2.com/api-management/). The Docker Compose scripts are provided only for the purpose of trying it out.
 
-### Step 4 - Deploy Sample API from API Manager
+### Step 4 - Deploy a sample API in API Manager
 
-1. First login to the API Manager Publisher Portal by accessing the URL https://apim:9443/publisher/
+1. First sign in to the API Manager Publisher Portal by accessing the URL: https://apim:9443/publisher/
 
 2. Click on the REST API card and then click on the `Deploy Sample API` button. This will deploy the sample PizzaShack API.
     [![]({{base_path}}/assets/img/deploy/mgw/deploy-sample-api.png)]({{base_path}}/assets/img/deploy/mgw/deploy-sample-api.png)
 
-3. Then click on the `Endpoints` from the left-hand side menu inside the PizzaShackAPI. Change the production endpoint and
-sandbox endpoint URL as `http://apim:9763/am/sample/pizzashack/v1/api/`. Then save the changes by clicking save button.
+3. Click on `Endpoints` from the left menu inside the PizzaShackAPI. Change the production endpoint and
+sandbox endpoint URL to `http://apim:9763/am/sample/pizzashack/v1/api/`. Save the changes by clicking the **Save** button.
     [![]({{base_path}}/assets/img/deploy/mgw/endpoint-tab.png)]({{base_path}}/assets/img/deploy/mgw/endpoint-tab.png)
     [![]({{base_path}}/assets/img/deploy/mgw/endpoint-edit.png)]({{base_path}}/assets/img/deploy/mgw/endpoint-edit.png)
 
-4. Follow the [deploy an API]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api) guide to deploy 
-the changes done to the API in to the Choreo Connect.
+4. Follow the [documentation on deploying an API]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api) to deploy 
+the changes done to the API into Choreo Connect.
 
-### Step 5 - Subscribing to API and Get a Token
+### Step 5 - Subscribing to an API and getting a token
 
 1. Sign in to the WSO2 Developer Portal (`https://<hostname>:9443/devportal`) and click an API (e.g., `PizzaShack`).
 
