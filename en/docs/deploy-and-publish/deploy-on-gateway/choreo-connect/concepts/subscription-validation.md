@@ -1,6 +1,6 @@
 # Subscription Validation Model
 
-When using WSO2 API Manager as the control plane with Choreo Connect, it can be configured to validate the API Subscriptions. For this, the same API should be published in both API Manager and Choreo Connect, and a valid access token (JWT or Reference token) should be obtained by subscribing to the API via an Application. Choreo Connect is capable of validating subscriptions only for the configured tenant (One tenant per Choreo Connect basis).
+When using WSO2 API Manager as the control plane with Choreo Connect, it can be configured to validate the API Subscriptions. For this, the same API should be published in both API Manager and Choreo Connect, and a valid access token (JWT or Reference token) should be obtained by subscribing to the API via an Application. Choreo Connect is capable of validating subscriptions only for the configured tenant (one tenant per Choreo Connect instance basis).
 
 ## Choreo Connect Subscription Validation with API Manager Event Hub
 
@@ -12,7 +12,7 @@ The following set of events are received by the Choreo Connect in order to perfo
 - Application key generation event (Generation of consumer key and secret)
 - Subscribing an API to application event.
 
-And also adapter pull the following details belonging to a particular tenant during the startup as well, in order to get the events that has happened before the starting of the Gateway. Adapter will have list of environments assigned to it. Adapter will pull the APIs that are deployed in the specified set of environments only.
+In order to get the events that have happened before the Gateway startup, the Adapter will pull the following details of the tenant defined for the Choreo Connect instance during the startup. The Adapter will have list of predefined environments from which it will pull the APIs and the other artifacts from.
 
 - Pull all the APIs deployed for matching environments for a specific tenant.
 - Pull all the applications created for a specific tenant.
