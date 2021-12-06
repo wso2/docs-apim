@@ -430,7 +430,7 @@ Now, let's test the integration service.
 
 Let's start the mock back-end services for this use case:
 
-1.  Download the [`DoctorInfo-JDK11.jar` file](https://ei.docs.wso2.com/en/7.1.0/micro-integrator{{base_path}}/assets/attach/developing-first-integration/DoctorInfo-JDK11.jar). This contains two healthcare services.
+1.  Download the [`DoctorInfo-JDK11.jar` file]({{base_path}}/assets/attachments/developing-first-integration/doctorinfo-jdk11.jar). This contains two healthcare services.
 2.  Open a terminal, navigate to the location of the downloaded `DoctorInfo-JDK11.jar` file, and execute the following command to start the services:
 
     ```bash

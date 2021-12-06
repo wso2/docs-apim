@@ -19,7 +19,7 @@ Choreo Connect and the "traditional" API Gateway can be compared in different as
 |Isolated lockdown environments| Designed to work in a network isolated environment| Limited functionalities(affect on throttling/ analytics)|
 |Cloud ready              | Yes                                                     | Yes                               |
 |Automated API CI/CD flows| Supported with CLI tools                                |Supported with CLI tools           |
-|Update APIs              | Immutable gateways. Rebuild the gateway upon updating the API| Mutable gateway, updating APIs supported|
+|Update APIs              | Supports both Mutable Gateway and Immutable Gateway     | Mutable Gateway                   |
 
 #### Security Comparison
 
@@ -28,8 +28,8 @@ API Gateway and Choreo Connect both support different security mechanisms.
 | **Security Mechanism**           | **Choreo Connect**                                              | **API Gateway**                       |
 |------------------------------|:-------------------------------------------------------------:|:---------------------------------:|
 | OAuth2                        | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) |
-| Mutual SSL                   | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) |
-| Basic Auth                   | Configuration based support, can not plug user stores                      | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) |
+| Mutual SSL                   | ![(No)]({{base_path}}/assets/img/deploy/error.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) |
+| Basic Auth                   | Custom Filter can be developed                    | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) |
 | API Keys                     | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) |
 
 #### Feature Comparison

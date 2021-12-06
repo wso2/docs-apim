@@ -54,7 +54,15 @@ The examples here use the `StarWarsAPI` GraphQL API, which was created in [Creat
 
     [![Copy Access Token for tryout GraphQL API]({{base_path}}/assets/img/learn/graphql-api-copy-access-token.png)]({{base_path}}/assets/img/learn/graphql-api-copy-access-token.png)
 
-## Invoke a GraphQL Query operation using GraphiQL console
+9. Invoke the GraphQL API using the [GraphiQL console](#using-the-graphiql-console).
+
+## Using the GraphiQL console
+
+Let's see how to invoke a GraphQL API using the GraphiQL console, which is a type of GraphQL console.
+
+### Invoke a GraphQL Query operation
+
+Follow the instructios below to invoke a **GraphQL Query operation** using the GraphiQL console:
 
 1. Enter the following sample query.
 
@@ -77,7 +85,6 @@ The examples here use the `StarWarsAPI` GraphQL API, which was created in [Creat
  
 2. Click **Execute**.
 
-
     [![Execute GraphQL Query]({{base_path}}/assets/img/consume/invoke-apis/graphql-console/graphql-console-execute-query.png)]({{base_path}}/assets/img/consume/invoke-apis/graphql-console/graphql-console-execute-query.png)
 
     !!! info "Troubleshooting"
@@ -93,9 +100,11 @@ The examples here use the `StarWarsAPI` GraphQL API, which was created in [Creat
 
 You have now successfully invoked a GraphQL API using the GraphQL API Console.
 
-## Invoke a GraphQL Subscription operation using GraphiQL console
+### Invoke a GraphQL Subscription operation
 
-1. Enter the following sample query to execute a subscription operation via Websockets.
+Follow the instructios below to invoke a **GraphQL Subscription operation** using the GraphiQL console:
+
+1. Enter the following sample query to execute a subscription operation via WebSockets.
 
     ```
     subscription {
@@ -107,38 +116,46 @@ You have now successfully invoked a GraphQL API using the GraphQL API Console.
     }
     ```
 
-2. Click **Execute**. If you inspect the network calls from your browser developer tools, you could see the messages passed between the GraphiQL client and the backend.
+2. Click **Execute**. 
+   
+     If you inspect the network calls from your browser developer tools, you can see the messages passed between the GraphiQL client and the backend.
 
-    [![Response of GraphQL Subscription]({{base_path}}/assets/img/consume/invoke-apis/graphql-console/graphql-sub-init-response.png)]({{base_path}}/assets/img/consume/invoke-apis/graphql-console/graphql-sub-init-response.png)
+     [![Response of GraphQL Subscription]({{base_path}}/assets/img/consume/invoke-apis/graphql-console/graphql-sub-init-response.png)]({{base_path}}/assets/img/consume/invoke-apis/graphql-console/graphql-sub-init-response.png)
 
-    Now a successful websocket connection is established between the client and backend via WSO2 API-M Gateway.
+     Now a successful WebSocket connection is established between the client and backend via WSO2 API Gateway.
 
     !!! info "Troubleshooting"
-        If you **cannot invoke the API's WSS endpoint during handshake** (this causes the **SSLPeerUnverified exception**), it could be because the security certificate issued by the server is not trusted by your browser. The below error will be printed in the backend during that time.
+        If you **cannot invoke the API's WSS endpoint during handshake** (this causes the **SSLPeerUnverified exception**), it could be because the security certificate issued by the server is not trusted by your browser. 
+        
+        This will result in the following error being printed in the backend.
+
         ```
         ERROR - InboundWebsocketSourceHandler Endpoint not found for port : 8099 tenant domain : null
         ```       
         
-        To resolve this issue, access the corresponding HTTPS endpoint of the WSS endpoint directly from your browser and accept the security certificate. (Eg: `https://localhost:8099/swapi/1.0.0`) 
+        To resolve this issue, access the corresponding HTTPS endpoint of the WSS endpoint directly from your browser and accept the security certificate. (e.g., `https://localhost:8099/swapi/1.0.0`) 
         
         If the API Manager has a **certificate signed by a Certificate Authority (CA)**, the WSS endpoints should work out-of-the-box.
 
+     <a name="step3"></a>
 
-3.  While keeping the Developer portal web browser page opened, separately open a terminal and directly invoke backend API’s `createReview` mutation operation by executing the following command.
+3.  While keeping the Developer Portal web browser page opened, separately open a terminal and directly invoke the backend API’s `createReview` mutation operation by executing the following command.
 
-    ```
-    curl -X POST "http://localhost:8080/graphql" -H  "accept: application/json" -H  "Content-Type: application/json" -d '{"query":"mutation {createReview(episode: JEDI, review: { stars: 3, commentary: \"Excellent\"}) { stars   episode   commentary }}","variables":null}' -k
-    ```
+     ```
+     curl -X POST "http://localhost:8080/graphql" -H  "accept: application/json" -H  "Content-Type: application/json" -d '{"query":"mutation {createReview(episode: JEDI, review: { stars: 3, commentary: \"Excellent\"}) { stars   episode   commentary }}","variables":null}' -k
+     ```
 
-    When the mutation is successful, the GraphQL API will send following as response:
+     When the mutation is successful, the GraphQL API will send the following message as a response:
 
-    ```
-    {"data":{"createReview":{"stars":3,"episode":"JEDI","commentary":"Excellent"}}}
-    ```
+     ```
+     {"data":{"createReview":{"stars":3,"episode":"JEDI","commentary":"Excellent"}}}
+     ```
 
-4.  Now go back to the Developer portal browser page and notice the subscription event response received corresponding to the mutation operation we did in Step 3.
+4.  Go back to the Developer Portal browser page.
 
-    [![Response Event of GraphQL Subscription]({{base_path}}/assets/img/consume/invoke-apis/graphql-console/try-out-sub-event.png)]({{base_path}}/assets/img/consume/invoke-apis/graphql-console/try-out-sub-event.png)
+     You will notice that you have received a subscription event response corresponding to the mutation operation that you carried out in <a href="#step3">Step 3</a>.
 
-    You have now successfully invoked a GraphQL API using the GraphQL API Console.
+     [![Response Event of GraphQL Subscription]({{base_path}}/assets/img/consume/invoke-apis/graphql-console/try-out-sub-event.png)]({{base_path}}/assets/img/consume/invoke-apis/graphql-console/try-out-sub-event.png)
+
+     You have now successfully invoked a GraphQL API using the GraphQL API Console.
 

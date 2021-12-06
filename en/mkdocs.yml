@@ -252,6 +252,7 @@ nav:
                         - Analytics: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/analytics-configurations.md
                 - Deployment Options:
                     - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-deploy-overview.md
+                    - Installation Prerequisites: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/installation-prerequisites.md
                     - Docker:
                         - Deploying via WSO2 API Manager : deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-apim.md
                         - Deploying via WSO2 API Controller: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-api-controller.md
@@ -269,6 +270,8 @@ nav:
                             - Retry Policies: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/resiliency/retry-policies.md
                             - Timeouts: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/resiliency/timeout.md
                             - Circuit Breakers: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/resiliency/circuit-breakers.md
+                - Extensions:
+                    - Add Custom Filters: deploy-and-publish/deploy-on-gateway/choreo-connect/extensions/custom-filters.md
                 - Rate Limiting:
                     - Enabling Distributed Rate Limiting: deploy-and-publish/deploy-on-gateway/choreo-connect/rate-limiting/distributed-throttling.md
                 - Message Transformation:
