@@ -5,7 +5,7 @@ Let's deploy an API via the WSO2 API Manager Publisher Portal on a Choreo Connec
 ## Before you begin
 
 1.  Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
-2.  Set up a [Kubernetes](https://Kubernetes.io/docs/setup/) cluster v1.14 or above.
+2.  Set up a [Kubernetes](https://Kubernetes.io/docs/setup/) cluster v1.20 or above.
       - Minimum CPU : 4vCPU
       - Minimum Memory : 3GB
 3.  Deploy an ingress controller - [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/) for this sample.
