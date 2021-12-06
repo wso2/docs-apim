@@ -95,7 +95,7 @@ iii) Enabling Logs
 
         loggers = reporter, ...(list of other available loggers)
 
-    b) Add bellow configurations after the loggers,
+    b) Add the following configurations after the loggers:
 
         logger.reporter.name = <PackageName>
         logger.reporter.level = INFO
