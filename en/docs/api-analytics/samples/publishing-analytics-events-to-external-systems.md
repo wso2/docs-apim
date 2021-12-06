@@ -91,7 +91,7 @@ iii) Enabling Logs
 
     To enable logging for a reporter, edit `log4j2.properties` file located inside `wso2am-4.0.0/repository/conf` directory. 
 
-    a) Add reporter to the loggers list,
+    a) Add a reporter to the loggers list:
 
         loggers = reporter, ...(list of other available loggers)
 
