@@ -11,7 +11,7 @@ Following diagram shows the process flow of a success request in Choreo Connect 
 
 [![Choreo Connect Analytics Architecture]({{base_path}}/assets/img/deploy/mgw/choreo-connect-analytics-architecture.png)]({{base_path}}/assets/img/deploy/mgw/choreo-connect-analytics-architecture)
 
-There are two main components related to internal gRPC request for sending `StreamAccessLogsMessage` from `router` to `enforcer` and which is used to collect analytics data.
+There are two main components related to internal gRPC request for sending `StreamAccessLogsMessage` from `router` to `enforcer`. Below section explains those two components which are used to collect analytics data.
 
 1. gRPC Access Logger
 2. gRPC Event Listener

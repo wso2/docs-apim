@@ -34,7 +34,7 @@
               "type": "integer",
               "required": false,
               "default": "600",
-              "description": "Keep alive time in seconds for connection with the router via external authz service"
+              "description": "Keep alive time in seconds for connection with the router via external auth service"
             },
             {
               "name": "tokenPrivateKeyPath",
