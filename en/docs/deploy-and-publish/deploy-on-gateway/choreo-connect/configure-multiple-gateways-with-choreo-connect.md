@@ -4,7 +4,7 @@ Choreo Connect supports the configuration of multiple Gateways with WSO2 API Man
 
 ## Distributed Adapter pattern
 
-Multiple gateway environments can be registered in the WSO2 API Manager control plane. Each environment group includes an Adapter, an Enforcer, and a Router. The environment name used to register in the WSO2 API Manager control plane can be specified in the Adapter configurations. When the Adapter is started, it pulls the API artifacts related to the environment.
+Multiple Gateway environments can be registered in the WSO2 API Manager Control Plane. Each environment group includes an Adapter, an Enforcer, and a Router. The environment name used to register in the WSO2 API Manager Control Plane can be specified in the Adapter configurations. When the Adapter is started, it pulls the API artifacts related to the environment.
 
 [![Distributed Adapter Pattern]({{base_path}}/assets/img/deploy/mgw/distributed-adapter-pattern.png){: style="width:60%"}]({{base_path}}/assets/img/deploy/mgw/distributed-adapter-pattern.png)
 
