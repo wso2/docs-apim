@@ -40,7 +40,7 @@ Choreo Connect resolves base path and backend URL as follows:
 
 - **For OpenAPI 3.0**
     The OpenAPI 3.0 specification defines a way of providing [server](https://swagger.io/docs/specification/api-host-and-base-path/) URL of the API defines by the OpenAPI definition. Choreo Connect derive the base path and the backend service URL using the **servers** object defined in the OpenAPI definition.
-    For an example, if the server URL is defined as `http://test.com/v2` then, Choreo Connect will resolve the backend service URL as the given URL and it will also expose the API using the base path (context) /v2.
+    For example, if the server URL is defined as `http://test.com/v2`, then Choreo Connect will resolve the backend service URL as the given URL and it will also expose the API using the base path (context) /v2.
 
 ### Updating the API
 
