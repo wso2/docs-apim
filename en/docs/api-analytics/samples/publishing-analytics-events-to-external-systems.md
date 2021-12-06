@@ -150,7 +150,7 @@ iii) Enabling Logs
 
         loggers = reporter, ...(list of other available loggers)
 
-    d) Add bellow configurations after the loggers,
+    d) Add the following configurations after the loggers:
 
         logger.reporter.name = org.wso2.am.analytics.publisher.sample.reporter
         logger.reporter.level = INFO
