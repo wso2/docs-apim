@@ -78,7 +78,7 @@ i) Adding the .jar file.
 
     Place the created .jar file inside the `wso2am-4.0.0/repository/components/lib` directory.
 
-ii) Configuring deployment.toml
+ii) Configuring the deployment.toml file.
 
     Edit `apim.analytics` configurations in the `deployment.toml` located inside `wso2am-4.0.0/repository/conf` with the following configuration.
 
