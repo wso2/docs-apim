@@ -52,7 +52,7 @@ The following sample configuration illustrates how the `eventListeningEndpoints`
  ``` toml
  [controlPlane]
   enabled = true
-  serviceUrl = "https://<apim-ip>:9443/"
+  serviceURL = "https://<apim-ip>:9443/"
   username="admin"
   password="$env{cp_admin_pwd}"
   environmentLabels = ["Default"]

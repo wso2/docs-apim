@@ -17,7 +17,7 @@ Let's assume you have two environments called "choreo-connect-1" and "choreo-con
     ```toml tab="Adapter 1"
     [controlPlane]
       enabled = true
-      serviceUrl = "https://apim:9443/"
+      serviceURL = "https://apim:9443/"
       username="admin"
       password="$env{cp_admin_pwd}"
       environmentLabels = ["choreo-connect-1"]
@@ -30,7 +30,7 @@ Let's assume you have two environments called "choreo-connect-1" and "choreo-con
     ```toml tab="Adapter 2"
     [controlPlane]
       enabled = true
-      serviceUrl = "https://apim:9443/"
+      serviceURL = "https://apim:9443/"
       username="admin"
       password="$env{cp_admin_pwd}"
       environmentLabels = ["choreo-connect-2"]

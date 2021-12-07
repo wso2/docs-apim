@@ -22,14 +22,14 @@ Open the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/config.toml` 
 In the `[controlPlane]` section,
 
  - Set `enabled` to true
- - Update `serviceUrl` and `brokerConnectionParameters` with the IP of API Manager. (Search for `apim` and replace them with the IP. Alternatively, add an entry to the `/etc/hosts` file as `<ip-of-apim> apim`)
+ - Update `serviceURL` and `brokerConnectionParameters` with the IP of API Manager. (Search for `apim` and replace them with the IP. Alternatively, add an entry to the `/etc/hosts` file as `<ip-of-apim> apim`)
  - If you want to use a Gateway Environment other than the default, update `environmentLabels` with the name of the new Gateway Environment. If not, leave the value `"Default"` as it is.
 
  Example
  ``` toml
  [controlPlane]
   enabled = true
-  serviceUrl = "https://<apim-ip>:9443/"
+  serviceURL = "https://<apim-ip>:9443/"
   username="admin"
   password="$env{cp_admin_pwd}"
   environmentLabels = ["Default"]

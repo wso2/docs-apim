@@ -16,7 +16,7 @@ tenant.
  # Control plane's connection details
  [controlPlane]
   enabled = true
-  serviceUrl = "https://<apim-ip>:9443/"
+  serviceURL = "https://<apim-ip>:9443/"
   username="admin@foo.com"  // provide the tenant admin credentials
   password="$env{cp_tenant_admin_pwd}"
   environmentLabels = ["Default"]

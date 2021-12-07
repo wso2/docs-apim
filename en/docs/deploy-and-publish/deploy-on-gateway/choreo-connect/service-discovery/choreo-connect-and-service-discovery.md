@@ -25,7 +25,7 @@ For instructions, see the [Consul official documentation](https://www.consul.io/
 
     ``` 
     [adapter.consul]
-      enable = true
+      enabled = true
       url = "https://169.254.1.1:8501"
       pollInterval = 5
       ACLToken = "d3a2a719-4221-8c65-5212-58d4727427ac"
