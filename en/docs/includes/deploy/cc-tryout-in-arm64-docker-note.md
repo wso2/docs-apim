@@ -1,6 +1,6 @@
 
 ??? note "Tryout in ARM64 based machine (e.g., Apple M1)"
-    If you are trying out in **ARM64** based machine (e.g., Apple M1) update the Docker image names with the following in
+    If you are trying this out in an **ARM64** based machine (e.g., Apple M1), update the Docker image names with the following:
 
     - docker-compose.yaml files
         - `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/docker-compose.yaml`
