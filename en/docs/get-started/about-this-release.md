@@ -38,6 +38,11 @@ API Manager 4.1.0-M2</td>
 
 	 Authentication for Prototype APIs is available by default so that the client apps can also be created using authentication to test out the APIs. If needed you can [disable authentication for Prototype APIs]({{base_path}}/design/prototype-api/create-a-prototype-api/)) at the resource level or API level.
 
+- **Publisher Read Only Mode (M3)** 
+    
+     A user who has view/read only permissions can only view the API/Services details in the publisher portal.He/She should not be able to edit/create/publish APIs/Services.
+
+
 <! --- ### Deprecated features and functionalities
 
 <! --- The support for these features will be removed from subsequent versions starting from WSO2 API Manager 4.1.0.
