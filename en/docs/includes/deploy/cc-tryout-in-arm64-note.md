@@ -5,7 +5,7 @@
         - docker-compose.yaml (If you are trying out with Docker)
             - `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/docker-compose.yaml`
             - `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/docker-compose.yaml`
-        - Kubernetes deployment.yaml (If you are trying out with Kubernetes) files.
+        - Kubernetes deployment.yaml (if you are trying out with Kubernetes)
             - `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect/adapter-deployment.yaml`
             - `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect/choreo-connect-deployment.yaml`
             - `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect-with-apim/apim/apim-deployment.yaml`
