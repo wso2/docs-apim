@@ -103,7 +103,7 @@ Follow the instructions below to invoke the previously created API with the gene
 
 3. **If this is the first time you are using the API test console** from your browser,  open a new tab and navigate to the [https://localhost:9095/](https://localhost:9095/) URL.
 
-     This will prompt your browser to accept the certificate used by the Choreo Connect. This is required because by default the Choreo Connect uses a self-signed certificate that is not trusted by web browsers.
+     This will prompt your browser to accept the certificate used by Choreo Connect. This is required because, by default, Choreo Connect uses a self-signed certificate that is not trusted by web browsers.
     
     !!! note
 
