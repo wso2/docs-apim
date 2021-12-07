@@ -53,7 +53,7 @@ In the `[controlPlane]` section,
 
 Now, let's start Choreo Connect. Navigate to `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect` and execute the following command.
 
-{!includes/deploy/cc-tryout-in-arm64-note.md!}
+{!includes/deploy/cc-tryout-in-arm64-docker-note.md!}
 
 ``` bash
 docker-compose up -d
