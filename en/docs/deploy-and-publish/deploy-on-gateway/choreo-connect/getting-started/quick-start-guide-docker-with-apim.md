@@ -109,7 +109,7 @@ Follow the instructions below to invoke the previously created API with the gene
 
         This certificate that is used by the Choreo Connect is replaced when deploying the system in production.
 
-4. Click on the `GET` resource of the API to expand the resource and Click **Try It Out**.
+4. Click on the `GET` resource of the API to expand the resource and click **Try It Out**.
    
      [![GET resource]({{base_path}}/assets/img/deploy/mgw/expanded-get-resource.png)]({{base_path}}/assets/img/deploy/mgw/expanded-get-resource.png)
 
