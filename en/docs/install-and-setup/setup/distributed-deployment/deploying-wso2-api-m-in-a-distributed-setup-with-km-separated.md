@@ -2,6 +2,9 @@
 
 This document describes how to configure a distributed WSO2 API Manager deployment with the Key Manager and Traffic Manager separated from the Control Plane for migrated environments using Opaque tokens.
 
+!!! tip
+    A separate Key Manager is needed only if you are migrating from an older WSO2 API Manager version AND using Opaque tokens.
+
 The following diagram shows the communications between the Control Plane, Gateway, Key Manager and the Traffic Manager nodes in the distributed deployment of API Manager for a migrated environment using Opaque (Reference) tokens.
 
 <a href="{{base_path}}/assets/img/setup-and-install/distributed-deployment-km.png"><img src="{{base_path}}/assets/img/setup-and-install/distributed-deployment-km.png" width="100%"></a>

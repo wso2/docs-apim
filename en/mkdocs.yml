@@ -1456,7 +1456,6 @@ nav:
                     - Distributed Deployment Overview: install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md
                     - Configuring a Distributed API-M Deployment: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
                     - Configuring a Distributed API-M Deployment with Traffic Manager Separation: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-tm-separated.md
-                    - Configuring a Distributed API-M Deployment with Key Manager Separation: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-km-separated.md
                     - Running the API-M Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
             - Deploying the Micro Integrator:
                 - Configuring a Micro Integrator Cluster: install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei.md
@@ -1548,7 +1547,9 @@ nav:
                 - 2.0.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-200-to-400.md
                 - 1.10.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-1100-to-400.md
                 - 1.8.0/1.9.0/1.9.1 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-191-to-400.md
-                - Upgrading to Log4j2: install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2.md
+                - Advanced Upgrade Options:
+                    - Configuring a Distributed API-M Deployment with Key Manager Separation: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-km-separated.md
+                    - Upgrading to Log4j2: install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2.md
             - Upgrading WSO2 IS as KM:
                 - 3.2.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-5100-to-is-5110.md
                 - 3.1.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-5100-to-is-5110.md
