@@ -10,16 +10,7 @@ Install and set up [Docker](https://www.docker.com).
 
 The latest Choreo Connect distribution can be downloaded from the [GitHub repository](https://github.com/wso2/product-microgateway/releases). Extract the Choreo Connect distribution .zip file. The extracted folder will be referred to as `CHOREO-CONNECT_HOME` hereafter.
 
-### Step 2 - Configure Choreo Connect to connect to API Manager
-
-Enable the `[controlPlane.eventHub]` in the `config.toml` file found in the `CHOREO-CONNECT_HOME/docker-compose/choreo-connect-with-apim/conf` directory. To enable the event hub, do the following configurations in the `config.toml` file as indicated below.
-
-``` java
-[controlPlane.eventHub]
-  enabled = true
-```
-
-### Step 3 - Start Choreo Connect and API Manager
+### Step 2 - Start Choreo Connect and API Manager
 
 Add the host entry to `/etc/hosts` file as shown below in order to access the API Manager Publisher and Developer Portal.
 
@@ -42,27 +33,48 @@ docker ps | grep choreo-connect-
 !!! info
     Note that the Docker Compose script deploys WSO2 API Manager with basic configurations. In order to deploy WSO2 API Manager in production grade, use the Docker setup artifacts from [APIM page](https://wso2.com/api-management/). The Docker Compose scripts are provided only for the purpose of trying it out.
 
-### Step 4 - Deploy a sample API in API Manager
+### Step 3 - Create and publish an API from API Manager
 
-1. First sign in to the API Manager Publisher Portal by accessing the URL: https://apim:9443/publisher/
+1. Navigate to the Publisher Portal.
 
-2. Click on the REST API card and then click on the `Deploy Sample API` button. This will deploy the sample PizzaShack API.
-    [![]({{base_path}}/assets/img/deploy/mgw/deploy-sample-api.png)]({{base_path}}/assets/img/deploy/mgw/deploy-sample-api.png)
+    [https://apim:9443/publisher/](https://apim:9443/publisher/)
 
-3. Click on `Endpoints` from the left menu inside the PizzaShackAPI. Change the production endpoint and
-sandbox endpoint URL to `http://apim:9763/am/sample/pizzashack/v1/api/`. Save the changes by clicking the **Save** button.
-    [![]({{base_path}}/assets/img/deploy/mgw/endpoint-tab.png)]({{base_path}}/assets/img/deploy/mgw/endpoint-tab.png)
-    [![]({{base_path}}/assets/img/deploy/mgw/endpoint-edit.png)]({{base_path}}/assets/img/deploy/mgw/endpoint-edit.png)
+2. Sign in with **`admin/admin`** as the credentials.
 
-4. Follow the [documentation on deploying an API]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api) to deploy 
-the changes done to the API into Choreo Connect.
+    [![Publisher portal home page]({{base_path}}/assets/img/get_started/api-publisher-home.png)]({{base_path}}/assets/img/get_started/api-publisher-home.png)
 
-### Step 5 - Subscribing to an API and getting a token
+3. Create an API.
 
-1. Sign in to the WSO2 Developer Portal (`https://<hostname>:9443/devportal`) and click an API (e.g., `PizzaShack`).
+     Let's use a mock REST service to create a REST API from scratch.
+ 
+     A mock service with a JSON response `{"hello": "world"}` is provided by default when you use the service URL as `http://run.mocky.io/v2/5185415ba171ea3a00704eed`, which appears in the [https://designer.mocky.io/](https://designer.mocky.io/) mock service. Let's use the HTTP protocol instead of the HTTPS protocol for this guide.
 
-2. Subscribe to the API (e.g., `PizzaShack` 1.0.0) using an application and an available throttling policy.
-    [![Subscribe to an API]({{base_path}}/assets/img/learn/subscribe-to-api.png)]({{base_path}}/assets/img/learn/subscribe-to-api.png)
+    !!! tip
+        Optionally, to test this service, copy the service URL [http://run.mocky.io/v2/5185415ba171ea3a00704eed](http://run.mocky.io/v2/5185415ba171ea3a00704eed) and navigate to it on a new browser. You should see the following JSON message.
+            
+         `{"hello": "world"}`
+
+4. Select **REST API** from the home screen and then click **Start From Scratch**.
+   
+    [![Design a new REST API]({{base_path}}/assets/img/get_started/design-new-rest-api.png)]({{base_path}}/assets/img/get_started/design-new-rest-api.png)
+
+5. Enter the API details.
+     
+     [![Create an API]({{base_path}}/assets/img/get_started/api-create.png){: style="width:60%"}]({{base_path}}/assets/img/get_started/api-create.png)
+
+6. Click **Create & Publish**.
+
+     This will publish your first API on the Developer Portal as well as deploy it on Choreo Connect. You now have an OAuth 2.0 secured REST API that is ready to be consumed.
+
+### Step 4 - Subscribe to the API and Generate a Token
+
+1. Navigate to the Developer Portal and and click an API (e.g., `HelloWorld`).
+
+    [https://apim:9443/devportal/](https://apim:9443/devportal/)
+
+2. Subscribe to the API (e.g., `HelloWorld` 1.0.0) using an application and an available throttling policy.
+
+    [![Subscribe to an API]({{base_path}}/assets/img/deploy/mgw/subscribe-to-api.png)]({{base_path}}/assets/img/deploy/mgw/subscribe-to-api.png)
 
 3. Click **Applications** and then click on the application that you used to subscribe to the API. Click **Production Keys** and click **Generate keys** to generate a production key.
 
@@ -76,14 +88,36 @@ the changes done to the API into Choreo Connect.
     **JWT tokens**:
     As the application is self-contained (JWT), **copy the generated access token** before proceeding to the next step.
 
-### Step 6 - Invoke the API via Choreo Connect
+### Step 5 - Invoke the API via Choreo Connect
 
-Use the below curl command to invoke the `/menu` resource of the PizzaShackAPI
+Follow the instructions below to invoke the previously created API with the generated token.
 
-``` java
-curl -k -X GET "https://localhost:9095/pizzashack/1.0.0/menu" -H "accept: application/json" -H "Authorization: Bearer <COPIED_TOKEN>"
-```
+1. Click **Try Out** on the left menu bar.
 
-!!! info
-    Note that the port 9095 in the above cURL command is the Choreo Connect port. Hence, it can be inferred that you are invoking the API
-    via Choreo Connect.
+     The resources of the API will be listed.
+
+2. Paste the access token that you previously copied in the **Access Token** field.
+
+    [![Paste the access token]({{base_path}}/assets/img/deploy/mgw/invoke-api.png)]({{base_path}}/assets/img/deploy/mgw/invoke-api.png)
+
+3. **If this is the first time you are using the API test console** from your browser, open a new tab and navigate to the [https://localhost:9095/](https://localhost:9095/) URL.
+
+     This will prompt your browser to accept the certificate used by Choreo Connect. This is required because, by default, Choreo Connect uses a self-signed certificate that is not trusted by web browsers.
+    
+    !!! note
+
+        This certificate that is used by Choreo Connect is replaced when deploying the system in production.
+
+4. Click on the `GET` resource of the API to expand the resource and click **Try It Out**.
+   
+     [![GET resource]({{base_path}}/assets/img/deploy/mgw/expanded-get-resource.png)]({{base_path}}/assets/img/deploy/mgw/expanded-get-resource.png)
+
+5. Click **Execute**.
+
+     [![GET resource]({{base_path}}/assets/img/deploy/mgw/try-api.png)]({{base_path}}/assets/img/deploy/mgw/try-api.png)
+
+     You should see the `{"hello" : "world"}` response from the API. 
+
+     [![Successful response]({{base_path}}/assets/img/deploy/mgw/try-it-success.png)]({{base_path}}/assets/img/deploy/mgw/try-it-success.png)
+
+__Congratulations!__ You have successfully created your first API, subscribed to it through an OAuth 2.0 application, obtained an access token for testing, and invoked your API with Choreo Connect.
