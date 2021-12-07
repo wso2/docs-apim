@@ -69,7 +69,7 @@ docker ps | grep choreo-connect-
 
 ### Step 4 - Subscribing to API and Get a Token
 
-1. Navigate to the Developer Portal and and click an API (e.g., `HelloWorld`).
+1. Navigate to the Developer Portal and select an API (e.g., `HelloWorld`).
 
     [https://apim:9443/devportal/](https://apim:9443/devportal/)
 
