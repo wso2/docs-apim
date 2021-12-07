@@ -20,4 +20,4 @@
         | wso2/wso2am:4.0.0-alpine           | wso2am/wso2am:4.0.0-ubuntu                    |
     
         **Note:**</br>
-        Please note that, above ubuntu based (`*-ubuntu`) images are for **tryout purpose only**, **not recommonded for a production deployment**.
+        Note that the above Ubuntu based (`*-ubuntu`) images are for **tryout purpose only**, **not recommended for a production deployment**.
