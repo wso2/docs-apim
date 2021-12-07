@@ -90,7 +90,7 @@ docker ps | grep choreo-connect-
 
 ### Step 5 - Invoke the API via Choreo Connect
 
-Follow the instructions below to invoke the previously created API with the generated keys.
+Follow the instructions below to invoke the previously created API with the generated token.
 
 1. Click **Try Out** on the left menu bar.
 
