@@ -2,7 +2,7 @@
     ??? note "Tryout in ARM64 based machine (ex. Apple M1)"
         If you are trying out in **ARM64** based machine (ex. Apple M1) update the docker image names with the following in
     
-        - docker-compose.yaml (If you are trying out with Docker)
+        - docker-compose.yaml (if you are trying out with Docker)
             - `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/docker-compose.yaml`
             - `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/docker-compose.yaml`
         - Kubernetes deployment.yaml (if you are trying out with Kubernetes)
