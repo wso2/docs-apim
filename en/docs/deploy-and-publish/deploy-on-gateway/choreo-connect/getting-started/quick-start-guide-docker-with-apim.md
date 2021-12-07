@@ -34,7 +34,7 @@ docker ps | grep choreo-connect-
 !!! info
     Note that the docker-compose deploys the API Manager with basic configurations. In order to deploy API Manager in a production grade Docker, setup artifacts from the [API Manager page](https://wso2.com/api-management/). The docker-compose scripts are provided for the purpose of trying it out only.
 
-### Step 3 - Create and publish an API from API Manager
+### Step 3 - Create and publish an API via API Manager
 
 1. Navigate to the Publisher Portal.
 
@@ -67,13 +67,13 @@ docker ps | grep choreo-connect-
 
      This will publish your first API on the Developer Portal as well as deploy it on Choreo Connect. You now have an OAuth 2.0 secured REST API that is ready to be consumed.
 
-### Step 4 - Subscribe to the API and Generate a Token
+### Step 4 - Subscribe to the API and generate a token
 
 1. Navigate to the Developer Portal and select an API (e.g., `HelloWorld`).
 
     [https://apim:9443/devportal/](https://apim:9443/devportal/)
 
-2. Subscribe to the API (e.g., `HelloWorld` 1.0.0) using an application and an available throttling policy.
+2. Subscribe to the API (e.g., `HelloWorld` 1.0.0) using an application and an available Rate Limiting Policy.
 
     [![Subscribe to an API]({{base_path}}/assets/img/deploy/mgw/subscribe-to-api.png)]({{base_path}}/assets/img/deploy/mgw/subscribe-to-api.png)
 
