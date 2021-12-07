@@ -22,7 +22,7 @@ const nunjucks = require('nunjucks');
 const path = require('path');
 const rimraf = require('rimraf');
 
-const comp = ["adapter", "router", "enforcer", "control-plane", "analytics"]
+const comp = ["adapter", "router", "enforcer", "control-plane", "analytics", "tracing"]
 var i;
 for (i = 0; i < comp.length; i++) {
     const configData = require('../data/' + comp[i] + '/configs.json');

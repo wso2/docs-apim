@@ -311,6 +311,8 @@ nav:
                     - Importing Certificates to the Choreo Connect Truststore: deploy-and-publish/deploy-on-gateway/choreo-connect/security/importing-certificates-to-the-choreo-connect-truststore.md
                     - Define Security Using Extension: deploy-and-publish/deploy-on-gateway/choreo-connect/security/define-security-using-extension.md
                     - Generate a Test JWT: deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt.md
+                - Observability:
+                    - Distributed Tracing: deploy-and-publish/deploy-on-gateway/choreo-connect/observability/distributed-tracing.md
                 - File Upload via Multipart Requests: deploy-and-publish/deploy-on-gateway/choreo-connect/file-upload-via-multipart-requests.md
                 - Configure Caching: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-caching.md
                 - Passing End User Attributes to the Backend: deploy-and-publish/deploy-on-gateway/choreo-connect/passing-enduser-attributes-to-the-backend-via-choreo-connect.md
