@@ -101,7 +101,7 @@ Follow the instructions below to invoke the previously created API with the gene
 
     [![Paste the access token]({{base_path}}/assets/img/deploy/mgw/invoke-api.png)]({{base_path}}/assets/img/deploy/mgw/invoke-api.png)
 
-3. **If this is the first time you are using the API test console** from your browser,  open a new tab and navigate to the [https://localhost:9095/](https://localhost:9095/) URL.
+3. **If this is the first time you are using the API test console** from your browser, open a new tab and navigate to the [https://localhost:9095/](https://localhost:9095/) URL.
 
      This will prompt your browser to accept the certificate used by Choreo Connect. This is required because, by default, Choreo Connect uses a self-signed certificate that is not trusted by web browsers.
     
