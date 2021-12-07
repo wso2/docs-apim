@@ -66,7 +66,7 @@ docker ps | grep choreo-connect-
 
      This will publish your first API on the Developer Portal as well as deploy it on Choreo Connect. You now have an OAuth 2.0 secured REST API that is ready to be consumed.
 
-### Step 4 - Subscribing to API and Get a Token
+### Step 4 - Subscribe to the API and Generate a Token
 
 1. Navigate to the Developer Portal and and click an API (e.g., `HelloWorld`).
 
