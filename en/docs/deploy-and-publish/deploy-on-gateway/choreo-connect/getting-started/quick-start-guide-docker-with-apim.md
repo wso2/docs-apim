@@ -121,4 +121,4 @@ Follow the instructions below to invoke the previously created API with the gene
 
      [![Successful response]({{base_path}}/assets/img/deploy/mgw/try-it-success.png)]({{base_path}}/assets/img/deploy/mgw/try-it-success.png)
 
-__Congratulations!__ You have successfully created your first API, subscribed to it through an OAuth 2.0 application, obtained an access token for testing, and invoked your API with the Choreo Connect.
+__Congratulations!__ You have successfully created your first API, subscribed to it through an OAuth 2.0 application, obtained an access token for testing, and invoked your API with Choreo Connect.
