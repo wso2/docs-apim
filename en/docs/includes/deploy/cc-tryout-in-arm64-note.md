@@ -1,5 +1,5 @@
 
-    ??? note "Tryout in ARM64 based machine (ex. Apple M1)"
+    ??? note "Tryout in ARM64 based machine (e.g., Apple M1)"
         If you are trying out in **ARM64** based machine (e.g., Apple M1) update the Docker image names with the following in
     
         - docker-compose.yaml (if you are trying out with Docker)
