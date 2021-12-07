@@ -42,48 +42,12 @@ Let's get started...
     <ingress_address>    gw.wso2.com    apim.wso2.com
     ```
 
+
 ## Step 2 - Deploy Sample API from API Manager
 
-1. First, sign in to the API Manager Publisher Portal by accessing the following URL and providing credentials (the username and password is admin): [https://apim.wso2.com/publisher/](https://apim.wso2.com/publisher/).
+ - Publisher Portal:  [https://apim.wso2.com/publisher/](https://apim.wso2.com/publisher/)
+ - Developer Portal:  [https://apim.wso2.com/devportal/](https://apim.wso2.com/devportal/)
 
-2. Click on the REST API card and then click on the `Deploy Sample API` button. This will deploy the sample PizzaShack API.
-   [![]({{base_path}}/assets/img/deploy/mgw/deploy-sample-api.png)]({{base_path}}/assets/img/deploy/mgw/deploy-sample-api.png)
 
-3. Then click on the `Endpoints` from the left-hand side menu inside the PizzaShackAPI. Change the production endpoint and
-   sandbox endpoint URL as `http://wso2apim:9763/am/sample/pizzashack/v1/api/`. Then save the changes by clicking the **Save** button.
-   Here `wso2apim` is the Kubernetes service name of the API-M instance.
-   [![]({{base_path}}/assets/img/deploy/mgw/endpoint-tab.png)]({{base_path}}/assets/img/deploy/mgw/endpoint-tab.png)
-   [![]({{base_path}}/assets/img/deploy/mgw/endpoint-edit-k8s.png)]({{base_path}}/assets/img/deploy/mgw/endpoint-edit-k8s.png)
+    Please follow the steps in [create and publish an API from API Manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/#step-3-create-and-publish-an-api-from-api-manager).
 
-5. Follow the [deploy an API]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api) guide to deploy
-   the changes done to the API in to Choreo Connect.
-
-## Step 3 - Subscribing to API and Get a Token
-
-1. Sign in to the WSO2 Developer Portal [https://apim.wso2.com/devportal/](https://apim.wso2.com/devportal) and click `PizzaShack` API.
-
-2. Subscribe to the API using an application and an available throttling policy.
-   [![Subscribe to an API]({{base_path}}/assets/img/learn/subscribe-to-api.png)]({{base_path}}/assets/img/learn/subscribe-to-api.png)
-
-3. Click **Applications** and then click on the application that you used to subscribe to the API. Click **Production Keys** and click **Generate keys** to generate a production key.
-   [![Generate production keys]({{base_path}}/assets/img/learn/generate-keys-production.png)]({{base_path}}/assets/img/learn/generate-keys-production.png)
-
-!!! tip
-    **Production and Sandbox Tokens**:
-    To generate keys for the Sandbox endpoint, go to the **Sandbox Keys** tab. For more information, see [Maintaining Separate Production and Sandbox Gateways]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways/#multiple-gateways-to-handle-production-and-sandbox-requests-separately).
-
-!!! tip
-    **JWT tokens**:
-    As the application is self-contained (JWT), **copy the generated access token** before proceeding to the next step.
-
-## Step 4 - Invoke the API via Choreo Connect
-
-Use the below curl command to invoke the `/menu` resource of the PizzaShackAPI
-
-``` shell
-curl -k -X GET "https://gw.wso2.com/pizzashack/1.0.0/menu" -H "accept: application/json" -H "Authorization: Bearer <COPIED_TOKEN>"
-```
-
-!!! info
-    Note that the ingress host `gw.wso2.com` in the above curl command is the host of Choreo Connect. Hence, it can be inferred that you are invoking the API
-    via Choreo Connect.
