@@ -31,6 +31,8 @@ Add the following entry to `/etc/hosts` file
 
 Start the Choreo Connect and API Manager on docker by executing the docker compose script inside the `CHOREO-CONNECT_HOME/docker-compose/choreo-connect-with-apim` folder.
 
+{!includes/deploy/cc-tryout-in-arm64-note.md!}
+
 ``` java
 docker-compose up -d
 ```

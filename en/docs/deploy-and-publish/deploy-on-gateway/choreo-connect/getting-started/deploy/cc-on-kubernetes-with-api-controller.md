@@ -25,6 +25,8 @@ Let's get started...
 
 2.  Apply the Kubernetes configurations for Choreo Connect using the kubectl tool.
 
+    {!includes/deploy/cc-tryout-in-arm64-note.md!}
+
     ```bash
     kubectl apply -f <CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect
     ```
