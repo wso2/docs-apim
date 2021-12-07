@@ -14,7 +14,7 @@ Before passing end user attributes, you need to enable and configure the JWT imp
 
     ```toml
     [enforcer.jwtGenerator]
-        enable = true
+        enabled = true
     ```
 
 3. Start the server.
@@ -92,7 +92,7 @@ The following is a sample configuration.
 
 ```toml
 [enforcer.jwtGenerator]
-    enable = true
+    enabled = true
     encoding = "base64" # base64,base64url
     claimDialect = "http://wso2.org/claims"
     convertDialect = false
