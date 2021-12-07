@@ -20,7 +20,7 @@ Add the host entry to `/etc/hosts` file as shown below in order to access the AP
 
 Start Choreo Connect and API Manager on Docker by executing the Docker Compose script inside the `CHOREO-CONNECT_HOME/docker-compose/choreo-connect-with-apim` folder.
 
-{!includes/deploy/cc-tryout-in-arm64-note.md!}
+{!includes/deploy/cc-tryout-in-arm64-docker-note.md!}
 
 ``` java
 docker-compose up -d
