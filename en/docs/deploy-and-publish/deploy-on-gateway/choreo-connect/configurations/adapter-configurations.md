@@ -1,6 +1,6 @@
-# Choreo Connect Adaptor Configuration Catalog
+# Choreo Connect Adapter Configuration Catalog
 
-This document describes all the configuration parameters that are used in WSO2 Choreo Connect Adaptor.
+This document describes all the configuration parameters that are used in WSO2 Choreo Connect Adapter.
 
 ## Instructions for use
 
@@ -83,7 +83,7 @@ See the example .toml file given below.
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Enable/Disable Choreo Connect Adaptor REST API.</p>
+                                        <p>Enable/Disable Choreo Connect Adapter REST API.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -102,7 +102,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Hostname of the Choreo Connect Adaptor</p>
+                                        <p>Hostname of the Choreo Connect Adapter</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -121,7 +121,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Port of the Choreo Connect Adaptor</p>
+                                        <p>Port of the Choreo Connect Adapter</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -140,7 +140,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Time to live for the Adaptor access token</p>
+                                        <p>Time to live for the Adapter access token</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -216,7 +216,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Path of the certificate of the Adaptor</p>
+                                        <p>Path of the certificate of the Adapter</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -235,7 +235,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Path of the private key of the Adaptor</p>
+                                        <p>Path of the private key of the Adapter</p>
                                     </div>
                                 </div>
                             </div>
@@ -291,7 +291,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The directory path for the trusted certificates of the Choreo Connect Adaptor.</p>
+                                        <p>The directory path for the trusted certificates of the Choreo Connect Adapter.</p>
                                     </div>
                                 </div>
                             </div>
