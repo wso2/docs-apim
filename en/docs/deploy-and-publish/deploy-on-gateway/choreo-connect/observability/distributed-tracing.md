@@ -91,7 +91,7 @@ You will be able to see all traces. Detailed trace view will look like below.
 Follow these steps to configure WSO2 Choreo Connect with Azure Application Insights,
 
 1. First you need to obtain the `ConnectionString` from the azure portal.
-    * Log into azure portal.
+    * Log in to the Azure portal.
     * Copy the `Connection String` from the overview page of `Application Insights` resource. E.g., `InstrumentationKey=ab71943f-xxxx-xxxx-xxxx-fb2eb69ae11d;IngestionEndpoint=https://region.applicationinsights.azure.com/`.
 1. Add the following configuration to the `config.toml` file.
 
