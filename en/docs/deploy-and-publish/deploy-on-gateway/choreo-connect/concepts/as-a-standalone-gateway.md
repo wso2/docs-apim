@@ -86,7 +86,7 @@ Choreo Connect supports the following OpenAPI Extensions. You can use these exte
         -   Application User
     -   However, if you want to expose API/ resource without security, you can also use the `x-wso2-disable-security` extension. Find more information about this extension from [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/disabling-security/#disabling-security).
 
-   You can find some samples on how these OpenAPI extensions are used in [Open API definitions](https://github.com/wso2/product-microgateway/blob/master/samples/).
+   You can find some samples on how these OpenAPI extensions are used in [OpenAPI definitions](https://github.com/wso2/product-microgateway/blob/master/samples/).
 
 ## Subscription Validation for Self Contained JWTs
 
