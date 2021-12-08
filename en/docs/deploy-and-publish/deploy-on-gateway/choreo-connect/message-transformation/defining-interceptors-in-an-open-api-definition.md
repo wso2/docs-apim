@@ -16,6 +16,7 @@ based on your requirement for the mediation.
 
 You can define the request flow interceptor as follows in the Open API Definition with the extension `x-wso2-request-interceptor`.
 For a detailed description of the keys, see [Description of Keys of Interceptor Open API Extension](#description-of-keys-of-interceptor-open-api-extension).
+Also, for a detailed example, see the [detailed sample OpenAPI definition with request flow interceptor](https://github.com/wso2/product-microgateway/blob/main/samples/openAPI-definitions/interceptors_sample.yaml).
 
 ``` yaml tab="Format"
 x-wso2-request-interceptor:
