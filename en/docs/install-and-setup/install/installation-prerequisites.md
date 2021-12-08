@@ -40,6 +40,10 @@ Check the following system requirements for the API-M and Micro Integrator runti
 
 <html>
 <table>
+<tr> 
+<th><b>Type</b></th>
+<th> <b>Requirement</th>
+</tr>
 <tr>
 <td><p>Physical</p></td>
 <td>
@@ -83,6 +87,10 @@ Three WSO2 product instances can be run in 1 EC2 Extra-Large instance. Based on 
 ### Micro Integrator runtime
 
 <table>
+<tr> 
+<th><b>Type</b></th>
+<th> <b>Requirement</th>
+</tr>
   <tr>
     <td>
       <b>Docker</b>
@@ -119,6 +127,25 @@ Three WSO2 product instances can be run in 1 EC2 Extra-Large instance. Based on 
       </ul>
     </td>
   </tr>
+</table>
+
+### Streaming Integrator runtime
+
+<table>
+<tr> 
+<th><b>Type</b></th>
+<th> <b>Requirement</th>
+</tr>
+<tr>
+<td>
+<b>Virtual Machine (VM)/</br>Physical/</br>Docker</b>
+</td>
+<td>
+<ul><li>You require a minimum of one CPU with 2 cores. It is recommended to have a CPU with 4 cores.</li>
+<li>~ 4 GB minimum memory is recommended and ~ 2 GB heap size.</li>                                      
+<li>~ 1 GB minimum disk (excluding space allocated for log files and databases.) </li></ul>
+</td>
+</tr>
 </table>
 
 ## Database storage requirements
