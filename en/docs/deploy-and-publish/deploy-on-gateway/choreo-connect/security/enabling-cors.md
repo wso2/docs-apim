@@ -23,7 +23,7 @@ x-wso2-cors:
   accessControlAllowCredentials: true
 ```
 
-If you are following the [Deploy API via API-M]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-via-apim/) approach, you can add **CORS** configurations for each API using the [API-M]({{base_path}}/design/advanced-topics/enabling-cors-for-apis/#EnablingCORSPerAPI).
+If you are following the [Deploy API via API-M]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-via-apim/) approach, you can add **CORS** configurations for each API using the [WSO2 API-M]({{base_path}}/design/advanced-topics/enabling-cors-for-apis/#EnablingCORSPerAPI).
 
 ### Enable CORS configurations globally
 
