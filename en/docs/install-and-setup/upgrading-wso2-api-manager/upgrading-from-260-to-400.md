@@ -3602,6 +3602,13 @@ Follow the instructions below to move all the existing API Manager configuration
 
     6.  Stop the WSO2 API-M server and remove the `tenantloader-1.0.jar` from the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
 
+!!! important
+    When using WSO2 Identity Server 5.11.0, groups include user store roles and roles include internal roles. To enable this role and group separation the following property should be enabled via the `deployment.toml` file.
+    ```
+    [authorization_manager.properties]
+    GroupAndRoleSeparationEnabled = true
+    ```
+
 ### Step 3 - Restart the WSO2 API-M 4.0.0 server
 
 1.  Restart the WSO2 API-M server.
