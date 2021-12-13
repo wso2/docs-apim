@@ -43,7 +43,7 @@ paths:
 ```
 
 !!! note
-    When an OAuth2 type security scheme is given under operation or API, it will secure the operation or API with OAuth2 security (JWT and opaque security tokens).
+    When an OAuth2 type security scheme is provided under an operation or API, it will secure the operation or API with OAuth2 security (JWT and Opaque security tokens).
 
 ### Validating scopes through JWT authentication
 
