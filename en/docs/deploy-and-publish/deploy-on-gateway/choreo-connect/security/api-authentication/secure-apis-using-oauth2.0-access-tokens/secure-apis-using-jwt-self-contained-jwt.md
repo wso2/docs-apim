@@ -30,7 +30,7 @@ This configuration should be added to the `config.toml` file located in `<CHOREO
 
 The `issuer` of the above configuration will be used to validate the "iss" claim of the JWT. 
 
-The JWT signature can be validated either by the certificate in `certificateFilePath` (which the alias is defined in `certificateAlias`) or using the issuer's `jwksURL` endpoint. When configured both properties, if the JWT contains the kid, the token will be validated through the JWKS endpoint.
+The JWT signature can be validated either by the certificate in `certificateFilePath` (which the alias is defined in `certificateAlias`) or using the issuer's `jwksURL` endpoint. When configured both properties, if the JWT contains the kid (key ID), the token will be validated through the JWKS endpoint.
 Importing the public certificate into the Choreo Connect trust store and configuring the certificate alias in the JWT validation configuration section is explained in the [importing certificates to the Choreo Connect truststore]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/importing-certificates-to-the-choreo-connect-truststore/).
 
 To enable [subscription validation](#subscription-validation), enable `validateSubscription` and set `consumerKeyClaim` to the name of the claim in JWT which contains the consumer key of the application.
@@ -44,7 +44,7 @@ For information on the subscription model and configuration steps, please refer 
 
 ### Configure Multiple JWT issuers
 
- There can be use cases in certain organizations, where multiple JWT issuers or key managers are used. In that case, Choreo Connect can be configured to work with JWTs issued by all of them. Multiple JWT issuer feature allows configuring multiple JWT token configurations in the `config.toml` file. Configurations allows to specify array of **jwtTokenConfig** sections. In the case of multiple JWT issuers are provided Choreo Connect will sequentially check a JWT with all the available issuers. Valid JWT tokens will be cached and then expiry time only will be validated in the subsequent calls with the same token.
+ There can be use cases in certain organizations, where multiple JWT issuers or key managers are used. In that case, Choreo Connect can be configured to work with JWTs issued by all of them. Multiple JWT issuer feature allows configuring multiple JWT token configurations in the `config.toml` file. Configurations allow to specify array of **jwtTokenConfig** sections. In the case of multiple JWT issuers are provided, Choreo Connect will sequentially check a JWT with all the available issuers. Valid JWT tokens will be cached and then expiry time only will be validated in the subsequent calls with the same token.
 
  **Multiple JWT Issuers**
 

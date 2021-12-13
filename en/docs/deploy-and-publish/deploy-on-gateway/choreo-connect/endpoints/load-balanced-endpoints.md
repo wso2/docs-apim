@@ -2,8 +2,8 @@
 
 When you use Load Balanced API Endpoints, the traffic that comes to the resource is routed to the mentioned endpoint addresses based on the round-robin algorithm. You can enable load balancing capabilities when working with Choreo Connect (CC) in the following two modes.
 
-- [Choreo Connect with WSO2 API Manager as a Control Plane](#choreo-connect-with-wso2-api-manager-as-a-control-plane)
-- [Choreo Connect as a Standalone Gateway](#choreo-connect-as-a-standalone-gateway)
+- [Load Balanced Endpoints With WSO2 API Manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/load-balanced-endpoints/#load-balanced-endpoints-with-apim)
+- [Load Balanced Endpoints With APICTL (WSO2 API Controller)]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/load-balanced-endpoints/#load-balanced-endpoints-with-apictl)
 
 ## Choreo Connect with WSO2 API Manager as a Control Plane
 
@@ -34,6 +34,7 @@ After creating an API in the APIM publisher, select the API you want to apply lo
 ### Step 2 - Invoke API Endpoint Via The Choreo Connect
 
 After obtaining a valid JWT token, you can invoke APIs as described [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/#step-6-invoke-the-api-via-choreo-connect). 
+When invoking the API, traffic will route to the load balanced endpoints you defined above.
 
 Example is given below:
 
@@ -45,9 +46,9 @@ curl -k -X GET "https://localhost:9095/pizzashack/1.0.0/menu" -H "accept: applic
 
 Follow the instructions below to enable load balancing capabilities when using Choreo Connect as a standalone gateway:
 
-In this approach you can define load balanced endpoints in API level as well as in resource level. Below section demonstrates how load balanced endpoints in those two levels.
+In this approach you can define load balanced endpoints in API level as well as in resource level. Below section demonstrates how load balanced endpoints can be defined in those two levels.
 
-### Step 1 - Define Load Balanced Endpoints In The OpenAPI Definition file
+### Step 1 - Define Load Balanced Endpoints In The OpenAPI Definition file.
 
 ### Load Balanced Endpoints In API Level
 

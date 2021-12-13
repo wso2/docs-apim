@@ -1,6 +1,6 @@
 # Defining Endpoints in an OpenAPI Definition
 
-You can use an existing OpenAPI definition to create an API project using APICTL, and deploy that project directly to Choreo Connect. When following this path, the endpoints must be included in the OpenAPI definition itself, so that the inbound request of Choreo Connect can be routed to the corresponding backend service. You, as a developer, can state the endpoint URLs for, 
+You can use an existing OpenAPI definition to create an API project using APICTL, and deploy that project directly to the Choreo Connect. When following this path, the endpoints must be included in the OpenAPI definition itself, so that the inbound request of Choreo Connect can be routed to the corresponding backend service. You, as a developer, can state the endpoint URLs for, 
 
 - the whole API or 
 - a particular resource 
