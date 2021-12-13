@@ -2,19 +2,17 @@
 
 Scopes are used to validating the rights to access the requested API resource. When an API/operation is protected with scopes, the invocation request should have a token with one of the required scopes to successfully access the resource. To provide scopes for authorization, we need to define the OAuth2 security scheme with relevant scopes for the operation in the API Definition.
 
-WSO2 Microgateway provide scope validation for below API security types,
+WSO2 Choreo Connect provides scope validation for the following API security types:
 
--   OAuth2 tokens (JWT only) <!-- TODO: Enable once the feature is completed for MGW 4.0.0
-    Basic authentication
--->
-
+-   OAuth2 tokens (JWT only)
+<!-- TODO: Enable once the feature is completed for MGW 4.0.0: Basic authentication-->
 
 ### Define supported scopes in API definition
 
-First, define an OAuth2 scheme under components/securitySchemes with all supported scopes. If you define multiple scopes under a security scheme, they will be in OR relationship. i.e. Providing at least one scope of them, is enough to authorize the request successfully.
+First, define an OAuth2 scheme under components/securitySchemes with all supported scopes. If you define multiple scopes under a security scheme, they will be in an OR relationship (i.e., providing at least one scope of them, is enough to authorize the request successfully).
 
 !!! note
-    The following example shows how to define OAuth2 security schemes in [OAS3](https://swagger.io/docs/specification/authentication/oauth2/) . If you are using an OAS2 API definition, please refer to [this](https://swagger.io/docs/specification/2-0/authentication/api-keys/) [swagger document](https://swagger.io/docs/specification/2-0/authentication/) on defining authorization in OAS2.
+    The following example shows how to define OAuth2 security schemes in [OAS3](https://swagger.io/docs/specification/authentication/oauth2/) . If you are using an OAS2 API definition, please refer to [this](https://swagger.io/docs/specification/2-0/authentication/api-keys/) [Swagger document](https://swagger.io/docs/specification/2-0/authentication/) on defining authorization in OAS2.
 
 ``` yml
 components:
@@ -31,9 +29,7 @@ components:
             admin: Grants access to admin operations
 ```
 
-Then, list the scopes requires by each operation or API by listing OAuth2 security with relevant scopes.
-
-List the scopes required by each operation in the `security` section of that operation:
+List the scopes required by each operation or API by listing OAuth2 security with relevant scopes. To do this, list the scopes required by each operation in the `security` section of that operation:
 
 ``` yml
 # Assign oauth2 security scheme with scopes to the operation

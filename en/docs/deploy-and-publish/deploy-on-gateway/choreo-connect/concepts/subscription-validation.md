@@ -1,6 +1,6 @@
 # Subscription Validation Model
 
-When using WSO2 API Manager as the control plane with Choreo Connect, it can be configured to validate the API Subscriptions. For this, the same API should be published in both API Manager and Choreo Connect, and a valid access token (JWT or Reference token) should be obtained by subscribing to the API via an Application. Choreo Connect is capable of validating subscriptions only for the configured tenant (One tenant per Choreo Connect basis).
+When using WSO2 API Manager as the control plane with Choreo Connect, it can be configured to validate the API Subscriptions. For this, the same API should be published in both API Manager and Choreo Connect, and a valid access token (JWT or Reference token) should be obtained by subscribing to the API via an Application. Choreo Connect is capable of validating subscriptions only for the configured tenant (one tenant per Choreo Connect instance basis).
 
 ## Choreo Connect subscription validation with API Manager event hub
 
@@ -28,8 +28,8 @@ The following are the data stores that are being used.
 |Data Store|Description|
 |----------|-----------|
 |Application Key Mapping Data Store|Holds the consumer key and the corresponding applicationId of OAuth applications created in API Manager|
-|Application Data Store|Stores information about the Applications (id, application throttling policy, etc)|
-|API Data Store|Stores API information (API Name, Version, Owner, etc)|
+|Application Data Store|Stores information about the Applications (id, application throttling policy, etc.)|
+|API Data Store|Stores API information (API Name, Version, Owner, etc.)|
 |Subscription Data Store|Stores API Subscription data. (API id, subscribed app id, subscription status, subscription policy)|
 
 ### Subscription validation process
