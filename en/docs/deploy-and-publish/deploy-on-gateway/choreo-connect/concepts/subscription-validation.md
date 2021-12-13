@@ -2,7 +2,7 @@
 
 When using WSO2 API Manager as the control plane with Choreo Connect, it can be configured to validate the API Subscriptions. For this, the same API should be published in both API Manager and Choreo Connect, and a valid access token (JWT or Reference token) should be obtained by subscribing to the API via an Application. Choreo Connect is capable of validating subscriptions only for the configured tenant (One tenant per Choreo Connect basis).
 
-## Choreo Connect Subscription Validation with API Manager Event Hub
+## Choreo Connect subscription validation with API Manager event hub
 
 Choreo Connect connects with event hub to receive different events in order to validate the subscriptions.
 The following set of events are received by the Choreo Connect in order to perform the subscription validation.
@@ -12,16 +12,14 @@ The following set of events are received by the Choreo Connect in order to perfo
 - Application key generation event (generation of consumer key and secret).
 - Subscribing an API to application event.
 
-And also adapter pull the following details belonging to a particular tenant during the startup as well, in order to
-get the events that has happened before the starting of the gateway. Adapter will have list of environments assigned to it.
-Adapter will pull the APIs that are deployed in the specified set of environments only.
+In order to get the events that has happened before the Gateway startup, the adapter will pull the following details of the tenant defined for the Choreo Connect instance during the startup. The Adapter will have list of predefined environments from which it will pull the APIs and the other artifacts.
 
 - Pull all the APIs deployed for matching environments for a specific tenant.
 - Pull all the applications created for a specific tenant.
 - Pull all the application key details for a specific tenant.
 - Pull all the subscriptions of a specific tenant.
 
-## Subscription Validation Model
+## Subscription validation model
 
 Subscriptions are validated in the Choreo Connect itself using a set of internal data stores. These data stores contain APIs, Applications, and Subscription related information.
 
@@ -34,7 +32,7 @@ The following are the data stores that are being used.
 |API Data Store|Stores API information (API Name, Version, Owner, etc)|
 |Subscription Data Store|Stores API Subscription data. (API id, subscribed app id, subscription status, subscription policy)|
 
-### Subscription Validation Process
+### Subscription validation process
 
 1. Validate the token and get the consumer key (using the aud claim of JWT or introspection response).
 2. Check in the Application Key Mapping Data store and get the Application Id for the consumer key.
