@@ -22,7 +22,7 @@ Security schemes must be defined on the OpenAPI definition under `securityScheme
 
 | Field Name | Description   |
 | -----------| --------------|
-| `name`     | Specify a unique name. This name will be used to refer to the scheme on API level or resource level. |
+| `name`     | Header name or query key for the APIKey. |
 | `in`       | This can be either `header` or `query`. |
 | `type`     | Specify `apiKey` as the type. |
 

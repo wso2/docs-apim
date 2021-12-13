@@ -1,7 +1,7 @@
 
 #### 1) IP address restriction
 
-The IP address restriction allows only the clients with specific IP addresses can use the token. The IP addresses can be specified
+The IP address restriction allows only the clients with specific IP addresses to use the token. The IP addresses can be specified
 in the following formats.
 
 - IPv4 (e.g., `192.168.1.2`)
@@ -14,7 +14,7 @@ in the following formats.
 
 2. Select `IP Addresses`, add the IP addresses in the text input as shown below, and generate the key.
 
-   [![IP Restricted API key]({{base_path}}/assets/img/learn/ip-api-key.png)]({{base_path}}/assets/img/learn/ip-api-key.png)
+   [![IP Restricted API key](https://apim.docs.wso2.com/en/4.1.0/assets/img/learn/ip-api-key.png)](https://apim.docs.wso2.com/en/4.1.0/assets/img/learn/ip-api-key.png)
 
 #### 2) HTTP referrer restriction
 
@@ -30,4 +30,4 @@ When the HTTP referrer restriction has been enabled, only the specific HTTP refe
 
 2. Select `HTTP Referrers (Web Sites)` and add the referrers in the text input as shown below and generate the key.
 
-   [![HTTP Referer Restricted API key]({{base_path}}/assets/img/learn/http-referer-api-key.png)]({{base_path}}/assets/img/learn/http-referer-api-key.png)
+   [![HTTP Referer Restricted API key](https://apim.docs.wso2.com/en/4.1.0/assets/img/learn/http-referer-api-key.png)](https://apim.docs.wso2.com/en/4.1.0/assets/img/learn/http-referer-api-key.png)

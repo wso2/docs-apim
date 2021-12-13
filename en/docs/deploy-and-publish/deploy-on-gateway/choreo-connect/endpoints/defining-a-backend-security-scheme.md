@@ -5,7 +5,7 @@
 When an actual backend service of the API is protected using basic authentication, the basic authentication parameters (username and password) must be sent to the backend. 
 Hence, you need to define the endpoint security parameter in the OpenAPI using extensions.
 
-The security scheme used for the API must be defined in the `securityConfig` under `x-wso2-production-endpoints` and `x-wso2-sandbox-endpoints vendor extension in the API definition.
+The security scheme used for the API must be defined in the `securityConfig` under `x-wso2-production-endpoints` and `x-wso2-sandbox-endpoints` vendor extension in the API definition.
 This is supported at the API level only. 
 Security configs can be applied to production and sandbox endpoints separately. 
 API level security configurations will be applied to all API level and resource level production and sandbox endpoints.
