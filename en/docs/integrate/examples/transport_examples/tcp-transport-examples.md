@@ -7,7 +7,7 @@ Generally, you can send only one message via one generic TCP channel. Neverthele
 You can split the following sample request input message in different ways as explained below.
 
 ```xml
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Header/><soapenv:Body/></soapenv:Envelope>"
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Header/><soapenv:Body/></soapenv:Envelope>
 ```
 
 The following are the properties that are specific to sending multiple messages via the same TCP channel.
