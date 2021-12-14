@@ -3,7 +3,7 @@
 This authentication is used to testing APIs that are created in the Publisher to make sure that the APIs meet the required functionalities and behavior.
 
 ### Step 1 - Deploy a created API to Choreo Connect via APIM
-Follow the documentation [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-via-apim),
+Follow the documentation [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-in-choreo-connect),
 
 ### Step 2 - Generate Internal Key from APIM Publisher
 Follow the steps 1 - 4 in [here]({{base_path}}/design/create-api/test-a-rest-api/)

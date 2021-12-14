@@ -3,7 +3,7 @@
 After issuing an access token, a user or admin can revoke it due to any reason, such as security violation. If a revoked token is used to invoke an API, Choreo Connect will reject the invocation by returning an Unauthenticated response.
 
 !!! note
-    Revoking the access token can only be done by enabling the Control Plane Event hub. So you need to follow [this]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-via-apim) as initial setup to enable Control Plane.
+    Revoking the access token can only be done by enabling the Control Plane Event hub. So you need to follow [this]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-in-choreo-connect) as initial setup to enable Control Plane.
 
 !!! info
     When you revoke an access token using APIM, the same information will be collected by Choreo Connect via the Control Plane Event hub and the Choreo Connect will reject the same token.
@@ -16,7 +16,7 @@ Here are the steps to revoking an Access Token.
 !!! info 
     Before you begin, make sure you have enabled the Control Plane with Choreo Connect
 
-1. [Deploy the API]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-via-apim).
+1. [Deploy the API]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-in-choreo-connect).
 
 2. Generate an access token from APIM (Follow [Get a Test Key to Invoke an API]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console/#get-a-test-key-to-invoke-an-api)).
 
