@@ -17,7 +17,7 @@ The following lifecycle states are available in the default API lifecycle and ap
 
 ## Manage API lifecycle
 
-The lifecycle of an API or API Products can be managed by the users with publishing previlege, using API Publisher portal in WSO2 API Manager. 
+The lifecycle of an API or API Products can be managed by the users with publishing privilege, using the API Publisher portal in WSO2 API Manager. 
 
 Follow the instructions below to manage the API lifecycle appropriately:
 
