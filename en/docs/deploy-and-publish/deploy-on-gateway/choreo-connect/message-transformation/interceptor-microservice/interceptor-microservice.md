@@ -6,7 +6,7 @@ reach the backend or even dynamically change the endpoint of the request.
 
 Use the following Open API Definition to build your interceptor service with a programming language of your choice.
 
-- [Interceptor Open API Definition](https://raw.githubusercontent.com/wso2/product-microgateway/v1.0.0-alpha/resources/interceptor-service-open-api.yaml)
+- [Interceptor Open API Definition](https://raw.githubusercontent.com/wso2/product-microgateway/v1.0.0/resources/interceptor-service-open-api.yaml)
 
 Choreo Connect Router makes requests to your interceptor service in the following paths. You can define which handler
 (request/response) should be get called, which information should be included in the request body of the interceptor

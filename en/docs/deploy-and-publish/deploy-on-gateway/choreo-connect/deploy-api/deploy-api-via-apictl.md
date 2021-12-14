@@ -7,9 +7,9 @@ Follow the instructions below to use the WSO2 API Controller (apictl), which is 
 
     This guide assumes that you already have a Choreo Connect instance that is up and running. If not, checkout the [Using Choreo Connect Deployed on Docker with WSO2 API Controller Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-api-controller) on how to install and run Choreo Connect. To learn more about Choreo Connect, have a look at the [Overview of Choreo Connect]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview). 
 
-## Step 1 - Download apictl and Set the Path Variable 
+## Step 1 - Download and initialize apictl 
 
-First download [apictl](https://github.com/wso2/product-apim-tooling/releases) locally and extract it into a folder of your choice. Then, add its location to your PATH variable.
+Follow the guid [Download and initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl)
 
 ```
 export PATH=$PATH:<directory-of-the-apictl-executable>
