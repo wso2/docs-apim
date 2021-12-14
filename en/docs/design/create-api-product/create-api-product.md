@@ -106,7 +106,7 @@ the attached OpenAPI definition (a.k.a Swagger definition) files.
 
      [![Add resources from the leasing API]({{base_path}}/assets/img/learn/design-api/create-api-product/select-leasing-resources.png)]({{base_path}}/assets/img/learn/design-api/create-api-product/select-leasing-resources.png)
     
-8. Click **PUBLISH** to create and publish the API Product. 
+8. Click **Create** to create the API Product. If you want to directly publish the API Product, you can select the **Create & Publish** button. 
 
      The API Product will appear in the API Publisher, as shown below.
 
@@ -116,7 +116,23 @@ the attached OpenAPI definition (a.k.a Swagger definition) files.
 
      [![API Product in the Developer Portal]({{base_path}}/assets/img/learn/design-api/create-api-product/api-product-portal-listing.png)]({{base_path}}/assets/img/learn/design-api/create-api-product/api-product-portal-listing.png)
 
-9. Sign in to the Developer Portal to subscribe and consume the API Product in the same way that you would do so for an API. 
+9. You can deploy the API Product to make it available for invocation via Gateway.
+     Navigate to the **Deploy** section and click **Deployments**.
+     The Deployments page appears as follows when you do not have any existing revisions.
+
+     [![Create and deploy new API Product revision]({{base_path}}/assets/img/design/revision/deploy-first-revision.png)]({{base_path}}/assets/img/design/revision/deploy-first-revision.png)
+
+     The Deployments page appears as follows when you have at least one revision.
+
+     [![Deploy new revision option]({{base_path}}/assets/img/design/revision/deploy-new-revision.png)]({{base_path}}/assets/img/design/revision/deploy-new-revision.png)
+
+     API developers can tryout the API Products from Publisher Portal's tryout console when the API Product is in created state.
+
+10. Publish the API Product to make it available in Developer Portal.
+     
+     [![Publish API Product]({{base_path}}/assets/img/learn/design-api/create-api-product/publish-api-product.png)]({{base_path}}/assets/img/learn/design-api/create-api-product/publish-api-product.png)
+
+11. Sign in to the Developer Portal to subscribe and consume the API Product in the same way that you would do so for an API. 
      
      `https://<hostname>:9443/devportal` 
 
