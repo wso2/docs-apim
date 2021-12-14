@@ -118,15 +118,15 @@ the attached OpenAPI definition (a.k.a Swagger definition) files.
 
 9. You can deploy the API Product to make it available for invocation via Gateway.
      Navigate to the **Deploy** section and click **Deployments**.
-     The Deployments page appears as follows when you do not have any existing revisions.
+     If you do not have any existing revisions, the Deployments page appears as shown below.
 
      [![Create and deploy new API Product revision]({{base_path}}/assets/img/design/revision/deploy-first-revision.png)]({{base_path}}/assets/img/design/revision/deploy-first-revision.png)
 
-     The Deployments page appears as follows when you have at least one revision.
+     If you have at least one revision, the Deployments page appears as shown below.
 
      [![Deploy new revision option]({{base_path}}/assets/img/design/revision/deploy-new-revision.png)]({{base_path}}/assets/img/design/revision/deploy-new-revision.png)
 
-     API developers can tryout the API Products from Publisher Portal's tryout console when the API Product is in created state.
+     API developers can tryout the API Products from Publisher Portal's tryout console when the API Product is in the `CREATED` state.
 
 10. Publish the API Product to make it available in Developer Portal.
      
