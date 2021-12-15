@@ -2,7 +2,7 @@
 
 When deploying APIs as an immutable Gateway, the APIs are deployed during startup. After startup, no APIs can be added using apictl. 
 For that, the apictl projects needs to be mounted to the `docker-compose/resources/adapter/artifacts/apis` directory 
-(default location) of the adapter. 
+(default location) of the Adapter. 
 At the startup of the adapter, it picks the projects and deploys them. After startup, APIs should be added using apictl.
 
 
