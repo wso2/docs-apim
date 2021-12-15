@@ -128,7 +128,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Keep alive time in seconds for connection with the router via external authz service</p>
+                                        <p>Keep alive time in seconds for connection with the router via external auth service</p>
                                     </div>
                                 </div>
                             </div><div class="param">
