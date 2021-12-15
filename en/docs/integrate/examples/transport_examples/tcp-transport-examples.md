@@ -7,8 +7,28 @@ Generally, you can send only one message via one generic TCP channel. Neverthele
 You can split the following sample request input message in different ways as explained below.
 
 ```xml
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Header/><soapenv:Body/></soapenv:Envelope>"
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Header/><soapenv:Body/></soapenv:Envelope>
 ```
+
+The following are the properties that are specific to sending multiple messages via the same TCP channel.
+
+| **Property**       | **Description**                                       | **Required**                        | **Possible Values**         | **Default Value**       |
+|--------------------|-------------------------------------------------------|-------------------------------------|-----------------------------|-------------------------|
+|recordDelimiterType          |Type of the record delimiter you use to split the message	                                        | No   | Character, byte or String	                                     | String |
+|recordDelimiter              |The delimiter of the record you use to split the message	                                        | No   | A valid value that matches the specified delimiter type	| N/A    |
+|recordLength                 | Length of the message to be split. If you set this, then the delimiter properties are omitted.	 | No   | A valid integer value. This will be identified in bytes.	   | N/A    |
+|inputType	                  | Input type of the message	                                                                      | No   | String or binary	                                              | String |
+
+The following are the transport receiver properties.
+
+| **Property**       | **Description**                                       | **Required**                        | **Possible Values**         | **Default Value**       |
+|--------------------|-------------------------------------------------------|---------------------------  --------|-----------------------------|-------------------------|
+|port              | The port on which the TCP server should listen for incoming messages	 | No   | A positive integer less than 65535                                              | 8000   |
+|hostname          | The host name of the server to be displayed in WSDLs, etc.	          | No   | A valid host name or an IP address	                                             | N/A    |
+|contentType       | The content type of the input message                   	             | No   | A valid content type (e.g., application/xml, application/json, text/html etc.)	| N/A    |
+|responseClient	 | Whether the client needs to get the response or not	                | No   | True or false	                                                                  | true   |
+
+
 ## Prerequisites
 
 [Enable the TCP transport]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-tcp-transport). 

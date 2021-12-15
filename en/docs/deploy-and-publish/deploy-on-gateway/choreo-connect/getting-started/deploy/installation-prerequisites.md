@@ -10,7 +10,7 @@
 
 ### Minimum CPU and memory requirements for Choreo Connect components
 
-| Component | CPUs(vCPU) | Memory(MB) |
+| **Component** | **CPUs (vCPU)** | **Memory (MB)** |
 |-----------|------------|------------|
 | Adapter   | 0.5        | 500        |
 | Enforcer  | 1          | 1000       |

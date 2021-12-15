@@ -1,6 +1,6 @@
-# Using Choreo Connect Deployed on Kubernetes with WSO2 API Manager
+# Deploying Choreo Connect on Kubernetes With WSO2 API Manager as a Control Plane
 
-Let's deploy an API via the WSO2 API Manager Publisher Portal on a Choreo Connect Kubernetes deployment.
+Let's deploy an API on Choreo Connect, which running on Kubernetes, with WSO2 API Manager as the Control Plane.
 
 ## Before you begin
 
