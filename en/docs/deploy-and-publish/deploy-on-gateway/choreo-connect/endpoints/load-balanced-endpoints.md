@@ -42,7 +42,7 @@ curl -k -X GET "https://localhost:9095/pizzashack/1.0.0/menu" -H "accept: applic
 
 ## Load Balanced Endpoints With APICTL
 
-In this approach you can define load balanced endpoints in API level as well as in resource level. Below section demonstrates how load balanced endpoints can define in those two levels.
+In this approach you can define load balanced endpoints in API level as well as in resource level. The below section demonstrates how load balanced endpoints can be defined in those two levels.
 
 ### Step 1 - Define Load Balanced Endpoints In The OpenAPI Definition file.
 
