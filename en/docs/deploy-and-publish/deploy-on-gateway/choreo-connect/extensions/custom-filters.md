@@ -1,6 +1,6 @@
 # Add Custom Filters
 Filters is a set of execution points in the request flow that intercept the request before it goes to the 
-backend service. They are engaged while the request is processed within the enforcer. The defined set of filters 
+backend service. They are engaged while the request is processed within the Enforcer. The defined set of filters 
 are applied to all the APIs deployed in Choreo Connect. These filters are engaged inline and if the request
 fails at a certain filter, the request will not be forwarded to the next filter and the backend. 
 The inbuilt set of filters are the authentication filter and the throttling filter.
