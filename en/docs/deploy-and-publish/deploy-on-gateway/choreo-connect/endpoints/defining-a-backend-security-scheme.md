@@ -48,7 +48,13 @@ When running the Choreo Connect, you can provide the username, password as Adapt
 
 ``` java tab="Kubernetes Example"
 
-TODO
+containers:
+    - name: choreo-connect-adapter
+      env:
+        - name: api_60f7111f-fdc5-4cc7-b497-1cea64c6a97f_prod_basic_username
+          value: "admin"
+        - name: api_60f7111f-fdc5-4cc7-b497-1cea64c6a97f_prod_basic_password
+          value: "admin"
 
 ```
 
