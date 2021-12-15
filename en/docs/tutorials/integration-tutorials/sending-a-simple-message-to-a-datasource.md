@@ -168,7 +168,7 @@ configured in the previous step:
             </tr>
             <tr class="odd">
             <td>SQL Type</td>
-            <td>SCALAR</td>
+            <td>STRING</td>
             </tr>
             </tbody>
             </table>

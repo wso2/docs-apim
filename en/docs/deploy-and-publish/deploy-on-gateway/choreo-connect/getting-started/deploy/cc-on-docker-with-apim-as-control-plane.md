@@ -1,6 +1,6 @@
-# Using Choreo Connect Deployed on Docker with WSO2 API Manager
+# Deploying Choreo Connect on Docker With WSO2 API Manager as a Control Plane
 
-Let's deploy an API via the WSO2 API Manager Publisher Portal on a Choreo Connect Docker deployment.
+Let's deploy an API on Choreo Connect, which running on Docker, with WSO2 API Manager as the Control Plane.
 
 !!! info
     **Before you begin**

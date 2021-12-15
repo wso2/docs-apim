@@ -242,6 +242,8 @@ nav:
                     - Exposing via Custom Hostnames:
                         - Deploying via WSO2 API Manager: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-with-custom-hosts-with-apim.md
                         - Deploying via WSO2 API Controller: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-with-custom-hosts-with-apictl.md
+                    - Immutable Gateway:
+                        - Deploying as an Immutable Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-apis-as-immutable-gateway.md
                 - Configurations:
                     - Configuration Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configuration-overview.md
                     - Configuring Log4j2 Properties: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-log4j2.md
@@ -254,12 +256,15 @@ nav:
                 - Deployment Options:
                     - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-deploy-overview.md
                     - Installation Prerequisites: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/installation-prerequisites.md
-                    - Docker:
-                        - Deploying via WSO2 API Manager : deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-apim.md
-                        - Deploying via WSO2 API Controller: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-api-controller.md
-                    - Kubernetes:
-                        - Deploying via WSO2 API Manager: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim.md
-                        - Deploying via WSO2 API Controller: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-api-controller.md
+                    - Choreo Connect on Docker:
+                        - With WSO2 API Manager as a Control Plane : deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-apim--as-control-plane.md
+                        - As a Standalone Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-docker.md
+                    #- Choreo Connect on Kubernetes - Helm Artifacts:
+                    #    - With WSO2 API Manager as a Control Plane: 
+                    #    - As a Standalone Gateway:
+                    - Choreo Connect on Kubernetes - YAML Artifacts:
+                        - With WSO2 API Manager as a Control Plane: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane.md
+                        - As a Standalone Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-kubernetes.md
                 - Endpoints:
                     - Endpoint Types: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/endpoint-types.md
                     - Defining Endpoints in an OpenAPI Definition: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/defining-endpoints-in-an-openapi-definition.md
@@ -312,6 +317,8 @@ nav:
                     - Importing Certificates to the Choreo Connect Truststore: deploy-and-publish/deploy-on-gateway/choreo-connect/security/importing-certificates-to-the-choreo-connect-truststore.md
                     - Define Security Using Extension: deploy-and-publish/deploy-on-gateway/choreo-connect/security/define-security-using-extension.md
                     - Generate a Test JWT: deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt.md
+                - Observability:
+                    - Distributed Tracing: deploy-and-publish/deploy-on-gateway/choreo-connect/observability/distributed-tracing.md
                 - File Upload via Multipart Requests: deploy-and-publish/deploy-on-gateway/choreo-connect/file-upload-via-multipart-requests.md
                 - Configure Caching: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-caching.md
                 - Passing End User Attributes to the Backend: deploy-and-publish/deploy-on-gateway/choreo-connect/passing-enduser-attributes-to-the-backend-via-choreo-connect.md
@@ -322,6 +329,7 @@ nav:
                     - Enabling Debug Logs: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/adding-debug-logs.md
                     - Error Handling: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/error-handling.md
                     - Enforcer Admin API: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/enforcer-admin-api/enforcer-v1.0.0.md
+                    - Debugging Memory Issues: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/debug-memory.md
         - Publish on Developer Portal:
             - Publish an API: deploy-and-publish/publish-on-dev-portal/publish-an-api.md
             - Publish to Multiple External API Developer Portals: deploy-and-publish/publish-on-dev-portal/publish-to-multiple-external-api-stores.md
@@ -2130,8 +2138,17 @@ plugins:
               'deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-api-controller/'
               'deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-kubernetes.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-api-controller/'
               'deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-kubernetes-with-apim.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim/'
-              'deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-web-socket-api.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-websocket-api-in-choreo-connect-with-apim/'
+              'deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-web-socket-api.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-websocket-api-in-choreo-connect/'
               'deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-with-virtual-hosts.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-with-custom-hosts-with-apim/'
+              'deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/overview.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview/#choreo-connect-modes/'
+              'deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-via-apictl.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-in-apim-as-control-plane-mode/#choreo-connect-as-a-standalone-gateway'
+              'deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-via-apim.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-in-choreo-connect/' 
+              'deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-with-custom-hosts-with-apim.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-with-custom-hostnames/'
+              'deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-with-custom-hosts-with-apictl.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-with-custom-hostnames/#choreo-connect-as-a-standalone-gateway'
+              'deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane/'
+              'deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-api-controller.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-kubernetes/'
+              'deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-apim.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-apim-as-control-plane/'
+              'deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-api-controller.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-docker/'
 
 
     # Extra

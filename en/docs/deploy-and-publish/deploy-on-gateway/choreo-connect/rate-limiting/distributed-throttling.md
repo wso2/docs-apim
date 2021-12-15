@@ -1,16 +1,19 @@
 # Distributed Rate Limiting
 
-To learn about the concepts of Rate Limiting (Throttling) in Choreo Connect, see [API-M as a Control Plane - Rate Limiting]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/cc-rate-limiting).
+You can enable Distributed Rate Limiting in Choreo Connect using Choreo Connect with WSO2 API Manager as a Control Plane.
 
-## Enable Distributed Rate Limiting
+!!! tip
+    To learn about the concepts of Rate Limiting (Throttling) in Choreo Connect, see [API-M as a Control Plane - Rate Limiting]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/cc-rate-limiting).
+
+## Enabling Distributed Rate Limiting
 
 Rate Limiting in Choreo Connect works with API Manager (Traffic Manager).
 
-Follow the instructions below to enable distributed Rate Limiting:
+Follow the instructions below to enable Distributed Rate Limiting:
 
 1. {!includes/deploy/cc-configuration-file.md!}
 
-2. Use the following configurations to enable distributed Rate Limiting.
+2. Use the following configurations to enable Distributed Rate Limiting.
 
     ``` toml
      # Throttling configurations
@@ -103,7 +106,7 @@ There can be situations where certain APIs require more granular level of Rate L
    
      This type of condition will evaluate the [backend JWT]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/passing-enduser-attributes-to-the-backend-via-choreo-connect/) and check if it has a specific claim value in it to set the throttle limit.
 
-#### Configure and enable conditional Rate Limiting
+#### Configuring and enabling conditional Rate Limiting
 
 Conditional Rate Limiting is done via the Advanced Rate Limiting policies in API Manager.
 
@@ -133,4 +136,5 @@ Conditional Rate Limiting is done via the Advanced Rate Limiting policies in API
 
 5. Deploy the API in Choreo Connect.
 
-     For more information, see [Deploy an API via API Manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-via-apim/).
+     For more information, see [Deploy an API via API Manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-in-choreo-connect/).
+
