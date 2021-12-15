@@ -9,7 +9,7 @@ Follow the instructions below to use the WSO2 API Controller (apictl), which is 
 
 ## Step 1 - Download and initialize apictl 
 
-Follow the guid [Download and initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl)
+Follow the documentation on how to [download and initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 
 ```
 export PATH=$PATH:<directory-of-the-apictl-executable>
