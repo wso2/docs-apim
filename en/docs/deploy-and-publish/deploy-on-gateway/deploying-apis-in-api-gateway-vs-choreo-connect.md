@@ -6,7 +6,7 @@ Choreo Connect is focused on providing a convenient experience for developers th
 
 ### Choreo Connect vs API Gateway
 
-Choreo Connect and the "traditional" API Gateway can be compared in different aspects as below.  The decision to select either of the gateways is highly dependent on the architecture, design, and deployment. Both gateways mostly have similar features and functionality, but works differently in order to cater for the purpose it was designed to serve.
+Choreo Connect and the "traditional" API Gateway can be compared in different aspects as below.  The decision to select either of the Gateways is highly dependent on the architecture, design, and deployment. Both Gateways mostly have similar features and functionality, but works differently in order to cater for the purpose it was designed to serve.
 
 #### Design and deployment comparison
 
@@ -36,15 +36,14 @@ API Gateway and Choreo Connect both support different security mechanisms.
 
 |   **Feature**                                                  | **Choreo Connect**                                                                        |          **API Gateway**                                                                |
 |----------------------------------------------------|:-------------------------------------------------------------------------:|:-----------------------------------------------------------------------:|
-| SOAP backends                                      | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
+| SOAP backends                                      | ![(No)]({{base_path}}/assets/img/deploy/error.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
 | REST APIs                                          | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
 | JMS backends                                       | ![(No)]({{base_path}}/assets/img/deploy/error.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
 | GraphQL APIs                                       | ![(No)]({{base_path}}/assets/img/deploy/error.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
-| GRPC Services                                      | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   | ![(No)]({{base_path}}/assets/img/deploy/error.svg) |
-| Web socket APIs                                    | ![(No)]({{base_path}}/assets/img/deploy/error.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
-| Custom mediation/transformation                    | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
-| Advance throttling (header, IP, query param, jwt claims) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
-| Advance throttling (based on bandwidth) | ![(No)]({{base_path}}/assets/img/deploy/error.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
-| Schema validation                                  | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
+| Web Socket APIs                                    | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
+| Custom mediation/transformation                    | ![(No)]({{base_path}}/assets/img/deploy/error.svg)   | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
+| Advanced rate limiting (header, IP, query param, jwt claims) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
+| Advanced rate limiting (based on bandwidth) | ![(No)]({{base_path}}/assets/img/deploy/error.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
+| Schema validation                                  | ![(No)]({{base_path}}/assets/img/deploy/error.svg)   | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
 | JWT revocation                                     | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
 | Per resource Endpoints                             | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   | ![(No)]({{base_path}}/assets/img/deploy/error.svg) |

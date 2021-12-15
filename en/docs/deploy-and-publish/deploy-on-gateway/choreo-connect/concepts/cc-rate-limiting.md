@@ -14,16 +14,14 @@ Choreo Connect supports Rate Limiting at the following levels:
 
 ## Distributed rate limiting
 
-In a deployment with multiple Choreo Connect instances, Rate Limiting becomes a challenge with node local Rate Limiting since the Rate Limiting decision is made based on the local counter within each node. If we proceed with the node local Rate Limiting in such
-environment, the API user would be allowed to send multiples of the Rate Limiting limit. I.e., if the Rate Limiting limit is set to 10, if we have 3 gateways in a cluster, it will allow 30 requests to pass to the backend before all three gateways
-throttle out requests. This will put an unexpected load on the backend. To address this requirement, Choreo Connect
-supports distributed Rate Limiting where it is able to work with a central traffic management solution. In this case,
-multiple Choreo Connect instances can connect with WSO2 API Manager ([WSO2 Traffic Manager]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles) and perform rate-limiting precisely. Find information on how to enable distributed rate limiting from [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/rate-limiting/distributed-throttling).
+In a deployment with multiple Choreo Connect instances, Rate Limiting becomes a challenge with node local Rate Limiting since the Rate Limiting decision is made based on the local counter within each node. If we proceed with the node local Rate Limiting in such environment, the API user would be allowed to send multiples of the Rate Limiting limit. I.e., if the Rate Limiting limit is set to 10, if we have three Gateways in a cluster, it will allow 30 requests to pass to the backend before all three Gateways throttle out requests. This will put an unexpected load on the backend. 
+
+To address this requirement, Choreo Connect supports distributed Rate Limiting where it is able to work with a central traffic management solution. In this case, multiple Choreo Connect instances can connect with WSO2 API Manager ([WSO2 Traffic Manager]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles) and perform rate-limiting precisely. Find information on how to enable distributed rate limiting from [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/rate-limiting/distributed-throttling).
 
 !!! note
     If you start the WSO2 API Manager without providing any profile, it runs as All in One Node (All the profiles are activated). For testing purposes, you can simply start the API Manager following the [quick start guide]({{base_path}}/getting-started/quick-start-guide/) and test.
 
-## Different levels of Rate Limiting
+## Different levels of rate limiting
 
 ### Advanced rate limiting (API publisher)
 
@@ -34,13 +32,13 @@ Advanced rate limiting policies are applied when you are Publishing an API. It c
 
 For more information on advanced rate limiting capabilities, see [Advanced rate limiting (API Publisher)]({{base_path}}/design/rate-limiting/setting-throttling-limits/#advanced-rate-limiting-api-publisher).
 
-### Subscription-level Rate Limiting (API subscriber)
+### Subscription-level rate limiting (API subscriber)
 
 Subscription-level Rate Limiting tiers are set to an API during the API implementation. When a user subscribes to the API through the developer portal, the subscription-level Rate Limiting tiers selected for the API will be listed from which one can be selected.
 
 Based on the selected tier, a subscriber will be throttled out upon reaching the maximum number of requests specified in the tier, see [subscription-level Rate Limiting (API Publisher)]({{base_path}}/design/rate-limiting/setting-throttling-limits/#subscription-level-rate-limiting-api-publisher).
 
-### Application-level Rate Limiting (Application Developer)
+### Application-level rate limiting (application developer)
 
 Application-level Rate Limiting tiers are defined at the time an application is created in the API Developer Portal as shown [here]({{base_path}}/design/rate-limiting/setting-throttling-limits/#application-level-rate-limiting-application-developer). The limits are restricted per token for a specific application.
 
