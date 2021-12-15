@@ -1,19 +1,19 @@
 # Add Custom Filters
 Filters is a set of execution points in the request flow that intercept the request before it goes to the 
-backend service. They are engaged while the request is processed within the enforcer. The defined set of filters 
+backend service. They are engaged while the request is processed within the Enforcer. The defined set of filters 
 are applied to all the APIs deployed in Choreo Connect. These filters are engaged inline and if the request
 fails at a certain filter, the request will not be forwarded to the next filter and the backend. 
 The inbuilt set of filters are the authentication filter and the throttling filter.
 
-Custom filters can be added to the existing filters within the enforcer, and they can be positioned based on the end user's preference.
+Custom filters can be added to the existing filters within the Enforcer, and they can be positioned based on the end user's preference.
 These filters are engaged for all the APIs deployed within Choreo Connect.
 
 Choreo Connect provides a Java interface to implement custom filters. Then the developer needs to compile the
-filter implementation as a JAR file and mount it to the `/home/wso2/lib/dropins` directory within the enforcer. When
-the enforcer starts, the JAR files in that directory are added to the classpath. Using Java Service Provider
-Interface, the classloading happens in the enforcer. See the following sections for further details on how to implement this.
+filter implementation as a JAR file and mount it to the `/home/wso2/lib/dropins` directory within the Enforcer. When
+the Enforcer starts, the JAR files in that directory are added to the classpath. Using Java Service Provider
+Interface, the classloading happens in the Enforcer. See the following sections for further details on how to implement this.
  
-## Adding a custom filter
+## How to add a custom filter
 
 1. Create a Java project with `org.wso2.choreo.connect.enforcer.commons` dependency.
    - For Apache Maven, use the following.
@@ -77,7 +77,7 @@ Interface, the classloading happens in the enforcer. See the following sections 
     }
     ```
 
-3. Since we use Java SPI (Service Provider Interface), we need to provide the provider configuration file
+3. Since you are using Java SPI (Service Provider Interface), you need to provide the provider configuration file
 `META-INF/services/org.wso2.choreo.connect.enforcer.commons.Filter`. If you are using Apache Maven, create the
 file inside the `<PROJECT>/src/main/resources` directory. The content of the file needs to be the qualified class name
 of the filter implementation.
@@ -92,7 +92,7 @@ of the filter implementation.
     mvn clean install
     ```
 
-5. Edit the enforcer related configuration within the config.toml file to include the custom filter. The `className` needs to
+5. Edit the Enforcer related configuration within the config.toml file to include the custom filter. The `className` needs to
 be the fully qualified `className`. The position denotes the final filter position in the chain, when all the filters 
 are added. By default, the first position is taken by the Authentication Filter and the Thorttle Filter is placed as the
 second filter. As the below example configuration contains `1` as the `position`, it would be executed prior to

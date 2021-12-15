@@ -276,6 +276,8 @@ nav:
                             - Retry Policies: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/resiliency/retry-policies.md
                             - Timeouts: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/resiliency/timeout.md
                             - Circuit Breakers: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/resiliency/circuit-breakers.md
+                - Extensions:
+                    - Add Custom Filters: deploy-and-publish/deploy-on-gateway/choreo-connect/extensions/custom-filters.md
                 - Rate Limiting:
                     - Enabling Distributed Rate Limiting: deploy-and-publish/deploy-on-gateway/choreo-connect/rate-limiting/distributed-throttling.md
                 - Message Transformation:
