@@ -53,7 +53,7 @@ All the apictl projects in the directory will be deployed during the startup.
 
 !!! note
 
-    If the control plane is enabled, the mounted API projects are not deployed.    
+    If the Control Plane is enabled, the mounted API projects are not deployed.    
 
 
 ##  Step 5 - Invoke the API
