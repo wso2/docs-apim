@@ -10,7 +10,7 @@ These filters are engaged for all the APIs deployed within Choreo Connect.
 
 Choreo Connect provides a Java interface to implement custom filters. Then the developer needs to compile the
 filter implementation as a JAR file and mount it to the `/home/wso2/lib/dropins` directory within the Enforcer. When
-the enforcer starts, the JAR files in that directory are added to the classpath. Using Java Service Provider
+the Enforcer starts, the JAR files in that directory are added to the classpath. Using Java Service Provider
 Interface, the classloading happens in the enforcer. See the following sections for further details on how to implement this.
  
 ## How to add a custom filter
