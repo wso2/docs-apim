@@ -227,4 +227,4 @@ An API Product will share the resource(s) of an existing API. As a result, the s
  </div> 
  </html>
     
-After an API Product is created, it can be deployed to the selected API Gateway as an independent Synapse API artifact, to test it before making it available for consumers.The API Product provider can publish the API Product once the testing is complete.
+After an API Product is created, it can be deployed to the selected API Gateway as an independent Synapse API artifact, to test it before making it available for consumers. The API Product provider can publish the API Product once the testing is complete.
