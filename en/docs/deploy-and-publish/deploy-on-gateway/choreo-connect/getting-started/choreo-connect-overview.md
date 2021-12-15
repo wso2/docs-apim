@@ -62,8 +62,13 @@ location = "/home/wso2/security/truststore"
 
 You can use Choreo Connect mainly in the following two modes.
 
-- [Choreo Connect with API Manager as a Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane)
+- [Choreo Connect with WSO2 API Manager as a Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane)
+     
+     By enabling the Control Plane Event Hub in the Choreo Connect configuration file, the APIs deployed in WSO2 API Manager will automatically be available in Choreo Connect. When using this mode, you can either create an API via WSO2 API Manager or you can import an API to WSO2 API Manager using the API Controller (apictl), which is a command line tool.
+
 - [Choreo Connect as a Standalone Gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway)
+
+     If you have not started using WSO2 API Manager yet, or you want to try out Choreo Connect as a Standalone Gateway, simply use the CLI tool apictl to host your APIs.
 
 ## Choreo Connect Request Flow
 

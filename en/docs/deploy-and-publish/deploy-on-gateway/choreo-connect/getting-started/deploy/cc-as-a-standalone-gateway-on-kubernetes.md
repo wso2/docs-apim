@@ -1,6 +1,6 @@
-# Using Choreo Connect Deployed on Kubernetes with WSO2 API Controller
+# Deploying Choreo Connect as a Standalone Gateway on Kubernetes
 
-Let's deploy an API using WSO2 API Controller (apictl), which is the CLI Tool, on a Choreo Connect Kubernetes deployment.
+Let's deploy an API, using WSO2 API Controller (apictl), on Choreo Connect, which running on Kubernetes as a Standalone Gateway.
 
 ## Before you begin
 
@@ -21,15 +21,15 @@ Let's get started...
 
 1.  Download and extract Choreo Connect distribution .zip file
 
-    Latest Choreo Connect distribution can be downloaded from the [GitHub repository](https://github.com/wso2/product-microgateway/releases). Extract the Choreo Connect distribution .zip file. The extracted folder will be called as `CHOREO-CONNECT_HOME` hereafter.
+     Latest Choreo Connect distribution can be downloaded from the [GitHub repository](https://github.com/wso2/product-microgateway/releases). Extract the Choreo Connect distribution .zip file. The extracted folder will be called as `CHOREO-CONNECT_HOME` hereafter.
 
 2.  Apply the Kubernetes configurations for Choreo Connect using the kubectl tool.
 
-    {!includes/deploy/cc-tryout-in-arm64-k8s-note.md!}
+     {!includes/deploy/cc-tryout-in-arm64-k8s-note.md!}
 
-    ```bash
-    kubectl apply -f <CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect
-    ```
+     ```bash
+     kubectl apply -f <CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect
+     ```
 
 3.  Add the host entry to `/etc/hosts` file.
 
