@@ -1,15 +1,15 @@
 # API Lifecycle
 
-The API lifecycle is one of the key factors in API management. An API lifecycle has predefined states. These states represent the stages that an API has in the process of starting to develop an API until it's retirement. WSO2 API Manager related APIs has a lifecycle that contains six stages which allows you to identify in which state that the API is currently in.
+The API lifecycle is one of the key factors in API management. An API lifecycle has predefined states. These states represent the stages that an API has in the process of starting to develop an API until it's retirement. WSO2 API Manager related APIs and API Products have a lifecycle that contains six stages which allows you to identify in which state that the APIs or API Products are currently in.
 
 ## API lifecycle states
 
-The following API lifecycle states are available in the default API lifecycle.
+The following lifecycle states are available in the default API lifecycle and applicable for APIs and API Products.
 
 |   **API Lifecycle State** |   **Use Case** |   **Action**  |
 |-----------------------|------------|-----------|
-|   **CREATED**         | The API has been created, but it is not available for usage.| API metadata is added to the Developer Portal, but it is not deployed in the API Gateway and therefore, it is not visible to subscribers in the Developer Portal.|
-|   **PROTOTYPED**      | An API prototype is created for the purpose of early promotion and testing. You can deploy a new API or a new version of an existing API as a prototype. It gives subscribers an early implementation of the API that they can try out without a subscription.|The API is deployed and published in the Developer Portal as a prototype. A prototyped API is usually a mock implementation made public in order to get feedback on its usability. Users can invoke the API without a subscription.|
+|   **CREATED**         | The API has been created, but it is not available for usage.| API metadata is added, but it is not deployed in the API Gateway and therefore, it is not visible to subscribers in the Developer Portal.|
+|   **PRE_RELEASED**      | A prototype is created for the purpose of early promotion and consumer testing. You can deploy a new API or a new version of an existing API as a prototype. It gives subscribers an early implementation of the API that they can try out without a subscription.|The API is deployed and published in the Developer Portal as a pre-release.|
 |   **PUBLISHED**       | The API is ready to be used by users in the Developer Portal.| The API is visible in the Developer Portal and available for subscription.|
 |   **BLOCKED**         | The API is temporarily blocked from being used. A publisher can publish the API from the BLOCKED state.| Access to the API is temporarily blocked. Runtime calls are blocked and the API is not shown in the Developer Portal anymore.|
 |   **DEPRECATED**      | The old version of the API is DEPRECATED when a newer version of the API is created and PUBLISHED.| When an API is deprecated, new subscriptions are disabled. However, the API is still deployed in the Gateway and is available at runtime to existing subscribers. Existing subscribers can continue to use it as usual until the API is retired.|
@@ -17,7 +17,7 @@ The following API lifecycle states are available in the default API lifecycle.
 
 ## Manage API lifecycle
 
-The lifecycle of an API can be managed by API Publisher users, using API Publisher in WSO2 API Manager. 
+The lifecycle of an API or API Products can be managed by the users with publishing privilege, using the API Publisher portal in WSO2 API Manager. 
 
 Follow the instructions below to manage the API lifecycle appropriately:
 
