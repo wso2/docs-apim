@@ -233,15 +233,9 @@ nav:
                     - Supported Template Patterns: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/template-patterns-for-choreo-connect.md
                     - Choreo Connect Analytics: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/choreo-connect-analytics.md
                 - Deploying an API:
-                    - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/overview.md
-                    - REST API:
-                        - Deploying via WSO2 API Manager: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-via-apim.md
-                        - Deploying via WSO2 API Controller: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-via-apictl.md
-                    - WebSocket API:
-                        - Deploying via WSO2 API Manager: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-websocket-api-in-choreo-connect-with-apim.md
-                    - Exposing via Custom Hostnames:
-                        - Deploying via WSO2 API Manager: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-with-custom-hosts-with-apim.md
-                        - Deploying via WSO2 API Controller: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-with-custom-hosts-with-apictl.md
+                    - REST API: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-in-choreo-connect.md
+                    - WebSocket API: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-websocket-api-in-choreo-connect.md
+                    - Exposing via Custom Hostnames: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-with-custom-hostnames.md
                     - Immutable Gateway:
                         - Deploying as an Immutable Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-apis-as-immutable-gateway.md
                 - Configurations:
@@ -257,7 +251,7 @@ nav:
                     - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-deploy-overview.md
                     - Installation Prerequisites: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/installation-prerequisites.md
                     - Choreo Connect on Docker:
-                        - With WSO2 API Manager as a Control Plane : deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-apim--as-control-plane.md
+                        - With WSO2 API Manager as a Control Plane : deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-apim-as-control-plane.md
                         - As a Standalone Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-docker.md
                     #- Choreo Connect on Kubernetes - Helm Artifacts:
                     #    - With WSO2 API Manager as a Control Plane: 
