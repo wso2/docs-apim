@@ -228,6 +228,7 @@ nav:
                         - Third Party Key Manager: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/third-party-key-managers.md
                     - As a Standalone Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway.md
                     - Subscription Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/subscription-validation.md
+                    - Configure Multiple Gateways with Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-multiple-gateways-with-choreo-connect.md
                     - Choreo Connect With Tenants: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/choreo-connect-with-tenants.md
                     - Supported Template Patterns: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/template-patterns-for-choreo-connect.md
                     - Choreo Connect Analytics: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/choreo-connect-analytics.md
@@ -237,6 +238,28 @@ nav:
                     - Exposing via Custom Hostnames: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-with-custom-hostnames.md
                     - Immutable Gateway:
                         - Deploying as an Immutable Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-apis-as-immutable-gateway.md    
+                - Security:
+                    - Authentication:
+                        - API Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-authentication.md
+                        - Internal Key Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/internal-key-authentication.md
+                        - API Key Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-key-authentication.md
+                        - OAuth2.0 Access Tokens: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/oauth2-access-tokens.md
+                        - Test JWT: deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt.md
+                        # - Mutual SSL Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/mutual-ssl-authentication.md
+                        - Configuring an External Key Manager: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/configuring-an-external-key-manager.md
+                        - Use a Custom Authorization Header: deploy-and-publish/deploy-on-gateway/choreo-connect/security/use-a-custom-authorization-header.md
+                        - Rejecting Revoked Tokens: deploy-and-publish/deploy-on-gateway/choreo-connect/security/rejecting-revoked-tokens.md
+                        - Disabling Security: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/disabling-security.md
+                    - Authorization:
+                        - Scope Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authorization/scope-validation.md
+                        - Subscription Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authorization/subscription-validation.md
+                        - Custom Claims Mapping: deploy-and-publish/deploy-on-gateway/choreo-connect/support-custom-claims-mapping.md
+                    - Transport Security:
+                        - Importing Certificates to the Choreo Connect Truststore: deploy-and-publish/deploy-on-gateway/choreo-connect/security/importing-certificates-to-the-choreo-connect-truststore.md
+                        - Configuration and Managing Certificates: deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/transport-security.md
+                        - Mutual TLS Between Choreo Connect and Backend: deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/mutual-tls-between-gateway-and-backend.md
+                    - Enabling CORS: deploy-and-publish/deploy-on-gateway/choreo-connect/security/enabling-cors.md
+                    - Passing End User Attributes to the Backend: deploy-and-publish/deploy-on-gateway/choreo-connect/passing-enduser-attributes-to-the-backend-via-choreo-connect.md
                 - Configurations:
                     - Configuration Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configuration-overview.md
                     - Configuring Log4j2 Properties: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-log4j2.md
@@ -288,36 +311,11 @@ nav:
                     - Service Mesh: deploy-and-publish/deploy-on-gateway/choreo-connect/service-discovery/choreo-connect-and-service-mesh.md
                     - Service Mesh in Kubernetes:  deploy-and-publish/deploy-on-gateway/choreo-connect/service-discovery/choreo-connect-and-k8s.md
                 - Service Mesh Integration: deploy-and-publish/deploy-on-gateway/choreo-connect/service-mesh/istio.md
-                - Security:
-                    - Authentication:
-                        - API Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-authentication.md
-                        - Internal Key Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/internal-key-authentication.md
-                        - API Key Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-key-authentication.md
-                        - Secure APIs Using OAuth2.0 Access Tokens:
-                            - Secure APIs using JWT - Self Contained JWT: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-jwt-self-contained-jwt.md
-                        # - Mutual SSL Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/mutual-ssl-authentication.md
-                        - Configuring an External Key Manager: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/configuring-an-external-key-manager.md
-                        - Disabling Security: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/disabling-security.md
-                    - Authorization:
-                        - Scope Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authorization/scope-validation.md
-                        - Subscription Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authorization/subscription-validation.md
-                    - Transport Security:
-                        - Configuration and Managing Certificates: deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/transport-security.md
-                        - Mutual TLS Between Choreo Connect and Backend: deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/mutual-tls-between-gateway-and-backend.md
-                    - Enabling CORS: deploy-and-publish/deploy-on-gateway/choreo-connect/security/enabling-cors.md
-                    - Use a Custom Authorization Header: deploy-and-publish/deploy-on-gateway/choreo-connect/security/use-a-custom-authorization-header.md
-                    - Rejecting Revoked Tokens: deploy-and-publish/deploy-on-gateway/choreo-connect/security/rejecting-revoked-tokens.md
-                    - Importing Certificates to the Choreo Connect Truststore: deploy-and-publish/deploy-on-gateway/choreo-connect/security/importing-certificates-to-the-choreo-connect-truststore.md
-                    - Define Security Using Extension: deploy-and-publish/deploy-on-gateway/choreo-connect/security/define-security-using-extension.md
-                    - Generate a Test JWT: deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt.md
                 - Observability:
                     - Distributed Tracing: deploy-and-publish/deploy-on-gateway/choreo-connect/observability/distributed-tracing.md
+                - Analytics: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-analytics.md
                 - File Upload via Multipart Requests: deploy-and-publish/deploy-on-gateway/choreo-connect/file-upload-via-multipart-requests.md
-                - Configure Caching: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-caching.md
-                - Passing End User Attributes to the Backend: deploy-and-publish/deploy-on-gateway/choreo-connect/passing-enduser-attributes-to-the-backend-via-choreo-connect.md
-                - Custom Claims Mapping: deploy-and-publish/deploy-on-gateway/choreo-connect/support-custom-claims-mapping.md
-                - Configure Multiple Gateways with Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-multiple-gateways-with-choreo-connect.md
-                - Configure Analytics: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-analytics.md
+                - Token Caching: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-caching.md
                 - Troubleshooting:
                     - Enabling Debug Logs: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/adding-debug-logs.md
                     - Error Handling: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/error-handling.md
