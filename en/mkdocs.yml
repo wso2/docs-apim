@@ -204,7 +204,6 @@ nav:
                     - Adding a Class Mediator:  deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-a-class-mediator.md
                     - Configuring message builders and formatters: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/configuring-message-builders-formatters.md
                 - Response Caching: deploy-and-publish/deploy-on-gateway/api-gateway/response-caching.md
-                - Message Tracing: deploy-and-publish/deploy-on-gateway/api-gateway/message-tracing.md
                 - Threat Protectors:
                     - Regular Expression Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
                     - JSON Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/json-threat-protection-for-api-gateway.md
@@ -2148,6 +2147,7 @@ plugins:
               'deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-api-controller.md': 'https://apim.docs.wso2.com/en/4.1.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-kubernetes/'
               'deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-apim.md': 'https://apim.docs.wso2.com/en/4.1.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-apim-as-control-plane/'
               'deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-api-controller.md': 'https://apim.docs.wso2.com/en/4.1.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-docker/'
+              'deploy-and-publish/deploy-on-gateway/api-gateway/message-tracing.md': 'https://apim.docs.wso2.com/en/4.1.0/get-started/about-this-release/#removed-features-and-functionalities'
 
 
     # Extra

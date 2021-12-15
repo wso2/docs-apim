@@ -42,9 +42,13 @@ API Manager 4.1.0-M2</td>
 
 <! --- The support for these features will be removed from subsequent versions starting from WSO2 API Manager 4.1.0.
 
-<! --- ### Removed features and functionalities
+### Removed features and functionalities
 
-<! --- These features are unsupported and removed from WSO2 API Manager 4.1.0 onwards.
+These features are unsupported and removed from WSO2 API Manager 4.1.0 onwards.
+
+- **DAS Message Tracer**
+
+     The message tracer feature for WSO2 DAS is no longer supported and removed from the product.
 
 <! --- ### Key changes --->
 
