@@ -1,6 +1,6 @@
 # Endpoint Types
 
-Choreo Connect supports a range of different endpoint types, allowing the it to connect with
+Choreo Connect supports a range of different endpoint types, allowing it to connect with
   advanced types of backends.
 
 |Type                     |Description                                                                                                                                                                                                                                                                                                                                                                                                       |
