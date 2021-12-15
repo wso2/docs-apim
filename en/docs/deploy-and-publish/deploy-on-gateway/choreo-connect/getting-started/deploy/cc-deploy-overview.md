@@ -10,10 +10,10 @@ Choreo Connect is a specialized form of WSO2 API Gateway, and is a lightweight g
 <td width="50%">
 <ul>
 <li>
-<p>Via WSO2 API Manager</p>
+<p>With WSO2 API Manager as a Control Plane</p>
 </li>
 <li>
-<p>Via WSO2 API Controller</p>
+<p>As a Standalone Gateway</p>
 </li>
 </ul>
 </td>
@@ -25,10 +25,10 @@ Choreo Connect is a specialized form of WSO2 API Gateway, and is a lightweight g
 <td width="50%">
 <ul>
 <li>
-<p>Via WSO2 API Manager</p>
+<p>With WSO2 API Manager as a Control Plane</p>
 </li>
 <li>
-<p>Via WSO2 API Controller</p>
+<p>As a Standalone Gateway</p>
 </li>
 </ul>
 </td>
@@ -47,10 +47,10 @@ Try out the following Choreo Connect deployment guides based on your Choreo Conn
 <td width="60%">
 <ul>
 <li>
-<a href="{{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-apim/">WSO2 Choreo Connect on Docker via WSO2 API Manager</a>
+<a href="{{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-apim-as-control-plane/">WSO2 Choreo Connect on Docker With WSO2 API Manager as a Control Plane</a>
 </li>
 <li>
-<a href="{{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-api-controller/">WSO2 Choreo Connect on Docker via WSO2 API Controller</a>
+<a href="{{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-docker/">WSO2 Choreo Connect as a standalone gateway deployed on Docker</a>
 </li>
 </ul>
 </td>
@@ -62,11 +62,11 @@ Try out the following Choreo Connect deployment guides based on your Choreo Conn
 <td width="60%">
 <ul>
 <li>
-<a href="{{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim/">
-WSO2 Choreo Connect on Kubernetes via WSO2 API Manager</a>
+<a href="{{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane/">
+WSO2 Choreo Connect on Kubernetes with WSO2 API Manager as a Control Plane</a>
 </li>
 <li>
-<a href="{{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-api-controller/"> WSO2 Choreo Connect on Kubernetes via WSO2 API Controller</a>
+<a href="{{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-kubernetes/"> WSO2 Choreo Connect as a standalone gateway deployed on Kubernetes</a>
 </li>
 </ul>
 </td>

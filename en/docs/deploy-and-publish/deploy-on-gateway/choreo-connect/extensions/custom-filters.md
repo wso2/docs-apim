@@ -13,7 +13,7 @@ filter implementation as a JAR file and mount it to the `/home/wso2/lib/dropins`
 the enforcer starts, the JAR files in that directory are added to the classpath. Using Java Service Provider
 Interface, the classloading happens in the enforcer. See the following sections for further details on how to implement this.
  
-## How to add a custom filter
+## Adding a custom filter
 
 1. Create a Java project with `org.wso2.choreo.connect.enforcer.commons` dependency.
    - For Apache Maven, use the following.
