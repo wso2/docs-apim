@@ -1,6 +1,6 @@
 # Disabling Security
 
-APIs can be exposed without requiring any authentication (i.e. disable transport security and application security) using the OpenAPI extension `                   x-wso2-disable-security                 ` . This extension is supported at both API and Resource levels. Following is an example of how you can disable security an API.
+APIs can be exposed without requiring any authentication (i.e. disable transport security and application security) using the OpenAPI extension `x-wso2-disable-security` . This extension is supported at API, resource, and operation levels. The following is an example of how you can disable security for an API.
 
 ``` yml tab="API Level"
 openapi: 3.0.0
