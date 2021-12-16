@@ -35,7 +35,7 @@
         ```
 
         ```go
-        apictl export api-product -n <API Product-name> --rev <revision-number> -r <provider> -e <environment> --format <export-format>  
+        apictl export api-product -n <API Product-name> --rev <revision-number> -r <provider> -e <environment> --preserve-status=<preserve-status> --format <export-format>  
         ``` 
 
         !!! info
@@ -47,15 +47,16 @@
             -    Optional :   
                 `--rev` : Revision Number of the API Product. If not provided, working copy of the API Product will be exported.     
                 `--provider` or `-r` : Provider of the API Product.    
-                `--latest` : Export the latest revision of the API Product.   
-                `--format` : File format of exported archive (JSON or YAML). The default value is YAML.
+                `--preserve-status` : Preserve API Product status when exporting. Otherwise, the API Product will be exported in the CREATED status The default value is true. (Please note that this flag is only applicable to the API Products. The status of dependant APIs will not get affected).    
+                `--latest` : Export the latest revision of the API Product.  
+                `--format` : File format of exported archive (JSON or YAML). The default value is YAML. 
             
         !!! example
             ```go
             apictl export api-product -n LeasingAPIProduct -e dev 
             ```
             ```go
-            apictl export api-product -n CreditAPIProduct --rev 2 -r admin -e production --format JSON 
+            apictl export api-product -n CreditAPIProduct --rev 2 -r admin -e production --preserve-status=true --format JSON 
             ```            
 
     -   **Response**

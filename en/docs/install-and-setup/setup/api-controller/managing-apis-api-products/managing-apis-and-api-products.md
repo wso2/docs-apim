@@ -321,53 +321,95 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
             LeasingAPIProduct API Product deleted successfully!
             ```
     
-## Change status of an API in an environment
+## Change status of an API or API Product in an environment
 
-Follow the instructions below to change the status of an API in an environment using apictl:
+Follow the instructions below to change the status of an API or API Product in an environment using apictl:
 
 1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.0 version of apictl is set up.   
 For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
-3.  Run the corresponding apictl command below to change the status of an API in an environment.
+3.  Run the corresponding apictl command below to change the status of an API or API Product in an environment.
 
-    -   **Command**
-        ``` bash
-        apictl change-status api -a <Action> -n <API name> -v <API version> -e <environment> 
-        ```
-        ``` bash
-        apictl change-status api --action <Action> --name <API name> --version <API version> --environment <environment> 
-        ```
-        ``` bash
-        apictl change-status api --action <Action> --name <API name> --version <API version> --environment <environment> --provider <API provider> 
-        ```
+    1. Change status of an API in an environment.
 
-        !!! info
-            **Flags:**  
-            
-            -   Required :  
-                `--environment` or `-e` : The environment that the command is executed on  
-                `--name` or `-n` : The name of the respective API
-                `--version` or `-v` : The version of the respective API
-                `--action` or `-a` : The action to be taken to change the status of the API
-            -   Optional :  
-                `--provider` or `-r` : The provider of the respective API  
-
-        !!! example
-            ```bash
-            apictl change-status api -a Publish -n PizzaShackAPI -v 1.0.0 -e dev 
+        -   **Command**
+            ``` bash
+            apictl change-status api -a <Action> -n <API name> -v <API version> -e <environment> 
             ```
-            ```bash
-            apictl change-status api --action "Publish" --name PizzaShackAPI --version 1.0.0 --environment production 
-            ```    
+            ``` bash
+            apictl change-status api --action <Action> --name <API name> --version <API version> --environment <environment> 
+            ```
+            ``` bash
+            apictl change-status api --action <Action> --name <API name> --version <API version> --environment <environment> --provider <API provider> 
+            ```
+
+            !!! info
+                **Flags:**  
+                
+                -   Required :  
+                    `--environment` or `-e` : The environment that the command is executed on  
+                    `--name` or `-n` : The name of the respective API
+                    `--version` or `-v` : The version of the respective API
+                    `--action` or `-a` : The action to be taken to change the status of the API
+                -   Optional :  
+                    `--provider` or `-r` : The provider of the respective API  
+
+            !!! example
+                ```bash
+                apictl change-status api -a Publish -n PizzaShackAPI -v 1.0.0 -e dev 
+                ```
+                ```bash
+                apictl change-status api --action "Publish" --name PizzaShackAPI --version 1.0.0 --environment production 
+                ```    
+                ```go
+                apictl change-status api --action "Demote to Created" --name PizzaShackAPI --version 1.0.0 --environment production --provider Alice 
+                ```  
+
+        -   **Response**
+
             ```go
-            apictl change-status api --action "Demote to Created" --name PizzaShackAPI --version 1.0.0 --environment production --provider Alice 
-            ```  
+            PizzaShackAPI API state changed successfully!
+            ```
 
-    -   **Response**
+    2. Change status of an API Product in an environment.
 
-        ```go
-        PizzaShackAPI API state changed successfully!
-        ```
+        -   **Command**
+            ``` bash
+            apictl change-status api-product -a <Action> -n <API name> -e <environment> 
+            ```
+            ``` bash
+            apictl change-status api-product --action <Action> --name <API name> --environment <environment> 
+            ```
+            ``` bash
+            apictl change-status api-product --action <Action> --name <API name> --environment <environment> --provider <API provider> 
+            ```
+
+            !!! info
+                **Flags:**  
+                
+                -   Required :  
+                    `--environment` or `-e` : The environment that the command is executed on  
+                    `--name` or `-n` : The name of the respective API Product
+                    `--action` or `-a` : The action to be taken to change the status of the API Product
+                -   Optional :  
+                    `--provider` or `-r` : The provider of the respective API Product 
+
+            !!! example
+                ```bash
+                apictl change-status api-product -a Publish -n PizzaShackAPIProduct -e dev 
+                ```
+                ```bash
+                apictl change-status api --action "Publish" --name PizzaShackAPIProduct --environment production 
+                ```    
+                ```go
+                apictl change-status api --action "Demote to Created" --name PizzaShackAPIProduct --environment production --provider Alice 
+                ```  
+
+        -   **Response**
+
+            ```go
+            API Product state changed successfully!
+            ```
 
     !!! Info
         Supported action values : `Publish`, `Deploy as a Prototype`, `Demote to Created`, `Demote to Prototyped`, `Block`, `Deprecate`, `Re-Publish`, `Retire`.
