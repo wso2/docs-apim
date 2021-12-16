@@ -31,6 +31,10 @@ Following is the request received from the Choreo Connect Router when you enable
         "<trailer2_from_backend>": "<value>"
     },
     "responseBody": "<BASE64_encoded_backend_response_body>",
+    "interceptorContext": {
+        "<key_1>": "<value_1>",
+        "<key_2>": "<value_2>"
+    },
     "invocationContext": {
         ...
     }
@@ -57,11 +61,26 @@ Following is the request received from the Choreo Connect Router when you enable
    },
    "responseTrailers": {},
    "responseBody": "eyJIZWxsbyI6IldvcmxkIn0K44545487faedfasdfasdfasdfasdfasdadasdf",
+   "interceptorContext": {
+        "foo": "bar"
+    },
     "invocationContext": {
         ...
     }
 }
 ```
+
+The fields `requestHeaders`, `requestTrailers` and `requestBody` in the above request to the interceptor service
+provides the request headers, trailers and **base64 encoded** request body from the client. The field `invocationContext`
+contains additional request details. Refer [Invocation Context]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/interceptor-context-and-invocation-context/#invocation-context)
+for more information. The field `interceptorContext` contains key-value pairs that is set in request flow `interceptorContext`.
+Refer [Interceptor Context]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/interceptor-context-and-invocation-context/#interceptor-context) for more information.
+
+The fields `responseCode`, `responseHeaders`, `responseTrailers` and `responseBody` in the request provides the response code,
+headers, trailers and **base64 encoded** response body from the backend.
+
+You can customize what should be included in this request body in the open API definition. Refer [Defining Interceptors in an OpenAPI Definition]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/defining-interceptors-in-an-open-api-definition/)
+for more information.
 
 ### 2. Response from the Interceptor Service to Choreo Connect Router
 
@@ -83,16 +102,16 @@ The following is the response that interceptor service should respond to the Cho
         "<header_key_2>": "<value_2>"
     },
     "trailersToAdd": {
-        "<trialer_key_1>": "<value_1>",
-        "<trialer_key_2>": "<value_2>"
+        "<trailer_key_1>": "<value_1>",
+        "<trailer_key_2>": "<value_2>"
     },
     "trailersToRemove": [
-        "<trialer_key_1>",
-        "<trialer_key_2>"
+        "<trailer_key_1>",
+        "<trailer_key_2>"
     ],
     "trailersToReplace": {
-        "<trialer_key_1>": "<value_1>",
-        "<trialer_key_2>": "<value_2>"
+        "<trailer_key_1>": "<value_1>",
+        "<trailer_key_2>": "<value_2>"
     },
     "body": "<BASE64_encoded_body>"
 }
@@ -123,6 +142,16 @@ The following is the response that interceptor service should respond to the Cho
     "body": "eyJIZWxsbyI6IldvcmxkIn0K"
 }
 ```
+
+Interceptor can instruct the Choreo-Connect Router what should be done with the above response.
+
+| Key in Response JSON         | Description                                                                                                                                                                                                                                                                                                                                           |
+|------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| responseCode                 | **Sets** the response code.                                                                                                                                                                                                                                   |
+| [headers\|trailers]ToAdd     | **Appends** new value onto an existing headers/trailers, or **adds** the headers/trailers if it does not already exist.                                                                                                                                       |
+| [headers\|trailers]ToRemove  | **Deletes** headers/trailers.                                                                                                                                                                                                                                 |
+| [headers\|trailers]ToReplace | **Sets** the new value for existing headers/trailers, or **adds** the headers/trailers if it does not already exist.                                                                                                                                          |
+| body                         | **Sets** the body with **base64** decoding the provided value. If the value is `null` (i.e. `{"body": null}`) or the key "body" is not defined (i.e. `{}`), body is **not updated**. If the value is empty (i.e. `{"body": ""}`), **sets** the body as empty. |
 
 <!-- The content of the below warning is same as the info notice in the file
 deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/defining-interceptors-in-an-open-api-definition.md -->
