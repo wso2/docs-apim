@@ -2,8 +2,8 @@
 
 Choreo Connect can be used as a **standalone** Gateway without the API Manager as the Control Plane. Choreo Connect is considered to be in *standalone mode* when `control-plane` is disabled in the [config]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/control-plane-configurations/#instructions-for-use). In standalone mode, 
 
-- APIs can be deployed via APICTL. 
-- APICTL can be used to create API projects based on an open API definition. 
+- APIs can be deployed via apictl (CLI Tool). 
+- apictl can be used to create API projects based on an open API definition. 
 - These API projects can be directly pushed to the adapter, which will deploy the APIs in the enforcer and the router.
 
 When Choreo Connect is used as a standalone Gateway, you can connect it to an external Secure Token Service (STS), which will provide signed JWTs, and Choreo Connect will validate those JWTs in the incoming requests.      
