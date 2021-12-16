@@ -120,3 +120,4 @@ For more information with regard to the latter mentioned configurations with reg
 ## See Also
 
 - [Circuit Breakers]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/resiliency/circuit-breakers)
+

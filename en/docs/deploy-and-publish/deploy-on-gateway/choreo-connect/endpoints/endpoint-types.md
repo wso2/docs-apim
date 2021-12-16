@@ -26,5 +26,5 @@ By default, a single endpoint or a collection of endpoints is configured as Load
 |Type                     |Description                                         |
 |-------------------------|----------------------------------------------------|
 | HTTP/ REST Endpoint     | A REST service endpoint based on a URI template.   |                  
-| WebSocket Endpoint    | A HTTP based streaming endpoint implemented based on the WebSocket protocol. Once a connection is  established with the endpoint, a channel that enables two way communication is created providing pub sub capabilities. |                                                                                                                 
+| WebSocket Endpoint    | A HTTP based streaming endpoint implemented based on the WebSocket protocol. Once a connection is  established with the endpoint, a channel that enables two way communication is created providing pub sub capabilities. |                         
 

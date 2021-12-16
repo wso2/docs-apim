@@ -50,3 +50,4 @@ The following are the data stores that are being used.
 5. Get subscription information for API id and application id from the subscription data store.
 6. If subscription data is not found (in data stores and API Manager) then, the subscription is considered failed.
 7. If a valid subscription is found, then the relevant data is populated into the internal context for other functions (analytics data, throttling, etc)
+

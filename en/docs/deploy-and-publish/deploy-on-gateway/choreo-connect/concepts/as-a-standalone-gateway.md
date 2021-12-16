@@ -109,4 +109,3 @@ To authorize an API request with the self-contained JWT token under an issuer wi
 - [Subscription Validation]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/subscription-validation/)
 - [Token Caching]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configure-caching/)
 
-
