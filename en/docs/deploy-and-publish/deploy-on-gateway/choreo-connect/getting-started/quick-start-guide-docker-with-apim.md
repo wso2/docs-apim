@@ -4,7 +4,9 @@ Let's deploy an API using WSO2 API Manager (WSO2 API-M) as the Control Plane and
 
 ## Before you begin...
 
-Make sure to install and set up [Docker](https://www.docker.com).
+Make sure to install and set up [Docker](https://www.docker.com) and allocate following resources for docker.
+- Minimum CPU : 4vCPU
+- Minimum Memory : 4GB
 
 ### Step 1 - Download and extract Choreo Connect distribution .zip file
 
