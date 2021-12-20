@@ -25,6 +25,9 @@ Use the following steps to install API Manager Analytics 3.2.0 as a Windows Serv
     org.ops4j.pax.logging.log4j2.config.file=${carbon.home}/conf/${wso2.runtime}/log4j2.xml 
     ```
 
+    !!! Warning
+    Note that WSO2 API Manager 3.0.0, 3.1.0, 3.2.0, and 4.0.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
+
 3. Create a directory for YAJSW.
 
 4. Create two subdirectories for worker and dashboard in the YAJSW directory created in step 3.

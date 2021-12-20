@@ -15,6 +15,9 @@ you will be able to access those logs as well.
 
 See [Configuring Logs]({{base_path}}/observe/micro-integrator/classic-observability-logs/configuring-log4j2-properties) for details on how logs are configured in the Micro Integrator.
 
+!!! Warning
+    Note that WSO2 API Manager 3.0.0, 3.1.0, 3.2.0, and 4.0.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
+
 ## Downloading Log Files
 
 You can easily download them from the [Micro Integrator Dashboard]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard). 

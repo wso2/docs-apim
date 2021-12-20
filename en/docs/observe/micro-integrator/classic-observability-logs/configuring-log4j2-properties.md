@@ -8,6 +8,9 @@ title: Configuring Logs - WSO2 API Manager 4.0.0
 
 All WSO2 products are shipped with Log4j2 logging capabilities, which generate server-side logs. The `<MI_HOME>/conf/log4j2.properties` file governs how logging is performed by the server.
 
+!!! Warning
+    Note that WSO2 API Manager 3.0.0, 3.1.0, 3.2.0, and 4.0.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
+
 ??? note "Java logging and Log4j2 integration"
     In addition to the logs from libraries that use Log4j2, all logs from libraries that use the Java logging framework are also visible in the same log files. That is, when Java logging is enabled in Carbon, only the Log4j2 appenders will write to the log files. If the Java Logging Handlers have logs, these logs will be delegated to the log events of the corresponding Log4j2 appenders. A Pub/Sub registry pattern implementation has been used in the latter mentioned scenario to plug the handlers and appenders. The following default log4j2 appenders in the `log4j2.properties` file are used for this implementation:<br/><ul>
     <li><code>org.wso2.carbon.logging.appenders.CarbonConsoleAppender</code></li>

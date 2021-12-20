@@ -210,6 +210,9 @@ Follow the steps given below to have passwords encrypted using the automated pro
 
 This manual process can be used for encrypting any password in a configuration file. However, if you want to encrypt any elements that cannot use an XPath to specify the location in a configuration file, you must use manual encryption. It is not possible to use the [automated encryption process](#EncryptingPasswordswithCipherTool-automated) if an XPath is not specified for the element.
 
+!!! Warning
+    Note that WSO2 API Manager 3.0.0, 3.1.0, 3.2.0, and 4.0.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
+
 For example, consider the `log4j.properties` file given below, which does not use XPath notations. As shown below, the password of the `LOGEVENT` appender is set to `admin` :
 
 ``` java

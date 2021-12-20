@@ -207,6 +207,9 @@ Also [download](https://logging.apache.org/log4j/1.2/download.html) the followin
 
 -   log4j-1.2.17.jar
 
+!!! Warning
+    Note that WSO2 API Manager 3.0.0, 3.1.0, 3.2.0, and 4.0.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
+
 ### Configuring Sample FIX Applications
 
 If you are using a binary distribution of Quickfix/J, the two samples (FIX messages sender/reveiver) and their configuration files are all packed to two JAR files called

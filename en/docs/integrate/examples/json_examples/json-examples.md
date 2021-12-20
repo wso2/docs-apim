@@ -1144,6 +1144,9 @@ An example for a valid JSON payload request is given below.
 
 To assist with troubleshooting, you can enable debug logging at several stages of the mediation of a JSON payload by adding one or more of the following loggers to the `MI_HOME/conf/log4j2.properties` file and restarting the MI.
 
+!!! Warning
+    Note that WSO2 API Manager 3.0.0, 3.1.0, 3.2.0, and 4.0.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
+
 !!! Info
     Be sure to turn off these loggers when running the MI in a production environment, as logging every message will significantly reduce performance.
 
