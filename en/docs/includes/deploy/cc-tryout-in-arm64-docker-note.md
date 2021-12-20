@@ -1,5 +1,5 @@
 
-??? note "Click here if you are using ARM64 based machine (e.g., Apple M1)"
+??? note "Click here if you are using an ARM64 based machine (e.g., Apple M1)"
     If you are trying this out in an **ARM64** based machine (e.g., Apple M1), update the Docker image names with the following:
 
     - docker-compose.yaml files
