@@ -2,8 +2,9 @@
 
 - Choreo Connect can be deployed in [Docker Compose](https://docs.docker.com/compose/) for trying out purposes. You need to install [Docker](https://docs.docker.com/get-docker/) in your machine.
   Allocate the following resources for Docker.
-  - Minimum CPU : 4vCPU
-  - Minimum Memory : 4GB
+
+    - Minimum CPU : 4vCPU
+    - Minimum Memory : 4GB
 
 
 - In order to deploy Choreo Connect in Kubernetes, ensure that the appropriate prerequisites are fulfilled.
