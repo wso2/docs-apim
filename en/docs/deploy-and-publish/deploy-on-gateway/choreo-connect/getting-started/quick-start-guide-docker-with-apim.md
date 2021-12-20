@@ -4,7 +4,7 @@ This is a step-by-step guide on how to quickly deploy an API using WSO2 API Mana
 
 ## Before you begin...
 
-Install and set up [Docker](https://www.docker.com) and allocate following resources for docker.
+Install and set up [Docker](https://www.docker.com) and allocate the following resources for Docker.
 - Minimum CPU : 4vCPU
 - Minimum Memory : 4GB
 
