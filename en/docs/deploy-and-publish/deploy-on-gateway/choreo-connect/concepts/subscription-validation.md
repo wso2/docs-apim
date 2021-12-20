@@ -21,7 +21,7 @@ The following set of events are received by the Choreo Connect in order to perfo
 - Application key generation event (generation of consumer key and secret).
 - Subscribing an API to application event.
 
-In order to get the events that has happened before the Gateway startup, the adapter will pull the following details of the tenant defined for the Choreo Connect instance during the startup. The Adapter will have list of predefined environments from which it will pull the APIs and the other artifacts listed below.
+In order to get the events that have happened before the Gateway startup, the Adapter will pull the following details of the tenant defined for the Choreo Connect instance during the startup. The Adapter will have list of predefined environments from which it will pull the APIs and the other artifacts listed below.
 
 - APIs deployed for matching environments for a specific tenant.
 - Applications created for a specific tenant.
