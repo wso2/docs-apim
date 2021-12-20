@@ -4,7 +4,7 @@ Choreo Connect can be used as a **standalone** Gateway without the API Manager a
 
 - APIs can be deployed via apictl (CLI Tool). 
 - apictl can be used to create API projects based on an open API definition. 
-- These API projects can be directly pushed to the adapter, which will deploy the APIs in the enforcer and the router.
+- These API projects can be directly pushed to the adapter, which will deploy the APIs in the Enforcer and the Router.
 
 When Choreo Connect is used as a standalone Gateway, you can connect it to an external Secure Token Service (STS), which will provide signed JWTs, and Choreo Connect will validate those JWTs in the incoming requests.      
 
