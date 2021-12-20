@@ -75,7 +75,7 @@ Following properties of the open API is not recommended to be edited, as it will
 
     Then, Choreo Connect will expose the API using the base path (or context) /v1 if the `x-wso2-basePath` extension is not present. Then editing the last part of the servers URL(/v1) will expose API as a different context.
 
-    If editing the servers URL is a must due to the changes in the actual back end service, then we can use the x-wso2-basePath extension as a fixed context and edit the servers URL. So API will be exposed with the same base bath as it was before.
+    If editing the servers URL is a must due to the changes in the actual back end service, then you can use the x-wso2-basePath extension as a fixed context and edit the servers URL. So the API will be exposed with the same base path as it was before.
 
 ## OpenAPI extensions
   
