@@ -4,6 +4,9 @@ Logs of a system can be stored in many ways. For example, they can be stored in 
 
 To [view and download the logs](https://docs.wso2.com/display/ADMIN44x/View+and+Download+Logs) using the management console, the following configurations are required: the [Logging Management](https://docs.wso2.com/display/ADMIN44x/Monitoring+Logs+using+Management+Console) feature should be installed, [the log4j properties should be configured](https://docs.wso2.com/display/ADMIN44x/Configuring+Log4j+Properties) and the LogProvider and LogFileProvider interfaces should be implemented and configured for the server as described below.
 
+!!! Warning
+    Note that WSO2 API Manager 3.0.0, 3.1.0, 3.2.0, and 4.0.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
+
 -   [Implementing the LogProvider interface](#ConfiguringtheLogProvider-ImplementingtheLogProviderinterface)
 -   [Implementing the LogFileProvider interface](#ConfiguringtheLogProvider-ImplementingtheLogFileProviderinterface)
 -   [Configuring Carbon to plug the log provider](#ConfiguringtheLogProvider-ConfiguringCarbontoplugthelogprovider)

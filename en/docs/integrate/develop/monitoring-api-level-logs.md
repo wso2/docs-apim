@@ -12,6 +12,10 @@ Open `<MI_HOME>/conf/log4j2.properties` file using your favorite text editor to
 Follow the instructions below to enable log4j2 logs for a sample REST API (named `TestAPI`). 
 
 1.  Open up the `log4j2.properties` file (stored in the `<MI_HOME>/conf` ) directory. 
+
+	!!! Warning
+    	Note that WSO2 API Manager 3.0.0, 3.1.0, 3.2.0, and 4.0.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
+
 2.  Let's define a new appender for the `TestAPI` API by adding the following section to the end of the file (starting in a new line).
 
 	!!! Note

@@ -10,6 +10,9 @@ Follow the instructions given below to enable logs for a specific component in t
 
 There are two ways to enable logs for a component: using the Micro Integrator [dashboard](#using-the-dashboard) or using the [CLI](#using-the-cli).
 
+!!! Warning
+    Note that WSO2 API Manager 3.0.0, 3.1.0, 3.2.0, and 4.0.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
+
 !!! Info
     Alternatively, you can directly update the [log configurations]({{base_path}}/observe/micro-integrator/classic-observability-logs/configuring-log4j2-properties) in the `log4j2.properties` file (stored in the `<MI_HOME>/conf` directory).
 

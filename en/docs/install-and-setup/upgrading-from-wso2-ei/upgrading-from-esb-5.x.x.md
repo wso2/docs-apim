@@ -451,6 +451,9 @@ Copy the JKS files from the `<ESB_HOME>/repository/resources/security` folder to
 
 The following sections of this document will guide you to migrate the product configurations including log4j.
 
+!!! Warning
+    Note that WSO2 API Manager 3.0.0, 3.1.0, 3.2.0, and 4.0.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
+
 #### Migrating to TOML configurations
 
 !!! Tip

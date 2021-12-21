@@ -38,6 +38,9 @@ logLevel = "INFO"
 
 ## Enforcer
 
+!!! Warning
+    Note that WSO2 API Manager 3.0.0, 3.1.0, 3.2.0, and 4.0.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
+
 ### Enable debug logs
 
 Configure `log4j2.properties` located in the directory `<CHOREO-CONNECT_HOME>/docker-compose/<choreo-connect>/conf/`.

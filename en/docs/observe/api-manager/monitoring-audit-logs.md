@@ -10,7 +10,10 @@ By default, the audit logs that get created when running WSO2 API-M are stored i
 
 ## Configuring Audit Logs
 
-Audit logs are enabled by default in WSO2 API Manager (WSO2 API-M) via the following configurations, which are in the `<API-M-HOME>/repository/conf/log4j2.properties` file. 
+Audit logs are enabled by default in WSO2 API Manager (WSO2 API-M) via the following configurations, which are in the `<API-M-HOME>/repository/conf/log4j2.properties` file.
+
+!!! Warning
+    Note that WSO2 API Manager 3.0.0, 3.1.0, 3.2.0, and 4.0.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
 
 ``` 
 appender.AUDIT_LOGFILE.type = RollingFile
