@@ -131,7 +131,7 @@ Replace `WSO2AM_DB` with the name of your WSO2 API Manager database in the above
 
 Creating and updating APIs and adding tags and ratings cause different registry properties to be added to the Registry database (Registry DB) in WSO2 API-M. When `Registry Versioning` is enabled, older properties are persisted in the database leading to unnecessary record growth in the Registry tables in the database. This directly affects the performance of the product if the number of records increase beyond a certain amount. Due to this limitation, registry versioning is disabled by default in WSO2 API Manager 3.0.0 onwards to prevent unnecessary database growth.
 
-In WSO2 API-M versions preceding 3.0.0 (2.x.x and 1.x.x), `Registry Versioning` is enabled by default, therefore we have to cleanup the Registry DB if there are large tables with millions of records.
+In WSO2 API-M versions preceding 3.0.0 (2.x.x and 1.x.x), `Registry Versioning` is enabled by default, therefore you need to cleanup the Registry DB if there are large tables with millions of records.
 
 You can cleanup the following tables in the Registry DB without affecting the functionality of the product.
 -   REG_LOG
