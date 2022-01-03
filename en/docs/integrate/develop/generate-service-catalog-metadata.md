@@ -4,25 +4,31 @@ Follow the instructions given below to generate Service Catalog metadata artifac
 
 ## Generate Swagger and Metadata files for APIs
 
-1.  Right-click the **api** folder under the ESB project, click **Generate API Metadata**.
+1. Right-click the **api** folder under the ESB project, click **Generate API Metadata**.
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/generate_metadata/api-metadata.png">
 
-2.  This will open a success dialog box once finished.
+2. This will open a success dialog box once finished.
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/generate_metadata/api-success.png">
 
-3.  Re-select required API artifacts under the relevant **Composite Exporter** module dependencies section to pack the generated metadata artifacts along with the API artifacts.
+3. Re-select required API artifacts under the relevant **Composite Exporter** module dependencies section to pack the generated metadata artifacts along with the API artifacts.
+
+    !!! Tip
+        By Default, `Publish to Service Catalog` check box is enabled. If not, please enable the check box in the wizard so that it will include Metadata files of the selected artifacts.
 
 ## Generate Metadata files for Proxy Services
 
-1.  Right-click the **proxy-service** folder under the ESB project, click **Generate API Metadata**.
+1. Right-click the **proxy-service** folder under the ESB project, click **Generate API Metadata**.
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/generate_metadata/proxy-metadata.png">
 
-2.  This will open a success dialog box once finished.
+2. This will open a success dialog box once finished.
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/generate_metadata/proxy-success.png">
 
-3.  Re-select required Proxy Service artifacts under the relevant **Composite Exporter** module dependencies section to pack the generated metadata artifacts along with the Proxy Service artifacts.
+3. Re-select required Proxy Service artifacts under the relevant **Composite Exporter** module dependencies section to pack the generated metadata artifacts along with the Proxy Service artifacts.
+
+    !!! Tip
+        By Default, `Publish to Service Catalog` check box is enabled. If not, please enable the check box in the wizard so that it will include Metadata files of the selected artifacts. 
 

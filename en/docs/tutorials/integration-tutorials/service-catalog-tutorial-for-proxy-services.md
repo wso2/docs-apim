@@ -232,7 +232,9 @@ Package the artifacts in your composite exporter module to be able to deploy the
 
     -   `StockQuoteProxy`
 
-3.  Save the changes.
+3. By Default, `Publish to Service Catalog` check box is enabled. If not, please enable the check box in the wizard so that it will include Metadata files of the selected artifacts.
+
+4. Save the changes.
 
 ### Step 5: Start the API Manager runtime
 

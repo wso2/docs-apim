@@ -317,13 +317,15 @@ Let's enable this client for the embedded Micro Integrator of WSO2 Integration S
 
 Package the artifacts in your composite exporter module to be able to deploy the artifacts in the server.
 
-1.  Open the `pom.xml` file of the **ServiceCatalogSampleCompositeExporter** module.
-2.  Ensure that the following artifacts are selected in the POM file.
+1. Open the `pom.xml` file of the **ServiceCatalogSampleCompositeExporter** module.
+2. Ensure that the following artifacts are selected in the POM file.
 
-    -   `HealthcareAPI`
-    -   `QueryDoctorEP`
+    - `HealthcareAPI`
+    - `QueryDoctorEP`
 
-3.  Save the changes.
+3. By Default, `Publish to Service Catalog` check box is enabled. If not, please enable the check box in the wizard so that it will include Metadata files of the selected artifacts. 
+
+4. Save the changes.
 
 ### Step 5: Start the API Manager runtime
 
