@@ -4,7 +4,7 @@ Follow the instructions given below to generate Service Catalog metadata artifac
 
 ## Generate Swagger and Metadata files for APIs
 
-1. Right-click the **api** folder under the ESB project, click **Generate API Metadata**.
+1. Right-click the **api** folder under the ESB project and click **Generate API Metadata**.
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/generate_metadata/api-metadata.png">
 
