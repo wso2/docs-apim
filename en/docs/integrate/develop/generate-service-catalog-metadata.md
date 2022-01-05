@@ -19,7 +19,7 @@ Follow the instructions given below to generate Service Catalog metadata artifac
 
 ## Generate Metadata files for Proxy Services
 
-1. Right-click the **proxy-service** folder under the ESB project, click **Generate API Metadata**.
+1. Right-click the **proxy-service** folder under the ESB project and click **Generate API Metadata**.
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/generate_metadata/proxy-metadata.png">
 
