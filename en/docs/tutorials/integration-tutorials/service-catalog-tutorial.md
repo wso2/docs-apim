@@ -323,7 +323,7 @@ Package the artifacts in your composite exporter module to be able to deploy the
     - `HealthcareAPI`
     - `QueryDoctorEP`
 
-3. By Default, `Publish to Service Catalog` check box is enabled. If not, please enable the check box in the wizard so that it will include Metadata files of the selected artifacts. 
+3. By default, the `Publish to Service Catalog` checkbox is enabled. If not, please enable the checkbox in the wizard so that it will include metadata files of the selected artifacts. 
 
 4. Save the changes.
 
