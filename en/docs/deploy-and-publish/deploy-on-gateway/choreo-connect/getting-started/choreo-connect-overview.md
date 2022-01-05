@@ -1,8 +1,6 @@
 # Choreo Connect Overview
 
-Choreo Connect (the API Microgateway) is an API Gateway for microservices, which is cloud-native, decentralized, and developer-centric.
-
-WSO2 Choreo Connect is a lightweight message processor for APIs. You would need to use WSO2 Choreo Connect for message security, transport security, routing, and other common API Management related quality of services (QoS).
+Choreo Connect (the API Microgateway) is a cloud-native, decentralized, lightweight, and high performance API Gateway designed especially for microservices. Choreo Connect provides means for API security, rate-limiting, load-balancing, observability and many other API Management related quality of services (QoS).
 
 The following diagram illustrates the basic architecture of Choreo Connect and showcases its main components.
 
