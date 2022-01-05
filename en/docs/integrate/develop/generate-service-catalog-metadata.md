@@ -15,7 +15,7 @@ Follow the instructions given below to generate Service Catalog metadata artifac
 3. Re-select required API artifacts under the relevant **Composite Exporter** module dependencies section to pack the generated metadata artifacts along with the API artifacts.
 
     !!! Tip
-        By Default, `Publish to Service Catalog` check box is enabled. If not, please enable the check box in the wizard so that it will include Metadata files of the selected artifacts.
+        By default, the `Publish to Service Catalog` checkbox is enabled. If not, select the checkbox in the wizard so that it will include metadata files of the selected artifacts.
 
 ## Generate Metadata files for Proxy Services
 
