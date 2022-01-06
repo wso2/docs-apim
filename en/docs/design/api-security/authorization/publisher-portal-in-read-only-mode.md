@@ -7,7 +7,7 @@ The user has only the `apim:api_view` permission.
 
 Let's create a read only user and experience the publisher portal in read only mode.
 
-Steps to create a Read only user:
+Follow the instructions below to create a Read only user:
 1. Create role ex: read_only in admin console
 2. Create a user and assign the read_only role to the user.
 3. Assign the login permission to login to the publisher portal via the admin console.
