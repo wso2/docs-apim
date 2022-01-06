@@ -40,7 +40,7 @@ API Manager 4.1.0-M2</td>
 
 - **Publisher Read Only Mode (M3)** 
     
-     A user who has view/read only permissions can only view the API/Services details in the publisher portal.He/She should not be able to edit/create/publish APIs/Services.
+     A user who has view/read only permissions can only view the API/Services details in the Publisher portal. Such users should not be able to edit/create/publish APIs/Services.
 
 
 <! --- ### Deprecated features and functionalities
