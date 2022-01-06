@@ -5,7 +5,7 @@ portal and also he/she can review all the analytics related details.
 #### Read Only User
 The user has only the `apim:api_view` permission.
 
-Let's create a read only user and experience the publisher portal in read only mode.
+Let's create a read only user and experience the Publisher portal in read only mode.
 
 Follow the instructions below to create a Read only user:
 1. Create role ex: read_only in admin console
