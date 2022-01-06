@@ -14,7 +14,7 @@ Follow the instructions below to create a Read only user:
 4. Log in to the Admin Portal and navigate to **scope management** which is under **Settings**.
 5. Click **Add Scope Mappings**.
    Enter the Role name as `read_only` (This is the role you assigned to the read only user).
-6. Click on the Next button.
+6. Click **Next**.
 7. Please select the Custom scope assignments under the select permissions.
    Check the `apim:api_view` permission under the Publisher.
 
