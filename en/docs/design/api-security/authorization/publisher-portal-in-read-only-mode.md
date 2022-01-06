@@ -1,5 +1,5 @@
 # Publisher Portal in Read-only Mode
-A user who has the view/read only permissions can only view the API, API Product and Service details in the publisher
+A user who has the view/read only permissions can only view the API, API Product and Service details in the Publisher
 portal and also he/she can review all the analytics related details.
 
 #### Read Only User:
