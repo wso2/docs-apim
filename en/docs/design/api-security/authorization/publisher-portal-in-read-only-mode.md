@@ -16,7 +16,7 @@ Follow the instructions below to create a Read only user:
    Under the Role name please give the Role as read_only(the role you assigned to the read only user).
 6. Click on the Next button.
 7. Please select the Custom scope assignments under the select permissions.
-   Check apim:api_view permission under the publisher.
+   Check the `apim:api_view` permission under the Publisher.
 
    ![read-only-user-creation]({{base_path}}/assets/img/learn/api-security/read-only-user-creation.png)
 
