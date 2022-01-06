@@ -3,7 +3,7 @@ A user who has the view/read only permissions can only view the API, API Product
 portal and also he/she can review all the analytics related details.
 
 #### Read Only User:
-The user has only the apim:api_view permission.
+The user has only the `apim:api_view` permission.
 
 Let's create a read only user and experience the publisher portal in read only mode.
 
