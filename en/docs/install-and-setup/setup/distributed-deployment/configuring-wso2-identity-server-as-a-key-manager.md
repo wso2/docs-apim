@@ -146,7 +146,7 @@ Follow the instructions below to set up and configure the databases for the WSO2
 1. Download the WSO2 IS Connector based on the WSO2 API-M version.
      - [WSO2 IS Connector for the WSO2 API-M GA release]({{base_path}}/assets/attachments/administer/wso2is-km-connector-1.0.16_ga.zip).
      - [WSO2 IS Connector for the WSO2 API-M WUM updated version (as at 5th January 2022 (2022-01-05))]({{base_path}}/assets/attachments/administer/wso2is-km-connector-wum.zip).
-     - [WSO2 IS Connector for the WSO2 API-M U2 udated version (from update level - 3.2.0.108.full)]({{base_path}}/assets/attachments/administer/wso2is-km-connector-u2.zip).
+     - [WSO2 IS Connector for the WSO2 API-M U2 updated version (from update level - 3.2.0.108.full)]({{base_path}}/assets/attachments/administer/wso2is-km-connector-u2.zip).
      
 2. Extract the distribution and copy the following JAR files, which are in the `<wso2is-extensions-1.0.16>/dropins` directory, to the `<IS_HOME>/repository/components/dropins` directory.
 
