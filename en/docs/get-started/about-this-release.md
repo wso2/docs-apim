@@ -1,6 +1,6 @@
 # About this Release
 
-WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premise, and hybrid architectures to drive your digital transformation strategy. It allows API developers to design, publish, and manage the lifecycle of APIs and API product managers to create API products from one or more APIs. APIs can be built by integrating different types of APIs such as traditional request-response style APIs and Event-driven APIs using a low-code/no-code development experience, and the APIs can be exposed to consumers through its API Gateway. 
+WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premise, and hybrid architectures to drive your digital transformation strategy. It allows API developers to design, publish, and manage the lifecycle of APIs and API product managers to create API products from one or more APIs. APIs are built by integrating different types of APIs such as traditional request-response style APIs and Event-driven APIs using a low-code/no-code development experience, and the APIs are exposed to consumers through its API Gateway. 
 
 For more information on WSO2 API Manager, see the [overview]({{base_path}}/getting-started/overview/).
 
@@ -16,11 +16,11 @@ It is now available to download from [here](https://wso2.com/api-management/#).
 
 - **[New Service Catalog that lists registered services]({{base_path}}/design/create-api/create-an-api-using-a-service/)**
     
-	 WSO2 API Manager includes a Service Catalog where developers can register their services in a RESTful manner. Service Catalog is one of the main attributes that enable the API-first Integration in WSO2 API Manager. Through the Service Catalog, integration services are made discoverable to the API Management layer so that API proxies can directly be created using them.
+	 WSO2 API Manager includes a Service Catalog where developers can register their services in a RESTful manner. Service Catalog is one of the main attributes that enable the API-first Integration in WSO2 API Manager. Through the Service Catalog, integration services are made discoverable to the API Management layer to enable the creation of API proxies using these services.
 
 - **[API and API Product revision support]({{base_path}}/design/create-api/create-api-revisions/)**
     
-	 If you are an API Publisher, there can be a situation where you need to keep track of the different deployments of your API. For this purpose, a new concept named **Revisions** has been introduced. The revisions of your API can be **deployed** to specific Gateway Environment(s) as needed. You cannot edit the revisions. However, if required, you can **restore** your API to a specific revision if you want to discard the latest changes.
+	 An API Publisher may need to keep track of the different deployments of the API. For this purpose, a new concept named **Revisions** has been introduced. The revisions of your API are **deployed** to specific Gateway Environment(s) as needed. You cannot edit the revisions. However, if required, you can **restore** your API to a specific revision if you want to discard the latest changes.
 
 - **[OpenAPI or GraphQL to Postman Collection]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console/)**
 
@@ -48,7 +48,7 @@ It is now available to download from [here](https://wso2.com/api-management/#).
 
 - **TLSv1.3 support for API Gateway**
 
-    API Gateway supports TLSv1.3 protocol and can be enabled to provide a stronger transport-level security.
+    API Gateway supports TLSv1.3 protocol, which can provide a stronger transport-level security when enabled.
 
 <!--
 
@@ -98,7 +98,7 @@ It is now available to download from [here](https://wso2.com/api-management/#).
 
 - API-related Synapse artifacts were moved from the file system to the in-memory. Therefore, there will not be any Synapse artifacts stored in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/api` directory. These Synapse artifacts are stored in the database and loaded to memory when the server starts up and when a new API revision is deployed and published.
 
-- With the inclusion of API revisioning it is required to have an API revision deployed in a Gateway to be able to publish an API.
+- With the inclusion of API revisioning, it is required to have an API revision deployed in a Gateway in order to publish an API.
 
 <hr style="border:8px solid gray"> </hr>
 

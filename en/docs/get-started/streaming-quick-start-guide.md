@@ -6,11 +6,12 @@ Let's get started with WSO2 Streaming Integrator(SI) by running a simple streami
 
 1. Install [Oracle Java SE Development Kit (JDK)](http://java.sun.com/javase/downloads/index.jsp) version 11 and set the `JAVA_HOME` environment variable.
    For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/).
-2. Download the Streaming Integrator and Streaming Integrator Tooling distributions from the [WSO2 Streaming Integrator site](https://wso2.com/integration/streaming-integrator/) and extract them to a location of your choice. Hereafter, the extracted location is referred to as `<SI_HOME>` and `<SIT_HOME>` respectively.<br/><br/>
+2. Download the Streaming Integrator and Streaming Integrator Tooling distributions from the [WSO2 Streaming Integrator site](https://wso2.com/integration/streaming-integrator/) and extract them to a location of your choice. Hereafter, let's refer to the extracted location as `<SI_HOME>` and `<SIT_HOME>` respectively.<br/><br/>
 3. Optionally, go to the [WSO2 API Manager website](https://wso2.com/api-management/), click **TRY IT NOW**, and then click **Zip Archive** to download the API Manager distribution as a ZIP file.
    
 ## What you'll build
-In this sample scenario, you aggregate the data relating to the raw material purchases of a sweet production factory and publish the data to a WebSocket server.
+
+In this sample scenario, you collect and combine the data relating to the raw material purchases of a sweet production factory and publish the data to a WebSocket server.
                                 
 ![Scenario]({{base_path}}/assets/img/streaming/qsg/streaming-integration-qsg-diagram.png)
 
@@ -22,7 +23,9 @@ To start WSO2 Streaming Integrator, navigate to the `<SI_HOME>/bin` directory fr
 - **For Windows**: `server.bat --run`
 
 ### Step 2: Start the Streaming Integrator Tooling 
+
 Here, we are going to use the sample WebSocket Receiver shipped with the Streaming Integrator Tooling.
+
 To start the sample, navigate to the `<SIT_HOME>/bin` directory from the CLI, and issue the appropriate command based on your operating system:
 
 - **For Linux**: `./tooling.sh`
@@ -35,7 +38,7 @@ Let's create a simple Siddhi application that reads data from a XML file, does a
 1. Download `sampledata.xml` file from [here]({{base_path}}/assets/attachments/quick-start-guide/sampledata.xml) and save it in a location of your choice.
 
     !!! info
-        In this example, the file is located in the `/Users/foo` directory.
+        In this example, the file is in the `/Users/foo` directory.
 
 2. Navigate to `http://localhost:9390/editor`, 
 
@@ -45,7 +48,7 @@ Let's create a simple Siddhi application that reads data from a XML file, does a
 3. Click on `New`, and copy and paste the content given below.
     
     !!! tip
-        Here, a sample Siddhi application is provided to minimize the time spent following this guide. However, WSO2 recommends that you use the Streaming Integration Tooling that offers features such as syntax checking, event simulation for testing purposes, reformatting code, the option to design applications in a graphical interface or by writing code, and many more. For more information on designing Siddhi applications, see [Streaming Integrator Tooling Overview]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview).
+        Here, a sample Siddhi application helps reduce the time spent following this guide. WSO2 recommends that you use the Streaming Integration Tooling that offers features such as syntax checking, event simulation for testing purposes, reformatting code, the option to design applications in a graphical interface or by writing code, etc. For more information on designing Siddhi applications, see [Streaming Integrator Tooling Overview]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview).
 
     ```
     @App:name('ManageProductionStats')
@@ -82,11 +85,12 @@ Let's create a simple Siddhi application that reads data from a XML file, does a
     Specify the Streaming Integrator host `localhost` and port `9443`.
     
 7. Select the `ManageProductionStats` and the `Server` and **Deploy**.
-The following message appears to indicate that the Siddhi application deployed successfully in the Streaming Integrator console.
+
+The Siddhi application gets deployed and the following message appears in the Streaming Integrator console.
 
     ```INFO {org.wso2.carbon.streaming.integrator.core.internal.StreamProcessorService} - Siddhi App ManageProductionStats1 deployed successfully```
 
- You can now test the **SweetProductionApplication** service that you just generated.
+You can now test the **SweetProductionApplication** service that you generated.
 
 
 ### Step 4: Test your Siddhi application
@@ -161,7 +165,7 @@ The `ManageProductionStats` Siddhi Application you deployed in the Micro Integra
 
         <img src="{{base_path}}/assets/img/streaming/qsg/streaming-service-catalog.png" width="400">
   
-    3. See that the `SweetProductionApplication` is listed as a service.
+        `SweetProductionApplication` appears as a service in the API Publisher portal.
 
 ### Step 2 - Create a managed API using the Streaming Service
 
@@ -169,33 +173,31 @@ The `ManageProductionStats` Siddhi Application you deployed in the Micro Integra
 
 2.  Click **Create API**.
 
-     This opens the **Create API** dialog box with the API details that are generated based on the service.
+     This opens the **Create API** dialog box with the API details related to the service.
 
     <a href="{{base_path}}/assets/img/streaming/qsg/create-api-from-streaming-service.png"><img src="{{base_path}}/assets/img/streaming/qsg/create-api-from-streaming-service.png" width="800"></a>
 
 3.  Update the API name, context, and version if required, and click **Create API**. 
 
-    The overview page of the API that you just created appears. 
+    The overview page of the API that you created appears. 
 
 4. Optionally, update the portal configurations and API configurations as required.
 
-     Now, you have successfully created a Web Socket API using the service.
+     Now, you have created a Web Socket API using the service.
 
 ### Step 3 - Publish the managed API
 
 1. Navigate to **Deployments** and click **Deploy** to create a revision to deploy in the default Gateway environment. 
 
-2. Navigate to **Lifecycle** and click **Publish** to publish the API in the Gateway environment.
-    
-    If the API is published successfully, the lifecycle state will shift to **PUBLISHED**. 
+2. Navigate to **Lifecycle** and click **Publish** to publish the API in the Gateway environment. The lifecycle state will shift to **PUBLISHED**. 
 
 ### Step 4 - Invoke the Managed API via Developer Portal
 
 1. Navigate to the **Developer Portal** by clicking on `View In Dev Portal` at the top menu.
 
-2. Sign in using the default username/password `admin/admin`. You will be redirected to the **APIs**.
+2. Sign in using the default username/password `admin/admin`. You can see the **APIs** section.
 
-3. Under **APIs**, you will see the published `SweetProductionApplication`. Click on it to navigate to the Overview of the API.
+3. Under **APIs**, you can see the published `SweetProductionApplication`. Click on it to navigate to the overview of the API.
 
 4. Click `Subscriptions` on the left menu and click `SUBSCRIBE` This creates a subscription to the API using the `DefaultApplication`.
 
@@ -205,18 +207,20 @@ The `ManageProductionStats` Siddhi Application you deployed in the Micro Integra
     
     <a href="{{base_path}}/assets/img/streaming/qsg/streaming-api-subscribe.png"><img src="{{base_path}}/assets/img/streaming/qsg/streaming-api-subscribe.png" size="800"></a>
 
-6. Copy the generated access token for future use. Alternatively, you can generate a new access token by using `GENERATE ACCESS TOKEN`.
+6. Copy the generated access token for future use. You can also generate a new access token by using `GENERATE ACCESS TOKEN`.
 
 7. Click `Try Out` on the left menu Click on the **SUB** topic.
-  You can see the sample command to access the API.
+
+   You can see the sample command to access the API.
   
-  ```jvm
-     wscat -c 'ws://localhost:9099/sweets/1.0.0/' -H 'Authorization: Bearer <access token>'
-  ```
+   ```jvm
+      wscat -c 'ws://localhost:9099/sweets/1.0.0/' -H 'Authorization: Bearer <access token>'
+   ```
   
-  Execute the command in Command Line.
+   Execute the command in Command Line.
   
-6. Now, you can remove existing `sampledata.xml` in `/Users/foo/files` and rename the downloaded file as `sampledata1.xml` and copy to the directory.
+8. Now, you can remove existing `sampledata.xml` in `/Users/foo/files` and rename the downloaded file as `sampledata1.xml` and copy to the directory.
+
 You can see the below in the Command Line.
 
 ```jvm

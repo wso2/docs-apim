@@ -153,7 +153,7 @@ The following are some of the main capabilities of the product.
 
 <div style="width: 100%; overflow: hidden;">
 
-<div class="leftContentOverview" style="width:75% !important;">The WSO2 Micro Integrator can also be used by enterprises as a classic ESB. When deployed as an ESB, it caters to your message routing, transformation, message mediation, service orchestration, as well as service and API hosting needs.
+<div class="leftContentOverview" style="width:75% !important;">The WSO2 Micro Integrator can be used by enterprises as a classic ESB. When deployed as an ESB, it caters to your message routing, transformation, message mediation, service orchestration, as well as service and API hosting needs.
     <ul>
         <li><a href="{{base_path}}/integrate/integration-overview/#centralized-integration-enterprise-service-bus">Centralized integration</li>
     </ul>
