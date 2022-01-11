@@ -1,6 +1,6 @@
 # Choreo Connect Overview
 
-Choreo Connect (the API Microgateway) is a cloud-native, decentralized, lightweight, and high performance API Gateway designed especially for microservices. Choreo Connect provides means for API security, rate-limiting, load-balancing, observability and many other API Management related quality of services (QoS).
+Choreo Connect (the API Microgateway) is a cloud-native, decentralized, lightweight API Gateway designed especially for microservices. Choreo Connect provides API security, rate-limiting, load-balancing, observability and many other API management related quality of services (QoS) while maintaining a high throughput and a low latency.
 
 The following diagram illustrates the basic architecture of Choreo Connect and showcases its main components.
 
