@@ -4,7 +4,7 @@ WSO2 API Manager is a complete platform for building, integrating, and exposing 
 
 For more information on WSO2 API Manager, see the [overview]({{base_path}}/getting-started/overview/).
 
-The **WSO2 API Manager 4.1.0 Milestone 2 (M2)** is the latest **WSO2 API Manager release** and is the successor of **WSO2 API Manager 4.0.0**. It contains the following components, which have new features and enhancements:
+The **WSO2 API Manager 4.1.0 Milestone 3 (M3)** is the latest **WSO2 API Manager release** and is the successor of **WSO2 API Manager 4.0.0**. It contains the following components, which have new features and enhancements:
 
 ## **API Manager**
 
@@ -13,8 +13,8 @@ The API Manager component addresses all aspects of API management in the platfor
 <table>
 <tr>
 <td>
-API Manager 4.1.0-M2</td>
-<td><a href="https://github.com/wso2/product-apim/releases/download/v4.1.0-m2/wso2am-4.1.0-m2.zip">download</a></td>
+API Manager 4.1.0-M3</td>
+<td><a href="https://github.com/wso2/product-apim/releases/download/v4.1.0-m3/wso2am-4.1.0-m3.zip">download</a></td>
 </tr>
 </table>
 
@@ -31,6 +31,18 @@ API Manager 4.1.0-M2</td>
 - **[Authentication support for end users using Token Exchange approach]({{base_path}}/administer/key-managers/configure-custom-connector/) (M2)**
 
      Get an API Manager token by invoking the token endpoint of API Manager with the required parameters (i.e., the token obtained from external Identity Provider) and invoke the API with the exchanged token.
+
+- **[A read-only mode for API Publisher]({{base_path}}/design/api-security/authorization/publisher-portal-in-read-only-mode/) (M3)**
+
+     This feature allows a user who has view/read only permissions to only view the API, API Product, and Service details in the Publisher portal. This user can also review all the analytics related details.
+
+- **[Lifecycle support for API Products]({{base_path}}/design/create-api-product/create-api-product/) (M3)**
+
+     WSO2 API Manager provides distinct life cycle states for the API during the API development process. A lifecycle state can now be specified for each API Product you create.
+
+- **[Tenant configurations migration from the registry to database]({{base_path}}/administer/advanced-configurations/) (M3)**
+
+     You can now perform more advanced configurations for tenant configuration migration from the registry to the database.
 
 ### Improvements
 
@@ -65,8 +77,8 @@ This serves the integration needs for the data plane of the API Manager platform
 
 <table>
 <tr>
-<td>Micro Integrator  4.1.0-M2</td> 
-<td><a href="https://github.com/wso2/micro-integrator/releases/download/v4.1.0-m2/wso2mi-4.1.0-m2.zip">download</a></td>
+<td>Micro Integrator  4.1.0-M3</td> 
+<td><a href="https://github.com/wso2/micro-integrator/releases/download/v4.1.0-m3/wso2mi-4.1.0-m3.zip">download</a></td>
 </tr>
 </table>
 
@@ -84,6 +96,10 @@ This serves the integration needs for the data plane of the API Manager platform
 
      VFS Inbound Endpoints are capable of handling files inside sub-directories of the specified URL. This enables users to process files recursively inside a directory.
 
+- **[Improve Service Catalog to work with Hot Deployments]({{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial/) (M3)**
+
+     You can now publish services to Service Catalog for hot deployments and include metadata files of the selected artifacts.
+
 ### Improvements
 
 - **[File based user store improvement]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#file-based-user-store-default) (M2)**
@@ -96,8 +112,8 @@ Streaming Integrator serves the streaming-based integrations and acts as the eve
 
 <table>
 <tr>
-<td>Streaming Integrator  4.1.0-M2</td> 
-<td><a href="https://github.com/wso2/streaming-integrator/releases/download/v4.1.0-m2/wso2si-4.1.0-m2.zip">download</a>
+<td>Streaming Integrator  4.1.0-M3</td> 
+<td><a href="https://github.com/wso2/streaming-integrator/releases/download/v4.1.0-m3/wso2si-4.1.0-m3.zip">download</a>
 </td> 
 </tr>
 </table>
@@ -120,12 +136,16 @@ WSO2 API Controller (apictl) is a command-line tool providing the capability to 
 
 <table>
 <tr>
-<td>API Controller 4.1.0-M2</td>
-<td><a href="https://github.com/wso2/product-apim-tooling/releases/tag/v4.1.0-m2">download</a></td>
+<td>API Controller 4.1.0-M3</td>
+<td><a href="https://github.com/wso2/product-apim-tooling/releases/tag/v4.1.0-m3">download</a></td>
 </tr>
 </table>
 
-<! --- ### New features--->
+### New features
+
+- **[Support to change lifecycle state of API Products using apictl]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/managing-apis-and-api-products/#change-status-of-an-api-or-api-product-in-an-environment)**
+
+     You can now change the status of an API or API Product in an environment using apictl.
 
 ### Improvements
 
@@ -137,8 +157,8 @@ WSO2 Integration Studio is an open-source development environment used to design
 
 <table>
 <tr>
-<td>Integration Studio  8.1.0-M1</td>
-<td><a href="https://github.com/wso2/integration-studio/releases/tag/v8.1.0-m1">download</a></td>
+<td>Integration Studio  8.1.0-M3</td>
+<td><a href="https://github.com/wso2/integration-studio/releases/tag/v8.1.0-m3">download</a></td>
 <tr>
 </table>
 
@@ -152,7 +172,23 @@ WSO2 Integration Studio is an open-source development environment used to design
 
      This feature generates metadata artifacts for the APIs and Proxy services that have been created inside the older Integration Studio workspaces.
 
+<!-- 
+
 - Integrated APIM Tooling into Integration Studio (M1)
+
+- NTLM mediator is now supported in Integration Studio
+
+- Add OPTIONS, HEAD, PATCH support to API in unit testing
+
+- Fix config toml file issue with EI servers
+
+- Make all the Web UIs compatible with IE7 version 
+
+- Add support to Conditionally include metadata dependencies
+
+- Adding SSL support for MongoDB configs
+
+--->
 
 ### Improvements
 
@@ -170,8 +206,8 @@ The Micro Integrator dashboard can connect to multiple Micro Integrator server i
 
 <table>
 <tr>
-<td>Micro Integrator Tooling  4.1.0-M2</td>
-<td><a href="https://github.com/wso2/micro-integrator/releases/download/v4.1.0-m2/wso2mi-dashboard-4.1.0-m2.zip">download</a></td>
+<td>Micro Integrator Tooling  4.1.0-M3</td>
+<td><a href="https://github.com/wso2/micro-integrator/releases/download/v4.1.0-m3/wso2mi-dashboard-4.1.0-m3.zip">download</a></td>
 <tr>
 </table>
 
@@ -191,8 +227,8 @@ The Streaming Integrator Tooling is a developer tool to develop Siddhi applicati
 
 <table>
 <tr>
-<td>Streaming Integrator Tooling  4.1.0-M2</td>
-<td><a href="https://github.com/wso2/streaming-integrator-tooling/releases/download/v4.1.0-m2/wso2si-tooling-4.1.0-m2.zip">download</a></td>
+<td>Streaming Integrator Tooling  4.1.0-M3</td>
+<td><a href="https://github.com/wso2/streaming-integrator-tooling/releases/download/v4.1.0-m3/wso2si-tooling-4.1.0-m3.zip">download</a></td>
 </tr>
 </table>
 
