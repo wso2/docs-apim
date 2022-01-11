@@ -40,7 +40,9 @@ API Manager 4.1.0-M3</td>
 
      WSO2 API Manager provides distinct life cycle states for the API during the API development process. A lifecycle state can now be specified for each API Product you create.
 
-- **[Tenant configurations migration from the registry to database]()
+- **[Tenant configurations migration from the registry to database]({{base_path}}/administer/advanced-configurations/) (M3)**
+
+     You can now perform more advanced configurations for tenant configuration migration from the registry to the database.
 
 ### Improvements
 
