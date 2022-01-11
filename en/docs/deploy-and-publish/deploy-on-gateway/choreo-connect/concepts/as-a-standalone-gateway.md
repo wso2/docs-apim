@@ -68,25 +68,26 @@ The value for `x-wso2-basePath` will be used as the base path there onwards. The
         
 ### Step 1 - Update the relevant definition file inside the existing API project
 
-The following values can be updated by editing the `api.yaml` file.
+Update the file inside the `Definition` folder any API related change. The following values can be updated by editing the `api.yaml` file.
 
-- API name
+- API name (Title)
 - Version
+- Lifecycle status (ex: `CREATED`, `BLOCKED`)
+- API type (ex: `HTTP`, `WS`)
 - Backend security
 
-For any other API definition related change, update the file inside the `Definition` folder.
+!!! important
+
+    The properties,
+
+    - API name (Title)
+    - Version
+    
+    must not be edited once deployed because in the standalone mode, they represent the identity of the API. Therefore, editing these values will make the API behave as a new API while continuing to keep the previous version of the same API.
 
 ### Step 2 -  Redeploy the project.
 
 Use apictl to override the API using the `apictl mg deploy` command with the override flag (`-o`).
-
-!!! important
-
-    The following properties must not be edited once deployed because in the standalone mode, they represent the identity of the API. Therefore, editing these values will make the API behave as a new API while continuing to keep the previous version of the same API.
-
-    - API name / Title
-    - Version
-    
 
 ## OpenAPI extensions
   
@@ -103,7 +104,7 @@ Choreo Connect supports the following OpenAPI Extensions. You can use these exte
    | `x-wso2-auth-header`              | Specify the authorization header for the API to which either bearer or basic token is sent                             | Optional → API level only                |
 
 !!! note
-    -   If you want to expose API/ resource without security, you can also use the `x-wso2-disable-security` extension. Find more information about this extension from [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/disabling-security/#disabling-security).
+    -   If you want to expose an API or a resource without security, you can use the `x-wso2-disable-security` extension. Find more information about this extension from [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/disabling-security/#disabling-security).
     -  Choreo Connect also supports the `"x-auth-type": "None"` option to disable the security. This extension has a different functionality when run with WSO2 API Manager and can have the following values which are not supported in standalone mode.
         -   Application & Application User
         -   Application
