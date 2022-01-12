@@ -442,7 +442,6 @@ nav:
                 - Using a Remote Micro Integrator: integrate/develop/using-remote-micro-integrator.md
                 - Hot Deploying Artifacts: integrate/develop/hot-deployment.md
                 - Creating a Unit Test Suite: integrate/develop/creating-unit-test-suite.md
-                - Using the HTTP REST Client: integrate/develop/using-http_rest_client.md
                 - Generating Docker Images: integrate/develop/generate-docker-image.md
             - Debugging Integrations:
                 - Mediation Debugging: integrate/develop/debugging-mediation.md

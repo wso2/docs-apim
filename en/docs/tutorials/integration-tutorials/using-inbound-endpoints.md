@@ -124,14 +124,9 @@ Let's test the use case by sending a simple client request that invokes the serv
 
 Let's send a message to the **healthcare** REST API (through the inbound endpoint) on port 8285. You can use the embedded <b>HTTP Client</b> of WSO2 Integration Studio as follows:
 
-1. Open the <b>HTTP Client</b> of WSO2 Integration Studio.
+1. Open the Postman application. If you do not have the application, download from here : [Postman](https://www.postman.com/downloads/)
 
-    !!! Tip
-        If you don't see the <b>HTTP Client</b> pane, go to <b>Window -> Show View - Other</b> and select <b>HTTP Client</b> to enable the client pane.
-
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/http4e-client-empty.png" width="800">
-    
-2. Enter the request information as given below and click the <b>Send</b> icon (<img src="{{base_path}}/assets/img/integrate/tutorials/common/play-head-icon.png" width="20">).
+2. Add the request information as given below and click the <b>Send</b> button.
     
     <table>
         <tr>
@@ -147,6 +142,10 @@ Let's send a message to the **healthcare** REST API (through the inbound endpoin
         </tr>
      </table>
      
+     <br/><br/>
+     <video src="{{base_path}}/assets/vids/query-doctor-surgery.webm" width="720" height="480" controls></video>
+     <br/><br/>
+
 If you want to send the client request from your terminal:
 
 1.  Install and set up [cURL](https://curl.haxx.se/) as your REST client.

@@ -323,14 +323,9 @@ Let's test the use case by sending a simple client request that invokes the serv
 
 Let's send a request to the API resource to make a reservation. You can use the embedded <b>HTTP Client</b> of WSO2 Integration Studio as follows:
 
-1. Open the <b>HTTP Client</b> of WSO2 Integration Studio.
+1. Open the Postman application. If you do not have the application, download from here : [Postman](https://www.postman.com/downloads/)
 
-    !!! Tip
-        If you don't see the <b>HTTP Client</b> pane, go to <b>Window -> Show View - Other</b> and select <b>HTTP Client</b> to enable the client pane.
-
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/http4e-client-empty.png" width="800">
-
-2. Enter the request information as given below and click the <b>Send</b> icon (<img src="{{base_path}}/assets/img/integrate/tutorials/119132155/play-head-icon.png" width="20">).
+2. Add the request information as given below and click the <b>Send</b> button.
     
     <table>
         <tr>
@@ -346,7 +341,7 @@ Let's send a request to the API resource to make a reservation. You can use the 
         </tr>
      </table>
      
-     <img src="{{base_path}}/assets/img/integrate/tutorials/119132155/http4e-client-data-source.png" width="800">
+     <img src="{{base_path}}/assets/img/integrate/tutorials/119132155/rdbms-employee.png" width="800">
      
 If you want to send the client request from your terminal:
 
