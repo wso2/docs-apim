@@ -98,12 +98,6 @@ The Console view displays a variety of console types depending on the type of de
 
 <img src="{{base_path}}/assets/img/integrate/workbench/workbench-console.jpg" width="800">
 
-## HTTP Client
-
-An embedded RESTful HTTP client is shipped with WSO2 Integration Studio to support testing. Once you have deployed your integration solutions in the Micro Integrator server, you can invoke the solutions using this client within WSO2 Integration Studio.
-
-<img src="{{base_path}}/assets/img/integrate/workbench/http4e-client-empty.png" width="800">
-
 ## Embedded Micro Integrator
 
 WSO2 Integration Studio is shipped with an embedded Micro Integrator server, which allows developers to deploy and run integration artifacts during the development phase. To deploy the artifacts and to run the embedded Micro Integrator, right-click the composite application project (which includes your artifacts) and click **Export Project Artifacts and Run**.

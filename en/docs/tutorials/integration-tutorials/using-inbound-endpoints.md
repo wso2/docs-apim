@@ -122,32 +122,7 @@ Let's test the use case by sending a simple client request that invokes the serv
 
 #### Send the client request
 
-Let's send a message to the **healthcare** REST API (through the inbound endpoint) on port 8285. You can use the embedded <b>HTTP Client</b> of WSO2 Integration Studio as follows:
-
-1. Open the <b>HTTP Client</b> of WSO2 Integration Studio.
-
-    !!! Tip
-        If you don't see the <b>HTTP Client</b> pane, go to <b>Window -> Show View - Other</b> and select <b>HTTP Client</b> to enable the client pane.
-
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/http4e-client-empty.png" width="800">
-    
-2. Enter the request information as given below and click the <b>Send</b> icon (<img src="{{base_path}}/assets/img/integrate/tutorials/common/play-head-icon.png" width="20">).
-    
-    <table>
-        <tr>
-            <th>Method</th>
-            <td>
-               <code>GET</code> 
-            </td>
-        </tr>
-        <tr>
-            <th>URL</th>
-            <td><code>http://localhost:8285/healthcare/querydoctor/surgery</code></br></br>
-            </td>
-        </tr>
-     </table>
-     
-If you want to send the client request from your terminal:
+Client request from your terminal:
 
 1.  Install and set up [cURL](https://curl.haxx.se/) as your REST client.
 2.  Open a command line terminal and execute the following command:
@@ -164,3 +139,11 @@ hospital","category":"surgery","availability":"9.00 a.m - 11.00 a.m","fee":7000.
 {"name":"anne clement","hospital":"clemency medical center","category":"surgery","availability":"8.00 a.m - 10.00 A.m","fee":12000.0},
 {"name":"seth mears","hospital":"pine valley community hospital","category":"surgery","availability":"3.00 p.m - 5.00 p.m","fee":8000.0}]
 ```
+
+---
+**NOTE**
+
+You can also use http clients with graphical user interface to invoke the requests. Ex : Postman, Hoppscotch, etc.
+
+---
+

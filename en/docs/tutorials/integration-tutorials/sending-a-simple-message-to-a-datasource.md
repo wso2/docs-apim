@@ -321,40 +321,21 @@ Let's test the use case by sending a simple client request that invokes the serv
 
 #### Send the client request
 
-Let's send a request to the API resource to make a reservation. You can use the embedded <b>HTTP Client</b> of WSO2 Integration Studio as follows:
-
-1. Open the <b>HTTP Client</b> of WSO2 Integration Studio.
-
-    !!! Tip
-        If you don't see the <b>HTTP Client</b> pane, go to <b>Window -> Show View - Other</b> and select <b>HTTP Client</b> to enable the client pane.
-
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/http4e-client-empty.png" width="800">
-
-2. Enter the request information as given below and click the <b>Send</b> icon (<img src="{{base_path}}/assets/img/integrate/tutorials/119132155/play-head-icon.png" width="20">).
-    
-    <table>
-        <tr>
-            <th>Method</th>
-            <td>
-               <code>GET</code> 
-            </td>
-        </tr>
-        <tr>
-            <th>URL</th>
-            <td><code>http://localhost:8290/services/RDBMSDataService.HTTPEndpoint/Employee/3</code></br></br>
-            </td>
-        </tr>
-     </table>
-     
-     <img src="{{base_path}}/assets/img/integrate/tutorials/119132155/http4e-client-data-source.png" width="800">
-     
-If you want to send the client request from your terminal:
+Client request from your terminal:
 
 1. Install and set up [cURL](https://curl.haxx.se/) as your REST client.
 2. Execute the following command.
     ```bash
     curl -X GET http://localhost:8290/services/RDBMSDataService.HTTPEndpoint/Employee/3
     ```
+
+---
+**NOTE**
+
+You can also use http clients with graphical user interface to invoke the requests. Ex : Postman, Hoppscotch, etc.
+
+---
+<br /> 
 
 #### Analyze the response
 

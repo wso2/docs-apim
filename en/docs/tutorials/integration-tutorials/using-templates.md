@@ -482,64 +482,7 @@ Let's test the use case by sending a simple client request that invokes the serv
 
 #### Send the client request
 
-Let's send a simple request to invoke the service. You can use the embedded <b>HTTP Client</b> of WSO2 Integration Studio as follows:
-
-1. Open the <b>HTTP Client</b> of WSO2 Integration Studio.
-
-    !!! Tip
-        If you don't see the <b>HTTP Client</b> pane, go to <b>Window -> Show View - Other</b> and select <b>HTTP Client</b> to enable the client pane.
-
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/http4e-client-empty.png" width="800">
-    
-2. Enter the request information as given below and click the <b>Send</b> icon (<img src="{{base_path}}/assets/img/integrate/tutorials/common/play-head-icon.png" width="20">).
-    
-    <table>
-        <tr>
-            <th>Method</th>
-            <td>
-               <code>POST</code> 
-            </td>
-        </tr>
-        <tr>
-            <th>Headers</th>
-            <td>
-              <code>Content-Type=application/json</code>
-            </td>
-        </tr>
-        <tr>
-            <th>URL</th>
-            <td><code>http://localhost:8290/healthcare/categories/surgery/reserve</code></br></br>
-            </td>
-        </tr>
-        <tr>
-            <th>Body</th>
-            <td>
-            <div>
-              <code>
-                {
-                 "name": "John Doe",
-                 "dob": "1940-03-19",
-                 "ssn": "234-23-525",
-                 "address": "California",
-                 "phone": "8770586755",
-                 "email": "johndoe@gmail.com",
-                 "doctor": "thomas collins",
-                 "hospital_id": "grandoaks",
-                 "hospital": "grand oak community hospital",
-                 "cardNo": "7844481124110331",
-                 "appointment_date": "2025-04-02"
-                }
-              </code>
-            </div></br>
-            <ul>
-              <li>
-                This JSON payload contains details of the appointment reservation, which includes patient details, doctor, hospital, and data of appointment.
-              </li>
-            </ul>
-        </tr>
-     </table>
-     
-If you want to send the client request from your terminal:
+Client request from your terminal:
 
 1.  Install and set up [cURL](https://curl.haxx.se/) as your REST client.
 2.  Create a JSON file names `request.json` with the following request payload.
@@ -566,6 +509,13 @@ If you want to send the client request from your terminal:
     ```bash
     curl -v -X POST --data @request.json http://localhost:8290/healthcare/categories/surgery/reserve --header "Content-Type:application/json"
     ```
+---
+**NOTE**
+
+You can also use http clients with graphical user interface to invoke the requests. Ex : Postman, Hoppscotch, etc.
+
+---
+<br /> 
 
 #### Analyze the response
 

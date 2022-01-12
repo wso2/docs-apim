@@ -439,39 +439,7 @@ Let's start the mock back-end services for this use case:
    
 ### Invoke the Healthcare service
 
-There are two ways to invoke the service:
-
-- **Option 1: Using WSO2 Integration Studio**
-
-    Let's invoke the API from the embedded <b>HTTP Client</b> of WSO2 Integration Studio as follows:
-
-    1.  Open the <b>HTTP Client</b> of WSO2 Integration Studio.
-
-        !!! Tip
-            If you don't see the <b>HTTP Client</b> tab, go to <b>Window -> Show View - Other</b> and select <b>HTTP Client</b> to enable the client tab.
-
-        <img src="{{base_path}}/assets/img/integrate/developing-first-integration/http4e-client-empty.png" width="800">
-        
-    2.  Enter the request information as given below and click the <b>Send</b> icon (<img src="{{base_path}}/assets/img/integrate/tutorials/common/play-head-icon.png" width="20">).
-        
-        <table>
-            <tr>
-                <th>Method</th>
-                <td>
-                  <code>GET</code> 
-                </td>
-            </tr>
-            <tr>
-                <th>URL</th>
-                <td>
-                    <code>http://localhost:8290/healthcare/doctor/Ophthalmologist</code></br></br>
-                </td>
-            </tr>
-        </table>
-        
-    The response is printed in the **HTTP Response** section.
-
-- **Option 2: Using your terminal**
+- **Using your terminal**
 
     If you want to send the client request from your terminal:
 
@@ -512,6 +480,13 @@ There are two ways to invoke the service:
         ]
     ]
     ```
+
+    ---
+    **NOTE**
+
+    You can also use http clients with graphical user interface. Ex : Postman, Hoppscotch, etc.
+
+    ---
 
 ## What's Next?
 
