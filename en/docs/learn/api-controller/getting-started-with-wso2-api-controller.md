@@ -66,8 +66,8 @@ Run the following CTL command to check the version of the CTL.
 -   **Response**
 
     ```bash
-    Version: 3.2.4
-    Build Date: 2021-10-12 03:45:25 UTC
+    Version: 3.2.5
+    Build Date: 2022-01-19 05:30:19 UTC
     ```
 
 ## Set mode of the CTL
