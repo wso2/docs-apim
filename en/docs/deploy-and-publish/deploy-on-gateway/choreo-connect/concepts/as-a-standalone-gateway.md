@@ -35,7 +35,7 @@ The Swagger 2.0 specification defines a way of providing the [base path and the 
 
 #### With OpenAPI 3.0
     
-The OpenAPI 3.0 specification defines a way of providing the [server](https://swagger.io/docs/specification/api-host-and-base-path/) URL of the API. Choreo Connect derives the base path and the backend service URL using this **servers** object. For example, when the last server URL is defined as `http://test.com/v2`, Choreo Connect will add this url as one of the backend URLs and set `/v2` as the base path (context) `/v2`.
+The OpenAPI 3.0 specification defines a way of providing the [server](https://swagger.io/docs/specification/api-host-and-base-path/) URL of the API. Choreo Connect derives the base path and the backend service URL using this **servers** object. For example, when the last server URL is defined as `http://test.com/v2`, Choreo Connect will add this URL as one of the backend URLs and set `/v2` as the base path (context) `/v2`.
 
 The above behavior exists since we support creating an API project simply by pointing to an OpenAPI definition. To simplify defining these attributes a little more, we recommend using the following two WSO2 specific extensions in the OpenAPI definition.
 
