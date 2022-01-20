@@ -9,7 +9,7 @@ Choreo Connect components use SSL certificates (public keys and private keys) fo
 
 Transport Layer Security (TLS) is a point-to-point security mechanism that can be used for authentication, message integrity and confidentiality. Whether it is a HTTPS connection to an external entity or multiple gRPC connections among the Choreo Connect components, valid up-to-date digital certificates must exist in the locations referred by the components.
 
-Each Choreo Connect component (adapter, enforcer, router) has its own certificate location. By default, a set of certificates are already placed in these locations.
+Each Choreo Connect component (Adapter, Enforcer, Router) has its own certificate location. By default, a set of certificates are already placed in these locations.
 
 - Truststore (certificates trusted by the component) - `<CHOREO-CONNECT_HOME>/docker-compose/resources/<component>/security/truststore`
 - Keystore (private key certificates used for TLS) `<CHOREO-CONNECT_HOME>/docker-compose/resources/<COMPONENT>/security/keystore`
