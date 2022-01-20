@@ -80,7 +80,9 @@ If it is required to change the private certificate of a component, follow the s
    
 2. Copy the private key and certificate (in PEM format) into `<CHOREO-CONNECT_HOME>/resources/<COMPONENT>/security/keystore` directory.
 
-    Ex: To change the private key of Adapter component, copy the new certificate to `<CHOREO-CONNECT_HOME>/resources/adapter/security/keystore` directory.
+    Example: 
+    
+    To change the private key of the Adapter component, copy the new certificate to  the `<CHOREO-CONNECT_HOME>/resources/adapter/security/keystore` directory.
 
 3. If you change the private key file name, edit the corresponding configuration in the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/config.toml` or `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf/config.toml` file. Otherwise, use the same name as `mg.pem` and `mg.key` for the new certificate and key.
 
