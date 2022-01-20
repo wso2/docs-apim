@@ -75,7 +75,7 @@ To add a new certificate to a Choreo Connect component, the PEM formatted certif
 
 ## Changing the private certificate of a component
 
-If it is required to change the private certificate of a component, follow the steps below.
+Follow the instructions below to change the private certificate of a component:
 
 1. Generate a new key pair for the component.
    
