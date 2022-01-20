@@ -26,7 +26,7 @@ As the certificates are used for different purposes, the certificate location re
 
 ## Adding a certificate to a component truststore
 
-To add a new certificate to a Choreo Connect component, the pem formatted certificate must be added to the *truststore* location of that particular component.
+To add a new certificate to a Choreo Connect component, the PEM formatted certificate must be added to the *truststore* location of that particular component.
 
 1.  Convert the public certificate to a PEM format. For example,
 
