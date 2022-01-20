@@ -1,14 +1,11 @@
-# Transport Security
+# Backend Certificates
 
-Transport Security is a point-to-point security mechanism that can be used for authentication, message integrity and confidentiality. Valid Digital certificates are required when running secure HTTP transport (HTTPS) using secure socket layer (SSL).
-## Using secured backends with Choreo Connect
-
-When using endpoints secured with self signed certificates, the public certificate of the backend should be added as trusted certificate to the router.
+To connect to endpoints (backends) with TLS, the public certificate of the backend should be added as a trusted certificate to the router.
 
 If the certificate is not provided explicitly, the Choreo Connect router will use the default trusted certificates stored in, `/etc/ssl/certs/ca-certificates.crt`.
 
 ## Configuration
-The following are the default configurations for a Gateway instance. Add the following configuration block to the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect or choreo-connect-with-apim/conf/config.toml` to change default values.
+The following are the default configurations for a Gateway instance. Add the following configuration block to `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/config.toml` or `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf/config.toml` depending on the execution to change default values.
 
 ``` toml tab="config.toml"
     [router.upstream.tls]

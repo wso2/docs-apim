@@ -1,6 +1,6 @@
 # Secure APIs using JWT - Self Contained JWT
 
-Choreo Connect can accept JWTs issued by a **trusted** key manager as a valid token to invoke the APIs.  JWT tokens are self-validated by the API Choreo Connect without validating it against the authorization server(key manager) that issued the JWT.
+Choreo Connect can accept JWTs issued by a **trusted** key manager as a valid token to invoke the APIs.  JWT tokens are self-validated by Choreo Connect without validating it against the authorization server(key manager) that issued the JWT.
 
 When a JWT is used as an access token, Choreo Connect validates the following attributes/claims of the JWT.
 
