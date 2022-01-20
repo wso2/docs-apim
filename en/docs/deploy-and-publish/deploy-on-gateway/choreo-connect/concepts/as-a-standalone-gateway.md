@@ -111,7 +111,7 @@ Choreo Connect supports the following OpenAPI Extensions. You can use these exte
         -   Application User
     
 
-   You can find an example on how these OpenAPI extensions are used in the [OpenAPI definition](https://github.com/wso2/product-microgateway/blob/main/samples/openAPI-definitions/petstore_basic.yaml).
+   See the [petstore_basic.yaml file](https://github.com/wso2/product-microgateway/blob/main/samples/openAPI-definitions/petstore_basic.yaml) to view an example on how these OpenAPI extensions are used in an OpenAPI definition.
 
 ## Subscription validation for self-contained JWTs
 
