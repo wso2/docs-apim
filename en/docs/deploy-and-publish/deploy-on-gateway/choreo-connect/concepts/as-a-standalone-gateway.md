@@ -72,7 +72,7 @@ Update the file inside the `Definition` folder with any API related change. The 
 
 - API name (Title)
 - Version
-- Lifecycle status (ex: `CREATED`, `BLOCKED`)
+- Lifecycle status (e.g., `CREATED`, `BLOCKED`)
 - API type (ex: `HTTP`, `WS`)
 - Backend security
 
