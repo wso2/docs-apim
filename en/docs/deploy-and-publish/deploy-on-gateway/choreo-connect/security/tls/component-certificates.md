@@ -19,7 +19,7 @@ Each Choreo Connect component (Adapter, Enforcer, Router) has its own certificat
 Certificates are also used for component specific purposes.
 
 - The Enforcer uses its truststore for signature validation of JWTs and to connect to external Key Manager endpoints. Therefore, in this case the public certificate of the external Key Manager (Identity Provider) should be added to the Enforcer truststore.
-- Adapter uses its certificates to connect to external entities such as the control plane, and service discovery entities.
+- Adapter uses its certificates to connect to external entities such as the Control Plane, and Service Discovery entities.
 - Although the router also has its truststore and keystore in the above mentioned locations, there is a special case when the above locations will not be referred. This is when connecting to backend services exposed by the APIs. For more information on how to add certificates of backend services, click the link [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/backend-certificates).
 
 Since the certificates are used for different purposes, the certificate location referred for each purpose can be changes by editing the `config.toml` and the relevant docker container volume mounts.
