@@ -11,7 +11,7 @@ When Choreo Connect is used as a standalone Gateway, you can connect it to an ex
 ## Defining an API with OpenAPI Specification
 ### Defining Gateway specific properties
 
-Not all properties required for an API Gateway can be defined in the OpenAPI specification since it is meant to be a descriptor of an REST endpoint such as a backend service or microservice. However, in standalone mode, a developer can define,
+Not all properties required for an API Gateway can be defined in the OpenAPI specification since it is meant to be a descriptor of an REST endpoint such as a backend service or microservice. However, in standalone mode, a developer can define the following:
 
 - Different types of endpoints
 
@@ -35,9 +35,9 @@ The Swagger 2.0 specification defines a way of providing the [base path and the 
 
 #### With OpenAPI 3.0
     
-The OpenAPI 3.0 specification defines a way of providing the [server](https://swagger.io/docs/specification/api-host-and-base-path/) URL of the API. Choreo Connect derives the base path and the backend service URL using this **servers** object. For example, when the last server URL is defined as `http://test.com/v2`, Choreo Connect will add this url as one of the backend URLs and set `/v2` as the base path (context) `/v2`.
+The OpenAPI 3.0 specification defines a way of providing the [server](https://swagger.io/docs/specification/api-host-and-base-path/) URL of the API. Choreo Connect derives the base path and the backend service URL using this **servers** object. For example, when the last server URL is defined as `http://test.com/v2`, Choreo Connect will add this URL as one of the backend URLs and set `/v2` as the base path (context) `/v2`.
 
-The above behavior exists since we support creating an API project simply by pointing to an OpenAPI definition. To simplify defining these attributes a little more, we recommend using the following two WSO2 specific extensions in the OpenAPI definition.
+The above behavior exists since WSO2 supports creating an API project simply by pointing to an OpenAPI definition. To simplify defining these attributes a little more, WSO2 recommends using the following two WSO2 specific extensions in the OpenAPI definition.
 
 1. `x-wso2-basePath`
 2. `x-wso2-production-endpoints`
@@ -68,12 +68,12 @@ The value for `x-wso2-basePath` will be used as the base path there onwards. The
         
 ### Step 1 - Update the relevant definition file inside the existing API project
 
-Update the file inside the `Definition` folder any API related change. The following values can be updated by editing the `api.yaml` file.
+Update the file inside the `Definition` folder with any API related change. The following values can be updated by editing the `api.yaml` file.
 
 - API name (Title)
 - Version
-- Lifecycle status (ex: `CREATED`, `BLOCKED`)
-- API type (ex: `HTTP`, `WS`)
+- Lifecycle status (e.g., `CREATED`, `BLOCKED`)
+- API type (e.g., `HTTP`, `WS`)
 - Backend security
 
 !!! important
@@ -83,9 +83,9 @@ Update the file inside the `Definition` folder any API related change. The follo
     - API name (Title)
     - Version
     
-    must not be edited once deployed because in the standalone mode, they represent the identity of the API. Therefore, editing these values will make the API behave as a new API while continuing to keep the previous version of the same API.
+    The version must not be edited once deployed because in the standalone mode, the version represents the identity of the API. Therefore, editing these values will make the API behave as a new API while continuing to keep the previous version of the same API.
 
-### Step 2 -  Redeploy the project.
+### Step 2 -  Redeploy the project
 
 Use apictl to override the API using the `apictl mg deploy` command with the override flag (`-o`).
 
@@ -104,14 +104,14 @@ Choreo Connect supports the following OpenAPI Extensions. You can use these exte
    | `x-wso2-auth-header`              | Specify the authorization header for the API to which either bearer or basic token is sent                             | Optional → API level only                |
 
 !!! note
-    -   If you want to expose an API or a resource without security, you can use the `x-wso2-disable-security` extension. Find more information about this extension from [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/disabling-security/#disabling-security).
+    -   If you want to expose an API or a resource without security, you can use the `x-wso2-disable-security` extension. You can find more information about this extension from [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/disabling-security/#disabling-security).
     -  Choreo Connect also supports the `"x-auth-type": "None"` option to disable the security. This extension has a different functionality when run with WSO2 API Manager and can have the following values which are not supported in standalone mode.
         -   Application & Application User
         -   Application
         -   Application User
     
 
-   You can find an example on how these OpenAPI extensions are used in the [OpenAPI definition](https://github.com/wso2/product-microgateway/blob/main/samples/openAPI-definitions/petstore_basic.yaml).
+   See the [petstore_basic.yaml file](https://github.com/wso2/product-microgateway/blob/main/samples/openAPI-definitions/petstore_basic.yaml) to view an example on how these OpenAPI extensions are used in an OpenAPI definition.
 
 ## Subscription validation for self-contained JWTs
 

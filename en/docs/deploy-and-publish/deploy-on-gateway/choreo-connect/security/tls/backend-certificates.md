@@ -1,4 +1,5 @@
 # Backend Certificates
+
 To connect to endpoints (backends) with TLS, the public certificate of the backend should be added as a trusted certificate to the router.
 
 If the certificate is not provided explicitly, the Choreo Connect router will use the default trusted certificates stored in, `/etc/ssl/certs/ca-certificates.crt`.
