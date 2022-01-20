@@ -32,7 +32,7 @@ To add a new certificate to a Choreo Connect component, the PEM formatted certif
 
     `openssl x509 -inform der -in public_certificate.cert -out certificate.pem`
 
-2.  Add the certificate to the relevant component's resource folder
+2.  Add the certificate to the relevant component's resource folder.
 
     ``` tab="adapter"
     <CHOREO-CONNECT_HOME>/docker-compose/resources/adapter/security/truststore
