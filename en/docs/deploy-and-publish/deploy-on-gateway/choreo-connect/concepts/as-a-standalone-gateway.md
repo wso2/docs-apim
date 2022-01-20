@@ -83,7 +83,7 @@ Update the file inside the `Definition` folder with any API related change. The 
     - API name (Title)
     - Version
     
-    must not be edited once deployed because in the standalone mode, they represent the identity of the API. Therefore, editing these values will make the API behave as a new API while continuing to keep the previous version of the same API.
+    The version must not be edited once deployed because in the standalone mode, the version represents the identity of the API. Therefore, editing these values will make the API behave as a new API while continuing to keep the previous version of the same API.
 
 ### Step 2 -  Redeploy the project
 
