@@ -11,7 +11,7 @@ When Choreo Connect is used as a standalone Gateway, you can connect it to an ex
 ## Defining an API with OpenAPI Specification
 ### Defining Gateway specific properties
 
-Not all properties required for an API Gateway can be defined in the OpenAPI specification since it is meant to be a descriptor of an REST endpoint such as a backend service or microservice. However, in standalone mode, a developer can define,
+Not all properties required for an API Gateway can be defined in the OpenAPI specification since it is meant to be a descriptor of an REST endpoint such as a backend service or microservice. However, in standalone mode, a developer can define the following:
 
 - Different types of endpoints
 
