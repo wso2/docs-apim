@@ -68,7 +68,7 @@ The value for `x-wso2-basePath` will be used as the base path there onwards. The
         
 ### Step 1 - Update the relevant definition file inside the existing API project
 
-Update the file inside the `Definition` folder any API related change. The following values can be updated by editing the `api.yaml` file.
+Update the file inside the `Definition` folder with any API related change. The following values can be updated by editing the `api.yaml` file.
 
 - API name (Title)
 - Version
