@@ -1,6 +1,6 @@
 # Component Certificates
 
-Choreo Connect components use ssl certificates (public keys and private keys) for two main purposes.
+Choreo Connect components use SSL certificates (public keys and private keys) for two main purposes.
 
 1. Establish TLS connections
 2. Component specific tasks
