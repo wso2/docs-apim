@@ -76,7 +76,7 @@ x-wso2-production-endpoints:
 
 ### Failover Endpoints at Resource Level
 
-The following configuration demonstrates how to define failover endpoints for resource level in an Open API definition file.
+The following configuration demonstrates how to define failover endpoints for resource level in an OpenAPI definition file.
 
 ``` yaml tab="Format"
 openapi: <version>

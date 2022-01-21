@@ -77,7 +77,7 @@ x-wso2-production-endpoints:
 
 ### Load Balanced Endpoints In Resource Level
 
-Below section demonstrates how to define load balanced endpoints for resource level in an Open API definition file.
+Below section demonstrates how to define load balanced endpoints for resource level in an OpenAPI definition file.
 
 ``` yaml tab="Format"
 openapi: <version>

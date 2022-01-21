@@ -6,7 +6,7 @@ By default Choreo Connect uses **Authorization** header to receive the authoriza
 
 Below extension can be used to do above configuration per API. This extension is not supported in resource level.
 
-``` java tab="Adding open API extension inside the definition"
+``` java tab="Adding OpenAPI extension inside the definition"
 x-wso2-auth-header: "XAuth"
 ```
 
