@@ -163,7 +163,18 @@ Alternatively, you can use one of the following JSON templates for the response 
     }
     </result>
     ```
+!!! Info
+    As shown in the sample given above, the column name values that are expected in the query result should be referred to by the column name with the `$` prefix. E.g. `$EmployeeNumber`.
+    
+    Also, the structure of the JSON template should follow some guidelines in order to be compatible with the result. These guidelines are: 
 
+    -   The top most item should be a JSON object. It cannot be a JSON array.
+    -   For handling multiple records from the result set, the immediate child of the top most object can be a JSON array, and the array should contain only a single object.
+    -   If only a single result is returned, the immediate child of the top most object can be a single JSON object.
+    -   After the immediate child of the top most object, there cannot be other JSON arrays in the mapping.
+
+    All JSON responses are returned as an array.
+    
 -   If you want to write a nested query using JSON, see the example on [nested queries]({{base_path}}/integrate/examples/data_integration/nested-queries-in-data-service).
 
 ## Build and run
