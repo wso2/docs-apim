@@ -2146,6 +2146,8 @@ plugins:
               'deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-api-controller.md': 'https://apim.docs.wso2.com/en/4.1.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-kubernetes/'
               'deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-apim.md': 'https://apim.docs.wso2.com/en/4.1.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-apim-as-control-plane/'
               'deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-api-controller.md': 'https://apim.docs.wso2.com/en/4.1.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-docker/'
+              'deploy-and-publish/deploy-on-gateway/choreo-connect/security/importing-certificates-to-the-choreo-connect-truststore.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/component-certificates/'
+              'deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/transport-security.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/backend-certificates/'
               'deploy-and-publish/deploy-on-gateway/api-gateway/message-tracing.md': 'https://apim.docs.wso2.com/en/4.1.0/get-started/about-this-release/#removed-features-and-functionalities'
 
 
