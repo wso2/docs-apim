@@ -74,7 +74,7 @@ nav:
                 - Create a SSE API: design/create-api/create-streaming-api/create-a-sse-streaming-api.md
                 - Create a Streaming API from an AsyncAPI Definition: design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition.md
                 - Test a WebSub/WebHook API: design/create-api/create-streaming-api/test-a-websub-api.md
-            - Create an API Using a Service: design/create-api/create-an-api-using-a-service.md
+            - Create an API From a Service: design/create-api/create-an-api-using-a-service.md
             #- Build APIs in Integration Studio: design/create-api/api-integration-studio.md
         - Create API Revisions: design/create-api/create-api-revisions.md
         - Add Custom Properties to APIs: design/create-api/adding-custom-properties-to-apis.md
@@ -360,12 +360,13 @@ nav:
             - Advanced Topics:
                 - Add an API Subscription Workflow: consume/manage-subscription/advanced-topics/adding-an-api-subscription-workflow.md
                 - Add an API Subscription Tier Update Workflow: consume/manage-subscription/advanced-topics/adding-an-api-subscription-tier-update-workflow.md
-        - Invoke APIs:
-            - Invoke an API Using the Integrated API Console: consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console.md
-            - Invoke a GraphQL API Using the Integrated GraphQL Console: consume/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console.md
-            - Include Additional Headers in the API Console: consume/invoke-apis/invoke-apis-using-tools/include-additional-headers-in-the-api-console.md
-            - Invoke an API Using a SOAP Client: consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client.md
-            - Try out Using Postman: consume/invoke-apis/invoke-apis-using-tools/try-out-using-postman.md
+        - Test APIs:
+            - Integrated API Console:
+                - Test a REST API: consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console.md
+                - Test a GraphQL API: consume/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console.md
+                - Add Additional Headers to Test a REST API: consume/invoke-apis/invoke-apis-using-tools/include-additional-headers-in-the-api-console.md
+            - SOAP Client: consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client.md
+            - Postman: consume/invoke-apis/invoke-apis-using-tools/try-out-using-postman.md
         - Collaborations:
             - Interact with the Community: consume/collaboration/interact-with-the-community.md
         - Generating SDKs:
@@ -1197,7 +1198,7 @@ nav:
                     - Multi Factor Authentication for Publisher and Developer Portals: reference/customize-product/extending-api-manager/saml2-sso/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
             - Customizations:
                 - Customize the Developer Portal:
-                    - Override The Developer Portal Theme: reference/customize-product/customizations/customizing-the-developer-portal/overriding-developer-portal-theme.md
+                    - Override the Developer Portal Theme: reference/customize-product/customizations/customizing-the-developer-portal/overriding-developer-portal-theme.md
                     - Customize API Listing:
                         - API Category based Grouping: reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping.md
                         - Change Default View: reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view.md
@@ -1534,7 +1535,7 @@ nav:
                     - Configure Environment Specific Parameters: install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters.md
                     - Use Dynamic Data in apictl Projects: install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects.md
                     - Configure Different Endpoint Types: install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-types.md
-                    - Format The Outputs of Get Commands: install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command.md
+                    - Format the Outputs of Get Commands: install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command.md
                     - Configure Git Integration: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md
         - Upgrade:
             - Upgrading WSO2 API Manager:
@@ -1625,7 +1626,7 @@ nav:
               - Data Integration:
                     -   Expose Datasources as a Service: tutorials/integration-tutorials/sending-a-simple-message-to-a-datasource.md
               - File Processing: tutorials/integration-tutorials/file-processing.md
-              - Periodically Executing Integration Processes: tutorials/integration-tutorials/using-scheduled-tasks.md
+              - Execute Integration Processes Periodically: tutorials/integration-tutorials/using-scheduled-tasks.md
               - Use Inbound Endpoints: tutorials/integration-tutorials/using-inbound-endpoints.md
               - Reuse Mediation Sequences: tutorials/integration-tutorials/using-templates.md
               - Integrate with SAP: tutorials/integration-tutorials/sap-integration.md
