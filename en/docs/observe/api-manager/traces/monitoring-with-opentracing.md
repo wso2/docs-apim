@@ -139,4 +139,4 @@ In order to demonstrate this functionality, let's take a scenario with the imple
 
 5. Start the server.
 
-     After you invoke the APIs tracing data will be published to elastic APM.
+     After you invoke the APIs, the tracing data will be published to the configured tracing server.
