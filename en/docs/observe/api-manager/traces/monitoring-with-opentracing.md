@@ -135,7 +135,7 @@ You can use any tracing server with a custom tracer implementation in WSO2 API M
 4. Add the Elastic Opentracer JAR file in to the `lib` directory (`<API-M_HOME>/repository/components/lib`). You can download it from [here](https://mvnrepository.com/artifact/co.elastic.apm/apm-opentracing). 
 
     !!! tip
-        Elastic opentracing also requires the addition of a java agent. This can be added by altering the startup script. Make sure to check the documentation for the tracer you are using so that such requirements can be satisfied. 
+        Elastic opentracing also requires the addition of a Java Agent. This can be added by altering the startup script. Make sure to check the documentation for the tracer you are using so that such requirements can be satisfied. 
 
 5. Start the server.
 
