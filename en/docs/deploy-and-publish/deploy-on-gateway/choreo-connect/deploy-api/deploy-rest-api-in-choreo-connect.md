@@ -73,7 +73,7 @@ export PATH=$PATH:<directory-of-the-apictl-executable>
 
 ### Step 2 - Create an API Project using apictl
 
-Let's create your first project "petstore" using an open API definition. The following `apictl init` command will generate a project folder containing all the necessary files.
+Let's create your first project "petstore" using an OpenAPI definition. The following `apictl init` command will generate a project folder containing all the necessary files.
 
 !!! warning
 
