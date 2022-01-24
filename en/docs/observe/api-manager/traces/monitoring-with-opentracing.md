@@ -116,7 +116,7 @@ You can use any tracing server with a custom tracer implementation in WSO2 API M
 
 1. Implement the `org.wso2.carbon.apimgt.tracing.OpenTracer` interface and add your implementation. The getTracer method should contain the generation of the `Tracer` instance. Also, the getName method should return the tracer name to be configured in the `deployment.toml` file. In this specific scenario let's name this tracer `elastic`. This tracer needs to be loaded as an osgi service using a module activator. The sample project for the elastic APM tracer can be downloaded from [here]({{base_path}}/assets/attachments/administer/custom.tracing.client.zip).
 
-2. Build the maven project and add the jar file to the dropins directory. (`<API-M_HOME>/repository/components/dropins`)
+2. Build the Maven project and add the JAR file to the `dropins` directory. (`<API-M_HOME>/repository/components/dropins`)
 
 3. Add the following configuration into the `deployment.toml` file.
 
