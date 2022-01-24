@@ -1,14 +1,14 @@
 # Production Deployment Guideline
 
-Given below are the common security guidelines for deploying Choreo Connect in a **production environment**.
+Given below are the common guidelines for deploying Choreo Connect in a **production environment** using [Helm deployment option]().
 
 ## Configuring Keystore
 
-By default, Choreo Connect ship with default keystore certificates, and it is recommended to replace them with Self-Signed or CA signed certificates.
+By default, Choreo Connect ships with default keystore certificates, and it is recommended to replace them with Self-Signed or CA signed certificates.
 
 ### Setep 1: Generate Self-Signed certs in PEM format
 
-Generate Self-Signed certs in PEM format by executing following sample commands. First lets create a directory called `certs`.
+Generate Self-Signed certs in PEM format by executing following sample commands. Let's create a directory called `certs`.
 
 ```shell
 mkdir -p certs/adapter certs/enforcer certs/router
@@ -54,18 +54,19 @@ openssl req -x509 -sha256 -nodes -days 3650 -newkey rsa:2048 \
     -out certs/router/tls.crt
 ```
 
-By default, SSL Hostnames for adapter and enforcer is `adapter` and `enforcer`, in case if you want to update it change the following values.
+By default, SSL Hostnames for adapter and enforcer is `adapter` and `enforcer`, in case if you want to have your own SAN names in the certificates, update the following values in helm chart with the SAN names in the certificates.
 
 ```shell
 wso2.deployment.adapter.security.sslHostname=<ADAPTER_HOST_NAME>
 wso2.deployment.gatewayRuntime.enforcer.security.sslHostname=<ENFORCER_HOST_NAME>
 ```
 
-### Step 2: Create K8s TLS Secrets
+### Step 2: Create Kubernetes TLS Secrets
 
 Create TLS secrets in the namespace that you wish to install Choreo Connect. Following are sample commands to create TLS secrets for above generated cert files.
 
-Note: Change the value `NAMESPACE_OF_CC=<NAMESPACE_OF_CC>` in following samples with the namespace that you wish to install Choreo Connect.
+!!! note
+    Change the value `NAMESPACE_OF_CC=<NAMESPACE_OF_CC>` in following samples with the namespace that you wish to install Choreo Connect.
 
 ```shell tab='Format'
 kubectl create secret tls <SECRET_NAME> -n <NAMESPACE_OF_CC> --cert=<CERT_PATH> --key=<KEY_PATH>
@@ -86,6 +87,16 @@ kubectl create secret tls router-keystore -n $NAMESPACE_OF_CC --cert=certs/route
 ### Step 3: Configure Secrets
 
 You can set the keystore secrets in the same namespace that Choreo Connect is going to be installed. Set the following values.
+
+```yaml tab='Format'
+        keystore:
+          key:
+            secretName: <SECRET_NAME_1>
+            subPath: <KEY_OF_THE_SECRET_CONTAINS_THE_CERT>
+          cert:
+            secretName: <SECRET_NAME_2>
+            subPath: <KEY_OF_THE_SECRET_CONTAINS_THE_CERT>
+```
 
 ```yaml tab='Adapter Keystore'
 wso2:
@@ -139,7 +150,27 @@ so no need to update Truststore manually.
 You can explicitly mount certs to the truststore of each component.
 The following is a sample how to define the truststore. If you have created a secret in the same namespace that Choreo Connect going to be installed, you can refer them in the config as follows.
 
-```yaml
+```yaml tab='Format'
+...:
+      security:
+        truststore:
+          - secretName: <SECRET_NAME_1>
+            subPath: <KEY_OF_THE_SECRET_CONTAINS_THE_CERT>
+          - secretName: <SECRET_NAME_2>
+            subPath: <KEY_OF_THE_SECRET_CONTAINS_THE_CERT>
+```
+
+```yaml tab='Adapter Truststore'
+wso2:
+  deployment:
+    adapter:
+      security:
+        truststore:
+          - secretName: "abc-certs"
+            subPath: "tls.crt"
+```
+
+```yaml tab='Enforcer Truststore'
 wso2:
   deployment:
     gatewayRuntime:
@@ -150,7 +181,6 @@ wso2:
               subPath: "wso2carbon.pem"
             - secretName: "abc-certs"
               subPath: "tls.crt"
-
 ```
 
 ## Change Default Passwords
@@ -176,6 +206,33 @@ wso2:
                 key: tm_password
 ```
 
+Following are the default values, update to read them from a Kubernetes secret.
+
+```yaml tab='Adapter'
+wso2:
+  deployment:
+    adapter:
+      envOverride:
+        - name: cp_admin_pwd
+          value: admin
+        - name: adapter_admin_pwd
+          value: admin
+```
+
+```yaml tab='Enforcer'
+wso2:
+  deployment:
+    gatewayRuntime:
+      enforcer:
+        envOverride:
+          - name: apim_admin_pwd
+            value: "admin"
+          - name: enforcer_admin_pwd
+            value: "admin"
+          - name: tm_admin_pwd
+            value: "admin"
+```
+
 ## Configure Ingress Secrets
 
 By default, the helm chart installation of Choreo Connect creates default certificates for ingress resources.
@@ -185,11 +242,11 @@ Providing TLS Secret name in the following values will replace those default cer
     Following certs should be [TLS secrets](https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets)
 
 ```shell tab='Adapter Ingress'
-wso2.ingress.adapter.tlsSecretName=<TLS_CERT_SECRET_IN_THE_SAME_NAMESPACE>
+wso2.deployment.adapter.ingress.tlsSecretName=<TLS_CERT_SECRET_IN_THE_SAME_NAMESPACE>
 ```
 
 ```shell tab='Gateway Ingress'
-wso2.ingress.gateway.tlsSecretName=<TLS_CERT_SECRET_IN_THE_SAME_NAMESPACE>
+wso2.deployment.gatewayRuntime.router.ingress.gateway.tlsSecretName=<TLS_CERT_SECRET_IN_THE_SAME_NAMESPACE>
 ```
 
 ## Disable Test Token Issuer
@@ -209,7 +266,7 @@ Router administration interface can be used for debugging purposes in a Developm
 Set the following value to `false` when installing the helm chart or set it in the values.yaml file.
 
 ```shell
-wso2.ingress.internal.enabled=false
+wso2.deployment.gatewayRuntime.router.ingress.internal.enabled=false
 ```
 
 ## Create Custom Docker Image
