@@ -139,4 +139,4 @@ You can use any tracing server with a custom tracer implementation in WSO2 API M
 
 5. Start the server.
 
-     After you invoke the APIs, the tracing data will be published to the configured tracing server.
+     After you invoke the APIs, the tracing data will be published to the configured tracing server, which in this example is the Elastic APM.
