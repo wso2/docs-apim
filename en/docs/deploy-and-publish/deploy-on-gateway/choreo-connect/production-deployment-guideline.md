@@ -1,6 +1,6 @@
 # Production Deployment Guideline
 
-Given below are the common guidelines for deploying Choreo Connect in a **production environment** using [Helm deployment option]().
+Given below are the common guidelines for deploying Choreo Connect in a **production environment** using [Helm deployment option](http://localhost:8000/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-deploy-overview/).
 
 ## Configuring Keystore
 
@@ -246,7 +246,7 @@ wso2.deployment.adapter.ingress.tlsSecretName=<TLS_CERT_SECRET_IN_THE_SAME_NAMES
 ```
 
 ```shell tab='Gateway Ingress'
-wso2.deployment.gatewayRuntime.router.ingress.gateway.tlsSecretName=<TLS_CERT_SECRET_IN_THE_SAME_NAMESPACE>
+wso2.deployment.gatewayRuntime.router.ingress.tlsSecretName=<TLS_CERT_SECRET_IN_THE_SAME_NAMESPACE>
 ```
 
 ## Disable Test Token Issuer
@@ -258,15 +258,6 @@ Set the following value to `false` when installing the helm chart or set it in t
 
 ```shell
 wso2.deployment.gatewayRuntime.enforcer.security.testTokenIssuer.enabled=false
-```
-
-## Disable Router Administration Interface - Internal Ingress
-
-Router administration interface can be used for debugging purposes in a Development environment. It is recommended to disable it in the Production environments.
-Set the following value to `false` when installing the helm chart or set it in the values.yaml file.
-
-```shell
-wso2.deployment.gatewayRuntime.router.ingress.internal.enabled=false
 ```
 
 ## Create Custom Docker Image

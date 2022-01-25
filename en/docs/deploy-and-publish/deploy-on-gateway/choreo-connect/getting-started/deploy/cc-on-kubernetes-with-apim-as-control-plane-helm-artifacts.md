@@ -3,53 +3,220 @@
 Let's deploy an API on Choreo Connect, which running on Kubernetes, with WSO2 API Manager as the Control Plane.
 
 ## Before you begin
+    
+-   Be sure you have an active [WSO2 Subscription](https://wso2.com/subscription). If you don't already have a subscription, sign up for a [WSO2 Free Trial Subscription](https://wso2.com/free-trial-subscription).
 
-1.  Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
-2.  Set up a [Kubernetes](https://Kubernetes.io/docs/setup/) cluster v1.20 or above.
-      - Minimum CPU : 4vCPU
-      - Minimum Memory : 3GB
-3.  Deploy an ingress controller - [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/) for this sample.
+    !!! Note
+        You need an active subscription to use the updated Docker images of the Micro Integrator with your Helm resources. Otherwise, you can use the community version of Docker images, which do not include product updates.
+    
+-   Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Helm](https://helm.sh/docs/intro/install/), and [Kubernetes client](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
+    
+-   Set up a [Kubernetes cluster](https://kubernetes.io/docs/setup/#learning-environment).
+    - Minimum CPU : 3vCPU
+    - Minimum Memory : 2GB
+    
+-   Install [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/). 
 
-## Objectives
+    !!! Note
+        Helm resources for WSO2 product deployment patterns are compatible with the [`nginx-0.30.0`](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.30.0) release.
 
-1.  Create and deploy an API project.
-2.  Invoke the API using a generated key.
+## Step 1 - Get the Helm resources
 
-Let's get started...
+Check out the Helm Resources for the Choreo Connect Git repository.
 
-## Step 1 - Setup Choreo Connect in Kubernetes
-
-1.  Download and extract Choreo Connect distribution .zip file
-
-    Latest Choreo Connect distribution can be downloaded from [https://wso2.com/choreo/choreo-connect/](https://wso2.com/choreo/choreo-connect/). Extract the Choreo Connect distribution .zip file. The extracted folder will be called as `CHOREO-CONNECT_HOME` hereafter.
-
-2.  Add the Kubernetes configurations for Choreo Connect and API Manager using the kubectl tool.
-
-    {!includes/deploy/cc-tryout-in-arm64-k8s-note.md!}
+1.  Open a terminal and navigate to the location where you want to save the local copy.
+2.  Clone the Choreo Connect Git repository with Helm resources:
 
     ```bash
-    kubectl apply -f <CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect-with-apim/apim
+    git clone https://github.com/wso2/kubernetes-microgateway.git
+    git checkout tags/v1.0.0.1
     ```
-    
-    Apply Kubernetes configurations for Choreo Connect after successfully started the API Manager instance.
+
+This creates a local copy of [wso2/kubernetes-microgateway](https://github.com/wso2/kubernetes-microgateway), which includes all the Helm Resources for Choreo Connect.
+
+Let's refer to the root folder of the local copy as `<KUBERNETES_HOME>`.
+
+## Step 2 - Update the deployment configurations
+
+Follow the steps given below to configure how your Choreo Connect deployment should be set up.
+
+1.  Open the `values.yaml` file in the `<KUBERNETES_HOME>/helm/choreo-connect` directory of your local copy.
+
+    !!! Info
+        Before you do any changes, go through the [default configurations](https://github.com/wso2/kubernetes-microgateway/tree/v1.0.0.1/helm/choreo-connect) in this file.
+
+2.  Use the following guidelines to update the deployment configurations:
+
+    -   **Updating the WSO2 subscription details**
+
+        You can update the username and password in the following section. If you don't have an active WSO2 subscription, leave these parameters empty.
+
+        ```yaml
+        wso2:
+            subscription:
+                username: "<username>"
+                password: "<password>"
+        ```
+
+        Alternatively, you can skip this step and pass your subscription details at the time of deploying (see the next step for details).
+
+    -   **Updating Choreo Connect Deployment Mode**
+
+        ```yaml
+        wso2:
+            deployment:
+                mode: "APIM_AS_CP"
+        ```
+
+    -   **Updating Choreo Connect control plane configurations**
+
+        ```yaml
+        wso2:
+            apim:
+                controlPlane:
+                    hostName: "<controlplane host name>"
+                    serviceName: "<controlplane kubernetes service name>"
+        ```
+
+    -   You can update [other configurations](https://github.com/wso2/kubernetes-microgateway/tree/v1.0.0.1/helm/choreo-connect/README.md) as required.
+
+3.  Save the `values.yaml` file.
+
+## Step 3 - Deploy API Manager as Control Plane
+
+Follow the sample instructions given below to set up the deployment. Refer [Deploying API-M on Kubernetes using Helm Resources](https://apim.docs.wso2.com/en/latest/install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources/)
+
+1.  Execute the command that is relevant to your Helm version.
+
+    !!! Tip
+        1.  Be sure to replace `NAMESPACE` with the Kubernetes namespace in which your resources are deployed.
+        2.  If you do not have sufficient resources you can adjust them setting following values when installing the chart.
+            ```shell
+            --set wso2.deployment.am.resources.requests.memory=2Gi \
+            --set wso2.deployment.am.resources.requests.cpu=1000m \
+            --set wso2.deployment.am.resources.limits.memory=2Gi \
+            --set wso2.deployment.am.resources.limits.cpu=1000m
+            ```
+
+    -   Using **Helm v2**
+
+        ```bash
+        helm install --name apim-as-cp wso2/am-single-node --version 4.0.0-1 --namespace apim \
+            --set wso2.deployment.am.ingress.gateway.hostname=gw.wso2.com \
+            --set-file wso2.deployment.am.config."deployment\.toml"=https://raw.githubusercontent.com/wso2/kubernetes-microgateway/1.0.0-1/resources/controlplane-deployment.toml
+        ```
+
+    -   Using **Helm v3**
+
+        ```bash
+        helm install apim-as-cp wso2/am-single-node --version 4.0.0-1 --namespace apim --create-namespace \
+            --set wso2.deployment.am.ingress.gateway.hostname=gw.wso2.com \
+            --set-file wso2.deployment.am.config."deployment\.toml"=https://raw.githubusercontent.com/wso2/kubernetes-microgateway/1.0.0-1/resources/controlplane-deployment.toml
+        ```
+
+2.  Choreo Connect is used as the gateway of API Manager, hence we need to delete the gateway Ingress resource of gateway component of the WSO2 API Manager.
+
     ```bash
-    kubectl apply -f <CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect-with-apim/choreo-connect
-    ```
-    
-3.  Add the host entry to the `/etc/hosts` file. 
-    
-    Add the following entry to `/etc/hosts` file in order to access the Choreo Connect Router, API Manager publisher and Developer Portal.
-
-    ```sh
-    <ingress_address>    gw.wso2.com    apim.wso2.com
+    kubectl delete ing -n apim wso2am-single-node-am-gateway-ingress
     ```
 
 
-## Step 2 - Deploy Sample API from API Manager
 
- - Publisher Portal:  [https://apim.wso2.com/publisher/](https://apim.wso2.com/publisher/)
- - Developer Portal:  [https://apim.wso2.com/devportal/](https://apim.wso2.com/devportal/)
+## Step 4 - Deploy Choreo Connect
 
+Once you have set up your Helm resources locally, follow the instructions given below to set up the deployment.
 
-    Follow the instructions in [create and publish an API via API Manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/#step-3-create-and-publish-an-api-from-api-manager).
+1.  Open a terminal and navigate to the `<KUBERNETES_HOME>/helm/choreo-connect` directory.
+2.  Execute the command that is relevant to your Helm version.
 
+    !!! Tip
+        Be sure to replace `NAMESPACE` with the Kubernetes namespace in which your resources are deployed.
+
+    -   Using **Helm v2**
+
+        ```bash
+        helm install --name <RELEASE_NAME> wso2/choreo-connect --version 1.0.0-1 --namespace <NAMESPACE>
+        ```
+
+    -   Using **Helm v3**
+
+        ```bash
+        helm install <RELEASE_NAME> wso2/choreo-connect --version 1.0.0-1 --namespace <NAMESPACE> --create-namespace
+        ```
+
+#### Update configurations during deployment
+
+If required, you can set any of the deployment configurations at the time of running the deployment (instead of
+specifying them in the `values.yaml` file). See the examples given below.
+
+-   Setting the subscription username and password.
+
+    ```bash
+    --set wso2.subscription.username=<SUBSCRIPTION_USERNAME>
+    --set wso2.subscription.username=<SUBSCRIPTION_USERNAME>
+    ```
+
+-   Setting the Choreo Connect deployment mode. 
+
+    ```bash
+    --set wso2.deployment.mode=APIM_AS_CP
+    ```
+
+-   Use the Choreo Connect control plane configurations.
+
+    ```bash
+    --set wso2.apim.controlPlane.hostName=am.wso2.com
+    --set wso2.apim.controlPlane.serviceName=wso2am-single-node-am-service.apim
+    ```
+
+## Step 5 - Access the Choreo Connect deployment
+
+Follow the steps given below.
+
+1.  Get the external IP (`EXTERNAL-IP`) of the Ingress resources by listing down the Kubernetes Ingresses.
+
+    -   **API Manager - Control Plane**
+
+        ```bash
+        kubectl get ing -n apim
+        ```
+
+        Example:
+
+        ```bash
+        NAME                                       HOSTS                      ADDRESS        PORTS     AGE
+        wso2am-pattern-3-am-cp-ingress             am.wso2.com                <EXTERNAL-IP>  80, 443   3m
+        ```
+
+    -   **Choreo Connect**
+
+        ```bash
+        kubectl get ing -n <NAMESPACE>
+        ```
+
+        Example:
+
+        ```bash
+        NAME                                       HOSTS                      ADDRESS        PORTS     AGE
+        <RELEASE_NAME>-choreo-connect-router       gw.wso2.com                <EXTERNAL-IP>  80, 443   3m
+        ```
+
+2.  Add the above hosts in the `/etc/hosts` file as follows:
+
+    ```bash
+    <EXTERNAL-IP>   am.wso2.com
+    <EXTERNAL-IP>   gw.wso2.com
+    ```
+
+3.  Execute the following command to invoke health check services:
+
+    ```bash
+    curl -X GET "https://gw.wso2.com/health"
+    ```
+
+## Step 6 - Deploy Sample API from API Manager
+
+ - Publisher Portal:  [https://am.wso2.com/publisher/](https://am.wso2.com/publisher/)
+ - Developer Portal:  [https://am.wso2.com/devportal/](https://am.wso2.com/devportal/)
+
+Follow the instructions in [create and publish an API via API Manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/#step-3-create-and-publish-an-api-from-api-manager).
