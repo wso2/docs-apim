@@ -445,7 +445,7 @@ There are two ways to invoke the service:
 
     Let's invoke the API from Postman as follows:
 
-    1. Open the Postman application. If you do not have the application, download from here : [Postman](https://www.postman.com/downloads/)
+    1. Open the Postman application. If you do not have the application, download it from here : [Postman](https://www.postman.com/downloads/)
     2. Create a collection with appropriate name. Ex : 'IntegrationStudio collection'.
     3. Add a new request to this collection and name it appropriately. Ex: 'Healthcare request'.
     4. In the 'Enter request URL' section paste our endpoint URL : ```http://localhost:8290/healthcare/doctor/Ophthalmologist```
