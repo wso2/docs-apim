@@ -484,7 +484,7 @@ Let's test the use case by sending a simple client request that invokes the serv
 
 Let's send a simple request to invoke the service. You can use the embedded <b>HTTP Client</b> of WSO2 Integration Studio as follows:
 
-1. Open the Postman application. If you do not have the application, download from here : [Postman](https://www.postman.com/downloads/)
+1. Open the Postman application. If you do not have the application, download it from here : [Postman](https://www.postman.com/downloads/)
 
 2. Add the request information as given below and click the <b>Send</b> button.
     
