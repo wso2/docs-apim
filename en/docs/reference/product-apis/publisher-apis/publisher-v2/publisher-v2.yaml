@@ -11349,7 +11349,7 @@ components:
       name: expand
       in: query
       description: |
-        Defines whether the returned response should contain full details of API
+        Defines whether the returned response should contain full details of API. Note that this is **deprecated** in API Manager 4.0.0
       schema:
         type: boolean
     threatProtectionPolicyId:
