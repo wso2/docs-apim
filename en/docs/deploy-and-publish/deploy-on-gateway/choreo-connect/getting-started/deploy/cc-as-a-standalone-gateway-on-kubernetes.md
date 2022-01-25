@@ -58,7 +58,7 @@ Let's create our first project with the name "petstore" by adding the [OpenAPI d
     apictl init petstore --oas <api definition path>
     ```
     
-    Let's use the [Petstore sample open API definition](https://petstore.swagger.io/)
+    Let's use the [Petstore sample OpenAPI definition](https://petstore.swagger.io/)
     
     ```shell
     apictl init petstore --oas https://petstore.swagger.io/v2/swagger.json
