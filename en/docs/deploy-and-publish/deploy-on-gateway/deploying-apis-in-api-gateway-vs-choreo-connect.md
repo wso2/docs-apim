@@ -2,7 +2,7 @@
 
 **API Deploying** is the process of making the API available for invocation. WSO2 API Manager comes with two gateway choices, the traditional API Gateway and the lightweight Choreo Connect.
 
-Choreo Connect is a cloud-native, open-source, and developer-centric API gateway proxy. It provides first-class support for K8s while facilitating an array of API management quality of services (QoS), such as message security, rate-limiting, observability, and message mediation. It can also be configured to have multiple gateway environments which can have different sets of APIs.
+Choreo Connect is a cloud-native, open-source, and developer-centric API gateway proxy. It provides first-class support for K8s, while facilitating an array of API management quality of services (QoS), such as message security, rate-limiting, observability, and message mediation. It can also be configured to have multiple Gateway environments, which can have different sets of APIs.
 
 ### Choreo Connect vs API Gateway
 
