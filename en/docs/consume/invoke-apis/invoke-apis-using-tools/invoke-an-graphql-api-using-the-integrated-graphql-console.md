@@ -1,15 +1,15 @@
-# Invoke a GraphQL API using the Integrated GraphQL Console
+# Test a GraphQL API Using the Integrated GraphQL Console
 
-WSO2 API Manager (WSO2 API-M) has an integrated GraphiQL UI for the GraphQL APIs.
+WSO2 API Manager (WSO2 API-M) has an Integrated GraphiQL UI for the GraphQL APIs.
 
 [GraphQL](https://github.com/graphql/graphiql) is the graphical, interactive, web-based GraphQL integrated development environment (IDE) for GraphQL query and it has a reference implementation from the GraphQL Foundation. 
 
 GraphiQL UI supports full GraphQL Language Specification (Queries, Mutations, Subscriptions, Fragments, Unions, directives, multiple operations per query, etc.) and it provides interactive schema documentation, real-time error highlighting and reporting for queries and variables, automatic query and variables completion, it automatically adds the required fields to the queries, and also queries the history using local storage.
 
 !!! note "Try out using Postman"
-    If required, instead of using the integrated GraphQL console you can try out your GraphQL API by downloading your GraphQL Schema as a Postman collection and trying it out on Postman. For more information, see [Try out using Postman]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/try-out-using-postman).
+    If required, instead of using the Integrated GraphQL Console you can try out your GraphQL API by downloading your GraphQL Schema as a Postman collection and trying it out on Postman. For more information, see [Try out using Postman]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/try-out-using-postman).
 
-Let's see how to use the GraphQL Console in the Developer Portal to invoke a GraphQL API.
+Follow the instructions below to use the GraphQL Console, which is in the WSO2 API Manager Developer Portal, to invoke a GraphQL API:
 
 !!! Note
     You can only try out HTTPS based APIs via the GraphQL Console because the API Store runs on HTTPS.
@@ -20,7 +20,7 @@ The examples here use the `StarWarsAPI` GraphQL API, which was created in [Creat
 
      `https://<hostname>:9443/devportal`
 
-2. Subscribe to the GraphQL API (e.g., `StarWarsAPI` 1.0.0) using an application and an available throttling policy.
+2. Subscribe to the GraphQL API (e.g., `StarWarsAPI` 1.0.0) using an application and an available throttling policy.
 
     [![Subscribe to the GraphQL API]({{base_path}}/assets/img/learn/subscribe-to-graphql-api.png)]({{base_path}}/assets/img/learn/subscribe-to-graphql-api.png)
 
