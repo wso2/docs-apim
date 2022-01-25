@@ -95,15 +95,15 @@ nav:
                 - Endpoint Suspension: design/endpoints/resiliency/endpoint-suspension.md
                 - Prevent API Suspension: design/endpoints/resiliency/prevent-api-suspension.md
             - Manage Certificates: design/endpoints/certificates.md
-            - Lifecycle Managament:
-                - API Lifecycle: design/lifecycle-management/api-lifecycle.md
-                - Customize API Life Cycle: design/lifecycle-management/customize-api-life-cycle.md
-                - Extend the API Life Cycle: design/lifecycle-management/extending-the-api-life-cycle.md
-            - API Versioning:
-                - Create a New API Version: design/api-versioning/create-a-new-api-version.md
-                - Deprecate the Old Version: design/api-versioning/deprecate-the-old-version.md
-                - Backward Compatibility: design/api-versioning/backward-compatibility.md
-                - Enable Notifications: design/api-versioning/enabling-notifications.md
+        - Lifecycle Managament:
+            - API Lifecycle: design/lifecycle-management/api-lifecycle.md
+            - Customize API Life Cycle: design/lifecycle-management/customize-api-life-cycle.md
+            - Extend the API Life Cycle: design/lifecycle-management/extending-the-api-life-cycle.md
+        - API Versioning:
+            - Create a New API Version: design/api-versioning/create-a-new-api-version.md
+            - Deprecate the Old Version: design/api-versioning/deprecate-the-old-version.md
+            - Backward Compatibility: design/api-versioning/backward-compatibility.md
+            - Enable Notifications: design/api-versioning/enabling-notifications.md
         - API Documentation:
             - Add API Documentation: design/api-documentation/add-api-documentation.md
             - Search Documentation:
