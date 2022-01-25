@@ -277,7 +277,7 @@ FROM wso2/choreo-connect-router:1.0.0
 COPY my-ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 ```
 
-make sure the files you are adding or coping (with commands `ADD` and `COPY`) exists in the context path.
+Make sure the files you are adding or copying (with commands `ADD` and `COPY`) exist in the context path.
 
 ```shell tab='Format'
 docker build -t <IMAGE_NAME> -f <DOCKER_FILE_PATH> <CONTEXT>
