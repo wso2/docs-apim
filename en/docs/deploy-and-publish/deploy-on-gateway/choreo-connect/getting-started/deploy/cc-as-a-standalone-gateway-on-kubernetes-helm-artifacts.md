@@ -3,139 +3,133 @@
 Let's deploy an API, using WSO2 API Controller (apictl), on Choreo Connect, which running on Kubernetes as a Standalone Gateway.
 
 ## Before you begin
+    
+-   Be sure you have an active [WSO2 Subscription](https://wso2.com/subscription). If you don't already have a subscription, sign up for a [WSO2 Free Trial Subscription](https://wso2.com/free-trial-subscription).
 
-1.  Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
-2.  Setup a [Kubernetes](https://Kubernetes.io/docs/setup/) cluster v1.20 or above.
-      - Minimum CPU : 3vCPU
-      - Minimum Memory : 2GB
-3.  Deploy an ingress controller - [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/) for this sample.
+    !!! Note
+        You need an active subscription to use the updated Docker images of the Micro Integrator with your Helm resources. Otherwise, you can use the community version of Docker images, which do not include product updates.
+    
+-   Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Helm](https://helm.sh/docs/intro/install/), and [Kubernetes client](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
+    
+-   Set up a [Kubernetes cluster](https://kubernetes.io/docs/setup/#learning-environment).
+    - Minimum CPU : 3vCPU
+    - Minimum Memory : 2GB
+    
+-   Install [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/). 
 
-## Objectives
+    !!! Note
+        Helm resources for WSO2 product deployment patterns are compatible with the [`nginx-0.30.0`](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.30.0) release.
 
-1.  Create and deploy an API project.
-2.  Invoke the API using a generated key.
+## Step 1 - Get the Helm resources
 
-Let's get started...
+Check out the Helm Resources for the Choreo Connect Git repository.
 
-## Step 1 - Setup Choreo Connect in Kubernetes
+1.  Open a terminal and navigate to the location where you want to save the local copy.
+2.  Clone the Choreo Connect Git repository with Helm resources:
 
-1.  Download and extract Choreo Connect distribution .zip file
-
-    Latest Choreo Connect distribution can be downloaded from [https://wso2.com/choreo/choreo-connect/](https://wso2.com/choreo/choreo-connect/). Extract the Choreo Connect distribution .zip file. The extracted folder will be called as `CHOREO-CONNECT_HOME` hereafter.
-
-2.  Apply the Kubernetes configurations for Choreo Connect using the kubectl tool.
-
-     {!includes/deploy/cc-tryout-in-arm64-k8s-note.md!}
-
-     ```bash
-     kubectl apply -f <CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect
-     ```
-
-3.  Add the host entry to `/etc/hosts` file.
-
-    Add the following entry to `/etc/hosts` file in order to access the Choreo Connect Router and Adapter.
-
-    ```sh
-    <INGRESS_ADDRESS>    gw.wso2.com    adapter.wso2.com
+    ```bash
+    git clone https://github.com/wso2/kubernetes-microgateway.git
+    git checkout tags/v1.0.0.1
     ```
 
-## Step 2 - Initialize an API Project
+This creates a local copy of [wso2/kubernetes-microgateway](https://github.com/wso2/kubernetes-microgateway), which includes all the Helm Resources for Choreo Connect.
 
-Let's create our first project with the name "petstore" by adding the [OpenAPI definition](https://petstore.swagger.io/v2/swagger.json) of the petstore.
+Let's refer to the root folder of the local copy as `<KUBERNETES_HOME>`.
 
-1. Download and install APICTL
+## Step 2 - Update the deployment configurations
 
-    APICTL is a CLI tool that can be used to deploy undeploy APIs into Choreo Connect clusters.
-    Refer [Download and initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool)
-    to set up the APICTL in your development environment.
-    
-2. Now let's deploy our first API by creating an API resource in Kubernetes.
+Follow the steps given below to configure how your Choreo Connect deployment should be set up.
 
-    Navigate to a preferred workspace folder using the command line. This is the location that is used to store the Choreo Connect project.
-    Run the following command to create a project named "petstore". This creates the folder structure for the artifacts to be included. Use the --oas option to include the API definition to the project as follows.
+1.  Open the `values.yaml` file in the `<KUBERNETES_HOME>/helm/choreo-connect` directory of your local copy.
 
-    ```shell
-    apictl init petstore --oas <api definition path>
+    !!! Info
+        Before you do any changes, go through the [default configurations](https://github.com/wso2/kubernetes-microgateway/tree/v1.0.0.1/helm/choreo-connect) in this file.
+
+2.  Use the following guidelines to update the deployment configurations:
+
+    -   **Updating the WSO2 subscription details**
+
+        You can update the username and password in the following section. If you don't have an active WSO2 subscription, leave these parameters empty.
+
+        ```yaml
+        wso2:
+            subscription:
+                username: "<username>"
+                password: "<password>"
+        ```
+
+        Alternatively, you can skip this step and pass your subscription details at the time of deploying (see the next step for details).
+
+    -   You can update [other configurations](https://github.com/wso2/kubernetes-microgateway/tree/v1.0.0.1/helm/choreo-connect/README.md) as required.
+
+3.  Save the `values.yaml` file.
+
+## Step 3 - Deploy Choreo Connect
+
+Once you have set up your Helm resources locally, follow the instructions given below to set up the deployment.
+
+1.  Open a terminal and navigate to the `<KUBERNETES_HOME>/helm/choreo-connect` directory.
+2.  Execute the command that is relevant to your Helm version.
+
+    !!! Tip
+        Be sure to replace `NAMESPACE` with the Kubernetes namespace in which your resources are deployed.
+
+    -   Using **Helm v2**
+
+        ```bash
+        helm install --name <RELEASE_NAME> wso2/choreo-connect --version 1.0.0-1 --namespace <NAMESPACE>
+        ```
+
+    -   Using **Helm v3**
+
+        ```bash
+        helm install <RELEASE_NAME> wso2/choreo-connect --version 1.0.0-1 --namespace <NAMESPACE> --create-namespace
+        ```
+
+#### Update configurations during deployment
+
+If required, you can set any of the deployment configurations at the time of running the deployment (instead of
+specifying them in the `values.yaml` file). See the examples given below.
+
+-   Setting the subscription username and password.
+
+    ```bash
+    --set wso2.subscription.username=<SUBSCRIPTION_USERNAME>
+    --set wso2.subscription.username=<SUBSCRIPTION_USERNAME>
     ```
-    
-    Let's use the [Petstore sample open API definition](https://petstore.swagger.io/)
-    
-    ```shell
-    apictl init petstore --oas https://petstore.swagger.io/v2/swagger.json
+
+## Step 4 - Access the Choreo Connect deployment
+
+Follow the steps given below.
+
+1.  Get the external IP (`EXTERNAL-IP`) of the Ingress resources by listing down the Kubernetes Ingresses.
+
+    ```bash
+    kubectl get ing -n <NAMESPACE>
     ```
-    
-    The project is now initialized. A directory with the name "petstore" has been created.
 
-!!! info
-    -   For more information on the API project directory that gets created, see [APICTL Getting Started]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller).
+    Example:
 
-## Step 3 - Deploy the API Project
+    ```bash
+    NAME                                       HOSTS                      ADDRESS        PORTS     AGE
+    <RELEASE_NAME>-choreo-connect-adapter      adapter.wso2.com           <EXTERNAL-IP>  80, 443   3m
+    <RELEASE_NAME>-choreo-connect-router       gw.wso2.com                <EXTERNAL-IP>  80, 443   3m
+    ```
 
-### Step 3.1 - Add Choreo Connect Cluster as Environment to APICTL
+2.  Add the above hosts in the `/etc/hosts` file as follows:
 
-To use APICTL with Choreo Connect, we need to add the Choreo Connect cluster as an environment in the APICTL.
-Basically, the adapter URL will be added as the Gateway environment, and the added environment can be used in the subsequent commands.
+    ```bash
+    <EXTERNAL-IP>   adapter.wso2.com
+    <EXTERNAL-IP>   gw.wso2.com
+    ```
 
-``` shell tab="Format"
-apictl mg add env <ENVIRONMENT_NAME> --adapter <ADAPTER_URL>
-```
+3.  Execute the following command to invoke health check services:
 
-``` shell tab="Example"
-apictl mg add env k8s --adapter https://adapter.wso2.com
-```
+    ```bash
+    curl -X GET "https://gw.wso2.com/health"
+    ```
 
-### Step 3.2 - Log in to the Choreo Connect Cluster
+## Step 5 - Deploy and Invoke Sample API
 
-Next you need to log in to the Choreo Connect environment (log in to the adapter) in order to deploy the API in Choreo Connect.
-
-``` shell tab="Format"
-apictl mg login <ENVIRONMENT_NAME> -u <AUTHORIZED_USER_USERNAME> -p <USER_PASSWORD> -k
-```
-
-``` shell tab="Example"
-apictl mg login k8s -u admin -p admin -k
-```
-
-!!! info
-    Following APICTL commands are being executed with -k flag to avoid SSL verification with the Choreo Connect.
-    To communicate via HTTPS without skipping SSL verification (without -k flag), add the cert of Choreo Connect into `/home/<your-pc-username>/.wso2apictl/certs`.
-
-### Step 3.3 - Deploy the API in Choreo Connect
-
-Now let's deploy our first API to Choreo Connect using the project created in the step 3.
-Navigate to the location where the petstore project was initialized. Execute the following command to deploy the API in the Choreo Connect.
-
-``` shell tab="Format"
-apictl mg deploy api -f <PROJRECT_NAME> -e <ENVIRONMENT_NAME> -k
-```
-
-``` shell tab="Example"
-apictl mg deploy api -f petstore -e k8s -k
-```
-
-## Step 4 - Invoke the sample API
-
-### Step 4.1 - Obtain a token
-
-After the APIs are exposed via WSO2 Choreo Connect, you can invoke an API with a valid token(JWT) or using a test key.  
-Let's use WSO2 Choreo Connect's test key endpoint to obtain a test key in order to access the API. Refer [Generate a Test JWT]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt) for more details.
-
-``` shell tab="Sample Token"
-TOKEN=$(curl -X POST "https://gw.wso2.com/testkey" -d "scope=read:pets" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -v)
-```
-
-!!! info
-    More information
-    -   You can obtain a JWT token from any third-party secure token service or via the WSO2 API Manager.
-
-### Step 4.2 - Invoke the API
-
-Execute the following command to invoke the API using the test key: You can now invoke the API running on WSO2 Choreo Connect using the following cURL command.
-
-``` shell tab="Format"
-curl -X GET "<hostname>:<port>/<API-context>/<API-resource>" -H "Authorization: Bearer $TOKEN" -k
-```
-
-``` shell tab="Example"
-curl -X GET "https://gw.wso2.com/v2/pet/findByStatus?status=available" -H "accept: application/json" -H "Authorization:Bearer $TOKEN" -k
-```
+Follow the Step 2, 3, 4 in the [Deploying Choreo Connect as a Standalone Gateway on Kubernetes](https://apim.docs.wso2.com/en/latest/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-kubernetes/#step-2-initialize-an-api-project)
+to deploy and invoke the sample API.
