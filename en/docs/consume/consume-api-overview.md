@@ -39,11 +39,11 @@ Developers need to select a business plan for each API subscription. The busines
 
 Before using an API for development, the API consumer may want to test it’s capabilities. The following options are available in the Developer Portal for testing:
 
--   <a href="{{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console">Invoke APIs using the Integrated API Console</a>
+-   <a href="{{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console">Test APIs using the Integrated API Console</a>
     -   <a href="{{base_path}}/consume/invoke-apis/invoke-apis-using-tools/include-additional-headers-in-the-api-console">Include Additional Headers in the API Console</a>
--   <a href="{{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console">Invoke GraphQL APIs using the Integrated GraphQL Console</a>
--   <a href="{{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client">Invoke an API using a SOAP Client</a>
--   <a href="{{base_path}}/consume/invoke-apis/invoke-apis-using-tools/try-out-using-postman">Invoke an API using Postman</a>
+-   <a href="{{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console">Test GraphQL APIs Using the Integrated GraphQL Console</a>
+-   <a href="{{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client">Test an API Using a SOAP Client</a>
+-   <a href="{{base_path}}/consume/invoke-apis/invoke-apis-using-tools/try-out-using-postman">Test an API Using Postman</a>
 
 ## Rate and Support APIs
 

@@ -1,8 +1,8 @@
-# Invoke an API using the Integrated API Console
+# Test a REST API Using the Integrated API Console
 
-WSO2 API Manager has an integrated API Console, which allows you to visualize the API contract and interact with API's resources without being aware of the backend logic.
+WSO2 API Manager has an Integrated API Console, which allows you to visualize the API contract and interact with API's resources without being aware of the backend logic.
 
-Let's see how to use the API Console in the Developer Portal to invoke an API.
+Follow the instructions below to use the API Console, which is available in the WSO2 API Manager Developer Portal, to test a REST API by invoking it:
 
 !!! Note
     You can only try out HTTPS-based APIs via the API Console because the Developer Portal runs on HTTPS.
