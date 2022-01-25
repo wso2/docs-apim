@@ -441,35 +441,18 @@ Let's start the mock back-end services for this use case:
 
 There are two ways to invoke the service:
 
-- **Option 1: Using WSO2 Integration Studio**
+- **Option 1: Using Postman**
 
-    Let's invoke the API from the embedded <b>HTTP Client</b> of WSO2 Integration Studio as follows:
+    Let's invoke the API from Postman as follows:
 
-    1.  Open the <b>HTTP Client</b> of WSO2 Integration Studio.
-
-        !!! Tip
-            If you don't see the <b>HTTP Client</b> tab, go to <b>Window -> Show View - Other</b> and select <b>HTTP Client</b> to enable the client tab.
-
-        <img src="{{base_path}}/assets/img/integrate/developing-first-integration/http4e-client-empty.png" width="800">
-        
-    2.  Enter the request information as given below and click the <b>Send</b> icon (<img src="{{base_path}}/assets/img/integrate/tutorials/common/play-head-icon.png" width="20">).
-        
-        <table>
-            <tr>
-                <th>Method</th>
-                <td>
-                  <code>GET</code> 
-                </td>
-            </tr>
-            <tr>
-                <th>URL</th>
-                <td>
-                    <code>http://localhost:8290/healthcare/doctor/Ophthalmologist</code></br></br>
-                </td>
-            </tr>
-        </table>
-        
-    The response is printed in the **HTTP Response** section.
+    1. Open the Postman application. If you do not have the application, download it from here : [Postman](https://www.postman.com/downloads/)
+    2. Create a collection with appropriate name. Ex : 'IntegrationStudio collection'.
+    3. Add a new request to this collection and name it appropriately. Ex: 'Healthcare request'.
+    4. In the 'Enter request URL' section paste our endpoint URL : ```http://localhost:8290/healthcare/doctor/Ophthalmologist```
+    5. Select 'GET' as http method and click 'Send' button.
+    <br/><br/>
+    <video src="{{base_path}}/assets/vids/healthcare-doctor-ophthalmologist.webm" width="720" height="480" controls></video>
+    <br/><br/>
 
 - **Option 2: Using your terminal**
 
