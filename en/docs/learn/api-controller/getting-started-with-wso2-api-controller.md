@@ -770,6 +770,17 @@ Output of `list envs`, `list apis` and `list apps` can be formatted with Go Temp
             </td>
         </tr>
         <tr class="odd">
+            <td>jsonArray</td>
+            <td>Outputs a human-readable JSON Array with indented by 2 spaces</td>
+            <td>
+                <div style="width: 100%; display: block; overflow: auto;">
+                    ``` 
+                    --format "jsonArray" 
+                    ```
+                </div>
+            </td>
+        </tr>
+        <tr class="odd">
             <td>upper</td>
             <td>Convert string to uppercase</td>
             <td>
