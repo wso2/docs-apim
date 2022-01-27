@@ -3,11 +3,15 @@
 Let's deploy an API on Choreo Connect, which running on Kubernetes, with WSO2 API Manager as the Control Plane.
 
 ## Before you begin
-    
--   Be sure you have an active [WSO2 Subscription](https://wso2.com/subscription). If you don't already have a subscription, sign up for a [WSO2 Free Trial Subscription](https://wso2.com/free-trial-subscription).
 
-    !!! Note
-        You need an active subscription to use the updated Docker images of the Micro Integrator with your Helm resources. Otherwise, you can use the community version of Docker images, which do not include product updates.
+-   WSO2 product Docker images used for the Kubernetes deployment.
+
+    WSO2 product Docker images available at [DockerHub](https://hub.docker.com/u/wso2/) package General Availability (GA)
+    versions of WSO2 products with no [WSO2 Updates](https://wso2.com/updates).
+
+    For a production grade deployment of the desired WSO2 product-version, it is highly recommended to use the relevant
+    Docker image which packages WSO2 Updates, available at [WSO2 Private Docker Registry](https://docker.wso2.com/). In order
+    to use these images, you need an active [WSO2 Subscription](https://wso2.com/subscription).
     
 -   Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Helm](https://helm.sh/docs/intro/install/), and [Kubernetes client](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
     
