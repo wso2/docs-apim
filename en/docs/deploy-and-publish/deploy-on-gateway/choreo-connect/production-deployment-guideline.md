@@ -6,7 +6,7 @@ Given below are the common guidelines for deploying Choreo Connect in a **produc
 
 By default, Choreo Connect ships with default keystore certificates, and it is recommended to replace them with Self-Signed or CA signed certificates.
 
-### Setep 1: Generate Self-Signed certs in PEM format
+### Step 1: Generate self-signed certs in PEM format
 
 Generate Self-Signed certs in PEM format by executing following sample commands. Let's create a directory called `certs`.
 
@@ -54,7 +54,7 @@ openssl req -x509 -sha256 -nodes -days 3650 -newkey rsa:2048 \
     -out certs/router/tls.crt
 ```
 
-By default, SSL Hostnames for adapter and enforcer is `adapter` and `enforcer`, in case if you want to have your own SAN names in the certificates, update the following values in helm chart with the SAN names in the certificates.
+By default, SSL Hostnames for adapter and enforcer is `adapter` and `enforcer`, in case if you want to have your own SAN names in the certificates, update the following values in the Helm Chart with the SAN names in the certificates.
 
 ```shell
 wso2.deployment.adapter.security.sslHostname=<ADAPTER_HOST_NAME>

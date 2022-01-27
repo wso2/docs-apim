@@ -1,6 +1,6 @@
 # Deploying Choreo Connect as a Standalone Gateway on Kubernetes - Helm Artifacts
 
-Let's deploy an API, using WSO2 API Controller (apictl), on Choreo Connect, which running on Kubernetes as a Standalone Gateway.
+Let's deploy an API using WSO2 API Controller (apictl) on Choreo Connect, which is running on Kubernetes as a Standalone Gateway.
 
 ## Before you begin
     
