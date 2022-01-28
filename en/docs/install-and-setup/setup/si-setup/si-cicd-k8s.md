@@ -2,17 +2,17 @@
 [![K8s based CI/CD for Streaming Integrator]({{base_path}}/assets/img/deploy/si-cicd-k8s.png)]({{base_path}}/assets/img/deploy/mi-cicd-k8s.png)
 
 #### Deployment Descriptor Repository
-- We maintain Deployment Descriptor repositories in Github. 
-- There will be Kubernetes yaml files for each project inside a separate folder.
+- We maintain Deployment Descriptor repositories in GitHub. 
+- There are Kubernetes YAML files for each project inside a separate folder.
 - This repository will have three branches representing each deployment environment.
 - To use a new version / rollback to a previous version, the user should define the version inside the respective `deployment.yaml` and commit to the respective branch.
 
 #### Deployment Descriptor Jenkins Build Job
-- We need to maintain one Jenkins job per Environment.
-- This job contains only the build phase. This will apply the relevant yaml files in the relevant environment.
+- Maintain one Jenkins job per Environment.
+- This job contains only the build phase. This will apply the relevant YAML files in the relevant environment.
 
 ### Kubernetes artifacts
-Sample Kubernetes artifacts for a stateless deployment have been provided below. You can extend the below yaml files to introduce other components. (eg: configMaps, Ingress etc) 
+Sample Kubernetes artifacts for a stateless deployment are provided below. You can extend the below YAML files to introduce other components. (e.g., configMaps, Ingress, etc.) 
 
 ```yaml tab="Deployment"
 apiVersion: "apps/v1"
@@ -119,9 +119,9 @@ spec:
 
 5. Kubernetes cluster with 3 different namespaces (dev, staging, prod)
 
-### Sample User guide
+### Sample user guide
 
-1. Clone the [samples-apim](https://github.com/wso2/samples-apim/) repository
+1. Clone the [samples-apim](https://github.com/wso2/samples-apim/) repository.
 
 2. [Create Siddhi apps using Streaming Integrator tooling]({{base_path}}/get-started/streaming-quick-start-guide/). You can use the tool to run and test the applications.
 
@@ -154,9 +154,9 @@ spec:
 4. Confirm that the Docker image is available in the Docker registry.
 5. [Set up Jenkins server](#setting-up-jenkins-server)
 6. Use the above mentioned [Kubernetes artifacts](#kubernetes-artifacts) to create the Kubernetes deployment files.
-7. Move the kubernetes artifacts files into a folder with the project name. This folder will contain Kubernetes artifacts for a particular project.
-8. Commit the above project folder in to the Deployment Descriptor repo under dev branch. If you have multiple projects, you can commit them as well.
-9. Once you commit the changes, you can observe that the descriptor-dev job starts running and it applies the Yaml files into the Dev namespace in Kubernetes cluster.
+7. Move the Kubernetes artifacts files into a folder with the project name. This folder will contain Kubernetes artifacts for a particular project.
+8. Commit the above project folder into the Deployment Descriptor repository under dev branch. If you have multiple projects, you can commit them as well.
+9. Once you commit the changes, you can observe that the `descriptor-dev` job starts running and it applies the YAML files into the Dev namespace in Kubernetes cluster.
 10. Verify that the new changes are available in the Dev environment.
 11. You can repeat steps 8, 9 and 10 for the Staging and Prod environment.
 
@@ -174,7 +174,7 @@ spec:
 
       `vi Dockerfile`
 
-5. [Optional] If you want to customize the Jenkins configuration, update the Jenkins_casc.yaml file.
+5. [Optional] If you want to customize the Jenkins configuration, update the `Jenkins_casc.yaml` file.
 
       `vi jenkins_casc.yaml`
 
@@ -182,7 +182,7 @@ spec:
 
       `docker build -t <image-name>:<image-tag> .`
 
-7. Run the following command to run the image. You need to configure the .ssh folder to access the dev, staging and production environment and mount the folder to the container.
+7. Run the following command to run the image. You need to configure the .ssh folder to access the dev, staging, and production environment and mount the folder to the container.
 
       `docker run -d -p 8080:8080 -v /var/run/docker.sock:/var/run/docker.sock -v ~/.kube:/root/.kube <image-name>:<image-tag>`
 
