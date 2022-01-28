@@ -2,7 +2,8 @@
 [![K8s based CI/CD for Streaming Integrator]({{base_path}}/assets/img/deploy/si-cicd-k8s.png)]({{base_path}}/assets/img/deploy/mi-cicd-k8s.png)
 
 #### Deployment Descriptor Repository
-- We maintain Deployment Descriptor repositories in GitHub. 
+- This repository will be used to track the Siddhi apps/deployments in each environment.
+- We maintain the Deployment Descriptor repository in GitHub. 
 - There are Kubernetes YAML files for each project inside a separate folder.
 - This repository will have three branches representing each deployment environment.
 - To use a new version / rollback to a previous version, the user should define the version inside the respective `deployment.yaml` and commit to the respective branch.
@@ -109,15 +110,15 @@ spec:
 
 ### Prerequisites
 
-1. Streaming Integrator Tooling
+- Streaming Integrator Tooling
 
-2. GitHub repository - To maintain the descriptor files of each environment
+- GitHub repository - To maintain the descriptor files of each environment
 
-3. Jenkins server for Continuous Deployment
+- Jenkins server for Continuous Deployment
 
-4. Docker registry - To store the SI images.
+- Docker registry - To store the SI images.
 
-5. Kubernetes cluster with 3 different namespaces (dev, staging, prod)
+- Kubernetes cluster with 3 different namespaces (dev, staging, prod)
 
 ### Sample user guide
 
