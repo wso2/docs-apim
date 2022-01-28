@@ -13,7 +13,10 @@
 - This job contains only the build phase. This will apply the relevant YAML files in the relevant environment.
 
 ### Kubernetes artifacts
-Sample Kubernetes artifacts for a stateless deployment are provided below. You can extend the below YAML files to introduce other components. (e.g., configMaps, Ingress, etc.) 
+Sample Kubernetes artifacts for a stateless deployment are provided below. 
+This deployment can be scaled horizontally as an [Active-Active deployment]({{base_path}}/install-and-setup/setup/si-deployment/deploying-si-as-an-active-active-deployment). 
+You can find more deployment patterns [here]({{base_path}}/install-and-setup/setup/si-deployment/deployment-guide/).
+You can extend the below YAML files to introduce other components. (e.g., configMaps, Ingress, etc.) 
 
 ```yaml tab="Deployment"
 apiVersion: "apps/v1"
