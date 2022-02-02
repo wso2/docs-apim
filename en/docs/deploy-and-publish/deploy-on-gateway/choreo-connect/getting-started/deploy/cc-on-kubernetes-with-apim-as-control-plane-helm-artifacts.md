@@ -1,6 +1,6 @@
 # Deploying Choreo Connect on Kubernetes With WSO2 API Manager as a Control Plane - Helm Artifacts
 
-Let's deploy an API on Choreo Connect, which running on Kubernetes, with WSO2 API Manager as the Control Plane. You can select one of the option to install Choreo Connect Helm Chart in the middle of the documentation.
+Let's deploy an API on Choreo Connect, which running on Kubernetes, with WSO2 API Manager as the Control Plane. You can select one of the options to install Choreo Connect Helm Chart in the middle of the documentation.
 
 - [Option 1: Install Chart from WSO2 Helm Chart Repository](#option-1-install-chart-from-wso2-helm-chart-repository)
 - [Option 2: Install Chart from Source](#option-2-install-chart-from-source)
@@ -9,7 +9,7 @@ Let's deploy an API on Choreo Connect, which running on Kubernetes, with WSO2 AP
 
 -   WSO2 product Docker images used for the Kubernetes deployment.
 
-    WSO2 product Docker images available at [DockerHub](https://hub.docker.com/u/wso2/) package General Availability (GA)
+    WSO2 product Docker images available at [DockerHub](https://hub.docker.com/u/wso2/) (General Availability (GA)
     versions of WSO2 products with no [WSO2 Updates](https://wso2.com/updates).
 
     For a production grade deployment of the desired WSO2 product-version, it is highly recommended to use the relevant
@@ -277,12 +277,6 @@ Follow the steps given below.
     ```bash
     <EXTERNAL-IP>   am.wso2.com
     <EXTERNAL-IP>   gw.wso2.com
-    ```
-
-3.  Execute the following command to invoke health check services:
-
-    ```bash
-    curl -X GET "https://gw.wso2.com/health"
     ```
 
 ## Deploy Sample API from API Manager
