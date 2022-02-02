@@ -1,6 +1,9 @@
 # Deploying Choreo Connect as a Standalone Gateway on Kubernetes - Helm Artifacts
 
-Let's deploy an API using WSO2 API Controller (apictl) on Choreo Connect, which is running on Kubernetes as a Standalone Gateway.
+Let's deploy an API using WSO2 API Controller (apictl) on Choreo Connect, which is running on Kubernetes as a Standalone Gateway. You can select one of the option to install Choreo Connect Helm Chart in the middle of the documentation.
+
+- [Option 1: Install Chart from WSO2 Helm Chart Repository](#option-1-install-chart-from-wso2-helm-chart-repository)
+- [Option 2: Install Chart from Source](#option-2-install-chart-from-source)
 
 ## Before you begin
     
@@ -24,7 +27,58 @@ Let's deploy an API using WSO2 API Controller (apictl) on Choreo Connect, which 
     !!! Note
         Helm resources for WSO2 product deployment patterns are compatible with the [`nginx-0.30.0`](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.30.0) release.
 
-## Step 1 - Get the Helm resources
+## Option 1: Install Chart from WSO2 Helm Chart Repository
+
+### Step 1 - Add the WSO2 Helm chart repository
+
+Add the [WSO2 Helm chart repository](https://hub.helm.sh/charts/wso2) by executing the following command.
+
+```bash
+helm repo add wso2 https://helm.wso2.com && helm repo update
+```
+
+### Step 2 - Install Chart
+
+Execute the following command to install the Helm Cart by selecting the helm version you installed.
+
+-   Using **Helm v2**
+
+    ```bash tab='Format'
+    helm install --name <RELEASE_NAME> wso2/choreo-connect --version 1.0.0-1 --namespace <NAMESPACE>
+    ```
+
+    ```bash tab='Sample'
+    helm install --name my-release wso2/choreo-connect --version 1.0.0-1 --namespace cc
+    ```
+
+-   Using **Helm v3**
+
+    ``` tab='Format'
+    helm install <RELEASE_NAME> wso2/choreo-connect --version 1.0.0-1 --namespace <NAMESPACE> --create-namespace
+    ```
+
+    ``` tab='Sample'
+    helm install my-release wso2/choreo-connect --version 1.0.0-1 --namespace cc --create-namespace
+    ```
+
+The above steps will deploy the Choreo Connect using WSO2 product Docker images available at DockerHub.
+
+If you are using WSO2 product Docker images available from WSO2 Private Docker Registry, please provide your **WSO2 Subscription** credentials via input values (using `--set` argument).
+
+Please see the following example.
+
+```bash tab='Format'
+helm install --name <RELEASE_NAME> wso2/choreo-connect --version 1.0.0-1 --namespace <NAMESPACE> \
+  --set wso2.subscription.username=<SUBSCRIPTION_USERNAME> \
+  --set wso2.subscription.password=<SUBSCRIPTION_PASSWORD>
+```
+
+<br/>
+Skip the following section "Option 2: Install Chart from Source" since you have already installed Choreo Connect and jump to [Access the Choreo Connect deployment](#access-the-choreo-connect-deployment) for deploying APIs.
+
+## Option 2: Install Chart from Source
+
+### Step 1 - Get the Helm resources
 
 Check out the Helm Resources for the Choreo Connect Git repository.
 
@@ -40,7 +94,7 @@ This creates a local copy of [wso2/kubernetes-microgateway](https://github.com/w
 
 Let's refer to the root folder of the local copy as `<KUBERNETES_HOME>`.
 
-## Step 2 - Update the deployment configurations
+### Step 2 - Update the deployment configurations
 
 Follow the steps given below to configure how your Choreo Connect deployment should be set up.
 
@@ -68,7 +122,7 @@ Follow the steps given below to configure how your Choreo Connect deployment sho
 
 3.  Save the `values.yaml` file.
 
-## Step 3 - Deploy Choreo Connect
+### Step 3 - Deploy Choreo Connect
 
 Once you have set up your Helm resources locally, follow the instructions given below to set up the deployment.
 
@@ -102,7 +156,7 @@ specifying them in the `values.yaml` file). See the examples given below.
     --set wso2.subscription.username=<SUBSCRIPTION_USERNAME>
     ```
 
-## Step 4 - Access the Choreo Connect deployment
+## Access the Choreo Connect deployment
 
 Follow the steps given below.
 
@@ -133,7 +187,7 @@ Follow the steps given below.
     curl -X GET "https://gw.wso2.com/health"
     ```
 
-## Step 5 - Deploy and Invoke Sample API
+## Deploy and Invoke Sample API
 
 Follow the Step 2, 3, 4 in the [Deploying Choreo Connect as a Standalone Gateway on Kubernetes](https://apim.docs.wso2.com/en/latest/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-kubernetes/#step-2-initialize-an-api-project)
 to deploy and invoke the sample API.
