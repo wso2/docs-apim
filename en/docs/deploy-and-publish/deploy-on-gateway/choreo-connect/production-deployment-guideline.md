@@ -10,25 +10,25 @@ You can deploy Choreo Connect using one of the following options.
 This document walk you through following sections.
 
 - [Common Configurations](#common-configurations) - Common for both Standalone Gateway and API Manager as Control Plane
-- [Option 1: API Manager as Control Plane Configurations](#option-1-api-manager-as-control-plane-configurations)
-- [Option 2: Standalone Mode Configurations](#option-2-standalone-mode-configurations)
+- [Mode 1: API Manager as Control Plane Configurations](#mode-1-api-manager-as-control-plane-configurations)
+- [Mode 2: Standalone Gateway Configurations](#mode-2-standalone-gateway-configurations)
 
 ## Common Configurations
 
 ### Configuring Keystore
 
 By default, Choreo Connect ships with default keystore certificates, and it is recommended to replace them with Self-Signed or CA signed certificates.
-Following steps describes steps to generate self-signed certificates and configure keystore of Choreo Connect Adapter, Enforcer and Router.
+Following steps describes steps to generate self-signed certificates and configure keystore of Choreo Connect Adapter, Enforcer and Router. If you have CA signed certificates you can skip *Step: 1* of the following.
 
-#### Step 1: Generate self-signed certs in PEM format
+#### Step 1: Generate self-signed certs in PEM format (Optional)
 
 Generate Self-Signed certs in PEM format by executing following sample commands. Let's create a directory called `certs` to hold certificates for Adapter, Enforcer and Router.
 
-```shell
+```bash
 mkdir -p certs/adapter certs/enforcer certs/router
 ```
 
-```shell tab='Format'
+```bash tab='Format'
 openssl req -x509 -sha256 -nodes -days 3650 -newkey rsa:2048 \
     -subj "/C=<COUNTRY_CODE>/ST=<STATE_NAME>/L=<LOCALITY_NAME>/O=<ORGANIZATION_NAME>/OU=<ORGANIZATION_UNIT_NAME>/CN=<COMMON_NAME>"\
     -extensions SAN \
@@ -38,7 +38,7 @@ openssl req -x509 -sha256 -nodes -days 3650 -newkey rsa:2048 \
     -out <CERT_FILE_PATH>
 ```
 
-```shell tab='Adapter Sample'
+```bash tab='Adapter Sample'
 openssl req -x509 -sha256 -nodes -days 3650 -newkey rsa:2048 \
     -subj "/C=US/ST=CA/L=Mountain View/O=WSO2, Inc./OU=Choreo Connect/CN=yourdomain.com" \
     -extensions SAN \
@@ -48,7 +48,7 @@ openssl req -x509 -sha256 -nodes -days 3650 -newkey rsa:2048 \
     -out certs/adapter/tls.crt
 ```
 
-```shell tab='Enforcer Sample'
+```bash tab='Enforcer Sample'
 openssl req -x509 -sha256 -nodes -days 3650 -newkey rsa:2048 \
     -subj "/C=US/ST=CA/L=Mountain View/O=WSO2, Inc./OU=Choreo Connect/CN=yourdomain.com" \
     -extensions SAN \
@@ -58,7 +58,7 @@ openssl req -x509 -sha256 -nodes -days 3650 -newkey rsa:2048 \
     -out certs/enforcer/tls.crt
 ```
 
-```shell tab='Router Sample'
+```bash tab='Router Sample'
 openssl req -x509 -sha256 -nodes -days 3650 -newkey rsa:2048 \
     -subj "/C=US/ST=CA/L=Mountain View/O=WSO2, Inc./OU=Choreo Connect/CN=yourdomain.com" \
     -extensions SAN \
@@ -70,12 +70,14 @@ openssl req -x509 -sha256 -nodes -days 3650 -newkey rsa:2048 \
 
 By default, **SSL Hostnames** for adapter and enforcer is `adapter` and `enforcer`, in case if you want to have your own SAN names in the certificates, update the following values in the helm release with the SAN names in the certificates.
 
-```shell tab='Format'
+{!includes/deploy/cc-prod-guide-helm-values-yaml-tip.md!}
+
+```bash tab='Format'
 wso2.deployment.adapter.security.sslHostname=<ADAPTER_HOST_NAME>
 wso2.deployment.gatewayRuntime.enforcer.security.sslHostname=<ENFORCER_HOST_NAME>
 ```
 
-```shell tab='Default Values'
+```bash tab='Default Values'
 wso2.deployment.adapter.security.sslHostname=adapter
 wso2.deployment.gatewayRuntime.enforcer.security.sslHostname=enforcer
 ```
@@ -84,28 +86,30 @@ wso2.deployment.gatewayRuntime.enforcer.security.sslHostname=enforcer
 
 Create TLS secrets in the namespace that you wish to install Choreo Connect. Following are sample commands to create TLS secrets for above generated cert files.
 
-!!! note
+!!! Info
     Change the value `NAMESPACE_OF_CC=<NAMESPACE_OF_CC>` in following samples with the namespace that you wish to install Choreo Connect.
 
-```shell tab='Format'
+```bash tab='Format'
 kubectl create secret tls <SECRET_NAME> -n <NAMESPACE_OF_CC> --cert=<CERT_PATH> --key=<KEY_PATH>
 ```
 
-```shell tab='Adapter Sample'
+```bash tab='Adapter Sample'
 kubectl create secret tls adapter-keystore -n $NAMESPACE_OF_CC --cert=certs/adapter/tls.crt --key=certs/adapter/tls.key
 ```
 
-```shell tab='Enforcer Sample'
+```bash tab='Enforcer Sample'
 kubectl create secret tls enforcer-keystore -n $NAMESPACE_OF_CC --cert=certs/enforcer/tls.crt --key=certs/enforcer/tls.key
 ```
 
-```shell tab='Router Sample'
+```bash tab='Router Sample'
 kubectl create secret tls router-keystore -n $NAMESPACE_OF_CC --cert=certs/router/tls.crt --key=certs/router/tls.key
 ```
 
 #### Step 3: Configure Secrets
 
 You can set the keystore secrets in the same namespace that Choreo Connect is going to be installed. Set the following values.
+
+{!includes/deploy/cc-prod-guide-helm-values-yaml-tip.md!}
 
 ```yaml tab='Format'
         keystore:
@@ -161,13 +165,14 @@ wso2:
               subPath: "tls.crt"
 ```
 
-When you update the Keystore of any component, the **Truststore of other components get updated automatically**,
-so no need to update Truststore manually.
+When you update the Keystore of any component, the **Truststore of other components get updated automatically**, so **no need to update Truststore manually**.
 
 ### Configuring Truststore
 
 You can explicitly mount certs to the truststore of each component.
-The following is a sample how to define the truststore. If you have created a secret in the same namespace that Choreo Connect going to be installed, you can refer them in the config as follows.
+The following is a sample how to define the truststore. If you have created a secret in **the same namespace** that Choreo Connect going to be installed, you can refer them in the config as follows.
+
+{!includes/deploy/cc-prod-guide-helm-values-yaml-tip.md!}
 
 ```yaml tab='Format'
 ...:
@@ -205,12 +210,12 @@ wso2:
 ### Change Default Passwords
 
 You can change the default passwords or environment variables by setting/overriding them by defining them in the field `envOverride`.
-These passwords or environment variables can be set directly as a plain text or can be referenced from a Secret.
+These passwords or environment variables can be set directly as a plain text or can be referenced from a Kubernetes Secret.
 This configuration is the same way you can define environment variables in Kubernetes Pods.
 
 In the following sample, the `enforcer_admin_pwd` is set using the `value` field and the `tm_admin_pwd` is referred using a secret. 
 
-```yaml
+```yaml tab='Sample'
 wso2:
   deployment:
     gatewayRuntime:
@@ -225,9 +230,11 @@ wso2:
                 key: tm_password
 ```
 
+{!includes/deploy/cc-prod-guide-helm-values-yaml-tip.md!}
+
 Following are the default values, update to read them from a Kubernetes secret.
 
-```yaml tab='Adapter'
+```yaml tab='Adapter Defaults'
 wso2:
   deployment:
     adapter:
@@ -238,7 +245,7 @@ wso2:
           value: admin
 ```
 
-```yaml tab='Enforcer'
+```yaml tab='Enforcer Defaults'
 wso2:
   deployment:
     gatewayRuntime:
@@ -260,11 +267,11 @@ Providing TLS Secret name in the following values will replace those default cer
 !!! Note
     These Ingress Secrets should be [TLS secrets](https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets)
 
-```shell tab='Adapter Ingress'
+```bash tab='Adapter Ingress'
 wso2.deployment.adapter.ingress.tlsSecretName=<TLS_CERT_SECRET_IN_THE_SAME_NAMESPACE>
 ```
 
-```shell tab='Gateway Ingress'
+```bash tab='Router Ingress'
 wso2.deployment.gatewayRuntime.router.ingress.tlsSecretName=<TLS_CERT_SECRET_IN_THE_SAME_NAMESPACE>
 ```
 
@@ -275,11 +282,13 @@ Refer the document [Generate a Test JWT]({{base_path}}/deploy-and-publish/deploy
 
 Set the following value to `false` when installing the helm chart or set it in the values.yaml file.
 
-```shell
+{!includes/deploy/cc-prod-guide-helm-values-yaml-tip.md!}
+
+```bash
 wso2.deployment.gatewayRuntime.enforcer.security.testTokenIssuer.enabled=false
 ```
 
-### Create Custom Docker Image
+### Create Custom Docker Image (Optionally)
 
 You can create your own docker image using Choreo Connect docker images as the base image.
 
@@ -298,15 +307,15 @@ COPY my-ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 
 Make sure the files you are adding or copying (with commands `ADD` and `COPY`) exist in the context path.
 
-```shell tab='Format'
+```bash tab='Format'
 docker build -t <IMAGE_NAME> -f <DOCKER_FILE_PATH> <CONTEXT>
 ```
 
-```shell tab='Sample'
+```bash tab='Sample'
 docker build -t myimages/choreo-connect-router:1.0.0 -f Dockerfile .
 ```
 
-## Option 1: API Manager as Control Plane Configurations
+## Mode 1: API Manager as Control Plane Configurations
 
 The default deployment mode of the Choreo Connect is Standalone Mode. You can change it by specifying the value `wso2.deployment.mode` as `APIM_AS_CP`.
 Then configure the externally installed WSO2 API Manager by updating the following values of the helm release.
@@ -347,21 +356,22 @@ wso2:
     mode: "APIM_AS_CP"
 ```
 
-## Option 2: Standalone Mode Configurations
+Please follow the document about [Deploying Choreo Connect on Kubernetes With WSO2 API Manager as a Control Plane - Helm Artifacts]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane-helm-artifacts/) for deploying Choreo Connect.
+
+## Mode 2: Standalone Gateway Configurations
 
 ### Deploy APIs as Immutable Gateway
 
 The API Controller `apictl` can be used to deploy APIs in the standalone mode. Those APIs deployed with `apictl` will be lost if the Adapter container restarts for any reason.
-Hence, in a production deployment with the Standalone deployment option, it is recommand to create a custom docker image of Adapter by including the `apictl projects` and that creates
-a immutable gateway.
+Hence, in a production deployment with the Standalone deployment option, it is recommand to create a custom docker image of Adapter by including the `apictl projects`.
 
 #### Step 1: Create Projects
 
 Follow the steps (step 1 and step 2) in the document [Deploy APIs as Immutable Gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-apis-as-immutable-gateway/) to create an `apictl project`. You can include multiple `apictl projects`.
 
-For example lets create a directory `apictl-projects-dir` and copy all `apictl projects` (`petstore` project for following sample) to this directory. These projects can be zip files, extracted directory or projects that are exported from WSO2 API Manager.
+For example lets create a directory `apictl-projects-dir` and copy all `apictl projects` (`petstore` project for following sample) to this directory. These projects can be zip files, unzipped project directory or projects that are exported from WSO2 API Manager.
 
-```shell tab='Sample'
+```bash tab='Sample'
 mkdir apictl-projects-dir
 cp -r petstore/ apictl-projects-dir/petstore
 ```
@@ -381,26 +391,26 @@ COPY apictl-projects-dir /home/wso2/artifacts/apis
 
 Make sure the files you are adding or copying (with commands `ADD` and `COPY`) exist in the context path.
 
-```shell tab='Format'
+```bash tab='Format'
 docker build -t <IMAGE_NAME> -f <DOCKER_FILE_PATH> <CONTEXT>
 ```
 
-```shell tab='Sample'
+```bash tab='Sample'
 docker build -t myimages/choreo-connect-adapter-petstore:1.0.0 -f Dockerfile .
 ```
 
 !!! Important
-    Make sure push all the images to the same docker registry. You acn specify the docker registry in `wso2.deployment.dockerRegistry` of the helm release.
+    Make sure push all the images to the same docker registry. You can specify the docker registry in `wso2.deployment.dockerRegistry` of the helm release.
     The docker registry is applied for the all docker images of the Choreo Connect components, i.e. Adapter, Enforcer and Router.
     
     Hence for the above sample, push Enforcer and Router images to the registry `myimages`.
 
-    ```shell tab='Enforcer'
+    ```bash tab='Enforcer'
     docker tag wso2/choreo-connect-enforcer myimages/choreo-connect-enforcer
     docker push myimages/choreo-connect-enforcer
     ```
 
-    ```shell tab='Router'
+    ```bash tab='Router'
     docker tag wso2/choreo-connect-router myimages/choreo-connect-router
     docker push myimages/choreo-connect-router
     ```
@@ -408,6 +418,8 @@ docker build -t myimages/choreo-connect-adapter-petstore:1.0.0 -f Dockerfile .
 #### Step 3: Update Adapter Docker Image Name
 
 Update the following values in the helm release with the Adapter docker image, image pull secrets. You can separate each gateway environments by specifying the value `wso2.deployment.labelName`.
+
+{!includes/deploy/cc-prod-guide-helm-values-yaml-tip.md!}
 
 ```yaml tab='Format'
 wso2:
@@ -452,9 +464,15 @@ wso2:
 Since we want to make our gateway immutable, we can disable the Adapter Rest API which is used by the `apictl` communicate the Choreo Connect to
 deploy, undeploy APIs. Update the following value of the helm release for that purpose.
 
-```shell
+{!includes/deploy/cc-prod-guide-helm-values-yaml-tip.md!}
+
+```bash
 wso2.deployment.adapter.security.adapterRestService.enabled="false"
 ```
 
 !!! Note
     The above value is in String type which is one of `"default"`,  `"true"` or `"false"`. It is not a Boolean value.
+
+#### Step 5: Deploy Choreo Connect
+
+Please follow the document about [Deploying Choreo Connect as a Standalone Gateway on Kubernetes - Helm Artifacts]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-kubernetes-helm-artifacts/) for deploying Choreo Connect.
