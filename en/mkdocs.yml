@@ -1511,9 +1511,10 @@ nav:
                         - Tuning the Inbound Endpoints: install-and-setup/setup/mi-setup/performance_tuning/tuning-inbound-endpoints.md
         - CI/CD:
             - CI/CD - Integrations:
-                - CI/CD for Integrations - Overview: install-and-setup/setup/mi-setup/deployment/mi-cicd-overview.md
+                - CI/CD for Integrations - Overview: install-and-setup/setup/mi-setup/deployment/integration-cicd-overview.md
                 - Build a CI/CD Pipeline for Integrations (VM deployment): install-and-setup/setup/mi-setup/deployment/mi-cicd-vm.md
                 - Build a CI/CD Pipeline for Integrations (K8s deployment): install-and-setup/setup/mi-setup/deployment/mi-cicd-k8s.md
+                - Building a CI/CD Pipeline for Streaming Integrations (K8s deployment): install-and-setup/setup/si-setup/si-cicd-k8s.md
             - CI/CD - APIs:
                 - CI/CD for APIs - Overview: install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management.md
                 - Build a CI/CD Pipeline for APIs Using the CLI: install-and-setup/setup/api-controller/cicd-using-cli.md
