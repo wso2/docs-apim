@@ -61,7 +61,7 @@ Execute the following command to install the Helm Cart by selecting the helm ver
     helm install my-release wso2/choreo-connect --version 1.0.0-1 --namespace cc --create-namespace
     ```
 
-The above steps will deploy the Choreo Connect using WSO2 product Docker images available at DockerHub.
+The above steps will deploy Choreo Connect using WSO2 product Docker images available at DockerHub.
 
 If you are using WSO2 product Docker images available from WSO2 Private Docker Registry, please provide your **WSO2 Subscription** credentials via input values (using `--set` argument).
 
