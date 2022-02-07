@@ -546,7 +546,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
                 -   Required :  
                     `--environment` or `-e` : The environment that the command is executed on  
                 -   Optional :  
-                    `--tenant-domain` : The tenant domain which you need to get the logging details of APIs or an API. If the the flag is not provided, default carbon.super value will be used when executing the command    
+                    `--tenant-domain` : The tenant domain which you need to get the logging details of APIs or an API. If the flag is not provided, carbon.super will be used as the default value when executing the command    
                     `--api-id` : The UUID of the API which you need to get the logging details
 
             !!! example
@@ -578,16 +578,16 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
         - The `get api-logging` command can be executed only with a user who has super admin permissions.
         - Use the tenant-domain flag to get the logging details of the APIs in another tenant other than carbon.super tenant while you are logged in as a super admin user.
 
-## Add/Change/Remove the log level of an API in an environment
+## Set the log level of an API in an environment
 
 Follow the instructions below to add/change/remove the log level of an API in an environment using apictl:
 
 1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.0 version of apictl is set up.   
 For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
-3.  Run the corresponding apictl command below to add/change/remove the log level of an API in an environment.
+3.  Run the corresponding apictl command below to set the log level of an API in an environment.
 
-    1. Add/Change/Remove the log level of an API in an environment.
+    1. Set the log level of an API in an environment.
 
         -   **Command**
             ``` bash
@@ -597,7 +597,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
             apictl set api-logging --api-id <api-id> --log-level <log level> -e <environment>
             ```
             ``` bash
-            apictl set api-logging --api-id <api-id> --log-level <log level> --environment <environment> –tenant-domain <tenant domain> 
+            apictl set api-logging --api-id <api-id> --log-level <log level> --environment <environment> --tenant-domain <tenant domain> 
             ```
 
             !!! info
@@ -608,7 +608,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
                     `--log-level`  : The log level of the API which you need to add/change/remove  
                     `--api-id`  : The UUID of the API which you need to add/change/remove the log level
                 -   Optional :  
-                    `--tenant-domain` : The tenant domain which you need to add/change/remove the log level of an API. If the the flag is not provided, default carbon.super value will be used when executing the command
+                    `--tenant-domain` : The tenant domain which you need to add/change/remove the log level of an API. If the flag is not provided, carbon.super will be used as the default value when executing the command
 
             !!! example
                 ``` bash
@@ -618,7 +618,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
                 apictl set api-logging --api-id Bf36ca3a-0332-49ba-abce-e9992228ae06 --log-level full -e dev
                 ```
                 ``` bash
-                apictl set api-logging --api-id Bf36ca3a-0332-49ba-abce-e9992228ae06 --log-level full --environment dev –tenant-domain wso2.com 
+                apictl set api-logging --api-id Bf36ca3a-0332-49ba-abce-e9992228ae06 --log-level full --environment dev --tenant-domain wso2.com 
                 ```   
 
         -   **Response**
@@ -628,5 +628,5 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
             ```
 
     !!! Info
-        - Supported log-level values : `full`, `basic`, `standard`, `off`.
+        - Supported log-level values : `FULL`, `BASIC`, `STANDARD`, `OFF`.
         - When you need to disable logging for an API, set the log level to OFF.
