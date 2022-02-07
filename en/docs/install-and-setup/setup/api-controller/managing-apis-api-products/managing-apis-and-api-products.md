@@ -447,7 +447,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
                     `--rev`  : Revision number of the respective API   
                 -   Optional :  
                     `--provider` or `-r` : The provider of the respective API    
-                    `--gateway-env` or `-g` : The gateway environment which the revisions needs to be undeployed.  
+                    `--gateway-env` or `-g` : The gateway environment which the revisions needs to be undeployed  
     
             !!! example
                 ```bash
@@ -511,3 +511,122 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
         - If ```--gateway-env``` or ```-g``` flag not provided, revision will be undeployed from all the gateway environments it is already deployed.
         - If there are multiple gateway environments, provide them one by one by specifying the flag ```--gateway-env``` or ```-g```. If a label has more than one words,
         wrap the entire label name with quotes.
+
+## Get the logging details of APIs or an API in an environment
+
+Follow the instructions below to get the logging details of APIs or an API in an environment using apictl:
+
+1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.0 version of apictl is set up.   
+For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
+2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
+3.  Run the corresponding apictl command below to get the logging details of APIs or an API in an environment.
+
+    1. Get the logging details of APIs or an API in an environment.
+
+        -   **Command**
+            ``` bash
+            apictl get api-logging -e <environment>
+            ```
+            ``` bash
+            apictl get api-logging -e <environment> --tenant-domain <tenant domain> 
+            ```
+            ``` bash
+            apictl get api-logging --environment <environment> --tenant-domain <tenant domain> 
+            ```
+            ``` bash
+            apictl get api-logging  -e <environment> --api-id <api-id> 
+            ```
+            ``` bash
+            apictl get api-logging  -e <environment> --api-id <api-id> --tenant-domain <tenant domain> 
+            ```
+
+            !!! info
+                **Flags:**  
+                
+                -   Required :  
+                    `--environment` or `-e` : The environment that the command is executed on  
+                -   Optional :  
+                    `--tenant-domain` : The tenant domain which you need to get the logging details of APIs or an API. If the flag is not provided, carbon.super will be used as the default value when executing the command    
+                    `--api-id` : The UUID of the API which you need to get the logging details
+
+            !!! example
+                ```bash
+                apictl get api-logging -e dev 
+                ```
+                ``` bash
+                apictl get api-logging -e dev --tenant-domain wso2.com
+                ```
+                ``` bash
+                apictl get api-logging --environment dev --tenant-domain wso2.com
+                ```
+                ``` bash
+                apictl get api-logging  -e dev --api-id Bf36ca3a-0332-49ba-abce-e9992228ae06 
+                ```
+                ``` bash
+                apictl get api-logging  -e dev --api-id Bf36ca3a-0332-49ba-abce-e9992228ae06 --tenant-domain wso2.com 
+                ```   
+
+        -   **Response**
+
+            ```go
+            API_ID 	                                     API_CONTEXT               	LOG_LEVEL
+            Bf36ca3a-0332-49ba-abce-e9992228ae06         pizzashack/1.0.0	        FULL
+            Af66fa7a-0546-49ba-adfe-a8976522ea96         sampleapi/1.1.0	        BASIC
+            ```
+
+    !!! Info
+        - The `get api-logging` command can be executed only with a user who has super admin permissions.
+        - Use the tenant-domain flag to get the logging details of the APIs in another tenant other than carbon.super tenant while you are logged in as a super admin user.
+
+## Set the log level of an API in an environment
+
+Follow the instructions below to add/change/remove the log level of an API in an environment using apictl:
+
+1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.0 version of apictl is set up.   
+For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
+2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
+3.  Run the corresponding apictl command below to set the log level of an API in an environment.
+
+    1. Set the log level of an API in an environment.
+
+        -   **Command**
+            ``` bash
+            apictl set api-logging --api-id <api-id> --log-level <log level> --environment <environment>
+            ```
+            ``` bash
+            apictl set api-logging --api-id <api-id> --log-level <log level> -e <environment>
+            ```
+            ``` bash
+            apictl set api-logging --api-id <api-id> --log-level <log level> --environment <environment> --tenant-domain <tenant domain> 
+            ```
+
+            !!! info
+                **Flags:**  
+                
+                -   Required :  
+                    `--environment` or `-e` : The environment that the command is executed    
+                    `--log-level`  : The log level of the API which you need to add/change/remove  
+                    `--api-id`  : The UUID of the API which you need to add/change/remove the log level
+                -   Optional :  
+                    `--tenant-domain` : The tenant domain which you need to add/change/remove the log level of an API. If the flag is not provided, carbon.super will be used as the default value when executing the command
+
+            !!! example
+                ``` bash
+                apictl set api-logging --api-id Bf36ca3a-0332-49ba-abce-e9992228ae06 --log-level full --environment dev
+                ```
+                ``` bash
+                apictl set api-logging --api-id Bf36ca3a-0332-49ba-abce-e9992228ae06 --log-level full -e dev
+                ```
+                ``` bash
+                apictl set api-logging --api-id Bf36ca3a-0332-49ba-abce-e9992228ae06 --log-level full --environment dev --tenant-domain wso2.com 
+                ```   
+
+        -   **Response**
+
+            ```go
+            Log level FULL is successfully set to the API.
+            ```
+
+    !!! Info
+        - Supported log-level values : `FULL`, `BASIC`, `STANDARD`, `OFF`.
+        - When you need to disable logging for an API, set the log level to OFF.
