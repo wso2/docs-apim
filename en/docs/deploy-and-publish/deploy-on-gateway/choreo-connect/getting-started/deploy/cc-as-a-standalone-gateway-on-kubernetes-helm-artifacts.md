@@ -13,7 +13,7 @@ Let's deploy an API using WSO2 API Controller (apictl) on Choreo Connect, which 
     versions of WSO2 products with no [WSO2 Updates](https://wso2.com/updates).
 
     For a production grade deployment of the desired WSO2 product-version, it is highly recommended to use the relevant
-    Docker image which packages WSO2 Updates, available at [WSO2 Private Docker Registry](https://docker.wso2.com/). In order
+    Docker image that packages WSO2 Updates, available at [WSO2 Private Docker Registry](https://docker.wso2.com/). In order
     to use these images, you need an active [WSO2 Subscription](https://wso2.com/subscription).
     
 -   Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Helm](https://helm.sh/docs/intro/install/), and [Kubernetes client](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
