@@ -16,7 +16,7 @@ Follow the instructions below to enable request body passing feature:
         # Enabling sends request body as raw bytes to the enforcer
         packAsBytes = true
 ```
-2. Add below vendor extension in swagger definition to enable request body passing feature for the API.
+2. Add below vendor extension in swagger or OAS3 definition's root level to enable request body passing feature for the API.
 
 
       ```yaml

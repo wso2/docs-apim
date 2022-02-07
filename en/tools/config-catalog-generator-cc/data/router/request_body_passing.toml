@@ -1,0 +1,4 @@
+[router.bodyPassing]
+  passRequestBodyToEnforcer = true
+  maxRequestBytes = 1024
+  packAsBytes = true

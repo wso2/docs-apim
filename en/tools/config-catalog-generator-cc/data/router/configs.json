@@ -348,6 +348,41 @@
         }
       ],
       "exampleFile": "upstream_tls.toml"
+    },
+    {
+      "title": "Request Body Passing",
+      "options": [
+        {
+          "name": "router.bodyPassing",
+          "required": false,
+          "description": "The configurations for the Choreo Connect router when passing request body to the enforcer.",
+          "params": [
+            {
+              "name": "passRequestBodyToEnforcer",
+              "type": "boolean",
+              "required": true,
+              "default": "false",
+              "possible": "true, false",
+              "description": "Enable/Disable request body passing."
+            },
+            {
+              "name": "maxRequestBytes",
+              "type": "integer",
+              "required": true,
+              "default": 1024,
+              "description": "Maximum allowed size of a message body in bytes."
+            },
+            {
+              "name": "packAsBytes",
+              "type": "boolean",
+              "required": true,
+              "default": true,
+              "description": "If enabled request body will be passed as raw bytes to the enforcer. Disabling this will provide UTF-8 string request body to the enforcer."
+            }
+          ]
+        }
+      ],
+      "exampleFile": "request_body_passing.toml"
     }
   ]
 }
