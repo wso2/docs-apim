@@ -296,7 +296,7 @@ Log out from an API Manager environment.
 
 ### apictl get
 
-Displays a list containing all the APIs, all the API Products, applications of a specific user, or a list of all the environments.
+Displays a list containing all the APIs, all the API Products, applications of a specific user, all the environments or log levels of APIs.
 
 -   Usage
 
@@ -353,6 +353,14 @@ Displays a list containing all the APIs, all the API Products, applications of a
             </th>
             <td>
                 Generate access token to invoke the API or API product.
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <code>api-logging</code>
+            </th>
+            <td>
+                Display log level of the API or APIs.
             </td>
         </tr>
     </table>
@@ -859,6 +867,12 @@ Set configuration parameters. You can use one of the following flags.
             </td>
         </tr>
     </table>
+
+Use `api-logging` option to set the log level of the API. 
+
+```bash
+apictl set api-logging [flag] [argument]
+```
 
 ### apictl k8s
 

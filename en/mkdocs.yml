@@ -789,6 +789,7 @@ nav:
                 - Correlation Logs: observe/api-manager/monitoring-correlation-logs.md
                 - HTTP Access Logs: observe/api-manager/monitoring-http-access-logs.md
                 - Audit Logs: observe/api-manager/monitoring-audit-logs.md
+                - API Logs: observe/api-manager/monitoring-api-logs.md
             - Traces:
                 - OpenTracing: observe/api-manager/traces/monitoring-with-opentracing.md
             - Metrics:
@@ -826,15 +827,17 @@ nav:
         - Product REST APIs:
             - Overview: reference/product-apis/overview.md
             - Publisher APIs:
-                - Publisher v2: reference/product-apis/publisher-apis/publisher-v2/publisher-v2.md
+                - Publisher API v2: reference/product-apis/publisher-apis/publisher-v2/publisher-v2.md
             - Developer Portal APIs:
                 - Developer Portal API v2: reference/product-apis/devportal-apis/devportal-v2/devportal-v2.md
             - Admin APIs:
-                - Admin APIs v2: reference/product-apis/admin-apis/admin-v2/admin-v2.md
+                - Admin API v2: reference/product-apis/admin-apis/admin-v2/admin-v2.md
             - Gateway APIs:
-                - Gateway v1: reference/product-apis/gateway-apis/gateway-v1/gateway-v1.md
+                - Gateway API v1: reference/product-apis/gateway-apis/gateway-v1/gateway-v1.md
             - Service Catalog APIs:
-                - Service Catalog v1: reference/product-apis/service-catalog-apis/service-catalog-v1/service-catalog-v1.md
+                - Service Catalog API v1: reference/product-apis/service-catalog-apis/service-catalog-v1/service-catalog-v1.md
+            - DevOps APIs:
+                - DevOps API v1: reference/product-apis/devops-apis/devops-v1/devops-v1.md
             - Advanced Configurations: reference/product-apis/advanced-configurations.md
         - Product Configurations:
             - Understand the New Configuration Model: reference/understanding-the-new-configuration-model.md
