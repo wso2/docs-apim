@@ -350,15 +350,15 @@
       "exampleFile": "upstream_tls.toml"
     },
     {
-      "title": "Request Body Passing",
+      "title": "Request Payload Passing To Enforcer",
       "options": [
         {
-          "name": "router.payloadPassing",
+          "name": "router.payloadPassingToEnforcer",
           "required": false,
           "description": "The configurations for the Choreo Connect router when passing request body to the enforcer.",
           "params": [
             {
-              "name": "passRequestBodyToEnforcer",
+              "name": "passRequestBody",
               "type": "boolean",
               "required": true,
               "default": "false",

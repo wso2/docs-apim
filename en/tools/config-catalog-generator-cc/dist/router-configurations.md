@@ -1045,8 +1045,8 @@ allowCredentials = false
                 <label class="tab-selector" for="_tab_8"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[router.payloadPassing]
-  passRequestBodyToEnforcer = true
+<pre><code class="toml">[router.payloadPassingToEnforcer]
+  passRequestBody = true
   maxRequestBytes = 10240
   allowPartialMessage = false
   packAsBytes = false
@@ -1056,7 +1056,7 @@ allowCredentials = false
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[router.payloadPassing]</code>
+                            <code>[router.payloadPassingToEnforcer]</code>
                             
                             <p>
                                 The configurations for the Choreo Connect router when passing request body to the enforcer.
@@ -1065,7 +1065,7 @@ allowCredentials = false
                         <div class="params-wrap">
                             <div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>passRequestBodyToEnforcer</code> </span>
+                                  <span class="param-name-wrap"> <code>passRequestBody</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>

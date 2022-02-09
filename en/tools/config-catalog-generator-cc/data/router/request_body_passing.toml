@@ -1,4 +1,4 @@
-[router.payloadPassing]
-  passRequestBodyToEnforcer = true
+[router.payloadPassingToEnforcer]
+  passRequestBody = true
   maxRequestBytes = 10240
   packAsBytes = true

@@ -8,9 +8,9 @@ Follow the instructions below to enable request body passing feature:
 1. Add following configurations under `router` section in `config.toml` of Choreo Connect to enable request body passing feature.
 ``` toml
      # Configs for request body passing from router to enforcer.
-     [router.payloadPassing]
+     [router.payloadPassingToEnforcer]
         # Enable/Disable request body passing feature.
-        passRequestBodyToEnforcer = true
+        passRequestBody = true
         # Sets the allowed maximum size of a request body in bytes.
         maxRequestBytes = 10240
         # If enabled, request body will buffer the message until maxRequestBytes is reached.
