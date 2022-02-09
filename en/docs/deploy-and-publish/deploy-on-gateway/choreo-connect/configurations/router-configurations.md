@@ -1044,10 +1044,11 @@ allowCredentials = false
                 <label class="tab-selector" for="_tab_10"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[router.bodyPassing]
+<pre><code class="toml">[router.payloadPassing]
   passRequestBodyToEnforcer = true
-  maxRequestBytes = 1024
-  packAsBytes = true
+  maxRequestBytes = 10240
+  allowPartialMessage = false
+  packAsBytes = false
 </code></pre>
                     </div>
                 </div>
@@ -1088,15 +1089,32 @@ allowCredentials = false
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>1024</code></span>
+                                            <span class="param-default-value">Default: <code>10240</code></span>
                                         </div>
                                         
                                     </div>
                                     <div class="param-description">
                                         <p>Maximum allowed size of a message body in bytes.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>allowPartialMessage</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>If enabled, request body will buffer the message until <code>maxRequestBytes</code> is reached.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1107,7 +1125,6 @@ allowCredentials = false
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>

@@ -368,15 +368,22 @@
             {
               "name": "maxRequestBytes",
               "type": "integer",
-              "required": true,
-              "default": 1024,
+              "required": false,
+              "default": 10240,
               "description": "Maximum allowed size of a message body in bytes."
+            },
+            {
+              "name": "allowPartialMessage",
+              "type": "boolean",
+              "required": false,
+              "default": false,
+              "description": "If enabled, request body will buffer the message until maxRequestBytes is reached."
             },
             {
               "name": "packAsBytes",
               "type": "boolean",
-              "required": true,
-              "default": true,
+              "required": false,
+              "default": false,
               "description": "If enabled request body will be passed as raw bytes to the enforcer. Disabling this will provide UTF-8 string request body to the enforcer."
             }
           ]
