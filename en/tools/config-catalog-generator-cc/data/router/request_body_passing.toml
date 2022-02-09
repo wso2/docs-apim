@@ -1,4 +1,5 @@
 [router.payloadPassingToEnforcer]
-  passRequestBody = true
+  passRequestPayload = true
   maxRequestBytes = 10240
+  allowPartialMessage = false
   packAsBytes = true

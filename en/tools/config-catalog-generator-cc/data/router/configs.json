@@ -358,7 +358,7 @@
           "description": "The configurations for the Choreo Connect router when passing request body to the enforcer.",
           "params": [
             {
-              "name": "passRequestBody",
+              "name": "passRequestPayload",
               "type": "boolean",
               "required": true,
               "default": "false",

@@ -17,7 +17,7 @@ As per the current implementation, following extensions are supported by API Man
 - [x-wso2-soap](#x-wso2-soap)
 - [x-wso2-mutual-ssl](#x-wso2-mutual-ssl)
 - [x-wso2-auth-header](#x-wso2-auth-header)
-- [x-wso2-pass-request-body-to-enforcer](#x-wso2-pass-request-body-to-enforcer)
+- [x-wso2-pass-request-payload-to-enforcer](#x-wso2-pass-request-payload-to-enforcer)
  
 ## x-auth-type
  
@@ -320,15 +320,15 @@ The response cache enabling and the timeout for an API can be specified as follo
             cacheTimeoutInSeconds: 600
        ```
 
-## x-wso2-pass-request-body-to-enforcer
+## x-wso2-pass-request-payload-to-enforcer
 
 
-**x-wso2-pass-request-body-to-enforcer** used to disable request body passing from router to enforcer in Choreo Connect
+**x-wso2-pass-request-payload-to-enforcer** is an optional extension used to disable request body passing from router to enforcer in Choreo Connect
 deployments. Without this extension, all other APIs will pass request body to the enforcer if the request body passing feature
-is enabled (by default it is in **disabled** mode.). If a user want to disable request body passing for a specific API this
+is enabled (by default it is in **disabled** mode.). If a user want to disable request body passing for a specific API, this
 extension need to add by assigning the value as `false`. This extension need to include at root level of the API definitions.
 
 The request body passing can disable for an API as follows:
        ```
-       x-wso2-pass-request-body-to-enforcer: false
+       x-wso2-pass-request-payload-to-enforcer: false
        ```

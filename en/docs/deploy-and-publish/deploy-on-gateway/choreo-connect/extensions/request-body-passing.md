@@ -10,7 +10,7 @@ Follow the instructions below to enable request body passing feature:
      # Configs for request body passing from router to enforcer.
      [router.payloadPassingToEnforcer]
         # Enable/Disable request body passing feature.
-        passRequestBody = true
+        passRequestPayload = true
         # Sets the allowed maximum size of a request body in bytes.
         maxRequestBytes = 10240
         # If enabled, request body will buffer the message until maxRequestBytes is reached.
@@ -27,7 +27,7 @@ If you want to avoid using this feature for a given API you can follow the step 
 
 
       ```yaml
-      x-wso2-pass-request-body-to-enforcer: false
+      x-wso2-pass-request-payload-to-enforcer: false
       ```
 Assigning above extension value as `false` will disable the request body passing feature for a given API. All the APIs that do not have above extension
 value as `false` will pass request body to the enforcer (compulsory to add above `config.toml` configuration).

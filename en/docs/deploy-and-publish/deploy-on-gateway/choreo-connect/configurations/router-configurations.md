@@ -1045,7 +1045,7 @@ allowCredentials = false
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[router.payloadPassingToEnforcer]
-  passRequestBody = true
+  passRequestPayload = true
   maxRequestBytes = 10240
   allowPartialMessage = false
   packAsBytes = false
@@ -1064,7 +1064,7 @@ allowCredentials = false
                         <div class="params-wrap">
                             <div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>passRequestBody</code> </span>
+                                  <span class="param-name-wrap"> <code>passRequestPayload</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
