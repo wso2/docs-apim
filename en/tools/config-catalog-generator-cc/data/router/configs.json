@@ -353,7 +353,7 @@
       "title": "Request Body Passing",
       "options": [
         {
-          "name": "router.bodyPassing",
+          "name": "router.payloadPassing",
           "required": false,
           "description": "The configurations for the Choreo Connect router when passing request body to the enforcer.",
           "params": [

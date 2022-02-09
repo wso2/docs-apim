@@ -1055,7 +1055,7 @@ allowCredentials = false
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[router.bodyPassing]</code>
+                            <code>[router.payloadPassing]</code>
                             
                             <p>
                                 The configurations for the Choreo Connect router when passing request body to the enforcer.
