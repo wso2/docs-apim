@@ -224,3 +224,7 @@ HTTP requests/responses are logged in Access Logs to monitor the activities rela
 ## Audit Logs
 
 Audit Logs are used for tracking the sequence of actions that affect a particular task carried out on the server. For instructions on how to configure and use Audit Logs in WSO2 API Manager, see [Monitoring Audit Logs]({{base_path}}/observe/api-manager/monitoring-audit-logs/).
+
+## API Logs
+
+API Logs are used for tracking requests and responses going through the WSO2 API Gateway. API Logs are disabled by default and can be enabled per API using Devops REST API or APICTL. For instructions on how to configure and use API Logs in WSO2 API Manager, see [Monitoring API Logs]({{base_path}}/observe/api-manager/monitoring-api-logs/).

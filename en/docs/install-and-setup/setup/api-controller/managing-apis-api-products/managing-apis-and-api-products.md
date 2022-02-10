@@ -512,7 +512,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
         - If there are multiple gateway environments, provide them one by one by specifying the flag ```--gateway-env``` or ```-g```. If a label has more than one words,
         wrap the entire label name with quotes.
 
-## Get the logging details of APIs or an API in an environment
+## Get the log level of APIs or an API in an environment
 
 Follow the instructions below to get the logging details of APIs or an API in an environment using apictl:
 
