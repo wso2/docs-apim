@@ -2,7 +2,7 @@
 
 WSO2 API Manager provides the capability to publish APIs that are deployed in an external gateway. Since these APIs are not deployed in the WSO2 API gateway, the API will not be proxied through the gateway.
 
-In previous versions of API Manager, third-party APIs were available for only APIs deployed in the [AWS API Gateway]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-aws-apis-in-the-dev-portal/) and when [publishing through external developer portals]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-to-multiple-external-api-stores/).
+In previous versions of API Manager, third-party APIs were available when importing APIs from [AWS API Gateway]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-aws-apis-in-the-dev-portal/) and when [publishing through external developer portals]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-to-multiple-external-api-stores/).
 
 
 ## Creation of Third-party APIs
