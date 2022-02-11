@@ -19,50 +19,6 @@ The API developer has a Swagger definition that requires the creation of an API 
 
 Let's get started!
 
-## Before you begin
-
-Let's start the back-end hospital service.
-
-1. Download the JAR file of the backend service from [here](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/Hospital-Service-JDK11-2.0.0.jar).
-
-2. Open a terminal, navigate to the location where you saved the backend service.
-
-3. Execute the following command to start the service.
-
-     ```java -jar Hospital-Service-JDK11-2.0.0.jar```
-
-     If you send the category as surgery, you will get a response message from the Healthcare service.
-
-    ```
-      [
-          {
-              "name":"thomas collins",
-              "hospital":"grand oak community hospital",
-              "category":"surgery",
-              "availability":"9.00 a.m - 11.00 a.m",
-              "fee":7000.0
-          },
-          {
-              "name":"anne clement",
-              "hospital":"clemency medical center",
-              "category":"surgery",
-              "availability":"8.00 a.m - 10.00 a.m",
-              "fee":12000.0
-          },
-          {
-              "name":"seth mears",
-              "hospital":"pine valley community hospital",
-              "category":"surgery",
-              "availability":"3.00 p.m - 5.00 p.m",
-              "fee":8000.0
-          }
-      ]
-    ```
-
-     Now, check the Console tab of WSO2 Integration Studio and you will see the following message:
-
-     ```INFO - LogMediator message = "Welcome to HealthcareService"```
-
 ## Step 1 - Create an API
 
 Let’s create an API in WSO2 API Manager.
@@ -428,7 +384,51 @@ Now let’s add the developed backend service to the API.
 
 Depoly the `HealthcareAPI` REST API in the Gateway. For more information, see [Deploy an API]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/#deploy-an-api).
 
+## Step 10 - Start the backend service
 
-## Step 10 - Subscribe to the API and test it
+Let's start the back-end hospital service.
+
+1. Download the JAR file of the backend service from [here](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/Hospital-Service-JDK11-2.0.0.jar).
+
+2. Open a terminal, navigate to the location where you saved the backend service.
+
+3. Execute the following command to start the service.
+
+     ```java -jar Hospital-Service-JDK11-2.0.0.jar```
+
+     If you send the category as surgery, you will get a response message from the Healthcare service.
+
+    ```
+      [
+          {
+              "name":"thomas collins",
+              "hospital":"grand oak community hospital",
+              "category":"surgery",
+              "availability":"9.00 a.m - 11.00 a.m",
+              "fee":7000.0
+          },
+          {
+              "name":"anne clement",
+              "hospital":"clemency medical center",
+              "category":"surgery",
+              "availability":"8.00 a.m - 10.00 a.m",
+              "fee":12000.0
+          },
+          {
+              "name":"seth mears",
+              "hospital":"pine valley community hospital",
+              "category":"surgery",
+              "availability":"3.00 p.m - 5.00 p.m",
+              "fee":8000.0
+          }
+      ]
+    ```
+
+     Now, check the Console tab of WSO2 Integration Studio and you will see the following message:
+
+     ```INFO - LogMediator message = "Welcome to HealthcareService"```
+
+
+## Step 11 - Subscribe to the API and test it
 
 Subscribe to the `HealthcareAPI` REST API and test it. For more information, see [Test a REST API Using the Integrated API Console]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console).
