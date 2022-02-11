@@ -24,7 +24,7 @@ There are two versions of REST APIs available for the Admin Portal.
     <td nowrap="true"><a href="{{base_path}}/reference/product-apis/service-catalog-apis/service-catalog-v1/service-catalog-v1/">WSO2 Service Catalog API v1</a></td>
   </tr>
   <tr>
-    <td nowrap="true"><a href="{{base_path}}/reference/product-apis/devops-apis/devops-v1/devops-v1/">WSO2 Devops API v1</a></td>
+    <td nowrap="true"><a href="{{base_path}}/reference/product-apis/devops-apis/devops-v0/devops-v0/">WSO2 Devops API v0</a></td>
   </tr>
 </table>
 

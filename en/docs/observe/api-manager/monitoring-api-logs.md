@@ -85,17 +85,17 @@ appender.API_LOGFILE.layout.pattern = [%d] %5p %c | %X{apiName} | %X{tenantDomai
 
 ## Configure API Logs using Devops REST API
 
-Devops REST API can be used to configure log level of APIs. It only allows the user with super admin permissions to invoke Devops REST API. For more instructions, see [WSO2 Devops API v1]({{base_path}}/reference/product-apis/devops-apis/devops-v1/devops-v1/).
+Devops REST API can be used to configure log level of APIs. It only allows the user with super admin permissions to invoke Devops REST API. For more instructions, see [WSO2 Devops API v0]({{base_path}}/reference/product-apis/devops-apis/devops-v0/devops-v0/).
 
 1. Get log level details of APIs.
 
     ```bash tab="cURL commands"
-    curl -X GET 'http://<HOST_NAME>:<PORT>/api/am/devops/v1/tenant-logs/{tenant-domain}/apis' -H 'Authorization: Basic <base64Encode(username:password)>'
-    curl -X GET 'http://<HOST_NAME>:<PORT>/api/am/devops/v1/tenant-logs/{tenant-domain}/apis?log-level=<log-level>' -H 'Authorization: Basic <base64Encode(username:password)>'
+    curl -X GET 'http://<HOST_NAME>:<PORT>/api/am/devops/v0/tenant-logs/{tenant-domain}/apis' -H 'Authorization: Basic <base64Encode(username:password)>'
+    curl -X GET 'http://<HOST_NAME>:<PORT>/api/am/devops/v0/tenant-logs/{tenant-domain}/apis?log-level=<log-level>' -H 'Authorization: Basic <base64Encode(username:password)>'
     ```
     
     ```bash tab="Sample cURL command"
-    curl -X GET 'https://localhost:9443/api/am/devops/v1/tenant-logs/carbon.super/apis?log-level=off' -H 'Authorization: Basic YWRtaW46YWRtaW4='
+    curl -X GET 'https://localhost:9443/api/am/devops/v0/tenant-logs/carbon.super/apis?log-level=off' -H 'Authorization: Basic YWRtaW46YWRtaW4='
     ```
     
     ```bash tab="Sample response"
@@ -105,11 +105,11 @@ Devops REST API can be used to configure log level of APIs. It only allows the u
 2. Get log level of an API.
     
     ```bash tab="cURL command"
-    curl -X GET 'http://<HOST_NAME>:<PORT>/api/am/devops/v1/tenant-logs/{tenant-domain}/apis/{api-id}' -H 'Authorization: Basic <base64Encode(username:password)>'
+    curl -X GET 'http://<HOST_NAME>:<PORT>/api/am/devops/v0/tenant-logs/{tenant-domain}/apis/{api-id}' -H 'Authorization: Basic <base64Encode(username:password)>'
     ```
     
     ```bash tab="Sample cURL command"
-    curl -X GET 'https://localhost:9443/api/am/devops/v1/tenant-logs/carbon.super/apis/64f06bef-0019-4bf4-875a-76c03b10d2fc' -H 'Authorization: Basic YWRtaW46YWRtaW4='
+    curl -X GET 'https://localhost:9443/api/am/devops/v0/tenant-logs/carbon.super/apis/64f06bef-0019-4bf4-875a-76c03b10d2fc' -H 'Authorization: Basic YWRtaW46YWRtaW4='
     ```
     
     ```bash tab="Sample response"
@@ -119,11 +119,11 @@ Devops REST API can be used to configure log level of APIs. It only allows the u
 3. Set log level of an API.
 
     ```bash tab="cURL command"
-    curl -X PUT 'http://<HOST_NAME>:<PORT>/api/am/devops/v1/tenant-logs/{tenant-domain}/apis/{api-id}' -H 'Authorization: Basic <base64Encode(username:password)>' -H 'Content-Type: application/json' -d '{"logLevel": "<logLevel>"}'
+    curl -X PUT 'http://<HOST_NAME>:<PORT>/api/am/devops/v0/tenant-logs/{tenant-domain}/apis/{api-id}' -H 'Authorization: Basic <base64Encode(username:password)>' -H 'Content-Type: application/json' -d '{"logLevel": "<logLevel>"}'
     ```
     
     ```bash tab="Sample cURL command"
-    curl -X PUT 'https://localhost:9443/api/am/devops/v1/tenant-logs/carbon.super/apis/64f06bef-0019-4bf4-875a-76c03b10d2fc' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -H 'Content-Type: application/json' -d '{"logLevel": "full"}'
+    curl -X PUT 'https://localhost:9443/api/am/devops/v0/tenant-logs/carbon.super/apis/64f06bef-0019-4bf4-875a-76c03b10d2fc' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -H 'Content-Type: application/json' -d '{"logLevel": "full"}'
     ```
     
     ```bash tab="Sample response"

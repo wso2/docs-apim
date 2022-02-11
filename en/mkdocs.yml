@@ -837,7 +837,7 @@ nav:
             - Service Catalog APIs:
                 - Service Catalog API v1: reference/product-apis/service-catalog-apis/service-catalog-v1/service-catalog-v1.md
             - DevOps APIs:
-                - DevOps API v1: reference/product-apis/devops-apis/devops-v1/devops-v1.md
+                - DevOps API v0: reference/product-apis/devops-apis/devops-v0/devops-v0.md
             - Advanced Configurations: reference/product-apis/advanced-configurations.md
         - Product Configurations:
             - Understand the New Configuration Model: reference/understanding-the-new-configuration-model.md
