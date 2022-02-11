@@ -355,7 +355,7 @@
         {
           "name": "router.payloadPassingToEnforcer",
           "required": false,
-          "description": "The configurations for the Choreo Connect router when passing request body to the enforcer.",
+          "description": "The configurations for the Choreo Connect router when passing request payload to the enforcer.",
           "params": [
             {
               "name": "passRequestPayload",
@@ -363,7 +363,7 @@
               "required": true,
               "default": "false",
               "possible": "true, false",
-              "description": "Enable/Disable request body passing."
+              "description": "Enable/Disable request payload passing."
             },
             {
               "name": "maxRequestBytes",
@@ -377,14 +377,14 @@
               "type": "boolean",
               "required": false,
               "default": false,
-              "description": "If enabled, request body will buffer the message until maxRequestBytes is reached."
+              "description": "If enabled, request payload will be buffered until maxRequestBytes is reached."
             },
             {
               "name": "packAsBytes",
               "type": "boolean",
               "required": false,
               "default": false,
-              "description": "If enabled request body will be passed as raw bytes to the enforcer. Disabling this will provide UTF-8 string request body to the enforcer."
+              "description": "If enabled request payload will be passed as raw bytes to the enforcer. Disabling this will provide UTF-8 string request payload to the enforcer."
             }
           ]
         }

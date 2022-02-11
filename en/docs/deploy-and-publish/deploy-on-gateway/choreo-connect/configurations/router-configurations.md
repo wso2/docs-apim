@@ -1033,7 +1033,7 @@ allowCredentials = false
     </section>
 </div>
 
-## Request Body Passing
+## Request Payload Passing To Enforcer 
 
 <div class="mb-config-catalog">
     <section>
@@ -1078,7 +1078,7 @@ allowCredentials = false
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Enable/Disable request body passing.</p>
+                                        <p>Enable/Disable request payload passing to enforcer.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
