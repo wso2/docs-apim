@@ -1133,7 +1133,7 @@ allowCredentials = false
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>If enabled request payload will pass as raw bytes to the enforcer. Disabling this will provide UTF-8 string request payload to the enforcer.</p>
+                                        <p>If enabled request payload will be passed as raw bytes to the enforcer. Disabling this will provide UTF-8 string request payload to the enforcer.</p>
                                     </div>
                                 </div>
                             </div>

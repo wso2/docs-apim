@@ -1058,7 +1058,7 @@ allowCredentials = false
                             <code>[router.payloadPassingToEnforcer]</code>
                             
                             <p>
-                                The configurations for the Choreo Connect router when passing request body to the enforcer.
+                                The configurations for the Choreo Connect router when passing request payload to the enforcer.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -1114,7 +1114,7 @@ allowCredentials = false
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>If enabled, request body will buffer the message until <code>maxRequestBytes</code> is reached.</p>
+                                        <p>If enabled, request body will be buffered until <code>maxRequestBytes</code> is reached.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1132,7 +1132,7 @@ allowCredentials = false
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>If enabled request body will pass as raw bytes to the enforcer. Disabling this will provide UTF-8 string request body to the enforcer.</p>
+                                        <p>If enabled request payload will be passed as raw bytes to the enforcer. Disabling this will provide UTF-8 string request body to the enforcer.</p>
                                     </div>
                                 </div>
                             </div>
