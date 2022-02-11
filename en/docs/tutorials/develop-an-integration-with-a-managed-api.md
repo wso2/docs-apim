@@ -1,4 +1,4 @@
-# Start Developing an Integration with a Managed API
+# Develop an Integration From a Managed API
 
 The top down approach of API first integration provides the capability for API developers to start creating a managed REST API first in WSO2 API Manager. Then the integration developer can use the same API in the WSO2 Integration Studio to develop the integration later on and expose it to WSO2 API Manager. Thereafter, the API consumers can discover the API from the marketplace, subscribe to it, and use it for application development.
 
