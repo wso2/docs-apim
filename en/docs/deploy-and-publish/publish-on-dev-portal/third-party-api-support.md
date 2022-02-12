@@ -1,4 +1,4 @@
-# Third-party API support in WSO2 API Manager
+# Add a Third-party API
 
 WSO2 API Manager provides the capability to publish APIs that are deployed in an external gateway. Since these APIs are not deployed in the WSO2 API gateway, the API will not be proxied through the gateway.
 
