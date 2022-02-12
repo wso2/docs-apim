@@ -30,7 +30,7 @@ Listed below are the fields available when adding third-party API details to the
 | API External Sandbox Endpoint    | Optional           | Sandbox endpoint of the externally deployed API                                    |
 | Original Developer Portal URL    | Optional           | A link to the third party developer portal where the API is published if available |
 
-You can see an indicator added to the API thumbnail in the publisher portal to distinguish whether an API is from a third party, as shown below.
+You can see an indicator added to the API thumbnail in the API Publisher Portal to distinguish whether an API is from a third-party, as shown below.
 
 
 <a href="{{base_path}}/assets/img/develop/third-party-tag.png"><img src="{{base_path}}/assets/img/develop/third-party-tag.png" width="20%"></a>
