@@ -5,7 +5,7 @@ WSO2 API Manager provides the capability to publish APIs that are deployed in an
 In previous versions of API Manager, third-party APIs were available when importing APIs from [AWS API Gateway]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-aws-apis-in-the-dev-portal/) and when [publishing through external developer portals]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-to-multiple-external-api-stores/).
 
 
-## Creation of Third-party APIs
+## Creating a Third-party API
 
 1. A regular API can be converted to a third-party API from the **Basic Info** section in the API Publisher portal.
 
