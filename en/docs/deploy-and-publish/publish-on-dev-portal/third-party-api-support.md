@@ -35,4 +35,4 @@ You can see an indicator added to the API thumbnail in the publisher portal to d
 
 <a href="{{base_path}}/assets/img/develop/third-party-tag.png"><img src="{{base_path}}/assets/img/develop/third-party-tag.png" width="20%"></a>
 
-You can use the new default property `thirdParty`  to search for APIs that are from a third-party.
+You can use the new default property `thirdParty` to search for APIs that are from a third-party.
