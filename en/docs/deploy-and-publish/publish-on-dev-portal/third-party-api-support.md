@@ -28,7 +28,7 @@ Listed below are the fields available when adding third-party API details to the
 |----------------------------------|--------------------|------------------------------------------------------------------------------------|
 | API External Production Endpoint | Mandatory          | Production endpoint of the externally deployed API.                                 |
 | API External Sandbox Endpoint    | Optional           | Sandbox endpoint of the externally deployed API.                                    |
-| Original Developer Portal URL    | Optional           | A link to the third party developer portal where the API is published if available |
+| Original Developer Portal URL    | Optional           | A link to the third-party Developer Portal where the API is published if available. |
 
 You can see an indicator added to the API thumbnail in the API Publisher Portal to distinguish whether an API is from a third-party, as shown below.
 
