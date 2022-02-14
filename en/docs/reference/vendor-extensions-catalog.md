@@ -2,8 +2,7 @@
  
 WSO2 API Manager utilizes the vendor extensions support in [Open API specification](#https://swagger.io/docs/specification/openapi-extensions/), to store operations such as throttling, against each API.
 As per the current implementation, following extensions are supported by API Manager:
- 
-- [Vendor Specific Extensions](#vendor-specific-extensions)
+
   - [x-auth-type](#x-auth-type)
   - [x-throttling-tier](#x-throttling-tier)
   - [x-wso2-auth-header](#x-wso2-auth-header)
