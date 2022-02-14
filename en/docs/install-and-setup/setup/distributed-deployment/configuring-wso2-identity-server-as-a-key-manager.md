@@ -20,7 +20,7 @@ It is assumed that you have already downloaded WSO2 API Manager.
 ## Step 2 - Optionally, configure port offset for WSO2 IS
 
 !!! note
-    This is only required if you are running both WSO2 API Manager and WSO2 Identity Server on the same Virtual Machine (VM). For more information, see [Changing the Default Ports with Offset]({{base_path}}/install-and-setup/deploying-wso2-api-manager/changing-the-default-ports-with-offset).
+    This is only required if you are running both WSO2 API Manager and WSO2 Identity Server on the same Virtual Machine (VM). For more information, see [Changing the Default Ports with Offset]({{base_path}}/install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset).
 
 Open the `<IS_HOME>/repository/conf/deployment.toml` file and change the offset to 1 by applying the following configuration as follows:
 
