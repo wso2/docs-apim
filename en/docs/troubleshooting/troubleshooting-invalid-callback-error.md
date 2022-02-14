@@ -1,11 +1,11 @@
-#Troubleshooting 'Registered callback does not match with the provided URL' error
+# Troubleshooting 'Registered callback does not match with the provided URL' error
 
 The **Registered callback does not match with the provided URL** error can be encountered during the API Publisher(`https://<hostname>:9443/publisher`) and API Developer Portal (`https://<hostname>:9443/devportal`) login attempts, in a case where the hostname of the API Manager has been changed after accessing the Developer Portal or Publisher apps via different hostnames. 
 
-For example, let's assume that you have started a fresh APIM server and accessed the API Publisher and Developer Portal apps via localhost. If you have [changed the hostname]({{base_path}}/install-and-setup/deploying-wso2-api-manager/changing-the-hostname/) of the server from `localhost` to `apim.wso2.com`, the next login attempt to API Publisher or Developer Portal will be failed giving this error.
+For example, let's assume that you have started a fresh APIM server and accessed the API Publisher and Developer Portal apps via localhost. If you have [changed the hostname]({{base_path}}/install-and-setup/setup/deployment-best-practices/changing-the-hostname/) of the server from `localhost` to `apim.wso2.com`, the next login attempt to API Publisher or Developer Portal will be failed giving this error.
 
 <a href="{{base_path}}/assets/img/troubleshooting/invalid-callback-url-error.png" ><img src="{{base_path}}/assets/img/troubleshooting/invalid-callback-url-error.png" alt="Invalid callback url error" 
-          title="Invalid callback url error" width="50%" /></a> 
+          title="Invalid callback url error" width="30%" /></a> 
           
 This error has been occurred due to the mismatch of the API Publisher or API Developer Portal access URLs((`https://<hostname>:9443/publisher` and `https://<hostname>:9443/devportal`)  and callback URLs which are configured in API Publisher and API Developer Portal Service Providers.
  
