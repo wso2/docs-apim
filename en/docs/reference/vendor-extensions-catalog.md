@@ -3,21 +3,22 @@
 WSO2 API Manager utilizes the vendor extensions support in [Open API specification](#https://swagger.io/docs/specification/openapi-extensions/), to store operations such as throttling, against each API.
 As per the current implementation, following extensions are supported by API Manager:
  
-- [x-auth-type](#x-auth-type)
-- [x-throttling-tier](#x-throttling-tier)
-- [x-wso2-auth-header](#x-wso2-auth-header)
-- [x-wso2-cors](#x-wso2-cors)
-- [x-wso2-production-endpoints](#x-wso2-production-endpoints)
-- [x-wso2-sandbox-endpoints](#x-wso2-sandbox-endpoints)
-- [x-wso2-endpoints](#x-wso2-endpoints)
-- [x-wso2-basePath](#x-wso2-basePath)
-- [x-wso2-transports](#x-wso2-transports)
-- [x-scopes-bindings](#x-scopes-bindings)
-- [x-scopes-mappings](#x-scopes-mappings)
-- [x-wso2-soap](#x-wso2-soap)
-- [x-wso2-mutual-ssl](#x-wso2-mutual-ssl)
-- [x-wso2-auth-header](#x-wso2-auth-header)
-- [x-wso2-pass-request-payload-to-enforcer](#x-wso2-pass-request-payload-to-enforcer)
+- [Vendor Specific Extensions](#vendor-specific-extensions)
+  - [x-auth-type](#x-auth-type)
+  - [x-throttling-tier](#x-throttling-tier)
+  - [x-wso2-auth-header](#x-wso2-auth-header)
+  - [x-wso2-cors](#x-wso2-cors)
+  - [x-wso2-production-endpoints](#x-wso2-production-endpoints)
+  - [x-wso2-sandbox-endpoints](#x-wso2-sandbox-endpoints)
+  - [x-wso2-endpoints](#x-wso2-endpoints)
+  - [x-wso2-basePath](#x-wso2-basepath)
+  - [x-wso2-transports](#x-wso2-transports)
+  - [x-scopes-mappings](#x-scopes-mappings)
+  - [x-scopes-bindings](#x-scopes-bindings)
+  - [x-wso2-soap](#x-wso2-soap)
+  - [x-wso2-mutual-ssl](#x-wso2-mutual-ssl)
+  - [x-wso2-response-cache](#x-wso2-response-cache)
+  - [x-wso2-pass-request-payload-to-enforcer](#x-wso2-pass-request-payload-to-enforcer)
  
 ## x-auth-type
  
@@ -322,13 +323,10 @@ The response cache enabling and the timeout for an API can be specified as follo
 
 ## x-wso2-pass-request-payload-to-enforcer
 
+**x-wso2-pass-request-payload-to-enforcer** is an optional extension used to disable request payload passing from the Router to the Enforcer in Choreo Connect deployments. By default, request payload passing is in **disabled** mode. Without this extension, if request payload passing is enabled, all other APIs will pass the request payloads to the Enforcer. 
 
-**x-wso2-pass-request-payload-to-enforcer** is an optional extension used to disable request payload passing from router to enforcer in Choreo Connect
-deployments. Without this extension, all other APIs will pass request payload to the enforcer if the request payload passing feature
-is enabled (by default it is in **disabled** mode.). If a user want to disable request payload passing for a specific API, this
-extension need to add by assigning the value as `false`. This extension need to include at root level of the API definitions.
+If you need to **disable request payload passing for a specific API**, you need to add this extension at the root level of the API definitions and assign the value as `false` as shown below:
 
-The request payload passing can disable for an API as follows:
-       ```
-       x-wso2-pass-request-payload-to-enforcer: false
-       ```
+```
+x-wso2-pass-request-payload-to-enforcer: false
+```

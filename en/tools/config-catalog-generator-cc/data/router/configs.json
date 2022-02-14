@@ -355,7 +355,7 @@
         {
           "name": "router.payloadPassingToEnforcer",
           "required": false,
-          "description": "The configurations for the Choreo Connect router when passing request payload to the enforcer.",
+          "description": "The configurations for the Choreo Connect router when passing the request payload to the Enforcer.",
           "params": [
             {
               "name": "passRequestPayload",
@@ -363,28 +363,28 @@
               "required": true,
               "default": "false",
               "possible": "true, false",
-              "description": "Enable/Disable request payload passing."
+              "description": "Enable/Disable request payload passing to the Enforcer."
             },
             {
               "name": "maxRequestBytes",
               "type": "integer",
               "required": false,
               "default": 10240,
-              "description": "Maximum allowed size of a message body in bytes."
+              "description": "The maximum allowed size of a message body in bytes."
             },
             {
               "name": "allowPartialMessage",
               "type": "boolean",
               "required": false,
               "default": false,
-              "description": "If enabled, request payload will be buffered until maxRequestBytes is reached."
+              "description": "If enabled, the request payload will be buffered until the maxRequestBytes is reached."
             },
             {
               "name": "packAsBytes",
               "type": "boolean",
               "required": false,
               "default": false,
-              "description": "If enabled request payload will be passed as raw bytes to the enforcer. Disabling this will provide UTF-8 string request payload to the enforcer."
+              "description": "If enabled, the request payload will be passed as raw bytes to the Enforcer. Disabling this will provide a UTF-8 string request payload to the Enforcer."
             }
           ]
         }

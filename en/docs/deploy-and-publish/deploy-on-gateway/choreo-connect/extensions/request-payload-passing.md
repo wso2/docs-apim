@@ -1,34 +1,41 @@
-By default, the payload of a request will not be passed to the enforcer. Therefore, when using custom filters, updating a request based on the payload 
-will not be possible. You can use the following configurations to enable passing the request payload to the enforcer. Once enabled, enforcer will get 
-the request data submitted with the API call. 
-Then, you can implement a custom filter to perform customized operations based on the input data provided with the API call.
+# Request Payload Passing
 
-Follow the instructions below to enable request payload passing feature:
+By default, the payload of a request will not be passed to the Enforcer. Therefore, when using custom filters, you will not be able to update a request based on the payload. 
 
-1. Add following configurations under `router` section in `config.toml` of Choreo Connect to enable request payload passing feature.
-``` toml
-     # Configs for request payload passing from router to enforcer.
-     [router.payloadPassingToEnforcer]
-        # Enable/Disable request payload passing feature.
+However, if you [enable passing the request payload](#enable-request-payload-passing-for-all-apis), the Enforcer will get the request data submitted with the API call. Thereafter, you can implement a custom filter to perform customized operations based on the input data provided with the API call.
+
+## Enable request payload passing for all APIs
+
+Follow the instructions below to enable request payload passing for all APIs:
+
+1. Open the `config.toml` file in Choreo Connect.
+2. Add the following configurations under the `router` section to enable request payload passing.
+
+      ```
+      # Configs for request payload passing from Router to Enforcer.
+      [router.payloadPassingToEnforcer]
+        # Enable/Disable request payload passing.
         passRequestPayload = true
         # Sets the allowed maximum size of a request payload in bytes.
         maxRequestBytes = 10240
-        # If enabled, request payload will be buffered until maxRequestBytes is reached.
+        # If enabled, the request payload will be buffered until maxRequestBytes is reached.
         allowPartialMessage = false
-        # If enabled, request payload will send as raw bytes, otherwise it will be a UTF-8 string request payload.
+        # If enabled, the request payload will send as raw bytes, otherwise it will be a UTF-8 string request payload.
         packAsBytes = false
-```
-This will enable all the APIs to pass request payload to the enforcer in a single Choreo Connect deployment.
-If you want to avoid using this feature for a given API, you can follow the step explained below.
+      ```
+      
+       This will enable all the APIs to pass the request payload to the Enforcer in a single Choreo Connect deployment. If you want to avoid passing the request payload to the Enforcer for a given API, you can [Disable request payload passing for a specific API](#disable-request-payload-passing-for-a-specific-api).
 
 ## Disable request payload passing for a specific API
 
-1. Add below vendor extension in swagger or OAS3 definition's root level to disable request payload passing feature for the API.
+Follow the instructions below to disable request payload passing for a specific API:
 
+1. [Enable global request payload passing](#enable-request-payload-passing-for-all-apis) if you have not configured this already.
 
-      ```yaml
-      x-wso2-pass-request-payload-to-enforcer: false
-      ```
-Assigning above extension value as `false` will disable the request payload passing feature for a given API. All the APIs that do not have above extension
-value as `false` will pass request payload to the enforcer (compulsory to add above `config.toml` configuration).
+2. Add the `x-wso2-pass-request-payload-to-enforcer` vendor extension in the APIs Swagger or OAS3 definition at the root level and assign the value as `false`.
 
+       ```
+       x-wso2-pass-request-payload-to-enforcer: false
+       ```
+
+       All the APIs that do not have the above extension value defined as `false` will pass the request payload to the Enforcer.

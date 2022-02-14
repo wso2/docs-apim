@@ -1059,7 +1059,7 @@ allowCredentials = false
                             <code>[router.payloadPassingToEnforcer]</code>
                             
                             <p>
-                                The configurations for the Choreo Connect router when passing request payload to the enforcer.
+                                The configurations for the Choreo Connect router when passing the request payload to the Enforcer.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -1079,7 +1079,7 @@ allowCredentials = false
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Enable/Disable request payload passing to enforcer.</p>
+                                        <p>Enable/Disable request payload passing to the Enforcer.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1097,7 +1097,7 @@ allowCredentials = false
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Maximum allowed size of a message body in bytes.</p>
+                                        <p>The maximum allowed size of a message body in bytes.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1115,7 +1115,7 @@ allowCredentials = false
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>If enabled, request payload will buffered until <code>maxRequestBytes</code> is reached.</p>
+                                        <p>If enabled, the request payload will be buffered until the <code>maxRequestBytes</code> is reached.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1133,7 +1133,7 @@ allowCredentials = false
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>If enabled request payload will be passed as raw bytes to the enforcer. Disabling this will provide UTF-8 string request payload to the enforcer.</p>
+                                        <p>If enabled, the request payload will be passed as raw bytes to the Enforcer. Disabling this will provide a UTF-8 string request payload to the Enforcer.</p>
                                     </div>
                                 </div>
                             </div>
