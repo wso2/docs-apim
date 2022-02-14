@@ -389,7 +389,7 @@
           ]
         }
       ],
-      "exampleFile": "request_body_passing.toml"
+      "exampleFile": "request_payload_passing.toml"
     }
   ]
 }
