@@ -15,6 +15,8 @@ An Endpoint is a specific destination for a message such as an address, WSDL, a 
 <td>HTTP/ SOAP Endpoint</td>
 <td>The direct URL of the SOAP web service.</td>
 </tr>
+<tr><td>Service Endpoint</td><td>A REST service endpoint of a service entry which is available in the service catalog.</a>.</td>
+</tr>
 <tr><td>Failover Group Endpoint</td>
 <td>The endpoints that the service tries to connect to in case of a failure. Selecting the endpoint when the primary endpoint fails, happens in a round-robin manner. Failover Group is a group of leaf endpoints (i.e., address endpoint, HTTP endpoint, and WSDL endpoint). When a failure occurs in the current endpoint (while sending a message), the failover group endpoint will try to send the message to another endpoint. The failover group ensures that the message is delivered as long as there is at least one active endpoint among the listed endpoints.</td>
 </tr>

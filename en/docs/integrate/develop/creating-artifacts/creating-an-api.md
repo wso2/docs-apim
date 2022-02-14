@@ -39,6 +39,14 @@ Follow the instructions given below to create a new [REST API]({{base_path}}/ref
                 Select this option to import an existing REST API configuration (XML definition) that was created using WSO2 Integration Studio.
             </td>
         </tr>
+        <tr>
+            <th>
+                Import API from API Manager
+            </th>
+            <td>
+                Select this option to import an managed API from WSO2 API Manager.
+            </td>
+        </tr>
     </table>
 
 3.  Click **Next** to go to the next page and enter the relevant details.
@@ -141,6 +149,46 @@ Follow the instructions given below to create a new [REST API]({{base_path}}/ref
                 </td>
             </tr>
         </table>
+
+    -   If you selected **Import API from API Manager** in the previous step, enter the following information:
+
+        <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/import-api-dialog.png" width="500">
+
+        <table>
+            <tr>
+                <th>
+                    Parameter
+                </th>
+                <th>
+                    Description
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    Username
+                </td>
+                <td>
+                    Username of the API Manager user.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Password
+                </td>
+                <td>
+                    Password of the API Manager user.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    API Manager host
+                </td>
+                <td>
+                    Host Url of the API Manager.
+                </td>
+            </tr>
+        </table>
+        After entering above values in the Import API from API Manager option wizard, click <b>List APIs</b> button and it will list down the APIs which are in WSO2 API Manager. Thereafter, choose one of the APIs from the API list.
 
 4.  Click **Finish**. 
     -   The REST API is created inside the `src/main/synapse-config/api` folder of your **Config** project.
