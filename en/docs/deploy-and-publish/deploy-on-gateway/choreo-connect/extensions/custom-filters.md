@@ -103,7 +103,7 @@ the Authentication Filter.
         # ClassName of the filter
         className = "org.example.tests.CustomFilter"
         # Position of the filter within final filter-chain
-        position = 3
+        position = 1
         # Custom Configurations
         [enforcer.filters.configProperties]
             CustomProperty = "foo"
