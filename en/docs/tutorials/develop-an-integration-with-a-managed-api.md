@@ -138,10 +138,10 @@ Let’s start implementing the integration for the created `Healthcare` REST API
      3.	Enter the credentials of the API Manager user and API Manager host URl. 
 	 
 	     For this tutorial let's use the WSO2 API Manager admin credentials.
-
+         
    		!!! note
-	        - WSO2 has introduced a new role named `integration_dev` for this particular task, which can be assigned to the integration developer who will be using the Integration Studio to carryout this task. 
-			- You can create a new user and assign the `integration_dev` role to the user via the Admin Portal in WSO2 API Manager.
+	        - WSO2 API Manager has introduced a new role named `Internal/integration_dev` for this particular task, which can be assigned to the integration developer who will be using the Integration Studio to carryout this task. 
+			- You can create a new user and assign the `Internal/integration_dev` role to the user via the carbon console in WSO2 API Manager.
 
          <table>
 		 <tr>

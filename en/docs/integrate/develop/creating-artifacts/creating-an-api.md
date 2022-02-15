@@ -152,7 +152,7 @@ Follow the instructions given below to create a new [REST API]({{base_path}}/ref
 
     -   If you selected **Import API from API Manager** in the previous step, enter the following information:
 
-        <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/import-api-dialog.png" width="500">
+        <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/import-api-from-api-manager.png" width="500">
 
         <table>
             <tr>
