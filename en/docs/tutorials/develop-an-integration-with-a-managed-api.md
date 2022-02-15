@@ -15,7 +15,7 @@ The following diagram demonstrates how the integration components and API manage
 
 Let's work with the following user story in this tutorial.
 
-The API developer need to create an API first and managed it before adding the backend server implementation. The API developer creates an API via the Control Plane (Publisher Portal), creates mock implementations, and tests the API. The integration developer picks up the API definition, implements the integrations and deploys it in the Micro Integrator server. Thereafter, the API developer adds the service endpoint using API Manager and publishes the created API.
+The API developer needs to create an API first and managed it before adding the backend server implementation. The API developer creates an API via the Control Plane (Publisher Portal), creates mock implementations, and tests the API. The integration developer picks up the API definition, implements the integrations and deploys it in the Micro Integrator server. Thereafter, the API developer adds the service endpoint using API Manager and publishes the created API.
 
 Let's get started!
 

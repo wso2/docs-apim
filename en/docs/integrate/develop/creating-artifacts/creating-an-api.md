@@ -184,11 +184,11 @@ Follow the instructions given below to create a new [REST API]({{base_path}}/ref
                     API Manager host
                 </td>
                 <td>
-                    Host Url of the API Manager.
+                    Host URL of the API Manager.
                 </td>
             </tr>
         </table>
-        After entering above values in the Import API from API Manager option wizard, click <b>List APIs</b> button and it will list down the APIs which are in WSO2 API Manager. Thereafter, choose one of the APIs from the API list.
+        After entering the above values in the <b>Import API from API Manager</b> option wizard, click <b>List APIs</b>. The list of APIs that are in WSO2 API Manager appear. Thereafter, select one of the APIs from the API list.
 
 4.  Click **Finish**. 
     -   The REST API is created inside the `src/main/synapse-config/api` folder of your **Config** project.
