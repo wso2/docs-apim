@@ -15,7 +15,7 @@ The following diagram demonstrates how the integration components and API manage
 
 Let's work with the following user story in this tutorial.
 
-The API developer has a Swagger definition that requires the creation of an API to be managed and some integrations. The API developer creates a prototype API via the Control Plane (Publisher Portal), creates mock implementations, and tests the API. The integration developer picks up the API definition, implements the integrations and deploys it in the Micro Ingegrator server. Thereafter, the API developer adds the service endpoint using API Manager and publishes the prototyped API.
+The API developer needs to create an API first and managed it before adding the backend server implementation. The API developer creates an API via the Control Plane (Publisher Portal), creates mock implementations, and tests the API. The integration developer picks up the API definition, implements the integrations and deploys it in the Micro Integrator server. Thereafter, the API developer adds the service endpoint using API Manager and publishes the created API.
 
 Let's get started!
 
@@ -138,10 +138,10 @@ Let’s start implementing the integration for the created `Healthcare` REST API
      3.	Enter the credentials of the API Manager user and API Manager host URl. 
 	 
 	     For this tutorial let's use the WSO2 API Manager admin credentials.
-
+         
    		!!! note
-	        - WSO2 has introduced a new role named `integration_dev` for this particular task, which can be assigned to the integration developer who will be using the Integration Studio to carryout this task. 
-			- You can create a new user and assign the `integration_dev` role to the user via the Admin Portal in WSO2 API Manager.
+	        - WSO2 API Manager has introduced a new role named `Internal/integration_dev` for this particular task, which can be assigned to the integration developer who will be using the Integration Studio to carryout this task. 
+			- You can create a new user and assign the `Internal/integration_dev` role to the user via the carbon console in WSO2 API Manager.
 
          <table>
 		 <tr>
@@ -396,39 +396,41 @@ Let's start the back-end hospital service.
 
      ```java -jar Hospital-Service-JDK11-2.0.0.jar```
 
-     If you send the category as surgery, you will get a response message from the Healthcare service.
-
-    ```
-      [
-          {
-              "name":"thomas collins",
-              "hospital":"grand oak community hospital",
-              "category":"surgery",
-              "availability":"9.00 a.m - 11.00 a.m",
-              "fee":7000.0
-          },
-          {
-              "name":"anne clement",
-              "hospital":"clemency medical center",
-              "category":"surgery",
-              "availability":"8.00 a.m - 10.00 a.m",
-              "fee":12000.0
-          },
-          {
-              "name":"seth mears",
-              "hospital":"pine valley community hospital",
-              "category":"surgery",
-              "availability":"3.00 p.m - 5.00 p.m",
-              "fee":8000.0
-          }
-      ]
-    ```
-
-     Now, check the Console tab of WSO2 Integration Studio and you will see the following message:
-
-     ```INFO - LogMediator message = "Welcome to HealthcareService"```
-
 
 ## Step 11 - Subscribe to the API and test it
 
-Subscribe to the `HealthcareAPI` REST API and test it. For more information, see [Test a REST API Using the Integrated API Console]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console).
+Subscribe to the `HealthcareAPI` REST API and invoke it. For more information, see [Test a REST API Using the Integrated API Console]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console).
+
+You will get the response message from the Healthcare service, if you send the category as `surgery`:
+
+```json
+[
+    {
+        "name":"thomas collins",
+        "hospital":"grand oak community hospital",
+        "category":"surgery",
+        "availability":"9.00 a.m - 11.00 a.m",
+        "fee":7000.0
+    },
+    {
+        "name":"anne clement",
+        "hospital":"clemency medical center",
+        "category":"surgery",
+        "availability":"8.00 a.m - 10.00 a.m",
+        "fee":12000.0
+    },
+    {
+        "name":"seth mears",
+        "hospital":"pine valley community hospital",
+        "category":"surgery",
+        "availability":"3.00 p.m - 5.00 p.m",
+        "fee":8000.0
+    }
+]
+```
+
+Now, check the **Console** tab of WSO2 Integration Studio and you will see the following message:
+
+```bash
+INFO - LogMediator message = "Welcome to HealthcareService"
+```
