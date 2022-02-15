@@ -1,6 +1,6 @@
-# Migrating from WSO2 EI 6.3.x to WSO2 API-M 4.0.0
+# Migrating from WSO2 EI 6.3.x to WSO2 API-M 4.1.0
 
-This guide provides the recommended strategy for upgrading from the ESB profile of WSO2 EI 6.3.0 to the Micro Integrator of WSO2 API-M 4.0.0.
+This guide provides the recommended strategy for upgrading from the ESB profile of WSO2 EI 6.3.0 to the Micro Integrator of WSO2 API-M 4.1.0.
 
 {!includes/integration/pull-content-migration-esb-mi.md!}
 
@@ -32,9 +32,9 @@ Follow the instructions below to start the migration!
     - Tenant admins are no longer valid because the Micro Integrator does not support multitenancy.
     - **Secondary** user stores are currently not supported in the Micro Integrator.
 
-If you are using an **LDAP user store** with EI 6.2.0, you can simply connect the same to the Micro Integrator of API-M 4.0.0 by updating the configuration details in the Micro Integrator's `deployment.toml` file. 
+If you are using an **LDAP user store** with EI 6.2.0, you can simply connect the same to the Micro Integrator of API-M 4.1.0 by updating the configuration details in the Micro Integrator's `deployment.toml` file. 
 
-If you are using a **JDBC user store** with EI 6.2.0, you need to first update the database before connecting the same to APIM 4.0.0.
+If you are using a **JDBC user store** with EI 6.2.0, you need to first update the database before connecting the same to APIM 4.1.0.
 
 Follow the steps given below.
 
@@ -44,13 +44,13 @@ This step is applicable only if your user store is JDBC.
 
 There are changes in the database structure (schema) that is used in EI 6.3.0. To update the database schema:
 
-1. Download the [database migration scripts]({{base_path}}/assets/attachments/migration/micro-integrator/migration-scripts-ei6.3.x-to-apim4.0.0.zip).
+1. Download the [database migration scripts]({{base_path}}/assets/attachments/migration/micro-integrator/migration-scripts-ei6.3.x-to-apim4.1.0.zip).
 
 2. Unzip the downloaded file and select the script relevant to your database type.
 
 3. Connect to the database and run the script.
 
-Your database schema is now updated for APIM 4.0.0. Now you can update the configuration details in the Micro Integrator's `deployment.toml` file.
+Your database schema is now updated for APIM 4.1.0. Now you can update the configuration details in the Micro Integrator's `deployment.toml` file.
 
 #### Step 2 - Connect to the user store
 
@@ -66,12 +66,71 @@ To connect the Micro Integrator to the primary user store:
 
 3.  See the instructions in the following sections:
 
-    -   [Configuring an LDAP user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-ldap-user-store) for the Micro Integrator in API-M 4.0.0.
-    -   [Configuring an RDBMS user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-rdbms-user-store) for the Micro Integrator in API-M 4.0.0.  
+    -   [Configuring an LDAP user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-ldap-user-store) for the Micro Integrator in API-M 4.1.0.
+    -   [Configuring an RDBMS user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-rdbms-user-store) for the Micro Integrator in API-M 4.1.0.  
 
 4.  If your user store is an RDBMS, be sure to add the client JAR of your RDBMS to the `<MI_HOME>/lib` folder.
 
 See the instructions on [configuring a user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore) for more information.
+
+### Migrating secondary user stores
+
+!!! info "Before you begin"
+    - Users in the Micro Integrator are categorized as <b>admin</b> users and <b>non-admin</b> users.
+    - All the users added from secondary user stores are <b>non-admin</b> users.
+
+To deploy secondary user stores in Micro Integrator
+
+1. A primary user store should be configured. Refer
+   [configuring an LDAP user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-ldap-user-store)
+2. User-core feature should be enabled (disabled by default).
+
+To enable the user-core feature, change the following entry to **false** in micro-integrator.sh/micro-integrator.bat files as required.
+```bash
+-DNonUserCoreMode=true \
+```
+
+#### Step 1 - Update user store XML files
+
+1. Locate existing user store definitions in `<EI_HOME>/repository/deployment/server/userstores` directory
+
+2. Apply the following class name changes if applicable.
+
+<table>
+   <tr>
+      <th>Old class</th>
+      <th>New Class</th>
+   </tr>
+   <tr>
+      <td>org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager</td>
+      <td>
+         org.wso2.micro.integrator.security.user.core.ldap.ReadWriteLDAPUserStoreManager
+      </td>
+   </tr>
+   <tr>
+      <td>org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager</td>
+      <td>
+         org.wso2.micro.integrator.security.user.core.jdbc.JDBCUserStoreManager
+      </td>
+   </tr>
+   <tr>
+      <td>org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager</td>
+      <td>
+         org.wso2.micro.integrator.security.user.core.ldap.ReadOnlyLDAPUserStoreManager
+      </td>
+   </tr>
+   <tr>
+       <td>org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager</td>
+       <td>
+           org.wso2.micro.integrator.security.user.core.ldap.ActiveDirectoryUserStoreManager
+       </td>
+   </tr>
+</table>
+
+#### Step 2 - Deploying user stores in Micro Integrator
+
+1. Create a new `userstores` directory in `<MI_HOME>/repository/deployment/server/` location
+2. Move all the modified user store xml files in step 1 to the above directory.
 
 ### Migrating the registry
 
@@ -1015,7 +1074,7 @@ Follow the instructions given below if you have used a **custom log4j component*
 
 ### Migrating encrypted passwords
 
-To migrate the encrypted passwords from EI 6.3.0, you need to first obtain the plain-text passwords. Once you have them, follow the normal procedure of encrypting secrets in the Micro Integrator for API-M 4.0.0. See [Encrypt Secrets]({{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text) for instructions.
+To migrate the encrypted passwords from EI 6.3.0, you need to first obtain the plain-text passwords. Once you have them, follow the normal procedure of encrypting secrets in the Micro Integrator for API-M 4.1.0. See [Encrypt Secrets]({{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text) for instructions.
 
 In case you need to obtain the plain-text passwords by decrypting the encrypted passwords in the EI 6.3.0,
 you can use the [password decryption tool](https://github.com/wso2-docs/WSO2_EI/tree/master/migration-client).
@@ -1049,8 +1108,8 @@ Follow the instructions given below to use the password decryption tool.
 
 The encrypted passwords are now decrypted and you have access to the plain-text password values.
 
-6.  Use the plain-text passwords and follow the normal procedure of encrypting secrets in the Micro Integrator of API-M 4.0.0. See [Encrypting Secrets]({{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text) for instructions.
+6.  Use the plain-text passwords and follow the normal procedure of encrypting secrets in the Micro Integrator of API-M 4.1.0. See [Encrypting Secrets]({{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text) for instructions.
 
 ### Migrating the Hl7 Transport
 
-HL7 transport is not shipped by default in the API-M 4.0.0 Micro Integrator distribution. Therefore, the jars need to be added to the Micro Integrator server manually. See [Configuring the HL7 transport]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-hl7-transport) for details.
+HL7 transport is not shipped by default in the API-M 4.1.0 Micro Integrator distribution. Therefore, the jars need to be added to the Micro Integrator server manually. See [Configuring the HL7 transport]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-hl7-transport) for details.

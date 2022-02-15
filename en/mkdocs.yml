@@ -1262,7 +1262,9 @@ nav:
             - Manage Users for the Streaming Integrator: install-and-setup/setup/si-setup/user-management.md
         - Manage User Stores:
             - Introduction to User Stores: administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores.md
-            - Configure Secondary User Store: administer/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores.md
+            - Configure Secondary User Stores:
+                - API Manager: administer/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores.md
+                - Micro Integrator: administer/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores-mi.md
             - Write a Custom User Store Manager: administer/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager.md
             - Configure the Authorization Manager: administer/managing-users-and-roles/managing-user-stores/configuring-the-authorization-manager.md
         - API Manager Multitenancy:
@@ -1570,15 +1572,15 @@ nav:
                 - 1.10.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-is-5110.md
                 - 1.8.0/1.9.0/1.9.1 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-500-to-is-5110.md
             -  Upgrading from WSO2 EI:
-                - EI 7.1.x to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-7.1.x.md
-                - EI 7.0.x to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-7.0.x.md
-                - EI 6.6.x to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.6.x.md
-                - EI 6.5.x to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.5.x.md
-                - EI 6.4.x to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.4.x.md
-                - EI 6.3.x to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.3.x.md
-                - EI 6.2.x to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.2.x.md
-                - EI 6.1.1 to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.1.1.md
-                - EI 6.1.0 to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.1.0.md
+                - EI 7.1.x to API-M 4.1.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-7.1.x.md
+                - EI 7.0.x to API-M 4.1.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-7.0.x.md
+                - EI 6.6.x to API-M 4.1.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.6.x.md
+                - EI 6.5.x to API-M 4.1.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.5.x.md
+                - EI 6.4.x to API-M 4.1.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.4.x.md
+                - EI 6.3.x to API-M 4.1.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.3.x.md
+                - EI 6.2.x to API-M 4.1.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.2.x.md
+                - EI 6.1.1 to API-M 4.1.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.1.1.md
+                - EI 6.1.0 to API-M 4.1.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.1.0.md
             -  Upgrading from WSO2 ESB: install-and-setup/upgrading-from-wso2-ei/upgrading-from-esb-5.x.x.md
         - Reference:
             - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
