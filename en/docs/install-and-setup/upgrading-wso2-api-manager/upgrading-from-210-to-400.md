@@ -22,6 +22,7 @@ The following information describes how to upgrade your API Manager server **fro
 Follow the instructions below to upgrade your WSO2 API Manager server **from WSO2 API-M 2.1.0 to 4.0.0**.
 
 ### Preparing for Migration
+
 #### Disabling versioning in the registry configuration
 
 If there are frequently updating registry properties, having the versioning enabled for registry resources in the registry can lead to unnecessary growth in the registry related tables in the database. To avoid this, versioning has been disabled by default in API Manager 4.0.0.
@@ -262,9 +263,13 @@ Therefore, if registry versioning was enabled in WSO2 API-M 2.1.0 setup, it is *
     !!! note "NOTE"
         Changing these configurations should only be done before the initial API-M Server startup. If changes are done after the initial startup, the registry resource created previously will not be available.
 
--   [Step 1 - Migrate the API Manager configurations](#step-1-migrate-the-api-manager-configurations)
--   [Step 2 - Upgrade API Manager to 4.0.0](#step-2-upgrade-api-manager-to-400)
--   [Step 3 - Restart the WSO2 API-M 4.0.0 server](#step-3-restart-the-wso2-api-m-400-server)
+- [Preparing for Migration](#preparing-for-migration)
+
+- [Step 1 - Migrate the API Manager configurations](#step-1---migrate-the-api-manager-configurations)
+
+- [Step 2 - Upgrade API Manager to 4.0.0](#step-2---upgrade-api-manager-to-400)
+
+- [Step 3 - Restart the WSO2 API-M 4.0.0 server](#step-3---restart-the-wso2-api-m-400-server)
 
 ### Step 1 - Migrate the API Manager configurations
 
@@ -3576,7 +3581,8 @@ This concludes the upgrade process.
     The migration client that you use in this guide automatically migrates your tenants, workflows, external user stores, synapse artifacts, execution plans, etc. to the upgraded environment. Therefore, there is no need to migrate them manually.
 
 !!! note
-   - If you are using a migrated API and wants to consume it via an application which supports JWT authentication (default type in API-M 4.0.0), you need to republish the API. Without republishing the API, JWT authentication doesn't work as it looks for a local entry which will get populated while publishing.
+
+    - If you are using a migrated API and wants to consume it via an application which supports JWT authentication (default type in API-M 4.0.0), you need to republish the API. Without republishing the API, JWT authentication doesn't work as it looks for a local entry which will get populated while publishing.
     You can consume the migrated API via an OAuth2 application without an issue.
 
     - API-M 4.0.0 synapse artifacts have been removed from the file system and are managed via database. At server startup the synapse configs are loaded to the memory from the Traffic Manager.
@@ -3589,11 +3595,11 @@ This concludes the upgrade process.
         
         For more details on the WSO2 API-M 4.0.0 distributed deployment, see [WSO2 API Manager distributed documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m).
 
-   - If you have done any customizations to the **default sequences** that ship with product, you may merge the customizations. Also note that the fault messages have been changed from XML to JSON in API-M 4.0.0.  
+    - If you have done any customizations to the **default sequences** that ship with product, you may merge the customizations. Also note that the fault messages have been changed from XML to JSON in API-M 4.0.0.  
 
- !!! important
+!!! important
  
-     **From WSO2 API_M 4.0.0 onwards** error responses in API calls has changed from XML to JSON format.
+    **From WSO2 API_M 4.0.0 onwards** error responses in API calls has changed from XML to JSON format.
      If you have developed client applications to handle XML error responses you give have to change the client applications to handle the JSON responses.
      As an example for a 404 error response previously it was as follows
         
@@ -3606,24 +3612,25 @@ This concludes the upgrade process.
       
      In API-M 4.0.0 onwards the above response will changed as follows.
      
-         {
-            "code":"404",
-            "type":"Status report",
-            "message":"Not Found",
-            "description":"The requested resource is not available."
-         }
+     ```
+     {
+        "code":"404",
+        "type":"Status report",
+        "message":"Not Found",
+        "description":"The requested resource is not available."
+     }
+     ```
       
- !!! important
+!!! important
          
-     In API-M 4.0.0 following fault sequences were changed to send JSON responses as mentioned above. If you have done any custom changes to any of the following sequences previously,
-     you have to add those custom changes manually to these changed files. 
+    In API-M 4.0.0 following fault sequences were changed to send JSON responses as mentioned above. If you have done any custom changes to any of the following sequences previously, you have to add those custom changes manually to these changed files. 
      
-     -   _auth_failure_handler_.xml
-     -   _backend_failure_handler_.xml
-     -   _block_api_handler_.xml
-     -   _graphql_failure_handler_.xml
-     -   _threat_fault_.xml
-     -   _throttle_out_handler_.xml
-     -   _token_fault_.xml
-     -   fault.xml
-     -   main.xml
+     -   `_auth_failure_handler_.xml`
+     -   `_backend_failure_handler_.xml`
+     -   `_block_api_handler_.xml`
+     -   `_graphql_failure_handler_.xml`
+     -   `_threat_fault_.xml`
+     -   `_throttle_out_handler_.xml`
+     -   `_token_fault_.xml`
+     -   `fault.xml`
+     -   `main.xml`
