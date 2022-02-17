@@ -6,16 +6,23 @@ The following section provides information on how to integrate Choreo Connect wi
 
 When Choreo Connect is used as a [standalone gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway), APIs can be deployed through the APICTL command-line tool. Once an API project is added/updated, it must be deployed/redeployed using APICTL. If the Adapter container restarts for any reason, the APIs deployed with APICTL will be lost. To address this requirement, Choreo Connect supports the use of Git for version controlling of API artifacts.
 
-The source watcher in the Adapter, is responsible for deploying the API artifacts, with the help of Git. Initially, it is required to have a repository with the API projects, hosted on a source control system (E.g. GitHub, Bitbucket). When the Adapter starts, the source watcher will clone the API project(s) from the given repository and will deploy the API artifacts. The source watcher will then start polling the repository for changes. If there are any updates in the repository, the source watcher will fetch the changes and will deploy the updated API artifacts.
+The source watcher in the Adapter, is responsible for deploying the API artifacts, with the help of Git according to the following steps.
+
+1. Initially, it is required to have a repository with the API projects, hosted on a source control system (E.g. GitHub, Bitbucket). 
+
+2. When the Adapter starts, the source watcher will clone the API project(s) from the given repository and will deploy the API artifacts. 
+
+3. The source watcher will then start polling the repository for changes. 
+
+4. If there are any updates in the repository, the source watcher will fetch the changes and will deploy the updated API artifacts.
 
 [![Git Integration]({{base_path}}/assets/img/deploy/mgw/git-integration.png)]({{base_path}}/assets/img/deploy/mgw/git-integration.png)
-<!-- {: style="width:60%"} -->
 
 ## Configuring Git Integration for Choreo Connect
 The following steps will describe how to configure Git Integration for Choreo Connect.
 
 ### Step 1 - Initialize Git repository
-After initializing API project(s) as described in the [Choreo Connect Deployed on Docker with WSO2 API Controller Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-docker/#step-2-initialize-an-api-project), create a new repository on any of the following Git hosting services: <!--supported Git hosting service. -->
+After initializing API project(s) as described in the [Choreo Connect Deployed on Docker with WSO2 API Controller Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-docker/#step-2-initialize-an-api-project), create a new repository on any of the following Git hosting services:
 
 - [GitHub](https://github.com)
 - [Bitbucket](https://bitbucket.org)
@@ -61,9 +68,29 @@ After initializing API project(s) as described in the [Choreo Connect Deployed o
     ```
 ### Step 2 - Configure Choreo Connect with Git
 
-Add the following configuration under the Adapter section to the main configuration file of Choreo Connect (`config.toml` file).
+Git Integration in Choreo Connect works in the standalone mode. 
 
+Add the following configuration under the Adapter section to the main configuration file of Choreo Connect (`config.toml` file) to enable Git for version controlling of API artifacts.
+
+```toml tab="Format"
+[adapter]
+
+artifactsDirectory = "<path_to_the_artifacts_directory>"
+
+[adapter.sourceControl]
+  enabled = true
+  pollInterval = 30
+  retryInterval = 5
+  artifactsDirectory = "<path_to_the_artifacts_directory>"
+  [adapter.sourceControl.repository]
+    URL = "https://<hostname>/<username_or_organization>/<repository-name>.git"
+    branch = "<branch_name>"
+    username = $env{git_username}
+    accessToken = $env{git_access_token}
+    sshKeyFile = "/home/wso2/ssh-keys/<private_key_file>"
 ```
+
+```toml tab="Example"
 [adapter]
 
 artifactsDirectory = "/home/wso2/git-artifacts"
@@ -74,11 +101,11 @@ artifactsDirectory = "/home/wso2/git-artifacts"
   retryInterval = 5
   artifactsDirectory = "/home/wso2/git-artifacts"
   [adapter.sourceControl.repository]
-    URL = "https://<hostname>/<username>/<repository-name>.git"
+    URL = "https://github.com/wso2/product-microgateway.git"
     branch = "main"
-    username = "username"
+    username = $env{git_username}
     accessToken = $env{git_access_token}
-    sshKeyFile = "/home/wso2/ssh-keys/<private_key_file>"
+    sshKeyFile = "/home/wso2/ssh-keys/id_ed25519"
 ```
 
 The following table describes the above configuration.
@@ -118,7 +145,25 @@ A personal access token can be generated in the following ways:
 
 Then, the following configuration should be added to the main configuration file of Choreo Connect (`config.toml` file):
 
+```toml tab="Format"
+[adapter]
+
+artifactsDirectory = "<path_to_the_artifacts_directory>"
+
+[adapter.sourceControl]
+  enabled = true
+  pollInterval = 30
+  retryInterval = 5
+  artifactsDirectory = "<path_to_the_artifacts_directory>"
+  [adapter.sourceControl.repository]
+    URL = "https://<hostname>/<username_or_organization>/<repository-name>.git"
+    branch = ""
+    username = $env{git_username}
+    accessToken = $env{git_access_token}
+    sshKeyFile = ""
 ```
+
+```toml tab="Example"
 [adapter]
 
 artifactsDirectory = "/home/wso2/git-artifacts"
@@ -129,9 +174,9 @@ artifactsDirectory = "/home/wso2/git-artifacts"
   retryInterval = 5
   artifactsDirectory = "/home/wso2/git-artifacts"
   [adapter.sourceControl.repository]
-    URL = "https://<hostname>/<username>/<repository-name>.git"
+    URL = "https://github.com/wso2/product-microgateway.git"
     branch = ""
-    username = "username"
+    username = $env{git_username}
     accessToken = $env{git_access_token}
     sshKeyFile = ""
 ```
@@ -151,24 +196,42 @@ SSH Keys to be used for authentication can be generated in the following ways:
 
 Then, the following configuration should be added to the main configuration file of Choreo Connect (`config.toml` file):
 
-```
+```tab="Format"
 [adapter]
 
-artifactsDirectory = "/home/wso2/git-artifacts"
+artifactsDirectory = "<path_to_the_artifacts_directory>"
 
 [adapter.sourceControl]
-  enabled = true
-  pollInterval = 30
-  retryInterval = 5
-  artifactsDirectory = "/home/wso2/git-artifacts"
-  [adapter.sourceControl.repository]
+enabled = true
+pollInterval = 30
+retryInterval = 5
+artifactsDirectory = "<path_to_the_artifacts_directory>"
+[adapter.sourceControl.repository]
     URL = "git@<hostname>:<username>/<repository-name>.git"
     branch = ""
     username = ""
     accessToken = ""
     sshKeyFile = "/home/wso2/ssh-keys/<private_key_file>"
-
 ```
+
+```tab="Example"
+[adapter]
+
+artifactsDirectory = "/home/wso2/git-artifacts"
+
+[adapter.sourceControl]
+enabled = true
+pollInterval = 30
+retryInterval = 5
+artifactsDirectory = "/home/wso2/git-artifacts"
+[adapter.sourceControl.repository]
+    URL = "git@github.com:wso2/product-microgateway.git"
+    branch = ""
+    username = ""
+    accessToken = ""
+    sshKeyFile = "/home/wso2/ssh-keys/id_ed25519"
+```
+
 The generated private key file needs to be copied to `docker-compose/resources/adapter/ssh-keys` directory.
 
 Open the `docker-compose.yaml` file located in the `<CHOREO-CONNECT-HOME>/docker-compose/choreo-connect` directory. Find the `volumes` section under the `adapter` and add the following volume mapping:
@@ -183,6 +246,21 @@ When using authentication with SSH key file, you should create a custom Docker i
 
 Create a Dockerfile as follows.
 
+```dockerfile tab='Format'
+FROM wso2/choreo-connect-adapter:<tag>
+
+USER root
+
+RUN apk add openssh-client
+
+RUN mkdir /home/wso2/.ssh && chown -R wso2:wso2 /home/wso2/.ssh \
+    && ssh-keyscan -H <hostname> >> /home/wso2/.ssh/known_hosts
+
+USER wso2
+
+CMD eval "$(ssh-agent -s)" ; ssh-add /home/wso2/ssh-keys/* ; ./adapter
+```
+
 ```dockerfile tab='Example'
 FROM wso2/choreo-connect-adapter:1.1.0
 
@@ -191,7 +269,7 @@ USER root
 RUN apk add openssh-client
 
 RUN mkdir /home/wso2/.ssh && chown -R wso2:wso2 /home/wso2/.ssh \
-    && ssh-keyscan -H github.com gitlab.com bitbucket.org >> /home/wso2/.ssh/known_hosts
+    && ssh-keyscan -H github.com >> /home/wso2/.ssh/known_hosts
 
 USER wso2
 
@@ -225,5 +303,29 @@ Once containers are up and running, we can monitor the status of the containers 
     docker ps | grep choreo-connect-
     ```
 ### Step 4 - Invoke the sample API
-{! ./includes/obtain-jwt.md !}
-{! ./includes/invoke-api-with-jwt.md !}
+
+#### Step 4.1 - Obtain a token
+
+After the APIs are exposed via WSO2 Choreo Connect, you can invoke an API with a valid token(JWT) or using a test key.  
+Let's use WSO2 Choreo Connect's test key endpoint to obtain an test key in order to access the API. Refer [Generate a Test JWT]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt) for more details.
+
+``` tab="Sample Token"
+TOKEN=$(curl -X POST "https://localhost:9095/testkey" -d "scope=read:pets" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -v)
+
+```
+
+!!! info
+    More information
+    -   You can obtain a JWT token from any third-party secure token service or via the WSO2 API Manager.
+
+#### Step 4.2 - Invoke the API
+
+Execute the following command to Invoke the API using the test key: You can now invoke the API running on the WSO2 Choreo Connect using the following cURL command.
+
+``` tab="Format"
+curl -X GET "https://<CHOREO-CONNECT_ROUTER_HOST>:<CHOREO-CONNECT_ROUTER_PORT>/<API-context>/<API-resource>" -H "accept:application/xml" -H "Authorization:Bearer $TOKEN" -k
+```
+ 
+``` tab="Example"
+curl -X GET "https://localhost:9095/v2/pet/findByStatus?status=available" -H "accept: application/xml" -H "Authorization:Bearer $TOKEN" -k
+```
