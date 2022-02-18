@@ -27,7 +27,7 @@ When REST API requests are sent to carry out various actions, various HTTP statu
 <tr> 
 <td>202</td>
 <td>Accepted</td>
-<td>HTTP request was accepted for processing, but the processing has not been completed. This generally occurs when your successful in trying to undeploy an application.</td>
+<td>HTTP request was accepted for processing, but the processing was not complete. This generally occurs when you are successful in trying to undeploy an application.</td>
 </tr>
 
 </table>
