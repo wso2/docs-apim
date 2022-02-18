@@ -44,6 +44,10 @@ API Manager 4.1.0-M3</td>
 
      You can now perform more advanced configurations for tenant configuration migration from the registry to the database.
 
+- **[Operation level policy support]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/specifying-mediation-flow-based-on-policy/) (Alpha)**
+
+     Instead of a fixed set of different policies, we now support adding different policies dynamically at an operation level. Each policy will have main two attributes: Policy Specification and Policy Definition.
+
 ### Improvements
 
 - **Authentication for Prototype APIs (M1)**
