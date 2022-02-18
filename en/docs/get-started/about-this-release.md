@@ -46,7 +46,7 @@ API Manager 4.1.0-M3</td>
 
 - **[Operation level policy support]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/specifying-mediation-flow-based-on-policy/) (Alpha)**
 
-     Instead of a fixed set of different policies, we now support adding different policies dynamically at an operation level. Each policy will have main two attributes: Policy Specification and Policy Definition.
+     With API Manager 4.1.0 release, we move to a more fine-grained and easy to manage approach for policy management. As per the newly introduced operation level policy support, we move away from the concept of attaching a policy at the API level (i.e. API level mediation policies), and give forth the ability to attach multiple policies at the operation level itself.
 
 ### Improvements
 

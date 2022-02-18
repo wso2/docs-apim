@@ -193,6 +193,7 @@ nav:
                 - Overview of the WSO2 API Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/overview-of-the-api-gateway.md
                 #- Publish APIs Overview: deploy-and-publish/deploy-on-gateway/publish-api-overview.md
                 - Message Mediation:
+                    - Specify a Mediation Flow Using a Policy: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/specifying-mediation-flow-based-on-policy.md
                     - Change the Default Mediation Flow of API Requests: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests.md
                     - Create and Upload Using Integration Studio: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/creating-and-uploading-using-integration-studio.md
                     - Add Dynamic Endpoints: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-dynamic-endpoints.md

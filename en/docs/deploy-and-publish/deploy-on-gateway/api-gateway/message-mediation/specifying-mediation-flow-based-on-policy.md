@@ -1,6 +1,6 @@
 # Specifying a Mediation Flow Using a Policy
 
-With API Manager 4.1.0 release, we move to a more fine-grained and easy to manage approach for policy management. As per the newly introduced operation level policy support, we move away from the concept of attaching a policy at the API level (i.e. API level mediation policies), and give forth the ability to attach multiple policies at the operation level itself.
+Operation level policy support provides the ability to attach multiple policies at the operation level itself.
 
 There are three main flows under each operation that you can utilize to attach any policy that you need. Namely, request flow, response flow and fault flow. You can also attach multiple policies under each of these flows, and are free to swap and rearrange the attached policies.
 
