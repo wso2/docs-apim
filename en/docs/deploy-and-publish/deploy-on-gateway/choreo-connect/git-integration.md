@@ -81,6 +81,7 @@ artifactsDirectory = "<path_to_the_artifacts_directory>"
   enabled = true
   pollInterval = 30
   retryInterval = 5
+  maxRetryCount = 20
   artifactsDirectory = "<path_to_the_artifacts_directory>"
   [adapter.sourceControl.repository]
     URL = "https://<hostname>/<username_or_organization>/<repository-name>.git"
@@ -99,6 +100,7 @@ artifactsDirectory = "/home/wso2/git-artifacts"
   enabled = true
   pollInterval = 30
   retryInterval = 5
+  maxRetryCount = 20
   artifactsDirectory = "/home/wso2/git-artifacts"
   [adapter.sourceControl.repository]
     URL = "https://github.com/wso2/product-microgateway.git"
@@ -115,6 +117,7 @@ The following table describes the above configuration.
 | `enabled`                             | Set this to `true` to enable Git integration for API Artifacts. |
 | `pollInterval`                        | The time interval (in seconds) in which the the Adapter should fetch updates from the repository.|
 | `retryInterval`                       | The time interval (in seconds) in which the the Adapter should retry fetching artifacts from the repository at startup (in case of failure).|
+| `maxRetryCount`                       | Maximum number of times the Adapter should retry fetching artifacts from the repository at startup (in case of failure).|
 | `artifactsDirectory`                  | The directory path where the Git artifacts are stored.|
 | `URL`                                 | The `URL` of the Git repository.|
 | `branch`                              | The branch of the Git repository. If not specified, the default branch will be used.|
@@ -154,6 +157,7 @@ artifactsDirectory = "<path_to_the_artifacts_directory>"
   enabled = true
   pollInterval = 30
   retryInterval = 5
+  maxRetryCount = 20
   artifactsDirectory = "<path_to_the_artifacts_directory>"
   [adapter.sourceControl.repository]
     URL = "https://<hostname>/<username_or_organization>/<repository-name>.git"
@@ -172,6 +176,7 @@ artifactsDirectory = "/home/wso2/git-artifacts"
   enabled = true
   pollInterval = 30
   retryInterval = 5
+  maxRetryCount = 20
   artifactsDirectory = "/home/wso2/git-artifacts"
   [adapter.sourceControl.repository]
     URL = "https://github.com/wso2/product-microgateway.git"
@@ -205,6 +210,7 @@ artifactsDirectory = "<path_to_the_artifacts_directory>"
 enabled = true
 pollInterval = 30
 retryInterval = 5
+maxRetryCount = 20
 artifactsDirectory = "<path_to_the_artifacts_directory>"
 [adapter.sourceControl.repository]
     URL = "git@<hostname>:<username>/<repository-name>.git"
@@ -223,6 +229,7 @@ artifactsDirectory = "/home/wso2/git-artifacts"
 enabled = true
 pollInterval = 30
 retryInterval = 5
+maxRetryCount = 20
 artifactsDirectory = "/home/wso2/git-artifacts"
 [adapter.sourceControl.repository]
     URL = "git@github.com:wso2/product-microgateway.git"

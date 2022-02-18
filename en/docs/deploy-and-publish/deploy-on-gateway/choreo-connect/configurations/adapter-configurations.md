@@ -618,6 +618,7 @@ See the example .toml file given below.
   enabled = false
   pollInterval = 30
   retryInterval = 5
+  maxRetryCount = 20
   artifactsDirectory = "/home/wso2/git-artifacts"
   [adapter.sourceControl.repository]
     URL = "https://github.com/wso2/product-microgateway.git"
@@ -667,7 +668,7 @@ See the example .toml file given below.
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
-                                            <span class="badge-required">Required</span>
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>30</code></span>
@@ -686,7 +687,7 @@ See the example .toml file given below.
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
-                                            <span class="badge-required">Required</span>
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>5</code></span>
@@ -695,6 +696,25 @@ See the example .toml file given below.
                                     </div>
                                     <div class="param-description">
                                         <p>The time interval (in seconds) in which the the Adapter should retry fetching artifacts from the repository at startup (in case of failure).</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>maxRetryCount</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>20</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Maximum number of times the Adapter should retry fetching artifacts from the repository at startup (in case of failure).</p>
                                     </div>
                                 </div>
                             </div><div class="param">
