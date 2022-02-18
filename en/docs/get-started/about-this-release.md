@@ -110,6 +110,11 @@ This serves the integration needs for the data plane of the API Manager platform
 
      The default user store of the Micro Integrator is file-based. This enables users to grant admin privileges to a user in the file-based user store.
 
+- **[Secondary user store support]({{base_path}}/administer/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores-mi/#configuring-secondary-user-stores) (M3)**
+
+     Users can now deploy secondary user stores in Micro Integrator and use those users and roles in authorization use cases.
+
+
 ## **Streaming Integrator**
 
 Streaming Integrator serves the streaming-based integrations and acts as the event stream provider for Streaming APIs in the data plane of the API Manager platform.
