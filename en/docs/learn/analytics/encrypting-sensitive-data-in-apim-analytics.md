@@ -7,7 +7,7 @@ Follow the steps below to encrypt sensitive data in the deployment configuration
 
 1. Navigate to the `<API-M_ANALYTICS_HOME>/conf/worker/secrets.properties` file. Enter the required sensitive data element with the value in plain text as a key value pair as shown in the example below. 
  
-     You need to **enter the password after a space to `plainText`** . If not, an error will be thrown when running the cipher tool.
+     You need to **enter the password after a space to `plainText`**. If not, an error will be thrown when running the cipher tool.
 
     ```
     auth.configs.password=plainText ABC@123
