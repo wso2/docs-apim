@@ -67,13 +67,15 @@ Properties, listed above, are mostly used for debugging and users can decide the
 
 1. Open `<APIm_HOME>/repository/conf/log4j2.properties` file.
 2. Modify the pattern layout of API_LOGFILE appender by adding %X{`<additional-property-name>`}. Currently, API-M supports following additional properties.
-    1. apiName
-    2. tenantDomain
-    3. logCorrelationId
+    1. apiContext
+    2. apiVersion
+    3. resourceName
+    4. tenantDomain
+    5. logCorrelationId
 3. Save and close `log4j2.properties` file.
 
 ```bash tab="Example"
-appender.API_LOGFILE.layout.pattern = [%d] %5p %c | %X{apiName} | %X{tenantDomain} | %m%ex%n
+appender.API_LOGFILE.layout.pattern = [%d] %5p %c | %X{apiContext} | %X{tenantDomain} | %m%ex%n
 ```
 
 ```bash tab="Sample log"
