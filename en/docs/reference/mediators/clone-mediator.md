@@ -4,7 +4,7 @@ The **Clone Mediator** can be used to clone a message into several messages. It 
 
 !!! Info
     The Clone mediator is a [content-aware]({{base_path}}
-/reference/mediators/about-mediators/#classification-of-mediators) mediator. Also, please note that to get the 
+/reference/mediators/about-mediators/#classification-of-mediators) mediator. Also, note that to get the 
 asynchronous behavior we have to have the sequence to inject the message context to that sequence asynchronously. We 
 can not achieve that through adding endpoint itself to the target without adding the sequence.
 
