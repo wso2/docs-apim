@@ -7,19 +7,21 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
         -   You are currently using a WSO2 IS 5.3.0 vanilla distribution that has WSO2 API Management related Key Manager features installed on top of it.
         -   You are currently using a pre-packaged WSO2 Identity Server as Key Manager 5.3.0 distribution.
 
-- [Upgrading WSO2 IS as Key Manager to 5.11.0](#upgrading-wso2-is-as-key-manager-to-5110)
-  - [Step 1 - Upgrade IS as Key Manager 5.3.0 to IS 5.11.0](#step-1---upgrade-is-as-key-manager-530-to-is-5110)
-    - [Step A - Setup IS 5.11.0 as a Key Manager](#step-a---setup-is-5110-as-a-key-manager)
-    - [Step B - Migrate IS from 5.3.0 to 5.11.0](#step-b---migrate-is-from-530-to-5110)
-  - [Step 2 - Upgrade API Manager 2.1.0 to 4.0.0](#step-2---upgrade-api-manager-210-to-400)
+- [Step 1 - Upgrade IS as Key Manager 5.3.0 to IS 5.11.0](#step-1---upgrade-is-as-key-manager-530-to-is-5110)
+
+     - [Step A - Setup IS 5.11.0 as a Key Manager](#step-a---setup-is-5110-as-a-key-manager)
+
+     - [Step B - Migrate IS from 5.3.0 to 5.11.0](#step-b---migrate-is-from-530-to-5110)
+
+- [Step 2 - Upgrade API Manager 2.1.0 to 4.0.0](#step-2---upgrade-api-manager-210-to-400)
 
 ## Step 1 - Upgrade IS as Key Manager 5.3.0 to IS 5.11.0
 
-- [Upgrading WSO2 IS as Key Manager to 5.11.0](#upgrading-wso2-is-as-key-manager-to-5110)
-  - [Step 1 - Upgrade IS as Key Manager 5.3.0 to IS 5.11.0](#step-1---upgrade-is-as-key-manager-530-to-is-5110)
-    - [Step A - Setup IS 5.11.0 as a Key Manager](#step-a---setup-is-5110-as-a-key-manager)
-    - [Step B - Migrate IS from 5.3.0 to 5.11.0](#step-b---migrate-is-from-530-to-5110)
-  - [Step 2 - Upgrade API Manager 2.1.0 to 4.0.0](#step-2---upgrade-api-manager-210-to-400)
+- [Step 1 - Upgrade IS as Key Manager 5.3.0 to IS 5.11.0](#step-1---upgrade-is-as-key-manager-530-to-is-5110)
+
+     - [Step A - Setup IS 5.11.0 as a Key Manager](#step-a---setup-is-5110-as-a-key-manager)
+
+     - [Step B - Migrate IS from 5.3.0 to 5.11.0](#step-b---migrate-is-from-530-to-5110)
 
 ### Step A - Setup IS 5.11.0 as a Key Manager
 
