@@ -183,7 +183,7 @@ Follow the instructions given below to configure the Gateway node so that it can
 
       ```
 
-      ```toml tab="Single Control Plane"
+      ```toml tab="Single Traffic Manager"
       [apim.throttling]
       service_url = "https://[traffic-manager-host]:${mgt.transport.https.port}/services/"
       throttle_decision_endpoints = ["tcp://traffic-manager-host:5672"]
