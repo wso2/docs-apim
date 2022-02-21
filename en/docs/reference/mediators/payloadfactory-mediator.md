@@ -1132,7 +1132,7 @@ IEA${element_separator}${payload.UniversalTransaction.Interchange_Control_Traile
 #### Build and run
 
 1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
-2. [Create an integration project](../../../../develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+2. [Create an integration project]({{base_path}}/integrate/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
 3. Create the artifacts (proxy service, registry resource) with the configurations given above.
 4. [Deploy the artifacts](../../../../develop/deploy-artifacts) in your Micro Integrator.
 5. Send a POST request to the `xml-to-edi-proxy` with the above given payload.
