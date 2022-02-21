@@ -13,7 +13,7 @@ Follow the steps below to encrypt sensitive data in the deployment configuration
     auth.configs.password=plainText ABC@123
     ```
               
-2. Navigate to the `<API-M_ANALYTICS_HOME>/conf/worker/deployment.toml` file. Enter the alias to be used in the required configuration file instead of the actual value of sensitive data you specified in the previous step. 
+2. Navigate to the `<API-M_ANALYTICS_HOME>/conf/worker/deployment.yaml` file. Enter the alias to be used in the required configuration file instead of the actual value of sensitive data you specified in the previous step. 
 
      For example if you need to secure the password in Authentication configuration you need to add the configuration as shown below:
  
