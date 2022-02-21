@@ -264,6 +264,7 @@ nav:
                 - Alert Types: learn/analytics/alert-types.md
                 - Setup & Configuration:
                       - Configuring APIM Analytics: learn/analytics/configuring-apim-analytics.md
+                      - Encrypting Sensitive Data in the API-M Analytics Server: learn/analytics/encrypting-sensitive-data-in-apim-analytics.md
                       - Configuring Keystores in APIM Analytics : learn/analytics/configuring-keystores-in-apim-analytics.md
                       - Managing Analytics Dashboard Permissions: learn/analytics/managing-dashboard-permissions.md
                       - Configuring Alerts: learn/analytics/configuring-alerts.md
