@@ -7,13 +7,13 @@ Follow the steps below to encrypt sensitive data in the deployment configuration
 
 1. Navigate to the `<API-M_ANALYTICS_HOME>/conf/worker/secrets.properties` file. Enter the required sensitive data element with the value in plain text as a key value pair as shown in the example below. 
  
-     You need to **enter the password after a space to `plainText`** . If not, an error will be thrown when running the cipher tool.
+     You need to **enter the password after a space to `plainText`**. If not, an error will be thrown when running the cipher tool.
 
     ```
     auth.configs.password=plainText ABC@123
     ```
               
-2. Navigate to the `<API-M_ANALYTICS_HOME>/conf/worker/deployment.toml` file. Enter the alias to be used in the required configuration file instead of the actual value of sensitive data you specified in the previous step. 
+2. Navigate to the `<API-M_ANALYTICS_HOME>/conf/worker/deployment.yaml` file. Enter the alias to be used in the required configuration file instead of the actual value of sensitive data you specified in the previous step. 
 
      For example if you need to secure the password in Authentication configuration you need to add the configuration as shown below:
  
