@@ -7,21 +7,19 @@ The [Open Policy Agent (OPA)](https://openpolicyagent.org/) is an open source, g
 
 <img src="{{base_path}}/assets/img/deploy/mgw/choreo-connect-opa-overview.png" alt="Choreo Connect OPA request flow" width="700px"/>
 
-| Numbers | Description                                                                                                                            |
-|---------|----------------------------------------------------------------------------------------------------------------------------------------|
-| 1       | Client request                                                                                                                         |
-| 2       | Request to validate (i.e. authentication, rate-limiting, OPA validation and other validations) the client request through Enforcer     |
-| 3       | Enforcer calling the OPA server with the JSON payload described in [Request to the OPA server](#request-to-the-opa-server)             |
-| 4       | Response from OPA server after validating the request as described in [Response from the OPA server](#response-from-the-opa-server)   |
-| 5       | Respond the validation status to the Router                                                                                            | 
-| 6,7     | Response from the backend                                                                                                              |
-| 8       | Response to the client                                                                                                                 |
+| Numbers | Description                                                                                                                                         |
+|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1       | Client request                                                                                                                                      |
+| 2       | Request to validate (i.e. authentication, rate-limiting, OPA validation and other validations) the client request through Enforcer                  |
+| 3       | Enforcer calling the OPA server with the JSON payload described in [Request Payload to the OPA server](#request-payload-to-the-opa-server)          |
+| 4       | Response from OPA server after validating the request as described in [Response Payload from the OPA server](#response-payload-from-the-opa-server) |
+| 5       | Respond the validation status to the Router                                                                                                         | 
+| 6,7     | Response from the backend                                                                                                                           |
+| 8       | Response to the client                                                                                                                              |
 
 ## Attaching OPA Policy to an API Resource
 
-By attaching an OPA policy to the API Resource you can enforce OPA validation to that API resource with providing the following values in the policy. Enforcer uses the OPA server defined in the policy and queries the policy result
-
-<!-- // TODO: (renuka) link configuring OPA from APIM (still not in 410-alpha) when APIM docs available -->
+By attaching an OPA policy to the API Resource you can enforce OPA validation to that API resource with providing the following values in the policy.
 
 | Name              | Description                                                   | Sample                          |
 |-------------------|---------------------------------------------------------------|---------------------------------|
@@ -31,33 +29,33 @@ By attaching an OPA policy to the API Resource you can enforce OPA validation to
 | Request Generator | **Optional** fully qualified name of the implementation class | Empty string for Default class  |
 | Access Token      | **Optional** access token for OPA server authentication       | `my-secret-token`               |
 
-
+<!-- // TODO: (renuka) link configuring OPA from APIM (still not in 410-alpha) when APIM docs available -->
 
 ## Defining Policies in the OPA Server
 
-
-Following is a sample policy definition to check the header value `x-abcd` should exists and should be `ABCD` and HTTP method should be `PUT`.
+You can define you own policy enforcement logic in OPA by using the values provided by the Choreo Connect Enforcer. Following is a sample policy definition in **Rego** to check the header value `x-abcd` should be `ABCD` when HTTP method is `PUT`, otherwise HTTP method can be `POST`.
 
 ```rego tab='Sample'
 package abc.authz
 
-# Only owner can update the pet's information
-# Ownership information is provided as part of OPA's input
 default allow = false
 allow {
     input.method == "PUT"
     input.transportHeaders.x-abcd == "ABCD"
 }
+allow {
+    input.method == "POST"
+}
 ```
 
-### Request to the OPA server
+### Request Payload to the OPA server
 
 By default Choreo Connect uses the class **OPADefaultRequestGenerator** to generate the request payload to the OPA server. You can configure your policies in OPA server based on the following request format.
 
 !!! Info
-    You can have your own **Request Generator Implementation**, you can do so by implementing the interface **OPARequestGenerator**.
+    You can have your own **Request Generator Implementation**, you can do so by implementing the interface **OPARequestGenerator**. [Custom OPA Request Generator](#custom-opa-request-generator) in this document describes it in more details.
 
-// TODO: link java src for interface and default class.
+<!-- TODO: link java src for interface and default class. -->
 
 ```json tab='Format'
 {
@@ -118,12 +116,12 @@ By default Choreo Connect uses the class **OPADefaultRequestGenerator** to gener
 }
 ```
 
-### Response from the OPA server
+### Response Payload from the OPA server
 
 Same as request generation Choreo Connect uses the class **OPADefaultRequestGenerator** to validate the response from OPA. So for the default implementation, you have to write your OPA policies with the following response format.
 
 !!! Info
-    You can have your own **Response Valiation Implementation**, you can do so by implementing the interface **OPARequestGenerator**.
+    You can have your own **Response Valiation Implementation**, you can do so by implementing the interface **OPARequestGenerator**. [Custom OPA Request Generator](#custom-opa-request-generator) in this document describes it in more details.
 
 ```json tab='Format'
 {
@@ -136,3 +134,70 @@ Same as request generation Choreo Connect uses the class **OPADefaultRequestGene
     "result": true
 }
 ```
+
+## Custom OPA Request Generator
+
+1.  Create a Java project with `org.wso2.choreo.connect.enforcer.commons` dependency.
+    -   For Apache Maven, use the following.
+        ```xml
+        <dependency>
+            <groupId>org.wso2.choreo.connect</groupId>
+            <artifactId>org.wso2.choreo.connect.enforcer.commons</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+        ```
+
+2.  Use the following interface to implement the Custom OPA Request Generator.
+
+    ```java tab='Interface'
+    public interface OPARequestGenerator {}
+    ```
+
+    Here is the sample filter implementation that only returns request headers to the OPA.
+
+    ```java tab='Sample Implantation'
+    package org.example.tests;
+
+    import org.json.JSONException;
+    import org.json.JSONObject;
+    import org.wso2.choreo.connect.enforcer.commons.model.RequestContext;
+    import org.wso2.choreo.connect.enforcer.commons.opa.OPARequestGenerator;
+    import org.wso2.choreo.connect.enforcer.commons.opa.OPASecurityException;
+
+    public class CustomOPARequestGenerator implements OPARequestGenerator {
+        @Override
+        public String generateRequest(String policyName, String rule, Map<String, Object> advancedProperties,
+                                  RequestContext requestContext) throws OPASecurityException {
+            JSONObject requestPayload = new JSONObject();
+            JSONObject inputPayload = new JSONObject();
+            requestPayload.put("input", inputPayload);
+
+            inputPayload.put("headers", requestContext.getHeaders());
+            return requestPayload.toString();
+        }
+
+        @Override
+        public boolean validateResponse(String policyName, String rule, String opaResponse, RequestContext requestContext)
+                throws OPASecurityException {
+            JSONObject response = new JSONObject(opaResponse);
+            try {
+                return response.getBoolean("result");
+            } catch (JSONException e) {
+                throw new OPASecurityException(500, "Internal Server Error",
+                        "Error while evaluating remote authorization response", e);
+            }
+        }
+    }
+    ```
+
+3.  Since we use Java SPI (Service Provider Interface), we need to provide the provider configuration file `META-INF/services/org.wso2.choreo.connect.enforcer.commons.opa.OPARequestGenerator`. If you are using Apache Maven, create the file inside the `<PROJECT>/src/main/resources` directory. The content of the file needs to be the qualified class name of the filter implementation. For example:
+    ```text
+    org.example.tests.CustomOPARequestGenerator
+    ```
+
+4.  Build the project and create the JAR file. For Apache Maven, use the following command.
+    ```bash
+    mvn clean install
+    ```
+
+5.  Mount the JAR file containing the Custom OPA Request Generator to the `/home/wso2/lib/dropins`. (If you are using the docker-compose file within the distribution, then add the JAR file to `docker-compose/resources/enforcer/dropins` directory.)
