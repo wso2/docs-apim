@@ -4511,6 +4511,7 @@ Follow the instructions below to move all the existing API Manager configuration
     3. Migrate API Manager artifacts from 1.10 to 2.0
      
         1. Migrate registry resources from 1.10 to 2.0 as follows.
+
             ``` tab="Linux / Mac OS"
             sh api-manager.sh -DmigrateReg=true -Dcomponent=apim -DmigrateFromVersion=1.10.0
             ```
@@ -4566,7 +4567,7 @@ Follow the instructions below to move all the existing API Manager configuration
     PreserveCaseForResources = false
     ```
 
-9. Re-index the artifacts in the Registry.
+9.  Re-index the artifacts in the Registry.
 
     1.  Run the [reg-index.sql]({{base_path}}/assets/attachments/install-and-setup/reg-index.sql) script against the `SHARED_DB` database.
 
@@ -4584,7 +4585,6 @@ Follow the instructions below to move all the existing API Manager configuration
     3.  Add the following configuration in `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file.
 
         ```
-
         [indexing]
         re_indexing= 1
         
