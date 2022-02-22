@@ -4323,7 +4323,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ./ciphertool.bat -Dconfigure
         ```
 
-5.  Upgrade the Identity component in WSO2 API Manager from version 5.1.0 to 5.11.0.
+6.  Upgrade the Identity component in WSO2 API Manager from version 5.1.0 to 5.11.0.
 
     !!! note
         If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.11.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-is-5110) instead of the steps mentioned below.
@@ -4492,7 +4492,7 @@ Follow the instructions below to move all the existing API Manager configuration
             -Dmigrate -Dcomponent=identity
             ```
 
-6.  Migrate the API Manager artifacts.
+7.  Migrate the API Manager artifacts.
 
     !!! Note
         Modify the `[apim.gateway.environment]` tag in the `<API-M_HOME>/repository/conf/deployment.toml` file, the name should change to "Production and Sandbox". By default, it is set as `Default` in API Manager 4.0.0.
@@ -4559,14 +4559,14 @@ Follow the instructions below to move all the existing API Manager configuration
 
        -   Remove the `migration-resources` and `migration-scripts` directories, which are in the `<API-M_4.0.0_HOME>` directory.
 
-7.  Preserve the case sensitive behavior for the migrated resources by adding the following property to the `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file:
+8.  Preserve the case sensitive behavior for the migrated resources by adding the following property to the `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file:
 
     ``` java
     [authorization_manager.properties]
     PreserveCaseForResources = false
     ```
 
-8. Re-index the artifacts in the Registry.
+9. Re-index the artifacts in the Registry.
 
     1.  Run the [reg-index.sql]({{base_path}}/assets/attachments/install-and-setup/reg-index.sql) script against the `SHARED_DB` database.
 
