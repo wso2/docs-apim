@@ -254,6 +254,7 @@ nav:
                         - Scope Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authorization/scope-validation.md
                         - Subscription Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authorization/subscription-validation.md
                         - Custom Claims Mapping: deploy-and-publish/deploy-on-gateway/choreo-connect/support-custom-claims-mapping.md
+                        - Open Policy Agent (OPA) Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authorization/opa-validation.md
                     - Transport Security:
                         - Component Certificates: deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/component-certificates.md
                         - Backend Certificates: deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/backend-certificates.md
