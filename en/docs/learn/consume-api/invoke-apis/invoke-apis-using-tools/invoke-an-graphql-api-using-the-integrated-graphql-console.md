@@ -95,6 +95,11 @@ You have now successfully invoked a GraphQL API using the GraphQL API Console.
 
 ### Invoke a GraphQL Subscription operation
 
+!!! warning
+    **GraphQL Subscription Operations Support** has been introduced via an U2/WUM update and is effective from 23rd February 2022 (2022-02-23).
+
+    For more information on how to update using U2, see [Updates 2.0 Documentation](https://updates.docs.wso2.com/en/latest/updates/overview/). For more information on how to update using WUM, see the documentation [Using WSO2 Update Manager](https://docs.wso2.com/display/updates100/Using+WSO2+Update+Manager).
+
 Follow the instructios below to invoke a **GraphQL Subscription operation** using the GraphiQL console:
 
 1. Enter the following sample query to execute a subscription operation via WebSockets.
