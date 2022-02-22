@@ -19,7 +19,7 @@ Interface, the classloading happens in the Enforcer. See the following sections 
    - For Apache Maven, use the following.
    ```xml
    <dependency>
-       <groupId>org.wso2.am.choreo.connect</groupId>
+       <groupId>org.wso2.choreo.connect</groupId>
        <artifactId>org.wso2.choreo.connect.enforcer.commons</artifactId>
        <version>1.0.0</version>
    </dependency>
