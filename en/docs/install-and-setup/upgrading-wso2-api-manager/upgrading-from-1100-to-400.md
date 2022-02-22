@@ -9,7 +9,7 @@ Before you begin:
 
 -   Follow the instructions below to upgrade your WSO2 API Manager server **from WSO2 API-M 1.10.0 to 4.0.0**.
 
--   If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, first follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-is-5110).
+-   If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, first follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.11.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-is-5110).
 
 -   **If you are using PostgreSQL**, the DB user needs to have the `superuser` role to run the migration client and the relevant scripts.
 
@@ -4333,10 +4333,10 @@ Follow the instructions below to move all the existing API Manager configuration
         ./ciphertool.bat -Dconfigure
         ```
 
-6.  Upgrade the Identity component in WSO2 API Manager from version 5.1.0 to 5.10.0.
+6.  Upgrade the Identity component in WSO2 API Manager from version 5.1.0 to 5.11.0.
 
     !!! note
-        If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-5100) instead of the steps mentioned below.
+        If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.11.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-is-5110) instead of the steps mentioned below.
 
         But, if you are not using WSO2 IS as a Key Manager, you have to follow the steps mentioned below in order to upgrade the identity components that have been shared with WSO2 API-M.
 
@@ -4407,11 +4407,11 @@ Follow the instructions below to move all the existing API Manager configuration
         ``` java
         migrationEnable: "true"
         currentVersion: "5.1.0"
-        migrateVersion: "5.10.0"
+        migrateVersion: "5.11.0"
         ```
 
         !!! note
-            Make sure you have enabled migration by setting the `migrationEnable` element to `true` as shown above. You have to remove the following 2 steps from the `migration-config.yaml` file in version: "5.10.0"
+            Make sure you have enabled migration by setting the `migrationEnable` element to `true` as shown above. You have to remove the following 2 steps from the `migration-config.yaml` file in version: "5.11.0"
                 ```
                 -
                     name: "MigrationValidator"
@@ -4486,7 +4486,6 @@ Follow the instructions below to move all the existing API Manager configuration
                  [indexing]
                  frequency= 10
                  ```
-
              2.  Re-run the command above.
 
             **Make sure to revert the change done in <a href="#stepT1">Step 1</a>, after the migration is complete.**
