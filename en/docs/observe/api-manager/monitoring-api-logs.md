@@ -65,15 +65,17 @@ After enabling API Logs for an API, logs can be observed in `<APIM_HOME>/reposit
 
 Properties, listed above, are mostly used for debugging and users can decide the log level according to their need and purpose. However, API Logs allows to log additional properties which can be used for advanced debugging scenarios. Follow the steps below to configure additional properties.
 
-1. Open `<APIm_HOME>/repository/conf/log4j2.properties` file.
+1. Open `<API-M_HOME>/repository/conf/log4j2.properties` file.
 2. Modify the pattern layout of API_LOGFILE appender by adding %X{`<additional-property-name>`}. Currently, API-M supports following additional properties.
-    1. apiName
-    2. tenantDomain
-    3. logCorrelationId
+    1. apiContext
+    2. apiVersion
+    3. resourceName
+    4. tenantDomain
+    5. logCorrelationId
 3. Save and close `log4j2.properties` file.
 
 ```bash tab="Example"
-appender.API_LOGFILE.layout.pattern = [%d] %5p %c | %X{apiName} | %X{tenantDomain} | %m%ex%n
+appender.API_LOGFILE.layout.pattern = [%d] %5p %c | %X{apiContext} | %X{tenantDomain} | %m%ex%n
 ```
 
 ```bash tab="Sample log"
