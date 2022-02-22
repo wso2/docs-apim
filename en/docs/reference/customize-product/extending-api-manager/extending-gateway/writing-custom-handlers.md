@@ -115,7 +115,7 @@ before `</Handlers>`.
     you need to maintain a customized velocity template file that needs to be manually merged when you upgrade your 
     product to a newer version. Therefore, it is recommended to use custom Handlers when you wish to specify the exact 
     order of execution of JARs as this can not be done with 
-    [Mediators](../../../extensions/adding-mediation-extensions).
+    [Mediators]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests).
 
 
 Custom Handler is a way of extending API Manager which the product offer to change the API flow through the API Gateway. 
