@@ -1453,8 +1453,8 @@ Follow the instructions below to move all the existing API Manager configuration
         ALTER TABLE AM_POLICY_SUBSCRIPTION 
             ADD MONETIZATION_PLAN VARCHAR(25) DEFAULT NULL
             ADD FIXED_RATE VARCHAR(15) DEFAULT NULL
-            ADD BILLING_CYCLE VARCHAR(15) DEFAULT NULL 
-            ADD PRICE_PER_REQUEST VARCHAR(15) DEFAULT NULL 
+            ADD BILLING_CYCLE VARCHAR(15) DEFAULT NULL
+            ADD PRICE_PER_REQUEST VARCHAR(15) DEFAULT NULL
             ADD CURRENCY VARCHAR(15) DEFAULT NULL
             ADD MAX_COMPLEXITY INT NOT NULL DEFAULT 0
             ADD MAX_DEPTH INT NOT NULL DEFAULT 0
@@ -4291,7 +4291,7 @@ Follow the instructions below to move all the existing API Manager configuration
         UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL='' WHERE CALLBACK_URL IS NULL;
         ```
 
-5.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_4.0.0_HOME>/repository/resources/security` directory.
+1.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_4.0.0_HOME>/repository/resources/security` directory.
 
     !!! Attention
         In API Manager 4.0.0, it is required to use a certificate with the RSA key size greater than 2048. If you have used a certificate that has a weak RSA key (key size less than 2048) in the previous version, you need to add the following configuration to the `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file to configure the internal and primary keystores. You should point the internal keystore to the keystore copied from API Manager 2.0.0 and the primary keystore can be pointed to a keystore with a certificate that has a strong RSA key. 
@@ -4323,7 +4323,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ./ciphertool.bat -Dconfigure
         ```
 
-6.  Upgrade the Identity component in WSO2 API Manager from version 5.1.0 to 5.11.0.
+2.  Upgrade the Identity component in WSO2 API Manager from version 5.1.0 to 5.11.0.
 
     !!! note
         If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.11.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-is-5110) instead of the steps mentioned below.
@@ -4492,7 +4492,7 @@ Follow the instructions below to move all the existing API Manager configuration
             -Dmigrate -Dcomponent=identity
             ```
 
-7.  Migrate the API Manager artifacts.
+3.  Migrate the API Manager artifacts.
 
     !!! Note
         Modify the `[apim.gateway.environment]` tag in the `<API-M_HOME>/repository/conf/deployment.toml` file, the name should change to "Production and Sandbox". By default, it is set as `Default` in API Manager 4.0.0.
@@ -4560,14 +4560,14 @@ Follow the instructions below to move all the existing API Manager configuration
 
        -   Remove the `migration-resources` and `migration-scripts` directories, which are in the `<API-M_4.0.0_HOME>` directory.
 
-8.  Preserve the case sensitive behavior for the migrated resources by adding the following property to the `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file:
+4.  Preserve the case sensitive behavior for the migrated resources by adding the following property to the `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file:
 
     ``` java
     [authorization_manager.properties]
     PreserveCaseForResources = false
     ```
 
-9.  Re-index the artifacts in the Registry.
+5.  Re-index the artifacts in the Registry.
 
     1.  Run the [reg-index.sql]({{base_path}}/assets/attachments/install-and-setup/reg-index.sql) script against the `SHARED_DB` database.
 
