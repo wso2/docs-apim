@@ -570,15 +570,15 @@ Follow the instructions below to move all the existing API Manager configuration
         
         CREATE TABLE IF NOT EXISTS AM_ALERT_TYPES_VALUES (
                     ALERT_TYPE_ID INTEGER,
-                    USER_NAME VARCHAR(256) NOT NULL ,
-        	    STAKE_HOLDER VARCHAR(100) NOT NULL ,
+                    USER_NAME VARCHAR(256) NOT NULL,
+        	    STAKE_HOLDER VARCHAR(100) NOT NULL,
         	    CONSTRAINT AM_ALERT_TYPES_VALUES_CONSTRAINT UNIQUE (ALERT_TYPE_ID,USER_NAME,STAKE_HOLDER)
         );
         
         CREATE TABLE IF NOT EXISTS AM_ALERT_EMAILLIST (
         	    EMAIL_LIST_ID INTEGER AUTO_INCREMENT,
-                    USER_NAME VARCHAR(255) NOT NULL ,
-        	    STAKE_HOLDER VARCHAR(100) NOT NULL ,
+                    USER_NAME VARCHAR(255) NOT NULL,
+        	    STAKE_HOLDER VARCHAR(100) NOT NULL,
                     PRIMARY KEY (EMAIL_LIST_ID),
                     CONSTRAINT AM_ALERT_EMAILLIST_CONSTRAINT UNIQUE (EMAIL_LIST_ID,USER_NAME,STAKE_HOLDER)
         );
@@ -887,7 +887,10 @@ Follow the instructions below to move all the existing API Manager configuration
             FIXED_RATE VARCHAR(15) NULL DEFAULT NULL,
             BILLING_CYCLE VARCHAR(15) NULL DEFAULT NULL,
             PRICE_PER_REQUEST VARCHAR(15) NULL DEFAULT NULL,
-            CURRENCY VARCHAR(15) NULL DEFAULT NULL
+            CURRENCY VARCHAR(15) NULL DEFAULT NULL,
+            MAX_COMPLEXITY INT(11) NOT NULL DEFAULT 0,
+            MAX_DEPTH INT(11) NOT NULL DEFAULT 0,
+            CONNECTIONS_COUNT INT(11) NOT NULL DEFAULT 0
         );
         
         CREATE TABLE IF NOT EXISTS AM_MONETIZATION_USAGE (
@@ -1022,9 +1025,6 @@ Follow the instructions below to move all the existing API Manager configuration
         
         ALTER TABLE AM_SUBSCRIPTION ADD TIER_ID_PENDING VARCHAR(50);
         
-        ALTER TABLE AM_POLICY_SUBSCRIPTION ADD MAX_COMPLEXITY INT(11) NOT NULL DEFAULT 0;
-        ALTER TABLE AM_POLICY_SUBSCRIPTION ADD MAX_DEPTH INT(11) NOT NULL DEFAULT 0;
-        
         CREATE TABLE IF NOT EXISTS AM_API_RESOURCE_SCOPE_MAPPING (
             SCOPE_NAME VARCHAR(255) NOT NULL,
             URL_MAPPING_ID INTEGER NOT NULL,
@@ -1086,22 +1086,22 @@ Follow the instructions below to move all the existing API Manager configuration
         
         CREATE TABLE AM_ALERT_TYPES (
                     ALERT_TYPE_ID INT GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
-                    ALERT_TYPE_NAME VARCHAR(256) NOT NULL ,
+                    ALERT_TYPE_NAME VARCHAR(256) NOT NULL,
         	    STAKE_HOLDER VARCHAR(100) NOT NULL,
                     PRIMARY KEY (ALERT_TYPE_ID)
         )/
         
         CREATE TABLE AM_ALERT_TYPES_VALUES (
                     ALERT_TYPE_ID INTEGER NOT NULL,
-                    USER_NAME VARCHAR(256) NOT NULL ,
-        	    STAKE_HOLDER VARCHAR(100) NOT NULL ,
+                    USER_NAME VARCHAR(256) NOT NULL,
+        	    STAKE_HOLDER VARCHAR(100) NOT NULL,
                     CONSTRAINT AM_ALERT_TYPES_VALUES_CONSTRAINT UNIQUE (ALERT_TYPE_ID,USER_NAME,STAKE_HOLDER)
         )/
         
-        CREATE TABLE AM_ALERT_EMAILLIST (  
-        	    EMAIL_LIST_ID INT GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),                   
-                    USER_NAME VARCHAR(256) NOT NULL ,	    
-        	    STAKE_HOLDER VARCHAR(100) NOT NULL ,
+        CREATE TABLE AM_ALERT_EMAILLIST (
+        	    EMAIL_LIST_ID INT GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
+                    USER_NAME VARCHAR(256) NOT NULL,
+        	    STAKE_HOLDER VARCHAR(100) NOT NULL,
                     PRIMARY KEY (EMAIL_LIST_ID),
             	    CONSTRAINT AM_ALERT_EMAILLIST_CONSTRAINT UNIQUE (EMAIL_LIST_ID,USER_NAME,STAKE_HOLDER)
         )/
@@ -1336,7 +1336,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE AM_ALERT_TYPES (
             ALERT_TYPE_ID INT GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
             ALERT_TYPE_NAME VARCHAR(256) NOT NULL ,
-            STAKE_HOLDER VARCHAR(100) NOT NULL,           
+            STAKE_HOLDER VARCHAR(100) NOT NULL,
             PRIMARY KEY (ALERT_TYPE_ID)
         )
         /
@@ -1456,9 +1456,12 @@ Follow the instructions below to move all the existing API Manager configuration
         ALTER TABLE AM_POLICY_SUBSCRIPTION 
             ADD MONETIZATION_PLAN VARCHAR(25) DEFAULT NULL
             ADD FIXED_RATE VARCHAR(15) DEFAULT NULL
-            ADD BILLING_CYCLE VARCHAR(15) DEFAULT NULL 
-            ADD PRICE_PER_REQUEST VARCHAR(15) DEFAULT NULL 
+            ADD BILLING_CYCLE VARCHAR(15) DEFAULT NULL
+            ADD PRICE_PER_REQUEST VARCHAR(15) DEFAULT NULL
             ADD CURRENCY VARCHAR(15) DEFAULT NULL
+            ADD MAX_COMPLEXITY INT NOT NULL DEFAULT 0
+            ADD MAX_DEPTH INT NOT NULL DEFAULT 0
+            ADD CONNECTIONS_COUNT INTEGER DEFAULT 0 NOT NULL
         /
         
         CREATE TABLE AM_MONETIZATION_USAGE (
@@ -1574,11 +1577,6 @@ Follow the instructions below to move all the existing API Manager configuration
         ) /
         
         ALTER TABLE AM_SUBSCRIPTION ADD TIER_ID_PENDING VARCHAR(50) /
-        
-        ALTER TABLE AM_POLICY_SUBSCRIPTION
-            ADD MAX_COMPLEXITY INT NOT NULL DEFAULT 0
-            ADD MAX_DEPTH INT NOT NULL DEFAULT 0
-        /
         
         CREATE TABLE IF NOT EXISTS AM_API_RESOURCE_SCOPE_MAPPING (
             SCOPE_NAME varchar(255) NOT NULL,
@@ -1706,7 +1704,7 @@ Follow the instructions below to move all the existing API Manager configuration
                      PRIMARY KEY (EMAIL_LIST_ID)
         );
         
-        CREATE TABLE  AM_ALERT_EMAILLIST_DETAILS (             
+        CREATE TABLE  AM_ALERT_EMAILLIST_DETAILS (
                       EMAIL_LIST_ID INTEGER,
         	      EMAIL VARCHAR(255),
         	      CONSTRAINT AM_ALERT_EMAILLIST_DETAILS_CONST UNIQUE (EMAIL_LIST_ID,EMAIL)
@@ -2045,11 +2043,14 @@ Follow the instructions below to move all the existing API Manager configuration
         );
         
         ALTER TABLE AM_POLICY_SUBSCRIPTION ADD
-        MONETIZATION_PLAN VARCHAR(25) NULL DEFAULT NULL,
-        FIXED_RATE VARCHAR(15) NULL DEFAULT NULL, 
-        BILLING_CYCLE VARCHAR(15) NULL DEFAULT NULL, 
-        PRICE_PER_REQUEST VARCHAR(15) NULL DEFAULT NULL, 
-        CURRENCY VARCHAR(15) NULL DEFAULT NULL
+            MONETIZATION_PLAN VARCHAR(25) NULL DEFAULT NULL,
+            FIXED_RATE VARCHAR(15) NULL DEFAULT NULL,
+            BILLING_CYCLE VARCHAR(15) NULL DEFAULT NULL,
+            PRICE_PER_REQUEST VARCHAR(15) NULL DEFAULT NULL,
+            CURRENCY VARCHAR(15) NULL DEFAULT NULL,
+            MAX_COMPLEXITY INTEGER NOT NULL DEFAULT 0,
+            MAX_DEPTH INTEGER NOT NULL DEFAULT 0,
+            CONNECTIONS_COUNT INTEGER NOT NULL DEFAULT 0
         ;
         
         IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_MONETIZATION_USAGE]') AND TYPE IN (N'U'))
@@ -2190,11 +2191,6 @@ Follow the instructions below to move all the existing API Manager configuration
         
         ALTER TABLE AM_SUBSCRIPTION ADD TIER_ID_PENDING VARCHAR(50);
         
-        ALTER TABLE AM_POLICY_SUBSCRIPTION ADD
-          MAX_COMPLEXITY INTEGER NOT NULL DEFAULT 0,
-          MAX_DEPTH INTEGER NOT NULL DEFAULT 0
-        ;
-        
         IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_API_RESOURCE_SCOPE_MAPPING]') AND TYPE IN (N'U'))
         CREATE TABLE AM_API_RESOURCE_SCOPE_MAPPING (
             SCOPE_NAME VARCHAR(255) NOT NULL,
@@ -2272,7 +2268,7 @@ Follow the instructions below to move all the existing API Manager configuration
         drop CONSTRAINT ' + @am_appreg);
         
         ALTER TABLE AM_APPLICATION_REGISTRATION ADD KEY_MANAGER VARCHAR(255) DEFAULT 'Resident Key Manager';
-        ALTER TABLE AM_APPLICATION_REGISTRATION ADD UNIQUE (SUBSCRIBER_ID,APP_ID,TOKEN_TYPE,KEY_MANAGER); 
+        ALTER TABLE AM_APPLICATION_REGISTRATION ADD UNIQUE (SUBSCRIBER_ID,APP_ID,TOKEN_TYPE,KEY_MANAGER);
         
         IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_SCOPE]') AND TYPE IN (N'U'))
         CREATE TABLE AM_SCOPE (
@@ -2291,7 +2287,7 @@ Follow the instructions below to move all the existing API Manager configuration
           SCOPE_BINDING VARCHAR(255) NOT NULL,
           BINDING_TYPE VARCHAR(255) NOT NULL,
           FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE
-        );        
+        );
         ```
 
         ```tab="MySQL"
@@ -2631,11 +2627,14 @@ Follow the instructions below to move all the existing API Manager configuration
         );
         
         ALTER TABLE AM_POLICY_SUBSCRIPTION 
-        ADD MONETIZATION_PLAN VARCHAR(25) NULL DEFAULT NULL, 
-        ADD FIXED_RATE VARCHAR(15) NULL DEFAULT NULL, 
-        ADD BILLING_CYCLE VARCHAR(15) NULL DEFAULT NULL, 
-        ADD PRICE_PER_REQUEST VARCHAR(15) NULL DEFAULT NULL, 
-        ADD CURRENCY VARCHAR(15) NULL DEFAULT NULL;
+            ADD MONETIZATION_PLAN VARCHAR(25) NULL DEFAULT NULL,
+            ADD FIXED_RATE VARCHAR(15) NULL DEFAULT NULL,
+            ADD BILLING_CYCLE VARCHAR(15) NULL DEFAULT NULL,
+            ADD PRICE_PER_REQUEST VARCHAR(15) NULL DEFAULT NULL,
+            ADD CURRENCY VARCHAR(15) NULL DEFAULT NULL,
+            ADD MAX_COMPLEXITY INT(11) NOT NULL DEFAULT 0,
+            ADD MAX_DEPTH INT(11) NOT NULL DEFAULT 0,
+            ADD CONNECTIONS_COUNT INT(11) NOT NULL DEFAULT 0;
         
         CREATE TABLE IF NOT EXISTS AM_MONETIZATION_USAGE (
             ID VARCHAR(100) NOT NULL,
@@ -2771,9 +2770,6 @@ Follow the instructions below to move all the existing API Manager configuration
         
         ALTER TABLE AM_SUBSCRIPTION ADD TIER_ID_PENDING VARCHAR(50);
         
-        ALTER TABLE AM_POLICY_SUBSCRIPTION ADD MAX_COMPLEXITY INT(11) NOT NULL DEFAULT 0;
-        ALTER TABLE AM_POLICY_SUBSCRIPTION ADD MAX_DEPTH INT(11) NOT NULL DEFAULT 0;
-        
         CREATE TABLE IF NOT EXISTS AM_API_RESOURCE_SCOPE_MAPPING (
             SCOPE_NAME VARCHAR(255) NOT NULL,
             URL_MAPPING_ID INTEGER NOT NULL,
@@ -2835,7 +2831,7 @@ Follow the instructions below to move all the existing API Manager configuration
         
         CREATE TABLE  AM_ALERT_TYPES (
                     ALERT_TYPE_ID INTEGER,
-                    ALERT_TYPE_NAME VARCHAR(255) NOT NULL ,
+                    ALERT_TYPE_NAME VARCHAR(255) NOT NULL,
         	    STAKE_HOLDER VARCHAR(100) NOT NULL,
                     PRIMARY KEY (ALERT_TYPE_ID))
         /
@@ -2856,15 +2852,15 @@ Follow the instructions below to move all the existing API Manager configuration
         
         CREATE TABLE  AM_ALERT_TYPES_VALUES (
                     ALERT_TYPE_ID INTEGER,
-                    USER_NAME VARCHAR(255) NOT NULL ,
-        	    STAKE_HOLDER VARCHAR(100) NOT NULL ,
+                    USER_NAME VARCHAR(255) NOT NULL,
+        	    STAKE_HOLDER VARCHAR(100) NOT NULL,
                     CONSTRAINT AM_ALERT_TYPES_VALUES_CONST UNIQUE (ALERT_TYPE_ID,USER_NAME,STAKE_HOLDER))
         /
         
         CREATE TABLE  AM_ALERT_EMAILLIST (
         	    EMAIL_LIST_ID INTEGER,
-                    USER_NAME VARCHAR(255) NOT NULL ,
-        	    STAKE_HOLDER VARCHAR(100) NOT NULL ,
+                    USER_NAME VARCHAR(255) NOT NULL,
+        	    STAKE_HOLDER VARCHAR(100) NOT NULL,
                     CONSTRAINT AM_ALERT_EMAILLIST_CONST UNIQUE (EMAIL_LIST_ID,USER_NAME,STAKE_HOLDER),
                      PRIMARY KEY (EMAIL_LIST_ID))
         /
@@ -2884,7 +2880,7 @@ Follow the instructions below to move all the existing API Manager configuration
         
         CREATE TABLE  AM_ALERT_EMAILLIST_DETAILS (
                     EMAIL_LIST_ID INTEGER,
-        	    EMAIL VARCHAR(255),	    
+        	    EMAIL VARCHAR(255),
                     CONSTRAINT AM_ALERT_EMAIL_LIST_DET_CONST UNIQUE (EMAIL_LIST_ID,EMAIL))
         /
         
@@ -3397,7 +3393,10 @@ Follow the instructions below to move all the existing API Manager configuration
             FIXED_RATE VARCHAR(15) DEFAULT NULL NULL, 
             BILLING_CYCLE VARCHAR(15) DEFAULT NULL NULL, 
             PRICE_PER_REQUEST VARCHAR(15) DEFAULT NULL NULL, 
-            CURRENCY VARCHAR(15) DEFAULT NULL NULL
+            CURRENCY VARCHAR(15) DEFAULT NULL NULL,
+            MAX_COMPLEXITY INTEGER DEFAULT 0 NOT NULL,
+            MAX_DEPTH INTEGER DEFAULT 0 NOT NULL,
+            ADD CONNECTIONS_COUNT INTEGER DEFAULT 0 NOT NULL
         )
         /
         
@@ -3553,12 +3552,6 @@ Follow the instructions below to move all the existing API Manager configuration
         /
         
         ALTER TABLE AM_SUBSCRIPTION ADD TIER_ID_PENDING VARCHAR2(50)
-        /
-        
-        ALTER TABLE AM_POLICY_SUBSCRIPTION ADD (
-            MAX_COMPLEXITY INTEGER DEFAULT 0 NOT NULL,
-            MAX_DEPTH INTEGER DEFAULT 0 NOT NULL
-        )
         /
         
         CREATE TABLE AM_API_RESOURCE_SCOPE_MAPPING (
@@ -3920,7 +3913,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE IF NOT EXISTS AM_ALERT_TYPES (
             ALERT_TYPE_ID INTEGER DEFAULT NEXTVAL('am_alert_types_seq'),
             ALERT_TYPE_NAME VARCHAR(255) NOT NULL ,
-            STAKE_HOLDER VARCHAR(100) NOT NULL,           
+            STAKE_HOLDER VARCHAR(100) NOT NULL,
             PRIMARY KEY (ALERT_TYPE_ID)
         );
         
@@ -4057,11 +4050,15 @@ Follow the instructions below to move all the existing API Manager configuration
             PRIMARY KEY (ALIAS, TENANT_ID, REMOVED)
         );
         
-        ALTER TABLE AM_POLICY_SUBSCRIPTION ADD MONETIZATION_PLAN VARCHAR(25) NULL DEFAULT NULL,
-        ADD FIXED_RATE VARCHAR(15) NULL DEFAULT NULL, 
-        ADD BILLING_CYCLE VARCHAR(15) NULL DEFAULT NULL, 
-        ADD PRICE_PER_REQUEST VARCHAR(15) NULL DEFAULT NULL, 
-        ADD CURRENCY VARCHAR(15) NULL DEFAULT NULL;
+        ALTER TABLE AM_POLICY_SUBSCRIPTION
+            ADD MONETIZATION_PLAN VARCHAR(25) NULL DEFAULT NULL,
+            ADD FIXED_RATE VARCHAR(15) NULL DEFAULT NULL, 
+            ADD BILLING_CYCLE VARCHAR(15) NULL DEFAULT NULL, 
+            ADD PRICE_PER_REQUEST VARCHAR(15) NULL DEFAULT NULL, 
+            ADD CURRENCY VARCHAR(15) NULL DEFAULT NULL,
+            ADD MAX_COMPLEXITY INTEGER NOT NULL DEFAULT 0,
+            ADD MAX_DEPTH INTEGER NOT NULL DEFAULT 0,
+            ADD CONNECTIONS_COUNT INTEGER NOT NULL DEFAULT 0;
         
         CREATE TABLE IF NOT EXISTS AM_MONETIZATION_USAGE (
             ID VARCHAR(100) NOT NULL,
@@ -4231,10 +4228,6 @@ Follow the instructions below to move all the existing API Manager configuration
         
         ALTER TABLE AM_SUBSCRIPTION ADD TIER_ID_PENDING VARCHAR(50);
         
-        ALTER TABLE AM_POLICY_SUBSCRIPTION
-            ADD MAX_COMPLEXITY INTEGER NOT NULL DEFAULT 0,
-            ADD MAX_DEPTH INTEGER NOT NULL DEFAULT 0;
-        
         CREATE TABLE IF NOT EXISTS AM_API_RESOURCE_SCOPE_MAPPING (
             SCOPE_NAME VARCHAR(255) NOT NULL,
             URL_MAPPING_ID INTEGER NOT NULL,
@@ -4345,7 +4338,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
         SQLADM or DBADM authority is required in order to invoke the `ADMIN_MOVE_TABLE` stored procedure. You must also have the appropriate object creation authorities, including authorities to issue the SELECT statement on the source table and to issue the INSERT statement on the target table. 
 
-        ??? info "Click here to see the stored procedure" 
+        ??? info "Click here to see the stored procedure"
             ``` java
             CREATE BUFFERPOOL BP32K IMMEDIATE SIZE 250 AUTOMATIC PAGESIZE 32K
             /
@@ -4521,6 +4514,7 @@ Follow the instructions below to move all the existing API Manager configuration
     3. Migrate API Manager artifacts from 1.10 to 2.0
      
         1. Migrate registry resources from 1.10 to 2.0 as follows.
+
             ``` tab="Linux / Mac OS"
             sh api-manager.sh -DmigrateReg=true -Dcomponent=apim -DmigrateFromVersion=1.10.0
             ```
@@ -4563,7 +4557,7 @@ Follow the instructions below to move all the existing API Manager configuration
         api-manager.bat -DmigrateFromVersion=2.0.0
         ```
 
-    4. Shutdown the API-M server.
+    5. Shutdown the API-M server.
     
        -   Remove the `org.wso2.carbon.apimgt.migrate.client-3.2.0-2.jar` file, which is in the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
 
@@ -4576,7 +4570,7 @@ Follow the instructions below to move all the existing API Manager configuration
     PreserveCaseForResources = false
     ```
 
-9. Re-index the artifacts in the Registry.
+9.  Re-index the artifacts in the Registry.
 
     1.  Run the [reg-index.sql]({{base_path}}/assets/attachments/install-and-setup/reg-index.sql) script against the `SHARED_DB` database.
 
@@ -4594,7 +4588,6 @@ Follow the instructions below to move all the existing API Manager configuration
     3.  Add the following configuration in `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file.
 
         ```
-
         [indexing]
         re_indexing= 1
         
