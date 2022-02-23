@@ -17,7 +17,7 @@ The [Open Policy Agent (OPA)](https://openpolicyagent.org/) is an open source, g
 | 6,7     | Response from the backend                                                                                                                           |
 | 8       | Response to the client                                                                                                                              |
 
-## Attaching OPA Policy to an API Resource
+## Attaching an OPA Policy to an API Resource
 
 By attaching an OPA policy to the API Resource you can enforce OPA validation to that API resource with providing the following values in the policy.
 
@@ -26,14 +26,14 @@ By attaching an OPA policy to the API Resource you can enforce OPA validation to
 | Server URL        | URL of the OPA Server                                         | `http://localhost:8181/v1/data` |
 | Policy            | Name of the policy                                            | `abc-policy`                    |
 | Rule              | Name of the rule                                              | `xyz-rule`                      |
-| Request Generator | **Optional** fully qualified name of the implementation class | Empty string for Default class  |
+| Request Generator | **Optional** fully qualified name of the implementation class | Empty string for default class  |
 | Access Token      | **Optional** access token for OPA server authentication       | `my-secret-token`               |
 
 <!-- // TODO: (renuka) link configuring OPA from APIM (still not in 410-alpha) when APIM docs available -->
 
 ## Defining Policies in the OPA Server
 
-You can define you own policy enforcement logic in OPA by using the values provided by the Choreo Connect Enforcer. Following is a sample policy definition in **Rego** to check the header value `x-abcd` should be `ABCD` when HTTP method is `PUT`, otherwise HTTP method can be `POST`.
+You can define your own policy enforcement logic in OPA by using the values provided by the Choreo Connect Enforcer. The following is a sample policy definition in **Rego** to check the header value. `x-abcd` should be `ABCD` when HTTP method is `PUT`, otherwise HTTP method can be `POST`.
 
 ```rego tab='Sample'
 package abc.authz
@@ -118,10 +118,10 @@ By default Choreo Connect uses the class **OPADefaultRequestGenerator** to gener
 
 ### Response Payload from the OPA server
 
-Same as request generation Choreo Connect uses the class **OPADefaultRequestGenerator** to validate the response from OPA. So for the default implementation, you have to write your OPA policies with the following response format.
+Similar to the request generation Choreo Connect uses the **OPADefaultRequestGenerator**  class to validate the response from OPA. When using the default implementation, you have to write your OPA policies using the following response format.
 
-!!! Info
-    You can have your own **Response Valiation Implementation**, you can do so by implementing the interface **OPARequestGenerator**. [Custom OPA Request Generator](#custom-opa-request-generator) in this document describes it in more details.
+!!! note
+    If required, you can have your own **Response Valiation Implementation** by implementing the interface **OPARequestGenerator**. For more information, see [Custom OPA Request Generator](#custom-opa-request-generator).
 
 ```json tab='Format'
 {
@@ -153,9 +153,9 @@ Same as request generation Choreo Connect uses the class **OPADefaultRequestGene
     public interface OPARequestGenerator {}
     ```
 
-    Here is the sample filter implementation that only returns request headers to the OPA.
+    Here is the sample filter implementation that only returns request headers to OPA.
 
-    ```java tab='Sample Implantation'
+    ```java tab='Sample Implementation'
     package org.example.tests;
 
     import org.json.JSONException;
@@ -200,4 +200,6 @@ Same as request generation Choreo Connect uses the class **OPADefaultRequestGene
     mvn clean install
     ```
 
-5.  Mount the JAR file containing the Custom OPA Request Generator to the `/home/wso2/lib/dropins`. (If you are using the docker-compose file within the distribution, then add the JAR file to `docker-compose/resources/enforcer/dropins` directory.)
+5.  Mount the JAR file containing the Custom OPA Request Generator to the `/home/wso2/lib/dropins` folder. 
+
+    If you are using the docker-compose file within the distribution, then add the JAR file to `docker-compose/resources/enforcer/dropins` directory.
