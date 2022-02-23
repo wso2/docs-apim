@@ -461,6 +461,9 @@ Follow the instructions below to move all the existing API Manager configuration
     !!! warning
         Taking the `log4j.properties` file from your old WSO2 API-M Server and adding it to the WSO2 API-M 4.0.0 Server will no longer work. Refer to [Upgrading to Log4j2]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2) to see how to add a log appender or a logger to the `log4j2.properties` file.
 
+    !!! Warning
+        Note that WSO2 API Manager 3.0.0, 3.1.0, 3.2.0, and 4.0.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
+
     !!! note
         Log4j2 has hot deployment support therefore the **Managing Logs** section has been removed from the Management Console. You can now use the `log4j2.properties` file to modify the required logging configurations without restarting the server.
 
@@ -884,7 +887,10 @@ Follow the instructions below to move all the existing API Manager configuration
             FIXED_RATE VARCHAR(15) NULL DEFAULT NULL,
             BILLING_CYCLE VARCHAR(15) NULL DEFAULT NULL,
             PRICE_PER_REQUEST VARCHAR(15) NULL DEFAULT NULL,
-            CURRENCY VARCHAR(15) NULL DEFAULT NULL
+            CURRENCY VARCHAR(15) NULL DEFAULT NULL,
+            MAX_COMPLEXITY INT(11) NOT NULL DEFAULT 0,
+            MAX_DEPTH INT(11) NOT NULL DEFAULT 0,
+            CONNECTIONS_COUNT INT(11) NOT NULL DEFAULT 0
         );
         
         CREATE TABLE IF NOT EXISTS AM_MONETIZATION_USAGE (
@@ -1018,9 +1024,6 @@ Follow the instructions below to move all the existing API Manager configuration
         ALTER TABLE AM_WORKFLOWS ADD WF_PROPERTIES BLOB NULL;
         
         ALTER TABLE AM_SUBSCRIPTION ADD TIER_ID_PENDING VARCHAR(50);
-        
-        ALTER TABLE AM_POLICY_SUBSCRIPTION ADD MAX_COMPLEXITY INT(11) NOT NULL DEFAULT 0;
-        ALTER TABLE AM_POLICY_SUBSCRIPTION ADD MAX_DEPTH INT(11) NOT NULL DEFAULT 0;
         
         CREATE TABLE IF NOT EXISTS AM_API_RESOURCE_SCOPE_MAPPING (
             SCOPE_NAME VARCHAR(255) NOT NULL,
@@ -1453,9 +1456,12 @@ Follow the instructions below to move all the existing API Manager configuration
         ALTER TABLE AM_POLICY_SUBSCRIPTION 
             ADD MONETIZATION_PLAN VARCHAR(25) DEFAULT NULL
             ADD FIXED_RATE VARCHAR(15) DEFAULT NULL
-            ADD BILLING_CYCLE VARCHAR(15) DEFAULT NULL 
-            ADD PRICE_PER_REQUEST VARCHAR(15) DEFAULT NULL 
+            ADD BILLING_CYCLE VARCHAR(15) DEFAULT NULL
+            ADD PRICE_PER_REQUEST VARCHAR(15) DEFAULT NULL
             ADD CURRENCY VARCHAR(15) DEFAULT NULL
+            ADD MAX_COMPLEXITY INT NOT NULL DEFAULT 0
+            ADD MAX_DEPTH INT NOT NULL DEFAULT 0
+            ADD CONNECTIONS_COUNT INTEGER DEFAULT 0 NOT NULL
         /
         
         CREATE TABLE AM_MONETIZATION_USAGE (
@@ -1571,11 +1577,6 @@ Follow the instructions below to move all the existing API Manager configuration
         ) /
         
         ALTER TABLE AM_SUBSCRIPTION ADD TIER_ID_PENDING VARCHAR(50) /
-        
-        ALTER TABLE AM_POLICY_SUBSCRIPTION
-            ADD MAX_COMPLEXITY INT NOT NULL DEFAULT 0
-            ADD MAX_DEPTH INT NOT NULL DEFAULT 0
-        /
         
         CREATE TABLE IF NOT EXISTS AM_API_RESOURCE_SCOPE_MAPPING (
             SCOPE_NAME varchar(255) NOT NULL,
@@ -2042,11 +2043,14 @@ Follow the instructions below to move all the existing API Manager configuration
         );
         
         ALTER TABLE AM_POLICY_SUBSCRIPTION ADD
-        MONETIZATION_PLAN VARCHAR(25) NULL DEFAULT NULL,
-        FIXED_RATE VARCHAR(15) NULL DEFAULT NULL, 
-        BILLING_CYCLE VARCHAR(15) NULL DEFAULT NULL, 
-        PRICE_PER_REQUEST VARCHAR(15) NULL DEFAULT NULL, 
-        CURRENCY VARCHAR(15) NULL DEFAULT NULL
+            MONETIZATION_PLAN VARCHAR(25) NULL DEFAULT NULL,
+            FIXED_RATE VARCHAR(15) NULL DEFAULT NULL, 
+            BILLING_CYCLE VARCHAR(15) NULL DEFAULT NULL, 
+            PRICE_PER_REQUEST VARCHAR(15) NULL DEFAULT NULL, 
+            CURRENCY VARCHAR(15) NULL DEFAULT NULL,
+            MAX_COMPLEXITY INTEGER NOT NULL DEFAULT 0,
+            MAX_DEPTH INTEGER NOT NULL DEFAULT 0,
+            CONNECTIONS_COUNT INTEGER NOT NULL DEFAULT 0
         ;
         
         IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_MONETIZATION_USAGE]') AND TYPE IN (N'U'))
@@ -2186,11 +2190,6 @@ Follow the instructions below to move all the existing API Manager configuration
         GO
         
         ALTER TABLE AM_SUBSCRIPTION ADD TIER_ID_PENDING VARCHAR(50);
-        
-        ALTER TABLE AM_POLICY_SUBSCRIPTION ADD
-          MAX_COMPLEXITY INTEGER NOT NULL DEFAULT 0,
-          MAX_DEPTH INTEGER NOT NULL DEFAULT 0
-        ;
         
         IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_API_RESOURCE_SCOPE_MAPPING]') AND TYPE IN (N'U'))
         CREATE TABLE AM_API_RESOURCE_SCOPE_MAPPING (
@@ -2628,11 +2627,14 @@ Follow the instructions below to move all the existing API Manager configuration
         );
         
         ALTER TABLE AM_POLICY_SUBSCRIPTION 
-        ADD MONETIZATION_PLAN VARCHAR(25) NULL DEFAULT NULL, 
-        ADD FIXED_RATE VARCHAR(15) NULL DEFAULT NULL, 
-        ADD BILLING_CYCLE VARCHAR(15) NULL DEFAULT NULL, 
-        ADD PRICE_PER_REQUEST VARCHAR(15) NULL DEFAULT NULL, 
-        ADD CURRENCY VARCHAR(15) NULL DEFAULT NULL;
+            ADD MONETIZATION_PLAN VARCHAR(25) NULL DEFAULT NULL, 
+            ADD FIXED_RATE VARCHAR(15) NULL DEFAULT NULL, 
+            ADD BILLING_CYCLE VARCHAR(15) NULL DEFAULT NULL, 
+            ADD PRICE_PER_REQUEST VARCHAR(15) NULL DEFAULT NULL, 
+            ADD CURRENCY VARCHAR(15) NULL DEFAULT NULL,
+            ADD MAX_COMPLEXITY INT(11) NOT NULL DEFAULT 0,
+            ADD MAX_DEPTH INT(11) NOT NULL DEFAULT 0,
+            ADD CONNECTIONS_COUNT INT(11) NOT NULL DEFAULT 0;
         
         CREATE TABLE IF NOT EXISTS AM_MONETIZATION_USAGE (
             ID VARCHAR(100) NOT NULL,
@@ -2767,9 +2769,6 @@ Follow the instructions below to move all the existing API Manager configuration
         ALTER TABLE AM_WORKFLOWS ADD WF_PROPERTIES BLOB NULL DEFAULT NULL;
         
         ALTER TABLE AM_SUBSCRIPTION ADD TIER_ID_PENDING VARCHAR(50);
-        
-        ALTER TABLE AM_POLICY_SUBSCRIPTION ADD MAX_COMPLEXITY INT(11) NOT NULL DEFAULT 0;
-        ALTER TABLE AM_POLICY_SUBSCRIPTION ADD MAX_DEPTH INT(11) NOT NULL DEFAULT 0;
         
         CREATE TABLE IF NOT EXISTS AM_API_RESOURCE_SCOPE_MAPPING (
             SCOPE_NAME VARCHAR(255) NOT NULL,
@@ -3394,7 +3393,10 @@ Follow the instructions below to move all the existing API Manager configuration
             FIXED_RATE VARCHAR(15) DEFAULT NULL NULL, 
             BILLING_CYCLE VARCHAR(15) DEFAULT NULL NULL, 
             PRICE_PER_REQUEST VARCHAR(15) DEFAULT NULL NULL, 
-            CURRENCY VARCHAR(15) DEFAULT NULL NULL
+            CURRENCY VARCHAR(15) DEFAULT NULL NULL,
+            MAX_COMPLEXITY INTEGER DEFAULT 0 NOT NULL,
+            MAX_DEPTH INTEGER DEFAULT 0 NOT NULL,
+            ADD CONNECTIONS_COUNT INTEGER DEFAULT 0 NOT NULL
         )
         /
         
@@ -3550,12 +3552,6 @@ Follow the instructions below to move all the existing API Manager configuration
         /
         
         ALTER TABLE AM_SUBSCRIPTION ADD TIER_ID_PENDING VARCHAR2(50)
-        /
-        
-        ALTER TABLE AM_POLICY_SUBSCRIPTION ADD (
-            MAX_COMPLEXITY INTEGER DEFAULT 0 NOT NULL,
-            MAX_DEPTH INTEGER DEFAULT 0 NOT NULL
-        )
         /
         
         CREATE TABLE AM_API_RESOURCE_SCOPE_MAPPING (
@@ -4054,11 +4050,15 @@ Follow the instructions below to move all the existing API Manager configuration
             PRIMARY KEY (ALIAS, TENANT_ID, REMOVED)
         );
         
-        ALTER TABLE AM_POLICY_SUBSCRIPTION ADD MONETIZATION_PLAN VARCHAR(25) NULL DEFAULT NULL,
-        ADD FIXED_RATE VARCHAR(15) NULL DEFAULT NULL, 
-        ADD BILLING_CYCLE VARCHAR(15) NULL DEFAULT NULL, 
-        ADD PRICE_PER_REQUEST VARCHAR(15) NULL DEFAULT NULL, 
-        ADD CURRENCY VARCHAR(15) NULL DEFAULT NULL;
+        ALTER TABLE AM_POLICY_SUBSCRIPTION
+            ADD MONETIZATION_PLAN VARCHAR(25) NULL DEFAULT NULL,
+            ADD FIXED_RATE VARCHAR(15) NULL DEFAULT NULL, 
+            ADD BILLING_CYCLE VARCHAR(15) NULL DEFAULT NULL, 
+            ADD PRICE_PER_REQUEST VARCHAR(15) NULL DEFAULT NULL, 
+            ADD CURRENCY VARCHAR(15) NULL DEFAULT NULL,
+            ADD MAX_COMPLEXITY INTEGER NOT NULL DEFAULT 0,
+            ADD MAX_DEPTH INTEGER NOT NULL DEFAULT 0,
+            ADD CONNECTIONS_COUNT INTEGER NOT NULL DEFAULT 0;
         
         CREATE TABLE IF NOT EXISTS AM_MONETIZATION_USAGE (
             ID VARCHAR(100) NOT NULL,
@@ -4228,10 +4228,6 @@ Follow the instructions below to move all the existing API Manager configuration
         
         ALTER TABLE AM_SUBSCRIPTION ADD TIER_ID_PENDING VARCHAR(50);
         
-        ALTER TABLE AM_POLICY_SUBSCRIPTION
-            ADD MAX_COMPLEXITY INTEGER NOT NULL DEFAULT 0,
-            ADD MAX_DEPTH INTEGER NOT NULL DEFAULT 0;
-        
         CREATE TABLE IF NOT EXISTS AM_API_RESOURCE_SCOPE_MAPPING (
             SCOPE_NAME VARCHAR(255) NOT NULL,
             URL_MAPPING_ID INTEGER NOT NULL,
@@ -4298,7 +4294,7 @@ Follow the instructions below to move all the existing API Manager configuration
         UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL='' WHERE CALLBACK_URL IS NULL;
         ```
 
-5.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_4.0.0_HOME>/repository/resources/security` directory.
+1.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_4.0.0_HOME>/repository/resources/security` directory.
 
     !!! Attention
         In API Manager 4.0.0, it is required to use a certificate with the RSA key size greater than 2048. If you have used a certificate that has a weak RSA key (key size less than 2048) in the previous version, you need to add the following configuration to the `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file to configure the internal and primary keystores. You should point the internal keystore to the keystore copied from API Manager 2.0.0 and the primary keystore can be pointed to a keystore with a certificate that has a strong RSA key. 
@@ -4330,7 +4326,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ./ciphertool.bat -Dconfigure
         ```
 
-6.  Upgrade the Identity component in WSO2 API Manager from version 5.1.0 to 5.11.0.
+2.  Upgrade the Identity component in WSO2 API Manager from version 5.1.0 to 5.11.0.
 
     !!! note
         If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.11.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-is-5110) instead of the steps mentioned below.
@@ -4499,7 +4495,7 @@ Follow the instructions below to move all the existing API Manager configuration
             -Dmigrate -Dcomponent=identity
             ```
 
-7.  Migrate the API Manager artifacts.
+3.  Migrate the API Manager artifacts.
 
     !!! Note
         Modify the `[apim.gateway.environment]` tag in the `<API-M_HOME>/repository/conf/deployment.toml` file, the name should change to "Production and Sandbox". By default, it is set as `Default` in API Manager 4.0.0.
@@ -4518,6 +4514,7 @@ Follow the instructions below to move all the existing API Manager configuration
     3. Migrate API Manager artifacts from 1.10 to 2.0
      
         1. Migrate registry resources from 1.10 to 2.0 as follows.
+
             ``` tab="Linux / Mac OS"
             sh api-manager.sh -DmigrateReg=true -Dcomponent=apim -DmigrateFromVersion=1.10.0
             ```
@@ -4560,20 +4557,20 @@ Follow the instructions below to move all the existing API Manager configuration
         api-manager.bat -DmigrateFromVersion=2.0.0
         ```
 
-    4. Shutdown the API-M server.
+    5. Shutdown the API-M server.
     
        -   Remove the `org.wso2.carbon.apimgt.migrate.client-3.2.0-2.jar` file, which is in the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
 
        -   Remove the `migration-resources` and `migration-scripts` directories, which are in the `<API-M_4.0.0_HOME>` directory.
 
-8.  Preserve the case sensitive behavior for the migrated resources by adding the following property to the `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file:
+4.  Preserve the case sensitive behavior for the migrated resources by adding the following property to the `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file:
 
     ``` java
     [authorization_manager.properties]
     PreserveCaseForResources = false
     ```
 
-9. Re-index the artifacts in the Registry.
+5.  Re-index the artifacts in the Registry.
 
     1.  Run the [reg-index.sql]({{base_path}}/assets/attachments/install-and-setup/reg-index.sql) script against the `SHARED_DB` database.
 
@@ -4591,7 +4588,6 @@ Follow the instructions below to move all the existing API Manager configuration
     3.  Add the following configuration in `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file.
 
         ```
-
         [indexing]
         re_indexing= 1
         
