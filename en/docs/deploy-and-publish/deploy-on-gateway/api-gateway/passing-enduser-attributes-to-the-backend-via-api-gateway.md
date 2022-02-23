@@ -29,7 +29,7 @@ expiry_time = "900"
 
 Before passing end user attributes, you need to enable and configure the JWT implementation, as mentioned below in the default API Gateway.
 
-1. Navigate to the `<API-M_HOME>/resources/conf/config.toml` file.
+1. Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
 2. Enable and configure the JWT implementation.
 
