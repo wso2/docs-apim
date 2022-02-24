@@ -1298,12 +1298,12 @@ nav:
         - Install:
             - Installation Prerequisites: install-and-setup/install/installation-prerequisites.md
             - Install the API Manager Runtime:
-                - Install the API-M Runtime: install-and-setup/install/installing-the-product/installing-api-m-runtime.md
-                - Run the API-M Runtime: install-and-setup/install/installing-the-product/running-the-api-m.md
+                - Install API-M: install-and-setup/install/installing-the-product/installing-api-m-runtime.md
+                - Run API-M: install-and-setup/install/installing-the-product/running-the-api-m.md
                 - Run API-M as a Linux Service: install-and-setup/install/installing-the-product/installing-api-m-as-a-linux-service.md
                 - Run API-M as a Windows Service: install-and-setup/install/installing-the-product/installing-api-m-as-a-windows-service.md
             - Install the Micro Integrator (MI):
-                - Install the MI: install-and-setup/install/installing-the-product/installing-mi.md
+                - Install MI: install-and-setup/install/installing-the-product/installing-mi.md
                 - Run the MI Runtime: install-and-setup/install/installing-the-product/running-the-mi.md
                 - Run the MI as a Windows Service: install-and-setup/install/installing-the-product/installing-mi-as-a-windows-service.md
             - Install the MI Dashboard:
@@ -1313,10 +1313,10 @@ nav:
             - Install the Streaming Integrator (SI):
                 - Install SI: install-and-setup/install/installing-the-product/installing-si.md
                 - Install Siddhi Extensions: develop/streaming-apps/installing-siddhi-extensions.md
-                - Run the SI Runtime: install-and-setup/install/installing-the-product/running-the-si.md
+                - Run SI: install-and-setup/install/installing-the-product/running-the-si.md
                 - Run SI as a Windows Service: install-and-setup/install/installing-the-product/installing-si-as-windows-service.md
                 - Run SI as a Linux Service: install-and-setup/install/installing-the-product/installing-si-as-a-linux-service.md
-                - Run the SI in Containers:
+                - Run SI in Containers:
                     - Install in Docker: install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-docker.md
                     - Install in Kubernetes: install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-kubernetes.md
             - Installation Options: install-and-setup/install/installation-options.md

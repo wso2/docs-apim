@@ -399,11 +399,11 @@ Once you have downloaded and set up the Micro Integrator locally, follow the ste
     2.    Execute one of the commands given below.
 
           ```bash tab="On MacOS/Linux"
-          ./micro-intgrator.sh
+          ./micro-integrator.sh
           ```
 
           ```bash tab="On Windows"
-          micro-intgrator.bat
+          micro-integrator.bat
           ```
 
 ## Step 4 - Observe deployed artifacts
