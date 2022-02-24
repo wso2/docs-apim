@@ -30,6 +30,9 @@ curl -v http://localhost:9763/services/Version
 <ns:getVersionResponse xmlns:ns="http://version.services.core.carbon.wso2.org"><return>WSO2 API Manager-2.6.0</return></ns:getVersionResponse>
 ```
 
+!!! note
+    Basic health checks for WebSocket ports 9099 and 8099 can be performed using `curl -v http://<HOSTNAME>:<PORT>/health`. For example, use the `curl -v http://localhost:9099/health` cURL command to check the health of port 9099. The response will be `200 OK` if the port is healthy.
+
 ## Micro Integrator health checks
 
 WSO2 Micro Integrator provides a dedicated API for checking the health of the server. This can be used by a load 
