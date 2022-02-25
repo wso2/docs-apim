@@ -93,6 +93,36 @@ Please follow below steps to enable logs for a given service component available
     loggers = org-wso2-carbon-user-core, trace-messages, org-apache-coyote,com-hazelcast
     ```
 
+### Enable logs for a component via the UI
+
+!!! note
+You need to get the [latest product updates for your product]({{base_path}}/administer/updating-wso2-api-manager/) to use this feature in the current version of WSO2 API-M. This feature is available as a product update in WSO2 API-M 3.2.0 from March 1, 2022 onwards.
+
+    !!! warning
+        Note that you can deploy updates in a production environment only if you have a valid subscription with WSO2. Read more about [WSO2 Updates](https://wso2.com/updates).
+
+Follow the instructions below to enable logs for a given service component available in WSO2 API Manager.
+
+1. Navigate to the Carbon console [https://localhost:9443/carbon](https://localhost:9443/carbon) and sign in with **`admin/admin`** as the credentials.
+
+2. Go to **Configure** -> **Logging**
+
+   [![Logger Carbon UI]({{base_path}}/assets/img/administer/logging.png)]({{base_path}}/assets/img/administer/logging.png)
+
+3. Add a new logger specifying the logger name, logger class name, and log level that you need to enable logs as shown below and click **Update**.
+
+   [![Add Logger Carbon UI]({{base_path}}/assets/img/administer/add-logger.png)]({{base_path}}/assets/img/administer/add-logger.png)
+
+   After you add the logger, it will be shown on the logger page as shown below.
+
+   [![List Logger Carbon UI]({{base_path}}/assets/img/administer/list-logger.png)]({{base_path}}/assets/img/administer/list-logger.png)
+
+4. Optionally, update the log level OR disable the logs.
+
+   Navigate to the specific logger and change the log level as shown below.
+
+   [![Update Logger Carbon UI]({{base_path}}/assets/img/administer/update-logger.png)]({{base_path}}/assets/img/administer/update-logger.png)
+
 ###Setting the Log levels
 
 The log level can be set specifically for each appender in the `log4j2.properties` file by setting the threshold value. If a log level is not specifically given for an appender as explained below, the root log level (INFO) will apply to all appenders by default.
