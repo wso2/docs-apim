@@ -8,6 +8,7 @@ There are mainly two ways to customize and override the developer portal theme.
 In this section, we will cover the first method which is the simplest way to change the appearance of Developer portal.
 
 For the second method, please refer [Advanced Customization]({{base_path}}/develop/customizations/advanced-ui-customization/) section.
+
 ## Global Theming
 
 You can find the default theme in the following location `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/source/src/app/data/defaultTheme.js`. 
@@ -74,7 +75,7 @@ The following documents describe some of the most commonly used customizations, 
 2.  The `sample-theme.zip` file contains the following folder structure. 
 
      You can make the changes required to `userTheme.json` file and archive it back. The name of the archive does not matter. But make sure that the `userTheme.json` file name remains the same.
-     Uses of resources in `login` folder will be discussed in [Applying themes for tenant login pages]({{base_path}}/develop/customizations/customizing-the-developer-portal/overriding-developer-portal-theme/#applying-themes-for-tenant-login-pages).
+     Uses of resources in `login` folder will be discussed in [Applying themes for tenant login pages](#applying-themes-for-tenant-login-pages).
 
       ```
       └──apim
