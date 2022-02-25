@@ -394,7 +394,7 @@ nav:
             - WSO2 Integration Studio:
                 - Quick Tour - WSO2 Integration Studio: integrate/develop/wso2-integration-studio.md
                 - Install WSO2 Integration Studio: integrate/develop/installing-wso2-integration-studio.md
-                - Woek with WSO2 Integration Studio: integrate/develop/working-with-wso2-integration-studio.md
+                - Work with WSO2 Integration Studio: integrate/develop/working-with-wso2-integration-studio.md
                 - Troubleshoot WSO2 Integration Studio: integrate/develop/troubleshooting-wso2-integration-studio.md
             - Develop Your First Integation: integrate/develop/integration-development-kickstart.md
             - Publish Integrations to the API Manager: integrate/develop/working-with-service-catalog.md
