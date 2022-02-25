@@ -8,23 +8,25 @@ The [Salesforce streaming API](https://developer.salesforce.com/docs/atlas.en-us
 
 The Salesforce inbound endpoint is a listening inbound endpoint that can consume messages from Salesforce. This injects messages to an integration sequence. However, for simplicity of this example, we will just log the message. You can extend the sample as required using WSO2 [mediators]({{base_path}}/reference/mediators/about-mediators/). 
 
-In this example we can trigger the notifications to the Salesforce Inbound Endpoint via creating the `Platform events` or `PushTopic` methods. Please note that our example configurations are based on creating the `PushTopic` method. You can use the instructions given in the [sf-rest inbound endpoint configuration]({{base_path}}/reference/connectors/salesforce-connectors/sf-rest inbound endpoint configuration/) documentation.
+In this example we can trigger the notifications to the Salesforce Inbound Endpoint via creating the `Platform events` or `PushTopic` methods. Please note that our example configurations are based on creating the `PushTopic` method. You can use the instructions given in the [sf-rest inbound endpoint configuration]({{base_path}}/reference/connectors/salesforce-connectors/sf-inbound-endpoint-configuration/) documentation.
 
 The following diagram illustrates all the required functionality of the Salesforce inbound operations that you are going to build. 
 
-For example, we are building an integrated example driven through the [Salesforce connector]({{base_path}}/reference/salesforce-connectors/sf-rest-connector-example/) and Salesforce Inbound Endpoint. The user calls the Salesforce REST API. It invokes the **create** sequence and creates a new account in Salesforce. Then, through the **retrieve** sequence, it displays all the existing account details to the user. 
+For example, we are building an integrated example driven through the [Salesforce connector]({{base_path}}/reference/connectors/salesforce-connectors/sf-rest-connector-example/) and Salesforce Inbound Endpoint. The user calls the Salesforce REST API. It invokes the **create** sequence and creates a new account in Salesforce. Then, through the **retrieve** sequence, it displays all the existing account details to the user.
 
 Now that you have configured the Salesforce Inbound Endpoint, use the following Inbound Endpoint configuration to retrieve account details from your Salesforce account. The Salesforce inbound endpoint acts as a message receiver. You can inject that message into the mediation flow for getting the required output.
 
-<img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inboundep-example.png" title="Salesforce Inbound Endpoint" width="800" alt="Salesforce Inbound Endpoint"/>
+<a href="{{base_path}}/assets/img/integrate/connectors/salesforce-inboundep-example.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inboundep-example.png" title="Salesforce Inbound Endpoint" alt="Salesforce Inbound Endpoint"/></a>
 
 ## Configure inbound endpoint using WSO2 Integration Studio
 
 1. Download [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/). Create an **Integration Project** as below. 
-   <img src="{{base_path}}/assets/img/integrate/connectors/integration-project.png" title="Creating a new Integration Project" width="800" alt="Creating a new Integration Project" />
+   
+    <img src="{{base_path}}/assets/img/integrate/connectors/integration-project.png" title="Creating a new Integration Project" width="800" alt="Creating a new Integration Project" />
 
-2. Right click on **Created Integration Project** -> **New** -> **Inbound Endpoint** -> **Create A New Inbound Endpoint** -> **Inbound Endpoint Creation Type**and select as **custom** -> Click **Next**.
-   <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inboundep-create-new-ie.png" title="Creating inbound endpoint" width="400" alt="Creating inbound endpoint" style="border:1px solid black"/>
+2. Right click on **Created Integration Project** -> **New** -> **Inbound Endpoint** -> **Create A New Inbound Endpoint** -> **Inbound Endpoint Creation Type** and select as **custom** -> Click **Next**.
+   
+    <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inboundep-create-new-ie.png" title="Creating inbound endpoint" width="400" alt="Creating inbound endpoint" style="border:1px solid black"/>
 
 3. Click on **Inbound Endpoint** in design view and under `properties` tab, update class name to `org.wso2.carbon.inbound.salesforce.poll.SalesforceStreamData`. 
 
@@ -84,7 +86,7 @@ Now that you have configured the Salesforce Inbound Endpoint, use the following 
 
 1. Navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for `SalesforceRest`. Click on `Salesforce Inbound Endpoint` and download the .jar file by clicking on `Download Inbound Endpoint`. Copy this .jar file into  <PRODUCT-HOME>/lib folder. 
 
-2. Copy the exported carbon application to the <PRODUCT-HOME>/repository/deployment/server/carbonapps folder. 
+2. Copy the exported carbon application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder. 
 
 4. Start the integration server. 
 
@@ -118,5 +120,5 @@ Now that you have configured the Salesforce Inbound Endpoint, use the following 
    ```   
 ## What's next
    
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
+* You can deploy and run your project using [different Micro Integrator installation options]({{base_path}}/install-and-setup/install/installation-options/).
 * To customize this example for your own scenario, see [Salesforce Inbound Endpoint Reference]({{base_path}}/reference/connectors/salesforce-connectors/sf-inbound-endpoint-reference-configuration/) documentation for all operation details of the connector.
