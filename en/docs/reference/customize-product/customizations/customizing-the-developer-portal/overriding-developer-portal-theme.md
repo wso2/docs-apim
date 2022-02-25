@@ -74,7 +74,7 @@ The following documents describe some of the most commonly used customizations, 
 2.  The `sample-theme.zip` file contains the following folder structure. 
 
      You can make the changes required to `userTheme.json` file and archive it back. The name of the archive does not matter. But make sure that the `userTheme.json` file name remains the same.
-     Uses of resources in `login` folder will be discussed in [Applying themes for tenant login pages]({{base_path}}/develop/customizations/customizing-the-developer-portal/overriding-developer-portal-theme/#applying-themes-for-tenant-login-pages).
+     Uses of resources in `login` folder will be discussed in [Applying themes for tenant login pages](#applying-themes-for-tenant-login-pages).
 
       ```
       └──apim
