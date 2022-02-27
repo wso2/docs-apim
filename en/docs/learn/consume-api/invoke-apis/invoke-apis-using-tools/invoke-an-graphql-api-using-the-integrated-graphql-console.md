@@ -156,3 +156,46 @@ Follow the instructios below to invoke a **GraphQL Subscription operation** usin
      [![Response Event of GraphQL Subscription]({{base_path}}/assets/img/learn/try-out-sub-event.png)]({{base_path}}/assets/img/learn/try-out-sub-event.png)
 
      You have now successfully invoked a GraphQL API using the GraphQL API Console.
+
+!!!info "Subscription Error Handling"
+
+    Following are the error codes and descriptions returned by API-M Gateway whenever a fault occurs during GraphQL subscription invocations.
+
+    **Error during handshake**
+
+     <table>
+        <tr>
+            <th>Error Code</th> 
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>401</td> <td>Authentication Failure<br>Eg: Invalid Credentials</td>
+        </tr>
+        <tr>
+            <td>404</td> <td>Resource Not Found<br>Eg: Requested API Not Found</td>
+        </tr>
+        <tr>
+            <td>500</td> <td>Internal Server Error<br>Eg: Error while processing websocket handshake request</td>
+        </tr>
+     </table>
+
+    **Error after connection establishment**
+
+     <table>
+        <tr>
+            <th>Error Code</th> 
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>4001</td> <td>Invalid Credentials<br>Eg: Expired token</td>
+        </tr>
+        <tr>
+            <td>4002</td> <td>User NOT authorized to access the resource<br>Eg: Scope validation fails</td>
+        </tr>
+        <tr>
+            <td>4003</td> <td>Websocket frame throttled out<br>Eg: Subscription operation throttled out</td>
+        </tr>
+        <tr>
+            <td>4004</td> <td>Internal Server Error</td>
+        </tr>
+     </table>
