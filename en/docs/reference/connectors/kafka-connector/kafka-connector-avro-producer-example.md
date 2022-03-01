@@ -16,7 +16,7 @@ Before you begin, set up Kafka by following the instructions in [Setting up Kafk
 
 Follow these steps to set up the Integration Project and the Connector Exporter Project.
 
-{!reference/connectors/importing-connector-to-integration-studio.md!}
+{!includes/reference/connectors/importing-connector-to-integration-studio.md!}
 
 1. Right-click the created Integration Project and select **New** -> **Rest API** to create the REST API.
 
@@ -65,13 +65,13 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
     ```
 Now we can export the imported connector and the API into a single CAR application. The CAR application needs to be deployed during server runtime. 
 
-{!reference/connectors/exporting-artifacts.md!}
+{!includes/reference/connectors/exporting-artifacts.md!}
 
 ## Deployment
 
 Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
 
-{!reference/connectors/deploy-capp.md!}
+{!includes/reference/connectors/deploy-capp.md!}
     
 ## Testing
 
