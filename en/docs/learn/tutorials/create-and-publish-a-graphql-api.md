@@ -261,37 +261,101 @@ Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to pu
 
          [![Copy Access Token for tryout GraphQL API]({{base_path}}/assets/img/learn/graphql-api-copy-access-token.png)]({{base_path}}/assets/img/learn/graphql-api-copy-access-token.png)
 
-    3. Enter the following sample payload as the StarWarsAPI request. Then click on execute button as follows.
+#### Step 5.1 - Optionally, try out a Query operation
+
+ 1. Enter the following sample payload as the StarWarsAPI request. Then click on execute button as follows.
     
-         ```
-         query{
-            human(id:1000){
-               id
-               name
-            }
-            droid(id:2000){
-               name
-               friends{
-               name
-               appearsIn
-               }
+      ```
+      query{
+         human(id:1000){
+            id
+            name
+         }
+         droid(id:2000){
+            name
+            friends{
+            name
+            appearsIn
             }
          }
-         
-         ```
+      }
 
-         [![Execute GraphQL Query]({{base_path}}/assets/img/learn/graphql-console-execute-query.png)]({{base_path}}/assets/img/learn/graphql-console-execute-query.png)
+      ```
 
-         <html>
-         <div class="admonition note">
+      [![Execute GraphQL Query]({{base_path}}/assets/img/learn/graphql-console-execute-query.png)]({{base_path}}/assets/img/learn/graphql-console-execute-query.png)
+
+      <html>
+      <div class="admonition note">
+      <p class="admonition-title">Note</p>
+      <p>If you are going to invoke QUERY Operation, payload should be started with 'query' keyword.</p>
+      <p>If you are going to invoke MUTATION Operation, payload should be started with 'mutation' keyword.</p>
+      </div> 
+      </html>
+
+2. Click **Execute**.
+
+      [![Response of GraphQL Query]({{base_path}}/assets/img/learn/graphql-response-query.png)]({{base_path}}/assets/img/learn/graphql-response-query.png)
+
+<a name="5.2"></a>
+
+#### Step 5.2 - Optionally, try out a Subscription operation
+
+!!! warning
+    **GraphQL Subscription Operations Support** has been introduced via an U2/WUM update and is effective from 26th February 2022 (2022-02-26).
+
+    For more information on how to update using U2, see [Updates 2.0 Documentation](https://updates.docs.wso2.com/en/latest/updates/overview/). For more information on how to update using WUM, see the documentation [Using WSO2 Update Manager](https://docs.wso2.com/display/updates100/Using+WSO2+Update+Manager).
+
+1. Enter the following sample payload as the StarWarsAPI `reviewAdded` subscription request to get real-time updates about the addition of new reviews.
+
+    ```
+    subscription {
+       reviewAdded(episode: JEDI) {
+          stars
+          episode
+
+          commentary
+       }
+    }
+    ```
+
+    <html>
+      <div class="admonition note">
          <p class="admonition-title">Note</p>
-         <p>If you are going to invoke QUERY Operation, payload should be started with 'query' keyword.</p>
-         <p>If you are going to invoke MUTATION Operation, payload should be started with 'mutation' keyword.</p>
-         </div> 
-         </html>
+         <p>If you are going to invoke SUBSCRIPTION operation, you should start the payload with the keyword `subscription`.</p>
+       </div> 
+   </html>
 
-    4. Click **Execute**.
+2. Prepare to inspect the network calls from your browser developer tools.
 
-        [![Response of GraphQL Query]({{base_path}}/assets/img/learn/graphql-response-query.png)]({{base_path}}/assets/img/learn/graphql-response-query.png)
+    For example, if you are using the Google Chrome browser.
+
+    1. Right-click on the browser and click **Inspect**.
+    2. Click **Network** to view the network calls via the browser developer tools.
+
+3. Click **Execute**. 
+   
+    If you inspect the network calls from your browser developer tools, you can see the messages passed between the GraphiQL client and the backend.
+    
+    [![Response of GraphQL Subscription]({{base_path}}/assets/img/learn/graphql-sub-init-response.png)]({{base_path}}/assets/img/learn/graphql-sub-init-response.png)
+   
+    As you can see, a successful WebSocket connection is established between the client and backend via WSO2 API Gateway.
+
+4. While keeping the Developer Portal web browser page opened, separately open a terminal and directly invoke the backend API’s `createReview` mutation operation by executing the following command.
+
+      ```
+      curl -X POST "http://localhost:8080/graphql" -H  "accept: application/json" -H  "Content-Type: application/json" -d '{"query":"mutation {createReview(episode: JEDI, review: { stars: 3, commentary: \"Excellent\"}) { stars   episode   commentary }}","variables":null}' -k
+      ```
+
+      When the mutation is successful, the GraphQL backend will send the following response:
+
+      ```
+      {"data":{"createReview":{"stars":3,"episode":"JEDI","commentary":"Excellent"}}}
+      ```
+
+5. Now go back to the Developer Portal browser page.
+   
+    You can see that you have received the subscription event response that corresponds to the mutation operation you did in <a href="#5.2">Step 5.2 (4)</a>.
+
+    [![Response of GraphQL Subscription]({{base_path}}/assets/img/learn/graphql-sub-init-response.png)]({{base_path}}/assets/img/learn/graphql-sub-init-response.png)
 
 You have successfully created and published your first GraphQL API, subscribed to it, obtained an access token for testing and tested your API with the access token.

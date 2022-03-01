@@ -199,7 +199,8 @@ This section lists out the features that were updated or introduced newly to WSO
 
 | Updated or newly introduced feature | The date of the update |
 | ----------------------------------- | ---------------------- |
-| [Configuring OAuth 2.0 Endpoint Security Using the Parameters File via API Controller (apictl)]({{base_path}}/learn/api-controller/advanced-topics/configuring-different-endpoint-security-types/#configuring-oauth-20-endpoint-security) | 8 October, 2021 | 
+| [Configuring OAuth 2.0 Endpoint Security Using the Parameters File via API Controller (apictl)]({{base_path}}/learn/api-controller/advanced-topics/configuring-different-endpoint-security-types/#configuring-oauth-20-endpoint-security) | 8 October, 2021 |
+| [GraphQL Subscription Operations Support]({{base_path}}/learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console/#invoke-a-graphql-subscription-operation) | 26 February, 2022 |  
 
 ## Compatible WSO2 product versions
 

@@ -47,8 +47,17 @@ The examples here use the `StarWarsAPI` GraphQL API, which was created in [Creat
 
     [![Copy Access Token for tryout GraphQL API]({{base_path}}/assets/img/learn/graphql-api-copy-access-token.png)]({{base_path}}/assets/img/learn/graphql-api-copy-access-token.png)
 
+8. Invoke the GraphQL API using the [GraphiQL console](#using-the-graphiql-console).
 
-8. Enter the following sample query.
+## Using the GraphiQL console
+
+Let's see how to invoke a GraphQL API using the GraphiQL console, which is a type of GraphQL console.
+
+### Invoke a GraphQL Query operation
+
+Follow the instructios below to invoke a **GraphQL Query operation** using the GraphiQL console:
+
+1. Enter the following sample query.
 
     ```
     query{
@@ -67,7 +76,7 @@ The examples here use the `StarWarsAPI` GraphQL API, which was created in [Creat
           
     ```
  
-9. Click **Execute**.
+2. Click **Execute**.
 
      [![Execute GraphQL Query]({{base_path}}/assets/img/learn/graphql-console-execute-query.png)]({{base_path}}/assets/img/learn/graphql-console-execute-query.png)
 
@@ -83,3 +92,110 @@ The examples here use the `StarWarsAPI` GraphQL API, which was created in [Creat
      [![Response of GraphQL Query]({{base_path}}/assets/img/learn/graphql-response-query.png)]({{base_path}}/assets/img/learn/graphql-response-query.png)
 
 You have now successfully invoked a GraphQL API using the GraphQL API Console.
+
+### Invoke a GraphQL Subscription operation
+
+!!! warning
+    **GraphQL Subscription Operations Support** has been introduced via an U2/WUM update and is effective from 26th February 2022 (2022-02-26).
+
+    For more information on how to update using U2, see [Updates 2.0 Documentation](https://updates.docs.wso2.com/en/latest/updates/overview/). For more information on how to update using WUM, see the documentation [Using WSO2 Update Manager](https://docs.wso2.com/display/updates100/Using+WSO2+Update+Manager).
+
+Follow the instructios below to invoke a **GraphQL Subscription operation** using the GraphiQL console:
+
+1. Enter the following sample query to execute a subscription operation via WebSockets.
+
+    ```
+    subscription {
+        reviewAdded(episode: JEDI) {
+            stars
+            episode
+            commentary
+        }
+    }
+    ```
+
+2. Click **Execute**. 
+   
+     If you inspect the network calls from your browser developer tools, you can see the messages passed between the GraphiQL client and the backend.
+
+     [![Response of GraphQL Subscription]({{base_path}}/assets/img/learn/graphql-sub-init-response.png)]({{base_path}}/assets/img/learn/graphql-sub-init-response.png)
+
+     Now a successful WebSocket connection is established between the client and backend via WSO2 API Gateway.
+
+    !!! info "Troubleshooting"
+        If you **cannot invoke the API's WSS endpoint during handshake** (this causes the **SSLPeerUnverified exception**), it could be because the security certificate issued by the server is not trusted by your browser. 
+        
+        This will result in the following error being printed in the backend.
+
+        ```
+        ERROR - InboundWebsocketSourceHandler Endpoint not found for port : 8099 tenant domain : null
+        ```       
+        
+        To resolve this issue, access the corresponding HTTPS endpoint of the WSS endpoint directly from your browser and accept the security certificate. (e.g., `https://localhost:8099/swapi/1.0.0`) 
+        
+        If the API Manager has a **certificate signed by a Certificate Authority (CA)**, the WSS endpoints should work out-of-the-box.
+
+     <a name="step3"></a>
+
+3.  While keeping the Developer Portal web browser page opened, separately open a terminal and directly invoke the backend API’s `createReview` mutation operation by executing the following command.
+
+     ```
+     curl -X POST "http://localhost:8080/graphql" -H  "accept: application/json" -H  "Content-Type: application/json" -d '{"query":"mutation {createReview(episode: JEDI, review: { stars: 3, commentary: \"Excellent\"}) { stars   episode   commentary }}","variables":null}' -k
+     ```
+
+     When the mutation is successful, the GraphQL API will send the following message as a response:
+
+     ```
+     {"data":{"createReview":{"stars":3,"episode":"JEDI","commentary":"Excellent"}}}
+     ```
+
+4.  Go back to the Developer Portal browser page.
+
+     You will notice that you have received a subscription event response corresponding to the mutation operation that you carried out in <a href="#step3">Step 3</a>.
+
+     [![Response Event of GraphQL Subscription]({{base_path}}/assets/img/learn/try-out-sub-event.png)]({{base_path}}/assets/img/learn/try-out-sub-event.png)
+
+     You have now successfully invoked a GraphQL API using the GraphQL API Console.
+
+!!!info "Subscription Error Handling"
+
+    Following are the error codes and descriptions returned by API-M Gateway whenever a fault occurs during GraphQL subscription invocations.
+
+    **Error during handshake**
+
+     <table>
+        <tr>
+            <th>Error Code</th> 
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>401</td> <td>Authentication Failure<br>Eg: Invalid Credentials</td>
+        </tr>
+        <tr>
+            <td>404</td> <td>Resource Not Found<br>Eg: Requested API Not Found</td>
+        </tr>
+        <tr>
+            <td>500</td> <td>Internal Server Error<br>Eg: Error while processing websocket handshake request</td>
+        </tr>
+     </table>
+
+    **Error after connection establishment**
+
+     <table>
+        <tr>
+            <th>Error Code</th> 
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>4001</td> <td>Invalid Credentials<br>Eg: Expired token</td>
+        </tr>
+        <tr>
+            <td>4002</td> <td>User NOT authorized to access the resource<br>Eg: Scope validation fails</td>
+        </tr>
+        <tr>
+            <td>4003</td> <td>Websocket frame throttled out<br>Eg: Subscription operation throttled out</td>
+        </tr>
+        <tr>
+            <td>4004</td> <td>Internal Server Error</td>
+        </tr>
+     </table>
