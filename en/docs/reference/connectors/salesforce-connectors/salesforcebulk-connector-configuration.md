@@ -10,27 +10,27 @@ Salesforce uses the OAuth protocol to allow application users to securely access
 
 Follow the steps below to create a connected application using Salesforce and to obtain the consumer key as well as the consumer secret for the created connected application.
 
-{!reference/connectors/salesforce-connectors/sf-access-token-generation.md!} 
+{!includes/reference/connectors/salesforce-connectors/sf-access-token-generation.md!} 
 
 ### Configuring Axis2 configurations
 
 Be sure to add and enable the following Axis2 configurations in the `<PRODUCT_HOME>/conf/axis2/axis2.xml` file.
 
 * **Required message formatters**
-
-```
-<messageFormatter contentType="text/csv" class="org.wso2.carbon.relay.ExpandingMessageFormatter"/>
-<messageFormatter contentType="zip/xml" class="org.wso2.carbon.relay.ExpandingMessageFormatter"/>
-<messageFormatter contentType="zip/csv" class="org.wso2.carbon.relay.ExpandingMessageFormatter"/>
-<messageFormatter contentType="text/xml" class="org.wso2.carbon.relay.ExpandingMessageFormatter"/>
-<messageFormatter contentType="text/html" class="org.wso2.carbon.relay.ExpandingMessageFormatter"/> 
-```
-
+  
+  ```
+  <messageFormatter contentType="text/csv" class="org.wso2.carbon.relay.ExpandingMessageFormatter"/>
+  <messageFormatter contentType="zip/xml" class="org.wso2.carbon.relay.ExpandingMessageFormatter"/>
+  <messageFormatter contentType="zip/csv" class="org.wso2.carbon.relay.ExpandingMessageFormatter"/>
+  <messageFormatter contentType="text/xml" class="org.wso2.carbon.relay.ExpandingMessageFormatter"/>
+  <messageFormatter contentType="text/html" class="org.wso2.carbon.relay.ExpandingMessageFormatter"/> 
+  ```
 * **Required message builders**
-```
-<messageBuilder contentType="text/csv" class="org.wso2.carbon.relay.BinaryRelayBuilder"/>
-<messageBuilder contentType="zip/xml" class="org.wso2.carbon.relay.BinaryRelayBuilder"/>
-<messageBuilder contentType="zip/csv" class="org.wso2.carbon.relay.BinaryRelayBuilder"/>
-<messageBuilder contentType="text/xml" class="org.wso2.carbon.relay.BinaryRelayBuilder"/>
-<messageBuilder contentType="text/html" class="org.wso2.carbon.relay.BinaryRelayBuilder"/>
-```
+
+  ```
+  <messageBuilder contentType="text/csv" class="org.wso2.carbon.relay.BinaryRelayBuilder"/>
+  <messageBuilder contentType="zip/xml" class="org.wso2.carbon.relay.BinaryRelayBuilder"/>
+  <messageBuilder contentType="zip/csv" class="org.wso2.carbon.relay.BinaryRelayBuilder"/>
+  <messageBuilder contentType="text/xml" class="org.wso2.carbon.relay.BinaryRelayBuilder"/>
+  <messageBuilder contentType="text/html" class="org.wso2.carbon.relay.BinaryRelayBuilder"/>
+  ```

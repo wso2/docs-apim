@@ -3,16 +3,20 @@
 First, we will create a Salesforce App (Connected App) and obtain the OAuth 2 tokens from Salesforce REST API.
 
 1. Navigate in to the [Salesforce developer edition](https://developer.salesforce.com/signup) and create a Salesforce account.
-   <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-developer-edition-signup.png" title="Create salesforce account" width="800"/> 
+   
+    <img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/connectors/salesforce-developer-edition-signup.png" title="Create salesforce account" width="80%"/> 
 
 2. Log in to Salesforce after verifying your account, with the newly created credentials. In the upper-right corner, select **Setup**.
-   <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-account-setup.png" title="Select setup" width="500"/> 
+   
+    <img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/connectors/salesforce-account-setup.png" title="Select setup" width="60%"/> 
 
 3. Navigate to **Apps** > **App Manager** and click on the **New Connected App**.<br>
-   <img src="{{base_path}}/assets/img/integrate/connectors/new-connected-app.png" title="Add new connected app" width="800"/> 
+   
+    <img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/connectors/new-connected-app.png" title="Add new connected app" width="90%"/> 
 
 4. On the **New Connected App** page, fill the required fields as listed below.<br>
-   <img src="{{base_path}}/assets/img/integrate/connectors/create-connected-app.jpg" title="Create new connected app" width="800"/> 
+   
+    <img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/connectors/create-connected-app.jpg" title="Create new connected app" /> 
 
     * Fill in **Connected App Name**, **API Name**, and **Contact Email** under **Basic Information**.
 
@@ -30,7 +34,7 @@ First, we will create a Salesforce App (Connected App) and obtain the OAuth 2 to
 6. Navigate to **Connected Apps** (Apps > App Manager) list, and click the App that you have just created, and then click on **View**.
 
 7. Go to **API (Enable OAuth Settings)**, and note down the **Consumer Key** and **Consumer Secret**.<br>
-   <img src="{{base_path}}/assets/img/integrate/connectors/connected-app.jpg" title="Connected app" width="800"/>
+   <img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/connectors/connected-app.jpg" title="Connected app"/>
    
 8. On the page that opens, click the **Edit** button. Under **OAuth policies**, select All users may self-authorize in the Permitted Users list, and then click the **Save** button.   
 
@@ -68,7 +72,9 @@ First, we will create a Salesforce App (Connected App) and obtain the OAuth 2 to
     ```
 
 12. Once it is imported, you will have the following in POSTMAN. Replace the following fields with your values.
+    
     * code
     * client_id
     * client_secret<br>
-    <img src="{{base_path}}/assets/img/integrate/connectors/postman-connected-app.png" title="Postman connected app" width="800"/>
+    
+    <img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/connectors/postman-connected-app.png" title="Postman connected app"/>

@@ -19,12 +19,18 @@ Before you start configuring the connector, import the **Salesforce certificate*
 Follow the steps below to import the Salesforce certificate into the EI client keystore:
 
 1. To view the certificate, log in to your Salesforce account in your browser.
-2. Search the **Certificate and Key Management** in the search box.
 
-   <img src="{{base_path}}/assets/img/integrate/connectors/salesforcesoap-certificste-and-key-management.png" title="salesforcesoap-certificste-and-key-management" width="600" alt="salesforcesoap-certificste-and-key-management"/>  
+2. Search the **Certificate and Key Management** in the search box.
     
+     [![salesforcesoap-certificste-and-key-management]({{base_path}}/assets/img/integrate/connectors/salesforcesoap-certificste-and-key-management.png)]({{base_path}}/assets/img/integrate/connectors/salesforcesoap-certificste-and-key-management.png)
+
 3. Export the certificate to the file system.
+<<<<<<< HEAD
 4. Import the certificate to the EI client keystore using either the following [command](../{{base_path}}/install-and-setup/setup/mi-setup/setup/security/importing_ssl_certificate/) or the EI Management Console.
+=======
+
+4. Import the certificate to the EI client keystore using either the following [command]({{base_path}}/install-and-setup/setup/mi-setup/setup/security/importing_ssl_certificate) or the EI Management Console.
+>>>>>>> c2692680c... fixes https://github.com/wso2/docs-apim/issues/5273
 
     ```
     keytool -importcert -file <certificate file> -keystore <EI>/repository/resources/security/client-truststore.jks -alias "Salesforce"
@@ -33,12 +39,12 @@ Follow the steps below to import the Salesforce certificate into the EI client k
 5. Restart the server and deploy the following Salesforce configuration:
 
     ```
-    <salesforce.init>
+     <salesforce.init>
         <username>MyUsername</username>
         <password>MyPassword</password>
         <loginUrl>https://login.salesforce.com/services/Soap/u/42.0</loginUrl>
         <blocking>false</blocking>
-    </salesforce.init>
+     </salesforce.init>
     ```
 
 > **Note**: Secure Vault is supported for [encrypting passwords](../../../../setup/security/encrypting_plain_text/). See, Working with Passwords on integrating and using Secure Vault.

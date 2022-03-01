@@ -1042,7 +1042,7 @@ nav:
                       - Redis Connector Reference: reference/connectors/redis-connector/1.0.1/redis-connector-reference.md
             - Salesforce Connectors:
                 - Salesforce Overview: reference/connectors/salesforce-connectors/sf-overview.md
-                - Salesforce Access Token Generation: reference/connectors/salesforce-connectors/sf-access-token-generation.md
+                - Salesforce Access Token Generation: includes/reference/connectors/salesforce-connectors/sf-access-token-generation.md
                 - Set up the PushTopic in Salesforce: reference/connectors/salesforce-connectors/sf-inbound-endpoint-configuration.md
                 - Salesforce REST API Example: reference/connectors/salesforce-connectors/sf-rest-connector-example.md
                 - Salesforce REST API Reference: reference/connectors/salesforce-connectors/sf-rest-connector-config.md
