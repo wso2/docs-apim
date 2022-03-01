@@ -38,7 +38,7 @@ If you want to connect to MongoDB Atlas, follow the steps mentioned below to get
 
 Follow these steps to set up the Integration Project and the Connector Exporter Project.
 
-{!reference/connectors/importing-connector-to-integration-studio.md!}
+{!includes/reference/connectors/importing-connector-to-integration-studio.md!}
 
 ## Creating the Integration Logic
 
@@ -129,7 +129,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 </api>
 ```
 
-{!reference/connectors/exporting-artifacts.md!}
+{!includes/reference/connectors/exporting-artifacts.md!}
 
 ## Get the project
 
@@ -143,7 +143,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp to the integration runtime.
 
-{!reference/connectors/deploy-capp.md!}
+{!includes/reference/connectors/deploy-capp.md!}
 
 ??? note "Click here for instructions on removing the iterative mongodb server logs"
 Add the configuration below to **remove** the iterative `org.mongodb.driver.cluster` server logs;
