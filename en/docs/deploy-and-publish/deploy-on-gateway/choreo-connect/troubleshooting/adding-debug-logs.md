@@ -6,53 +6,17 @@ Following explain how to add debug and trace logs for the main three components 
 
 ### Enable debug logs
 
-Configure the logging in the `log_config.toml` in the directory `<CHOREO-CONNECT_HOME>/docker-compose/<choreo-connect>/conf/`.
-
-The following log levels are supported at root and package level. 
-"INFO", "WARN", "DEBG", "FATL", "ERRO", "PANC"
-
-Additionally, log rotation can be configured as follows for adapter logs.
-
-```toml
-## Adapter root Level configurations
-
-logfile = "logs/adapter.log" # This file will be created inside adapter container.
-logLevel = "INFO"
-
-[rotation]
-MaxSize = 10 # In MegaBytes (MB)
-MaxBackups = 3
-MaxAge =  2   # In days
-Compress = true
-
-## Adapter package Level configurations
-
-[[pkg]]
-name = "github.com/wso2/adapter/internal/adapter"
-logLevel = "INFO"
-
-[[pkg]]
-name = "github.com/wso2/adapter/internal/oasparser"
-logLevel = "INFO"
-```
+Set the log level as `DEBG` in the `log_config.toml` in the directory `<CHOREO-CONNECT_HOME>/docker-compose/<choreo-connect>/conf/`, as described in [adapter log configurations]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-adapter/#adapter-root-level-configurations). If you need debug logs to be only enables in package level, set the log level as `DEBG` only in the relavant [package level configuration]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-adapter/#adapter-package-level-configurations).
 
 ## Enforcer
 
 ### Enable debug logs
 
 Configure `log4j2.properties` located in the directory `<CHOREO-CONNECT_HOME>/docker-compose/<choreo-connect>/conf/`.
-Make relevant packages to `DEBUG` level.
+Make relevant packages to `DEBUG` level, as mentioned in [enforcer log configurations]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-enforcer/#setting-the-log-level).
 
 ```yaml
 logger.enforcer.level = DEBUG
-```
-
-```yaml
-appender.ENFORCER_LOGFILE.fileName = logs/enforcer.log
-appender.ENFORCER_LOGFILE.filePattern = /logs/enforcer-%d{MM-dd-yyyy}.log
-appender.ENFORCER_LOGFILE.layout.type = PatternLayout
-appender.ENFORCER_LOGFILE.layout.pattern = [%d][%X{traceId}] %5p - %m%ex%n
-...
 ```
 
 ### Enable access logs
@@ -65,13 +29,6 @@ By making the value `logger.mgw-enforcer-interceptors.level` to `DEBUG` in the b
 logger.mgw-enforcer-interceptors.level = DEBUG
 ```
 
-```yaml
-appender.MGW_ACCESS_LOG.fileName = logs/enforcer_access.log # This file will be created inside enforcer container.
-appender.MGW_ACCESS_LOG.filePattern = /logs/enforcer_access-%d{MM-dd-yyyy}.log
-appender.MGW_ACCESS_LOG.layout.type = PatternLayout
-appender.MGW_ACCESS_LOG.layout.pattern = [%d] - %m%ex%n # Log pattern
-...
-```
 
 The access log format will be as follow. It will print the server time, trace Id from envoy, gRPC service method, gRPC status code, response time according to the above configuration.
 
