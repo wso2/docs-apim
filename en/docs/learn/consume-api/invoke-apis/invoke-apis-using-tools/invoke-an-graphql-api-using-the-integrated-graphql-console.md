@@ -196,6 +196,18 @@ Follow the instructios below to invoke a **GraphQL Subscription operation** usin
             <td>4003</td> <td>Websocket frame throttled out<br>Eg: Subscription operation throttled out</td>
         </tr>
         <tr>
-            <td>4004</td> <td>Internal Server Error</td>
+            <td>4004</td> <td>Internal Server Error<br>Eg: Error processing websocket frame</td>
+        </tr>
+        <tr>
+            <td>4005</td> <td>Bad Request<br>Eg: Invalid Websocket frame payload format</td>
+        </tr>
+        <tr>
+            <td>4020</td> <td>QUERY TOO DEEP</td>
+        </tr>
+        <tr>
+            <td>4021</td> <td>QUERY TOO COMPLEX</td>
+        </tr>
+        <tr>
+            <td>4022</td> <td>INVALID QUERY<br>Eg: Payload validation against schema fails</td>
         </tr>
      </table>
