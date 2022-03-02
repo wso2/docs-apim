@@ -432,15 +432,15 @@ Follow the instructions below to move all the existing API Manager configuration
           API_VERSION varchar(255),
           PRIMARY KEY (API_ID)
         ) /
-        
-        CREATE TABLE AM_GW_API_ARTIFACTS (
-          API_ID varchar(255) NOT NULL,
-          ARTIFACT blob,
-          GATEWAY_INSTRUCTION varchar(20),
-          GATEWAY_LABEL varchar(255) NOT NULL,
-          TIME_STAMP TIMESTAMP NOT NULL GENERATED ALWAYS FOR EACH ROW ON UPDATE AS ROW CHANGE TIMESTAMP,
-          PRIMARY KEY (GATEWAY_LABEL, API_ID),
-          FOREIGN KEY (API_ID) REFERENCES AM_GW_PUBLISHED_API_DETAILS (API_ID) ON DELETE NO ACTION ON UPDATE RESTRICT
+
+        CREATE TABLE AM_GW_API_ARTIFACTS ( 
+            API_ID varchar(255) NOT NULL, 
+            ARTIFACT VARBINARY(MAX), 
+            GATEWAY_INSTRUCTION varchar(20), 
+            GATEWAY_LABEL varchar(255), 
+            TIME_STAMP DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, 
+            PRIMARYKEY (GATEWAY_LABEL, API_ID), 
+            FOREIGN KEY (API_ID) REFERENCES AM_GW_PUBLISHED_API_DETAILS(API_ID) ONUPDATE CASCADE ON DELETENOACTION
         ) /
         
         ALTER TABLE AM_SUBSCRIPTION ADD TIER_ID_PENDING VARCHAR(50) /
@@ -581,12 +581,12 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TRIGGER dbo.TIMESTAMP ON dbo.AM_GW_API_ARTIFACTS
         AFTER INSERT, UPDATE
         AS
-        UPDATE f set TIMESTAMP=GETDATE()
+        UPDATE f set TIME_STAMP=GETDATE()
         FROM
         dbo.[AM_GW_API_ARTIFACTS] AS f
         INNER JOIN inserted
         AS i
-        ON f.TIMESTAMP = i.TIMESTAMP;
+        ON f.TIME_STAMP = i.TIME_STAMP;
         GO
 
         ALTER TABLE AM_SUBSCRIPTION ADD TIER_ID_PENDING VARCHAR(50);
