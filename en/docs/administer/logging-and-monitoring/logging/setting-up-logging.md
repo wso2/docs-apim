@@ -107,21 +107,21 @@ Follow the instructions below to enable logs for a given service component avail
 
 2. Go to **Configure** -> **Logging**
 
-   [![Logger Carbon UI]({{base_path}}/assets/img/administer/logging.png)]({{base_path}}/assets/img/administer/logging.png)
+    [![Logger Carbon UI]({{base_path}}/assets/img/administer/logging.png)]({{base_path}}/assets/img/administer/logging.png)
 
 3. Add a new logger specifying the logger name, logger class name, and log level that you need to enable logs as shown below and click **Update**.
 
-   [![Add Logger Carbon UI]({{base_path}}/assets/img/administer/add-logger.png)]({{base_path}}/assets/img/administer/add-logger.png)
+    [![Add Logger Carbon UI]({{base_path}}/assets/img/administer/add-logger.png)]({{base_path}}/assets/img/administer/add-logger.png)
 
-   After you add the logger, it will be shown on the logger page as shown below.
+    After you add the logger, it will be shown on the logger page as shown below.
 
-   [![List Logger Carbon UI]({{base_path}}/assets/img/administer/list-logger.png)]({{base_path}}/assets/img/administer/list-logger.png)
+    [![List Logger Carbon UI]({{base_path}}/assets/img/administer/list-logger.png)]({{base_path}}/assets/img/administer/list-logger.png)
 
 4. Optionally, update the log level OR disable the logs.
-
-   Navigate to the specific logger and change the log level as shown below.
-
-   [![Update Logger Carbon UI]({{base_path}}/assets/img/administer/update-logger.png)]({{base_path}}/assets/img/administer/update-logger.png)
+        
+    Navigate to the specific logger and change the log level as shown below.
+   
+    [![Update Logger Carbon UI]({{base_path}}/assets/img/administer/update-logger.png)]({{base_path}}/assets/img/administer/update-logger.png)
 
 ###Setting the Log levels
 
