@@ -148,9 +148,9 @@ The configuration file used for wrapping Java Applications by YAJSW is `wrapper.
     wrapper.java.additional.29 = -Dcarbon.new.config.dir.path=${carbon_home}/repository/resources/conf
 ```
 
-### Setting up CARBON\_HOME
+### Setting up carbon\_home
 
-Extract WSO2 API Manager that you want to run as a Windows service, and then set the Windows environment variable `CARBON_HOME` to the extracted product directory location.
+Extract WSO2 API Manager that you want to run as a Windows service, and then set the Windows environment variable `carbon_home` to the extracted product directory location.
 
 !!! note
 
