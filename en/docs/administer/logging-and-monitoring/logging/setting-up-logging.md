@@ -96,7 +96,7 @@ Please follow below steps to enable logs for a given service component available
 ### Enable logs for a component via the UI
 
 !!! note
-You need to get the [latest product updates for your product]({{base_path}}/administer/updating-wso2-api-manager/) to use this feature in the current version of WSO2 API-M. This feature is available as a product update in WSO2 API-M 3.2.0 from March 1, 2022 onwards.
+    You need to get the [latest product updates for your product]({{base_path}}/administer/updating-wso2-api-manager/) to use this feature in the current version of WSO2 API-M. This feature is available as a product update in WSO2 API-M 3.2.0 from March 3, 2022 onwards.
 
     !!! warning
         Note that you can deploy updates in a production environment only if you have a valid subscription with WSO2. Read more about [WSO2 Updates](https://wso2.com/updates).
