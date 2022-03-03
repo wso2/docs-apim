@@ -49,7 +49,7 @@ The default HTTPS transport listener (Secured Pass-Through) and transport sender
 
 When this feature is enabled, the transport listener verifies client
 certificates when a client tries to make an HTTPS connection with the
-Micro Integrator. The transport sender verifies server
+Micro Integrator. Therefore the client needs to send it's public certificate along with the requests to the Micro Integrator. The transport sender verifies server
 certificates when the Micro Integrator tries to make an HTTPS
 connection with a backend server. 
 
@@ -66,6 +66,7 @@ To enable this feature for the HTTP Pass-Through, add the following parameters f
 listener.certificate_revocation_verifier_enable = true
 listener.certificate_revocation_cache_size = 1024
 listener.certificate_revocation_cache_delay = 1000
+listener.verify_client = "require"
 
 ```
 
