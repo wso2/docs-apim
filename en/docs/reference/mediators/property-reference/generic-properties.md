@@ -900,6 +900,8 @@ The following generic properties can be used in the [Property mediator]({{base_p
 
 ### FORCE_COLLECT_PAYLOAD
 
+Note: This capability is released as a product update on <b>28/02/2022</b>. If you do not have this update, you can [get the latest updates](https://updates.docs.wso2.com/en/latest/updates/overview/#!) now.
+
 <table>
 	<tr>
 		<th>
