@@ -1,11 +1,15 @@
-# Open Policy Agent (OPA) Validation
+# Validate Request with Open Policy Agent (OPA)
 
-The [Open Policy Agent (OPA)](https://openpolicyagent.org/) is an open source, general-purpose policy engine that unifies policy enforcement. In Choreo Connect, you can use OPA to enforce request to the API resources. Choreo Connect uses OPA’s policy evaluation REST API interface to communicate with OPA. Following diagram describes the request/response of OPA validation.
+The [Open Policy Agent (OPA)](https://openpolicyagent.org/) is an open source, general-purpose policy engine that unifies policy enforcement. In Choreo Connect, you can offload some responsibility of making the decision to authorize or not when a consumer invokes APIs based on policies attached to APIs.
+
+Choreo Connect uses OPA’s policy evaluation REST API interface to communicate with OPA. Following diagram describes the request/response of OPA validation.
 
 !!! tip
     You can deploy OPA server as a sidecar with Choreo Connect Runtime (Enforcer and Router) in a Kubernetes deployment, if you want to improve communication between Enforcer and OPA server.
 
-<img src="{{base_path}}/assets/img/deploy/mgw/choreo-connect-opa-overview.png" alt="Choreo Connect OPA request flow" width="700px"/>
+<a href="{{base_path}}/assets/img/deploy/mgw/choreo-connect-opa-overview.png">
+    <img src="{{base_path}}/assets/img/deploy/mgw/choreo-connect-opa-overview.png" alt="Choreo Connect OPA request flow" width="60%"/>
+</a>
 
 | Numbers | Description                                                                                                                                         |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -21,13 +25,12 @@ The [Open Policy Agent (OPA)](https://openpolicyagent.org/) is an open source, g
 
 By attaching an OPA policy to the API Resource you can enforce OPA validation to that API resource with providing the following values in the policy.
 
-| Name              | Description                                                   | Sample                          |
-|-------------------|---------------------------------------------------------------|---------------------------------|
-| Server URL        | URL of the OPA Server                                         | `http://localhost:8181/v1/data` |
-| Policy            | Name of the policy                                            | `abc-policy`                    |
-| Rule              | Name of the rule                                              | `xyz-rule`                      |
-| Request Generator | **Optional** fully qualified name of the implementation class | Empty string for default class  |
-| Access Token      | **Optional** access token for OPA server authentication       | `my-secret-token`               |
+| Name              | Description                                             | Sample                          |
+|-------------------|---------------------------------------------------------|---------------------------------|
+| Server URL        | URL of the OPA Server                                   | `http://localhost:8181/v1/data` |
+| Policy            | Name of the policy                                      | `abc-policy`                    |
+| Rule              | Name of the rule                                        | `xyz-rule`                      |
+| Access Token      | **Optional** access token for OPA server authentication | `my-secret-token`               |
 
 <!-- // TODO: (renuka) link configuring OPA from APIM (still not in 410-alpha) when APIM docs available -->
 
@@ -53,7 +56,7 @@ allow {
 By default Choreo Connect uses the class **OPADefaultRequestGenerator** to generate the request payload to the OPA server. You can configure your policies in OPA server based on the following request format.
 
 !!! Info
-    You can have your own **Request Generator Implementation**, you can do so by implementing the interface **OPARequestGenerator**. [Custom OPA Request Generator](#custom-opa-request-generator) in this document describes it in more details.
+    You can have your own **Request Generator Implementation**, you can do so by implementing the interface **OPARequestGenerator**. [Custom OPA Policy with Custom Request Generator](#custom-opa-policy-with-custom-request-generator) in this document describes it in more details.
 
 <!-- TODO: link java src for interface and default class. -->
 
@@ -75,6 +78,7 @@ By default Choreo Connect uses the class **OPADefaultRequestGenerator** to gener
         "requestOrigin": "<client_IP>",
         "pathTemplate": "<resource_template_in_OAS_definition",
         "prodClusterName": "<production_endpoint_cluster_name>",
+        "sandClusterName": "<sandbox_endpoint_cluster_name>",
         "orgId": "<organization_ID>"
     }
 }
@@ -121,7 +125,7 @@ By default Choreo Connect uses the class **OPADefaultRequestGenerator** to gener
 Similar to the request generation Choreo Connect uses the **OPADefaultRequestGenerator**  class to validate the response from OPA. When using the default implementation, you have to write your OPA policies using the following response format.
 
 !!! note
-    If required, you can have your own **Response Valiation Implementation** by implementing the interface **OPARequestGenerator**. For more information, see [Custom OPA Request Generator](#custom-opa-request-generator).
+    If required, you can have your own **Response Valiation Implementation** by implementing the interface **OPARequestGenerator**. For more information, see [Custom OPA Policy with Custom Request Generator](#custom-opa-policy-with-custom-request-generator).
 
 ```json tab='Format'
 {
@@ -135,7 +139,7 @@ Similar to the request generation Choreo Connect uses the **OPADefaultRequestGen
 }
 ```
 
-## Custom OPA Request Generator
+## Custom OPA Policy with Custom Request Generator
 
 1.  Create a Java project with `org.wso2.choreo.connect.enforcer.commons` dependency.
     -   For Apache Maven, use the following.
@@ -150,7 +154,44 @@ Similar to the request generation Choreo Connect uses the **OPADefaultRequestGen
 2.  Use the following interface to implement the Custom OPA Request Generator.
 
     ```java tab='Interface'
-    public interface OPARequestGenerator {}
+    package org.wso2.choreo.connect.enforcer.commons.opa;
+
+    import org.wso2.choreo.connect.enforcer.commons.model.RequestContext;
+
+    import java.util.Map;
+
+    /**
+    * OPA request generator interface to handle OPA policy validation payload and validation response.
+    */
+    public interface OPARequestGenerator {
+
+        /**
+        * Generate the OPA request payload from the provided request context and the additional Properties Map.
+        *
+        * @param policyName           Name of the policy validated.
+        * @param rule                 Rule of the policy.
+        * @param additionalParameters Advanced properties that can be used to construct the opa payload.
+        * @param requestContext       Request context details to be validated.
+        * @return json payload as a string be sent to the OPA server for validation.
+        * @throws OPASecurityException If an authentication failure or system error occurs.
+        */
+        String generateRequest(String policyName, String rule, Map<String, String> additionalParameters,
+                            RequestContext requestContext) throws OPASecurityException;
+
+        /**
+        * Validate the OPA response and handle request context based on the response.
+        *
+        * @param policyName           Name of the policy validated.
+        * @param rule                 Rule of the policy.
+        * @param opaResponse          OPA response to be validated.
+        * @param additionalParameters Advanced properties that can be used to construct the opa payload.
+        * @param requestContext       Request context details to be validated.
+        * @return <code>true</code> if valid, <code>false</code> otherwise.
+        * @throws OPASecurityException If an authentication failure or system error occurs.
+        */
+        boolean handleResponse(String policyName, String rule, String opaResponse, Map<String, String> additionalParameters,
+                            RequestContext requestContext) throws OPASecurityException;
+    }
     ```
 
     Here is the sample filter implementation that only returns request headers to OPA.
@@ -166,8 +207,8 @@ Similar to the request generation Choreo Connect uses the **OPADefaultRequestGen
 
     public class CustomOPARequestGenerator implements OPARequestGenerator {
         @Override
-        public String generateRequest(String policyName, String rule, Map<String, Object> advancedProperties,
-                                  RequestContext requestContext) throws OPASecurityException {
+        String generateRequest(String policyName, String rule, Map<String, String> additionalParameters,
+                            RequestContext requestContext) throws OPASecurityException {
             JSONObject requestPayload = new JSONObject();
             JSONObject inputPayload = new JSONObject();
             requestPayload.put("input", inputPayload);
@@ -177,8 +218,8 @@ Similar to the request generation Choreo Connect uses the **OPADefaultRequestGen
         }
 
         @Override
-        public boolean validateResponse(String policyName, String rule, String opaResponse, RequestContext requestContext)
-                throws OPASecurityException {
+        boolean handleResponse(String policyName, String rule, String opaResponse, Map<String, String> additionalParameters,
+                            RequestContext requestContext) throws OPASecurityException {
             JSONObject response = new JSONObject(opaResponse);
             try {
                 return response.getBoolean("result");
@@ -203,3 +244,5 @@ Similar to the request generation Choreo Connect uses the **OPADefaultRequestGen
 5.  Mount the JAR file containing the Custom OPA Request Generator to the `/home/wso2/lib/dropins` folder. 
 
     If you are using the docker-compose file within the distribution, then add the JAR file to `docker-compose/resources/enforcer/dropins` directory.
+
+<!-- TODO: (renuka) should add how to add custom policy after APIM publisher UI supports adding Choreo Connect policies -->
