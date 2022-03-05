@@ -95,7 +95,8 @@
       {% endif %}
     {% endblock %}
     {% block extrahead %}{% endblock %}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
+    <link rel="preconnect" href="https://N331AC1IYR-dsn.algolia.net" crossorigin />
   </head>
   {% if palette.primary or palette.accent %}
     {% set primary = palette.primary | replace(" ", "-") | lower %}
@@ -221,15 +222,20 @@
         <script src="{{ path | url }}"></script>
       {% endfor %}
     {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+    <div id="docsearch">
+      import docsearch from '@docsearch/js';
+      import '@docsearch/css';
+
+      docsearch({
+        container: '#docsearch',
+        appId: 'N331AC1IYR',
+        indexName: 'wso2',
+        apiKey: 'bf1736c2cdd8c9e3c603aaf16ef75fa1',
+        searchParameters: {
+          facetFilters: ['language:en', 'version:4.1.0'],
+        },
+      });
+    </div>
   </body>
-  <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-  <script>docsearch(
-    {
-      apiKey:"bf1736c2cdd8c9e3c603aaf16ef75fa1",
-      indexName:"wso2",
-      inputSelector:".md-search__input",
-      algoliaOptions: {"facetFilters":["language:en","version:4.1.0"]}
-    }
-    )
-  </script>
 </html>
