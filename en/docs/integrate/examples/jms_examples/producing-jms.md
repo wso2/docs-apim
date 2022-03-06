@@ -114,4 +114,4 @@ https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zi
       axis2server.bat
       ```
     
-Invoke the proxy service by send a simple message.
+Invoke the proxy service by sending a simple message.
