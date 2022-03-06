@@ -96,6 +96,7 @@
     {% endblock %}
     {% block extrahead %}{% endblock %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
+    <link rel="preconnect" href="https://N331AC1IYR-dsn.algolia.net" crossorigin />
   </head>
   {% if palette.primary or palette.accent %}
     {% set primary = palette.primary | replace(" ", "-") | lower %}
@@ -221,6 +222,21 @@
         <script src="{{ path | url }}"></script>
       {% endfor %}
     {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+    <div id="docsearch">
+      import docsearch from '@docsearch/js';
+      import '@docsearch/css';
+
+      docsearch({
+        container: '#docsearch',
+        appId: 'N331AC1IYR',
+        indexName: 'wso2',
+        apiKey: '4ad347e67eaae8648542829e3c15f0c0',
+        searchParameters: {
+          facetFilters: ['language:en', 'version:4.1.0'],
+        },
+      });
+    </div>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
   <script>
