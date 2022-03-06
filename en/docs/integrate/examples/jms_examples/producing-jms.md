@@ -94,7 +94,7 @@ Create the artifacts:
 
 Set up the broker:
 
-1.  [Configure a broker]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transport#configuring-the-jms-transport) with your Micro Integrator instance. Let's use Active MQ for this example.
+1.  [Configure a broker]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-jms-transport) with your Micro Integrator instance. Let's use Active MQ for this example.
 2.  Start the broker.
 3.  Start the Micro Integrator (after starting the broker).
 
@@ -114,4 +114,4 @@ https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zi
       axis2server.bat
       ```
     
-Invoke the proxy service by send a simple message.
+Invoke the proxy service by sending a simple message.
