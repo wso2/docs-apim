@@ -27,5 +27,7 @@ To enable the user-core feature, change the following entry to false in micro-in
 !!! note
     The secondary user store configuration file must have the same name as the domain with an underscore (_) in place of the period. For example, if the domain is 'wso2.com', name the file as wso2_com.xml . One file contains the definition for one user store domain.
 
+    Users from secondary user stores have the non-admin (read-only) permissions in the management dashboard. 
+
 
 
