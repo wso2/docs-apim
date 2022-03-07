@@ -70,7 +70,7 @@ To connect the Micro Integrator of API-M 4.1.0 to the primary user store:
     -   [Configuring an RDBMS user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-rdbms-user-store) for the Micro Integrator in API-M 4.1.0.  
 
 4. If your user store is an RDBMS, be sure to add the client JAR of your RDBMS to the `<MI_HOME>/lib` folder.
-5. If your user store is an LDAP server, migrate the carbon datasource as well. The carbon datasource contains the hybrid roles and role allocation details for the LDAP.
+5. If your user store is an LDAP server, migrate the Carbon datasource as well. The Carbon datasource contains the hybrid roles and role allocation details for the LDAP.
 
     ```toml
     [user_store]
