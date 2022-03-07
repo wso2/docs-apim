@@ -24,8 +24,5 @@ en/site
 #Ignore DS_Store files generated in mac
 .DS_Store
 
-# Ignore node modules
-/en/tools/config-catalog-generator-cc/node_modules/
-
 # prefers Python virtual environment for development
 .venv/
