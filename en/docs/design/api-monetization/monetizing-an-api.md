@@ -17,8 +17,7 @@ WSO2 API Manager uses <a href="https://stripe.com">Stripe</a> as its sample impl
       </div> 
 </html>
 
-Let's use the
-[wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin/blob/master/src/main/java/org.wso2.apim.monetization/impl/StripeMonetizationImpl.java) to monetize an API in the following example scenario.
+Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin/releases/download/v1.3.0/org.wso2.apim.monetization.impl-1.3.0.jar) to monetize an API in the following example scenario.
 
 ### Before you begin
 
@@ -96,7 +95,7 @@ Let's use the
 
     1. Download and copy the JAR specific to the billing engine, which you are working with, into the `<API-M_HOME>/repository/components/lib` directory.
         
-        In this example scenario, add the [Stripe Java 9.8.0 JAR](https://mvnrepository.com/artifact/com.stripe/stripe-java/9.8.0) into the latter mentioned `lib` folder.
+        In this example scenario, add the [Stripe Java JAR](https://github.com/wso2-extensions/wso2-am-stripe-plugin/releases/download/v1.3.0/org.wso2.apim.monetization.impl-1.3.0.jar) into the latter mentioned `lib` folder.
 
     2. Build the implementation of the respective monetization interface and add the JAR into the `<API-M_HOME>/repository/components/lib` directory.
         
