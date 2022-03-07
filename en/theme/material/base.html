@@ -222,27 +222,13 @@
         <script src="{{ path | url }}"></script>
       {% endfor %}
     {% endblock %}
-    <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
-    <div id="docsearch">
-      import docsearch from '@docsearch/js';
-      import '@docsearch/css';
-
-      docsearch({
-        container: '#docsearch',
-        appId: 'N331AC1IYR',
-        indexName: 'wso2',
-        apiKey: '4ad347e67eaae8648542829e3c15f0c0',
-        searchParameters: {
-          facetFilters: ['language:en', 'version:4.1.0'],
-        },
-      });
-    </div>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
   <script>
     // For more information about the DocSearch API, see https://docsearch.algolia.com/docs/what-is-docsearch
+    // For more information on migrating the Algolia doc search, see https://docsearch.algolia.com/docs/DocSearch-v3
     docsearch({
-        container: '#apimdocsearch-disabled',
+        container: '#apimdocsearch',
         appId: 'N331AC1IYR',
         indexName: 'wso2',
         apiKey: 'e642244fb5ecd40371d835b321da2b85',
