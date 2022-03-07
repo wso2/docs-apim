@@ -28,11 +28,13 @@ By attaching an OPA policy to the API Resource you can enforce OPA validation to
 | Name              | Description                                             | Sample                          |
 |-------------------|---------------------------------------------------------|---------------------------------|
 | Server URL        | URL of the OPA Server                                   | `http://localhost:8181/v1/data` |
-| Policy            | Name of the policy                                      | `abc-policy`                    |
-| Rule              | Name of the rule                                        | `xyz-rule`                      |
 | Access Token      | **Optional** access token for OPA server authentication | `my-secret-token`               |
+| Policy            | Name of the policy                                      | `my-policy`                     |
+| Rule              | Name of the rule                                        | `allow`                         |
 
-<!-- // TODO: (renuka) link configuring OPA from APIM (still not in 410-alpha) when APIM docs available -->
+<a href="{{base_path}}/assets/img/deploy/mgw/configure-opa-policy.png">
+    <img src="{{base_path}}/assets/img/deploy/mgw/configure-opa-policy.png" alt="Configure OPA policy"/>
+</a>
 
 ## Defining Policies in the OPA Server
 
@@ -241,8 +243,6 @@ Similar to the request generation Choreo Connect uses the **OPADefaultRequestGen
     mvn clean install
     ```
 
-5.  Mount the JAR file containing the Custom OPA Request Generator to the `/home/wso2/lib/dropins` folder. 
+5.  Mount the JAR file containing the Custom OPA Request Generator to the `/home/wso2/lib/dropins` folder, which is the extension point of the enforcer.
 
     If you are using the docker-compose file within the distribution, then add the JAR file to `docker-compose/resources/enforcer/dropins` directory.
-
-<!-- TODO: (renuka) should add how to add custom policy after APIM publisher UI supports adding Choreo Connect policies -->
