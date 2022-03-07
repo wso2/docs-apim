@@ -19,7 +19,7 @@ For more information, see [Using WSO2 Updates 2.0](https://updates.docs.wso2.com
 
     **Persisting Index data**
 
-    The indexing related information of WSO2 API Manager is stored in the `<API-M_HOME>/solr/data` directory. Once the data is indexed, it is stored in the index directory. For maore information, see [Add New Search Keyword]({{base_path}}/design/api-documentation/search-documentation/add-new-search-keyword).
+    The indexing related information of WSO2 API Manager is stored in the `<API-M_HOME>/solr/data` directory. Once the data is indexed, it is stored in the index directory. For more information, see [Add New Search Keyword]({{base_path}}/design/api-documentation/search-documentation/add-new-search-keyword).
     
     !!! tip
         Before you discard the old API Manager instance,
