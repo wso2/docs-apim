@@ -27,5 +27,5 @@ en/site
 # Ignore node modules
 /en/tools/config-catalog-generator-cc/node_modules/
 
-# preffers python virtual environment for development
+# prefers Python virtual environment for development
 .venv/
