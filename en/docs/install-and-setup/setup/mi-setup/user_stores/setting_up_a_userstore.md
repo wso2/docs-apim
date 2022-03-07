@@ -111,6 +111,19 @@ Follow the steps given below to connect the Micro Integrator to your LDAP user s
 
 See the [complete list of parameters]({{base_path}}/reference/config-catalog-mi/#ldap-user-store) you can configure for the ldap user store.
 
+If hybrid role support is required, configure a carbon datasource as in the following example (to create the datasource, use the relevant DB_TYPE_user.sql scripts in `<MI_HOME>/dbscripts/` directory).
+```toml
+[[datasource]]
+id = "WSO2CarbonDB"
+url= "jdbc:mysql://localhost:3306/primaryDB"
+username="root"
+password="root"
+driver="com.mysql.jdbc.Driver"
+pool_options.maxActive=50
+pool_options.maxWait = 60000
+pool_options.testOnBorrow = true
+```
+
 ## Configuring an RDBMS user store
 
 !!! note "Before you begin"

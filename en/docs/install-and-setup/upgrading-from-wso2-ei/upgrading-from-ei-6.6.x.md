@@ -55,20 +55,41 @@ Your database schema is now updated for APIM 4.1.0. Now you can update the confi
 
 To connect the Micro Integrator to the primary user store:
 
-1.  Open the `deployment.toml` file of your Micro Integrator.
-2.  Note that you have the `[user_store]` section enabled by default.
+1. Open the `deployment.toml` file of your Micro Integrator.
+2. Note that you have the `[user_store]` section enabled by default.
 
     ```toml
     [user_store]
     type = "read_only_ldap"
     ```
 
-3.  See the instructions in the following sections:
+3. See the instructions in the following sections:
 
     -   [Configuring an LDAP user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-ldap-user-store) for the Micro Integrator in API-M 4.1.0.
     -   [Configuring an RDBMS user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-rdbms-user-store) for the Micro Integrator in API-M 4.1.0.  
 
-4.  If your user store is an RDBMS, be sure to add the client JAR of your RDBMS to the `<MI_HOME>/lib` folder.
+4. If your user store is an RDBMS, be sure to add the client JAR of your RDBMS to the `<MI_HOME>/lib` folder.
+5. If your user store is an LDAP server, migrate the carbon datasource as well. The carbon datasource contains the hybrid roles and role allocation details for the LDAP.
+
+    ```toml
+    [user_store]
+    connection_url = "ldap://localhost:10389"  
+    connection_name = "uid=admin,ou=system"
+    connection_password = "admin"  
+    user_search_base = "ou=Users,dc=wso2,dc=org"
+    type = "read_write_ldap"
+    read_groups = true
+
+    [[datasource]]
+    id = "WSO2CarbonDB"
+    url= "jdbc:mysql://localhost:3306/primaryDB"
+    username="root"
+    password="root"
+    driver="com.mysql.jdbc.Driver"
+    pool_options.maxActive=50
+    pool_options.maxWait = 60000
+    pool_options.testOnBorrow = true
+    ```
 
 See the instructions on [configuring a user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore) for more information.
 
