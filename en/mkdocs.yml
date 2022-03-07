@@ -159,6 +159,9 @@ nav:
                 - XML Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
             - OpenID Connect:
                 - Obtain User Profile Information with OpenID Connect: design/api-security/openid-connect/obtaining-user-profile-information-with-openid-connect.md
+            - Open Policy Agent (OPA) Validation:
+                - Overview: design/api-security/opa-validation/overview.md
+                - Custom OPA Policy for Choreo Connect: design/api-security/opa-validation/custom-opa-policy-for-choreo-connect.md
         - Rate Limiting:
                 - Throttling Use-Cases: design/rate-limiting/introducing-throttling-use-cases.md
                 - Add New Throttling Policies: design/rate-limiting/adding-new-throttling-policies.md
