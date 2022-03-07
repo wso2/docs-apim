@@ -7,7 +7,7 @@ Therefore, WSO2 API Manager can connect Keycloak out-of-the-box using the [WSO2 
 Follow the instructions given below to configure Keycloak as a third-party Key Manager. 
 
 !!! info
-    For more information, see the [Getting Started Guide, which is under the official Keycloak documentation](https://www.keycloak.org/docs/latest/getting_started/).
+    For more information, see the [Getting Started Guide, which is under the official Keycloak documentation](https://www.keycloak.org/guides#getting-started).
 
 ## Step 1 - Configure Keycloak
 
