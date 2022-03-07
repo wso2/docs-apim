@@ -94,12 +94,6 @@
 #apimdocsearch {
     display: flex;
     width: 50%;
-    /* Temp styling */
-    text-align: center;
-    font-size: 16px;
-    color: gray;
-    margin-top: 6px;
-    /* End - Temp styling */
 }
 
 #apimdocsearch > button {
