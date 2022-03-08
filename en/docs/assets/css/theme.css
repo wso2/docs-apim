@@ -94,11 +94,26 @@
 #apimdocsearch {
     display: flex;
     width: 50%;
+    margin-top: 10px;
 }
 
 #apimdocsearch > button {
     width: 100%;
 }
+
+span.DocSearch-Button-Placeholder {
+    font-size: 0.7rem;
+}
+
+div.md-header_algolia_search_box {
+    margin-top: 14px;
+}
+
+svg.DocSearch-Search-Icon {
+    width: 16px;
+    height: 16px;
+}
+
 /* END of - Algolia docsearch related styling overrides */
 
 .md-header__version-select .mb-tabs__dropdown .mb-tabs__dropdown-content,
