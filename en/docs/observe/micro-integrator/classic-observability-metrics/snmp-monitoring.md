@@ -14,13 +14,17 @@ Simple Network Management Protocol (SNMP) is an Internet-standard protocol for
      -  **snmp4j-2.1.0.jar**
      -  **snmp4j-agent-2.0.6.jar**
   
-2.  Enable SNMP in the `ei.toml` file, stored in the `<MI_HOME>/conf/` file by
-    adding the following entry: 
+2.  Enable SNMP.
     
-     ```toml
-     [synapse_properties]
-     'synapse.snmp.enabled'=true
-     ``` 
+    1. Open the `deployment.toml` file stored in the `<MI_HOME>/conf/`directory. 
+    2. Add the `synapse.snmp.enabled=true` entry to enable the SNMP agent. 
+    3. Add the `synapse.snmp.community.name` entry to configure the synapse SNMP community name.
+
+    ```toml
+    [synapse_properties]
+    synapse.snmp.enabled=true
+    synapse.snmp.community.name=<The SNMP-community name to use>
+    ```
 
 The Micro Integrator can now monitor MBeans with SNMP. For example:
 
