@@ -897,3 +897,65 @@ The following generic properties can be used in the [Property mediator]({{base_p
 		</td>
 	</tr>
 </table>
+
+### FORCE_COLLECT_PAYLOAD
+
+Note: This capability is released as a product update on <b>28/02/2022</b>. If you do not have this update, you can [get the latest updates](https://updates.docs.wso2.com/en/latest/updates/overview/#!) now.
+
+<table>
+	<tr>
+		<th>
+			Parameter
+		</th>
+		<th>
+			Description
+		</th>
+	</tr>
+	<tr>
+		<td>
+			Name
+		</td>
+		<td>
+			FORCE_COLLECT_PAYLOAD
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Possible Values
+		</td>
+		<td>
+			true/false
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Scope
+		</td>
+		<td>
+			default
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Description
+		</td>
+		<td>
+			When tracing data, the payload is collected when the respective mediator is content altering only. This 
+			property can be used when you want to collect payload forcefully regardless of the nature of the mediator. 
+			Note that there will be a performance impact because payload is collected for every mediator.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Example
+		</td>
+		<td><div class="content-wrapper">
+			<div class="code panel pdl" style="border-width: 1px;">
+			<div class="codeContent panelContent pdl">
+			<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1"></a>&lt;property name=<span class="st">&quot;FORCE_COLLECT_PAYLOAD&quot;</span> value=<span class="st">&quot;true&quot;</span> scope=<span class="st">&quot;default&quot;</span> type=<span class="st">&quot;STRING&quot;</span>&gt;&lt;/property&gt;</span></code></pre></div>
+			</div>
+			</div>
+			</div>
+		</td>
+	</tr>
+</table>
