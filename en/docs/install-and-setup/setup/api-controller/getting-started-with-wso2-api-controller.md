@@ -6,11 +6,11 @@
 
 1.  Download **apictl** based on your preferred platform (i.e., Mac, Windows, Linux).
 
-    - [For MacOS]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.1.0-alpha-macosx-x64.tar.gz)
-    - [For Linux 32-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.1.0-alpha-linux-i586.tar.gz)
-    - [For Linux 64-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.1.0-alpha-linux-x64.tar.gz)
-    - [For Windows 32-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.1.0-alpha-windows-i586.zip)
-    - [For Windows 64-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.1.0-alpha-windows-x64.zip)
+    - [For MacOS]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.1.0-beta-macosx-x64.tar.gz)
+    - [For Linux 32-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.1.0-beta-linux-i586.tar.gz)
+    - [For Linux 64-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.1.0-beta-linux-x64.tar.gz)
+    - [For Windows 32-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.1.0-beta-windows-i586.zip)
+    - [For Windows 64-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.1.0-beta-windows-x64.zip)
 
 2.  Extract the downloaded archive of the apictl to the desired location.
 3.  Navigate to the working directory where the executable apictl resides.
@@ -69,8 +69,8 @@ Run the following apictl command to check the version.
 -   **Response**
 
     ```bash
-    Version: 4.1.0-alpha
-    Build Date: 2022-02-18 04:55:51 UTC
+    Version: 4.1.0-beta
+    Build Date: 2022-03-04 19:04:58 UTC
     ```
 
 !!!note
