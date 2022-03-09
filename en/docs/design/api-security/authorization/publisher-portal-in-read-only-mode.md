@@ -41,7 +41,9 @@ Follow the instructions below to create a Read only user:
 11. Save the changes.
 
 If a read-only user (Chris) is logged in to the Publisher, Chris can view the Publisher portal as shown below.
+
 ![read-only-user-publisher-view]({{base_path}}/assets/img/learn/api-security/read-only-api-view.png)
 
 Example: API detail view
+
 ![read-only-api-details]({{base_path}}/assets/img/learn/api-security/read-only-api-details.png)
