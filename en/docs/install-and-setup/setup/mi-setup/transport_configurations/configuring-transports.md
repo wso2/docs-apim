@@ -183,6 +183,9 @@ This transport implementation is a module developed under the Apache Synapse pro
 
 To enable the FIX transport listener and sender, set the following parameters to `true` in the deployment.toml file (stored in the `MI_HOME/conf` directory).
 
+!!! Info
+	Quickfix/J related .jar files are not shipped with the product by default. You need to add them before enabling the FIX transport.
+
 ```toml
 [transport.fix]
 listener.enable = false
