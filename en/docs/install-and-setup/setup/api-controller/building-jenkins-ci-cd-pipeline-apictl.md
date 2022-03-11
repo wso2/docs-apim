@@ -1,4 +1,4 @@
-# Building a CI/CD Pipeline for APIs Using Jenkins
+# Building a CI/CD Pipeline for APIs Using WSO2 API Controller
 
 In the modern digital-era, many organizations adopt digital transformation technologies to keep up with the changes. APIs are one of the basic building blocks used in a digitally-driven organization. When the number of APIs managed by the organization grows, they need to have an automated process to handle the rapid API development process. Having a proper continuous integration and continuous deployment (CI/CD) process would give an added advantage to your organization. 
 
@@ -71,7 +71,7 @@ Source repository is now configured.
 Now let’s initialize the source repository. This will be done from the developer’s local machine.
 
 !!! note
-    If you haven’t setup API Controller, Please set it up using the [apictl tool](https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl ) 
+    If you haven’t setup API Controller, Please set it up using the [apictl tool](https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl) 
 
 1. Clone the source repository. Navigate to the repository folder.
 
@@ -92,7 +92,7 @@ Now the source repository is configured.
 
 #### Step 2.2 - Setup deployment repository
 
-Deployment repository will be used to gather configurations for each deployment. To separate out the configuration, we will use git branches. I have created a branch named ‘dev’ to keep the configuration related to the dev environment.
+Deployment repository will be used to gather configurations for each deployment. To separate out the configuration, we will use git branches. Create a branch named ‘dev’ to keep the configuration related to the dev environment.
 
 ### Step 3 - Setup JFrog Artifactory
 
@@ -138,7 +138,7 @@ Deployment repository will be used to gather configurations for each deployment.
 
 ### Step 4 - Setup API-M instances.
 
-Download the WSO2 API Manager 4.0.0 [here](https://github.com/wso2/product-apim/releases/tag/v4.0.0) and start the instance. Set this in a separate instance as the `dev` instance. 
+Download the WSO2 API Manager 4.0.0 [here](https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl) and start the instance. Set this in a separate instance as the `dev` instance. 
 
 ### Step 5 - Configure Jenkins Jobs
 
