@@ -58,10 +58,8 @@ API Manager 4.1.0-Beta</td>
     
      A user who has view/read only permissions can only view the API/Services details in the Publisher portal. Such users should not be able to edit/create/publish APIs/Services.
 
-
-<! --- ### Deprecated features and functionalities
-
-<! --- The support for these features will be removed from subsequent versions starting from WSO2 API Manager 4.1.0.
+<!--- ### Deprecated features and functionalities--->
+<!--- The support for these features will be removed from subsequent versions starting from WSO2 API Manager 4.1.0.--->
 
 ### Removed features and functionalities
 
@@ -71,7 +69,7 @@ These features are unsupported and removed from WSO2 API Manager 4.1.0 onwards.
 
      The message tracer feature for WSO2 DAS is no longer supported and removed from the product.
 
-<! --- ### Key changes --->
+<!--- ### Key changes --->
 
 ## **Micro Integrator**
 
