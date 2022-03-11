@@ -99,6 +99,8 @@ It is now available to download from [here](https://wso2.com/api-management/#).
 - API-related Synapse artifacts were moved from the file system to the in-memory. Therefore, there will not be any Synapse artifacts stored in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/api` directory. These Synapse artifacts are stored in the database and loaded to memory when the server starts up and when a new API revision is deployed and published.
 
 	??? note "Expand to see how to retrieve the `.xml` files related to the existing artifacts"
+		**Note that the instructions below should be followed to troubleshoot, in this scenario.**
+		
 		- Add the configuration given below to the `<API-M_HOME>/repository/deployment.toml` file.
 			```
 			[synapse_properties]
