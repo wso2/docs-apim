@@ -2,7 +2,7 @@
 
 In the modern digital-era, many organizations adopt digital transformation technologies to keep up with the changes. APIs are one of the basic building blocks used in a digitally-driven organization. When the number of APIs managed by the organization grows, they need to have an automated process to handle the rapid API development process. Having a proper continuous integration and continuous deployment (CI/CD) process would give an added advantage to your organization. 
 
-In this section, you will learn how to build an automated process using the WSO2 API Controller(CTL) with WSO2 API Manager 4.0.0 . You will see how a solution is built using version control system (Github), artifact repository(JFrog Artifactory) and CI/CD Tool (Jenkins).
+In this section, you will learn how to build an automated process using the WSO2 API Controller (apictl) with WSO2 API Manager (WSO2 API-M) 4.0.0. You will see how a solution is built using a version control system (Github), artifact repository(JFrog Artifactory) and CI/CD Tool (Jenkins).
 
 <a href="{{base_path}}/assets/img/learn/api-controller/cicd-jenkins-arch.png"><img src="{{base_path}}/assets/img/learn/api-controller/cicd-jenkins-arch.png" alt="" name="" width="600"></a>
 
@@ -33,7 +33,7 @@ Log in to the server and install following.
 
     <a href="{{base_path}}/assets/img/learn/api-controller/webhook-trigger-plugin.png"><img src="{{base_path}}/assets/img/learn/api-controller/webhook-trigger-plugin.png" alt="" width="500"></a>
 
-6. Configure API CTL as an environment variable. Go to the **Manage Jenkins** section and select **Configure System**. 
+6. Configure apictl home as an environment variable. Go to the **Manage Jenkins** section and select **Configure System**. 
     <a href="{{base_path}}/assets/img/learn/api-controller/configure-system.png"><img src="{{base_path}}/assets/img/learn/api-controller/configure-system.png" alt="" width="500"></a>
 
     Under the **Global properties** select **Environment variables** and set the APICTL home as below and click **Save**.
