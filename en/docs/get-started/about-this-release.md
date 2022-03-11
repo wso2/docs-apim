@@ -4,7 +4,7 @@ WSO2 API Manager is a complete platform for building, integrating, and exposing 
 
 For more information on WSO2 API Manager, see the [overview]({{base_path}}/getting-started/overview/).
 
-The **WSO2 API Manager 4.1.0 Alpha** is the latest **WSO2 API Manager release** and is the successor of **WSO2 API Manager 4.0.0**. It contains the following components, which have new features and enhancements:
+The **WSO2 API Manager 4.1.0 Beta** is the latest **WSO2 API Manager release** and is the successor of **WSO2 API Manager 4.0.0**. It contains the following components, which have new features and enhancements:
 
 ## **API Manager**
 
@@ -13,8 +13,8 @@ The API Manager component addresses all aspects of API management in the platfor
 <table>
 <tr>
 <td>
-API Manager 4.1.0-Alpha</td>
-<td><a href="https://github.com/wso2/product-apim/releases/download/v4.1.0-alpha/wso2am-4.1.0-alpha.zip">download</a></td>
+API Manager 4.1.0-Beta</td>
+<td><a href="https://github.com/wso2/product-apim/releases/download/v4.1.0-beta/wso2am-4.1.0-beta.zip">download</a></td>
 </tr>
 </table>
 
@@ -81,8 +81,8 @@ This serves the integration needs for the data plane of the API Manager platform
 
 <table>
 <tr>
-<td>Micro Integrator 4.1.0-Alpha</td> 
-<td><a href="https://github.com/wso2/micro-integrator/releases/download/v4.1.0-alpha/wso2mi-4.1.0-alpha.zip">download</a></td>
+<td>Micro Integrator 4.1.0-Beta</td> 
+<td><a href="https://github.com/wso2/micro-integrator/releases/download/v4.1.0-beta/wso2mi-4.1.0-beta.zip">download</a></td>
 </tr>
 </table>
 
@@ -121,8 +121,8 @@ Streaming Integrator serves the streaming-based integrations and acts as the eve
 
 <table>
 <tr>
-<td>Streaming Integrator 4.1.0-Alpha</td> 
-<td><a href="https://github.com/wso2/streaming-integrator/releases/download/v4.1.0-alpha/wso2si-4.1.0-alpha.zip">download</a>
+<td>Streaming Integrator 4.1.0-Beta</td> 
+<td><a href="https://github.com/wso2/streaming-integrator/releases/download/v4.1.0-beta/wso2si-4.1.0-beta.zip">download</a>
 </td> 
 </tr>
 </table>
@@ -145,8 +145,8 @@ WSO2 API Controller (apictl) is a command-line tool providing the capability to 
 
 <table>
 <tr>
-<td>API Controller 4.1.0-Alpha</td>
-<td><a href="https://github.com/wso2/product-apim-tooling/releases/tag/v4.1.0-alpha">download</a></td>
+<td>API Controller 4.1.0-Beta</td>
+<td><a href="https://github.com/wso2/product-apim-tooling/releases/tag/v4.1.0-beta">download</a></td>
 </tr>
 </table>
 
@@ -166,8 +166,8 @@ WSO2 Integration Studio is an open-source development environment used to design
 
 <table>
 <tr>
-<td>Integration Studio  8.1.0-Alpha</td>
-<td><a href="https://github.com/wso2/integration-studio/releases/tag/v8.1.0-alpha">download</a></td>
+<td>Integration Studio  8.1.0-Beta</td>
+<td><a href="https://github.com/wso2/integration-studio/releases/tag/v8.1.0-beta">download</a></td>
 <tr>
 </table>
 
@@ -215,8 +215,8 @@ The Micro Integrator dashboard can connect to multiple Micro Integrator server i
 
 <table>
 <tr>
-<td>Micro Integrator Tooling  4.1.0-Alpha</td>
-<td><a href="https://github.com/wso2/product-mi-tooling/releases/download/v4.1.0-alpha/wso2mi-dashboard-4.1.0-alpha.zip">download</a></td>
+<td>Micro Integrator Tooling  4.1.0-Beta</td>
+<td><a href="https://github.com/wso2/micro-integrator/releases/download/v4.1.0-beta/wso2mi-dashboard-4.1.0-beta.zip">download</a></td>
 <tr>
 </table>
 
@@ -236,8 +236,8 @@ The Streaming Integrator Tooling is a developer tool to develop Siddhi applicati
 
 <table>
 <tr>
-<td>Streaming Integrator Tooling  4.1.0-Alpha</td>
-<td><a href="https://github.com/wso2/streaming-integrator-tooling/releases/download/v4.1.0-alpha/wso2si-tooling-4.1.0-alpha.zip">download</a></td>
+<td>Streaming Integrator Tooling  4.1.0-Beta</td>
+<td><a href="https://github.com/wso2/streaming-integrator-tooling/releases/download/v4.1.0-beta/wso2si-tooling-4.1.0-beta.zip">download</a></td>
 </tr>
 </table>
 
@@ -278,13 +278,13 @@ WSO2 API Manager 4.1.0 is based on WSO2 Carbon 4.6.1 and is expected to be compa
 
 **API Manager**
 
-- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/product-apim/issues?q=is%3Aissue+is%3Aclosed+closed%3A2021-10-30..2022-02-18+).
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/product-apim/issues?q=is%3Aissue+is%3Aclosed+closed%3A2021-10-30..2022-03-05+).
 
 - Known Issues - All the open issues pertaining to WSO2 API Manager 4.1.0 are reported [here](https://github.com/wso2/product-apim/issues?q=is%3Aopen+is%3Aissue+label%3A4.x.x).
 
 **Micro Integrator**
 
-- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/micro-integrator/issues?q=is%3Aissue+is%3Aclosed+closed%3A2021-05-01..2022-02-18+label%3A4.1.0+).
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/micro-integrator/issues?q=is%3Aissue+is%3Aclosed+closed%3A2021-05-01..2022-03-05+label%3A4.1.0+).
 
 - Known Issues - All the open issues pertaining to WSO2 API Manager 4.1.0 are reported [here](https://github.com/wso2/micro-integrator/issues).
 
@@ -296,13 +296,13 @@ WSO2 API Manager 4.1.0 is based on WSO2 Carbon 4.6.1 and is expected to be compa
 
 **API Controller**
 
-- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/product-apim-tooling/milestone/16?closed=1).
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/product-apim-tooling/milestone/17?closed=1).
 
 - Known Issues - All the open issues pertaining to WSO2 API Manager 4.1.0 are reported [here](https://github.com/wso2/product-apim-tooling/issues?q=is%3Aopen+is%3Aissue).
 
 **Integration Studio**
 
-- Fixed Issues - See [details of all the changes including new features, improvements, and bug fixes in this milestone release](https://github.com/wso2/integration-studio/milestone/13?closed=1).
+- Fixed Issues - See [details of all the changes including new features, improvements, and bug fixes in this milestone release](https://github.com/wso2/integration-studio/milestone/14?closed=1).
 
 - Known Issues - All the open issues pertaining to WSO2 Integration Studio are reported [here](https://github.com/wso2/integration-studio/issues).
 
@@ -318,9 +318,11 @@ WSO2 API Manager 4.1.0 is based on WSO2 Carbon 4.6.1 and is expected to be compa
 
 - Known Issues - All the open issues pertaining to WSO2 API Manager 4.1.0 are reported [here](https://github.com/wso2/streaming-integrator-tooling/issues?q=is%3Aopen+is%3Aissue).
 
+<!--
 **Choreo Connect**
 
-- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release]()
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release]().
+
 - Known Issues - All the open issues are reported [here](https://github.com/wso2/product-microgateway/issues?q=is%3Aopen+is%3Aissue+label%3Aenvoy-gw).
 
 **Kubernetes API Operator**
@@ -328,3 +330,4 @@ WSO2 API Manager 4.1.0 is based on WSO2 Carbon 4.6.1 and is expected to be compa
 - Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release]().
 
 - Known Issues - All the open issues pertaining to WSO2 API Manager 4.1.0 are reported [here]().
+--->
