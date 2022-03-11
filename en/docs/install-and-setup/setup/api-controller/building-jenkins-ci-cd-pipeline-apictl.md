@@ -21,7 +21,7 @@ Log in to the server and install following.
   sudo apt-get install jq
 
   ```
-2. Install the [apictl tool](https://github.com/wso2/product-apim-tooling/releases/tag/v4.0.0). Extract to a location henceforth referred as `CTL_HOME`.
+2. Install the [apictl tool](https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl). Extract to a location henceforth referred as `CTL_HOME`.
 
 3. Install java.
 
@@ -71,7 +71,7 @@ Source repository is now configured.
 Now let’s initialize the source repository. This will be done from the developer’s local machine.
 
 !!! note
-    If you haven’t setup API Controller, Please set it up using [https://github.com/wso2/product-apim-tooling/releases/tag/v4.0.0](https://github.com/wso2/product-apim-tooling/releases/tag/v4.0.0) 
+    If you haven’t setup API Controller, Please set it up using the [apictl tool](https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl ) 
 
 1. Clone the source repository. Navigate to the repository folder.
 
