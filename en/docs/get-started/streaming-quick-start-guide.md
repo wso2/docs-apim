@@ -199,7 +199,7 @@ Follow the instructions below to generate an AsyncAPI Definition via the Streami
 
      [![Async API view]({{base_path}}/assets/img/streaming/working-with-async-api/async-api-spec-view.png)]({{base_path}}/assets/img/streaming/working-with-async-api/async-api-spec-view.png)
 
-4. Add the generated AsynAPI definition to the Streaming backend.
+4. Add the generated AsyncAPI definition to the Streaming backend.
 
      Click **Add Async API** to add the generated AsyncAPI definition to the Siddhi application.
 
