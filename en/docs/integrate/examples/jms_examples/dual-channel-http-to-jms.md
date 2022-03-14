@@ -224,7 +224,7 @@ Set up the back-end service:
       axis2server.bat
       ```
 
-To invoke this service, the address URI of this proxy service is defined as `         http://localhost:8290/services/SMSSenderProxy        `. Send a POST request to the above address URI with the following payload:
+To invoke this service, the address URI of this proxy service is defined as `http://localhost:8290/services/SMSSenderProxy`. Send a POST request to the above address URI with the following payload:
 
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
