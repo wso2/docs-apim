@@ -25,6 +25,20 @@ Follow the instructions below to create a WebSocket API using the basic flow:
 
 ### Step 1 - Design a WebSocket API
 
+!!! note "Defining port offset"
+    If you apply a port offset to WSO2 API Manager, the Developer Portal UI **will not get updated automatically**.
+  
+    ??? note "Add the following configuration to explicitly configure port offset"
+        1. Navigate to the `deployment.toml` file.
+        2. Add the following configuration.
+            
+            ```
+             [[apim.gateway.environment]]
+             ws_endpoint = "ws://localhost:9190"
+            ```
+
+             9190 = default port 9090 + port offset
+
 1.  {!includes/sign-in-publisher.md!}
 
 2.  Click **Create API**, go to **Streaming API**, and Click **WebSocket API**.
