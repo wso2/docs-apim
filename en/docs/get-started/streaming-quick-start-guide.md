@@ -5,30 +5,38 @@ Let's get started with WSO2 Streaming Integrator(SI) by running a simple streami
 ## Before you begin...
 
 1. Install [Oracle Java SE Development Kit (JDK)](http://java.sun.com/javase/downloads/index.jsp) version 11 and set the `JAVA_HOME` environment variable.
-   For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/).
-2. Download the Streaming Integrator and Streaming Integrator Tooling distributions from the [WSO2 Streaming Integrator site](https://wso2.com/integration/streaming-integrator/) and extract them to a location of your choice. Hereafter, the extracted location is referred to as `<SI_HOME>` and `<SIT_HOME>` respectively.<br/><br/>
-3. Optionally, go to the [WSO2 API Manager website](https://wso2.com/api-management/), click **TRY IT NOW**, and then click **Zip Archive** to download the API Manager distribution as a ZIP file.
+
+     For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/).
+
+2. Download the [Streaming Integrator and Streaming Integrator Tooling distributions](https://wso2.com/integration/streaming-integrator/) and extract them to a location of your choice. 
+   
+     Hereafter, the extracted location is referred to as `<SI_HOME>` and `<SIT_HOME>` respectively.
+
+3. Optionally, download the API Manager distribution as a ZIP file by navigating to the [WSO2 API Manager product page](https://wso2.com/api-management/), clicking **TRY IT NOW**, and then clicking **Zip Archive**.
    
 ## What you'll build
+
 In this sample scenario, you aggregate the data relating to the raw material purchases of a sweet production factory and publish the data to a WebSocket server.
                                 
-![Scenario]({{base_path}}/assets/img/streaming/qsg/streaming-integration-qsg-diagram.png)
+[![Scenario]({{base_path}}/assets/img/streaming/qsg/streaming-integration-qsg-diagram.png){: style="width:70%"}]({{base_path}}/assets/img/streaming/qsg/streaming-integration-qsg-diagram.png)
 
-### Step 1: Start the Streaming Integrator
+### Step 1 - Start the Streaming Integrator
 
 To start WSO2 Streaming Integrator, navigate to the `<SI_HOME>/bin` directory from the CLI, and issue the appropriate command based on your operating system:
 
 - **For Linux**: `./server.sh`
 - **For Windows**: `server.bat --run`
 
-### Step 2: Start the Streaming Integrator Tooling 
-Here, we are going to use the sample WebSocket Receiver shipped with the Streaming Integrator Tooling.
+### Step 2 - Start the Streaming Integrator Tooling 
+
+Let's use the sample WebSocket Receiver that is shipped with the Streaming Integrator Tooling.
+
 To start the sample, navigate to the `<SIT_HOME>/bin` directory from the CLI, and issue the appropriate command based on your operating system:
 
 - **For Linux**: `./tooling.sh`
 - **For Windows**: `tooling.bat --run`
 
-### Step 3: Create and deploy a sample Siddhi application
+### Step 3 - Create and deploy a sample Siddhi application
 
 Let's create a simple Siddhi application that reads data from a XML file, does a simple transformation to the data, and then writes the results to the WebSocket receiver running.
 
@@ -37,12 +45,12 @@ Let's create a simple Siddhi application that reads data from a XML file, does a
     !!! info
         In this example, the file is located in the `/Users/foo` directory.
 
-2. Navigate to `http://localhost:9390/editor`, 
+2. Navigate to `http://localhost:9390/editor`.
 
     !!! Tip
         Use `admin` as the username and password.
         
-3. Click on `New`, and copy and paste the content given below.
+3. Click on **New**, and copy and paste the content given below.
     
     !!! tip
         Here, a sample Siddhi application is provided to minimize the time spent following this guide. However, WSO2 recommends that you use the Streaming Integration Tooling that offers features such as syntax checking, event simulation for testing purposes, reformatting code, the option to design applications in a graphical interface or by writing code, and many more. For more information on designing Siddhi applications, see [Streaming Integrator Tooling Overview]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview).
@@ -77,34 +85,36 @@ Let's create a simple Siddhi application that reads data from a XML file, does a
 
 5. Click on **Deploy** and then **Deploy To Server** to deploy the Siddhi Application in Streaming Integrator.
 
-6. Add Streaming Integrator server details by clicking on `Add New Server`
+6. Add the Streaming Integrator server details by clicking on **Add New Server**.
 
-    Specify the Streaming Integrator host `localhost` and port `9443`.
+     Specify the Streaming Integrator host `localhost` and port `9443`.
     
 7. Select the `ManageProductionStats` and the `Server` and **Deploy**.
-The following message appears to indicate that the Siddhi application deployed successfully in the Streaming Integrator console.
+ 
+     The following message appears to indicate that the Siddhi application was deployed successfully in the Streaming Integrator console.
 
-    ```INFO {org.wso2.carbon.streaming.integrator.core.internal.StreamProcessorService} - Siddhi App ManageProductionStats1 deployed successfully```
+    ```
+    INFO {org.wso2.carbon.streaming.integrator.core.internal.StreamProcessorService} - Siddhi App ManageProductionStats1 deployed successfully
+    ```
 
  You can now test the **SweetProductionApplication** service that you just generated.
 
+### Step 4 - Test your Siddhi application
 
-### Step 4: Test your Siddhi application
-
-To test the `ManageProductionStats` Siddhi application created above, follow the steps below.
+Follow the instructions below to test the `ManageProductionStats` Siddhi application that you created above.
 
 1. Copy the `sampledata.xml` file in the `/Users/foo/files` directory. 
 
 2. Observe the SI console output.
 
-You can see the following message in the SI console log.
+     You can see the following message in the SI console log.
 
-```jvm
-    INFO {io.siddhi.core.stream.output.sink.LogSink} - ManageProductionStats1 : ProductionAlertStream : [Event{timestamp=1630491334294, data=[Almond cookie, 170.0], isExpired=false}, Event{timestamp=1630491334294, data=[Baked alaska, 100.0], isExpired=false}, Event{timestamp=1630491334294, data=[Toffee, 100.0], isExpired=false}] 
-```
+     ```jvm
+     INFO {io.siddhi.core.stream.output.sink.LogSink} - ManageProductionStats1 : ProductionAlertStream : [Event{timestamp=1630491334294, data=[Almond cookie, 170.0], isExpired=false}, Event{timestamp=1630491334294, data=[Baked alaska, 100.0], isExpired=false}, Event{timestamp=1630491334294, data=[Toffee, 100.0], isExpired=false}] 
+     ```
 
-</br>
  **Congratulations!**
+
  Now, you have created your first Streaming service. Optionally, you can follow the steps given below to expose the service as a Managed API in API Manager.
       
 ## Exposing an Streaming Service as a Managed API
@@ -113,73 +123,150 @@ The `ManageProductionStats` Siddhi Application you deployed in the Micro Integra
 
 ### Step 1 - Expose as a service 
 
-1. Start the API Manager runtime:
+#### Step 1.1 - Start WSO2 API Manager 
 
-    1.  Extract the API Manager ZIP file.
-    2.  Start WSO2 API Manager:
-    
-        Open a terminal, navigate to the `<API-M_HOME>/bin` directory and execute the relevant command. 
-   
-        
-        ```bash tab="On MacOS/Linux"
-        ./api-manager.sh
-        ```
-        
-        ```bash tab="On Windows"
-        api-manager.bat
-        ```
+Start the API Manager runtime:
 
-2. Update and start the Streaming Integrator runtime:
+1. Extract the API Manager ZIP file.
 
-    1. Stop the Streaming Integrator.
+2. Start WSO2 API Manager.
 
-    2. Add the following configuration to the `<SI_HOME>/conf/server/deployment.toml` file of the Streaming Integrator.
+     Open a terminal, navigate to the `<API-M_HOME>/bin` directory and execute the relevant command. 
 
-        !!! Tip
-            The default username and password for connecting to the API Gateway is `admin:admin`.
-
-
-         ```toml
-         service.catalog.configs:
-         enabled: true
-         hostname: localhost
-         port: 9444
-         username: admin
-         password: admin
-         ```
-    
-    3.  Start the Streaming Integrator again.
-
-3. Access the streaming service from the **API Publisher**:
-
-    1.  Sign in to the API Publisher portal: `https://localhost:9443/publisher`. 
-
-        !!! Tip
-            Use `admin` as the username and password.
-
-    2.  You can also click the **hamburger** icon on the upper-left and click **Services** to see the available services.
-
-        <img src="{{base_path}}/assets/img/streaming/qsg/streaming-service-catalog.png" width="400">
   
-    3. See that the `SweetProductionApplication` is listed as a service.
+     ```bash tab="On MacOS/Linux"
+     ./api-manager.sh
+     ```
+  
+     ```bash tab="On Windows"
+     api-manager.bat
+     ```
+
+#### Step 1.2 - Start WSO2 Streaming Integrator 
+
+Update and start the Streaming Integrator runtime:
+
+1. Stop the Streaming Integrator.
+
+2. Add the following configuration to the `<SI_HOME>/conf/server/deployment.toml` file of the Streaming Integrator.
+
+    !!! Tip
+        - The default username and password for connecting to the API Gateway is `admin:admin`.
+        - The `9444` port shown above is the port of API Manager, to which, the service catalog listens.
+
+     ```toml
+     service.catalog.configs:
+        enabled: true
+        hostname: localhost
+        port: 9444
+        username: admin
+        password: admin
+     ```
+
+3.  Start the Streaming Integrator again.
+
+#### Step 1.3 - Generate an AsyncAPI Definition
+
+Follow the instructions below to generate an AsyncAPI Definition via the Streaming Integrator Tooling Component:
+
+1. Click **Async API View**.
+
+     The AsyncAPI Generation form appears.
+
+     [![Async API View button]({{base_path}}/assets/img/streaming/working-with-async-api/open-async-api-view-button.png)]({{base_path}}/assets/img/streaming/working-with-async-api/open-async-api-view-button.png)
+
+2. Enter the WebSocket Streaming API related details.
+    
+     The AsyncAPI generation form appears because you did not provide any Streaming API related content for the `@App:asyncAPI` annotation when defining the Siddhi application.
+
+     Let's add the following Streaming API information to create a WebSocket API based AsyncAPI definition.
+
+     | **Field**                                            | **Value**                             |
+     |------------------------------------------------------|---------------------------------------|
+     | **Title**                                            | `SweetProductionApplication`                  |
+     | **Version**                                          | `1.0.0`                               |
+     | **Description**                                      | `Consumes events of sweets production` |
+     | **Select Source or Sink type to Generate Async API** | Select **websocket-server**           |
+     | **Sources**                                          | Select **ProductionAlertStream**      |
+
+     [![Design View of Async API]({{base_path}}/assets/img/streaming/working-with-async-api/async-api-form.png){: style="width:80%"}]({{base_path}}/assets/img/streaming/working-with-async-api/async-api-form.png)
+
+3. Click **Generate Async API** to generate the AsyncAPI definition.
+
+     [![Generate AsyncAPI button]({{base_path}}/assets/img/streaming/working-with-async-api/generate-async-api-view-button.png)]({{base_path}}/assets/img/streaming/working-with-async-api/generate-async-api-view-button.png)
+
+     After the AsyncAPI is generated as described above, the Async API specifications will be visible in the **Async API View**.
+
+     [![Async API view]({{base_path}}/assets/img/streaming/working-with-async-api/async-api-spec-view.png)]({{base_path}}/assets/img/streaming/working-with-async-api/async-api-spec-view.png)
+
+4. Add the generated AsyncAPI definition to the Streaming backend.
+
+     Click **Add Async API** to add the generated AsyncAPI definition to the Siddhi application.
+
+     <a href="{{base_path}}/assets/img/streaming/working-with-async-api/add-async-api-button.png"><img src="{{base_path}}/assets/img/streaming/working-with-async-api/add-async-api-button.png" width="20%" alt="Add Async API"></a>
+
+5. Click **Code View** to view the Siddhi application with the AsyncAPI definition that was generated and save it so that it can be deployed on SI server.
+
+#### Step 1.4 - Publish the AsyncAPI definition
+
+You need to deploy your Streaming backend, which contains the AsyncAPI definition, to the Streaming Integrator server in order to export the AsyncAPI definition that you generated to the services in WSO2 API Manager.
+
+Follow the instructions below to publish the AsyncAPI definition to the service catalog:
+
+1. Click **Deploy**, and then click **Deploy to Server** in Streaming Integrator Tooling. 
+
+     [![Deploy To Server]({{base_path}}/assets/img/streaming/working-with-async-api/async-api-deploy-to-server.png){: style="width:80%"}]({{base_path}}/assets/img/streaming/working-with-async-api/async-api-deploy-to-server.png)
+
+     This opens the **Deploy Siddhi Apps to Server** dialog box. 
+
+2. Add the SI server host and port (default 9443) and select the relevant check box for your Siddhi application, which contains the AsyncAPI definition, and for the server in which you want to deploy it. 
+
+3. Click **Deploy**.
+
+     [![Deploy Button]({{base_path}}/assets/img/streaming/working-with-async-api/async-api-deploy.png){: style="width:80%"}]({{base_path}}/assets/img/streaming/working-with-async-api/async-api-deploy.png)
+
+     After the Siddhi application is successfully deployed, the following log messages appear in the Streaming Integrator and API Manager server logs to indicate that the AsyncAPI definition is successfully published in the Service Catalog.
+
+    ```bash tab="Streaming Integrator server logs"
+    Siddhi App ManageProductionStats deployed successfully
+    ```
+
+    ```bash tab="API Manager server logs"
+    CommonUtil Creation of folder is successful. Directory Name : SweetProdApp-1.0.0
+    ```
+
+#### Step 1.5 - Access the streaming service
+
+Access the streaming service via the **API Publisher** as follows:
+
+1. Sign in to the API Publisher portal: `https://localhost:9443/publisher`. 
+
+    !!! Tip
+        Use `admin` as the username and password.
+
+2. You can also click the **hamburger** icon on the upper-left and click **Services** to see the available services.
+
+     <a href="{{base_path}}/assets/img/streaming/qsg/streaming-service-catalog.png"><img src="{{base_path}}/assets/img/streaming/qsg/streaming-service-catalog.png" width="40%"></a>
+
+3. See that the `SweetProductionApplication` is listed as a service.
 
 ### Step 2 - Create a managed API using the Streaming Service
 
-1.  Click on the `SweetProductionApplication` service.
+1. Click on the **SweetProductionApplication** service.
 
-2.  Click **Create API**.
+2. Click **Create API**.
 
      This opens the **Create API** dialog box with the API details that are generated based on the service.
 
-    <a href="{{base_path}}/assets/img/streaming/qsg/create-api-from-streaming-service.png"><img src="{{base_path}}/assets/img/streaming/qsg/create-api-from-streaming-service.png" width="800"></a>
+     <a href="{{base_path}}/assets/img/streaming/qsg/create-api-from-streaming-service.png"><img src="{{base_path}}/assets/img/streaming/qsg/create-api-from-streaming-service.png" width="80%"></a>
 
-3.  Update the API name, context, and version if required, and click **Create API**. 
+3. Update the API name, context, and version if required, and click **Create API**. 
 
-    The overview page of the API that you just created appears. 
+     The overview page of the API that you just created appears. 
 
 4. Optionally, update the portal configurations and API configurations as required.
 
-     Now, you have successfully created a Web Socket API using the service.
+     Now, you have successfully created a WebSocket API using the service.
 
 ### Step 3 - Publish the managed API
 
@@ -187,47 +274,51 @@ The `ManageProductionStats` Siddhi Application you deployed in the Micro Integra
 
 2. Navigate to **Lifecycle** and click **Publish** to publish the API in the Gateway environment.
     
-    If the API is published successfully, the lifecycle state will shift to **PUBLISHED**. 
+     If the API is published successfully, the lifecycle state will shift to **PUBLISHED**. 
 
-### Step 4 - Invoke the Managed API via Developer Portal
+### Step 4 - Invoke the managed API via Developer Portal
 
-1. Navigate to the **Developer Portal** by clicking on `View In Dev Portal` at the top menu.
+1. Navigate to the **Developer Portal** by clicking on **View In Dev Portal** at the top menu.
 
 2. Sign in using the default username/password `admin/admin`. You will be redirected to the **APIs**.
 
 3. Under **APIs**, you will see the published `SweetProductionApplication`. Click on it to navigate to the Overview of the API.
 
-4. Click `Subscriptions` on the left menu and click `SUBSCRIBE` This creates a subscription to the API using the `DefaultApplication`.
+4. Click **Subscriptions** on the left menu and click **SUBSCRIBE**.
 
-    <a href="{{base_path}}/assets/img/streaming/qsg/streaming-api-subscribe.png"><img src="{{base_path}}/assets/img/streaming/qsg/streaming-api-subscribe.png.png" size="800"></a>
+     This creates a subscription to the API using the `DefaultApplication`.
 
-5. Click `PROD KEYS` to generate keys for the application and click `GENERATE  KEYS`.
-    
-    <a href="{{base_path}}/assets/img/streaming/qsg/streaming-api-subscribe.png"><img src="{{base_path}}/assets/img/streaming/qsg/streaming-api-subscribe.png" size="800"></a>
+     <a href="{{base_path}}/assets/img/streaming/qsg/streaming-api-subscribe.png"><img src="{{base_path}}/assets/img/streaming/qsg/streaming-api-subscribe.png" size="70%"></a>
+
+5. Click **PROD KEYS** to generate keys for the application and click **GENERATE  KEYS**.
 
 6. Copy the generated access token for future use. Alternatively, you can generate a new access token by using `GENERATE ACCESS TOKEN`.
 
-7. Click `Try Out` on the left menu Click on the **SUB** topic.
-  You can see the sample command to access the API.
+7. Click **Try Out** on the left menu and click on the **SUB** topic.
   
-  ```jvm
+     You can see the sample command to access the API.
+  
+     ```jvm
      wscat -c 'ws://localhost:9099/sweets/1.0.0/' -H 'Authorization: Bearer <access token>'
-  ```
+     ```
   
-  Execute the command in Command Line.
+     Execute the command in Command Line.
   
-6. Now, you can remove existing `sampledata.xml` in `/Users/foo/files` and rename the downloaded file as `sampledata1.xml` and copy to the directory.
-You can see the below in the Command Line.
+8. Remove the existing `sampledata.xml` file in the `/Users/foo/files` directory and rename the downloaded file as `sampledata1.xml` and copy to the directory.
 
-```jvm
+     The following message appears in the Command Line.
+
+     ```jvm
      < [{"event":{"name":"Butter cookie","amount":50.0}},{"event":{"name":"Almond cookie","amount":271.0}},{"event":{"name":"Baked alaska","amount":150.0}}]
-     > %     
-```
+        > %     
+     ```
           
 !!! tip "What's Next?"
     Once you try out this quick start guide, you can proceed to one of the following sections.
 
     - Learn more about the Streaming Integrator by trying out [Streaming Integrator Tutorials]({{base_path}}/use-cases/streaming-tutorials/tutorials-overview).
+
     - Start using the Streaming Integrator. For more information and instructions about Streaming Integration functionality, see [Streaming Integrator Use Cases]({{base_path}}/use-cases/streaming-usecase/use-cases).
+
     - Manage and expose streaming backends via [Streaming APIs]({{base_path}}/use-cases/streaming-usecase/create-streaming-api/streaming-api-overview).
 
