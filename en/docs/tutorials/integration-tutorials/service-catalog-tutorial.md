@@ -4,11 +4,11 @@
 
 In this tutorial, you are defining an integration service using WSO2 Integration Studio and exposing it as a managed API to the API marketplace. API consumers then **discover** the API from the marketplace, **subscribe** to it, and **use it** for application development.
 
-<img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/exposing-servie-as-managed-api.png" alt="exposing integration service as a managed api">
+<a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/exposing-servie-as-managed-api.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/exposing-servie-as-managed-api.png" alt="exposing integration service as a managed api"></a>
 
 This demonstrates how the integration components and API management components of WSO2 API Manager 4.0.0 work together to enable API-led integration. The following diagram illustrates the various API Manager components and the different user roles that are involved in implementing this process:
 
-<img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-led-integration-components.png" alt="exposing integration service as a managed api">
+<a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-led-integration-components.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-led-integration-components.png" alt="exposing integration service as a managed api"></a>
 
 1. An **Integration Developer** creates the service using WSO2 Integration Studio and deploys it in the Micro Integrator runtime.
 
@@ -33,11 +33,12 @@ The following concepts and artifacts are used in this tutorial:
 ## Let's get started!
 
 Follow the steps given below to build this use case and try it out.
-    !!! Note
-        For more information on generating metadata artifacts if you are using an older Integration Studio workspace, see [Generating Service Catalog Metadata Artifact]({{base_path}}/integrate/develop/generate-service-catalog-metadata.md).
+
+!!! Note
+    For more information on generating metadata artifacts if you are using an older Integration Studio workspace, see [Generating Service Catalog Metadata Artifact]({{base_path}}/integrate/develop/generate-service-catalog-metadata).
 
 
-### Step 1: Develop the integration service
+### Step 1 - Develop the integration service
 
 Follow the instructions given in this section to create and configure the required artifacts.
 
@@ -45,7 +46,7 @@ Follow the instructions given in this section to create and configure the requir
 2.  Open **WSO2 Integration Studio**.
 3.  Click **New Integration Project** in the **Getting Started** tab as shown below.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.jpg" width="700">
+    <a href="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.jpg"><img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.jpg" width="80%"></a>
 
     This will open the <b>New Integration Project</b> dialog box.
 
@@ -57,7 +58,7 @@ Follow the instructions given in this section to create and configure the requir
 
     You can see the projects listed in the **Project Explorer** as shown below:
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/project-explorer-service-catalog.png">
+    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/project-explorer-service-catalog.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/project-explorer-service-catalog.png"></a>
 
     !!! Note
         A **resources** folder is created in the `ServiceCatalogSampleConfigs` project. This folder holds the Swagger and metadata YAML files. These YAML files will be uploaded to the service catalog later in this tutorial.   
@@ -192,9 +193,9 @@ When the **HealthcareAPI** is created, the following two new files are created i
     </tr>
 </table>
 
-<img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/metadata-folder-service-catalog.png" width="400">
+<a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/metadata-folder-service-catalog.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/metadata-folder-service-catalog.png" width="40%"></a>
 
-### Step 2: Configure service metadata
+### Step 2 - Configure service metadata
 
 Let's update the metadata of the integration service.
 
@@ -257,13 +258,13 @@ Let's update the metadata of the integration service.
 
 4.  Leave the default values for the remaining parameters. 
 
-### Step 3: Configure the Micro Integrator 
+### Step 3 - Configure the Micro Integrator 
 
 The Micro Integrator contains a client application, which automatically publishes artifacts to the **Service Catalog** in the **API Publisher** portal. 
 
 Let's enable this client for the embedded Micro Integrator of WSO2 Integration Studio.
 
-1.  Click the <b>Embedded Micro Integrator Configuration</b> (<img src="{{base_path}}/assets/img/integrate/tutorials/common/server-config-64x64.png" width="20">) icon on the upper menu to open the dialog box.
+1.  Click the <b>Embedded Micro Integrator Configuration</b> (<a href="{{base_path}}/assets/img/integrate/tutorials/common/server-config-64x64.png"><img src="{{base_path}}/assets/img/integrate/tutorials/common/server-config-64x64.png" width="20"></a>) icon on the upper menu to open the dialog box.
 2.  Uncomment the `[[service_catalog]]` section as shown below and change the APIM server configurations accordingly. 
 
     !!! Tip
@@ -313,7 +314,7 @@ Let's enable this client for the embedded Micro Integrator of WSO2 Integration S
     !!! Tip
         See the instructions on [injecting environment variables to the embedded Micro Integrator]({{base_path}}/integrate/develop/using-embedded-micro-integrator/#injecting-environment-variables-to-embedded-micro-integrator).
 
-### Step 4: Package the artifacts
+### Step 4 - Package the artifacts
 
 Package the artifacts in your composite exporter module to be able to deploy the artifacts in the server.
 
@@ -327,14 +328,14 @@ Package the artifacts in your composite exporter module to be able to deploy the
 
 4. Save the changes.
 
-### Step 5: Start the API Manager runtime
+### Step 5 - Start the API Manager runtime
 
 Let's start the API Manager runtime before starting the Micro Integrator.
 
 1.  Download and set up [WSO2 API Manager 4.0.0](https://wso2.com/api-management/).
 2.  Start the server.
 
-### Step 6: Build and run the service
+### Step 6 - Build and run the service
 
 Let's deploy the [packaged artifacts](#step-3-package-the-artifacts) in the embedded Micro Integrator:
 
@@ -355,8 +356,7 @@ The artifacts are deployed in the embedded Micro Integrator and the Micro Integr
 Successfully updated the service catalog
 ```
 
-
-### Step 7: Create and Deploy the API
+### Step 7 - Create and Deploy the API
 
 **Create the API**
 
@@ -369,7 +369,7 @@ Let's expose the integration service as a managed API.
 
 2.  You can also click the **hamburger** icon on the upper-left and click **Services** to see the available services.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/open-service-catalog.png" alt="open service catalag" width="400">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/open-service-catalog.png" alt="open service catalag" width="50%">
 
 3.  Open HealthcareAPI from the above list.
 
@@ -386,12 +386,13 @@ Let's expose the integration service as a managed API.
 
 You can now see the new API's overview page.
 
-<img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview.png" alt="new api view">
+<a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview.png" alt="new api view"></a>
 
 !!! Note
     -   You can use the left-hand navigation to explore the new API.
     -   Click **Endpoints** in the left-hand navigator. You will see that the new API uses the integration service deployed in the Micro Integrator as the endpoint (backend).
-        <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/endpoint-config-of-api.png" alt="endpoint view">
+
+        <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/endpoint-config-of-api.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/endpoint-config-of-api.png" alt="endpoint view"></a>
 
 **Select business plans**
 
@@ -399,11 +400,11 @@ Let's allocate some business plans for the API.
 
 1.  Go to the API overview and click **Business Plan**.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview-business-plan.png" alt="click to add business plan">
+    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview-business-plan.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview-business-plan.png" alt="click to add business plan"></a>
 
-3.  Select at least one business plan for the API and save.
+2.  Select at least one business plan for the API and save.
  
-    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-business-plans.png" alt="add business plans to api">
+    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-business-plans.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-business-plans.png" alt="add business plans to api"></a>
 
 **Deploy API in the Gateway**
 
@@ -414,14 +415,14 @@ Let's deploy the API in a gateway environment.
     !!! Tip
         This opens the **Deployment** tab in the left-hand navigator.
     
-    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview-deployment.png" alt="open the deployment options">
+    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview-deployment.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview-deployment.png" alt="open the deployment options"></a>
 
 2.  Click **Default** to specify the gateway environment and host.
 
     !!! Tip
         This setting deploys the API in Production as well as Sandbox gateways. Find out more about [gateway environments]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways).
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-deployment-revision.png" alt="select gateways for the deployment">
+    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-deployment-revision.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-deployment-revision.png" alt="select gateways for the deployment"></a>
 
 3.  **Optionally**, you can add a description.
 
@@ -429,17 +430,17 @@ Let's deploy the API in a gateway environment.
 
 You will now see the deployment as the first revision of the API:
 
-<img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-gateway-deployment-summary.png" alt="api first revision">
+<a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-gateway-deployment-summary.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-gateway-deployment-summary.png" alt="api first revision"></a>
 
-### Step 8: Publish the API
+### Step 8 - Publish the API
 
 Go to the API overview in the **Publisher** portal and click **Publish** for the `HealthcareAPI` as shown below.
 
-<img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview-publish.png">
+<a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview-publish.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview-publish.png"></a>
 
 The API is now available in the **Developer** portal for consumers to access.
 
-### Step 9: Subscribe to the API
+### Step 9 - Subscribe to the API
 
 Now, let's assume you are an API consumer who wants to use the API. As a consumer, you need to first subscribe to the API.
 
@@ -450,20 +451,20 @@ Now, let's assume you are an API consumer who wants to use the API. As a consume
 
 2.  Go to the **API** tab. The `HealthcareAPI` is listed as shown below.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-list.png">
+    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-list.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-list.png"></a>
 
 3.  Select the `HealthcareAPI` to open the API overview.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-overview.png">
+    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-overview.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-overview.png"></a>
 
 4.  Go to the **Subscriptions** tab and subscribe using the **DefaultApplication** as shown below.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-subscription.png">
+    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-subscription.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-subscription.png"></a>
 
 !!! Tip
     For detailed instructions, see [Subscribe to an API]({{base_path}}/consume/manage-subscription/subscribe-to-an-api/).
 
-### Step 10: Use the API
+### Step 10 - Use the API
 
 !!! Info "Before you begin"
 
@@ -484,14 +485,14 @@ When you consume an API from the marketplace, your access to the API is authenti
 1.  Go to the **Subscriptions** tab for the `HealthcareAPI` in the **Developer** portal.
 2.  Click **PROD KEYS** for the **DefaultApplication**.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-generate-keys.png">
+    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-generate-keys.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-generate-keys.png"></a>
 
 3.  Click **Generate Keys** (at the bottom of this view) to apply a consumer key and secret as shown below.
 
     !!! Note
         The application may already have a consumer key and secret generated. In this case, you can skip this step. 
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-consumer-keys.png">
+    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-consumer-keys.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-consumer-keys.png"></a>
 
 4.  Click **Generate Access Token** in the above view to generate the access token.
 
@@ -503,7 +504,7 @@ Now, let's test the use case by sending a simple client request that invokes the
 
 1.  Click **Try Out** for the `HealthcareAPI` in the **Developer** portal as shown below.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-try-it.png">
+    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-try-it.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-try-it.png"></a>
 
 2.  Enter the following details.
 
@@ -554,7 +555,7 @@ Now, let's test the use case by sending a simple client request that invokes the
 4.  Let's specify 'surgery' as the doctor category.
 5.  Click **Execute**.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-try-it-execute.png">
+     <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-try-it-execute.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-try-it-execute.png"></a>
 
 You will get the response message from the Healthcare service, if you send the category as `surgery`:
 
