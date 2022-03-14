@@ -122,7 +122,7 @@ Connector implementations will have DEBUG and TRACE level logs. You can enable t
 * To get the package name of the connector implementation, refer the [How to contribute section of the overview page of connector documentation]({{base_path}}/reference/connectors/connectors-overview/#contribute-to-the-connector-project). 
 
 !!! note
-    Add fault sequences to the enclosing entities of connector operations (ex: API resource) to gracefully handle the errors. 
+    Add fault sequences to the enclosing entities of connector operations (e.g., API resource) to gracefully handle the errors. 
 
 ### Enable wire logging 
 
