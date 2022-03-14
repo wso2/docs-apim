@@ -129,7 +129,7 @@ The endpoint of this proxy service uses the properties listed below to connect t
 <td><p><code>              org.wso2.andes.jndi.PropertiesFileInitialContextFactory             </code></p></td>
 <td><div class="itemizedlist">
 <p>The initial context factory to use.<br />
-The value specified here should be the same as that specified in the <code>               &lt;MI_HOME&gt;/conf/deployment.toml              </code> `parameter.initial_naming_factory` for the JMS transport receiver (Under <code>[[transport.jms.listener]]</code> section. Make sure that this section is uncommented.).</p>
+The value specified here should be the same as that specified in the <code>&lt;MI_HOME&gt;/conf/deployment.toml</code> `parameter.initial_naming_factory` for the JMS transport receiver (Under <code>[[transport.jms.listener]]</code> section. Make sure that this section is uncommented.).</p>
 </div></td>
 </tr>
 <tr class="odd">
