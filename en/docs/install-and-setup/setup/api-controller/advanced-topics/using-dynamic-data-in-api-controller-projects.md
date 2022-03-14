@@ -126,7 +126,7 @@ For example, consider we need to send a special header to the backend when calli
 4. Import the API Project
 
     ```bash
-    apictl import api -f PetstoreProject --environment development --update
+    apictl import api -f PetstoreProject --environment development --params params.yaml --update
     ```
 
     !!!note
