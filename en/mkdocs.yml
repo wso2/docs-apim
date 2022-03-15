@@ -1517,7 +1517,7 @@ nav:
             - CI/CD - APIs:
                 - CI/CD for APIs - Overview: install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management.md
                 - Build a CI/CD Pipeline for APIs Using the CLI: install-and-setup/setup/api-controller/cicd-using-cli.md
-                - Build a CI/CD Pipeline for APIs Using Jenkins: install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach.md
+                - Build a CI/CD Pipeline for APIs using WSO2 API Controller (apictl): install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline-apictl.md
             - Manage Environments Using the CLI:
                 - Getting Started with WSO2 API Controller (apictl): install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller.md
                 - Manage APIs and API Products:
