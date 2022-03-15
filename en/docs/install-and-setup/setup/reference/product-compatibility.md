@@ -146,8 +146,8 @@ The **Streaming Integrator** runtime is tested with the following JDKS:
 
 |**JDK**             |**Version**|
 |--------------------|-----------|
-|Oracle JDK          | 8         |
-|OpenJDK             | 8         |
+|Oracle JDK          | 8, 11     |
+|OpenJDK             | 8, 11     |
 
 #### Tested DBMSs
 
