@@ -37,7 +37,7 @@ Follow the instructions below to create a WebSocket API using the basic flow:
              ws_endpoint = "ws://localhost:9190"
             ```
 
-             9190 = default port 9090 + port offset
+             In the above configuration, the offset is `100`. `9190` was obtained by adding `100` to the default port `9090`.
 
 1.  {!includes/sign-in-publisher.md!}
 
