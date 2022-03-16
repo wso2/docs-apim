@@ -8,10 +8,10 @@ By default inbound endpoints share the PassThrough transport worker pool to hand
 
 ## Tuning the Kafka inbound
 
-Open the deployment.toml file, and change the inbound thread pool size based on your use case. Recommended values are specified below.
+Open the `deployment.toml` file, and change the inbound thread pool size based on your use case. Recommended values are specified below.
 
 ```toml
-[[mediation]]
+[mediation]
 inbound.core_threads = 200 
 inbound.max_threads = 1000   
 ```
