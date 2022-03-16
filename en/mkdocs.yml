@@ -367,7 +367,7 @@ nav:
                 - Test a GraphQL API: consume/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console.md
                 - Add Additional Headers to Test a REST API: consume/invoke-apis/invoke-apis-using-tools/include-additional-headers-in-the-api-console.md
             - SOAP Client: consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client.md
-            # The following feature has been removed in 4.0.0 onwards
+            # Feature removed for further improvement from 4.0.0 onwards
             #- Postman: consume/invoke-apis/invoke-apis-using-tools/try-out-using-postman.md
         - Collaborations:
             - Interact with the Community: consume/collaboration/interact-with-the-community.md
