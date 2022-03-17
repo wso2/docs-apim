@@ -108,12 +108,12 @@ The **Micro Integrator** runtime is tested with the following operating systems:
 
 The **Micro Integrator** runtime is tested with the following JDKs:
 
-|**JDKS**            |**Versions**|
-|--------------------|-----------|
-|CorrettoJDK         | 8         |
-|AdoptOpenJDK        | 8         |
-|OpenJDK             | 11        |
-|Oracle JDK          |8, 11      |
+| **JDKS**            |**Versions**|
+|---------------------|------------|
+| CorrettoJDK         | 8, 11      |
+| AdoptOpenJDK        | 8, 11      |
+| OpenJDK             | 11         |
+| Oracle JDK          | 8, 11      |
 
 #### Tested DBMSs
 
