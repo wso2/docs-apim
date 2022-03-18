@@ -1,19 +1,24 @@
 # Utility Module Overview
 
-The Utility Module allows you to do math function such as generating a random integer, string function such as transform a string to uppercase and lowercase, get the length of a string, generate a random UUID, check a string against a regular expression.
+The Utility Module allows you to do the following.
 
-To see the available Utility Module, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "Utility".
+- Math functions (e.g., generating a random integer).
+- String function (e.g., transform a string to uppercase and lowercase).
+- Obtain the length of a string.
+- Generate a random UUID.
+- Check a string against a regular expression.
 
-<img src="{{base_path}}/assets/img/integrate/connectors/utility-store.png" title="Utility Module" width="200" alt="Utility Module Connector Store"/>
+Access the Utility Module by navigating to the [Connector Store](https://store.wso2.com/store/assets/esbconnector/list) and search for `Utility`.
 
+<a href="{{base_path}}/assets/img/integrate/connectors/utility-store.png"><img src="http://localhost:8000/assets/img/integrate/connectors/utility-store.png" title="Utility Module" width="200" alt="Utility Module logo in Connector Store"/></a>
 
 ## Compatibility
 
-| Connector version | Supported product versions |
+| **Connector version** | **Supported Product Versions** |
 | ------------- |------------- |
-|  [1.0.0](https://github.com/wso2-extensions/mediation-utility-module)        |  APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0, EI 6.4.0 |
+|  [1.0.0](https://github.com/wso2-extensions/mediation-utility-module)        |  API-M 4.0.0</br>EI 7.1.0</br>EI 7.0.x</br>EI 6.6.0</br>EI 6.5.0</br>EI 6.4.0 |
 
-For older versions, see the details in the connector store.
+For older versions, see the details in the Connector Store.
 
 ## Utility Module documentation
 
@@ -23,8 +28,10 @@ For older versions, see the details in the connector store.
 
 As an open source project, WSO2 extensions welcome contributions from the community. 
 
-To contribute to the code for this connector, please create a pull request in the following repository. 
+- To contribute to the code for this connector, please create a pull request in the following repository. 
 
-* [Utility Module GitHub repository](https://github.com/wso2-extensions/mediation-utility-module)
+     [Utility Module GitHub repository](https://github.com/wso2-extensions/mediation-utility-module)
 
-Check the issue tracker for open issues that interest you. We look forward to receiving your contributions.
+- Check the issue tracker for open issues that interest you. 
+
+WSO2 looks forward to receiving your contributions.
