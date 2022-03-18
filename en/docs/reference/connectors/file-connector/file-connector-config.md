@@ -646,6 +646,27 @@ There are different connection configurations that can be used for the above pro
            No
         </td>
     </tr>
+    <tr>
+        <td>
+            File System Permission Check
+        </td>
+        <td>
+            setAvoidPermission
+        </td>
+        <td>
+            Boolean
+        </td>
+        <td>
+            Set to true if you want to skip the file permission check.</br>
+            Available in file-connector <b>v4.0.9</b> and above.
+        </td>
+        <td>
+            false
+        </td>
+        <td>
+           No
+        </td>
+    </tr>
 </table>
 
 ## Operations
