@@ -1071,6 +1071,9 @@ nav:
                 - SMPP Reference: reference/connectors/smpp-connector/smpp-connector-config.md
                 - SMPP Inbound Endpoint Example: reference/connectors/smpp-connector/smpp-inbound-endpoint-example.md
                 - SMPP Inbound Endpoint Reference: reference/connectors/smpp-connector/smpp-inbound-endpoint-config.md
+            - Utility Module:
+                - Utility Module Overview: reference/connectors/utility-module/utility-module-overview.md
+                - Utility Module Reference: reference/connectors/utility-module/utility-module-config.md
         - Streaming Connectors:
             - Streaming Integrator Connectors Overview: reference/streaming-connectors/connectors-overview.md
             - Downloading and Install Siddhi Connectors: reference/streaming-connectors/downloading-and-installing-siddhi-extensions.md
