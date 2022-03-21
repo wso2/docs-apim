@@ -373,7 +373,8 @@ nav:
                 - Test a GraphQL API: consume/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console.md
                 - Add Additional Headers to Test a REST API: consume/invoke-apis/invoke-apis-using-tools/include-additional-headers-in-the-api-console.md
             - SOAP Client: consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client.md
-            - Postman: consume/invoke-apis/invoke-apis-using-tools/try-out-using-postman.md
+            # Feature removed for further improvement from 4.0.0 onwards
+            #- Postman: consume/invoke-apis/invoke-apis-using-tools/try-out-using-postman.md
         - Collaborations:
             - Interact with the Community: consume/collaboration/interact-with-the-community.md
         - Generating SDKs:
@@ -1070,6 +1071,9 @@ nav:
                 - SMPP Reference: reference/connectors/smpp-connector/smpp-connector-config.md
                 - SMPP Inbound Endpoint Example: reference/connectors/smpp-connector/smpp-inbound-endpoint-example.md
                 - SMPP Inbound Endpoint Reference: reference/connectors/smpp-connector/smpp-inbound-endpoint-config.md
+            - Utility Module:
+                - Utility Module Overview: reference/connectors/utility-module/utility-module-overview.md
+                - Utility Module Reference: reference/connectors/utility-module/utility-module-config.md
         - Streaming Connectors:
             - Streaming Integrator Connectors Overview: reference/streaming-connectors/connectors-overview.md
             - Downloading and Install Siddhi Connectors: reference/streaming-connectors/downloading-and-installing-siddhi-extensions.md

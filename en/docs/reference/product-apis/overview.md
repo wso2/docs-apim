@@ -35,7 +35,7 @@ Following Postman collection provides quick start guide for WSO2 API Manager RES
  * Create, publish, subscribe and invoke a sample REST API
  * Create, subscribe and invoke a sample API Product 
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/4237ff03add745fab13a)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/17491134-303bed00-62b0-477f-a31d-a1de31201e4c)
 
 ??? info "Expand to copy the Postman collection"
     <script src="https://gist.github.com/chamilaadhi/7d37fd33bc6b152af02ab40c02056ba0.js"></script>
