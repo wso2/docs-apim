@@ -17,7 +17,7 @@ WSO2 API Manager uses <a href="https://stripe.com">Stripe</a> as its sample impl
       </div> 
 </html>
 
-Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin/releases/download/v1.3.0/org.wso2.apim.monetization.impl-1.3.0.jar) to monetize an API in the following example scenario.
+Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin/releases/download/v1.3.1/org.wso2.apim.monetization.impl-1.3.1.jar) to monetize an API in the following example scenario.
 
 ### Before you begin
 
@@ -95,11 +95,11 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
 
     1. Download and copy the JAR specific to the billing engine, which you are working with, into the `<API-M_HOME>/repository/components/lib` directory.
         
-        In this example scenario, add the [Stripe Java JAR](https://github.com/wso2-extensions/wso2-am-stripe-plugin/releases/download/v1.3.0/org.wso2.apim.monetization.impl-1.3.0.jar) into the latter mentioned `lib` folder.
+        In this example scenario, add the [Stripe Java JAR](https://github.com/wso2-extensions/wso2-am-stripe-plugin/releases/download/v1.3.1/org.wso2.apim.monetization.impl-1.3.1.jar) into the latter mentioned `lib` folder.
 
     2. Build the implementation of the respective monetization interface and add the JAR into the `<API-M_HOME>/repository/components/lib` directory.
         
-        In this example scenario, you need to add the [org.wso2.apim.monetization.impl-1.2.0.jar]({{base_path}}/assets/attachments/learn/monetization/org.wso2.apim.monetization.impl-1.2.0.jar) JAR into the latter mentioned `lib` folder. Note that this JAR has been derived by building the [wso2-am-stripe-plugin repository](https://github.com/wso2-extensions/wso2-am-stripe-plugin). 
+        In this example scenario, you need to add the [org.wso2.apim.monetization.impl-1.3.1.jar](https://github.com/wso2-extensions/wso2-am-stripe-plugin/releases/download/v1.3.1/org.wso2.apim.monetization.impl-1.3.1.jar) JAR into the latter mentioned `lib` folder. Note that this JAR has been derived by building the [wso2-am-stripe-plugin repository](https://github.com/wso2-extensions/wso2-am-stripe-plugin). 
 
     3.  Define the monetization implementation in WSO2 API Manager.
      
@@ -526,31 +526,26 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
          auth_token = "xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
         ```    
    
-    2. Define the Query API endpoint of Choreo Analytics under the monetization configuration.
+    2. Create a new application on choreo devportal and subscribe to the Insight API. Please follow this [documentation](https://wso2.com/choreo/docs/insights/programmatic-access-choreo-insights-api/) for the steps of subscribing to the Insight API.
+    3. Define the Insight API endpoint, analytics access token, choreo token endpoint URL and consumer key/ secret pair of the Insight application you created on step 2 under the monetization configuration. 
     
          ``` java tab="Format"
          [apim.monetization]
-         analytics_query_api_endpoint= "<Endpoint of the query API>"
+         analytics_query_api_endpoint = "<Endpoint of the Insight API>"
+         analytics_access_token = "<Analytics on prem key>"
+         choreo_token_endpoint = "<Choreo token endpoint>"
+         choreo_insight_app_consumer_key = "<Consumer key of the subscribed application>"
+         choreo_insight_app_consumer_secret = "<Consumer secret of the subscribed application>"
          ```
 
          ``` java tab="Example"
          [apim.monetization]
-         analytics_query_api_endpoint= "https://analytics-api.choreo.dev/query-api"
-         ```     
-   
-    3. Define the Access Token required to access the above Query API. 
-    
-         The same access token which is configured under analytcts configuration in step 1 can be configured here.
-   
-         ``` java tab="Format"
-         [apim.monetization]
-         analytics_access_token == "<Token to access the Choreo query API>"
+         analytics_query_api_endpoint = "https://choreocontrolplane.choreo.dev/93tu/insights/1.0.0/query-api"
+         analytics_access_token = "xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+         choreo_token_endpoint = "https://sts.choreo.dev/oauth2/token"
+         choreo_insight_app_consumer_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+         choreo_insight_app_consumer_secret = "xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
          ```
-
-         ``` java tab="Example"
-         [apim.monetization]
-         analytics_access_token == "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-         ```     
    
 5.  Configure the Tenant Admin on WSO2 API Manager.
 
