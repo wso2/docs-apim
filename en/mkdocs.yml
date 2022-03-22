@@ -161,6 +161,7 @@ nav:
                 - Obtain User Profile Information with OpenID Connect: design/api-security/openid-connect/obtaining-user-profile-information-with-openid-connect.md
             - Open Policy Agent (OPA) Validation:
                 - Overview: design/api-security/opa-validation/overview.md
+                - Custom OPA Policy for Regualr Gateway: design/api-security/opa-validation/custom-opa-policy-for-regular-gateway.md
                 - Custom OPA Policy for Choreo Connect: design/api-security/opa-validation/custom-opa-policy-for-choreo-connect.md
         - Rate Limiting:
                 - Throttling Use-Cases: design/rate-limiting/introducing-throttling-use-cases.md
