@@ -114,7 +114,7 @@ By default, each gateway uses a default Request Generator to generate the reques
             "isAuthenticated": true,
             "keyType": "PRODUCTION",
             "consumerKey": "GRfjDbo8yJqXUGbFaOtNo_5Npyka",
-            "accessToken": "eyJ4NXQiOiJOMkpqTWpOaU0yRXhZalJrTnpaalptWTFZVEF4Tm1GbE5qZzRPV1UxWVdRMll6YzFObVk1TlEiLCJraWQiOiJNREpsTmpJeE4yRTFPR1psT0dWbU1HUXhPVEZsTXpCbU5tRmpaalEwWTJZd09HWTBOMkkwWXpFNFl6WmpOalJoWW1SbU1tUTBPRGRpTkRoak1HRXdNQV9SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhZG1pbiIsImF1dCI6IkFQUExJQ0FUSU9OIiwiYXVkIjoiR1JmakRibzh5SnFYVUdiRmFPdE5vXzVOcHlrYSIsIm5iZiI6MTY0Nzk0MjMyOCwiYXpwIjoiR1JmakRibzh5SnFYVUdiRmFPdE5vXzVOcHlrYSIsInNjb3BlIjoiZGVmYXVsdCIsImlzcyI6Imh0dHBzOlwvXC9sb2NhbGhvc3Q6OTQ0M1wvb2F1dGgyXC90b2tlbiIsImV4cCI6MTY0Nzk0NTkyOCwiaWF0IjoxNjQ3OTQyMzI4LCJqdGkiOiI4M2RkNDQ2Yy1hODk4LTQwOGQtOGFmZi1kZTI3Y2U1YzE1ZTkifQ.SAfCw9CL0f9TXRqWyVcQ04QrZogQ9OfcbO_SkaMsuaPZMDd2qzd0QlmXIstu8B61RSqX6FCcnGtkJlWtXHOm15928PK2USfLhwSGB3p7C8_ZgfGOdOldBb3dkfURLWuShjL58F-_7qDS5Au_KNpBm2Sv1KA9h6JSahX1TWVbr05JfCzbr92BWxc6n_-Ojrp0o2RRX6Nn0IUphv6MOnNcJhxzKeXDdrsm1XS2RX022BajCIN3ZMgnPC3CoYUjm5dpBtn5x_glW7DdWj4PkJ7Yk6RRpnQ4GdDxyjxDZpEx_O-tKzC5QKeRphfoV_eScYK0UeVlenMVnMJUIUZzla-F6Q",
+            "accessToken": "JWT Access Token",
             "issuer": "https://localhost:9443/oauth2/token",
             "applicationName": "DefaultApplication",
             "subscriberOrganization": "carbon.super",
