@@ -48,8 +48,8 @@ Configurations for the policy is as follows.
 | Max Open Connections  | **Optional** Maximum number of open HTTP connections between the gateway and OPA server.                                                                                                                                                                               | `500`                                  |
 | Connection Timeout    | **Optional** Connection timeout in seconds.                                                                                                                                                                                                                            | `30`                                   |
 
-<a href="{{base_path}}/assets/img/deploy/mgw/configure-opa-policy.png">
-    <img src="{{base_path}}/assets/img/deploy/mgw/configure-opa-policy.png" alt="Configure OPA policy"/>
+<a href="{{base_path}}/assets/img/design/security/opa/configure-opa-policy.png">
+    <img src="{{base_path}}/assets/img/design/security/opa/configure-opa-policy.png" alt="Configure OPA policy"/>
 </a>
 
 ## Defining Policies in the OPA Server
