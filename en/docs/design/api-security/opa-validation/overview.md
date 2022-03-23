@@ -14,7 +14,7 @@ WSO2 API Manager uses this unique policy engine to evaluate the requests that th
 
 ## How to use OPA for request validation?
 
-In oder to evaluate requests with OPA, first you need to deploy OPA as a host-level daemon or a sidecar container. Once a gateway receives a request,
+In oder to evaluate requests with OPA, first you need to deploy OPA as a host-level daemon or a sidecar container. Once a Gateway receives a request,
 gateway will extract a predefined set of meta-data from the request and query OPA via HTTP/HTTPS. OPA Policy engine will evaluate the request meta-data against the configured policy and return it's validation response.
 Based on the response, gateway will allow or block the request.
 
