@@ -19,7 +19,7 @@ it extracts a predefined set of meta-data from the request and query OPA via HTT
 The Gateway allows or blocks the request based on the response.
 
 !!! note
-    Gateway node should be able to communicate with this OPA server. It can be either HTTP or HTTPS and if HTTPS is used, make sure that you upload the certificates of the OPA server to the client trust store of the gateway.
+    The Gateway node should be able to communicate with this OPA server. It can be either HTTP or HTTPS, and if HTTPS is used, make sure that you upload the certificates of the OPA server to the client trust store of the Gateway.
 
 ### Attaching OPA Policy
 Once OPA engine is deployed, you have to attach the policy to the operations that to the operations that you want to enforce OPA validation.
