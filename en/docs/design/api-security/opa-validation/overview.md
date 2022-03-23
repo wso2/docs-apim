@@ -191,7 +191,7 @@ Similar to the request generation, the default request generator class validates
 
 ### Customize the OPA request payload and response validation
 
-If you need to customize the OPA input json or OPA response validation, you can do so by writing your own custom OPA policies with custom Request Generators. Both regular gateway and Choreo Connect supports this extension.
+If you need to customize the OPA input JSON or OPA response validation, you can do so by writing your own custom OPA policies with custom Request Generators. Both regular Gateway and Choreo Connect support this extension.
 
 - [Custom OPA Policy for Regular Gateway](custom-opa-policy-for-regular-gateway.md)
 - [Custom OPA Policy for Choreo Connect](custom-opa-policy-for-choreo-connect.md)
