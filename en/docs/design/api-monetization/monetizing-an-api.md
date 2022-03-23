@@ -526,7 +526,7 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
          auth_token = "xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
         ```    
    
-    2. Create a new application on choreo devportal and subscribe to the Insight API. Please follow this [documentation](https://wso2.com/choreo/docs/insights/programmatic-access-choreo-insights-api/) for the steps of subscribing to the Insight API.
+    2. Create a new application on Choreo devportal and subscribe to the Insight API. To subscribe to the Insight API, follow this [documentation](https://wso2.com/choreo/docs/insights/programmatic-access-choreo-insights-api/).
     3. Define the Insight API endpoint, analytics access token, choreo token endpoint URL and consumer key/ secret pair of the Insight application you created on step 2 under the monetization configuration. 
     
          ``` java tab="Format"
