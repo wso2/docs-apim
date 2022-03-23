@@ -4,7 +4,7 @@ portal and also he/she can review all the analytics related details.
 
 #### Read Only User
 The user should have the scopes `apim:api_view` and `apim:publisher_settings`.
-WSO2 APIM provides a pre-defined role called **internal/observer** which is used to group all the read only the users.
+WSO2 APIM provides a pre-defined role called **internal/observer**, which is used to group all the read-only users.
 
 Let's create a read only user and experience the Publisher portal in read only mode.
 
