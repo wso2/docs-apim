@@ -71,7 +71,7 @@ allow {
 
 ### Request Payload to the OPA server
 
-By default, each gateway uses a default Request Generator to generate the request payload to the OPA server. You can configure your policies in OPA server based on the following request format.
+By default, each Gateway uses a default Request Generator to generate the request payload to the OPA server. You can configure your policies in OPA server based on the following request format.
 
 !!! Info
     You can have your own **Request Generator Implementation**, you can do so by implementing the interface **OPARequestGenerator**. [Custom OPA Policy with Custom Request Generator](#custom-opa-policy-with-custom-request-generator) in this document describes it in more details.
