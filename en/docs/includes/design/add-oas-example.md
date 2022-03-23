@@ -93,9 +93,6 @@ With OpenAPI 3.0 provide mock response body and headers following the below form
 !!! note 
     For more information on defining response body examples in open API specification, follow [Request and Response Body Examples](https://swagger.io/docs/specification/adding-examples/).
 
-**Additional Information**
-
-
 For this tutorial, let's take **Example 2** and update the API definition with it.
 <!-- TODO(amali): paste ss of editor-->
 
@@ -130,3 +127,38 @@ It will select the matching example for the particular code and the example refe
 {"mock response":"Welcome"}
 ```
 <!-- TODO(amali): add more examples-->
+
+**Advanced information**
+
+The following will guide you on how mock response contents are generated based on the response examples given in the 
+api definition and the api invoke requests.
+
+The following is the basic flow of the response generation logic in Choreo Connect.
+
+step 1
+    - If the invoked resource does not contain mock response examples provided in the api definition, then a response 
+   with `501, Not Implemented` status code would be returned with `900871` error code.
+   
+step 2 
+   - If the request has a valid integer value as the code preference, 
+   Choreo connect picks the most matched response examples from the openapi specification checking on the exact codes and
+   wild cards matches. Status code of the response will be same as the code preference given in the request. 
+   However, if there are no response examples matching the preferred status code, then `501, Not Implemented` status code 
+   would be returned with `900871` error code.
+   - If the request does not have a code preference,
+   Choreo Connect will check for examples under `default` responses, if even no default responses are defined, 
+   then picks a one out of the response examples. 
+   
+step 3 
+   - If the request has accept-types,
+   Choreo connect will pick examples defined under a matching media type. However, if there are no matches for accept 
+   types in the examples, then `501, Not Implemented` status code would be returned with `900871` error code.
+   - If the request does not have accept-types, 
+   Choreo connect will check for examples with 'application/json' as the media type. If there are no examples for 
+   'application/json', then picks one out of available media-type examples.
+
+step 4
+    - If the request has an example preference,
+    Choreo Connect will pick the example content with the matching example name from the example list we got after 
+    applying above steps. If there's no matching example found, then `501, Not Implemented` status code would be 
+    returned with `900871` error code.
