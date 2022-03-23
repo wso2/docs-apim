@@ -1,7 +1,7 @@
 
 # Custom OPA Policy for Regular gateway
 
-Following contains the steps that you required to follow to create a custom OPA policy by creating you own Request Policy Generator.
+The instructions below contain the steps that you require to follow to create a custom OPA policy by creating your own Request Policy Generator.
 
 1. Create a Java project with following dependencies.
     -   For Apache Maven, use the following.
