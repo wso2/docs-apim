@@ -22,7 +22,7 @@ The Gateway allows or blocks the request based on the response.
     The Gateway node should be able to communicate with this OPA server. It can be either HTTP or HTTPS, and if HTTPS is used, make sure that you upload the certificates of the OPA server to the client trust store of the Gateway.
 
 ### Attaching OPA Policy
-Once OPA engine is deployed, you have to attach the policy to the operations that to the operations that you want to enforce OPA validation.
+Once OPA engine is deployed, you have to attach the policy to the operations that you want to enforce OPA validation.
 
 1. In the publisher portal, select the API that you want to configure the OPA policy and navigate to **Develop -> API Configurations -> Policies**.
 2. Select the gateway that the API required to be deployed in the upper right corner of the page.
