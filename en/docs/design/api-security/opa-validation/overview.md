@@ -18,7 +18,7 @@ Configurations for the policy is as follows.
 |-----------------------|-----------------------------------------------------------|---------------------------------|
 | Server URL            | URL of the OPA Server                                     | `http://localhost:8181/v1/data` |
 | Access Token          | **Optional** access token for OPA server authentication   | `my-secret-token`               |
-| Policy                | Name of the policy                                        | `my-policy`                     |
+| Policy                | Name of the policy                                        | `myPolicy`                     |
 | Rule                  | Name of the rule                                          | `allow`                         |
 | Send Access Token     | Whether to send or not the access token to the OPA server | `false`                         |
 | Additional Properties | **Optional** Additional message context (request context) properties to be included in the OPA input. Add these properties in a comma seperated list. |                                 |
@@ -35,12 +35,12 @@ Configurations for the policy is as follows.
 You can define your own policy enforcement logic in OPA by using the values provided by the gateway. The following is a sample policy definition in **Rego** to check the header value. `x-abcd` should be `ABCD` when HTTP method is `PUT`, otherwise HTTP method can be `POST`.
 
 ```rego tab='Sample'
-package abc.authz
+package myPolicy
 
 default allow = false
 allow {
     input.method == "PUT"
-    input.transportHeaders.x-abcd == "ABCD"
+    input.transportHeaders["x-abcd"] == "ABCD"
 }
 allow {
     input.method == "POST"
