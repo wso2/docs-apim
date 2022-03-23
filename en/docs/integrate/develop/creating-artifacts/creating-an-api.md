@@ -47,6 +47,14 @@ Follow the instructions given below to create a new [REST API]({{base_path}}/ref
                 Select this option to import an managed API from WSO2 API Manager.
             </td>
         </tr>
+        <tr>
+            <th>
+                Generate REST API from WSDL
+            </th>
+            <td>
+                Select this option to generate Synapse API from a WSDL endpoint.
+            </td>
+        </tr>
     </table>
 
 3.  Click **Next** to go to the next page and enter the relevant details.
@@ -190,6 +198,71 @@ Follow the instructions given below to create a new [REST API]({{base_path}}/ref
         </table>
         After entering the above values in the <b>Import API from API Manager</b> option wizard, click <b>List APIs</b>. The list of APIs that are in WSO2 API Manager appear. Thereafter, select one of the APIs from the API list.
 
+    -   If you selected **Generate REST API from WSDL** in the previous step, enter the following information:
+
+        <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/generate-api-from-wsdl.png" width="500">
+
+        <table>
+            <tr>
+                <th>
+                    Parameter
+                </th>
+                <th>
+                    Description
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    Name
+                </td>
+                <td>
+                    Name for the generated REST API.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Generate API
+                </td>
+                <td>
+                    Select 'Using WSDL URL' for generate API using the remote WSDL file or select 'Using Local 
+        File' to generate API from WSDL file or Zip file contain a valid WSDL file.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Use Local WSDL file or Zip file
+                </td>
+                <td>
+                    Browse and select the WSDL File or Zip file that has a valid WSDL file
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Enter WSDL URL
+                </td>
+                <td>
+                    Give the remote location of the SOAP Service WSDL File as a valid URL
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Enter SOAP Endpoint
+                </td>
+                <td>
+                    Give the actual SOAP Backend URL(This should return a valid WSDL when invoked with ?wsdl)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Save in
+                </td>
+                <td>
+                    Select the integration project for the generated API
+                </td>
+            </tr>
+        </table>
+        After entering the above values in the <b>Import API from API Manager</b> option wizard, click <b>List APIs</b>. The list of APIs that are in WSO2 API Manager appear. Thereafter, select one of the APIs from the API list.
+    
 4.  Click **Finish**. 
     -   The REST API is created inside the `src/main/synapse-config/api` folder of your **Config** project.
     -   If you provided a custom Swagger definition file (YAML), it is now stored in the registry project.
