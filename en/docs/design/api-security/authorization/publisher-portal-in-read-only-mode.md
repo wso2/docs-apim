@@ -3,46 +3,22 @@ A user who has the view/read only permissions can only view the API, API Product
 portal and also he/she can review all the analytics related details.
 
 #### Read Only User
-The user has only the `apim:api_view` permission.
+The user should have the scopes `apim:api_view` and `apim:publisher_settings`.
+WSO2 APIM provides a pre-defined role called **internal/observer** which is used to group all the read only the users.
 
 Let's create a read only user and experience the Publisher portal in read only mode.
 
 Follow the instructions below to create a Read only user:
 
-1. Create role (e.g., `read_only`) in admin console.Sign in to the management console (`https://<APIM_Host>:<APIM_Port>/carbon`) 
-   as the admin (default credentials are admin/admin). 
-   
-2. Click **Main**, and then click **Add** under **Users and Roles**.
-        
-      [![Add users and roles]({{base_path}}/assets/img/administer/add-users-and-roles.png)]({{base_path}}/assets/img/administer/add-users-and-roles.png)
+1. Sign in to the management console (`https://<APIM_Host>:<APIM_Port>/carbon`) as the admin (default credentials are admin/admin).
 
-3. Click **Add New Role**.
+2. Create a user (Chris) and assign the **observer** default role.
 
-      ![Add new role]({{base_path}}/assets/img/administer/add-new-role.png)
+      ![read-only-user-creation]({base_path}}/assets/img/learn/api-security/assign-role-to-user.png)
 
-4.  Enter the name of the user role (e.g., `read_only`).
-
-      ![read-only-user-creation]({base_path}}/assets/img/learn/api-security/read_only_role.png)
-
-5. Create a user and assign the read_only role to the user.
-   
-6. Assign the login permission to login to the Publisher portal via the admin console.
-   
-7. Log in to the Admin Portal and navigate to **scope management** which is under **Settings**.
-   
-8. Click **Add Scope Mappings**.Enter the Role name as `read_only` (This is the role you assigned to the read only user).
-   
-9. Click **Next**.
-   
-10. Select the Custom scope assignments under the select permissions.Check the `apim:api_view` permission under the Publisher.
-
-   ![read-only-user-creation]({{base_path}}/assets/img/learn/api-security/read-only-user-creation.png)
-
-11. Save the changes.
+3. Click **Finish**.
 
 If a read-only user (Chris) is logged in to the Publisher, Chris can view the Publisher portal as shown below.
-
-   ![read-only-user-publisher-view]({{base_path}}/assets/img/learn/api-security/read-only-api-view.png)
 
 Example: API detail view
 
