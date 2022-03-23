@@ -94,7 +94,6 @@
 #apimdocsearch {
     display: flex;
     width: 50%;
-    margin-top: 10px;
 }
 
 #apimdocsearch > button {
