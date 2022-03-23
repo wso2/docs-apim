@@ -17,15 +17,15 @@ template: templates/single-column.html
         </p>
     </div>
     <div class="md-main md-content rightImage">
-        <a href='assets/attachments/wso2-apim-overview.png'>
-            <img src='assets/attachments/wso2-apim-overview.png' alt="WSO2 API Manager Overview" />
+        <a href='{{base_path}}/assets/attachments/wso2-apim-overview.png'>
+            <img src='{{base_path}}/assets/attachments/wso2-apim-overview.png' alt="WSO2 API Manager Overview" />
         </a>
     </div>
 </div>
 <div>
     <div class="content">
         <!-- card -->
-        <div class="card" onclick="location.href='getting-started/quick-start-guide';">
+        <div class="card" onclick="location.href='{{base_path}}/getting-started/quick-start-guide';">
             <div class="line"></div>
             <div class="card-icon">
                 <i class="material-icons md-36">timer</i>
@@ -37,7 +37,7 @@ template: templates/single-column.html
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card" onclick="location.href='learn/design-api/create-api/create-a-rest-api';">
+        <div class="card" onclick="location.href='{{base_path}}/learn/design-api/create-api/create-a-rest-api';">
             <div class="line"></div>
             <div class="card-icon">
                 <i class="material-icons md-36">create</i>
@@ -49,7 +49,7 @@ template: templates/single-column.html
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card" onclick="location.href='learn/consume-api/discover-apis/search';">
+        <div class="card" onclick="location.href='{{base_path}}/learn/consume-api/discover-apis/search';">
             <div class="line"></div>
             <div class="card-icon">
                 <i class="material-icons md-36">store</i>
@@ -61,7 +61,7 @@ template: templates/single-column.html
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card" onclick="location.href='learn/api-gateway/overview-of-the-api-gateway';">
+        <div class="card" onclick="location.href='{{base_path}}/learn/api-gateway/overview-of-the-api-gateway';">
             <div class="line"></div>
             <div class="card-icon">
                 <i class="material-icons md-36">input</i>
@@ -87,7 +87,7 @@ template: templates/single-column.html
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card" onclick="location.href='learn/api-security/api-authentication/api-authentication-overview';">
+        <div class="card" onclick="location.href='{{base_path}}/learn/api-security/api-authentication/api-authentication-overview';">
             <div class="line"></div>
             <div class="card-icon">
                 <i class="material-icons md-36">security</i>
@@ -99,7 +99,7 @@ template: templates/single-column.html
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card" onclick="location.href='learn/rate-limiting/introducing-throttling-use-cases';">
+        <div class="card" onclick="location.href='{{base_path}}/learn/rate-limiting/introducing-throttling-use-cases';">
             <div class="line"></div>
             <div class="card-icon">
                 <i class="material-icons md-36">traffic</i>
@@ -111,7 +111,7 @@ template: templates/single-column.html
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card" onclick="location.href='learn/analytics/overview-of-api-analytics';">
+        <div class="card" onclick="location.href='{{base_path}}/learn/analytics/overview-of-api-analytics';">
             <div class="line"></div>
             <div class="card-icon">
                 <i class="material-icons md-36">show_chart</i>

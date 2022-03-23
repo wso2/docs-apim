@@ -94,14 +94,13 @@
 #apimdocsearch {
     display: flex;
     width: 50%;
-    margin-top: 10px;
 }
 
 #apimdocsearch > button {
     width: 100%;
 }
 
-span.DocSearch-Button-Placeholder {
+ span.DocSearch-Button-Placeholder {
     font-size: 0.7rem;
 }
 
