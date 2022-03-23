@@ -29,7 +29,7 @@ Once OPA engine is deployed, you have to attach the policy to the operations tha
 3. For this functionality, there is a policy that you can invoke for the request flow named **Validate Request with OPA Policy**. Drag and drop this policy to the request flow of your required operations. 
 4. If you want to apply this to all the operations, select the **Apply to all resources** option from the left bar.
 5. Fill the configurations as per your deployment and save the page.
-6. Create a new revision from these changes and deploy it to the gateway.
+6. Create a new revision from these changes and deploy it to the Gateway.
 
 <a href="{{base_path}}/assets/img/design/security/opa/opa-policy-selection.png">
     <img src="{{base_path}}/assets/img/design/security/opa/opa-policy-selection.png" alt="Select the OPA Policy"/>
