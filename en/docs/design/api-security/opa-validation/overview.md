@@ -16,7 +16,7 @@ WSO2 API Manager uses this unique policy engine to evaluate the requests that th
 
 In oder to evaluate requests with OPA, first you need to deploy OPA as a host-level daemon or a sidecar container. Once a Gateway receives a request,
 it extracts a predefined set of meta-data from the request and query OPA via HTTP/HTTPS. The OPA Policy engine evaluates the request meta-data against the configured policy and returns its validation response.
-Based on the response, gateway will allow or block the request.
+The Gateway allows or blocks the request based on the response.
 
 !!! note
     Gateway node should be able to communicate with this OPA server. It can be either HTTP or HTTPS and if HTTPS is used, make sure that you upload the certificates of the OPA server to the client trust store of the gateway.
