@@ -25,7 +25,7 @@ The Gateway allows or blocks the request based on the response.
 Once OPA engine is deployed, you have to attach the policy to the operations that you want to enforce OPA validation.
 
 1. In the Publisher Portal, select the API that you want to configure the OPA policy and navigate to **Develop -> API Configurations -> Policies**.
-2. Select the gateway that the API required to be deployed in the upper right corner of the page.
+2. Select the Gateway that the API is required to be deployed in the upper right corner of the page.
 3. For this functionality, there is a policy that you can invoke for the request flow named **Validate Request with OPA Policy**. Drag and drop this policy to the request flow of your required operations. 
 4. If you want to apply this to all the operations, select the **Apply to all resources** option from the left bar.
 5. Fill the configurations as per your deployment and save the page.
