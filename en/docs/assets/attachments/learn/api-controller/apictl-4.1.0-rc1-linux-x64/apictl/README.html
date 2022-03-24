@@ -1,0 +1,1030 @@
+<h1 id="cli-for-importing-and-exporting-apis-and-applications">CLI for Importing and Exporting APIs and Applications and
+    Managing WSO2 Micro Integrator
+</h1>
+<h2 id="for-wso2-api-manager-4-1-0">For WSO2 API Manager 4.1.0</h2>
+<p>Command Line tool for importing and exporting APIs/Applications/API Products in between different API environments of
+    WSO2 API Manager and managing WSO2 Micro Integrator</p>
+<h2 id="getting-started">Getting Started</h2>
+<ul>
+    <li>
+        <h3 id="running">Running</h3>
+        <p> Select a generated archive suitable for your platform (Mac, Windows, Linux) and extract it to a desired
+            location and <code>cd</code> into it.<br> Then execute <code>apictl</code> to start the application.</p>
+        <blockquote>
+            <p>NOTE: Execute <code>./apictl</code> if the working directory is the same where the executable resides
+            </p>
+            <p>Add the location of extracted folder to your system&#39;s $PATH variable to access the executable from
+                anywhere </p>
+        </blockquote>
+        <p> Execute <code>apictl --help</code> for further instructions.</p>
+    </li>
+    <li>
+        <h3 id="adding-environments">Adding Environments</h3>
+        <p> Add environments by either manually editing <code>$HOME/.wso2apictl/main_config.yaml</code> or using the
+            command<br> <code>apictl add env</code>.</p>
+        <blockquote>
+            <p>NOTE: Directory structure for configuration files (<code>$HOME/.wso2apictl</code>) will be created upon
+                execution of <code>apictl</code></p>
+        </blockquote>
+        <p> Execute <code>apictl add env --help</code> for detailed instructions</p>
+        <blockquote>
+            <p>You can either provide only the 2 flags <code>--apim</code> and <code>--token</code>, or all the other 5
+                flags (<code>--registration</code>, <code>--publisher</code>, <code>--devportal</code>,
+                <code>--admin</code>, <code>--token</code>) without providing <code>--apim</code> flag.
+                If you are omitting any of --registration --publisher --devportal --admin flags, you need to specify
+                --apim flag with the API Manager endpoint.To add a micro integrator instance to an environment you can
+                use the <code>--mi</code> flag.
+            </p>
+        </blockquote>
+    </li>
+    <li>
+        <h3 id="command-autocompletion-for-bash-only-">Command Autocompletion (For Bash Only)</h3>
+        <p> Copy the file <code>apictl_bash_completion.sh</code> to <code>/etc/bash_completion.d/</code> and source it
+            with<br> <code>source /etc/bash_completion.d/apictl_bash_completion.sh</code> to enable bash
+            auto-completion.</p>
+    </li>
+</ul>
+<hr>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-bash">     apictl [command]
+</code></pre>
+<h4 id="global-flags">Global Flags</h4>
+<pre><code class="lang-bash">      --verbose
+           Enable verbose logs (Provides more information on execution)
+      --insecure, -k
+          Allow connections to SSL sites without certs
+      --help, -h
+          Display information and example usage of a command
+</code></pre>
+<h3 id="commands">Commands</h3>
+<ul>
+    <li>
+        <h4 id="login">login [environment]</h4>
+        <pre><code class="lang-bash">   Flags:
+       Optional:
+           --username, -u
+           --password, -p
+           NOTE: user will be prompted to enter credentials if they are not provided with these flags
+   Examples:
+       apictl login dev -u admin -p admin
+       apictl login dev -u admin
+       apictl login dev
+       cat ~/.mypassword | apictl login dev -u admin
+</code></pre>
+    </li>
+</ul>
+<ul>
+    <li>
+        <h4 id="logout">logout [environment]</h4>
+        <pre><code class="lang-bash">   Examples:
+       apictl logout dev
+</code></pre>
+    </li>
+</ul>
+<ul>
+    <li>
+        <h4 id="init">init [project-name]</h4>
+        <pre><code class="lang-bash">   Flags:
+       Optional:
+           --definition, -d
+           --force, -f
+           --initial-state
+           --oas
+   Examples:
+       apictl init myapi --oas petstore.yaml
+       apictl init Petstore --oas https://petstore.swagger.io/v2/swagger.json
+       apictl init Petstore --oas https://petstore.swagger.io/v2/swagger.json --initial-state=PUBLISHED
+       apictl init MyAwesomeAPI --oas ./swagger.yaml -d definition.yaml
+</code></pre>
+    </li>
+</ul>
+<ul>
+    <li>
+        <h4 id="export-api">export api</h4>
+        <pre><code class="lang-bash">   Flags:
+       Required:
+           --name, -n
+           --version, -v
+           --environment, -e
+       Optional:
+           --rev
+           --latest
+           --preserve-status
+           --format
+           --provider, -r
+   Examples:
+       apictl export api -n TestAPI -v 1.0.1 -e staging
+       apictl export api -n TestAPI -v 1.0.1 --rev 6 -r admin -e staging
+</code></pre>
+    </li>
+</ul>
+<ul>
+    <li>
+        <h4 id="import-api">import api</h4>
+    </li>
+</ul>
+<pre><code class="lang-bash">        Flags:
+            Required:
+                --file, -f
+                --environment, -e
+            Optional:
+                --rotate-revision
+                --skip-deployments
+                --params
+                --preserve-provider
+                --update
+                --skip-cleanup
+        Examples:
+                apictl import api -f qa/TwitterAPI.zip -e dev
+                apictl import api -f staging/FacebookAPI.zip -e production
+                apictl import api -f ~/myapi -e production --update
+                apictl import api -f ~/myapi -e production --update --rotate-revision
+</code></pre>
+<ul>
+    <li>
+        <h4 id="export-api-product">export api-product</h4>
+        <pre><code class="lang-bash">   Flags:
+       Required:
+           --name, -n
+           --environment, -e
+       Optional:
+            --rev
+            --latest
+            --provider, -r
+            --format
+   Examples:
+       apictl export api-product -n LeasingAPIProduct --rev 2 -e dev
+       apictl export api-product -n CreditAPIProduct -v 1.0.0 -r admin --latest -e production
+</code></pre>
+    </li>
+</ul>
+<ul>
+    <li>
+        <h4 id="import-api-product">import api-product</h4>
+        <pre><code class="lang-bash">   Flags:
+       Required:
+           --file, -f
+           --environment, -e
+       Optional:
+           --rotate-revision
+           --import-apis
+           --preserve-provider
+           --skip-cleanup
+           --update-api-product
+           --update-apis          
+   Examples:
+       apictl import api-product -f qa/LeasingAPIProduct.zip -e dev
+       apictl import api-product -f staging/CreditAPIProduct.zip -e production --update-api-product
+       apictl import api-product -f ~/myapiproduct -e production
+       apictl import api-product -f ~/myapiproduct -e production --update-api-product --update-apis
+</code></pre>
+    </li>
+</ul>
+<ul>
+    <li>
+        <h4 id="export-app">export app</h4>
+        <pre><code class="lang-bash">   Flags:
+       Required:
+            --name, -n
+            --owner, -o
+            --environment, -e
+       Optional:
+            --with-keys
+            --format
+   Examples:
+            apictl export app -n SampleApp -o admin -e dev
+            apictl export app -n SampleApp -o admin -e prod
+</code></pre>
+    </li>
+</ul>
+<ul>
+    <li>
+        <h4 id="import-app">import app</h4>
+    </li>
+</ul>
+<pre><code class="lang-bash">        Flags:
+            Required
+                  --file, -f
+                  --environment, -e
+            Optional
+                  --skip-subscriptions, -s
+                  --owner, -o
+                  --preserve-owner, -r
+                  --file, -f
+                  --environment, -e
+                  --skip-cleanup
+                  --skip-keys
+                  --update
+        Examples:
+            apictl import app -f qa/apps/sampleApp.zip -e dev
+            apictl import app -f staging/apps/sampleApp.zip -e prod -o testUser -u admin -p admin
+            apictl import app -f qa/apps/sampleApp.zip --preserve-owner --skip-subscriptions -e staging
+</code></pre>
+<ul>
+    <li>
+        <h4 id="get-apis">get apis</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+          Optional:
+              --format
+              --limit, -l
+              --query, -q
+      Examples:
+          apictl get apis -e dev
+          apictl get apis -e dev -q version:1.0.0
+          apictl get apis -e prod -q provider:admin -q version:1.0.0
+          apictl get apis -e prod -l 100
+          apictl get apis -e staging
+</code></pre>
+    </li>
+    <li>
+        <h4 id="get-api-products">get api-products</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+          Optional:
+              --format
+              --limit, -l
+              --query, -q
+      Examples:
+          apictl get api-products -e dev
+          apictl get api-products -e dev -q provider:devops
+          apictl get api-products -e prod -q provider:admin -q context:/myproduct
+          apictl get api-products -e prod -l 25
+          apictl get api-products -e staging
+</code></pre>
+    </li>
+    <li>
+        <h4 id="get-apps">get apps</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required
+                  --environment, -e
+                  --owner, -o
+            Optional
+                  --format
+                  --limit, -l
+                  --owner, -o
+        Examples:
+            apictl get apps -e dev 
+            apictl get apps -e dev -o sampleUser
+            apictl get apps -e prod -o sampleUser
+            apictl get apps -e staging -o sampleUser
+            apictl get apps -e dev -l 40        
+</code></pre>
+    </li>
+    <li>
+        <h4 id="get-api-revisions">get api-revisions</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required
+                  --name, -n
+                  --version, -v
+                  --environment
+            Optional
+                  --format
+                  --provider, -p
+                  --query, -q
+        Examples:
+            apictl get api-revisions -n PizzaAPI -v 1.0.0 -e dev
+            apictl get api-revisions -n TwitterAPI -v 1.0.0 -r admin -e dev
+            apictl get api-revisions -n TwitterAPI -v 1.0.0 -r admin -e dev -q deployed:true
+
+</code></pre>
+    </li>
+    <li>
+        <h4 id="get-api-product-revisions">get api-product-revisions</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required
+                  --name, -n
+                  --version, -v
+                  --environment
+            Optional
+                  --format
+                  --provider, -p
+                  --query, -q
+        Examples:
+            apictl get api-product-revisions -n ShopProduct -v 1.0.0 -e dev
+            apictl get api-product-revisions -n MarketProduct -v 1.0.0 -r admin -e dev
+            apictl get api-product-revisions -n DesingProduct -v 1.0.0 -r admin -e dev -q deployed:true
+
+</code></pre>
+    </li>
+    <li>
+        <h4 id="get-api-logging">get api-logging</h4>
+        <pre><code class="lang-bash">
+     Flags:
+         Required
+                 --environment, -e
+         Optional
+                 --tenant-domain
+                 --api-id
+     Examples:
+         apictl get api-logging -e dev
+         apictl get api-logging -e dev --tenant-domain test.com
+         apictl get api-logging -e dev --api-id bf36ca3a-0332-49ba-abce-e9992228ae06
+         apictl get api-logging -e dev --tenant-domain test.com --api-id bf36ca3a-0332-49ba-abce-e9992228ae06
+        </code></pre>
+    </li>
+    <li>
+        <h4 id="get-envs">get envs</h4>
+        <pre><code class="lang-bash">     Flags:
+         None
+     Example:
+         apictl get envs
+</code></pre>
+    </li>
+    <li>
+        <h4 id="add-env">add env [environment]</h4>
+        <pre><code class="lang-bash">      Flags:
+        Required:
+            To add an API Manager
+            (either)
+            --apim (API Manager endpoint)
+            OR (the following 4)
+            --registration https://localhost:9443 \
+            --publisher https://localhost:9443 \
+            --devportal https://localhost:9443 \
+            --admin https://localhost:9443
+            To add a Micro Integrator
+            --mi (MI Management endpoint)
+        Optional:
+            --token (Token Endpoint)
+
+        Examples:
+        apictl add env dev \
+            --apim https://localhost:9443
+
+        apictl add env dev \
+            --mi  https://localhost:9164
+
+        apictl add env prod \
+            --apim  https://apim.com:9443 \
+            --mi https://localhost:9164
+
+        apictl add env staging \
+            --registration https://idp.com:9443 \
+            --publisher https://apim.com:9443 \
+            --devportal https://apps.com:9443 \
+            --admin https://apim.com:9443 \
+            --token https://gw.com:8243/token \
+            --mi https://localhost:9164
+            
+        apictl add env prod \
+            --apim https://apim.com:9443 \
+            --registration https://idp.com:9443 \
+            --token https://gw.com:8243/token
+</code></pre>
+    </li>
+    <li>
+        <h4 id="remove-env">remove env [environment]</h4>
+    </li>
+</ul>
+<pre><code class="lang-bash">      
+            Examples:
+                apictl remove env dev
+</code></pre>
+<ul>
+    <li>
+        <h4 id="reset-user">reset-user</h4>
+    </li>
+</ul>
+<pre><code class="lang-bash">        Flags
+            --environment, -e
+        Examples:
+            apictl reset-user -e dev
+</code></pre>
+<ul>
+    <li>
+        <h4 id="version">version</h4>
+        <pre><code class="lang-bash">      apictl version
+</code></pre>
+    </li>
+    <li>
+        <h4 id="set">set</h4>
+        <pre><code class="lang-bash">      Flags
+          --http-request-timeout
+          --tls-renegotiation-mode
+          --export-directory
+          --vcs-config-path string
+          --vcs-deletion-enabled
+      Examples:
+          apictl set --http-request-timeout 3600 --export-directory /home/user/exported-apis
+          apictl set --http-request-timeout 5000 --export-directory C:\Documents\exported
+          apictl set --http-request-timeout 5000
+          apictl set --tls-renegotiation-mode freely
+          apictl set --vcs-deletion-enabled=true
+          apictl set --vcs-config-path /home/user/custom/vcs-config.yaml
+</code></pre>
+    </li>
+    <li>
+        <h4 id="set-api-logging">set api-logging</h4>
+        <pre><code class="lang-bash">      Flags
+          --environment, -e
+          --tenant-domain
+          --api-id
+          --log-level
+      Examples:
+          apictl set api-logging -e dev --api-id bf36ca3a-0332-49ba-abce-e9992228ae06 --log-level full
+          apictl set api-logging -e dev --tenant-domain test.com --api-id bf36ca3a-0332-49ba-abce-e9992228ae06 --log-level full
+</code></pre>
+    </li>
+</ul>
+<ul>
+    <li>
+        <h4 id="get-keys">get keys</h4>
+        <pre><code class="lang-bash">   Flags:
+       Required:
+            --name, -n
+            --environment, -e
+       Optional:
+            --version, -v
+            --provider, -r
+            --token, -t
+   Examples:
+            apictl get keys -n PizzaShackAPI --version 1.0.0 -e dev --provider admin
+</code></pre>
+    </li>
+</ul>
+<ul>
+    <li>
+        <h4 id="delete-api">delete api</h4>
+        <pre><code class="lang-bash">   Flags:
+       Required:
+           --name, -n
+           --version, -v
+           --environment, -e
+       Optional:
+           --provider, -r
+           NOTE: User will be prompted to enter credentials if the user is not logged in to the environment.
+   Examples:
+       apictl delete api -n TestAPI -v 1.0.0 -r admin -e staging
+       apictl delete api -n TestAPI -v 1.0.0 -e production
+</code></pre>
+    </li>
+</ul>
+<ul>
+    <li>
+        <h4 id="delete-api-product">delete api-product</h4>
+        <pre><code class="lang-bash">   Flags:
+       Required:
+           --name, -n
+           --environment, -e
+       Optional:
+           --provider, -r
+           --version, -v
+           NOTE: User will be prompted to enter credentials if the user is not logged in to the environment.
+   Examples:
+       apictl delete api-product -n TwitterAPI -r admin -e dev
+       apictl delete api-product -n FacebookAPI -v 1.0.0 -e production
+</code></pre>
+    </li>
+</ul>
+<ul>
+    <li>
+        <h4 id="delete-app">delete app</h4>
+        <pre><code class="lang-bash">   Flags:
+       Required:
+           --name, -n
+           --environment, -e
+       Optional:
+           --owner, -o
+           NOTE: User will be prompted to enter credentials if the user is not logged in to the environment.
+   Examples:
+       apictl delete app -n TestAPI -o admin -e staging
+       apictl delete app -n TestAPI -e production
+</code></pre>
+    </li>
+</ul>
+<ul>
+    <li>
+        <h4 id="change-status-api">change-status api</h4>
+        <pre><code class="lang-bash">   Flags:
+       Required:
+           --action, -a
+           --name, -n
+           --version, -v
+           --environment, -e
+       Optional:
+           --provider, -r
+           NOTE: User will be prompted to enter credentials if the user is not logged in to the environment.
+   Examples:
+       apictl change-status api -a Publish -n TestAPI -v 1.0.0 -r admin -e staging
+       apictl change-status api -a Publish -n TestAPI -v 1.0.0 -e production
+</code></pre>
+    </li>
+</ul>
+<ul>
+    <li>
+        <h4 id="change-status-api-product">change-status api-product</h4>
+        <pre><code class="lang-bash">   Flags:
+       Required:
+           --action, -a
+           --name, -n
+           --environment, -e
+       Optional:
+           --provider, -r
+           NOTE: User will be prompted to enter credentials if the user is not logged in to the environment.
+   Examples:
+       apictl change-status api-product -a Publish -n TestAPIProduct -r admin -e staging
+       apictl change-status api-product -a Publish -n TestAPIProduct -e production
+</code></pre>
+    </li>
+</ul>
+<ul>
+    <li>
+        <h4 id="undeploy-api">undeploy api</h4>
+        <pre><code class="lang-bash">   Flags:
+       Required:
+           --name, -n
+           --version, -v
+           --rev
+           --environment, -e
+       Optional:
+           --gateway-env, -g
+   Examples:
+       apictl undeploy api -n TwitterAPI -v 1.0.0 --rev 2 -e dev
+       apictl undeploy api -n FacebookAPI -v 2.1.0 --rev 6 -g Label1 -g Label2 -g Label3 -e production
+       apictl undeploy api -n FacebookAPI -v 2.1.0 -r alice --rev 2 -g Label1 -e production   
+</code></pre>
+    </li>
+</ul>
+<ul>
+    <li>
+        <h4 id="undeploy-api-product">undeploy api-product</h4>
+        <pre><code class="lang-bash">   Flags:
+       Required:
+           --name, -n
+           --rev
+           --environment, -e
+       Optional:
+           --gateway-env, -g
+   Examples:
+       apictl undeploy api-product -n TwitterAPIProduct --rev 2  -e dev
+       apictl undeploy api-product -n StoreProduct --rev 6 -g Label1 -g Label2 -g Label3 -e production
+       apictl undeploy api-product -n FacebookProduct -r admin --rev 2 -g Label1 -e production     
+</code></pre>
+    </li>
+</ul>
+<ul>
+    <li>
+        <h4 id="gen-deployment-dir">gen deployment-dir</h4>
+        <pre><code class="lang-bash">   Flags:
+       Required:
+           --source, -s
+       Optional:
+           --destination, -d
+   Examples:
+       apictl gen deployment-dir -s  ~/PizzaShackAPI_1.0.0.zip
+       apictl gen deployment-dir -s  ~/PizzaShackAPI_1.0.0.zip  -d /home/Deployment_repo/Dev
+</code></pre>
+    </li>
+</ul>
+<ul>
+    <li>
+        <h4 id="bundle">bundle</h4>
+        <pre><code class="lang-bash">   Flags:
+       Required:
+           --source, -s
+       Optional:
+           --destination, -d
+   Examples:
+       apictl bundle -s  ~/PizzaShackAPI_1.0.0
+       apictl bundle -s /home/prod/APIs/API1-1.0.0 -d /home/prod/Projects/
+</code></pre>
+    </li>
+</ul>
+<ul>
+    <li>
+        <h4 id="aws-init">aws init [project-name]</h4>
+        <pre><code class="lang-bash">   Flags:
+       Required:
+           --name, -n
+           --stage, -s
+       Optional:
+           --force, -f
+   Examples:
+       apictl aws init -n Petstore -s Demo
+       apictl aws init --name Petstore --stage Demo
+       apictl aws init --name Shopping --stage Live
+</code></pre>
+    </li>
+</ul>
+<ul>
+    <li>
+        <h4 id="secret-init">secret init</h4>
+        <pre><code class="lang-bash">
+      Examples:
+          apictl secret init
+</code></pre>
+    </li>
+    <li>
+        <h4 id="secret-create">secret create</h4>
+        <pre><code class="lang-bash">      Flags:
+          Optional:
+              --cipher, -c
+              --from-file, -f
+              --output, -o
+      Examples:
+          apictl secret create
+          apictl secret create -o file
+          apictl secret create -o k8
+          apictl secret create -f keys.properties -o k8
+</code></pre>
+    </li>
+</ul>
+<ul>
+    <li>
+        <h4 id="mi-login">mi login [environment]</h4>
+        <pre><code class="lang-bash">   Flags:
+       Optional:
+           --username, -u
+           --password, -p
+           NOTE: user will be prompted to enter credentials if they are not provided with these flags
+   Examples:
+       apictl mi login dev -u admin -p admin
+       apictl mi login dev -u admin
+       apictl mi login dev
+       cat ~/.mypassword | apictl mi login dev -u admin
+</code></pre>
+    </li>
+</ul>
+<ul>
+    <li>
+        <h4 id="mi-logout">mi logout [environment]</h4>
+        <pre><code class="lang-bash">   Examples:
+       apictl mi logout dev
+</code></pre>
+    </li>
+</ul>
+<ul>
+    <li>
+        <h4 id="mi-get-apis">mi get apis [api-name]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+          Optional:
+              --format
+      Examples:
+          apictl mi get apis -e dev
+          apictl mi get apis SampleAPI -e dev
+</code></pre>
+    </li>
+    <li>
+        <h4 id="mi-get-composite-apps">mi get composite-apps [app-name]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+          Optional:
+              --format
+      Examples:
+          apictl mi get composite-apps -e dev
+          apictl mi get composite-apps SampleApp -e dev
+</code></pre>
+    </li>
+    <li>
+        <h4 id="mi-get-connectors">mi get connectors</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+          Optional:
+              --format
+      Examples:
+          apictl mi get connectors -e dev
+</code></pre>
+    </li>
+    <li>
+        <h4 id="get-data-services">mi get data-services [dataservice-name]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+          Optional:
+              --format
+      Examples:
+          apictl mi get data-services -e dev
+          apictl mi get data-services SampleDataService -e dev
+</code></pre>
+    </li>
+    <li>
+        <h4 id="mi-get-endpoints">mi get endpoints [endpoint-name]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+          Optional:
+              --format
+      Examples:
+          apictl mi get endpoints -e dev
+          apictl mi get endpoints SampleEndpoint -e dev
+</code></pre>
+    </li>
+    <li>
+        <h4 id="mi-get-inbound-endpoints">mi get inbound-endpoints [inbound-name]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+          Optional:
+              --format
+      Examples:
+          apictl mi get inbound-endpoints -e dev
+          apictl mi get inbound-endpoints SampleInboundEndpoint -e dev
+</code></pre>
+    </li>
+    <li>
+        <h4 id="mi-get-local-entries">mi get local-entries [localentry-name]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+          Optional:
+              --format
+      Examples:
+          apictl mi get local-entries -e dev
+          apictl mi get local-entries SampleLocalEntry -e dev
+</code></pre>
+    </li>
+    <li>
+        <h4 id="mi-get-log-levels">mi get log-levels [logger-name]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+          Optional:
+              --format
+      Examples:
+          apictl mi get log-levels org-apache-coyote -e dev
+</code></pre>
+    </li>
+    <li>
+        <h4 id="mi-get-logs">mi get logs [file-name]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+          Optional:
+              --format
+              --path, -p
+      Examples:
+          apictl mi get logs -e dev
+          apictl mi get logs wso2error.log -p ./logs -e dev
+</code></pre>
+    </li>
+    <li>
+        <h4 id="mi-get-message-processors">mi get message-processors [messageprocessor-name]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+          Optional:
+              --format
+      Examples:
+          apictl mi get message-processors -e dev
+          apictl mi get message-processors TestMessageProcessor -e dev
+</code></pre>
+    </li>
+    <li>
+        <h4 id="mi-get-message-stores">mi get message-stores [messagestore-name]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+          Optional:
+              --format
+      Examples:
+          apictl mi get message-stores -e dev
+          apictl mi get message-stores TestMessageStore -e dev
+</code></pre>
+    </li>
+    <li>
+        <h4 id="mi-get-proxy-services">mi get proxy-services [proxy-name]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+          Optional:
+              --format
+      Examples:
+          apictl mi get proxy-services -e dev
+          apictl mi get proxy-services SampleProxy -e dev
+</code></pre>
+    </li>
+    <li>
+        <h4 id="mi-get-sequences">mi get sequences [sequence-name]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+          Optional:
+              --format
+      Examples:
+          apictl mi get sequences -e dev
+          apictl mi get sequences SampleSequence -e dev
+</code></pre>
+    </li>
+    <li>
+        <h4 id="mi-get-tasks">mi get tasks [task-name]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+          Optional:
+              --format
+      Examples:
+          apictl mi get tasks -e dev
+          apictl mi get tasks SampleTask -e dev
+</code></pre>
+    </li>
+    <li>
+        <h4 id="mi-get-templates">mi get templates [template-type] [template-name]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+          Optional:
+              --format
+      Examples:
+          apictl mi get templates -e dev
+          apictl mi get templates endpoint -e dev
+          apictl mi get templates endpoint SampleEPTemplate -e dev
+</code></pre>
+    </li>
+    <li>
+        <h4 id="mi-get-transaction-counts">mi get transaction-counts [year] [month]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+          Optional:
+              --format
+      Examples:
+          apictl mi get transaction-counts -e dev
+          apictl mi get transaction-counts 2020 06 -e dev
+</code></pre>
+    </li>
+    <li>
+        <h4 id="mi-get-transaction-reports">mi get transaction-reports [start] [end]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+          Optional:
+              --format
+              --path, -p
+      Examples:
+          apictl mi get transaction-reports 2020-01 2020-05 -e dev
+          apictl mi get transaction-reports 2020-05 2020-06 --path ./reports -e dev
+</code></pre>
+    </li>
+    <li>
+        <h4 id="mi-get-users">mi get users [user-name]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+          Optional:
+              --format
+              --role, -r
+              --pattern, -p
+              --domain, -d
+      Examples:
+          apictl mi get users capp-tester -e dev
+          apictl mi get users capp-tester -r admin -e dev
+          apictl mi get users capp-tester -p mi -e dev
+          apictl mi get users capp-tester -d wso2.com -e dev
+</code></pre>
+    </li>
+    <li>
+        <h4 id="mi-get-roles">mi get roles [role-name]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+          Optional:
+              --domain, -d
+      Examples:
+          apictl mi get roles -e dev
+          apictl mi get roles tester -e dev
+          apictl mi get roles tester -d wso2.com -e dev
+</code></pre>
+    </li>
+</ul>
+<ul>
+    <li>
+        <h4 id="mi-add-user">mi add user [user-name]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+      Examples:
+          apictl mi add user capp-tester -e dev
+</code></pre>
+    </li>
+    <li>
+        <h4 id="mi-add-role">mi add role [role-name]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+      Examples:
+          apictl mi add role tester -e dev
+        </code></pre>
+    </li>
+    <li>
+        <h4 id="mi-add-logger">mi add log-level [logger-name] [class-name] [log-level]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+      Examples:
+          apictl mi add log-level synapse-api org.apache.synapse.rest.API DEBUG -e dev
+</code></pre>
+    </li>
+    <li>
+        <h4 id="mi-update-logger">mi update log-level [logger-name] [log-level]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+      Examples:
+          apictl mi update log-level org-apache-coyote DEBUG -e dev
+</code></pre>
+    </li>
+    <li>
+        <h4 id="mi-update-hashicorp">mi update hashicorp-secret [secret-id]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+      Examples:
+          apictl mi update hashicorp-secret secret_id -e dev
+</code></pre>
+    </li>
+    <li>
+        <h4 id="mi-update-user">mi update user [user-name]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+      Examples:
+          apictl mi update user capp-tester -e dev
+</code></pre>
+    </li>
+    <li>
+        <h4 id="mi-delete-user">mi delete user [user-name]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+      Examples:
+          apictl mi delete user capp-developer -e dev
+</code></pre>
+    </li>
+    <li>
+        <h4 id="mi-delete-role">mi delete role [role-name]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+          Optional:
+              --domain, -d
+      Examples:
+          apictl mi delete role capp-tester -e dev
+          apictl mi delete role capp-tester -d wso2.com -e dev
+        </code></pre>
+    </li>
+</ul>
+<ul>
+    <li>
+        <h4 id="mi-activate-endpoint">mi activate endpoint [endpoint-name]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+      Examples:
+          apictl mi activate endpoint TestEP -e dev
+</code></pre>
+    </li>
+    <li>
+        <h4 id="mi-activate-proxy-service">mi activate proxy-service [proxy-name]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+      Examples:
+          apictl mi activate proxy-service SampleProxy -e dev
+</code></pre>
+    </li>
+    <li>
+        <h4 id="mi-activate-message-processor">mi activate message-processor [messageprocessor-name]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+      Examples:
+          apictl mi activate message-processor TestMessageProcessor -e dev
+</code></pre>
+    </li>
+</ul>
+<ul>
+    <li>
+        <h4 id="mi-deactivate-endpoint">mi deactivate endpoint [endpoint-name]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+      Examples:
+          apictl mi deactivate endpoint TestEP -e dev
+</code></pre>
+    </li>
+    <li>
+        <h4 id="mi-deactivate-proxy-service">mi deactivate proxy-service [proxy-name]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+      Examples:
+          apictl mi deactivate proxy-service SampleProxy -e dev
+</code></pre>
+    </li>
+    <li>
+        <h4 id="mi-deactivate-message-processor">mi deactivate message-processor [messageprocessor-name]</h4>
+        <pre><code class="lang-bash">      Flags:
+          Required:
+              --environment, -e
+      Examples:
+          apictl mi deactivate message-processor TestMessageProcessor -e dev
+</code></pre>
+    </li>
+</ul>
