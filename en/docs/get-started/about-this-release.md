@@ -48,6 +48,10 @@ API Manager 4.1.0-Beta</td>
 
      With API Manager 4.1.0 release, we move to a more fine-grained and easy to manage policies. As per the newly introduced operation level policy support, we move away from the concept of attaching a policy at the API level (i.e. API level mediation policies), and give forth the ability to attach multiple policies at the operation level itself.
 
+- **[Develop an Integration From a Managed API]({{base_path}}/tutorials/develop-an-integration-with-a-managed-api/)**
+
+    With API Manager 4.1.0 release, you can create an integration using a managed API and configure the integration service endpoint to the managed API. This is the top-down approach in API first integration.
+
 ### Improvements
 
 - **Authentication for Prototype APIs**
