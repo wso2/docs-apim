@@ -211,6 +211,8 @@ WSO2 Integration Studio is an open-source development environment used to design
 
 - JSON and YAML templates as registry resources.
 
+- Capability to create REST APIs using WSO2 API Manager APIs
+
 ## **Micro Integrator Dashboard**
 
 The Micro Integrator dashboard can connect to multiple Micro Integrator server instances and monitor artifacts and logs from a selected cluster or group of server nodes.
