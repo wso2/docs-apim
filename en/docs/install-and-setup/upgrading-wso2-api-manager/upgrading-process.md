@@ -14,8 +14,7 @@ Go through the guidelines given below before attempting to upgrade the productio
 your [support account](https://support.wso2.com/jira/secure/Dashboard.jspa).
 
 2.  Always migrate to the [latest version](https://wso2.com/api-management/) 
-    as the latest fixes and new features are available in the latest version. If you have a particular requirement to migrate to an intermediate version, contact 
-    [WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa).
+    as the latest fixes and new features are available in the latest version. You can use the Update Management Tool(UMT) to get any fixes or latest updates for this release. If you have a particular requirement to migrate to an intermediate version, contact [WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa).
 
     !!! note
         Migrating the production environment requires additional hardware/VM resources because both the old environment and the new environment will be running until all the traffic is routed to the new environment.    
