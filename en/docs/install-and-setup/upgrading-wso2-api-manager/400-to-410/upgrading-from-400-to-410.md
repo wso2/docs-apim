@@ -5,9 +5,7 @@ The following information describes how to upgrade your API Manager server **fro
 ## Prerequisites
 1. Review what has been changed in this release. see [What Has Changed]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/400-to-410/what-has-changed.md)
 
-2. Before you migrate, refer to Migration Process to get an understanding on the migration process.
-
-see [Upgrading Process]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-process) for more information.
+2. Before you migrate, follow [Upgrading Process]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-process) to get an understanding on the migration process.
 
 4. Take a backup of the existing database used by the current WSO2 API Manager Server. This backup is necessary in case the migration causes any issues in the existing database.
 
@@ -33,7 +31,7 @@ Follow the step 1 to step 6 below to upgrade your WSO2 API Manager server
 
 Follow the instructions below to move all the existing API Manager configurations from the current environment to the new one.
 
-1. Open the `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file and configure the datasource configurations for the available databases in old API-M set up to migrate them to API-M-4.1.0
+1. Open the `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file and configure the datasource configurations for the available databases in the API-M 4.0.0 API-M set up to migrate them to API-M-4.1.0
 
     1.  API Manager database (WSO2AM_DB)
 
@@ -279,8 +277,11 @@ You have to run the following migration client to update the API Manager artifac
     ```
 
     !!! important 
-        If you have a lot of apis, DB experienced a
-        If you use a clustered/distributed API Manager setup, do the above change in deployment.toml of Publisher and Devportal nodes. But make sure to keep the considerable time difference within each node re indexing to avoid issues.
+        If you use a clustered/distributed API Manager setup, do the above change in deployment.toml of Publisher and Devportal nodes. Since the database can experience a large load, make sure to keep a delay between the nodes to execute this step to re-index each node.
+
+    !!! note
+
+        Note that depending on the number of APIs and tenants this will take a considerable amount of time to re index the API Manager Artifacts.
 
 This concludes the upgrade process.
 
