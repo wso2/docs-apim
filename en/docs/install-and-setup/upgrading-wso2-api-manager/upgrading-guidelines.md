@@ -1,4 +1,4 @@
-# Upgrading Process
+# Upgrading Guidelines
 
 This section contains the complete upgrading process related to the WSO2 API Manager.
 Go through the guidelines given below before attempting to upgrade the production environment.
@@ -14,11 +14,13 @@ Go through the guidelines given below before attempting to upgrade the productio
 your [support account](https://support.wso2.com/jira/secure/Dashboard.jspa).
 
 2.  Always migrate to the [latest version](https://wso2.com/api-management/) 
-    as the latest fixes and new features are available in the latest version. You can use the Update Management Tool(UMT) to get any fixes or latest updates for this release. If you have a particular requirement to migrate to an intermediate version, contact [WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa).
+    as the latest fixes and new features are available in the latest version. If you already have a [WSO2 subscription](https://wso2.com/subscription), you can use the Update Management Tool(UMT) to get any fixes or latest updates for this release. If you have a particular requirement to migrate to an intermediate version, contact [WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa).
 
     !!! note
         Migrating the production environment requires additional hardware/VM resources because both the old environment and the new environment will be running until all the traffic is routed to the new environment.    
-    
+
+3.  Make sure to take backups of the existing databases used by the current WSO2 API Manager Server. This backup is necessary in case the migration causes any issues in the existing database.
+
 3. If you have customizations in your setup, check if they are supported out-of-the-box in the latest 
 version.
     - If your customizations are already available in the latest version, you can remove the 

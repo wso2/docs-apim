@@ -5,11 +5,9 @@ The following information describes how to upgrade your API Manager server **fro
 ## Prerequisites
 1. Review what has been changed in this release. see [What Has Changed]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/400-to-410/what-has-changed.md)
 
-2. Before you migrate, follow [Upgrading Process]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-process) to get an understanding on the migration process.
+2. Before you migrate, follow [Upgrading Guidelines]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-guidelines) to get an understanding on the migration process.
 
-4. Take a backup of the existing database used by the current WSO2 API Manager Server. This backup is necessary in case the migration causes any issues in the existing database.
-
-5. Download [WSO2 API Manager 4.1.0](http://wso2.com/api-management/) and unzip it in the <API-M_4.1.0_HOME> directory.
+3. Download [WSO2 API Manager 4.1.0](http://wso2.com/api-management/) and unzip it in the <API-M_4.1.0_HOME> directory.
 
 ## Steps to migrate to WSO2 API-M 4.1.0
 
@@ -130,22 +128,36 @@ Follow the instructions below to move all the existing API Manager configuration
     data_source = "WSO2USER_DB"
     ```
 
-3. Configure the [SymmetricKeyInternalCryptoProvider](https://is.docs.wso2.com/en/5.11.0/administer/symmetric-overview/) as the default internal cryptor provider as the WSO2 Identity Server 5.11.0 onwards, symmetric encryption will be used by default.
+3. If you are using WSO2 IS 5.11.0 as the Resident Key Manager in your API-M 4.0.0 deployment, add the follow configuration to the `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file.
 
-    Generate your own secret key using a tool like OpenSSL.
+    ```
+    [apim.key_manager]
+    service_url = "https://<IS_5.11.0_HOST_NAME>:<PORT>/services/"
+    type = "WSO2-IS"
+    ``` 
+
+4. Configure the [SymmetricKeyInternalCryptoProvider](https://is.docs.wso2.com/en/5.11.0/administer/symmetric-overview/) as the default internal cryptor provider as the WSO2 Identity Server 5.11.0 onwards, symmetric encryption will be used by default.
     
+    Generate your own secret key using a tool like OpenSSL.
+
     i.e.,
        ```
         openssl enc -nosalt -aes-128-cbc -k hello-world -P
        ```        
-    Add the configuration to the <NEW_APIM_HOME>/repository/conf/deployment.toml file.
+    Add the configuration to the `<API-M_4.1.0_HOME>/repository/conf/deployment.toml`
     
        ```
        [encryption]
        key = "<provide-your-key-here>"
 
-       ``` 
-   
+       ```
+    
+    !!! note "If you are using WSO2 IS 5.11.0 as the Resident Key Manager at API-M 4.0.0"
+        
+        You do not need to add this configuration as it should already be at `<IS_KM_HOME>/repository/conf/deployment.toml` file.
+
+5. If you have enabled any other feature related configurations at `<API-M_4.1.0_HOME>/repository/conf/deployment.toml`, make sure to add them in to `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file.
+
 ### Step 2: Migrate the API Manager Resources
 
 Follow the instructions below to migrate existing API Manager resources from the current environment to API-M 4.1.0.
@@ -192,13 +204,13 @@ the information about the added private keys, certificates and the list of trust
         ALTER USER <user> WITH SUPERUSER;
         ```
 
-2.  Download the migration resources, visit the latest release tag and download the wso2am-migration-x.x.x.zip. Unzip it to a local directory. 
+2.  Navigate to the [latest release tag (v4.1.0.x)](https://github.com/wso2-extensions/apim-migration-resources/tags) and download the `wso2am-migration-4.1.0.x.zip`. Unzip it to a local directory. 
 
     !!! note
 
-        x.x.x of wso2am-migration-x.x.x.zip denotes the version number of the most recently-released migration resources.
+        x of wso2am-migration-4.1.0.x.zip denotes the version number of the most recently-released migration resources.
 
-        The directory where the wso2am-migration-x.x.x.zip is unziped will be referred to as `<AM_MIGRATION_CLIENT_HOME>`
+        The directory where the wso2am-migration-4.1.0.x.zip is unziped will be referred to as `<AM_MIGRATION_CLIENT_HOME>`
 
 
 3. Execute the script on the `WSO2AM_DB` database which is presented inside the `<AM_MIGRATION_CLIENT_HOME>/migration-script-4.0.0_to_4.1.0` directory for relevant database type. 
@@ -209,7 +221,10 @@ You have to run the following migration client to update the API Manager artifac
 
 1. Copy the `<AM_MIGRATION_CLIENT_HOME>/migration-resources`  to the `<API-M_4.1.0_HOME>` directory.
 
-2. Copy the org.wso2.carbon.am.migration-x.x.x.jar file in the `<AM_MIGRATION_CLIENT_HOME>/dropin` directory into the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
+2. Copy the org.wso2.carbon.am.migration-4.1.0.x.jar file in the `<AM_MIGRATION_CLIENT_HOME>/dropin` directory into the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
+
+    !!! note "If you have configured WSO2 IS 5.11.0 as Resident Key Manager"
+        make sure you have already started it before execute the next step.
 
 3. Start the API-M server to validate the api definitions.
        
@@ -235,7 +250,7 @@ You have to run the following migration client to update the API Manager artifac
 
 5.  Shutdown the API-M server.
     
-    -   Remove the `org.wso2.carbon.apimgt.migrate.client-4.1.0.jar` file, which is in the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
+    -   Remove the `org.wso2.carbon.apimgt.migrate.client-4.1.0.x.jar` file, which is in the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
 
     -   Remove the `migration-resources` directory, which is in the `<API-M_4.1.0_HOME>` directory.
 
@@ -245,9 +260,9 @@ You have to run the following migration client to update the API Manager artifac
 
 ### Step 5: Execute post migration scripts
 
-1. Execute the post migration script on the `WSO2AM_DB` database which is located inside the `<AM_MIGRATION_CLIENT_HOME>/post-migration-script` directory for relevant database type.
+1. Execute the post migration script on the `WSO2AM_DB` database which is located inside the `<AM_MIGRATION_CLIENT_HOME>/post-migration-script/am-db` directory for relevant database type.
 
-2. Run the [reg-index.sql]({{base_path}}/assets/attachments/install-and-setup/reg-index.sql) script against the `SHARED_DB` database (or REG_DB if you have separate DB for registry)
+2. Execute the post migration script `reg-index.sql` on the `WSO2SHARED_DB` database (or REG_DB if you have separate DB for registry) which is located inside the `<AM_MIGRATION_CLIENT_HOME>/post-migration-script/reg-db` directory
 
     !!! note
         Note that depending on the number of records in the REG_LOG table, this script will take a considerable amount of time to finish. Do not stop the execution of the script until it is completed.

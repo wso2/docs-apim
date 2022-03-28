@@ -1560,7 +1560,7 @@ nav:
                     - Configure Git Integration: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md
         - Upgrade:
             - Upgrading WSO2 API Manager:
-                - Upgrading Process: install-and-setup/upgrading-wso2-api-manager/upgrading-process.md
+                - Upgrading Guidelines: install-and-setup/upgrading-wso2-api-manager/upgrading-guidelines.md
                 - 4.0.0 to 4.1.0:
                     - What Has Changed: install-and-setup/upgrading-wso2-api-manager/400-to-410/what-has-changed.md
                     - Upgrade Process: install-and-setup/upgrading-wso2-api-manager/400-to-410/upgrading-from-400-to-410.md
