@@ -62,19 +62,19 @@ The following default users are created. For the ease of use, every tenant has 3
     <tr>
         <td>Quantis
         </td>
-        <td>admin@qunatis.com
+        <td>admin@quantis.com
         </td>
         <td>
             <ul>
-                <li>apiprovider@qunatis.com</li>
-                <li>andy@qunatis.com</li>
+                <li>apiprovider@quantis.com</li>
+                <li>andy@quantis.com</li>
         </td>
         <td>
             <ul>
                 <li>devuser@qunatis.com</li>
-                <li>bob@qunatis.com</li>
-                <li>sindy@qunatis.com</li>
-                <li>logan@qunatis.com</li>
+                <li>bob@quantis.com</li>
+                <li>sindy@quantis.com</li>
+                <li>logan@quantis.com</li>
             </ul>
         </td>
     </tr>
