@@ -241,7 +241,7 @@ The management API has multiple resources to provide information regarding the d
     ```
 
 	!!! note
-		When fetching roles from the primary user store, the `domain` query parameter can be ignored or set as `primary`
+		When fetching roles from the primary user store, the `domain` query parameter can be ignored or set as `primary`.
 		
 		When fetching hybrid roles `domain` query parameter should be set as `Internal` or `Application` accordingly.
 
