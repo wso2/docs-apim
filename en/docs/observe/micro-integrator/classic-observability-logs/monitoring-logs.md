@@ -122,6 +122,8 @@ Shown below is an example server error that is printed in the error log file.
 
 Audit logs are used for tracking the sequence of actions that affect a particular task carried out on the server.
 
+For more information, see [Monitoring MI Audit Logs]({{base_path}}/observe/micro-integrator/classic-observability-logs/monitoring-mi-audit-logs).
+
 ## Monitoring Service/Event Tracing Logs 
 
 These are logs that are enabled in the Micro Integrator for tracing services and events using a separate log file (`wso2carbon-trace-messages.log`).

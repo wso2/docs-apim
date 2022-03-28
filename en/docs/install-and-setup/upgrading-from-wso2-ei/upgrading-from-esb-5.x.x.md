@@ -1,18 +1,18 @@
-# Migrating from WSO2 ESB 5.0.0 to WSO2 API-M 4.0.0
+# Migrating from WSO2 ESB 5.0.0 to WSO2 API-M 4.1.0
 
-This guide provides the recommended strategy for upgrading from WSO2 ESB 5.0.0 to the Micro Integrator of WSO2 API-M 4.0.0.
+This guide provides the recommended strategy for upgrading from WSO2 ESB 5.0.0 to the Micro Integrator of WSO2 API-M 4.1.0.
 
 {!includes/integration/pull-content-migration-esb-mi.md!}
 
--   If you are migrating from a version older than WSO2 ESB 5.0.0, you should first migrate to ESB 5.0.0 and then migrate to the Micro Integrator of API-M 4.0.0.
--   The distribution folder structure has changed from ESB 5.0.0 to API-M 4.0.0:
+-   If you are migrating from a version older than WSO2 ESB 5.0.0, you should first migrate to ESB 5.0.0 and then migrate to the Micro Integrator of API-M 4.1.0.
+-   The distribution folder structure has changed from ESB 5.0.0 to API-M 4.1.0:
     <table>
         <tr>
             <th>
                 WSO2 ESB 5.0.0
             </th>
             <th>
-                Micro Integrator of API-M 4.0.0
+                Micro Integrator of API-M 4.1.0
             </th>
         </tr>
         <tr>
@@ -87,9 +87,9 @@ Follow the instructions below to start the migration!
     - Tenant admins are no longer valid because the Micro Integrator does not support multitenancy.
     - **Secondary** user stores are currently not supported in the Micro Integrator.
 
-If you are using an **LDAP user store** with ESB 5.0.0, you can simply connect the same to the Micro Integrator of API-M 4.0.0 by updating the configuration details in the Micro Integrator's `deployment.toml` file. 
+If you are using an **LDAP user store** with ESB 5.0.0, you can simply connect the same to the Micro Integrator of API-M 4.1.0 by updating the configuration details in the Micro Integrator's `deployment.toml` file. 
 
-If you are using a **JDBC user store** with ESB 5.0.0, you need to first update the database before connecting the same to APIM 4.0.0.
+If you are using a **JDBC user store** with ESB 5.0.0, you need to first update the database before connecting the same to APIM 4.1.0.
 
 Follow the steps given below.
 
@@ -99,17 +99,17 @@ This step is applicable only if your user store is JDBC.
 
 There are changes in the database structure (schema) that is used in ESB 5.0.0. To update the database schema:
 
-1. Download the [database migration scripts]({{base_path}}/assets/attachments/migration/micro-integrator/migration-scripts-esb5.0.0-to-apim4.0.0.zip).
+1. Download the [database migration scripts]({{base_path}}/assets/attachments/migration/micro-integrator/migration-scripts-esb5.0.0-to-apim4.1.0.zip).
 
 2. Unzip the downloaded file and select the script relevant to your database type.
 
 3. Connect to the database and run the script.
 
-Your database schema is now updated for API-M 4.0.0. Now you can update the configuration details in the Micro Integrator's `deployment.toml` file.
+Your database schema is now updated for API-M 4.1.0. Now you can update the configuration details in the Micro Integrator's `deployment.toml` file.
 
 #### Step 2 - Connect to the user store
 
-To connect the Micro Integrator of API-M 4.0.0 to the primary user store:
+To connect the Micro Integrator of API-M 4.1.0 to the primary user store:
 
 1.  Open the `deployment.toml` file of your Micro Integrator.
 2.  Note that you have the `[user_store]` section enabled by default.
@@ -121,8 +121,8 @@ To connect the Micro Integrator of API-M 4.0.0 to the primary user store:
 
 3.  See the instructions in the following sections:
 
-    -   [Configuring an LDAP user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-ldap-user-store) for the Micro Integrator in API-M 4.0.0.
-    -   [Configuring an RDBMS user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-rdbms-user-store) for the Micro Integrator in API-M 4.0.0.  
+    -   [Configuring an LDAP user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-ldap-user-store) for the Micro Integrator in API-M 4.1.0.
+    -   [Configuring an RDBMS user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-rdbms-user-store) for the Micro Integrator in API-M 4.1.0.  
 
 4.  If your user store is an RDBMS, be sure to add the client JAR of your RDBMS to the `<MI_HOME>/lib` folder.
 
@@ -1329,7 +1329,7 @@ Follow the instructions given below if you have used a **custom log4j component*
 To migrate the encrypted passwords from ESB 5.0.0, you need to first re-encrypt (using OAEP) all the encrypted information in the database. Then, you can obtain the plain-text passwords by following the normal procedure of encrypting secrets in the Micro Integrator. See [Encrypting Secrets]({{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text) for instructions.
 
 !!! Info 
-    API-M 4.0.0 uses OAEP for data encryption in addition to the RSA algorithm (which is used in ESB 5.0.0). Therefore, the internally-encrypted data in your current databases (such as datasource configurations, syslog passwords, user store configurations, keystore registry entries, service security policies, event publisher configurations, event receiver configurations, and event sink configurations), as well as data encrypted using secure vault (such as plain text passwords in configuration files and synapse configurations) should be re-encrypted using OAEP.
+    API-M 4.1.0 uses OAEP for data encryption in addition to the RSA algorithm (which is used in ESB 5.0.0). Therefore, the internally-encrypted data in your current databases (such as datasource configurations, syslog passwords, user store configurations, keystore registry entries, service security policies, event publisher configurations, event receiver configurations, and event sink configurations), as well as data encrypted using secure vault (such as plain text passwords in configuration files and synapse configurations) should be re-encrypted using OAEP.
 
 #### Step 1 - Re-encrypt all internally encrypted data using OAEP
 
@@ -1420,4 +1420,4 @@ Follow the instructions given below to use the password decryption tool.
 
 ### Migrating the Hl7 Transport
 
-HL7 transport is not shipped by default in the API-M 4.0.0 Micro Integrator distribution. Therefore, the jars need to be added to the Micro Integrator server manually. See [Configuring the HL7 transport]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-hl7-transport) for details.
+HL7 transport is not shipped by default in the API-M 4.1.0 Micro Integrator distribution. Therefore, the jars need to be added to the Micro Integrator server manually. See [Configuring the HL7 transport]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-hl7-transport) for details.
