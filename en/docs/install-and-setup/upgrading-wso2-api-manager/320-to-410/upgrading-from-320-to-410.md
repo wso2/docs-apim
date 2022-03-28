@@ -2,7 +2,7 @@
 
 !!! warning
     **The contents on this page are currently under review!**
-    
+
 The following information describes how to upgrade your API Manager server **from APIM 3.2.0 to 4.1.0**.
 
 ## Prerequisites
@@ -137,10 +137,10 @@ Follow the instructions below to upgrade your WSO2 API Manager server **from WSO
 
 3. Modify the `[apim.gateway.environment]` tag in the `<API-M_HOME>/repository/conf/deployment.toml` file, the name should change to "Production and Sandbox". By default, it is set as `Default` in API Manager 4.1.0.
     
-        ```toml
-        [[apim.gateway.environment]]
-        name = "Production and Sandbox"
-        ```
+    ```toml
+    [[apim.gateway.environment]]
+    name = "Production and Sandbox"
+    ```
 
     !!! Info
         If you have changed the name of the gateway environment in your older version, then when migrating, make sure
@@ -174,12 +174,12 @@ Follow the instructions below to migrate existing API Manager resources from the
 
 1.  Copy the relevant JDBC driver to the `<API-M_4.1.0_HOME>/repository/components/lib` folder.
 
-2.  If you manually added any custom OSGI bundles to the `<API-M_4.0.0_HOME>/repository/components/dropins` directory, copy those to the `<API-M_4.1.0_HOME>/repository/components/dropins` directory. 
+2.  If you manually added any custom OSGI bundles to the `<API-M_3.2.0_HOME>/repository/components/dropins` directory, copy those to the `<API-M_4.1.0_HOME>/repository/components/dropins` directory. 
 
-3.  If you manually added any JAR files to the `<API-M_4.0.0_HOME>/repository/components/lib` directory, copy those and paste them in the `<API-M_4.1.0_HOME>/repository/components/lib` directory.
+3.  If you manually added any JAR files to the `<API-M_3.2.0_HOME>/repository/components/lib` directory, copy those and paste them in the `<API-M_4.1.0_HOME>/repository/components/lib` directory.
 
 4.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_4.1.0_HOME>/repository/resources/security` directory to persist 
-the information about the added private keys, certificates and the list of trusted CA that  have been used in API-M_4.0.0.
+the information about the added private keys, certificates and the list of trusted CA that have been used in API-M_3.2.0.
 
     !!! note "If you have enabled Secure Vault"
 
@@ -197,15 +197,15 @@ the information about the added private keys, certificates and the list of trust
 
     For secondary user stores created for the super tenant, 
     
-    You have to copy the `<API-M_4.0.0_HOME>/repository/deployment/server/userstores/` directory inside `<API-M_4.1.0_HOME>/repository/deployment/server/` directory. 
+    You have to copy the `<API-M_3.2.0_HOME>/repository/deployment/server/userstores/` directory inside `<API-M_4.1.0_HOME>/repository/deployment/server/` directory. 
     
     For secondary user stores created for tenants, 
     
-    You have to copy the userstores to respective tenant directories after executing [step 4](#step-4-migrate-the-api-manager-components) as the tenant directories (`<API-M_4.2.0_HOME>/repository/tenants/`) at API-M 4.1.0 are populated after migrating the api-m components. 
+    You have to copy the userstores to respective tenant directories after executing [step 4](#step-4-migrate-the-api-manager-components) as the tenant directories (`<API-M_3.2.0_HOME>/repository/tenants/`) at API-M 4.1.0 are populated after migrating the api-m components. 
 
 ### Step 3: Migrate the API Manager Database 
 
-1.  Make sure you backed up all the databases in APIM 4.0.0
+1.  Make sure you backed up all the databases in APIM 3.2.0
 
     !!! note "If you are using PostgreSQL"
         The database user should have the 'Superuser' permission to migrate the API Manager Databases. If the user is not already a superuser, assign the permission before starting the migration.
@@ -229,103 +229,103 @@ the information about the added private keys, certificates and the list of trust
 
 Follow the instruction below to upgrade the Identity component in WSO2 API Manager from version 5.10.0 to 5.11.0.
 
-    1.  Download the identity component migration resources and unzip it in a local directory.
+1.  Download the identity component migration resources and unzip it in a local directory.
 
-        Navigate to the [latest release tag](https://github.com/wso2-extensions/apim-identity-migration-resources/tags) and download the `wso2is-migration-x.x.x.zip` under Assets.
+    Navigate to the [latest release tag](https://github.com/wso2-extensions/apim-identity-migration-resources/tags) and download the `wso2is-migration-x.x.x.zip` under Assets.
          
-        Let's refer to this directory that you downloaded and extracted as `<IS_MIGRATION_TOOL_HOME>`. 
+    Let's refer to this directory that you downloaded and extracted as `<IS_MIGRATION_TOOL_HOME>`. 
 
-    2.  Copy the `migration-resources` folder from the extracted folder to the `<API-M_4.0.0_HOME>` directory.
+2.  Copy the `migration-resources` folder from the extracted folder to the `<API-M_4.1.0_HOME>` directory.
 
-    3.  Open the `migration-config.yaml` file in the migration-resources directory and make sure that the `currentVersion` element is set to 5.10.0, as shown below.
+3.  Open the `migration-config.yaml` file in the migration-resources directory and make sure that the `currentVersion` element is set to 5.10.0, as shown below.
 
-        ``` java
-        migrationEnable: "true"
-        currentVersion: "5.10.0"
-        migrateVersion: "5.11.0"
-        ```
+    ``` java
+    migrationEnable: "true"
+    currentVersion: "5.10.0"
+    migrateVersion: "5.11.0"
+    ```
 
-        !!! note
-            Make sure you have enabled migration by setting the `migrationEnable` element to `true` as shown above. You have to remove the following 3 steps from  migration-config.yaml which is included under version: "5.10.0"
-                ```
-                    -
-                        name: "MigrationValidator"
-                        order: 2
-                    -
-                        name: "SchemaMigrator"
-                        order: 5
-                        parameters:
-                        location: "step2"
-                        schema: "identity"            
-                    -
-                        name: "TenantPortalMigrator"
-                        order: 11
-                ```
+    !!! note
+        Make sure you have enabled migration by setting the `migrationEnable` element to `true` as shown above. You have to remove the following 3 steps from  migration-config.yaml which is included under version: "5.10.0"
+            ```
+                -
+                    name: "MigrationValidator"
+                    order: 2
+                -
+                    name: "SchemaMigrator"
+                    order: 5
+                    parameters:
+                    location: "step2"
+                    schema: "identity"            
+                -
+                    name: "TenantPortalMigrator"
+                    order: 11
+            ```
 
-    4.  Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
+4.  Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
 
-    5. Update <API-M_4.0.0_HOME>/repository/conf/deployment.toml file as follows, to point to the previous user store.
+5. Update <API-M_4.1.0_HOME>/repository/conf/deployment.toml file as follows, to point to the previous user store.
     
-        !!! note
-                This step is only required if the user store type in previous version is set to "database" instead of default "database_unique_id".
+    !!! note
+        This step is only required if the user store type in previous version is set to "database" instead of default "database_unique_id".
         
-           ```
-           [user_store]
-           type = "database"
-           ```
-    6.  Start WSO2 API Manager 4.0.0 as follows to carry out the complete Identity component migration.
+    ```
+        [user_store]
+        type = "database"
+    ```
+
+6.  Start WSO2 API Manager 4.1.0 as follows to carry out the complete Identity component migration.
         
-        !!! note
-            If you are migrating your user stores to the new user store managers with the unique ID capabilities, Follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/latest/setup/migrating-userstore-managers/) before moving to the next step
+    !!! note
+        If you are migrating your user stores to the new user store managers with the unique ID capabilities, Follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/latest/setup/migrating-userstore-managers/) before moving to the next step
                     
-        ```tab="Linux / Mac OS"
-        sh api-manager.sh -Dmigrate -Dcomponent=identity
-        ```
+    ```tab="Linux / Mac OS"
+    sh api-manager.sh -Dmigrate -Dcomponent=identity
+    ```
 
-        ```tab="Windows"
-        api-manager.bat -Dmigrate -Dcomponent=identity
-        ```
+    ```tab="Windows"
+    api-manager.bat -Dmigrate -Dcomponent=identity
+    ```
 
-        !!! note
-            Note that depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do not stop the server during the migration process and wait until the migration process finish completely and server get started.
+    !!! note
+        Note that depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do not stop the server during the migration process and wait until the migration process finish completely and server get started.
         
-        !!! note
-            Note that if you want to use the latest user store, update the <API-M_4.0.0_HOME>/repository/conf/deployment.toml as follows after the identity migration,
+    !!! note
+        Note that if you want to use the latest user store, update the <API-M_4.1.0_HOME>/repository/conf/deployment.toml as follows after the identity migration,
 
-            ```
-            [user_store]
-            type = "database_unique_id"
-            ``` 
+    ```
+    [user_store]
+    type = "database_unique_id"
+    ``` 
 
-        !!! warning "Troubleshooting"
-            When running the above step if you encounter the following error message, follow the steps in this section. Note that this error could occur only if the identity tables contain a huge volume of data.
+    !!! warning "Troubleshooting"
+        When running the above step if you encounter the following error message, follow the steps in this section. Note that this error could occur only if the identity tables contain a huge volume of data.
 
-            Sample exception stack trace is given below.
-            ```
-            ERROR {org.wso2.carbon.registry.core.dataaccess.TransactionManager} -  Failed to start new registry transaction. {org.wso2.carbon.registry.core.dataaccess.TransactionManager} org.apache.tomcat.jdbc.pool.PoolExhaustedException: [pool-30-thread-11] Timeout: Pool empty. Unable to fetch a connection in 60 seconds, none available[size:50; busy:50; idle:0; lastwait:60000
-            ```
+    Sample exception stack trace is given below.
+        ```
+        ERROR {org.wso2.carbon.registry.core.dataaccess.TransactionManager} -  Failed to start new registry transaction. {org.wso2.carbon.registry.core.dataaccess.TransactionManager} org.apache.tomcat.jdbc.pool.PoolExhaustedException: [pool-30-thread-11] Timeout: Pool empty. Unable to fetch a connection in 60 seconds, none available[size:50; busy:50; idle:0; lastwait:60000
+        ```
 
-            1.  Add the following property in `<API-M_HOME>/repository/conf/deployment.toml` to a higher value (e.g., 10)
-                ```
-                [indexing]
-                frequency= 10
-                ```
+    1.  Add the following property in `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` to a higher value (e.g., 10)
+        ```
+        [indexing]
+        frequency= 10
+        ```
 
-            2.  Re-run the command above.
+    2.  Re-run the command above.
+        **Make sure to revert the change done in Step 1 , after the migration is complete.**
 
-            **Make sure to revert the change done in Step 1 , after the migration is complete.**
+7.  After you have successfully completed the migration, stop the server and remove the following files and folders.
 
-    7.  After you have successfully completed the migration, stop the server and remove the following files and folders.
+    -   Remove the `org.wso2.carbon.is.migration-x.x.x.jar` file, which is in the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
 
-        -   Remove the `org.wso2.carbon.is.migration-x.x.x.jar` file, which is in the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
+    -   Remove the `migration-resources` directory, which is in the `<API-M_4.1.0_HOME>` directory.
 
-        -   Remove the `migration-resources` directory, which is in the `<API-M_4.0.0_HOME>` directory.
+    -   If you ran WSO2 API-M as a Windows Service when doing the identity component migration , then you need to remove the following parameters in the command line arguments section (CMD_LINE_ARGS) of the api-manager.bat file.
 
-        -   If you ran WSO2 API-M as a Windows Service when doing the identity component migration , then you need to remove the following parameters in the command line arguments section (CMD_LINE_ARGS) of the api-manager.bat file.
-
-            ```
-            -Dmigrate -Dcomponent=identity
-            ```
+    ```
+    -Dmigrate -Dcomponent=identity
+    ```
 
 ### Step 5: Migrate the API Manager Components
 
@@ -338,11 +338,11 @@ You have to run the following migration client to update the API Manager artifac
 3. Start the API-M server to validate the api definitions.
        
     ``` tab="Linux / Mac OS"
-    sh api-manager.sh -DmigrateFromVersion=4.0.0 -DrunPreMigrationStep=apiDefinitionValidation
+    sh api-manager.sh -DmigrateFromVersion=3.2.0 -DrunPreMigrationStep=apiDefinitionValidation
     ```
 
     ``` tab="Windows"
-    api-manager.bat -DmigrateFromVersion=4.0.0  -DrunPreMigrationStep=apiDefinitionValidation
+    api-manager.bat -DmigrateFromVersion=3.2.0 -DrunPreMigrationStep=apiDefinitionValidation
     ```
 
     Check the server logs and verify are there any errors logs. If you have encounter any errors in  api definitions, you have to correct them manually on old version before the component migration. 
@@ -370,9 +370,9 @@ You have to run the following migration client to update the API Manager artifac
 
 ### Step 6: Execute post migration scripts
 
-1. Download [post-migration-script.zip]({{base_path}}/assets/attachments/install-and-setup/post-migration-script.zip) and execute the relavant DB script on AM database.
+1. Execute the post migration script on the `WSO2AM_DB` database which is located inside the `<AM_MIGRATION_CLIENT_HOME>/post-migration-script` directory for relevant database type.
 
-2. Run the [reg-index.sql]({{base_path}}/assets/attachments/install-and-setup/reg-index.sql) script against the `SHARED_DB`    database (or REG_DB if you have separate DB for registry)
+2. Run the [reg-index.sql]({{base_path}}/assets/attachments/install-and-setup/reg-index.sql) script against the `SHARED_DB` database (or REG_DB if you have separate DB for registry)
 
     !!! note
         Note that depending on the number of records in the REG_LOG table, this script will take a considerable amount of time to finish. Do not stop the execution of the script until it is completed.

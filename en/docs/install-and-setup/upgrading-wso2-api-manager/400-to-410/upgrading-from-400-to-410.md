@@ -245,9 +245,9 @@ You have to run the following migration client to update the API Manager artifac
 
 ### Step 5: Execute post migration scripts
 
-1. Download [post-migration-script.zip]({{base_path}}/assets/attachments/install-and-setup/post-migration-script.zip) and execute the relavant DB script on AM database.
+1. Execute the post migration script on the `WSO2AM_DB` database which is located inside the `<AM_MIGRATION_CLIENT_HOME>/post-migration-script` directory for relevant database type.
 
-2. Run the [reg-index.sql]({{base_path}}/assets/attachments/install-and-setup/reg-index.sql) script against the `SHARED_DB`    database (or REG_DB if you have separate DB for registry)
+2. Run the [reg-index.sql]({{base_path}}/assets/attachments/install-and-setup/reg-index.sql) script against the `SHARED_DB` database (or REG_DB if you have separate DB for registry)
 
     !!! note
         Note that depending on the number of records in the REG_LOG table, this script will take a considerable amount of time to finish. Do not stop the execution of the script until it is completed.
