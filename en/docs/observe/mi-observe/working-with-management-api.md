@@ -302,7 +302,7 @@ The management API has multiple resources to provide information regarding the d
   	```
 
 	!!! note
-		When deleting roles from the primary user store, `domain` can be ignored or set as `primary`
+		When deleting roles from the primary user store, the `domain` can be ignored or set as `primary`.
 
 ### ASSIGN / REVOKE Roles
 
