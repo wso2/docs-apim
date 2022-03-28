@@ -103,7 +103,7 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
         include_lines: ['(apimMetrics):']
     output.logstash:
     # The Logstash hosts
-    hosts: ["{LOGSTASH_URL}:5044"]
+         hosts: ["{LOGSTASH_URL}:5044"]
     ```
 
 #### Installing Logstash
