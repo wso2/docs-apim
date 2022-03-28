@@ -234,15 +234,15 @@ Follow the instructions below to publish the API to the Developer Portal as a Pr
 
 1. Navigate to **Publish** and click **Lifecycle** to navigate to the Lifecycle page in the Publisher.  
     
-     - **When creating an API with the Mock Implementation**, you can only promote your API to the `Prototyped` state in the API lifecycle.
+     - **When creating an API with the Mock Implementation**, you can only promote your API to the `Pre-released` state in the API lifecycle.
      
          [![Publish as prototype when using Mock Implementation]({{base_path}}/assets/img/learn/prototype-api/mock-impl-lifecycle.png)]({{base_path}}/assets/img/learn/prototype-api/mock-impl-lifecycle.png)
 
-     - **When creating an API with an actual backend URL**, you will have the option to either promote your API to the `Prototyped` state or to the `Published` state in the API lifecycle.
+     - **When creating an API with an actual backend URL**, you will have the option to either promote your API to the `Pre-released` state or to the `Published` state in the API lifecycle.
 
          [![Publish as Prototype API when using backend URL]({{base_path}}/assets/img/learn/prototype-api/backend-url-lifecycle.png)]({{base_path}}/assets/img/learn/prototype-api/backend-url-lifecycle.png)
 
-2. Click **Prototype** to publish the API as a Prototype API to the Developer Portal.
+2. Click **Pre-Release** to publish the API as a Prototype API to the Developer Portal.
 
 ## Step 6 - Invoke the API
 
