@@ -602,6 +602,8 @@ See the example .toml file given below.
     </section>
 </div>
 
+
+
 ## Source Control
 
 
@@ -610,7 +612,7 @@ See the example .toml file given below.
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="6" type="checkbox" id="_tab_7">
+            <input name="7" type="checkbox" id="_tab_7">
                 <label class="tab-selector" for="_tab_7"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
@@ -623,8 +625,8 @@ See the example .toml file given below.
   [adapter.sourceControl.repository]
     URL = "https://github.com/wso2/product-microgateway.git"
     branch = "main"
-    username = $env{git_username}
-    accessToken = $env{git_access_token}
+    username = "$env{git_username}"
+    accessToken = "$env{git_access_token}"
     sshKeyFile = "/home/wso2/ssh-keys/id_ed25519"
 </code></pre>
                     </div>
@@ -657,7 +659,7 @@ See the example .toml file given below.
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Enable/Disable Git Integration for API Artifacts. </p>
+                                        <p>Enable/Disable Git Integration for API Artifacts.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -668,7 +670,7 @@ See the example .toml file given below.
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
-
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>30</code></span>
@@ -687,7 +689,7 @@ See the example .toml file given below.
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
-
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>5</code></span>
@@ -706,7 +708,7 @@ See the example .toml file given below.
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
-
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>20</code></span>
@@ -737,12 +739,7 @@ See the example .toml file given below.
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="doc-wrapper">
-                    <div class="mb-config">
-                        <div class="config-wrap">
+                        </div><div class="config-wrap">
                             <code>[adapter.sourceControl.repository]</code>
                             
                             <p>
@@ -763,7 +760,7 @@ See the example .toml file given below.
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code></code></span>
                                         </div>
-
+                                        
                                     </div>
                                     <div class="param-description">
                                         <p>The URL of the Git repository.</p>
@@ -777,7 +774,7 @@ See the example .toml file given below.
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code></code></span>
@@ -796,7 +793,7 @@ See the example .toml file given below.
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code></code></span>
@@ -815,7 +812,7 @@ See the example .toml file given below.
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code></code></span>
@@ -834,7 +831,7 @@ See the example .toml file given below.
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code></code></span>

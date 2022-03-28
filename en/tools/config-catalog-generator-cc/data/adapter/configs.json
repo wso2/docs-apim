@@ -14,27 +14,27 @@
               "required": true,
               "default": "true",
               "possible": "true, false",
-              "description": "Enable/Disable Choreo Connect Adaptor REST API."
+              "description": "Enable/Disable Choreo Connect Adapter REST API."
             },
             {
               "name": "host",
               "type": "string",
               "required": true,
-              "description": "Hostname of the Choreo Connect Adaptor"
+              "description": "Hostname of the Choreo Connect Adapter"
             },
             {
               "name": "port",
               "type": "string",
               "required": true,
               "default": "9843",
-              "description": "Port of the Choreo Connect Adaptor"
+              "description": "Port of the Choreo Connect Adapter"
             },
             {
               "name": "tokenTTL",
               "type": "string",
               "required": false,
               "default": "1h",
-              "description": "Time to live for the Adaptor access token"
+              "description": "Time to live for the Adapter access token"
             },
             {
               "name": "tokenPrivateKeyPath",
@@ -61,14 +61,14 @@
               "type": "string",
               "required": true,
               "default": "/home/wso2/security/keystore/mg.pem",
-              "description": "Path of the certificate of the Adaptor"
+              "description": "Path of the certificate of the Adapter"
             },
             {
               "name": "keyPath",
               "type": "string",
               "required": true,
               "default": "/home/wso2/security/keystore/mg.key",
-              "description": "Path of the private key of the Adaptor"
+              "description": "Path of the private key of the Adapter"
             }
           ]
         }
@@ -88,7 +88,7 @@
               "type": "string",
               "required": true,
               "default": "/home/wso2/security/truststore",
-              "description": "The directory path for the trusted certificates of the Choreo Connect Adaptor."
+              "description": "The directory path for the trusted certificates of the Choreo Connect Adapter."
             }
           ]
         }
@@ -195,6 +195,92 @@
         }
       ],
       "exampleFile": "consul.toml"
+    },
+    {
+      "title": "Source Control",
+      "options": [
+        {
+          "name": "adapter.sourceControl",
+          "required": false,
+          "description": "Configurations related to Git Integration with Choreo Connect.",
+          "params": [
+            {
+              "name": "enabled",
+              "type": "boolean",
+              "required": true,
+              "default": "false",
+              "possible": "true, false",
+              "description": "Enable/Disable Git Integration for API Artifacts."
+            },
+            {
+              "name": "pollInterval",
+              "type": "integer",
+              "required": false,
+              "default": 30,
+              "description": "The time interval (in seconds) in which the the Adapter should fetch updates from the repository."
+            },
+            {
+              "name": "retryInterval",
+              "type": "integer",
+              "required": false,
+              "default": 5,
+              "description": "The time interval (in seconds) in which the the Adapter should retry fetching artifacts from the repository at startup (in case of failure)."
+            },
+            {
+              "name": "maxRetryCount",
+              "type": "integer",
+              "required": false,
+              "default": 20,
+              "description": "Maximum number of times the Adapter should retry fetching artifacts from the repository at startup (in case of failure)."
+            },
+            {
+              "name": "artifactsDirectory",
+              "type": "string",
+              "required": true,
+              "default": "/home/wso2/git-artifacts",
+              "description": "The directory path where the Git artifacts are stored."
+            }
+          ]
+        },
+        {
+          "name": "adapter.sourceControl.repository",
+          "required": false,
+          "description": "Configurations related to the Git Repository when Git Integration is enabled.",
+          "params": [
+            {
+              "name": "URL",
+              "type": "string",
+              "required": true,
+              "description": "The URL of the Git repository."
+            },
+            {
+              "name": "branch",
+              "type": "string",
+              "required": false,
+              "description": "The branch of the Git repository. If not specified, the default branch will be used."
+            },
+            {
+              "name": "username",
+              "type": "string",
+              "required": false,
+              "description": "The username of the Git repository. If this is set, then you need to also set accessToken."
+            },
+            {
+              "name": "accessToken",
+              "type": "string",
+              "required": false,
+              "description": "The password or personal access token of the Git repository."
+            },
+            {
+              "name": "sshKeyFile",
+              "type": "string",
+              "required": false,
+              "description": "The optional path to the private key used for authenticating the Git repository. If this is set, then you do not need to set username and accessToken."
+            }
+          ]
+        }
+      ],
+      "exampleFile": "source_control.toml"
     }
   ]
 }
