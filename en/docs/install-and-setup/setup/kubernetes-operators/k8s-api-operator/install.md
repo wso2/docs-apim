@@ -109,9 +109,11 @@ By default, the K8s API operator is configured to watch the deployed namespace. 
               - '*'
          - apiGroups:
               - extensions
+              - networking.k8s.io
            resources:
               - ingresses
               - ingress
+              - ingressclasses
            verbs:
               - '*'
          - apiGroups:
