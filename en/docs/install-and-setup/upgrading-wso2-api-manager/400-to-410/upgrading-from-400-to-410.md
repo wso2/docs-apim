@@ -277,11 +277,11 @@ You have to run the following migration client to update the API Manager artifac
     ```
 
     !!! important 
-        If you use a clustered/distributed API Manager setup, do the above change in deployment.toml of Publisher and Devportal nodes. Since the database can experience a large load, make sure to keep a delay between the nodes to execute this step to re-index each node.
+        If you use a clustered/distributed API Manager setup, do the above change in deployment.toml of Publisher and Devportal nodes. Make sure to keep a delay between nodes to execute this step to re-index each node, as the database can experience a large load.
 
     !!! note
 
-        Note that depending on the number of APIs and tenants this will take a considerable amount of time to re index the API Manager Artifacts.
+        Note that it takes a considerable amount of time for the API Manager to re-index the artifacts, depending on the API and the number of tenants.
 
 This concludes the upgrade process.
 
