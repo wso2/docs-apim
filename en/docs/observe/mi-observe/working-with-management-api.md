@@ -182,7 +182,7 @@ The management API has multiple resources to provide information regarding the d
 
 	**Example**:
 
-    The following request deletes the `user1` from the secondary user store: 
+    The following request deletes `user1` from the secondary user store: 
 
   	```bash tab='Request'
   	curl -X DELETE "https://localhost:9164/management/users/user1?domain=wso2.com" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
