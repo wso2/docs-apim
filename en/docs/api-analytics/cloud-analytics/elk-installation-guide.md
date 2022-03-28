@@ -2,7 +2,7 @@
 
 <a href="{{base_path}}/assets/img/analytics/cloud/architecture.png"><img src="{{base_path}}/assets/img/analytics/cloud/architecture.png" width="70%" alt="Deployment diagram"></a>
 
-#### Analytics Data flow
+### Analytics Data flow
 
 The new On-Premise Analytics solution for WSO2 API Manager will publish analytics data into a log file and that file will be used as the source for the analytics solution.
 
@@ -16,9 +16,9 @@ ELK based WSO2 API Manager On-Premise Analytics deployment architecture has 4 ma
 This section will cover the steps required to configure the WSO2 API-M and then publish it to an external ELK cluster.
 
 
-### Configuring API Manager
+### Step 1 - Configuring API Manager
 
-#### Step 1 - Configuring the deployment.toml file.
+#### Step 1.1 - Configuring the deployment.toml file.
 
 Open the `wso2am-4.x.x/repository/conf` directory. Edit `apim.analytics` configurations in the `deployment.toml` file with the following configuration.
 
@@ -28,7 +28,7 @@ enable = true
 type = "elk"
 ```
 
-#### Step 2 - Enabling Logs
+#### Step 1.2 - Enabling Logs
 
 Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a reporter, edit the `log4j2.properties` file following the instructions given below.
 
@@ -75,7 +75,7 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
     Schedule a purge task for the apim_metrics log file with an appropriate retention period.
 
 
-### Configuring ELK
+### Step 2 - Configuring ELK
 
 
 #### Installing Elasticsearch
@@ -152,7 +152,7 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
     ```
     apim_event*
     apim_event_faulty
-    Apim_event_response
+    apim_event_response
     ```
 
 5. Download the artifact file [here]({{base_path}}/assets/img/analytics/cloud/export.ndjson).
@@ -163,19 +163,19 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
     Follow the recommendations of Elastic in order to optimize the performance of the system.
 
 
-### Configure Security in ELK
+### Step 3 - Configure Security in ELK
 
 Elastic search supports several [authentication modes](https://www.elastic.co/guide/en/kibana/current/kibana-authentication.html#basic-authentication) ranging from basic authentication to Single sign-on with several identity providers.
 
 In this section, we mainly focus on configuring single-sign-on with WSO2 API Manager via OpenID Connect. If you are looking for other supported authentication providers, refer the [ElasticSearch documentation](https://www.elastic.co/guide/en/kibana/current/kibana-authentication.html#basic-authentication).
 
 
-### Configure Basic Authentication
+### Step 4 - Configure Basic Authentication
 
 ElasticSearch supports basic authentication via an internal user store. If you need to set up basic authentication in ElasticSearch and Kibana, refer the [ElasticSearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-minimal-setup.html).
 
 
-### Configure Single-Sign-On with WSO2 API Manager via OpenID Connect
+### Step 5 - Configure Single-Sign-On with WSO2 API Manager via OpenID Connect
 
 ElasticSearch/Kibana deployment can be configured to enable Single-sign-on with WSO2 API Manager via OpenID Connect. To set up SSO with WSO2 API Manager, follow the steps given below.
 

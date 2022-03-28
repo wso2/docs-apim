@@ -764,6 +764,8 @@ nav:
         - API Analytics:
             - Getting Started Guide: api-analytics/getting-started-guide.md
             - Role-based Access Control : api-analytics/role-based-access-control.md
+            - Cloud-based Analytics:
+                - ELK-Based Analytics Installation Guide: api-analytics/cloud-analytics/elk-installation-guide.md
             - Configurations:
                 - Alerts: api-analytics/configure-alerts.md
                 - Gateways:
@@ -781,6 +783,7 @@ nav:
         - MI Analytics:
             - Set up: mi-analytics/setting-up-mi-analytics.md
             - Access the Portal: mi-analytics/using-the-analytics-dashboard.md
+        
     - Observe:
         - Observability Overview: observe/observe-overview.md
         - API Manager:
