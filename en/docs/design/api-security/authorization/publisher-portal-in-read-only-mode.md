@@ -1,29 +1,31 @@
 # Publisher Portal in Read-only Mode
-A user who has the view/read only permissions can only view the API, API Product and Service details in the Publisher
-portal and also he/she can review all the analytics related details.
 
-#### Read Only User
-The user has only the `apim:api_view` permission.
+Users who have the view/read only permissions can only view the API, API Product and Service details in the Publisher portal and in addition they can also review all the analytics related details.
 
-Let's create a read only user and experience the Publisher portal in read only mode.
+The read only user should have the following scopes - `apim:api_view` and `apim:publisher_settings`
+
+WSO2 API-M provides a pre-defined role named **internal/observer**, which is used to group all the read-only users.
+
+## Accessing the Publisher portal in read-only mode 
+
+Let's create a read-only user and experience the Publisher portal in read-only mode.
+
+### Step 1 - Create a read-only user
 
 Follow the instructions below to create a Read only user:
-1. Create role (e.g., `read_only`) in admin console.
-2. Create a user and assign the read_only role to the user.
-3. Assign the login permission to login to the Publisher portal via the admin console.
-4. Log in to the Admin Portal and navigate to **scope management** which is under **Settings**.
-5. Click **Add Scope Mappings**.
-   Enter the Role name as `read_only` (This is the role you assigned to the read only user).
-6. Click **Next**.
-7. Select the Custom scope assignments under the select permissions.
-   Check the `apim:api_view` permission under the Publisher.
 
-   ![read-only-user-creation]({{base_path}}/assets/img/learn/api-security/read-only-user-creation.png)
+1. Sign in to the WSO2 Management Console (`https://<APIM_host>:<APIM_port>/carbon`) as the admin (default credentials are `admin`/`admin`).
 
-8. Save the changes.
+2. Create a user (Chris) and assign the **observer** default role.
 
-If a read-only user (Chris) is logged in to the Publisher, Chris can view the Publisher portal as shown below.
-![read-only-user-publisher-view]({{base_path}}/assets/img/learn/api-security/read-only-api-view.png)
+       [![Read-only user creation]({{base_path}}/assets/img/learn/api-security/assign-role-to-user.png){: style="width:70%"}](({{base_path}}/assets/img/learn/api-security/assign-role-to-user.png))
+
+3. Click **Finish**.
+
+### Step 2 - Access the Publisher
+
+When the read-only user (Chris) is logged in to the Publisher, Chris can view the Publisher portal as shown below.
 
 Example: API detail view
-![read-only-api-details]({{base_path}}/assets/img/learn/api-security/read-only-api-details.png)
+
+[![Read-only API details]({{base_path}}/assets/img/learn/api-security/read-only-api-details.png)]({{base_path}}/assets/img/learn/api-security/read-only-api-details.png)
