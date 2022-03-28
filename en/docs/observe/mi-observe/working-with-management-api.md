@@ -98,7 +98,7 @@ The management API has multiple resources to provide information regarding the d
     ```
 
 	!!! note
-		When fetching users from the primary user store, the `domain` query parameter can be ignored or set as `primary`
+		When fetching users from the primary user store, the `domain` query parameter can be ignored or set as `primary`.
 
 -	**Resource**: `/users/pattern=”*”&role=admin`
 
