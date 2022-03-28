@@ -82,20 +82,23 @@ The management API has multiple resources to provide information regarding the d
 	**Example**:
 
   	```bash tab='Request'
-  	curl -X GET "https://localhost:9164/management/users/user1" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
+  	curl -X GET "https://localhost:9164/management/users/user1?domain=wso2.com" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
   	```
 
     ```bash tab='Response'
     {
-      userid: “user1”,
+      userid: "WSO2.COM/user1",
       isAdmin: true/false,
       roles :
       [
-           role1,
-          role2,
+          "WSO2.COM/role1",
+          "role2",
       ]
     }
     ```
+
+	!!! note
+		When fetching users from the primary user store, the `domain` query parameter can be ignored or set as `primary`.
 
 -	**Resource**: `/users/pattern=”*”&role=admin`
 
@@ -133,9 +136,15 @@ The management API has multiple resources to provide information regarding the d
     {
      "userId":"user4",
      "password":"pwd1",
-     "isAdmin":"true"
+     "isAdmin":"false",
+     "domain":"wso2.com"
     }
     ```
+
+	!!! note
+		When adding users to the primary user store, the `domain` can be ignored or set as `primary`.
+
+		We cannot add admin users to the secondary user stores. 
 
     Execute the following request and receive the response:
 
@@ -171,6 +180,169 @@ The management API has multiple resources to provide information regarding the d
     }
   	```
 
+	**Example**:
+
+    The following request deletes `user1` from the secondary user store: 
+
+  	```bash tab='Request'
+  	curl -X DELETE "https://localhost:9164/management/users/user1?domain=wso2.com" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
+  	```
+
+  	```bash tab='Response'
+    {
+      "userId":"user1",
+      “status”:deleted
+    }
+  	```
+
+### GET Roles
+
+-	**Resource**: `/roles`
+
+	**Description**: Retrieves a list of all roles stored in an [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore).
+
+	**Example**:
+
+  	```bash tab='Request'
+  	curl -X GET "https://localhost:9164/management/roles" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
+  	```
+
+    ```bash tab='Response'
+    {
+    	count:3
+    	list:
+    	[
+    		{"role": "admin"},
+    		{"role": "Internal/everyone"},
+			{"role": "WSO2.COM/wso2Role"}
+    	]
+    }
+    ```
+
+-	**Resource**: `/roles/{role_name}`
+
+	**Description**: Retrieves information related to a specified role stored in the [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore).
+
+	**Example**:
+
+  	```bash tab='Request'
+  	curl -X GET "https://localhost:9164/management/roles/wso2role?domain=wso2.com" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
+  	```
+
+    ```bash tab='Response'
+    {
+      role: "WSO2.COM/wso2role",
+      users :
+      [
+          "WSO2.COM/wso2User1",
+          "user2",
+      ]
+    }
+    ```
+
+	!!! note
+		When fetching roles from the primary user store, the `domain` query parameter can be ignored or set as `primary`.
+		
+		When fetching hybrid roles, the `domain` query parameter should be set as `Internal` or `Application` accordingly.
+
+### ADD ROLES
+
+-	**Resource**: `/roles`
+
+	**Description**: Adds a role to the [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore).
+
+	**Example**:
+
+    First create the following JSON file with role details as shown below.
+
+    ```json
+    {
+		"role" : "wso2role",
+		"domain" : "wso2.com"
+	}
+    ```
+
+	!!! note
+		When adding roles to the primary user store, the `domain` can be ignored or set as `primary`.
+
+        When adding a hybrid role, respective hybrid domain (Internal/Application) should be added to the role name Ex: Internal/internalRole 
+
+    Execute the following request and receive the response:
+
+  	```bash tab='Request'
+  	curl -X POST -d @role "https://localhost:9164/management/roles" -H "accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer %AccessToken% " -k -i
+  	```
+
+  	```bash tab='Response'
+	{
+		"role": "wso2role",
+		"status": "Added"
+	}
+  	```
+
+### REMOVE Roles
+
+-	**Resource**: `/users`
+
+	**Description**: Removes a role from the [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore). 
+
+	**Example**:
+
+    The following request deletes the `wso2role` from the user store:
+
+  	```bash tab='Request'
+  	curl -X DELETE "https://localhost:9164/management/roles/wso2role?domain=wso2.com" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
+  	```
+
+  	```bash tab='Response'
+	{
+		"role": "wso2role",
+		"status": "Deleted"
+	}
+  	```
+
+	!!! note
+		When deleting roles from the primary user store, the `domain` can be ignored or set as `primary`.
+
+### ASSIGN / REVOKE Roles
+
+-	**Resource**: `/roles`
+
+	**Description**: Assign/remove set of roles to/from a given user in the [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore). 
+
+	**Example**:
+
+    First create the following JSON file with role details as shown below.
+
+    ```json
+    {
+    	"userId" : "wso2user",
+    	"addedRoles" :["Internal/internalRole", "Application/applicationRole"],
+    	"removedRoles":["wso2role"],
+    	"domain" : "wso2.com"
+	}
+    ```
+
+	!!! note
+		When the user belongs to the primary user store, `domain` can be ignored or set as `primary`.
+
+        Users in secondary user stores can have roles from that user store and hybrid roles only.
+
+		Users in secondary user stores cannot have the admin role.
+
+    Execute the following request and receive the response:
+
+  	```bash tab='Request'
+  	curl -X PUT -d @user "https://localhost:9164/management/roles" -H "accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer %AccessToken% " -k -i
+  	```
+
+  	```bash tab='Response'
+	{
+		"userId": "wso2user",
+		"status": "Added/removed the roles"
+	}
+
+  	```
 ### GET PROXY SERVICES
 
 -	**Resource**: `/proxy-services`
