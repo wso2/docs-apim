@@ -94,13 +94,13 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
 
 2. Configure **Filebeats** to read the log file in the `repository/logs` folder. 
 
-    ```
+    ``` yaml
     filebeat.inputs:
-    - type: log
-    enabled: true
-    paths:
-        - {apim_home}/repository/logs/apim_metrics.log
-    include_lines: ['(apimMetrics):']
+    -   type: log
+        enabled: true
+        paths:
+            - {apim_home}/repository/logs/apim_metrics.log
+        include_lines: ['(apimMetrics):']
     output.logstash:
     # The Logstash hosts
     hosts: ["{LOGSTASH_URL}:5044"]
@@ -110,33 +110,37 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
 
 1. [Install Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html) according to your operating system.
 
-    ```
+    ``` java
     input {
-    beats {
-        port => 5044
-    }
+        beats {
+            port => 5044
+        }
     }
 
     filter {
-    grok {match => ["message", "%{GREEDYDATA:UNWANTED}\ apimMetrics:%{GREEDYDATA:apimMetrics}\, %{GREEDYDATA:UNWANTED} \:%{GREEDYDATA:properties}"]}
-    json {source => "properties"}
+        grok {
+            match => ["message", "%{GREEDYDATA:UNWANTED}\ apimMetrics:%{GREEDYDATA:apimMetrics}\, %{GREEDYDATA:UNWANTED} \:%{GREEDYDATA:properties}"]
+        }
+        json {
+            source => "properties"
+        }
     }
     output {
-    if[apimMetrics] == " apim:response" {
-    elasticsearch {
-        hosts => ["http://{ELK_URL}:9200"]
-        index => "apim_event_response"
-        user => "elastic"
-        password => "Admin1234"
-    }
-    } else if[apimMetrics] == " apim:faulty" {
-    elasticsearch {
-        hosts => ["http://{ELK_URL}:9200"]
-        index => "apim_event_faulty"
-        user => "elastic"
-        password => "Admin1234"
-    }
-    }
+        if [apimMetrics] == " apim:response" {
+            elasticsearch {
+                hosts => ["http://{ELK_URL}:9200"]
+                index => "apim_event_response"
+                user => "elastic"
+                password => "Admin1234"
+            }
+        } else if [apimMetrics] == " apim:faulty" {
+            elasticsearch {
+                hosts => ["http://{ELK_URL}:9200"]
+                index => "apim_event_faulty"
+                user => "elastic"
+                password => "Admin1234"
+            }
+        }
     }
     ```
 
@@ -169,13 +173,16 @@ Elastic search supports several [authentication modes](https://www.elastic.co/gu
 
 In this section, we mainly focus on configuring single-sign-on with WSO2 API Manager via OpenID Connect. If you are looking for other supported authentication providers, refer the [ElasticSearch documentation](https://www.elastic.co/guide/en/kibana/current/kibana-authentication.html#basic-authentication).
 
+!!! info
+    Note that you can either configure Basic Authentication or SSO with OpenID Connect.
 
-### Step 4 - Configure Basic Authentication
+
+#### Configure Basic Authentication
 
 ElasticSearch supports basic authentication via an internal user store. If you need to set up basic authentication in ElasticSearch and Kibana, refer the [ElasticSearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-minimal-setup.html).
 
 
-### Step 5 - Configure Single-Sign-On with WSO2 API Manager via OpenID Connect
+#### Configure Single-Sign-On with WSO2 API Manager via OpenID Connect
 
 ElasticSearch/Kibana deployment can be configured to enable Single-sign-on with WSO2 API Manager via OpenID Connect. To set up SSO with WSO2 API Manager, follow the steps given below.
 
@@ -184,7 +191,7 @@ ElasticSearch/Kibana deployment can be configured to enable Single-sign-on with 
     To enable Single-sign-on security features in ELK, an [ElasticSearch Platinum subscription](https://www.elastic.co/subscriptions) is required.
 
 
-#### Configure a service provider at WSO2 API Manager
+##### Configure a service provider at WSO2 API Manager
 
 To enable SSO with WSO2 API Manager, a service provider needs to be created. Follow the steps given below to create a service provider.
 
@@ -215,13 +222,13 @@ To enable SSO with WSO2 API Manager, a service provider needs to be created. Fol
 7. Click **Update** to save your changes.
 
 
-#### Configure OIDC realm in Elastic Search
+##### Configure OIDC realm in Elastic Search
 
 To configure single sign-on to the Elastic Stack using OpenID connect, follow the steps given [here](https://www.elastic.co/guide/en/elasticsearch/reference/7.16/oidc-guide.html).
 
 A sample OpenID connect realm is as follows.
 
-##### OpenID Connect realm configurations
+###### OpenID Connect realm configurations
 
 ```
 xpack.security.authc.realms.oidc.oidc1:
@@ -242,12 +249,12 @@ xpack.security.authc.realms.oidc.oidc1:
  claims.mail: email
 ```
 
-#### Configure Role Mapping for Kibana dashboard
+##### Configure Role Mapping for Kibana dashboard
 
 Once the above steps are completed, role mapping needs to be configured in Kibana to allow WSO2 API Manager users to access the dashboards in Kibana. For that follow the steps mentioned below.
 
 
-##### Create Users and Roles in WSO2 API Manager
+###### Create Users and Roles in WSO2 API Manager
 
 1. Login to WSO2 API Manager management console via `https://<API-M_HOST>:9443/carbon`.
 
@@ -273,7 +280,7 @@ Once the above steps are completed, role mapping needs to be configured in Kiban
 
     <a href="{{base_path}}/assets/img/analytics/cloud/select-user-role.png"><img src="{{base_path}}/assets/img/analytics/cloud/select-user-role.png" width="30%" alt=""></a>
 
-##### Create role mapping
+###### Create role mapping
 
 1. Login to Kibana using basic authentication and go to **Stack Management** under the **Management** section in the left menu. Click **Role Mappings** under the **Security** section.
 2. In the **Create Role Mapping** section, add a new role mapping by providing a **Mapping name**. 
@@ -293,6 +300,6 @@ Once the above steps are completed, role mapping needs to be configured in Kiban
 
     <a href="{{base_path}}/assets/img/analytics/cloud/login-apim.png"><img src="{{base_path}}/assets/img/analytics/cloud/login-apim.png" width="50%" alt=""></a>
 
-#### Configure SSL/TLS to secure ElasticSearch, Kibana, Beats, and Logstash
+##### Configure SSL/TLS to secure ElasticSearch, Kibana, Beats, and Logstash
 
 For more information regarding configuring SSL/TLS to secure ElasticSearch, Kibana, Beats, and Logstash follow the steps mentioned in this [article](https://www.elastic.co/blog/configuring-ssl-tls-and-https-to-secure-elasticsearch-kibana-beats-and-logstash).
