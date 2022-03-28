@@ -263,7 +263,7 @@ The management API has multiple resources to provide information regarding the d
     ```
 
 	!!! note
-		When adding roles to the primary user store, `domain` can be ignored or set as `primary`
+		When adding roles to the primary user store, the `domain` can be ignored or set as `primary`.
 
         When adding a hybrid role, respective hybrid domain (Internal/Application) should be added to the role name Ex: Internal/internalRole 
 
