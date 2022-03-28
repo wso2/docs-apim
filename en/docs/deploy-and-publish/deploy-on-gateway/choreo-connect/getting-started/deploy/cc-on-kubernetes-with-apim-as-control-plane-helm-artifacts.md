@@ -24,9 +24,10 @@ Let's deploy an API on Choreo Connect, which running on Kubernetes, with WSO2 AP
     
 -   Install [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/). 
 
-    !!! Note
-        Helm resources for WSO2 product deployment patterns are compatible with the [`nginx-0.30.0`](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.30.0) release.
+!!! Note
+    Helm resources for WSO2 product deployment patterns are compatible with the [`nginx-0.30.0`](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.30.0) release.
 
+{!includes/deploy/k8s-setup-note.md!}
 
 ## Deploy API Manager as Control Plane
 
