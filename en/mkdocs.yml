@@ -764,8 +764,8 @@ nav:
         - API Analytics:
             - Getting Started Guide: api-analytics/getting-started-guide.md
             - Role-based Access Control : api-analytics/role-based-access-control.md
-            - Cloud-based Analytics:
-                - ELK-Based Analytics Installation Guide: api-analytics/cloud-analytics/elk-installation-guide.md
+            - On-prem Analytics:
+                - ELK-Based Analytics Installation Guide: api-analytics/on-prem/elk-installation-guide.md
             - Configurations:
                 - Alerts: api-analytics/configure-alerts.md
                 - Gateways:
