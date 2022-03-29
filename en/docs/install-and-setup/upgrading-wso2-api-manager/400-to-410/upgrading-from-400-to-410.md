@@ -204,7 +204,7 @@ the information about the added private keys, certificates and the list of trust
         ALTER USER <user> WITH SUPERUSER;
         ```
 
-2.  Navigate to the [latest release tag (v4.1.0.x)](https://github.com/wso2-extensions/apim-migration-resources/tags) and download the `wso2am-migration-4.1.0.x.zip`. Unzip it to a local directory. 
+2.  Navigate to the [latest release tag (v4.1.0.x)](https://github.com/wso2-extensions/apim-migration-resources/tags) under **Assets** and download the `wso2am-migration-4.1.0.x.zip`. Unzip it to a local directory. 
 
     !!! note
 
@@ -221,7 +221,7 @@ You have to run the following migration client to update the API Manager artifac
 
 1. Copy the `<AM_MIGRATION_CLIENT_HOME>/migration-resources`  to the `<API-M_4.1.0_HOME>` directory.
 
-2. Copy the org.wso2.carbon.am.migration-4.1.0.x.jar file in the `<AM_MIGRATION_CLIENT_HOME>/dropin` directory into the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
+2. Copy the org.wso2.carbon.am.migration-4.1.0.x.jar file in the `<AM_MIGRATION_CLIENT_HOME>/dropins` directory into the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
 
     !!! note "If you have configured WSO2 IS 5.11.0 as Resident Key Manager"
         make sure you have already started it before execute the next step.

@@ -22,7 +22,7 @@ Follow the instructions below to upgrade your WSO2 API Manager server **from WSO
     
 -   [Step 3 - Migrate the database to API-M 4.1.0](#step-3-migrate-the-api-manager-database)
 
--   [Step 4 - Migrate the Identity Components](#step-4-migrate-the-identity-component)
+-   [Step 4 - Migrate the Identity Components](#step-4-migrate-the-identity-components)
     
 -   [Step 5 - Migrate the API Manager components to API-M 4.1.0](#step-5-migrate-the-api-manager-components)
     
@@ -214,7 +214,7 @@ the information about the added private keys, certificates and the list of trust
         ALTER USER <user> WITH SUPERUSER;
         ```
 
-2.  Navigate to the [latest release tag (v4.1.0.x)](https://github.com/wso2-extensions/apim-migration-resources/tags) and download the `wso2am-migration-4.1.0.x.zip`. Unzip it to a local directory.  
+2.  Navigate to the [latest release tag (v4.1.0.x)](https://github.com/wso2-extensions/apim-migration-resources/tags) under **Assets** and download the `wso2am-migration-4.1.0.x.zip`. Unzip it to a local directory.  
 
     !!! note
 
@@ -231,7 +231,7 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Mana
 
 1.  Download the identity component migration resources and unzip it in a local directory.
 
-    Navigate to the [latest release tag](https://github.com/wso2-extensions/apim-identity-migration-resources/tags) and download the `wso2is-migration-x.x.x.zip` under Assets.
+    Navigate to the [latest release tag](https://github.com/wso2-extensions/apim-identity-migration-resources/tags) and download the `wso2is-migration-x.x.x.zip` under **Assets**.
          
     Let's refer to this directory that you downloaded and extracted as `<IS_MIGRATION_TOOL_HOME>`. 
 
@@ -291,7 +291,7 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Mana
         Note that depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do not stop the server during the migration process and wait until the migration process finish completely and server get started.
         
     !!! note
-        Note that if you want to use the latest user store, update the <API-M_4.1.0_HOME>/repository/conf/deployment.toml as follows after the identity migration,
+        Note that if you want to use the latest user store, update the `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` as follows after the identity migration,
 
     ```
     [user_store]
@@ -333,7 +333,7 @@ You have to run the following migration client to update the API Manager artifac
 
 1. Copy the `<AM_MIGRATION_CLIENT_HOME>/migration-resources` to the `<API-M_4.1.0_HOME>` directory.
 
-2. Copy the org.wso2.carbon.am.migration-4.1.0.x.jar file in the `<AM_MIGRATION_CLIENT_HOME>/dropin` directory into the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
+2. Copy the org.wso2.carbon.am.migration-4.1.0.x.jar file in the `<AM_MIGRATION_CLIENT_HOME>/dropins` directory into the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
 
 3. Start the API-M server to validate the api definitions.
        
@@ -367,10 +367,9 @@ You have to run the following migration client to update the API Manager artifac
 
         Make sure you have copied the tenants userstores if you have configured them in API-M 3.2.0
 
-
 ### Step 6: Execute post migration scripts
 
-1. Execute the post migration script on the `WSO2AM_DB` database which is located inside the `<AM_MIGRATION_CLIENT_HOME>/post-migration-script` directory for relevant database type.
+1. Execute the post migration script on the `WSO2AM_DB` database which is located inside the `<AM_MIGRATION_CLIENT_HOME>/post-migration-script/am-db` directory for relevant database type.
 
 2. Execute the post migration script `reg-index.sql` on the `WSO2SHARED_DB` database (or REG_DB if you have separate DB for registry) which is located inside the `<AM_MIGRATION_CLIENT_HOME>/post-migration-script/reg-db` directory
 
