@@ -69,4 +69,4 @@ Copy the configurations in the `deployment.toml` file of the Micro Integrator of
 
 ### Migrating Hl7 Transport
 
-HL7 transport is not shipped by default in the API-M 4.1.0 Micro Integrator distribution. Therefore, the jars need to be added to the Micro Integrator server manually. See [Configuring the HL7 transport]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-hl7-transport) for details.
+HL7 transport is not shipped by default in the API-M 4.1.0 Micro Integrator distribution. Therefore, the .jar files need to be added to the Micro Integrator server manually. See [Configuring the HL7 transport]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-hl7-transport) for details.
