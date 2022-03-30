@@ -111,6 +111,20 @@ nav:
         - API Collaboration:
             - Comment on an API via the Publisher: design/api-collaborations/comment-on-an-api-via-the-publisher.md
             - Enable Social Media Interaction: design/api-collaborations/enable-social-media-interaction.md
+        - API Policies:
+            - Overview: design/api-policies/overview.md
+            - Specify a Mediation Flow Using a Policy: design/api-policies/specifying-mediation-flow-based-on-policy.md
+            - Change the Default Mediation Flow of API Requests: design/api-policies/changing-the-default-mediation-flow-of-api-requests.md
+            - Create and Upload Using Integration Studio: design/api-policies/creating-and-uploading-using-integration-studio.md
+            - Add Dynamic Endpoints: design/api-policies/adding-dynamic-endpoints.md
+            - Remove Specific Request Headers From Response: design/api-policies/removing-specific-request-headers-from-response.md
+            - Pass a Custom Authorization Token to the Backend: design/api-policies/passing-a-custom-authorization-token-to-the-backend.md
+            - URL Mapping: design/api-policies/mapping-the-parameters-of-your-backend-urls-with-the-api-publisher-urls.md
+            - Disable Message Chunking: design/api-policies/disabling-message-chunking.md
+            - Transform API Message Payload: design/api-policies/transforming-api-message-payload.md
+            - Add a Non-Blocking Send Operation: design/api-policies/adding-a-non-blocking-send-operation.md
+            - Add a Class Mediator: design/api-policies/adding-a-class-mediator.md
+            - Configure message builders and formatters: design/api-policies/configuring-message-builders-formatters.md
         - API Security:
             - Authentication:
                 - Overview: design/api-security/api-authentication/api-authentication-overview.md
@@ -195,19 +209,19 @@ nav:
             - API Gateway:
                 - Overview of the WSO2 API Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/overview-of-the-api-gateway.md
                 #- Publish APIs Overview: deploy-and-publish/deploy-on-gateway/publish-api-overview.md
-                - Message Mediation:
-                    - Specify a Mediation Flow Using a Policy: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/specifying-mediation-flow-based-on-policy.md
-                    - Change the Default Mediation Flow of API Requests: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests.md
-                    - Create and Upload Using Integration Studio: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/creating-and-uploading-using-integration-studio.md
-                    - Add Dynamic Endpoints: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-dynamic-endpoints.md
-                    - Remove Specific Request Headers From Response: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/removing-specific-request-headers-from-response.md
-                    - Pass a Custom Authorization Token to the Backend: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/passing-a-custom-authorization-token-to-the-backend.md
-                    - URL Mapping: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/mapping-the-parameters-of-your-backend-urls-with-the-api-publisher-urls.md
-                    - Disable Message Chunking: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/disabling-message-chunking.md
-                    - Transform API Message Payload: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/transforming-api-message-payload.md
-                    - Add a Non-Blocking Send Operation: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-a-non-blocking-send-operation.md
-                    - Add a Class Mediator:  deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-a-class-mediator.md
-                    - Configure message builders and formatters: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/configuring-message-builders-formatters.md
+                #- Message Mediation:
+                    #- Specify a Mediation Flow Using a Policy: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/specifying-mediation-flow-based-on-policy.md
+                    #- Change the Default Mediation Flow of API Requests: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests.md
+                    #- Create and Upload Using Integration Studio: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/creating-and-uploading-using-integration-studio.md
+                    #- Add Dynamic Endpoints: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-dynamic-endpoints.md
+                    #- Remove Specific Request Headers From Response: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/removing-specific-request-headers-from-response.md
+                    #- Pass a Custom Authorization Token to the Backend: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/passing-a-custom-authorization-token-to-the-backend.md
+                    #- URL Mapping: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/mapping-the-parameters-of-your-backend-urls-with-the-api-publisher-urls.md
+                    #- Disable Message Chunking: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/disabling-message-chunking.md
+                    #- Transform API Message Payload: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/transforming-api-message-payload.md
+                    #- Add a Non-Blocking Send Operation: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-a-non-blocking-send-operation.md
+                    #- Add a Class Mediator:  deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-a-class-mediator.md
+                    #- Configure message builders and formatters: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/configuring-message-builders-formatters.md
                 - Response Caching: deploy-and-publish/deploy-on-gateway/api-gateway/response-caching.md
                 - Threat Protectors:
                     - Regular Expression Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
