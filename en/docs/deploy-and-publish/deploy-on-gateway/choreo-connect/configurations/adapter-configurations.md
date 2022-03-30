@@ -801,7 +801,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The username of the Git repository. If this is set, then you need to also set <code>accessToken</code>.</p>
+                                        <p>The username of the Git repository. If this is set, then you need to also set the <code>accessToken</code>.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -839,7 +839,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The optional path to the private key used for authenticating the Git repository. If this is set, then you do not need to set <code>username</code> and <code>accessToken</code>.</p>
+                                        <p>The optional path to the private key used for authenticating the Git repository. If this is set, then you do not need to set the <code>username</code> and <code>accessToken</code>.</p>
                                     </div>
                                 </div>
                             </div>

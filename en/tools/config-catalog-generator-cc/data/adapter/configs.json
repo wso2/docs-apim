@@ -263,7 +263,7 @@
               "name": "username",
               "type": "string",
               "required": false,
-              "description": "The username of the Git repository. If this is set, then you need to also set accessToken."
+              "description": "The username of the Git repository. If this is set, then you need to also set the accessToken."
             },
             {
               "name": "accessToken",
@@ -275,7 +275,7 @@
               "name": "sshKeyFile",
               "type": "string",
               "required": false,
-              "description": "The optional path to the private key used for authenticating the Git repository. If this is set, then you do not need to set username and accessToken."
+              "description": "The optional path to the private key used for authenticating the Git repository. If this is set, then you do not need to set the username and accessToken."
             }
           ]
         }
