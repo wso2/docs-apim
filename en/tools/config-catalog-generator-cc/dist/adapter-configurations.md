@@ -1,6 +1,6 @@
-# Choreo Connect Adaptor Configuration Catalog
+# Choreo Connect Adapter Configuration Catalog
 
-This document describes all the configuration parameters that are used in WSO2 Choreo Connect Adaptor.
+This document describes all the configuration parameters that are used in WSO2 Choreo Connect Adapter.
 
 ## Instructions for use
 
@@ -83,7 +83,7 @@ See the example .toml file given below.
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Enable/Disable Choreo Connect Adaptor REST API.</p>
+                                        <p>Enable/Disable Choreo Connect Adapter REST API.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -102,7 +102,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Hostname of the Choreo Connect Adaptor</p>
+                                        <p>Hostname of the Choreo Connect Adapter</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -121,7 +121,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Port of the Choreo Connect Adaptor</p>
+                                        <p>Port of the Choreo Connect Adapter</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -140,7 +140,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Time to live for the Adaptor access token</p>
+                                        <p>Time to live for the Adapter access token</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -216,7 +216,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Path of the certificate of the Adaptor</p>
+                                        <p>Path of the certificate of the Adapter</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -235,7 +235,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Path of the private key of the Adaptor</p>
+                                        <p>Path of the private key of the Adapter</p>
                                     </div>
                                 </div>
                             </div>
@@ -291,7 +291,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The directory path for the trusted certificates of the Choreo Connect Adaptor.</p>
+                                        <p>The directory path for the trusted certificates of the Choreo Connect Adapter.</p>
                                     </div>
                                 </div>
                             </div>
@@ -591,6 +591,254 @@ See the example .toml file given below.
                                     </div>
                                     <div class="param-description">
                                         <p>This is the optional path to the private key for Consul communication. If this is set, then you need to also set certFile.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## Source Control
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="7" type="checkbox" id="_tab_7">
+                <label class="tab-selector" for="_tab_7"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[adapter.sourceControl]
+  enabled = false
+  pollInterval = 30
+  retryInterval = 5
+  maxRetryCount = 20
+  artifactsDirectory = "/home/wso2/git-artifacts"
+  [adapter.sourceControl.repository]
+    URL = "https://github.com/wso2/product-microgateway.git"
+    branch = "main"
+    username = "$env{git_username}"
+    accessToken = "$env{git_access_token}"
+    sshKeyFile = "/home/wso2/ssh-keys/id_ed25519"</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[adapter.sourceControl]</code>
+                            
+                            <p>
+                                Configurations related to Git Integration with Choreo Connect.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enabled</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable/Disable Git Integration for API Artifacts.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>pollInterval</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>30</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The time interval (in seconds) in which the the Adapter should fetch updates from the repository.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>retryInterval</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>5</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The time interval (in seconds) in which the the Adapter should retry fetching artifacts from the repository at startup (in case of failure).</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>maxRetryCount</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>20</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Maximum number of times the Adapter should retry fetching artifacts from the repository at startup (in case of failure).</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>artifactsDirectory</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>/home/wso2/git-artifacts</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The directory path where the Git artifacts are stored.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="config-wrap">
+                            <code>[adapter.sourceControl.repository]</code>
+                            
+                            <p>
+                                Configurations related to the Git Repository when Git Integration is enabled.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>URL</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The URL of the Git repository.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>branch</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The branch of the Git repository. If not specified, the default branch will be used.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>username</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The username of the Git repository. If this is set, then you need to also set the accessToken.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>accessToken</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The password or personal access token of the Git repository.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>sshKeyFile</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The optional path to the private key used for authenticating the Git repository. If this is set, then you do not need to set the <code>username</code> and <code>accessToken</code>.</p>
                                     </div>
                                 </div>
                             </div>
