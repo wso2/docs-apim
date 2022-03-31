@@ -188,7 +188,7 @@ The API Manager component addresses all aspects of API management in the platfor
 - Adding SSL support for MongoDB configs
 
 --->
-### Removed features and functionalities
+## Removed features and functionalities
 
 These features are unsupported and removed from WSO2 API Manager 4.1.0 onwards.
 
@@ -197,11 +197,11 @@ These features are unsupported and removed from WSO2 API Manager 4.1.0 onwards.
      The message tracer feature for WSO2 DAS is no longer supported and removed from the product.
 
 
-## **Compatible WSO2 product versions**
+## Compatible WSO2 product versions
 
 WSO2 API Manager 4.1.0 is compatible with WSO2 Identity Server 5.11.0.
 
-## **Fixed issues**
+## Fixed issues
 
 - [API Manager](https://github.com/wso2/product-apim/issues?q=is%3Aissue+is%3Aclosed+closed%3A2021-10-30..2022-03-05+)
 - [Micro Integrator](https://github.com/wso2/micro-integrator/issues?q=is%3Aissue+is%3Aclosed+closed%3A2021-05-01..2022-03-05+label%3A4.1.0+)
@@ -211,7 +211,7 @@ WSO2 API Manager 4.1.0 is compatible with WSO2 Identity Server 5.11.0.
 - [Micro Integrator Dashboard](https://github.com/wso2/product-mi-tooling/milestone/1?closed=1)
 - [Streaming Integrator Tooling](https://github.com/wso2/streaming-integrator/milestone/17?closed=1)
 
-## **Known Issues**
+## Known Issues
 
 - [API Manager](https://github.com/wso2/product-apim/issues?q=is%3Aopen+is%3Aissue+label%3A4.x.x)
 - [Micro Integrator](https://github.com/wso2/micro-integrator/issues)
