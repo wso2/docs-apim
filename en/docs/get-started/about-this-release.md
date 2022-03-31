@@ -211,7 +211,7 @@ WSO2 API Manager 4.1.0 is compatible with WSO2 Identity Server 5.11.0.
 - [Micro Integrator Dashboard](https://github.com/wso2/product-mi-tooling/milestone/1?closed=1)
 - [Streaming Integrator Tooling](https://github.com/wso2/streaming-integrator/milestone/17?closed=1)
 
-## Known Issues
+## Known issues
 
 - [API Manager](https://github.com/wso2/product-apim/issues?q=is%3Aopen+is%3Aissue+label%3A4.x.x)
 - [Micro Integrator](https://github.com/wso2/micro-integrator/issues)
