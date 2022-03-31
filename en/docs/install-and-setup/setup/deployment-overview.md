@@ -152,7 +152,7 @@ The API-M layer of this deployment consists of two clusters of API-M components 
             The Gateway profile of API-M is deployed as a separate cluster so that we can scale it to match the traffic requirements. The simplest deployment for this pattern consists of a two node Gateway cluster. If required you can scale the number of nodes.
         </td>
     </tr>
-    tr>
+    <tr>
         <th>
             Traffic Manager Cluster
         </th>
