@@ -14,18 +14,25 @@ template: templates/single-column.html
                 It allows API developers to design, publish, and manage the lifecycle of APIs and API product 
                 managers to create API products from one or more APIs.
             </p>
+            </br>
+            <h2>Download</h2>
+            <a href="https://wso2.com/api-manager/#">
+                <img src="{{base_path}}/assets/img/get_started/download-apim.png" title="Download WSO2 API Manager" width="35%" alt="Download WSO2 API Manager"/>
+            </a>
         </div>
         <div class="md-main .md-content " style="float:right; width: 55%; align:right;  flex-shrink: 0;min-width: 40%; max-height: 100%; max-width:50%; margin-left:10px; margin-top:20px">
         <iframe width="800" height="300" src="https://www.youtube.com/embed/nr1cFyxVdDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
-    <div class="leftContent">
-        <h2>Download WSO2 API Manager</h2>
+    <!--<div class="leftContent">
+        <h2>Download</h2>
         <a href="https://wso2.com/api-manager/#">
             <img src="{{base_path}}/assets/img/get_started/download-apim.png" title="Download WSO2 API Manager" width="18%" alt="Download WSO2 API Manager"/>
         </a>
     </div>
-    </br></br>
+    </br>-->
+    </br>
+    </br>
     <div class="section02">
         <h3>Quick Start Guide</h3>
         <div class="linkWrapper">
