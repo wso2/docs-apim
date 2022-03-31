@@ -71,6 +71,10 @@ It is now available to download from [here](https://wso2.com/api-management/#).
       is removed from this release. Instead, you can use [Virtual Hosts (VHosts)]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames)
       and dynamically manageable Gateway environments to group and expose APIs with custom hostnames.
 
+- Implicit Grant
+    
+      Implicit Grant types have been removed due to [security concerns](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics-14#section-2.1.2).
+
 ### Key changes
 
 - The name of the startup script has changed from `wso2server.sh` (Linux/Mac OS) and `wso2server.bat` (Windows) to `api-manager.sh` and `api-manager.bat` respectively. For instructions, see [Running the Product]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/).
