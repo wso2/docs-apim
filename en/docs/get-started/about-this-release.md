@@ -1,8 +1,8 @@
 # About this Release
 
-The **WSO2 API Manager 4.1.0 Beta** is the latest **WSO2 API Manager release** and is the successor of **WSO2 API Manager 4.0.0**.
-
 WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premise, and hybrid architectures to drive your digital transformation strategy. 
+
+**WSO2 API Manager 4.1.0** is the latest **WSO2 API Manager release** and is the successor of **WSO2 API Manager 4.0.0**.
 
 For more information on WSO2 API Manager, see the [overview]({{base_path}}/getting-started/overview/).
 
@@ -12,31 +12,31 @@ The API Manager component addresses all aspects of API management in the platfor
 
 <table>
 <tr>
-<td>API Manager 4.1.0-Beta</td>
+<td>API Manager 4.1.0</td>
 <td><a href="https://github.com/wso2/product-apim/releases/download/v4.1.0-beta/wso2am-4.1.0-beta.zip">download</a></td>
 </tr>
 <tr>
-<td>Micro Integrator 4.1.0-Beta</td> 
+<td>Micro Integrator 4.1.0</td> 
 <td><a href="https://github.com/wso2/micro-integrator/releases/download/v4.1.0-beta/wso2mi-4.1.0-beta.zip">download</a></td>
 </tr>
 <tr>
-<td>Streaming Integrator 4.1.0-Beta</td> 
+<td>Streaming Integrator 4.1.0</td> 
 <td><a href="https://github.com/wso2/streaming-integrator/releases/download/v4.1.0-beta/wso2si-4.1.0-beta.zip">download</a></td> 
 </tr>
 <tr>
-<td>API Controller 4.1.0-Beta</td>
+<td>API Controller 4.1.0</td>
 <td><a href="https://github.com/wso2/product-apim-tooling/releases/tag/v4.1.0-beta">download</a></td>
 </tr>
 <tr>
-<td>Integration Studio  8.1.0-Beta</td>
+<td>Integration Studio  8.1.0</td>
 <td><a href="https://github.com/wso2/integration-studio/releases/tag/v8.1.0-beta">download</a></td>
 </tr>
 <tr>
-<td>Micro Integrator Tooling  4.1.0-Beta</td>
+<td>Micro Integrator Tooling  4.1.0</td>
 <td><a href="https://github.com/wso2/micro-integrator/releases/download/v4.1.0-beta/wso2mi-dashboard-4.1.0-beta.zip">download</a></td>
 </tr>
 <tr>
-<td>Streaming Integrator Tooling  4.1.0-Beta</td>
+<td>Streaming Integrator Tooling  4.1.0</td>
 <td><a href="https://github.com/wso2/streaming-integrator-tooling/releases/download/v4.1.0-beta/wso2si-tooling-4.1.0-beta.zip">download</a></td>
 </tr>
 </table>
@@ -144,35 +144,11 @@ The API Manager component addresses all aspects of API management in the platfor
 
      This feature generates metadata artifacts for the APIs and Proxy services that have been created inside older Integration Studio workspaces.
 
-- **Publisher Read Only Mode** 
-    
-     A user who has view/read only permissions can only view the API/Services details in the Publisher portal. Such users should not be able to edit/create/publish APIs/Services.
-
 - **Add support for SMB and WebDAV protocols**
 
      This feature adds support to read from or write to files opened via SMB and WebDAV protocols.
 
 - **Support Protobuf Map-type for Kafka**
-
-- **Improved CDC functionalities**
-
-- **Improved MongoDB store**
-
-- **Capability to generate metadata files for APIs and Proxy services for older ESB projects**
-
-- **HTTPS support for unit tests of APIs**
-
-- **Option to hide/show connectors on-demand**
-
-- **JSON and YAML templates as registry resources**
-
-- **Capability to create REST APIs using WSO2 API Manager APIs**
-
-- **Added role support to Micro Integrator**
-
-- **List down APIs as a JSON array in apictl**
-
-- **Added a preserve-status flag in apictl to support API Products**
 
 <!-- 
 
