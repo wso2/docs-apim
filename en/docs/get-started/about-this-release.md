@@ -88,6 +88,9 @@ The API Manager component addresses all aspects of API management in the platfor
 
      This feature allows you to generate data service definitions by pointing to an existing datasource in the workspace without creating it from scratch.
 
+- **[GraphQL subscriptions]({{base_path}}/tutorials/create-and-publish-a-graphql-api/#5.2)**
+
+      WSO2 API Manager 4.1.0 supports GraphQL subscription operations, which extends GraphQL APIs for push based solutions. In GraphQL Subscriptions, clients send long-lasting GraphQL read operations and get updated results whenever a particular server-side event occurs. Commonly, updated results are pushed from the server to the subscribing clients via WebSockets, where the server holds a steady connection to the client.
 
 ## Improvements
 
