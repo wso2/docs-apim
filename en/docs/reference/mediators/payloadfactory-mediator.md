@@ -984,7 +984,176 @@ Using FreeMarker templates, it is straightforward to generate text payloads. The
     <#list person?children?filter(c -> c?node_type == 'element') as c>${c}<#sep>,</#list>
     </#list>
     ```
+### XML to EDI Transformation
 
+This example shows how an XML payload can be converted to an EDI format using a freemarker template. In this example, we have referenced the freemarker template as a registry resource.
+See the instructions on how to [build and run](#build-and-run) this example.
+ 
+```xml tab="XMLtoEDI - Proxy"
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="xml-to-edi-proxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <payloadFactory media-type="text" template-type="freemarker">
+                <format key="conf:custom/template.ftl"/>
+                <args/>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </target>
+</proxy>
+```
+  
+```injectedfreemarker tab="template.ftl - Registry Resource"
+<#-- Assign * as element separator -->
+<#assign element_separator="*">
+<#-- Assign ! as segment terminator -->
+<#assign segment_terminator="!">
+<#-- Interchange Control Header -->
+ISA${element_separator}${payload.UniversalTransaction.Interchange_Control_Header.Authorization_Information_Qualifier}${element_separator}${payload.UniversalTransaction.Interchange_Control_Header.Authorization_Information}${element_separator}${payload.UniversalTransaction.Interchange_Control_Header.Security_Information_Qualifier}${element_separator}${payload.UniversalTransaction.Interchange_Control_Header.Security_Information}${element_separator}${payload.UniversalTransaction.Interchange_Control_Header.Interchange_ID_Qualifier[0]}${element_separator}${payload.UniversalTransaction.Interchange_Control_Header.Interchange_Sender_ID}${element_separator}${payload.UniversalTransaction.Interchange_Control_Header.Interchange_ID_Qualifier[1]}${element_separator}${payload.UniversalTransaction.Interchange_Control_Header.Interchange_Receiver_ID}${element_separator}${payload.UniversalTransaction.Interchange_Control_Header.Interchange_Date}${element_separator}${payload.UniversalTransaction.Interchange_Control_Header.Interchange_Time}${element_separator}${payload.UniversalTransaction.Interchange_Control_Header.Interchange_Control_Standards_ID}${element_separator}${payload.UniversalTransaction.Interchange_Control_Header.Interchange_Control_Version_Nbr}${element_separator}${payload.UniversalTransaction.Interchange_Control_Header.Interchange_Control_Number}${element_separator}${payload.UniversalTransaction.Interchange_Control_Header.Acknowledgment_Request}${element_separator}${payload.UniversalTransaction.Interchange_Control_Header.Test_Indicator}${element_separator}${payload.UniversalTransaction.Interchange_Control_Header.Subelement_Separator}${segment_terminator}
+<#-- Functional_Group_Header -->
+GS${element_separator}${payload.UniversalTransaction.Functional_Group_Header.Functional_Identifier_Code}${element_separator}${payload.UniversalTransaction.Functional_Group_Header.Application_Senders_Code}${element_separator}${payload.UniversalTransaction.Functional_Group_Header.Application_Receivers_Code}${element_separator}${payload.UniversalTransaction.Functional_Group_Header.Date}${element_separator}${payload.UniversalTransaction.Functional_Group_Header.Time}${element_separator}${payload.UniversalTransaction.Functional_Group_Header.Group_Control_Number}${element_separator}${payload.UniversalTransaction.Functional_Group_Header.Responsible_Agency_Code}${element_separator}${payload.UniversalTransaction.Functional_Group_Header.Industry_ID}${segment_terminator}
+<#-- Transaction_Set_Header -->
+ST${element_separator}${payload.UniversalTransaction.Transaction_Set_Header.Transaction_Set_Identifier_Code}${element_separator}${payload.UniversalTransaction.Transaction_Set_Header.Transaction_Set_Control_Number}${segment_terminator}
+<#-- Begin_Invoice -->
+BIG${element_separator}${payload.UniversalTransaction.Begin_Invoice.Invoice_Date}${element_separator}${payload.UniversalTransaction.Begin_Invoice.Invoice_Number}${element_separator}${payload.UniversalTransaction.Begin_Invoice.PO_Date[0]!''}${element_separator}${payload.UniversalTransaction.Begin_Invoice.PO_Number}${element_separator}${payload.UniversalTransaction.Begin_Invoice.Release_Number[0]!''}${element_separator}${payload.UniversalTransaction.Begin_Invoice.Changed_Order_Sequence[0]!''}${element_separator}${payload.UniversalTransaction.Begin_Invoice.Transaction_Type_Code[0]!''}${segment_terminator}
+<#-- Currency -->
+CUR${element_separator}${payload.UniversalTransaction.Currency.Entity_Identifier_Code}${element_separator}${payload.UniversalTransaction.Currency.Currency_Code}${segment_terminator}
+<#-- Reference_Identification -->
+<#list payload.UniversalTransaction.Reference_Identification as ref>
+  <#assign REF="REF${element_separator}${ref.Reference_Identification_Qualifier[0]!''}${element_separator}${ref.Reference_Identification[0]!''}${segment_terminator}">
+${REF}
+</#list>
+<#-- Name -->
+<#list payload.UniversalTransaction.Name as name>
+  <#assign N1="N1${element_separator}${name.Entity_Identifier_Code[0]!''}${element_separator}${name.Name[0]!''}${segment_terminator}">
+${N1}
+</#list>
+<#-- Total -->
+TDS${element_separator}${payload.UniversalTransaction.Total_invoice_amount}${segment_terminator}
+<#-- Service, Promotion, Allowance, or Charge Information  -->
+<#list payload.UniversalTransaction.SAC_Information as sac>
+  <#assign SAC="SAC${element_separator}${sac.Allowance_or_Charge_Indicator[0]!''}${element_separator}${sac.Service_or_Charge_Code[0]!''}${element_separator}${sac.SAC_03[0]!''}${element_separator}${sac.SAC_04[0]!''}${element_separator}${sac.Amount[0]!''}${element_separator}${sac.Description[0]!''}${segment_terminator}">
+${SAC}
+</#list>
+<#-- Transaction_Set_Trailer -->
+SE${element_separator}${payload.UniversalTransaction.Transaction_Set_Trailer.Number_of_Included_Segments}${element_separator}${payload.UniversalTransaction.Transaction_Set_Trailer.Transaction_Set_Control_Number}${segment_terminator}
+<#-- Functional_Group_Trailer -->
+GE${element_separator}${payload.UniversalTransaction.Functional_Group_Trailer.Number_of_Transaction_Sets_Incl}${element_separator}${payload.UniversalTransaction.Functional_Group_Trailer.Group_Control_Number}${segment_terminator}
+<#-- Interchange_Control_Trailer -->
+IEA${element_separator}${payload.UniversalTransaction.Interchange_Control_Trailer.Nbr_of_Included_Functional_Groups}${element_separator}${payload.UniversalTransaction.Interchange_Control_Trailer.Interchange_Control_Number}${segment_terminator}
+```
+    
+```xml tab="Request Payload"
+<UniversalTransaction>
+  <Interchange_Control_Header>
+      <Authorization_Information_Qualifier>00</Authorization_Information_Qualifier>
+      <Authorization_Information></Authorization_Information>
+      <Security_Information_Qualifier>00</Security_Information_Qualifier>
+      <Security_Information></Security_Information>
+      <Interchange_ID_Qualifier>ZZ</Interchange_ID_Qualifier>
+      <Interchange_Sender_ID>XXXXXXXXX</Interchange_Sender_ID>
+      <Interchange_ID_Qualifier>01</Interchange_ID_Qualifier>
+      <Interchange_Receiver_ID>834469876</Interchange_Receiver_ID>
+      <Interchange_Date>200221</Interchange_Date>
+      <Interchange_Time>1946</Interchange_Time>
+      <Interchange_Control_Standards_ID>U</Interchange_Control_Standards_ID>
+      <Interchange_Control_Version_Nbr>00401</Interchange_Control_Version_Nbr>
+      <Interchange_Control_Number>100015519</Interchange_Control_Number>
+      <Acknowledgment_Request>1</Acknowledgment_Request>
+      <Test_Indicator>P</Test_Indicator>
+      <Subelement_Separator>></Subelement_Separator>
+  </Interchange_Control_Header>
+  <Functional_Group_Header>
+      <Functional_Identifier_Code>IN</Functional_Identifier_Code>
+      <Application_Senders_Code>XXXXXXXXX</Application_Senders_Code>
+      <Application_Receivers_Code>834469876</Application_Receivers_Code>
+      <Date>20200221</Date>
+      <Time>1946</Time>
+      <Group_Control_Number>100014444</Group_Control_Number>
+      <Responsible_Agency_Code>X</Responsible_Agency_Code>
+      <Industry_ID>004010</Industry_ID>
+  </Functional_Group_Header>
+  <Transaction_Set_Header>
+      <Transaction_Set_Identifier_Code>810</Transaction_Set_Identifier_Code>
+      <Transaction_Set_Control_Number>100014444</Transaction_Set_Control_Number>
+  </Transaction_Set_Header>
+  <Begin_Invoice>
+      <Invoice_Date>20200221</Invoice_Date>
+      <Invoice_Number>E064784444</Invoice_Number>
+      <PO_Date></PO_Date>
+      <PO_Number>X1055555</PO_Number>
+      <Release_Number></Release_Number>
+      <Changed_Order_Sequence></Changed_Order_Sequence>
+      <Transaction_Type_Code></Transaction_Type_Code>
+  </Begin_Invoice>
+  <Currency>
+      <Entity_Identifier_Code>BY</Entity_Identifier_Code>
+      <Currency_Code>USD</Currency_Code>
+  </Currency>
+  <Reference_Identification>
+      <Reference_Identification_Qualifier>BM</Reference_Identification_Qualifier>
+      <Reference_Identification>999749873334</Reference_Identification>
+  </Reference_Identification>
+  <Name>
+      <Entity_Identifier_Code>CN</Entity_Identifier_Code>
+      <Name>G0205016</Name>
+  </Name>
+  <Name>
+      <Entity_Identifier_Code>CN2</Entity_Identifier_Code>
+      <Name>G0305017</Name>
+  </Name>
+  <Total_invoice_amount>8550</Total_invoice_amount>
+  <SAC_Information>
+      <Allowance_or_Charge_Indicator>C</Allowance_or_Charge_Indicator>
+      <Service_or_Charge_Code>D500</Service_or_Charge_Code>
+      <SAC_03>ZZ</SAC_03>
+      <SAC_04>HDLG</SAC_04>
+      <Amount>800</Amount> 
+      <Description>HANDLING</Description>
+  </SAC_Information>
+  <Transaction_Set_Trailer>
+      <Number_of_Included_Segments>15</Number_of_Included_Segments> 
+      <Transaction_Set_Control_Number>100015519</Transaction_Set_Control_Number>
+  </Transaction_Set_Trailer>
+  <Functional_Group_Trailer>
+      <Number_of_Transaction_Sets_Incl>1</Number_of_Transaction_Sets_Incl>
+      <Group_Control_Number>100015511</Group_Control_Number>
+  </Functional_Group_Trailer>
+  <Interchange_Control_Trailer>
+      <Nbr_of_Included_Functional_Groups>1</Nbr_of_Included_Functional_Groups>
+      <Interchange_Control_Number>100015511</Interchange_Control_Number>
+  </Interchange_Control_Trailer>
+</UniversalTransaction>
+```
+
+#### Build and run
+
+1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
+2. [Create an integration project]({{base_path}}/integrate/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+3. Create the artifacts (proxy service, registry resource) with the configurations given above.
+4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
+5. Send a POST request to the `xml-to-edi-proxy` with the above given payload.
+	
+-   Output Payload
+    ```text
+    ISA*00**00**ZZ*XXXXXXXXX*01*834469876*200221*1946*U*00401*100015519*1*P*>!
+    GS*IN*XXXXXXXXX*834469876*20200221*1946*100014444*X*004010!
+    ST*810*100014444!
+    BIG*20200221*E064784444**X1055555***!
+    CUR*BY*USD!
+    REF*BM*999749873334!
+    N1*CN*G0205016!
+    N1*CN2*G0305017!
+    TDS*8550!
+    SAC*C*D500*ZZ*HDLG*800*HANDLING!
+    SE*15*100015519!
+    GE*1*100015511!
+    IEA*1*100015511!
+    ```
+    
 ### Accessing Properties
 
 This example shows how to access properties using the following variables: `ctx`, `axis2`, and `trp`.

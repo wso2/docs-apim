@@ -28,13 +28,13 @@ Connectors can be added to integration flows in [WSO2 Integration Studio](https:
 
 Follow these steps to set up the Integration Project and the Connector Exporter Project. 
 
-{!reference/connectors/importing-connector-to-integration-studio.md!} 
+{!includes/reference/connectors/importing-connector-to-integration-studio.md!} 
 
 ### Add integration logic
 
 First create an API, which will be where we configure the integration logic. Right click on the created Integration Project and select, **New** -> **Rest API** to create the REST API. Specify the API name as `Salesforcebulk-API` and API context as `/salesforce`.
     
-<img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.jpg" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.jpg" title="Adding a Rest API" alt="Adding a Rest API"/>
 
 #### Configure a resource for the insertEmployeeBulkRecords 
 
@@ -46,7 +46,7 @@ Now follow the steps below to add configurations to the `insertEmployeeBulkRecor
     
     2. Navigate into the **Palette** pane and select the graphical operations icons listed under **Salesforcebulk Connector** section. Then drag and drop the `init` operation into the Design pane.
         
-        <img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-drag-and-drop-init.png" title="Drag and drop init operation" width="500" alt="Drag and drop init operation"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-drag-and-drop-init.png" title="Drag and drop init operation" width="60%" alt="Drag and drop init operation"/>
         
     3. Add the property values into the `init` operation as shown below. Replace the `clientSecret`, `clientId`, `accessToken`, `refreshToken` with obtained values from above steps.
       
@@ -55,7 +55,7 @@ Now follow the steps below to add configurations to the `insertEmployeeBulkRecor
         - **accessToken** : Value of the access token to access the API via request.
         - **refreshToken** : Value of the refresh token.
        
-        <img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-api-init-operation-parameters.png" title="Add values to the init operation" width="800" alt="Add values to the init operation"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-api-init-operation-parameters.png" title="Add values to the init operation" width="60%" alt="Add values to the init operation"/>
      
 2. Set up the `createJob` operation.
 
@@ -69,11 +69,11 @@ Now follow the steps below to add configurations to the `insertEmployeeBulkRecor
     
     2. Navigate into the **Palette** pane and select the graphical operations icons listed under **Salesforcebulk Connector** section. Then drag and drop the `createJob` operation into the Design pane.
     
-        <img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-drag-and-drop-createjob.png" title="Drag and drop creatJobe operation" width="500" alt="Drag and drop createJob operations"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-drag-and-drop-createjob.png" title="Drag and drop creatJobe operation" width="60%" alt="Drag and drop createJob operations"/>
     
     3. To get the input values into the API, we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator). Navigate into the **Palette** pane and select the graphical mediators icons listed under **Mediators** section. Then drag and drop the `Property` mediators into the Design pane as shown below.
     
-        <img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-api-drag-and-drop-property-mediator.png" title="Add property mediators" width="800" alt="Add property mediators"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-api-drag-and-drop-property-mediator.png" title="Add property mediators" width="60%" alt="Add property mediators"/>
 
         The parameters available for configuring the Property mediator are as follows:
     
@@ -85,7 +85,7 @@ Now follow the steps below to add configurations to the `insertEmployeeBulkRecor
         - **expression** : //object/text()
         - **type** : STRING
    
-        <img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-api-property-mediator-property1-value1.png" title="Add values to capture ObjectName value" width="600" alt="Add values to capture ObjectName value"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-api-property-mediator-property1-value1.png" title="Add values to capture ObjectName value" width="60%" alt="Add values to capture ObjectName value"/>
         
 3. Set up the fileconnector operation.
 
@@ -101,7 +101,7 @@ Now follow the steps below to add configurations to the `insertEmployeeBulkRecor
             
     2. Navigate into the **Palette** pane and select the graphical operations icons listed under **Fileconnector Connector** section. Then drag and drop the `read` operation into the Design pane.
             
-        <img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-drag-and-drop-file-read.png" title="Drag and drop file read operation" width="500" alt="Drag and drop file read operations"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-drag-and-drop-file-read.png" title="Drag and drop file read operation" width="70%" alt="Drag and drop file read operations"/>
             
     3. To get the input values in to the API we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator). Navigate into the **Palette** pane and select the graphical mediators icons listed under **Mediators** section. Then drag and drop the `Property` mediators into the Design pane as steps given in section 2.3 the `createJob` operation.   .
                    
@@ -119,14 +119,14 @@ Now follow the steps below to add configurations to the `insertEmployeeBulkRecor
     
     2. Navigate into the **Palette** pane and select the graphical operations icons listed under **Salesforcebulk Connector** section. Then drag and drop the `addBatch` operation into the Design pane.
 
-        - **objects** : A list of records to process.
-        - **jobId** : The unique identifier of the job to which you want add a new batch.
-        - **isQuery** : Set to true if the operation is query.
-        - **contentType** : The content type of the batch data. The content type you specify should be compatible with the content type of the associated job. Possible values are application/xml and text/csv.
+         - **objects** : A list of records to process.
+         - **jobId** : The unique identifier of the job to which you want add a new batch.
+         - **isQuery** : Set to true if the operation is query.
+         - **contentType** : The content type of the batch data. The content type you specify should be compatible with the content type of the associated job. Possible values are application/xml and text/csv.
        
-        While invoking the API, the above `jobId` and `objects` parameters values come as a user input. Using a property mediator will extract the `jobId` from the `createJob` response and store it into a configured `addBatch` operation.
+         While invoking the API, the above `jobId` and `objects` parameters values come as a user input. Using a property mediator will extract the `jobId` from the `createJob` response and store it into a configured `addBatch` operation.
                       
-        <img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-drag-and-drop-addbatch.png" title="Drag and drop addBatch operation" width="500" alt="Drag and drop addBatch operations"/>
+         <img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-drag-and-drop-addbatch.png" title="Drag and drop addBatch operation" width="70%" alt="Drag and drop addBatch operations"/>
     
     3. To get the input values in to the API we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator). Navigate into the **Palette** pane and select the graphical mediators icons listed under **Mediators** section. Then drag and drop the `Property` mediators into the Design pane as steps given in section 2.3 the `createJob` operation.   .
                        
@@ -140,7 +140,7 @@ Now follow the steps below to add configurations to the `insertEmployeeBulkRecor
                
     5. To extract the `objects` from the file read operation, we used [data mapper]({{base_path}}/reference/mediators/data-mapper-mediator). It will grab the CSV file content and insert in to the `addBatch` operation.
     
-        <img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-drag-and-drop-datamapper.png" title="Drag and drop data mapper operation" width="500" alt="Drag and drop data mapper operations"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-drag-and-drop-datamapper.png" title="Drag and drop data mapper operation" width="70%" alt="Drag and drop data mapper operations"/>
     
 5. Forward the backend response to the API caller.
     
@@ -167,7 +167,7 @@ Now follow the steps below to add configurations to the `insertEmployeeBulkRecor
         
         While invoking the API, the above `jobId` and `batchId` parameters values come as a user input.
                 
-        <img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-getbatchstatus-drag-and-drop-query.png" title="Add query operation to getBatchStatus" width="500" alt="Add query operation to getBatchStatus"/> 
+        <img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-getbatchstatus-drag-and-drop-query.png" title="Add query operation to getBatchStatus" width="70%" alt="Add query operation to getBatchStatus"/> 
     
     3. Add the property mediator to capture the `jobId` value.      
                    
@@ -191,9 +191,9 @@ Now follow the steps below to add configurations to the `insertEmployeeBulkRecor
     
     1. Drag and drop **respond mediator** to the **Design view**. 
            
-Now you can switch into the Source view and check the XML configuration files of the created API and sequences. 
+         Now you can switch into the Source view and check the XML configuration files of the created API and sequences. 
 
-  ??? note "create.xml"
+        ??? note "create.xml"
             ```
               <?xml version="1.0" encoding="UTF-8"?>
                      <api context="/salesforce" name="Salesforcebulk-API" xmlns="http://ws.apache.org/ns/synapse">
@@ -262,7 +262,8 @@ Now you can switch into the Source view and check the XML configuration files of
                              <faultSequence/>
                          </resource>
                      </api>
-            ```    
+            ```
+
 ## Get the project
 
 You can download the ZIP file and extract the contents to get the project code.
@@ -278,7 +279,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp in the integration runtime. 
 
-{!reference/connectors/deploy-capp.md!}
+{!includes/reference/connectors/deploy-capp.md!}
 
 ## Testing
 
@@ -286,15 +287,15 @@ Invoke the API as shown below using the curl command. Curl application can be do
 
 1. Creating a new job in the in the Salesforce account and insert employee details.
  
-   **Sample request**
+     **Sample request**
 
-    `curl -v POST -d <inserRecord><object>Account</object><source>/home/kasun/Documents/SFbulk.csv</source></inserRecord> "http://localhost:8290/salesforce/insertEmployeeBulkRecords" -H "Content-Type:application/xml"`
+     `curl -v POST -d <inserRecord><object>Account</object><source>/home/kasun/Documents/SFbulk.csv</source></inserRecord> "http://localhost:8290/salesforce/insertEmployeeBulkRecords" -H "Content-Type:application/xml"`
 
-   **Expected Response**
+     **Expected Response**
     
     ```xml
-    <?xml version="1.0" encoding="UTF-8"?>
-    <batchInfo
+     <?xml version="1.0" encoding="UTF-8"?>
+     <batchInfo
        xmlns="http://www.force.com/2009/06/asyncapi/dataload">
         <id>7512x000002ywZNAAY</id>
         <jobId>7502x000002ypCDAAY</jobId>
@@ -306,20 +307,20 @@ Invoke the API as shown below using the curl command. Curl application can be do
         <totalProcessingTime>93</totalProcessingTime>
         <apiActiveProcessingTime>2</apiActiveProcessingTime>
         <apexProcessingTime>0</apexProcessingTime>
-    </batchInfo>
+     </batchInfo>
     ```
 
 2. Get status of the inserted employee details.
  
-   **Sample request**
+    **Sample request**
 
-    `curl -v POST -d <getBatchStatus><jobId>7502x000002yp73AAA</jobId><batchId>7512x000002ywWrAAI</batchId></getBatchStatus> "http://localhost:8290/resources/getStatusOfBatch" -H "Content-Type:application/xml"`
+     `curl -v POST -d <getBatchStatus><jobId>7502x000002yp73AAA</jobId><batchId>7512x000002ywWrAAI</batchId></getBatchStatus> "http://localhost:8290/resources/getStatusOfBatch" -H "Content-Type:application/xml"`
 
-   **Expected Response**
+    **Expected Response**
     
     ```xml
-    <?xml version="1.0" encoding="UTF-8"?>
-    <batchInfo
+     <?xml version="1.0" encoding="UTF-8"?>
+     <batchInfo
        xmlns="http://www.force.com/2009/06/asyncapi/dataload">
         <id>7512x000002ywWrAAI</id>
         <jobId>7502x000002yp73AAA</jobId>
@@ -332,9 +333,11 @@ Invoke the API as shown below using the curl command. Curl application can be do
         <totalProcessingTime>93</totalProcessingTime>
         <apiActiveProcessingTime>3</apiActiveProcessingTime>
         <apexProcessingTime>0</apexProcessingTime>
-    </batchInfo>
+     </batchInfo>
     ```
+
 ## What's Next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
-* To customize this example for your own scenario, see [Salesforce bulk Connector Configuration]({{base_path}}/reference/connectors/salesforce-connectors/salesforcebulk-reference/) documentation for all operation details of the connector.
+- You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
+
+- To customize this example for your own scenario, see [Salesforce bulk Connector Configuration]({{base_path}}/reference/connectors/salesforce-connectors/salesforcebulk-reference/) documentation for all operation details of the connector.

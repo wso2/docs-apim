@@ -58,6 +58,12 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
             <td>XXXXXXXXXXXX (Replace with your refresh token)</td>
         </tr>
         <tr>
+            <td>tokenEndpointHostname</td>
+            <td>The endpoint of the refresh token that you invoke to refresh the API access token. </td>
+            <td>No</td>
+            <td>XXXXXXXXXXXX (Replace this with your refresh token endpoint)</td>
+        </tr>
+        <tr>
             <td>clientId</td>
             <td>The consumer key of the connected application that you created.</td>
             <td>No</td>

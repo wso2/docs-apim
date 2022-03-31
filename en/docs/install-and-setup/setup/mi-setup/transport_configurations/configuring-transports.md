@@ -49,7 +49,7 @@ The default HTTPS transport listener (Secured Pass-Through) and transport sender
 
 When this feature is enabled, the transport listener verifies client
 certificates when a client tries to make an HTTPS connection with the
-Micro Integrator. The transport sender verifies server
+Micro Integrator. Therefore the client needs to send it's public certificate along with the requests to the Micro Integrator. The transport sender verifies server
 certificates when the Micro Integrator tries to make an HTTPS
 connection with a backend server. 
 
@@ -66,6 +66,7 @@ To enable this feature for the HTTP Pass-Through, add the following parameters f
 listener.certificate_revocation_verifier_enable = true
 listener.certificate_revocation_cache_size = 1024
 listener.certificate_revocation_cache_delay = 1000
+listener.verify_client = "require"
 
 ```
 
@@ -181,6 +182,9 @@ class="org.wso2.carbon.business.messaging.hl7.message.HL7MessageFormatter"
 This transport implementation is a module developed under the Apache Synapse project and it supports JMX. This transport is mainly used in conjunction with proxy services. FIX transport does not support any global parameters. All the FIX configuration parameters should be specified at service level. QuickFix 4J configuration parameters can be found <a href="http://www.quickfixengine.org/quickfix/doc/html/configuration.html">here</a>.
 
 To enable the FIX transport listener and sender, set the following parameters to `true` in the deployment.toml file (stored in the `MI_HOME/conf` directory).
+
+!!! Info
+	Quickfix/J related .jar files are not shipped with the product by default. You need to add them before enabling the FIX transport.
 
 ```toml
 [transport.fix]

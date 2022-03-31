@@ -63,10 +63,6 @@ You must set your `JAVA_HOME` environment variable to point to the directory whe
         export PATH=${JAVA_HOME}/bin:${PATH}
         ```
 
-        The file should now look like this:
-
-        ![]({{base_path}}/assets/attachments/103334399/103334401.png)
-
     3.  Save the file.
 
         !!! info

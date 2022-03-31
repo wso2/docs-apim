@@ -78,11 +78,38 @@
 }
 
 .md-header__version-select .md-tabs__link.md-tabs__dropdown-link {
-    display: inline-block;
+    display: flex;
     padding: .45rem;
     margin-top: .35rem;
     border-radius: .1rem;
 }
+
+/* Algolia docsearch related styling overrides */
+.md-header_algolia_search_box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#apimdocsearch {
+    display: flex;
+    width: 50%;
+}
+
+#apimdocsearch > button {
+    width: 100%;
+}
+
+span.DocSearch-Button-Placeholder {
+    font-size: 0.7rem;
+}
+
+svg.DocSearch-Search-Icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* END of - Algolia docsearch related styling overrides */
 
 .md-header__version-select .mb-tabs__dropdown .mb-tabs__dropdown-content,
 .md-header__distribution-select .mb-tabs__dropdown .mb-tabs__dropdown-content {

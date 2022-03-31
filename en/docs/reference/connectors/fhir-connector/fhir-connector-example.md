@@ -60,7 +60,7 @@ This server is regularly loaded with a standard set of test data sets and also t
 
 Follow these steps to set up the Integration Project and the Connector Exporter Project.
 
-{!reference/connectors/importing-connector-to-integration-studio.md!}
+{!includes/reference/connectors/importing-connector-to-integration-studio.md!}
 
 1. Right click on the created Integration Project and select **New** -> **Rest API** to create the REST API.
 
@@ -243,7 +243,7 @@ To learn about supported operations and their parameters, please refer to `FHIR 
  
 3. Now we can export the imported connector and the API into a single CAR application. The CAR application is what we are going to deploy during server runtime.
 
-{!reference/connectors/exporting-artifacts.md!}
+{!includes/reference/connectors/exporting-artifacts.md!}
 
 ## Get the project
 
@@ -257,7 +257,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp in the integration runtime. 
 
-{!reference/connectors/deploy-capp.md!}
+{!includes/reference/connectors/deploy-capp.md!}
     
 ## Testing
 

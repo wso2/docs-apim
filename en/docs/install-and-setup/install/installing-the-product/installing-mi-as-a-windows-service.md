@@ -64,5 +64,5 @@ stopService.bat
 To uninstall the service, navigate to the `<YAJSW_HOME>/bat/` directory in the Windows command prompt and execute the following command: 
  
 ```bash
-uninstallServiceService.bat
+uninstallService.bat
 ```

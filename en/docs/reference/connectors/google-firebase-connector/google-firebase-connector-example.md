@@ -27,7 +27,7 @@ You need to create an application at Google Firebase and get the credentials req
 
 Follow these steps to set up the Integration Project and import Google Firebase connector into it.
 
-{!reference/connectors/importing-connector-to-integration-studio.md!} 
+{!includes/reference/connectors/importing-connector-to-integration-studio.md!} 
 
 1. Right click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API.
 2. Specify the API name as `FirebaseNotify` and API context as `/firebasenotify`. You can go to the source view of the XML configuration file of the API and copy the following configuration. 
@@ -179,7 +179,7 @@ clientCertUrl --> client_x509_cert_url
 Now we can export the imported connector, sequence, and the API into a single CAR application. CAR application is the one we are going to deploy to server runtime.
 
 
-{!reference/connectors/exporting-artifacts.md!}
+{!includes/reference/connectors/exporting-artifacts.md!}
 
 ## Get the project
 
@@ -203,7 +203,7 @@ Now the exported CApp can be deployed in the integration runtime so that we can 
 4. [api-common-1.7.0.jar](https://mvnrepository.com/artifact/com.google.api/api-common/1.7.0)
 and place those into `<Product_HOME>/lib` folder.
 
-{!reference/connectors/deploy-capp.md!}
+{!includes/reference/connectors/deploy-capp.md!}
 
 ## Testing
 

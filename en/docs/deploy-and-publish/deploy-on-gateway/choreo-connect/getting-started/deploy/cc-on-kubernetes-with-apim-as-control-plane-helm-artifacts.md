@@ -24,9 +24,10 @@ Let's deploy an API on Choreo Connect, which running on Kubernetes, with WSO2 AP
     
 -   Install [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/). 
 
-    !!! Note
-        Helm resources for WSO2 product deployment patterns are compatible with the [`nginx-0.30.0`](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.30.0) release.
+!!! Note
+    Helm resources for WSO2 product deployment patterns are compatible with the [`nginx-0.30.0`](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.30.0) release.
 
+{!includes/deploy/k8s-setup-note.md!}
 
 ## Deploy API Manager as Control Plane
 
@@ -51,7 +52,7 @@ Following are some sample instructions to deploy API Manager for **quick start p
         ```bash
         helm install --name apim-as-cp wso2/am-single-node --version 4.0.0-1 --namespace apim \
             --set wso2.deployment.am.ingress.gateway.hostname=gw.wso2.com \
-            --set-file wso2.deployment.am.config."deployment\.toml"=https://raw.githubusercontent.com/wso2/kubernetes-microgateway/1.0.0-1/resources/controlplane-deployment.toml
+            --set-file wso2.deployment.am.config."deployment\.toml"=https://raw.githubusercontent.com/wso2/kubernetes-microgateway/v1.0.0.1/resources/controlplane-deployment.toml
         ```
 
     -   Using **Helm v3**
@@ -59,7 +60,7 @@ Following are some sample instructions to deploy API Manager for **quick start p
         ```bash
         helm install apim-as-cp wso2/am-single-node --version 4.0.0-1 --namespace apim --create-namespace \
             --set wso2.deployment.am.ingress.gateway.hostname=gw.wso2.com \
-            --set-file wso2.deployment.am.config."deployment\.toml"=https://raw.githubusercontent.com/wso2/kubernetes-microgateway/1.0.0-1/resources/controlplane-deployment.toml
+            --set-file wso2.deployment.am.config."deployment\.toml"=https://raw.githubusercontent.com/wso2/kubernetes-microgateway/v1.0.0.1/resources/controlplane-deployment.toml
         ```
 
 2.  Choreo Connect is used as the gateway of API Manager, hence we need to delete the gateway Ingress resource of gateway component of the WSO2 API Manager.

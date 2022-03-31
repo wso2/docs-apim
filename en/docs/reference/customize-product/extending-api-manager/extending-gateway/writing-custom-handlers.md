@@ -39,15 +39,15 @@ Let's see what each handler does:
  Throttling is applied both at the application level as well as subscription level.
  - **APIMgtGoogleAnalyticsTrackingHandler:** Publishes events to Google Analytics. This handler only comes into effect 
  if Google analytics tracking is enabled. See Integrating with Google Analytics for more information.
- - **APIManagerExtensionHandler** : Triggers extension sequences. By default, the extension handler is listed at last 
+ - **APIManagerExtensionHandler** : Triggers extension sequences. By default, the extension handler is listed at last 
  in the handler chain, and therefore is executed last. You cannot change the order in which the handlers are executed, 
  except the extension handler. To configure the API Gateway to execute extension handler first, log in to management console
  (<https://localhost:9443/carbon>) and in the main tab, expand the resources section and browse for 
  `_system/config/apimgt/applicationdata/tenant-conf.json`. Edit the field `ExtensionHandlerPosition` and provide 
- the value `top` . This is useful when you want to execute your own extensions before our default handlers in 
- situations like doing additional security checks such as signature verification on access tokens before executing the 
+ the value `top`. This is useful when you want to execute your own extensions before our default handlers in 
+ situations like doing additional security checks such as signature verification on access tokens before executing the 
  default security handler.
-    See [Adding Mediation Extensions](../../../extensions/adding-mediation-extensions).
+    See [Adding Mediation Extensions]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests).
 
 ### Using APILogMessageHandler
 
@@ -59,7 +59,7 @@ WSO2 API Manager that can be used for logging.
     <p><b>Why are logs removed from <code>APIManagerExtensionHandler</code>?</b></p>
     <p>
         The primary purpose of <code>ExtensionHandler</code> is handling extensions to mediation and not for 
-        logging messages. When the logs are also included in <code>ExtensionHandler</code> , there's a limitation to 
+        logging messages. When the logs are also included in <code>ExtensionHandler</code>, there's a limitation to 
         improve the <code>ExtensionHandler</code> for developing features because it breaks the logs.
     </p>
     <p>
@@ -77,19 +77,19 @@ WSO2 API Manager that can be used for logging.
     </p>
 </div>
 
-In order to enable logging by invoking `APILogMessageHandler` , follow the steps below.
+In order to enable logging by invoking `APILogMessageHandler`, follow the steps below.
 
-**To enable Message Logging into APIS created from publisher automatically :**
+**To enable Message Logging into APIS created from publisher automatically :**
 
-1.  Open the `<APIM_HOME>/repository/resources/api_templates/velocity_template.xml` file and copy the following handler 
+1.  Open the `<APIM_HOME>/repository/resources/api_templates/velocity_template.xml` file and copy the following handler 
 before `</Handlers>`.
 
     ``` java
     <handler class="org.wso2.carbon.apimgt.gateway.handlers.logging.APILogMessageHandler"/> 
     ```
     
-        !!! note
-            In a fully distributed setup, this configuration should be done in the Traffic manager Node.
+    !!! note
+         In a fully distributed setup, this configuration should be done in the Traffic manager Node.
             
 2.  Copy the following code into the `<APIM_HOME>/repository/conf/log4j2.properties` file to enable printing DEBUG logs.
 
@@ -103,8 +103,8 @@ before `</Handlers>`.
     loggers = log-msg-handler, trace-messages, org-apache-coyote,com-hazelcast
     ```
 
-        !!! note
-            The logger name `log-msg-handler` can be replaced by any logger-name.
+    !!! note
+        The logger name `log-msg-handler` can be replaced by any logger-name.
         
 3.  Restart API Manager.
 
@@ -115,7 +115,7 @@ before `</Handlers>`.
     you need to maintain a customized velocity template file that needs to be manually merged when you upgrade your 
     product to a newer version. Therefore, it is recommended to use custom Handlers when you wish to specify the exact 
     order of execution of JARs as this can not be done with 
-    [Mediators](../../../extensions/adding-mediation-extensions) .
+    [Mediators]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests).
 
 
 Custom Handler is a way of extending API Manager which the product offer to change the API flow through the API Gateway. 
@@ -131,7 +131,7 @@ is <a href="{{base_path}}/assets/attachments/learn/api-authentication-handler.ja
 support any custom authentication mechanism by writing your own authentication handler class.
 
 Given below is an example implementation. Please find the complete project archive 
-[org.wso2.carbon.test.authenticator.zip](https://docs.wso2.com/download/attachments/57743326/org.wso2.carbon.test.authenticator.zip?version=1&modificationDate=1516171792000&api=v2) . 
+[org.wso2.carbon.test.authenticator.zip](https://docs.wso2.com/download/attachments/57743326/org.wso2.carbon.test.authenticator.zip?version=1&modificationDate=1516171792000&api=v2). 
 You can download, unzip and build the project using maven and Java 7 or 8.
 
 ``` java

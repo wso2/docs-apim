@@ -7,8 +7,9 @@ Also, this demonstrates how the integration components and API management compon
 ## Let's get started!
 
 Follow the steps given below to build this use case and try it out.
-    !!! Note
-        For more information on generating metadata artifacts if you are using an older Integration Studio workspace, see [Generating Service Catalog Metadata Artifact]({{base_path}}/integrate/develop/generate-service-catalog-metadata.md).
+
+!!! Note
+    For more information on generating metadata artifacts if you are using an older Integration Studio workspace, see [Generating Service Catalog Metadata Artifact]({{base_path}}/integrate/develop/generate-service-catalog-metadata).
 
 ### Step 1: Develop the integration service
 
@@ -18,7 +19,7 @@ Follow the instructions given in this section to create and configure the requir
 2.  Open **WSO2 Integration Studio**.
 3.  Click **New Integration Project** in the **Getting Started** tab as shown below.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.jpg" width="700">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.jpg" width="90%">
 
     This will open the <b>New Integration Project</b> dialog box.
 
@@ -30,7 +31,7 @@ Follow the instructions given in this section to create and configure the requir
 
     You can see the projects listed in the **Project Explorer** as shown below:
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/expose-soap-service/project-explorer-service-catalog.png">
+    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/expose-soap-service/project-explorer-service-catalog.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/expose-soap-service/project-explorer-service-catalog.png" width="40%"></a>
 
     !!! Note
         A **resources** folder is created in the `ProxyServiceSampleConfigs` project. This folder holds the metadata YAML files of the created proxy services. These YAML files will be uploaded to the Service Catalog later in this tutorial.   
@@ -102,7 +103,7 @@ When the **StockQuoteProxy** is created, the following new file is created in th
     </tr>
 </table>
 
-<img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/expose-soap-service/metadata-folder-service-catalog.png" width="400">
+<img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/expose-soap-service/metadata-folder-service-catalog.png" width="40%">
 
 ### Step 2: Configure service metadata
 
@@ -279,7 +280,7 @@ Let's expose the integration service as a managed API.
 
 2.  You can also click the **hamburger** icon on the upper-left and click **Services** to see the available services.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/expose-soap-service/open-service-catalog.png" alt="open service catalag" width="400">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/expose-soap-service/open-service-catalog.png" alt="open service catalag" width="40%">
 
 3.  Open StockQuoteProxy from the above list.
 

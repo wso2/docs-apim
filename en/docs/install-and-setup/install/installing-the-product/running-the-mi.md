@@ -29,11 +29,11 @@ Follow the steps given below to start the server.
       -   To start the server:
           
           ```bash tab="On macOS/Linux"
-          sh micro-intgrator.sh
+          sh micro-integrator.sh
           ```
 
           ```bash tab="On Windows"
-          micro-intgrator.bat
+          micro-integrator.bat
           ```
           
       -   To start the server in background mode:
@@ -43,7 +43,7 @@ Follow the steps given below to start the server.
           ```
 
           ```bash tab="On Windows"
-          micro-intgrator.bat --start
+          micro-integrator.bat --start
           ```
 
 ## Stopping the MI server
@@ -56,7 +56,7 @@ Follow the steps given below to start the server.
       ```
 
       ```bash tab="On Windows"
-      micro-intgrator.bat --stop
+      micro-integrator.bat --stop
       ```
 
 ## See Also

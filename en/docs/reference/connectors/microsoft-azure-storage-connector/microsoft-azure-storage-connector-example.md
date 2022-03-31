@@ -36,7 +36,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 Follow these steps to set up the ESB Solution Project and the Connector Exporter Project.
 
-{!reference/connectors/importing-connector-to-integration-studio.md!}
+{!includes/reference/connectors/importing-connector-to-integration-studio.md!}
 
 1. Right click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API.
 
@@ -178,7 +178,7 @@ Follow these steps to set up the ESB Solution Project and the Connector Exporter
     
 Now we can export the imported connector and the API into a single CAR application. CAR application is the one we are going to deploy to server runtime. 
    
-{!reference/connectors/exporting-artifacts.md!}
+{!includes/reference/connectors/exporting-artifacts.md!}
 
 ## Get the project
 
@@ -195,7 +195,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp in the integration runtime. 
 
-{!reference/connectors/deploy-capp.md!}
+{!includes/reference/connectors/deploy-capp.md!}
 
 ## Testing
 

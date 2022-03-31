@@ -43,7 +43,7 @@ docker ps | grep choreo-connect-
 
 1. Navigate to the Publisher Portal.
 
-    [https://apim:9443/publisher/](https://apim:9443/publisher/)
+    [https://apim:9444/publisher/](https://apim:9444/publisher/)
 
 2. Sign in with **`admin/admin`** as the credentials.
 
@@ -76,7 +76,7 @@ docker ps | grep choreo-connect-
 
 1. Navigate to the Developer Portal and select an API (e.g., `HelloWorld`).
 
-    [https://apim:9443/devportal/](https://apim:9443/devportal/)
+    [https://apim:9444/devportal/](https://apim:9444/devportal/)
 
 2. Subscribe to the API (e.g., `HelloWorld` 1.0.0) using an application and an available Rate Limiting Policy.
 

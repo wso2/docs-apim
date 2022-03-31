@@ -82,11 +82,11 @@ Use the `<API-M_HOME>/bin/chpasswd.sh` script.
     ``` toml
     [tenant_mgt]
     enable_email_domain= true
-
-    [apim.throttling.policy_deploy]
-    username = "$ref{super_admin.username}@carbon.super"
-
+   
     [apim.throttling]
+    username = "$ref{super_admin.username}@carbon.super"
+   
+    [apim.throttling.policy_deploy]
     username = "$ref{super_admin.username}@carbon.super"
 
     [apim.throttling.jms]

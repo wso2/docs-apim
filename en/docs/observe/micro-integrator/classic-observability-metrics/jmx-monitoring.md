@@ -1,10 +1,13 @@
 ---
-title: JMX Monitoring - WSO2 API Manager 4.0.0
+title: JMX Monitoring - WSO2 API Manager 4.1.0
 ---
 
 # JMX Monitoring
 
 Java Management Extensions (JMX) is a technology that lets you implement management interfaces for Java applications. A management interface, as defined by JMX is composed of named objects called MBeans (Management Beans). MBeans are registered with a name (an ObjectName) in an MBeanServer. To manage a resource or many resources in your application, you can write an MBean defining its management interface and register that MBean in your MBeanServer. The content of the MBeanServer can then be exposed through various protocols, implemented by protocol connectors or protocol adaptors.
+
+!!! note
+    Prometheus-based monitoring is recommended for remote monitoring in more recent versions of the Micro Integrator.
 
 ## Configuring JMX in Micro Integrator
 

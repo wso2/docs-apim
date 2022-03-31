@@ -10,6 +10,8 @@ Let's deploy an API on Choreo Connect, which running on Kubernetes, with WSO2 AP
       - Minimum Memory : 3GB
 3.  Deploy an ingress controller - [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/) for this sample.
 
+{!includes/deploy/k8s-setup-note.md!}
+
 ## Objectives
 
 1.  Create and deploy an API project.
@@ -41,14 +43,14 @@ Let's get started...
     Add the following entry to `/etc/hosts` file in order to access the Choreo Connect Router, API Manager publisher and Developer Portal.
 
     ```sh
-    <ingress_address>    gw.wso2.com    apim.wso2.com
+    <ingress_address>    gw.wso2.com    wso2apim
     ```
 
 
 ## Step 2 - Deploy Sample API from API Manager
 
- - Publisher Portal:  [https://apim.wso2.com/publisher/](https://apim.wso2.com/publisher/)
- - Developer Portal:  [https://apim.wso2.com/devportal/](https://apim.wso2.com/devportal/)
+ - Publisher Portal:  [https://wso2apim/publisher/](https://wso2apim/publisher/)
+ - Developer Portal:  [https://wso2apim/devportal/](https://wso2apim/devportal/)
 
 
     Follow the instructions in [create and publish an API from API Manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/#step-3-create-and-publish-an-api-from-api-manager).
