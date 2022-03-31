@@ -2,7 +2,7 @@
 
 ## Revoking access tokens
 
-After issuing an access token, a user or an admin can revoke it in case of theft or a security violation. You can do this by calling the Revoke API using a utility like cURL. The Revoke API's endpoint URL is `http://localhost:8280/revoke` .
+After issuing an access token, a user or an admin can revoke it in case of theft or a security violation. You can do this by calling the Revoke API using a utility like cURL. The Revoke API's endpoint URL is `http://localhost:8280/revoke`.
 
 !!! note
     You can also revoke refresh tokens. For more information, see [Revoking a refresh token]({{base_path}}/design/api-security/oauth2/grant-types/refresh-token-grant/#revoking-a-refresh-token).
@@ -60,11 +60,10 @@ The parameters required to invoke the following API are as follows:
     ```
     
 !!! note
-    Revoking access tokens obtained with an Implicit grant
+    Revoking access tokens obtained with a JWT grant
     
-    If you obtained an access token with the Implicit grant type, you do not have to provide the client secret to revoke it. The sample cURL command to revoke an access token with Implicit grant is given below.
-    
+    If you obtained an access token with the JWT grant type, you do not have to provide the client secret to revoke it. The sample cURL command to revoke an access token with JWT grant is given below.
+
     ``` java
-        curl -X POST -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -d "token=<ACCESS_TOKEN_TO_BE_REVOKED>&token_type_hint=access_token&client_id=<CLIENT_ID>" http://localhost:8243/revoke
+    curl -X POST -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -d "token=<ACCESS_TOKEN_TO_BE_REVOKED>&token_type_hint=access_token&client_id=<CLIENT_ID>" http://localhost:8243/revoke
     ```
-    
