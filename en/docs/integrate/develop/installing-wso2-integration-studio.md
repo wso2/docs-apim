@@ -38,9 +38,6 @@ Follow the steps given below.
 
 If you have already installed and set up WSO2 Integration Studio, you can get the latest updates as follows:
 
-!!! note
-    You can only get updates if you have a subscription and you will have to provide your credentials prior to selecting an update and installing it.
-
 1.  Open WSO2 Integration Studio on your computer.
 2.  Go to **Help** -> **Check for Updates**.
 
