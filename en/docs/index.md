@@ -17,8 +17,15 @@ template: templates/single-column.html
         </div>
         <div class="md-main .md-content " style="float:right; width: 55%; align:right;  flex-shrink: 0;min-width: 40%; max-height: 100%; max-width:50%; margin-left:10px; margin-top:20px">
         <iframe width="800" height="300" src="https://www.youtube.com/embed/nr1cFyxVdDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
     </div>
-    </div></br></br>
+    <div class="leftContent">
+        <h2>Download WSO2 API Manager</h2>
+        <a href="https://wso2.com/api-manager/#">
+            <img src="{{base_path}}/assets/img/get_started/download-apim.png" title="Download WSO2 API Manager" width="18%" alt="Download WSO2 API Manager"/>
+        </a>
+    </div>
+    </br></br>
     <div class="section02">
         <h3>Quick Start Guide</h3>
         <div class="linkWrapper">
