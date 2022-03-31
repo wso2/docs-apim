@@ -115,8 +115,7 @@ The following are the two methods available in the Developer Portal to subscribe
 Note that the artifacts are deployed in the Solace broker, therefore API level and application-level throttling will not be supported for the Solace API subscriptions.
     
 !!! note
-    The Applications subscribed to Solace APIs should have generated production keys. Then only the corresponding subscription will be made in solace broker. If you have not generetd any keys or genereted
-    Sandboxkeys then subscriptions will not be made in solace broker.
+    The Applications subscribed to Solace APIs have pre-generated production keys. Therefore, only the corresponding subscription will be made in solace broker. If you have not generated any keys such as Sandboxkeys, then subscriptions will not be made in solace broker.
 
 !!! Info
     Internally an application is created for the subscription, and for a successful subscription, you can see a log like this in the carbon logs.    
@@ -161,10 +160,10 @@ For instructions on generating keys see, Application Keys.
 4. Copy the topic that needs to be consumed. Click on the **Copy** icon in front of the topic.
     <a href="{{base_path}}/assets/img/tutorials/solace/consume-topic.png"><img src="{{base_path}}/assets/img/tutorials/solace/consume-topic.png" alt="Consume Topic" name="Consume Topic"></a>
 
-5. Then use this information to create a request on the desired protocol to invoke the topic and consume the topic.
+5. Use this information to create a request on the desired protocol to invoke the topic and consume the topic.
 
 ## Viewing Solace Info
 
-You can navigate to the Solace info page if you have successfully created a subscription for the API. A successful subscription means subscribing from an application with production keys generated. If not, you can't view the subscriptions and topic info of the Solace API.
+If you have successfully created a subscription for the API, you can navigate to the Solace info page to view it. A successful subscription means subscribing from an application with production keys generated. If the subscription is unsuccessful, the subscriptions and topic info of the Solace API will not be viewable.
 
  <a href="{{base_path}}/assets/img/tutorials/solace/consume-topic.png"><img src="{{base_path}}/assets/img/tutorials/solace/solace-info-error.png" alt="View Solace Info" name="Consume Topic"></a>
