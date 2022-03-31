@@ -59,8 +59,7 @@ The parameters required to invoke the following API are as follows:
         
     ```
     
-!!! note
-    Revoking access tokens obtained with a JWT grant
+!!! note "Revoking access tokens obtained with a JWT grant"
     
     If you obtained an access token with the JWT grant type, you do not have to provide the client secret to revoke it. The sample cURL command to revoke an access token with JWT grant is given below.
 
