@@ -60,7 +60,7 @@ Before you begin: Make sure that you have integrated the Solace event broker wit
     2. AsyncAPI File - If you select this option, click Browse File to Upload and upload a file, which contains a Solace AsyncAPI definition.
     Select your preferred method and click **NEXT**.
 
-    !!! info
+!!! info
     If the Async API specification is a valid Solace Async API specification, the portal will display the `Identified as Solace Event Portal API` tag.
 
 4. Edit the Solace Async API information and click **Create**.
@@ -84,7 +84,7 @@ The topics will be created automatically from the Solace AsyncAPI definition pro
         The Solace API specification cannot be edited from the API manager Publisher portal. But the specification can be downloaded and changed externally to make the required changes. 
 
     !!! warn
-    The current version of WSO2 API Manager **only** supports AsyncUnlimited Protocol as the API level subscription policy for Solace APIs. Once a subscription is made, that policy will be added automatically.
+        The current version of WSO2 API Manager **only** supports AsyncUnlimited Protocol as the API level subscription policy for Solace APIs. Once a subscription is made, that policy will be added automatically.
 
 
 ### Step 4 - Deploying the API to the Solace broker
@@ -113,6 +113,15 @@ The following are the two methods available in the Developer Portal to subscribe
 - **Subscribe to an API using Key Generation Wizard** - You can use the **[SUBSCRIPTION & KEY GENERATION WIZARD]({{base_path}}/consume/manage-subscription/subscribe-to-an-api/#subscribe-to-an-api-using-key-generation-wizard)** option to start the subscription process from scratch. 
 
 Note that the artifacts are deployed in the Solace broker, therefore API level and application-level throttling will not be supported for the Solace API subscriptions.
+    
+!!! note
+    The Applications subscribed to Solace APIs should have generated production keys. Then only the corresponding subscription will be made in solace broker. If you have not generetd any keys or genereted
+    Sandboxkeys then subscriptions will not be made in solace broker.
+
+!!! Info
+    Internally an application is created for the subscription, and for a successful subscription, you can see a log like this in the carbon logs.    
+    
+    `INFO - SolaceNotifierUtils Solace application 'app1' created successfully`
 
 ## Invoking an API
 
@@ -153,3 +162,9 @@ For instructions on generating keys see, Application Keys.
     <a href="{{base_path}}/assets/img/tutorials/solace/consume-topic.png"><img src="{{base_path}}/assets/img/tutorials/solace/consume-topic.png" alt="Consume Topic" name="Consume Topic"></a>
 
 5. Then use this information to create a request on the desired protocol to invoke the topic and consume the topic.
+
+## Viewing Solace Info
+
+You can navigate to the Solace info page if you have successfully created a subscription for the API. A successful subscription means subscribing from an application with production keys generated. If not, you can't view the subscriptions and topic info of the Solace API.
+
+ <a href="{{base_path}}/assets/img/tutorials/solace/consume-topic.png"><img src="{{base_path}}/assets/img/tutorials/solace/solace-info-error.png" alt="View Solace Info" name="Consume Topic"></a>
