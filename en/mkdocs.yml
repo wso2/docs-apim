@@ -131,8 +131,7 @@ nav:
                 - Add a Class Mediator: design/api-policies/gateway-policies/adding-a-class-mediator.md
                 - Configure Message Builders and Formatters: design/api-policies/gateway-policies/configuring-message-builders-formatters.md
             - Sample Custom Policies:
-                - Sample 1 - Custom Call Interceptor Policy: design/api-policies/samples/custom-call-interceptor.md
-                - Sample 2 - Custom OPA Policy: design/api-policies/samples/custom-opa.md
+                - Create Custom Choreo Connect Policy: design/api-policies/samples/create-custom-cc-policy.md
         - API Security:
             - Authentication:
                 - Overview: design/api-security/api-authentication/api-authentication-overview.md
@@ -216,7 +215,7 @@ nav:
                 - Deploy Through Multiple API Gateways: deploy-and-publish/deploy-on-gateway/deploy-api/deploy-through-multiple-api-gateways.md
             - API Gateway:
                 - Overview of the WSO2 API Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/overview-of-the-api-gateway.md
-                - Publish APIs Overview: deploy-and-publish/deploy-on-gateway/publish-api-overview.md
+                #- Publish APIs Overview: deploy-and-publish/deploy-on-gateway/publish-api-overview.md
                 #- Message Mediation:
                     #- Specify a Mediation Flow Using a Policy: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/specifying-mediation-flow-based-on-policy.md
                     #- Change the Default Mediation Flow of API Requests: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests.md
