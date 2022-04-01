@@ -1,66 +1,87 @@
 # Creating Custom Choreo Connect Policies
 
-Choreo Connect supports following operations and the policies supporting these operations are shipped with the WSO2 API Manager 4.1.0 distribution by default. Following table contains the action name, parameters of the operation that is supported by Choreo Connect.
+Choreo Connect supports the following operations and the policies supporting these operations are shipped with the WSO2 API Manager by default. The following table contains the action name and parameters of the operations that are supported in Choreo Connect.
 
 
 <table>
+ <th>
+    <td>Action Name</td>
+    <td>Parameters</td>
+    <td>Description</td>
+ </th>
  <tr>
-  <th>Action Name</th>
-  <th>Parameters</th>
-  <th>Description</th>
+    <td>SET_HEADER</td>
+    <td>
+        <ul>
+            <li>headerName</li>
+            <li>headerValue</li>
+        </ul></td>
+    <td>Set a header in the request flow.</td>
  </tr>
  <tr>
-  <td>SET_HEADER</td>
-  <td>headerName
-  headerValue</td>
-  <td>Set a header in the request flow.</td>
+    <td>REMOVE_HEADER</td>
+    <td >headerName</td>
+    <td>Remove a header in the request flow.</td>
  </tr>
  <tr>
-  <td>REMOVE_HEADER</td>
-  <td >headerName</td>
-  <td>Remove a header in the request flow.</td>
+    <td>ADD_QUERY</td>
+    <td>
+        <ul>
+            <li>queryParamName</li>
+            <li>queryParamValue</li>
+        <ul></td>
+    <td>Add a query param in the request flow.</td>
  </tr>
  <tr>
-  <td>ADD_QUERY</td>
-  <td>queryParamName
-  queryParamValue</td>
-  <td>Add a query param in the request flow.</td>
+    <td>REWRITE_RESOURCE_METHOD</td>
+    <td>
+        <ul>
+            <li>currentMethod</li>
+            <li>updatedMethod</li>
+        </ul></td>
+    <td>Change the HTTP method of a resource in the request flow.</td>
  </tr>
  <tr>
-  <td>REWRITE_RESOURCE_METHOD</td>
-  <td>currentMethod
-  updatedMethod</td>
-  <td>Change the HTTP method of a resource in the request flow.</td>
+    <td>REWRITE_RESOURCE_PATH</td>
+    <td>
+        <ul>
+            <li>resourcePath</li>
+            <li>includeQueryParams</li>
+        </ul></td>
+    <td>Rewrite the resource path in the request flow.</td>
  </tr>
  <tr>
-  <td>REWRITE_RESOURCE_PATH</td>
-  <td>resourcePath
-  includeQueryParams</td>
-  <td>Rewrite the resource path in the request flow.</td>
+    <td>CALL_INTERCEPTOR_SERVICE</td>
+    <td>
+        <ul>
+            <li>interceptorServiceURL</li>
+            <li>includes (this require a comma separated string, which describes what should be included in the request body of the interceptor service)</li>
+        </ul></td>
+    <td>Call an interceptor service in request or response flow. For more information, visit <a href="{{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/message-transformation-overview">Message Mediation</a>.</td>
  </tr>
  <tr>
-  <td>CALL_INTERCEPTOR_SERVICE</td>
-  <td>interceptorServiceURL
-  - includes (this require a comma separated string, which describes what should be included in the request body of the interceptor service)</td>
-  <td>Call an interceptor service in request or response flow. For more information, visit <a href="{{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/message-transformation-overview">Message Mediation</a>.</td>
- </tr>
- <tr>
-  <td>OPA</td>
-  <td>requestGenerator
-- serverURL
-- accessKey
-- policy
-- rule
-- sendAccessToken
-- additionalProperties
-maxOpenConnections
-- maxPerRoute
-- connectionTimeout
-</td>
-  <td>Validate the request against Open Policy Agent server.</td>
+    <td>OPA</td>
+    <td>
+        <ul>
+            <li>requestGenerator</li>
+            <li>serverURL</li>
+            <li>accessKey</li>
+            <li>policy</li>
+            <li>rule</li>
+            <li>sendAccessToken</li>
+            <li>additionalProperties</li>
+            <li>maxOpenConnections</li>
+            <li>maxPerRoute</li>
+            <li>connectionTimeout</li>
+        </ul></td>
+    <td>Validate the request against Open Policy Agent server.</td>
  </tr>
 </table>
 
+Custom Choreo Connect policies can use these actions and template or specific value in parameters.
+
+!!! note
+	Choreo Connect policy definitions are in the .gotmpl file extension. Its content type is YAML, templated with go templates.
 
 ## Sample 1 - Custom Call Interceptor Policy
 

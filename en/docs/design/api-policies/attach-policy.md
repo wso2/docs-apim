@@ -11,3 +11,35 @@ Follow the instructions below to attach one or more default policies that are sh
 
 4. Drag the **Add Header Policy** from the **Request** tab of the **Policy List** and drop that to the **Request Flow** dropzone. You will notice a side panel appearing from the right hand side. Enter the following details to attach a custom header to the request flow of the get resource of `/menu` operation. Then, click **Save**.
 
+    <table>
+        <th>
+            <td>Field</td>
+            <td>Sample Value</td>
+        </th>
+        <tr>
+            <td>Header Name</td>
+            <td>Foo</td>
+        </tr>
+        <tr>
+            <td>Header Value</td>
+            <td>Foo</td>
+        </tr>
+    </table>
+
+    !!! note 
+        You can optionally use the **Apply to all** resources option to attach the same policy to all the resources on Save. This will attach the same policy to all the API operations along with the values you entered to configure the policy (if any). It is important to note that if the policy was applied to the Request Flow, it will only be applied to all the Request Flows of all operations.
+
+5. Now that we have saved the dropped policy, you should be able to see the attached **Add Header** policy (depicted with the initials AH).
+
+6. If you click on this newly attached AH (i.e. Add Header) policy, you should still be able to view/edit the initially added values.
+
+7. Let’s go ahead and attach a few more policies to the same **Request Flow**. Pick any amount of policies from the **Request** tab of the **Policy List**.
+
+    !!! note
+        * You can rearrange the dropped policies that are attached to the **Request Flow** of `/menu get`. Note that in the below screenshot, the order of attached policies has changed.
+
+        * You can download the policy source as a .zip file.
+
+        * If you click on the delete icon, the dropped policy is cancelled.
+
+8. Finally, when you are satisfied with the dragged and dropped policies, you can go ahead and click on the **Save** button at the bottom of the page. Note that if you do not click on save, none of the dropped policies will be saved to the API.
