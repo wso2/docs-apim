@@ -15,9 +15,7 @@ These are directories in API Manager that includes deployable files, which are v
 
 -   `<API-M_HOME>/repository/tenants` - This is only used when the deployment involves multi-tenancy. For more information, see [Configuring Multiple Tenants]({{base_path}}/administer/multitenancy/introduction-to-multitenancy).
 
--   `<API-M_HOME>/solr` - Contains files for Apache solr indexing. For additional information, see [Add Apache Solr-Based Indexing]({{base_path}}/design/api-documentation/search-documentation/add-new-search-keyword).
-
--   `<API-M_HOME>/repository/database` - H2 database (For solr indexing)
+-   `<API-M_HOME>/repository/database` - H2 database (For solr indexing).
 
 !!! info
     Shared Artifacts
