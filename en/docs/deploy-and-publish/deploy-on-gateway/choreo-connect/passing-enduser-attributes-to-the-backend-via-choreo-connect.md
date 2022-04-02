@@ -14,7 +14,7 @@ Before passing end user attributes, you need to enable and configure the JWT imp
 
     ```toml
     [enforcer.jwtGenerator]
-        enabled = true
+       enabled = true
     ```
 
 3. Start the server.
@@ -33,7 +33,7 @@ When generating the backend JWT, it retrieves the claims from the invoked JWT. I
         Choreo Connect uses the [AbstractAPIMgtGatewayJWTGenerator](https://github.com/wso2/carbon-apimgt/blob/master/components/apimgt/org.wso2.carbon.apimgt.common.gateway/src/main/java/org/wso2/carbon/apimgt/common/gateway/jwtgenerator/AbstractAPIMgtGatewayJWTGenerator.java) class to support JWT generation within Choreo Connect.
 
     ```java
-        package org.wso2.carbon.test;
+    package org.wso2.carbon.test;
 
     import org.osgi.service.component.annotations.Component;
     import org.wso2.carbon.apimgt.common.gateway.dto.JWTInfoDto;
@@ -68,7 +68,7 @@ When generating the backend JWT, it retrieves the claims from the invoked JWT. I
 
     Click here for a sample [Custom Gateway JWTGenerator](https://github.com/wso2/samples-apim/tree/master/CustomGatewayJWTGenerator).
 
-2. Build your class and add the JAR file in the `<MG_HOME>/resources/enforcer/dropins` directory.
+2. Build your class and add the JAR file in the `<CHOREO-CONNECT_HOME>/resources/enforcer/dropins` directory.
 
 3. Enable and configure the JWT implementation.
 
@@ -78,7 +78,7 @@ When generating the backend JWT, it retrieves the claims from the invoked JWT. I
 
         ```toml
         [enforcer.jwtGenerator]
-        gatewayGeneratorImpl = "org.wso2.carbon.test.CustomGatewayJWTGenerator"
+           gatewayGeneratorImpl = "org.wso2.carbon.test.CustomGatewayJWTGenerator"
         ```
 
 4. Start the server.
@@ -92,17 +92,17 @@ The following is a sample configuration.
 
 ```toml
 [enforcer.jwtGenerator]
-    enabled = true
-    encoding = "base64" # base64,base64url
-    claimDialect = "http://wso2.org/claims"
-    convertDialect = false
-    header = "X-JWT-Assertion"
-    signingAlgorithm = "SHA256withRSA"
-    enableUserClaims = false
-    gatewayGeneratorImpl = "org.wso2.carbon.test.CustomGatewayJWTGenerator"
-    claimsExtractorImpl = "org.wso2.carbon.apimgt.impl.token.ExtendedDefaultClaimsRetriever"
-    publicCertificatePath = "/home/wso2/security/truststore/mg.pem"
-    privateKeyPath = "/home/wso2/security/keystore/mg.key"
+   enabled = true
+   encoding = "base64" # base64,base64url
+   claimDialect = "http://wso2.org/claims"
+   convertDialect = false
+   header = "X-JWT-Assertion"
+   signingAlgorithm = "SHA256withRSA"
+   enableUserClaims = false
+   gatewayGeneratorImpl = "org.wso2.carbon.test.CustomGatewayJWTGenerator"
+   claimsExtractorImpl = "org.wso2.carbon.apimgt.impl.token.ExtendedDefaultClaimsRetriever"
+   publicCertificatePath = "/home/wso2/security/truststore/mg.pem"
+   privateKeyPath = "/home/wso2/security/keystore/mg.key"
 ```
 
 The relevant elements in the JWT generation configuration are described below. If you do not configure these elements, they take their default values.
@@ -126,7 +126,7 @@ The relevant elements in the JWT generation configuration are described below. I
 <td>The name of the HTTP header to which the JWT is attached.</td>
 <td>X-JWT-Assertion</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><pre><code>enforcer.jwtGenerator.claimDialect</code></pre></td>
 <td><div class="content-wrapper">
 <p>The JWT access token contains all claims that are defined in the <code>enforcer.jwtGenerator.claimDialect</code> element. The default value of this element is <code>http://wso2.org/claims</code>. To get the list of a specific user's claims that need to be included in the JWT, uncomment this element after enabling the JWT. It will include all claims in <code>http://wso2.org/claims</code> to the JWT access token.</p>
@@ -138,7 +138,7 @@ The relevant elements in the JWT generation configuration are described below. I
 <td>Remap the OIDC claims into the configured dialect.</td>
 <td>false</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><pre><code>enforcer.jwtGenerator.signingAlgorithm</code></pre></td>
 <td><p>The signing algorithm is used to sign the JWT. The general format of the JWT is <code>              {token header}.{claims list}.{signature}</code>. When `NONE` is specified as the algorithm, signing is turned off and the JWT looks as <code>{token header}.{claims list}</code> with two strings delimited by a period and a period at the end.</p>
 <p>This element can have only two values - the default values are <code>SHA256withRSA</code> or <code>NONE</code>.</p></td>
@@ -159,7 +159,7 @@ The relevant elements in the JWT generation configuration are described below. I
 <td><p>Fully qualified custom Claim Retriever to add custom claims into JWT.</p></td>
 <td><code>org.wso2.carbon.apimgt.impl.token.ExtendedDefaultClaimsRetriever</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><pre><code>enforcer.jwtGenerator.publicCertificatePath</code></pre></td>
 <td><p>Path of the public certificate</p></td>
 <td><code>/home/wso2/security/truststore/mg.pem</code></td>
@@ -169,8 +169,34 @@ The relevant elements in the JWT generation configuration are described below. I
 <td><p>Path of the private key</p></td>
 <td><code>/home/wso2/security/keystore/mg.key</code></td>
 </tr>
+<tr class="odd">
+<td><pre>
+<code>
+[apim.jwt]<br/>
+binding_federated_user_claims</code></pre></td>
+<td><p>This disables the default backend JWT generator.</p></td>
+<td><code>false</code></td>
+</tr>
 </tbody>
 </table>
+
+## Disabling the default backend JWT generator
+
+1. Navigate to the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/config.toml` file.
+
+2. Disable and configure the backend JWT implementation.
+
+     The following is the basic configuration that you need to have to disable backend JWT.
+
+    ```
+    [enforcer.jwtGenerator]
+       [apim.jwt]
+       binding_federated_user_claims = false
+    ```
+
+3. Start the server.
+    
+     For more information, see the [Quick Start Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/).
 
 ## See Also
 
