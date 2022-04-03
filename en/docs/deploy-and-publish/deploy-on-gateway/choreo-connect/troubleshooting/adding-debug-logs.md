@@ -1,83 +1,33 @@
-# Adding Debug and Trace Logs
+## Enable Debug and Trace Logs
 
-Following explain how to add debug and trace logs for the main three components of the Choreo Connect which are Adapter, Enforcer and Router.
+It is possible to troubleshoot Choreo Connect using debug logs and trace logs. Debug logs can be enabled in all three components and access logs can be enabled at router and enforcer to trace requests from router to enforcer. Following sections will guide you through how to enable debug and access logs in each components.
 
-## Adapter
+### Adapter
 
-### Enable debug logs
+Set the log level as `DEBG` in the `log_config.toml` as described in [adapter log configurations]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-adapter/#adapter-log-configurations) to enable debug logs in adapter.
 
-Set the log level as `DEBG` in the `log_config.toml` in the directory `<CHOREO-CONNECT_HOME>/docker-compose/<choreo-connect>/conf/`, as described in [adapter log configurations]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-adapter/#adapter-root-level-configurations). If you need debug logs to be only enables in package level, set the log level as `DEBG` only in the relavant [package level configuration]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-adapter/#adapter-package-level-configurations).
+If you need debug logs to be only enabled in package level, set the log level as `DEBG` only in the relavant [package level configuration]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-adapter/#adapter-package-level-configurations).
 
-## Enforcer
+### Enforcer
 
-### Enable debug logs
+Configure `log4j2.properties` file and make the value of `rootLogger.level` as `DEBUG` will enable debug logs as well as access logs in enforcer. Refer [enforcer log configurations]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-enforcer/#enforcer-log-configurations) for more details.
 
-Configure `log4j2.properties` located in the directory `<CHOREO-CONNECT_HOME>/docker-compose/<choreo-connect>/conf/`.
-Make relevant packages to `DEBUG` level, as mentioned in [enforcer log configurations]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-enforcer/#setting-the-log-level).
+!!! Note
+    If you want to enable debug logs and access logs seperately, you need to define a new logger. For more information refer to [Configuring Log4j2 Loggers]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-enforcer/#configuring-log4j2-loggers).
 
-```yaml
-logger.enforcer.level = DEBUG
-```
-
-### Enable access logs
-
-Configure `log4j2.properties` located in the directory `<CHOREO-CONNECT_HOME>/docker-compose/<choreo-connect>/conf/`.
-
-By making the value `logger.mgw-enforcer-interceptors.level` to `DEBUG` in the below configuration will enable access logs without restarting the enforcer.
+The access log format will be as follows. It will print the server time, trace Id from envoy, gRPC service method, gRPC status code, response time according to the above configuration.
 
 ```yaml
-logger.mgw-enforcer-interceptors.level = DEBUG
+[2022-04-03 18:29:45,032] - [id: 0xe5e8976f, L:/172.20.0.4:8081 - R:/172.20.0.5:48158] INBOUND HEADERS: streamId=5 headers=GrpcHttp2RequestHeaders[:path: /envoy.service.auth.v3.Authorization/Check, :authority: ext-authz, :method: POST, :scheme: http, te: trailers, grpc-timeout: 20000m, content-type: application/grpc, x-envoy-internal: true, x-forwarded-for: 172.20.0.5, x-envoy-expected-rq-timeout-ms: 20000] padding=0 endStream=false
 ```
 
+### Router
 
-The access log format will be as follow. It will print the server time, trace Id from envoy, gRPC service method, gRPC status code, response time according to the above configuration.
+Configure the relavant configurations in the `log_config.toml` according to the instructions given in [Router Access Logging]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-router/#router-access-logging).
 
-```yaml
-[2021-02-19 07:48:49,505] - 5920896249661898188 envoy.service.auth.v3.Authorization/Check 16 34
-[2021-02-19 07:48:52,592] - 17895662172888229144 envoy.service.auth.v3.Authorization/Check 16 7
-```
+In order to enable debug logs, follow the instructions provided in [Router Debug Logs]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-router/#router-debug-logs).
 
-## Router
-
-### Enable access logs.
-
-Configure the following in the `log_config.toml` in the directory `<CHOREO-CONNECT_HOME>/docker-compose/<choreo-connect>/conf/`.
-Please follow [command operators]({{envoy_path}}/configuration/observability/access_log/usage#command-operators) for more information on the supported options for log format, `format` configuration.  
-
-```toml
-[accessLogs]
-enable = false
-logfile = "/tmp/envoy.access.log" # This file will be created inside router container.
-format = "[%START_TIME%] '%REQ(:METHOD)% %REQ(X-ENVOY-ORIGINAL-PATH?:PATH)% %PROTOCOL%' %RESPONSE_CODE% %RESPONSE_FLAGS% %BYTES_RECEIVED% %BYTES_SENT% %DURATION% %RESP(X-ENVOY-UPSTREAM-SERVICE-TIME)% '%REQ(X-FORWARDED-FOR)%' '%REQ(USER-AGENT)%' '%REQ(X-REQUEST-ID)%' '%REQ(:AUTHORITY)%' '%UPSTREAM_HOST%'\n"
-```
-
-### Enable debug logs
-
-Provide the log level as trailing arguments for the envoy command as follows.
-
-```toml tab="Format"
--l <level>, 
---log-level <level>
---component-log-level <component>:<level>,<component>:<level>...
-```
-
-```toml tab="Example"
--l trace, 
---log-level trace
---component-log-level upstream:debug,connection:trace
-```
-
-Please follow [Command line options]({{envoy_path}}/operations/cli) for more information.
-
-For example, Add following line to the docker-compose.yaml in the directory `<CHOREO-CONNECT_HOME>/docker-compose/<choreo-connect>/`.
-
-```yaml
-  router:
-    environment:
-      - TRAILING_ARGS=--log-level trace
-```
-
-### Admin portal
+## Admin portal
 
 The admin interface can be used to view statistics, envoy configurations, etc. For more information, please follow [Envoy admin interface]({{envoy_path}}/start/quick-start/admin)
 Configure host and port for the envoy admin interface and expose it.

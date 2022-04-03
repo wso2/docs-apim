@@ -4,16 +4,7 @@ As the enforcer component is implemented in java, we are using `log4j2` framewor
 
 ## Configuring Log4j2 Properties
 
-All WSO2 products are shipped with the `log4j2` logging capabilities, which generates administrative activities and server side logs. The `log4j2` file governs how logging is performed by the Enforcer. You can configure the Log4j2 properties via the `log4j2` file, which is available in the following directories based on your Choreo Connect deployment.
-
-<a name="filepaths"></a>
-
-| **Deployment** | **File name** | **Directory** |
-|----------------|---------------|---------------|
-| Docker with apictl | `log4j2.properties` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/` |
-| Docker with WSO2 API Manager | `log4j2.properties` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf/` |
-| Kubernetes with apictl | `log4j2-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect/` |
-| Kubernetes with WSO2 API Manager | `log4j2-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect-with-apim/` |
+All WSO2 products are shipped with the `log4j2` logging capabilities, which generates administrative activities and server side logs. The `log4j2` file governs how logging is performed by the Enforcer. You can configure the Log4j2 properties via the `log4j2.properties` file, which is available in [these directories]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-overview/#log4j2_properties) based on your Choreo Connect deployment.
 
 The following are the three main components that you can configure via log4j2:
 
@@ -23,9 +14,9 @@ The following are the three main components that you can configure via log4j2:
 
 ### Setting the log level
 
-The log level can be set specifically for each appender in the `log4j2.properties` or `log4j2-configmap.yaml` file, [based on your Choreo Connect deployment](#filepaths), by setting the threshold value. If a log level is not specifically given for an appender as explained below, the root log level (INFO) will apply to all appenders by default.
+The log level can be set specifically for each appender in the `log4j2.properties` or `log4j2-configmap.yaml` file, [based on your Choreo Connect deployment]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-overview/#log4j2_properties), by setting the threshold value. If a log level is not specifically given for an appender as explained below, the root log level (INFO) will apply to all appenders by default.
 
-For example, shown below is how the log level is set to DEBUG for the `ENFORCER_LOGFILE` appender:
+For example; shown below is how the log level is set to DEBUG for the `ENFORCER_LOGFILE` appender:
 
 ```bash
 appender.ENFORCER_LOGFILE.filter.threshold.level = DEBUG
@@ -120,9 +111,29 @@ In summary, in following steps yu can specify a logger.
 !!! Note
     You can find more details on log4j2 appenders, loggers and it's attributes from the official documentation of [log4j2](#https://logging.apache.org/log4j/2.x/). 
 
-### Setting the log format
+## Enforcer Access Logs
 
-#### Plain Text format
+Choreo Connect is capable of enable access logs to drill down on errors occured during the API invocations. To enable enforcer access logs, you need to set the appender `ENFORCER_ACCESS_LOG`'s log level as `DEBUG`. Following steps will guide you through how enabling access logs in enforcer.
+
+1. Make sure the log level is set to `DEBUG` in appender.
+    ```properties
+    appender.ENFORCER_ACCESS_LOG.filter.threshold.level = DEBUG
+    ```
+
+2. Change the log level as `DEBUG` from the logger which the above appender is using. In this case it would be the `rootLogger`
+    ```properties
+    rootLogger.level = ERROR
+    rootLogger.appenderRef.ENFORCER_CONSOLE.ref = ENFORCER_CONSOLE
+    rootLogger.appenderRef.ENFORCER_LOGFILE.ref = ENFORCER_LOGFILE
+    rootLogger.appenderRef.ENFORCER_ACCESS_LOG.ref = ENFORCER_ACCESS_LOG
+    ```
+
+    !!! Note
+        Here we are setting the threshold for appender's log level as `DEBUG`. For more information on this, please refer [this](#setting-the-threshold)
+
+## Setting the log format
+
+### Plain Text format
 
 By default the enforcer is enabled with the plain text formatted logs. The plain text format is enabled with the `log4j2`'s `PatternLayout`. Following configuration under appender will specify that.
 
@@ -139,7 +150,7 @@ appender.<appender_name>.layout.pattern = [%d{DEFAULT}][%X{traceId}]%x %5p - {\%
 !!! Note
     More details on this pattern specification can be find in the official [log4j2 documentation](https://logging.apache.org/log4j/2.x/manual/layouts.html#PatternLayout).
 
-#### JSON format
+### JSON format
 
 Enforcer can be configured to output logs in JSON format by setting the layout as `CustomJsonLayout` which is a customized imlementation of log4j2's [AbstractStringLayout](https://logging.apache.org/log4j/2.x/log4j-core/apidocs/org/apache/logging/log4j/core/layout/AbstractStringLayout.html). You can set it using the following configuration.
 

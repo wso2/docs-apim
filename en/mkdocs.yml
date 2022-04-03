@@ -271,6 +271,7 @@ nav:
                         - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-overview.md
                         - Adapter: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-adapter.md
                         - Enforcer: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-enforcer.md
+                        - Router: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-router.md
                     - Main Configurations:
                         - Adapter: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/adapter-configurations.md
                         - Enforcer: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/enforcer-configurations.md
@@ -2183,6 +2184,6 @@ extra:
         - type: linkedin
           link: https://www.linkedin.com/company/wso2
     site_version: 4.1.0
-    base_path: http://localhost:8000
-    # base_path: https://apim.docs.wso2.com/en/4.1.0
+    # base_path: http://localhost:8000
+    base_path: https://apim.docs.wso2.com/en/4.1.0
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.20.0
