@@ -1,8 +1,8 @@
 # About this Release
 
-The **WSO2 API Manager 4.1.0 Beta** is the latest **WSO2 API Manager release** and is the successor of **WSO2 API Manager 4.0.0**.
-
 WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premise, and hybrid architectures to drive your digital transformation strategy. 
+
+**WSO2 API Manager 4.1.0** is the latest **WSO2 API Manager release** and is the successor of **WSO2 API Manager 4.0.0**.
 
 For more information on WSO2 API Manager, see the [overview]({{base_path}}/getting-started/overview/).
 
@@ -12,31 +12,31 @@ The API Manager component addresses all aspects of API management in the platfor
 
 <table>
 <tr>
-<td>API Manager 4.1.0-Beta</td>
+<td>API Manager 4.1.0</td>
 <td><a href="https://github.com/wso2/product-apim/releases/download/v4.1.0-beta/wso2am-4.1.0-beta.zip">download</a></td>
 </tr>
 <tr>
-<td>Micro Integrator 4.1.0-Beta</td> 
+<td>Micro Integrator 4.1.0</td> 
 <td><a href="https://github.com/wso2/micro-integrator/releases/download/v4.1.0-beta/wso2mi-4.1.0-beta.zip">download</a></td>
 </tr>
 <tr>
-<td>Streaming Integrator 4.1.0-Beta</td> 
+<td>Streaming Integrator 4.1.0</td> 
 <td><a href="https://github.com/wso2/streaming-integrator/releases/download/v4.1.0-beta/wso2si-4.1.0-beta.zip">download</a></td> 
 </tr>
 <tr>
-<td>API Controller 4.1.0-Beta</td>
+<td>API Controller 4.1.0</td>
 <td><a href="https://github.com/wso2/product-apim-tooling/releases/tag/v4.1.0-beta">download</a></td>
 </tr>
 <tr>
-<td>Integration Studio  8.1.0-Beta</td>
+<td>Integration Studio  8.1.0</td>
 <td><a href="https://github.com/wso2/integration-studio/releases/tag/v8.1.0-beta">download</a></td>
 </tr>
 <tr>
-<td>Micro Integrator Tooling  4.1.0-Beta</td>
+<td>Micro Integrator Tooling  4.1.0</td>
 <td><a href="https://github.com/wso2/micro-integrator/releases/download/v4.1.0-beta/wso2mi-dashboard-4.1.0-beta.zip">download</a></td>
 </tr>
 <tr>
-<td>Streaming Integrator Tooling  4.1.0-Beta</td>
+<td>Streaming Integrator Tooling  4.1.0</td>
 <td><a href="https://github.com/wso2/streaming-integrator-tooling/releases/download/v4.1.0-beta/wso2si-tooling-4.1.0-beta.zip">download</a></td>
 </tr>
 </table>
@@ -48,6 +48,14 @@ The API Manager component addresses all aspects of API management in the platfor
 
      With API Manager 4.1.0 release, we move to a more fine-grained and easy to manage policies. As per the newly introduced operation level policy support, we move away from the concept of attaching a policy at the API level (i.e. API level mediation policies), and give forth the ability to attach multiple policies at the operation level itself.
 
+- **[GraphQL subscriptions]({{base_path}}/tutorials/create-and-publish-a-graphql-api/#5.2)**
+
+      WSO2 API Manager 4.1.0 supports GraphQL subscription operations, which extends GraphQL APIs for push based solutions. In GraphQL Subscriptions, clients send long-lasting GraphQL read operations and get updated results whenever a particular server-side event occurs. Commonly, updated results are pushed from the server to the subscribing clients via WebSockets, where the server holds a steady connection to the client.
+
+- **[Management of real time APIs on Solace]({{base_path}}/tutorials/integrating-with-solace/)**
+
+     WSO2 API Manager 4.1.0 now supports integrating external third-party Gateways and Brokers. Solace is an advanced event broker that is efficiently streaming events and information across cloud, on-premises, and IoT environments.
+
 - **[Integration with Open Policy Agent (OPA)]({{base_path}}/design/api-security/opa-validation/overview/)**
 
      You can now offload some of the decision-making responisbilities to OPA on whether to authorize a consumer or not when they invoke APIs based on policies attached to APIs.
@@ -55,6 +63,10 @@ The API Manager component addresses all aspects of API management in the platfor
 - **[Develop an integration from a managed API]({{base_path}}/tutorials/develop-an-integration-with-a-managed-api/)**
 
     With the API Manager 4.1.0 release, you can create an integration using a managed API and configure the integration service endpoint to the managed API. This is the top-down approach in API first integration.
+
+- **[Publishing third-party APIs on the Developer Portal]({{base_path}}/deploy-and-publish/publish-on-dev-portal/third-party-api-support/)**
+
+     WSO2 API Manager provides the capability to publish APIs that are deployed in an external Gateway. Since these APIs are not deployed in the WSO2 API Gateway, the API will not be proxied through the Gateway.
 
 - **[Add WSDL to REST conversion support to Integration Studio]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api/)**
 
@@ -87,7 +99,6 @@ The API Manager component addresses all aspects of API management in the platfor
 - **[Auto-generation support for data services using a given data source]({{base_path}}/integrate/develop/creating-artifacts/data-services/creating-data-services/#generate-data-service-from-a-datasource)**
 
      This feature allows you to generate data service definitions by pointing to an existing datasource in the workspace without creating it from scratch.
-
 
 ## Improvements
 
@@ -141,35 +152,11 @@ The API Manager component addresses all aspects of API management in the platfor
 
      This feature generates metadata artifacts for the APIs and Proxy services that have been created inside older Integration Studio workspaces.
 
-- **Publisher Read Only Mode** 
-    
-     A user who has view/read only permissions can only view the API/Services details in the Publisher portal. Such users should not be able to edit/create/publish APIs/Services.
-
 - **Add support for SMB and WebDAV protocols**
 
      This feature adds support to read from or write to files opened via SMB and WebDAV protocols.
 
 - **Support Protobuf Map-type for Kafka**
-
-- **Improved CDC functionalities**
-
-- **Improved MongoDB store**
-
-- **Capability to generate metadata files for APIs and Proxy services for older ESB projects**
-
-- **HTTPS support for unit tests of APIs**
-
-- **Option to hide/show connectors on-demand**
-
-- **JSON and YAML templates as registry resources**
-
-- **Capability to create REST APIs using WSO2 API Manager APIs**
-
-- **Added role support to Micro Integrator**
-
-- **List down APIs as a JSON array in apictl**
-
-- **Added a preserve-status flag in apictl to support API Products**
 
 <!-- 
 
