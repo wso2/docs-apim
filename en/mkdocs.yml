@@ -79,7 +79,11 @@ nav:
         - Create API Revisions: design/create-api/create-api-revisions.md
         - Add Custom Properties to APIs: design/create-api/adding-custom-properties-to-apis.md
         - Change the Thumbnail of an API: design/create-api/change-api-thumbnail.md
-        - Create Prototype APIs: design/prototype-api/create-a-prototype-api.md
+        - Create Prototype APIs: 
+            - Overview: design/prototype-api/overview.md
+            - Mock Implementation with API Gateway: design/prototype-api/create-mocked-js-api.md
+            - Mock Implementation with Choreo Connect: design/prototype-api/create-mocked-oas-api.md
+            - Expose an Existing Backend Implementation as a Prototype API: design/prototype-api/backend-url-prototype-api.md
         - Create API Products:
                 - API Product Overview: design/create-api-product/api-product-overview.md
                 - Create an API Product: design/create-api-product/create-api-product.md
@@ -118,6 +122,7 @@ nav:
                 - Secure APIs using Basic Authentication: design/api-security/api-authentication/secure-apis-using-basic-authentication.md
                 - Secure APIs using Certificate Bound Access Token: design/api-security/api-authentication/securing-apis-using-certificate-bound-access-tokens.md
                 - Federating OAuth Applications: design/api-security/api-authentication/advanced-topics/federating-oauth-applications.md
+                - Disable Security: design/api-security/api-authentication/disable-security.md
             - Authorization:
                 - Overview: design/api-security/authorization/api-authorization.md
                 - Role-Based Access Control using Scopes: design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
