@@ -59,7 +59,7 @@ Follow the instructions below to upgrade your WSO2 API Manager server **from WSO
         password = "password"
         ```
 
-        1. Registry database(WSO2REG_DB)
+        1. Registry database
             
             Ex:
             ```
@@ -335,14 +335,14 @@ You have to run the following migration client to update the API Manager artifac
 
 2. Copy the org.wso2.carbon.am.migration-4.1.0.x.jar file in the `<AM_MIGRATION_CLIENT_HOME>/dropins` directory into the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
 
-3. Start the API-M server to validate the api definitions.
+3. Start the API-M server to validate the api definitions
        
     ``` tab="Linux / Mac OS"
-    sh api-manager.sh -DmigrateFromVersion=3.2.0 -DrunPreMigrationStep=apiDefinitionValidation
+    sh api-manager.sh -DmigrateFromVersion=3.2.0 -DrunPreMigration=apiDefinitionValidation
     ```
 
     ``` tab="Windows"
-    api-manager.bat -DmigrateFromVersion=3.2.0 -DrunPreMigrationStep=apiDefinitionValidation
+    api-manager.bat -DmigrateFromVersion=3.2.0 -DrunPreMigration=apiDefinitionValidation
     ```
 
     Check the server logs and verify are there any errors logs. If you have encounter any errors in  api definitions, you have to correct them manually on old version before the component migration. 
@@ -371,7 +371,7 @@ You have to run the following migration client to update the API Manager artifac
 
 1. Execute the post migration script on the `WSO2AM_DB` database which is located inside the `<AM_MIGRATION_CLIENT_HOME>/post-migration-script/am-db` directory for relevant database type.
 
-2. Execute the post migration script `reg-index.sql` on the `WSO2SHARED_DB` database (or REG_DB if you have separate DB for registry) which is located inside the `<AM_MIGRATION_CLIENT_HOME>/post-migration-script/reg-db` directory
+2. Execute the post migration script `reg-index.sql` on the registry database (`WSO2SHARED_DB`) which is located inside the `<AM_MIGRATION_CLIENT_HOME>/post-migration-script/reg-db` directory
 
     !!! note
         Note that depending on the number of records in the REG_LOG table, this script will take a considerable amount of time to finish. Do not stop the execution of the script until it is completed.
