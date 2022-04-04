@@ -115,8 +115,7 @@ nav:
             - Overview: design/api-policies/overview.md
             - Attach Policies: design/api-policies/attach-policy.md
             - Create a Policy:
-                - Creating a Common Policy: design/api-policies/create-policy/create-common-policy.md
-                - Creating an API Specific Policy: design/api-policies/create-policy/create-common-policy.md
+                - Creating a Policy: design/api-policies/create-policy.md
                 - Creating a Custom Choreo Connect Policy: design/api-policies/create-policy/create-custom-cc-policy.md
             - Using Policies in the Gateway:
                 - Change the Default Mediation Flow of API Requests: design/api-policies/gateway-policies/changing-the-default-mediation-flow-of-api-requests.md
