@@ -2,7 +2,7 @@ WSO2 API Manager Server 4.1.0 brings a range of new features and major improveme
 
 !!! Attention "If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager"
    
-    Follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.11.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-5100-to-is-5110). 
+    Follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.11.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-5100-to-is-5110). 
 
 !!! Attention "If you are using Analytics"
     As the on-premise analytics data cannot be migrated to the Cloud, you need to maintain the old analytics server and keep the UI running for as long as you need that data (e.g., 3 months) after migrating to the new version of analytics in WSO2 API-M 4.1.0.
