@@ -1599,6 +1599,7 @@ nav:
                 - EI 6.2.x to API-M 4.1.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.2.x.md
                 - EI 6.1.1 to API-M 4.1.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.1.1.md
                 - EI 6.1.0 to API-M 4.1.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.1.0.md
+                - API-M 4.0.0 to API-M 4.1.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-apim-4.0.x.md
             -  Upgrading from WSO2 ESB: install-and-setup/upgrading-from-wso2-ei/upgrading-from-esb-5.x.x.md
         - Reference:
             - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
