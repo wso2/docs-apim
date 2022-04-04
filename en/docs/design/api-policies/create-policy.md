@@ -1,4 +1,4 @@
-# Create Policy
+# Create a Policy
 
 Listed below are two ways of creating a new policy. Depending on whether you need the policy to be accessible only within a specific API or available for all APIs, you can decide on the option you need to follow.
 
@@ -17,10 +17,10 @@ A common policy is a globally maintained policy and you can easily utilize this 
 3. Let’s create a policy named **Sample Add Header** for demo purposes. First let’s fill the **General Details** section using the following details.
 
     <table>
-        <tr>
-            <th>Field</th>
-            <th>Sample Value</th>
-        </tr>
+        <th>
+            <td>Field</td>
+            <td>Sample Value</td>
+        </th>
         <tr>
             <td>Name</td>
             <td>Sample Add Header</td>

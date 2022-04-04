@@ -113,12 +113,8 @@ nav:
             - Enable Social Media Interaction: design/api-collaborations/enable-social-media-interaction.md
         - API Policies:
             - Overview: design/api-policies/overview.md
-            - Attach Policies: design/api-policies/attach-policy.md
-            - Create a Policy:
-                - Creating a Policy: design/api-policies/create-policy.md
-                - Creating a Custom Choreo Connect Policy: design/api-policies/create-policy/create-custom-cc-policy.md
+            - Create a Policy: design/api-policies/create-policy.md
             - Using Policies in the Gateway:
-                - Change the Default Mediation Flow of API Requests: design/api-policies/gateway-policies/changing-the-default-mediation-flow-of-api-requests.md
                 - Create and Upload Using Integration Studio: design/api-policies/gateway-policies/creating-and-uploading-using-integration-studio.md
                 - Add Dynamic Endpoints: design/api-policies/gateway-policies/adding-dynamic-endpoints.md
                 - Remove Specific Request Headers From Response: design/api-policies/gateway-policies/removing-specific-request-headers-from-response.md
@@ -130,7 +126,7 @@ nav:
                 - Add a Class Mediator: design/api-policies/gateway-policies/adding-a-class-mediator.md
                 - Configure Message Builders and Formatters: design/api-policies/gateway-policies/configuring-message-builders-formatters.md
             - Sample Custom Policies:
-                - Create Custom Choreo Connect Policy: design/api-policies/samples/create-custom-cc-policy.md
+                - Create a Custom Choreo Connect Policy: design/api-policies/samples/create-custom-cc-policy.md
         - API Security:
             - Authentication:
                 - Overview: design/api-security/api-authentication/api-authentication-overview.md
