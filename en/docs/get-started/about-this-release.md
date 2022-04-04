@@ -1,6 +1,6 @@
 # About this Release
 
-WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premise, and hybrid architectures to drive your digital transformation strategy. 
+WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premise, and hybrid architectures to drive your digital transformation strategy. It comes with a cloud-native, standards-based messaging engine, and an integration framework for integrating APIs, services, data, SaaS, proprietary, and legacy systems and it can also serve streaming-based integrations. The product comes with command-line and developer tools that enable easy design, development, and testing.
 
 **WSO2 API Manager 4.1.0** is the latest **WSO2 API Manager release** and is the successor of **WSO2 API Manager 4.0.0**.
 
@@ -46,19 +46,19 @@ The API Manager component addresses all aspects of API management in the platfor
 
 - **[Operation level policy support for APIs]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/specifying-mediation-flow-based-on-policy/)**
 
-     With API Manager 4.1.0 release, we move to a more fine-grained and easy to manage policies. As per the newly introduced operation level policy support, we move away from the concept of attaching a policy at the API level (i.e. API level mediation policies), and give forth the ability to attach multiple policies at the operation level itself.
+     With the API Manager 4.1.0 release, we introduce fine-grained and easy to manage policies for operations. We move away from the concept of attaching a policy at the API level (i.e., API level mediation policies) and now can attach multiple policies at the operation level itself.
 
-- **[GraphQL subscriptions]({{base_path}}/tutorials/create-and-publish-a-graphql-api/#5.2)**
+- **[Support for GraphQL subscription operations]({{base_path}}/tutorials/create-and-publish-a-graphql-api/#5.2)**
 
-      WSO2 API Manager 4.1.0 supports GraphQL subscription operations, which extends GraphQL APIs for push based solutions. In GraphQL Subscriptions, clients send long-lasting GraphQL read operations and get updated results whenever a particular server-side event occurs. Commonly, updated results are pushed from the server to the subscribing clients via WebSockets, where the server holds a steady connection to the client.
+      WSO2 API Manager 4.1.0 supports GraphQL subscription operations, which extends GraphQL APIs for push-based solutions. In GraphQL subscriptions, clients send long-lasting GraphQL read operations and get updated results whenever a particular server-side event occurs. Commonly, updated results are pushed from the server to the subscribing clients via WebSockets, where the server holds a steady connection with the client.
 
-- **[Management of real time APIs on Solace]({{base_path}}/tutorials/integrating-with-solace/)**
+- **[Management of real-time APIs on Solace]({{base_path}}/tutorials/integrating-with-solace/)**
 
      WSO2 API Manager 4.1.0 now supports integrating external third-party Gateways and Brokers. Solace is an advanced event broker that is efficiently streaming events and information across cloud, on-premises, and IoT environments.
 
-- **[Integration with Open Policy Agent (OPA)]({{base_path}}/design/api-security/opa-validation/overview/)**
+- **[API consumer authorization with Open Policy Agent (OPA)]({{base_path}}/design/api-security/opa-validation/overview/)**
 
-     You can now offload some of the decision-making responisbilities to OPA on whether to authorize a consumer or not when they invoke APIs based on policies attached to APIs.
+     You can now offload some of the decision-making responsibilities to OPA on whether to authorize a consumer or not when they invoke APIs based on policies attached to APIs.
 
 - **[Develop an integration from a managed API]({{base_path}}/tutorials/develop-an-integration-with-a-managed-api/)**
 
@@ -68,17 +68,17 @@ The API Manager component addresses all aspects of API management in the platfor
 
      WSO2 API Manager provides the capability to publish APIs that are deployed in an external Gateway. Since these APIs are not deployed in the WSO2 API Gateway, the API will not be proxied through the Gateway.
 
-- **[Add WSDL to REST conversion support to Integration Studio]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api/)**
+- **[WSDL to REST conversion support in Integration Studio]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api/)**
 
      With API Manager 4.1.0, you now have a hybrid environment where some system APIs exist as SOAP-based web services that can also have a REST interface defined.
 
-- **[Authentication support for end users using Token Exchange approach]({{base_path}}/administer/key-managers/configure-custom-connector/)**
+- **[Authentication support for API invocation using the Token Exchange approach]({{base_path}}/administer/key-managers/configure-custom-connector/)**
 
-     You can now get an API Manager token by invoking the token endpoint of API Manager with the required parameters (i.e., the token obtained from external Identity Provider) and invoke the API with the exchanged token.
+     You can now get an API Manager token by invoking the token endpoint of API Manager with the required parameters (i.e., the token obtained from an external Identity Provider) and invoking the API with the exchanged token.
 
 - **[A read-only mode for API Publisher]({{base_path}}/design/api-security/authorization/publisher-portal-in-read-only-mode/)**
 
-     This feature allows a user who has view/read only permissions to only view the API, API Product, and Service details in the Publisher portal. This user can also review all the analytics related details.
+     This feature allows a user who has view/read-only permissions to only view the API, API Product, and Service details in the Publisher portal. This user can also review all the analytics-related details.
 
 -  **[Exposing an integration SOAP service as a managed API]({{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial-for-proxy-services/)**
 
@@ -88,17 +88,17 @@ The API Manager component addresses all aspects of API management in the platfor
 
      WSO2 API Manager 4.1.0 enables a simple way to observe requests and responses going through the WSO2 API Gateway by introducing this lightweight feature called API Logs.
 
-- **[Audit log support]({{base_path}}/observe/micro-integrator/classic-observability-logs/monitoring-mi-audit-logs)**
+- **[Maintaining audit logs for the Micro Integrator Management API]({{base_path}}/observe/micro-integrator/classic-observability-logs/monitoring-mi-audit-logs/)**
 
-  	 The audit log capability allows you to add logging for the Micro Integrator Management API. Maintaining audit logs allows you to identify the changes that took place in the Micro Integrator instance and also to identify who made those changes.
+  	The audit log capability allows you to add logging for the Micro Integrator Management API. Maintaining audit logs allows you to identify the changes that took place in the Micro Integrator instance and also to identify who made those changes.
 
-- **[Secondary user store support]({{base_path}}/administer/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores-mi/#configuring-secondary-user-stores)**
+- **[Authorization support via secondary user stores in Micro Integrator]({{base_path}}/administer/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores-mi/#configuring-secondary-user-stores)**
 
      Users can now deploy secondary user stores in Micro Integrator and use those users and roles in authorization use cases.
 
-- **[Auto-generation support for data services using a given data source]({{base_path}}/integrate/develop/creating-artifacts/data-services/creating-data-services/#generate-data-service-from-a-datasource)**
+- **[Auto-generation support for data services using a given data source in Integration Studio]({{base_path}}/integrate/develop/creating-artifacts/data-services/creating-data-services/#generate-data-service-from-a-datasource)**
 
-     This feature allows you to generate data service definitions by pointing to an existing datasource in the workspace without creating it from scratch.
+     This feature allows you to generate data service definitions by pointing to an existing data source in the workspace without creating it from scratch.
 
 ## Improvements
 
@@ -106,25 +106,25 @@ The API Manager component addresses all aspects of API management in the platfor
 
      WSO2 API Manager provides distinct lifecycle states for the API during the API development process. A lifecycle state can now be specified for each API Product you create.
 
-- **[Authentication for Prototype APIs]({{base_path}}/design/prototype-api/create-a-prototype-api/))**
+- **[Authentication support for Prototype APIs]({{base_path}}/design/prototype-api/create-a-prototype-api/))**
 
 	 Authentication for Prototype APIs is available by default so that the client apps can also be created using authentication to test out the APIs. If needed you can disable authentication for Prototype APIs at the resource level or API level.
 
-- **[Advanced Configurations section for Admin Portal]({{base_path}}/administer/advanced-configurations/)**
+- **[Advanced Configurations section for the Admin Portal]({{base_path}}/administer/advanced-configurations/)**
 
-- **[Single Sign-on with OpenID Connect]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi-dashboard/#configuring-single-sign-on-with-openid-connect)**
+- **[Single Sign-On support for the monitoring dashboard using OpenID Connect]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi-dashboard/#configuring-single-sign-on-with-openid-connect)**
 
      Users can use OIDC-based Single Sign-On to log in to the WSO2 Micro Integrator Monitoring Dashboard.
 
-- **[File based user store improvement]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#file-based-user-store-default)**
+- **[Support for admin privileges in the file-based user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#file-based-user-store-default)**
 
      The default user store of the Micro Integrator is file-based. This enables users to grant admin privileges to a user in the file-based user store.
 
-- **[Monitoring Deployed Data Sources]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard/#step-6-monitor-mi-artifacts-and-logs)**
+- **[Monitoring deployed data sources in Micro Integrator runtimes]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard/#step-6-monitor-mi-artifacts-and-logs)**
 
-     Users can view the data sources that are deployed in Micro Integrator Runtimes.
+     Users can identify the data sources that are deployed in Micro Integrator Runtimes directly from the dashboard.
 
-- **[PKCE Support when generating application keys]({{base_path}}/consume/manage-application/generate-keys/generate-api-keys/#generating-application-keys-with-pkce-enabled/)**
+- **[PKCE support when generating application keys]({{base_path}}/consume/manage-application/generate-keys/generate-api-keys/#generating-application-keys-with-pkce-enabled/)**
   
      WSO2 API Manager supports Proof Key for Code Exchange (PKCE) when generating application keys. This is a security measure to secure the applications that are executing in the same domain.
 
@@ -132,13 +132,13 @@ The API Manager component addresses all aspects of API management in the platfor
 
      Ability to configure Rate Limiting for an API Gateway Cluster via the Redis server so that the request counters maintained for burst control and backend rate limiting will be replicated across the API Gateway cluster when working with multiple API Gateway nodes.
 
-- **[Tenant configurations migration from the registry to database]({{base_path}}/administer/advanced-configurations/)**
+- **[Tenant configurations migration from the registry to the database]({{base_path}}/administer/advanced-configurations/)**
 
      You can now perform more advanced configurations for tenant configuration migration from the registry to the database.
 
-- **[File Inbound Endpoint Sub Directory Processing Capability]({{base_path}}/reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/file-inbound-endpoint-properties)**
+- **[File Inbound Endpoint subdirectory processing capability]({{base_path}}/reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/file-inbound-endpoint-properties/)**
 
-     VFS Inbound Endpoints are capable of handling files inside sub-directories of the specified URL. This enables users to process files recursively inside a directory.
+     VFS Inbound Endpoints are capable of handling files inside subdirectories of the specified URL. This enables users to process files recursively inside a directory.
 
 - **[Improve Service Catalog to work with Hot Deployments]({{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial/)**
 
@@ -148,33 +148,18 @@ The API Manager component addresses all aspects of API management in the platfor
 
      You can now change the status of an API or API Product in an environment using apictl.
 
-- **[Exposing proxy services via Service Catalog for WSO2 APIM]({{base_path}}/integrate/develop/generate-service-catalog-metadata)**
+- **[Exposing proxy services via Service Catalog for WSO2 APIM]({{base_path}}/integrate/develop/generate-service-catalog-metadata/)**
 
      This feature generates metadata artifacts for the APIs and Proxy services that have been created inside older Integration Studio workspaces.
 
-- **Add support for SMB and WebDAV protocols**
+- **[Support for SMB and WebDAV protocols](https://siddhi-io.github.io/siddhi-io-file/)**
 
      This feature adds support to read from or write to files opened via SMB and WebDAV protocols.
 
-- **Support Protobuf Map-type for Kafka**
+- **[Support Protobuf map-type for Kafka](https://siddhi-io.github.io/siddhi-io-kafka/api/latest/)**
 
-<!-- 
+     This improvement adds support to decode Protobuf messages via a schema registry with Kafka.
 
-- Integrated APIM Tooling into Integration Studio (M1)
-
-- NTLM mediator is now supported in Integration Studio
-
-- Add OPTIONS, HEAD, PATCH support to API in unit testing
-
-- Fix config toml file issue with EI servers
-
-- Make all the Web UIs compatible with IE7 version 
-
-- Add support to Conditionally include metadata dependencies
-
-- Adding SSL support for MongoDB configs
-
---->
 ## Removed features and functionalities
 
 These features are unsupported and removed from WSO2 API Manager 4.1.0 onwards.
