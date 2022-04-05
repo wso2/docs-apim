@@ -200,28 +200,7 @@ The default configurations are set up as follows:
 
 - **Log file name regex**: `(.)*(log|out)`
 
-### Step 3 - Change the default location of the configurations
-
-!!! note
-    **Skip** this step when you are **working with the standalone Forget-Me Tool**.
-
-Change the default configurations location for the pre-packed tool as follows:
-
-1. Navigate to the `<API-M_HOME>/bin` directory.
-
-2. Open the Forget-Me Tool start-up script. 
-
-     Open the `forgetme.sh` (Linux/Mac OS) file. This file will contain the following.
-
-    ``` java
-    sh $CARBON_HOME/repository/components/tools/forget-me/bin/forget-me -d $CARBON_HOME/repository/components/tools/forget-me/conf $@
-    ```
-
-2.  The location path is the value given after `-d` within the following line. Modify the value after `-d` to change the location. 
- 
-     The default location path is `$CARBON_HOME/repository/components/tools/forget-me/conf`.
-
-### Step 4 - Run the tool
+### Step 3 - Run the tool
 
 Run the Forget-Me tool based on the WSO2 products that you have in your deployment.
 
