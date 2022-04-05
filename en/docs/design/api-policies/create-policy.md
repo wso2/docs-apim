@@ -37,7 +37,97 @@ A common policy is a globally maintained policy and you can easily utilize this 
 
 4. Next, we move on to the **Gateway Specific Details** section. This is where we upload the policy file that contains the business logic of the policy. The sample policy that we are creating here will be for the regular Gateway (Synapse Gateway), and hence, the policy should be a .j2 or .xml file.
 
-5. Final section in the form is the **Policy Attributes** section. These attributes are derived from the policy file that you uploaded in the previous step. If you observe the policy content you should notice two dynamic values embedded into that policy, namely the headerName and headerValue. Those are the attributes that we should include when creating our policy (note that you can have a static policy with no attributes if the policy content is static). Let’s fill the **Policy Attributes** section using the following details.
+    <table>
+        <th>
+            <td>Field</td>
+            <td>Sample Value</td>
+        </th>
+        <tr>
+            <td>Supported Gateways</td>
+            <td>Regular Gateway</td>
+        </tr>
+        <tr>
+            <td>Upload Policy File</td>
+            <td>Copy the below content to a file named sampleAddHeader.j2 and upload</br>
+                </br>
+                <code><property action="set" name="{{headerName}}" value="{{headerValue}}" scope="transport" /></code>
+            </td>
+        </tr>
+    </table>
+
+5. The final section in the form is the **Policy Attributes** section. These attributes are derived from the policy file that you uploaded in the previous step. If you observe the policy content you should notice two dynamic values embedded into that policy, namely the headerName and headerValue. Those are the attributes that we should include when creating our policy (note that you can have a static policy with no attributes if the policy content is static). Let’s fill the **Policy Attributes** section using the following details.
+
+    **Attribute 1**
+    <table>
+        <th>
+            <td>Field</td>
+            <td>Sample Value</td>
+        </th>
+        <tr>
+            <td>Name</td>
+            <td>headerName</td>
+        </tr>
+        <tr>
+            <td>Display Name</td>
+            <td>Header Name</td>
+        </tr>
+        <tr>
+            <td>Required</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td>Name of the header to be added</td>
+        </tr>
+        <tr>
+            <td>Type</td>
+            <td>String</td>
+        </tr>
+        <tr>
+            <td>Validation Regex</td>
+            <td>^([a-zA-Z_][a-zA-Z\d_\-\ ]*)$</td>
+        </tr>
+        <tr>
+            <td>Default Value</td>
+            <td>Leave this blank</td>
+        </tr>
+    </table>
+
+    **Attribute 2**
+    <table>
+        <th>
+            <td>Field</td>
+            <td>Sample Value</td>
+        </th>
+        <tr>
+            <td>Name</td>
+            <td>headerValue</td>
+        </tr>
+        <tr>
+            <td>Display Name</td>
+            <td>Header Value</td>
+        </tr>
+        <tr>
+            <td>Required</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td>Value of the header</td>
+        </tr>
+        <tr>
+            <td>Type</td>
+            <td>String</td>
+        </tr>
+        <tr>
+            <td>Validation Regex</td>
+            <td>^([a-zA-Z\d_][a-zA-Z\d_\-\ ]*)$</td>
+        </tr>
+        <tr>
+            <td>Default Value</td>
+            <td>Leave this blank</td>
+        </tr>
+    </table>
 
 6. Once that is done, the completed form should look like the below screenshot. We can now click on **Save**.
 
