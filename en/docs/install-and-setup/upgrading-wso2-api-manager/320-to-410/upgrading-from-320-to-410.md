@@ -7,7 +7,7 @@ The following information describes how to upgrade your API Manager server **fro
 
 ## Prerequisites
 
-1. Review what has changed in this release. See [What Has Changed]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/320-to-410/what-has-changed.md).
+1. Review what has changed in this release. See [What Has Changed]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/320-to-410/what-has-changed).
 
 2. Before you migrate, follow [Upgrading Guidelines]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-guidelines) to get an understanding on the migration process.
 
@@ -28,7 +28,7 @@ Follow the instructions below to upgrade your WSO2 API Manager server **from WSO
     
 -   [Step 6 - Execute post migration scripts](#step-6-execute-post-migration-scripts)
     
--   [Step 7 - Re-Index the API artifacts](#step-7-re-Index-the-api-artifacts)
+-   [Step 7 - Re-Index the API Manager artifacts](#step-7-re-index-the-api-manager-artifacts)
 
 ### Step 1 - Migrate the API Manager configurations
 
