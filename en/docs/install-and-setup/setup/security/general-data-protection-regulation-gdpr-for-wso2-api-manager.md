@@ -9,17 +9,13 @@ Follow the instructions below to remove the references of the deleted user ident
 ### Step 1 - Optionally, build the Forget-Me Tool
 
 !!! note
-    - **Skip** this step if you are **only working with WSO2 API Manager** because you can make use of the pre-packed Forget-Me Tool. 
-    
-    - This step is **mandatory** in the following scenarios -
-         - When you are **working with multiple WSO2 products** and you need to delete the user's identity from all the products at once.
-         - When you are **working with a WSO2 product that does not have the Forget-Me Tool pre-packed in it**.
+    - This step is **mandatory** when you are **working with multiple WSO2 products** and you need to delete the user's identity from all the products at once.
 
 Follow the instructions below to build the Forget-Me Tool:
 
-1. Clone the [https://github.com/wso2/identity-anonymization-tool](https://github.com/wso2/identity-anonymization-tool) repository to a preferred location.
+1. Download the [`identity-anonymization-tool`](https://github.com/wso2/identity-anonymization-tool/releases/tag/v1.3.8) repository to a preferred location.
 
-2. Navigate to the `identity-anonymization-tool` directory in the source that you checked out.
+2. Navigate to the `identity-anonymization-tool` directory.
 
     `cd identity-anonymization-tool`
 
