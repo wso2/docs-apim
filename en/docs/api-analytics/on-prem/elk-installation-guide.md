@@ -23,6 +23,7 @@ This section will cover the steps required to configure the WSO2 API-M and then 
 
 #### Step 1.1 - Configuring the deployment.toml file.
 
+The Choreo based analytics will be enabled by default. If it is not, then specify the `type` as `elk` to enable ELK analytics as shown below.
 Open the `wso2am-4.x.x/repository/conf` directory. Edit `apim.analytics` configurations in the `deployment.toml` file with the following configuration.
 
 ```
@@ -45,18 +46,20 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
 2. Add the following configuration after the appenders:
 
     ```
-    appender.APIM_METRICS_APPENDER.type = RollingFile
-    appender.APIM_METRICS_APPENDER.name = APIM_METRICS_APPENDER
-    appender.APIM_METRICS_APPENDER.fileName = ${sys:carbon.home}/repository/logs/apim_metrics.log
-    appender.APIM_METRICS_APPENDER.filePattern = ${sys:carbon.home}/repository/logs/apim_metrics-%d{MM-dd-yyyy}.log
-    appender.APIM_METRICS_APPENDER.layout.type = PatternLayout
-    appender.APIM_METRICS_APPENDER.layout.pattern = %d{HH:mm:ss,SSS} [%X{ip}-%X{host}] [%t] %5p %c{1} %m%n
-    appender.APIM_METRICS_APPENDER.policies.type = Policies
-    appender.APIM_METRICS_APPENDER.policies.time.type = TimeBasedTriggeringPolicy
-    appender.APIM_METRICS_APPENDER.policies.time.interval = 1
-    appender.APIM_METRICS_APPENDER.policies.time.modulate = true
-    appender.APIM_METRICS_APPENDER.strategy.type = DefaultRolloverStrategy
-    appender.APIM_METRICS_APPENDER.strategy.max = 20
+   appender.APIM_METRICS_APPENDER.type = RollingFile
+   appender.APIM_METRICS_APPENDER.name = APIM_METRICS_APPENDER
+   appender.APIM_METRICS_APPENDER.fileName = ${sys:carbon.home}/repository/logs/apim_metrics.log
+   appender.APIM_METRICS_APPENDER.filePattern = ${sys:carbon.home}/repository/logs/apim_metrics-%d{MM-dd-yyyy}-%i.log
+   appender.APIM_METRICS_APPENDER.layout.type = PatternLayout
+   appender.APIM_METRICS_APPENDER.layout.pattern = %d{HH:mm:ss,SSS} [%X{ip}-%X{host}] [%t] %5p %c{1} %m%n
+   appender.APIM_METRICS_APPENDER.policies.type = Policies
+   appender.APIM_METRICS_APPENDER.policies.time.type = TimeBasedTriggeringPolicy
+   appender.APIM_METRICS_APPENDER.policies.time.interval = 1
+   appender.APIM_METRICS_APPENDER.policies.time.modulate = true
+   appender.APIM_METRICS_APPENDER.policies.size.type = SizeBasedTriggeringPolicy
+   appender.APIM_METRICS_APPENDER.policies.size.size=1000MB
+   appender.APIM_METRICS_APPENDER.strategy.type = DefaultRolloverStrategy
+   appender.APIM_METRICS_APPENDER.strategy.max = 10
     ```
 
 3. Add a reporter to the loggers list:
@@ -75,7 +78,7 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
     ```
 
 !!! note
-    Schedule a purge task for the apim_metrics log file with an appropriate retention period.
+    The `apim_metrics.log` file be rolled each day or when the log size reaches the limit of 1000 MB by default. Furthermore, only 10 revisions will be kept and older revisions will be deleted automatically. You can change these configurations by updating the configurations provided in step 2 given above in this. section.
 
 
 ### Step 2 - Configuring ELK
@@ -93,7 +96,7 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
 
 #### Installing Filebeat
 
-1. [Install Filebeat](https://www.elastic.co/guide/en/beats/filebeat/7.13/filebeat-installation-configuration.html#installation) according to your operating system.
+1. [Install Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation-configuration.html#installation) according to your operating system.
 
 2. Configure **Filebeats** to read the log file in the `repository/logs` folder. 
 
@@ -353,5 +356,3 @@ The Cache page shows statistics that indicate the efficiency with which response
 The Devices page displays information about operating systems and HTTP agents that end users use to invoke the APIs. You can use this page to get an idea of the distribution of your user base and improve your APIs to match the audience.
 
 <a href="{{base_path}}/assets/img/analytics/cloud/devices.png"><img src="{{base_path}}/assets/img/analytics/cloud/devices.png" width="70%" alt=""></a>
-
-
