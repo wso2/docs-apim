@@ -1,5 +1,8 @@
 # ELK Based Analytics Installation Guide
 
+!!! warn
+    The following elements are available only as an update, after Update level 90.  For more information, see [Updating WSO2 API Manager]({{base_path}}/administer/product-administration/updating-wso2-api-manager).
+
 <a href="{{base_path}}/assets/img/analytics/cloud/architecture.png"><img src="{{base_path}}/assets/img/analytics/cloud/architecture.png" width="70%" alt="Deployment diagram"></a>
 
 ### Analytics Data flow
