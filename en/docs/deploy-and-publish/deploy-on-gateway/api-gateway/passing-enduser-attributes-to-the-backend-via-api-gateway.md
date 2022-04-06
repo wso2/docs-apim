@@ -172,7 +172,7 @@ Follow the instructions below to change the existing functionality of retrieving
      ....
      ```
 
-1. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server).
+4. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server).
 
       This will start WSO2 API Manager in the all-in-one mode, which includes the default Gateway as well.
 
