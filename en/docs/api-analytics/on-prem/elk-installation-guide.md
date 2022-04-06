@@ -303,3 +303,52 @@ Once the above steps are completed, role mapping needs to be configured in Kiban
 ##### Configure SSL/TLS to secure ElasticSearch, Kibana, Beats, and Logstash
 
 For more information regarding configuring SSL/TLS to secure ElasticSearch, Kibana, Beats, and Logstash follow the steps mentioned in this [article](https://www.elastic.co/blog/configuring-ssl-tls-and-https-to-secure-elasticsearch-kibana-beats-and-logstash).
+
+### Dashboards
+
+#### Analyzing statistics
+
+Once you have set up the Kibana dashboards, you can access the following dashboards.
+
+##### Overview
+
+The Overview page gives you a quick overview of the performance of the system. It can be used as a dashboard to view the current system status.
+
+<a href="{{base_path}}/assets/img/analytics/cloud/overview.png"><img src="{{base_path}}/assets/img/analytics/cloud/overview.png" width="70%" alt=""></a>
+
+##### Traffic
+The Traffic page shows information related to the traffic that goes through your API management deployments. This includes API usage, application usage, resource usage, etc. You can use this page to investigate the usage of APIs and applications, traffic patterns, etc.
+
+<a href="{{base_path}}/assets/img/analytics/cloud/traffic1.png"><img src="{{base_path}}/assets/img/analytics/cloud/traffic1.png" width="70%" alt=""></a>
+
+<a href="{{base_path}}/assets/img/analytics/cloud/traffic2.png"><img src="{{base_path}}/assets/img/analytics/cloud/traffic2.png" width="70%" alt=""></a>
+
+
+##### Errors
+
+The Errors page shows information related to erroneous API calls that are received by your system. The errors are categorized based on the error type. You can further drill down using the error subtypes. Use this page as the starting point for debugging any API errors.
+
+<a href="{{base_path}}/assets/img/analytics/cloud/errors.png"><img src="{{base_path}}/assets/img/analytics/cloud/errors.png" width="70%" alt=""></a>
+
+
+##### Latency
+
+The Latency page shows information related to the latency of API calls within the API management deployment. You can view a summary of the slowest APIs and then drill down into the API view for further analysis. Use this page as a starting point to debug API slowness.
+
+<a href="{{base_path}}/assets/img/analytics/cloud/latency1.png"><img src="{{base_path}}/assets/img/analytics/cloud/latency1.png" width="70%" alt=""></a>
+
+<a href="{{base_path}}/assets/img/analytics/cloud/latency2.png"><img src="{{base_path}}/assets/img/analytics/cloud/latency2.png" width="70%" alt=""></a>
+
+
+##### Cache
+The Cache page shows statistics that indicate the efficiency with which response caching is carried out for the requests sent to your APIs.
+
+<a href="{{base_path}}/assets/img/analytics/cloud/cache.png"><img src="{{base_path}}/assets/img/analytics/cloud/cache.png" width="70%" alt=""></a>
+
+##### Devices
+
+The Devices page displays information about operating systems and HTTP agents that end users use to invoke the APIs. You can use this page to get an idea of the distribution of your user base and improve your APIs to match the audience.
+
+<a href="{{base_path}}/assets/img/analytics/cloud/devices.png"><img src="{{base_path}}/assets/img/analytics/cloud/devices.png" width="70%" alt=""></a>
+
+
