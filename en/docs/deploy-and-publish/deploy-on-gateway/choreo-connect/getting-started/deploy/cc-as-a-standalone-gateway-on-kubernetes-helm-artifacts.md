@@ -1,31 +1,28 @@
 # Deploying Choreo Connect as a Standalone Gateway on Kubernetes - Helm Artifacts
 
-Let's deploy an API using WSO2 API Controller (apictl) on Choreo Connect, which is running on Kubernetes as a Standalone Gateway. You can select one of the options to install Choreo Connect Helm Chart in the middle of the documentation.
+Let's deploy an API using WSO2 API Controller (apictl) on Choreo Connect, which is running on Kubernetes as a Standalone Gateway. You can select one of the options to install Choreo Connect Helm Chart.
 
 - [Option 1: Install Chart from WSO2 Helm Chart Repository](#option-1-install-chart-from-wso2-helm-chart-repository)
 - [Option 2: Install Chart from Source](#option-2-install-chart-from-source)
 
-## Before you begin
-    
--   WSO2 product Docker images used for the Kubernetes deployment.
+!!! info "Before you begin"
 
-    WSO2 product Docker images available at [DockerHub](https://hub.docker.com/u/wso2/) (General Availability (GA)
-    versions of WSO2 products with no [WSO2 Updates](https://wso2.com/updates).
+    **WSO2 product Docker images**
 
-    For a production grade deployment of the desired WSO2 product-version, it is highly recommended to use the relevant
-    Docker image that packages WSO2 Updates, available at [WSO2 Private Docker Registry](https://docker.wso2.com/). In order
-    to use these images, you need an active [WSO2 Subscription](https://wso2.com/subscription).
-    
--   Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Helm](https://helm.sh/docs/intro/install/), and [Kubernetes client](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
-    
--   Set up a [Kubernetes cluster](https://kubernetes.io/docs/setup/#learning-environment).
-    - Minimum CPU : 3vCPU
-    - Minimum Memory : 2GB
-    
--   Install [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/). 
+    WSO2 product Docker images used for this Kubernetes deployment are available at [DockerHub](https://hub.docker.com/u/wso2/) are General Availability (GA) versions and therefore does not include [WSO2 Updates](https://wso2.com/updates).
 
-!!! Note
-    Helm resources for WSO2 product deployment patterns are compatible with the [`nginx-0.30.0`](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.30.0) release.
+    For a production grade deployment of the desired WSO2 product-version, it is highly recommended to use the relevant Docker image which includes WSO2 Updates, available at [WSO2 Private Docker Registry](https://docker.wso2.com/). In order to use these images, you need an active [WSO2 Subscription](https://wso2.com/subscription).
+
+    **Pre-Requisites**
+    
+    -   Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Helm](https://helm.sh/docs/intro/install/), and [Kubernetes client](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
+        
+    -   Set up a [Kubernetes cluster](https://kubernetes.io/docs/setup/#learning-environment).
+        - Minimum CPU : 3vCPU
+        - Minimum Memory : 2GB
+        
+    -   Install [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/).    
+        Note: Helm resources for WSO2 product deployment patterns are compatible with the [`nginx-0.30.0`](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.30.0) release.
 
     
 {!includes/deploy/k8s-setup-note.md!}
@@ -67,7 +64,7 @@ Execute the following command to install the Helm Cart by selecting the helm ver
 
 The above steps will deploy Choreo Connect using WSO2 product Docker images available at DockerHub.
 
-If you are using WSO2 product Docker images available from WSO2 Private Docker Registry, please provide your **WSO2 Subscription** credentials via input values (using `--set` argument).
+If you are using Docker images available at WSO2 Private Docker Registry, please provide your **WSO2 Subscription** credentials via input values (using `--set` argument).
 
 Please see the following example.
 

@@ -2,12 +2,11 @@
 
 Let's deploy an API on Choreo Connect, which running on Docker, with WSO2 API Manager as the Control Plane.
 
-!!! info
-    **Before you begin**
+!!! info "Before you begin"
 
-    - Make sure you have installed Docker and Docker Compose on your machine.
+    - Make sure you have installed [Docker](https://docs.docker.com) and [Docker Compose](https://docs.docker.com/compose/) on your machine.
 
-    - Download the latest from [https://wso2.com/choreo/choreo-connect/](https://wso2.com/choreo/choreo-connect/) and extract it to a folder of your choice. The extracted folder will be referred to as `CHOREO-CONNECT_HOME` here onwards.
+    - Download the latest Choreo Connect release from [https://wso2.com/choreo/choreo-connect/](https://wso2.com/choreo/choreo-connect/) and extract it to a folder of your choice. The extracted folder will be referred to as `CHOREO-CONNECT_HOME` here onwards.
 
     - This guide assumes that you have already started the WSO2 API Manager instance. If not, download the latest [release](https://github.com/wso2/product-apim/releases) and follow the steps [here](https://github.com/wso2/product-apim#installation--running).
 
@@ -21,7 +20,7 @@ Open the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/config.toml` 
 
 In the `[controlPlane]` section,
 
- - Set `enabled` to true
+ - Set `enabled` to true.
  - Update `serviceURL` and `brokerConnectionParameters` with the IP of API Manager. (Search for `apim` and replace them with the IP. Alternatively, add an entry to the `/etc/hosts` file as `<ip-of-apim> apim`)
  - If you want to use a Gateway Environment other than the default, update `environmentLabels` with the name of the new Gateway Environment. If not, leave the value `"Default"` as it is.
 
