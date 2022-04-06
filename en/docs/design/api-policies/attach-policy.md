@@ -48,7 +48,7 @@ Follow the instructions below to attach one or more default policies that are sh
 
 You can use interceptors in Choreo Connect to carry out transformations and mediation on the requests and responses. Learn more about [Message Transformation]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/message-transformation-overview/) in Choreo Connect.
 
-The policy attribute “Includes to Payload” in the Call Interceptor Service supports following values in request flow.
+The policy attribute “Includes to Payload” in the Call Interceptor Service supports the following values in the request flow.
 
 - response_headers
 - response_body
