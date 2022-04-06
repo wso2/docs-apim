@@ -305,7 +305,7 @@ custom claims into JWT when invocation token in opaque mode.
 <td><pre>
 <code>
 apim.jwt.binding_federated_user_claims</code></pre></td>
-<td><p>This disables the default backend JWT generator.</p></td>
+<td><p>This disables the binding federated user claims to the backend JWT generator.</p></td>
 <td><code>false</code></td>
 </tr>
 </tbody>
@@ -317,22 +317,6 @@ apim.jwt.binding_federated_user_claims</code></pre></td>
     1.  Go to the `<APIM_GATEWAY>/repository/conf` directory and open the `log4j2.properties` file with a text editor.
     2.  Add these two loggers to the list of loggers:<br/>
     <code>loggers = AUDIT_LOG, trace-messages,... <strong>, synapse-headers, synapse-wire</strong></code>
-
-## Disabling the default backend JWT generator
-
-1. Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file.
-
-2. Disable the backend JWT implementation.
-
-    ```
-    [apim.jwt]
-    binding_federated_user_claims = false
-    ```
-
-3. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server).
-
-      This will start WSO2 API Manager in the all-in-one mode, which includes the default Gateway as well.
-
 
 ## See Also
 
