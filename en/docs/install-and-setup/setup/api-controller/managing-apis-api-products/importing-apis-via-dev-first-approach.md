@@ -34,7 +34,7 @@
                 apictl init SampleAPI --definition definition.yaml --force=true                
                 ```
             
-            As an example, you can use the [Sample-Api.yaml](https://github.com/wso2/product-apim-tooling/blob/master/import-export-cli/integration/testdata/sample-api.yaml) here to generate an API Project.
+            As an example, you can use the [Sample-Api.yaml](https://github.com/wso2/product-apim-tooling/blob/4.0.x/import-export-cli/integration/testdata/sample-api.yaml) here to generate an API Project.
 
         -   Response    
             ```go
