@@ -3,7 +3,7 @@
 The following information describes how to upgrade your API Manager server **from APIM 4.0.0 to 4.1.0**.
 
 ## Prerequisites
-1. Review what has been changed in this release. see [What Has Changed]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/400-to-410/what-has-changed.md)
+1. Review what has been changed in this release. see [What Has Changed]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/400-to-410/what-has-changed)
 
 2. Before you migrate, follow [Upgrading Guidelines]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-guidelines) to get an understanding on the migration process.
 
@@ -23,7 +23,7 @@ Follow the step 1 to step 6 below to upgrade your WSO2 API Manager server
     
 -   [Step 5 - Execute post migration scripts](#step-5-execute-post-migration-scripts)
     
--   [Step 6 - Re-Index the API Manager artifacts](#step-6-re-Index-the-api-artifacts)
+-   [Step 6 - Re-Index the API Manager artifacts](#step-6-re-index-the-api-manager-artifacts)
 
 ### Step 1: Migrate the API Manager Configurations 
 
@@ -204,7 +204,7 @@ the information about the added private keys, certificates and the list of trust
         ALTER USER <user> WITH SUPERUSER;
         ```
 
-2.  Navigate to the [latest release tag (v4.1.0.x)](https://github.com/wso2-extensions/apim-migration-resources/tags) under **Assets** and download the `wso2am-migration-4.1.0.x.zip`. Unzip it to a local directory. 
+2.  Navigate to the [latest release tag (v4.1.0.x)](https://github.com/wso2-extensions/apim-migration-resources/releases) under **Assets** and download the `wso2am-migration-4.1.0.x.zip`. Unzip it to a local directory. 
 
     !!! note
 
