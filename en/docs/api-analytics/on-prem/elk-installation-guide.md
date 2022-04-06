@@ -20,7 +20,7 @@ This section will cover the steps required to configure the WSO2 API-M and then 
 
 #### Step 1.1 - Configuring the deployment.toml file.
 
-By default, the Choreo based analytics will be enabled if not specify the type as ELK. In order to enable ELK analytics,
+The Choreo based analytics will be enabled by default. If it is not, then specify the `type` as `elk` to enable ELK analytics as shown below.
 Open the `wso2am-4.x.x/repository/conf` directory. Edit `apim.analytics` configurations in the `deployment.toml` file with the following configuration.
 
 ```
@@ -75,8 +75,7 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
     ```
 
 !!! note
-    By default, the apim_metrics.log file be rolled each day or when the log size reaches the limit of 1000 MB. Furthermore, only 10 revisions will be kept and older revisions will be deleted automatically.
-You can change this configurations by updating the configurations provided in above 2nd point.
+    The `apim_metrics.log` file be rolled each day or when the log size reaches the limit of 1000 MB by default. Furthermore, only 10 revisions will be kept and older revisions will be deleted automatically. You can change these configurations by updating the configurations provided in step 2 given above in this. section.
 
 
 ### Step 2 - Configuring ELK
