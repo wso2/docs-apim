@@ -7,6 +7,7 @@ Choreo Connect supports the following operations and the policies supporting the
  <th>
     <td>Action Name</td>
     <td>Parameters</td>
+    <td>Applicable Flows</td>
     <td>Description</td>
  </th>
  <tr>
@@ -16,11 +17,13 @@ Choreo Connect supports the following operations and the policies supporting the
             <li>headerName</li>
             <li>headerValue</li>
         </ul></td>
+    <td>Request</td>
     <td>Set a header in the request flow.</td>
  </tr>
  <tr>
     <td>REMOVE_HEADER</td>
-    <td >headerName</td>
+    <td>headerName</td>
+    <td>Request</td>
     <td>Remove a header in the request flow.</td>
  </tr>
  <tr>
@@ -30,6 +33,7 @@ Choreo Connect supports the following operations and the policies supporting the
             <li>queryParamName</li>
             <li>queryParamValue</li>
         <ul></td>
+    <td>Request</td>
     <td>Add a query param in the request flow.</td>
  </tr>
  <tr>
@@ -39,6 +43,7 @@ Choreo Connect supports the following operations and the policies supporting the
             <li>currentMethod</li>
             <li>updatedMethod</li>
         </ul></td>
+    <td>Request</td>
     <td>Change the HTTP method of a resource in the request flow.</td>
  </tr>
  <tr>
@@ -48,6 +53,7 @@ Choreo Connect supports the following operations and the policies supporting the
             <li>resourcePath</li>
             <li>includeQueryParams</li>
         </ul></td>
+    <td>Request</td>
     <td>Rewrite the resource path in the request flow.</td>
  </tr>
  <tr>
@@ -57,6 +63,7 @@ Choreo Connect supports the following operations and the policies supporting the
             <li>interceptorServiceURL</li>
             <li>includes (this require a comma separated string, which describes what should be included in the request body of the interceptor service)</li>
         </ul></td>
+    <td>Request Response</td>
     <td>Call an interceptor service in request or response flow. For more information, visit <a href="{{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/message-transformation-overview">Message Mediation</a>.</td>
  </tr>
  <tr>
@@ -74,6 +81,7 @@ Choreo Connect supports the following operations and the policies supporting the
             <li>maxPerRoute</li>
             <li>connectionTimeout</li>
         </ul></td>
+    <td>Request</td>
     <td>Validate the request against Open Policy Agent server.</td>
  </tr>
 </table>
@@ -81,7 +89,7 @@ Choreo Connect supports the following operations and the policies supporting the
 Custom Choreo Connect policies can use these actions and template or specific value in parameters.
 
 !!! note
-	Choreo Connect policy definitions are in the .gotmpl file extension. Its content type is YAML, templated with go templates.
+	Choreo Connect policy definitions are in the .gotmpl file extension. Its content type is YAML, templated with [go templates](https://pkg.go.dev/text/template).
 
 ## Sample 1 - Custom Call Interceptor Policy
 
@@ -225,4 +233,4 @@ You can now define the policy spec and since you have templed myPolicy and myRul
 }
 ```
 
-You can upload the created custom policy from WSO2 API Manager publisher portal as a custom or API specific policy and attach it to an API resource.
+You can upload the created custom policy from the WSO2 API Manager Publisher Portal as a custom or API-specific policy and attach it to an API resource.
