@@ -204,7 +204,7 @@ the information about the added private keys, certificates and the list of trust
         ALTER USER <user> WITH SUPERUSER;
         ```
 
-2.  Navigate to the [latest release tag (v4.1.0.x)](https://github.com/wso2-extensions/apim-migration-resources/tags) under **Assets** and download the `wso2am-migration-4.1.0.x.zip`. Unzip it to a local directory. 
+2.  Navigate to the [latest release tag (v4.1.0.x)](https://github.com/wso2-extensions/apim-migration-resources/releases) under **Assets** and download the `wso2am-migration-4.1.0.x.zip`. Unzip it to a local directory. 
 
     !!! note
 
