@@ -87,7 +87,6 @@ When generating the backend JWT, it retrieves the claims from the invoked JWT. I
     
 ## Backend JWT generator configuration details
 
-
 The following is a sample configuration.
 
 ```toml
@@ -169,34 +168,8 @@ The relevant elements in the JWT generation configuration are described below. I
 <td><p>Path of the private key</p></td>
 <td><code>/home/wso2/security/keystore/mg.key</code></td>
 </tr>
-<tr class="odd">
-<td><pre>
-<code>
-[apim.jwt]<br/>
-binding_federated_user_claims</code></pre></td>
-<td><p>This disables the default backend JWT generator.</p></td>
-<td><code>false</code></td>
-</tr>
 </tbody>
 </table>
-
-## Disabling the default backend JWT generator
-
-1. Navigate to the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/config.toml` file.
-
-2. Disable and configure the backend JWT implementation.
-
-     The following is the basic configuration that you need to have to disable backend JWT.
-
-    ```
-    [enforcer.jwtGenerator]
-       [apim.jwt]
-       binding_federated_user_claims = false
-    ```
-
-3. Start the server.
-    
-     For more information, see the [Quick Start Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/).
 
 ## See Also
 

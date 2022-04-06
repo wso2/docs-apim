@@ -25,6 +25,7 @@ The claims that are retrieved for the JWT access token generation are cached. Yo
 enable = true
 expiry_time = "900"
 ```
+
 ## Enabling the default backend JWT generator
 
 Before passing end user attributes, you need to enable and configure the JWT implementation, as mentioned below in the default API Gateway.
@@ -32,6 +33,11 @@ Before passing end user attributes, you need to enable and configure the JWT imp
 1. Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
 2. Enable and configure the JWT implementation.
+
+     ```
+     [apim.jwt]
+     enable = true
+     ```
 
      For more information, see [JWT generation configuration details](#jwt-generation-configuration-details).
 
@@ -100,11 +106,11 @@ Follow the instructions below if you want to pass additional attributes to the b
 
 3.  Add your class in the `apim.jwt.generator_impl` element of the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
-    ``` toml
-    [apim.jwt]
-    ...
-    generator_impl = "org.wso2.carbon.test.CustomTokenGenerator"
-    ```
+     ``` toml
+     [apim.jwt]
+     ...
+     generator_impl = "org.wso2.carbon.test.CustomTokenGenerator"
+     ```
 
 4.  Set the `apim.jwt.enable` element to **true** in the `deployment.toml` file.
 
@@ -158,14 +164,15 @@ Follow the instructions below to change the existing functionality of retrieving
 2. Build your class and JAR file in the `<API-M_HOME>/repository/components/lib` directory where the node works as the Key Manager node.
 
 3. Set the `apim.jwt.claims_extractor_impl` to you class name.
-```toml
-[apim.jwt]
-....
-claims_extractor_impl="org.wso2.carbon.test.CustomClaimRetriever"
-....
-```
 
-4. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server).
+     ```toml
+     [apim.jwt]
+     ....
+     claims_extractor_impl="org.wso2.carbon.test.CustomClaimRetriever"
+     ....
+     ```
+
+1. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server).
 
       This will start WSO2 API Manager in the all-in-one mode, which includes the default Gateway as well.
 
@@ -227,26 +234,26 @@ If you need to change the way that JWT is generated in the Gateway, such as by a
 <table>
 <thead>
 <tr class="header">
-<th>Element</th>
-<th>Description</th>
-<th>Default Value</th>
+<th><b>Element</b></th>
+<th><b>Description</b></th>
+<th><b>Default Value</b></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><pre><code>apim.jwt.enable</code></pre></td>
 <td>Uncomment this property and set this value to <strong><code>true</code></strong> to enable JWT.</td>
-<td>false</td>
+<td><code>false</code></td>
 </tr>
 <tr class="even">
 <td><pre><code>apim.jwt.header</code></pre></td>
 <td>The name of the HTTP header to which the JWT is attached.</td>
-<td>X-JWT-Assertion</td>
+<td><code>X-JWT-Assertion</code></td>
 </tr>
 <tr class="odd">
 <td><pre><code>apim.jwt.enable_user_claims</code></pre></td>
 <td>Uncomment this property and set this value to <strong><code>true</code></strong> to enable user claims in JWT in opaque Token</td>
-<td>false</td>
+<td><code>false</code></td>
 </tr>
 <tr class="even">
 <td><pre><code>apim.jwt.claims_extractor_impl</code></pre></td>
@@ -254,15 +261,15 @@ If you need to change the way that JWT is generated in the Gateway, such as by a
 Uncomment this configuration and configure custom Claim Retriever to add
 custom claims into JWT when invocation token in opaque mode.
 </td>
-<td>org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetriever</td>
+<td><code>org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetriever</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><pre><code>apim.jwt.claim_dialect</code></pre></td>
 <td><div class="content-wrapper">
 <p>The dialect URI under which the user's claims are be looked for. Only works with the default value of the <code>apim.jwt.claims_extractor_impl</code> element defined above.</p>
 <p>The JWT access token contains all claims that are defined in the <code>apim.jwt.claim_dialect</code> element. The default value of this element is <code>http://wso2.org/claims</code>. To get the list of a specific user's claims that need to be included in the JWT, simply uncomment this element after enabling the JWT. It will include all claims in <code>http://wso2.org/claims</code> to the JWT access token.</p>
 </div></td>
-<td>http://wso2.org/claims</td>
+<td><code>http://wso2.org/claims</code></td>
 </tr>
 <tr class="even">
 <td><pre><code>apim.jwt.convert_dialect</code></pre></td>
@@ -276,23 +283,30 @@ custom claims into JWT when invocation token in opaque mode.
 ), the <code>apim.jwt.convert_dialect</code> configuration value should be set to <code>true</code>.</p>
 </div>
 </td>
-<td>false</td>
-</tr>
-<tr class="even">
-<td><pre><code>apim.jwt.signing_algorithm</code></pre></td>
-<td><p>The signing algorithm used to sign the JWT. The general format of the JWT is <code>              {token infor}.{claims list}.{signature}</code>. When NONE is specified as the algorithm, signing is turned off and the JWT looks as <code>{token infor}.{claims list}</code> with two strings delimited by a period and a period at the end.</p>
-<p>This element can have only two values - the default values are `SHA256withRSA` or `NONE`.</p></td>
-<td>SHA256withRSA</td>
+<td><code>false</code></td>
 </tr>
 <tr class="odd">
-<td><pre><code>apim.jwt.gateway_generator.impl</code></pre></td>
-<td><p>Fully qualified custom JWT generator to used in JWT(Self Contained) Access Tokens</p></td>
-<td>org.wso2.carbon.apimgt.gateway.handlers.security.jwt.generator.APIMgtGatewayJWTGeneratorImpl</td>
+<td><pre><code>apim.jwt.signing_algorithm</code></pre></td>
+<td><p>The signing algorithm used to sign the JWT. The general format of the JWT is <code>{token infor}.{claims list}.{signature}</code>. When NONE is specified as the algorithm, signing is turned off and the JWT looks as <code>{token infor}.{claims list}</code> with two strings delimited by a period and a period at the end.</p>
+<p>This element can have only two values - the default values are <code>SHA256withRSA</code> or <code>NONE</code>.</p></td>
+<td><code>SHA256withRSA</code></td>
 </tr>
 <tr class="even">
+<td><pre><code>apim.jwt.gateway_generator.impl</code></pre></td>
+<td><p>Fully qualified custom JWT generator to used in JWT(Self Contained) Access Tokens</p></td>
+<td><code>org.wso2.carbon.apimgt.gateway.handlers.security.jwt.generator.APIMgtGatewayJWTGeneratorImpl</code></td>
+</tr>
+<tr class="odd">
 <td><pre><code>apim.jwt.gateway_generator.excluded_claims</code></pre></td>
 <td><p>List of claims that are not supposed to be included in the Backend JWT when using JWT (Self Contained) Access Tokens</p></td>
 <td>N/A</td>
+</tr>
+<tr class="even">
+<td><pre>
+<code>
+apim.jwt.binding_federated_user_claims</code></pre></td>
+<td><p>This disables the default backend JWT generator.</p></td>
+<td><code>false</code></td>
 </tr>
 </tbody>
 </table>
@@ -303,6 +317,22 @@ custom claims into JWT when invocation token in opaque mode.
     1.  Go to the `<APIM_GATEWAY>/repository/conf` directory and open the `log4j2.properties` file with a text editor.
     2.  Add these two loggers to the list of loggers:<br/>
     <code>loggers = AUDIT_LOG, trace-messages,... <strong>, synapse-headers, synapse-wire</strong></code>
+
+## Disabling the default backend JWT generator
+
+1. Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file.
+
+2. Disable the backend JWT implementation.
+
+    ```
+    [apim.jwt]
+    binding_federated_user_claims = false
+    ```
+
+3. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server).
+
+      This will start WSO2 API Manager in the all-in-one mode, which includes the default Gateway as well.
+
 
 ## See Also
 
