@@ -14,7 +14,11 @@ A common policy is a globally maintained policy and you can easily utilize this 
 
 2. Navigate to **Policies** tab from the left menu and click **Add New Policy**.
 
+    [![Add policies]({{base_path}}/assets/img/design/api-policies/common-policy-1.png){: style="width:90%"}]({{base_path}}/assets/img/design/api-policies/common-policy-1.png)
+
 3. Let’s create a policy named **Sample Add Header** for demo purposes. First let’s fill the **General Details** section using the following details.
+
+    [![Add Header policies]({{base_path}}/assets/img/design/api-policies/common-policy-2.png){: style="width:90%"}]({{base_path}}/assets/img/design/api-policies/common-policy-2.png)
 
     <table>
         <th>
