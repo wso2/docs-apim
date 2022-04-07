@@ -26,7 +26,7 @@ Follow the instructions below to attach one or more default policies that are sh
         </tr>
         <tr>
             <td>Header Value</td>
-            <td>Foo</td>
+            <td>Bar</td>
         </tr>
     </table>
 
