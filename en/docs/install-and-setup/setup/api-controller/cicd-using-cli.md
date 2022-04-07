@@ -159,7 +159,7 @@ Open the `api.yaml` and `api_meta.yaml` files inside the `SwaggerPetstore-1.0.0`
 <a name="Step 5"></a>
 ### Step 5 - Prepare an API project for CI/CD
 
-Create two (2) repositories in your Version Control System. You can give any names to these repositories, but in this example we will be naming those as **Source** and **Deployment**. Note that, **Deployment** repository is only needed if you want to [Configure Environment Specific Parameters]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters).
+Create two (2) repositories in your Version Control System. You can give any names to these repositories, but in this example we will be naming those as **Source** and **Deployment**. Note that, **Deployment** repository is only needed if you want to [Configuring Environment Specific Parameters]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters).
 
 1. Copy the created/exported API project into the Source repository.
     
@@ -365,7 +365,7 @@ The repositories (**Source** and **Deployment**) that you committed the project 
                     <td>Used to specify whether to update the API if it already exists during the deployment</td>
                 </tr>
             </table>
-        - For more information, see [Configure Git Integration]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration).     
+        - For more information, see [Configuring Git Integration]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration).     
 
 #### b. Promoting a single API via CI/CD to upper environments
 
@@ -551,7 +551,7 @@ For example, let us consider there is an [API Product]({{base_path}}/design/crea
                         <td>Used to specify whether to update the API Product if it already exists during deployment</td>
                     </tr>
                 </table>
-        - For more information, see [Configure Git Integration]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration).
+        - For more information, see [Configuring Git Integration]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration).
 
     !!! tip
         Multiple API Product projects can be promoted through CI/CD by committing them to the same repository.
@@ -654,7 +654,7 @@ Let us assume that the **PetsApp** application is in the development environment
                         <td>Used to specify whether to update the Application if it already exists during the deployment</td>
                     </tr>
                 </table>
-        - For more information, see [Configure Git Integration]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration).
+        - For more information, see [Configuring Git Integration]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration).
 
     !!! tip
         Multiple Applications could be promoted through CI/CD by committing those Application projects to the same repository.
