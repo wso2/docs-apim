@@ -4,7 +4,7 @@
 
 ## Step 4 - Test the API via the Publisher
 
-Once deployed to the gateway, you can [test the REST type APIs via the Publisher Portal](../../../../design/create-api/create-rest-api/test-a-rest-api/).
+Once deployed to the Gateway, you can [test the REST type APIs via the Publisher Portal](../../../../design/create-api/create-rest-api/test-a-rest-api/).
 
 ## Step 5 - Publish the API as a Prototype
 
