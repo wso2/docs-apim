@@ -103,7 +103,7 @@ definition:
    includes: {{'{{ .includes }}'}}
 ```
 
-Lets say you have an interceptor service that converts XML payload to JSON with the server URL https://xml-to-json-interceptor:8443 and lets create a policy named “XML to JSON Call Interceptor”. Learn more about Choreo Connect interceptors on Message Transformation. Since we only need request and response payload, we can specify includes as “request_body,response_body”. Following the the definition.
+Let's say you have an interceptor service that converts XML payload to JSON with the server URL `https://xml-to-json-interceptor:8443` and let's create a policy named `XML to JSON Call Interceptor`. Learn more about Choreo Connect interceptors on Message Transformation. Since we only need request and response payload, we can specify includes as `request_body,response_body`. Following the definition.
 
 Lets create the policy definition xmlToJsonCallInterceptor.gotmpl with the following content.
 
