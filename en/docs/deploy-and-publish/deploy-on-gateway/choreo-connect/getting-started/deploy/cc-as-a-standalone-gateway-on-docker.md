@@ -100,7 +100,7 @@ Once the containers are up and running, we can monitor the status of the contain
     ```
 
     !!! info
-        The following apictl commands are executed with the flag `-k` to avoid the SSL verification with Choreo Connect. To communicate via https without skipping the SSL verification (without -k flag), add the cert of Choreo Connect into `/home/<your-pc-username>/.wso2apictl/certs`.
+        The following apictl commands are executed with the flag `-k` to avoid the SSL verification with Choreo Connect. To communicate via HTTPS without skipping the SSL verification (without -k flag), add the cert of Choreo Connect into `/home/<your-pc-username>/.wso2apictl/certs`.
 
 3. Deploy the API in Choreo Connect
 
