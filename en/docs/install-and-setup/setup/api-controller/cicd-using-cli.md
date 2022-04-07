@@ -219,13 +219,27 @@ The apictl tool should be installed in the automation servers to begin the proce
 
 #### a. Promoting APIs in a Git repository to upper environments via CI/CD
 
-The repository that you committed the project in the above step <a href="#E">E</a> needs to be cloned into the instance that is executing the CI/CD process. The apictl has inbuilt support for integrating with a Git-based version control system. It gives a unified command `vcs deploy` to deploy any type of project (e.g., APIs, API Products, and Apps).
+The repositories (**Source** and **Deployment**) that you committed the project files in the above step <a href="#Step 5">5</a> need to be cloned into the instance that is executing the CI/CD process. The apictl has inbuilt support for integrating with a Git-based version control system. It gives a unified command `vcs deploy` to deploy any type of project (e.g., APIs, API Products, and Applications).
 
-1.  Navigate to the directory that has the cloned Git repository.
+1. Set the Source and the Deployment directory paths.
+   ```bash
+   $ apictl set --vcs-source-repo-path path/to/Source
+   $ apictl set --vcs-deployment-repo-path path/to/Deployment
+   ```
+
+    !!! note
+        - Setting the Source repository path is mandatory before executing `vcs deploy` in the latter steps. 
+        - If you do not want environment specific information to be maintained, you do not need to maintain a Deployment repository, only the Source repository will be enough. Hence, setting the Deployment repository path is optional. 
+        - If you have not set the Deployment Repository path, only the artifacts inside the Source Repository will be considered when pushing to the environment when the `vcs deploy` command is executed.
+
+    <a name="Step 5 a(2)"></a>
+
+2.  Navigate to the Source directory.
     ```bash
-    $ cd <cloned-repository-name>
+    $ cd path/to/Source
     ```
-2.  As this is the first time that the repository is used for Git Integration functionality of apictl, run `vcs init` command to initialize the repository with apictl. This needs to run only once for the repository.
+
+3.  As this is the first time that the Source repository is used for Git Integration functionality of apictl, run `vcs init` command to initialize the repository with apictl. This needs to run only once for the repository.
 
     !!! example
         ```bash
@@ -238,9 +252,11 @@ The repository that you committed the project in the above step <a href="#E">E</
     Make sure to commit this file to the repository.   
 
     !!! tip
-        `vcs.yaml` will contain a unique identifier for the repository which is used to store deployed commits related meta-information.
+        - `vcs.yaml` will contain a unique identifier for the repository which is used to store deployed commits related meta-information.
 
-3.  Run `vcs status` command to see the available changes that needs to be deployed to the production environment.
+    <a name="Step 5 a(4)"></a>
+
+4.  Run `vcs status` command to see the available changes that needs to be deployed to the production environment (You can do the same by navigating and executing the below command in the Deployment repository as well).
 
     !!! example
         ```bash
@@ -251,7 +267,9 @@ The repository that you committed the project in the above step <a href="#E">E</
         1: [save]		SwaggerPetstore-1.0.0: (SwaggerPetstore-1.0.0)
         ```
 
-4.  Import the **SwaggerPetstore** API into the production environment by running the following sample command.
+5. If you have a Deployment repository, perform the steps <a href="#Step 5 a(2)">a(2)</a> - <a href="#Step 5 a(4)">a(4)</a> for that as well.
+
+6.  Import the **SwaggerPetstore** API into the production environment by running the following sample command.
 
     !!! tip
         - Make sure you have already logged-in to the `prod` environment. For more information, see 
@@ -266,7 +284,7 @@ The repository that you committed the project in the above step <a href="#E">E</
 
         APIs (1) ...
         1: SwaggerPetstore-1.0.0: (SwaggerPetstore-1.0.0)
-        Successfully imported API
+        Successfully imported API.
         ```
 
     The above command will detect the target environment and provision the API to it.
@@ -279,15 +297,17 @@ The repository that you committed the project in the above step <a href="#E">E</
         Everything is up-to-date
         ```
 
-5.  Adding a new API to the Git repository
+7.  Adding a new API to the Git repository
 
-    Multiple APIs can be promoted through CI/CD by committing the respective API projects to the repository.
+    Multiple APIs can be promoted through CI/CD by committing the respective API projects and the deployment artifacts to the repositories.
 
-    1.  Create another API Project (**Pizzashack-1.0.0**) by following the steps (<a href="#B">B</a>,<a href="#C">C</a>) OR <a href="#D">D</a>.
+    1.  Create another API Project (**Pizzashack-1.0.0**) by following the steps (<a href="#Step 2">2</a>,<a href="#Step 3">3</a>) OR <a href="#Step 4">4</a>.
+
+    2.  Follow the steps in <a href="#Step 5">5</a> to copy the created project to the Source repository and generate the individual deployment repository if needed.
     
-    2.  Commit the project to the Git repository.
+    3.  Commit all the new changes in both the Source and the Deployment repositories.
 
-    3.  Run `vcs status` command to verify the new project addition.
+    4.  Navigate to the Source repository and run `vcs status` command to verify the new project addition (You can do the same by navigating to the Deployment repository as well).
 
         ```bash
         $ apictl vcs status -e prod
@@ -297,7 +317,7 @@ The repository that you committed the project in the above step <a href="#E">E</
         1: [save]		Pizzashack-1.0.0: (Pizzashack-1.0.0)
         ```
 
-    4.  Run `vcs deploy` command to deploy the new API to the production environment.
+    5.  Run `vcs deploy` command to deploy the new API to the production environment.
 
         ```bash
         $ apictl vcs deploy -e prod
@@ -305,31 +325,47 @@ The repository that you committed the project in the above step <a href="#E">E</
 
         APIs (1) ...
         1: Pizzashack-1.0.0: (Pizzashack-1.0.0)
-        Successfully imported API
+        Successfully imported API.
         ```
 
         Here, apictl will deploy only the new API **Pizzashack-1.0.0** without re-deploying the other unchanged API **SwaggerPetstore-1.0.0**.
 
     !!! important
         For deploying an API using `vcs deploy` command: 
-        
-        -   It is mandatory to have your API projects in a Git based version control system.
-        -   It is mandatory to have `api_params.yaml` file inside each API Project. This is created by default when you export an API using `export api` or initialized an API Project using `init`. The following configuration section in the `api_params.yaml` file is used to deploy the API.
 
-        ```bash
-        deploy:
-            import:
-                update: true
-                preserveProvider: true
-        ```
-
-        You can change the above fields accordingly.
-
-        | Field           | Description                                                                              |
-        |-----------------|------------------------------------------------------------------------------------------|
-        | update          | Used to specify whether to update the API if it already exists during the deployment     |
-        | preserveProvider| Preserve existing provider of API after importing it                                     |
-        
+        - It is mandatory to have your API projects in a Git based version control system.
+        - The directories inside the **Source** repository should have the naming format `<API_Name>-<API_Version>`.
+        - The directories inside the **Deployment** repository should have the naming format `DeploymentArtifacts_<API_Name>-<API_Version>`.
+        - It is mandatory to have `api_meta.yaml` file either inside the Soure API Project (This is created by default when you export an API using `export api` or initialized an API Project using `init`) or inside the individual deployment repository (This is created when you generate the individual deployment repository using the `apictl gen deployment-dir` command).
+        - During the `vcs deploy`, if the `api_meta.yaml` is inside both the source API project and the individual deployment repository, the priority will be given to the file that is inside the individual deployment repository.
+        - The following configuration section in the `api_meta.yaml` file is used to deploy the API.
+            ```bash
+            deploy:
+                import:
+                    preserveProvider: true
+                    rotateRevision: false
+                    update: true
+            ```
+            You can change the above fields accordingly.
+            <table>
+                <tr class="header">
+                    <th>Field</th>
+                    <th>Description</th>
+                </tr>
+                <tr class="odd">
+                    <td>preserveProvider</td>
+                    <td>Preserve the existing provider of the API after importing it</td>
+                </tr>
+                <tr class="even">
+                    <td>rotateRevision</td>
+                    <td>When importing (updating) the API multiple times, if the maximum revision limit reached, delete the oldest revision and create a new revision</td>
+                </tr>
+                <tr class="odd">
+                    <td>update</td>
+                    <td>Used to specify whether to update the API if it already exists during the deployment</td>
+                </tr>
+            </table>
+        - For more information, see [Configure Git Integration]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration).     
 
 #### b. Promoting a single API via CI/CD to upper environments
 
@@ -424,7 +460,7 @@ Run any of the following apictl commands to get keys for the API/API Product.
 
 For example, let us consider there is an [API Product]({{base_path}}/design/create-api-product/api-product-overview) **PetsInfo** in the development environment with a subset of operations of **SwaggerPetstore** API.
 
-1.  Export the API Product using `export api-product` command from the development environment (dev).
+1.  Export the API Product using `export api-product` command from the development environment (dev). For more information, see [Export an API Product]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/migrating-api-products-to-different-environments/#export-an-api-product).
 
     ```bash
     $ apictl export api-product -n PetsInfo -e dev --latest
@@ -435,9 +471,11 @@ For example, let us consider there is an [API Product]({{base_path}}/design/crea
 
 2.  Extract the exported API Product Project.
 
-3.  Commit the project to the Git repository.
+3.  Similar to APIs, follow the steps in <a href="#Step 5">5</a> to copy the created project to the Source repository and generate the individual deployment repository if needed.
 
-4.  Run `vcs status` command to see the available changes that needs to be deployed to the production environment.
+4.  Commit all the new changes in both the Source and the Deployment repositories.
+
+5.  Run `vcs status` command to see the available changes that needs to be deployed to the production environment.
 
     !!! example
         ```bash
@@ -449,7 +487,7 @@ For example, let us consider there is an [API Product]({{base_path}}/design/crea
         ```
 
     !!! important
-        If you haven't initialized the repository with API Controller, you will get the below error.
+        If you haven't initialized the repository with apictl, you will get the below error.
         
         ```bash
         $ apictl vcs status -e prod
@@ -457,7 +495,7 @@ For example, let us consider there is an [API Product]({{base_path}}/design/crea
         Exit status 1
         ```
 
-        make sure to follow [Promoting APIs in a Git repository to upper environments via CI/CD](#a-promoting-apis-in-a-git-repository-to-upper-environments-via-cicd) - *Step 2* to initialize the repository.
+        make sure to follow [Promoting APIs in a Git repository to upper environments via CI/CD](#a-promoting-apis-in-a-git-repository-to-upper-environments-via-cicd) - *Step 3* to initialize the repository.
 
 3.  Import the **PetsInfo** Product into the production environment by running the following sample command.
 
@@ -472,33 +510,51 @@ For example, let us consider there is an [API Product]({{base_path}}/design/crea
         ```
 
     The above command will detect the target environment and create the **PetsInfo** Product in the target environment.
-    
+
     !!! important
-        For deploying an API Product using `vcs deploy` command: 
-        
-        -   It is mandatory to have your API Product projects in a Git based version control system.
-        -   It is mandatory to have `api_product_params.yaml` file inside each API Product Project. This is created by default when you export an API Product using `export api-product`. The following configuration section in the `api_product_params.yaml` file is used to deploy the API Product.
+        For deploying an API using `vcs deploy` command: 
 
-        ```bash
-        deploy:
-            import:
-                updateApiProduct: true
-                preserveProvider: true
-                importApis: true
-                updateApis: false
-        ```
-
-        You can change the above fields accordingly.
-
-        | Field           | Description                                                                                 |
-        |-----------------|---------------------------------------------------------------------------------------------|
-        | updateApiProduct| Used to specify whether to update the API Product if it already exists during deployment|
-        | preserveProvider| Preserve the existing provider of the API Product after importing it                            |
-        | importApis      | Import the dependant API(s) along with the API Product if the dependant API(s) are not available in the target environment|
-        | updateApis      | Update the dependant API(s) in the target environment                                       |
+        - It is mandatory to have your API Product projects in a Git based version control system.
+        - The directories inside the **Source** repository should have the naming format `<API_Product_Name>-<API_Product_Version>` (Since API Products do not have a version, the `API_Product_Version` should be 1.0.0 by default).
+        - The directories inside the **Deployment** repository should have the naming format `DeploymentArtifacts_<API_Product_Name>-<API_Product_Version>`.
+        - It is mandatory to have `api_product_meta.yaml` file either inside the Soure API Product Project (This is created by default when you export an API Product using `export api product`) or inside the individual deployment repository (This is created when you generate the individual deployment repository using the `apictl gen deployment-dir` command).
+        - During the `vcs deploy`, if the `api_product_meta.yaml` is inside both the source API Product project and the individual deployment repository, the priority will be given to the file that is inside the individual deployment repository.
+        - The following configuration section in the `api_product_meta.yaml` file is used to deploy the API Product.
+            ```bash
+            deploy:
+                import:
+                    importApis: true
+                    preserveProvider: true
+                    rotateRevision: false
+                    updateApiProduct: true
+            ```
+            You can change the above fields accordingly.
+                <table>
+                    <tr class="header">
+                        <th>Field</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr class="odd">
+                        <td>importApis</td>
+                        <td>Import the dependant API(s) along with the API Product if the dependant API(s) are not available in the target environment</td>
+                    </tr>
+                    <tr class="even">
+                        <td>preserveProvider</td>
+                        <td>Preserve the existing provider of the API Product after importing it</td>
+                    </tr>
+                    <tr class="odd">
+                        <td>rotateRevision</td>
+                        <td>When importing (updating) the API Product multiple times, if the maximum revision limit reached, delete the oldest revision and create a new revision</td>
+                    </tr>
+                    <tr class="even">
+                        <td>updateApiProduct</td>
+                        <td>Used to specify whether to update the API Product if it already exists during deployment</td>
+                    </tr>
+                </table>
+        - For more information, see [Configure Git Integration]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration).
 
     !!! tip
-        Multiple API product projects can be promoted through CI/CD by committing them to the same repository.
+        Multiple API Product projects can be promoted through CI/CD by committing them to the same repository.
 
 <a name="Step 9"></a>
 ### Step 9 - Extending a CI/CD pipeline to support applications
@@ -518,7 +574,12 @@ Let us assume that the **PetsApp** application is in the development environment
         `apictl export-app` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl export app` as shown above.
 
 2.  Extract the exported Application Project.
-3.  Commit the project to the same git repository.
+
+3.  Commit the project to the Source repository.
+
+    !!!note
+        Deployment repository concept is not supported for Applications.
+
 4.  Run the `vcs status` command to see the available changes that need to be deployed to the production environment.
 
     !!! example
@@ -531,7 +592,7 @@ Let us assume that the **PetsApp** application is in the development environment
         ```
 
     !!! important
-        If you haven't initialized the repository with API Controller, you will get the below error.
+        If you haven't initialized the repository with apictl, you will get the below error.
         
         ```bash
         $ apictl vcs status -e prod
@@ -539,7 +600,7 @@ Let us assume that the **PetsApp** application is in the development environment
         Exit status 1
         ```
 
-        make sure to follow [Promoting APIs in a Git repository to upper environments via CI/CD](#a-promoting-apis-in-a-git-repository-to-upper-environments-via-cicd) - *Step 2* to initialize the repository.
+        make sure to follow [Promoting APIs in a Git repository to upper environments via CI/CD](#a-promoting-apis-in-a-git-repository-to-upper-environments-via-cicd) - *Step 3* to initialize the repository.
 
 3.  Import the **PetsApp** Application into the production environment by running the following sample command.
 
@@ -557,34 +618,50 @@ Let us assume that the **PetsApp** application is in the development environment
 
     !!! important
         For deploying an application using `vcs deploy` command:
-        
-        -   It is mandatory to have your Application projects in a Git based version control system.
-        -   It is mandatory to have `application_params.yaml` file inside each application project. This is created by default when you export an Application using `export app`. The following configuration section in the `application_params.yaml` file is used to deploy the application.
 
-        ```bash
-        deploy:
-            import:
-                update: true
-                preserveOwner: true
-                skipSubscriptions: false
-                skipKeys: true
-        ```
-
-        You can change the above fields accordingly.
-
-        | Field             | Description                                                                                 |
-        |-------------------|---------------------------------------------------------------------------------------------|
-        | update            | Used to specify whether to update the application if it already exists during the deployment|
-        | preserveOwner     | Preserve existing owner of the application after importing it                               |
-        | skipSubscriptions | Specifies whether to import the subscriptions of the application                            |
-        | skipKeys          | Specifies whether to import the credentials of the application                              |
+        - It is mandatory to have your Application projects in a Git based version control system.
+        - The directories inside the **Source** repository should have the naming format '<Application_Owner>-<Application_Name>`.
+        - It is mandatory to have `application_meta.yaml` file inside the Soure Application project (This is created by default when you export an Application using `export app`).
+        - The following configuration section in the `api_product_meta.yaml` file is used to deploy the Application.
+            ```bash
+            deploy:
+                import:
+                    preserveOwner: true
+                    skipKeys: true
+                    skipSubscriptions: false
+                    update: true
+            ```
+            You can change the above fields accordingly.
+                <table>
+                    <tr class="header">
+                        <th>Field</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr class="odd">
+                        <td>preserveOwner</td>
+                        <td>Preserve the existing owner of the application after importing it</td>
+                    </tr>
+                    <tr class="even">
+                        <td>skipKeys</td>
+                        <td>Specifies whether to import the credentials of the application</td>
+                    </tr>
+                    <tr class="odd">
+                        <td>skipSubscriptions</td>
+                        <td>Specifies whether to import the subscriptions of the application</td>
+                    </tr>
+                    <tr class="even">
+                        <td>update</td>
+                        <td>Used to specify whether to update the Application if it already exists during the deployment</td>
+                    </tr>
+                </table>
+        - For more information, see [Configure Git Integration]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration).
 
     !!! tip
-        Multiple applications could be promoted through CI/CD by committing those application projects to the same repository.
+        Multiple Applications could be promoted through CI/CD by committing those Application projects to the same repository.
 
 
 Now, you know the building blocks of creating a CI/CD pipeline using apictl. By using the above, you can create 
-an automated pipeline for API promotion between environments using either one of the latter mentioned approaches. 
+an automated pipeline for APIs, API Products and Applications promotion between environments using either one of the mentioned approaches. 
 
 !!! More
     Next let us use the above knowledge to create a [Jenkins CI/CD Pipeline with WSO2 API Management for a Dev First Approach]({{base_path}}/install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach/).
