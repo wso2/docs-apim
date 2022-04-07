@@ -1,17 +1,18 @@
 # Upgrading API Manager from 4.0.0 to 4.1.0
 
-The following information describes how to upgrade your API Manager server **from APIM 4.0.0 to 4.1.0**.
+The following information describes how to upgrade your WSO2 API Manager server **from API Manager 4.0.0 to 4.1.0**.
 
 ## Prerequisites
-1. Review what has been changed in this release. see [What Has Changed]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/400-to-410/what-has-changed)
 
-2. Before you migrate, follow [Upgrading Guidelines]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-guidelines) to get an understanding on the migration process.
+1. Review what has been changed in this release. See [What Has Changed]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/400-to-410/what-has-changed).
 
-3. Download [WSO2 API Manager 4.1.0](http://wso2.com/api-management/) and unzip it in the <API-M_4.1.0_HOME> directory.
+2. Before you migrate, follow the [Upgrading Guidelines]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-guidelines) to get an understanding of the migration process.
+
+3. Download [WSO2 API Manager 4.1.0](http://wso2.com/api-management/) and extract it. The directory you extract it to will be referred to as the <API-M_4.1.0_HOME> directory.
 
 ## Steps to migrate to WSO2 API-M 4.1.0
 
-Follow the step 1 to step 6 below to upgrade your WSO2 API Manager server
+Follow step 1 to step 6 below to upgrade your WSO2 API Manager server.
 
 -   [Step 1 - Migrate the API Manager configurations to API-M 4.1.0](#step-1-migrate-the-api-manager-configurations)    
     
@@ -21,19 +22,20 @@ Follow the step 1 to step 6 below to upgrade your WSO2 API Manager server
     
 -   [Step 4 - Migrate the API Manager components to API-M 4.1.0](#step-4-migrate-the-api-manager-components)
     
--   [Step 5 - Execute post migration scripts](#step-5-execute-post-migration-scripts)
+-   [Step 5 - Execute post-migration scripts](#step-5-execute-post-migration-scripts)
     
 -   [Step 6 - Re-Index the API Manager artifacts](#step-6-re-index-the-api-manager-artifacts)
 
-### Step 1: Migrate the API Manager Configurations 
+### Step 1: Migrate the API Manager configurations 
 
 Follow the instructions below to move all the existing API Manager configurations from the current environment to the new one.
 
 1. Open the `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file and configure the datasource configurations for the available databases in the API-M 4.0.0 API-M set up to migrate them to API-M-4.1.0
 
-    1.  API Manager database (WSO2AM_DB)
+    -   API Manager database (WSO2AM_DB)
 
-        Ex: 
+        E.g., 
+        
         ```
         [database.apim_db]
         type = "mysql"
@@ -42,9 +44,10 @@ Follow the instructions below to move all the existing API Manager configuration
         password = "password"
         ```
 
-    2.   Shared database/s (WSO2_SHARED_DB)
+    -   Shared database(s) (WSO2_SHARED_DB)
         
-        Ex:
+        E.g.,
+        
         ```
         [database.shared_db]
         type = "mysql"
@@ -53,9 +56,10 @@ Follow the instructions below to move all the existing API Manager configuration
         password = "password"
         ```
 
-        1. Registry database
+        -  Registry database
             
-            Ex:
+            E.g.,
+            
             ```
             [database.shared_db]
             type = "mysql"
@@ -66,7 +70,7 @@ Follow the instructions below to move all the existing API Manager configuration
             
             - Config DB  (WSO2CONFIG_DB)
                 
-                Ex:
+                E.g.,
 
                 ```
                 [database.config]
@@ -76,20 +80,20 @@ Follow the instructions below to move all the existing API Manager configuration
                 password = "password"
                 ```
 
-
-        2. User Stores (WSO2UM_DB) 
+        - User Stores (WSO2UM_DB) 
         
-        Ex:
-        ```
-        [database.user]
-        type = "mysql"
-        url = "jdbc:mysql://localhost:3306/um_db"
-        username = "username"
-        password = "password"
-        ```    
+            E.g.,
+            
+            ```
+            [database.user]
+            type = "mysql"
+            url = "jdbc:mysql://localhost:3306/um_db"
+            username = "username"
+            password = "password"
+            ```    
 
     !!! attention "If you are using another DB type"
-        If you are using DB type other than **H2** or **MySQL** or **Oracle**, you need to add the `driver` and `validationQuery` parameter configuration additionally as given below.
+        If you are using a DB type other than **H2**, **MySQL**, or **Oracle**, you need to add the `driver` and `validationQuery` parameter configuration additionally as given below.
 
         ```tab="MSSQL"
         [database.apim_db]
@@ -152,28 +156,27 @@ Follow the instructions below to move all the existing API Manager configuration
 
        ```
     
-    !!! note "If you are using WSO2 IS 5.11.0 as the Resident Key Manager at API-M 4.0.0"
+    !!! note "If you are using WSO2 Identity Server 5.11.0 as the Resident Key Manager at API Manager 4.0.0"
         
-        You do not need to add this configuration as it should already be at `<IS_KM_HOME>/repository/conf/deployment.toml` file.
+        You do not need to add this configuration as it should already be in the `<IS_KM_HOME>/repository/conf/deployment.toml` file.
 
 5. If you have enabled any other feature related configurations at `<API-M_4.1.0_HOME>/repository/conf/deployment.toml`, make sure to add them in to `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file.
 
-### Step 2: Migrate the API Manager Resources
+### Step 2: Migrate the API Manager resources
 
-Follow the instructions below to migrate existing API Manager resources from the current environment to API-M 4.1.0.
+Follow the instructions below to migrate existing API Manager resources from the current environment to API Manager 4.1.0.
 
 1.  Copy the relevant JDBC driver to the `<API-M_4.1.0_HOME>/repository/components/lib` folder.
 
-2.  If you manually added any custom OSGI bundles to the `<API-M_4.0.0_HOME>/repository/components/dropins` directory, copy those to the `<API-M_4.1.0_HOME>/repository/components/dropins` directory. 
+2.  If you manually added any custom OSGi bundles to the `<API-M_4.0.0_HOME>/repository/components/dropins` directory, copy those to the `<API-M_4.1.0_HOME>/repository/components/dropins` directory. 
 
-3.  If you manually added any JAR files to the `<API-M_4.0.0_HOME>/repository/components/lib` directory, copy those and paste them in the `<API-M_4.1.0_HOME>/repository/components/lib` directory.
+3.  If you manually added any JAR files to the `<API-M_4.0.0_HOME>/repository/components/lib` directory, copy those and paste them into the `<API-M_4.1.0_HOME>/repository/components/lib` directory.
 
-4.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_4.1.0_HOME>/repository/resources/security` directory to persist 
-the information about the added private keys, certificates and the list of trusted CA that  have been used in API-M_4.0.0.
+4.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks`, and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_4.1.0_HOME>/repository/resources/security` directory to persist the information about the added private keys, certificates, and the list of trusted CA that have been used in API Manager 4.0.0.
 
     !!! note "If you have enabled Secure Vault"
 
-        If you have enabled secure vault in the previous API-M version, you need to add the property values again according to the new config modal and run the script as below. Refer [Encrypting Passwords in Configuration files]({{base_path}}/install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords) for more details.
+        If you have enabled secure vault in the previous API-M version, you need to add the property values again according to the new config modal and run the script as below. Refer to [Encrypting Passwords in Configuration files]({{base_path}}/install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords) for more details.
 
         ```tab="Linux"
         ./ciphertool.sh -Dconfigure
@@ -185,15 +188,11 @@ the information about the added private keys, certificates and the list of trust
 
 5. If you already have used secondary user stores in API-M 4.0.0, you have to copy the user store file created inside the old API-M version to the new APIM version. 
 
-    For secondary user stores created for the super tenant, 
+    - For secondary user stores created for the super tenant, you have to copy the `<API-M_4.0.0_HOME>/repository/deployment/server/userstores/` directory inside `<API-M_4.1.0_HOME>/repository/deployment/server/` directory. 
     
-    You have to copy the `<API-M_4.0.0_HOME>/repository/deployment/server/userstores/` directory inside `<API-M_4.1.0_HOME>/repository/deployment/server/` directory. 
+    - For secondary user stores created for tenants, you have to copy the userstores to respective tenant directories after executing [step 4](#step-4-migrate-the-api-manager-components) as the tenant directories (`<API-M_4.2.0_HOME>/repository/tenants/`) at API-M 4.1.0 are populated after migrating the API Manager components. 
     
-    For secondary user stores created for tenants, 
-    
-    You have to copy the userstores to respective tenant directories after executing [step 4](#step-4-migrate-the-api-manager-components) as the tenant directories (`<API-M_4.2.0_HOME>/repository/tenants/`) at API-M 4.1.0 are populated after migrating the api-m components. 
-    
-### Step 3: Migrate the API Manager Database 
+### Step 3: Migrate the API Manager database 
 
 1.  Make sure you backed up all the databases in APIM 4.0.0
 
@@ -208,9 +207,9 @@ the information about the added private keys, certificates and the list of trust
 
     !!! note
 
-        x of wso2am-migration-4.1.0.x.zip denotes the version number of the most recently-released migration resources.
+        The "x" in the version number of the .zip file (wso2am-migration-4.1.0.x.zip) denotes the version number of the most recently-released migration resources.
 
-        The directory where the wso2am-migration-4.1.0.x.zip is unziped will be referred to as `<AM_MIGRATION_CLIENT_HOME>`
+        The directory where the wso2am-migration-4.1.0.x.zip is unzipped will be referred to as `<AM_MIGRATION_CLIENT_HOME>`
 
 
 3. Execute the script on the `WSO2AM_DB` database which is presented inside the `<AM_MIGRATION_CLIENT_HOME>/migration-script-4.0.0_to_4.1.0` directory for relevant database type. 
@@ -224,9 +223,9 @@ You have to run the following migration client to update the API Manager artifac
 2. Copy the org.wso2.carbon.am.migration-4.1.0.x.jar file in the `<AM_MIGRATION_CLIENT_HOME>/dropins` directory into the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
 
     !!! note "If you have configured WSO2 IS 5.11.0 as Resident Key Manager"
-        make sure you have already started it before execute the next step.
+        Make sure you have already started the WSO2 Identity Server instance before executing the next step.
 
-3. Start the API-M server to validate the api definitions.
+3. Start the API Manager server to validate the API definitions.
        
     ``` tab="Linux / Mac OS"
     sh api-manager.sh -DmigrateFromVersion=4.0.0 -DrunPreMigration=apiDefinitionValidation
@@ -236,9 +235,9 @@ You have to run the following migration client to update the API Manager artifac
     api-manager.bat -DmigrateFromVersion=4.0.0  -DrunPreMigration=apiDefinitionValidation
     ```
 
-    Check the server logs and verify are there any errors logs. If you have encounter any errors in  api definitions, you have to correct them manually on old version before the component migration. 
+    Check the server logs and verify if there are any errors logs. If you have encountered any errors in the API definitions, you have to correct them manually on an old version before the component migration. 
 
-4.  Start the API-M server to migrate the api-m components as follows.
+4.  Start the API Manager server to migrate the API Manager components as follows.
 
     ``` tab="Linux / Mac OS"
     sh api-manager.sh -DmigrateFromVersion=4.0.0
@@ -248,7 +247,7 @@ You have to run the following migration client to update the API Manager artifac
     api-manager.bat -DmigrateFromVersion=4.0.0
     ```
 
-5.  Shutdown the API-M server.
+5.  Shut down the API Manager server.
     
     -   Remove the `org.wso2.carbon.apimgt.migrate.client-4.1.0.x.jar` file, which is in the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
 
@@ -256,20 +255,20 @@ You have to run the following migration client to update the API Manager artifac
 
     !!! note
 
-        Make sure you have copied the tenants userstores if you have configured them in API-M 4.0.0
+        Make sure you have copied the tenant's userstores if you have configured them in WSO2 API Manager 4.0.0.
 
-### Step 5: Execute post migration scripts
+### Step 5: Execute post-migration scripts
 
-1. Execute the post migration script on the `WSO2AM_DB` database which is located inside the `<AM_MIGRATION_CLIENT_HOME>/post-migration-script/am-db` directory for relevant database type.
+1. Execute the post-migration script on the `WSO2AM_DB` database, which is located inside the `<AM_MIGRATION_CLIENT_HOME>/post-migration-script/am-db` directory for the relevant database type.
 
-2. Execute the post migration script `reg-index.sql` on the registry database (`WSO2SHARED_DB`)  which is located inside the `<AM_MIGRATION_CLIENT_HOME>/post-migration-script/reg-db` directory
+2. Execute the post-migration script `reg-index.sql` on the registry database (`WSO2SHARED_DB`), which is located inside the `<AM_MIGRATION_CLIENT_HOME>/post-migration-script/reg-db` directory.
 
     !!! note
         Note that depending on the number of records in the REG_LOG table, this script will take a considerable amount of time to finish. Do not stop the execution of the script until it is completed.
 
-### Step 6: Re-Index the API Manager artifacts
+### Step 6: Re-index the API Manager artifacts
 
-1. To re-index the API artifacts in the registry, Add the following configuration into the `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file.
+1. To re-index the API artifacts in the registry, add the following configuration into the `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file.
         
     ```
     [indexing]
@@ -292,7 +291,7 @@ You have to run the following migration client to update the API Manager artifac
     ```
 
     !!! important 
-        If you use a clustered/distributed API Manager setup, do the above change in deployment.toml of Publisher and Devportal nodes. Make sure to keep a delay between nodes to execute this step to re-index each node, as the database can experience a large load.
+        If you use a clustered/distributed API Manager setup, do the above change in the deployment.toml file of the Publisher and Developer Portal nodes. Make sure to keep a delay between nodes to execute this step to re-index each node, as the database can experience a large load.
 
     !!! note
 
