@@ -16,10 +16,10 @@ Follow the instructions below to attach one or more default policies that are sh
 4. Drag the **Add Header Policy** from the **Request** tab of the **Policy List** and drop that to the **Request Flow** dropzone. You will notice a side panel appearing from the right hand side. Enter the following details to attach a custom header to the request flow of the get resource of `/menu` operation. Then, click **Save**.
 
     <table>
-        <th>
-            <td>Field</td>
-            <td>Sample Value</td>
-        </th>
+        <tr>
+            <th>Field</th>
+            <th>Sample Value</th>
+        </tr>
         <tr>
             <td>Header Name</td>
             <td>Foo</td>
@@ -56,7 +56,7 @@ Follow the instructions below to attach one or more default policies that are sh
 
 You can use interceptors in Choreo Connect to carry out transformations and mediation on the requests and responses. Learn more about [Message Transformation]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/message-transformation-overview/) in Choreo Connect.
 
-[![Call Interceptor API]({{base_path}}/assets/img/design/api-policies/call-interceptor.png){: style="width:90%"}]({{base_path}}/assets/img/design/api-policies/call-interceptor.png)
+[![Call Interceptor API]({{base_path}}/assets/img/design/api-policies/call-interceptor.png){: style="width:50%"}]({{base_path}}/assets/img/design/api-policies/call-interceptor.png)
 
 The policy attribute “Includes to Payload” in the Call Interceptor Service supports the following values in the request flow.
 

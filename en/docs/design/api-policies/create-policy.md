@@ -18,13 +18,13 @@ A common policy is a globally maintained policy and you can easily utilize this 
 
 3. Let’s create a policy named **Sample Add Header** for demo purposes. First let’s fill the **General Details** section using the following details.
 
-    [![Add Header policies]({{base_path}}/assets/img/design/api-policies/common-policy-2.png){: style="width:90%"}]({{base_path}}/assets/img/design/api-policies/common-policy-2.png)
+    [![Add Header policies]({{base_path}}/assets/img/design/api-policies/common-policy-2.png){: style="width:80%"}]({{base_path}}/assets/img/design/api-policies/common-policy-2.png)
 
     <table>
-        <th>
-            <td>Field</td>
-            <td>Sample Value</td>
-        </th>
+        <tr>
+            <th>Field</th>
+            <th>Sample Value</th>
+        </tr>
         <tr>
             <td>Name</td>
             <td>Sample Add Header</td>
@@ -44,10 +44,10 @@ A common policy is a globally maintained policy and you can easily utilize this 
     [![Gateway-specific details]({{base_path}}/assets/img/design/api-policies/common-policy-3.png){: style="width:90%"}]({{base_path}}/assets/img/design/api-policies/common-policy-3.png)
 
     <table>
-        <th>
-            <td>Field</td>
-            <td>Sample Value</td>
-        </th>
+        <tr>
+            <th>Field</th>
+            <th>Sample Value</th>
+        </tr>
         <tr>
             <td>Supported Gateways</td>
             <td>Regular Gateway</td>
@@ -67,9 +67,9 @@ A common policy is a globally maintained policy and you can easily utilize this 
 
     **Attribute 1**
     <table>
-        <th>
-            <td>Field</td>
-            <td>Sample Value</td>
+        <tr>
+            <th>Field</th>
+            <th>Sample Value</th>
         </th>
         <tr>
             <td>Name</td>
@@ -103,10 +103,10 @@ A common policy is a globally maintained policy and you can easily utilize this 
 
     **Attribute 2**
     <table>
-        <th>
-            <td>Field</td>
-            <td>Sample Value</td>
-        </th>
+        <tr>
+            <th>Field</th>
+            <th>Sample Value</th>
+        </tr>
         <tr>
             <td>Name</td>
             <td>headerValue</td>
@@ -168,7 +168,7 @@ If you would rather create a policy that is local to the API, you can follow the
 
 5. Once you hover over the **Local Add Header** policy that you created, you should be able to see the view icon and delete icon as shown through the screenshot below. If you click on the **View** action, you will be prompted with a populated policy form with the details you entered. If you choose to **Delete** the policy, you can click on the delete icon that appears on policy hover. Let’s go ahead and click on the delete action.
 
-    [![Policy view]({{base_path}}/assets/img/design/api-policies/specific-policy-4.png){: style="width:90%"}]({{base_path}}/assets/img/design/api-policies/specific-policy-4.png)
+    [![Policy view]({{base_path}}/assets/img/design/api-policies/specific-policy-4.png){: style="width:40%"}]({{base_path}}/assets/img/design/api-policies/specific-policy-4.png)
 
     !!! note 
         The common policies only permit the view action as opposed to the API specific policies that permit both view and delete actions. If you wish to delete a common policy, you need to navigate to the globally maintained common policy list to do so.

@@ -113,6 +113,7 @@ nav:
             - Enable Social Media Interaction: design/api-collaborations/enable-social-media-interaction.md
         - API Policies:
             - Overview: design/api-policies/overview.md
+            - Attach Policies: design/api-policies/attach-policy.md
             - Create a Policy: design/api-policies/create-policy.md
             - Using Policies in the Gateway:
                 - Create and Upload Using Integration Studio: design/api-policies/gateway-policies/creating-and-uploading-using-integration-studio.md
