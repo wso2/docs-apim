@@ -13,6 +13,9 @@ Further, you can create your own custom user with a custom role to perform speci
     - Then, create a user as explained in [Adding a new User]({{base_path}}/administer/managing-users-and-roles/managing-users/#adding-a-new-user), by assigning the custom role that you created in the above step, to that user.
     - Now you can login to apictl (using `apictl login <env-name>` command) and perform the particular set of operations as per your need.
 
+!!! note
+    - The `get api-logging` command can be executed only with a user who has super admin permissions.
+
 <table>
 <thead>
 <tr class="header">
@@ -82,30 +85,34 @@ Further, you can create your own custom user with a custom role to perform speci
 <td>apim:api_product_import_export</td>
 </tr>
 <tr class="even">
-<td>import api-product</td>
+<td>change-status api-product</td>
 <td>apim:api_product_import_export</td>
 </tr>
 <tr class="odd">
+<td>import api-product</td>
+<td>apim:api_product_import_export</td>
+</tr>
+<tr class="even">
 <td>export api-product</td>
 <td>apim:api_product_import_export,<br>apim:api_import_export</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>get apps</td>
 <td>apim:app_import_export</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>delete app</td>
 <td>apim:app_import_export</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>import app</td>
 <td>apim:app_import_export</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>export app</td>
 <td>apim:app_import_export</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>get keys</td>
 <td>apim:app_manage, <br>apim:sub_manage, <br>apim:api_product_import_export
 <br><br>or<br>apim:app_manage, <br>apim:sub_manage, <br>apim:api_import_export
@@ -113,4 +120,3 @@ Further, you can create your own custom user with a custom role to perform speci
 </tr>
 </tbody>
 </table>
-
