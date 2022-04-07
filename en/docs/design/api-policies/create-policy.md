@@ -139,11 +139,13 @@ A common policy is a globally maintained policy and you can easily utilize this 
 
 6. Once that is done, the completed form should look like the below screenshot. We can now click on **Save**.
 
-    [![Add Header policies]({{base_path}}/assets/img/design/api-policies/common-policy-2.png){: style="width:90%"}]({{base_path}}/assets/img/design/api-policies/common-policy-2.png)
+    [![Completed policy form]({{base_path}}/assets/img/design/api-policies/common-policy-5.png){: style="width:90%"}]({{base_path}}/assets/img/design/api-policies/common-policy-5.png)
 
 7. Now the newly created policy will appear in the table. You can go ahead and search for this policy to verify.
 
 8. Try viewing this policy by clicking on **View** action. Notice that you can download the policy as a .zip file using the **Download Policy** button.
+
+    [![Policy view]({{base_path}}/assets/img/design/api-policies/common-policy-6.png){: style="width:90%"}]({{base_path}}/assets/img/design/api-policies/common-policy-6.png)
 
 ## Creating an API Specific Policy
 
@@ -154,11 +156,19 @@ If you would rather create a policy that is local to the API, you can follow the
 
 2. Click on any API (e.g., `PizzaShackAPI 1.0.0`) and navigate to the **Policies** tab. You will see a screen like below. Click on the **Add New Policy** button in order to create an API specific policy.
 
+    [![Policy view]({{base_path}}/assets/img/design/api-policies/specific-policy-1.png){: style="width:90%"}]({{base_path}}/assets/img/design/api-policies/specific-policy-1.png)
+
 3. Then you will be prompted to enter the policy details. Let’s name this API specific policy as **Local Add Header**. Please refer to steps 3 to 5 from the common policy creation guide above to fill the rest of the form. Fully filled form should look like the below screenshot. Then click on **Save**.
+
+    [![Policy view]({{base_path}}/assets/img/design/api-policies/specific-policy-2.png){: style="width:90%"}]({{base_path}}/assets/img/design/api-policies/specific-policy-2.png)
 
 4. You should be able to see a policy named **Local Add Header** under the **Request** tab and **Response** tab of the **Policy List**.
 
-5. Once you hover over the Local Add Header policy that you created, you should be able to see the view icon and delete icon as shown through the screenshot below. If you click on the View action, you will be prompted with a populated policy form with the details you entered. If you choose to Delete the policy, you can click on the delete icon that appears on policy hover. Let’s go ahead and click on the delete action.
+    [![Policy view]({{base_path}}/assets/img/design/api-policies/specific-policy-3.png){: style="width:90%"}]({{base_path}}/assets/img/design/api-policies/specific-policy-3.png)
+
+5. Once you hover over the **Local Add Header** policy that you created, you should be able to see the view icon and delete icon as shown through the screenshot below. If you click on the **View** action, you will be prompted with a populated policy form with the details you entered. If you choose to **Delete** the policy, you can click on the delete icon that appears on policy hover. Let’s go ahead and click on the delete action.
+
+    [![Policy view]({{base_path}}/assets/img/design/api-policies/specific-policy-4.png){: style="width:90%"}]({{base_path}}/assets/img/design/api-policies/specific-policy-4.png)
 
     !!! note 
         The common policies only permit the view action as opposed to the API specific policies that permit both view and delete actions. If you wish to delete a common policy, you need to navigate to the globally maintained common policy list to do so.
