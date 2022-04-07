@@ -1,6 +1,6 @@
 # Mock Implementation with Choreo Connect
 
-This Mock Implementation allows you to generate mock responses based on examples provided in the OpenAPI specification and directly get the response. For non default cases, the exact response can be requested using the `Prefer` and `Accept` headers.
+This Mock Implementation allows you to generate mock responses based on examples provided in the OpenAPI specification and directly get the response. For non-default cases, the exact response can be requested using the `Prefer` and `Accept` headers.
 
 !!! important
     This is currently supported only when [Choreo Connect]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview/) is used as the gateway.
