@@ -87,7 +87,7 @@ Once the containers are up and running, we can monitor the status of the contain
     apictl mg add env dev --adapter https://localhost:9843
     ```
 
-2. Login to the Choreo Connect Cluster
+2. Log in to the Choreo Connect Cluster
 
     Next you need to log in to the Choreo Connect environment (log in to the adapter) in order to deploy the API in Choreo Connect.
 
