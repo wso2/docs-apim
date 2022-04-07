@@ -41,6 +41,8 @@ A common policy is a globally maintained policy and you can easily utilize this 
 
 4. Next, we move on to the **Gateway Specific Details** section. This is where we upload the policy file that contains the business logic of the policy. The sample policy that we are creating here will be for the regular Gateway (Synapse Gateway), and hence, the policy should be a .j2 or .xml file.
 
+    [![Gateway-specific details]({{base_path}}/assets/img/design/api-policies/common-policy-3.png){: style="width:90%"}]({{base_path}}/assets/img/design/api-policies/common-policy-3.png)
+
     <table>
         <th>
             <td>Field</td>
@@ -60,6 +62,8 @@ A common policy is a globally maintained policy and you can easily utilize this 
     </table>
 
 5. The final section in the form is the **Policy Attributes** section. These attributes are derived from the policy file that you uploaded in the previous step. If you observe the policy content you should notice two dynamic values embedded into that policy, namely the headerName and headerValue. Those are the attributes that we should include when creating our policy (note that you can have a static policy with no attributes if the policy content is static). Let’s fill the **Policy Attributes** section using the following details.
+
+    [![Policy attributes]({{base_path}}/assets/img/design/api-policies/common-policy-4.png){: style="width:90%"}]({{base_path}}/assets/img/design/api-policies/common-policy-4.png)
 
     **Attribute 1**
     <table>
@@ -134,6 +138,8 @@ A common policy is a globally maintained policy and you can easily utilize this 
     </table>
 
 6. Once that is done, the completed form should look like the below screenshot. We can now click on **Save**.
+
+    [![Add Header policies]({{base_path}}/assets/img/design/api-policies/common-policy-2.png){: style="width:90%"}]({{base_path}}/assets/img/design/api-policies/common-policy-2.png)
 
 7. Now the newly created policy will appear in the table. You can go ahead and search for this policy to verify.
 
