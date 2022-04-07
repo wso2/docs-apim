@@ -110,15 +110,21 @@ Provide the log level as trailing arguments for the envoy command as follows.
 --component-log-level upstream:debug,connection:trace
 ```
 
-Please follow [Command line options]({{envoy_path}}/operations/cli) for more information.
-
-For example, Add following line to the docker-compose.yaml in the directory `<CHOREO-CONNECT_HOME>/docker-compose/<choreo-connect>/`.
+For example, Add following line to the docker-compose.yaml in the directory `<CHOREO-CONNECT_HOME>/docker-compose/<choreo-connect>/`. 
 
 ```yaml
   router:
     environment:
       - TRAILING_ARGS=--log-level trace
 ```
+The following example configuration can log request headers and response headers.
+
+```yaml
+  router:
+    environment:
+      - TRAILING_ARGS=TRAILING_ARGS=--component-log-level http:debug,http2:debug,conn_handler:debug
+```
+Please follow [Command line options]({{envoy_path}}/operations/cli) for more information.
 
 ### Admin portal
 
