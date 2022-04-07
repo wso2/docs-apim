@@ -26,7 +26,7 @@ Let us check out the basic building blocks for creating a CI/CD pipeline with WS
 <a name="Step 1"></a>
 ### Step 1 - Prepare the environments
 
-1.  Download and install WSO2 API-M 4.1.0 in your environments.
+1.  Download and install WSO2 API-M 4.0.0 in your environments.
      
      For more information, see [Installation Prerequisites]({{base_path}}/install-and-setup/install/installation-prerequisites/).
 
