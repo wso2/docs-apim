@@ -22,7 +22,10 @@ Choreo Connect supports the following operations and the policies supporting the
  </tr>
  <tr>
     <td>REMOVE_HEADER</td>
-    <td>headerName</td>
+    <td>
+        <ul>
+            <li>headerName</li>
+        </ul></td>
     <td>Request</td>
     <td>Remove a header in the request flow.</td>
  </tr>
@@ -93,7 +96,7 @@ Custom Choreo Connect policies can use these actions and template or specific va
 
 ## Sample 1 - Custom Call Interceptor Policy
 
-Lets create a new policy using the action CALL_INTERCEPTOR_SERVICE. Following is the content of the default call interceptor policy definition which ships with the distribution. You can download the default call interceptor service policy from the publisher portal.
+Let's create a new policy using the action CALL_INTERCEPTOR_SERVICE. Following is the content of the default call interceptor policy definition which ships with the distribution. You can download the default call interceptor service policy from the publisher portal.
 
 ```yaml tab='ccAddHeader.gotmpl'
 definition:
@@ -103,9 +106,9 @@ definition:
    includes: {{'{{ .includes }}'}}
 ```
 
-Let's say you have an interceptor service that converts XML payload to JSON with the server URL `https://xml-to-json-interceptor:8443` and let's create a policy named `XML to JSON Call Interceptor`. Learn more about Choreo Connect interceptors on Message Transformation. Since we only need request and response payload, we can specify includes as `request_body,response_body`. Following the definition.
+Say you have an interceptor service that converts XML payload to JSON with the server URL `https://xml-to-json-interceptor:8443`, let's create a policy named `XML to JSON Call Interceptor`. Learn more about Choreo Connect interceptors on Message Transformation. Since we only need request and response payload, we can specify includes as `request_body,response_body`. The following is the policy definition.
 
-Let's create the policy definition xmlToJsonCallInterceptor.gotmpl with the following content.
+Let's create the policy definition `xmlToJsonCallInterceptor.gotmpl` with the following content.
 
 ```yaml tab='xmlToJsonCallInterceptor.gotmpl'
 definition:
@@ -115,13 +118,13 @@ definition:
    includes: request_body,response_body
 ```
 
-We can create the policy specification for this policy as follows. Since there are no templated attributes in the policy definition we can keep policyAttributes in the spec as an empty array.
+We can create the policy specification for this policy as follows. Since there are no templated attributes in the policy definition we can keep `policyAttributes` in the spec as an empty array.
 
 [![Custom call interceptor]({{base_path}}/assets/img/design/api-policies/custom-call.png){: style="width:90%"}]({{base_path}}/assets/img/design/api-policies/custom-call.png)
 
 ## Sample 2 - Custom OPA Policy
 
-Lets create a new policy with the action OPA. Following is the content of the default OPA policy definition which ships with the destribution opaPolicy.gotmpl.
+Let's create a new policy with the action OPA. The following is the content of the default OPA policy definition that ships with the destribution `opaPolicy.gotmpl`.
 
 ```yaml tab='opaPolicy.gotmpl'
 definition:
@@ -152,11 +155,11 @@ definition:
 ```
 
 !!! note
-    You can create a custom request generator and define it in the parameter “requestGenerator”. For detailed description on creating custom request generator visit Custom OPA Policy for Choreo Connect.
+    You can create a custom request generator and define it in the parameter “requestGenerator”. For detailed description on creating custom request generator, visit [Custom OPA Policy for Choreo Connect]({{base_path}}/design/api-security/opa-validation/custom-opa-policy-for-choreo-connect/).
 
-Lets say we want to validate requests with a OPA server that is used to validate a set of APIs centrally. Lets create a custom policy with name “centralOpaPolicy”
+Let's say we want to validate requests with a OPA server that is used to validate a set of APIs centrally. Let's create a custom policy with name “centralOpaPolicy”
 
-Lets create the definition file. We can have default values added to the parameters of the action “OPA”.
+Let's create the definition file. We can have default values added to the parameters of the action “OPA”.
 
 ```yaml tab='centralOpaPolicy.gotmpl'
 definition:
@@ -174,7 +177,7 @@ definition:
     connectionTimeout: 30
 ```
 
-You can now define the policy spec and since you have templed myPolicy and myRule, we should include those in the policy spec. Following is the sample spec for the above policy definition.
+You can now define the policy spec and since you have templed `myPolicy` and `myRule`, you should include those in the policy spec. The following is the sample spec for the above policy definition.
 
 ```json tab='centralOpaPolicy.json'
 {
