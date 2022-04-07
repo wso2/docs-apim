@@ -116,7 +116,6 @@ nav:
             - Attach Policies: design/api-policies/attach-policy.md
             - Create a Policy: design/api-policies/create-policy.md
             - Using Policies in the Gateway:
-                - Create and Upload Using Integration Studio: design/api-policies/gateway-policies/creating-and-uploading-using-integration-studio.md
                 - Add Dynamic Endpoints: design/api-policies/gateway-policies/adding-dynamic-endpoints.md
                 - Remove Specific Request Headers From Response: design/api-policies/gateway-policies/removing-specific-request-headers-from-response.md
                 - Pass a Custom Authorization Token to the Backend: design/api-policies/gateway-policies/passing-a-custom-authorization-token-to-the-backend.md
