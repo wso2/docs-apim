@@ -1,6 +1,6 @@
 # Disabling Security for APIs
 
-WSO2 API Manager enables OAuth 2.0 security for API by default. Therefore, all APIs must be invoked with an access token. You can get an access token in the following ways.
+WSO2 API Manager enables OAuth 2.0 security for APIs by default. Therefore, all APIs must be invoked with an access token. You can get an access token in the following ways.
 
 - [Get an internal test key from Publisher]({{base_path}}/design/create-api/create-rest-api/test-a-rest-api/)
 - [Get an access token for a subscription from Developer Portal]({{base_path}}/consume/consume-api-overview/)
