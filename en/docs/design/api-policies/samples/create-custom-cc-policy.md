@@ -98,7 +98,7 @@ Custom Choreo Connect policies can use these actions and the template or a speci
 
 Let's create a new policy using the action `CALL_INTERCEPTOR_SERVICE`. The following is the content of the default call interceptor policy definition that comes by default with the distribution. You can download the default call interceptor service policy from the Publisher Portal.
 
-```yaml tab='ccAddHeader.gotmpl'
+```yaml tab='ccCallInterceptorService.gotmpl'
 definition:
  action: CALL_INTERCEPTOR_SERVICE
  parameters:

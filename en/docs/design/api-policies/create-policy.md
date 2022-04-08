@@ -54,9 +54,10 @@ A common policy is a globally maintained policy and you can easily utilize this 
         </tr>
         <tr>
             <td>Upload Policy File</td>
-            <td>Copy the below content to a file named sampleAddHeader.j2 and upload</br>
-                </br>
-                <code><property action="set" name="{{headerName}}" value="{{headerValue}}" scope="transport" /></code>
+            <td>Copy the below content to a file named <code>sampleAddHeader.j2</code> and upload.
+                <pre>
+                    `<property action="set" name="{{headerName}}" value="{{headerValue}}" scope="transport" />`
+                </pre>
             </td>
         </tr>
     </table>

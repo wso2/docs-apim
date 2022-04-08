@@ -52,7 +52,7 @@ Follow the instructions below to attach one or more default policies that are sh
 
 8. Finally, when you are satisfied with the dragged and dropped policies, you can go ahead and click on the **Save** button at the bottom of the page. Note that if you do not click on save, none of the dropped policies will be saved to the API.
 
-## Call interceptor service - Choro Connect
+## Call interceptor service - Choreo Connect
 
 You can use interceptors in Choreo Connect to carry out transformations and mediation on the requests and responses. Learn more about [Message Transformation]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/message-transformation-overview/) in Choreo Connect.
 
