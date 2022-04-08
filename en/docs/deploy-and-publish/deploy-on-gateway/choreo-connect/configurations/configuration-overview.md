@@ -6,7 +6,7 @@ The following are the Choreo Connect related configuration files.
 |--------------------------|--------------------------------------------------------------------------------------------------------------|----------------------------------------------------------- |
 | `config.toml`            | This file defines all the adapter, enforcer, router, security, control plane and analytics configurations.   | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf` |
 | `log_config.toml`        | This file defines the logging configurations for Adapter and Router.                                              | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf` |
-| `log4j2.properties`      | This file governs how logging is performed by the server.                                                    | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf` |
+| `log4j2.properties`      | This file defines the logging configurations for Enforcer.                                                    | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf` |
 
 
 ## Configurations Overview
