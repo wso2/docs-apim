@@ -245,6 +245,7 @@ nav:
                     - Expose via Custom Hostnames: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-with-custom-hostnames.md
                     - Immutable Gateway:
                         - Deploy as an Immutable Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-apis-as-immutable-gateway.md
+                    - Rest API with a Mock Implementation: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-with-mock-impl.md
                 - Security:
                     - Authentication:
                         - API Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-authentication.md
