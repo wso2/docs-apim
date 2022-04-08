@@ -109,6 +109,22 @@ nav:
         - API Collaboration:
             - Comment on an API via the Publisher: design/api-collaborations/comment-on-an-api-via-the-publisher.md
             - Enable Social Media Interaction: design/api-collaborations/enable-social-media-interaction.md
+        - API Policies:
+            - Overview: design/api-policies/overview.md
+            - Attach Policies: design/api-policies/attach-policy.md
+            - Create a Policy: design/api-policies/create-policy.md
+            - Using Policies in the Gateway:
+                - Add Dynamic Endpoints: design/api-policies/gateway-policies/adding-dynamic-endpoints.md
+                - Remove Specific Request Headers From Response: design/api-policies/gateway-policies/removing-specific-request-headers-from-response.md
+                - Pass a Custom Authorization Token to the Backend: design/api-policies/gateway-policies/passing-a-custom-authorization-token-to-the-backend.md
+                - URL Mapping: design/api-policies/gateway-policies/mapping-the-parameters-of-your-backend-urls-with-the-api-publisher-urls.md
+                - Disable Message Chunking: design/api-policies/gateway-policies/disabling-message-chunking.md
+                - Transform API Message Payload: design/api-policies/gateway-policies/transforming-api-message-payload.md
+                - Add a Non-Blocking Send Operation: design/api-policies/gateway-policies/adding-a-non-blocking-send-operation.md
+                - Add a Class Mediator: design/api-policies/gateway-policies/adding-a-class-mediator.md
+                - Configure Message Builders and Formatters: design/api-policies/gateway-policies/configuring-message-builders-formatters.md
+            - Sample Custom Policies:
+                - Create a Custom Choreo Connect Policy: design/api-policies/samples/create-custom-cc-policy.md
         - API Security:
             - Authentication:
                 - Overview: design/api-security/api-authentication/api-authentication-overview.md
@@ -194,19 +210,19 @@ nav:
             - API Gateway:
                 - Overview of the WSO2 API Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/overview-of-the-api-gateway.md
                 #- Publish APIs Overview: deploy-and-publish/deploy-on-gateway/publish-api-overview.md
-                - Message Mediation:
-                    - Specify a Mediation Flow Using a Policy: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/specifying-mediation-flow-based-on-policy.md
-                    - Change the Default Mediation Flow of API Requests: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests.md
-                    - Create and Upload Using Integration Studio: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/creating-and-uploading-using-integration-studio.md
-                    - Add Dynamic Endpoints: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-dynamic-endpoints.md
-                    - Remove Specific Request Headers From Response: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/removing-specific-request-headers-from-response.md
-                    - Pass a Custom Authorization Token to the Backend: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/passing-a-custom-authorization-token-to-the-backend.md
-                    - URL Mapping: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/mapping-the-parameters-of-your-backend-urls-with-the-api-publisher-urls.md
-                    - Disable Message Chunking: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/disabling-message-chunking.md
-                    - Transform API Message Payload: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/transforming-api-message-payload.md
-                    - Add a Non-Blocking Send Operation: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-a-non-blocking-send-operation.md
-                    - Add a Class Mediator:  deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-a-class-mediator.md
-                    - Configure message builders and formatters: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/configuring-message-builders-formatters.md
+                #- Message Mediation:
+                    #- Specify a Mediation Flow Using a Policy: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/specifying-mediation-flow-based-on-policy.md
+                    #- Change the Default Mediation Flow of API Requests: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests.md
+                    #- Create and Upload Using Integration Studio: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/creating-and-uploading-using-integration-studio.md
+                    #- Add Dynamic Endpoints: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-dynamic-endpoints.md
+                    #- Remove Specific Request Headers From Response: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/removing-specific-request-headers-from-response.md
+                    #- Pass a Custom Authorization Token to the Backend: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/passing-a-custom-authorization-token-to-the-backend.md
+                    #- URL Mapping: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/mapping-the-parameters-of-your-backend-urls-with-the-api-publisher-urls.md
+                    #- Disable Message Chunking: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/disabling-message-chunking.md
+                    #- Transform API Message Payload: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/transforming-api-message-payload.md
+                    #- Add a Non-Blocking Send Operation: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-a-non-blocking-send-operation.md
+                    #- Add a Class Mediator:  deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-a-class-mediator.md
+                    #- Configure message builders and formatters: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/configuring-message-builders-formatters.md
                 - Response Caching: deploy-and-publish/deploy-on-gateway/api-gateway/response-caching.md
                 - Threat Protectors:
                     - Regular Expression Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
@@ -1940,6 +1956,7 @@ plugins:
               'learn/api-controller/migrating-applications-to-different-environments.md': 'https://apim.docs.wso2.com/en/4.1.0/install-and-setup/setup/api-controller/managing-applications/migrating-applications-to-different-environments/'
               'learn/api-controller/ci-cd-with-wso2-api-management.md': 'https://apim.docs.wso2.com/en/4.1.0/install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management/'
               'learn/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach.md': 'https://apim.docs.wso2.com/en/4.1.0/install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach/'
+              'install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach.md': 'https://apim.docs.wso2.com/en/4.1.0/install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline/'
               'learn/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md': 'https://apim.docs.wso2.com/en/4.1.0/install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations/'
               'learn/api-controller/advanced-topics/configuring-environment-specific-parameters.md': 'https://apim.docs.wso2.com/en/4.1.0/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/'
               'learn/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects.md': 'https://apim.docs.wso2.com/en/4.1.0/install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects/'
