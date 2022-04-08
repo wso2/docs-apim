@@ -106,7 +106,7 @@ The API Manager component addresses all aspects of API management in the platfor
 
 - **[Git integration for Choreo Connect]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/git-integration/)**
 
-     This feature allows you to deploy APIs from a Git repository by starting the Choreo Connect pointing to source control systems such as GitHub, Gitlab, and Bitbucket.
+     This feature allows you to deploy APIs from a GitHub repository by starting Choreo Connect and pointing to source control systems such as GitHub, Gitlab, and Bitbucket.
 
 ## Improvements
 
