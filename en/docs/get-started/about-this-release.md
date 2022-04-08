@@ -100,6 +100,14 @@ The API Manager component addresses all aspects of API management in the platfor
 
      This feature allows you to generate data service definitions by pointing to an existing data source in the workspace without creating it from scratch.
 
+- **[Mock API implementation support considering API definition in Choreo Connect]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-with-mock-impl/)**
+
+     This Mock API Implementation allows you to generate mock responses based on the examples provided in the OpenAPI specification that will mock the API responses. 
+
+- **[Git integration for Choreo Connect]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/git-integration/)**
+
+     This feature allows you to deploy APIs from a Git repository by starting the Choreo Connect pointing to source control systems such as GitHub, Gitlab, and Bitbucket.
+
 ## Improvements
 
 - **[Lifecycle support for API Products]({{base_path}}/design/create-api-product/create-api-product/)**
@@ -171,7 +179,8 @@ These features are unsupported and removed from WSO2 API Manager 4.1.0 onwards.
 
 ## Compatible WSO2 product versions
 
-WSO2 API Manager 4.1.0 is compatible with WSO2 Identity Server 5.11.0.
+- WSO2 API Manager 4.1.0 is compatible with WSO2 Identity Server 5.11.0.
+- WSO2 API Manager 4.1.0 is compatible with Choreo Connect 1.1.0.
 
 ## Fixed issues
 
@@ -182,6 +191,7 @@ WSO2 API Manager 4.1.0 is compatible with WSO2 Identity Server 5.11.0.
 - [Integration Studio](https://github.com/wso2/integration-studio/milestone/14?closed=1)
 - [Micro Integrator Dashboard](https://github.com/wso2/product-mi-tooling/milestone/1?closed=1)
 - [Streaming Integrator Tooling](https://github.com/wso2/streaming-integrator/milestone/17?closed=1)
+- [Choreo Connect](https://github.com/wso2/product-microgateway/issues?q=is%3Aissue+is%3Aclosed+closed%3A2022-01-01..2022-04-04+)
 
 ## Known issues
 
@@ -192,4 +202,5 @@ WSO2 API Manager 4.1.0 is compatible with WSO2 Identity Server 5.11.0.
 - [Integration Studio](https://github.com/wso2/integration-studio/issues)
 - [Micro Integrator Dashboard](https://github.com/wso2/product-mi-tooling/issues?q=is%3Aopen+is%3Aissue)
 - [Streaming Integrator Tooling](https://github.com/wso2/streaming-integrator-tooling/issues?q=is%3Aopen+is%3Aissue)
+- [Choreo Connect](https://github.com/wso2/product-microgateway/issues)
 

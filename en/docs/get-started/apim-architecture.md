@@ -50,6 +50,14 @@ The API Gateway does the JWT token validation by validating the signature, issue
 
 Once the token is validated, the API Gateway acts upon the API request before sending it to the backend. It first processes the message to a preconfigured format (e.g., JSON, XML, CSV etc.).  It then applies security policies, rate limiting policies,  collects statistics, etc., via its handlers.  The mediators then act upon the API payload based on the mediation logic developed. The message is then formatted to a preconfigured format (e.g., JSON, XML, CSV, etc.) and sent to the backend. WSO2 API Gateway supports transports such as HTTP, HTTPS, etc. It is also able to scale on-demand in cloud environments and is easily pluggable in non-cloud environments. 
 
+#### Choreo Connect
+
+<a href="{{base_path}}/assets/img/deploy/mgw/choreo-connect-basic-architecture.png"><img src="{{base_path}}/assets/img/deploy/mgw/choreo-connect-basic-architecture.png" width="600" alt="auth0 token validation"></a>
+
+Choreo Connect (the API Microgateway) is a cloud-native, open-source, and developer-centric API gateway. It provides first-class support for Kubernetes while facilitating an array of API management quality of services (QoS), such as message security, rate-limiting, observability, and message mediation. Choreo Connect can be run in the cloud, on-premises, or in a hybrid environment, as long as it supports Kubernetes.
+
+Choreo Connect comprises three components: Router, Enforcer, and Adapter. The Router is the component in charge of directing traffic from various clients to the intended destination (service). Choreo Connect uses the [Envoy Proxy](https://www.envoyproxy.io/) as the core component for traffic routing. The Router is key to exposing APIs to external and remote clients. The policy enforcement engine, the Enforcer, performs token validation, rate limitation, analytics, and other validations. The Adapter serves as the control plane for both the Router and the Enforcer. The Choreo Connect can be used as a standalone gateway or with WSO2 API Manager as the control plane.
+
 #### Micro Integrator
 
 The Micro Integrator of WSO2 API Manager is lightweight and container friendly. This allows you to leverage the comprehensive enterprise messaging capabilities of the Micro Integrator in your decentralized, cloud-native integrations.
