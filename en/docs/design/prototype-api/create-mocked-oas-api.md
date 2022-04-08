@@ -28,7 +28,7 @@ Follow the instructions below to enable mock response generation based on the Op
 
 2. Click **edit** to add mock examples to required resources.
 
-    [![Edit api definition](/assets/img/learn/prototype-api/mock-impl-edit-api-definition.png)](/assets/img/learn/prototype-api/mock-impl-edit-api-definition.png)
+    [![Edit api definition]({{base_path}}/assets/img/learn/prototype-api/mock-impl-edit-api-definition.png)]({{base_path}}/assets/img/learn/prototype-api/mock-impl-edit-api-definition.png)
 
     Replace the default resources with the resource definitions given below.
 
