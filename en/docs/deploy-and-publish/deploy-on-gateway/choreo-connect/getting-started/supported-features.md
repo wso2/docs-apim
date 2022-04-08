@@ -77,5 +77,5 @@ The Choreo Connect currently does not support the following major functionalitie
 - API Products
 - Mutual SSL authentication for APIs
 - Basic Authentication for APIs
-- Bandwidth based rate limiting
+- Bandwidth based rate limiting for REST APIs
   
