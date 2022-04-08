@@ -54,6 +54,6 @@ Deploy the API from the **Deployments** tab from the left menu.
 
 ## See Also
 
-- [Mock Implementation with Choreo Connect]({{base_path}}/design/prototype-api/create-mocked-oas-api.md)
-- [Prototyped APIs (Pre-Released APIs)]({{base_path}}/design/prototype-api/overview.md)
+- [Mock Implementation with Choreo Connect]({{base_path}}/design/prototype-api/create-mocked-oas-api/)
+- [Prototyped APIs (Pre-Released APIs)]({{base_path}}/design/prototype-api/overview/)
 - [Enforcer Test Key (JWT)]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt)
