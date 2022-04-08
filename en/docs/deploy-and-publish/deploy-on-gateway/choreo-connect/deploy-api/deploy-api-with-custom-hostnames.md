@@ -1,11 +1,14 @@
 # Exposing APIs With Custom Hostnames in Choreo Connect Using WSO2 API Manager
 
-You can expose APIs with custom hostnames in Choreo Connect using either one of the following Choreo Connect modes:
+You can expose APIs with custom hostnames in the following ways depending on the Choreo Connect **mode** you have chosen.
 
-- [Choreo Connect with WSO2 API Manager as a Control Plane](#choreo-connect-with-wso2-api-manager-as-a-control-plane)
-- [Choreo Connect as a Standalone Gateway](#choreo-connect-as-a-standalone-gateway)
 
-## Choreo Connect with WSO2 API Manager as a Control Plane
+|**Mode**         | **Method**    |
+|--------------|-----------|
+|[Choreo Connect with WSO2 API Manager as a Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/)   | [Via WSO2 API Manager Publisher Portal](#via-wso2-api-manager-publisher-portal)  |
+|[Choreo Connect as a Standalone Gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/)  |[Via apictl for Standalone Mode](#via-apictl-for-standalone-mode) |
+
+## Via WSO2 API Manager Publisher Portal
 
 Follow the instructions below to use Choreo Connect with WSO2 API Manager as the Control Plane to expose APIs with custom hostnames via the Publisher Portal in WSO2 API Manager:
 
@@ -76,7 +79,7 @@ curl -X GET "https://us.wso2.com:9095/v2/pet/findByStatus?status=available" -H "
         -H "Authorization:Bearer $TOKEN" -k
     ```
 
-## Choreo Connect as a Standalone Gateway
+## Via apictl for Standalone Mode
 
 Follow the instructions below to use Choreo Connect as a Standalone Gateway to expose APIs with custom hostnames via WSO2 API Controller (apictl), which is a CLI Tool:
 
