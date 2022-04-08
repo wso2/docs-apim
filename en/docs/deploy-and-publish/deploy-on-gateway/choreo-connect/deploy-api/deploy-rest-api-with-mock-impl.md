@@ -17,7 +17,7 @@ Follow the exact steps used when you create a regular REST API as described [her
 
 2. Click **edit** to add mock examples to required resources.
 
-    [![Edit api definition](/assets/img/learn/prototype-api/mock-impl-edit-api-definition.png)](/assets/img/learn/prototype-api/mock-impl-edit-api-definition.png)
+    [![Edit api definition]({{base_path}}/assets/img/learn/prototype-api/mock-impl-edit-api-definition.png)]({{base_path}}/assets/img/learn/prototype-api/mock-impl-edit-api-definition.png)
 
     Replace the default resources with the resource definitions given below.
 
