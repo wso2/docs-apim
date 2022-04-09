@@ -8,8 +8,6 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
 ## Downloads
 
-The API Manager component addresses all aspects of API management in the platform. It consists of an API Gateway, API Publisher, Developer Portal, Key Manager, and Traffic Manager.
-
 <table>
 <tr>
 <td>API Manager 4.1.0</td>
@@ -44,129 +42,202 @@ The API Manager component addresses all aspects of API management in the platfor
 
 ## New features
 
-- **[Operation level policy support for APIs]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/specifying-mediation-flow-based-on-policy/)**
+#### API Governance
 
-     With the API Manager 4.1.0 release, we introduce fine-grained and easy to manage policies for operations. We move away from the concept of attaching a policy at the API level (i.e., API level mediation policies) and now can attach multiple policies at the operation level itself.
+??? note "Management of real-time APIs on Solace"
 
-- **[Support for GraphQL subscription operations]({{base_path}}/tutorials/create-and-publish-a-graphql-api/#5.2)**
+    WSO2 API Manager 4.1.0 now supports integrating external third-party Gateways and Brokers. Solace is an advanced event broker that is efficiently streaming events and information across cloud, on-premises, and IoT environments.
 
-      WSO2 API Manager 4.1.0 supports GraphQL subscription operations, which extends GraphQL APIs for push-based solutions. In GraphQL subscriptions, clients send long-lasting GraphQL read operations and get updated results whenever a particular server-side event occurs. Commonly, updated results are pushed from the server to the subscribing clients via WebSockets, where the server holds a steady connection with the client.
+    **[Learn more]({{base_path}}/tutorials/integrating-with-solace/)**
 
-- **[Management of real-time APIs on Solace]({{base_path}}/tutorials/integrating-with-solace/)**
-
-     WSO2 API Manager 4.1.0 now supports integrating external third-party Gateways and Brokers. Solace is an advanced event broker that is efficiently streaming events and information across cloud, on-premises, and IoT environments.
-
-- **[API consumer authorization with Open Policy Agent (OPA)]({{base_path}}/design/api-security/opa-validation/overview/)**
-
-     You can now offload some of the decision-making responsibilities to OPA on whether to authorize a consumer or not when they invoke APIs based on policies attached to APIs.
-
-- **[Develop an integration from a managed API]({{base_path}}/tutorials/develop-an-integration-with-a-managed-api/)**
+??? note "Develop an integration from a managed API"
 
     With the API Manager 4.1.0 release, you can create an integration using a managed API and configure the integration service endpoint to the managed API. This is the top-down approach in API first integration.
 
-- **[Publishing third-party APIs on the Developer Portal]({{base_path}}/deploy-and-publish/publish-on-dev-portal/third-party-api-support/)**
+    **[Learn more]({{base_path}}/tutorials/develop-an-integration-with-a-managed-api/)**
 
-     WSO2 API Manager provides the capability to publish APIs that are deployed in an external Gateway. Since these APIs are not deployed in the WSO2 API Gateway, the API will not be proxied through the Gateway.
+??? note "Publishing third-party APIs on the Developer Portal"
 
-- **[WSDL to REST conversion support in Integration Studio]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api/)**
+    WSO2 API Manager provides the capability to publish APIs that are deployed in an external Gateway. Since these APIs are not deployed in the WSO2 API Gateway, the API will not be proxied through the Gateway.
 
-     With API Manager 4.1.0, you now have a hybrid environment where some system APIs exist as SOAP-based web services that can also have a REST interface defined.
+    **[Learn more]({{base_path}}/deploy-and-publish/publish-on-dev-portal/third-party-api-support/)**
 
-- **[Authentication support for API invocation using the Token Exchange approach]({{base_path}}/administer/key-managers/configure-custom-connector/)**
+??? note "A read-only mode for API Publisher"
 
-     You can now get an API Manager token by invoking the token endpoint of API Manager with the required parameters (i.e., the token obtained from an external Identity Provider) and invoking the API with the exchanged token.
+    This feature allows a user who has view/read-only permissions to only view the API, API Product, and Service details in the Publisher portal. This user can also review all the analytics-related details.
 
-- **[A read-only mode for API Publisher]({{base_path}}/design/api-security/authorization/publisher-portal-in-read-only-mode/)**
+    **[Learn more]({{base_path}}/design/api-security/authorization/publisher-portal-in-read-only-mode/)**
 
-     This feature allows a user who has view/read-only permissions to only view the API, API Product, and Service details in the Publisher portal. This user can also review all the analytics-related details.
+#### API Security
 
--  **[Exposing an integration SOAP service as a managed API]({{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial-for-proxy-services/)**
+??? note "API consumer authorization with Open Policy Agent (OPA)"
 
-     WSO2 API Manager includes a Service Catalog where developers can register their backend services as Managed APIs. Through the Service Catalog, now SOAP integration services are made discoverable to the API Management layer so that SOAP PassThrough API proxies can directly be created using them.
+    You can now offload some of the decision-making responsibilities to OPA on whether to authorize a consumer or not when they invoke APIs based on policies attached to APIs.
 
-- **[Logging messages per API]({{base_path}}/observe/api-manager/monitoring-api-logs/)**
+    **[Learn more]({{base_path}}/design/api-security/opa-validation/overview/)**
 
-     WSO2 API Manager 4.1.0 enables a simple way to observe requests and responses going through the WSO2 API Gateway by introducing this lightweight feature called API Logs.
+??? note "Authentication support for API invocation using the Token Exchange approach"
 
-- **[Maintaining audit logs for the Micro Integrator Management API]({{base_path}}/observe/micro-integrator/classic-observability-logs/monitoring-mi-audit-logs/)**
+    You can now get an API Manager token by invoking the token endpoint of API Manager with the required parameters (i.e., the token obtained from an external Identity Provider) and invoking the API with the exchanged token.
 
-  	The audit log capability allows you to add logging for the Micro Integrator Management API. Maintaining audit logs allows you to identify the changes that took place in the Micro Integrator instance and also to identify who made those changes.
+    **[Learn more]({{base_path}}/administer/key-managers/configure-custom-connector/)**
 
-- **[Authorization support via secondary user stores in Micro Integrator]({{base_path}}/administer/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores-mi/#configuring-secondary-user-stores)**
+#### API Policies
 
-     Users can now deploy secondary user stores in Micro Integrator and use those users and roles in authorization use cases.
+??? note "Operation level policy support for APIs"
 
-- **[Auto-generation support for data services using a given data source in Integration Studio]({{base_path}}/integrate/develop/creating-artifacts/data-services/creating-data-services/#generate-data-service-from-a-datasource)**
+    With the API Manager 4.1.0 release, we introduce fine-grained and easy to manage policies for operations. We move away from the concept of attaching a policy at the API level (i.e., API level mediation policies) and now can attach multiple policies at the operation level itself.
 
-     This feature allows you to generate data service definitions by pointing to an existing data source in the workspace without creating it from scratch.
+    **[Learn more]({{base_path}}/design/api-policies/overview/)**
 
-- **[Mock API implementation support considering API definition in Choreo Connect]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-with-mock-impl/)**
+#### Integration
 
-     This Mock API Implementation allows you to generate mock responses based on the examples provided in the OpenAPI specification that will mock the API responses. 
+??? note "WSDL to REST conversion support in Integration Studio"
 
-- **[Git integration for Choreo Connect]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/git-integration/)**
+    With API Manager 4.1.0, you now have a hybrid environment where some system APIs exist as SOAP-based web services that can also have a REST interface defined.
 
-     This feature allows you to deploy APIs from a GitHub repository by starting Choreo Connect and pointing to source control systems such as GitHub, Gitlab, and Bitbucket.
+    **[Learn more]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api/)**
+
+??? note "Exposing an integration SOAP service as a managed API"
+
+    WSO2 API Manager includes a Service Catalog where developers can register their backend services as Managed APIs. Through the Service Catalog, now SOAP integration services are made discoverable to the API Management layer so that SOAP PassThrough API proxies can directly be created using them.
+
+    **[Learn more]({{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial-for-proxy-services/)**
+
+??? note "Authorization support via secondary user stores in Micro Integrator"
+
+    Users can now deploy secondary user stores in Micro Integrator and use those users and roles in authorization use cases.
+
+    **[Learn more]({{base_path}}/administer/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores-mi/#configuring-secondary-user-stores)**
+
+??? note "Auto-generation support for data services using a given data source in Integration Studio"
+
+    This feature allows you to generate data service definitions by pointing to an existing data source in the workspace without creating it from scratch.
+
+    **[Learn more]({{base_path}}/integrate/develop/creating-artifacts/data-services/creating-data-services/#generate-data-service-from-a-datasource)**
+
+#### Event Driven Architecture
+
+??? note "Support for GraphQL subscription operations"
+
+    WSO2 API Manager 4.1.0 supports GraphQL subscription operations, which extends GraphQL APIs for push-based solutions. In GraphQL subscriptions, clients send long-lasting GraphQL read operations and get updated results whenever a particular server-side event occurs. Commonly, updated results are pushed from the server to the subscribing clients via WebSockets, where the server holds a steady connection with the client.
+
+    **[Learn more]({{base_path}}/tutorials/create-and-publish-a-graphql-api/#5.2)**
+
+#### Monitoring
+
+??? note "Logging messages per API"
+
+    WSO2 API Manager 4.1.0 enables a simple way to observe requests and responses going through the WSO2 API Gateway by introducing this lightweight feature called API Logs.
+
+    **[Learn more]({{base_path}}/observe/api-manager/monitoring-api-logs/)**
+
+??? note "Maintaining audit logs for the Micro Integrator Management API"
+
+    The audit log capability allows you to add logging for the Micro Integrator Management API. Maintaining audit logs allows you to identify the changes that took place in the Micro Integrator instance and also to identify who made those changes.
+
+    **[Learn more]({{base_path}}/observe/micro-integrator/classic-observability-logs/monitoring-mi-audit-logs/)**
+
+#### Choreo Connect
+
+??? note "Mock API implementation support considering API definition in Choreo Connect"
+
+    This Mock API Implementation allows you to generate mock responses based on the examples provided in the OpenAPI specification that will mock the API responses.
+
+    **[Learn more]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-with-mock-impl/)**
+
+??? note "GitHub integration for Choreo Connect"
+
+    This feature allows you to deploy APIs from a GitHub repository by starting Choreo Connect and pointing to source control systems such as GitHub, Gitlab, and Bitbucket.
+
+    **[Learn more]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/git-integration/)**
 
 ## Improvements
 
-- **[Lifecycle support for API Products]({{base_path}}/design/create-api-product/create-api-product/)**
+??? note "Lifecycle support for API Products"
 
-     WSO2 API Manager provides distinct lifecycle states for the API during the API development process. A lifecycle state can now be specified for each API Product you create.
+    WSO2 API Manager provides distinct lifecycle states for the API during the API development process. A lifecycle state can now be specified for each API Product you create.
 
-- **[Authentication support for Prototype APIs]({{base_path}}/design/prototype-api/create-a-prototype-api/))**
+    **[Learn more]({{base_path}}/design/create-api-product/create-api-product/)**
 
-	 Authentication for Prototype APIs is available by default so that the client apps can also be created using authentication to test out the APIs. If needed you can disable authentication for Prototype APIs at the resource level or API level.
+??? note "Authentication support for Prototype APIs"
 
-- **[Advanced Configurations section for the Admin Portal]({{base_path}}/administer/advanced-configurations/)**
+    Authentication for Prototype APIs is available by default so that the client apps can also be created using authentication to test out the APIs. If needed you can disable authentication for Prototype APIs at the resource level or API level.
 
-- **[Single Sign-On support for the monitoring dashboard using OpenID Connect]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi-dashboard/#configuring-single-sign-on-with-openid-connect)**
+    **[Learn more]({{base_path}}/design/prototype-api/create-a-prototype-api/)**
 
-     Users can use OIDC-based Single Sign-On to log in to the WSO2 Micro Integrator Monitoring Dashboard.
+??? note "Single Sign-On support for the monitoring dashboard using OpenID Connect"
 
-- **[Support for admin privileges in the file-based user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#file-based-user-store-default)**
+    Users can use OIDC-based Single Sign-On to log in to the WSO2 Micro Integrator Monitoring Dashboard.
+    
+    **[Learn more]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi-dashboard/#configuring-single-sign-on-with-openid-connect)**
 
-     The default user store of the Micro Integrator is file-based. This enables users to grant admin privileges to a user in the file-based user store.
+??? note "Support for admin privileges in the file-based user store"
 
-- **[Monitoring deployed data sources in Micro Integrator runtimes]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard/#step-6-monitor-mi-artifacts-and-logs)**
+    The default user store of the Micro Integrator is file-based. This enables users to grant admin privileges to a user in the file-based user store.
 
-     Users can identify the data sources that are deployed in Micro Integrator Runtimes directly from the dashboard.
+    **[Learn more]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#file-based-user-store-default)**
 
-- **[PKCE support when generating application keys]({{base_path}}/consume/manage-application/generate-keys/generate-api-keys/#generating-application-keys-with-pkce-enabled/)**
-  
-     WSO2 API Manager supports Proof Key for Code Exchange (PKCE) when generating application keys. This is a security measure to secure the applications that are executing in the same domain.
+??? note "Monitoring deployed data sources in Micro Integrator runtimes"
 
-- **[Ability to configure Rate Limiting for an API Gateway Cluster]({{base_path}}/design/rate-limiting/advanced-topics/configuring-rate-limiting-api-gateway-cluster/)**
+    Users can identify the data sources that are deployed in Micro Integrator Runtimes directly from the dashboard.
 
-     Ability to configure Rate Limiting for an API Gateway Cluster via the Redis server so that the request counters maintained for burst control and backend rate limiting will be replicated across the API Gateway cluster when working with multiple API Gateway nodes.
+    **[Learn more]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard/#step-6-monitor-mi-artifacts-and-logs)**
 
-- **[Tenant configurations migration from the registry to the database]({{base_path}}/administer/advanced-configurations/)**
+??? note "PKCE support when generating application keys"
 
-     You can now perform more advanced configurations for tenant configuration migration from the registry to the database.
+    WSO2 API Manager supports Proof Key for Code Exchange (PKCE) when generating application keys. This is a security measure to secure the applications that are executing in the same domain.
 
-- **[File Inbound Endpoint subdirectory processing capability]({{base_path}}/reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/file-inbound-endpoint-properties/)**
+    **[Learn more]({{base_path}}/consume/manage-application/generate-keys/generate-api-keys/#generating-application-keys-with-pkce-enabled)**
 
-     VFS Inbound Endpoints are capable of handling files inside subdirectories of the specified URL. This enables users to process files recursively inside a directory.
+??? note "Ability to configure Rate Limiting for an API Gateway cluster"
 
-- **[Improve Service Catalog to work with Hot Deployments]({{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial/)**
+    Ability to configure Rate Limiting for an API Gateway Cluster via the Redis server so that the request counters maintained for burst control and backend rate limiting will be replicated across the API Gateway cluster when working with multiple API Gateway nodes.
 
-     You can now publish services to Service Catalog for hot deployments and include metadata files of the selected artifacts.
+    **[Learn more]({{base_path}}/design/rate-limiting/advanced-topics/configuring-rate-limiting-api-gateway-cluster/)**
 
-- **[Support to change lifecycle state of API Products using apictl]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/managing-apis-and-api-products/#change-status-of-an-api-or-api-product-in-an-environment)**
+??? note "Tenant configurations migration from the registry to the database"
 
-     You can now change the status of an API or API Product in an environment using apictl.
+    You can now perform more advanced configurations for tenant configuration migration from the registry to the database.
 
-- **[Exposing proxy services via Service Catalog for WSO2 APIM]({{base_path}}/integrate/develop/generate-service-catalog-metadata/)**
+    **[Learn more]({{base_path}}/administer/advanced-configurations/)**
 
-     This feature generates metadata artifacts for the APIs and Proxy services that have been created inside older Integration Studio workspaces.
+??? note "File Inbound Endpoint subdirectory processing capability"
 
-- **[Support for SMB and WebDAV protocols](https://siddhi-io.github.io/siddhi-io-file/)**
+    VFS Inbound Endpoints are capable of handling files inside subdirectories of the specified URL. This enables users to process files recursively inside a directory.
 
-     This feature adds support to read from or write to files opened via SMB and WebDAV protocols.
+    **[Learn more]({{base_path}}/reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/file-inbound-endpoint-properties/)**
 
-- **[Support Protobuf map-type for Kafka](https://siddhi-io.github.io/siddhi-io-kafka/api/latest/)**
+??? note "Improve Service Catalog to work with Hot Deployments"
 
-     This improvement adds support to decode Protobuf messages via a schema registry with Kafka.
+    You can now publish services to Service Catalog for hot deployments and include metadata files of the selected artifacts.
+
+    **[Learn more]({{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial/)**
+
+??? note "Support to change lifecycle state of API Products using apictl"
+
+    You can now change the status of an API or API Product in an environment using apictl.
+
+    **[Learn more]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/managing-apis-and-api-products/#change-status-of-an-api-or-api-product-in-an-environment)**
+
+??? note "Exposing proxy services via the Service Catalog"
+
+    This feature generates metadata artifacts for the APIs and Proxy services that have been created inside older Integration Studio workspaces.
+
+    **[Learn more]({{base_path}}/integrate/develop/generate-service-catalog-metadata/)**
+
+??? note "Support for SMB and WebDAV protocols"
+
+    This feature adds support to read from or write to files opened via SMB and WebDAV protocols.
+
+    **[Learn more](https://siddhi-io.github.io/siddhi-io-file/)**
+
+??? note "Support Protobuf map-type for Kafka"
+
+    This improvement adds support to decode Protobuf messages via a schema registry with Kafka.
+
+    **[Learn more](https://siddhi-io.github.io/siddhi-io-kafka/api/latest/)**
+
 
 ## Removed features and functionalities
 
@@ -203,4 +274,3 @@ These features are unsupported and removed from WSO2 API Manager 4.1.0 onwards.
 - [Micro Integrator Dashboard](https://github.com/wso2/product-mi-tooling/issues?q=is%3Aopen+is%3Aissue)
 - [Streaming Integrator Tooling](https://github.com/wso2/streaming-integrator-tooling/issues?q=is%3Aopen+is%3Aissue)
 - [Choreo Connect](https://github.com/wso2/product-microgateway/issues)
-
