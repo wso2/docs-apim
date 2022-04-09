@@ -262,6 +262,7 @@ These features are unsupported and removed from WSO2 API Manager 4.1.0 onwards.
 - [Integration Studio](https://github.com/wso2/integration-studio/milestone/14?closed=1)
 - [Micro Integrator Dashboard](https://github.com/wso2/product-mi-tooling/milestone/1?closed=1)
 - [Streaming Integrator Tooling](https://github.com/wso2/streaming-integrator/milestone/17?closed=1)
+- [Choreo Connect](https://github.com/wso2/product-microgateway/issues?q=is%3Aissue+is%3Aclosed+closed%3A2022-01-01..2022-04-04+)
 
 ## Known issues
 
