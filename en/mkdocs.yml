@@ -287,7 +287,11 @@ nav:
                     - Pass End User Attributes to the Backend: deploy-and-publish/deploy-on-gateway/choreo-connect/passing-enduser-attributes-to-the-backend-via-choreo-connect.md
                 - Configurations:
                     - Configuration Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configuration-overview.md
-                    - Configure Log4j2 Properties: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-log4j2.md
+                    - Configure Logs: 
+                        - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-overview.md
+                        - Adapter: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-adapter.md
+                        - Enforcer: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-enforcer.md
+                        - Router: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-router.md
                     - Main Configurations:
                         - Adapter: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/adapter-configurations.md
                         - Enforcer: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/enforcer-configurations.md
