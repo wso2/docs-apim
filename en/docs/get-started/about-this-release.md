@@ -61,15 +61,23 @@ It is now available to download from [here](https://wso2.com/api-management/#).
 
 - **[Message Tracing]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-tracing/)**
 
-    The support for this feature will be removed from subsequent versions starting from WSO2 API Manager 4.0.0.
+     The support for this feature will be removed from subsequent versions starting from WSO2 API Manager 4.0.0.
 
 ### Removed features and functionalities
 
-- Microgateway Labels
+- **Microgateway Labels**
 
       [Grouping APIs with Microgateway Labels](https://apim.docs.wso2.com/en/3.2.0/learn/api-microgateway/grouping-apis-with-labels/)
       is removed from this release. Instead, you can use [Virtual Hosts (VHosts)]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames)
       and dynamically manageable Gateway environments to group and expose APIs with custom hostnames.
+
+- **Implicit Grant**
+    
+      Implicit Grant types have been removed due to [security concerns](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics-14#section-2.1.2).
+
+- **Documentation content search**
+   
+	 Use the content search instead of the documentation content search (doc: keyword search) in the future.
 
 ### Key changes
 
@@ -643,6 +651,8 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 
 The Choreo Connect is a lightweight gateway for APIs. It is used for message security, transport security, routing, and other common API Management related quality of services. It can collect information required for usage metering and throttling capabilities. The Choreo Connect natively supports scaling in highly decentralized environments including microservice architecture.
 
+WSO2 API Manager 4.0.0 is compatible with Choreo Connect 1.0.0.
+
 #### New features
 
 Please see the [supported features]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features/)
@@ -659,7 +669,6 @@ K8s API Operator v2.0.0 is compatible with API Manager v4.0.0.
 
 ### New features
 
-- Deploy APIs to Choreo Connect (API Microgateway)
 - Deploy APIs to API Manager
 - Deploy Integrations with Micro Integrator
 

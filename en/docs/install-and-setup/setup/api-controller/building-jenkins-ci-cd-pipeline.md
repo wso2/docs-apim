@@ -1,4 +1,4 @@
-# Building a CI/CD Pipeline for APIs Using WSO2 API Controller
+# Building a CI/CD Pipeline for APIs Using Jenkins
 
 In the modern digital-era, many organizations adopt digital transformation technologies to keep up with the changes. APIs are one of the basic building blocks used in a digitally-driven organization. When the number of APIs managed by the organization grows, they need to have an automated process to handle the rapid API development process. Having a proper continuous integration and continuous deployment (CI/CD) process would give an added advantage to your organization. 
 

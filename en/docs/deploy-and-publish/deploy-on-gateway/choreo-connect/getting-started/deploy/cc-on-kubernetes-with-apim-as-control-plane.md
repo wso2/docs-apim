@@ -10,6 +10,8 @@ Let's deploy an API on Choreo Connect, which running on Kubernetes, with WSO2 AP
       - Minimum Memory : 3GB
 3.  Deploy an ingress controller - [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/) for this sample.
 
+{!includes/deploy/k8s-setup-note.md!}
+
 ## Objectives
 
 1.  Create and deploy an API project.

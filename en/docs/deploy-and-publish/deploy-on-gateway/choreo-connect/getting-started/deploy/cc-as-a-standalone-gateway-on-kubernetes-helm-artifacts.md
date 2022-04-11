@@ -24,8 +24,12 @@ Let's deploy an API using WSO2 API Controller (apictl) on Choreo Connect, which 
     
 -   Install [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/). 
 
-    !!! Note
-        Helm resources for WSO2 product deployment patterns are compatible with the [`nginx-0.30.0`](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.30.0) release.
+!!! Note
+    Helm resources for WSO2 product deployment patterns are compatible with the [`nginx-0.30.0`](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.30.0) release.
+
+    
+{!includes/deploy/k8s-setup-note.md!}
+    
 
 ## Option 1: Install Chart from WSO2 Helm Chart Repository
 
