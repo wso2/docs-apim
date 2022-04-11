@@ -166,4 +166,4 @@ appender.<appender_name>.layout.type = CustomJsonLayout
     ```
 
 !!! Note
-    Currently, the JSON formatted logs will not be supported with Access logs (`ENFORCER_ACCESS_LOG`).
+    Currently, the JSON formatted logs will not be supported with access logs (`ENFORCER_ACCESS_LOG`).
