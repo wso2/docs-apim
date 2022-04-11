@@ -46,7 +46,7 @@ logLevel = "INFO"
         </tr>
         <tr class="even">
             <td><code>logLevel</code></td>
-            <td>Upto which level, the logs should be printed. If this is set under root level, it will be applied through all packages, unless specified in package log levels. LogLevels can be <code>"DEBG"</code>, <code>"FATL"</code>, <code>"ERRO"</code>, <code>"WARN"</code>, <code>"INFO"</code>, <code>"PANC"</code></td>
+            <td>Upto which level the logs should be printed. If this is set under root level, it will be applied through all packages unless specified in package log levels. LogLevels can be <code>"DEBG"</code>, <code>"FATL"</code>, <code>"ERRO"</code>, <code>"WARN"</code>, <code>"INFO"</code>, <code>"PANC"</code></td>
         </tr>
         <tr class="odd">
             <td><code>LogFormat</code></td>
