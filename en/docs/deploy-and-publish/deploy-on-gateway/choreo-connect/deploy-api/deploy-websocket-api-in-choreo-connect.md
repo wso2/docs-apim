@@ -78,7 +78,7 @@ The WebSocket API exposed via Choreo Connect can be invoked using a WebSocket cl
 
 ## Via apictl for Standalone Mode
 
-The CLI tool **apictl** does not support initializing projects for Streaming APIs yet. However, you can download a Websocket API from a WSO2 API Manager instance and deploy the downloaded project in Choreo Connect. You do not need any special configurations in API-M or Choreo Connect for this. If you do not have a running API Manager instance already simply download the pack from the [official site](https://wso2.com/api-manager/) and start one locally.
+The CLI tool **apictl** does not support initializing projects for Streaming APIs yet. However, you can download a WebSocket API from a WSO2 API Manager instance and deploy the downloaded project in Choreo Connect. You do not need any special configurations in API-M or Choreo Connect for this. If you do not have a running API Manager instance already, simply download the pack from the [official site](https://wso2.com/api-manager/) and start one locally.
 
 The following are the steps to download and deploy the API using apictl.
 
