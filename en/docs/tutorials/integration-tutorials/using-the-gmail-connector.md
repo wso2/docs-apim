@@ -322,7 +322,7 @@ You can now start updating the API resource with the mediation flow.
     | New Property Name | hospital_response        |
     | Property Action   | Select **Set**          |
     | Value Type        | Select **Expression**   |
-    | Value Expression  | json-eval($.)           |
+    | Value Expression  | json-eval($)           |
     | Description       | Get Hospital Response    |
 
 5.  Drag and drop the <i>send</i> operation from the **Email Connector** palette adjoining the Property mediator you added in the previous step.
