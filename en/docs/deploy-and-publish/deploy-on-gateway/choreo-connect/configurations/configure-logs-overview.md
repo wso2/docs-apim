@@ -17,10 +17,10 @@ These files are located in the following locations based on your Choreo Connect 
 
 | **Deployment** | **File name** | **Directory** |
 |----------------|---------------|---------------|
-| Docker with apictl | `log_config.toml` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/` |
-| Docker with WSO2 API Manager | `log_config.toml` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf/` |
-| k8s with apictl | `logconfig-toml-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect/` |
-| k8s with WSO2 API Manager | `logconfig-toml-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect-with-apim/` |
+| Docker - Choreo Connect in standalone mode | `log_config.toml` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/` |
+| Docker - Choreo Connect with WSO2 API Manager | `log_config.toml` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf/` |
+| k8s - Choreo Connect in standalone mode | `logconfig-toml-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect/` |
+| k8s - Choreo Connect with WSO2 API Manager | `logconfig-toml-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect-with-apim/` |
 
 **log4j2.properties**
 
