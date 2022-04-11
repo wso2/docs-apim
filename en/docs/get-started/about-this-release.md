@@ -651,6 +651,8 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 
 The Choreo Connect is a lightweight gateway for APIs. It is used for message security, transport security, routing, and other common API Management related quality of services. It can collect information required for usage metering and throttling capabilities. The Choreo Connect natively supports scaling in highly decentralized environments including microservice architecture.
 
+WSO2 API Manager 4.0.0 is compatible with Choreo Connect 1.0.0.
+
 #### New features
 
 Please see the [supported features]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features/)
@@ -667,7 +669,6 @@ K8s API Operator v2.0.0 is compatible with API Manager v4.0.0.
 
 ### New features
 
-- Deploy APIs to Choreo Connect (API Microgateway)
 - Deploy APIs to API Manager
 - Deploy Integrations with Micro Integrator
 
