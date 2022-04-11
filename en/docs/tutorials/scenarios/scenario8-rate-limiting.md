@@ -17,7 +17,7 @@ WSO2 API Manager provides various levels of rate limiting. For this case, let’
 To create a Subscription Rate Limiting Policy, do the following.
 
 1. Log on to Admin Portal [https://localhost:9443/admin](https://localhost:9443/admin) using `admin` and password `admin`.
-2. Navigate to Rate Limiting **Policies → Subscription** Policies and create a new policy. Following is a sample policy.
+2. Navigate to **Rate Limiting Policies → Subscription** Policies and create a new policy. The following is a sample policy.
 
     ![Sample policy]({{base_path}}/assets/img/tutorials/scenarios/sample-policy.png)
 
