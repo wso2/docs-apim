@@ -152,7 +152,7 @@ appender.<appender_name>.layout.pattern = [%d{DEFAULT}][%X{traceId}]%x %5p - {\%
 
 ### JSON format
 
-Enforcer can be configured to output logs in JSON format by setting the layout as `CustomJsonLayout` which is a customized imlementation of log4j2's [AbstractStringLayout](https://logging.apache.org/log4j/2.x/log4j-core/apidocs/org/apache/logging/log4j/core/layout/AbstractStringLayout.html). You can set it using the following configuration.
+TheEnforcer can be configured to output logs in JSON format by setting the layout as `CustomJsonLayout` which is a customized implementation of log4j2's [AbstractStringLayout](https://logging.apache.org/log4j/2.x/log4j-core/apidocs/org/apache/logging/log4j/core/layout/AbstractStringLayout.html). You can set it using the following configuration.
 
 
 ```properties
