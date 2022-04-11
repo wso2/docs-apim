@@ -9,7 +9,7 @@ You can deploy a WebSocket API in the following ways depending on the Choreo Con
 |[Choreo Connect as a Standalone Gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/)  |[Via apictl for Standalone Mode](#via-apictl-for-standalone-mode) |
 
 
-!!! tip "Characteristics of Websocket APIs Deployed in Choreo Connect"
+!!! tip "Characteristics of WebSocket APIs Deployed in Choreo Connect"
     - The API is created based on the **Channels** defined in the AsyncAPI definition. They are also known as **Topics** in WSO2 API Manager, and have a slight similarity to **Resources** in a REST API.
     - Once the API is exposed, although the gateway endpoint includes a basepath (with topic paths if defined), the **Connection Request** will be sent to the original backend endpoint you provided without any appended paths.
     - If you have a requirement to append different **paths** to the backend URL for different **Channels** (**Topics**), a URL-mapping can be added. The **Topics** that do not include a URL-mapping will have the usual behavior as mentioned above.
