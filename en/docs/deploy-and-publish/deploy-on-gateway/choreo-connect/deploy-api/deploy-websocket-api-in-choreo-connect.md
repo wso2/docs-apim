@@ -11,7 +11,7 @@ You can deploy a WebSocket API in the following ways depending on the Choreo Con
 
 !!! tip "Characteristics of WebSocket APIs Deployed in Choreo Connect"
     - The API is created based on the **Channels** defined in the AsyncAPI definition. They are also known as **Topics** in WSO2 API Manager, and have a slight similarity to **Resources** in a REST API.
-    - Once the API is exposed, although the gateway endpoint includes a basepath (with topic paths if defined), the **Connection Request** will be sent to the original backend endpoint you provided without any appended paths.
+    - Once the API is exposed, although the Gateway endpoint includes a basepath (with topic paths if defined), the **Connection Request** will be sent to the original backend endpoint you provided without any appended paths.
     - If you have a requirement to append different **paths** to the backend URL for different **Channels** (**Topics**), a URL-mapping can be added. The **Topics** that do not include a URL-mapping will have the usual behavior as mentioned above.
     - Websocket APIs support OAuth 2.0 Security and each **Topic** can have its own local scope.         
     - If configured, Choreo Connect is also capable of publishing analytics for websocket frames sent and received by the client.         
