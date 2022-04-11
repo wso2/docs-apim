@@ -75,7 +75,7 @@ A Logger is an object used to log messages for a specific system or application 
 loggers = enforcer, io-swagger-v3, enforcer-interceptors, carbon-apimgt, <your_logger_name>
 ```
 
-These loggers can be referred (to set it's properties) using `logger.<logger_name>`.
+These loggers can be referred to (in order to set their properties) using `logger.<logger_name>`.
 
 The logger element must have a **name** attribute specified. It may also have a **level** attribute and an **additivity** attribute specified. The level may be configured with one of the following values: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `ALL` or `OFF`. 
 
