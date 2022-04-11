@@ -19,7 +19,7 @@ You can deploy a WebSocket API in the following ways depending on the Choreo Con
 
 ## Via WSO2 API Manager Publisher Portal
 
-Follow the instructions below to deploy a WebSocket type Streaming API to Choreo Connect via the Publisher Portal in WSO2 API Manager. The Publisher portal provides the capability to conveniently add and update the following.
+Follow the instructions below to deploy a WebSocket type Streaming API to Choreo Connect via the Publisher Portal in WSO2 API Manager. The Publisher Portal provides the capability to conveniently add and update the following.
 
 - The AsyncAPI definition
 - Rate limiting policies
