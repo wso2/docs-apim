@@ -1,6 +1,6 @@
 ## Enable Debug and Trace Logs
 
-It is possible to troubleshoot Choreo Connect using debug logs and trace logs. Debug logs can be enabled in all three components and access logs can be enabled at router and enforcer to trace requests from router to enforcer. Following sections will guide you through how to enable debug and access logs in each components.
+It is possible to troubleshoot Choreo Connect using debug logs and trace logs. Debug logs can be enabled in all three components and access logs can be enabled at the Router and Enforcer to trace requests from the Router to the Enforcer. The following sections will guide you through how to enable debug and access logs in each component.
 
 ### Adapter
 
