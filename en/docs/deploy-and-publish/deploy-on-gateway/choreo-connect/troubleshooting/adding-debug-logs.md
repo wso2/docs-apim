@@ -121,7 +121,7 @@ For example, add the following line to the docker-compose.yaml file in the direc
       - TRAILING_ARGS=--log-level trace
 ```
 
-The following example configuration can log request headers and response headers, ext_authz information.
+The following example configuration can log request headers and response headers, and `ext_authz` information.
 
 ```yaml
   router:
