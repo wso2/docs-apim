@@ -129,7 +129,7 @@ Choreo Connect is capable of enabling access logs to drill down on errors that o
     ```
 
     !!! Note
-        Here we are setting the threshold for appender's log level as `DEBUG`. For more information on this, please refer [this](#setting-the-threshold)
+        Here we are setting the threshold for the appender's log level as `DEBUG`. For more information on this, please refer [here](#setting-the-threshold).
 
 ## Setting the log format
 
