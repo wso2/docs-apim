@@ -47,7 +47,7 @@ Follow the instructions below to deploy a WebSocket type Streaming API to Choreo
 ### Step 3 - Generate an Access Token to invoke the API
 
 !!! tip 
-    To generate a temporary test key to invoke the API follow the steps [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt/)
+    To generate a temporary test key to invoke the API, follow the steps [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt/)
 
 1. Click **View in Dev Portal** at the top right corner to open Developer Portal in another browser tab.
 
