@@ -2,7 +2,7 @@
 
 The log configurations file for the adapter is located in [these directories]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-overview/#log_config_toml) based on your Choreo Connect deployment method.
 
-Sample for adapter log configurations is looks like follows.
+The sample for adapter log configurations looks similar to the following.
 
 ``` toml
 # The logging configuration for Adapter
