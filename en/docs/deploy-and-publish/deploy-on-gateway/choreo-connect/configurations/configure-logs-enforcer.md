@@ -16,7 +16,7 @@ The following are the three main components that you can configure via log4j2:
 
 The log level can be set specifically for each appender in the `log4j2.properties` or `log4j2-configmap.yaml` file, [based on your Choreo Connect deployment]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-overview/#log4j2_properties), by setting the threshold value. If a log level is not specifically given for an appender as explained below, the root log level (INFO) will apply to all appenders by default.
 
-For example; shown below is how the log level is set to DEBUG for the `ENFORCER_LOGFILE` appender:
+For example, shown below is how the log level is set to DEBUG for the `ENFORCER_LOGFILE` appender:
 
 ```bash
 appender.ENFORCER_LOGFILE.filter.threshold.level = DEBUG
