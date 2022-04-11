@@ -59,7 +59,7 @@ Follow the instructions below to deploy a WebSocket type Streaming API to Choreo
 
 5. Open the **Subscriptions** tab from the left menu bar, click on **PROD KEYS**, and generate keys.
 
-6. Open the **Try Out** tab and click **GET TEST KEY**. This will include the access token in the cURL command you generate in the section below
+6. Open the **Try Out** tab and click **GET TEST KEY**. This will include the access token in the cURL command you generate in the section below.
 
 ### Step 4 - Invoke the API using a WebSocket client
 
