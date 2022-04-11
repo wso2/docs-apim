@@ -51,7 +51,7 @@ Filters log entries based on their level. For example, threshold set to 'WARN' w
     logger.enforcer.appenderRef.rolling.ref = ENFORCER_LOGFILE
     logger.enforcer.appenderRef.console.ref = ENFORCER_CONSOLE
     ```
-    With this configuration, the `ENFORCER_CONSOLE` will only show, logs upto `DEBUG` level.
+    With this configuration, the `ENFORCER_CONSOLE` will only show logs up to the `DEBUG` level.
 
 ### Configuring Log4j2 Appenders
 
