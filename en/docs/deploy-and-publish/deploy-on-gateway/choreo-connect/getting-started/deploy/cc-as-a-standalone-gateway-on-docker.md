@@ -77,7 +77,7 @@ Once the containers are up and running, we can monitor the status of the contain
 1. Add the Choreo Connect Cluster as an Environment to apictl
 
     To use apictl with Choreo Connect, we need to add the Choreo Connect cluster as an environment to apictl.
-    Basically the adapter URL will be added as the gateway environment, and the added environment can be used in the subsequent commands.
+    Basically, the adapter URL will be added as the Gateway environment, and the added environment can be used in the subsequent commands.
 
     ``` shell tab="Format"
     apictl mg add env <ENVIRONMENT_NAME> --adapter <ADAPTER_URL>
