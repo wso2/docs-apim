@@ -8,37 +8,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
 ## Downloads
 
-<table>
-<tr>
-<td>API Manager 4.1.0</td>
-<td><a href="https://github.com/wso2/product-apim/releases/download/v4.1.0-beta/wso2am-4.1.0-beta.zip">download</a></td>
-</tr>
-<tr>
-<td>Micro Integrator 4.1.0</td> 
-<td><a href="https://github.com/wso2/micro-integrator/releases/download/v4.1.0-beta/wso2mi-4.1.0-beta.zip">download</a></td>
-</tr>
-<tr>
-<td>Streaming Integrator 4.1.0</td> 
-<td><a href="https://github.com/wso2/streaming-integrator/releases/download/v4.1.0-beta/wso2si-4.1.0-beta.zip">download</a></td> 
-</tr>
-<tr>
-<td>API Controller 4.1.0</td>
-<td><a href="https://github.com/wso2/product-apim-tooling/releases/tag/v4.1.0-beta">download</a></td>
-</tr>
-<tr>
-<td>Integration Studio  8.1.0</td>
-<td><a href="https://github.com/wso2/integration-studio/releases/tag/v8.1.0-beta">download</a></td>
-</tr>
-<tr>
-<td>Micro Integrator Tooling  4.1.0</td>
-<td><a href="https://github.com/wso2/micro-integrator/releases/download/v4.1.0-beta/wso2mi-dashboard-4.1.0-beta.zip">download</a></td>
-</tr>
-<tr>
-<td>Streaming Integrator Tooling  4.1.0</td>
-<td><a href="https://github.com/wso2/streaming-integrator-tooling/releases/download/v4.1.0-beta/wso2si-tooling-4.1.0-beta.zip">download</a></td>
-</tr>
-</table>
-
+<a href="https://wso2.com/api-manager/#"><img src="{{base_path}}/assets/img/get_started/download-apim.png" title="Download WSO2 API Manager" width="35%" alt="Download WSO2 API Manager"/></a>
 
 ## New features
 
