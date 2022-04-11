@@ -1,6 +1,6 @@
 # Router Log Configurations
 
-As Choreo Connect uses envoy proxy as the router component, it only supports the logging mechanisms provided by envoy proxy ([Read more details about router]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview/#router)). In the folllowing sections you may find how to enable router access logs and debug logs.
+As Choreo Connect uses an Envoy proxy as the Router component, it only supports the logging mechanisms provided by the Envoy proxy ([read more details about router]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview/#router)). In the following sections, you may find how to enable Router access logs and debug logs.
 
 ## Router Access Logging
 
