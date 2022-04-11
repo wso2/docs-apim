@@ -1,6 +1,6 @@
 # Enforcer Log Configurations
 
-As the enforcer component is implemented in java, we are using `log4j2` framework for logging. Hense, this section will contain most of the configurations related to `log4j2`.
+As the Enforcer component is implemented in Java, we are using the `log4j2` framework for logging. Hence, this section will contain most of the configurations related to `log4j2`.
 
 ## Configuring Log4j2 Properties
 
