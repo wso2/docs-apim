@@ -160,7 +160,7 @@ appender.<appender_name>.layout.type = CustomJsonLayout
 ```
 
 !!! Note
-    Following configuration is not required here, as the pattern of a `CustomJsonLayout` layout cannot be specified.
+    The following configuration is not required here, as the pattern of a `CustomJsonLayout` layout cannot be specified.
     ```properties
     appender.<appender_name>.layout.pattern = <pattern_string>
     ```
