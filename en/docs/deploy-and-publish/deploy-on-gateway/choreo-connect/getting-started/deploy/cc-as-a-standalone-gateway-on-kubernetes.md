@@ -44,7 +44,7 @@ Let's create our first project with the name "petstore" based on the [OpenAPI de
     Refer [Download and initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool)
     to set up the apictl in your development environment.
     
-2. Now let's deploy our first API by creating an API resource in Kubernetes.
+2. Now let's create our first API project to deploy on Choreo Connect that is set up on Kubernetes
 
     Navigate to a preferred workspace folder using the command line. Run the following command to create an API project named "petstore". This creates the folder structure for the artifacts to be included. Use the --oas option as given below to create an API project based on an OpenAPI definition.
 
@@ -61,7 +61,7 @@ Let's create our first project with the name "petstore" based on the [OpenAPI de
     The project is now initialized. A directory with the name "petstore" has been created.
 
 !!! info
-    -   For more information on the API project directory that gets created, see [Getting Started with apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller).
+    For more information on the API project directory that gets created, see [Getting Started with apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller).
 
 ## Step 3 - Deploy the API Project
 
@@ -110,8 +110,7 @@ Let's create our first project with the name "petstore" based on the [OpenAPI de
 
 1. Obtain a token
 
-    After the APIs are exposed via WSO2 Choreo Connect, you can invoke an API with a valid access token (JWT) or using a test key.   
-    Let's use WSO2 Choreo Connect's test key endpoint to obtain a test key in order to access the API. Refer [Generate a Test JWT]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt) for more details.
+    After the APIs are exposed via WSO2 Choreo Connect, you can invoke an API with a valid access token (JWT) or using a test key. Let's use WSO2 Choreo Connect's test key endpoint to obtain a test key in order to access the API. Refer [Generate a Test JWT]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt) for more details.
 
     ``` shell tab="Sample Token"
     TOKEN=$(curl -X POST "https://gw.wso2.com/testkey" -d "scope=read:pets" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -v)

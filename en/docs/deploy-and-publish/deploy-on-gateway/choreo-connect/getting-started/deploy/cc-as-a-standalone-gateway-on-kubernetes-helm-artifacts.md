@@ -1,6 +1,6 @@
 # Deploying Choreo Connect as a Standalone Gateway on Kubernetes - Helm Artifacts
 
-Let's deploy an API using WSO2 API Controller (apictl) on Choreo Connect, which is running on Kubernetes as a Standalone Gateway. You can select one of the options to install Choreo Connect Helm Chart.
+Let's deploy an API using WSO2 API Controller (apictl) on Choreo Connect, which is running on Kubernetes as a Standalone Gateway. You can select one of the options to install Choreo Connect with Helm Chart.
 
 - [Option 1: Install Chart from WSO2 Helm Chart Repository](#option-1-install-chart-from-wso2-helm-chart-repository)
 - [Option 2: Install Chart from Source](#option-2-install-chart-from-source)
@@ -9,7 +9,7 @@ Let's deploy an API using WSO2 API Controller (apictl) on Choreo Connect, which 
 
     **WSO2 product Docker images**
 
-    WSO2 product Docker images used for this Kubernetes deployment are available at [DockerHub](https://hub.docker.com/u/wso2/) are General Availability (GA) versions and therefore does not include [WSO2 Updates](https://wso2.com/updates).
+    WSO2 product Docker images used for this Kubernetes deployment are available at [DockerHub](https://hub.docker.com/u/wso2/). Important to note that they are General Availability (GA) versions and therefore does not include [WSO2 Updates](https://wso2.com/updates).
 
     For a production grade deployment of the desired WSO2 product-version, it is highly recommended to use the relevant Docker image which includes WSO2 Updates, available at [WSO2 Private Docker Registry](https://docker.wso2.com/). In order to use these images, you need an active [WSO2 Subscription](https://wso2.com/subscription).
 
@@ -184,5 +184,5 @@ Follow the steps given below.
 
 ## Deploy and Invoke Sample API
 
-Follow the Steps 2, 3, 4 in [Deploying Choreo Connect as a Standalone Gateway on Kubernetes](https://apim.docs.wso2.com/en/latest/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-kubernetes/#step-2-initialize-an-api-project).
+Follow the Steps 2, 3, 4 in [Deploying Choreo Connect as a Standalone Gateway on Kubernetes](https://apim.docs.wso2.com/en/latest/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-kubernetes/#step-2-initialize-an-api-project)
 to deploy and invoke the sample API.

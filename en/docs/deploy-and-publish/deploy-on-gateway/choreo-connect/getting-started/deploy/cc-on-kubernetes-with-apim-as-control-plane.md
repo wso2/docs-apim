@@ -42,9 +42,9 @@ Let's deploy an API on Choreo Connect, which running on Kubernetes, with WSO2 AP
 
 ## Step 2 - Deploy Sample API from API Manager
 
- - Publisher Portal:  [https://wso2apim/publisher/](https://wso2apim/publisher/)
- - Developer Portal:  [https://wso2apim/devportal/](https://wso2apim/devportal/)
+- Publisher Portal:  [https://wso2apim/publisher/](https://wso2apim/publisher/)
+- Developer Portal:  [https://wso2apim/devportal/](https://wso2apim/devportal/)
 
 
-    Follow the instructions in [create and publish an API from API Manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/#step-3-create-and-publish-an-api-from-api-manager).
+Follow the instructions in [create and publish an API from API Manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/#step-3-create-and-publish-an-api-from-api-manager) using the above URLs to access each of the portals.
 

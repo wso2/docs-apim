@@ -9,7 +9,7 @@ Let's deploy an API on Choreo Connect, which running on Kubernetes, with WSO2 AP
 
     **WSO2 product Docker images**
 
-    WSO2 product Docker images used for this Kubernetes deployment are available at [DockerHub](https://hub.docker.com/u/wso2/) are General Availability (GA) versions and therefore does not include [WSO2 Updates](https://wso2.com/updates).
+    WSO2 product Docker images used for this Kubernetes deployment are available at [DockerHub](https://hub.docker.com/u/wso2/). Important to note that they are General Availability (GA) versions and therefore does not include [WSO2 Updates](https://wso2.com/updates).
 
     For a production grade deployment of the desired WSO2 product-version, it is highly recommended to use the relevant Docker image which includes WSO2 Updates, available at [WSO2 Private Docker Registry](https://docker.wso2.com/). In order to use these images, you need an active [WSO2 Subscription](https://wso2.com/subscription).
 
@@ -112,7 +112,7 @@ Execute the following command to install the Helm Cart by selecting the helm ver
         --set wso2.apim.controlPlane.serviceName=wso2am-single-node-am-service.apim
     ```
 
-The above steps will deploy the Choreo Connect using WSO2 product Docker images available at DockerHub.
+The above steps will deploy Choreo Connect using WSO2 product Docker images available at DockerHub.
 
 If you are using WSO2 product Docker images available from WSO2 Private Docker Registry, please provide your **WSO2 Subscription** credentials via input values (using `--set` argument).
 
@@ -279,7 +279,7 @@ Follow the steps given below.
 
 ## Deploy Sample API from API Manager
 
- - Publisher Portal:  [https://am.wso2.com/publisher/](https://am.wso2.com/publisher/)
- - Developer Portal:  [https://am.wso2.com/devportal/](https://am.wso2.com/devportal/)
+- Publisher Portal:  [https://am.wso2.com/publisher/](https://am.wso2.com/publisher/)
+- Developer Portal:  [https://am.wso2.com/devportal/](https://am.wso2.com/devportal/)
 
-Follow the instructions in [create and publish an API via API Manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/#step-3-create-and-publish-an-api-from-api-manager).
+Follow the instructions in [create and publish an API via API Manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/#step-3-create-and-publish-an-api-from-api-manager) using the above URLs to access each of the portals.
