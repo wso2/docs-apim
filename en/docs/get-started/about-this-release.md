@@ -68,6 +68,12 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
     **[Learn more]({{base_path}}/design/api-security/authorization/publisher-portal-in-read-only-mode/)**
 
+??? note "Mock API implementation support considering API definition in Choreo Connect"
+
+    This Mock API Implementation allows you to generate mock responses based on the examples provided in the OpenAPI specification that will mock the API responses.
+
+    **[Learn more]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-with-mock-impl/)**
+
 #### API Security
 
 ??? note "API consumer authorization with Open Policy Agent (OPA)"
@@ -124,6 +130,14 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
     **[Learn more]({{base_path}}/tutorials/create-and-publish-a-graphql-api/#5.2)**
 
+#### API Analytics
+
+??? note "Publishing analytics events to external systems"
+
+    Instead of publishing analytics events to the cloud, it is now possible to log the same events and publish them to external systems like ELK. You can create a sample, configure the created sample with API Manager or Choreo Connect, and publish it to the external system.
+
+    **[Learn more]({{base_path}}api-analytics/samples/publishing-analytics-events-to-external-systems/)**
+
 #### Monitoring
 
 ??? note "Logging messages per API"
@@ -138,13 +152,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
     **[Learn more]({{base_path}}/observe/micro-integrator/classic-observability-logs/monitoring-mi-audit-logs/)**
 
-#### Choreo Connect
-
-??? note "Mock API implementation support considering API definition in Choreo Connect"
-
-    This Mock API Implementation allows you to generate mock responses based on the examples provided in the OpenAPI specification that will mock the API responses.
-
-    **[Learn more]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-with-mock-impl/)**
+#### Other
 
 ??? note "GitHub integration for Choreo Connect"
 
