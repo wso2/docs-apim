@@ -1,13 +1,18 @@
 {
   "4.0.x": "master",
-  "current": "4.0.0",
+  "current": "4.1.0",
   "list": [
+    "4.1.0",
     "4.0.0",
     "3.2.0",
     "3.1.0",
     "3.0.0"
    ],
   "all": {
+    "4.1.0":{
+        "doc": "4.1.0",
+        "notes": "4.1.0/get-started/about-this-release"
+    },
     "4.0.0":{
         "doc": "4.0.0",
         "notes": "4.0.0/get-started/about-this-release"
