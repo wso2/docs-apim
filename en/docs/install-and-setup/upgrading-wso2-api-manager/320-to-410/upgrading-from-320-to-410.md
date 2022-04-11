@@ -1,7 +1,5 @@
 # Upgrading API Manager from 3.2.0 to 4.1.0
 
-!!! warning
-    **The contents on this page are currently under review!**
 
 The following information describes how to upgrade your API Manager server **from APIM 3.2.0 to 4.1.0**.
 
