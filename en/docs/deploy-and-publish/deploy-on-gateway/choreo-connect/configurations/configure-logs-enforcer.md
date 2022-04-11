@@ -55,7 +55,7 @@ Filters log entries based on their level. For example, threshold set to 'WARN' w
 
 ### Configuring Log4j2 Appenders
 
-This section shows you how to configure appenders individually. Log4j2 allows logging requests to print to multiple destinations. These output destinations are called `Appenders`. You can attach several appenders to one of logger. The follwoing are the appenders used in enforcer.
+This section shows you how to configure appenders individually. Log4j2 allows logging requests to print to multiple destinations. These output destinations are called `Appenders`. You can attach several appenders to one of the loggers. The following are the appenders used in the Enforcer.
 
 -   **ENFORCER_CONSOLE**: Logs to the console when the enforcer is running.
 -   **ENFORCER_LOGFILE**: Writes the logs to `/home/wso2/logs/enforcer.log` file inside the container.   
