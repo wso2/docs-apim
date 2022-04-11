@@ -69,7 +69,7 @@ The WebSocket API exposed via Choreo Connect can be invoked using a WebSocket cl
 
 2. From Developer Portal resource tab open the topic `/notifications` and generate the cURL command.
 
-3. Open a Terminal and run the the cURL command.
+3. Open a command-line interface and run the cURL command.
 
 4. Once connected, type anything you want. The websocket server you are connected to must echo back what you type.
 
