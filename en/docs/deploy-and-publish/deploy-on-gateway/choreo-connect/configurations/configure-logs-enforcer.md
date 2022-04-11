@@ -115,7 +115,7 @@ In summary, in following steps yu can specify a logger.
 
 Choreo Connect is capable of enabling access logs to drill down on errors that occurred during the API invocations. To enable Enforcer access logs, you need to set the appender `ENFORCER_ACCESS_LOG`'s log level as `DEBUG`. The following steps will guide you through enabling access logs in the Enforcer.
 
-1. Make sure the log level is set to `DEBUG` in appender.
+1. Make sure the log level is set to `DEBUG` in the appender.
     ```properties
     appender.ENFORCER_ACCESS_LOG.filter.threshold.level = DEBUG
     ```
