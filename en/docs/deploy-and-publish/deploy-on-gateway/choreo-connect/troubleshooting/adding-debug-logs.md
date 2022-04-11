@@ -15,7 +15,7 @@ Configure `log4j2.properties` file and make the value of `rootLogger.level` as `
 !!! Note
     If you want to enable debug logs and access logs seperately, you need to define a new logger. For more information refer to [Configuring Log4j2 Loggers]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-enforcer/#configuring-log4j2-loggers).
 
-The access log format will be as follows. It will print the server time, trace Id from envoy, gRPC service method, gRPC status code, response time according to the above configuration.
+The access log format will be as follows. It will print the server time, trace Id from Envoy, gRPC service method, gRPC status code, and response time according to the above configuration.
 
 ```yaml
 [2022-04-03 18:29:45,032] - [id: 0xe5e8976f, L:/172.20.0.4:8081 - R:/172.20.0.5:48158] INBOUND HEADERS: streamId=5 headers=GrpcHttp2RequestHeaders[:path: /envoy.service.auth.v3.Authorization/Check, :authority: ext-authz, :method: POST, :scheme: http, te: trailers, grpc-timeout: 20000m, content-type: application/grpc, x-envoy-internal: true, x-forwarded-for: 172.20.0.5, x-envoy-expected-rq-timeout-ms: 20000] padding=0 endStream=false
