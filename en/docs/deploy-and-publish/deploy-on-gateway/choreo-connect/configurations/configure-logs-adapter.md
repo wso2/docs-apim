@@ -67,7 +67,7 @@ logLevel = "INFO"
         </tr>
         <tr class="even">
             <td><code>[rotation].MaxBackups</code></td>
-            <td>MaxBackups is the maximum number of old log files to retain.  The default is to retain 3 old log files (though MaxAge may still cause them to get deleted.)</td>
+            <td>MaxBackups is the maximum number of old log files to retain. The default is to retain 3 old log files (though MaxAge may still cause them to get deleted).</td>
         </tr>
         <tr class="even">
             <td><code>[rotation].Compress</code></td>
