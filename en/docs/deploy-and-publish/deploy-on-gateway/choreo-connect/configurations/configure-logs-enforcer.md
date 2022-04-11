@@ -135,7 +135,7 @@ Choreo Connect is capable of enable access logs to drill down on errors occured 
 
 ### Plain Text format
 
-By default the enforcer is enabled with the plain text formatted logs. The plain text format is enabled with the `log4j2`'s `PatternLayout`. Following configuration under appender will specify that.
+By default, the Enforcer is enabled with the plain text formatted logs. The plain text format is enabled with the `log4j2`'s `PatternLayout`. The following configuration under `appender` will specify that.
 
 ```properties
 appender.appender_name.layout.type = PatternLayout
