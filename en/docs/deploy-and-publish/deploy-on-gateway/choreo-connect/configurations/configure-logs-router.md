@@ -59,7 +59,7 @@ The following example configuration can log request headers and response headers
 ```
 Example log of request headers and repsonse headers is given below.
 
-Client to router request headers
+Client to Router request headers:
 ```yaml
 [2022-04-07 06:27:50.056][15][debug][http] [source/common/http/conn_manager_impl.cc:867] [C23][S16704314296340818822] request headers complete (end_stream=false):
 ':authority', 'localhost:9095'
