@@ -4,7 +4,7 @@ As Choreo Connect uses an Envoy proxy as the Router component, it only supports 
 
 ## Router Access Logging
 
-You can enable router access logs by using the following configs. Router access logs related configurations are in the `log_config.toml` file which is located in the [these directories]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-overview/#log_config_toml) based on your Choreo Connect deployment method.
+You can enable Router access logs by using the following configs. Router access logs related configurations are in the `log_config.toml` file, which is located in [these directories]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-overview/#log_config_toml) based on your Choreo Connect deployment method.
 
 ```toml tab="Format"
 [accessLogs]
