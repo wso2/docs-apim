@@ -1,6 +1,6 @@
 # Overview
 
-Logging in choreo connect is really important when debugging issues in a short period of time and looking into the underlying details of how each component works.  Choreo connect provides facilities for getting the logs in various formats (JSON, Plain text), various output methods and various logging levels.
+Logging in Choreo Connect is really important when debugging issues in a short period of time and looking into the underlying details of how each component works.  Choreo Connect provides facilities for getting the logs in various formats (JSON, Plain text), various output methods and various logging levels.
 
 ## Log Configurations
 
