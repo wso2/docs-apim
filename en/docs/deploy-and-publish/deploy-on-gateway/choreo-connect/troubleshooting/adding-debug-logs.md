@@ -23,7 +23,7 @@ The access log format will be as follows. It will print the server time, trace I
 
 ### Router
 
-Configure the relavant configurations in the `log_config.toml` according to the instructions given in [Router Access Logging]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-router/#router-access-logging).
+Perform the relavant configurations in the `log_config.toml` according to the instructions given in [Router Access Logging]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-router/#router-access-logging).
 
 In order to enable debug logs, follow the instructions provided in [Router Debug Logs]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-router/#router-debug-logs).
 
