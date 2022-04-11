@@ -79,7 +79,7 @@ All scripts used to run the performance tests and analyze results are in the fol
 
 ## Results
 
-Considering the fact that an average WSO2 API Manager user uses ~1KiB messages, the performance test highlights for that scenario are represented in the charts below. The complete results can be found [here](https://github.com/wso2/performance-apim/blob/performance-test-329-2021-04-21_04-37-15/performance/benchmarks/summary.md).
+Considering the fact that an average WSO2 API Manager user uses ~1KiB messages, the performance test highlights for that scenario are represented in the charts below. The complete results can be found [here](https://github.com/wso2/performance-apim/blob/performance-test-344-2022-03-29_14-27-45/performance/benchmarks/summary.md).
 
 The following graph depicts the throughput changes based on the number of concurrent users.
 
@@ -87,9 +87,9 @@ The following graph depicts the throughput changes based on the number of concur
 
 **Key observations:**
 
-- More concurrent users mean more requests to the API Manager Gateway. Therefore, the throughput of the API Manager Gateway increases as the number of concurrent users accessing the APIs increases. The maximum throughput is obtained for 100 concurrent users for both “Echo API” and “Mediation API,” and the throughput degrades slightly after 100 concurrent users due to resource contentions in the system. The degradation point mainly depends on hardware resources.
+- More concurrent users mean more requests to the API Manager Gateway. Therefore, the throughput of the API Manager Gateway increases as the number of concurrent users accessing the APIs increases. The maximum throughput is obtained for 100 concurrent users for both “Echo API” and “Mediation API”, and the throughput degrades slightly after 100 concurrent users due to resource contentions in the system. The degradation point mainly depends on hardware resources.
 
-- Echo API throughput is much better than the Mediation API. The main reason is that the Mediation API has a mediation extension, which uses a “Payload Factory” Mediator. This mediation in the sequence does a JSON to JSON message transformation. That means the Mediation API reads the message (payload) to do the message transformation, and it has a considerable overhead than the “Echo API,” which is similar to a “Direct Proxy.” A “Direct Proxy” does not perform any processing on the messages that pass through it.
+- Echo API throughput is much better than the Mediation API. The main reason is that the Mediation API has a mediation extension, which uses a “Payload Factory” Mediator. This mediation in the sequence does a JSON to JSON message transformation. That means the Mediation API reads the message (payload) to do the message transformation, and it has a considerable overhead than the “Echo API”, which is similar to a “Direct Proxy”. A “Direct Proxy” does not perform any processing on the messages that pass through it.
 
 The following graph depicts the average response time changes based on the number of concurrent users.
 
@@ -104,7 +104,7 @@ The following graph depicts the average response time changes based on the numbe
 
 Let’s look at the 90th, 95th, and 99th response time percentiles. It is useful to measure the percentage of requests that exceeded the response time value for a given percentile. A percentile can be used to determine the percentage of requests completed below the particular response time value.
 
-For example, when there are 100 concurrent users, the 90th response time percentile for Echo API is 59ms. This means that 10% of the requests have taken more than 59ms to respond. Similarly, the 99th response time percentile for Echo API is 149ms, which means that 99% of the requests have been completed within 149ms.
+For example, when there are 100 concurrent users, the 90th response time percentile for Echo API is 62ms. This means that 10% of the requests have taken more than 62ms to respond. Similarly, the 99th response time percentile for Echo API is 168ms, which means that 99% of the requests have been completed within 168ms.
 
 The figure below represents the percentile values for Echo API (PassThrough Scenario).
 

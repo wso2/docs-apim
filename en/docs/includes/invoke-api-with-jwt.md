@@ -1,4 +1,4 @@
-Execute the following cURL command to Invoke the API using the JWT.
+Execute the following cURL command to Invoke the API using the access token.
 
  ``` bash tab="Format"
  curl -X GET "https://<CHOREO-CONNECT_ROUTER_HOST>:<CHOREO-CONNECT_ROUTER_PORT>/<API-context>/<API-resource>" -H "accept:application/xml" -H "Authorization:Bearer $TOKEN" -k

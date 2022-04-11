@@ -42,7 +42,7 @@ Follow the steps given below.
 
 There are changes in the database structure (schema) that is used in EI 6.5.0. To update the database schema:
 
-1. Download the [database migration scripts]({{base_path}}/assets/attachments/migration/micro-integrator/migration-scripts-ei6.5.x-to-apim4.1.0.zip).
+1. Download the [database migration scripts]({{base_path}}/assets/attachments/migration/micro-integrator/migration-scripts-EI6.5.x_to_APIM4.1.0.zip).
 
 2. Unzip the downloaded file and select the script relevant to your database type.
 
