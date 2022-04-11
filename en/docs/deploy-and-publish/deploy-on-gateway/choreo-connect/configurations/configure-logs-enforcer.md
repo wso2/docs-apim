@@ -109,7 +109,7 @@ In summary, in following steps yu can specify a logger.
     ```
 
 !!! Note
-    You can find more details on log4j2 appenders, loggers and it's attributes from the official documentation of [log4j2](#https://logging.apache.org/log4j/2.x/). 
+    You can find more details on log4j2 appenders, loggers, and its attributes from the official documentation of [log4j2](#https://logging.apache.org/log4j/2.x/). 
 
 ## Enforcer Access Logs
 
