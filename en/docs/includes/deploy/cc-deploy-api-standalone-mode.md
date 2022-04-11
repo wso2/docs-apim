@@ -18,7 +18,7 @@ apictl mg add env dev --adapter https://localhost:9843
 
 ### Step 4 - Log in to the Choreo Connect Environment in apictl
 
-You can use the following command to log in to the above Choreo Connect cluster (in other words log in to the Choreo Connect adapter). By logging in, an access token will be retrieved from Choreo Connect and saved in apictl.
+You can use the following command to log in to the above Choreo Connect cluster (in other words log in to the Choreo Connect adapter). When you log in, an access token will be retrieved from Choreo Connect and saved in apictl.
 
 ``` bash
 apictl mg login dev -k
