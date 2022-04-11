@@ -28,10 +28,10 @@ These files are located in the following locations based on your Choreo Connect 
 
 | **Deployment** | **File name** | **Directory** |
 |----------------|---------------|---------------|
-| Docker with apictl | `log4j2.properties` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/` |
-| Docker with WSO2 API Manager | `log4j2.properties` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf/` |
-| Kubernetes with apictl | `log4j2-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect/` |
-| Kubernetes with WSO2 API Manager | `log4j2-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect-with-apim/` |
+| Docker - Choreo Connect in standalone mode | `log4j2.properties` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/` |
+| Docker - Choreo Connect with WSO2 API Manager | `log4j2.properties` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf/` |
+| k8s - Choreo Connect in standalone mode | `log4j2-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect/` |
+| k8s - Choreo Connect with WSO2 API Manager | `log4j2-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect-with-apim/` |
 
 ## Error Codes in Logs 
 
