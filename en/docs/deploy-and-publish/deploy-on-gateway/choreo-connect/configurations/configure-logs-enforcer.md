@@ -120,7 +120,7 @@ Choreo Connect is capable of enabling access logs to drill down on errors that o
     appender.ENFORCER_ACCESS_LOG.filter.threshold.level = DEBUG
     ```
 
-2. Change the log level as `DEBUG` from the logger which the above appender is using. In this case it would be the `rootLogger`
+2. Change the log level as `DEBUG` from the logger, which the above appender is using. In this case, it would be the `rootLogger`
     ```properties
     rootLogger.level = ERROR
     rootLogger.appenderRef.ENFORCER_CONSOLE.ref = ENFORCER_CONSOLE
