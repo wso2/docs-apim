@@ -9,7 +9,7 @@ Let's deploy an API using WSO2 API Controller (apictl) on Choreo Connect, which 
 
     **WSO2 product Docker images**
 
-    WSO2 product Docker images used for this Kubernetes deployment are available at [DockerHub](https://hub.docker.com/u/wso2/). Important to note that they are General Availability (GA) versions and therefore does not include [WSO2 Updates](https://wso2.com/updates).
+    WSO2 product Docker images used for this Kubernetes deployment are available at [DockerHub](https://hub.docker.com/u/wso2/). It is important to note that they are General Availability (GA) versions and therefore do not include [WSO2 Updates](https://wso2.com/updates).
 
     For a production grade deployment of the desired WSO2 product-version, it is highly recommended to use the relevant Docker image which includes WSO2 Updates, available at [WSO2 Private Docker Registry](https://docker.wso2.com/). In order to use these images, you need an active [WSO2 Subscription](https://wso2.com/subscription).
 
