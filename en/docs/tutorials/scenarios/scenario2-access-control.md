@@ -46,8 +46,8 @@ Next task is to set the access control for the resources. To do that, follow the
 
     ![Set scope]({{base_path}}/assets/img/tutorials/scenarios/set-scope.png)
 
-3. Deploy the API. For that, go to the **Deploy → Deployments** section and click deploy.
-4. Define a business plan for the API. For that, go to **Develop → Portal Configurations → Subscriptions** and select a business plan. (ex: Unlimited).
+3. Define a business plan for the API. For that, go to **Develop → Portal Configurations → Subscriptions** and select a business plan. (ex: Unlimited).
+4. Deploy the API. For that, go to the **Deploy → Deployments** section and click deploy.
 5. Publish the API using Publish → Lifecycle option.
    
 Now go to the Developer Portal and go to the ColTrain’s domain. You would not be able to not see the **ColTrainInternalTimeTableAPI** API.
