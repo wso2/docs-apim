@@ -29,7 +29,7 @@ The Router and Enforcer have a Data Plane API that can be used to configure them
 The Adapter, within Choreo Connect, can receive the APIs via the following methods:
 
 - From the WSO2 API Manager Control Plane (Publisher).
-- By pushing the API project via the command line tool [APICTL]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller).
+- When an API project is pushed via the command line tool [apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller).
 
 ## Communication Between the Components
 
@@ -66,7 +66,7 @@ You can use Choreo Connect mainly in the following two modes.
 
 - [Choreo Connect as a Standalone Gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway)
 
-     If you have not started using WSO2 API Manager yet, or you want to try out Choreo Connect as a Standalone Gateway, simply use the CLI tool apictl to host your APIs.
+     If you have not started using WSO2 API Manager yet, or you want to try out Choreo Connect as a Standalone Gateway, simply use the CLI tool apictl to directly deploy APIs to the Choreo Connect Adapter.
 
 ## Choreo Connect Request Flow
 
