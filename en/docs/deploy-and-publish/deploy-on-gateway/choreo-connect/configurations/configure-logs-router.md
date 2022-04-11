@@ -40,7 +40,7 @@ To enable router debug logs, provide the log level as trailing arguments for the
 
 Please follow [Command line options]({{envoy_path}}/operations/cli) for more information.
 
-You can do this by setting `TRAILING_ARGS` environment variable in router. For example, Add following line to the docker-compose.yaml in the directory `<CHOREO-CONNECT_HOME>/docker-compose/<choreo-connect>/`.
+You can do this by setting the `TRAILING_ARGS` environment variable in the Router. For example, Add the following line to the docker-compose.yaml in the directory `<CHOREO-CONNECT_HOME>/docker-compose/<choreo-connect>/`.
 
 ```yaml
   router:
