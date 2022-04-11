@@ -75,7 +75,7 @@ Client to Router request headers:
 'content-length', '35'
 ```
 
-Router to client response headers
+Router to client response headers:
 ```yaml
 [2022-04-07 06:27:51.851][15][debug][http] [source/common/http/conn_manager_impl.cc:1467] [C23][S16704314296340818822] encoding headers via codec (end_stream=false):
 ':status', '200'
