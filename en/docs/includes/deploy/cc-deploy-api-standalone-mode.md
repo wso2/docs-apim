@@ -14,7 +14,7 @@ apictl mg add env dev --adapter https://localhost:9843
 
     The apictl commands here onwards are executed with the -k flag to avoid SSL verification with the Choreo Connect.
 
-    To communicate via https without skipping SSL verification (without -k flag), add the cert in the Choreo Connect truststore into the `<USER_HOME>/.wso2apictl/certs` folder.
+    To communicate via HTTPS without skipping SSL verification (without -k flag), add the cert in the Choreo Connect truststore into the `<USER_HOME>/.wso2apictl/certs` folder.
 
 ### Step 4 - Log in to the Choreo Connect Environment in apictl
 
