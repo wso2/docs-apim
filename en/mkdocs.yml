@@ -800,6 +800,8 @@ nav:
                 - Gateways:
                     - API Gateway: api-analytics/gateways/configure-synapse-gateway.md
                     #- Choreo Connect: api-analytics/gateways/configure-choreo-connect.md
+            - On-prem Analytics: 
+                - ELK-Based Analytics Installation Guide: api-analytics/on-prem/elk-installation-guide.md
             - View API Analytics:
                 - Introduction: api-analytics/viewing/introduction-to-api-analytics-dashboard.md
                 #- Usecases:

@@ -2,7 +2,7 @@
 
 <a href="{{base_path}}/assets/img/analytics/cloud/architecture.png"><img src="{{base_path}}/assets/img/analytics/cloud/architecture.png" width="70%" alt="Deployment diagram"></a>
 
-#### Analytics Data flow
+### Analytics Data flow
 
 The new On-Premise Analytics solution for WSO2 API Manager will publish analytics data into a log file and that file will be used as the source for the analytics solution.
 
@@ -16,10 +16,11 @@ ELK based WSO2 API Manager On-Premise Analytics deployment architecture has 4 ma
 This section will cover the steps required to configure the WSO2 API-M and then publish it to an external ELK cluster.
 
 
-### Configuring API Manager
+### Step 1 - Configuring API Manager
 
-#### Step 1 - Configuring the deployment.toml file.
+#### Step 1.1 - Configuring the deployment.toml file.
 
+The Choreo based analytics will be enabled by default. Specify the `type` as `elk` to enable ELK analytics as shown below.
 Open the `wso2am-4.x.x/repository/conf` directory. Edit `apim.analytics` configurations in the `deployment.toml` file with the following configuration.
 
 ```
@@ -28,7 +29,7 @@ enable = true
 type = "elk"
 ```
 
-#### Step 2 - Enabling Logs
+#### Step 1.2 - Enabling Logs
 
 Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a reporter, edit the `log4j2.properties` file following the instructions given below.
 
@@ -45,15 +46,17 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
     appender.APIM_METRICS_APPENDER.type = RollingFile
     appender.APIM_METRICS_APPENDER.name = APIM_METRICS_APPENDER
     appender.APIM_METRICS_APPENDER.fileName = ${sys:carbon.home}/repository/logs/apim_metrics.log
-    appender.APIM_METRICS_APPENDER.filePattern = ${sys:carbon.home}/repository/logs/apim_metrics-%d{MM-dd-yyyy}.log
+    appender.APIM_METRICS_APPENDER.filePattern = ${sys:carbon.home}/repository/logs/apim_metrics-%d{MM-dd-yyyy}-%i.log
     appender.APIM_METRICS_APPENDER.layout.type = PatternLayout
     appender.APIM_METRICS_APPENDER.layout.pattern = %d{HH:mm:ss,SSS} [%X{ip}-%X{host}] [%t] %5p %c{1} %m%n
     appender.APIM_METRICS_APPENDER.policies.type = Policies
     appender.APIM_METRICS_APPENDER.policies.time.type = TimeBasedTriggeringPolicy
     appender.APIM_METRICS_APPENDER.policies.time.interval = 1
     appender.APIM_METRICS_APPENDER.policies.time.modulate = true
+    appender.APIM_METRICS_APPENDER.policies.size.type = SizeBasedTriggeringPolicy
+    appender.APIM_METRICS_APPENDER.policies.size.size=1000MB
     appender.APIM_METRICS_APPENDER.strategy.type = DefaultRolloverStrategy
-    appender.APIM_METRICS_APPENDER.strategy.max = 20
+    appender.APIM_METRICS_APPENDER.strategy.max = 10
     ```
 
 3. Add a reporter to the loggers list:
@@ -72,10 +75,10 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
     ```
 
 !!! note
-    Schedule a purge task for the apim_metrics log file with an appropriate retention period.
+    The `apim_metrics.log` file be rolled each day or when the log size reaches the limit of 1000 MB by default. Furthermore, only 10 revisions will be kept and older revisions will be deleted automatically. You can change these configurations by updating the configurations provided in step 2 given above in this. section.
 
 
-### Configuring ELK
+### Step 2 - Configuring ELK
 
 
 #### Installing Elasticsearch
@@ -90,53 +93,57 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
 
 #### Installing Filebeat
 
-1. [Install Filebeat](https://www.elastic.co/guide/en/beats/filebeat/7.13/filebeat-installation-configuration.html#installation) according to your operating system.
+1. [Install Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation-configuration.html#installation) according to your operating system.
 
 2. Configure **Filebeats** to read the log file in the `repository/logs` folder. 
 
-    ```
+    ``` yaml
     filebeat.inputs:
-    - type: log
-    enabled: true
-    paths:
-        - {apim_home}/repository/logs/apim_metrics.log
-    include_lines: ['(apimMetrics):']
+    -   type: log
+        enabled: true
+        paths:
+            - {apim_home}/repository/logs/apim_metrics.log
+        include_lines: ['(apimMetrics):']
     output.logstash:
     # The Logstash hosts
-    hosts: ["{LOGSTASH_URL}:5044"]
+         hosts: ["{LOGSTASH_URL}:5044"]
     ```
 
 #### Installing Logstash
 
 1. [Install Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html) according to your operating system.
 
-    ```
+    ``` java
     input {
-    beats {
-        port => 5044
-    }
+        beats {
+            port => 5044
+        }
     }
 
     filter {
-    grok {match => ["message", "%{GREEDYDATA:UNWANTED}\ apimMetrics:%{GREEDYDATA:apimMetrics}\, %{GREEDYDATA:UNWANTED} \:%{GREEDYDATA:properties}"]}
-    json {source => "properties"}
+        grok {
+            match => ["message", "%{GREEDYDATA:UNWANTED}\ apimMetrics:%{GREEDYDATA:apimMetrics}\, %{GREEDYDATA:UNWANTED} \:%{GREEDYDATA:properties}"]
+        }
+        json {
+            source => "properties"
+        }
     }
     output {
-    if[apimMetrics] == " apim:response" {
-    elasticsearch {
-        hosts => ["http://{ELK_URL}:9200"]
-        index => "apim_event_response"
-        user => "elastic"
-        password => "Admin1234"
-    }
-    } else if[apimMetrics] == " apim:faulty" {
-    elasticsearch {
-        hosts => ["http://{ELK_URL}:9200"]
-        index => "apim_event_faulty"
-        user => "elastic"
-        password => "Admin1234"
-    }
-    }
+        if [apimMetrics] == " apim:response" {
+            elasticsearch {
+                hosts => ["http://{ELK_URL}:9200"]
+                index => "apim_event_response"
+                user => "elastic"
+                password => "Admin1234"
+            }
+        } else if [apimMetrics] == " apim:faulty" {
+            elasticsearch {
+                hosts => ["http://{ELK_URL}:9200"]
+                index => "apim_event_faulty"
+                user => "elastic"
+                password => "Admin1234"
+            }
+        }
     }
     ```
 
@@ -152,7 +159,7 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
     ```
     apim_event*
     apim_event_faulty
-    Apim_event_response
+    apim_event_response
     ```
 
 5. Download the artifact file [here]({{base_path}}/assets/img/analytics/cloud/export.ndjson).
@@ -163,19 +170,22 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
     Follow the recommendations of Elastic in order to optimize the performance of the system.
 
 
-### Configure Security in ELK
+### Step 3 - Configure Security in ELK
 
 Elastic search supports several [authentication modes](https://www.elastic.co/guide/en/kibana/current/kibana-authentication.html#basic-authentication) ranging from basic authentication to Single sign-on with several identity providers.
 
 In this section, we mainly focus on configuring single-sign-on with WSO2 API Manager via OpenID Connect. If you are looking for other supported authentication providers, refer the [ElasticSearch documentation](https://www.elastic.co/guide/en/kibana/current/kibana-authentication.html#basic-authentication).
 
+!!! info
+    Note that you can either configure Basic Authentication or SSO with OpenID Connect.
 
-### Configure Basic Authentication
+
+#### Configure Basic Authentication
 
 ElasticSearch supports basic authentication via an internal user store. If you need to set up basic authentication in ElasticSearch and Kibana, refer the [ElasticSearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-minimal-setup.html).
 
 
-### Configure Single-Sign-On with WSO2 API Manager via OpenID Connect
+#### Configure Single-Sign-On with WSO2 API Manager via OpenID Connect
 
 ElasticSearch/Kibana deployment can be configured to enable Single-sign-on with WSO2 API Manager via OpenID Connect. To set up SSO with WSO2 API Manager, follow the steps given below.
 
@@ -184,7 +194,7 @@ ElasticSearch/Kibana deployment can be configured to enable Single-sign-on with 
     To enable Single-sign-on security features in ELK, an [ElasticSearch Platinum subscription](https://www.elastic.co/subscriptions) is required.
 
 
-#### Configure a service provider at WSO2 API Manager
+##### Configure a service provider at WSO2 API Manager
 
 To enable SSO with WSO2 API Manager, a service provider needs to be created. Follow the steps given below to create a service provider.
 
@@ -215,13 +225,13 @@ To enable SSO with WSO2 API Manager, a service provider needs to be created. Fol
 7. Click **Update** to save your changes.
 
 
-#### Configure OIDC realm in Elastic Search
+##### Configure OIDC realm in Elastic Search
 
 To configure single sign-on to the Elastic Stack using OpenID connect, follow the steps given [here](https://www.elastic.co/guide/en/elasticsearch/reference/7.16/oidc-guide.html).
 
 A sample OpenID connect realm is as follows.
 
-##### OpenID Connect realm configurations
+###### OpenID Connect realm configurations
 
 ```
 xpack.security.authc.realms.oidc.oidc1:
@@ -242,12 +252,12 @@ xpack.security.authc.realms.oidc.oidc1:
  claims.mail: email
 ```
 
-#### Configure Role Mapping for Kibana dashboard
+##### Configure Role Mapping for Kibana dashboard
 
 Once the above steps are completed, role mapping needs to be configured in Kibana to allow WSO2 API Manager users to access the dashboards in Kibana. For that follow the steps mentioned below.
 
 
-##### Create Users and Roles in WSO2 API Manager
+###### Create Users and Roles in WSO2 API Manager
 
 1. Login to WSO2 API Manager management console via `https://<API-M_HOST>:9443/carbon`.
 
@@ -273,7 +283,7 @@ Once the above steps are completed, role mapping needs to be configured in Kiban
 
     <a href="{{base_path}}/assets/img/analytics/cloud/select-user-role.png"><img src="{{base_path}}/assets/img/analytics/cloud/select-user-role.png" width="30%" alt=""></a>
 
-##### Create role mapping
+###### Create role mapping
 
 1. Login to Kibana using basic authentication and go to **Stack Management** under the **Management** section in the left menu. Click **Role Mappings** under the **Security** section.
 2. In the **Create Role Mapping** section, add a new role mapping by providing a **Mapping name**. 
@@ -293,6 +303,53 @@ Once the above steps are completed, role mapping needs to be configured in Kiban
 
     <a href="{{base_path}}/assets/img/analytics/cloud/login-apim.png"><img src="{{base_path}}/assets/img/analytics/cloud/login-apim.png" width="50%" alt=""></a>
 
-#### Configure SSL/TLS to secure ElasticSearch, Kibana, Beats, and Logstash
+##### Configure SSL/TLS to secure ElasticSearch, Kibana, Beats, and Logstash
 
 For more information regarding configuring SSL/TLS to secure ElasticSearch, Kibana, Beats, and Logstash follow the steps mentioned in this [article](https://www.elastic.co/blog/configuring-ssl-tls-and-https-to-secure-elasticsearch-kibana-beats-and-logstash).
+
+### Dashboards
+
+#### Analyzing statistics
+
+Once you have set up the Kibana dashboards, you can access the following dashboards.
+
+##### Overview
+
+The Overview page gives you a quick overview of the performance of the system. It can be used as a dashboard to view the current system status.
+
+<a href="{{base_path}}/assets/img/analytics/cloud/overview.png"><img src="{{base_path}}/assets/img/analytics/cloud/overview.png" width="70%" alt=""></a>
+
+##### Traffic
+The Traffic page shows information related to the traffic that goes through your API management deployments. This includes API usage, application usage, resource usage, etc. You can use this page to investigate the usage of APIs and applications, traffic patterns, etc.
+
+<a href="{{base_path}}/assets/img/analytics/cloud/traffic1.png"><img src="{{base_path}}/assets/img/analytics/cloud/traffic1.png" width="70%" alt=""></a>
+
+<a href="{{base_path}}/assets/img/analytics/cloud/traffic2.png"><img src="{{base_path}}/assets/img/analytics/cloud/traffic2.png" width="70%" alt=""></a>
+
+
+##### Errors
+
+The Errors page shows information related to erroneous API calls that are received by your system. The errors are categorized based on the error type. You can further drill down using the error subtypes. Use this page as the starting point for debugging any API errors.
+
+<a href="{{base_path}}/assets/img/analytics/cloud/errors.png"><img src="{{base_path}}/assets/img/analytics/cloud/errors.png" width="70%" alt=""></a>
+
+
+##### Latency
+
+The Latency page shows information related to the latency of API calls within the API management deployment. You can view a summary of the slowest APIs and then drill down into the API view for further analysis. Use this page as a starting point to debug API slowness.
+
+<a href="{{base_path}}/assets/img/analytics/cloud/latency1.png"><img src="{{base_path}}/assets/img/analytics/cloud/latency1.png" width="70%" alt=""></a>
+
+<a href="{{base_path}}/assets/img/analytics/cloud/latency2.png"><img src="{{base_path}}/assets/img/analytics/cloud/latency2.png" width="70%" alt=""></a>
+
+
+##### Cache
+The Cache page shows statistics that indicate the efficiency with which response caching is carried out for the requests sent to your APIs.
+
+<a href="{{base_path}}/assets/img/analytics/cloud/cache.png"><img src="{{base_path}}/assets/img/analytics/cloud/cache.png" width="70%" alt=""></a>
+
+##### Devices
+
+The Devices page displays information about operating systems and HTTP agents that end users use to invoke the APIs. You can use this page to get an idea of the distribution of your user base and improve your APIs to match the audience.
+
+<a href="{{base_path}}/assets/img/analytics/cloud/devices.png"><img src="{{base_path}}/assets/img/analytics/cloud/devices.png" width="70%" alt=""></a>
