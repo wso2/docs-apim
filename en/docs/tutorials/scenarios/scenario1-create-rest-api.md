@@ -69,7 +69,7 @@ Before Publishing the API, Coltrain developers want to test this API. WSO2 API M
 
 Before starting to test the API, you need to deploy the API in the Gateway. 
 First you need to select a business plan for the API. For that, go to **Develop → Subscriptions** section and select **Unlimited** and save.
-After that, go to **Deploy → Deployment** section and select **Deploy** . This will deploy the API in the Gateway but the API will not be visible to the outside world.
+After that, go to the **Deploy → Deployment** section and select **Deploy**. This will deploy the API in the Gateway but the API will not be visible to the outside world.
 
 
 ![Deploy API]({{base_path}}/assets/img/tutorials/scenarios/deploy-coltrain-public.png)
