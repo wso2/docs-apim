@@ -106,7 +106,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
     Instead of publishing analytics events to the cloud, it is now possible to log the same events and publish them to external systems like ELK. You can create a sample, configure the created sample with API Manager or Choreo Connect, and publish it to the external system.
 
-    **[Learn more]({{base_path}}api-analytics/samples/publishing-analytics-events-to-external-systems/)**
+    **[Learn more]({{base_path}}/api-analytics/samples/publishing-analytics-events-to-external-systems/)**
 
 #### Monitoring
 
