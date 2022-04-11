@@ -88,7 +88,7 @@ Create a WebSocket API following the exact steps in [Create a WebSocket API in A
 
 ### Step 2 - Download the API
 
-After creating the API and making the necessary changes click **Download API** in the top right corner. The downloaded zip can be deployed via apictl using the next few commands.
+After creating the API and making the necessary changes, click **Download API** in the top right corner. The downloaded .zip file can be deployed via apictl using the next few commands.
 
 {! ./includes/deploy/cc-deploy-api-standalone-mode.md !}
 
