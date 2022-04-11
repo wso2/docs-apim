@@ -20,7 +20,7 @@ logfile = "/tmp/envoy.access.log"
 format = "[%START_TIME%] '%REQ(:METHOD)% %REQ(X-ENVOY-ORIGINAL-PATH?:PATH)% %PROTOCOL%' %RESPONSE_CODE% %RESPONSE_FLAGS% %BYTES_RECEIVED% %BYTES_SENT% %DURATION% %RESP(X-ENVOY-UPSTREAM-SERVICE-TIME)% '%REQ(X-FORWARDED-FOR)%' '%REQ(USER-AGENT)%' '%REQ(X-REQUEST-ID)%' '%REQ(:AUTHORITY)%' '%UPSTREAM_HOST%'\n"
 ```
 
-Setting `enable` flas as `true` will let you enable the router access logs and the file path can be setup using the `logfile`. Please follow [format strings]({{envoy_path}}configuration/observability/access_log/usage#format-strings) and [command operators]({{envoy_path}}/configuration/observability/access_log/usage#command-operators) for more information on the supported options for log format, `format` configuration.
+Setting `enable` as `true` will let you enable the Router access logs and the file path can be set up using the `logfile`. Follow [format strings]({{envoy_path}}configuration/observability/access_log/usage#format-strings) and [command operators]({{envoy_path}}/configuration/observability/access_log/usage#command-operators) for more information on the supported options for log format, `format` configuration.
 
 ## Router debug logs
 
