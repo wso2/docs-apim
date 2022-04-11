@@ -24,7 +24,7 @@ Setting `enable` as `true` will let you enable the Router access logs and the fi
 
 ## Router debug logs
 
-To enable router debug logs, provide the log level as trailing arguments for the envoy command as follows.
+To enable Router debug logs, provide the log level as trailing arguments for the envoy command as follows.
 
 ```toml tab="Format"
 -l <level>, 
