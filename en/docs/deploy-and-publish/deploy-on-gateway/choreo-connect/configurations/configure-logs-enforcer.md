@@ -39,7 +39,7 @@ Listed below are the log levels that can be configured:
 Filters log entries based on their level. For example, threshold set to 'WARN' will allow the log entry to pass into appender. If its level is `WARN`, `ERROR` or `FATAL`, other entries will be discarded. This is the minimum log level at which you can log a message. See descriptions of the available log levels.
 
 !!! Note
-    The log level setup at `appender` might be overidden with the properties defined at logger. For Example, if we set the threshold at `appender` level as `DEBUG` and logger level as `ERROR`, it will only show the logs upto `ERROR` level.
+    The log level set up at `appender` might be overridden with the properties defined at logger. For example, if we set the threshold at the `appender` level as `DEBUG` and logger level as `ERROR`, it will only show the logs up to the `ERROR` level.
 
     Configurations example:
     ```properties
