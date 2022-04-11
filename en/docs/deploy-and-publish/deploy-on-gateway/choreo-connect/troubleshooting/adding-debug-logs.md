@@ -110,7 +110,7 @@ Provide the log level as trailing arguments for the envoy command as follows.
 --component-log-level upstream:debug,connection:trace
 ```
 
-For example, Add following line to the docker-compose.yaml in the directory `<CHOREO-CONNECT_HOME>/docker-compose/<choreo-connect>/`. 
+For example, add the following line to the docker-compose.yaml file in the directory `<CHOREO-CONNECT_HOME>/docker-compose/<choreo-connect>/`. 
 
 ```yaml
   router:
