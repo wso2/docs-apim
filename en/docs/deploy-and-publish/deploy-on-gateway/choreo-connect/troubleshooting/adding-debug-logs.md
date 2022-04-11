@@ -4,7 +4,7 @@ It is possible to troubleshoot Choreo Connect using debug logs and trace logs. D
 
 ### Adapter
 
-Set the log level as `DEBG` in the `log_config.toml` as described in [adapter log configurations]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-adapter/#adapter-log-configurations) to enable debug logs in adapter.
+Set the log level as `DEBG` in the `log_config.toml` as described in [Adapter log configurations]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-adapter/#adapter-log-configurations) to enable debug logs in the Adapter.
 
 If you need debug logs to be only enabled in package level, set the log level as `DEBG` only in the relavant [package level configuration]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-adapter/#adapter-package-level-configurations).
 
