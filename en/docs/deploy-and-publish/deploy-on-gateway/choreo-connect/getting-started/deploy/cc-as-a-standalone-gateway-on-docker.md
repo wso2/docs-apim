@@ -14,7 +14,7 @@ Let's deploy an API in Choreo Connect running on Docker as a Standalone Gateway.
 
 2. Download and extract the Choreo Connect distribution .zip file
 
-    The latest Choreo Connect distribution can be downloaded from [https://wso2.com/choreo/choreo-connect/](https://wso2.com/choreo/choreo-connect/). Let's extract the Choreo Connect distribution zip and refer to the extracted location as `<CHOREO-CONNECT_HOME>` hereafter.
+    The latest Choreo Connect distribution can be downloaded from [https://wso2.com/choreo/choreo-connect/](https://wso2.com/choreo/choreo-connect/). Let's extract the Choreo Connect distribution .zip file and refer to the extracted location as `<CHOREO-CONNECT_HOME>` hereafter.
 
 ## Step 2 - Initialize an API project
 
