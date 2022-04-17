@@ -60,12 +60,12 @@ You can use interceptors in Choreo Connect to carry out transformations and medi
 
 The policy attribute “Includes to Payload” in the Call Interceptor Service supports the following values in the request flow.
 
-- response_headers
-- response_body
-- response_trailers
-- Invocation_context
+- request_headers
+- request_body
+- request_trailers
+- invocation_context
 
-For more information, see [Request flow interceptor]({{base_path}}/deploy-on-gateway/choreo-connect/message-transformation/defining-interceptors-in-an-open-api-definition/#request-flow-interceptor).
+For more information, see [Request flow interceptor]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/defining-interceptors-in-an-open-api-definition/#request-flow-interceptor).
 
 Following values in response flow.
 
@@ -75,6 +75,6 @@ Following values in response flow.
 - response_headers
 - response_body
 - response_trailers
-- Invocation_context
+- invocation_context
 
 For more information, see [Response flow interceptor]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/defining-interceptors-in-an-open-api-definition/#response-flow-interceptor).
