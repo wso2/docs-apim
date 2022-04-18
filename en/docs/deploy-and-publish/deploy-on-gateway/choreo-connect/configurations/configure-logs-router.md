@@ -118,7 +118,7 @@ Router to Enforcer request information:
      ...
 ```
 
-Enforcer to Router response information
+Enforcer to Router response information:
 ```yaml
 [2022-04-11 08:18:03.937][15][trace][ext_authz] [source/extensions/filters/common/ext_authz/ext_authz_grpc_impl.cc:48] Received CheckResponse: status {
 }
