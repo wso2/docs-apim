@@ -59,7 +59,7 @@ You can use interceptors in Choreo Connect to carry out transformations and medi
 [![Call Interceptor API]({{base_path}}/assets/img/design/api-policies/call-interceptor.png){: style="width:50%"}]({{base_path}}/assets/img/design/api-policies/call-interceptor.png)
 
 !!! note
-    You can also define call interceptor interceptor configurations in Open API specification. If both Open API specification and "Call Interceptor Service" API Policy is attached, "Call Interceptor Service" API Policy overrides call interceptor interceptor configurations defined in Open API specification.
+    You can also define call interceptor configurations in the Open API specification. If both the Open API specification and the "Call Interceptor Service" API Policy is attached, the "Call Interceptor Service" API Policy overrides the call interceptor configurations defined in the Open API specification.
 
 The policy attribute “Includes to Payload” in the Call Interceptor Service supports the following values in the request flow.
 
