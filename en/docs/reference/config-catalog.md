@@ -7889,9 +7889,9 @@ listener.trust_store.file_name = "$ref{truststore.file_name}"
 listener.trust_store.type = "$ref{truststore.type}"
 listener.trust_store.password = "$ref{truststore.password}"
 sender.warnOnHTTP500 = "*"
-sender.http.proxyHost = "$ref{server.hostname}"
-sender.http.proxyPort = 3128
-sender.http.nonProxyHosts = ["$ref{server.hostname}"]
+sender.parameters.'http.proxyHost' = "$ref\{server.hostname}"
+sender.parameters.'http.proxyPort' = 3128
+sender.parameters.'http.nonProxyHosts' = ["$ref\{server.hostname}"]
 sender.hostname_verifier = "AllowAll"
 sender.key_store.file_name ="$ref{keystore.tls.file_name}"
 sender.key_store.type = "$ref{keystore.tls.type}"
@@ -8336,7 +8336,7 @@ sender.ssl_profile.interval = "600000"</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>sender.http.proxyHost</code> </span>
+                                  <span class="param-name-wrap"> <code>sender.parameters.&#39;http.proxyHost&#39;</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -8357,7 +8357,7 @@ sender.ssl_profile.interval = "600000"</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>sender.http.proxyPort</code> </span>
+                                  <span class="param-name-wrap"> <code>sender.http.&#39;http.proxyPort&#39;</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -8378,7 +8378,7 @@ sender.ssl_profile.interval = "600000"</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>sender.http.nonProxyHosts</code> </span>
+                                  <span class="param-name-wrap"> <code>sender.http.&#39;http.nonProxyHosts&#39;</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>

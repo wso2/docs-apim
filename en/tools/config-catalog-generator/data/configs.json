@@ -3129,7 +3129,7 @@
                             "description": "If the outgoing messages should be sent through an HTTP proxy server, use this parameter to specify the target proxy."
                         },
                         {
-                            "name": "sender.http.proxyHost",
+                            "name": "sender.parameters.'http.proxyHost'",
                             "type": "string",
                             "required": false,
                             "default": "-",
@@ -3137,7 +3137,7 @@
                             "description": "If the outgoing messages should be sent through an HTTP proxy server, use this parameter to specify the target proxy."
                         },
                         {
-                            "name": "sender.http.proxyPort",
+                            "name": "sender.http.'http.proxyPort'",
                             "type": "integer",
                             "required": false,
                             "default": "-",
@@ -3145,7 +3145,7 @@
                             "description": "The port through which the target proxy (specified by the 'sender.proxy_port' parameter) accepts HTTP traffic."
                         },
                         {
-                            "name": "sender.http.nonProxyHosts",
+                            "name": "sender.http.'http.nonProxyHosts'",
                             "type": "string",
                             "required": true,
                             "default": "-",
