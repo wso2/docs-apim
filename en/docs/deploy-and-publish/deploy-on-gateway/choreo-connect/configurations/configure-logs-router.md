@@ -165,7 +165,7 @@ dynamic_metadata {
   ...
 ```
 
-Router to client response headers
+Router to client response headers:
 ```yaml
 [2022-04-11 08:18:04.956][15][debug][http] [source/common/http/conn_manager_impl.cc:1467] [C19][S3973774370179828478] encoding headers via codec (end_stream=false):
 ':status', '200'
