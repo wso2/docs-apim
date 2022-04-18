@@ -178,4 +178,4 @@ Router to client response headers:
 'x-envoy-decorator-operation', 'localhost:^/v2/pet/findByStatus(\?([^/]+))?$'
 ```
 
-Follow [Command line options]({{envoy_path}}/operations/cli) for more information.
+Follow [command line options]({{envoy_path}}/operations/cli) for more information.
