@@ -147,8 +147,8 @@ Follow the instructions below to set up and configure the databases for the WSO2
 
 2. Extract the distribution and copy the following JAR files, which are in the `<wso2is-extensions-1.4.2>/dropins` directory, to the `<IS_HOME>/repository/components/dropins` directory.
 
-     - `wso2is.key.manager.core-1.2.10.jar`
-     - `wso2is.notification.event.handlers_1.2.10.jar`
+     - `wso2is.key.manager.core-1.4.2`
+     - `wso2is.notification.event.handlers-1.4.2`
 
 3. Add the `keymanager-operations.war`, which is in the `<wso2is-extensions-1.4.2>/webapps` directory, to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
