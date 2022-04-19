@@ -6,16 +6,12 @@ WSO2 API Manager now supports integrating external third party Gateways and Brok
 
 1. Go to the [Solace PubHub+](https://solace.com/products/event-broker/) portal.
     
-    !!! tip
-        See the [Getting Started Guide]() for info on how to setup an account with Solace PubHub+.
-
-2. Create a new account.
+2. Create a new account and configure a Solace Broker.
    </br><a href="{{base_path}}/assets/img/tutorials/solace/create-new-account.png"><img src="{{base_path}}/assets/img/tutorials/solace/create-new-account.png" alt="Create new account" name="Create new account" width="600"></a>
-3. You will need the following information to integrate the broker with API Manager
-    1. Username
-    2. Password
-    3. Developer name
-    4. Organization name
+    
+    !!! tip
+        See the [Getting Started Guide](https://github.com/solace-iot-team/platform-api/wiki/WSO2-API-Manager-Quickstart) for info on how to setup an account with Solace PubHub+.
+3. Extract the required configurations mentioned in Step-4 from the Solace broker.
 4. Open the `<API-M_HOME>/repository/conf/deployment.toml` file and add the following according to your account details. Make sure to restart the server after adding the configurations. 
     ```toml
         [[apim.gateway.environment]]
@@ -35,8 +31,8 @@ WSO2 API Manager now supports integrating external third party Gateways and Brok
         show_as_token_endpoint_url = false
 
         [apim.gateway.environment.properties]
-        Organization = <Password of the Solace broker account>
-        DevAccountName = <Password of the Solace broker account>
+        Organization = <Organization created in SOlace>
+        DevAccountName = <Solace Broker email ID>
     ```
     Note that only all these properties are **mandatory**, except `show_as_token_endpoint_url`.
 
@@ -79,10 +75,7 @@ The topics will be created automatically from the Solace AsyncAPI definition pro
 
 1. Go to **API Configurations** and click **AsyncAPI Definition** to see the definition of the API you created in the previous step. 
     <a href="{{base_path}}/assets/img/tutorials/solace/asyncapi-definition.png"><img src="{{base_path}}/assets/img/tutorials/solace/asyncapi-definition.png" alt="AsyncAPI Definition" name="AsyncAPI Definition"></a>
-
-    !!! note
-        The Solace API specification cannot be edited from the API manager Publisher portal. But the specification can be downloaded and changed externally to make the required changes. 
-
+  
     !!! warn
         The current version of WSO2 API Manager **only** supports AsyncUnlimited Protocol as the API level subscription policy for Solace APIs. Once a subscription is made, that policy will be added automatically.
 
@@ -115,7 +108,7 @@ The following are the two methods available in the Developer Portal to subscribe
 Note that the artifacts are deployed in the Solace broker, therefore API level and application-level throttling will not be supported for the Solace API subscriptions.
     
 !!! note
-    The Applications subscribed to Solace APIs have pre-generated production keys. Therefore, only the corresponding subscription will be made in solace broker. If you have not generated any keys such as Sandboxkeys, then subscriptions will not be made in solace broker.
+    The Applications subscribed to Solace APIs have pre-generated production keys. Therefore, only the corresponding subscription will be made in solace broker. If you have not generated any keys such as Sandboxkeys, then subscriptions will not be made in solace broker.  If you subscribed to an application without production keys and if you generate the production keys then a subscription is created internally.
 
 !!! Info
     Internally an application is created for the subscription, and for a successful subscription, you can see a log like this in the carbon logs.    
