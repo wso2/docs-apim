@@ -75,10 +75,7 @@ The topics will be created automatically from the Solace AsyncAPI definition pro
 
 1. Go to **API Configurations** and click **AsyncAPI Definition** to see the definition of the API you created in the previous step. 
     <a href="{{base_path}}/assets/img/tutorials/solace/asyncapi-definition.png"><img src="{{base_path}}/assets/img/tutorials/solace/asyncapi-definition.png" alt="AsyncAPI Definition" name="AsyncAPI Definition"></a>
-
-    !!! note
-        The Solace API specification cannot be edited from the API manager Publisher portal. But the specification can be downloaded and changed externally to make the required changes. 
-
+  
     !!! warn
         The current version of WSO2 API Manager **only** supports AsyncUnlimited Protocol as the API level subscription policy for Solace APIs. Once a subscription is made, that policy will be added automatically.
 
@@ -108,12 +105,11 @@ The following are the two methods available in the Developer Portal to subscribe
 - **Subscribe to an existing application** - You can subscribe to a current API by [selecting an existing application]({{base_path}}/consume/manage-subscription/subscribe-to-an-api/#subscribe-to-an-existing-application).
 - **Subscribe to an API using Key Generation Wizard** - You can use the **[SUBSCRIPTION & KEY GENERATION WIZARD]({{base_path}}/consume/manage-subscription/subscribe-to-an-api/#subscribe-to-an-api-using-key-generation-wizard)** option to start the subscription process from scratch. 
 
-Note that the artifacts are deployed in the Solace broker, therefore API level and application-level throttling will not be supported for the Solace API subscriptions.
+Artifacts are deployed in the Solace broker, therefore API level and application-level throttling will not be supported for the Solace API subscriptions.
     
 !!! note
-    The Applications subscribed to Solace APIs should have generated production keys. Then only the corresponding subscription will be made in solace broker. If you have not generetd any keys or genereted
-    Sandboxkeys then subscriptions will not be made in solace broker.
-
+    The Applications subscribed to Solace APIs should have generated production keys. Then only the corresponding subscription will be made in the solace broker. If you have not generated any keys or only generated Sandbox keys then subscriptions will not be made in solace broker. If you subscribed to an application without production keys and if you generate the production keys then a subscription is created internally.
+ 
 !!! Info
     Internally an application is created for the subscription, and for a successful subscription, you can see a log like this in the carbon logs.    
     
