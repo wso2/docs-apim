@@ -108,8 +108,8 @@ The following are the two methods available in the Developer Portal to subscribe
 Note that the artifacts are deployed in the Solace broker, therefore API level and application-level throttling will not be supported for the Solace API subscriptions.
     
 !!! note
-    The Applications subscribed to Solace APIs have pre-generated production keys. Therefore, only the corresponding subscription will be made in solace broker. If you have not generated any keys such as Sandboxkeys, then subscriptions will not be made in solace broker.  If you subscribed to an application without production keys and if you generate the production keys then a subscription is created internally.
-
+    The Applications subscribed to Solace APIs have pre-generated Production keys. Therefore, only the corresponding subscription will be made in the Solace broker. If you have not generated any keys such as Sandbox keys, then subscriptions will not be made in the Solace broker. If you subscribed to an application without Production keys and if you generate the Production keys then a subscription is created internally.
+    
 !!! Info
     Internally an application is created for the subscription, and for a successful subscription, you can see a log like this in the carbon logs.    
     
