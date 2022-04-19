@@ -1,13 +1,15 @@
 # API Key Authentication
 
-API Key Authentication in WSO2 Choreo Connect is a simple authentication scheme that accepts a valid self-contained JWT token issued for accessing APIs. Since self-contained tokens can have all authorization information, the token processing time is fast and more efficient. Common practice is to have a short expiration time for self-contained access tokens.
+API Key Authentication in Choreo Connect is a simple authentication scheme that accepts a valid self-contained JWT token issued for accessing APIs. Since self-contained tokens can have all authorization information, the token processing time is fast and more efficient. Common practice is to have a short expiration time for self-contained access tokens.
 
-Follow the instructions below to use API Key Authentication with WSO2 Choreo Connect:
+Pick a method below to enable API Key Authentication depending on the Choreo Connect **mode** you have selected:
 
-- If you are using API Manager to deploy the API, follow [API Key Authentication with WSO2 API Manager]({{base_path}}/design/api-security/api-authentication/secure-apis-using-api-keys).
-- If you are using APICTL to deploy the API, follow [API Key Authentication using OpenAPI security schemes](#api-key-authentication-using-openapi-security-schemes).
+|**Mode**         | **Method**    |
+|--------------|-----------|
+|[Choreo Connect with WSO2 API Manager as a Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/)   | [Secure APIs with API Keys via API-M]({{base_path}}/design/api-security/api-authentication/secure-apis-using-api-keys)  |
+|[Choreo Connect as a Standalone Gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/)  |[Update the OpenAPI definition of the API](#update-the-openapi-definition-of-the-api) |
 
-## API Key Authentication using OpenAPI security schemes
+## Update the OpenAPI definition of the API
 
 Follow the instructions below to enable API Key Authentication using OpenAPI security schemes.
 
@@ -107,7 +109,7 @@ Use one of the following options to invoke APIs using an API key based on the me
       ```
 
       ``` bash tab="Response"
-      {"id":1,"category":{"id":0},"name":"teste","photoUrls":[],"tags":[],"status":"teste"}
+      {"id":1,"category":{"id":0},"name":"teste","photoUrls":[],"tags":[],"status":"tested"}
       ```
 
 ## Additional Information
