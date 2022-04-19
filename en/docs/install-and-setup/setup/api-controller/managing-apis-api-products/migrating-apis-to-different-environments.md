@@ -110,20 +110,15 @@ The exported ZIP file has the following structure:
 |    └── <imageName>.extension
 ├── WSDL   
 |    └── <APIName>-<version>.wsdl  
-└── Sequences
-    ├── fault-sequence
-    |    |── Custom 
-    |    |    |── <custom-sequence-1-name.xml>     
-    |    |    └── <custom-sequence-2-name.xml>   
-    |    └── <sequence-name.xml> 
-    ├── in-sequence
-    |    |── Custom
-    |    |    └── <custom-sequence-name.xml>   
-    |    └── <sequence-name.xml> 
-    └── out-sequence
-         |── Custom
-         |    └── <custom-sequence-name.xml>
-         └── <sequence-name.xml> 
+└── Policies
+    ├── <custom-policy-1-name>_<custom-policy-1-version>.j2
+    ├── <custom-policy-1-name>_<custom-policy-1-version>.yaml
+    ├── <custom-policy-2-name>_<custom-policy-2-version>.j2
+    ├── <custom-policy-2-name>_<custom-policy-2-version>.yaml
+    ├── 
+    ├── 
+    ├── <custom-policy-n-name>_<custom-policy-n-version>.j2
+    └── <custom-policy-n-name>_<custom-policy-n-version>.yaml
 ```
 
 The structure of an exported API ZIP file is explained below:
@@ -262,12 +257,51 @@ data:
             <td>WSDL file of the API.</td>
         </tr>
         <tr class="even">
-            <td>Sequences</td>
-            <td>
+            <td>Policies</td>
+            <td>If at least one operation policy is attached to any of the API resources, a template file (either a <code>.j2</code> file or a <code>.gotmpl</code> file) and a definition file (a <code>.yaml</code> file) will be included in this folder per each operation policy.
                 <ul>
-                    <li><b>fault-sequence</b>: It contains the specific API fault sequence.</li>
-                    <li><b>in-sequence</b>: It contains the specific API in sequence.</li>
-                    <li><b>out-sequence</b>: It contains the specific API out sequence.</li>
+                    <li>
+                        <code>&lt;custom-policy-1-name>_&lt;custom-policy-1-version>.yaml</code>: This is the definition file that contains the meta data of the operation policy such as category, name, version, display name, description, applicable flows, supported gateways, supported API types and policy attributes. An example <code>.yaml</code> definition is shown below.
+                    <pre><code>
+type: operation_policy_specification
+version: v4.1.0
+data:
+  category: Mediation
+  name: addHeader
+  version: v1
+  displayName: Add Header
+  description: This policy allows you to add a new header to the request
+  applicableFlows:
+   - request
+   - response
+   - fault
+  supportedGateways:
+   - Synapse
+  supportedApiTypes:
+   - HTTP
+  policyAttributes:
+   -
+    name: headerName
+    displayName: Header Name
+    description: Name of the header to be added
+    validationRegex: "^([a-zA-Z_][a-zA-Z\\d_\\-\\ ]*)$"
+    type: String
+    allowedValues: []
+    required: true
+   -
+    name: headerValue
+    displayName: Header Value
+    description: Value of the header
+    validationRegex: "^([a-zA-Z\\d_][a-zA-Z\\d_\\-\\ ]*)$"
+    type: String
+    allowedValues: []
+    required: true
+                    </code></pre>
+                    </li>
+                    <li>
+                        <code>&lt;custom-policy-1-name>_&lt;custom-policy-1-version>.j2</code>: This is the template file that contains the actual operation policy content. The example content corresponding to the above operation policy definition is shown below. 
+                        <pre><code>&lt;property action="set" name="&#123;&#123;headerName}}" value="&#123;&#123;headerValue}}" scope="transport" /></code></pre>
+                    </li>
                 </ul>
             </td>
         </tr>
