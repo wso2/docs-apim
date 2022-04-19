@@ -1,4 +1,4 @@
-# Generate a Test JWT
+# Enforcer Test Key Authentication
 
 Choreo Connect provides the ability to generate a JWT as a test key to access the APIs.
 
