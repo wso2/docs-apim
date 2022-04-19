@@ -31,7 +31,7 @@ WSO2 API Manager now supports integrating external third party Gateways and Brok
         show_as_token_endpoint_url = false
 
         [apim.gateway.environment.properties]
-        Organization = <Organization created in SOlace>
+        Organization = <Organization created in Solace>
         DevAccountName = <Solace Broker email ID>
     ```
     Note that only all these properties are **mandatory**, except `show_as_token_endpoint_url`.
