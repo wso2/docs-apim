@@ -334,7 +334,7 @@ wso2:
 
   deployment:
     # Deployment option: one of "STANDALONE" or "APIM_AS_CP"
-    # Refer deployment options: https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-deploy-overview/
+    # Refer deployment options: {{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-deploy-overview/
     mode: APIM_AS_CP
 ```
 
@@ -352,7 +352,7 @@ wso2:
 
   deployment:
     # Deployment option: one of "STANDALONE" or "APIM_AS_CP"
-    # Refer deployment options: https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-deploy-overview/
+    # Refer deployment options: {{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-deploy-overview/
     mode: "APIM_AS_CP"
 ```
 

@@ -41,7 +41,7 @@ Run the following command to initialize the apictl with the Key Store used to en
     !!! example
         ```go
         apictl secret init
-        Enter Key Store location: /home/wso2mi-4.0.0-SNAPSHOT/repository/resources/security/wso2carbon.jks
+        Enter Key Store location: /home/wso2mi-4.1.0-SNAPSHOT/repository/resources/security/wso2carbon.jks
         Enter Key Store password: 
         Enter Key alias: wso2carbon
         Enter Key password: 
