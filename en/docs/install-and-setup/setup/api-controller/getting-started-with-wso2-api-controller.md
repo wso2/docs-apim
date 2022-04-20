@@ -153,7 +153,7 @@ You can add environments by either manually editing the `<USER_HOME>/.wso2apictl
 apictl add env <environment-name>
 ```
 
-1.  Make sure that the WSO2 API Manager (WSO2 API-M) 4.0.0 version is started and that the 4.0.0 version of apictl is set up.     
+1.  Make sure that the WSO2 API Manager (WSO2 API-M) 4.1.0 version is started and that the 4.1.0 version of apictl is set up.     
 For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
 2.  Run the following apictl command to add an environment.
 
@@ -292,7 +292,7 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
 
 ## Remove an environment
 
-1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.0 version of apictl is set up.  
+1.  Make sure that the WSO2 API-M 4.1.0 version is started and that the 4.1.0 version of apictl is set up.  
 For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
 2.  Run the following apictl command to remove an environment.
 
@@ -321,7 +321,7 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
 
 ## Get environments
 
-1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.0 version of apictl is set up.    
+1.  Make sure that the WSO2 API-M 4.1.0 version is started and that the 4.1.0 version of apictl is set up.    
 For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
 2.  Run the following apictl command to list the environments.  
 
@@ -362,7 +362,7 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
 
 After adding an environment, you can log in to the WSO2 API-M instance in that environment using credentials.
 
-1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.0 version of apictl is set up.   
+1.  Make sure that the WSO2 API-M 4.1.0 version is started and that the 4.1.0 version of apictl is set up.   
 For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
 2.  Run any of the following apictl commands to log in to the environment.
 
@@ -422,7 +422,7 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
 
 ## Logout from an environment
 
-1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.0 version of apictl is set up.   
+1.  Make sure that the WSO2 API-M 4.1.0 version is started and that the 4.1.0 version of apictl is set up.   
 For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
 
 2.  Run the following command to log out from the current session of the WSO2 API-M environment.
