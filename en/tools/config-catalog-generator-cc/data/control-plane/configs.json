@@ -75,7 +75,7 @@
               "type": "string array",
               "required": true,
               "default": "[\"amqp://admin:$env{cp_admin_pwd}@localhost:5672?retries='10'&connectdelay='30'\"]",
-              "description": "Message broker connection URLs of the control plane with retry count and connect delay (in seconds). The array of endpoints act as fail-over."
+              "description": "Message broker connection URLs of the control plane with retry count and connect delay (in seconds). The array of endpoints acts as fail-over endpoints."
             }
           ]
         }
