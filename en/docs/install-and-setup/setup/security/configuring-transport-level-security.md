@@ -68,7 +68,7 @@ To prevent these types of security attacks, it is encouraged to disable the weak
 
     ``` tab="Example"
     [transport.passthru_https.listener.parameters]
-    HttpsProtocols = "TLSv1,TLSv1.1,TLSv1.2,TLSv1.3"
+    HttpsProtocols = "TLSv1.2,TLSv1.3"
     ```
 
 ## Changing the server name in HTTP response headers
