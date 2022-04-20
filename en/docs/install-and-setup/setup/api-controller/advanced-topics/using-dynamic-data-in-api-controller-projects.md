@@ -64,13 +64,13 @@ Once the project is successfully imported, sign-in to the WSO2 API Manager (WSO2
 
 [![]({{base_path}}/assets/img/learn/api-controller/advanced-topics/dynamic-data-env-config-api-endpoints.png)]({{base_path}}/assets/img/learn/api-controller/advanced-topics/dynamic-data-env-config-api-endpoints.png) 
 
-## Add dynamic data to Custom Mediation Policies in an API project
+## Add dynamic data to Operation Policies in an API project
 
-Other than the API (or API Product) Environment Configuration (`params.yaml`), the apictl supports environment variable substitution in custom mediation policies.
+Other than the API (or API Product) Environment Configuration (`params.yaml`), the apictl supports environment variable substitution in operation policies.
 
 For example, consider we need to send a special header to the backend when calling the SwaggerPetstore API we created above. The value of the header should be a dynamic value which the apictl should have control over.
 
-1. Create the below custom mediation policy `custom-header-in.xml` in `PetstoreProject/Sequences/in-sequence/Custom` folder.
+1. Create the below operation policy template `addCustomLogMessage.j2` in `PetstoreProject/Policies` folder.
 
     ```xml
     <sequence xmlns="http://ws.apache.org/ns/synapse" name="custom-header-in">
@@ -81,16 +81,48 @@ For example, consider we need to send a special header to the backend when calli
     </sequence>
     ```
 
-2. Open `PetstoreProject/api.yaml` and change below settings.
+2. Define the metadata of the above sequence by creating a new file named `addCustomLogMessage.yaml` in the `PetstoreProject/Policies` folder.
+
+    ```yaml
+    type: operation_policy_specification
+    version: v4.1.0
+    data:
+      category: Mediation
+      name: addCustomLogMessage
+      version: v1
+      displayName: Custom Log Policy
+      description: "Using this policy, you can log the important details of the request"
+      applicableFlows:
+       - request
+       - response
+       - fault
+      supportedGateways:
+       - Synapse
+      supportedApiTypes:
+       - HTTP
+      policyAttributes: []
+    ```
+
+3. Open `PetstoreProject/api.yaml` and change the following settings.
 
     1. Replace `lifeCycleStatus` value from `CREATED` to `PUBLISHED`. This is to ensure that the API will be Published once imported.
-    2. Add the mediation policy under the field (list) `mediationPolicies` as shown below. (Since you are adding an `IN` sequence the `type` should be specified as `IN`)
+    2. Add the operation policy under the field (list) `operations` as shown below. (Here, the operation policy that we created in the above steps has been attached to the operation `/pet/{petId}`)
 
        ```yaml
-       mediationPolicies:
-           - name: custom-header-in
-             type: IN
-             shared: false
+         operations:
+          -
+           id: ""
+           target: /pet/{petId}
+           verb: GET
+           authType: Application & Application User
+           throttlingPolicy: Unlimited
+           operationPolicies:
+            request:
+             -
+              policyName: addCustomLogMessage
+              parameters: {}
+            response: []
+            fault: []
        ```
 
     A sample configuration after applying the above changes is shown below.
@@ -103,17 +135,27 @@ For example, consider we need to send a special header to the backend when calli
         description: 'This is a sample server Petstore server.  You can find out more about
             Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For
             this sample, you can use the api key `special-key` to test the authorization filters.'
-        context: /v2/1.0.5
-        version: 1.0.5
+        context: /v2/1.0.6
+        version: 1.0.6
         lifeCycleStatus: PUBLISHED
-        mediationPolicies:
-            - name: custom-header-in
-              type: IN
-              shared: false
+        operations:
+          -
+           id: ""
+           target: /pet/{petId}
+           verb: GET
+           authType: Application & Application User
+           throttlingPolicy: Unlimited
+           operationPolicies:
+            request:
+             -
+              policyName: addCustomLogMessage
+              parameters: {}
+            response: []
+            fault: []
     ...
     ```
 
-3. Export the environment variables with required values.
+4. Export the environment variables with required values.
 
     ```bash tab="Linux/Mac"
     export ENV_KEY=dev_101
@@ -123,22 +165,22 @@ For example, consider we need to send a special header to the backend when calli
     SET ENV_KEY=dev_101
     ```
 
-4. Import the API Project
+5. Import the API Project.
 
     ```bash
-    apictl import api -f PetstoreProject --environment development --update
+    apictl import api -f PetstoreProject --environment development --params params.yaml --update
     ```
 
     !!!note
         `apictl import-api` command has been deprecated from apictl 4.0.0 onwards. Instead use `apictl import api` as shown above.
         
-5. Generate a token and invoke the API
+6. Generate a token and invoke the API
 
     ```bash
-    $ apictl get keys -e development -n SwaggerPetstore -v 1.0.5 -r admin
+    $ apictl get keys -e development -n SwaggerPetstore -v 1.0.6 -r admin
     eyJ0eXAiOiJKV1QiLCJhbGciOiJSUz....RWrACAUNSFBpxz1lRLqFlDiaVJAg
 
-    $ curl -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUz....RWrACAUNSFBpxz1lRLqFlDiaVJAg" https://localhost:8243/v2/1.0.5/pet/1 -k
+    $ curl -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUz....RWrACAUNSFBpxz1lRLqFlDiaVJAg" https://localhost:8243/v2/1.0.6/pet/1 -k
     {"id":1,"category":{"id":1001,"name":"Animal"},"name":"doggie","photoUrls":["img/test/dog.jpeg","img/test/dog1.jpeg"],"tags":[{"id":2001,"name":"Pet"},{"id":2002,"name":"Animal"}],"status":"available"}
     ```
 
@@ -148,5 +190,5 @@ For example, consider we need to send a special header to the backend when calli
 Upon successful invocation, the header `X-ENV-KEY: dev_101` will be sent to the backend of the API. The below log will be printed in the API gateway's terminal.
 
 ```bash
-INFO - LogMediator Sent header(X-ENV-KEY) = dev_101
+INFO - LogMediator {api:SwaggerPetstore:v1.0.6} Sent header(X-ENV-KEY) = dev_101
 ```
