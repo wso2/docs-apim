@@ -142,7 +142,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
     Authentication for Prototype APIs is available by default so that the client apps can also be created using authentication to test out the APIs. If needed you can disable authentication for Prototype APIs at the resource level or API level.
 
-    **[Learn more]({{base_path}}/design/prototype-api/create-a-prototype-api/)**
+    **[Learn more]({{base_path}}/design/prototype-api/overview/)**
 
 ??? note "Single Sign-On support for the monitoring dashboard using OpenID Connect"
 
