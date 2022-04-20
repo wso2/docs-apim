@@ -399,10 +399,10 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
                 apictl change-status api-product -a Publish -n PizzaShackAPIProduct -e dev 
                 ```
                 ```bash
-                apictl change-status api --action "Publish" --name PizzaShackAPIProduct --environment production 
+                apictl change-status api-product --action "Publish" --name PizzaShackAPIProduct --environment production 
                 ```    
                 ```go
-                apictl change-status api --action "Demote to Created" --name PizzaShackAPIProduct --environment production --provider Alice 
+                apictl change-status api-product --action "Demote to Created" --name PizzaShackAPIProduct --environment production --provider Alice 
                 ```  
 
         -   **Response**
