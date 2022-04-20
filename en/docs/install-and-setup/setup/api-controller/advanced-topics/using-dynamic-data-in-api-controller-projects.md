@@ -103,7 +103,7 @@ For example, consider we need to send a special header to the backend when calli
       policyAttributes: []
     ```
 
-3. Open `PetstoreProject/api.yaml` and change below settings.
+3. Open `PetstoreProject/api.yaml` and change the following settings.
 
     1. Replace `lifeCycleStatus` value from `CREATED` to `PUBLISHED`. This is to ensure that the API will be Published once imported.
     2. Add the operation policy under the field (list) `operations` as shown below. (Here, the operation policy which we created in the above steps has been attached to the operation `/pet/{petId}`)
