@@ -296,12 +296,12 @@ For example lets say you want to replace the CA certificates of Choreo Connect R
 Create a Dockerfile as follows.
 
 ```dockerfile tab='Format'
-FROM wso2/choreo-connect-router:1.0.0
+FROM wso2/choreo-connect-router:1.1.0
 <YOUR_DOCKER_COMMANDS>
 ```
 
 ```dockerfile tab='Sample'
-FROM wso2/choreo-connect-router:1.0.0
+FROM wso2/choreo-connect-router:1.1.0
 COPY my-ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 ```
 
@@ -312,7 +312,7 @@ docker build -t <IMAGE_NAME> -f <DOCKER_FILE_PATH> <CONTEXT>
 ```
 
 ```bash tab='Sample'
-docker build -t myimages/choreo-connect-router:1.0.0 -f Dockerfile .
+docker build -t myimages/choreo-connect-router:1.1.0 -f Dockerfile .
 ```
 
 ## Mode 1: API Manager as Control Plane Configurations
@@ -380,12 +380,12 @@ cp -r petstore/ apictl-projects-dir/petstore
 Create a Dockerfile as follows.
 
 ```dockerfile tab='Format'
-FROM wso2/choreo-connect-adapter:1.0.0
+FROM wso2/choreo-connect-adapter:1.1.0
 COPY <DIR_WITH_APICTL_PROJECTS> /home/wso2/artifacts/apis
 ```
 
 ```dockerfile tab='Sample'
-FROM wso2/choreo-connect-adapter:1.0.0
+FROM wso2/choreo-connect-adapter:1.1.0
 COPY apictl-projects-dir /home/wso2/artifacts/apis
 ```
 
@@ -396,7 +396,7 @@ docker build -t <IMAGE_NAME> -f <DOCKER_FILE_PATH> <CONTEXT>
 ```
 
 ```bash tab='Sample'
-docker build -t myimages/choreo-connect-adapter-petstore:1.0.0 -f Dockerfile .
+docker build -t myimages/choreo-connect-adapter-petstore:1.1.0 -f Dockerfile .
 ```
 
 !!! Important
@@ -454,7 +454,7 @@ wso2:
       # Image name for adapter
       imageName: "choreo-connect-adapter-petstore"
       # Image tag for adapter
-      imageTag: "1.0.0"
+      imageTag: "1.1.0"
       # Refer to the Kubernetes documentation on updating images (https://kubernetes.io/docs/concepts/containers/images/#updating-images)
       imagePullPolicy: IfNotPresent
 ```
