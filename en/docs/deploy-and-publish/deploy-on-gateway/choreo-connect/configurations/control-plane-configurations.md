@@ -207,7 +207,7 @@ See the example .toml file given below.
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[controlPlane.jmsConnectionParameters]
-  eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@localhost:5672?retries='10'&connectdelay='30'"]
+  eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@wso2am-pattern-1-am-1-service:5672?retries='10'&connectdelay='30'", "amqp://admin:$env{cp_admin_pwd}@wso2am-pattern-1-am-2-service:5672?retries='10'&connectdelay='30'"]
 </code></pre>
                     </div>
                 </div>
@@ -228,7 +228,7 @@ See the example .toml file given below.
                                 <div class="param-info">
                                     <div>
                                         <p>
-                                            <span class="param-type string"> string </span>
+                                            <span class="param-type string"> string array </span>
                                             <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
@@ -237,7 +237,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Message broker connection URL of the control plane.</p>
+                                        <p>Message broker connection URLs of the control plane with retry count and connect delay (in seconds). The array of endpoints act as fail-over.</p>
                                     </div>
                                 </div>
                             </div>
