@@ -81,7 +81,7 @@ For example, consider we need to send a special header to the backend when calli
     </sequence>
     ```
 
-2. Define the meta data of the above sequence by creating a new file named `addCustomLogMessage.yaml` in `PetstoreProject/Policies` folder.
+2. Define the metadata of the above sequence by creating a new file named `addCustomLogMessage.yaml` in the `PetstoreProject/Policies` folder.
 
     ```yaml
     type: operation_policy_specification
