@@ -165,7 +165,7 @@ For example, consider we need to send a special header to the backend when calli
     SET ENV_KEY=dev_101
     ```
 
-5. Import the API Project
+5. Import the API Project.
 
     ```bash
     apictl import api -f PetstoreProject --environment development --params params.yaml --update
