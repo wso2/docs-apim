@@ -485,11 +485,11 @@ mentioned gateway environments. If the **deployment environments are not provide
     
     - After importing, if the APIs are not visible in the API Publisher UI, do the following to re-index the artifacts in the registry.
 
-        1.  Shut down the WSO2 API-M 4.0.0, backup and delete the `<API-M_4.0.0_HOME>/solr` directory.
+        1.  Shut down the WSO2 API-M 4.1.0, backup and delete the `<API-M_4.1.0_HOME>/solr` directory.
         
-        2.  Rename the `<lastAccessTimeLocation>` element in the `<API-M_4.0.0_HOME>/repository/conf/registry.xml` file. If you use a **distributed WSO2 API-M setup**, change the file in the API Publisher node. For example, change the `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime` registry path to `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime_1 `
+        2.  Rename the `<lastAccessTimeLocation>` element in the `<API-M_4.1.0_HOME>/repository/conf/registry.xml` file. If you use a **distributed WSO2 API-M setup**, change the file in the API Publisher node. For example, change the `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime` registry path to `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime_1 `
 
-        3.  Restart WSO2 API-M 4.0.0 server.  
+        3.  Restart WSO2 API-M 4.1.0 server.  
     
     - If you want to verify the final import artifact just before it is sent to the WSO2 API-M server, use `--skip-cleanup` 
     with `--verbose` logs. In the verbose logs, you can find the temporary directory location.
