@@ -8,7 +8,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
 ## Downloads
 
-<a href="https://wso2.com/api-manager/#"><img src="{{base_path}}/assets/img/get_started/download-apim.png" title="Download WSO2 API Manager" width="35%" alt="Download WSO2 API Manager"/></a>
+<a href="https://wso2.com/api-manager/#"><img src="{{base_path}}/assets/img/get_started/download-apim.png" title="Download WSO2 API Manager" width="25%" alt="Download WSO2 API Manager"/></a>
 
 ## New features
 
