@@ -258,7 +258,7 @@ data:
         </tr>
         <tr class="even">
             <td>Policies</td>
-            <td>If at least one operation policy is attached to any of the API resources, a template file (either a <code>.j2</code> file or a <code>.gotmpl</code> file) and a definition file (a <code>.yaml</code> file) will be included in this folder per each operation policy.
+            <td>If at least one operation policy is attached to any of the API resources, a template file (either a <code>.j2</code> file or a <code>.gotmpl</code> file) and a definition file (a <code>.yaml</code> file) will be included in this folder for each operation policy.
                 <ul>
                     <li>
                         <code>&lt;custom-policy-1-name>_&lt;custom-policy-1-version>.yaml</code>: This is the definition file that contains the meta data of the operation policy such as category, name, version, display name, description, applicable flows, supported gateways, supported API types and policy attributes. An example <code>.yaml</code> definition is shown below.
