@@ -598,7 +598,7 @@ The `authorizationCode` element contains the following parameters that are used 
     <tr>
         <td>authMode</td>
         <td>
-            Indicate how the client credentials are passed to the token endpoint. If the authMode is <code>payload</code> they are passed in the request payload. If the authMode is <code>header</code> the client credentials are passed in the authentication header which is the default.
+            Indicate how the client credentials are passed to the token endpoint. If the authMode is <code>payload</code> they are passed in the request payload. If the authMode is <code>header</code> the client credentials are passed in the authentication header, which is the default.
         </td>
         <td>
             Optional
