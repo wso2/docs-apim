@@ -27,7 +27,7 @@ Please refer [Multiple Key Manager Support in WSO2 API Manager]({{base_path}}/ad
 
 ## Via the Choreo Connect Config File
 
-When Choreo Connect does not depend on a control plane, the external Key Managers, Token Services or JWT issuers can be configured in [config.toml]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configuration-overview/#configurations-overview) as given below.
+When Choreo Connect does not depend on a Control Plane, the external Key Managers, Token Services or JWT issuers can be configured in [config.toml]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configuration-overview/#configurations-overview) as given below.
 
 ``` toml
 # Issuer 1
