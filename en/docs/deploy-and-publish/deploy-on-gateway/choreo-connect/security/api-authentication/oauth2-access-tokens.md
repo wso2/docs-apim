@@ -2,7 +2,7 @@
 
 By default all APIs expect an access token during invocation, unless [security has been disabled]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/disabling-security/) for the API.
 
-When API-M acts as the Control Plane for Choreo Connect, you can generate an access token and invoke the API by following the steps in [here]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console/). This is an access token retrieved from the Resident Key Manager packaged in an API Manager pack (of profile `control-plane`). 
+When API-M acts as the Control Plane for Choreo Connect, you can generate an access token and invoke the API by following the steps [here]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console/). This is an access token retrieved from the Resident Key Manager packaged in an API Manager pack (of profile `control-plane`). 
 
 ## Access Token (JWT) Validation
 
