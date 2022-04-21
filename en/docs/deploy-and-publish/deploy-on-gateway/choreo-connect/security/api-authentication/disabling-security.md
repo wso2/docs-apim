@@ -12,7 +12,7 @@ An API can be invoked without authentication by disabling security. Pick one of 
 
 Follow the steps given in [Disabling Security for APIs]({{base_path}}/design/api-security/api-authentication/disable-security/).
 
-## By Updating the OpenAPI Definition
+## By updating the OpenAPI definition
 
 APIs can be exposed without requiring any authentication (i.e. disable transport security and application security) using the OpenAPI extension `x-wso2-disable-security` . This extension is supported at API, resource, and operation levels. The following is an example of how you can disable security for an API.
 
