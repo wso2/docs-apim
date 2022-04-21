@@ -1,6 +1,6 @@
 # API Key Authentication
 
-API Key Authentication in Choreo Connect is a simple authentication scheme that accepts a valid self-contained JWT token issued for accessing APIs. Since self-contained tokens can have all authorization information, the token processing time is fast and more efficient. Common practice is to have a short expiration time for self-contained access tokens.
+API Key Authentication in Choreo Connect is a simple authentication scheme that accepts a valid self-contained JWT token issued for accessing APIs. Since self-contained tokens can have all authorization information, the token processing time is fast and more efficient. The common practice is to have a short expiration time for self-contained access tokens.
 
 Pick a method below to enable API Key Authentication depending on the Choreo Connect **mode** you have selected:
 
