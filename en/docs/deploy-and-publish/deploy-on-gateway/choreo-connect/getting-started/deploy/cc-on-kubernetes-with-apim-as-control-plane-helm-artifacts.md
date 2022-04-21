@@ -18,11 +18,11 @@ Let's deploy an API on Choreo Connect, which running on Kubernetes, with WSO2 AP
     -   Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Helm](https://helm.sh/docs/intro/install/), and [Kubernetes client](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
         
     -   Set up a [Kubernetes cluster](https://kubernetes.io/docs/setup/#learning-environment).
-        - Minimum CPU : 3vCPU
-        - Minimum Memory : 2GB
+        - Minimum CPU : 8vCPU
+        - Minimum Memory : 8GB
         
     -   Install [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/). 
-        - Note: Helm resources for WSO2 product deployment patterns are compatible with the [`nginx-0.30.0`](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.30.0) release.
+        - Note: Helm resources for WSO2 product deployment patterns are compatible with the [`nginx-ingress-controller-v1.1.3`](https://github.com/kubernetes/ingress-nginx/releases/tag/controller-v1.1.3) release.
 
 {!includes/deploy/k8s-setup-note.md!}
 
@@ -33,37 +33,35 @@ Following are some sample instructions to deploy API Manager for **quick start p
 !!! Tip
     Please follow the document [Deploying API-M on Kubernetes using Helm Resources]({{base_path}}/install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources/) which describes deploying API Manager. The following guide describes deploying API Manager for quick start purpose.
 
-1.  Execute the command that is relevant to your Helm version.
+Execute the command that is relevant to your Helm version.
 
-    !!! Tip
-        If you do not have sufficient resources you can adjust them setting following values when installing the chart.
-        ```bash
-        --set wso2.deployment.am.resources.requests.memory=2Gi \
-        --set wso2.deployment.am.resources.requests.cpu=1000m \
-        --set wso2.deployment.am.resources.limits.memory=2Gi \
-        --set wso2.deployment.am.resources.limits.cpu=1000m
-        ```
+!!! Tip
+    If you do not have sufficient resources you can adjust them by setting the following values when installing the chart.
+    ```bash
+    --set wso2.deployment.am.resources.requests.memory=2Gi \
+    --set wso2.deployment.am.resources.requests.cpu=1000m \
+    --set wso2.deployment.am.resources.limits.memory=2Gi \
+    --set wso2.deployment.am.resources.limits.cpu=1000m
+    ```
 
-    -   Using **Helm v2**
-
-        ```bash
-        helm install --name apim-as-cp wso2/am-single-node --version 4.0.0-1 --namespace apim \
-            --set wso2.deployment.am.ingress.gateway.hostname=gw.wso2.com \
-            --set-file wso2.deployment.am.config."deployment\.toml"=https://raw.githubusercontent.com/wso2/kubernetes-microgateway/v1.0.0.1/resources/controlplane-deployment.toml
-        ```
-
-    -   Using **Helm v3**
-
-        ```bash
-        helm install apim-as-cp wso2/am-single-node --version 4.0.0-1 --namespace apim --create-namespace \
-            --set wso2.deployment.am.ingress.gateway.hostname=gw.wso2.com \
-            --set-file wso2.deployment.am.config."deployment\.toml"=https://raw.githubusercontent.com/wso2/kubernetes-microgateway/v1.0.0.1/resources/controlplane-deployment.toml
-        ```
-
-2.  Choreo Connect is used as the gateway of API Manager, hence we need to delete the gateway Ingress resource of gateway component of the WSO2 API Manager.
+-   Using **Helm v2**
 
     ```bash
-    kubectl delete ing -n apim wso2am-single-node-am-gateway-ingress
+    helm install --name apim-as-cp wso2/am-single-node --version 4.1.0-1 --namespace apim \
+        --set wso2.deployment.am.ingress.gateway.hostname=gw.wso2.com \
+        --set wso2.deployment.am.ingress.gateway.enabled=false \
+        --set wso2.deployment.am.imagePullPolicy=IfNotPresent \
+        --set-file wso2.deployment.am.config."deployment\.toml"=https://raw.githubusercontent.com/wso2/kubernetes-microgateway/v1.1.0.1/resources/controlplane-deployment.toml
+    ```
+
+-   Using **Helm v3**
+
+    ```bash
+    helm install apim-as-cp wso2/am-single-node --version 4.1.0-1 --namespace apim --create-namespace \
+        --set wso2.deployment.am.ingress.gateway.hostname=gw.wso2.com \
+        --set wso2.deployment.am.ingress.gateway.enabled=false \
+        --set wso2.deployment.am.imagePullPolicy=IfNotPresent \
+        --set-file wso2.deployment.am.config."deployment\.toml"=https://raw.githubusercontent.com/wso2/kubernetes-microgateway/v1.1.0.1/resources/controlplane-deployment.toml
     ```
 
 ## Option 1: Install Chart from WSO2 Helm Chart Repository
@@ -83,14 +81,14 @@ Execute the following command to install the Helm Cart by selecting the helm ver
 -   Using **Helm v2**
 
     ```bash tab='Format'
-    helm install --name <RELEASE_NAME> wso2/choreo-connect --version 1.0.0-1 --namespace <NAMESPACE> \
+    helm install --name <RELEASE_NAME> wso2/choreo-connect --version 1.1.0-1 --namespace <NAMESPACE> \
         --set wso2.deployment.mode=APIM_AS_CP \
         --set wso2.apim.controlPlane.hostName=am.wso2.com \
         --set wso2.apim.controlPlane.serviceName=wso2am-single-node-am-service.apim
     ```
 
     ```bash tab='Sample'
-    helm install --name my-release wso2/choreo-connect --version 1.0.0-1 --namespace cc \
+    helm install --name my-release wso2/choreo-connect --version 1.1.0-1 --namespace cc \
         --set wso2.deployment.mode=APIM_AS_CP \
         --set wso2.apim.controlPlane.hostName=am.wso2.com \
         --set wso2.apim.controlPlane.serviceName=wso2am-single-node-am-service.apim
@@ -99,14 +97,14 @@ Execute the following command to install the Helm Cart by selecting the helm ver
 -   Using **Helm v3**
 
     ```bash tab='Format'
-    helm install <RELEASE_NAME> wso2/choreo-connect --version 1.0.0-1 --namespace <NAMESPACE> --create-namespace \
+    helm install <RELEASE_NAME> wso2/choreo-connect --version 1.1.0-1 --namespace <NAMESPACE> --create-namespace \
         --set wso2.deployment.mode=APIM_AS_CP \
         --set wso2.apim.controlPlane.hostName=am.wso2.com \
         --set wso2.apim.controlPlane.serviceName=wso2am-single-node-am-service.apim
     ```
 
     ```bash tab='Sample'
-    helm install my-release wso2/choreo-connect --version 1.0.0-1 --namespace cc --create-namespace \
+    helm install my-release wso2/choreo-connect --version 1.1.0-1 --namespace cc --create-namespace \
         --set wso2.deployment.mode=APIM_AS_CP \
         --set wso2.apim.controlPlane.hostName=am.wso2.com \
         --set wso2.apim.controlPlane.serviceName=wso2am-single-node-am-service.apim
@@ -119,7 +117,7 @@ If you are using WSO2 product Docker images available from WSO2 Private Docker R
 Please see the following example.
 
 ```bash tab='Format'
-helm install --name <RELEASE_NAME> wso2/choreo-connect --version 1.0.0-1 --namespace <NAMESPACE> \
+helm install --name <RELEASE_NAME> wso2/choreo-connect --version 1.1.0-1 --namespace <NAMESPACE> \
   --set wso2.subscription.username=<SUBSCRIPTION_USERNAME> \
   --set wso2.subscription.password=<SUBSCRIPTION_PASSWORD>
 ```
@@ -138,7 +136,7 @@ Check out the Helm Resources for the Choreo Connect Git repository.
 
     ```bash
     git clone https://github.com/wso2/kubernetes-microgateway.git
-    git checkout tags/v1.0.0.1
+    git checkout tags/v1.1.0.1
     ```
 
 This creates a local copy of [wso2/kubernetes-microgateway](https://github.com/wso2/kubernetes-microgateway), which includes all the Helm Resources for Choreo Connect.
@@ -152,7 +150,7 @@ Follow the steps given below to configure how your Choreo Connect deployment sho
 1.  Open the `values.yaml` file in the `<KUBERNETES_HOME>/helm/choreo-connect` directory of your local copy.
 
     !!! Info
-        Before you do any changes, go through the [default configurations](https://github.com/wso2/kubernetes-microgateway/tree/v1.0.0.1/helm/choreo-connect) in this file.
+        Before you do any changes, go through the [default configurations](https://github.com/wso2/kubernetes-microgateway/tree/v1.1.0.1/helm/choreo-connect) in this file.
 
 2.  Use the following guidelines to update the deployment configurations:
 
@@ -187,7 +185,7 @@ Follow the steps given below to configure how your Choreo Connect deployment sho
                     serviceName: "<controlplane kubernetes service name>"
         ```
 
-    -   You can update [other configurations](https://github.com/wso2/kubernetes-microgateway/tree/v1.0.0.1/helm/choreo-connect/README.md) as required.
+    -   You can update [other configurations](https://github.com/wso2/kubernetes-microgateway/tree/v1.1.0.1/helm/choreo-connect/README.md) as required.
 
 3.  Save the `values.yaml` file.
 
@@ -204,13 +202,13 @@ Once you have set up your Helm resources locally, follow the instructions given 
     -   Using **Helm v2**
 
         ```bash
-        helm install --name <RELEASE_NAME> wso2/choreo-connect --version 1.0.0-1 --namespace <NAMESPACE>
+        helm install --name <RELEASE_NAME> wso2/choreo-connect --version 1.1.0-1 --namespace <NAMESPACE>
         ```
 
     -   Using **Helm v3**
 
         ```bash
-        helm install <RELEASE_NAME> wso2/choreo-connect --version 1.0.0-1 --namespace <NAMESPACE> --create-namespace
+        helm install <RELEASE_NAME> wso2/choreo-connect --version 1.1.0-1 --namespace <NAMESPACE> --create-namespace
         ```
 
 #### Update configurations during deployment
