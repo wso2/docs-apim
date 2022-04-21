@@ -36,7 +36,7 @@ Following are some sample instructions to deploy API Manager for **quick start p
 Execute the command that is relevant to your Helm version.
 
 !!! Tip
-    If you do not have sufficient resources you can adjust them setting following values when installing the chart.
+    If you do not have sufficient resources you can adjust them by setting the following values when installing the chart.
     ```bash
     --set wso2.deployment.am.resources.requests.memory=2Gi \
     --set wso2.deployment.am.resources.requests.cpu=1000m \
