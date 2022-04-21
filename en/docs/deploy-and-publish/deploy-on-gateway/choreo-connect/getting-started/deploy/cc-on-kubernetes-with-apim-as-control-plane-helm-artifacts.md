@@ -36,6 +36,16 @@ Following are some sample instructions to deploy API Manager for **quick start p
 !!! Tip
     Please follow the document [Deploying API-M on Kubernetes using Helm Resources]({{base_path}}/install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources/) which describes deploying API Manager. The following guide describes deploying API Manager for quick start purpose.
 
+### Step 1 - Add the WSO2 Helm chart repository
+
+Add the WSO2 Helm chart repository by executing the following command.
+
+```bash
+helm repo add wso2 https://helm.wso2.com && helm repo update
+```
+
+### Step 2 - Install Chart
+
 1.  Execute the command that is relevant to your Helm version.
 
     !!! Tip
@@ -73,7 +83,7 @@ Following are some sample instructions to deploy API Manager for **quick start p
 
 ### Step 1 - Add the WSO2 Helm chart repository
 
-Add the [WSO2 Helm chart repository](https://hub.helm.sh/charts/wso2) by executing the following command.
+Add the WSO2 Helm chart repository by executing the following command.
 
 ```bash
 helm repo add wso2 https://helm.wso2.com && helm repo update
@@ -121,11 +131,21 @@ If you are using WSO2 product Docker images available from WSO2 Private Docker R
 
 Please see the following example.
 
-```bash tab='Format'
-helm install --name <RELEASE_NAME> wso2/choreo-connect --version 1.0.0-2 --namespace <NAMESPACE> \
-  --set wso2.subscription.username=<SUBSCRIPTION_USERNAME> \
-  --set wso2.subscription.password=<SUBSCRIPTION_PASSWORD>
-```
+-   Using **Helm v2**
+
+    ```bash tab='Format'
+    helm install --name <RELEASE_NAME> wso2/choreo-connect --version 1.0.0-2 --namespace <NAMESPACE> \
+        --set wso2.subscription.username=<SUBSCRIPTION_USERNAME> \
+        --set wso2.subscription.password=<SUBSCRIPTION_PASSWORD>
+    ```
+
+-   Using **Helm v3**
+
+    ```bash tab='Format'
+    helm install <RELEASE_NAME> wso2/choreo-connect --version 1.0.0-2 --namespace <NAMESPACE> --create-namespace \
+        --set wso2.subscription.username=<SUBSCRIPTION_USERNAME> \
+        --set wso2.subscription.password=<SUBSCRIPTION_PASSWORD>
+    ```
 
 <br/>
 Skip the following section "Option 2: Install Chart from Source" since you have already installed Choreo Connect and jump to [Access the Choreo Connect deployment](#access-the-choreo-connect-deployment) for deploying APIs.
@@ -253,24 +273,34 @@ Follow the steps given below.
         kubectl get ing -n apim
         ```
 
-        Example:
+        Output:
 
         ```bash
-        NAME                                       HOSTS                      ADDRESS        PORTS     AGE
-        wso2am-pattern-3-am-cp-ingress             am.wso2.com                <EXTERNAL-IP>  80, 443   3m
+        NAME                                   CLASS    HOSTS                ADDRESS        PORTS     AGE
+        wso2am-single-node-am-ingress          <none>   am.wso2.com          <EXTERNAL-IP>  80, 443   8m33s
+        wso2am-single-node-am-websub-ingress   <none>   websub.am.wso2.com   <EXTERNAL-IP>  80, 443   8m33s
         ```
 
     -   **Choreo Connect**
 
-        ```bash
+        ```bash tab='Format'
         kubectl get ing -n <NAMESPACE>
         ```
 
-        Example:
+        ```bash tab='Sample'
+        kubectl get ing -n cc
+        ```
 
-        ```bash
-        NAME                                       HOSTS                      ADDRESS        PORTS     AGE
-        <RELEASE_NAME>-choreo-connect-router       gw.wso2.com                <EXTERNAL-IP>  80, 443   3m
+        Output:
+
+        ```bash tab='Format'
+        NAME                                    CLASS    HOSTS         ADDRESS          PORTS     AGE
+        <RELEASE_NAME>-choreo-connect-router    <none>   gw.wso2.com   <EXTERNAL-IP>    80, 443   5s
+        ```
+
+        ```bash tab='Sample'
+        NAME                                    CLASS    HOSTS         ADDRESS          PORTS     AGE
+        my-release-choreo-connect-router        <none>   gw.wso2.com   127.0.0.1        80, 443   5s
         ```
 
 2.  Add the above hosts in the `/etc/hosts` file as follows:
