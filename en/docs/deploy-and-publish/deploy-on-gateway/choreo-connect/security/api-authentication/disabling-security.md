@@ -1,6 +1,6 @@
 # Disabling Security for APIs
 
-An API can be invoked without authentication by disabling security. Pick one the following methods to disable security depending on the Choreo Connect **mode** you have chosen.
+An API can be invoked without authentication by disabling security. Pick one of the following methods to disable security depending on the Choreo Connect **mode** you have chosen.
 
 
 |**Mode**         | **Method**    |
