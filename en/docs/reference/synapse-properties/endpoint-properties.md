@@ -546,7 +546,7 @@ The following properties <b>only</b> apply to HTTP endpoint.
 
 
 !!! Tip
-      You can configure the OAuth cache timeout (in seconds) by setting the following property in `<MI_HOME>/conf/synapse.properties` file. The default timeout will be 3000 seconds.
+      You can configure the OAuth cache timeout (in seconds) by setting the following property in the `<MI_HOME>/conf/synapse.properties` file. The default timeout will be 3000 seconds.
       `synapse.endpoint.http.oauth.cache.timeout=500`
 
 #### Authorization Code/Refresh Token grant type
@@ -598,7 +598,7 @@ The `authorizationCode` element contains the following parameters that are used 
     <tr>
         <td>authMode</td>
         <td>
-            Indicate how the client credentials are passed to the token endpoint. If the authMode is <code>payload</code> they are passed in the request payload. If the authMode is <code>header</code> the client credentials are passed in the authentication header which is the default.
+            Indicate how the client credentials are passed to the token endpoint. If the authMode is <code>payload</code> they are passed in the request payload. If the authMode is <code>header</code> the client credentials are passed in the authentication header, which is the default.
         </td>
         <td>
             Optional
@@ -665,7 +665,7 @@ The `clientCredentials` element contains the following parameters that are used 
     <tr>
         <td>authMode</td>
         <td>
-            Indicate how the client credentials are passed to the token endpoint. If the authMode is <code>payload</code> they are passed in the request payload. If the authMode is <code>header</code> the client credentials are passed in the authentication header which is the default.
+            Indicate how the client credentials are passed to the token endpoint. If the authMode is <code>payload</code> they are passed in the request payload. If the authMode is <code>header</code> the client credentials are passed in the authentication header, which is the default.
         </td>
         <td>
             Optional
@@ -749,7 +749,7 @@ The `passwordCredentials` element contains the following parameters that are use
     <tr>
         <td>authMode</td>
         <td>
-            Indicate how the client credentials are passed to the token endpoint. If the authMode is <code>payload</code> they are passed in the request payload. If the authMode is <code>header</code> the client credentials are passed in the authentication header which is the default.
+            Indicate how the client credentials are passed to the token endpoint. If the authMode is <code>payload</code> they are passed in the request payload. If the authMode is <code>header</code> the client credentials are passed in the authentication header, which is the default.
         </td>
         <td>
             Optional
