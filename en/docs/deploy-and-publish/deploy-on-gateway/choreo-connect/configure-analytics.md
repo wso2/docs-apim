@@ -78,6 +78,124 @@ Here are some of the graphs generated in Choreo cloud.
 
 [![Choreo Analytics Latency]({{base_path}}/assets/img/deploy/choreo-analytics-latency.png)]({{base_path}}/assets/img/deploy/choreo-analytics-latency.png)
 
+## ELK Analytics for Choreo Connect
+
+[![Choreo ELK Analytics Data Flow]({{base_path}}/assets/img/deploy/choreo-elk-analytics-data-flow.png)]({{base_path}}/assets/img/deploy choreo-elk-analytics-data-flow.png)
+
+Enforcer component in Choreo Connect can log analytics data to be used by Filebeat in ELK Stack. Data flow for the ELK Analitics can be depicted as given above.
+
+## Setting up
+
+### Step 1 - Configuring Choreo Connect
+
+#### Step 1.1 - Configuring the config.toml file
+Open the `choreo-connect-1.x.x/docker-compose/choreo-connect(-with-apim)/conf/config.toml` file and update the analytics section according to the below configuration.
+``` toml
+[analytics]
+ enabled = true
+    
+[analytics.enforcer]
+[analytics.enforcer.configProperties]
+ type = "elk"
+```
+With this configuration, default reporter class (`org.wso2.am.analytics.publisher.reporter.elk.ELKMetricReporter`) will be enabled. If you want to use a custom reporter then you need to compile the custom reporter implementation as a JAR file and mount it to the `/home/wso2/lib/dropins` directory within the enforcer and set the `publisher.reporter.class` in the `config.toml` like below.
+
+```toml
+[analytics]
+ enabled = true
+    
+[analytics.enforcer]
+[analytics.enforcer.configProperties]
+ type = "elk"
+ "publisher.reporter.class" = "org.wso2.am.analytics.publisher.sample.reporter.CustomReporter"
+```
+
+#### Step 1.2 - Enabling logs
+
+Update the `choreo-connect-1.x.x/docker-compose/choreo-connect(-with-apim)/conf/log4j2.properties` file as described below:
+<br/>
+
+Log to console
+
+1. Add a reporter to the loggers list:
+<br/>
+```
+loggers = reporter, ... (list of other available loggers)
+```
+2. Add the following configurations after the loggers:
+<br/>
+```
+logger.reporter.name = org.wso2.am.analytics.publisher.reporter.elk
+logger.reporter.level = INFO
+logger.reporter.additivity = false
+logger.reporter.appenderRef.rolling.ref = ENFORCER_CONSOLE
+```
+
+Log to file
+
+1. Add `ENFORCER_ANALYTICS` to the appenders list:
+<br/>
+```
+appenders = ENFORCER_ANALYTICS, ... (list of other available appenders)
+```
+2. Add the following configuration after the appenders:
+</br>
+```
+appender.ENFORCER_ANALYTICS.type = RollingFile
+appender.ENFORCER_ANALYTICS.name = ENFORCER_ANALYTICS
+appender.ENFORCER_ANALYTICS.fileName = logs/enforcer_analytics.log
+appender.ENFORCER_ANALYTICS.filePattern = /logs/enforcer_analytics-%d{MM-dd-yyyy}.log
+appender.ENFORCER_ANALYTICS.layout.type = PatternLayout
+appender.ENFORCER_ANALYTICS.layout.pattern = [%d] - %m%ex%n
+appender.ENFORCER_ANALYTICS.policies.type = Policies
+appender.ENFORCER_ANALYTICS.policies.time.type = TimeBasedTriggeringPolicy
+appender.ENFORCER_ANALYTICS.policies.time.interval = 1
+appender.ENFORCER_ANALYTICS.policies.time.modulate = true
+appender.ENFORCER_ANALYTICS.policies.size.type = SizeBasedTriggeringPolicy
+appender.ENFORCER_ANALYTICS.policies.size.size=10MB
+appender.ENFORCER_ANALYTICS.strategy.type = DefaultRolloverStrategy
+appender.ENFORCER_ANALYTICS.strategy.max = 20
+appender.ENFORCER_ANALYTICS.filter.threshold.type = ThresholdFilter
+appender.ENFORCER_ANALYTICS.filter.threshold.level = DEBUG
+```
+3. Add a reporter to the loggers list:
+</br>
+```
+loggers = reporter, ... (list of other available loggers)
+```
+4. Add the following configurations after the loggers:
+<br/>
+```
+logger.reporter.name = org.wso2.am.analytics.publisher.reporter.elk
+logger.reporter.level = INFO
+logger.reporter.additivity = false
+logger.reporter.appenderRef.rolling.ref = ENFORCER_ANALYTICS
+```
+
+!!! note 
+    If you use a custome reporter class, make sure to update the `logger.reporter.name` property accordingly.
+
+### Step 2 - Setting up the ELK Stack
+
+Follow the steps documented under [Configuring ELK]({{base_path}}/api-analytics/on-prem/elk-installation-guide/#step-3-configure-security-in-elk) to setup following elements in ELK Stack:
+
+1. Elasticsearch 
+2. Kibana 
+3. Logstash
+4. Filebeat
+<br/>
+Use the following configuration for inputs`filebeat.yml` use the container log files.
+```yml
+filebeat.inputs:
+- type: container
+  enabled: true
+  paths:
+    - /var/lib/docker/containers/*/*.log
+  include_lines: ['(apimMetrics):']
+```
+
+Publish an API to the Choreo Connect using either using `APIM` or using `APICTL`. Next, invoke few requests (success and failure) and check the Kibana dashboard. You should be able to see the data has been populated to [different dashboards]({{base_path}}/api-analytics/on-prem/elk-installation-guide/#dashboards).
+
 ## See Also
 
 - [Publishing Analytics Events to External Systems]({{base_path}}/api-analytics/samples/publishing-analytics-events-to-external-systems)
