@@ -1682,7 +1682,7 @@ enabled = true</code></pre>
 
 
 
-## Binary Throttle publishing url group configurations
+## Binary Throttle publishing URL group configurations
 
 
 <div class="mb-config-catalog">
