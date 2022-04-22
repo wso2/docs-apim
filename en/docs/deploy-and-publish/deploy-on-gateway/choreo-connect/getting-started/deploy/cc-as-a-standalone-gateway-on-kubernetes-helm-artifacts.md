@@ -18,8 +18,8 @@ Let's deploy an API using WSO2 API Controller (apictl) on Choreo Connect, which 
     -   Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Helm](https://helm.sh/docs/intro/install/), and [Kubernetes client](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
         
     -   Set up a [Kubernetes cluster](https://kubernetes.io/docs/setup/#learning-environment).
-        - Minimum CPU : 3vCPU
-        - Minimum Memory : 2GB
+        - Minimum CPU : 4vCPU
+        - Minimum Memory : 4GB
         
     -   Install [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/).    
         Note: Helm resources for WSO2 product deployment patterns are compatible with the [`nginx-0.30.0`](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.30.0) release.
@@ -45,21 +45,21 @@ Execute the following command to install the Helm Cart by selecting the helm ver
 -   Using **Helm v2**
 
     ```bash tab='Format'
-    helm install --name <RELEASE_NAME> wso2/choreo-connect --version 1.0.0-1 --namespace <NAMESPACE>
+    helm install --name <RELEASE_NAME> wso2/choreo-connect --version 1.1.0-1 --namespace <NAMESPACE>
     ```
 
     ```bash tab='Sample'
-    helm install --name my-release wso2/choreo-connect --version 1.0.0-1 --namespace cc
+    helm install --name my-release wso2/choreo-connect --version 1.1.0-1 --namespace cc
     ```
 
 -   Using **Helm v3**
 
     ``` tab='Format'
-    helm install <RELEASE_NAME> wso2/choreo-connect --version 1.0.0-1 --namespace <NAMESPACE> --create-namespace
+    helm install <RELEASE_NAME> wso2/choreo-connect --version 1.1.0-1 --namespace <NAMESPACE> --create-namespace
     ```
 
     ``` tab='Sample'
-    helm install my-release wso2/choreo-connect --version 1.0.0-1 --namespace cc --create-namespace
+    helm install my-release wso2/choreo-connect --version 1.1.0-1 --namespace cc --create-namespace
     ```
 
 The above steps will deploy Choreo Connect using WSO2 product Docker images available at DockerHub.
@@ -69,7 +69,7 @@ If you are using Docker images available at WSO2 Private Docker Registry, please
 Please see the following example.
 
 ```bash tab='Format'
-helm install --name <RELEASE_NAME> wso2/choreo-connect --version 1.0.0-1 --namespace <NAMESPACE> \
+helm install --name <RELEASE_NAME> wso2/choreo-connect --version 1.1.0-1 --namespace <NAMESPACE> \
   --set wso2.subscription.username=<SUBSCRIPTION_USERNAME> \
   --set wso2.subscription.password=<SUBSCRIPTION_PASSWORD>
 ```
@@ -88,7 +88,7 @@ Check out the Helm Resources for the Choreo Connect Git repository.
 
     ```bash
     git clone https://github.com/wso2/kubernetes-microgateway.git
-    git checkout tags/v1.0.0.1
+    git checkout tags/v1.1.0.1
     ```
 
 This creates a local copy of [wso2/kubernetes-microgateway](https://github.com/wso2/kubernetes-microgateway), which includes all the Helm Resources for Choreo Connect.
@@ -102,7 +102,7 @@ Follow the steps given below to configure how your Choreo Connect deployment sho
 1.  Open the `values.yaml` file in the `<KUBERNETES_HOME>/helm/choreo-connect` directory of your local copy.
 
     !!! Info
-        Before you do any changes, go through the [default configurations](https://github.com/wso2/kubernetes-microgateway/tree/v1.0.0.1/helm/choreo-connect) in this file.
+        Before you do any changes, go through the [default configurations](https://github.com/wso2/kubernetes-microgateway/tree/v1.1.0.1/helm/choreo-connect) in this file.
 
 2.  Use the following guidelines to update the deployment configurations:
 
@@ -119,7 +119,7 @@ Follow the steps given below to configure how your Choreo Connect deployment sho
 
         Alternatively, you can skip this step and pass your subscription details at the time of deploying (see the next step for details).
 
-    -   You can update [other configurations](https://github.com/wso2/kubernetes-microgateway/tree/v1.0.0.1/helm/choreo-connect/README.md) as required.
+    -   You can update [other configurations](https://github.com/wso2/kubernetes-microgateway/tree/v1.1.0.1/helm/choreo-connect/README.md) as required.
 
 3.  Save the `values.yaml` file.
 
@@ -136,13 +136,13 @@ Once you have set up your Helm resources locally, follow the instructions given 
     -   Using **Helm v2**
 
         ```bash
-        helm install --name <RELEASE_NAME> wso2/choreo-connect --version 1.0.0-1 --namespace <NAMESPACE>
+        helm install --name <RELEASE_NAME> wso2/choreo-connect --version 1.1.0-1 --namespace <NAMESPACE>
         ```
 
     -   Using **Helm v3**
 
         ```bash
-        helm install <RELEASE_NAME> wso2/choreo-connect --version 1.0.0-1 --namespace <NAMESPACE> --create-namespace
+        helm install <RELEASE_NAME> wso2/choreo-connect --version 1.1.0-1 --namespace <NAMESPACE> --create-namespace
         ```
 
 #### Update configurations during deployment

@@ -8,7 +8,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
 ## Downloads
 
-<a href="https://wso2.com/api-manager/#"><img src="{{base_path}}/assets/img/get_started/download-apim.png" title="Download WSO2 API Manager" width="35%" alt="Download WSO2 API Manager"/></a>
+<a href="https://wso2.com/api-manager/#"><img src="{{base_path}}/assets/img/get_started/download-apim.png" title="Download WSO2 API Manager" width="25%" alt="Download WSO2 API Manager"/></a>
 
 ## New features
 
@@ -140,9 +140,9 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
 ??? note "Authentication support for Prototype APIs"
 
-    Authentication for Prototype APIs is available by default so that the client apps can also be created using authentication to test out the APIs. If needed you can disable authentication for Prototype APIs at the resource level or API level.
+    Authentication for [Prototype APIs]({{base_path}}/design/prototype-api/overview/) is available by default so that the client apps can also be created using authentication to test out the APIs. If needed you can disable authentication for Prototype APIs at the resource level or API level.
 
-    **[Learn more]({{base_path}}/design/prototype-api/create-a-prototype-api/)**
+    **[Learn more]({{base_path}}/design/api-security/api-authentication/disable-security/)**
 
 ??? note "Single Sign-On support for the monitoring dashboard using OpenID Connect"
 

@@ -8,21 +8,18 @@ Prototyped APIs (Pre-Released APIs) allow subscribers to try out APIs without mo
 
 In the Developer Portal, these APIs will be the labelled as **PRE-RELEASED** and therefore can be clearly identified.
 
-[![PRE-RELEASED to Developer Portal]({{base_path}}/assets/img/learn/prototype-api/prototype-api-devportal.png)]({{base_path}}/assets/img/learn/prototype-api/prototype-api-devportal.png)
+[![PRE-RELEASED to Developer Portal]({{base_path}}/assets/img/learn/prototype-api/prototype-api-devportal.png){: style="width:80%"}]({{base_path}}/assets/img/learn/prototype-api/prototype-api-devportal.png)
 
 WSO2 API Manager allows prototyping an API at two different stages. 
 
-1. At an initial stage, before implementing the actual backend, the backend responses can be mocked with a Prototype API by changing the **Endpoint Type** to **Mock Implementation**. You can use the these APIs to get feedback before you start implementing the actual service.
+- At an initial stage, before implementing the actual backend, the backend responses can be mocked with a Prototype API by changing the **Endpoint Type** to **Mock Implementation**. You can use the these APIs to get feedback before you start implementing the actual service.
 
 	[![Select Mock Implementation]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-mock-impl-swagger-petstore.png)]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-mock-impl-swagger-petstore.png)
 
-2. Once a backend is implemented, the endpoint can be updated to an actual backend URL type, which then can be used for testing purposes and for an early promotion.
+- Once a backend is implemented, the endpoint can be updated to an actual backend URL type, which then can be used for testing purposes and for an early promotion.
 
-Follow a link below to Prototype an API.
+For more information on prototyping an API, see the following links.
 
-1. [Mock responses based on the OpenAPI specification with API Gateway]({{base_path}}/design/prototype-api/create-mocked-js-api/)    
-2. [Mock responses based on the OpenAPI specification with Choreo Connect]({{base_path}}/design/prototype-api/create-mocked-oas-api/)    
-3. [Expose an existing backend implementation as a Pre-Released API]({{base_path}}/design/prototype-api/backend-url-prototype-api/) (Supported with both API Gateway and Choreo Connect)
-
-
-
+- [Mock responses based on the OpenAPI specification with API Gateway]({{base_path}}/design/prototype-api/create-mocked-js-api/)    
+- [Mock responses based on the OpenAPI specification with Choreo Connect]({{base_path}}/design/prototype-api/create-mocked-oas-api/)    
+- [Expose an existing backend implementation as a Pre-Released API]({{base_path}}/design/prototype-api/backend-url-prototype-api/) (This is supported by both the Gateways, namely API Gateway and Choreo Connect)

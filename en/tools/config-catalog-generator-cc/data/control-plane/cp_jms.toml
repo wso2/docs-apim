@@ -1,2 +1,2 @@
 [controlPlane.jmsConnectionParameters]
-  eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@localhost:5672?retries='10'&connectdelay='30'"]
+  eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@wso2am-pattern-1-am-1-service:5672?retries='10'&connectdelay='30'", "amqp://admin:$env{cp_admin_pwd}@wso2am-pattern-1-am-2-service:5672?retries='10'&connectdelay='30'"]
