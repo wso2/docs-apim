@@ -266,12 +266,9 @@ Therefore, if registry versioning was enabled in WSO2 API-M 2.5.0 setup, it is *
     !!! note
         Changing these configurations should only be done before the initial API-M Server startup. If changes are done after the initial startup, the registry resource created previously will not be available.
 
-- [Upgrading API Manager from 2.5.0 to 4.1.0](#upgrading-api-manager-from-250-to-410)
-    - [Preparing for Migration](#preparing-for-migration)
-      - [Disabling versioning in the registry configuration](#disabling-versioning-in-the-registry-configuration)
-    - [Step 1 - Migrate the API Manager configurations](#step-1---migrate-the-api-manager-configurations)
-    - [Step 2 - Upgrade API Manager to 4.0.0](#step-2---upgrade-api-manager-to-400)
-    - [Step 3 - Restart the WSO2 API-M 4.0.0 server](#step-3---restart-the-wso2-api-m-400-server)
+ - [Step 1 - Migrate the API Manager configurations](#step-1---migrate-the-api-manager-configurations)
+ - [Step 2 - Upgrade API Manager to 4.0.0](#step-2---upgrade-api-manager-to-400)
+ - [Step 3 - Restart the WSO2 API-M 4.0.0 server](#step-3---restart-the-wso2-api-m-400-server)
 
 ### Step 1 - Migrate the API Manager configurations
 
