@@ -4,7 +4,7 @@ Let's start Choreo Connect with a WSO2 API Manager instance which will be acting
 
 !!! info "Before you begin"
 
-    Make sure to install and set up [Docker](https://www.docker.com) and allocate the following resources for Docker.
+    Make sure you have installed [Docker](https://docs.docker.com) and [Docker Compose](https://docs.docker.com/compose/) on your machine. Set up and allocate the following resources for Docker.
 
     - Minimum CPU : 4vCPU
     - Minimum Memory : 4GB
