@@ -1,4 +1,8 @@
-# Upgrading API Manager from 1.10.0 to 4.0.0
+# Upgrading API Manager from 1.10.0 to 4.1.0
+
+{!includes/work-in-progress.md!}
+
+<div hidden>
 
 !!! warning
     **The contents on this page are currently under review!**
@@ -4655,3 +4659,5 @@ This concludes the upgrading process.
     -   _token_fault_.xml
     -   fault.xml
     -   main.xml
+
+</div>
