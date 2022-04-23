@@ -777,7 +777,7 @@ Generic properties allow you to configure messages as they're processed by the 
 
 ## RabbitMQ Properties
 
-The following generic properties can be used in the [Property mediator]({{base_path}}/reference/mediators/property-Mediator) and the [Property Group mediator]({{base_path}}/reference/mediators/property-Group-Mediator.md) for RabbitMQ use cases.
+The following generic properties can be used in the [Property mediator]({{base_path}}/reference/mediators/property-mediator) and the [Property Group mediator]({{base_path}}/reference/mediators/property-group-mediator/) for RabbitMQ use cases.
 
 ### SET_ROLLBACK_ONLY
 
