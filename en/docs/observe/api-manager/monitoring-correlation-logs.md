@@ -1,7 +1,3 @@
----
-title: Monitoring Correlation Logs - WSO2 API Manager 4.0.0
----
-
 # Monitoring Correlation Logs
 
 Observability in WSO2 API Manager (WSO2 API-M) is really important to debug issues in a short period. WSO2 API-M facilitates observability by logging the following important points of the system with the time taken to achieve them. 

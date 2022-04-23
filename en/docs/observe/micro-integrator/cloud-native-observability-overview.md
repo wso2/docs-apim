@@ -1,7 +1,3 @@
----
-title: Micro Integrator Observability Overview - WSO2 API Manager 4.0.0
----
-
 # Micro Integrator Observability Overview
 
 The following diagram depicts the complete **cloud native** observability solution for your Micro Integrator deployment, which includes **metrics monitoring**, **log monitoring**, and **message tracing** capabilities.

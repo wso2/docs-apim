@@ -1,7 +1,3 @@
----
-title: Role-based Access Control for API Analytics - WSO2 API Manager 4.0.0
----
-
 # Role-based Access Control for API Analytics
 
 Enterprises and companies who want to use Choreo Insights collaboratively can utilize the organization concept in Choreo. An organization is a collection of users belonging to the same logical team. A user can be a part of multiple organizations. When a user first signs up to Choreo, an organization will be created by default with the user's name. Thereafter, that same user can act as the administrator for the group and invite other registered users to the organization. The groups in Choreo, namely **Admin** and **Developer**, allow you to carry out role-based access control.
