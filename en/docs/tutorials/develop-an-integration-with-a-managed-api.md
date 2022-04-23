@@ -2,7 +2,7 @@
 
 The top down approach of API first integration provides the capability for API developers to start creating a managed REST API first in WSO2 API Manager. Then the integration developer can use the same API in the WSO2 Integration Studio to develop the integration later on and expose it to WSO2 API Manager. Thereafter, the API consumers can discover the API from the marketplace, subscribe to it, and use it for application development.
 
-The following diagram demonstrates how the integration components and API management components of WSO2 API Manager work together to enable API-led integration when working with the Top Down approach. Furthermore, this diagram also illustrates the various API Manager components and the different user roles that are involved in implementing this process:
+The following stakeholders will be involved in implementing this process:
 
 **Stakeholders**
 
@@ -333,14 +333,7 @@ Package the artifacts in your composite exporter module to be able to deploy the
   
 3.	Save the changes.
 
-## Step 6 - Start the API Manager runtime
-
-Start the API Manager runtime before starting the Micro Integrator.
-
-1.	Download and set up WSO2 API Manager.
-2.	Start the server.
-
-## Step 7 - Build and run the service
+## Step 6 - Build and run the service
 
 Deploy the packaged artifacts in the embedded Micro Integrator:
 
@@ -358,7 +351,7 @@ Deploy the packaged artifacts in the embedded Micro Integrator:
 		 Successfully updated the service catalog
 		 ```
 
-## Step 8 - Add the service endpoint to the API
+## Step 7 - Add the service endpoint to the API
 
 Now let’s add the developed backend service to the API.
 
@@ -378,13 +371,15 @@ Now let’s add the developed backend service to the API.
 	 2. Add the production endpoint using service endpoints.
 	 3. Select the `HealthcareAPI` service endpoint from the dropdown.
 
+   [![Service endpoint dropdown]({{base_path}}/assets/img/tutorials/service-endpoint-dropdown.png)]({{base_path}}/assets/img/tutorials/service-endpoint-dropdown.png)
+
 5.	Click **Save**.
 
-## Step 9 - Deploy the API
+## Step 8 - Deploy the API
 
 Depoly the `HealthcareAPI` REST API in the Gateway. For more information, see [Deploy an API]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/#deploy-an-api).
 
-## Step 10 - Start the backend service
+## Step 9 - Start the backend service
 
 Let's start the back-end hospital service.
 
@@ -397,7 +392,7 @@ Let's start the back-end hospital service.
      ```java -jar Hospital-Service-JDK11-2.0.0.jar```
 
 
-## Step 11 - Subscribe to the API and test it
+## Step 10 - Subscribe to the API and test it
 
 Subscribe to the `HealthcareAPI` REST API and invoke it. For more information, see [Test a REST API Using the Integrated API Console]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console).
 
