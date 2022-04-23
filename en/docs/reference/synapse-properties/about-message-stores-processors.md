@@ -1,8 +1,8 @@
 # About Message Stores and Processors
 
-A **Message Store** is used by a [mediation sequence]({{base_path}}/reference/synapse-properties/sequence-properties.md) to temporarily store messages before they are delivered to their destination. This approach is useful for serving traffic to back-end services that can only accept messages at a given rate, whereas incoming traffic arrives at different rates. 
+A **Message Store** is used by a mediation sequence to temporarily store messages before they are delivered to their destination. This approach is useful for serving traffic to back-end services that can only accept messages at a given rate, whereas incoming traffic arrives at different rates. 
 
-The [Store Mediator]({{base_path}}/reference/mediators/store-mediator.md) in a mediation sequence is used to store incoming messages in the message store. The **Message Processor** retrieves the messages from the message store and delivers them to the back-end service at a given rate.
+The [Store Mediator]({{base_path}}/reference/mediators/store-mediator/) in a mediation sequence is used to store incoming messages in the message store. The **Message Processor** retrieves the messages from the message store and delivers them to the back-end service at a given rate.
 
 Multiple message processors can use the same message store. For example, in a clustered environment, each of the nodes would have an instance of the same message processor, each of which would connect to the same message store and evenly consume messages. The message store acts as a manager of these consumers and their connections and ensures that messages are processed by only one message processor, preventing message duplication. You can further control which nodes a message processor runs on by specifying pinned servers.
 

@@ -29,7 +29,7 @@ See the topics given below for the list of properties that can be configured whe
 
 ## Sequence Template Properties
 
-The parameters available to [configure the Sequence Template]({{base_path}}/integrate/develop/creating-artifacts/creating-sequence-templates.md) are as follows.
+The parameters available to [configure the Sequence Template]({{base_path}}/integrate/develop/creating-artifacts/creating-sequence-templates/) are as follows.
 
 <table>
     <tr>
@@ -103,7 +103,7 @@ The parameters available to [configure the Sequence Template]({{base_path}}/inte
 
 ## Endpoint Template Properties
 
-The basic parameters available to [configure the Endpoint template]({{base_path}}/integrate/develop/creating-artifacts/creating-endpoint-templates.md) are as follows.
+The basic parameters available to [configure the Endpoint template]({{base_path}}/integrate/develop/creating-artifacts/creating-endpoint-templates/) are as follows.
 
 <table>
   <tr>
@@ -187,4 +187,4 @@ An Endpoint Template contains an **Endpoint** artifact. The following Endpoint p
 
 ### Endpoint Properties (Optional)
 
-To configure the other **Endpoint** properties of the inline Endpoint, see [Endpoint Properties](endpoint-properties.md).
+To configure the other **Endpoint** properties of the inline Endpoint, see [Endpoint Properties]({{base_path}}/reference/synapse-properties/endpoint-properties/).
