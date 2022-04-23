@@ -1,7 +1,3 @@
----
-title: Monitoring with OpenTracing - WSO2 API Manager 4.0.0
----
-
 # Monitoring with OpenTracing
 
 In a distributed API Manager architecture, tracing a message is important to debug and observe a message path. This is known as distributed tracing. OpenTracing allows you to enable distributed tracing for WSO2 API Manager.
