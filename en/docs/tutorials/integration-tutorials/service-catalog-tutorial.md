@@ -6,7 +6,7 @@ In this tutorial, you are defining an integration service using WSO2 Integration
 
 <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/exposing-servie-as-managed-api.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/exposing-servie-as-managed-api.png" alt="exposing integration service as a managed api"></a>
 
-This demonstrates how the integration components and API management components of WSO2 API Manager 4.0.0 work together to enable API-led integration. The following diagram illustrates the various API Manager components and the different user roles that are involved in implementing this process:
+This demonstrates how the integration components and API management components of WSO2 API Manager 4.1.0 work together to enable API-led integration. The following diagram illustrates the various API Manager components and the different user roles that are involved in implementing this process:
 
 <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-led-integration-components.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-led-integration-components.png" alt="exposing integration service as a managed api"></a>
 
@@ -332,7 +332,7 @@ Package the artifacts in your composite exporter module to be able to deploy the
 
 Let's start the API Manager runtime before starting the Micro Integrator.
 
-1.  Download and set up [WSO2 API Manager 4.0.0](https://wso2.com/api-management/).
+1.  Download and set up [WSO2 API Manager 4.1.0](https://wso2.com/api-management/).
 2.  Start the server.
 
 ### Step 6 - Build and run the service
