@@ -127,7 +127,7 @@ Follow the instructions below to invoke the previously created API with the gene
 
 __Congratulations!__ You have successfully created your first API, subscribed to it through an OAuth 2.0 application, obtained an access token for testing, and invoked your API with Choreo Connect.
 
-## See Also
+## See also
 
 - [Choreo Connect Overview]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview/)
 - [Supported Features]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features/)
