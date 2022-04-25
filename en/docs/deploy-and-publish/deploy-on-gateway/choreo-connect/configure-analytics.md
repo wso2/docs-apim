@@ -88,7 +88,11 @@ Enforcer component in Choreo Connect can log analytics data to be used by Filebe
 
 ### Step 1 - Configuring Choreo Connect
 
-#### Step 1.1 - Configuring the config.toml file
+#### Step 1.1 - Preparing the reporter JAR
+
+Checkout the [wso2/samples-apim](https://github.com/wso2/samples-apim) and build the repo. Go to `analytics-event-publisher/target` directory and copy and paste the generated JAR into `choreo-connect-1.x.x/docker-compose/resources/enforcer/dropins`. This JAR is added to the java class path when the Enforcer starts.
+
+#### Step 1.2 - Configuring the config.toml file
 Open the `choreo-connect-1.x.x/docker-compose/choreo-connect(-with-apim)/conf/config.toml` file and update the analytics section according to the below configuration.
 ``` toml
 [analytics]
@@ -96,21 +100,11 @@ Open the `choreo-connect-1.x.x/docker-compose/choreo-connect(-with-apim)/conf/co
     
 [analytics.enforcer]
 [analytics.enforcer.configProperties]
- type = "elk"
-```
-With this configuration, default reporter class (`org.wso2.am.analytics.publisher.reporter.elk.ELKMetricReporter`) will be enabled. If you want to use a custom reporter then you need to compile the custom reporter implementation as a JAR file and mount it to the `/home/wso2/lib/dropins` directory within the enforcer and set the `publisher.reporter.class` in the `config.toml` like below.
-
-```toml
-[analytics]
- enabled = true
-    
-[analytics.enforcer]
-[analytics.enforcer.configProperties]
- type = "elk"
  "publisher.reporter.class" = "org.wso2.am.analytics.publisher.sample.reporter.CustomReporter"
 ```
+If you want to use any other reporter class then you need to compile the new reporter implementation as a JAR file and copy it to `choreo-connect-1.x.x/docker-compose/resources/enforcer/dropins`. The set the `publisher.reporter.class` to the class name of the new reporter implementation.
 
-#### Step 1.2 - Enabling logs
+#### Step 1.3 - Enabling logs
 
 Update the `choreo-connect-1.x.x/docker-compose/choreo-connect(-with-apim)/conf/log4j2.properties` file as described below:
 <br/>
@@ -125,7 +119,7 @@ loggers = reporter, ... (list of other available loggers)
 2. Add the following configurations after the loggers:
 <br/>
 ```
-logger.reporter.name = org.wso2.am.analytics.publisher.reporter.elk
+logger.reporter.name = org.wso2.am.analytics.publisher.sample.reporter
 logger.reporter.level = INFO
 logger.reporter.additivity = false
 logger.reporter.appenderRef.rolling.ref = ENFORCER_CONSOLE
@@ -166,7 +160,7 @@ loggers = reporter, ... (list of other available loggers)
 4. Add the following configurations after the loggers:
 <br/>
 ```
-logger.reporter.name = org.wso2.am.analytics.publisher.reporter.elk
+logger.reporter.name = org.wso2.am.analytics.publisher.sample.reporter
 logger.reporter.level = INFO
 logger.reporter.additivity = false
 logger.reporter.appenderRef.rolling.ref = ENFORCER_ANALYTICS
