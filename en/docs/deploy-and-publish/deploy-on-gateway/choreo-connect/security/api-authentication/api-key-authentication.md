@@ -109,7 +109,7 @@ Use one of the following options to invoke APIs using an API key based on the me
       ```
 
       ``` bash tab="Response"
-      {"id":1,"category":{"id":0},"name":"teste","photoUrls":[],"tags":[],"status":"tested"}
+      {"id":1,"category":{"id":0},"name":"tested","photoUrls":[],"tags":[],"status":"tested"}
       ```
 
 ## Additional Information

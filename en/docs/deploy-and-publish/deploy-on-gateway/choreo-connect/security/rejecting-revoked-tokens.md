@@ -104,7 +104,7 @@ Here are the steps to revoke an API Key.
 
     The above command will return an empty 200 response.
 
-4.  Invoke the API with the same API key verify whether the token has been revoked.
+4.  Invoke the API with the same API key to verify whether the token has been revoked.
 
 !!! tip
 
