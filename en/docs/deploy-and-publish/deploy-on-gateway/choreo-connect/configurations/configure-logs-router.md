@@ -180,8 +180,6 @@ Router to client response headers:
 
 Follow [command line options]({{envoy_path}}/operations/cli) for more information.
 
-Follow [command line options]({{envoy_path}}/operations/cli) for more information.
-
 ## Interceptor level debug logging
 
 To enable interceptor level debug logging, you need to do the following configuration. 
