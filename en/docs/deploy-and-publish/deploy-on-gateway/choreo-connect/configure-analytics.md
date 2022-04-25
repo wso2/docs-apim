@@ -102,7 +102,7 @@ Open the `choreo-connect-1.x.x/docker-compose/choreo-connect(-with-apim)/conf/co
 [analytics.enforcer.configProperties]
  "publisher.reporter.class" = "org.wso2.am.analytics.publisher.sample.reporter.CustomReporter"
 ```
-If you want to use any other reporter class then you need to compile the new reporter implementation as a JAR file and copy it to `choreo-connect-1.x.x/docker-compose/resources/enforcer/dropins`. The set the `publisher.reporter.class` to the class name of the new reporter implementation.
+If you want to use any other reporter class then you need to compile the new reporter implementation as a JAR file and copy it to `choreo-connect-1.x.x/docker-compose/resources/enforcer/dropins`. Then set the `publisher.reporter.class` to the class name of the new reporter implementation.
 
 #### Step 1.3 - Enabling logs
 
