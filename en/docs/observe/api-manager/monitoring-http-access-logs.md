@@ -1,7 +1,3 @@
----
-title: Monitoring HTTP Access Logs - WSO2 API Manager 4.0.0
----
-
 # Monitoring HTTP Access Logs
 
 HTTP access logs help you monitor your application's usage with information such as the persons who access it, how many hits it received, what the errors are, etc. This information is useful for troubleshooting errors. 

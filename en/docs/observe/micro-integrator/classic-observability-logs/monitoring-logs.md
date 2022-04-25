@@ -1,7 +1,3 @@
----
-title: Monitoring Logs - WSO2 API Manager 4.0.0
----
-
 # Monitoring Logs
 
 Logging is one of the most important aspects of a production-grade server. A properly configured logging system is vital for identifying errors, security threats, and usage patterns.

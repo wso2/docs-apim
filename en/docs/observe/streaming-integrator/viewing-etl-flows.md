@@ -1,7 +1,3 @@
----
-title: Viewing ETL Flow Statistics - WSO2 API Manager 4.0.0
----
-
 # Viewing ETL Flow Statistics
 
 !!! note "Before you begin:"

@@ -1,7 +1,3 @@
----
-title: Monitoring Audit Logs - WSO2 API Manager 4.0.0
----
-
 # Monitoring Audit Logs
 
 Auditing is a primary requirement when it comes to monitoring production servers. For example, DevOps need to have a clear mechanism for identifying who did what, and to filter possible system violations or breaches.

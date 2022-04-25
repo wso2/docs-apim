@@ -1,7 +1,3 @@
----
-title: Set up MI Analytics - WSO2 API Manager 4.0.0
----
-
 # Set up MI Analytics
 
 !!! note
