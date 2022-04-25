@@ -27,7 +27,7 @@ Please refer [Multiple Key Manager Support in WSO2 API Manager]({{base_path}}/ad
 
 ## Via the Choreo Connect Config File
 
-When Choreo Connect runs as a standalone gateway the external Key Managers, Token Services or JWT issuers used for API authentication must be configured in the [config.toml]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configuration-overview/#configurations-overview). To know what these parameters mean, checkout the descriptions given under [Token Service in Enforcer Configurations]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/enforcer-configurations/#token-service). Following are the token services configured by default. The template with the default values can also be found in `config.toml.template` located together with `config.toml`.
+When Choreo Connect runs as a standalone gateway, the external Key Managers, Token Services or JWT issuers used for API authentication must be configured in the [config.toml]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configuration-overview/#configurations-overview). To know what these parameters mean, checkout the descriptions given under [Token Service in Enforcer Configurations]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/enforcer-configurations/#token-service). Following are the token services configured by default. The template with the default values can also be found in `config.toml.template` located together with `config.toml`.
 
 ``` toml
 # Issuer 1
