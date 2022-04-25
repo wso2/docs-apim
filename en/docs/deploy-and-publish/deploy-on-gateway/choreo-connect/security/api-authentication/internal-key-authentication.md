@@ -1,6 +1,6 @@
 # Internal Key Authentication
 
-This authentication can be used to test APIs that are created in API-M Publisher right after deploying the API and even bofore publishing. An Internal Key can be generated from API-M Publisher and can be used when, 
+This authentication can be used to test APIs that are created in API-M Publisher right after deploying the API and even before publishing. An Internal Key can be generated from API-M Publisher and can be used when, 
 
 - Choreo Connect is run with API-M as the Control Plane, or 
 - Choreo Connect is run as a standalone Gateway and **APIM Publisher** is set as a [token service]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/configuring-an-external-key-manager/).
