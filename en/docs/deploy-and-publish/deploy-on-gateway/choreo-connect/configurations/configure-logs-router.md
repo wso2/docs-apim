@@ -179,3 +179,76 @@ Router to client response headers:
 ```
 
 Follow [command line options]({{envoy_path}}/operations/cli) for more information.
+
+Follow [command line options]({{envoy_path}}/operations/cli) for more information.
+
+## Interceptor level debug logging
+
+To enable interceptor level debug logging, you need to do the following configuration. 
+
+1. Add `lua:debug` component to the `TRAILING_ARGS` like below:
+```yaml
+TRAILING_ARGS=--component-log-level http:debug,http2:debug,conn_handler:debug,lua:debug
+```
+
+2. Enable debug logs in `log_config.toml` file:
+```toml
+[debugLogs]
+ enable = true
+```
+
+With the above configuration, you can get router logs with headers and body information of the requests and responses. This is helpful to identify the header/body changes occurs in request and/or response paths.
+```yaml
+[2022-04-11 13:29:19.539][14][debug][lua] [source/extensions/filters/http/lua/lua_filter.cc:231] resuming body due to end stream
+[2022-04-11 13:29:19.539][14][debug][lua] [source/extensions/filters/http/lua/lua_filter.cc:792] script log: 
+>> request before interceptors >> :authority: localhost:9095
+>> request before interceptors >> :path: /book-store/v1/books
+>> request before interceptors >> :method: POST
+>> request before interceptors >> :scheme: https
+>> request before interceptors >> user-agent: curl/7.68.0
+>> request before interceptors >> accept: */*
+>> request before interceptors >> authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1UWm1ZemsxWlRJeVkyTmlNR00wT1RJMFpqTXdNRE5rTldZek16QTJOVEl4TWpRelpERTFNdz09In0.eyJhdWQiOiJodHRwOlwvXC9vcmcud3NvMi5hcGltZ3RcL2dhdGV3YXkiLCJzdWIiOiJhZG1pbiIsInNjb3BlIjoicmVhZDpwZXRzIiwiaXNzIjoiaHR0cHM6XC9cL2xvY2FsaG9zdDo5MDk1XC90ZXN0a2V5Iiwia2V5dHlwZSI6IlBST0RVQ1RJT04iLCJleHAiOjE2NDk2ODczNTcsImlhdCI6MTY0OTY4Mzc1NywianRpIjoiZDkzNzQ4NDEtNmVkYi00Zjc5LTgzMWQtOWVmOTBiMDMxNGUzIn0.nN0dePrkPGBaiHK34KXeb1hHTAflSMmqDTKZbXfWSoVUXH17bF5KtEuAunwuS8pO84aga3FlkClbH6W8W21KLmeOtccSAFl2lIqTzaMMD_VgwuXw99Pwj2C2qAelnROJxSG35tpJQTtd960ZY6DxUp6XlYlu-n_3oNrpLpTfYMnDV3h6i0M5P2L4wb6P8BV-xnDTbMZrEZRb7O4k26aeJvGuByFwzy4SGxHPSa4tHY-iIvo8wPMAJhCqebo_cy2Edjs-KvEi5KbRhB3WmADv8Dfm7BzxIN4xv_Miulo372tIGDyXdeL3t-2aE9CxeAR9Ruu_ovPyUhEOtCYmOwdSLQ
+>> request before interceptors >> content-type: application/json
+>> request before interceptors >> content-length: 23
+>> request before interceptors >> x-forwarded-proto: https
+>> request before interceptors >> x-request-id: 57832b70-446b-9945-9d63-1ceb3be51734
+{"name":"The Prisoner"}
+[2022-04-11 13:29:19.539][14][debug][lua] [source/extensions/filters/common/lua/lua.cc:39] coroutine finished
+[2022-04-11 13:29:19.539][14][debug][lua] [source/extensions/filters/common/lua/lua.cc:39] coroutine finished
+[2022-04-11 13:29:19.539][14][debug][lua] [source/extensions/filters/http/lua/lua_filter.cc:470] yielding for full body
+[2022-04-11 13:29:19.539][14][debug][lua] [source/extensions/filters/common/lua/lua.cc:42] coroutine yielded
+[2022-04-11 13:29:19.539][14][debug][lua] [source/extensions/filters/http/lua/lua_filter.cc:231] resuming body due to end stream
+[2022-04-11 13:29:19.539][14][debug][lua] [source/extensions/filters/http/lua/lua_filter.cc:792] script log: 
+>> request after interceptors >> :authority: localhost:9095
+>> request after interceptors >> :path: /book-store/v1/books
+>> request after interceptors >> :method: POST
+>> request after interceptors >> :scheme: https
+>> request after interceptors >> user-agent: curl/7.68.0
+>> request after interceptors >> accept: */*
+>> request after interceptors >> authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1UWm1ZemsxWlRJeVkyTmlNR00wT1RJMFpqTXdNRE5rTldZek16QTJOVEl4TWpRelpERTFNdz09In0.eyJhdWQiOiJodHRwOlwvXC9vcmcud3NvMi5hcGltZ3RcL2dhdGV3YXkiLCJzdWIiOiJhZG1pbiIsInNjb3BlIjoicmVhZDpwZXRzIiwiaXNzIjoiaHR0cHM6XC9cL2xvY2FsaG9zdDo5MDk1XC90ZXN0a2V5Iiwia2V5dHlwZSI6IlBST0RVQ1RJT04iLCJleHAiOjE2NDk2ODczNTcsImlhdCI6MTY0OTY4Mzc1NywianRpIjoiZDkzNzQ4NDEtNmVkYi00Zjc5LTgzMWQtOWVmOTBiMDMxNGUzIn0.nN0dePrkPGBaiHK34KXeb1hHTAflSMmqDTKZbXfWSoVUXH17bF5KtEuAunwuS8pO84aga3FlkClbH6W8W21KLmeOtccSAFl2lIqTzaMMD_VgwuXw99Pwj2C2qAelnROJxSG35tpJQTtd960ZY6DxUp6XlYlu-n_3oNrpLpTfYMnDV3h6i0M5P2L4wb6P8BV-xnDTbMZrEZRb7O4k26aeJvGuByFwzy4SGxHPSa4tHY-iIvo8wPMAJhCqebo_cy2Edjs-KvEi5KbRhB3WmADv8Dfm7BzxIN4xv_Miulo372tIGDyXdeL3t-2aE9CxeAR9Ruu_ovPyUhEOtCYmOwdSLQ
+>> request after interceptors >> content-type: application/json
+>> request after interceptors >> content-length: 23
+>> request after interceptors >> x-forwarded-proto: https
+>> request after interceptors >> x-request-id: 57832b70-446b-9945-9d63-1ceb3be51734
+{"name":"The Prisoner"}
+[2022-04-11 13:29:19.539][14][debug][lua] [source/extensions/filters/common/lua/lua.cc:39] coroutine finished
+[2022-04-11 13:29:19.539][14][debug][http] [source/common/http/filter_manager.cc:953] [C12][S11928103386873881598] Sending local reply with details route_not_found
+[2022-04-11 13:29:19.539][14][debug][lua] [source/extensions/filters/http/lua/lua_filter.cc:470] yielding for full body
+[2022-04-11 13:29:19.539][14][debug][lua] [source/extensions/filters/common/lua/lua.cc:42] coroutine yielded
+[2022-04-11 13:29:19.539][14][debug][lua] [source/extensions/filters/http/lua/lua_filter.cc:231] resuming body due to end stream
+[2022-04-11 13:29:19.539][14][debug][lua] [source/extensions/filters/http/lua/lua_filter.cc:792] script log: 
+<< response before interceptors << :status: 404
+<< response before interceptors << content-length: 94
+<< response before interceptors << content-type: application/json
+{"code":"404","message":"Not Found","description":"The requested resource is not available."}
+[2022-04-11 13:29:19.539][14][debug][lua] [source/extensions/filters/common/lua/lua.cc:39] coroutine finished
+[2022-04-11 13:29:19.539][14][debug][lua] [source/extensions/filters/common/lua/lua.cc:39] coroutine finished
+[2022-04-11 13:29:19.539][14][debug][lua] [source/extensions/filters/http/lua/lua_filter.cc:470] yielding for full body
+[2022-04-11 13:29:19.539][14][debug][lua] [source/extensions/filters/common/lua/lua.cc:42] coroutine yielded
+[2022-04-11 13:29:19.539][14][debug][lua] [source/extensions/filters/http/lua/lua_filter.cc:231] resuming body due to end stream
+[2022-04-11 13:29:19.539][14][debug][lua] [source/extensions/filters/http/lua/lua_filter.cc:792] script log: 
+<< response after interceptors << :status: 404
+<< response after interceptors << content-length: 94
+<< response after interceptors << content-type: application/json
+{"code":"404","message":"Not Found","description":"The requested resource is not available."}
+```
