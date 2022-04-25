@@ -28,9 +28,10 @@ Follow the instructions below to create a REST API using an OpenAPI definition f
     <html><div class="admonition note">
     <p class="admonition-title">Note</p>
     <p>
-    You need to upload an archive if you have remote references in your API definition. If it is a single Swagger file without remote references, it can be imported directly, without zipping. 
-    When uploading an OpenAPI archive, the master Swagger file should be named as **swagger.yaml**/**swagger.json**. 
-    If not, the validation will fail at the point of API creation. Referenced files can be named independently.
+    <ul><li>You need to upload an archive if you have remote references in your API definition. - <a href="{{base_path}}/assets/attachments/design/sample-archive.zip">Sample OpenAPI archive</a></li><li>If it is a single Swagger file without remote references, it can be imported directly, without zipping.</li><li> 
+    When uploading an OpenAPI archive, the master Swagger file should be named as <b>swagger.yaml</b>/<b>swagger.json</b>. 
+    </br>If not, the validation will fail at the point of API creation.</li> <li>Referenced files can be named independently.</li>
+    <li>When archiving the Swagger files, make sure that it does not have any hidden folders (e.g., <code>__MACOSX</code>).</li></ul>
     </p>
     </div>
     </html>
