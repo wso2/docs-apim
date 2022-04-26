@@ -89,7 +89,7 @@ Here are the steps to revoke an API Key.
 
 3. Get an access token to the Control Plane (API-M) by referring to [this section]({{base_path}}/reference/product-apis/devportal-apis/devportal-v2/devportal-v2/#section/Authentication). Remember to include `apim:api_key` as a scope when requesting the access token.
 
-4. Revoke the API Key by calling the following API from control plane.
+4. Revoke the API Key by calling the following API from the Control Plane.
 
     ``` tab="Format"
     curl -k -v -H "Authorization: Bearer <access-token-for-API-M-REST-API>" -d '{ "apikey" : "<API-Key-to-revoke>" }' -H "Content-Type: application/json" "https://localhost:9443/api/am/devportal/v2/applications/<application-ID>/api-keys/<key-type>/revoke"
