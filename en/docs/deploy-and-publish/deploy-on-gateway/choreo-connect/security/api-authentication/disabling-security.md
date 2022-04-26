@@ -10,7 +10,13 @@ An API can be invoked without authentication by disabling security. Pick one of 
 
 ## Via WSO2 API Manager Publisher Portal
 
-Follow the steps given in [Disabling Security for APIs]({{base_path}}/design/api-security/api-authentication/disable-security/).
+1. Select the API from the Publisher Portal.
+
+2. Click **Resources** listed under **API Configurations** in the left menu to navigate to the Resources page in the Publisher.
+
+3. Expand any method and switch the security slidebar off to disable security for that specific resource.
+
+     [![Disable security for a Prototype API resource]({{base_path}}/assets/img/design/api-security/desable-security-for-resource.png)]({{base_path}}/assets/img/design/api-security/desable-security-for-resource.png)
 
 ## By updating the OpenAPI definition
 
