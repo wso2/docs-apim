@@ -111,6 +111,9 @@ Follow the instructions below if you want to pass additional attributes to the b
      ...
      generator_impl = "org.wso2.carbon.test.CustomTokenGenerator"
      ```
+     
+     !!! note
+         Note that CustomTokenGenerator is for opaque tokens only and public class CustomGatewayJWTGenerator is for JWT.
 
 4.  Set the `apim.jwt.enable` element to **true** in the `deployment.toml` file.
 
