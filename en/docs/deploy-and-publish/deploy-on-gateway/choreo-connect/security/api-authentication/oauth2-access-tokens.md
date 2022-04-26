@@ -18,7 +18,7 @@ When API-M acts as the Control Plane for Choreo Connect, you can generate an acc
 
 Refer to [Configuring an External Key Manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/configuring-an-external-key-manager/) to learn more.
 
-Following is an example standalone mode configuration for a trusted Key Manager. When Choreo Connect has API-M as the Control Plane, these configurations will be overridden with the Key Manager configurations retrieved from API Manager if the issuers (Key Managers) are identical. Which means the value for `issuer` in both configurations are the same. Furthermore, if the corresponding Key Manager is removed from the API Manager Admin portal, the token service added from the configuration will be used.
+The following is an example standalone mode configuration for a trusted Key Manager. When Choreo Connect has API Manager as the Control Plane, these configurations will be overridden with the Key Manager configurations retrieved from API Manager if the issuers (Key Managers) are identical. This means the value for `issuer` in both configurations is the same. Furthermore, if the corresponding Key Manager is removed from the API Manager Admin Portal, the token service added from the configuration will be used.
 
 
 ``` toml
