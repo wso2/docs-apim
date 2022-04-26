@@ -9,7 +9,7 @@ You can configure an external Key Manager or a Token Service in the following wa
 
 ## Via WSO2 API Manager Admin Portal
 
-Choreo Connect provides the capability to configure external key managers through WSO2 API Manager Admin Portal. The issuer data is retrieved from the event hub at the startup and updated as the changes are made from the Admin Portal.
+Choreo Connect provides the capability to configure external Key Managers through the API Manager Admin Portal. The issuer data is retrieved from the event hub at the startup, and updated as the changes are made from the Admin Portal.
 
 ### Step 1 - Configure Choreo Connect with API Manager
 
