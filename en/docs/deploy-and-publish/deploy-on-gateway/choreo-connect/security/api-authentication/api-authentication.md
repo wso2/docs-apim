@@ -7,12 +7,16 @@ By default, APIs are secured with application security. However, if you want to 
 ### Application Security
 Application security can be provided in the API and resource levels. The following are the API authentication types granted by Choreo Connect.
 
--   [OAuth 2.0 Access Token]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/oauth2-access-tokens/) 
+- [OAuth 2.0 Authentication]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/oauth2-access-tokens/) 
 
--   [Internal Key]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/internal-key-authentication/)
+- [Publisher Internal Key Authentication]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/internal-key-authentication/)
 
--   [API Key]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-key-authentication/)
+- [API Key Authentication]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-key-authentication/)
 
+- [Enforcer Test Key Authentication]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt/)
+
+Once authenticated, end-user attributes can be passed to the backend by enabling [Backend JWT Generation]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/passing-enduser-attributes-to-the-backend-via-choreo-connect/).
+                        
 <!-- TODO: Enable once the feature is completed for MGW 4.0.0
    [Opaque token authentication]({{base_path}}/publish/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-opaque-tokens/)
    [Basic authentication]({{base_path}}/publish/security/api-authentication/basic-authentication/)
