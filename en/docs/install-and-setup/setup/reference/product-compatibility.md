@@ -17,7 +17,6 @@ As WSO2 API Manager is a Java application, you can generally run it on most oper
 |Ubuntu              | 18.04, 20.04 |
 |Red Hat Enterprise Linux   |7.0  |
 |CentOS              |7.4, 7.5    |
-|Red Hat Enterprise Linux   |7.0  |
 
 #### Tested JDKs
 
