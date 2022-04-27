@@ -9,12 +9,14 @@ We appreciate your help and contributions!
 ## Getting started with contribution
 
 * Get started with the WSO2 API Manager by accessing the [documentation landing](https://apim.docs.wso2.com/en/latest/). Start trying out our quick start guides and tutorials available in the Get Started and Learn sections.
-* Submit issues and contribute content. Go to the **Issues** tab of this GitHub repo and click the New Issue button to file a bug report.
+* Submit issues and contribute content. Go to the **Issues** tab of this GitHub repo and click the **New Issue** button to file a bug report.
 * Fix issues: Use comments on the issue itself to indicate that you will be working on it and get guidance and help.
 
 ## Filing issues
 
-If you are unsure whether you have found a bug, please consider searching existing issues in GitHub and asking in dev@wso2.com or on [Stack Overflow](https://stackoverflow.com/tags/wso2).
+If you are unsure whether you have found a bug, please consider searching existing issues in GitHub and asking on [Stack Overflow](https://stackoverflow.com/tags/wso2) or reach out to us on our Slack channel: 
+
+[wso2-apim.slack.com](https://wso2-apim.slack.com/) : [Join](https://join.slack.com/t/wso2-apim/shared_invite/enQtNzEzMzk5Njc5MzM0LTgwODI3NmQ1MjI0ZDQyMGNmZGI4ZjdkZmI1ZWZmMjNkY2E0NmY3ZmExYjkxYThjNzNkOTU2NWJmYzM4YzZiOWU?src=sidebar)
 
 > IMPORTANT: Sensitive security-related issues should be reported to [security@wso2.com](security@wso2.com). See the [security policy](https://wso2.com/security) for details.
 

@@ -2,7 +2,7 @@
 
 In the modern digital-era, many organizations adopt digital transformation technologies to keep up with the changes. APIs are one of the basic building blocks used in a digitally-driven organization. When the number of APIs managed by the organization grows, they need to have an automated process to handle the rapid API development process. Having a proper continuous integration and continuous deployment (CI/CD) process would give an added advantage to your organization. 
 
-In this section, you will learn how to build an automated process using the WSO2 API Controller (apictl) with WSO2 API Manager (WSO2 API-M). You will see how a solution is built using a version control system (Github), artifact repository(JFrog Artifactory) and CI/CD Tool (Jenkins).
+In this section, you will learn how to build an automated process using the WSO2 API Controller (apictl) with WSO2 API Manager (WSO2 API-M). You will see how a solution is built using a version control system (GitHub), artifact repository(JFrog Artifactory) and CI/CD Tool (Jenkins).
 
 <a href="{{base_path}}/assets/img/learn/api-controller/cicd-jenkins-arch.png"><img src="{{base_path}}/assets/img/learn/api-controller/cicd-jenkins-arch.png" alt="" name="" width="600"></a>
 
@@ -10,20 +10,21 @@ In this section, you will learn how to build an automated process using the WSO2
 
 ### Step 1 - Setup Jenkins
 
-Before you begin, you need to set up the Jenkins server on a remote machine which has public access. To  use webhooks in Github and Artifactory repository to trigger Jenkins jobs you need a publicly accessible Jenkins server url. If you are trying this on a local machine, you may have to use a tool such as [socketxp](https://www.socketxp.com/) to create a tunnel.
+Before you begin, you need to set up the Jenkins server on a remote machine that has public access. To use webhooks in GitHub and Artifactory repository to trigger Jenkins jobs, you need a publicly accessible Jenkins server URL. If you are trying this on a local machine, you may have to use a tool such as [socketxp](https://www.socketxp.com/) to create a tunnel.
 
-In this section, the instructions are tested out on an ubuntu server setup on [https://cloud.google.com/compute](https://cloud.google.com/compute) . 
+In this section, the instructions are tested out on an Ubuntu server setup on [https://cloud.google.com/compute](https://cloud.google.com/compute) . 
 
-Log in to the server and install following.
+Log in to the server and install the following.
 
-1. Install jq  using the command given below.
+1. Install jq using the command given below.
   ```
   sudo apt-get install jq
 
   ```
-2. Install the [apictl tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl). Extract to a location henceforth referred as `CTL_HOME`.
 
-3. Install java.
+2. Install the [apictl tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl). Extract to a location that is henceforth referred to as `CTL_HOME`.
+
+3. Install Java.
 
 4. Setup the Jenkins server following the instructions given [here](https://www.jenkins.io/doc/book/installing/linux/). You can choose to install the suggested default plugins. This will install the commonly-used plugins.
     
@@ -42,7 +43,7 @@ Log in to the server and install following.
 
 Now the Jenkins server is set up.
 
-### Step 2 - Create Github repositories
+### Step 2 - Create GitHub repositories
 
 In this section, two repositories are created to illustrate this scenario.
 
@@ -54,7 +55,7 @@ Source repository contains the files and metadata related to the API. Deployment
 
 #### Step 2.1 - Setup source repository
 
-This section shows how to trigger a Jenkins job when a change is made to the repository. Lets use [Github webhooks](https://docs.github.com/en/developers/webhooks-and-events/webhooks) to trigger a Jenkins job. 
+This section shows how to trigger a Jenkins job when a change is made to the repository. Lets use [GitHub webhooks](https://docs.github.com/en/developers/webhooks-and-events/webhooks) to trigger a Jenkins job. 
 
 1. Go to the **source** repository and under the **Settings**, select **Webhooks** and add a webhook to the jenkins server.
 

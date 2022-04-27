@@ -3,7 +3,7 @@
 Follow the instructions below to use Kubernetes (K8s) and Helm resources for container-based deployments of WSO2 API Manager (API-M).
 
 !!! note
-        -   In the context of this document, **&lt;`KUBERNETES_HOME>         `** refers to a local copy of the [`wso2/kubernetes-apim         `](https://github.com/wso2/kubernetes-apim/) Git repository that **includes Helm Resources for WSO2 API Manager.**
+        -   In the context of this document, **&lt;`KUBERNETES_HOME>         `** refers to a local copy of the [`wso2/kubernetes-apim`](https://github.com/wso2/kubernetes-apim/) Git repository that **includes Helm Resources for WSO2 API Manager.**
         -   **&lt;`HELM_HOME>`** will refer to **&lt;`<KUBERNETES_HOME>/simple`**.
 
 !!! Prerequisites

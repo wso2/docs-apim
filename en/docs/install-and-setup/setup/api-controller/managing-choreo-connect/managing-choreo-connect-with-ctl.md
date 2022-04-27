@@ -9,7 +9,7 @@
 !!! info
     **Before you begin**
 
-    -  Download the Choreo Connect distribution from the [github release page's](https://github.com/wso2/product-microgateway/releases) and follow the Quick Start Guide attached with the release.
+    -  Download the Choreo Connect distribution from the [GitHub release page's](https://github.com/wso2/product-microgateway/releases) and follow the Quick Start Guide attached with the release.
 
     -  Make sure the apictl is downloaded and initialized, if not follow the steps in [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl). Following the guide upto [Check the version of the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#check-the-version-of-the-apictl) will be sufficient to continue. 
 

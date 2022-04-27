@@ -14,7 +14,7 @@
 !!! info
     **Before you begin** 
 
-    -  First download the Microgateway distribution from the [github release page](https://github.com/wso2/product-microgateway/releases/) and extract that to a folder of your choice.
+    -  First download the Microgateway distribution from the [GitHub release page](https://github.com/wso2/product-microgateway/releases/) and extract that to a folder of your choice.
 
     -  Make sure the apictl is downloaded and initialized, if not follow the steps in [Download and initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 
