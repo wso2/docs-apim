@@ -7,7 +7,7 @@ There are two versions of REST APIs available for the Admin Portal.
 <table>
   <tr>
     <td nowrap="true"><a href="{{base_path}}/reference/product-apis/publisher-apis/publisher-v2/publisher-v2/">WSO2 Publisher API v2</a></td>
-    <td rowspan="3" style="vertical-align: middle;background-color: white"><b>WSO2 recommends that you use the v2 REST APIs</b> as it is up to date and has support for the latest WSO2 API Manager 4.0.0 features with regard to the Publisher, Developer Portal, and Admin Portal.
+    <td rowspan="3" style="vertical-align: middle;background-color: white"><b>WSO2 recommends that you use the v2 REST APIs</b> as it is up to date and has support for the latest WSO2 API Manager 4.1.0 features with regard to the Publisher, Developer Portal, and Admin Portal.
     </td>
   </tr>
   <tr>

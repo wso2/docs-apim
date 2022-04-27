@@ -1,3 +1,8 @@
+# Upgrading API Manager from 3.1.0 to 4.1.0
+
+{!includes/work-in-progress.md!}
+
+<div hidden>
 <!-- omit in toc -->
 # Upgrading API Manager from 3.1.0 to 4.0.0
 
@@ -306,9 +311,9 @@ But, if registry versioning was enabled by you in WSO2 API-M 3.1.0 setup, it is 
     !!! note "NOTE"
         Changing these configurations should only be done before the initial API-M Server startup. If changes are done after the initial startup, the registry resource created previously will not be available.
 
-- [Step 1 - Migrate the API Manager configurations](#step-1---migrate-the-api-manager-configurations)
-- [Step 2 - Upgrade API Manager to 4.0.0](#step-2---upgrade-api-manager-to-400)
-- [Step 3 - Restart the WSO2 API-M 4.0.0 server](#step-3---restart-the-wso2-api-m-400-server)
+ - [Step 1 - Migrate the API Manager configurations](#step-1---migrate-the-api-manager-configurations)
+ - [Step 2 - Upgrade API Manager to 4.0.0](#step-2---upgrade-api-manager-to-400)
+ - [Step 3 - Restart the WSO2 API-M 4.0.0 server](#step-3---restart-the-wso2-api-m-400-server)
 
 ### Step 1 - Migrate the API Manager configurations
 
@@ -2418,3 +2423,5 @@ This concludes the upgrade process.
     -   _token_fault_.xml
     -   fault.xml
     -   main.xml
+
+</div>

@@ -1,7 +1,3 @@
----
-title: Viewing Cloud Native Observability Statistics - WSO2 API Manager 4.0.0
----
-
 # Viewing Cloud Native Observability Statistics
 
 Let's use the **dashboards** from the cloud-native observability deployment to monitor **statistics** from your integration artifacts.

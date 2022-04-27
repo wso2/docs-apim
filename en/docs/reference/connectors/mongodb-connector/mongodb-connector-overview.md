@@ -20,9 +20,9 @@ This connector was tested with MongoDB version 4.4.3.
 
 ## MongoDB Connector documentation
 
-- **[MongoDB Connector Example](mongodb-connector-example.md)**: This example demonstrates how to use MongoDB connector to connect to the MongoDB database and perform CRUD operations on it.
+- **[MongoDB Connector Example]({{base_path}}/reference/connectors/mongodb-connector/mongodb-connector-example/)**: This example demonstrates how to use MongoDB connector to connect to the MongoDB database and perform CRUD operations on it.
 
-- **[MongoDB Connector Reference](mongodb-connector-config.md)**: This documentation provides a reference guide for the MongoDB Connector.
+- **[MongoDB Connector Reference]({{base_path}}/reference/connectors/mongodb-connector/mongodb-connector-config/)**: This documentation provides a reference guide for the MongoDB Connector.
 
 ## How to contribute
 

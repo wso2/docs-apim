@@ -1,4 +1,8 @@
-# Upgrading API Manager from 1.8.0/1.9.0/1.9.1 to 4.0.0
+# Upgrading API Manager from 1.8.0/1.9.0/1.9.1 to 4.1.0
+
+{!includes/work-in-progress.md!}
+
+<div hidden>
 
 !!! warning
     **The contents on this page are currently under review!**
@@ -11,8 +15,8 @@ Before you begin:
 
 The following information describes how to upgrade your API Manager server **from APIM 1.8.0/1.9.0/1.9.1 to 4.0.0**.
 
--   [Step 1 - Upgrade WSO2 API Manager to 2.0.0](#step-1-upgrade-wso2-api-manager-to-200)
--   [Step 2 - Upgrade WSO2 API Manager to 4.0.0](#step-2-upgrade-wso2-api-manager-to-320)
+ - [Step 1 - Upgrade WSO2 API Manager to 2.0.0](#step-1---upgrade-wso2-api-manager-to-200)
+ - [Step 2 - Upgrade WSO2 API Manager to 4.0.0](#step-2---upgrade-wso2-api-manager-to-400)
 
 ### Step 1 - Upgrade WSO2 API Manager to 2.0.0
 
@@ -80,3 +84,5 @@ This concludes the upgrade process.
     -   _token_fault_.xml
     -   fault.xml
     -   main.xml
+
+</div>

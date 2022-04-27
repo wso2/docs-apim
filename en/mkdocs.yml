@@ -263,18 +263,18 @@ nav:
                         - Deploy as an Immutable Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-apis-as-immutable-gateway.md
                     - Rest API with a Mock Implementation: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-with-mock-impl.md
                 - Security:
-                    - Authentication:
-                        - API Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-authentication.md
-                        - Internal Key: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/internal-key-authentication.md
-                        - API Key: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-key-authentication.md
-                        - OAuth2.0 Access Token: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/oauth2-access-tokens.md
-                        - Test Token (JWT): deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt.md
+                    - API Authentication:
+                        - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-authentication.md
+                        - Use an Internal Key: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/internal-key-authentication.md
+                        - Use an Access Token: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/oauth2-access-tokens.md
+                        - Use an API Key: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-key-authentication.md
+                        - Use an Enforcer Test Key: deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt.md
                         # - Mutual SSL Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/mutual-ssl-authentication.md
                         - Configure an External Key Manager: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/configuring-an-external-key-manager.md
                         - Use a Custom Authorization Header: deploy-and-publish/deploy-on-gateway/choreo-connect/security/use-a-custom-authorization-header.md
                         - Reject Revoked Tokens: deploy-and-publish/deploy-on-gateway/choreo-connect/security/rejecting-revoked-tokens.md
                         - Disable Security: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/disabling-security.md
-                    - Authorization:
+                    - API Authorization:
                         - Scope Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authorization/scope-validation.md
                         - Subscription Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authorization/subscription-validation.md
                         - Custom Claims Mapping: deploy-and-publish/deploy-on-gateway/choreo-connect/support-custom-claims-mapping.md
@@ -1067,6 +1067,8 @@ nav:
                 - Redis Overview: reference/connectors/redis-connector/redis-connector-overview.md
                 - Set up the Environment: reference/connectors/redis-connector/redis-connector-configuration.md
                 - Redis Example: reference/connectors/redis-connector/redis-connector-example.md
+                - 2.4.x:
+                      - Redis Connector Reference: reference/connectors/redis-connector/2.2.x/redis-connector-reference.md
                 - 2.2.x:
                       - Redis Connector Reference: reference/connectors/redis-connector/2.2.x/redis-connector-reference.md
                 - 2.1.x:
@@ -1592,19 +1594,19 @@ nav:
                 - 4.0.0 to 4.1.0:
                     - What Has Changed: install-and-setup/upgrading-wso2-api-manager/400-to-410/what-has-changed.md
                     - Upgrade Process: install-and-setup/upgrading-wso2-api-manager/400-to-410/upgrading-from-400-to-410.md
-                
+
                 - 3.2.0 to 4.1.0:
                     - What Has Changed: install-and-setup/upgrading-wso2-api-manager/320-to-410/what-has-changed.md
                     - Upgrade Process: install-and-setup/upgrading-wso2-api-manager/320-to-410/upgrading-from-320-to-410.md
-                # - 3.1.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-310-to-400.md
-                # - 3.0.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-400.md
-                # - 2.6.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-400.md
-                # - 2.5.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-400.md
-                # - 2.2.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-220-to-400.md
-                # - 2.1.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-210-to-400.md
-                # - 2.0.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-200-to-400.md
-                # - 1.10.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-1100-to-400.md
-                # - 1.8.0/1.9.0/1.9.1 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-191-to-400.md
+                - 3.1.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-310-to-410.md
+                - 3.0.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-410.md
+                - 2.6.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-410.md
+                - 2.5.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-410.md
+                - 2.2.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-220-to-410.md
+                - 2.1.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-210-to-410.md
+                - 2.0.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-200-to-410.md
+                - 1.10.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-1100-to-410.md
+                - 1.8.0/1.9.0/1.9.1 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-191-to-410.md
                 - Upgrade to Log4j2: install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2.md
             - Upgrading WSO2 IS as KM:
                 - 3.2.0 to 4.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-5100-to-is-5110.md

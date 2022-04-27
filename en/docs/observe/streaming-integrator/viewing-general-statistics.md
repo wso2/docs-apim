@@ -1,7 +1,3 @@
----
-title: Viewing General SI Statistics - WSO2 API Manager 4.0.0
----
-
 # Viewing General SI Statistics
 
 !!! note "Before you begin:"
