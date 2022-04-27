@@ -10,7 +10,7 @@ Choreo Connect can be integrated with Istio service mesh using the methods liste
 
 Microservices can be deployed in the Istio service mesh and made available using the Istio Ingress Gateway. Choreo Connect is deployed as the edge Gateway in this method, where API Management for Istio microservices is applied. Requests come to Choreo Connect, which validates them before sending them on to the Istio Ingress Gateway, which sends them to the relevant microservice, as indicated in the diagram.
 
-Istio MTLS sample can be found in [Github](https://github.com/wso2/product-microgateway/tree/main/samples/istio/mtls-mode).
+Istio MTLS sample can be found in [GitHub](https://github.com/wso2/product-microgateway/tree/main/samples/istio/mtls-mode).
 
 ### Sidecar Mode
 
@@ -19,4 +19,4 @@ Istio MTLS sample can be found in [Github](https://github.com/wso2/product-micro
 Microservices can be deployed in the Istio service mesh and made available using the Choreo Connect Gateway. Choreo Connect is deployed in the Istio service mesh as a separate service where it applies API Management for the microservices. Requests arrive at the Istio Ingress Gateway and are routed to Choreo Connect. Once Choreo Connect validates the request, it routes it to the relevant microservices. 
 
 
-Istio Sidecar sample can be found in [Github](https://github.com/wso2/product-microgateway/tree/main/samples/istio/sidecar-mode).
+Istio Sidecar sample can be found in [GitHub](https://github.com/wso2/product-microgateway/tree/main/samples/istio/sidecar-mode).
