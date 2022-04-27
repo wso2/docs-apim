@@ -8357,7 +8357,7 @@ sender.ssl_profile.interval = "600000"</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>sender.http.&#39;http.proxyPort&#39;</code> </span>
+                                  <span class="param-name-wrap"> <code>sender.parameters.&#39;http.proxyPort&#39;</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -8378,7 +8378,7 @@ sender.ssl_profile.interval = "600000"</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>sender.http.&#39;http.nonProxyHosts&#39;</code> </span>
+                                  <span class="param-name-wrap"> <code>sender.parameters.&#39;http.nonProxyHosts&#39;</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -8941,7 +8941,7 @@ sender.parameters.SO_TIMEOUT = 60000</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>sender.http.proxyHost</code> </span>
+                                  <span class="param-name-wrap"> <code>sender.parameters.&#39;http.proxyHost&#39;</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -8962,7 +8962,7 @@ sender.parameters.SO_TIMEOUT = 60000</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>sender.http.proxyPort</code> </span>
+                                  <span class="param-name-wrap"> <code>sender.parameters.&#39;http.proxyPort&#39;</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -8983,13 +8983,13 @@ sender.parameters.SO_TIMEOUT = 60000</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>sender.http.proxyHost</code> </span>
+                                  <span class="param-name-wrap"> <code>sender.parameters.&#39;http.nonProxyHosts&#39;</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>-</code></span>
@@ -8999,28 +8999,7 @@ sender.parameters.SO_TIMEOUT = 60000</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>If the outgoing messages should be sent through an HTTPS proxy server (in blocking mode), use this parameter to specify the target proxy.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>sender.http.proxyPort</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> integer </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>The port through which the target proxy (specified by the &#39;sender.secured_proxy_host&#39; parameter) accepts HTTPS traffic (in blocking mode).</p>
+                                        <p>The list of hosts to which the HTTP traffic should be sent directly without going through the proxy. When trying to add multiple hostnames along with an asterisk in order to define a set of sub-domains for non-proxy hosts, you need to add a period before the asterisk when configuring proxy server.</p>
                                     </div>
                                 </div>
                             </div>
@@ -13690,4 +13669,3 @@ useLogger = true</code></pre>
         </div>
     </section>
 </div>
-

@@ -3137,7 +3137,7 @@
                             "description": "If the outgoing messages should be sent through an HTTP proxy server, use this parameter to specify the target proxy."
                         },
                         {
-                            "name": "sender.http.'http.proxyPort'",
+                            "name": "sender.parameters.'http.proxyPort'",
                             "type": "integer",
                             "required": false,
                             "default": "-",
@@ -3145,7 +3145,7 @@
                             "description": "The port through which the target proxy (specified by the 'sender.proxy_port' parameter) accepts HTTP traffic."
                         },
                         {
-                            "name": "sender.http.'http.nonProxyHosts'",
+                            "name": "sender.parameters.'http.nonProxyHosts'",
                             "type": "string",
                             "required": true,
                             "default": "-",
@@ -3342,7 +3342,7 @@
                             "description": "If following is set to 'true', optional action part of the Content-Type will not be added to the SOAP 1.2 messages."
                         },
                         {
-                            "name": "sender.http.proxyHost",
+                            "name": "sender.parameters.'http.proxyHost'",
                             "type": "string",
                             "required": false,
                             "default": "-",
@@ -3350,7 +3350,7 @@
                             "description": "If the outgoing messages should be sent through an HTTP proxy server (in blocking mode), use this parameter to specify the target proxy."
                         },
                         {
-                            "name": "sender.http.proxyPort",
+                            "name": "sender.parameters.'http.proxyPort'",
                             "type": "integer",
                             "required": false,
                             "default": "-",
@@ -3358,20 +3358,12 @@
                             "description": "The port through which the target proxy (specified by the 'sender.proxy_host' parameter) accepts HTTP traffic (in blocking mode)."
                         },
                         {
-                            "name": "sender.http.proxyHost",
+                            "name": "sender.parameters.'http.nonProxyHosts'",
                             "type": "string",
-                            "required": false,
+                            "required": true,
                             "default": "-",
                             "possible": "-",
-                            "description": "If the outgoing messages should be sent through an HTTPS proxy server (in blocking mode), use this parameter to specify the target proxy."
-                        },
-                        {
-                            "name": "sender.http.proxyPort",
-                            "type": "integer",
-                            "required": false,
-                            "default": "-",
-                            "possible": "-",
-                            "description": "The port through which the target proxy (specified by the 'sender.secured_proxy_host' parameter) accepts HTTPS traffic (in blocking mode)."
+                            "description": "The list of hosts to which the HTTP traffic should be sent directly without going through the proxy. When trying to add multiple hostnames along with an asterisk in order to define a set of sub-domains for non-proxy hosts, you need to add a period before the asterisk when configuring proxy server."
                         }
                     ]
                 }
