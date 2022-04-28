@@ -30,7 +30,7 @@ To use the Microsoft Azure Storage connector, add the <msazurestorage.init> elem
         </tr>
         <tr>
             <td>defaultEndpointsProtocol</td>
-            <td>Type of the protocol(http/https) to connect.</td>
+            <td>Type of the protocol(HTTP/HTTPS) to connect.</td>
             <td>No</td>
         </tr>
     </table>
