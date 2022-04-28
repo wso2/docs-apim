@@ -195,7 +195,8 @@ TRAILING_ARGS=--component-log-level http:debug,http2:debug,conn_handler:debug,lu
  enable = true
 ```
 
-With the above configuration, you can get router logs with headers and body information of the requests and responses. This is helpful to identify the header/body changes occurs in request and/or response paths.
+With the above configuration, you can get Router logs with headers and body information of the requests and responses. This is helpful to identify the header/body changes that occur in the request and/or response paths.
+
 ```yaml
 [2022-04-11 13:29:19.539][14][debug][lua] [source/extensions/filters/http/lua/lua_filter.cc:231] resuming body due to end stream
 [2022-04-11 13:29:19.539][14][debug][lua] [source/extensions/filters/http/lua/lua_filter.cc:792] script log: 
