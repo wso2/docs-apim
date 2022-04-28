@@ -88,7 +88,7 @@ Invoke the API the using the commands given in the [Invoke the API](#invoke-the-
 
 3. Deploy the API using the commands given in [Deploy REST API - Standalone Mode]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-in-choreo-connect/#via-apictl-for-standalone-mode)
 
-4. Invoke the API the using the commands given below. 
+4. Invoke the API using the commands given below. 
 
 ## Invoke the API
 
