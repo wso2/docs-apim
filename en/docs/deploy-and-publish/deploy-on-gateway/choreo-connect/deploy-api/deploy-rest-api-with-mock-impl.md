@@ -17,7 +17,7 @@ Pick a method given below to start creating an API with a Mock Implementation.
 ## Via WSO2 API Manager Publisher Portal
 ### Step 1 - Create a REST API
 
-1. Start the WSO2 API Manager server with Choreo Connect as the gateway.
+1. Start the WSO2 API Manager server with Choreo Connect as the Gateway.
 
 2. Open API Publisher in the browser and create a REST API with the following values. 
 
