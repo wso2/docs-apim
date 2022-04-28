@@ -66,7 +66,7 @@ Deploy the API from the **Deployments** tab from the left menu.
 
 ### Step 4 - Invoke the API
 
-Invoke the API the using the commands given in the [Invoke the API](#invoke-the-api) section.
+Invoke the API using the commands given in the [Invoke the API](#invoke-the-api) section.
 
 ## Via apictl for Standalone Mode
 
