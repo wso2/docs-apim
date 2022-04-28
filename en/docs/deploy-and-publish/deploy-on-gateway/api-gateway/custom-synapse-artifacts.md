@@ -1,4 +1,4 @@
-# Storing custom Synapse Artifacts
+# Storing Custom Synapse Artifacts
 
 WSO2 API Manager contains two types of artifacts; these are runtime artifacts and design-time artifacts. The API synapse artifacts that act as the API definitions for the Gateway nodes fall into the runtime artifacts category. Without synapse artifacts, the API Gateway will not able to serve the specific API requests during the runtime.
 
