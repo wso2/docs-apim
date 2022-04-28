@@ -189,7 +189,7 @@ To enable interceptor level debug logging, you need to do the following configur
 TRAILING_ARGS=--component-log-level http:debug,http2:debug,conn_handler:debug,lua:debug
 ```
 
-2. Enable debug logs in `log_config.toml` file:
+2. Enable debug logs in the `log_config.toml` file:
 ```toml
 [debugLogs]
  enable = true
