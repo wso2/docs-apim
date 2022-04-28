@@ -34,7 +34,7 @@ To prevent these types of security attacks, it is encouraged to disable the weak
         -   When you use the supported cipher suites listed [here](https://docs.wso2.com/display/ADMIN44x/Supported+Cipher+Suites), the BEAST attack status will be shown as vulnerable. Note that this is a client-side vulnerability caused by the TLSv1 protocol. You can make the BEAST status protected by removing TLSv1, which will make clients with TLSv1 unusable. Therefore, it is recommended tofixed this from the client side.
 
         ``` java
-        $ java -jar TestSSLServer.jar localhost 9443
+        $ java -jar testsslserver.jar localhost 9443
         ```
 
 !!! info
