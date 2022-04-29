@@ -1,7 +1,3 @@
----
-title: Configuring Logs - WSO2 API Manager 4.0.0
----
-
 # Configuring Logs
 
 ## Introduction

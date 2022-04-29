@@ -18,7 +18,7 @@ For this example, let's follow [steps 1 to 5 in the Create a REST API from an Op
 |----------|-------------------------------------|
 | OpenAPI URL | https://petstore3.swagger.io/api/v3/openapi.json |
 | Name     | SwaggerPetstore                     |
-| Context  | v3                                 |
+| Context  | /v3                                 |
 | Version  | 1.0.6                               |
 | Endpoint | Leave the endpoint field empty. |
 

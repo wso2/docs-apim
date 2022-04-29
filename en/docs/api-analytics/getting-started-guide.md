@@ -1,7 +1,3 @@
----
-title: API Analytics Getting Started Guide - WSO2 API Manager 4.0.0
----
-
 # API Analytics Getting Started Guide
 
 API Manager offers analytics as a cloud service. Therefore, you need to register with the analytics cloud in order to use API Manager Analytics. Follow the instructions below to get started with analytics:
@@ -12,7 +8,7 @@ Follow the instructions below to sign in to Choreo.
 
 1. Navigate to Choreo using the following URL. 
     
-     [https://console.choreo.dev/?apianalytics=true](https://console.choreo.dev/?apianalytics=true).
+     [https://console.choreo.dev](https://console.choreo.dev/?apianalytics=true?utm_source=apim_docs).
 
 2. Sign-in to Choreo.
    

@@ -16,7 +16,7 @@
 # under the License.
 
 # Project information
-site_name: WSO2 API Manager Documentation 4.1.0
+site_name: WSO2 API Manager Documentation 4.2.0
 site_description: Documentation for WSO2 API Manager
 site_author: WSO2
 site_url: https://apim.docs.wso2.com/en/4.1.0/
@@ -239,6 +239,7 @@ nav:
                 - Advanced Topics:
                     - API Gateways with Dedicated Backends: deploy-and-publish/deploy-on-gateway/api-gateway/api-gateways-with-dedicated-backends.md
                     - Mutual SSL Between API Gateway and Backend: deploy-and-publish/deploy-on-gateway/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
+                    - Storing Custom Synapse Artifacts in the Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/custom-synapse-artifacts.md
             - Choreo Connect:
                 - Choreo Connect Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview.md
                 - Supported Features : deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features.md
@@ -263,18 +264,18 @@ nav:
                         - Deploy as an Immutable Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-apis-as-immutable-gateway.md
                     - Rest API with a Mock Implementation: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-with-mock-impl.md
                 - Security:
-                    - Authentication:
-                        - API Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-authentication.md
-                        - Internal Key: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/internal-key-authentication.md
-                        - API Key: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-key-authentication.md
-                        - OAuth2.0 Access Token: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/oauth2-access-tokens.md
-                        - Test Token (JWT): deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt.md
+                    - API Authentication:
+                        - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-authentication.md
+                        - Use an Internal Key: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/internal-key-authentication.md
+                        - Use an Access Token: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/oauth2-access-tokens.md
+                        - Use an API Key: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-key-authentication.md
+                        - Use an Enforcer Test Key: deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt.md
                         # - Mutual SSL Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/mutual-ssl-authentication.md
                         - Configure an External Key Manager: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/configuring-an-external-key-manager.md
                         - Use a Custom Authorization Header: deploy-and-publish/deploy-on-gateway/choreo-connect/security/use-a-custom-authorization-header.md
                         - Reject Revoked Tokens: deploy-and-publish/deploy-on-gateway/choreo-connect/security/rejecting-revoked-tokens.md
                         - Disable Security: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/disabling-security.md
-                    - Authorization:
+                    - API Authorization:
                         - Scope Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authorization/scope-validation.md
                         - Subscription Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authorization/subscription-validation.md
                         - Custom Claims Mapping: deploy-and-publish/deploy-on-gateway/choreo-connect/support-custom-claims-mapping.md
@@ -1067,6 +1068,8 @@ nav:
                 - Redis Overview: reference/connectors/redis-connector/redis-connector-overview.md
                 - Set up the Environment: reference/connectors/redis-connector/redis-connector-configuration.md
                 - Redis Example: reference/connectors/redis-connector/redis-connector-example.md
+                - 2.4.x:
+                      - Redis Connector Reference: reference/connectors/redis-connector/2.4.x/redis-connector-reference.md
                 - 2.2.x:
                       - Redis Connector Reference: reference/connectors/redis-connector/2.2.x/redis-connector-reference.md
                 - 2.1.x:

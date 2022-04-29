@@ -1,4 +1,4 @@
-    With OpenAPI 3.0 provide mock response body and headers following the below formats. 
+    With OpenAPI 3.0 you can provide the expected payloads and headers in the following formats. 
 
     **Single Example for an Operation**
 

@@ -707,7 +707,7 @@ You can use the admin REST API, which is available in WSO2 API Manager, to publi
 2.  Obtain a token with the monetization usage scope (`scope=apim:monetization_usage_publish`).
 
     ``` java
-    curl -X POST https://localhost:8243/token -H 'Authorization: Basic <base64encoded-registeration-credentials>' -d 'grant_type=password&username=admin&password=admin&scope=apim:monetization_usage_publish'
+    curl -X POST https://localhost:9443/oauth2/token -H 'Authorization: Basic <base64encoded-registeration-credentials>' -d 'grant_type=password&username=admin&password=admin&scope=apim:monetization_usage_publish'
     ```
       
     -   `<base64encoded-registeration-credentials>` - base64 encoded client credentials received as the response in the client registration step (in `<client-id>:<client-secret>` format). WSO2 does not recommend the use of online base64 encoders for this purpose.
