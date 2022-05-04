@@ -3,8 +3,12 @@
 Choreo Connect Analytics provides reports, dashboards, statistics, and graphs for the APIs deployed on Choreo Connect.
 WSO2 Choreo Connect has the capability to publish events to the Choreo platform in order to generate analytics. This page describes the feature and explains how the feature could be used to generate useful analytics in order to gain important insights into the APIs deployed on the Choreo Connect. To learn more concepts on analytics, follow the [concepts]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/choreo-connect-analytics/).
 
+There are two ways you can configure Analytics,
 
-## Configuring Analytics for Choreo Connect
+1. [Choreo Portal Analytics for Choreo Connect]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configure-analytics/#choreo-portal-analytics-for-choreo-connect)
+2. [ELK Analytics for Choreo Connect]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configure-analytics/#elk-analytics-for-choreo-connect)
+
+## Choreo Portal Analytics for Choreo Connect
 
 The following steps will describe how to configure Choreo Connect Analytics with Choreo portal.
 
@@ -111,7 +115,14 @@ If you want to use any other reporter class then you need to compile the new rep
 Update the `choreo-connect-1.x.x/docker-compose/choreo-connect(-with-apim)/conf/log4j2.properties` file as described below:
 <br/>
 
-Log to console
+There are two options to get the analytics logs as follows, 
+
+1. [Log to console]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configure-analytics/#log-to-console)
+2. [Log to file]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configure-analytics/#log-to-file)
+
+You need to configure the Filebeat agent based on the selected option.
+
+##### Log to console
 
 1. Add a reporter to the loggers list:
 <br/>
@@ -127,7 +138,7 @@ logger.reporter.additivity = false
 logger.reporter.appenderRef.rolling.ref = ENFORCER_CONSOLE
 ```
 
-Log to file
+##### Log to file
 
 1. Add `ENFORCER_ANALYTICS` to the appenders list:
 <br/>
