@@ -19,7 +19,7 @@ Follow the instructions below to create the custom event publisher.
      
      The Maven-based Java project uses the [WSO2 Analytics Publisher](https://maven.wso2.org/nexus/content/repositories/releases/org/wso2/am/analytics/publisher/) library, which is available in the WSO2 Nexus repository. Therefore, you need to add this library as a dependency.
 
-     1. Navigate and open the `pom.xml` file.
+     1. Navigate and open the `<PROJECT_DIR>/pom.xml` file.
      
      2. Define the `wso2-nexus` repository in the `pom.xml` file.
 
