@@ -8,7 +8,7 @@ Follow the instructions below to sign in to Choreo.
 
 1. Navigate to Choreo using the following URL. 
     
-     [https://console.choreo.dev](https://console.choreo.dev/?apianalytics=true?utm_source=apim_docs).
+     <a href="https://console.choreo.dev/?apianalytics=true?utm_source=apim_docs" onclick="appInsights.trackEvent({name: 'apim-docs-api-analytics-get-started-link'});">https://console.choreo.dev</a>.
 
 2. Sign-in to Choreo.
    
