@@ -239,6 +239,7 @@ nav:
                 - Advanced Topics:
                     - API Gateways with Dedicated Backends: deploy-and-publish/deploy-on-gateway/api-gateway/api-gateways-with-dedicated-backends.md
                     - Mutual SSL Between API Gateway and Backend: deploy-and-publish/deploy-on-gateway/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
+                    - Storing Custom Synapse Artifacts in the Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/custom-synapse-artifacts.md
             - Choreo Connect:
                 - Choreo Connect Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview.md
                 - Supported Features : deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features.md

@@ -16,7 +16,7 @@ Follow the instructions below to enable mock response generation based on the Op
     | **Field**    | **Value**                        |
     |----------|-------------------------------------|
     | Name     | SwaggerPetstore                     |
-    | Context  | v3                                 |
+    | Context  | /v3                                 |
     | Version  | 1.0.6                               |
     | Endpoint | Leave the endpoint field empty. |
 
@@ -82,3 +82,8 @@ Follow the instructions below to enable mock response generation based on the Op
 
     - Use the `Prefer` header to specify which `code` and/or `example` should be returned as the response for the mock request.
 
+
+## See also
+
+- [Deploy a REST API with a Mock Implementation in Choreo Connect]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-with-mock-impl/)    
+- [Expose an existing backend implementation as a Pre-Released API]({{base_path}}/design/prototype-api/backend-url-prototype-api/) 

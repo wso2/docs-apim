@@ -2,16 +2,35 @@
 
 In addition to exposing an existing backend implementation as an API, Choreo Connect is also capable of responding to HTTP requests even without a backend. By changing the endpoint type to **Mock Implementation**, you can make Choreo Connect read the examples you have provided in the OpenAPI Definition and respond to each HTTP request accordingly. While it supports default responses, you can also request specific responses using the HTTP headers `Prefer` and `Accept`.
 
-!!! note 
-	This guide currently only provides the steps to deploy via WSO2 API manager. It will soon be updated to include the steps for standalone mode.
+Pick a method given below to start creating an API with a Mock Implementation.
 
-## Step 1 - Create a REST API
+|**Mode**         | **Method**    |
+|--------------|-----------|
+|[Choreo Connect with WSO2 API Manager as a Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/)   | [Via WSO2 API Manager Publisher Portal](#via-wso2-api-manager-publisher-portal)  |
+|[Choreo Connect as a Standalone Gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/)  |[Via apictl for Standalone Mode](#via-apictl-for-standalone-mode) |
 
-Follow the exact steps used when you create a regular REST API as described [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-in-choreo-connect/).
+### Updating the OpenAPI definition to generate a Mock Implementation
 
-## Step 2 - Implement the API
+!!! abstract
+    {!includes/design/add-oas-example.md!}
+    
+## Via WSO2 API Manager Publisher Portal
+### Step 1 - Create a REST API
 
-### Step 2.1 - Update the OpenAPI Specification
+1. Start the WSO2 API Manager server with Choreo Connect as the Gateway.
+
+2. Open API Publisher in the browser and create a REST API with the following values. 
+
+    | **Field**    | **Value**                        |
+    |----------|-------------------------------------|
+    | Name     | SwaggerPetstore                     |
+    | Context  | /v3                                 |
+    | Version  | 1.0.6                               |
+    | Endpoint | Leave the endpoint field empty. |
+
+### Step 2 - Implement the API
+
+#### Step 2.1 - Update the OpenAPI Specification
 
 1. Navigate to **API Definition** under **API Configurations** to view the OpenAPI specification.
 
@@ -23,12 +42,11 @@ Follow the exact steps used when you create a regular REST API as described [her
 
 3. Add response examples to OpenAPI Specification.    
 
-{!includes/design/add-oas-example.md!}
-
+    Update the OpenAPI definition referring to the examples given in [Updating the OpenAPI definition to generate a Mock Implementation](#updating-the-openapi-definition-to-generate-a-mock-implementation). You could also directly copy paste the sample for [OpenAPI definition for Mock Implementation](https://github.com/wso2/product-microgateway/blob/main/samples/openAPI-definitions/mock-impl-sample.yaml).
 
 5. After adding examples to the OpenAPI specification, remember to click **Update Content** and **Save**.
 
-### Step 2.2 - Change the Endpoint Type
+#### Step 2.2 - Change the Endpoint Type
 
 6. Navigate to **Endpoints** under **API Configurations**.
 
@@ -42,15 +60,71 @@ Follow the exact steps used when you create a regular REST API as described [her
 
 11. Click **Save** to enable mock implementation with OAS examples.
 
-
-## Step 3 - Deploy the API
+### Step 3 - Deploy the API
 
 Deploy the API from the **Deployments** tab from the left menu.
 
-## Step 4 - Invoke the API
+### Step 4 - Invoke the API
+
+Invoke the API using the commands given in the [Invoke the API](#invoke-the-api) section.
+
+## Via apictl for Standalone Mode
+
+1. Initialize an API Project.
+
+    Use the following command to initialize an API. This is a sample OpenAPI definition containing example responses that will be referred by Choreo Connect to respond to API calls. Refer to [Updating the OpenAPI definition to generate a Mock Implementation](#updating-the-openapi-definition-to-generate-a-mock-implementation) for more information.
+
+    ```bash
+    apictl init petstore --oas https://raw.githubusercontent.com/wso2/product-microgateway/main/samples/openAPI-definitions/mock-impl-sample.yaml
+    ```
+
+2. Update the API Project.
+
+    Open the **api.yaml** file inside the API project and update `endpointImplementationType` to `MOCKED_OAS`.
+
+    ```
+    endpointImplementationType: MOCKED_OAS
+    ```
+
+3. Deploy the API using the commands given in [Deploy REST API - Standalone Mode]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-in-choreo-connect/#via-apictl-for-standalone-mode)
+
+4. Invoke the API the using the commands given below. 
+
+## Invoke the API
 
 {! ./includes/obtain-jwt.md !}
-{! ./includes/invoke-api-with-jwt.md !}
+
+Execute the following command to get different responses based on the examples you provided.
+
+- Default response for `/pet/findByStatus`
+
+    ```
+    curl -X GET "https://localhost:9095/v3/1.0.6/pet/findByStatus" -H "Accept: application/json" -H "Authorization:Bearer $TOKEN" -k
+    ```
+
+- Default response for `/pet/findByTag`
+
+    ```
+    curl -X GET "https://localhost:9095/v3/1.0.6/pet/findByTag" -H "Accept: application/json" -H "Authorization:Bearer $TOKEN" -k
+    ```
+
+- Example reference 1 for `/pet/findByTag`
+
+    ```
+    curl -X GET "https://localhost:9095/v3/1.0.6/pet/findByTag" -H "Prefer: example=ref1" -H "Accept: application/json" -H "Authorization:Bearer $TOKEN" -k
+    ```
+
+- Example for response codes 50X for `/pet/findByTag`
+
+    ```
+    curl -v -X GET "https://localhost:9095/v3/1.0.6/pet/findByTag" -H "Prefer: code=503" -H "Accept: application/json" -H "Authorization:Bearer $TOKEN" -k
+    ```
+
+- Example reference 1 of response codes 50X  for `/pet/findByTag`
+
+    ```
+    curl -v -X GET "https://localhost:9095/v3/1.0.6/pet/findByTag" -H "Prefer: code=503, example=ref1" -H "Accept: application/json" -H "Authorization:Bearer $TOKEN" -k
+    ```
 
 ## See Also
 
