@@ -2581,6 +2581,53 @@ key_validation_handler_impl = "org.wso2.carbon.apimgt.keymgt.handlers.DefaultKey
                                     </div>
                                 </div>
                             </div>
+                     </div><div class="config-wrap">
+                            <code>[apim.http_client]</code>
+                            <span class="badge-required">Required</span>
+                            <p>
+                                Configuration related to the http client used for key validation calls made from gateway to key manager component. For the default JWT tokens (from 3.2.0 onwards, the default token type is JWT), the key validation takes place within GW node itself, as the JWT token is self-contained. So no key validation call is made for JWT tokens. But if the token used is a reference token (if the deployment is migrated from older version which used reference tokens), the key validation http calls will be made to the Key manager component for token introspection. This dedicated http client is used for this purpose. 
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>max_total</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> int </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>100</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The maximum number of connections that will be created for the key validation calls. If there is a considerable latency, the connections in use at a given time will take a long time to be released and added back to the connection pool. As a result, connections may not be available for some requests. In such situations, it is recommended to increase the value for this parameter.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>default_max_per_route</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> int </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>50</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The maximum number of connections that will be created per host server by the client. Will have to increase this too, when required as similarly for the config max_total.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
