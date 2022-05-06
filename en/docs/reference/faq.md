@@ -100,7 +100,7 @@ If you have enabled event hub for distributed deployment, add the following conf
 ```
 [apim.event_hub.jms]
 username="admin!wso2.com!carbon.super"
-password = "$ref{super_admin.password}"
+password="$ref{super_admin.password}"
 ```
 
 For more details, see [Setting up an e-mail login]({{base_path}}/install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords/#setting-up-an-e-mail-login).
