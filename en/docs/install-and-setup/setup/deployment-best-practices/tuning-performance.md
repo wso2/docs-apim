@@ -150,7 +150,7 @@ max_total_connections = 30000</code>
 <tr class="odd">
 <td>
 <p>
-For the default JWT tokens (from 3.2.0 onwards, the default token type is JWT), the key validation takes place within GW node itself, as the JWT token is self-contained. So no key validation call is made for JWT tokens.
+For the default JWT tokens (from APIM 3.2.0 onwards, the default token type is JWT), the key validation takes place within GW node itself, as the JWT token is self-contained. So no key validation call is made for JWT tokens.
 But if the token used is a reference token (if the deployment is migrated from older version which used reference tokens), the key validation http calls will be made to the Key manager component for token introspection. A dedicated http client is used for this purpose.
 </p>
 <div class="admonition note">
