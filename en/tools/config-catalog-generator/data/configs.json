@@ -950,6 +950,29 @@
                             "description": "You can provide a custom key validation handler implmentation. To do this, set the \"key_validation_handler_type\" to custom"
                         }
                     ]
+                },
+                {
+                    "name": "apim.http_client",
+                    "required": true,
+                    "description": "Configuration related to the http client used for key validation calls made from gateway to key manager component. For the default JWT tokens (from 3.2.0 onwards, the default token type is JWT), the key validation takes place within GW node itself, as the JWT token is self-contained. So no key validation call is made for JWT tokens. But if the token used is a reference token (if the deployment is migrated from older version which used reference tokens), the key validation http calls will be made to the Key manager component for token introspection. This dedicated http client is used for this purpose. ",
+                    "params": [
+                        {
+                            "name": "max_total",
+                            "type": "int",
+                            "required": true,
+                            "default": "100",
+                            "possible": "",
+                            "description": "The maximum number of connections that will be created for the key validation calls. If there is a considerable latency, the connections in use at a given time will take a long time to be released and added back to the connection pool. As a result, connections may not be available for some requests. In such situations, it is recommended to increase the value for this parameter."
+                        },
+                        {
+                            "name": "default_max_per_route",
+                            "type": "int",
+                            "required": true,
+                            "default": "50",
+                            "possible": "",
+                            "description": "The maximum number of connections that will be created per host server by the client. Will have to increase this too, when required as similarly for the config max_total."
+                        }
+                    ]
                 }
             ],
             "exampleFile": "apim.key_manager.toml"
