@@ -216,6 +216,44 @@ paths:
 .
 ```
 
+``` yaml tab="Example HTTP Operation Level"
+.
+.
+info:
+  version: 1.0.5
+  title: PizzaShackAPI
+x-wso2-basePath: /v2
+x-wso2-production-endpoints:
+    urls:
+    - https://localhost:2380/v2
+paths:
+    /pet/findByStatus:
+        get:
+            x-wso2-production-endpoints:
+                urls:
+                -  https://localhost:2380/v1
+            x-wso2-response-interceptor:
+                serviceURL: http://host.response.interceptor:9081
+                includes:
+                - request_body
+                - invocation_context
+            tags:
+            - pets
+            summary: Finds Pets by status
+            description: Multiple status values can be provided with comma separated strings
+            operationId: findPetsByStatus
+            parameters:
+            - name: status
+              in: query
+              description: Status values that need to be considered for filter
+        .
+        .
+    /pet/{petId}:
+        get:
+.
+.
+```
+
 <!-- The content of the below warning is same as the info notice in the file
 deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/response-flow-interceptor.md -->
 !!! info
