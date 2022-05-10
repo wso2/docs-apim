@@ -1,7 +1,7 @@
 # Defining Interceptors in an OpenAPI Definition
 
 You can define interceptors on an API level (per API) and on a resource/HTTP-operation level (per resource/HTTP-operation).
-If you define a request/response interceptor on API level, resource level **and** HTTP-operation level, the API level interceptor will be
+If you define a request/response interceptor on API level, resource level, **and** HTTP-operation level, the API level interceptor will be
 overridden by the resource level interceptor for that resource and resource level interceptor will be overridden by the HTTP-operation level interceptor.
 
 For an API, you can define:
