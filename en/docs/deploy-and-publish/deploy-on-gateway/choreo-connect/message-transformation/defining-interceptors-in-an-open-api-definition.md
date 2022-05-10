@@ -1,8 +1,8 @@
 # Defining Interceptors in an OpenAPI Definition
 
-You can define interceptors on an API level (per API) and on a resource level (per resource).
-If you define a request/response interceptor on an API level **and** a resource level, the API level interceptor will be
-overridden by the resource level interceptor for that resource.
+You can define interceptors on an API level (per API) and on a resource/HTTP-operation level (per resource/HTTP-operation).
+If you define a request/response interceptor on API level, resource level **and** HTTP-operation level, the API level interceptor will be
+overridden by the resource level interceptor for that resource and resource level interceptor will be overridden by the HTTP-operation level interceptor.
 
 For an API, you can define:
 
@@ -69,6 +69,43 @@ paths:
             includes:
             - request_body
         get:
+            tags:
+            - pets
+            summary: Finds Pets by status
+            description: Multiple status values can be provided with comma separated strings
+            operationId: findPetsByStatus
+            parameters:
+            - name: status
+              in: query
+              description: Status values that need to be considered for filter
+        .
+        .
+    /pet/{petId}:
+        get:
+.
+.
+```
+
+``` yaml tab="Example HTTP Operation Level"
+.
+.
+info:
+  version: 1.0.5
+  title: PizzaShackAPI
+x-wso2-basePath: /v2
+x-wso2-production-endpoints:
+    urls:
+    - https://localhost:2380/v2
+paths:
+    /pet/findByStatus:
+        get:
+            x-wso2-production-endpoints:
+                urls:
+                -  https://localhost:2380/v1
+            x-wso2-request-interceptor:
+                serviceURL: http://host.request.interceptor:9081
+                includes:
+                - request_body
             tags:
             - pets
             summary: Finds Pets by status
