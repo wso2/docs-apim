@@ -46,8 +46,8 @@ The following code snippet contains sample configuration of the parameter file.
           security:
               enabled: true
               type: basic
-              username: admin
-              password: admin
+              username: 'admin'
+              password: 'admin'
           certs:
               - hostName: 'https://dev.wso2.com'
                 alias: Dev
@@ -65,8 +65,8 @@ The following code snippet contains sample configuration of the parameter file.
           security:
               enabled: true
               type: digest
-              username: admin
-              password: admin
+              username: 'admin'
+              password: 'admin'
     ```
 Instead of the default `api_params.yaml`, you can provide a custom parameter file using `--params` flag. A sample command will be as follows.
 
@@ -78,5 +78,6 @@ Instead of the default `api_params.yaml`, you can provide a custom parameter fil
 !!! info
     -   Production/Sandbox backends for each environment can be specified in the parameter file with additional configurations, such as timeouts.
     -   Under the security field, if the `enabled` attribute is `true`, you must specify the `username`, `password` and the `type` (can be either only `basic` or `digest`). If the `enabled` attribute is `false`, then none of the security parameters will be set. If the `enabled` attribute is not set (blank), then the security parameters in api.yaml file will be considered.
+    -   Quotes are mandatory if `password` contains special characters.
     -   Certificates for each URL can be configured in the parameter file. For certificates, a valid path to the certificate file is required. 
     -   The parameter file supports detecting environment variables during the API import process. You can use the usual notation. For example, `url: $DEV_PROD_URL`.  If an environment variable is not set, the tool will fail. In addition, the system will also request for a set of required environment variables.
