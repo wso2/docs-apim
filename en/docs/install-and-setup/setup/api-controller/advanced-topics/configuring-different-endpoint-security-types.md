@@ -23,13 +23,13 @@ The following is an example parameters file of an API for this scenario.
                 production:
                     enabled: true
                     type: digest
-                    username: admin
-                    password: admin
+                    username: 'admin'
+                    password: 'admin'
                 sandbox:
                     enabled: true
                     type: basic
-                    username: admin
-                    password: admin
+                    username: 'admin'
+                    password: 'admin'
     ```
 
 Under the security field, if the `enabled` attribute is `true`, you must specify the `username`, `password` and the `type` (can be either only `basic` or `digest`). If the `enabled` attribute is `false`, then none of the security parameters will be set. If the `enabled` attribute is not set (blank), then the security parameters in `api.yaml` file will be considered.
@@ -62,8 +62,8 @@ The following is an example parameters file of an API for this scenario.
                 sandbox:
                     enabled: true
                     type: oauth
-                    username: admin
-                    password: password
+                    username: 'admin'
+                    password: 'password'
                     tokenUrl: https://sand.token.com
                     clientId: Fcd7i6mTj0ac3LyTW0szFzdt1asd
                     clientSecret: rfDEOOjlY0kgClxVlntwWVFve56f
