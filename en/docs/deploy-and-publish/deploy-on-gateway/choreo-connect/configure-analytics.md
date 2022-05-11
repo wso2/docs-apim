@@ -16,7 +16,7 @@ The following steps will describe how to configure Choreo Connect Analytics with
 To configure analytics with Choreo,
 
 1. Sign up to <a href="https://console.choreo.dev/login/" onclick="appInsights.trackEvent({name: 'apim-docs-choreo-connect-setup-api-analytics'});">https://console.choreo.dev/login/</a>.
-2. Go to <a href="https://console.choreo.dev/user-settings/onpremkeys" onclick="appInsights.trackEvent({name: 'apim-docs-choreo-connect-setup-api-analytics-on-prem-key'});">https://console.choreo.dev/user-settings/onpremkeys</a> and generate a on-prem-key.
+2. Go to <a href="https://console.choreo.dev/user-settings/onpremkeys" onclick="appInsights.trackEvent({name: 'apim-docs-choreo-connect-setup-api-analytics'});">https://console.choreo.dev/user-settings/onpremkeys</a> and generate a on-prem-key.
 3. Open the `docker-compose.yaml` file located in the `CHOREO-CONNECT_HOME/docker-compose/choreo-connect` or `CHOREO-CONNECT_HOME/docker-compose/choreo-connect-with-apim` based on your choice on the setup.
 
     !!! info
