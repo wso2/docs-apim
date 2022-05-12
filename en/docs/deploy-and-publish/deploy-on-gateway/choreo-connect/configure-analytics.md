@@ -15,8 +15,8 @@ The following steps will describe how to configure Choreo Connect Analytics with
 
 To configure analytics with Choreo,
 
-1. Sign up to [https://console.choreo.dev/login/](https://console.choreo.dev/login/).
-2. Go to [https://console.choreo.dev/user-settings/onpremkeys](https://console.choreo.dev/user-settings/onpremkeys) and generate a on-prem-key.
+1. Sign up to <a href="https://console.choreo.dev/login/" onclick="appInsights.trackEvent({name: 'apim-docs-choreo-connect-setup-api-analytics'});">https://console.choreo.dev/login/</a>.
+2. Go to <a href="https://console.choreo.dev/user-settings/onpremkeys" onclick="appInsights.trackEvent({name: 'apim-docs-choreo-connect-setup-api-analytics'});">https://console.choreo.dev/user-settings/onpremkeys</a> and generate a on-prem-key.
 3. Open the `docker-compose.yaml` file located in the `CHOREO-CONNECT_HOME/docker-compose/choreo-connect` or `CHOREO-CONNECT_HOME/docker-compose/choreo-connect-with-apim` based on your choice on the setup.
 
     !!! info
@@ -68,7 +68,7 @@ Let's generate some traffic to see the Analytics in Choreo cloud.
 
 2. Let's Invoke the API few times - [Invoke the API]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-in-choreo-connect/#step-4-invoke-the-api)
 
-3. Go to [Choreo Insights](https://console.choreo.dev/insights) to view statistics. 
+3. Go to <a href="https://console.choreo.dev/insights" onclick="appInsights.trackEvent({name: 'apim-docs-choreo-connect-setup-api-analytics-choreo-insights'});">Choreo Insights</a>  to view statistics. 
 
 Here are some of the graphs generated in Choreo cloud.
 
