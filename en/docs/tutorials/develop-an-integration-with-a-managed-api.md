@@ -62,7 +62,7 @@ Let’s create an API in WSO2 API Manager.
 
 	 [![Add GET resource]({{base_path}}/assets/img/tutorials/querydocter-resource.png)]({{base_path}}/assets/img/tutorials/querydocter-resource.png)
 
-5.	You can manage the API the way you want and test out the resource by adding a [Mock Implementation]({{base_path}}/design/prototype-api/create-a-prototype-api/#mock-implementation).
+5.	You can manage the API the way you want and test out the resource by adding a [Mock Implementation]({{base_path}}/design/prototype-api/create-mocked-js-api).
 
 ## Step 2 - Develop the integration service
 
