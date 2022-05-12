@@ -545,3 +545,14 @@ Axis2 properties allow you to configure the web services engine in WSO2 Micro In
 		</td>
 	</tr>
 </table>
+
+## enableREST
+
+|     Parameter       | Value                                                                                             |
+|---------------------|---------------------------------------------------------------------------------------------------|
+| **Name**             | enableREST                                                                                        |
+| **Possible Values**  | true/false                                                                                        |
+| **Default Behavior** | false                                                                                             |
+| **Scope**            | axis2                                                                                             |
+| **Description**      | This property enables the check whether the original request to the endpoint was a REST request, which needs converting the response's `text/xml` content type into `application/xml` if the request was not a SOAP request.|
+| **Example**          | `<property name="enableREST" scope="axis2" type="BOOLEAN" value="true"/>` |
