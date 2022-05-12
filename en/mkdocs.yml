@@ -81,9 +81,10 @@ nav:
         - Change the Thumbnail of an API: design/create-api/change-api-thumbnail.md
         - Create Prototype APIs: 
             - Overview: design/prototype-api/overview.md
-            - Mock Implementation with API Gateway: design/prototype-api/create-mocked-js-api.md
-            - Mock Implementation with Choreo Connect: design/prototype-api/create-mocked-oas-api.md
-            - Expose an Existing Backend Implementation as a Prototype API: design/prototype-api/backend-url-prototype-api.md
+            - Mock Implementation: 
+                - With API Gateway: design/prototype-api/create-mocked-js-api.md
+                - With Choreo Connect: design/prototype-api/create-mocked-oas-api.md
+            - Existing Backend Implementation as a Prototype API: design/prototype-api/backend-url-prototype-api.md
         - Create API Products:
                 - API Product Overview: design/create-api-product/api-product-overview.md
                 - Create an API Product: design/create-api-product/create-api-product.md
@@ -262,7 +263,7 @@ nav:
                     - Expose via Custom Hostnames: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-with-custom-hostnames.md
                     - Immutable Gateway:
                         - Deploy as an Immutable Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-apis-as-immutable-gateway.md
-                    - Rest API with a Mock Implementation: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-with-mock-impl.md
+                    - REST API with a Mock Implementation: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-with-mock-impl.md
                 - Security:
                     - API Authentication:
                         - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-authentication.md
@@ -2173,6 +2174,7 @@ plugins:
               'install-and-setup/setup/mi-setup/observability/observability-deployment-strategy.md': 'https://apim.docs.wso2.com/en/4.1.0/observe/micro-integrator/cloud-native-observability-overview/'
               'design/prototype-api/create-a-mock-api-with-an-inline-script.md': 'https://apim.docs.wso2.com/en/4.1.0/design/prototype-api/create-a-prototype-api/'
               'design/prototype-api/deploy-and-test-mock-apis.md': 'https://apim.docs.wso2.com/en/4.1.0/design/prototype-api/create-a-prototype-api/'
+              'design/prototype-api/create-a-prototype-api.md': 'https://apim.docs.wso2.com/en/4.1.0/design/prototype-api/overview/'
               'deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-log4j.md': 'https://apim.docs.wso2.com/en/4.1.0/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-log4j2/'
               'deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-log4j.md': 'https://apim.docs.wso2.com/en/4.1.0/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-log4j2/'
               'deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/inter-component-communication.md': 'https://apim.docs.wso2.com/en/4.1.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview/#communication-between-the-components'
