@@ -216,6 +216,11 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
     **[Learn more](https://siddhi-io.github.io/siddhi-io-kafka/api/latest/)**
 
+## Deprecated features and functionalities
+
+These features are deprecated and will be removed from subsequent versions of WSO2 API Manager.
+
+- **[Generate REST API from SOAP Backend]({{base_path}}/design/create-api/create-rest-api/generate-rest-api-from-soap-backend/)**
 
 ## Removed features and functionalities
 
