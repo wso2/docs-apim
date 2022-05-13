@@ -122,6 +122,9 @@ After applying the above change, you can start the Micro Integrator with the fol
 
 Once you have successfully set up the [minimum deployment](#step-1-set-up-the-minimum-deployment), you need to set up the log processing add-on to process logs. To achieve this, you can use Grafana Loki-based logging stack.
 
+!!! note
+    You do not need the minimum deployment to set this up and observe the traces through Jaeger. 
+
 A Loki-based logging stack consists of three components:
 
 - **fluentBit** is the agent that gathers logs and sends them to Loki.
@@ -336,7 +339,7 @@ Download and install [Jaeger](https://www.jaegertracing.io/download/).
 
 Follow the instructions below to configure the Micro Integrator to publish tracing information:
 
-1. Add the following configurations to the `deployment.toml` file (stored in the `<MI_HOME>/conf/`).
+Add the following configurations to the `deployment.toml` file (stored in the `<MI_HOME>/conf/`).
 
     ```toml
     [mediation]
@@ -348,24 +351,8 @@ Follow the instructions below to configure the Micro Integrator to publish traci
     enable = true
     logs = true
     manager_host = "localhost"
-    agent_host = "localhost”
+    agent_host = "localhost"
     ```
-
-2. Add the following entries to the `<MI_HOME>/repository/resources/conf/keyMappings.json` file.
-
-    ```json
-    "opentracing.enable": "synapse_properties.'opentracing.enable'",
-    "opentracing.logs": "synapse_properties.'jaeger.reporter.log.spans'",
-    "opentracing.manager_host": "synapse_properties.'jaeger.sampler.manager.host'",
-    "opentracing.agent_host": "synapse_properties.'jaeger.sender.agent.host'"
-    ```
-!!! note
-    The service name used to initialize the JaegerTracer can be configured using the environment variable `SERVICE_NAME`
-    as shown below.
-    ```
-    export SERVICE_NAME=customServiceName
-    ```
-    `SERVICE_NAME` is set to `WSO2-SYNAPSE` by default.
 
 ### Step 3.3 - Configure Grafana to visualize tracing data
 
