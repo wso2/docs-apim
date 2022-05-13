@@ -1,5 +1,8 @@
 # Generate REST API from SOAP Backend
 
+!!! Warning "Deprecated feature"
+    Note that this feature is deprecated in WSO2 API Manager 4.1.0. The support for this feature will be removed from subsequent versions of WSO2 API Manager.
+
 This feature allows users to expose their legacy SOAP backends as REST APIs through WSO2 API Manager. 
 WSO2 API Manager supports WSDL 1.1 based SOAP backends.
 
