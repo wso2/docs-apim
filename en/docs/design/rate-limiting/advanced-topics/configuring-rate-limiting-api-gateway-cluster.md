@@ -1,16 +1,21 @@
 # Configuring Rate Limiting for an API Gateway Cluster
 
-You will need to have more than one Gateway in your WSO2 API Manager deployment when having an all-in-one set up in a high availability (HA) deployment or when having a distributed set up with scaled Gateways. In such scenarios, when using more than one API Gateway in your WSO2 API Manager deployment, you need to maintain a distributed counter to keep track of the request count for rate-limiting to function correctly at the node level. 
+Typically, you need to have more than one Gateway node in your WSO2 API Manager (WSO2 API-M) deployment when either having an all-in-one set up in a high availability (HA) deployment (i.e., 2 nodes) or when having a distributed set up with multiple Gateways. In such scenarios, for features such as [burst control]({{base_path}}/design/rate-limiting/setting-throttling-limits/#burst-control) and [backend rate limiting]({{base_path}}/design/rate-limiting/setting-maximum-backend-throughput-limits) to work properly, it requires maintaining distributed request counters across all gateway nodes.
 
-If you are using a clustered deployment, the counters are replicated across the cluster, and it is applied across all users using any application that accesses that particular API. However, **when a clustered setup is not used**, WSO2 recommends defining a distributed counter that allows you to maintain global counters for [burst control]({{base_path}}/design/rate-limiting/setting-throttling-limits/#burst-control) and [backend rate limiting]({{base_path}}/design/rate-limiting/setting-maximum-backend-throughput-limits). The updated distributed counters will be maintained across the Gateway nodes. 
+WSO2 API-M supports the facility to maintain these counters in a distributed Redis cluster. You can simply connect API-M to a Redis cluster, and then the API-M Gateway nodes will take care of keeping distributed counters in it.
 
-You can define these distributed counters in the Redis server, which is an in-memory database/data structure server. Thereafter, you can configure the Redis server with WSO2 API Manager (WSO2 API-M) to ensure that distributed rate limiting works seamlessly.
+!!! note
+    If you are unable to use a Redis cluster in your deployment, the fallback option is to have node-local counters. For that, you have to define rate limit policies based on the number of gateway nodes that are in the cluster. For example, if you have 3 gateway nodes, and you want to have a rate-limiting policy with 300req/s, you have to create a policy that only allows 100req/s. Then each node will allow 100req/s and in total, you will get 300req/s assuming the requests are distributed equally across all nodes. However, this option has its own limitations and is hence not an ideal solution.
 
-## Step 1 - Setup and start the Redis server
+## Configuring a Redis cluster with API Manager
+
+Follow the instructions below to configure a Redis cluster with API Manager:
+
+### Step 1 - Setup and start the Redis server
 
 Refer to the [official Redis documentation](https://redis.com/) to set up and start the Redis server.
 
-## Step 2 - Configure the Redis server with WSO2 API-M
+### Step 2 - Configure the Redis server with WSO2 API-M
 
 Follow the instructions below to configure the Redis server with WSO2 API Manager.
 
@@ -29,6 +34,6 @@ Follow the instructions below to configure the Redis server with WSO2 API Manage
     'throttling.distributed.counter.type' = "redis"
     ```
 
-## Step 3 - Start the WSO2 API-M server
+### Step 3 - Start the WSO2 API-M server
 
 For more information, see [Running the API Manager Runtime]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/).
