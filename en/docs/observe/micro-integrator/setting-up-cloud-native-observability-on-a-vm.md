@@ -354,6 +354,16 @@ Add the following configurations to the `deployment.toml` file (stored in the `<
     agent_host = "localhost"
     ```
 
+!!! note
+    The service name used to initialize the JaegerTracer can be configured using the environment variable `SERVICE_NAME`
+    as shown below.
+    ```
+    export SERVICE_NAME=customServiceName
+    ```
+    `SERVICE_NAME` is set to `WSO2-SYNAPSE` by default.
+
+
+
 ### Step 3.3 - Configure Grafana to visualize tracing data
 
 In order to configure Grafana to display tracing information, follow the steps given below.
