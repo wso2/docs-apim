@@ -122,9 +122,6 @@ After applying the above change, you can start the Micro Integrator with the fol
 
 Once you have successfully set up the [minimum deployment](#step-1-set-up-the-minimum-deployment), you need to set up the log processing add-on to process logs. To achieve this, you can use Grafana Loki-based logging stack.
 
-!!! note
-    You do not need the minimum deployment to set this up and observe the traces through Jaeger. 
-
 A Loki-based logging stack consists of three components:
 
 - **fluentBit** is the agent that gathers logs and sends them to Loki.
@@ -324,6 +321,9 @@ You need to do this in order to configure Grafana to display logs.
 ## Step 3 - Optionally, integrate the Message Tracing add-on
 
 Once you have successfully set up the [minimum deployment](#step-1-set-up-the-minimum-deployment), you need to set up the message tracing add-on using Jaeger.
+
+!!! note
+    It is not essential to set up minimum deployment to observe the traces through Jaeger. You can do this without the minimum deployment as well.
 
 ### Step 3.1 - Set up Jaeger
 
