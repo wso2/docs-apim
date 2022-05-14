@@ -322,6 +322,9 @@ You need to do this in order to configure Grafana to display logs.
 
 Once you have successfully set up the [minimum deployment](#step-1-set-up-the-minimum-deployment), you need to set up the message tracing add-on using Jaeger.
 
+!!! note
+    It is not essential to set up minimum deployment to observe the traces through Jaeger. You can do this without the minimum deployment as well.
+
 ### Step 3.1 - Set up Jaeger
 
 Download and install [Jaeger](https://www.jaegertracing.io/download/).
@@ -336,7 +339,7 @@ Download and install [Jaeger](https://www.jaegertracing.io/download/).
 
 Follow the instructions below to configure the Micro Integrator to publish tracing information:
 
-1. Add the following configurations to the `deployment.toml` file (stored in the `<MI_HOME>/conf/`).
+Add the following configurations to the `deployment.toml` file (stored in the `<MI_HOME>/conf/`).
 
     ```toml
     [mediation]
@@ -348,17 +351,9 @@ Follow the instructions below to configure the Micro Integrator to publish traci
     enable = true
     logs = true
     manager_host = "localhost"
-    agent_host = "localhost”
+    agent_host = "localhost"
     ```
 
-2. Add the following entries to the `<MI_HOME>/repository/resources/conf/keyMappings.json` file.
-
-    ```json
-    "opentracing.enable": "synapse_properties.'opentracing.enable'",
-    "opentracing.logs": "synapse_properties.'jaeger.reporter.log.spans'",
-    "opentracing.manager_host": "synapse_properties.'jaeger.sampler.manager.host'",
-    "opentracing.agent_host": "synapse_properties.'jaeger.sender.agent.host'"
-    ```
 !!! note
     The service name used to initialize the JaegerTracer can be configured using the environment variable `SERVICE_NAME`
     as shown below.
@@ -366,6 +361,8 @@ Follow the instructions below to configure the Micro Integrator to publish traci
     export SERVICE_NAME=customServiceName
     ```
     `SERVICE_NAME` is set to `WSO2-SYNAPSE` by default.
+
+
 
 ### Step 3.3 - Configure Grafana to visualize tracing data
 
