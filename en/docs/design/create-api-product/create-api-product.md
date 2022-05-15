@@ -15,24 +15,24 @@ the attached OpenAPI definition (a.k.a Swagger definition) files]({{base_path}}/
 
       - Leasing API - [leasing-api.yaml]({{base_path}}/assets/attachments/learn/leasing-api.yaml)
 
-     <html>
-     <div class="admonition note">
-     <p class="admonition-title">Note</p>
-     <ul>
-     <li><p>Ensure that you provide an endpoint for each API after it is imported. The API Product will reuse the endpoint specified at the API-level.</p></li>
+      <html>
+      <div class="admonition note">
+      <p class="admonition-title">Note</p>
+      <ul>
+      <li><p>Ensure that you provide an endpoint for each API after it is imported. The API Product will reuse the endpoint specified at the API-level.</p></li>
      
-     <li>It is not necessary to publish an API in order to use it to create an API Product.
-     </li></ul>
-     </div> 
-     </html>
+      <li>It is not necessary to publish an API in order to use it to create an API Product.
+      </li></ul>
+      </div> 
+      </html>
         
-      After the APIs are created, the respective resources for each of the APIs will appear as follows:
+      After you create each of the APIs, click **Try Out**, to view the respective resources for each of the APIs as follows:
 
-     - Customer info API
+      - Customer info API
    
            [![Customer info API]({{base_path}}/assets/img/learn/design-api/create-api-product/customer-info-api.png)]({{base_path}}/assets/img/learn/design-api/create-api-product/customer-info-api.png)
 
-     - Leasing API
+      - Leasing API
    
            [![Leasing API]({{base_path}}/assets/img/learn/design-api/create-api-product/leasing-api.png)]({{base_path}}/assets/img/learn/design-api/create-api-product/leasing-api.png)
 
@@ -56,7 +56,7 @@ the attached OpenAPI definition (a.k.a Swagger definition) files]({{base_path}}/
     [![Create API Product Menu]({{base_path}}/assets/img/learn/design-api/create-api-product/create-api-product.png)]({{base_path}}/assets/img/learn/design-api/create-api-product/create-api-product.png)
 
     The **Create an API Product** page appears.
-    
+
 4. Enter the API Product details.
     
      <html>
@@ -137,11 +137,11 @@ the attached OpenAPI definition (a.k.a Swagger definition) files]({{base_path}}/
       <p>API developers can try out the API Products from Publisher Portal's tryout console when the API Product is in the <code>CREATED</code> state.</p>
       </div>
 
-10. Publish the API Product to make it available in the Developer Portal.
+10.  Publish the API Product to make it available in the Developer Portal.
      
      [![Publish API Product]({{base_path}}/assets/img/learn/design-api/create-api-product/publish-api-product.png)]({{base_path}}/assets/img/learn/design-api/create-api-product/publish-api-product.png)
 
-11. Sign in to the Developer Portal to subscribe and consume the API Product in the same way you would do for an API. 
+11.  Sign in to the Developer Portal to subscribe and consume the API Product in the same way you would do for an API. 
      
      `https://<hostname>:9443/devportal` 
 
