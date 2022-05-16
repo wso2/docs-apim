@@ -118,18 +118,19 @@ nav:
             - Overview: design/api-policies/overview.md
             - Attach Policies: design/api-policies/attach-policy.md
             - Create a Policy: design/api-policies/create-policy.md
-            - Using Policies in the Gateway:
-                - Add Dynamic Endpoints: design/api-policies/gateway-policies/adding-dynamic-endpoints.md
-                - Remove Specific Request Headers From Response: design/api-policies/gateway-policies/removing-specific-request-headers-from-response.md
-                - Pass a Custom Authorization Token to the Backend: design/api-policies/gateway-policies/passing-a-custom-authorization-token-to-the-backend.md
-                - URL Mapping: design/api-policies/gateway-policies/mapping-the-parameters-of-your-backend-urls-with-the-api-publisher-urls.md
-                - Disable Message Chunking: design/api-policies/gateway-policies/disabling-message-chunking.md
-                - Transform API Message Payload: design/api-policies/gateway-policies/transforming-api-message-payload.md
-                - Add a Non-Blocking Send Operation: design/api-policies/gateway-policies/adding-a-non-blocking-send-operation.md
-                - Add a Class Mediator: design/api-policies/gateway-policies/adding-a-class-mediator.md
-                - Configure Message Builders and Formatters: design/api-policies/gateway-policies/configuring-message-builders-formatters.md
-            - Sample Custom Policies:
-                - Create a Custom Choreo Connect Policy: design/api-policies/samples/create-custom-cc-policy.md
+            - Regular Gateway Policies:
+                - Add Dynamic Endpoints: design/api-policies/regular-gateway-policies/adding-dynamic-endpoints.md
+                - Remove Specific Request Headers From Response: design/api-policies/regular-gateway-policies/removing-specific-request-headers-from-response.md
+                - Pass a Custom Authorization Token to the Backend: design/api-policies/regular-gateway-policies/passing-a-custom-authorization-token-to-the-backend.md
+                - URL Mapping: design/api-policies/regular-gateway-policies/mapping-the-parameters-of-your-backend-urls-with-the-api-publisher-urls.md
+                - Disable Message Chunking: design/api-policies/regular-gateway-policies/disabling-message-chunking.md
+                - Transform API Message Payload: design/api-policies/regular-gateway-policies/transforming-api-message-payload.md
+                - Add a Non-Blocking Send Operation: design/api-policies/regular-gateway-policies/adding-a-non-blocking-send-operation.md
+                - Add a Class Mediator: design/api-policies/regular-gateway-policies/adding-a-class-mediator.md
+                - Configure Message Builders and Formatters: design/api-policies/regular-gateway-policies/configuring-message-builders-formatters.md
+            - Choreo Connect Policies:
+                - Call Interceptor Service: design/api-policies/choreo-connect-policies/call-interceptor-service.md
+                - Create a Custom Policy: design/api-policies/choreo-connect-policies/create-custom-cc-policy.md
         - API Security:
             - Authentication:
                 - Overview: design/api-security/api-authentication/api-authentication-overview.md
@@ -1826,7 +1827,7 @@ plugins:
               'learn/design-api/create-api/generate-rest-api-from-soap-backend.md': 'https://apim.docs.wso2.com/en/4.1.0/design/create-api/create-rest-api/generate-rest-api-from-soap-backend/'
               'learn/design-api/create-api/test-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.1.0/design/create-api/create-rest-api/test-a-rest-api/'
               'learn/api-gateway/overview-of-the-api-gateway.md': 'https://apim.docs.wso2.com/en/4.1.0/deploy-and-publish/deploy-on-gateway/api-gateway/overview-of-the-api-gateway/'
-              'learn/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests.md': 'https://apim.docs.wso2.com/en/4.1.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests/'
+            #   'learn/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests.md': 'https://apim.docs.wso2.com/en/4.1.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests/'
               'learn/api-gateway/message-mediation/creating-and-uploading-using-integration-studio.md': 'https://apim.docs.wso2.com/en/4.1.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/creating-and-uploading-using-integration-studio/'
               'learn/api-gateway/message-mediation/adding-dynamic-endpoints.md': 'https://apim.docs.wso2.com/en/4.1.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-dynamic-endpoints/'
               'learn/api-gateway/message-mediation/removing-specific-request-headers-from-response.md': 'https://apim.docs.wso2.com/en/4.1.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/removing-specific-request-headers-from-response/'
