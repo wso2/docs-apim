@@ -16,7 +16,7 @@ The policy attribute “Includes to Payload” in the Call Interceptor Service s
 
 For more information, see [Request flow interceptor]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/defining-interceptors-in-an-open-api-definition/#request-flow-interceptor).
 
-Following values in response flow.
+The following values are available in the response flow.
 
 - request_headers
 - request_body
