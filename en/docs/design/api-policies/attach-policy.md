@@ -8,7 +8,7 @@ Follow the instructions below to attach one or more default policies that are sh
 
 2. Click on the API for which you want to attach policies to (e.g., `PizzaShackAPI 1.0.0`). Navigate to **API Configurations** --> **Policies**.
 
-3. Under the `API Gateway` section, make sure to select the correct gateway. API Manager supports the following two gateway types: `Regular Gateway (Synapse Gateway)` and `Choreo Connect`. Pick the gateway depending on the gateway that your API is deployed in.
+3. Under the `API Gateway` section, make sure to select the correct Gateway. API Manager supports the following two Gateway types: `Regular Gateway (Synapse Gateway)` and `Choreo Connect`. Select the Gateway depending on the Gateway that your API is deployed in.
 
     [![Select Gateway]({{base_path}}/assets/img/design/api-policies/attach-policies-1.png){: style="width:90%"}]({{base_path}}/assets/img/design/api-policies/attach-policies-1.png)
 
