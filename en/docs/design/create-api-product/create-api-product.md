@@ -117,7 +117,7 @@ the attached OpenAPI definition (a.k.a Swagger definition) files]({{base_path}}/
 
      - If you want to create, deploy and publish the API Product, click **Create & Publish**. 
      
-           Deploying the API Product will make it available for invocation via the Gateway, and publishing the API Product will make it available in Developer Portal.
+           Deploying the API Product will make it available for invocation via the Gateway, and publishing the API Product will make it available in the Developer Portal.
 
           <div class="admonition info">
           <p class="admonition-title">Info</p>
