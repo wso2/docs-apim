@@ -51,7 +51,7 @@ Follow the instructions below to attach one or more default policies that are sh
     </table>
 
     !!! note 
-        You can optionally use the **Apply to all** resources option to attach the same policy to all the resources on Save. This will attach the same policy to all the API operations along with the values you entered to configure the policy (if any). It is important to note that if the policy was applied to the `Request Flow`, it will only be applied to all the `Request Flows` of all operations.
+        You can optionally use the **Apply to all** resources option to attach the same policy to all the resources when you save your settings. This will attach the same policy to all the API operations along with the values you entered to configure the policy (if any). It is important to note that if the policy was applied to the `Request Flow`, it will only be applied to all the `Request Flows` of all operations.
 
 7. Now that we have saved the dropped policy, you should be able to see the attached **Add Header** policy (depicted with the initials `AH`).
 
