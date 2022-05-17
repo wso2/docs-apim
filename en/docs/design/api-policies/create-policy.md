@@ -2,8 +2,8 @@
 
 Listed below are two ways of creating a new policy. Depending on whether you need the policy to be accessible only within a specific API or available for all APIs, you can decide on the option you need to follow.
 
-* [Creating a **Common Policy**](#creating-a-common-policy)
-* [Creating an **API Specific Policy**](#creating-an-api-specific-policy)
+* Creating a **Common Policy**
+* Creating an **API Specific Policy**
 
 ## Creating a Common Policy
 
