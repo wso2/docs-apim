@@ -202,12 +202,12 @@ Update the `choreo-connect-1.x.x/docker-compose/choreo-connect(-with-apim)/conf/
 
 4. Add the following configurations after the loggers.
 
-    ```
-    logger.reporter.name = org.wso2.am.analytics.publisher.sample.reporter
-    logger.reporter.level = INFO
-    logger.reporter.additivity = false
-    logger.reporter.appenderRef.rolling.ref = ENFORCER_ANALYTICS
-    ```
+   ```
+   logger.reporter.name = org.wso2.am.analytics.publisher.reporter.elk
+   logger.reporter.level = INFO
+   logger.reporter.additivity = false
+   logger.reporter.appenderRef.rolling.ref = ENFORCER_ANALYTICS
+   ```
 
 !!! note 
     If you use a custom reporter class, update the `logger.reporter.name` property accordingly.
