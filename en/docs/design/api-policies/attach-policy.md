@@ -13,7 +13,7 @@ Follow the instructions below to attach one or more default policies that are sh
     [![Select Gateway]({{base_path}}/assets/img/design/api-policies/attach-policies-1.png){: style="width:90%"}]({{base_path}}/assets/img/design/api-policies/attach-policies-1.png)
 
     !!! note
-        Keep in mind that the policies attached under a given `API Gateway` will be removed when you switch between gateways. But this policy removal will be reflected in your API only if you click on the **Save** button found at the bottom of the Policies page.
+        Keep in mind that the policies attached under a given `API Gateway` will be removed when you switch between Gateways. However, this policy removal will be reflected in your API only if you click on the **Save** button found at the bottom of the Policies page.
 
     !!! tip
         * Policy list is dependant on the selected gateway (i.e. policy list under `Regular Gateway` is diferent to that of `Choreo Connect`).
