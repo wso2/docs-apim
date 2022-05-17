@@ -39,6 +39,22 @@ Follow the instructions given below to create a new [REST API]({{base_path}}/ref
                 Select this option to import an existing REST API configuration (XML definition) that was created using WSO2 Integration Studio.
             </td>
         </tr>
+        <tr>
+            <th>
+                Import API from API Manager
+            </th>
+            <td>
+                Select this option to import an managed API from WSO2 API Manager.
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Generate REST API from WSDL
+            </th>
+            <td>
+                Select this option to generate Synapse API from a WSDL endpoint.
+            </td>
+        </tr>
     </table>
 
 3.  Click **Next** to go to the next page and enter the relevant details.
@@ -71,7 +87,7 @@ Follow the instructions given below to create a new [REST API]({{base_path}}/ref
                 </td>
                 <td>
                     <b>Required</b>.</br>
-                    The context for the REST API. For example, <code>/healthcare</code>.
+                    The context for the REST API. For example, <code>/healthcare</code>. Note that it is not recommended to use the same API context in multiple APIs. The API context should be unique for each API. It is also not recommended to use "/service" as API context because it is preserved for Proxy services.
                 </td>
             </tr>
             <tr>
@@ -142,6 +158,111 @@ Follow the instructions given below to create a new [REST API]({{base_path}}/ref
             </tr>
         </table>
 
+    -   If you selected **Import API from API Manager** in the previous step, enter the following information:
+
+        <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/import-api-from-api-manager.png" width="500">
+
+        <table>
+            <tr>
+                <th>
+                    Parameter
+                </th>
+                <th>
+                    Description
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    Username
+                </td>
+                <td>
+                    Username of the API Manager user.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Password
+                </td>
+                <td>
+                    Password of the API Manager user.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    API Manager host
+                </td>
+                <td>
+                    Host URL of the API Manager.
+                </td>
+            </tr>
+        </table>
+        After entering the above values in the <b>Import API from API Manager</b> option wizard, click <b>List APIs</b>. The list of APIs that are in WSO2 API Manager appear. Thereafter, select one of the APIs from the API list.
+
+    -   If you selected **Generate REST API from WSDL** in the previous step, enter the following information:
+
+        <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/generate-api-from-wsdl.png" width="500">
+
+        <table>
+            <tr>
+                <th>
+                    Parameter
+                </th>
+                <th>
+                    Description
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    Name
+                </td>
+                <td>
+                    Name for the generated REST API.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Generate API
+                </td>
+                <td>
+                    Select 'Using WSDL URL' for generate API using the remote WSDL file or select 'Using Local 
+        File' to generate API from WSDL file or Zip file contain a valid WSDL file.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Use Local WSDL file or Zip file
+                </td>
+                <td>
+                    Browse and select the WSDL File or Zip file that has a valid WSDL file
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Enter WSDL URL
+                </td>
+                <td>
+                    Give the remote location of the SOAP Service WSDL File as a valid URL
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Enter SOAP Endpoint
+                </td>
+                <td>
+                    Give the actual SOAP Backend URL(This should return a valid WSDL when invoked with ?wsdl)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Save in
+                </td>
+                <td>
+                    Select the integration project for the generated API
+                </td>
+            </tr>
+        </table>
+        After entering the above values in the <b>Import API from API Manager</b> option wizard, click <b>List APIs</b>. The list of APIs that are in WSO2 API Manager appear. Thereafter, select one of the APIs from the API list.
+    
 4.  Click **Finish**. 
     -   The REST API is created inside the `src/main/synapse-config/api` folder of your **Config** project.
     -   If you provided a custom Swagger definition file (YAML), it is now stored in the registry project.
@@ -152,11 +273,11 @@ Follow the instructions given below to create a new [REST API]({{base_path}}/ref
 
 When you open the REST API from the **Config** project in the project explorer, you will see the default **Design** view as shown below.
 
-<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/api-artifact-design-view.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/api-artifact-design-view.jpg" width="800">
 
 Drag and drop the required integration artifacts from the **Palette** to the API resource and design the integration flow.
 
-<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/graphical-editor.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/graphical-editor.jpg" width="800">
 
 You can also use the [**Source** view](#using-the-source-view) or the [**Swagger** editor](#using-the-swagger-editor) to update the API configuration.
 
@@ -220,17 +341,17 @@ The service's metadata is used by the API management runtime to generate the API
             serviceUrl
         </td>
         <td>
-            This is the URL of the API when it gets deployed in the Micro Integrator. You (as the integration developer) may not know this URL during development. Therefore, you can parameterize the URL to be resolved later using environment variables. By default, the <code>{host}</code> and <code>{port}</code> values are parameterized with placeholders.</br></br>
+            This is the URL of the API when it gets deployed in the Micro Integrator. You (as the integration developer) may not know this URL during development. Therefore, you can parameterize the URL to be resolved later using environment variables. By default, the <code>{MI_HOST}</code> and <code>{MI_PORT}</code> values are parameterized with placeholders.</br></br>
             You can configure the serviceUrl in the following ways:
             <ul>
                 <li>
                     Add the complete URL without parameters. For example: <code>http://localhost:8290/healthcare</code>.</br>
                 </li>
                 <li>
-                    Parameterize using the host and port combination. For example: <code>http://{host}:{port}/healthcare</code>.
+                    Parameterize using the host and port combination. For example: <code>http://{MI_HOST}:{MI_PORT}/healthcare</code>.
                 </li>
                 <li>
-                    Parameterize using a preconfigured URL. For example: <code>http://{url}/healthcare</code>.
+                    Parameterize using a preconfigured URL. For example: <code>http://{MI_URL}/healthcare</code>.
                 </li>
             </ul>
         </td>
@@ -271,7 +392,7 @@ Click the **Swagger Editor** tab to view the Swagger definition of your API. You
 !!! Note
     If you have added a custom Swagger definition to the API, note that this view displays the API's default Swagger definition and not the custom Swagger definition that you added.
 
-<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/api-artifact-swagger-view.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/api-artifact-swagger-view.jpg" width="800">
 
 ## Examples
 

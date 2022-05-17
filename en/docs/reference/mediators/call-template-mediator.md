@@ -74,7 +74,7 @@ When a target template is selected, the parameter section will be displayed as s
 
 ## Examples
 
-Following examples demonstrate different usecases of the Call Template mediator.
+Following examples demonstrate different use cases of the Call Template mediator.
 
 ### Example 1
 

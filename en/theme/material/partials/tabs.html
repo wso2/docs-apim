@@ -10,7 +10,7 @@
       {% endfor %}
     </ul>
     <div class="quick_links">
-        {% if not page.is_homepage and page.edit_url %}
+        {% if page.edit_url %}
         <a href="{{ page.edit_url }}" target="blank" id="editIcon" title="{{ lang.t('edit.link.title') }}"
            title="Edit this page" class="md-icon md-content__icon nav_link edit_link"></a>
         {% endif %}

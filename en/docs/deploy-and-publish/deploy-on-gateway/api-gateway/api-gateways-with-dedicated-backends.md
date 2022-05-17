@@ -1,12 +1,12 @@
 # API Gateways with Dedicated Backends
 
-We can extend the [multiple gateway environments](../maintaining-separate-production-and-sandbox-gateways) feature by utilizing parameterized endpoint capabilities of WSO2 API Manager to have each gateway point to a different back-end endpoint. API Gateway is the actual runtime of the APIs that are developed and published from the API Publisher. WSO2 API Manager is capable of publishing APIs to different Gateways where API users connect to those API Gateways in order to do the actual API calls through the applications to which they are subscribed.
+We can extend the [multiple gateway environments]({{base_path}}/deploy-and-publish/api-gateway/maintaining-separate-production-and-sandbox-gateways) feature by utilizing parameterized endpoint capabilities of WSO2 API Manager to have each gateway point to a different back-end endpoint. API Gateway is the actual runtime of the APIs that are developed and published from the API Publisher. WSO2 API Manager is capable of publishing APIs to different Gateways where API users connect to those API Gateways in order to do the actual API calls through the applications to which they are subscribed.
 
 However, the API Publisher can only provide a single static endpoint for an API in the implementation. Therefore, the API call is directed to a single endpoint in whichever Gateway the API is deployed in, as depicted in the diagram below.
 
 [![Single endpoint]({{base_path}}/assets/img/learn/single-endpoint.png)]({{base_path}}/assets/img/learn/single-endpoint.png)
 
-However, in most situations, you would want to have each Gateway proxying to a dedicated backend API. To provide that capability, WSO2 API Manager provides the ability to specify parameterized endpoint URLs at the time of specifying the API endpoint URL. This URL is resolved at runtime with the details (host and port) specified at the startup of each Gateway. Each gateway then points to a dedicated backend API, as depicted in the digram below.
+However, in most situations, you would want to have each Gateway proxying to a dedicated backend API. To provide that capability, WSO2 API Manager provides the ability to specify parameterized endpoint URLs at the time of specifying the API endpoint URL. This URL is resolved at runtime with the details (host and port) specified at the startup of each Gateway. Each gateway then points to a dedicated backend API, as depicted in the diagram below.
 
 [![Dedicated endpoint]({{base_path}}/assets/img/learn/dedicated-endpoint.png)]({{base_path}}/assets/img/learn/dedicated-endpoint.png)
 ### Configuring Parameterized Endpoints
@@ -18,7 +18,7 @@ Follow the steps below to configure a parameterized endpoint as the API endpoint
 
     [![Dedicated backend definition]({{base_path}}/assets/img/learn/dedicated-backend-def.png)]({{base_path}}/assets/img/learn/dedicated-backend-def.png)
 
-3.  Save and [publish](../../design-api/publish-api/publish-an-api) the API.
+3.  Save and [publish]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api) the API.
 
 4.  Navigate to the `<API-M_HOME>/repository/deployment/server/synapse-configs/sequences` directory of each Gateway and create the following sequence.
 

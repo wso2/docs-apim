@@ -20,7 +20,7 @@ These will be generated inside a folder with the Project Name.
 
 *   Pure Kubernetes artifacts 
     *   Deployment.yaml
-    *   Service.yaml
+    *   service.yaml
     *   ConfigMap.yaml
 *   K8s-Operator based Kubernetes artifact 
     *   CRD.yaml
@@ -68,7 +68,7 @@ These will be generated inside a folder with the Project Name.
 5. [Set up Jenkins server](#setting-up-jenkins-server)
 6. Login to the Jenkins server using the credentials given in the Dockerfile of Jenkins instance.
 7. Navigate to the project build job and trigger a build.
-8. Create webhooks in relevant GitHub repositories pointing to the Jenkins server. (Source & Deployment)
+8. Create WebHooks in relevant GitHub repositories pointing to the Jenkins server. (Source & Deployment)
 9. Perform a maven release by giving release and development versions.
 10. Once the release build is passed, confirm that the Docker image is available in the Docker registry.
 11. Copy the folder containing the yaml files in Kubernetes exporter project inside a folder specific to each environment.
@@ -82,9 +82,9 @@ These will be generated inside a folder with the Project Name.
 
 #### Setting up Jenkins server
 
-1. Docker scripts for setting up a Jenkins environment are provided here. This will spin up a preconfigured Docker image. By default, 4 Jenkins jobs will be created. One project for the Integration project and three more for the environment descriptor repos (dev, staging, prod). 
+1. Docker scripts for setting up a Jenkins environment are provided here. This will spin up a preconfigured Docker image. By default, 4 Jenkins jobs will be created. One project for the Integration project and three more for the environment descriptor repositories (dev, staging, prod). 
 
-2. Both the Integration project, and descriptor repos will be in GitHub.
+2. Both the Integration project, and descriptor repositories will be in GitHub.
 
     Note: You can customize the Docker scripts to create Jenkins jobs for multiple Integration projects.
 

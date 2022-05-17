@@ -1,6 +1,6 @@
 # Control the number of retries and delay message in case of error
 
-This sample demonstrates how the WSO2 Micro Integrator can guarantee message delivery to an endpoint by controling the number of delivery retries during errors. You can also configure a delay in message delivery from the RabbitMQ broker.
+This sample demonstrates how the WSO2 Micro Integrator can guarantee message delivery to an endpoint by controlling the number of delivery retries during errors. You can also configure a delay in message delivery from the RabbitMQ broker.
 
 <img src="{{base_path}}/assets/img/integrate/rabbitmq/rabbitmq-retry-delay-messages.png">
 
@@ -92,7 +92,7 @@ See the instructions on how to [build and run](#build-and-run) this example.
 9. [Create an integration project]({{base_path}}/integrate/develop/create-integration-project) with an ESB Configs module and an Composite Exporter.
 10. Create the [proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 11. Enable the RabbitMQ sender and receiver in the Micro-Integrator from the deployment.toml. Refer the 
- [configuring RabbitMQ documentation]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-rabbitmq.md) for more information.
+ [configuring RabbitMQ documentation]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-rabbitmq) for more information.
 12. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 13. Make the `http://localhost:8280/enrollment` endpoint unavailable temporarily. 
 14. Publish a message to the enrollment queue.

@@ -6,7 +6,7 @@ The Streaming Integrator component integrates streaming data from different sour
 
 ## Get Started with Streaming
 
-Let's get started with the streaminig capabilities and concepts of the Streaming Integrator of WSO2 API Manager.
+Let's get started with the streaming capabilities and concepts of the Streaming Integrator of WSO2 API Manager.
 
 <div>
     <div class="content">
@@ -51,7 +51,7 @@ Let's get started with the streaminig capabilities and concepts of the Streaming
 
 ## Streaming APIs
 
-The Streaming Integrator component consumes APIs via transports such as Websocket, Webhooks, and SSE, and exposes the requests in a streaming manner to make that data available to applications that cannot consume APIs. Similarly, it uses the same transports to publish streaming data via APIs in an asynchronous manner.
+The Streaming Integrator component consumes APIs via transports such as WebSocket, WebHooks, and SSE, and exposes the requests in a streaming manner to make that data available to applications that cannot consume APIs. Similarly, it uses the same transports to publish streaming data via APIs in an asynchronous manner.
 
 <table>
     <tr>
@@ -100,7 +100,7 @@ The following are the main use cases of WSO2 Streaming Integrator.
 <table>
     <tr>
         <td>
-            <a href="{{base_path}}/observe/si-observe/setting-up-grafana-dashboards">Monitoring Streaming Integrator</a>
+            <a href="{{base_path}}/observe/streaming-integrator/setting-up-si-statistics-dashboards">Monitoring Streaming Integrator</a>
         </td>
     </tr>
 </table>
@@ -110,7 +110,7 @@ The following are the main use cases of WSO2 Streaming Integrator.
 <table>
     <tr>
         <td>
-            <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-si-in-vm">Streaming Integrator Installation</a>
+            <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-si">Streaming Integrator Installation</a>
         </td>
         <td>
             <a href="{{base_path}}/install-and-setup/setup/si-deployment/deployment-guide">Streaming Integrator Deployment</a>

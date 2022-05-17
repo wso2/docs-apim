@@ -2,8 +2,8 @@
 
 The performance of WSO2 Micro Integrator Manager was measured using the following scenarios.
 
-- Direct Proxy: This is a passthrough Proxy Service, which directly invokes the back-end service.
-- Direct API: This is a passthrough API Service, which directly invokes the back-end service.
+- Direct Proxy: This is a PassThrough Proxy Service, which directly invokes the back-end service.
+- Direct API: This is a PassThrough API Service, which directly invokes the back-end service.
 - CBR Transport Header Proxy: This is a Proxy Service which routes the message based on an HTTP header in the message.
 - XSLT Proxy: This is a Proxy Service which has XSLT transformations in request and response paths.
 
@@ -93,17 +93,18 @@ All scripts used to run the performance tests and analyze results are in the fol
 
 ## Results
 Given below is a summary of the performance result for each of the scenarios used for the tests.
-The complete results can be found [here](https://github.com/wso2/micro-integrator/blob/b06581ed31fceaa32c01a03a63a107141a68cb2b/performance/benchmarks/summary.md).
+The complete results can be found [here](https://github.com/wso2/micro-integrator/blob/6785a17e617b91fd1e3127e96e51ae45879c1c3b/performance/benchmarks/summary.md).
 
 #### Throughput (requests/sec) vs. concurrent users
 The following results compare the throughput against the number of concurrent users in each scenario.
+
 ##### Direct Proxy
 
-<img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/direct-proxy-tp.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/mi/direct-proxy-tp.png" alt="Direct Proxy Throughput" title="Direct Proxy Throughput" width="70%" />
+<a href="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/direct-proxy-tp.png"><img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/direct-proxy-tp.png" alt="Direct Proxy Throughput" title="Direct Proxy Throughput" width="70%" /></a>
 
 ##### Direct API
 
-<img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/direct-api-tp.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/mi/direct-api-tp.png" alt="Direct API Throughput" title="Direct API Throughput" width="70%" />
+<a href="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/direct-api-tp.png"> <img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/direct-api-tp.png" alt="Direct API Throughput" title="Direct API Throughput" width="70%" /></a>
 
 ##### CBR Transport Header Proxy
 

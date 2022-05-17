@@ -9,17 +9,13 @@ Follow the instructions below to remove the references of the deleted user ident
 ### Step 1 - Optionally, build the Forget-Me Tool
 
 !!! note
-    - **Skip** this step if you are **only working with WSO2 API Manager** because you can make use of the pre-packed Forget-Me Tool. 
-    
-    - This step is **mandatory** in the following scenarios -
-         - When you are **working with multiple WSO2 products** and you need to delete the user's identity from all the products at once.
-         - When you are **working with a WSO2 product that does not have the Forget-Me Tool pre-packed in it**.
+    - This step is **mandatory** when you are **working with multiple WSO2 products** and you need to delete the user's identity from all the products at once.
 
 Follow the instructions below to build the Forget-Me Tool:
 
-1. Clone the [https://github.com/wso2/identity-anonymization-tool](https://github.com/wso2/identity-anonymization-tool) repository to a preferred location.
+1. Download the [`identity-anonymization-tool`](https://github.com/wso2/identity-anonymization-tool/releases/tag/v1.3.8) repository to a preferred location.
 
-2. Navigate to the `identity-anonymization-tool` directory in the source that you checked out.
+2. Navigate to the `identity-anonymization-tool` directory.
 
     `cd identity-anonymization-tool`
 
@@ -120,7 +116,7 @@ The following is a sample master configuration (`config.json`) file. You can con
 
 You can configure the following in the `config.json` file based on your requirement:
 
-- **`processors`** - A list of processors on which you want the tool run. The processors that you can specify are pre-defined. Possible values are `RDBMS` and `log-file`.
+- **`processors`** - A list of processors on which you want the tool run. The processors that you can specify are predefined. Possible values are `RDBMS` and `log-file`.
 - **`directories`** - The definitions of directories on which you want the tool to run. When you specify a directory definition, be sure to either specify the directory path relative to the location of the `config.json` file or specify the absolute path to the directory.
 
     ??? info "Example code snippet to define multiple directories in the standalone Forget-Me Tool when working with multiple WSO2 products"
@@ -204,28 +200,7 @@ The default configurations are set up as follows:
 
 - **Log file name regex**: `(.)*(log|out)`
 
-### Step 3 - Change the default location of the configurations
-
-!!! note
-    **Skip** this step when you are **working with the standalone Forget-Me Tool**.
-
-Change the default configurations location for the pre-packed tool as follows:
-
-1. Navigate to the `<API-M_HOME>/bin` directory.
-
-2. Open the Forget-Me Tool start-up script. 
-
-     Open the `forgetme.sh` (Linux/Mac OS) file. This file will contain the following.
-
-    ``` java
-    sh $CARBON_HOME/repository/components/tools/forget-me/bin/forget-me -d $CARBON_HOME/repository/components/tools/forget-me/conf $@
-    ```
-
-2.  The location path is the value given after `-d` within the following line. Modify the value after `-d` to change the location. 
- 
-     The default location path is `$CARBON_HOME/repository/components/tools/forget-me/conf`.
-
-### Step 4 - Run the tool
+### Step 3 - Run the tool
 
 Run the Forget-Me tool based on the WSO2 products that you have in your deployment.
 

@@ -97,7 +97,7 @@ WSO2 Streaming Integrator supports the following transport types to send message
 
 ### Supported mappers
 
-Mappers determine the format in which the event is published. For information about transforming events by changing the format in which the data is published, see [Transforming Data]({{base_path}}/use-cases/streaming-usecase/transforming-data#transforming-the-message-format-when-publishing-data).
+Mappers determine the format in which the event is published. For information about transforming events by changing the format in which the data is published, see [Transforming Data]({{base_path}}/use-cases/streaming-usecase/transforming-data/#transforming-the-message-format-when-publishing-data).
 
 The following are the supported mappers when you publish data to destinations.
 
@@ -191,7 +191,7 @@ To try out the example in the previous subtopic, follow the steps below:
         
 ### Supported messaging systems
 
-WSO2 Streaming Integrator allows you to publish messages to the following messaging system via Siddhi extentions.
+WSO2 Streaming Integrator allows you to publish messages to the following messaging system via Siddhi extensions.
 
 | **Transport**    | **Supporting Siddhi Extension**                                                       |
 |------------------|---------------------------------------------------------------------------------------|

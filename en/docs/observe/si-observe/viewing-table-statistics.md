@@ -1,6 +1,6 @@
 # Viewing Table Statistics
 
-![Table statistics dashboard]({{base_path}}/assets/img/streaming/streaming-integrator-grafana-dashboard/table_statistics_dashboard.png)
+![Table statistics dashboard]({{base_path}}/assets/img/streaming/streaming-integrator-grafana-dashboard/table_statistics_dashboard.jpg)
 
 This dashboard displays the following information for your Streaming Integrator deployment:
 

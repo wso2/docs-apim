@@ -1,6 +1,13 @@
 # Configure a Custom Key Manager
 
-WSO2 API Manager is capable of integrating with any external OAuth Authorization Server to manage the OAuth clients and tokens that are required by WSO2 API Manager. Therefore, you need to use a custom Key Manager connector for this purpose. 
+WSO2 API Manager is capable of integrating with any external OAuth Authorization Server to manage the OAuth clients and tokens that are required by WSO2 API Manager. Essentially, if the API Provider wants to expose their APIs to users who are not in the API Manager’s user-store, you need to use a custom Key Manager connector. To configure a custom Key Manager, you need to do the following:
+
+- Write a custom Key Manager
+- Deploy the custom Key Manager in API Manager
+- Register the relevant Identity Provider as a Key Manager in the Admin Portal by providing the required details.
+- Register and generate credentials in the external Identity Provider from the Developer Portal.
+
+Refer to the instructions below to do the configurations.
 
 ## Step 1 - Create a Key Manager connector bundle 
 
@@ -79,7 +86,7 @@ You need to write a custom Key Manager connector as explained below.
   
 3. Extend `AbstractKeyManager`.
 
-      The `AbstractKeyManager` implements the `KeyManager` interface. For more information on the operations carried out on the `KeyManager` interface, see [Extending the KeyManager Interface]({{base_path}}/develop/extending-api-manager/extending-key-management/extending-the-key-manager-interface).
+      The `AbstractKeyManager` implements the `KeyManager` interface. For more information on the operations carried out on the `KeyManager` interface, see [Extending the Key Manager Interface]({{base_path}}/develop/extending-api-manager/extending-key-management/extending-the-key-manager-interface).
 
 
       In the sample project, the `AbstractKeyManager` interface has been extended using the `org.wso2.custom.client.CustomOAuthClient.java` class.
@@ -104,21 +111,41 @@ You need to write a custom Key Manager connector as explained below.
 
 ## Step 3 - Configure the connector using the Admin Portal
 
-1. Sign in to the Admin Portal.
+When registering a third-party Identity Provider as a Key Manager in the Admin Portal, you need to select the method with which the APIs are invoked. The two types of token invocation methods are as follows:
 
-      `https://<hostname>:9443/admin`
-     
-      `https://localhost:9443/admin`
+- **Direct tokens**: These tokens are issued by the third-party Identity Provider and are invoked when authentication happens.
+
+- **Exchange tokens**: These tokens are issued by the Identity Provider and are exchanged with WSO2 API Manager. These are then used when authentication happens.
+
+??? note "Click here for more details on the Token Exchange API invocation method"
+    The authentication process is based on OAuth 2.0 Token Exchange Grant Type. This is used to exchange an external Identity Provider’s token for the Resident Key Manager's token available in WSO2 API Manager. 
+
+    With this approach, a user should be able to:
+
+    * Create an application in the Developer Portal.
+    * Generate keys by selecting the Token Exchange grant type.
+    * Get an API Manager token by invoking the token endpoint of API Manager with the required parameters (i.e., the token obtained from the external Identity Provider)
+    * Invoke the API with the exchanged token
+
+
+1. Sign in to the Admin Portal using the following URL: `https://<hostname>:9443/admin`
+
+      !!! tip
+          For example, this URL can be `https://localhost:9443/admin` and you can use `admin` as the username and password to access the Admin Portal.
 
 2. Add a new Key Manager.
 
      1. Click **Key Managers** and then click **Add Key Manager**.
 
-           [![Add new Key Manager]({{base_path}}/assets/img/administer/add-key-manager.png)]({{base_path}}/assets/img/administer/add-key-manager.png)
+          [![Add new Key Manager]({{base_path}}/assets/img/administer/add-key-manager.png)]({{base_path}}/assets/img/administer/add-key-manager.png)
 
-     2. Add the following Key Manager configurations.
+     2. Add the Key Manager configurations in the form that appears. The following tables provide definitions for each of the Key Manager configurations.
 
-           The following table provides definitions for each of the Key Manager configurations.
+
+          **General Details** - This section of the form includes the basic information of the Key Manager. 
+
+          <a href="{{base_path}}/assets/img/administer/custom-keymanager/external-keymanager-form1.png"><img src="{{base_path}}/assets/img/administer/custom-keymanager/external-keymanager-form1.png" width="70%" alt="Configure the Key Manager form"></a>
+
 
           <table>
           <tr class="header">
@@ -126,7 +153,6 @@ You need to write a custom Key Manager connector as explained below.
           <th>Description</th>
           <th> </th>
           </tr>
-        
           <tr class="odd">
           <td>Name</td>
           <td>The name of the authorization server.</td>
@@ -142,12 +168,51 @@ You need to write a custom Key Manager connector as explained below.
           <td>A brief description of the Key Manager.</td>
           <td>Optional</td>
           </tr>
-          <tr class="even">
-          <td>Key Manager Type</td>
-          <td>The type of the Key Manager to be selected.</td>
-          <td>Mandatory</td>
+          </table>
+
+          ---
+
+          **Key Manager Type** - Provide the external identity provider that you use here and also the API invocation method.
+
+          <a href="{{base_path}}/assets/img/administer/custom-keymanager/external-keymanager-form2.png"><img src="{{base_path}}/assets/img/administer/custom-keymanager/external-keymanager-form2.png" width="70%" alt="Configure the Key Manager form"></a>
+
+          <table>
+          <tr class="header">
+          <th>Configuration</th>
+          <th>Description</th>
+          <th> </th>
           </tr>
           <tr class="odd">
+          <td>Key Manager Type</td>
+          <td>Select the type of the external Key Manager you are using.</td>
+          <td>Mandatory</td>
+          </tr>
+          <tr class="even">
+          <td>API invocation method</td>
+          <td>The method you use to invoke the token endpoint of the API Manager.</td>
+          <td>Mandatory</td>
+          </tr>
+          </table>
+
+          ---
+
+          **Key Manager Endpoints** - Configure the endpoints associated with the external Key Manager that you are connecting to.
+
+          <a href="{{base_path}}/assets/img/administer/custom-keymanager/external-keymanager-form3.png"><img src="{{base_path}}/assets/img/administer/custom-keymanager/external-keymanager-form3.png" width="70%" alt="Configure the Key Manager form"></a>
+
+          <table>
+          <tr class="header">
+          <th>Configuration</th>
+          <th>Description</th>
+          <th> </th>
+          </tr>
+          <tr class="odd">
+          <td>Allowed Token Audience</td>
+          <td>This is the intended audience of the access token. When you create a service provider in the external identity provider, you need to specify a scope value and this value will map to the allowed audience value you provide here.
+          </td>
+          <td>Optional</td>
+          </tr>
+          <tr class="even">
           <td>Well-known-url</td>
           <td><p>The well-known URL of the Authorization Server (Key Manager).
           <br/>
@@ -156,35 +221,30 @@ You need to write a custom Key Manager connector as explained below.
           </td>
           <td>Optional</td>
           </tr>
-          <tr class="even">
+          <tr class="odd">
           <td>Issuer</td>
           <td>The issuer that consumes or validates access tokens. <br/>e.g., <code>https://dev-599740.okta.com/oauth2/default</code></td>
           <td>Optional</td>
           </tr>
-          <tr class="odd">
-          <td><b>Key Manager Endpoints</b></td>
-          <td></td>
-          <td></td>
-          </tr>
           <tr class="even">
           <td>Client Registration Endpoint </td>
           <td><p>The endpoint that verifies the identity and obtains profile information of the end-user based on the authentication performed by an authorization server.</p></td>
-          <td>Optional if the well-known URI is provided.</td>
+          <td>Optional if the well-known URL is provided.</td>
           </tr>
           <tr class="odd">
           <td>Introspection Endpoint</td>
           <td>The endpoint that allows authorized protected resources to query the authorization server to determine the set of metadata for a given token that was presented to them by an OAuth client.</td>
-          <td>Optional if the well-known URI is provided.</td>
+          <td>Optional if the well-known URL is provided.</td>
           </tr>
           <tr class="even">
           <td>Token Endpoint</td>
           <td>The endpoint that issues the access tokens.</td>
-          <td>Optional if the well-known URI is provided.</td>
+          <td>Optional if the well-known URL is provided.</td>
           </tr>
           <tr class="odd">
           <td>Revoke Endpoint</td>
           <td>The endpoint that revokes the access tokens.</td>
-          <td>Optional if the well-known URI is provided.</td>
+          <td>Optional if the well-known URL is provided.</td>
           </tr>
           <tr class="even">
           <td>Userinfo Endpoint</td>
@@ -201,57 +261,69 @@ You need to write a custom Key Manager connector as explained below.
           <td>The endpoint is used to manage the scopes.</td>
           <td>Optional</td>
           </tr>
-          <tr class="odd">
-          <td><b>Connector Configurations</b></td>
-          <td></td>
-          <td></td>
-          </tr>
-          <tr class="even">
-          <td>API Key</td>
-          <td>The API key that was generated from the Authorization Server.</td>
-          <td>Mandatory</td>
-          </tr>
-          <tr class="odd">
-          <td>Client ID</td>
-          <td>The client ID that was generated from the Authorization Server.</td>
-          <td>Mandatory</td>
-          </tr>
-          <tr class="even">
-          <td>Client Secret</td>
-          <td>The client secret that was generated from the Authorization Server.</td>
-          <td>Mandatory</td>
+          </table>
+
+          ---
+
+          **Claim URI** - Configure the claim URIs that associate the claims in the external Key Manager to the consumer key and scopes.
+
+          <a href="{{base_path}}/assets/img/administer/custom-keymanager/external-keymanager-form4.png"><img src="{{base_path}}/assets/img/administer/custom-keymanager/external-keymanager-form4.png" width="70%" alt="Configure the Key Manager form"></a>
+
+          <table>
+          <tr class="header">
+          <th>Configuration</th>
+          <th>Description</th>
+          <th> </th>
           </tr>
           <tr class="odd">
-          <td><b>Claim URIs</b></td>
-          <td>This provides claim URIs for the consumer key and the scopes.</td>
-          <td>Mandatory</td>
-          </tr>
-          <tr class="even">
           <td>Consumer Key Claim URI</td>
           <td>The claim URI for consumer key e.g., cid</td>
           <td>Mandatory</td>
           </tr>
-          <tr class="odd">
+          <tr class="even">
           <td>Scopes Claim URI</td>
           <td>The claim URI for scopes e.g., scp</td>
           <td>Mandatory</td>
           </tr>
-          <tr class="even">
+          </table>
+
+          ---
+
+          **Grant Type** - The grant type is the way in which the external Key Manager communicates with API Manager.
+
+          <a href="{{base_path}}/assets/img/administer/custom-keymanager/external-keymanager-form5.png"><img src="{{base_path}}/assets/img/administer/custom-keymanager/external-keymanager-form5.png" width="70%" alt="Configure the Key Manager form"></a>
+
+          <table>
+          <tr class="header">
+          <th>Configuration</th>
+          <th>Description</th>
+          <th> </th>
+          </tr>
+          <tr class="odd">
           <td>Grant Types</td>
           <td>The supported grant types.</td>
           <td>Optional</td>
           </tr>
-          <tr class="odd">
-          <td><b>Certificates</b></td>
-          <td></td>
-          <td></td>
+          </table>
+
+          ---
+
+          **Certificates** - 
+
+          <a href="{{base_path}}/assets/img/administer/custom-keymanager/external-keymanager-form6.png"><img src="{{base_path}}/assets/img/administer/custom-keymanager/external-keymanager-form6.png" width="70%" alt="Configure the Key Manager form"></a>
+
+          <table>
+          <tr class="header">
+          <th>Configuration</th>
+          <th>Description</th>
+          <th> </th>
           </tr>
-          <tr class="even">
+          <tr class="odd">
           <td>PEM</td>
           <td>Either copy and paste the certificate in PEM format or upload the PEM file.</td>
           <td>Optional</td>
           </tr>
-          <tr class="odd">
+          <tr class="even">
           <td>JWKS</td>
           <td>The JSON Web Key Set (JWKS) endpoint is a read-only endpoint. This URL returns the Okta's public key set in JSON web key set format.
           This contains the signing key(s) that the Relying Party (RP) uses to validate signatures from Okta.
@@ -260,10 +332,48 @@ You need to write a custom Key Manager connector as explained below.
           </td>
           <td>Optional</td>
           </tr>
+          </table>
+
+          ---
+
+          **Connector Configurations** - 
+
+          <a href="{{base_path}}/assets/img/administer/custom-keymanager/external-keymanager-form7.png"><img src="{{base_path}}/assets/img/administer/custom-keymanager/external-keymanager-form7.png" width="70%" alt="Configure the Key Manager form"></a>
+
+          <table>
+          <tr class="header">
+          <th>Configuration</th>
+          <th>Description</th>
+          <th> </th>
+          </tr>
+          <tr class="odd">
+          <td>API Key</td>
+          <td>The API key that was generated from the Authorization Server.</td>
+          <td>Mandatory</td>
+          </tr>
           <tr class="even">
-          <td><b>Advanced Configurations</b></td>
-          <td></td>
-          <td></td>
+          <td>Client ID</td>
+          <td>The client ID that was generated from the Authorization Server.</td>
+          <td>Mandatory</td>
+          </tr>
+          <tr class="odd">
+          <td>Client Secret</td>
+          <td>The client secret that was generated from the Authorization Server.</td>
+          <td>Mandatory</td>
+          </tr>
+          </table>
+
+          ---
+
+          **Advanced Configurations** - 
+
+          <a href="{{base_path}}/assets/img/administer/custom-keymanager/external-keymanager-form8.png"><img src="{{base_path}}/assets/img/administer/custom-keymanager/external-keymanager-form8.png" width="70%" alt="Configure the Key Manager form"></a>
+
+          <table>
+          <tr class="header">
+          <th>Configuration</th>
+          <th>Description</th>
+          <th> </th>
           </tr>
           <tr class="odd">
           <td>Token Generation</td>
@@ -331,18 +441,28 @@ You need to write a custom Key Manager connector as explained below.
 
 ## Step 4 - Generate the keys using the custom Key Manager
 
-1. Sign in to the Developer Portal.
+1. Sign in to the Developer Portal using the following URL: `https://<hostname>:9443/devportal`
 
-    `https://<hostname>:9443/devportal`
-     
-    `https://localhost:9443/devportal`
+      !!! tip
+          This can be `https://localhost:9443/devportal` and you can use “admin” as the username and password to access the Developer Portal.
 
 2. Click **Applications**.
-3. Create a new application or use the default application.
-4. Select the Key  Manager.
 
-5. Click **Generate Keys**.
+3. Create a new application or use the default application.
+
+4. Select the Key Manager.
+
+      - If you select the **Direct Token** radio button, you see the following screen:
+        <a href="{{base_path}}/assets/img/administer/custom-keymanager/dev-portal-direct.png"><img src="{{base_path}}/assets/img/administer/custom-keymanager/dev-portal-direct.png" width="70%" alt="Direct Token"></a>
+
+      - If you select the **Exchange Token** radio button, you see the following screen:
+        <a href="{{base_path}}/assets/img/administer/custom-keymanager/dev-portal-exchange.png"><img src="{{base_path}}/assets/img/administer/custom-keymanager/dev-portal-exchange.png" width="70%" alt="Direct Token"></a>
+
+        You need to generate and provide the token of the external Key Manager you are using here.
+
+5. Click **Generate Keys** or **Generate Access Token**.
 
     !!! tip
         If you want to generate the tokens with scopes, make sure that those scopes are defined in the Authorization Server.
 
+6. You can now use the generated token to [invoke an API]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console).

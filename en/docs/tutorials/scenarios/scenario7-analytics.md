@@ -2,17 +2,20 @@
 
 This is a tutorial that is part of a series and can be used as a standalone tutorial on how to set up and view analytics for an API. For more details on the scenario and general prerequisites, please see [the scenario overview page]({{base_path}}/tutorials/scenarios/scenario-overview).
 
-**_Time to Complete : 5 mins_**
+**_Time to Complete : 5 minutes_**
 
 ## User story
 
 GOGO Transit has identified a new business opportunity; since the train arrival data contains the number of passengers in each arrival, it could be used to predict the crowd in the station for a certain time period. Therefore, the services built around the station such as stores in the mall and cab services could use this data to optimize the number of employees they require for the services for each day. Thus, GOGO Transit decides to provide the passenger details API to the public with the subscription capability that generates revenue based on the number of successful requests completed within a time period.
 
-Choreo API-M Analytics can be used to fulfil the stats and analytics needs of the API Manager. It is a cloud analytics offering for the Choreo API Manager and On-Prem API Manager deployments. 
+Choreo API-M Analytics can be used to fulfill the stats and analytics needs of the API Manager. It is a cloud analytics offering for the Choreo API Manager and On-Prem API Manager deployments. 
 
 <img src="{{base_path}}/assets/img/tutorials/scenario-tutorials/scenario7.png" title="Analytics Description" width="630"/>
 
 ## Step 1: Set up analytics
+
+!!! info "Before you begin..."
+    You need to be a registered user to follow the steps below. Refer the [Analytics Getting Started Guide]({{base_path}}/api-analytics/getting-started-guide/) for instructions.
 
 To configure analytics, 
 
@@ -45,7 +48,7 @@ curl -X GET "https://localhost:8243/info/1.0.0/passenger-count" -H "accept: appl
 
 ```
 
-Go to [https://analytics.choreo.dev/overview](https://analytics.choreo.dev/overview) to view statistics. Following are some of the graphs.
+Go to [Choreo Insights](https://console.choreo.dev/insights) to view statistics. Following are some of the graphs.
 
 ![Usage]({{base_path}}/assets/img/tutorials/scenarios/usage-graph.png)
 

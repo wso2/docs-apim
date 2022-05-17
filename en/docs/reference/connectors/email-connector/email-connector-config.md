@@ -444,6 +444,12 @@ The following operations allow you to work with the Email Connector. Click an op
     }
     ```
 
+    > NOTE: The latest Email connector (v1.0.2 onwards) supports the attachments from JSON request payload. The connector is tested with .txt, .pdf and images (.png and .jpg).
+    ```json
+    {
+    	"attachments": [{"name": "sampleimagefile.png", "content": "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=="}]
+    }
+    ```
 
 ??? note "delete"
     The delete operation deletes an email.

@@ -68,7 +68,7 @@ In this tutorial, let's create the same Siddhi application created in [Performin
 
 - Download and install [Streaming Integrator Tooling](https://wso2.com/integration/streaming-integrator/#)
         
-- Download and install the [siddhi-io-cdc](https://siddhi-io.github.io/siddhi-io-cdc/) extension. For instructions, see [Downloading and Instaling Siddhi Connectors]({{base_path}}/streaming/connectors/downloading-and-installing-siddhi-extensions).
+- Download and install the [siddhi-io-cdc](https://siddhi-io.github.io/siddhi-io-cdc/) extension. For instructions, see [Downloading and Installing Siddhi Connectors]({{base_path}}/reference/streaming-connectors/downloading-and-installing-siddhi-extensions).
 
 ## Step 1: Design the Siddhi application with ETL functionality
 
@@ -262,4 +262,4 @@ If you open the `/Users/foo/productions.csv` file, the `Chocalate, 100.0` record
 !!! info "What's Next?"
     Once you develop an ETL application, you may need to carry out following tasks:<br/><br/>   
     - **Error Handling**: To understand how to handle errors that may occur when carrying out ETL operations, try the [Managing Streaming Data with Errors tutorial]({{base_path}}/use-cases/streaming-tutorials/handling-requests-with-errors).<br/><br/>     
-    - **Monitoring ETL Statistics**: For instructions to set up pre-configured dashboards provided with WSO2 Streaming Integrator and visualize statistics related to your ETL flows, see [Monitoring ETL Statistics with Grafana]({{base_path}}/admin/viewing-dashboards).
+    - **Monitoring ETL Statistics**: For instructions to set up pre-configured dashboards provided with WSO2 Streaming Integrator and visualize statistics related to your ETL flows, see [Monitoring ETL Statistics with Grafana]({{base_path}}/observe/streaming-integrator/viewing-etl-flows).

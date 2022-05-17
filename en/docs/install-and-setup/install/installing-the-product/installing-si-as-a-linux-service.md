@@ -1,10 +1,10 @@
-# Installing Streaming Integrator as a Linux Service
+# Running Streaming Integrator as a Linux Service
 
 WSO2 Streaming Integrator can be run as a Linux service.
 
 ## Before you begin
 
-Install JDK version 1.8.0_144 and set the `JAVA_HOME` variable.
+Install JDK version 11 and set the `JAVA_HOME` variable.
 
 ## Download and install the Streaming Integrator
 
@@ -12,7 +12,7 @@ Go to the WSO2 Streaming Integrator [product page](https://wso2.com/integration/
 
 Extract the download ZIP file to a location on your computer. The <b>streaming-integrator</b> folder inside the extracted ZIP file will be your <b>SI_HOME</b> directory.
 
-For more information, see [Installing via the Binary]({{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-si-binary)
+For more information, see [Installing via the Binary]({{base_path}}/install-and-setup/install/installing-the-product/installing-si)
 
 ## Running WSO2 Streaming Integrator as a Linux Service
 

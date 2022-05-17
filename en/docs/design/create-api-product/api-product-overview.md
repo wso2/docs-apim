@@ -4,6 +4,9 @@ An API Product is a packaging mechanism that you can use when you need to bundle
 
 WSO2 API Manager allows Publishers to create API Products via the Publisher Portal. Subscribers will see the API Product via the Developer Portal as a separate entity, which is independent of the APIs with which it shares its resources. From a subscriber's perspective, the API Product will look and function in the same way as any of the standard APIs on the Developer Portal.
 
+!!! note
+    You can only use REST type APIs to create Product APIs.
+
 ## How it works
 
 Let's use the following  example to understand how API Products work in WSO2 API Manager.
@@ -224,4 +227,4 @@ An API Product will share the resource(s) of an existing API. As a result, the s
  </div> 
  </html>
     
-After an API Product is created, it is published to the API Gateway as an independent Synapse API artifact.
+After an API Product is created, it can be deployed to the selected API Gateway as an independent Synapse API artifact, to test it before making it available for consumers. The API Product provider can publish the API Product once the testing is complete.

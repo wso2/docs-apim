@@ -1,15 +1,15 @@
-# Configuring a Micro Intgrator Cluster
+# Configuring a Micro Integrator Cluster
 See the instructions on how to set up a cluster of WSO2 Micro Integrator nodes in an on-premise VM deployment. A third-party load balancer is used for this deployment.
 
 ## The deployment pattern
 
 This deployment scenario is a two-node Micro Integrator deployment. That is, two Micro Integrator nodes are configured to serve requests with high availability and scalability. The product nodes in the deployment are fronted by an external third-party load balancer, which routes requests to the two nodes on a round-robin basis.
 
-<a href="{{base_path}}/assets/img/integrate/mi-deployment.png"><img src="{{base_path}}/assets/img/integrate/mi-deployment.png" alt="micro integrator deployment"></a>
+<a href="{{base_path}}/assets/img/integrate/mi-deployment.png"><img src="{{base_path}}/assets/img/integrate/mi-deployment.png" alt="micro integrator deployment" width="60%"></a>
 
 ## Install the Micro Integrator
 
-[Download and install WSO2 Micro Integrator]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer).
+[Download and install WSO2 Micro Integrator]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi).
 
 Let's set up two instances of the Micro Integrator server.
 
@@ -36,7 +36,7 @@ username = "admin"
 password = "admin"
 ```
 
-See the descriptions of the [service catalog paramaters]({{base_path}}/reference/config-catalog-mi/#service-catalog-client).
+See the descriptions of the [service catalog parameters]({{base_path}}/reference/config-catalog-mi/#service-catalog-client).
 
 ## Cluster coordination
 

@@ -44,7 +44,7 @@ Follow the steps below to generate user credentials.
    
     <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-enable-api.png" title="Bigquery enable API" width="600" alt="Pubsub enable API"/> 
     
-10. Get the authorization code by sending a GET request to the following URL. Replace the `<redirect_uri>` and `<client_ID>` with the redirect uri and client ID values noted in the previous steps. Enter the following URL in your web browser.
+10. Get the authorization code by sending a GET request to the following URL. Replace the `<redirect_uri>` and `<client_ID>` with the redirect URI and client ID values noted in the previous steps. Enter the following URL in your web browser.
  
     ```
     https://accounts.google.com/o/oauth2/auth?redirect_uri=<redirect_uri>&response_type=code&client_id=<client_ID>&scope=https://www.googleapis.com/auth/bigquery&approval_prompt=force&access_type=offline

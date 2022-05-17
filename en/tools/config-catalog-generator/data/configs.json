@@ -421,17 +421,9 @@
                             "name": "name",
                             "type": "string",
                             "required": true,
-                            "default": "Production and Sandbox",
+                            "default": "Default",
                             "possible": "",
-                            "description": "User can add preferred values and should not be changed once configured."
-                        },
-                        {
-                            "name": "display_name",
-                            "type": "string",
-                            "required": false,
-                            "default": "<name> of the environment",
-                            "possible": "",
-                            "description": "User can add preferred set a name to display"
+                            "description": "User can add preferred values as the name."
                         },
                         {
                             "name": "type",
@@ -956,6 +948,29 @@
                             "default": "",
                             "possible": "",
                             "description": "You can provide a custom key validation handler implmentation. To do this, set the \"key_validation_handler_type\" to custom"
+                        }
+                    ]
+                },
+                {
+                    "name": "apim.http_client",
+                    "required": true,
+                    "description": "Configuration related to the http client used for key validation calls made from gateway to key manager component. For the default JWT tokens (from APIM 3.2.0 onwards, the default token type is JWT), the key validation takes place within GW node itself, as the JWT token is self-contained. So no key validation call is made for JWT tokens. But if the token used is a reference token (if the deployment is migrated from older version which used reference tokens), the key validation http calls will be made to the Key manager component for token introspection. This dedicated http client is used for this purpose. ",
+                    "params": [
+                        {
+                            "name": "max_total",
+                            "type": "int",
+                            "required": true,
+                            "default": "100",
+                            "possible": "",
+                            "description": "The maximum number of connections that will be created for the key validation calls. If there is a considerable latency, the connections in use at a given time will take a long time to be released and added back to the connection pool. As a result, connections may not be available for some requests. In such situations, it is recommended to increase the value for this parameter."
+                        },
+                        {
+                            "name": "default_max_per_route",
+                            "type": "int",
+                            "required": true,
+                            "default": "50",
+                            "possible": "",
+                            "description": "The maximum number of connections that will be created per host server by the client. Will have to increase this too, when required as similarly for the config max_total."
                         }
                     ]
                 }
@@ -1805,20 +1820,20 @@
                             "description": "Password used to authenticate the mail server."
                         },
                         {
-                            "name": "signature",
-                            "type": "string",
-                            "required": false,
-                            "default": "",
-                            "possible": "",
-                            "description": "Signature of the sender account."
-                        },
-                        {
                             "name": "hostname",
                             "type": "string",
                             "required": false,
                             "default": "",
                             "possible": "",
                             "description": "The SMTP server to connect to."
+                        },
+                        {
+                            "name": "signature",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Signature of the sender account."
                         },
                         {
                             "name": "port",
@@ -3121,7 +3136,7 @@
                             "name": "listener.key_store.file_name",
                             "type": "string",
                             "required": true,
-                            "default": "APIM_HOME/repository/resources/security/wso2carbon.jks",
+                            "default": "API-M_HOME/repository/resources/security/wso2carbon.jks",
                             "possible": "-",
                             "description": "The path to the keystore file that is used for securing the HTTP passthrough connection. By default, the keystore file of the primary keystore is enabled for this purpose."
                         },
@@ -3153,7 +3168,7 @@
                             "name": "listener.trust_store.file_name",
                             "type": "string",
                             "required": true,
-                            "default": "APIM_HOME/repository/resources/security/wso2truststore.jks",
+                            "default": "API-M_HOME/repository/resources/security/wso2truststore.jks",
                             "possible": "-",
                             "description": "The path to the keystore file that is used for storing the trusted digital certificates. By default, the product's trust store is configured for this purpose."
                         },
@@ -3217,7 +3232,7 @@
                             "name": "sender.key_store.file_name",
                             "type": "string",
                             "required": true,
-                            "default": "APIM_HOME/repository/resources/security/wso2carbon.jks",
+                            "default": "API-M_HOME/repository/resources/security/wso2carbon.jks",
                             "possible": "-",
                             "description": "The path to the keystore file that is used for securing the HTTP passthrough connection. By default, the keystore file of the primary keystore is enabled for this purpose."
                         },
@@ -3249,7 +3264,7 @@
                             "name": "sender.trust_store.file_name",
                             "type": "string",
                             "required": true,
-                            "default": "APIM_HOME/repository/resources/security/wso2truststore.jks",
+                            "default": "API-M_HOME/repository/resources/security/wso2truststore.jks",
                             "possible": "-",
                             "description": "The path to the keystore file that is used for storing the trusted digital certificates. By default, the product's trust store is configured for this purpose."
                         },
@@ -3634,7 +3649,7 @@
                             "name": "sender.trust_store.location",
                             "type": "string",
                             "required": true,
-                            "default": "APIM_HOME/repository/resources/security/wso2truststore.jks",
+                            "default": "API-M_HOME/repository/resources/security/wso2truststore.jks",
                             "possible": "-",
                             "description": "The file path to the truststore that stores the trusted digital certificates for websocket use cases. By default, the product's trust store is configured for this purpose."
                         },
@@ -5056,6 +5071,14 @@
                             "default": "5",
                             "possible": "",
                             "description": "User core cache expiration duration"
+                        },
+                        {
+                            "name": "CaseInsensitiveUsername",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Set the value to false for case insensitive JDBC user stores"
                         }
 
                     ]
@@ -5064,33 +5087,78 @@
             "exampleFile": "user_store.properties.toml"
         },
         {
-            "title": "Global handler configurations",
+            "title": "Custom keystore configurations",
             "options": [
                 {
-                    "name": "synapse_handlers.custom_handler_name",
+                    "name": "custom_keystore.APIKeyKeyStore",
                     "required": false,
-                    "description": "configuration used to define or enable disable global handler.",
-                    "params": [
+                    "description": "This includes configuration for custom Keystores in WSO2 API Manager ",
+                    "params": [                   
                          {
-                            "name": "enabled",
-                            "type": "boolean",
+                            "name": "file_name",
+                            "type": "string",
                             "required": false,
                             "default": "",
                             "possible": "",
-                            "description": "Enable or disable a defined global handler."
+                            "description": "The name of the Keystore (the Keystore file should be placed inside <API-M_HOME>/repository/resources/security directory)"
                         },
                         {
-                            "name": "class",
+                            "name": "type",
                             "type": "string",
-                            "required": true,
+                            "required": false,
                             "default": "",
                             "possible": "",
-                            "description": "Fully qualified class name of the global handler."
+                            "description": "The Keystore type."
+                        },
+                        {
+                            "name": "password",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The Keystore password."
+                        },
+                        {
+                            "name": "alias",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Private key alias of the Keystore."
+                        },
+                        {
+                            "name": "key_password",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The private key password of the Keystore (WSO2 recommends that you maintain the identical Keystore password and key password due to known limitations)."
+                        }                                                                                                                                                                                                                                                                            
+                    ]
+                }
+            ],
+            "exampleFile": "custom_keystore.toml"
+        },
+        {
+            "title": "HTTP Access Logs",
+            "options": [
+                {
+                    "name": "http_access_log",
+                    "required": false,
+                    "description": "This includes configuration for HTTP access log records.",
+                    "params": [
+                        {
+                            "name": "useLogger",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "",
+                            "description": "Allows logs to get written into the `<APIM_HOME>repository/logs/wso2carbon.log` or any other log file and show up on the console."
                         }
                     ]
                 }
             ],
-            "exampleFile": "synapse_handlers.toml"
+            "exampleFile": "http_access_log.toml"
         }
     ]
 }

@@ -1,34 +1,25 @@
 # Error Handling
 
-When errors/exceptions occur in the system, the API Manager throws
-XML-based error responses to the client by default. To change the format
-of these error responses, you change the relevant XML file in the
-`<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences        `
-directory. The directory includes multiple XML files, named after the
-type of errors that occur. You must select the correct file.
+When errors/exceptions occur in the system, the API Manager throws XML-based error responses to the client by default. To change the format of these error responses, you change the relevant XML file in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences` directory. The directory includes multiple XML files, named after the type of errors that occur. You must select the correct file.
 
-For example, to change the message type of authorization errors, open
-the
-`<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences/_auth_failure_handler_.xml`
-file and change `application/xml` to something like
-**`application/json`** .
+For example, to change the message type of authorization errors, open the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences/_auth_failure_handler_.xml` file and change `application/xml` to something like **`application/json`**.
 
 ``` xml
-    <sequence name="_auth_failure_handler_" xmlns="http://ws.apache.org/ns/synapse">
-     <property name="error_message_type" value="application/json"/>
-     <sequence key="_cors_request_handler_"/>
-    </sequence>
+<sequence name="_auth_failure_handler_" xmlns="http://ws.apache.org/ns/synapse">
+    <property name="error_message_type" value="application/json"/>
+    <sequence key="_cors_request_handler_"/>
+</sequence>
 ```
 
-Similarly, to change the error messages of throttling errors (e.g.,
-quota exceeding), change the
-`_throttle_out_handler_.xml` file, for resource mismatch
-errors, the `_resource_mismatch_handler_.xml` file etc.
+Similarly, to change the error messages of throttling errors (e.g., quota exceeding), change the `_throttle_out_handler_.xml` file, for resource mismatch errors, the `_resource_mismatch_handler_.xml` file etc.
 
--   [API handlers error codes](#api-handlers-error-codes)
--   [Sequences error codes](#sequences-error-codes)
--   [Transport error codes](#transport-error-codes)
--   [Custom error messages](#custom-error-messages)
+- [API handlers error codes](#api-handlers-error-codes)
+
+- [Sequences error codes](#sequences-error-codes)
+
+- [Transport error codes](#transport-error-codes)
+
+- [Custom error messages](#custom-error-messages)
 
 Given below are some error codes and their meanings.
 
@@ -54,7 +45,7 @@ Given below are some error codes and their meanings.
 <td><code>900422</code></td>
 <td>Invalid GraphQL query</td>
 <td>Syntax of the provided GraphQL query is invalid</td>
-<td>Invoking a GraphQL api which has a invalid query</td>
+<td>Invoking a GraphQL API which has a invalid query</td>
 </tr>
 <tr class="odd">
 <td> <code>900800</code> </td>
@@ -133,7 +124,7 @@ Given below are some error codes and their meanings.
 <tr class="even">
 <td><code>900905</code></td>
 <td><p>Incorrect access token type is provided</p></td>
-<td><p>The access token type used is not supported when invoking the API. The supported access token types are application and user accesses tokens. See <a href="https://docs.wso2.com/display/AM260/Key+Concepts#KeyConcepts-Accesstokens">Access Tokens</a> .</p></td>
+<td><p>The access token type used is not supported when invoking the API. The supported access token types are application and user accesses tokens. See <a href="{{base_path}}/get-started/key-concepts/#access-token">Access Tokens</a>.</p></td>
 <td>Invoke an API with application token, where the resource only allows application user tokens</td>
 </tr>
 <tr class="odd">
@@ -320,7 +311,7 @@ Therefore,
 Error code = 101504 + 3 = 101507
 
 These Transport error codes are used in [Advanced Configurations of
-Endpoints](/../../../../learn/design-api/endpoints/endpoint-types/)
+Endpoints]({{base_path}}/design/endpoints/endpoint-types/)
 .
 
 ### Custom error messages

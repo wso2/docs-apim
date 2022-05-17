@@ -9,7 +9,7 @@ Store and forward messaging is used for serving traffic to back-end services tha
 
 ### Step 1: Set up the workspace
 
-Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/tooling/) based on your operating system.
+Download the relevant [WSO2 Integration Studio](https://wso2.com/api-management/tooling/) based on your operating system.
 
 ### Step 2: Develop the integration artifacts
 
@@ -20,11 +20,11 @@ An Integration project is a maven multi module project, which will contain all t
 1.  Open **WSO2 Integration Studio**.
 2.  Click **New Integration Project** in the **Getting Started** tab as shown below. 
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.png" width="700">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.jpg" width="700">
 
     This will open the <b>New Integration Project</b> dialog box.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-simple-message-project.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-simple-message-project.jpg" width="500">
 
 3.  Enter `SampleServices` as the project name and select the following check boxes to create the required modules.
     -   **Create ESB Configs**
@@ -411,14 +411,9 @@ Let's test the use case by sending a simple client request that invokes the serv
 
 Let's send a request to the API resource. You can use the embedded <b>HTTP Client</b> of WSO2 Integration Studio as follows:
 
-1. Open the <b>HTTP Client</b> of WSO2 Integration Studio.
+1. Open the Postman application. If you do not have the application, download it from here : [Postman](https://www.postman.com/downloads/)
 
-    !!! Tip
-        If you don't see the <b>HTTP Client</b> pane, go to <b>Window -> Show View - Other</b> and select <b>HTTP Client</b> to enable the client pane.
-
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/http4e-client-empty.png" width="800">
-    
-2. Enter the request information as given below and click the <b>Send</b> icon (<img src="{{base_path}}/assets/img/integrate/tutorials/common/play-head-icon.png" width="20">).
+2. Add the request information as given below and click the <b>Send</b> button.
     
     <table>
         <tr>
@@ -472,6 +467,10 @@ Let's send a request to the API resource. You can use the embedded <b>HTTP Clien
             </ul>
         </tr>
      </table>
+
+     <br/><br/>
+     <video src="{{base_path}}/assets/vids/surgery-reserve.webm" width="720" height="480" controls></video>
+     <br/><br/>
      
 If you want to send the client request from your terminal:
 
@@ -535,4 +534,4 @@ Now check the **Console** tab of WSO2 Integration Studio and you will see the fo
 2017-04-30 14:33:53,464] [EI-Core]  INFO - LogMediator To: http://www.w3.org/2005/08/addressing/anonymous, WSAction: , SOAPAction: , MessageID: urn:uuid:a2cf1fd2-7a89-44b6-9571-990bbdfbd289, Direction: request, Payload: {"appointmentNo":1,"doctorName":"thomas collins","patient":"John Doe","actualFee":7000.0,"discount":20,"discounted":5600.0,"paymentID":"a77038e9-3e42-46f7-ac97-11e1b3a50018","status":"Settled"}
 ```
 
-You have now explored how the Micro Integratorr can be used to implement store and forward messaging using a **Message Store**, **Message Processors**, and the **Store Mediator**.
+You have now explored how the Micro Integrator can be used to implement store and forward messaging using a **Message Store**, **Message Processors**, and the **Store Mediator**.

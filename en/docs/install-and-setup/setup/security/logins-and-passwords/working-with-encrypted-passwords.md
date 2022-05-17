@@ -31,10 +31,10 @@ The instructions below explain how plain text passwords in configuration files c
        admin_password = "[admin]"
        keystore_password = "[wso2carbon]"
        key_password = "[wso2carbon]"
-       truststrore_password = "[wso2carbon]"
+       truststore_password = "[wso2carbon]"
        ```
     
-3.  Locate the configurations with the plain text passwords in the `<APIM_HOME>/repository/conf/deployment.toml` configuration file, and replace them with `$secret(<alias>)` in order to refer to the encrypted password instead of the plain text password. 
+3.  Locate the configurations with the plain text passwords in the `<APIM_HOME>/repository/conf/deployment.toml` configuration file, and replace them with `$secret{<alias>}` in order to refer to the encrypted password instead of the plain text password. 
 
      Note that the `alias` has to be the alias value that you configured in the above step as the mapping of the actual password. 
 
@@ -63,7 +63,7 @@ The instructions below explain how plain text passwords in configuration files c
        key_password = "$secret{key_password}"  
    
        [truststore]                  
-       password = "$secret{truststrore_password}"   
+       password = "$secret{truststore_password}"   
        ``` 
        
     !!! Note
@@ -97,7 +97,7 @@ The instructions below explain how plain text passwords in configuration files c
     admin_password  = "gss3W6fPqm5YdCCBUxTJsFAONjt4NvnLK8ab5Ob5sgRXWMFEQW8mvVxnpnKlMKwqgV9dlUwG4RCzT9hcc2TKkbkxZDDQnGczgwMnlTaiviGkm/D4FIuuGqhh1i1KBNIShUMCPGIFBpqGbvTe4R4CQjZc3kw9FEOBZni7EJFkKCKeSI4d9bDZUmGpNsMzIsqXSqklxQ+zq/ZAcx3ctQZU9QsfXaknqHSWr0sFNzlyMc/o70kOcUyFb3UYxE1knrGvPMMHaVK7ZbI40c0G4vPxsDnliOv/KvpMhTd6AIuY9gzP9lChzmWq7SgLrBVrqDMBWsteKOvAgaQNri6vXmDykQ=="
     keystore_password  = "cGsMesQfdbElQusfsc7FxXdc89Ak88rwtcW7jaHtGqCNZFYUJpyJ+551xXTWhSXZP/CS7mqTmPYWOOKfeIalSlv1ULSsH5JIpOROsTsJgZ3Bu4RpsypMan9UMpc5xjoMaNr955WD03DfDZ2PSZFSx78GoKEr8RSzNSBlr2q3hxaujHfGzjXMhkuZmIsnI77zFxVXb5iDz/n6oh9Mz7xRheXy3CsxLxm2sNGsr9+GL4ZrKWlQ7dZdbWk0N3HtpJbyDGa58yHaswxJHe8eVnTn66c3C9QlRDNL9JSHppzk+03xTzStb9v9Y4a+Fdz9ckBY1zQ3NPVUOjMToPKEaNPVoA=="
     key_password  = "hCmOjvWOmCCH8qsIhSecVewvgtStrM+QeZFKWfLqo1Mui2TuDpX4PKm4M2XQ/gRAH7GFP8AZStKN9QwjdyhGU3O6KuwhyIoKNH0Wkf/2jafShChLQj7jmd2fFxWYZLgnd9h36LEQEYgYGhyoyfZWmJknn6c4RxxNrSk3PJbWl8pft3ylRpYRIPhPUXegTI1XMuLgTiUMmB2wLF12QBFLOHLJhFWZx2E1ngpSoWsxdEcluQeJiTwR1ltrk23WY8N54xaZOsVN8zSniEGpwt6Jo8eij9Rjl+5r8wgErdYvX16xKQxBiQxjuEazzH4h29Ey/pf5S4y2oFX1WElIo51knw=="
-    truststrore_password  = "FEQvzFCYpJfuD9XYb0H4KW/lZICu7vaPMzC02kIIbMy47q1q68QxIdOAwQxv+wiRAI/fQIxX6ygTjWV+3bjYmP1Mj0qrhx6CeH6L467ISIHT8oTdecqq5kcGqMEBanexQ7Wu/ULeiiaGLA4x9OXHgJsKd9x3yf6Vm56FzmVkUM5+HAX6pYpBSEFuDKJprhlJtvrEN//nGb0p342g4CqG9VqW3UFbkQaawmItSd9pMnBlDM6+STmiDBUFrV7gdJfrCzGnJs7QBl20Kxg5aznNkwnpJ3bEwj3Trkzsxujk1wMOnhk5XvwdeKRevkX8MyHrnUICyXZ6TK0po1wrYZjYvw=="
+    truststore_password  = "FEQvzFCYpJfuD9XYb0H4KW/lZICu7vaPMzC02kIIbMy47q1q68QxIdOAwQxv+wiRAI/fQIxX6ygTjWV+3bjYmP1Mj0qrhx6CeH6L467ISIHT8oTdecqq5kcGqMEBanexQ7Wu/ULeiiaGLA4x9OXHgJsKd9x3yf6Vm56FzmVkUM5+HAX6pYpBSEFuDKJprhlJtvrEN//nGb0p342g4CqG9VqW3UFbkQaawmItSd9pMnBlDM6+STmiDBUFrV7gdJfrCzGnJs7QBl20Kxg5aznNkwnpJ3bEwj3Trkzsxujk1wMOnhk5XvwdeKRevkX8MyHrnUICyXZ6TK0po1wrYZjYvw=="
     ```
 
     To resolve the passwords during different modes of server startup, see [Resolving already encrypted passwords during server startup](#resolving-already-encrypted-passwords-during-server-startup).
@@ -116,8 +116,11 @@ Follow the instructions below to secure the endpoint's password that is given in
     [apim]
     enable_secure_vault=true
     ```
+    
+    !!! warning "Important"
+        This configuration should be added before all the other `[apim]` elements or this will result in an error.
 
-3.  Run the Cipher tool script, which is available in the `<APIM_HOME>/bin` directory. 
+3.  Run the Cipher tool script, which is available in the `<API-M_HOME>/bin` directory. 
 
      * On Linux/Mac OS: `./ciphertool.sh -Dconfigure`
      * On Windows: `./ciphertool.bat -Dconfigure`
@@ -179,7 +182,7 @@ Follow the instructions below to change any password that you have already encry
     [1] keystore_password
     [2] key_password
     [3] admin_password
-    [4] truststrore_password
+    [4] truststore_password
     [Please enter the Number which is corresponding to the Password that is needed be changed [Press Enter to Skip] : ]
     ```
      
@@ -203,7 +206,7 @@ Follow the instructions below to change any password that you have already encry
 -   [Start server as a background job](#start-server-as-a-background-job)
 
 !!! Note
-    If you have secured the plain text passwords in configuration files using Secure Vault, the keystore password and private key password of the product's [primary keystore]({{base_path}}/administer/product-security/configuring-keystores/configuring-keystores-in-wso2-api-manager) will serve as the root passwords for Secure Vault. This is because the keystore passwords are needed to initialise the values encrypted by the **Secret Manager** in the **Secret Repository**. Therefore, the **Secret Callback 
+    If you have secured the plain text passwords in configuration files using Secure Vault, the keystore password and private key password of the product's [primary keystore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager) will serve as the root passwords for Secure Vault. This is because the keystore passwords are needed to initialize the values encrypted by the **Secret Manager** in the **Secret Repository**. Therefore, the **Secret Callback 
     handler** is used to resolve these passwords. The default secret CallbackHandler provides the two options given below. For more information on secure vault concepts, see [Secure Vault concepts]({{base_path}}/administer/product-security/logins-and-passwords/carbon-secure-vault-implementation/#elements-of-the-secure-vault-implementation).
 
 

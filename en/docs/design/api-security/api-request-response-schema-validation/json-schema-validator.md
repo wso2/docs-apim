@@ -14,13 +14,13 @@ If the request fails the validations, the JSON Schema Validator sends a bad requ
 
 The following diagram illustrates the message flow when sending a valid request.
 
-![JSON schema validator - Sending a valid request]({{base_path}}/assets/img/learn/json-validator-send-valid-request.png)
+<a href="{{base_path}}/assets/img/learn/json-validator-send-valid-request.png"><img src="{{base_path}}/assets/img/learn/json-validator-send-valid-request.png" width="70%" alt="JSON schema validator - Sending a valid request"></a> 
 
 **Sending an invalid request**
 
 The following diagram illustrates the message flow when sending an invalid request.
 
-![JSON schema validator - Sending an invalid request]({{base_path}}/assets/img/learn/json-validator-send-invalid-request.png)
+<a href="{{base_path}}/assets/img/learn/json-validator-send-invalid-request.png"><img src="{{base_path}}/assets/img/learn/json-validator-send-invalid-request.png" width="70%" alt="JSON schema validator - Sending an invalid request"></a>
 
 **Example:**
 
@@ -46,13 +46,13 @@ The following response is displayed.
 
 The following diagram illustrates the message flow when sending a valid response.
 
-![JSON schema validator - Sending a valid response]({{base_path}}/assets/img/learn/json-validator-send-valid-response.png)
+<a href="{{base_path}}/assets/img/learn/json-validator-send-valid-response.png"><img src="{{base_path}}/assets/img/learn/json-validator-send-valid-response.png" width="70%" alt="JSON schema validator - Sending a valid response"></a>
 
 **Invalid response from the backend**
 
 The following diagram illustrates the message flow when sending an invalid response.
 
-![JSON schema validator - Sending an invalid response]({{base_path}}/assets/img/learn/json-validator-send-invalid-response.png)
+<a href="{{base_path}}/assets/img/learn/json-validator-send-invalid-response.png"><img src="{{base_path}}/assets/img/learn/json-validator-send-invalid-response.png" width="70%" alt="JSON schema validator - Sending an invalid response"></a>
 
 **Example**
 
@@ -91,12 +91,14 @@ The following validation response from the Gateway is displayed.
 
 2. Click on the API for which you need to enable JSON validation.
 
-3. Click **Runtime Configurations**.
+3. Click **API Configurations**.
 
-4. Enable **Schema Validation**.
+4. Click **Runtime**.
+
+5. Enable **Schema Validation**.
 
      By default, the schema validation property is set to `false`.
 
      ![Enable API schema validation]({{base_path}}/assets/img/learn/api-runtime-config.png)
 
-5. Click **SAVE**.
+6. Click **SAVE**.

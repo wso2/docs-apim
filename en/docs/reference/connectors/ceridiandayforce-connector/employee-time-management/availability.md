@@ -8,7 +8,7 @@ The following operations allow you to retrieve the availability of an employee
 
 | Operation | Description |
 | ------------- |-------------|
-|[GET Availability](#retrieving-employee-availability)| Availabilty represents the periods an employee is available to be scheduled for work. This request allows you to retrieve a single employee's daily availability between two dates. In order to use it, an employee XRefCodes is needed. Employee XRefCodes can be retrieved with GET Employees. |
+|[GET Availability](#retrieving-employee-availability)| Availability represents the periods an employee is available to be scheduled for work. This request allows you to retrieve a single employee's daily availability between two dates. In order to use it, an employee XRefCodes is needed. Employee XRefCodes can be retrieved with GET Employees. |
 
 ### Operation details
 

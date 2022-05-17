@@ -25,7 +25,7 @@ The diagram below illustrates the resource owner password credentials grant flow
 configuration.ServerURL = "<key-manager-server-url>"
 
 ```
-If you have multiple Carbon servers running on the same computer, [change the port with an offset]({{base_path}}/install-and-setup/deploying-wso2-api-manager/changing-the-default-ports-with-offset/#changing-the-default-ports-with-offset) to avoid port conflicts.
+If you have multiple Carbon servers running on the same computer, [change the port with an offset]({{base_path}}/install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset/#changing-the-default-ports-with-offset) to avoid port conflicts.
 
 #### Invoking the Token API to generate tokens
 
@@ -46,7 +46,7 @@ If you have multiple Carbon servers running on the same computer, [change the po
 
 2.  Access the Token API by using a REST client such as cURL, with the following parameters.
 
-    -   Assuming that both the client and the API Gateway are running on same server, the token API url is [https://localhost:8243/token](https://localhost:8243/login)
+    -   Assuming that both the client and the API Gateway are running on same server, the token API URL is [https://localhost:9443/oauth2/token](https://localhost:9443/oauth2/login)
     -   payload - `"grant_type=password&username=<username>&password=<password>&scope=<scope>"`. Replace the `<username>` and `<password>` values as appropriate.
 
         !!! tip
@@ -85,11 +85,11 @@ If you have multiple Carbon servers running on the same computer, [change the po
     For example, use the following cURL command to access the Token API. It generates two tokens as an access token and a refresh token. You can use the refresh token at the time a token is renewed. Replace the `<username>` and `<password>` as appropriate.
 
     ``` java tab="Format"
-    curl -k -d "grant_type=password&username=<username>&password=<password>" -H "Authorization: Basic EncodeToBase64(consumer-key:consumer-secret)" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:8243/token
+    curl -k -d "grant_type=password&username=<username>&password=<password>" -H "Authorization: Basic EncodeToBase64(consumer-key:consumer-secret)" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
     ```
     
     ``` java tab="Example"
-    curl -k -d "grant_type=password&username=admin&password=admin" -H "Authorization: Basic d1U2MkRqbHlEQm5xODdHbEJ3cGxmcXZtQWJBYTprc2RTZG9lZkREUDd3cGFFbGZxdm1qRHVl" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:8243/token
+    curl -k -d "grant_type=password&username=admin&password=admin" -H "Authorization: Basic d1U2MkRqbHlEQm5xODdHbEJ3cGxmcXZtQWJBYTprc2RTZG9lZkREUDd3cGFFbGZxdm1qRHVl" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
     ```
 
     You receive a response similar to the following:

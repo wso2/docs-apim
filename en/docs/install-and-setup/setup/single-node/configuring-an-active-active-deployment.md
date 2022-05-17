@@ -2,24 +2,9 @@
 
 This page walks you through how to manually configure WSO2 API Manager (WSO2 API-M) with two active nodes that each has all the components of the API-M together in one instance (all-in-one instance).
 
-<a href="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png" alt="active-active apim deployment"></a>
+<a href="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png" width="70%" alt="active-active apim deployment"></a>
 
 Follow the instructions below to configure and deploy API-M by using an Active-Active deployment:
-
--   [Step 1 - Create a SSL Certificate](#step-1-create-a-ssl-certificate)
--   [Step 2 - Configure the Load Balancer](#step-2-configure-the-load-balancer)
--   [Step 3 - Configure the Databases](#step-3-configure-the-databases)
--   [Step 4 - Configure the Second WSO2 API-M Node](#step-4-configure-the-second-wso2-api-m-node)
--   [Step 5 - Configure the Artifact Synchronization](#step-5-configure-the-artifact-synchronization)
--   [Step 6 - Configure Publisher with the Gateway](#step-6-configure-publisher-with-the-gateway)
--   [Step 7 - Configure Gateway URLs to Expose APIs](#step-7-configure-gateway-urls-to-expose-apis)
--   [Step 8 - Configure Throttling](#step-8-configure-throttling)
--   [Step 9 - Optionally, enable distributed cache invalidation](#step-9-optionally-enable-distributed-cache-invalidation)  
--   [Step 10 - Configure API-M Analytics](#step-9-configure-api-m-analytics)
--   [Step 11 - Configure Production Hardening](#step-10-configure-production-hardening)
--   [Step 12 - Start the WSO2 API-M Servers](#step-11-start-the-wso2-api-m-servers)
-
-___________________________________
 
 ## Step 1 - Create a SSL Certificate
 
@@ -29,19 +14,19 @@ ___________________________________
     `wso2carbon.jks` is configured with private key and self signed public key pair for all purposes, such as encrypting 
     sensitive information, communicating over SSL etc. 
     
-    In a **production setup**, it is advised to set up several different keystores with separate trust chains for different use cases. For more information, see [Recommendations for setting up keystores in WSO2 products]({{base_path}}/administer/product-security/configuring-keystores/configuring-keystores-in-wso2-api-manager/#recommendations-for-setting-up-keystores).
+    In a **production setup**, it is advised to set up several different keystores with separate trust chains for different use cases. For more information, see [Recommendations for setting up keystores in WSO2 products]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/#recommendations-for-setting-up-keystores).
 
-To create an all purpose keystore or multiple keystores for authentication and protection of data, follow the steps in [Creating New Keystores]({{base_path}}/administer/product-security/configuring-keystores/keystore-basics/creating-new-keystores/). 
+To create an all purpose keystore or multiple keystores for authentication and protection of data, follow the steps in [Creating New Keystores]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/). 
 
 !!! tip
-    You should use the same keystore and trusstore for SSL in both WSO2 API-M instances.
+    You should use the same keystore and truststore for SSL in both WSO2 API-M instances.
 
 ## Step 2 - Configure the Load Balancer
 
 In order to access the WSO2 API-M Portals and Gateway, you need to front the system with a load balancer. You can use any 
 load balancer that is available to your system.
 
-Follow the steps in [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer) to configure the load balancer/reverse proxy which is fronting the API-M nodes
+Follow the steps in [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer) to configure the load balancer/reverse proxy which is fronting the API-M nodes
 in the demiliterized zone (DMZ).
 
 ??? tip
@@ -90,7 +75,7 @@ Make a copy of the active instance configured above and use this copy as the sec
 
 !!! info
     When making a copy of the node, you need to also make a copy of the SSL certificate that you created for node 1 
-    in [step 1]({{base_path}}/administer/product-security/configuring-keystores/keystore-basics/creating-new-keystores).
+    in [step 1]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores).
 
 
 ## Step 5 - Configure the Artifact Synchronization 
@@ -101,25 +86,13 @@ system such as Network File System (NFS) or any other shared file system that is
 
 You need to mount the following folders of the two nodes to the shared file system, in order to share the resources between all the nodes.
 
-1.  `<APIM_HOME>/repository/deployment/server/userstores` -  If a secondary user store has been configured in the super tenant, this folder needs to be backed up.
-2.  `<APIM_HOME>/repository/deployment/server/executionplans` - Includes siddhi queries related to event processing logic.
-3.  `<APIM_HOME>/repository/deployment/server/synapse-configs` - Includes API gateway configuration files.
-4.  `<APIM_HOME>/repository/tenants` - If tenancy is been used.
+1.  `<API-M_HOME>/repository/deployment/server/userstores` -  If a secondary user store has been configured in the super tenant, this folder needs to be backed up.
+2.  `<API-M_HOME>/repository/tenants` - If tenancy is used and any secondary userstores are configured for the tenants.
 
 ??? note "NFS configuration"
     For more information on setting up NFS on Ubuntu, see [Network File System (NFS)](https://ubuntu.com/server/docs/service-nfs).
     Note that these configurations may change depending on the OS.
 
-??? info "If you are unable to maintain a shared file system"
-
-    However, if you are unable to maintain a shared file system, you can synchronize content using rsync. For 
-    information on setting up a rsync based deployment synchronization, see [Configuring rsync for Deployment 
-    Synchronization]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-rsync-for-deployment-synchronization).
-
-    !!! warning
-        **Shared file system** is the **first preference** that WSO2 recommends to synchronize the artifacts among the nodes, 
-        because APIs and throttling decisions can be published to any of the nodes; thereby, avoiding the  vulnerability 
-        of a single point of failure that is present when using remote synchronization (rsync).
     
 ## Step 6 - Configure Publisher with the Gateway
 
@@ -133,33 +106,6 @@ can publish the API artifacts to their own nodes. Therefore, you can point the `
 service_url = "https://localhost:${mgt.transport.https.port}/services/"
 ...
 ```
-
-??? info "If you are using RSYNC for artifact synchronization"  
-
-    The API artifacts will be synchronized in one direction. The synchronization will take place from manager to the worker as explained in the [Configuring rsync for Deployment 
-    Synchronization]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-rsync-for-deployment-synchronization) section. Therefore, the API artifact should be only created on one node that acts as a manager node 
-    for the purpose of artifact synchronization. Follow the instructions below to configure the manager node:
-
-    Let's assume that `node-1` is the manager node for artifact synchronization.
-
-    1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file in `node-1`.
-    2.  Configure the Gateway Service URL to point to it's self (localhost):
-        ``` toml
-        [[apim.gateway.environment]]
-        ...
-        service_url = "https://localhost:${mgt.transport.https.port}/services/"
-        ...
-        ```
-
-    3.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file in `node-2`.
-    4.  Configure the Gateway Service URL to point to `node-1`:
-        ``` toml
-        [[apim.gateway.environment]]
-        ...
-        service_url = "https://<node1-hostname>:<node-1-mgt-transport-port>/services/"
-        ...
-        ```
-        Note that `<node-1-mgt-transport-port>` is the management transport port, which is by default 9443.
 
 ## Step 7 - Configure Gateway URLs to Expose APIs
 
@@ -178,7 +124,7 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
     https_endpoint = "https://gw.am.wso2.com:${https.nio.port}"
     ```            
 
-## Step 8 - Configure Throttling
+## Step 8 - Configure Rate Limiting
 
 1.  Configure the data publisher in the `apim.throttling.url_group` section which comes under the `apim.throttling.url_group` block in the `<API-M_HOME>/repository/conf/deployment.toml` file of both nodes.
     
@@ -252,6 +198,8 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
 
     2.  Save your changes.
 
+{!includes/design/redis-counter-note.md!}
+
 ## Step 9 - Optionally, enable distributed cache invalidation
 
 Add following configuration block in the `<API-M_HOME>/repository/conf/deployment.toml` file of both the nodes.
@@ -265,21 +213,21 @@ enabled = true
 
 API Manager Analytics is delivered via the API Manager Analytics cloud solution. You need to configure the API Manager Gateway to publish analytics data into the cloud.
 
-See the instructions on [configuring the API Gateway]({{base_path}}/observe/api-manager-analytics/configure-analytics/configure-synapse-gateway) with the cloud-based analytics solution.
+See the instructions on [configuring the API Gateway]({{base_path}}/api-analytics/gateways/configure-synapse-gateway) with the cloud-based analytics solution.
 
 ## Step 11 - Configure Production Hardening
 
 In a **production setup**, ensure that you have taken into account the respective security hardening factors 
 (e.g., changing and encrypting the default passwords, configuring JVM security etc.) and other production deployment 
-guidelines (e.g., tuning parameters, backup and recovery remmendations etc.) before deploying WSO2 API-M nodes. 
+guidelines (e.g., tuning parameters, backup and recovery recommendations etc.) before deploying WSO2 API-M nodes. 
 
-For more information on security hardening guidelines, see [Security Guidelines for Production Deployment]({{base_path}}/install-and-setup/deploying-wso2-api-manager/security-guidelines-for-production-deployment/).
+For more information on security hardening guidelines, see [Security Guidelines for Production Deployment]({{base_path}}/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/).
 
-For more information on other production deployment guidelines, see [Production Deployment Guidelines]({{base_path}}/install-and-setup/deploying-wso2-api-manager/production-deployment-guidelines/#common-guidelines-and-checklist).
+For more information on other production deployment guidelines, see [Production Deployment Guidelines]({{base_path}}//install-and-setup/setup/deployment-best-practices/production-deployment-guidelines/#common-guidelines-and-checklist/).
 
 ## Step 12 - Start the WSO2 API-M Servers
 
-Start the WSO2 API-M servers using the standard start-up script. For more information, see [Starting the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#starting-the-server).
+Start the WSO2 API-M servers using the standard start-up script. For more information, see [Starting the server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server).
 
 ```tab="Linux/Mac OS"
 cd <API-M_HOME>/bin/

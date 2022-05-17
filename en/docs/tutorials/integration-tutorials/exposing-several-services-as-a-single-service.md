@@ -12,7 +12,7 @@ You will also use the **PayloadFactory** mediator to take the response from one 
 
 -   REST API
 -   HTTP Endpoint
--   Property Meditor
+-   Property Mediator
 -   Call Mediator
 -   PayloadFactory Mediator
 
@@ -20,7 +20,7 @@ You will also use the **PayloadFactory** mediator to take the response from one 
 
 ### Step 1: Set up the workspace
 
-Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/tooling/) based on your operating system.
+Download the relevant [WSO2 Integration Studio](https://wso2.com/api-management/tooling/) based on your operating system.
 
 ### Step 2: Develop the integration artifacts
 
@@ -31,11 +31,11 @@ An Integration project is a maven multi module project, which will contain all t
 1.  Open **WSO2 Integration Studio**.
 2.  Click **New Integration Project** in the **Getting Started** tab as shown below. 
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.png" width="700">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.jpg" width="700">
 
     This will open the <b>New Integration Project</b> dialog box.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-simple-message-project.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-simple-message-project.jpg" width="500">
 
 3.  Enter `SampleServices` as the project name and select the following check boxes to create the required modules.
     -   **Create ESB Configs**
@@ -47,7 +47,7 @@ You will now see the projects listed in the **Project Explorer**.
 
 #### Create new Endpoints
 
-Let's create three HTTP endpoints to represent all three back-end services: Hospital Service, Channelling Service, Payment Service.
+Let's create three HTTP endpoints to represent all three back-end services: Hospital Service, Channeling Service, Payment Service.
 
 1.  Right-click **SampleServicesConfigs** in the project explorer and click **New -> Endpoint**. 
 2.  Ensure **Create a New Endpoint** is selected and click **Next**.
@@ -113,7 +113,7 @@ Let's create three HTTP endpoints to represent all three back-end services: Hosp
     </table>
 
 4.  Click **Finish**.
-5.  Create another endpoint for the Channelling back-end service and specify the details given below:
+5.  Create another endpoint for the Channeling back-end service and specify the details given below:
     <table>
         <tr>
             <th>Property</th>
@@ -409,7 +409,7 @@ You can now start updating the API resource with the mediation flow.
       </tr>
     </table>
 
-6.  Add a Call mediator from the **Mediators** palette and add the HospitalServicesEP endpont from the **Defined Endpoints** palette to the empty box adjoining the Call mediator.
+6.  Add a Call mediator from the **Mediators** palette and add the HospitalServicesEP endpoint from the **Defined Endpoints** palette to the empty box adjoining the Call mediator.
 
     !!! Info
         Using the Call mediator allows us to define other service invocations following this mediator.
@@ -693,9 +693,9 @@ You can now start updating the API resource with the mediation flow.
 
 14.  Add a PayloadFactory mediator (from the **mediators** palette) next to the Property mediator to construct the above message payload.
 
-15. With the Payloadfactory mediator selected, access the properties tab of the mediator and specify the following details:
+15. With the PayloadFactory mediator selected, access the properties tab of the mediator and specify the following details:
 
-    | Property       |Descripttion                                                                                            |
+    | Property       |Description                                                                                            |
     |----------------|--------------------------------------------------------------------------------------------------------|
     | Payload Format | Select <strong>Inline</strong>                                                                         |
     | Media Type     | Select <strong>json</strong>                                                                           |

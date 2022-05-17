@@ -1,8 +1,8 @@
 # Integrating Micro Integrator with WSO2 Streaming Integrator
 
-You can publish events from the integration flow to WSO2 Streaming Integrator using an http or http-service source configured in a Siddhi application deployed in Streaming Integrator server. The http or http-service source receive POST requests via HTTP and HTTPS protocols in a format such as text, xml, or json. In the case of http-service source, it will send responses via its corresponding http-service-response sink correlated through a unique `source.id`.   
+You can publish events from the integration flow to WSO2 Streaming Integrator using an http or http-service source configured in a Siddhi application deployed in Streaming Integrator server. The http or http-service source receive POST requests via HTTP and HTTPS protocols in a format such as text, XML, or JSON. In the case of http-service source, it will send responses via its corresponding http-service-response sink correlated through a unique `source.id`.   
 
-In this example, we are using a simple rest api to publish events to the Streaming Integrator, which is configured to receive POST requests via HTTP protocol in JSON format and send responses accordingly.
+In this example, we are using a simple rest API to publish events to the Streaming Integrator, which is configured to receive POST requests via HTTP protocol in JSON format and send responses accordingly.
 
 ## Set up the Siddhi Application
 
@@ -62,7 +62,7 @@ Follow the instructions below to set up and configure.
 
 ## Synapse configuration
 
-Following is the sample rest api configuration that we can use to implement this scenario. See the instructions on how to [build and run](#build-and-run) run this example.
+Following is the sample rest API configuration that we can use to implement this scenario. See the instructions on how to [build and run](#build-and-run) run this example.
 
 
 ```xml
@@ -85,10 +85,10 @@ Create the artifacts:
 
 1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
 2. [Create an ESB Solution project]({{base_path}}/integrate/develop/create-integration-project/#esb-config-project).
-3. [Create the rest api]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api) with the configurations given above.
+3. [Create the rest API]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-and-run) in your Micro Integrator.
 
-Invoke the sample Api:
+Invoke the sample API:
 
 - Open a terminal and execute the following CURL command. This sends a simple POST request to the Micro Integrator.
 

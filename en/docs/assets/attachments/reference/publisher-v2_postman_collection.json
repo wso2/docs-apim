@@ -1,0 +1,5750 @@
+{
+	"info": {
+		"_postman_id": "cccaac2d-c36c-455a-a66e-cc686b09185c",
+		"name": "WSO2 API Manager 4.0.0 - Publisher REST API",
+		"description": "This document specifies a **RESTful API** for WSO2 **API Manager - Publisher REST API** .\nIt is written with [swagger 2.0](http://swagger.io/).\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register DCR App",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"var clientId = response.clientId;",
+									"var clientSecret = response.clientSecret;",
+									"pm.collectionVariables.set(\"dcrClientId\", clientId);",
+									"pm.collectionVariables.set(\"dcrClientSecret\", clientSecret);",
+									"",
+									"var base64EncodedCredentials = btoa(clientId + \":\" + clientSecret);",
+									"pm.collectionVariables.set(\"base64EncodedDCRCredentials\", base64EncodedCredentials);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n  \"callbackUrl\":\"www.google.lk\",\n  \"clientName\":\"rest_api_publisher\",\n  \"owner\":\"admin\",\n  \"grantType\":\"client_credentials password refresh_token\",\n  \"saasApp\":true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{dcrEndpoint}}",
+							"host": [
+								"{{dcrEndpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Access Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(responseBody);",
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"access-token\", response.access_token);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var url = pm.collectionVariables.get(\"basepath\").concat(\"/settings\");",
+									"console.log(url);",
+									"var getRequest = {",
+									" url: url,",
+									" method: 'GET',",
+									"};",
+									" ",
+									"pm.sendRequest(getRequest, (error, response) => {",
+									" if (error == null) {",
+									"     if (response == null) {",
+									"       //use existing scopes list",
+									"     } else {",
+									"         var scopeslist = response.json().scopes;",
+									"         var scopeString = scopeslist.toString();",
+									"         var scopeArr = scopeString.split(\",\");",
+									"         var scopes = scopeArr.join(\" \");",
+									"         pm.collectionVariables.set(\"restAPIScopes\", scopes);",
+									"     }",
+									" }",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Basic {{base64EncodedDCRCredentials}}"
+							}
+						],
+						"url": {
+							"raw": "{{tokenEndpoint}}?grant_type=password&username={{username}}&password={{password}}&scope=apim:api_view apim:api_create apim:api_delete apim:api_publish apim:subscription_view apim:subscription_block apim:external_services_discover apim:threat_protection_policy_create apim:threat_protection_policy_manage apim:document_create apim:document_manage apim:mediation_policy_view apim:mediation_policy_create apim:mediation_policy_manage apim:client_certificates_view apim:client_certificates_add apim:client_certificates_update apim:ep_certificates_view apim:ep_certificates_add apim:ep_certificates_update apim:publisher_settings apim:pub_alert_manage apim:shared_scope_manage apim:app_import_export apim:api_import_export apim:api_product_import_export",
+							"host": [
+								"{{tokenEndpoint}}"
+							],
+							"query": [
+								{
+									"key": "grant_type",
+									"value": "password"
+								},
+								{
+									"key": "username",
+									"value": "{{username}}"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}"
+								},
+								{
+									"key": "scope",
+									"value": "apim:api_view apim:api_create apim:api_delete apim:api_publish apim:subscription_view apim:subscription_block apim:external_services_discover apim:threat_protection_policy_create apim:threat_protection_policy_manage apim:document_create apim:document_manage apim:mediation_policy_view apim:mediation_policy_create apim:mediation_policy_manage apim:client_certificates_view apim:client_certificates_add apim:client_certificates_update apim:ep_certificates_view apim:ep_certificates_add apim:ep_certificates_update apim:publisher_settings apim:pub_alert_manage apim:shared_scope_manage apim:app_import_export apim:api_import_export apim:api_product_import_export"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "APIs",
+			"item": [
+				{
+					"name": "Retrieve/Search APIs",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new API",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"apiId\", response.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{sampleRestAPIPayload}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/apis",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Details of an API",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an API",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update an API",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{sampleRestAPIPayload}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get API Swagger Definition",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/swagger",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"swagger"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Swagger Definition",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "url",
+									"value": "https://petstore3.swagger.io/api/v3/openapi.json",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/swagger",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"swagger"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Mock Response Payloads",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/generate-mock-scripts",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"generate-mock-scripts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch Generated Mock Response Payloads",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/generated-mock-scripts",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"generated-mock-scripts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Thumbnail Image",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/thumbnail",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"thumbnail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload a Thumbnail Image",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/sachini/wso2/2020/REST_API_DOCS/postman-resources/image.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/thumbnail",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"thumbnail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Details of Subscription Throttling Policies of an API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/subscription-policies",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"subscription-policies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a New API Version",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/copy-api?newVersion={{newVersion}}&defaultVersion={{isDefaultVersion}}&apiId={{apiId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"copy-api"
+							],
+							"query": [
+								{
+									"key": "newVersion",
+									"value": "{{newVersion}}"
+								},
+								{
+									"key": "defaultVersion",
+									"value": "{{isDefaultVersion}}"
+								},
+								{
+									"key": "apiId",
+									"value": "{{apiId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Import an OpenAPI Definition",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "url",
+									"value": "https://petstore3.swagger.io/api/v3/openapi.json",
+									"type": "text"
+								},
+								{
+									"key": "additionalProperties",
+									"value": "{\n   \"name\":\"SwaggerPetstore-OpenAPI30\",\n   \"version\":\"1.0.5\",\n   \"context\":\"test\",\n   \"endpointConfig\":{\n      \"endpoint_type\":\"http\",\n      \"sandbox_endpoints\":{\n         \"url\":\"/api/v3\"\n      },\n      \"production_endpoints\":{\n         \"url\":\"/api/v3\"\n      }\n   }\n}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/import-openapi",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"import-openapi"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Import a WSDL Definition",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"wsdlApiId\", response.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "url",
+									"value": "https://ws.cdyne.com/phoneverify/phoneverify.asmx?WSDL",
+									"type": "text"
+								},
+								{
+									"key": "additionalProperties",
+									"value": "{\n   \"name\":\"PhoneVerify\",\n   \"version\":\"1.0.5\",\n   \"context\":\"phone\",\n   \"endpointConfig\":{\n      \"endpoint_type\":\"http\",\n      \"sandbox_endpoints\":{\n         \"url\":\"https://ws.cdyne.com/phoneverify/phoneverify.asmx\"\n      },\n      \"production_endpoints\":{\n         \"url\":\"https://ws.cdyne.com/phoneverify/phoneverify.asmx\"\n      }\n   }\n}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/import-wsdl",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"import-wsdl"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Import GraphQL Schema Definition",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"graphqlApiId\", response.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "url",
+									"value": "https://raw.githubusercontent.com/graphql/swapi-graphql/master/schema.graphql",
+									"type": "text"
+								},
+								{
+									"key": "additionalProperties",
+									"value": "{\n   \"name\":\"Starwars\",\n   \"version\":\"1.0.5\",\n   \"context\":\"phone\",\n   \"endpointConfig\":{\n      \"endpoint_type\":\"http\",\n      \"sandbox_endpoints\":{\n         \"url\":\"starwars/v1\"\n      },\n      \"production_endpoints\":{\n         \"url\":\"starwars/v1\"\n      }\n   }\n}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/import-graphql-schema",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"import-graphql-schema"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get WSDL Meta Informtation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{wsdlApiId}}/wsdl-info",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{wsdlApiId}}",
+								"wsdl-info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get WSDL Definition",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{wsdlApiId}}/wsdl",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{wsdlApiId}}",
+								"wsdl"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update WSDL Definition",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "url",
+									"value": "http://ws.cdyne.com/phoneverify/phoneverify.asmx?WSDL",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{wsdlApiId}}/wsdl",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{wsdlApiId}}",
+								"wsdl"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Resource Paths of an API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/resource-paths",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"resource-paths"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Topic",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"count\": 1,\n  \"list\": [\n    {\n      \"name\": \"PizzaShackAPI\",\n      \"mode\": \"This is a simple API for Pizza Shack online pizza delivery store.\",\n      \"description\": \"This is a simple API for Pizza Shack online pizza delivery store.\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/topics",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"topics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Internal API Key",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/generate-key",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"generate-key"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Resource Policies",
+			"item": [
+				{
+					"name": "Get Conversion Policy Definitions of API",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{wsdlApiId}}/resource-policies?resourcePath={{resourcePath}}&verb={{verb}}&sequenceType={{sequenceType}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{wsdlApiId}}",
+								"resource-policies"
+							],
+							"query": [
+								{
+									"key": "resourcePath",
+									"value": "{{resourcePath}}"
+								},
+								{
+									"key": "verb",
+									"value": "{{verb}}"
+								},
+								{
+									"key": "sequenceType",
+									"value": "{{sequenceType}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Resource Policy (inflow/outflow) Definition by Id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/resource-policies/{{resourcePolicyId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"resource-policies",
+								"{{resourcePolicyId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Resource Policy(inflow/outflow) Definition",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"httpVerb\": \"post\",\n    \"resourcePath\": \"checkPhoneNumber\",\n    \"content\": \"<header description=\\\"SOAPAction\\\" name=\\\"SOAPAction\\\" scope=\\\"transport\\\" value=\\\"http://ws.cdyne.com/PhoneVerify/query/CheckPhoneNumber\\\"/>\\n<property name=\\\"REST_URL_POSTFIX\\\" scope=\\\"axis2\\\" action=\\\"remove\\\"/>\\n<property expression=\\\"json-eval($.CheckPhoneNumber.LicenseKey)\\\" name=\\\"req.var.CheckPhoneNumber.LicenseKey\\\"/>\\n<property expression=\\\"json-eval($.CheckPhoneNumber.PhoneNumber)\\\" name=\\\"req.var.CheckPhoneNumber.PhoneNumber\\\"/>\\n\\n\\n<payloadFactory description=\\\"transform\\\" media-type=\\\"xml\\\">\\n  <format>\\n  <soapenv:Envelope xmlns:soapenv=\\\"http://www.w3.org/2003/05/soap-envelope\\\" xmlns:web=\\\"http://ws.cdyne.com/PhoneVerify/query\\\">\\n  <soapenv:Header/>\\n  <soapenv:Body>\\n  \\t<web:CheckPhoneNumber xmlns:web=\\\"http://ws.cdyne.com/PhoneVerify/query\\\">\\n  <web:LicenseKey>$1</web:LicenseKey>\\n  <web:PhoneNumber>$2</web:PhoneNumber>\\n</web:CheckPhoneNumber>\\n\\n  </soapenv:Body>\\n  </soapenv:Envelope>\\n  </format>\\n  <args>\\n \\t<arg evaluator=\\\"xml\\\" expression=\\\"get-property('req.var.CheckPhoneNumber.LicenseKey')\\\"/>\\n<arg evaluator=\\\"xml\\\" expression=\\\"get-property('req.var.CheckPhoneNumber.PhoneNumber')\\\"/>\\n\\n  </args>\\n</payloadFactory>\\n<property description=\\\"messageProperty\\\" name=\\\"messageType\\\" scope=\\\"axis2\\\" type=\\\"STRING\\\" value=\\\"application/soap+xml\\\"/>\\n\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/resource-policies/{{resourcePolicyId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"resource-policies",
+								"{{resourcePolicyId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Lifecycle",
+			"item": [
+				{
+					"name": "Change API Status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/change-lifecycle?action={{action}}&lifecycleChecklist={{lifecycleChecklist}}&apiId={{apiId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"change-lifecycle"
+							],
+							"query": [
+								{
+									"key": "action",
+									"value": "{{action}}"
+								},
+								{
+									"key": "lifecycleChecklist",
+									"value": "{{lifecycleChecklist}}"
+								},
+								{
+									"key": "apiId",
+									"value": "{{apiId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Lifecycle State Change History of the API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/lifecycle-history",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"lifecycle-history"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Lifecycle State Data of the API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/lifecycle-state",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"lifecycle-state"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Pending Lifecycle State Change Tasks",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/lifecycle-state/pending-tasks",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"lifecycle-state",
+								"pending-tasks"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Validation",
+			"item": [
+				{
+					"name": "Validate an OpenAPI Definition",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/sachini/wso2/2020/REST_API_DOCS/postman-resources/swagger.json"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/validate-openapi",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"validate-openapi"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validate GraphQL Schema Definition",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/sachini/wso2/2020/REST_API_DOCS/postman-resources/schema.graphql"
+								},
+								{
+									"key": "additionalProperties",
+									"value": "{\"name\":\"ImportedGraphQL\",\"version\":\"1.0.0\",\"context\":\"/import-graphql\",\"policies\":[\"Gold\",\"Silver\"],\"endpointConfig\":{\"endpoint_type\":\"http\",\"sandbox_endpoints\":{\"url\":\"petstore.swagger.io\"},\"production_endpoints\":{\"url\":\"petstore.swagger.io\"}},\"gatewayEnvironments\":[\"Default\"]}\n",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/validate-graphql-schema",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"validate-graphql-schema"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check whether Given Endpoint URL is Valid",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/validate-endpoint?endpointUrl={{endpointURL}}&apiId={{apiId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"validate-endpoint"
+							],
+							"query": [
+								{
+									"key": "endpointUrl",
+									"value": "{{endpointURL}}"
+								},
+								{
+									"key": "apiId",
+									"value": "{{apiId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check whether Given API name/context already Exists",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/validate?query=name%3A{{api-name}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"validate"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "name%3A{{api-name}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validate a WSDL Definition",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/sachini/wso2/2020/REST_API_DOCS/postman-resources/phoneverify.wsdl"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/validate-wsdl",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"validate-wsdl"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GraphQL Schema (Individual)",
+			"item": [
+				{
+					"name": "Get the Schema of a GraphQL API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{graphqlApiId}}/graphql-schema",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{graphqlApiId}}",
+								"graphql-schema"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GraphQL Schema",
+			"item": [
+				{
+					"name": "Add a Schema to a GraphQL API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "schemaDefinition",
+									"type": "file",
+									"src": "/home/sachini/wso2/2020/REST_API_DOCS/postman-resources/schema.graphql"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{graphqlApiId}}/graphql-schema",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{graphqlApiId}}",
+								"graphql-schema"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AWS Lambda (Individual)",
+			"item": [
+				{
+					"name": "Retrieve the ARNs of AWS Lambda Functions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/amznResourceNames",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"amznResourceNames"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Documents",
+			"item": [
+				{
+					"name": "Get API Documents of an API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/documents",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"documents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a New Document to an API",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"documentId\", response.documentId);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"PizzaShackDoc\",\n\"type\": \"HOWTO\",\n\"summary\": \"Summary of PizzaShack API Documentation\",\n\"sourceType\": \"INLINE\",\n\"sourceUrl\": \"\",\n\"fileName\": \"\",\n\"inlineContent\": \"This is doc content. This can have many lines.\",\n\"otherTypeName\": \"\",\n\"visibility\": \"API_LEVEL\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/documents",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"documents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Document of an API",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/documents/{{documentId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"documents",
+								"{{documentId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Document of an API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"CalculatorDoc\",\n\"type\": \"HOWTO\",\n\"summary\": \"Modified Summary of Calculator Documentation\",\n\"sourceType\": \"INLINE\",\n\"sourceUrl\": \"\",\n\"fileName\": \"\",\n\"inlineContent\": \"This is doc content. This can have many lines. Modified.\",\n\"otherTypeName\": \"\",\n\"visibility\": \"API_LEVEL\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/documents/{{documentId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"documents",
+								"{{documentId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload the Content of an API Document",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "inlineContent",
+									"value": "This is a sample inline content for a document.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/documents/{{documentId}}/content",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"documents",
+								"{{documentId}}",
+								"content"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the Content of an API Document",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/documents/{{documentId}}/content",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"documents",
+								"{{documentId}}",
+								"content"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check whether a Document with the Provided Name Exist",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/documents/validate?name={{apiDocName}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"documents",
+								"validate"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "{{apiDocName}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Document of an API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/documents/{{documentId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"documents",
+								"{{documentId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Mediation Policies",
+			"item": [
+				{
+					"name": "Get All Mediation Policies of an API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/mediation-policies",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"mediation-policies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add an API Specific Mediation Policy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"mediationPolicyId\", response.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "mediationPolicyFile",
+									"type": "file",
+									"src": "/home/sachini/wso2/2020/REST_API_DOCS/postman-resources/TokenExchange.xml"
+								},
+								{
+									"key": "type",
+									"value": "in",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/mediation-policies",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"mediation-policies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an API Specific Mediation Policy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/mediation-policies/{{mediationPolicyId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"mediation-policies",
+								"{{mediationPolicyId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update an API Specific Mediation Policy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/sachini/wso2/2020/REST_API_DOCS/postman-resources/TokenExchange.xml"
+								},
+								{
+									"key": "type",
+									"value": "in",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/mediation-policies/{{mediationPolicyId}}/content",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"mediation-policies",
+								"{{mediationPolicyId}}",
+								"content"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download an API Specific Mediation Policy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/mediation-policies/{{mediationPolicyId}}/content",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"mediation-policies",
+								"{{mediationPolicyId}}",
+								"content"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an API Specific Mediation Policy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/mediation-policies/{{mediationPolicyId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"mediation-policies",
+								"{{mediationPolicyId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GraphQL Policies",
+			"item": [
+				{
+					"name": "/apis/{apiId}/graphql-policies/complexity/types GET",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{graphqlApiId}}/graphql-policies/complexity/types",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{graphqlApiId}}",
+								"graphql-policies",
+								"complexity",
+								"types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/apis/{apiId}/graphql-policies/complexity PUT",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"list\": [\n    {\n      \"type\": \"Country\",\n      \"field\": \"name\",\n      \"complexityValue\": 1\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{graphqlApiId}}/graphql-policies/complexity",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{graphqlApiId}}",
+								"graphql-policies",
+								"complexity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/apis/{apiId}/graphql-policies/complexity GET",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{graphqlApiId}}/graphql-policies/complexity",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{graphqlApiId}}",
+								"graphql-policies",
+								"complexity"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Audit",
+			"item": [
+				{
+					"name": "Retrieve the Security Audit Report of the Audit API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/auditapi",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"auditapi"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "External Stores",
+			"item": [
+				{
+					"name": "Retrieve List of External Stores",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/external-stores",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"external-stores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the List of External Stores to which the API is Published",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/external-stores",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"external-stores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Publish an API to External Stores",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/publish-to-external-stores?externalStoreIds={{externalStoreIds}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"publish-to-external-stores"
+							],
+							"query": [
+								{
+									"key": "externalStoreIds",
+									"value": "{{externalStoreIds}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": " Import Export",
+			"item": [
+				{
+					"name": "Export an API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/export?apiId={{apiId}}&name={{exportAPIName}}&version={{exportAPIVersion}}&provider={{exportAPIProvider}}&format={{exportAPIFormat}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"export"
+							],
+							"query": [
+								{
+									"key": "apiId",
+									"value": "{{apiId}}"
+								},
+								{
+									"key": "name",
+									"value": "{{exportAPIName}}"
+								},
+								{
+									"key": "version",
+									"value": "{{exportAPIVersion}}"
+								},
+								{
+									"key": "provider",
+									"value": "{{exportAPIProvider}}"
+								},
+								{
+									"key": "format",
+									"value": "{{exportAPIFormat}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export an API Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/api-products/export?name={{exportAPIProductName}}&version={{exportAPIProductVersion}}&provider={{exportAPIProductProvider}}&format={{exportAPIProductFormat}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"api-products",
+								"export"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "{{exportAPIProductName}}"
+								},
+								{
+									"key": "version",
+									"value": "{{exportAPIProductVersion}}"
+								},
+								{
+									"key": "provider",
+									"value": "{{exportAPIProductProvider}}"
+								},
+								{
+									"key": "format",
+									"value": "{{exportAPIProductFormat}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Import an API",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "Import an API Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/sachini/Downloads/test-artifacts/admin-PizzaShackAPIProduct.zip"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{basepath}}/api-products/import",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"api-products",
+								"import"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subscriptions",
+			"item": [
+				{
+					"name": "Get all Subscriptions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/subscriptions?apiId={{apiId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"subscriptions"
+							],
+							"query": [
+								{
+									"key": "apiId",
+									"value": "{{apiId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Block a Subscription",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/subscriptions/block-subscription?subscriptionId={{subscriptionId}}&blockState={{blockState}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"subscriptions",
+								"block-subscription"
+							],
+							"query": [
+								{
+									"key": "subscriptionId",
+									"value": "{{subscriptionId}}"
+								},
+								{
+									"key": "blockState",
+									"value": "{{blockState}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unblock a Subscription",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/subscriptions/unblock-subscription?subscriptionId={{subscriptionId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"subscriptions",
+								"unblock-subscription"
+							],
+							"query": [
+								{
+									"key": "subscriptionId",
+									"value": "{{subscriptionId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subscriber",
+			"item": [
+				{
+					"name": "Get Details of a User who has Subscribed an API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/subscriptions/{{subscriptionId}}/subscriber-info",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"subscriptions",
+								"{{subscriptionId}}",
+								"subscriber-info"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Throttling Policies",
+			"item": [
+				{
+					"name": "Get Details of a Policy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/throttling-policies/{{policyLevel}}/{{policyName}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"throttling-policies",
+								"{{policyLevel}}",
+								"{{policyName}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Throttling Policies for the Given Type",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/throttling-policies/{{policyLevel}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"throttling-policies",
+								"{{policyLevel}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Global Mediation Policies",
+			"item": [
+				{
+					"name": "Download a Global Mediation Policy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/mediation-policies/{{globalMediationPolicyId}}/content",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"mediation-policies",
+								"{{globalMediationPolicyId}}",
+								"content"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Global Level Mediation Policies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/mediation-policies",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"mediation-policies"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": " Client Certificates",
+			"item": [
+				{
+					"name": "Retrieve/Search Uploaded Client Certificates",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/client-certificates",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"client-certificates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload a New Certificate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "certificate",
+									"type": "file",
+									"src": "/Users/sachini/Downloads/test-artifacts/sample.crt"
+								},
+								{
+									"key": "alias",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "apiId",
+									"value": "{{apiId}}",
+									"type": "text"
+								},
+								{
+									"key": "tier",
+									"value": "Gold",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/client-certificates",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"client-certificates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Certificate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "certificate",
+									"type": "file",
+									"src": "/Users/sachini/Downloads/test-artifacts/sample.crt"
+								},
+								{
+									"key": "tier",
+									"value": "Gold",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/client-certificates/{{alias}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"client-certificates",
+								"{{alias}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the Certificate Information",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/client-certificates/{{alias}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"client-certificates",
+								"{{alias}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download a Certificate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/client-certificates/{{alias}}/content",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"client-certificates",
+								"{{alias}}",
+								"content"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Certificate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/client-certificates/{{alias}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"client-certificates",
+								"{{alias}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Endpoint Certificates",
+			"item": [
+				{
+					"name": "Retrieve/Search Uploaded Certificates",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/endpoint-certificates",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"endpoint-certificates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload a New Certificate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "certificate",
+									"type": "file",
+									"src": "/Users/sachini/Downloads/test-artifacts/test.crt"
+								},
+								{
+									"key": "alias",
+									"value": "{{alias}}",
+									"type": "text"
+								},
+								{
+									"key": "endpoint",
+									"value": "{{endpoint}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{basepath}}/endpoint-certificates",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"endpoint-certificates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the Certificate Information",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/endpoint-certificates/{{alias}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"endpoint-certificates",
+								"{{alias}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Certificate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "certificate",
+									"type": "file",
+									"src": "/Users/sachini/Downloads/test-artifacts/test.crt"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{basepath}}/endpoint-certificates/{{alias}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"endpoint-certificates",
+								"{{alias}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download a Certificate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/endpoint-certificates/{{alias}}/content",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"endpoint-certificates",
+								"{{alias}}",
+								"content"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Certificate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/endpoint-certificates/{{alias}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"endpoint-certificates",
+								"{{alias}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Unified Search",
+			"item": [
+				{
+					"name": "Retrieve/Search APIs and API Documents by Content",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/search?query={{searchTerm}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"search"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "{{searchTerm}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Products",
+			"item": [
+				{
+					"name": "Retrieve/Search API Products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/api-products",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"api-products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a New API Product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"apiProductId\", response.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"PizzaShackAPIProduct\",\n  \"context\": \"pizzaproduct\",\n  \"description\": \"This is a simple API for Pizza Shack online pizza delivery store\",\n  \"provider\": \"admin\",\n  \"state\": \"CREATED\",\n  \"enableSchemaValidation\": false,\n  \"enableStore\": true,\n  \"responseCachingEnabled\": true,\n  \"cacheTimeout\": 300,\n  \"gatewayEnvironments\": [\n    \"Default\"\n  ],\n  \"apiType\": \"APIProduct\",\n  \"transport\": [\n    \"http\",\n    \"https\"\n  ],\n  \"tags\": [\n    \"pizza\",\n    \"product\"\n  ],\n  \"policies\": [\n    \"Unlimited\"\n  ],\n  \"apiThrottlingPolicy\": \"Unlimited\",\n  \"securityScheme\": [\n    \"oauth2\"\n  ],\n  \"subscriptionAvailability\": \"CURRENT_TENANT\",\n  \"additionalProperties\": {\n    \"additionalProp1\": \"additionalPropVal1\"\n  },\n  \"businessInformation\": {\n    \"businessOwner\": \"businessowner\",\n    \"businessOwnerEmail\": \"businessowner@wso2.com\",\n    \"technicalOwner\": \"technicalowner\",\n    \"technicalOwnerEmail\": \"technicalowner@wso2.com\"\n  },\n  \"apis\": [\n    {\n      \"name\": \"PizzaShackAPI\",\n      \"apiId\": \"{{apiId}}\",\n      \"version\": 1.0,\n      \"operations\": [\n        {\n          \"target\": \"/order/{orderId}\",\n          \"verb\": \"POST\",\n          \"authType\": \"Application & Application User\",\n          \"throttlingPolicy\": \"Unlimited\"\n        },\n        {\n            \"target\": \"/menu\",\n            \"verb\": \"GET\",\n            \"authType\": \"Application & Application User\",\n            \"throttlingPolicy\": \"Unlimited\"\n        }\n      ]\n    }\n  ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/api-products",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"api-products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Details of an API Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/api-products/{{apiProductId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"api-products",
+								"{{apiProductId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update an API product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"PizzaShackAPIProduct\",\n  \"context\": \"pizzaproduct\",\n  \"description\": \"This is a simple API for Pizza Shack online pizza delivery store\",\n  \"provider\": \"admin\",\n  \"state\": \"CREATED\",\n  \"enableSchemaValidation\": false,\n  \"enableStore\": true,\n  \"responseCachingEnabled\": true,\n  \"cacheTimeout\": 300,\n  \"gatewayEnvironments\": [\n    \"Default\"\n  ],\n  \"apiType\": \"APIPRODUCT\",\n  \"transport\": [\n    \"http\",\n    \"https\"\n  ],\n  \"tags\": [\n    \"pizza\",\n    \"product\"\n  ],\n  \"policies\": [\n    \"Unlimited\"\n  ],\n  \"apiThrottlingPolicy\": \"Unlimited\",\n  \"securityScheme\": [\n    \"oauth2\"\n  ],\n  \"subscriptionAvailability\": \"CURRENT_TENANT\",\n  \"additionalProperties\": {\n    \"additionalProp1\": \"additionalPropVal1\"\n  },\n  \"businessInformation\": {\n    \"businessOwner\": \"businessowner\",\n    \"businessOwnerEmail\": \"businessowner@wso2.com\",\n    \"technicalOwner\": \"technicalowner\",\n    \"technicalOwnerEmail\": \"technicalowner@wso2.com\"\n  },\n  \"apis\": [\n    {\n      \"name\": \"PizzaShackAPI\",\n      \"apiId\": \"{{pizzashackAPIId}}\",\n      \"version\": 1.0,\n      \"operations\": [\n        {\n          \"target\": \"/order/{orderId}\",\n          \"verb\": \"POST\",\n          \"authType\": \"Application & Application User\",\n          \"throttlingPolicy\": \"Unlimited\"\n        },\n        {\n            \"target\": \"/menu\",\n            \"verb\": \"GET\",\n            \"authType\": \"Application & Application User\",\n            \"throttlingPolicy\": \"Unlimited\"\n        }\n      ]\n    }\n  ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/api-products/{{apiProductId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"api-products",
+								"{{apiProductId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get API Product Thumbnail Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/api-products/{{apiProductId}}/thumbnail",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"api-products",
+								"{{apiProductId}}",
+								"thumbnail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload a Thumbnail Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/sachini/wso2/2020/REST_API_DOCS/postman-resources/image.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{basepath}}/api-products/{{apiProductId}}/thumbnail",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"api-products",
+								"{{apiProductId}}",
+								"thumbnail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Swagger Definition of API Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/api-products/{{apiProductId}}/swagger",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"api-products",
+								"{{apiProductId}}",
+								"swagger"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Whether API Product is Outdated",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/api-products/{{apiProductId}}/is-outdated",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"api-products",
+								"{{apiProductId}}",
+								"is-outdated"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an API Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/api-products/{{apiProductId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"api-products",
+								"{{apiProductId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Product Documents",
+			"item": [
+				{
+					"name": "Get a List of API Product Documents",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/api-products/{{apiProductId}}/documents",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"api-products",
+								"{{apiProductId}}",
+								"documents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a New Document to an API Product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"productDocumentId\", response.documentId);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"CalculatorDoc\",\n  \"type\": \"HOWTO\",\n  \"summary\": \"Summary of Calculator Documentation\",\n  \"sourceType\": \"INLINE\",\n  \"sourceUrl\": \"\",\n  \"fileName\": \"\",\n  \"inlineContent\": \"This is doc content. This can have many lines.\",\n  \"otherTypeName\": \"\",\n  \"visibility\": \"API_LEVEL\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/api-products/{{apiProductId}}/documents",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"api-products",
+								"{{apiProductId}}",
+								"documents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Document of an API Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/api-products/{{apiProductId}}/documents/{{productDocumentId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"api-products",
+								"{{apiProductId}}",
+								"documents",
+								"{{productDocumentId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Document of an API Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"CalculatorDoc\",\n  \"type\": \"HOWTO\",\n  \"summary\": \"Modified Summary of Calculator Documentation\",\n  \"sourceType\": \"INLINE\",\n  \"sourceUrl\": \"\",\n  \"fileName\": \"\",\n  \"inlineContent\": \"This is modified doc content. This can have many lines.\",\n  \"otherTypeName\": \"\",\n  \"visibility\": \"API_LEVEL\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/api-products/{{apiProductId}}/documents/{{productDocumentId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"api-products",
+								"{{apiProductId}}",
+								"documents",
+								"{{productDocumentId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Content to an API Product Document",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "inlineContent",
+									"value": " This is API Product document's inline content.",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/api-products/{{apiProductId}}/documents/{{productDocumentId}}/content",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"api-products",
+								"{{apiProductId}}",
+								"documents",
+								"{{productDocumentId}}",
+								"content"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the Content of an API Product Document",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/api-products/{{apiProductId}}/documents/{{productDocumentId}}/content",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"api-products",
+								"{{apiProductId}}",
+								"documents",
+								"{{productDocumentId}}",
+								"content"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Document of an API Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/api-products/{{apiProductId}}/documents/{{productDocumentId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"api-products",
+								"{{apiProductId}}",
+								"documents",
+								"{{productDocumentId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Roles",
+			"item": [
+				{
+					"name": "Check Whether the Logged-in User has the Given Role",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "HEAD",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/me/roles/{{roleId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"me",
+								"roles",
+								"{{roleId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Whether Given Role Name already Exists",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "HEAD",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/roles/{{roleId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"roles",
+								"{{roleId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Settings",
+			"item": [
+				{
+					"name": "Retreive Publisher Settings",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/settings",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"settings"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tenants",
+			"item": [
+				{
+					"name": "Get Tenants by State",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/tenants?state=active",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"tenants"
+							],
+							"query": [
+								{
+									"key": "state",
+									"value": "active"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Whether the Given Tenant already Exists",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "HEAD",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/tenants/{{tenantId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"tenants",
+								"{{tenantId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Categories",
+			"item": [
+				{
+					"name": "Get All API Categories",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/api-categories",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"api-categories"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Scopes",
+			"item": [
+				{
+					"name": "Add a New Shared Scope",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"scopeId\", response.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"apim:api_publish\",\n\"displayName\": \"apim:api_publish\",\n\"description\": \"This Scope can used to publish APIs\",\n\"bindings\": [\"admin\"],\n\"usageCount\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/scopes",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"scopes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Available Shared Scopes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/scopes",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"scopes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Shared Scope by Scope Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/scopes/{{scopeId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"scopes",
+								"{{scopeId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Shared Scope",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"apim:api_publish\",\n\"displayName\": \"apim:api_publish\",\n\"description\": \"This Scope can used to publish APIs. Modified description.\",\n\"bindings\": [\"admin\"],\n\"usageCount\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/scopes/{{scopeId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"scopes",
+								"{{scopeId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Whether Given Scope Name Already Exists",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "HEAD",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/scopes/{{scopeName}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"scopes",
+								"{{scopeName}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Usages of a Shared Scope by Scope Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/scopes/{{scopeId}}/usage",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"scopes",
+								"{{scopeId}}",
+								"usage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Shared Scope",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/scopes/{{scopeId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"scopes",
+								"{{scopeId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Key Managers",
+			"item": [
+				{
+					"name": "Get All Key Managers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/key-managers",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"key-managers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Monetization",
+			"item": [
+				{
+					"name": "Configure Monetization for a Given API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"enabled\": true,\n  \"properties\": {\n    \"property1\": \"string\",\n    \"property2\": \"string\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/monetize",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"monetize"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Monetization Status for Each Tier in a Given API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/monetization",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"monetization"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Total Revenue of a Given Monetized API with Meterd Billing",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/revenue",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"revenue"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Details of a Pending Invoice for a Monetized Subscription",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/subscriptions/{{subscriptionId}}/usage",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"subscriptions",
+								"{{subscriptionId}}",
+								"usage"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GraphQL Policies",
+			"item": [
+				{
+					"name": "Get the Complexity Details of an API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{graphqlApiId}}/graphql-policies/complexity",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{graphqlApiId}}",
+								"graphql-policies",
+								"complexity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Complexity Details of an API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"list\": [\n        {\n        \"type\": \"Country\",\n        \"field\": \"name\",\n        \"complexityValue\": 1\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{graphqlApiId}}/graphql-policies/complexity",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{graphqlApiId}}",
+								"graphql-policies",
+								"complexity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Types and Fields of a GraphQL Schema",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"list\": [\n        {\n        \"type\": \"Country\",\n        \"field\": \"name\",\n        \"complexityValue\": 1\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{graphqlApiId}}/graphql-policies/complexity/types",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{graphqlApiId}}",
+								"graphql-policies",
+								"complexity",
+								"types"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "Add an API Comment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"commentId\", response.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"content\": \"This is a comment\",\n\"category\": \"general\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/comments",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve API Comments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/comments",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve an API Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"content\": \"This is an updated comment\",\n\"category\": \"general\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/comments/{{commentId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"comments",
+								"{{commentId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Details of an API Comment Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/comments/{{commentId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"comments",
+								"{{commentId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Replies to a Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/comments/{{commentId}}/replies",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"comments",
+								"{{commentId}}",
+								"replies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an API Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/comments/{{commentId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"comments",
+								"{{commentId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Revisions",
+			"item": [
+				{
+					"name": "List Revisions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/revisions",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"revisions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create API Revision",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"revisionId\", response.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"description\": \"removed a post resource\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/revisions",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"revisions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Revision",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/revisions/{{revisionId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"revisions",
+								"{{revisionId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Revision",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/revisions/{{revisionId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"revisions",
+								"{{revisionId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Deployments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/deployments",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"deployments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deploy Revision",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"name\": \"Default\",\n        \"vhost\": \"localhost\",\n        \"displayOnDevportal\": true\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/deploy-revision?revisionId={{revisionId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"deploy-revision"
+							],
+							"query": [
+								{
+									"key": "revisionId",
+									"value": "{{revisionId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Undeploy Revision",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\"name\": \"Default\", \"displayOnDevportal\": false}]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/undeploy-revision?revisionId={{revisionId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"undeploy-revision"
+							],
+							"query": [
+								{
+									"key": "revisionId",
+									"value": "{{revisionId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Restore Revision",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/restore-revision?revisionId={{revisionId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"restore-revision"
+							],
+							"query": [
+								{
+									"key": "revisionId",
+									"value": "{{revisionId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update deployment devportal visibility",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"Default\",\n\"vhost\": \"localhost\",\n\"displayOnDevportal\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/deployments/{{deploymentId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"deployments",
+								"{{deploymentId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Product Revisions",
+			"item": [
+				{
+					"name": "List Revisions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/api-products/{{apiProductId}}/revisions",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"api-products",
+								"{{apiProductId}}",
+								"revisions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create API Product Revision",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"revisionId\", response.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"description\": \"removed a post resource\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/api-products/{{apiProductId}}/revisions",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"api-products",
+								"{{apiProductId}}",
+								"revisions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Revision",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/api-products/{{apiProductId}}/revisions/{{revisionId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"api-products",
+								"{{apiProductId}}",
+								"revisions",
+								"{{revisionId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Revision",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/api-products/{{apiProductId}}/revisions/{{revisionId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"api-products",
+								"{{apiProductId}}",
+								"revisions",
+								"{{revisionId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Deployments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/api-products/{{apiProductId}}/deployments",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"api-products",
+								"{{apiProductId}}",
+								"deployments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deploy Revision",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"name\": \"Default\",\n        \"vhost\": \"localhost\",\n        \"displayOnDevportal\": true\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/api-products/{{apiProductId}}/deploy-revision?revisionId={{revisionId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"api-products",
+								"{{apiProductId}}",
+								"deploy-revision"
+							],
+							"query": [
+								{
+									"key": "revisionId",
+									"value": "{{revisionId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Undeploy Revision",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\"name\": \"Default\", \"displayOnDevportal\": false}]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/api-products/{{apiProductId}}/undeploy-revision?revisionId={{revisionId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"api-products",
+								"{{apiProductId}}",
+								"undeploy-revision"
+							],
+							"query": [
+								{
+									"key": "revisionId",
+									"value": "{{revisionId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Restore Revision",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/api-products/{{apiProductId}}/restore-revision?revisionId={{revisionId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"api-products",
+								"{{apiProductId}}",
+								"restore-revision"
+							],
+							"query": [
+								{
+									"key": "revisionId",
+									"value": "{{revisionId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update deployment devportal visibility",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"Default\",\n\"vhost\": \"localhost\",\n\"displayOnDevportal\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/api-products/{{apiProductId}}/deployments/{{deploymentId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"api-products",
+								"{{apiProductId}}",
+								"deployments",
+								"{{deploymentId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "access-token",
+			"value": "42607a35-21c0-340c-8a34-871b7c1e8518"
+		},
+		{
+			"key": "apiId",
+			"value": "b4d4deba-3388-4983-99cd-ea0863e3e204"
+		},
+		{
+			"key": "resourcePath",
+			"value": "checkPhoneNumber"
+		},
+		{
+			"key": "verb",
+			"value": "post"
+		},
+		{
+			"key": "sequenceType",
+			"value": "in"
+		},
+		{
+			"key": "resourcePolicyId",
+			"value": "948d23e0-0927-4652-8373-eb8c01e7f7c4"
+		},
+		{
+			"key": "newVersion",
+			"value": "2.0"
+		},
+		{
+			"key": "isDefaultVersion",
+			"value": "false"
+		},
+		{
+			"key": "lifecycleChecklist",
+			"value": "Deprecate%20old%20versions%20after%20publishing%20the%20API%3Atrue,Requires%20re-subscription%20when%20publishing%20the%20API%3Afalse"
+		},
+		{
+			"key": "action",
+			"value": "Publish"
+		},
+		{
+			"key": "endpointURL",
+			"value": "https://petstore.swagger.io"
+		},
+		{
+			"key": "api-name",
+			"value": "PizzaShackAPI"
+		},
+		{
+			"key": "basepath",
+			"value": "https://localhost:9443/api/am/publisher/v2"
+		},
+		{
+			"key": "documentId",
+			"value": "f816c01a-afc7-49bd-92db-661ab99bab32"
+		},
+		{
+			"key": "apiDocName",
+			"value": "CalculatorDoc"
+		},
+		{
+			"key": "mediationPolicyId",
+			"value": "44791bfe-080e-46ff-bf32-18103f729461"
+		},
+		{
+			"key": "externalStoreIds",
+			"value": "Store123"
+		},
+		{
+			"key": "exportAPIProvider",
+			"value": "admin"
+		},
+		{
+			"key": "exportAPIVersion",
+			"value": "1.0"
+		},
+		{
+			"key": "exportAPIName",
+			"value": "PizzaShackAPI"
+		},
+		{
+			"key": "exportAPIFormat",
+			"value": "YAML"
+		},
+		{
+			"key": "exportAPIId",
+			"value": "e0824883-3e86-403a-aec1-22bbc454eb7c"
+		},
+		{
+			"key": "subscriptionId",
+			"value": "58a7d387-d0a6-4042-90b2-677b51d4ddd0"
+		},
+		{
+			"key": "blockState",
+			"value": "PROD_ONLY_BLOCKED"
+		},
+		{
+			"key": "policyLevel",
+			"value": "api"
+		},
+		{
+			"key": "policyName",
+			"value": "10KPerMin"
+		},
+		{
+			"key": "alias",
+			"value": "test"
+		},
+		{
+			"key": "endpoint",
+			"value": "https://petstore.swagger.io"
+		},
+		{
+			"key": "searchTerm",
+			"value": "PizzaShackAPI"
+		},
+		{
+			"key": "apiProductId",
+			"value": "1cdedb2d-d062-4151-8b88-3c361ae7fe89"
+		},
+		{
+			"key": "productDocumentId",
+			"value": "19f2eaf5-a3e8-4f25-af52-adc92bb5c62c"
+		},
+		{
+			"key": "roleId",
+			"value": "SW50ZXJuYWwvcHVibGlzaGVyCQ"
+		},
+		{
+			"key": "tenantId",
+			"value": "wso2.com"
+		},
+		{
+			"key": "scopeId",
+			"value": "50163120-db4a-402e-a326-c92432836cc5"
+		},
+		{
+			"key": "scopeName",
+			"value": "VGVzdFNjb3Bl"
+		},
+		{
+			"key": "sampleRestAPIPayload",
+			"value": "{\n    \"name\": \"PizzaShackAPI\",\n    \"description\": \"This is a simple API for Pizza Shack online pizza delivery store.\",\n    \"context\": \"pizza\",\n    \"version\": \"1.0.0\",\n    \"provider\": \"admin\",\n    \"lifeCycleStatus\": \"CREATED\",\n    \"responseCachingEnabled\": false,\n    \"hasThumbnail\": false,\n    \"isDefaultVersion\": false,\n    \"enableSchemaValidation\": false,\n    \"type\": \"HTTP\",\n    \"transport\": [\n      \"http\",\n      \"https\"\n    ],\n    \"tags\": [\n      \"substract\",\n      \"add\"\n    ],\n    \"policies\": [\n      \"Unlimited\"\n    ],\n    \"apiThrottlingPolicy\": \"Unlimited\",\n    \"securityScheme\": [\"oauth2\"],\n    \"maxTps\": {\n      \"production\": 1000,\n      \"sandbox\": 1000\n    },\n    \"visibility\": \"PUBLIC\",\n    \"visibleRoles\": [],\n    \"visibleTenants\": [],\n    \"subscriptionAvailability\": \"CURRENT_TENANT\",\n    \"additionalProperties\": [\n      {\n          \"name\" : \"AdditionalProperty\",\n          \"value\" : \"PropertyValue\",\n          \"display\" : true \n      }\n    ],\n    \"accessControl\": \"NONE\",\n    \"businessInformation\": {\n      \"businessOwner\": \"John Doe\",\n      \"businessOwnerEmail\": \"johndoe@wso2.com\",\n      \"technicalOwner\": \"Jane Roe\",\n      \"technicalOwnerEmail\": \"janeroe@wso2.com\"\n    },\n    \"endpointConfig\": {\n      \"endpoint_type\": \"http\",\n      \"sandbox_endpoints\": {\n        \"url\": \"https://localhost:9443/am/sample/pizzashack/v1/api/\"\n      },\n      \"production_endpoints\": {\n        \"url\": \"https://localhost:9443/am/sample/pizzashack/v1/api/\"\n      }\n    },\n    \"operations\": [\n      {\n        \"target\": \"/order/{orderId}\",\n        \"verb\": \"POST\",\n        \"authType\": \"Application & Application User\",\n        \"throttlingPolicy\": \"Unlimited\"\n      },\n      {\n        \"target\": \"/menu\",\n        \"verb\": \"GET\",\n        \"authType\": \"Application & Application User\",\n        \"throttlingPolicy\": \"Unlimited\"\n      }\n    ]\n  }"
+		},
+		{
+			"key": "sampleWebSocketAPIPayload",
+			"value": "{\n  \"name\": \"EchoWebSocket\",\n  \"description\": \"This is a sample websocket API.\",\n  \"context\": \"echowebsocket\",\n  \"version\": \"1.0.0\",\n  \"provider\": \"admin\",\n  \"lifeCycleStatus\": \"CREATED\",\n  \"responseCachingEnabled\": false,\n  \"destinationStatsEnabled\": \"Disabled\",\n  \"hasThumbnail\": false,\n  \"isDefaultVersion\": false,\n  \"enableSchemaValidation\": false,\n  \"enableStore\": true,\n  \"type\": \"WS\",\n  \"transport\": [\n    \"http\",\n    \"https\"\n  ],\n  \"tags\": [\n    \"websocket\"\n  ],\n  \"policies\": [\n    \"Unlimited\"\n  ],\n  \"apiThrottlingPolicy\": \"Unlimited\",\n  \"securityScheme\": [\"oauth2\"],\n  \"maxTps\": {\n    \"production\": 1000,\n    \"sandbox\": 1000\n  },\n  \"visibility\": \"PUBLIC\",\n  \"visibleRoles\": [],\n  \"visibleTenants\": [],\n  \"gatewayEnvironments\": [\n    \"Default\"\n  ],\n  \"subscriptionAvailability\": \"CURRENT_TENANT\",\n  \"additionalProperties\": {\n    \"additionalProp1\": \"additionalPropVal1\"\n  },\n  \"accessControl\": \"NONE\",\n  \"businessInformation\": {\n    \"businessOwner\": \"John Doe\",\n    \"businessOwnerEmail\": \"johndoe@wso2.com\",\n    \"technicalOwner\": \"Jane Roe\",\n    \"technicalOwnerEmail\": \"janeroe@wso2.com\"\n  },\n  \"endpointConfig\": {\n    \"endpoint_type\": \"http\",\n    \"sandbox_endpoints\": {\n      \"url\": \"ws://echo.websocket.org:80\"\n    },\n    \"production_endpoints\": {\n      \"url\": \"ws://echo.websocket.org:80\"\n    }\n  }\n}"
+		},
+		{
+			"key": "base64(username:password)",
+			"value": "YWRtaW46YWRtaW4="
+		},
+		{
+			"key": "globalMediationPolicyId",
+			"value": "d48a3412-1b85-49be-99f4-b81a3722ae73"
+		},
+		{
+			"key": "pizzashackAPIId",
+			"value": "b4d4deba-3388-4983-99cd-ea0863e3e204"
+		},
+		{
+			"key": "graphqlApiId",
+			"value": ""
+		},
+		{
+			"key": "wsdlApiId",
+			"value": ""
+		},
+		{
+			"key": "dcrClientId",
+			"value": ""
+		},
+		{
+			"key": "dcrClientSecret",
+			"value": ""
+		},
+		{
+			"key": "base64EncodedDCRCredentials",
+			"value": ""
+		},
+		{
+			"key": "tokenEndpoint",
+			"value": "https://localhost:9443/oauth2/token"
+		},
+		{
+			"key": "username",
+			"value": "admin"
+		},
+		{
+			"key": "password",
+			"value": "admin"
+		},
+		{
+			"key": "restAPIScopes",
+			"value": ""
+		},
+		{
+			"key": "dcrEndpoint",
+			"value": "https://localhost:9443/client-registration/v0.17/register"
+		},
+		{
+			"key": "commentId",
+			"value": "f4549748-eaee-4932-8dd0-df9f0c7efa2d"
+		},
+		{
+			"key": "exportAPIProductName",
+			"value": "PizzaShackAPIProduct"
+		},
+		{
+			"key": "exportAPIProductVersion",
+			"value": "1.0.0"
+		},
+		{
+			"key": "exportAPIProductProvider",
+			"value": "admin"
+		},
+		{
+			"key": "exportAPIProductFormat",
+			"value": "YAML"
+		},
+		{
+			"key": "revisionId",
+			"value": "45f76522-d293-4eb8-ab83-f3fde6098042"
+		}
+	]
+}

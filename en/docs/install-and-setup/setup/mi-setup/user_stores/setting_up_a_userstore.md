@@ -10,17 +10,21 @@ Find out about [user credentials in the Micro Integrator]({{base_path}}/install-
 
 The default user store of the Micro Integrator is file-based. You can open the `deployment.toml` file and add new users to the file-based user store as shown below. You can [encrypt the plain text]({{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text) using **secure vault**.
 
+!!! Tip
+    Set `user.is_admin` to `true` to grant admin privileges to a user in the file-based user store.
+
 ```toml
 [[internal_apis.users]]
 user.name = "user-1"
 user.password = "pwd-1"
+user.is_admin = true
 
 [[internal_apis.users]]
 user.name = "user-2"
 user.password = "pwd-2"
 ``` 
 
-The users in this store can only access the management API and related tools ([Micro Integrator dashboard]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard)/[API Controller]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller). That is, the file-based user store only supports user authentication for the management API. If you want to use **authentication for integration use cases** or **authorization**, you need an [LDAP](#configuring-an-ldap-user-store) or [RDBMS](#configuring-an-rdbms-user-store) user store.
+The users in this store can only access the management API and related tools ([Micro Integrator dashboard]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard)/[API Controller]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller). That is, the file-based user store only supports user authentication and authorization for the management API. If you want to use **authentication for integration use cases**, you need an [LDAP](#configuring-an-ldap-user-store) or [RDBMS](#configuring-an-rdbms-user-store) user store.
 
 ## Disabling the file-based user store
 
@@ -106,6 +110,20 @@ Follow the steps given below to connect the Micro Integrator to your LDAP user s
 	</table>
 
 See the [complete list of parameters]({{base_path}}/reference/config-catalog-mi/#ldap-user-store) you can configure for the ldap user store.
+
+If hybrid role support is required, configure a Carbon datasource as in the following example (to create the datasource, use the relevant DB_TYPE_user.sql scripts in `<MI_HOME>/dbscripts/` directory).
+
+```toml
+[[datasource]]
+id = "WSO2CarbonDB"
+url= "jdbc:mysql://localhost:3306/primaryDB"
+username="root"
+password="root"
+driver="com.mysql.jdbc.Driver"
+pool_options.maxActive=50
+pool_options.maxWait = 60000
+pool_options.testOnBorrow = true
+```
 
 ## Configuring an RDBMS user store
 
@@ -269,4 +287,4 @@ If you are already using a JDBC user store (database) with another WSO2 product 
 
 ## What's next?
 
-See [Managing Users]{{base_path}}/install-and-setup/setup/mi-setup/user_stores/managing_users) for instructions on adding, deleting, or viewing users in the user store.
+For instructions on adding, deleting, or viewing users in the user store, see [Managing Users]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/managing_users).

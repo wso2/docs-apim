@@ -16,7 +16,7 @@ Follow the steps below to publish an API using WSO2 API Manager.
 
      [![Lifecycle tab]({{base_path}}/assets/img/learn/lifecycle-tab.png)]({{base_path}}/assets/img/learn/lifecycle-tab.png)
 
-     The lifecycle state transition grid appears. Before publishing an API, the following requirements have to be satisfied.publish-through-multiple-api-gateways.md
+     The lifecycle state transition grid appears. Before publishing an API, the following requirements have to be satisfied.
 
         -   Endpoint provided
         -   Business Plan(s) selected
@@ -34,6 +34,6 @@ Follow the steps below to publish an API using WSO2 API Manager.
 
      [![Published lifecycle state]({{base_path}}/assets/img/learn/api-state-change-to-publish.png)]({{base_path}}/assets/img/learn/api-state-change-to-publish.png) 
      
-5. Nagivate to the Developer Portal (`https://<hostname>:9443/devportal`).
+5. Navigate to the Developer Portal (`https://<hostname>:9443/devportal`).
      
      Note that the API that you published is visible under the **APIs** listing.

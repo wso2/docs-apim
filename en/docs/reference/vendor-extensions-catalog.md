@@ -2,20 +2,22 @@
  
 WSO2 API Manager utilizes the vendor extensions support in [Open API specification](#https://swagger.io/docs/specification/openapi-extensions/), to store operations such as throttling, against each API.
 As per the current implementation, following extensions are supported by API Manager:
- 
--   [x-auth-type](#x-auth-type)
--   [x-throttling-tier](#x-throttling-tier)
--   [x-wso2-auth-header](#x-wso2-auth-header)
--   [x-wso2-cors](#x-wso2-cors)
--   [x-wso2-production-endpoints](#x-wso2-production-endpoints)
--   [x-wso2-sandbox-endpoints](#x-wso2-sandbox-endpoints)
--   [x-wso2-basePath](#x-wso2-basePath)
--   [x-wso2-transports](#x-wso2-transports)
--   [x-scopes-bindings](#x-scopes-bindings)
--   [x-scopes-mappings](#x-scopes-mappings)
--   [x-wso2-soap](#x-wso2-soap)
--   [x-wso2-mutual-ssl](#x-wso2-mutual-ssl)
--   [x-wso2-auth-header](#x-wso2-auth-header)
+
+  - [x-auth-type](#x-auth-type)
+  - [x-throttling-tier](#x-throttling-tier)
+  - [x-wso2-auth-header](#x-wso2-auth-header)
+  - [x-wso2-cors](#x-wso2-cors)
+  - [x-wso2-production-endpoints](#x-wso2-production-endpoints)
+  - [x-wso2-sandbox-endpoints](#x-wso2-sandbox-endpoints)
+  - [x-wso2-endpoints](#x-wso2-endpoints)
+  - [x-wso2-basePath](#x-wso2-basepath)
+  - [x-wso2-transports](#x-wso2-transports)
+  - [x-scopes-mappings](#x-scopes-mappings)
+  - [x-scopes-bindings](#x-scopes-bindings)
+  - [x-wso2-soap](#x-wso2-soap)
+  - [x-wso2-mutual-ssl](#x-wso2-mutual-ssl)
+  - [x-wso2-response-cache](#x-wso2-response-cache)
+  - [x-wso2-pass-request-payload-to-enforcer](#x-wso2-pass-request-payload-to-enforcer)
  
 ## x-auth-type
  
@@ -30,6 +32,11 @@ x-auth-type could be any of the following values:
 | Application User               | Token generated specific to the end-user is required to invoke the API    |
 | Application & Application User | Both type of tokens can be used to invoke the API                         |
  
+!!! danger "Deprecated feature"
+    The Application and Application User separation used in API-M 2.x is deprecated from API-M 3.x and later. Security for the resources is `enabled` or `disabled`(Application and Application User in API definition is treated as security enabled).
+
+    Therefore, it is recommended to use scopes to restrict the API resource invocation. For instructions on how to do this, see [Fine Grained Access Control with OAuth Scopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#fine-grained-access-control-with-oauth-scopes)
+
 The following example applies Application User authentication type to the given API resource:
        ```
         paths:
@@ -99,13 +106,13 @@ The following table lists the properties that need to add to configure the CORS 
  
 | Properties                    | Type    | Description                                                              |
 |-------------------------------|---------|--------------------------------------------------------------------------|
-| corsConfigurationEnabled      | Boolean | Specifies whether CORs is enabled                                        |
+| corsConfigurationEnabled      | Boolean | Specifies whether CORS is enabled                                        |
 | accessControlAllowOrigins     | String  | Specifies the allowed origins                                            |
 | accessControlAllowCredentials | Boolean | Specifies whether the response to the request can be exposed to the page |
 | accessControlAllowHeaders     | String  | Specifies the allowed headers.                                           |
 | accessControlAllowMethods     | String  | Specifies the allowed HTTP methods.                                      |
  
-The following example enables the CORs configuration of the API, by allowing all origins.
+The following example enables the CORS configuration of the API, by allowing all origins.
        ```
         x-wso2-cors:
             corsConfigurationEnabled: true
@@ -126,7 +133,8 @@ The following example enables the CORs configuration of the API, by allowing all
  
 ## x-wso2-production-endpoints
  
-**x-wso2-production-endpoints** specifies the production endpoint configuration and applied at root level API definition.
+**x-wso2-production-endpoints** specifies the production endpoint configuration and is applied at root level or resource 
+level in API definitions.
  
 The following table lists the attributes that can be configured under x-wso2-production-endpoints:
  
@@ -145,7 +153,8 @@ The following example illustrates how to define **x-wso2-production-endpoints** 
  
 ## x-wso2-sandbox-endpoints
  
-**x-wso2-sandbox-endpoints** specifies the sandbox endpoint configuration and applied at root level API definition.
+**x-wso2-sandbox-endpoints** specifies the sandbox endpoint configuration and is applied at root level or resource level 
+in API definitions.
  
 The following table lists the attributes that can be configured under x-wso2-sandbox-endpoints:
  
@@ -161,6 +170,40 @@ The following example illustrates how to define **x-wso2-sandbox-endpoints** ext
                 - 'https://petstore.swagger.io/v2'
             type: http
        ```
+
+## x-wso2-endpoints
+
+**x-wso2-endpoints** defines the endpoint configuration globally, which thereafter can be referred to using one of the
+following extensions.
+
+- **x-wso2-production-endpoints**
+- **x-wso2-sandbox-endpoints**
+
+When there are resource level endpoints, the same endpoint can be available in multiple resources - this causes data
+duplication in the OpenAPI definition. In order to avoid that, endpoints can be provided under the reference model
+(by referring to x-wso2-endpoints).
+
+The following table lists the attributes that can be configured under x-wso2-endpoints:
+
+| Properties    | Type   | Description                                                                           |
+|---------------|--------|---------------------------------------------------------------------------------------|
+| endpoint name | String | Specifies name for the endpoint                                                       |
+| urls          | String | Specifies the endpoint URL                                                            |
+
+The following example illustrates how to define **x-wso2-endpoints** extension:
+        ```
+        ...
+        x-wso2-production-endpoints: "#/x-wso2-endpoints/myEndpoint1"
+        ...
+        x-wso2-endpoints:
+          - myEndpoint1:
+              urls:
+              - https://localhost:2380/v1
+          - myEndpoint2:
+              urls:
+              - https://localhost:2382/v2
+        ...
+        ```
 
 ## x-wso2-basePath
  
@@ -276,4 +319,13 @@ The response cache enabling and the timeout for an API can be specified as follo
             enabled: true
             cacheTimeoutInSeconds: 600
        ```
- 
+
+## x-wso2-pass-request-payload-to-enforcer
+
+**x-wso2-pass-request-payload-to-enforcer** is an optional extension used to disable request payload passing from the Router to the Enforcer in Choreo Connect deployments. By default, request payload passing is in **disabled** mode. Without this extension, if request payload passing is enabled, all other APIs will pass the request payloads to the Enforcer. 
+
+If you need to **disable request payload passing for a specific API**, you need to add this extension at the root level of the API definitions and assign the value as `false` as shown below:
+
+```
+x-wso2-pass-request-payload-to-enforcer: false
+```

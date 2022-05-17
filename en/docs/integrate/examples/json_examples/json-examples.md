@@ -217,7 +217,7 @@ JSON representation of empty XML element will change as below by adding `'synaps
 ```
 
 !!! Info
-    `'synapse.commons.enableXmlNullForEmptyElement` property surrounded with single quotation to identify it as whole string rather dot separated toml object.
+    `'synapse.commons.enableXmlNullForEmptyElement` property surrounded with single quotation to identify it as whole string rather dot separated TOML object.
 
 ### Empty XML elements with the 'nil' attribute
 
@@ -235,7 +235,7 @@ By default, the above XML element converts to JSON as shown below.
 {"object":{"@nil":"true"}}
 ```
 
-If you set the `synapse.enable_xml_nil=true` property in the `deployment.toml` file `[mediation]` section (stored in the `MI_HOME/conf/` directory), XML elements where the 'nil' attribue is set to true will be represented in JSON as null objects as shown below.
+If you set the `synapse.enable_xml_nil=true` property in the `deployment.toml` file `[mediation]` section (stored in the `MI_HOME/conf/` directory), XML elements where the 'nil' attribute is set to true will be represented in JSON as null objects as shown below.
 
 ``` javascript
 {"object":null}
@@ -477,6 +477,9 @@ The following table summarizes sample JSONPath expressions and their outputs:
 </tbody>
 </table>
 
+!!! Info
+    During mediation, evaluating expressions against a property does not modify the original payload. The changes will be reflected within the property itself and hence, it cannot be expected to get applied for the rest of the mediation similar to payload modification.
+    
 We can also evaluate a JSONPath expression against a property that contains a JSON payload.
 
 To evaluate a JSONPath expression against a  property, use the following syntax.
@@ -1172,4 +1175,4 @@ For example:
  logger.JsonStreamBuilder.name = org.apache.synapse.commons.json.JsonStreamBuilder
  logger.JsonStreamBuilder.level = DEBUG
  ```
-For more instructions on adding loggers, see [Configuring Log4j Properties]({{base_path}}/install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties).
+For more instructions on adding loggers, see [Configuring Log4j Properties]({{base_path}}/observe/micro-integrator/classic-observability-logs/configuring-log4j2-properties).

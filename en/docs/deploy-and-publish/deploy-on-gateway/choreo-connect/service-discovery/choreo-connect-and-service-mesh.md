@@ -1,4 +1,4 @@
-# Configure Choreo Connect with Consul service mesh
+# Configuring Choreo Connect with Consul Service Mesh
 
 In a traditional on-premise datacenter, components inside the datacenter are considered secure. Any component inside the data center could communicate with another component.
 If one node is compromised, the attacker could gain access to many components inside the data center.
@@ -10,14 +10,19 @@ This part of the document describes how to set up Choreo Connect with Consul ser
 
 Example:
 
-![service discovery]({{base_path}}/assets/img/deploy/consul-reference-with-mesh.png)
+[![service discovery]({{base_path}}/assets/img/deploy/consul-reference-with-mesh.png){: style="width:70%"}]({{base_path}}/assets/img/deploy/consul-reference-with-mesh.png)
 
 ## Step 1 - Setup Consul
+
 Set up Consul securely.<br>
 For more instructions, see the [Consul official documentation](https://www.consul.io/docs).
+
 ## Step 2 - Add Choreo Connect as a native service in Consul
+
 You can use the Consul HTTP API to add Choreo Connect as a native service.<br>
+
 Example Request:
+
 ```shell
 curl \
 --request PUT \
@@ -25,6 +30,7 @@ curl \
 http://169.254.1.1:8500/v1/agent/service/register
 ```
 Example payload file:
+
 ```json
 {
   "service": {
@@ -41,30 +47,33 @@ Example payload file:
   }
 }
 ```
-For more information refer [Consul HTTP API](https://www.consul.io/api-docs/agent/service#register-service)
+
+For more information, see [Consul HTTP API](https://www.consul.io/api-docs/agent/service#register-service) in the Consul official documentation.
 
 ## Step 3 - Configure Choreo Connect
-Refer to the Adapter section to the main configuration file of Choreo Connect (`config.toml` file). 
+
+Refer to the Adapter section to the main configuration file of Choreo Connect (`config.toml` file).
+
 ```
 [adapter.consul]
-  enable = true
+  enabled = true
   url = "https://169.254.1.1:8501"
   pollInterval = 5
-  aclToken = "d3a2a719-4221-8c65-5212-58d4727427ac"
+  ACLToken = "d3a2a719-4221-8c65-5212-58d4727427ac"
   mgwServiceName = "choreo-connect"
   serviceMeshEnabled = true
   caCertFile = "/home/wso2/security/truststore/consul/consul-agent-ca.pem"
   certFile = "/home/wso2/security/truststore/consul/local-dc-client-consul-0.pem"
   keyFile = "/home/wso2/security/truststore/consul/local-dc-client-consul-0-key.pem"
 ```
-<ol>
-<li>Change the `url` to the url of the Consul agent you want to connect to.<br></li>
-<li>Change the `aclToken` to the token you generated from the previous step.<br></li>
-<li>Make sure the property `serviceMeshEnabled` is set to `true`.<br></li>
-<li>`mgwServiceName` should be the name you registered Choreo Connect as Consul service.<br></li>
-<li>Add the `caCertFile`, `certFile`, and `keyFile` you generated from the previous step.<br></li>
-<li>Start Choreo Connect.</li>
-</ol>
+
+1. Change the `url` to the URL of the Consul agent you want to connect to.
+2. Change the `ACLToken` to the token you generated from the previous step.
+3. Make sure the `serviceMeshEnabled` property  is set to `true`.
+4. The `mgwServiceName` property should be the name that you used to register Choreo Connect as a Consul service.
+5. Add the paths to the `caCertFile`, `certFile`, and `keyFile` files that you generated from the previous step.
+6. Start Choreo Connect.
 
 ## Step 4 - Deploy the API
-You can use either WSO2 API Manager or APICTL to deploy APIs as described in [how to define the endpoints]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/service-discovery/service-discovery-overview/#how-to-define-the-endpoints) guide.
+
+You can use either WSO2 API Manager or APICTL to deploy APIs as described in [defining the endpoints]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/service-discovery/service-discovery-overview/#defining-the-endpoints).

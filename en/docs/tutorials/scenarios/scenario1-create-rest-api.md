@@ -2,7 +2,7 @@
 
 This tutorial is part of a series that guides you through all the capabilities of API Manager. This involves creating a REST API from an OpenAPI Definition. For more details on the scenario and general prerequisites, please see [the scenario overview page]({{base_path}}/tutorials/scenarios/scenario-overview).
 
-**_Time to Complete : 10 mins_**
+**_Time to Complete : 10 minutes_**
 
 ## User story
 
@@ -67,7 +67,10 @@ Before Publishing the API, Coltrain developers want to test this API. WSO2 API M
 
 ## Step 4: Deploy the API in the Gateway
 
-Before starting to test the API, you need to deploy the API in the Gateway. For that, go to **Deploy → Deployment** section and select **Deploy** . This will deploy the API in the Gateway but the API will not be visible to the outside world.
+Before starting to test the API, you need to deploy the API in the Gateway. 
+First you need to select a business plan for the API. For that, go to **Develop → Subscriptions** section and select **Unlimited** and save.
+After that, go to the **Deploy → Deployment** section and select **Deploy**. This will deploy the API in the Gateway but the API will not be visible to the outside world.
+
 
 ![Deploy API]({{base_path}}/assets/img/tutorials/scenarios/deploy-coltrain-public.png)
 
@@ -87,10 +90,9 @@ Now testing is done from the publisher end.
 
 The API needs to be published in-order to access it from the Developer portal. For that,
 
-1. Go to **Portal Configurations → Subscriptions** and select one from **Business Plans**. Select a business plan (say “Unlimited”) and save.
-2. Go to **Lifecycle** section and select **Publish**.
+Go to **Lifecycle** section and select **Publish**.
 
-Now the API is published. To view this API go to https://localhost:9443/devportal/ Dev portal and select **Coltrain** tenant domain. This will redirect you to the Coltrain developer portal.
+Now the API is published. To view this API go to https://localhost:9443/devportal/ Developer portal and select **Coltrain** tenant domain. This will redirect you to the Coltrain developer portal.
 
 Select the **ColTrainScheduleCommunityAPI** and select the **Try-Out** button from the left menu. This will open up an in-built API console for this API. You could now try out the API by clicking the resources. 
 

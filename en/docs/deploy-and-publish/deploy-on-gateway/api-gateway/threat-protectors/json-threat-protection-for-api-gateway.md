@@ -42,7 +42,7 @@ To edit the existing sequence follow the steps below.
 
 ### Applying the JSON validator policy
 
-You can apply the pre-defined JSON Policy through the UI. Follow the instructions below to apply the json\_validator 
+You can apply the predefined JSON Policy through the UI. Follow the instructions below to apply the json\_validator 
 in sequence.
 
 -   Create an API or edit an existing API.
@@ -53,7 +53,7 @@ in sequence.
 
 -   Select `json\_validator` from the drop-down menu for Common Policies.
 
-    [ ![]({{base_path}}/assets/img/learn/mediation-json-validator.png) ]({{base_path}}/assets/img/learn/mediation-json-validator.png)
+    <a href="{{base_path}}/assets/img/learn/mediation-json-validator.png"><img src="{{base_path}}/assets/img/learn/mediation-json-validator.png" width="70%" alt="Select JSON validator from the drop-down menu"></a> 
 
 -   Scroll down the page and click **Save** to save the changes.
 

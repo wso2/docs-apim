@@ -10,7 +10,7 @@ Let's deploy a backend using Target Endpoint resource on your Kubernetes environ
  -  Install the [Kubernetes API Operator]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/install).
  -  Setup Choreo Connect 
     1.  Download the Choreo Connect v0.9.0 from
-        [github release page's](https://github.com/wso2/product-microgateway/releases/tag/v0.9.0) assets and extract them
+        [GitHub release page's](https://github.com/wso2/product-microgateway/releases/tag/v0.9.0) assets and extract them
         to a folder of your choice. We will refer to this folder as the `CHOREO-CONNECT_HOME`.
     
     2.  Using the kubectl tool, apply Kubernetes configurations for Choreo Connect.

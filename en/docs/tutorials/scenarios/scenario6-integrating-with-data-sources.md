@@ -2,7 +2,7 @@
 
 This is a tutorial that is part of a series and can be used as a standalone tutorial on how to integrate with Data Sources. For more details on the scenario and general prerequisites, please see [the scenario overview page]({{base_path}}/tutorials/scenarios/scenario-overview).
 
-**_Time to Complete : 5 mins_**
+**_Time to Complete : 5 minutes_**
 
 ## User story
 
@@ -16,11 +16,11 @@ With WSO2 Micro Integrator Data Services, users can integrate with different Dat
 
 To develop a service in Micro Integrator, you can use WSO2 Integration Studio. 
 
-<img src="{{base_path}}/assets/img/tutorials/scenarios/integration_studio_dataservice.png" alt="Integration Studio Dataservice View" title="Integration Studio Dataservice View" width="80%" />
+<img src="{{base_path}}/assets/img/tutorials/scenarios/integration_studio_dataservice.jpg" alt="Integration Studio Dataservice View" title="Integration Studio Dataservice View" width="80%" />
 
 ## Step 2: Expose data via API Manager
 
-Once developed, you can expose the data via API manager for secure access. For simplicity, the Dataservice is already developed and added in the API manager. A database has been created with dummy Employee Data that you can query and modify.
+Once developed, you can expose the data via API manager for secure access. For simplicity, the data service is already developed and added in the API manager. A database has been created with dummy Employee Data that you can query and modify.
 
 <img src="{{base_path}}/assets/img/tutorials/scenarios/employee_database.png" alt="Employee Database" title="Employee Database" width="60%" />
 

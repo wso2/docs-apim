@@ -2,8 +2,9 @@
 
 The Streaming Integrator (SI) component in WSO2 API Manager (WSO2 API-M) can consume events from a third-party streaming provider topic (e.g., Kafka topic) and publish those events to a Streaming Backend (e.g., WebSocket Streaming Backend) in a streaming manner. When a stream of events are received by the third-party streaming provider source (e.g., Kafka source), they are published to the Streaming Backend simultaneously. 
 
-Streaming integrator is one of the WSO2 API-M components that has the capability to connect with multiple external sources / sinks. Streaming Integration Tooling is another component which provides developer friendly tools. In this tutorial, Streaming integrator is used as the integration point with Kafka. Then the events received from Kafka (`SweetProductionStream`) are exposed via a web socket server using a sink in Streaming integrator. 
-Once we have the relevant sinks defined we can use the AsyncAPI generation functionality in Steaming Integration Tooling to generate the relevant AsyncAPI definition and then finally deploy it as a service in WSO2 API Manager Services. API Manager service will have the capability to create an API out of it and allowed to invoke it as a managed API. Finally the messages coming to Kafka topics will be able to received via the Streaming API. 
+Streaming integrator is one of the WSO2 API-M components that has the capability to connect with multiple external sources/sinks. Streaming Integration Tooling is another component that provides developer friendly tools. In this tutorial, Streaming integrator is used as the integration point with Kafka. Then the events received from Kafka (`SweetProductionStream`) are exposed via a WebSocket server using a sink in Streaming integrator. 
+
+Once you have the relevant sinks defined you can use the AsyncAPI generation functionality in Steaming Integration Tooling to generate the relevant AsyncAPI definition and then finally deploy it as a service in WSO2 API Manager service catalog. You will be able to create an API from the service and you can invoke it as a managed API. Finally, the messages coming to the Kafka topics can be received via the Streaming API. 
 
 Follow the instructions below to expose a third-party Service Provider stream as a managed API:
 
@@ -17,7 +18,7 @@ Follow the instructions below to expose a third-party Service Provider stream as
 
         Let's refer to this directory as `<KAFKA_HOME>`.
 
-    2. Install relevant kafka client libraries in SI using extension installer.
+    2. Install relevant kafka client libraries in SI using extension installer. For instructions to download and install a Siddhi extension, see [Downloading and Installing Siddhi Extensions]({{base_path}}/reference/streaming-connectors/downloading-and-installing-siddhi-extensions/).
 
     3. Configure the basic details needed to publish siddhi application with AsyncAPI definition to the services in API Manager.
     
@@ -38,6 +39,18 @@ Follow the instructions below to expose a third-party Service Provider stream as
                    - You are enabling the AsyncAPI generation functionality by setting the `enabled` parameter to `true`. 
                     
                    - You are specifying `9448` as the port because you configured a port offset of 5 in the previous step. The default port of the API Manager is `9443`.
+
+    4. Configure authentication between API-M and SI.
+       
+         Copy the keyStore and client trustStore related keys from WSO2 API-M to WSO2 SI. 
+
+        1. Copy the following flies.
+                 
+             - `<API-M_HOME>/repository/resources/security/client-truststore.jks`
+
+             - `<API-M_HOME>/repository/resources/security/wso2carbon.jks`
+          
+        2. Add the copied files in to the `<SI_HOME>/resources/security/` directory.
         
 ??? note " 2. Configure the API Manager port"
 
@@ -74,7 +87,7 @@ Follow the instructions below to expose a third-party Service Provider stream as
 
 1. Navigate to the `<APIM_HOME>/bin` directory 
 
-2. [Start the API_Manager]({{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-linux-or-os-x/).
+2. [Start the API_Manager]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/).
 
      The following log appears on the API Manager console when the server is started successfully.
 
@@ -87,7 +100,7 @@ Follow the instructions below to expose a third-party Service Provider stream as
 
 1. Navigate to the `<SI_HOME>/bin` directory 
 
-2. [Start the Streaming Integrator]({{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-si-binary/#starting-the-si-server).
+2. [Start the Streaming Integrator]({{base_path}}/install-and-setup/install/installing-the-product/running-the-si/#starting-the-si-server).
 
      The following log appears on the SI console when the server is started successfully.
 

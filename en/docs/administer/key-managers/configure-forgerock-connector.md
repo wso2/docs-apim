@@ -9,13 +9,13 @@ Follow the instructions given below to configure ForgeRock as a third-party Key 
 ## Before you begin
 
 - Install ForgeRock.
-- [Download and install WSO2 API Manager]({{base_path}}/install-and-setup/install/installing-the-product/installing-the-product/).
+- [Download and install WSO2 API Manager]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/).
 
 ## Step 1 - Configure ForgeRock
 
-Follow the instructions given below to configure the Fogerock Authorization Server to work with WSO2 API Manager.
+Follow the instructions given below to configure the ForgeRock Authorization Server to work with WSO2 API Manager.
 
-### Step 1.1 - Configure OAuth2 Provider
+### Step 1.1 - Configure OAuth 2.0 Provider
 
 1. Navigate to the URL where the ForgeRock Authorization server is deployed.
 
@@ -69,11 +69,11 @@ Follow the instructions given below to configure the Fogerock Authorization Serv
      </table>
   
    
-    [![ForgeRock create OAuth Provider]({{base_path}}/assets/img/administer/forgerock-createOauthProvider.png)]({{base_path}}/assets/img/administer/forgerock-createOauthProvider.png)
+    [![ForgeRock create OAuth Provider]({{base_path}}/assets/img/administer/forgerock-create-oauth-provider.png)]({{base_path}}/assets/img/administer/forgerock-create-oauth-provider.png)
 
-5. Navigate to **Root Realm** -> **Service Provider** -> **OAuth2 Provider** and click on the **Advanced** tab.
+5. Navigate to **Root Realm** -> **Service Provider** -> **OAuth 2.0 Provider** and click on the **Advanced** tab.
 
-6. Configure the scopes and the signing algorithm of the created OAuth2 Provider using the following values.
+6. Configure the scopes and the signing algorithm of the created OAuth 2.0 Provider using the following values.
 
      <table>
      <tr>
@@ -131,9 +131,9 @@ Follow the instructions given below to configure the Fogerock Authorization Serv
    
     [![ForgeRock configure dcr]({{base_path}}/assets/img/administer/forgerock-configure-dcr.png)]({{base_path}}/assets/img/administer/forgerock-configure-dcr.png)
    
-You can configure the other properties of the OAuth2 provider based on your requirements.
+You can configure the other properties of the OAuth 2.0 provider based on your requirements.
 
-### Step 1.2 - Configure an OAuth2 client
+### Step 1.2 - Configure an OAuth 2.0 client
 
 Create a static OAuth client as follows so that you can use the OAuth client keys for the purpose of dynamic client registration.
 
@@ -175,9 +175,9 @@ If you want to work with scopes, then you need to assign the relevant scopes to 
 
 ## Step 2 - Configure WSO2 API Manager
 
-Follow the instructions given below to configure WSO2 API Manager to work with the Fogerock Authorization Server.
+Follow the instructions given below to configure WSO2 API Manager to work with the ForgeRock Authorization Server.
 
-1. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/running-the-product/#starting-the-server).
+1. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server).
 
      `<API-M_HOME>` refers to the root folder of the extracted WSO2 API-M distribution.
 

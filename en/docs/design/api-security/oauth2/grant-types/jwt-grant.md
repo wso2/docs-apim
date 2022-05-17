@@ -8,6 +8,12 @@ WSO2 API Manager (WSO2 API-M), as an OAuth 2.0 Authorization Server with its key
 -   [Using the JWT grant](#using-the-jwt-grant)
 -   [JWT Bearer Grant](#jwt-bearer-grant)
 
+!!! Note
+    Before you begin, execute the following script in the relevant database. This is done to include a missing column that is required when working with JWT.
+    ```
+    ALTER TABLE CM_SP_PURPOSE_PII_CAT_ASSOC ADD IS_CONSENTED BOOLEAN DEFAULT TRUE
+    ```
+
 ## Configuring the JWT grant
 
 ### Step 1 - Obtain a JWT from an external Identity Provider 
@@ -36,7 +42,7 @@ You can use any identity provider to obtain a JWT. As an example, this step will
 
      [![Add Service Provider]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/create-external-sp.png)]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/create-external-sp.png)
              
-6.  Click **Inbound Authentication Configuration** --> **OAuth/OpenId Connect Configuration** --> **Configure** to add a new OAuth2 client.
+6.  Click **Inbound Authentication Configuration** --> **OAuth/OpenID Connect Configuration** --> **Configure** to add a new OAuth2 client.
 
      [![Add Oauth app]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/add-oauth-app.png)]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/add-oauth-app.png)
 
@@ -56,7 +62,7 @@ Now you have configured a service provider in WSO2 IS that can be used [later](#
 
 ### Step 2 - Configure an Identity Provider and a Service Provider in WSO2 API-M
 
-1. Make sure WSO2 API-M is [up and running]({{base_path}}/install-and-setup/installation-guide/running-the-product/#starting-the-server).
+1. Make sure WSO2 API-M is [up and running]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server).
 
 2. Sign in to the WSO2 API-M Management Console (`https://<API-M_Server_Host>:9443/carbon`)   
 
@@ -148,7 +154,7 @@ Now you have a registered identity provider and as well as a service provider wi
         If the tenant domain is `wso2.com`, the access token endpoint will be as follows:
 
         ``` java
-        Access Token Endpoint: https://localhost:8243/token?tenantDomain=wso2.com
+        Access Token Endpoint: https://localhost:9443/oauth2/token?tenantDomain=wso2.com
         ```
 
     You would now have received the response from the token endpoint of WSO2 API-M. The response would contain the access token, refresh token, expiry time, scope and token type.
@@ -206,7 +212,7 @@ The payload contains the claims mentioned below:
 <td>The JWT may contain an <code>iat<code> (issued at) claim that identifies the time at which the JWT was issued.</td>
 </tr>
 <tr>
-<td><code>jti</code> (json web token ID)</td>
+<td><code>jti</code> (JSON web token ID)</td>
 <td>The JWT may contain <code>jti<code> (JWT ID) claim that provides a unique identifier for the token.</td>
 </tr>
 <tr>

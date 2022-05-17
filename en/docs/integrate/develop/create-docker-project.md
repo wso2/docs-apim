@@ -2,6 +2,10 @@
 
 Create a Docker Exporter if you want to deploy your integration solutions inside a Docker environment. This project directory allows you to package multiple [integration modules]({{base_path}}/integrate/develop/create-integration-project) into a single Docker image and then build and push to the Docker registries.
 
+!!! note 
+    When using Kubernetes/Docker exporter project, make sure to use Integration Studio 8.0.0 with the latest WUM update. 
+    mi-1.2.0 pack we have to change the miVersion of the config-mapper-parser plugin into 1.2.0/1631645406425 in the pom
+
 ## Creating the Docker exporter
 
 Follow the steps given below.   
@@ -216,7 +220,7 @@ To <b>build</b> and <b>push</b> the Docker image:
 
     In the dialog box that opens, provide the details of your Docker registry as shown below.
 
-    <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/docker-registry-credentials.png">
+    <a href="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/docker-registry-credentials.png"><img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/docker-registry-credentials.png" width="70%"></a>
 
     When the image is pushed to the registry, you will see the following message.
 

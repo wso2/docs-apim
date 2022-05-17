@@ -28,10 +28,10 @@ Dayforce sample APIs. Keep them saved to be used in the next steps.
 
 Follow these steps to set up the Integration Project and import Dayforce connector into it.
 
-{!reference/connectors/importing-connector-to-integration-studio.md!} 
+{!includes/reference/connectors/importing-connector-to-integration-studio.md!} 
 
 1. Right click on the created ESB Solution Project and select, -> **New** -> **Rest API** to create the REST API.
-   <img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.png" 
+   <img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.jpg" 
    title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
 2. Specify the API name as `DayforceConnectorTestAPI` and API context as `/dayforceconnector`. You can go to the 
@@ -99,7 +99,7 @@ source view of the XML configuration file of the API and copy the following conf
 Now we can export the imported connector and the API into a single CAR application. CAR application is the one we are 
 going to deploy to server runtime. 
 
-{!reference/connectors/exporting-artifacts.md!}
+{!includes/reference/connectors/exporting-artifacts.md!}
 
 Now the exported CApp can be deployed in the integration runtime so that we can run it and test.
 
@@ -115,7 +115,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp in the integration runtime. 
 
-{!reference/connectors/deploy-capp.md!}
+{!includes/reference/connectors/deploy-capp.md!}
 
 ## Testing
 

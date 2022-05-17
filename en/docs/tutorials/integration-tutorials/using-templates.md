@@ -3,13 +3,13 @@
 ## What you'll build
 
 In this sample scenario, you will use a **Sequence Template**
-and reuse it in multiple places of the medation flow.
+and reuse it in multiple places of the mediation flow.
 
 ## Let's get started!
 
 ### Step 1: Set up the workspace
 
-Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/tooling/) based on your operating system.
+Download the relevant [WSO2 Integration Studio](https://wso2.com/api-management/tooling/) based on your operating system.
 
 ### Step 2: Develop the integration artifacts
 
@@ -20,11 +20,11 @@ An Integration project is a maven multi module project, which will contain all t
 1.  Open **WSO2 Integration Studio**.
 2.  Click **New Integration Project** in the **Getting Started** tab as shown below. 
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.png" width="700">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.jpg" width="700">
 
     This will open the <b>New Integration Project</b> dialog box.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-simple-message-project.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-simple-message-project.jpg" width="500">
 
 3.  Enter `SampleServices` as the project name and select the following check boxes to create the required modules.
     -   **Create ESB Configs**
@@ -433,7 +433,7 @@ You can now start configuring the API resource.
     'Pine Valley' hospitals. Add **clemency** and **pinevalley** as the
     respective parameter values.
 
-10. Drag a **Call** mediators from the **Mediators** pallete after the **Call Template** mediators in each switch sequence. 
+10. Drag a **Call** mediators from the **Mediators** pallette after the **Call Template** mediators in each switch sequence. 
 
 11. Then, add the **GrandOakEP**, **ClemencyEP**, and **PineValleyEP** endpoints from the **Defined Endpoints** palette to the empty boxes adjoining the Call mediator. 
 
@@ -484,14 +484,9 @@ Let's test the use case by sending a simple client request that invokes the serv
 
 Let's send a simple request to invoke the service. You can use the embedded <b>HTTP Client</b> of WSO2 Integration Studio as follows:
 
-1. Open the <b>HTTP Client</b> of WSO2 Integration Studio.
+1. Open the Postman application. If you do not have the application, download it from here : [Postman](https://www.postman.com/downloads/)
 
-    !!! Tip
-        If you don't see the <b>HTTP Client</b> pane, go to <b>Window -> Show View - Other</b> and select <b>HTTP Client</b> to enable the client pane.
-
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/http4e-client-empty.png" width="800">
-    
-2. Enter the request information as given below and click the <b>Send</b> icon (<img src="{{base_path}}/assets/img/integrate/tutorials/common/play-head-icon.png" width="20">).
+2. Add the request information as given below and click the <b>Send</b> button.
     
     <table>
         <tr>
@@ -538,6 +533,10 @@ Let's send a simple request to invoke the service. You can use the embedded <b>H
             </ul>
         </tr>
      </table>
+
+     <br/><br/>
+     <video src="{{base_path}}/assets/vids/surgery-reserve.webm" width="720" height="480" controls></video>
+     <br/><br/>
      
 If you want to send the client request from your terminal:
 

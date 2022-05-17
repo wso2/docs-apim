@@ -1,43 +1,77 @@
 # Choreo Connect Overview
 
-Choreo Connect is an API Gateway for micro services, which is cloud-native, decentralized and developer centric.
+Choreo Connect (the API Microgateway) is a cloud-native, decentralized, lightweight API Gateway designed especially for microservices. Choreo Connect provides API security, rate-limiting, load-balancing, observability and many other API management related quality of services (QoS) while maintaining a high throughput and a low latency.
 
-The WSO2 Choreo Connect is a lightweight message processor for APIs. The Choreo Connect is used for message security, transport security, routing, and other common API Management related quality of services.
+The following diagram illustrates the basic architecture of Choreo Connect and showcases its main components.
 
-[![]({{base_path}}/assets/img/deploy/mgw/mgw_basic.png)]({{base_path}}/assets/img/deploy/mgw/mgw_basic.png)
+[![Choreo Connect Basic Architecture]({{base_path}}/assets/img/deploy/mgw/choreo-connect-basic-architecture.png){: style="width:70%"}]({{base_path}}/assets/img/deploy/mgw/choreo-connect-basic-architecture.png)
 
 ## Choreo Connect Components
 
-Choreo Connect has three basic components. Each component does a vital part during request processing, and single unit of Choreo Connect is a collection of all three components.
+Choreo Connect consists of the following three components.
 
-### 1. Router
+- [Router](#router)
+- [Enforcer](#enforcer)
+- [Adapter](#adapter)
 
-Router is the component that is responsible for routing the traffic from different clients to the desired destination(service).
-Choreo Connect uses the [Envoy Proxy](https://www.envoyproxy.io/) as the core component which does the traffic routing.
-The APIs are exposed to the external clients using the router.
+### Router
 
-### 2. Enforcer
+The Router is the component that is responsible for routing the traffic from different clients to the desired destination (service). Choreo Connect uses the [Envoy Proxy](https://www.envoyproxy.io/) as the core component that does the traffic routing. Choreo Connect exposes the APIs to external clients using the Router.
 
-Enforcer is the component which applies the API management capabilities like security, rate limiting, analytics, validation and etc.
-When a request is received by the router , that request is forwarded to the enforcer in order to perform the additional QoS factors like security and etc.
-Once the enforcer replied back to the router with an allowed response or a denied response then the router will either
-forward the request to the actual backend or reply back to the client with an error message respectively.
+### Enforcer
 
-### 3. Adapter
+The Enforcer is the component that enforces the API management capabilities such as security, Rate Limiting, analytics, validation and etc. When the Router within Choreo Connect receives a request, it forwards that request to the Enforcer in order to perform the additional QoS factors such as security, etc. Thereafter, the Enforcer will send a response to the Router. If the latter mentioned response is an allowed response, the Router will forward the request to the actual backend; else if the response is a denied response, then the Router will send a reply back to the client with an error message.
 
-Router and Enforcer have a data plane API that can be used to dynamically configure them.
-When an API needs to be deployed on the Choreo Connect we need to translate that API definition to the format understood by the Router(convert the API into routes) and Enforcer.
-The adapter is the component that is responsible for that. Adapter will pass the data to the both the router and the enforcer.
-There are two different ways API can be received by the adapter.
+### Adapter
 
-1. Adapter can receive an API from APIM control plane(publisher)
-2. Adapter can receive APIs via pushing the API project from the command line tool [APICTL]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller.md)
+The Router and Enforcer have a Data Plane API that can be used to configure them dynamically. When an API needs to be deployed in Choreo Connect, the API definition needs to be translated into the format understood by the Router (convert the API into routes) and the Enforcer. The Adapter is the component that is responsible for the latter mentioned API definition translation. After the API definition is translated, the Adapter will pass the data to both the Router and the Enforcer.
 
-Choreo Connect can be used mainly in the follwoing two modes.
+The Adapter, within Choreo Connect, can receive the APIs via the following methods:
 
-1. [Choreo Connect with API Manager as control plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane)
-2. [Choreo Connect As a standalone gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway)
+- From the WSO2 API Manager Control Plane (Publisher).
+- When an API project is pushed via the command line tool [apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller).
+
+## Communication Between the Components
+
+Communication between internal components of Choreo Connect (Adapter, Enforcer, Router, and API-M Control Plane) are secured via Mutual SSL.
+
+Each component has its private-public key pair and truststore. In the case of the Adapter, it is configured in the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf/config.toml` file as indicated below.
+
+??? note "Click here to see the file path of the configuration file for all Choreo Connect deployments."
+    Navigate to the correct folder path and open the `config.toml` or `config-toml-configmap.yaml` file based on your Choreo Connect deployment.
+
+    | **Deployment** | **File name** | **Directory** |
+    |------------|-----------|-----------|
+    | Docker with WSO2 API Controller | `config.toml` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/` |
+    | Docker with WSO2 API Manager as the Control Plane | `config.toml` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf/` |
+    | Kubernetes with WSO2 API Controller | `config-toml-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect/` |
+    | Kubernetes with WSO2 API Manager as the Control Plane | `config-toml-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect-with-apim/config-toml-configmap.yaml` |
+
+```toml
+[adapter.keystore] 
+certPath = "/home/wso2/security/keystore/mg.pem"
+keyPath = "/home/wso2/security/keystore/mg.key"
+
+[adapter.truststore]
+location = "/home/wso2/security/truststore"
+```
+
+## Choreo Connect Modes
+
+You can use Choreo Connect mainly in the following two modes.
+
+- [Choreo Connect with WSO2 API Manager as a Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane)
+     
+     By enabling the Control Plane Event Hub in the Choreo Connect configuration file, the APIs deployed in WSO2 API Manager will automatically be available in Choreo Connect. When using this mode, you can either create an API via WSO2 API Manager or you can import an API to WSO2 API Manager using the API Controller (apictl), which is a command line tool.
+
+- [Choreo Connect as a Standalone Gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway)
+
+     If you have not started using WSO2 API Manager yet, or you want to try out Choreo Connect as a Standalone Gateway, simply use the CLI tool apictl to directly deploy APIs to the Choreo Connect Adapter.
 
 ## Choreo Connect Request Flow
 
-[![]({{base_path}}/assets/img/deploy/mgw/mgw_request_flow.png)]({{base_path}}/assets/img/deploy/mgw/mgw_request_flow.png)
+The request flow within Choreo Connect is depicted in the following diagram.
+
+[![Choreo Connect Request Flow]({{base_path}}/assets/img/deploy/mgw/choreo-connect-request-flow.png)]({{base_path}}/assets/img/deploy/mgw/choreo-connect-request-flow.png)
+
+When a client makes an API request, it is sent to the Router. The Router then forwards the request to the Enforcer. The Enforcer performs validations such as JWT access token validation, rate limiting, and other other validations. Once the API request has been validated, the Router forwards it to the backend service. The Router will respond to the client when the backend service responds. In addition, the Router sends stats about APIs to the Enforcer, and the Enforcer sends final analytics data to the Analytics Server.

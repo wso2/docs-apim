@@ -2,15 +2,19 @@
 
 WSO2 Integration Studio is your development environment for designing, developing, debugging, and testing integration solutions. As an integration developer, you can execute all the phases of the development lifecycle using this tool. When your integration solutions are production-ready, you can easily push the artifacts to your continuous integration/continuous deployment pipeline.
 
+!!! Tip
+    The base of the WSO2 Integration Studio is Eclipse IDE. You can install any supported Eclipse plugin for Integration
+    Studio by navigating to **Help** -> **Install New Software**.
+
 ## Getting Started
 
 When you open WSO2 Integration Studio, you will see the **Getting Started** view in the tool's workbench. 
 
-<img src="{{base_path}}/assets/img/integrate/workbench/getting-started-view.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/workbench/getting-started-view.jpg" width="800">
 
 You can also click the <img src="{{base_path}}/assets/img/integrate/workbench/icon-getting-started-workbench.png" width="20"> icon at the top-right of the workbench to open the **Project Explorer** alongside the **Getting Started** tab as shown below.
 
-<img src="{{base_path}}/assets/img/integrate/workbench/workbench-getting-started.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/workbench/workbench-getting-started.jpg" width="800">
 
 To get started, you need to first create the required project directories. Alternatively, you can use an integration sample, which will generate the required projects and files for a specific use case.
 
@@ -21,7 +25,7 @@ To get started, you need to first create the required project directories. Alter
         </th>
         <td>
             <p>Use the links on the <b>Getting Started</b> view to create the required projects. These project directories are saved to your workspace and they can later be accessed from the <a href="#project-explorer">Project Explorer</a> view of WSO2 Integration Studio.</p>
-            <img src="{{base_path}}/assets/img/integrate/workbench/getting-started-view.png" width="800">
+            <img src="{{base_path}}/assets/img/integrate/workbench/getting-started-view.jpg" width="800">
         </td>
     </tr>
     <tr id="templates">
@@ -32,7 +36,7 @@ To get started, you need to first create the required project directories. Alter
             <p>
                 The <b>Getting Started</b> view lists a set of sample projects and integration artifacts that represent common integration scenarios. You can use these to explore WSO2 Micro Integrator and to try out common integration use cases. The <a href="#sample-guide">sample guide</a> will provide instructions on how to run the samples.
             </p>
-            <img src="{{base_path}}/assets/img/integrate/workbench/getting-started-templates.png" width="800">
+            <img src="{{base_path}}/assets/img/integrate/workbench/getting-started-templates.jpg" width="800">
         </td>
     </tr>
     <tr id="template-guide">
@@ -50,7 +54,7 @@ To get started, you need to first create the required project directories. Alter
 
 Once you have created the required set of projects and artifacts, you can start working with the project directories and artifact editors shown below.
 
-<img src="{{base_path}}/assets/img/integrate/workbench/workbench-working-project.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/workbench/workbench-working-project.jpg" width="800">
 
 ## Project Explorer
 
@@ -92,13 +96,7 @@ The Console view displays a variety of console types depending on the type of de
 -   **Stacktrace Console**: Well-formatted Java stack trace with hyperlinks to specific source code locations.
 -   **CVS Console**: Displays output from CVS operations.
 
-<img src="{{base_path}}/assets/img/integrate/workbench/workbench-console.png" width="800">
-
-## HTTP Client
-
-An embedded RESTful HTTP client is shipped with WSO2 Integration Studio to support testing. Once you have deployed your integration solutions in the Micro Integrator server, you can invoke the solutions using this client within WSO2 Integration Studio.
-
-<img src="{{base_path}}/assets/img/integrate/workbench/http4e-client-empty.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/workbench/workbench-console.jpg" width="800">
 
 ## Embedded Micro Integrator
 

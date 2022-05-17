@@ -110,20 +110,15 @@ The exported ZIP file has the following structure:
 |    └── <imageName>.extension
 ├── WSDL   
 |    └── <APIName>-<version>.wsdl  
-└── Sequences
-    ├── fault-sequence
-    |    |── Custom 
-    |    |    |── <custom-sequence-1-name.xml>     
-    |    |    └── <custom-sequence-2-name.xml>   
-    |    └── <sequence-name.xml> 
-    ├── in-sequence
-    |    |── Custom
-    |    |    └── <custom-sequence-name.xml>   
-    |    └── <sequence-name.xml> 
-    └── out-sequence
-         |── Custom
-         |    └── <custom-sequence-name.xml>
-         └── <sequence-name.xml> 
+└── Policies
+    ├── <custom-policy-1-name>_<custom-policy-1-version>.j2
+    ├── <custom-policy-1-name>_<custom-policy-1-version>.yaml
+    ├── <custom-policy-2-name>_<custom-policy-2-version>.j2
+    ├── <custom-policy-2-name>_<custom-policy-2-version>.yaml
+    ├── 
+    ├── 
+    ├── <custom-policy-n-name>_<custom-policy-n-version>.j2
+    └── <custom-policy-n-name>_<custom-policy-n-version>.yaml
 ```
 
 The structure of an exported API ZIP file is explained below:
@@ -149,7 +144,7 @@ The structure of an exported API ZIP file is explained below:
             <td>If the exported revision is deployed in one or more gateway environments, this file will contain the list of those deployed gateways.
             <pre><code>
 type: deployment_environments
-version: v4.0.0
+version: v4.1.0
 data:
  -
   displayOnDevportal: true  
@@ -174,7 +169,7 @@ data:
             Apart from the above <code>client_certificates.yaml</code> file, this folder contains the certificate files (.crt). Those file names should be included in the  <code>client_certificates.yaml</code> by mapping to the corresponding alias name. Below is an example file for a  <code>client_certificates.yaml</code> file which has mapped the certificates Alias1.crt and Alias2.crt to the corresponding aliases Alias1 and Alias2 accordingly. 
             <pre><code>
 type: client_certificates
-version: v4.0.0
+version: v4.1.0
 data:
  -
   alias: Alias1
@@ -213,7 +208,7 @@ data:
             <td> This folder contains documentation attached to a particular API. Each document will have a separate folder by its name. Each folder contains a file named <code>document.yaml</code> which contains the meta information related to a document. Example for a <code>document.yaml</code> file is shown below.
             <pre><code>
 type: document
-version: v4.0.0
+version: v4.1.0
 data:
   documentId: 7be89b14-6b7c-4e1f-8bee-f72295dd65cb
   name: Doc1
@@ -240,7 +235,7 @@ data:
             Apart from the above <code>endpoint_certificates.yaml</code> file, this folder contains the certificate files (.crt). Those file names should be included in the  <code>endpoint_certificates.yaml</code> by mapping to the corresponding alias name. Below is an example file for a  <code>endpoint_certificates.yaml</code> file which has mapped the certificates Alias3.crt and Alias4.crt to the corresponding aliases Alias3 and Alias4 accordingly. 
             <pre><code>
 type: endpoint_certificates
-version: v4.0.0
+version: v4.1.0
 data:
  -
   alias: Alias4
@@ -262,12 +257,51 @@ data:
             <td>WSDL file of the API.</td>
         </tr>
         <tr class="even">
-            <td>Sequences</td>
-            <td>
+            <td>Policies</td>
+            <td>If at least one operation policy is attached to any of the API resources, a template file (either a <code>.j2</code> file or a <code>.gotmpl</code> file) and a definition file (a <code>.yaml</code> file) will be included in this folder for each operation policy.
                 <ul>
-                    <li><b>fault-sequence</b>: It contains the specific API fault sequence.</li>
-                    <li><b>in-sequence</b>: It contains the specific API in sequence.</li>
-                    <li><b>out-sequence</b>: It contains the specific API out sequence.</li>
+                    <li>
+                        <code>&lt;custom-policy-1-name>_&lt;custom-policy-1-version>.yaml</code>: This is the definition file that contains the meta data of the operation policy such as category, name, version, display name, description, applicable flows, supported Gateways, supported API types and policy attributes. An example <code>.yaml</code> definition is shown below.
+                    <pre><code>
+type: operation_policy_specification
+version: v4.1.0
+data:
+  category: Mediation
+  name: addHeader
+  version: v1
+  displayName: Add Header
+  description: This policy allows you to add a new header to the request
+  applicableFlows:
+   - request
+   - response
+   - fault
+  supportedGateways:
+   - Synapse
+  supportedApiTypes:
+   - HTTP
+  policyAttributes:
+   -
+    name: headerName
+    displayName: Header Name
+    description: Name of the header to be added
+    validationRegex: "^([a-zA-Z_][a-zA-Z\\d_\\-\\ ]*)$"
+    type: String
+    allowedValues: []
+    required: true
+   -
+    name: headerValue
+    displayName: Header Value
+    description: Value of the header
+    validationRegex: "^([a-zA-Z\\d_][a-zA-Z\\d_\\-\\ ]*)$"
+    type: String
+    allowedValues: []
+    required: true
+                    </code></pre>
+                    </li>
+                    <li>
+                        <code>&lt;custom-policy-1-name>_&lt;custom-policy-1-version>.j2</code>: This is the template file that contains the actual operation policy content. The example content corresponding to the above operation policy definition is shown below. 
+                        <pre><code>&lt;property action="set" name="&#123;&#123;headerName}}" value="&#123;&#123;headerValue}}" scope="transport" /></code></pre>
+                    </li>
                 </ul>
             </td>
         </tr>
@@ -451,11 +485,11 @@ mentioned gateway environments. If the **deployment environments are not provide
     
     - After importing, if the APIs are not visible in the API Publisher UI, do the following to re-index the artifacts in the registry.
 
-        1.  Shut down the WSO2 API-M 4.0.0, backup and delete the `<API-M_4.0.0_HOME>/solr` directory.
+        1.  Shut down the WSO2 API-M 4.1.0, backup and delete the `<API-M_4.1.0_HOME>/solr` directory.
         
-        2.  Rename the `<lastAccessTimeLocation>` element in the `<API-M_4.0.0_HOME>/repository/conf/registry.xml` file. If you use a **distributed WSO2 API-M setup**, change the file in the API Publisher node. For example, change the `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime` registry path to `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime_1 `
+        2.  Rename the `<lastAccessTimeLocation>` element in the `<API-M_4.1.0_HOME>/repository/conf/registry.xml` file. If you use a **distributed WSO2 API-M setup**, change the file in the API Publisher node. For example, change the `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime` registry path to `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime_1 `
 
-        3.  Restart WSO2 API-M 4.0.0 server.  
+        3.  Restart WSO2 API-M 4.1.0 server.  
     
     - If you want to verify the final import artifact just before it is sent to the WSO2 API-M server, use `--skip-cleanup` 
     with `--verbose` logs. In the verbose logs, you can find the temporary directory location.

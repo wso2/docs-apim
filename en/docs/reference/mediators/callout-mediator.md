@@ -17,7 +17,7 @@ The Callout mediators default https transport sender is `org.apache.axis2.transp
 
 ## Disabling chunking
 
-The Callout mediator is not affected by the [DISABLE_CHUNKING property]({{base_path}}/reference/mediators/property-reference/http-transport-properties). Instead, you can disable chunking for the Callout mediator by setting the following paramters in the `MI_HOME/conf/deployment.toml` file:
+The Callout mediator is not affected by the [DISABLE_CHUNKING property]({{base_path}}/reference/mediators/property-reference/http-transport-properties). Instead, you can disable chunking for the Callout mediator by setting the following parameters in the `MI_HOME/conf/deployment.toml` file:
 
 ```toml
 [transport.blocking.http]
@@ -155,7 +155,7 @@ In this example, the Callout Mediator does the direct service invocation to the 
 
 ### Example 2 - Setting an HTTP method when invoking a REST service
 
-The below example uses a C allout mediator to set a HTTP method when invoking a REST service.
+The below example uses a Callout mediator to set a HTTP method when invoking a REST service.
 
 !!! Info
     For this, you need to define the following property: `         <property name="HTTP_METHOD" expression="$axis2:HTTP_METHOD" scope="axis2-client"/>        `

@@ -1,17 +1,17 @@
-# Adding New Throttling Policies
+# Adding New Rate Limiting Policies
 
-WSO2 API Manager admins can add new throttling policies and define extra properties to the throttling policies. To get started, click on the level of throttling that you want to add a new policy to:
+WSO2 API Manager admins can add new rate limiting policies and define extra properties to the rate limiting policies. To get started, click on the level of rate limiting that you want to add a new policy to:
 
--   [Advanced throttling policy](#adding-a-new-advanced-throttling-policy)
--   [Application-level throttling tier](#adding-a-new-application-level-throttling-tier)
--   [New subscription-level throttling tier](#adding-a-new-subscription-level-throttling-tier)
+  - [Adding a new advanced rate limiting policy](#adding-a-new-advanced-rate-limiting-policy)
+  - [Adding a new application-level rate limiting tier](#adding-a-new-application-level-rate-limiting-tier)
+  - [Adding a new subscription-level rate limiting tier](#adding-a-new-subscription-level-rate-limiting-tier)
 
-## Adding a new advanced throttling policy
+## Adding a new advanced rate limiting policy
 
-You can add advanced throttling policies to both APIs and resources.
+You can add advanced rate limiting policies to both APIs and resources.
 
 1.  Sign in to the Admin Portal using the URL `https://localhost:9443/admin` and your admin credentials (admin/admin by default).
-2.  Click **Advanced Throttling** under the **Rate Limiting Policies** section to see the set of existing throttling tiers.
+2.  Click **Advanced Throttling** under the **Rate Limiting Policies** section to see the set of existing rate limiting tiers.
 3.  To add a new tier, click **Add New Policy**.
     
     [![Add advanced policy page]({{base_path}}/assets/img/learn/add-advanced-throttling-tier.png)]({{base_path}}/assets/img/learn/add-advanced-throttling-tier.png)
@@ -28,11 +28,10 @@ You can add advanced throttling policies to both APIs and resources.
     </p>
     </div>
    
-
     [![Add advanced policy page]({{base_path}}/assets/img/learn/add-request-bandwith-advanced-policy.png)]({{base_path}}/assets/img/learn/add-request-bandwith-advanced-policy.png)
 
 
-5.  To add throttling limits with different parameters to the conditions below, click **Add Conditional Group**.
+5.  To add rate limiting limits with different parameters to the conditions below, click **Add Conditional Group**.
 
      <div class="admonition info">
      <p class="admonition-title">Note</p>
@@ -42,7 +41,9 @@ You can add advanced throttling policies to both APIs and resources.
      <li>IP based throttling is enabled by default.
      </li>
      <li>
-     Note that if you want to add a header, query param, or JSON Web Token (JWT) claim condition, you need to set the `enable_header_based_throttling` , `enable_jwt_claim_based_throttling` or `enable_query_param_based_throttling` element to `true` (depending on which condition you need) under `[apim.throttling]` in the `repository/conf/deployment.toml` file.</li></ul>
+     Note that if you want to add a header, query param, or JSON Web Token (JWT) claim condition, you need to set the `enable_header_based_throttling` , `enable_jwt_claim_based_throttling` or `enable_query_param_based_throttling` element to `true` (depending on which condition you need) under `[apim.throttling]` in the `repository/conf/deployment.toml` file.</li>
+     <li>This JWT is the backend JWT and not the one you use to invoke it. In addition, you need to enable the Backend JWT token to get this rate limiting flow to work.
+     </li></ul>
      </p>
     </div>
 
@@ -52,10 +53,10 @@ You can add advanced throttling policies to both APIs and resources.
 
      | Condition    | Description value |
      |---------------|-------------------|
-     | IP Condition  | Allows you to set a throttling limit for a specific IP address or a range of IP addresses. |
-     | Header Condition | Allows you to set a throttling limit to specific headers and parameters. |
-     | Query Param Condition |Allows you to set a throttling limit to specific query parameters. |
-     | JWT Claim Condition   | Allows you to set a throttling limit to specific claims.             
+     | IP Condition  | Allows you to set a rate limiting limit for a specific IP address or a range of IP addresses. |
+     | Header Condition | Allows you to set a rate limiting limit to specific headers and parameters. |
+     | Query Param Condition |Allows you to set a rate limiting limit to specific query parameters. |
+     | JWT Claim Condition   | Allows you to set a rate limiting limit to specific claims.             
 
      <div class="admonition info">
      <p class="admonition-title">Note</p>
@@ -68,14 +69,14 @@ You can add advanced throttling policies to both APIs and resources.
 6.  Enter a condition and value.
 
     !!! note
-        The IP-based advanced throttling expects the client IP in the **X-Forwarded-For** header, in order to detect the IP address and throttle out the request as specified in the IP condition configuration.
+        The IP-based advanced rate limiting expects the client IP in the **X-Forwarded-For** header, in order to detect the IP address and throttle out the request as specified in the IP condition configuration.
 
 7.  Header condition and JWT claim condition values allow regex patterns to be defined.
     You can configure it to make either an exact match or a pattern match for the value using the regex values. For example:
     
-    [![Add advanced policy page]({{base_path}}/assets/img/learn/new-header-condition-regex.png)]({{base_path}}/assets/img/learn/new-header-condition-regex.png)
+    [![Add advanced policy page]({{base_path}}/assets/img/learn/new-header-condition-regex.png){:style="width:45%"}]({{base_path}}/assets/img/learn/new-header-condition-regex.png)
 
-    [![Add advanced policy page]({{base_path}}/assets/img/learn/new-jwt-condition-regex.png)]({{base_path}}/assets/img/learn/anew-jwt-condition-regex.png)
+    [![Add advanced policy page]({{base_path}}/assets/img/learn/new-jwt-condition-regex.png){:style="width:45%"}]({{base_path}}/assets/img/learn/anew-jwt-condition-regex.png)
 
     <div class="admonition info">
     <p class="admonition-title">Note</p>
@@ -103,36 +104,36 @@ You can add advanced throttling policies to both APIs and resources.
 
     [![Add advanced policy page]({{base_path}}/assets/img/learn/add-condition-group.png)]({{base_path}}/assets/img/learn/add-condition-group.png)
 
-You have added a new advanced throttling policy. You can now apply it to an API or a resource.
+You have added a new advanced rate limiting policy. You can now apply it to an API or a resource.
 
 <div class="admonition info">
     <p class="admonition-title">Note</p>
      
 <p><b> Adding multiple conditional groups</b></p> 
 
-<p> You can configure multiple conditional groups when defining a tier for advanced throttling policies. For example, it is possible to apply both an IP based throttling and a query param condition in a single advanced policy. </p>
+<p> You can configure multiple conditional groups when defining a tier for advanced rate limiting policies. For example, it is possible to apply both an IP based rate limiting and a query parameter condition in a single advanced policy. </p>
 </div>
 
-## Adding a new application-level throttling tier
+## Adding a new application-level rate limiting tier
 
-Application-level throttling policies are applicable per access token generated for an application.
+Application-level rate limiting policies are applicable per access token generated for an application.
 
 1.  Sign in to the Admin Portal using the URL https://localhost:9443/admin and your admin credentials (admin/admin by default).
-2.  Click **Application Policies** under the **Rate Limiting Policies** section to see the set of existing throttling tiers.
+2.  Click **Application Policies** under the **Rate Limiting Policies** section to see the set of existing rate limiting tiers.
 3.  To add a new tier, click **Add Policy**.
 
     [![Add application policy page]({{base_path}}/assets/img/learn/add-new-application-policy.png)]({{base_path}}/assets/img/learn/add-new-application-policy.png)
 
 4.  Fill in the required details and click **Save**.
 
-    [![Add application policy page]({{base_path}}/assets/img/learn/save-new-application-policy.png)]({{base_path}}/assets/img/learn/save-new-application-policy.png)
+    [![Add application policy page]({{base_path}}/assets/img/learn/save-new-application-policy.png){:style="width:45%"}]({{base_path}}/assets/img/learn/save-new-application-policy.png)
 
-You have added a new application-level throttling policy.
+You have added a new application-level rate limiting policy.
 
-## Adding a new subscription-level throttling tier
+## Adding a new subscription-level rate limiting tier
 
 1.  Sign in to the Admin Portal using the URL `https://localhost:9443/admin` and your admin credentials.
-2.  Click **Subscription Policies** under the **Rate Limiting Policies** section. The existing set of throttling tiers are displayed.
+2.  Click **Subscription Policies** under the **Rate Limiting Policies** section. The existing set of rate limiting tiers are displayed.
 3.  To add a new tier, click **Add Policy**.
 
     [![Add subscription policy page]({{base_path}}/assets/img/design/rate-limiting/add-subscription-policy.png)]({{base_path}}/assets/img/design/rate-limiting/add-subscription-policy.png)
@@ -141,8 +142,9 @@ You have added a new application-level throttling policy.
     <p class="admonition-title">Note</p>
     <p><b> Unauthenticated tier</b></p>
      <p>
-    When you are adding a new Subscription level throttling tier, you will see the existing list of subscription tiers in the **Subscription Tier List**. In this list, you will find a tier named **Unauthenticated**, which has a request quota of 500. This is the subscription tier, which is automatically applied when the authentication type of your resources is **'None'.** That is when you can invoke APIs without tokens. And this tier is not visible in the throttling tier list of the application. </p>
-    </div>    
+    When you are adding a new Subscription level rate limiting tier, you will see the existing list of subscription tiers in the **Subscription Tier List**. In this list, you will find a tier named **Unauthenticated**, which has a request quota of 500. This is the subscription tier, which is automatically applied when the authentication type of your resources is **'None'.** That is when you can invoke APIs without tokens. And this tier is not visible in the rate limiting tier list of the application. </p>
+    </div>
+
 4.  Fill in the details required by this form and click **Save** once you are done.
 
      [![Add subscription policy page]({{base_path}}/assets/img/design/rate-limiting/save-new-subscription-policy.png)]({{base_path}}/assets/img/design/rate-limiting/save-new-subscription-policy.png)
@@ -177,10 +179,8 @@ You have added a new application-level throttling policy.
     <div class="admonition info">
     <p class="admonition-title">Note</p>
     <p><b> Billing plan</b></p>
-    
-     **Free** - If all subscription tiers are defined as Free, the API uses the **Free billing plan** and the API is labeled as Free in the Developer Portal.              **Paid** - If all subscription tiers are defined as Paid, the API uses the **Commercial billing plan** and the API is labeled as Paid in the Developer Portal.       
-     **Freemium** - If the API has a combination of Free and Paid subscription tiers, the API uses the **Freemium billing plan** and the API is labeled as Freemium in the Developer Portal.                                                                                                                                                    <p>                                                            
-      This labeling happens on the Developer Portal only if monetization has been enabled. For information on how to enable monetization and how to tag subscription tiers, see [Configuring API Monetization Category Labels]({{base_path}}/design/api-monetization/configuring-api-monetization-category-labels/).   </p>                                                                                     
-    </div>                                                                           
-    You have now successfully added a new subscription-level throttling policy.
+    <ul>
+     <li><b>Free</b> - If all subscription tiers are defined as Free, the API uses the **Free billing plan** and the API is labeled as Free in the Developer Portal.              **Paid** - If all subscription tiers are defined as Paid, the API uses the **Commercial billing plan** and the API is labeled as Paid in the Developer Portal.</li>
+     <li><b>Freemium</b> - If the API has a combination of Free and Paid subscription tiers, the API uses the **Freemium billing plan** and the API is labeled as Freemium in the Developer Portal.</li></ul>
+     <p>This labeling happens on the Developer Portal only if monetization has been enabled. For information on how to enable monetization and how to tag subscription tiers, see [Configuring API Monetization Category Labels]({{base_path}}/design/api-monetization/configuring-api-monetization-category-labels/).</p></div>You have now successfully added a new subscription-level rate limiting policy.
     

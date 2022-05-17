@@ -1,6 +1,6 @@
 # Subscription Validation
 
-The [subscription]({{apim_path}}/learn/consume-api/manage-subscription/subscribe-to-an-api/) validation is configurable per issuer basis. In order to mandate the subscriptions, subscription validation can be enabled.
+The [subscription]({{base_path}}/learn/consume-api/manage-subscription/subscribe-to-an-api/) validation is configurable per issuer basis. In order to mandate the subscriptions, subscription validation can be enabled.
 If validation has failed, it will send an error message with error code 900908.
 
 In Choreo Connect subscription validation can be done in two ways.
@@ -10,7 +10,7 @@ In Choreo Connect subscription validation can be done in two ways.
     To authorize an API request with the self-contained JWT token under an issuer with subscription validation, the API name and version should be listed under `subscribedAPIs` claim of the JWT token.
     
     !!! note
-        When an older version of WSO2 API Manager (3.1.* and below) is used as the key manager it sends the subscribed APIs as a list in the JWT under the `subscribedAPIs` claim. Therefore it is required to have the corresponding API name and version listed under `subscribedAPIs` claim to authorize the API request when JWT tokens issued by older API Manager versions are used. 
+        When an older version of WSO2 API Manager (3.1.* and below) is used as the Key Manager, it sends the subscribed APIs as a list in the JWT under the `subscribedAPIs` claim. Therefore it is required to have the corresponding API name and version listed under `subscribedAPIs` claim to authorize the API request when JWT tokens issued by older API Manager versions are used. 
 
 2. Event Hub based subscription validation
 
@@ -22,7 +22,7 @@ In Choreo Connect subscription validation can be done in two ways.
 
 You can enable or disable subscription validation using the following configuration and it is disabled by default. Add the following to the `<CHOREO-CONNECT_HOME>/docker-componse/choreo-connect/conf/config.toml` file.
 
-1. Configure Event Hub and key managers for token authentication.
+1. Configure Event Hub and Key Managers for token authentication.
 
     In order to do subscription validation, the `[eventHub]` must be enabled for the latest versions of API Manager. 
 
@@ -30,14 +30,14 @@ You can enable or disable subscription validation using the following configurat
         # Configurations for retrieving API and subscription data from API Manager.
         [controlPlane]
         enabled = false
-        serviceUrl = "https://apim:9443/"
-        username="admin"
-        password="$env{cp_admin_pwd}"
+        serviceURL = "https://apim:9443/"
+        username = "admin"
+        password = "$env{cp_admin_pwd}"
         environmentLabels = ["Default"]
         retryInterval = 5
-        skipSSLVerification=true
+        skipSSLVerification = true
         # Message broker connection URL of the control plane
-            [controlPlane.jmsConnectionParameters]
+        [controlPlane.brokerConnectionParameters]
             eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@apim:5672?retries='10'&connectdelay='30'"]
     ```
 

@@ -40,8 +40,8 @@ By default, every WSO2 product comes with the following Users, Roles and Permiss
 By default, all WSO2 products have the following roles configured: 
 
 -   **admin** - Provides full access to all features and controls. By default, the admin user is assigned to both the admin and the `Internal/everyone` roles.
--   **Internal/everyone** - This is a pre-defined role that is used to group all the users (across the user stores) together. When you create a new user, automatically the user belongs to the `Internal/everyone` role. It does not include any permissions. This role can be used to identify all logged-in users.
--   **Internal/system** - This is another pre-defined role that does not include any permissions. Unlike the `Internal/everyone` role, this role is **not assigned** to a user by default.
+-   **Internal/everyone** - This is a predefined role that is used to group all the users (across the user stores) together. When you create a new user, automatically the user belongs to the `Internal/everyone` role. It does not include any permissions. This role can be used to identify all logged-in users.
+-   **Internal/system** - This is another predefined role that does not include any permissions. Unlike the `Internal/everyone` role, this role is **not assigned** to a user by default.
 -   **Internal/analytics** - This role can be assigned to users who do not have the publisher or subscriber roles assigned but need permission to view the analytics dashboards.
 
 In addition to the above, the following roles exist by default.
@@ -50,7 +50,7 @@ In addition to the above, the following roles exist by default.
 -  Internal/publisher
 -  Internal/subscriber
 
-For more information about managing roles, see [Managing User Roles]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-roles)
+For more information about managing roles, see [Managing User Roles]({{base_path}}/administer/managing-users-and-roles/managing-user-roles)
 
 You will be able to log in to the management console of the product with the **admin** user defined in the `user-mgt.xml` file. You can then create new users and roles and configure permissions for the roles using the management console. However, note that you cannot modify the permissions of the **admin** role. The possibility of managing users, roles, and permissions is granted by the **User Management** permission. For more information, see [Configuring the User Realm](https://is.docs.wso2.com/en/5.10.0/setup/configuring-the-realm/).
 
@@ -191,53 +191,55 @@ Additionally, all permissions listed under <strong>Admin/Monitor</strong> in the
 !!! info 
     The following are the scopes allowed for each default Internal role under the default configurations.
     
-    | **Role**                                   | **admin**   | **Internal/publisher**   | **Internal/creator**   | **Internal/subscriber**   | **Internal/analytics**   | **Internal/everyone**   | **Internal/devops**     |
-    |-- ------------------------------------ | ------- | -------------------- | ------------------ | --------------------- | -------------------- | ----------------- --| ----------------- --|
-    | apim:api_publish                       | &check; | &check;              |                    |                       |                      |                     |  &check;            |
-    | apim:api_create                        | &check; |                      | &check;            |                       |                      |                     |  &check;            |
-    | apim:api_view                          | &check; | &check;              | &check;            |                       | &check;              |                     |                     |
-    | apim:api_delete                        | &check; |                      | &check;            |                       |                      |                     |                     |
-    | apim:subscribe                         | &check; |                      |                    | &check;               |                      |                     |  &check;            |
-    | apim:tier_view                         | &check; | &check;              | &check;            |                       |                      |                     |                     |
-    | apim:tier_manage                       | &check; |                      |                    |                       |                      |                     |                     |
-    | apim:bl_view                           | &check; |                      |                    |                       |                      |                     |                     |
-    | apim:subscription_view                 | &check; | &check;              | &check;            |                       |                      |                     |                     |
-    | apim:subscription_block                | &check; | &check;              |                    |                       |                      |                     |                     |
-    | apim:mediation_policy_view             | &check; |                      | &check;            |                       |                      |                     |                     |
-    | apim:mediation_policy_create           | &check; |                      | &check;            |                       |                      |                     |                     |
-    | apim:api_workflow                      | &check; |                      |                    |                       |                      |                     |                     |
-    | apim:app_owner_change                  | &check; |                      |                    |                       |                      |                     |                     |
-    | apim:app_import_export                 | &check; |                      |                    |                       |                      |                     |                     |
-    | apim:api_import_export                 | &check; |                      |                    |                       |                      |                     |                     |
-    | apim:label_manage                      | &check; |                      |                    |                       |                      |                     |                     |
-    | apim:label_read                        | &check; |                      |                    |                       |                      |                     |                     |
-    | apim:app_update                        | &check; |                      |                    | &check;               |                      |                     |                     |
-    | apim:app_manage                        | &check; |                      |                    | &check;               |                      |                     |                     |
-    | apim:sub_manage                        | &check; |                      |                    | &check;               |                      |                     |                     |
-    | apim:monetization_usage_publish        | &check; | &check;              |                    |                       |                      |                     |                     |
-    | apim:document_create                   | &check; | &check;              | &check;            |                       |                      |                     |                     |
-    | apim:ep_certificates_update            | &check; |                      | &check;            |                       |                      |                     |                     |
-    | apim:client_certificates_update        | &check; |                      | &check;            |                       |                      |                     |                     |
-    | apim:threat_protection_policy_manage   | &check; |                      | &check;            |                       |                      |                     |                     |
-    | apim:document_manage                   | &check; | &check;              | &check;            |                       |                      |                     |                     |
-    | apim:client_certificates_add           | &check; |                      | &check;            |                       |                      |                     |                     |
-    | apim:publisher_settings                | &check; | &check;              | &check;            |                       |                      |                     |                     |
-    | apim:store_settings                    | &check; |                      |                    | &check;               |                      |                     |                     |
-    | apim:client_certificates_view          | &check; |                      | &check;            |                       |                      |                     |                     |
-    | apim:mediation_policy_manage           | &check; |                      | &check;            |                       |                      |                     |                     |
-    | apim:threat_protection_policy_create   | &check; |                      | &check;            |                       |                      |                     |                     |
-    | apim:ep_certificates_add               | &check; |                      | &check;            |                       |                      |                     |                     |
-    | apim:ep_certificates_view              | &check; |                      | &check;            |                       |                      |                     |                     |
-    | apim:api_key                           | &check; |                      | &check;            |                       |                      |                     |                     |
-    | apim_analytics:admin                   | &check; |                      |                    |                       |                      |                     |                     |
-    | apim_analytics:product_manager         | &check; | &check;              | &check;            | &check;               |                      |                     |                     |
-    | apim_analytics:api_developer           | &check; | &check;              | &check;            |                       |                      |                     |                     |
-    | apim_analytics:app_developer           | &check; |                      |                    | &check;               |                      |                     |                     |
-    | apim_analytics:devops_engineer         | &check; | &check;              | &check;            | &check;               |                      |                     |                     |
-    | apim_analytics:analytics_viewer        | &check; |                      |                    |                       | &check;              |                     |                     |
-    | apim_analytics:everyone                |         |                      |                    |                       |                      | &check;             |                     |
-    | apim:pub_alert_manage                  | &check; |                      | &check;            |                       |                      |                     |                     |
-    | apim:sub_alert_manage                  | &check; |                      |                    | &check;               |                      |                     |                     |
-    | apim:tenantInfo                        | &check; |                      |                    |                       |                      |                     |                     |
-    | apim:admin_operations                  | &check; |                      |                    |                       |                      |                     |                     |
+    | **Role**                                   | **admin**   | **Internal/publisher**   | **Internal/creator**   | **Internal/subscriber**   | **Internal/analytics**   | **Internal/everyone**   | **Internal/devops**     | **Internal/integration_dev**     |
+    |-- ------------------------------------ | ------- | -------------------- | ------------------ | --------------------- | -------------------- | ----------------- --| ----------------- --| ----------------- --|
+    | apim:api_publish                       | &check; | &check;              |                    |                       |                      |                     |  &check;            |                     |
+    | apim:api_create                        | &check; |                      | &check;            |                       |                      |                     |  &check;            |                     |
+    | apim:api_view                          | &check; | &check;              | &check;            |                       | &check;              |                     |                     |                     |
+    | apim:api_delete                        | &check; |                      | &check;            |                       |                      |                     |                     |                     |
+    | apim:subscribe                         | &check; |                      |                    | &check;               |                      |                     |  &check;            |                     |
+    | apim:tier_view                         | &check; | &check;              | &check;            |                       |                      |                     |                     |                     |
+    | apim:tier_manage                       | &check; |                      |                    |                       |                      |                     |                     |                     |
+    | apim:bl_view                           | &check; |                      |                    |                       |                      |                     |                     |                     |
+    | apim:subscription_view                 | &check; | &check;              | &check;            |                       |                      |                     |                     |                     |
+    | apim:subscription_block                | &check; | &check;              |                    |                       |                      |                     |                     |                     |
+    | apim:mediation_policy_view             | &check; |                      | &check;            |                       |                      |                     |                     |                     |
+    | apim:mediation_policy_create           | &check; |                      | &check;            |                       |                      |                     |                     |                     |
+    | apim:api_workflow                      | &check; |                      |                    |                       |                      |                     |                     |                     |
+    | apim:app_owner_change                  | &check; |                      |                    |                       |                      |                     |                     |                     |
+    | apim:app_import_export                 | &check; |                      |                    |                       |                      |                     |                     |                     |
+    | apim:api_import_export                 | &check; |                      |                    |                       |                      |                     |                     |                     |
+    | apim:label_manage                      | &check; |                      |                    |                       |                      |                     |                     |                     |
+    | apim:label_read                        | &check; |                      |                    |                       |                      |                     |                     |                     |
+    | apim:app_update                        | &check; |                      |                    | &check;               |                      |                     |                     |                     |
+    | apim:app_manage                        | &check; |                      |                    | &check;               |                      |                     |                     |                     |
+    | apim:sub_manage                        | &check; |                      |                    | &check;               |                      |                     |                     |                     |
+    | apim:monetization_usage_publish        | &check; | &check;              |                    |                       |                      |                     |                     |                     |
+    | apim:document_create                   | &check; | &check;              | &check;            |                       |                      |                     |                     |                     |
+    | apim:ep_certificates_update            | &check; |                      | &check;            |                       |                      |                     |                     |                     |
+    | apim:client_certificates_update        | &check; |                      | &check;            |                       |                      |                     |                     |                     |
+    | apim:threat_protection_policy_manage   | &check; |                      | &check;            |                       |                      |                     |                     |                     |
+    | apim:document_manage                   | &check; | &check;              | &check;            |                       |                      |                     |                     |                     |
+    | apim:client_certificates_add           | &check; |                      | &check;            |                       |                      |                     |                     |                     |
+    | apim:publisher_settings                | &check; | &check;              | &check;            |                       |                      |                     |                     |                     |
+    | apim:store_settings                    | &check; |                      |                    | &check;               |                      |                     |                     |                     |
+    | apim:client_certificates_view          | &check; |                      | &check;            |                       |                      |                     |                     |                     |
+    | apim:mediation_policy_manage           | &check; |                      | &check;            |                       |                      |                     |                     |                     |
+    | apim:threat_protection_policy_create   | &check; |                      | &check;            |                       |                      |                     |                     |                     |
+    | apim:ep_certificates_add               | &check; |                      | &check;            |                       |                      |                     |                     |                     |
+    | apim:ep_certificates_view              | &check; |                      | &check;            |                       |                      |                     |                     |                     |
+    | apim:api_key                           | &check; |                      | &check;            |                       |                      |                     |                     |                     |
+    | apim_analytics:admin                   | &check; |                      |                    |                       |                      |                     |                     |                     |
+    | apim_analytics:product_manager         | &check; | &check;              | &check;            | &check;               |                      |                     |                     |                     |
+    | apim_analytics:api_developer           | &check; | &check;              | &check;            |                       |                      |                     |                     |                     |
+    | apim_analytics:app_developer           | &check; |                      |                    | &check;               |                      |                     |                     |                     |
+    | apim_analytics:devops_engineer         | &check; | &check;              | &check;            | &check;               |                      |                     |                     |                     |
+    | apim_analytics:analytics_viewer        | &check; |                      |                    |                       | &check;              |                     |                     |                     |
+    | apim_analytics:everyone                |         |                      |                    |                       |                      | &check;             |                     |                     |
+    | apim:pub_alert_manage                  | &check; |                      | &check;            |                       |                      |                     |                     |                     |
+    | apim:sub_alert_manage                  | &check; |                      |                    | &check;               |                      |                     |                     |                     |
+    | apim:tenantInfo                        | &check; |                      |                    |                       |                      |                     |                     |                     |
+    | apim:admin_operations                  | &check; |                      |                    |                       |                      |                     |                     |                     |
+    | apim:api_list_view                     | &check; |                      |                    |                       |                      |                     |                     | &check;             |
+    | apim:api_definition_view               | &check; |                      |                    |                       |                      |                     |                     | &check;             |
 

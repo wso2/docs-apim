@@ -8,7 +8,7 @@ To understand this, consider a scenario where the Streaming Integrator receives 
 
 ## Before you begin
 
-- [Start WSO2 Streaming Integrator server]({{base_path}}/setup/installing-si-in-vm#starting-the-si-server).
+- [Start WSO2 Streaming Integrator server]({{base_path}}/setup/installing-si#starting-the-si-server).
 
 - [Start Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview#starting-streaming-integrator-tooling).
 
@@ -19,7 +19,7 @@ To understand this, consider a scenario where the Streaming Integrator receives 
     - **For Windows**     : `extension-installer.bat install grpc`
     - **For Linux/MacOS** : `./extension-installer.sh install grpc`
     
-   Then restart WSO2 Streaming Integrator for the installation to be effective. For detailed instructions to install a Siddhi extension, see [Downloading and Installing Siddhi Extensions]({{base_path}}/streaming/connectors/downloading-and-installing-siddhi-extensions).
+   Then restart WSO2 Streaming Integrator for the installation to be effective. For detailed instructions to install a Siddhi extension, see [Downloading and Installing Siddhi Extensions]({{base_path}}/streaming/connectors/installing-siddhi-extensions).
 
 
 ## Step 1: Configure the Streaming Integrator
@@ -84,7 +84,7 @@ Let's design a Siddhi application that triggers an integration flow and deploy i
 
 6. Let's define Siddhi queries to calculate the average production per minute, filter production runs where the average production per minute is greater than 100, and direct the logs to be published to the output stream.
 
-    a. To calculate the average per minute, add a Siddi query named `CalculateAverageProductionPerMinute` as follows:
+    a. To calculate the average per minute, add a Siddhi query named `CalculateAverageProductionPerMinute` as follows:
 
         ```
         @info(name = 'CalculateAverageProductionPerMinute')

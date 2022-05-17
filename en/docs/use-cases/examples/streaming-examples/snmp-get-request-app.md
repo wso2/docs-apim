@@ -1,12 +1,12 @@
 # Receiving Custom Key Value Events via SNMP
 
 ## Purpose:
-This application demonstrates how to configure WSO2 Streaming Integrator Tooling to resive snmp source via SNMP in keyvalue using custom mapping.
+This application demonstrates how to configure WSO2 Streaming Integrator Tooling to receive snmp source via SNMP in keyvalue using custom mapping.
 
 ## Prerequisites:
 1. Save this sample.
 2. Install snmp agent on your network node.
-    * for linux can install snmpd / for windows it can be configured by 'windows features'.
+    * for Linux can install snmpd / for windows it can be configured by 'windows features'.
     * configure snmp agent ex:- community string, port, user access.
 3. If there is no syntax error, the following message is shown on the console:
        * - SNMP-get-request-app successfully deployed.

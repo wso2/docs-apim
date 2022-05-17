@@ -15,52 +15,36 @@ To install and run the API Manager in virtual machines, see the following topics
 <table>
     <tr>
         <th>
-            <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-via-the-installer">Installing via the Installer</a>
+            <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime">Installing the API Manager Runtime</a>
         </th>
         <td>
-            Explains how to install the API Manager component via the Installer.
+            Explains how to download the API Manager component as a binary and install it on a virtual machine.
+        </td>
+    </tr>  
+    <tr>
+        <th>
+            <a href="{{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m">Running the API-M Runtime</a>
+        </th>
+        <td>
+            Explains how you can execute the API-M runtime and start using its features.
+        </td>
+    </tr> 
+    <tr>
+        <th>
+            <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-as-a-linux-service">Running API-M as a Linux Service</a>
+        </th>
+        <td>
+            Explains how to install and run the API Manager as a Linux service.
         </td>
     </tr>
     <tr>
         <th>
-            <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-linux-or-os-x">Installing on Linux or OS X</a>
+            <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-as-a-windows-service">Running API-M as a Windows Service</a>
         </th>
         <td>
-            Explains how to download the API Manager component as a binary and install it on a virtual machine with a Linux operating system.
+            Explains how to install and run the API Manager as a Windows service.
         </td>
-    </tr>
-    <tr>
-        <th>
-            <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-solaris">Installing on Solaris</a>
-        </th>
-        <td>
-            Explains how to download the API Manager component as a binary and install it on a virtual machine with a Solaris operating system.
-        </td>
-    </tr>
-    <tr>
-        <th>
-            <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-windows">Installing on Windows</a>
-        </th>
-        <td>
-            Explains how to download the API Manager component as a binary and install it on a virtual machine with a Windows operating system.
-        </td>
-    </tr>
-    <tr>
-        <th>
-            <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-windows">Installing as a Linux Service</a>
-        </th>
-        <td>
-            Explains how to install the API Manager as a Linux service.
-        </td>
-    </tr>
-    <tr>
-        <th>
-            <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-as-a-windows-service">Installing as a Windows Service</a>
-        </th>
-        <td>
-            Explains how to install the API Manager as a Windows service.
-        </td>
-    </tr>   
+    </tr> 
 </table>
 
 ### Setting up
@@ -70,7 +54,7 @@ To set up the API Manager component, see the following topics.
 <table>
 <tr>
     <th>
-        <a href="{{base_path}}/install-and-setup/setup/deployment-overview">Applying WSO2 WUM Updates</a>
+        <a href="{{base_path}}/administer/updating-wso2-api-manager">Applying WSO2 WUM Updates</a>
     </th>
     <td>
         Explains how to get the latest updates that are available for a particular release of the API Manager.
@@ -376,14 +360,6 @@ See the topics given below to manage APIs, API products, Apps, etc. in the API-M
     </tr>
     <tr>
         <th>
-            <a href="{{base_path}}/install-and-setup/setup/api-controller/managing-microgateways/managing-microgateways-with-ctl">Managing Microgateways</a>
-        </th>
-        <td>
-            Explains how to interract with multiple microgateways via the API Controller
-        </td>
-    </tr>
-    <tr>
-        <th>
             <a>Advanced Topics</a>
         </th>
         <td>
@@ -465,28 +441,49 @@ To install and run the Micro Integrator on a virtual machine, see the topics giv
 <table>
     <tr>
         <th>
-            <a href="{{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer">Installing via the Installer</a>
+            <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-mi">Installing the Micro Integrator Runtime</a>
         </th>
         <td>
-            Explains how to install the Micro Integrator component via the Installer.
+            Explains how to download the Micro Integrator runtime as a binary and install it on a virtual machine.
         </td>
-    </tr>
+    </tr>   
     <tr>
         <th>
-            <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/install-mi-in-vm-binary">Installing via the Binary</a>
+            <a href="{{base_path}}/install-and-setup/install/installing-the-product/running-the-mi">Running the Micro Integrator Runtime</a>
         </th>
         <td>
-            Explains how to download the Micro Integrator component as a binary and install it on a virtual machine.
+            Explains how you can execute the Micro Integrator runtime and start using its features.
         </td>
-    </tr>
+    </tr> 
     <tr>
         <th>
-            <a href="{{base_path}}/install-and-setup/install/installing-the-product/install-mi-as-windows-service">Installing as a Windows Service</a>
+            <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-mi-as-a-windows-service">Running the Micro Integrator as a Windows Service</a>
         </th>
         <td>
-            Explains how to install the Micro Integrator as a Windows service.
+            Explains how to install and run the Micro Integrator as a Windows service.
         </td>
     </tr>
+</table>
+
+To install and run the Micro Integrator Dashboard on a virtual machine, see the topics given below.
+
+<table>
+    <tr>
+        <th>
+            <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-mi-dashboard">Installing the Micro Integrator Dashboard</a>
+        </th>
+        <td>
+            Explains how to download the Micro Integrator Dashboard as a binary and install it on a virtual machine.
+        </td>
+    </tr>   
+    <tr>
+        <th>
+            <a href="{{base_path}}/install-and-setup/install/installing-the-product/running-the-mi-dashboard">Running the Micro Integrator Dashboard</a>
+        </th>
+        <td>
+            Explains how you can execute the Micro Integrator Dashboard and start using its features.
+        </td>
+    </tr> 
 </table>
 
 ### Setting up
@@ -713,15 +710,15 @@ To set up and configure the Micro Integrator runtime, see the topics given below
 </tr>
 <tr>
     <th>
-        <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/observability-deployment-strategy">Observability</a>
+        <a href="{{base_path}}/observe/micro-integrator/cloud-native-observability-overview">Observability</a>
     </th>
     <td>
         There are two possible observability solutions that you can enable for the Micro Integrator component. This section explains how to set them up and well as how to configure logging. The topics covered are as follows:
         <li>
-            <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment">Setting up Cloud-Native Observability on a VM</a>
+            <a href="{{base_path}}/observe/micro-integrator/setting-up-cloud-native-observability-on-a-vm">Setting up Cloud-Native Observability on a VM</a>
         </li>
         <li>
-            <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-cloud-native-observability-in-kubernetes">Setting up Cloud-Native Observability on Kubernetes</a>
+            <a href="{{base_path}}/observe/micro-integrator/setting-up-cloud-native-observability-in-kubernetes/">Setting up Cloud-Native Observability on Kubernetes</a>
         </li>
         <li>
             <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-classic-observability-deployment">Setting up Classic Observability Deployment</a>
@@ -730,16 +727,16 @@ To set up and configure the Micro Integrator runtime, see the topics given below
             <a>Configuring Logs</a>
         </li>
             <li>
-                <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/enabling_component_logs">Enabling Logs for a Component</a>
+                <a href="{{base_path}}/observe/micro-integrator/classic-observability-logs/enabling-logs-for-a-component">Enabling Logs for a Component</a>
             </li>
             <li>
-                <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties">Configuring Logs</a>
+                <a href="{{base_path}}/observe/micro-integrator/classic-observability-logs/configuring-log4j2-properties">Configuring Logs</a>
             </li>
             <li>
-                <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/managing_log_growth">Managing Log Growth</a>
+                <a href="{{base_path}}/administer/logging-and-monitoring/logging/managing-log-growth">Managing Log Growth</a>
             </li>
             <li>
-                <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/masking_sensitive_info_in_logs">Masking Sensitive Information in Logs</a>
+                <a href="{{base_path}}/administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs">Masking Sensitive Information in Logs</a>
             </li>                                                                                           
     </td>
 </tr>
@@ -786,7 +783,7 @@ To deploy the Micro Integrator runtime, see the topics given below.
 
 ### CI/CD
 
-To implement continuous integration and continuous deployment pipelined for integrations, see the topics given below.
+To implement continuous integration and continuous deployment pipelines for integrations, see the topics given below.
 
 <table>
     <tr>
@@ -897,49 +894,49 @@ This component develops streaming solutions that can be exposed as managed APIs 
 To install and run the Streaming Integrator, see the following topics.
 
 <table>
-	<tr>
+    <tr>
+        <th>
+            <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-si">Installing the Streaming Integrator Runtime</a>
+        </th>
+        <td>
+            Explains how to download the Streaming Integrator runtime as a binary and install it on a virtual machine.
+        </td>
+    </tr>   
+    <tr>
+        <th>
+            <a href="{{base_path}}/install-and-setup/install/installing-the-product/running-the-si">Running the Streaming Integrator Runtime</a>
+        </th>
+        <td>
+            Explains how you can execute the Streaming Integrator runtime and start using its features.
+        </td>
+    </tr> 
+    <tr>
+        <th>
+            <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-si-as-a-linux-service">Running the Streaming Integrator as a Linux Service</a>
+        </th>
+        <td>
+            Explains how to install and run the Streaming Integrator as a Linux service.
+        </td>
+    </tr>
+    <tr>
+        <th>
+            <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-si-as-a-windows-service">Running the Streaming Integrator as a Windows Service</a>
+        </th>
+        <td>
+            Explains how to install and run the Streaming Integrator as a Windows service.
+        </td>
+    </tr>
+    <tr>
 		<th>
-			<a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-si-in-vm">Installing via the Installer</a>
-		</th>
-		<td>
-			Explains how to install the Streaming Integrator component via the Installer.
-		</td>
-	</tr>
-	<tr>
-		<th>
-			<a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-si-binary">Installing via the Binary</a>
-		</th>
-		<td>
-			Explains how to download the Streaming Integrator component as a binary and install it on a virtual machine.
-		</td>
-	</tr>
-	<tr>
-		<th>
-			<a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-si-as-a-linux-service">Installing as a Linux Service</a>
-		</th>
-		<td>
-			Explains how to install the Streaming Integrator component as a Linux service.
-		</td>
-	</tr>   
-	<tr>
-		<th>
-			<a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-si-as-windows-service">Installing as a Windows Service</a>
-		</th>
-		<td>
-			Explains how to install the Streaming Integrator component as a Windows service.
-		</td>
-	</tr>
-	<tr>
-		<th>
-			<a>Installing in Containers</a>
+			<a>Installing the Streaming Integrator on Containers</a>
 		</th>
 		<td>
 			Explains how to install the Streaming Integrator component in different containerized environments. The topics covered are as follows:
 			<li>
-				<a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-docker">Installing in Docker</a>
+				<a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-docker">Installing the Streaming Integrator on Docker</a>
 			</li>
 			<li>
-				<a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-kubernetes">Installing in kubernetes</a>
+				<a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-kubernetes">Installing the Streaming Integrator on kubernetes</a>
 			</li>           
 		</td>
 	</tr>

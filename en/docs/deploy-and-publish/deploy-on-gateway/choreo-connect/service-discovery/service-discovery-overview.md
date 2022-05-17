@@ -22,10 +22,10 @@ Add the following configuration under the Adapter section to the main configurat
 
 ``` 
 [adapter.consul]
-  enable = true
+  enabled = true
   url = "https://169.254.1.1:8501"
   pollInterval = 5
-  aclToken = "d3a2a719-4221-8c65-5212-58d4727427ac"
+  ACLToken = "d3a2a719-4221-8c65-5212-58d4727427ac"
   mgwServiceName = "choreo-connect"
   serviceMeshEnabled = true
   caCertFile = "/home/wso2/security/truststore/consul/consul-agent-ca.pem"
@@ -40,8 +40,8 @@ The following table describes above configuration.
 | `enable`                              | Set this to `true` to enable Consul service discovery. |
 | `url`                                 | The `URL` of the [Consul HTTP API](https://www.consul.io/api-docs#http-api-structure).|
 | `pollInterval`                        | The time interval (in seconds) in which the Choreo Connect should fetch updates from the Consul service catalog.|
-| `aclToken`                            | [Access Control Token](https://learn.hashicorp.com/tutorials/consul/access-control-setup-production) generated using Consul. You should grant read access to services when creating the token|
-| `mgwServiceName`                      | Choreo Connect natively integrates with Consul service mesh. Therefore a service name is required to be defined inorder to grant access to other services in mesh. |
+| `ACLToken`                            | [Access Control Token](https://learn.hashicorp.com/tutorials/consul/access-control-setup-production) generated using Consul. You should grant read access to services when creating the token|
+| `mgwServiceName`                      | Choreo Connect natively integrates with Consul service mesh. Therefore a service name is required to be defined in order to grant access to other services in mesh. |
 | `serviceMeshEnabled`                  | Set this to `true` if service mesh is enabled in Consul |
 | `caFile`                              | CaFile is the optional path to the CA certificate used for Consul communication, defaults to the system bundle if not specified.|
 | `certFile`                            | CertFile is the optional path to the certificate for Consul communication. If this is set, then you need to also set `keyFile`.|
@@ -55,7 +55,7 @@ The following table describes above configuration.
         - If Consul agent's [verify_incoming](https://www.consul.io/docs/agent/options#verify_incoming) configuration is set to `true`, the certificate and private key have to be signed by the same CA that the Consul agents' certificates are signed.
 
 
-## How to define the endpoints
+## Defining the endpoints
 
 ### Syntax for defining the Consul upstream endpoints
 
@@ -68,7 +68,7 @@ consul(<service_name>,<default_host>)
 ```
 
 ```java tab="Example"
-consul(pet,https://10.10.1.5:5000)'
+consul(pet,https://10.10.1.5:5000)
 ```
 
 Example 2:<br>
@@ -92,7 +92,7 @@ Define the upstream endpoints to the Consul service catalog based services using
 ### Define Consul service catalog based services in WSO2 API Manager
 
 Define the upstream endpoints to the Consul service catalog based services in WSO2 API Manager using the syntax described above via the WSO2 API Manger publisher portal.<br>
-You have to define the service using the above mentioned syntax and put it in the Production endpoint ot Sandbox endpoint or both.<br>
+You have to define the service using the above mentioned syntax and put it in the Production endpoint, the Sandbox endpoint or both.<br>
 [![reference]({{base_path}}/assets/img/deploy/consul-apim.png)]({{base_path}}/assets/img/deploy/consul-apim.png)
 
 ### Define Consul service catalog based services in an Open API definition (when using APICTL)

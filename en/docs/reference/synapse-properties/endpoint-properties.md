@@ -5,7 +5,7 @@ A message exit point or an endpoint defines an external destination for a messag
 
 For example, the endpoint for the simple stock quote sample is `http://localhost:9000/services/SimpleStockQuoteService`.
 
-Endpoints are independant of transports, which allows you to use the same endpoint with multiple transports. When you configure a message mediation sequence or a proxy service to handle the incoming message, you can specify which transport to use and the endpoint to which the message is sent.
+Endpoints are independent of transports, which allows you to use the same endpoint with multiple transports. When you configure a message mediation sequence or a proxy service to handle the incoming message, you can specify which transport to use and the endpoint to which the message is sent.
 
 ## Classification of Endpoints
 
@@ -218,7 +218,7 @@ See the topics given below for the list of properties that can be configured for
 
 ### Basic Properties
 
-Listed below are the basic properties that used to [define an endpoint aritfact]({{base_path}}/integrate/develop/creating-artifacts/creating-endpoints).
+Listed below are the basic properties that used to [define an endpoint artifact]({{base_path}}/integrate/develop/creating-artifacts/creating-endpoints).
 
 <table>
     <tr>
@@ -495,12 +495,59 @@ Member properties can be used to associate configuration data with an endpoint.
       </tr>
 </table>
 
+### Basic Auth Properties
+
+The following properties <b>only</b> apply to HTTP endpoint.
+
+The `basicAuth` element contains the following parameters that are used to configure basic authentication for the endpoint.
+
+<table>
+    <tr>
+        <th>Property</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>username</td>
+        <td>
+            User's username to invoke the defined endpoint.
+        </td>
+    </tr>
+    <tr>
+        <td>password</td>
+        <td>
+            User's password to invoke the defined endpoint.
+        </td>
+    </tr>
+</table>
+
+The following is an HTTP endpoint configured with basic authentication.
+
+```xml
+<endpoint name="FoodEP" xmlns="http://ws.apache.org/ns/synapse">
+    <http method="get" uri-template="http://localhost:9192/service/foodservice">
+        <authentication>
+            <basicAuth>
+                  <username>admin</username>
+                  <password>admin</password>
+            </basicAuth>
+        </authentication>
+    </http>
+</endpoint>
+```
+
 ### OAuth Properties
 
 The following properties <b>only</b> apply to HTTP endpoint. 
 
 !!! Note
-      You can also use environment variables for these parameters. For more information, see [Injecting Parameters]({{base_path}}/integrate/develop/injecting-parameters).
+      1. You can also use environment variables for these parameters. For more information, see [Injecting Parameters]({{base_path}}/integrate/develop/injecting-parameters).
+      2. You can use dynamic values for OAuth configurations such as XPATH, JSON expressions or vault-lookup. For more information, see [Define dynamic expressions]({{base_path}}/reference/synapse-properties/endpoint-properties/#define-dynamic-expressions).
+      3. You can send additional parameters as well in the OAuth request body. For more information, see [Send additional parameters in the OAuth request body]({{base_path}}/reference/synapse-properties/endpoint-properties/#send-additional-parameters-in-the-oauth-request-body).
+
+
+!!! Tip
+      You can configure the OAuth cache timeout (in seconds) by setting the following property in the `<MI_HOME>/conf/synapse.properties` file. The default timeout will be 3000 seconds.
+      `synapse.endpoint.http.oauth.cache.timeout=500`
 
 #### Authorization Code/Refresh Token grant type
 
@@ -510,11 +557,15 @@ The `authorizationCode` element contains the following parameters that are used 
     <tr>
         <th>Property</th>
         <th>Description</th>
+        <th>Required</th>
     </tr>
     <tr>
         <td>clientId</td>
         <td>
             Client ID that is provided by the third-party service when you registered your application.
+        </td>
+        <td>
+            Yes
         </td>
     </tr>
     <tr>
@@ -522,17 +573,35 @@ The `authorizationCode` element contains the following parameters that are used 
         <td>
             Client Secret that is provided by the third-party service when you registered your application.
         </td>
+        <td>
+            Yes
+        </td>
     </tr>
     <tr>
         <td>refreshToken</td>
         <td>
             Refresh token obtained from the third-party service by using Authorization Code grant flow.
         </td>
+        <td>
+            Yes
+        </td>
     </tr>
     <tr>
         <td>tokenUrl</td>
         <td>
             Token endpoint provided by the third-party service to obtain access tokens.
+        </td>
+        <td>
+            Yes
+        </td>
+    </tr>
+    <tr>
+        <td>authMode</td>
+        <td>
+            Indicate how the client credentials are passed to the token endpoint. If the authMode is <code>payload</code> they are passed in the request payload. If the authMode is <code>header</code> the client credentials are passed in the authentication header, which is the default.
+        </td>
+        <td>
+            Optional
         </td>
     </tr>
 </table>
@@ -564,11 +633,15 @@ The `clientCredentials` element contains the following parameters that are used 
     <tr>
         <th>Property</th>
         <th>Description</th>
+        <th>Required</th>
     </tr>
     <tr>
         <td>clientId</td>
         <td>
             Client ID provided by the third-party service when you registered your application.
+        </td>
+        <td>
+            Yes
         </td>
     </tr>
     <tr>
@@ -576,11 +649,26 @@ The `clientCredentials` element contains the following parameters that are used 
         <td>
             Client Secret provided by the third-party service when you registered your application.
         </td>
+        <td>
+            Yes
+        </td>
     </tr>
     <tr>
         <td>tokenUrl</td>
         <td>
             Token endpoint provided by the third-party service to obtain access tokens.
+        </td>
+        <td>
+            Yes
+        </td>
+    </tr>
+    <tr>
+        <td>authMode</td>
+        <td>
+            Indicate how the client credentials are passed to the token endpoint. If the authMode is <code>payload</code> they are passed in the request payload. If the authMode is <code>header</code> the client credentials are passed in the authentication header, which is the default.
+        </td>
+        <td>
+            Optional
         </td>
     </tr>
 </table>
@@ -596,6 +684,139 @@ The following is an HTTP endpoint configured with the client credentials grant t
                     <clientId>K2RbnGP7VS</clientId>
                     <clientSecret>9zLrZAYR5b</clientSecret>
                     <tokenUrl>http://localhost:8678/token</tokenUrl>
+                </clientCredentials>
+            </oauth>
+        </authentication>
+    </http>
+</endpoint>
+```
+
+#### Password grant type
+
+The `passwordCredentials` element contains the following parameters that are used to configure OAuth for the endpoint.
+
+<table>
+    <tr>
+        <th>Property</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    <tr>
+        <td>clientId</td>
+        <td>
+            Client ID provided by the third-party service when you registered your application.
+        </td>
+        <td>
+            Yes
+        </td>
+    </tr>
+    <tr>
+        <td>clientSecret</td>
+        <td>
+            Client Secret provided by the third-party service when you registered your application.
+        </td>
+        <td>
+            Yes
+        </td>
+    </tr>
+    <tr>
+        <td>username</td>
+        <td>
+            Username of the user.
+        </td>
+        <td>
+            Yes
+        </td>
+    </tr>
+    <tr>
+        <td>password</td>
+        <td>
+            Password of the user.
+        </td>
+        <td>
+            Yes
+        </td>
+    </tr>
+    <tr>
+        <td>tokenUrl</td>
+        <td>
+            Token endpoint provided by the third-party service to obtain access tokens.
+        </td>
+        <td>
+            Yes
+        </td>
+    </tr>
+    <tr>
+        <td>authMode</td>
+        <td>
+            Indicate how the client credentials are passed to the token endpoint. If the authMode is <code>payload</code> they are passed in the request payload. If the authMode is <code>header</code> the client credentials are passed in the authentication header, which is the default.
+        </td>
+        <td>
+            Optional
+        </td>
+    </tr>
+</table>
+
+The following is an HTTP endpoint configured with the password grant type.
+
+```xml
+<endpoint name="FoodEP" xmlns="http://ws.apache.org/ns/synapse">
+    <http method="get" uri-template="http://localhost:9192/service/foodservice">
+        <authentication>
+            <oauth>
+                <passwordCredentials>
+                    <clientId>K2RbnGP7VS</clientId>
+                    <clientSecret>9zLrZAYR5b</clientSecret>
+                    <username>internal-user</username>
+                    <password>abc@123</password>
+                    <tokenUrl>http://localhost:8678/token</tokenUrl>
+                </passwordCredentials>
+            </oauth>
+        </authentication>
+    </http>
+</endpoint>
+```
+
+#### Send additional parameters in the OAuth request body
+
+By default the `grant_type`, `client_id`, and `client_secret` parameters are sent in the OAuth request body. To send additional parameters you can define them as a list of parameters under the `requestParameters` tag as shown in the example below.
+
+```xml
+<endpoint name="FoodEP" xmlns="http://ws.apache.org/ns/synapse">
+    <http method="get" uri-template="http://localhost:9192/service/foodservice">
+        <authentication>
+            <oauth>
+                <clientCredentials>
+                    <clientId>K2RbnGP7VS</clientId>
+                    <clientSecret>9zLrZAYR5b</clientSecret>
+                    <tokenUrl>http://localhost:8678/token</tokenUrl>
+                    <requestParameters>
+                        <parameter name="scope">read_only</parameter>
+                        <parameter name="user_role">tester</parameter>
+                    </requestParameters>
+                </clientCredentials>
+            </oauth>
+        </authentication>
+    </http>
+</endpoint>
+```
+
+#### Define dynamic expressions
+
+You can use dynamic values for OAuth configurations such as XPATH, JSON expressions or vault-lookup to get data from a secure vault. Make sure you define the elements within curly brackets.
+
+```xml
+<endpoint name="FoodEP" xmlns="http://ws.apache.org/ns/synapse">
+    <http method="get" uri-template="http://localhost:9192/service/foodservice">
+        <authentication>
+            <oauth>
+                <clientCredentials>
+                    <clientId>K2RbnGP7VS</clientId>
+                    <clientSecret>{hashicorp:vault-lookup('secret/hello', 'clientSecret')}</clientSecret>
+                    <tokenUrl>http://localhost:8678/token</tokenUrl>
+                    <requestParameters>
+                        <parameter name="scope">{ctx:oauth_scope}</parameter>
+                    </requestParameters>
                 </clientCredentials>
             </oauth>
         </authentication>

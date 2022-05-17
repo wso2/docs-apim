@@ -1,6 +1,6 @@
 # Customizing the Developer Portal and Gateway URLs for Tenants
 
-The default URL of WSO2 API Manager Developer Portal (`https://<HostName>:9443/devportal`) and the gateway URLs (`http://<HostName>:8280/t/<tenant-domain>` and `https://<HostName>:8243/t/<tenant-domain>`) can be customized per tenant. Following steps illustrate how to configure devportal and gateway custom urls for a given tenant.
+The default URL of WSO2 API Manager Developer Portal (`https://<HostName>:9443/devportal`) and the gateway URLs (`http://<HostName>:8280/t/<tenant-domain>` and `https://<HostName>:8243/t/<tenant-domain>`) can be customized per tenant. Following steps illustrate how to configure devportal and gateway custom URLs for a given tenant.
 
 -   [Configure per tenant custom domain mappings](#configure-per-tenant-custom-domain-mappings)
 -   [Configure per tenant service provider creation for devportal](#configure-per-tenant-service-provider-creation-for-devportal)
@@ -62,21 +62,13 @@ The default URL of WSO2 API Manager Developer Portal (`https://<HostName>:9443/d
 
     ![]({{base_path}}/assets/img/develop/customizations/create-mapping-file.png)
 
-## Configure per tenant service provider creation for devportal
+## Configure per tenant service provider creation for the Developer Portal
 
-By default the developer portal is acting as SAAS app, which is shared among all the tenants. But when custom urls are enabled for a given tenant, this particular SAAS application cannot be used(Due to custom callback urls) for tenant login management. Hence, below steps has to be followed in order to enable service provider creation per tenant.
+By default the developer portal is acting as SAAS app, which is shared among all the tenants. But when custom URLs are enabled for a given tenant, this particular SAAS application cannot be used(Due to custom callback URLs) for tenant login management. Hence, below steps has to be followed in order to enable service provider creation per tenant.
 
-1.  Log in to the management console ( `https://<HostName>:9443/carbon` ) as the **tenant admin**.
+1.  Carry out the steps provided in the [Advanced Configurations]({{base_path}}/administer/advanced-configurations) section.
 
-2.  In the **Main** menu, click **Browse** under **Resources**.
-
-    ![]({{base_path}}/assets/img/develop/customizations/browse-registry.png)
-
-3.  Navigate to `/_system/config/apimgt/applicationdata/tenant-conf.json` configuration file.
-
-    ![]({{base_path}}/assets/img/develop/customizations/tenant-conf.png )
-
-4.  Edit `tenant-conf.json` and add following new property to enable per tenant service provider creation for the respective tenant. Then save the content.
+2.  Edit the Advanced Configurations and add following new property to enable per tenant service provider creation for the respective tenant. Save the content.
 
     ```json
     "EnablePerTenantServiceProviderCreation": true
@@ -202,5 +194,8 @@ Carry out the following steps to configure NGINX as the load balancer to support
            }
     }
     ```
+!!! note
+    When adding the `customUrl` parameter, make sure to add the valid context that the Developer Portal is accessed from.
+
 
 Now you should be able to access the developer portal and the gateways using custom URLs defined.

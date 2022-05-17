@@ -4,7 +4,7 @@ WSO2 API-M exposes health check APIs as explained below.
 
 ## API-M runtime health checks
 
-Basic health checks can be performed on an API Manager node by connecting to relevant ports. Listed below are the ports that can be used for health checks in the available API-M profiles.
+Basic health checks can be performed on an API Manager node by connecting to relevant ports. Listed below are the ports that can be used for health checks in the available API-M profiles.
 
 | API Manager Profile | Ports that can be used for health checks |
 |---------------------|------------------------------------------|
@@ -12,7 +12,7 @@ Basic health checks can be performed on an API Manager node by connecting to re
 | Traffic Manager     | 5672 (TCP), 9611 (TCP)       |
 | Key Manager         | 9673 (HTTP), 9443 (HTTPS)                |
 
-For more information on each profile, see [API Manager Profiles]({{base_path}}//install-and-setup/setup/distributed-deployment/product-profiles).
+For more information on each profile, see [API Manager Profiles]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles).
 
 There can be scenarios where even though the ports are responding, the services are not properly started. It is advisable to use service-level health checks to ensure that the services are started. For example, API Manager by default is shipped with the simple axis2 service named `Version`. This service returns the version of the API Manager instance that is running currently.
 
@@ -29,6 +29,9 @@ curl -v http://localhost:9763/services/Version
 ``` java tab="Response"
 <ns:getVersionResponse xmlns:ns="http://version.services.core.carbon.wso2.org"><return>WSO2 API Manager-2.6.0</return></ns:getVersionResponse>
 ```
+
+!!! note
+    Basic health checks for WebSocket ports 9099 and 8099 can be performed using `curl -v http://<HOSTNAME>:<PORT>/health`. For example, use the `curl -v http://localhost:9099/health` cURL command to check the health of port 9099. The response will be `200 OK` if the port is healthy.
 
 ## Micro Integrator health checks
 
@@ -67,12 +70,12 @@ readinessProbe:
 
 ### Liveness Probe
 
-The liveness probe is a primary configuration in Kubernetes since it is used for knowing when to restart a container. For 
-example, if the server stops serving requests on the http port, even though the server is alive, the container needs to 
-be restarted so that the Micro Integrator instances serve the requests flawlessly. The default http socket of WSO2 Micro 
-Integrator can be used to health check for liveness.
+The Liveness probe is a primary configuration in Kubernetes since it is used for knowing when to restart a container. For 
+example, if the server stops serving requests on the HTTP port, even though the server is alive, the container needs to 
+be restarted so that the Micro Integrator instances serve the requests flawlessly. The default HTTP socket of WSO2 Micro 
+Integrator can be used to health check for Liveness.
 
-Add the following configurations to your `deployment.yaml` file in order to configure the liveness probe for
+Add the following configurations to your `deployment.yaml` file in order to configure the Liveness probe for
 the server. **Initial delay** and the **period** have to be fine-tuned according to your deployment.
 
 ```yaml

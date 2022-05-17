@@ -35,7 +35,7 @@
         ```
 
         ```go
-        apictl export api-product -n <API Product-name> --rev <revision-number> -r <provider> -e <environment> --format <export-format>  
+        apictl export api-product -n <API Product-name> --rev <revision-number> -r <provider> -e <environment> --preserve-status=<preserve-status> --format <export-format>  
         ``` 
 
         !!! info
@@ -47,15 +47,16 @@
             -    Optional :   
                 `--rev` : Revision Number of the API Product. If not provided, working copy of the API Product will be exported.     
                 `--provider` or `-r` : Provider of the API Product.    
-                `--latest` : Export the latest revision of the API Product.   
-                `--format` : File format of exported archive (JSON or YAML). The default value is YAML.
+                `--preserve-status` : Preserve API Product status when exporting. Otherwise, the API Product will be exported in the CREATED status The default value is true. (Please note that this flag is only applicable to the API Products. The status of dependant APIs will not get affected).    
+                `--latest` : Export the latest revision of the API Product.  
+                `--format` : File format of exported archive (JSON or YAML). The default value is YAML. 
             
         !!! example
             ```go
             apictl export api-product -n LeasingAPIProduct -e dev 
             ```
             ```go
-            apictl export api-product -n CreditAPIProduct --rev 2 -r admin -e production --format JSON 
+            apictl export api-product -n CreditAPIProduct --rev 2 -r admin -e production --preserve-status=true --format JSON 
             ```            
 
     -   **Response**
@@ -127,7 +128,7 @@ The structure of an exported API Product ZIP file is explained below:
             <td>If the exported revision is deployed in one or more gateway environments, this file will contain the list of those deployed gateways.
             <pre><code>
 type: deployment_environments
-version: v4.0.0
+version: v4.1.0
 data:
  -
    displayOnDevportal: true
@@ -156,7 +157,7 @@ data:
             Apart from the above <code>client_certificates.yaml</code> file, this folder contains the certificate files (.crt). These file names should be included in the  <code>client_certificates.yaml</code> by mapping to the corresponding alias name. Below is an example file for a  <code>client_certificates.yaml</code> file which has mapped the certificates Alias1.crt and Alias2.crt to the corresponding aliases Alias1 and Alias2 accordingly. 
             <pre><code>
 type: client_certificates
-version: v4.0.0
+version: v4.1.0
 data:
 -
 alias: Alias1
@@ -192,7 +193,7 @@ apiIdentifier:
             <td> This folder will contain documentation attached to a particular API Product. Each document will have a seperate folder by its name. Each folder will contain a file named <code>document.yaml</code> which will contain the meta information related to a document. Example for a <code>document.yaml</code> file is shown below.
             <pre><code>
 type: document
-version: v4.0.0
+version: v4.1.0
 data:
   documentId: 7be89b14-6b7c-4e1f-8bee-f72295dd65cb
   name: Doc1
@@ -353,11 +354,11 @@ mentioned gateway environments. If the **deployment environments are not provide
         
     After importing, if the API Products or the dependent APIs are not visible in the WSO2 API-M Publisher UI, do the following to re-index the artifacts in the registry.
 
-    1.  Shut down the WSO2 API-M 4.0.0, backup and delete the `<API-M_4.0.0_HOME>/solr` directory.
+    1.  Shut down the WSO2 API-M 4.1.0, backup and delete the `<API-M_4.1.0_HOME>/solr` directory.
         
-    2.  Rename the `<lastAccessTimeLocation>` element in the `<API-M_4.0.0_HOME>/repository/conf/registry.xml` file. If you use a **distributed WSO2 API-M setup**, change the file in the API Publisher node. For example, change the `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime` registry path to `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime_1 `
+    2.  Rename the `<lastAccessTimeLocation>` element in the `<API-M_4.1.0_HOME>/repository/conf/registry.xml` file. If you use a **distributed WSO2 API-M setup**, change the file in the API Publisher node. For example, change the `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime` registry path to `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime_1 `
 
-    3.  Restart WSO2 API-M 4.0.0 server.
+    3.  Restart WSO2 API-M 4.1.0 server.
 
 ### Import/Export API Products in tenanted environments 
 The environments that you create will be common to the admin and the tenants. Therefore, you do not need to create environments again when exporting and importing API Products between tenanted environments.

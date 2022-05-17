@@ -9,7 +9,7 @@ However, **WSO2 API Controller (apictl)** allows you to create and deploy APIs w
 
 Follow the instructions below to display a list of APIs or API Products in an environment using apictl:
 
-1.  Make sure that the WSO2 API Manager (WSO2 API-M) 4.0.0 version is started and that the 4.0.0 version of apictl is set up.   
+1.  Make sure that the WSO2 API Manager (WSO2 API-M) 4.1.0 version is started and that the 4.1.0 version of apictl is set up.   
      For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 3.  Run the corresponding apictl command below to get (list) APIs or API Products in an environment.
@@ -45,7 +45,7 @@ Follow the instructions below to display a list of APIs or API Products in an en
                 apictl get apis --environment production --limit 15 
                 ```    
                 ```go
-                apictl get apis --environment production --query provider:Alice --query name:PizzaShackAPI 
+                apictl get apis --environment production --query provider:Alice --query name:PizzaShackAPI version:2.0.0 
                 ```  
 
         -   **Response**
@@ -61,7 +61,7 @@ Follow the instructions below to display a list of APIs or API Products in an en
                 search for APIs.
                 You can search in attributes by using a `:` modifier. Supported attribute modifiers are **name**, 
                 **version**, **provider**, **context**, **status**, **description**, **subcontext**, **doc** and 
-                **label**.  You can also use multiple modifiers specified by multiple `-q` or `--query` flags in the same command.  
+                **label**.  You can also use multiple modifiers specified by multiple `-q` or `--query` flags in the same command. When using multiple modifiers, make sure to separate them with space. 
                 
                 **Examples:**
                    
@@ -110,7 +110,7 @@ Follow the instructions below to display a list of APIs or API Products in an en
                 apictl get api-products --environment production 
                 ```    
                 ```go
-                apictl get api-products --environment production --query provider:Alice --query name:PizzaShackAPI --limit 25 
+                apictl get api-products --environment production --query provider:Alice name:CreditAPIProduct context:"/creditapiproduct" --limit 25 
                 ```  
 
         -   **Response**
@@ -128,7 +128,7 @@ Follow the instructions below to display a list of APIs or API Products in an en
 
 Follow the instructions below to display a list of revisions created for an API or API Product in an environment using apictl:
 
-1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.0 version of apictl is set up.   
+1.  Make sure that the WSO2 API-M 4.1.0 version is started and that the 4.1.0 version of apictl is set up.   
      For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 3.  Run the corresponding apictl command below to get (list) revisions for the required API or API Product in an
@@ -237,7 +237,7 @@ Follow the instructions below to display a list of revisions created for an API 
 
 Follow the instructions below to delete an API or Application in an environment using apictl:
 
-1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.0 version of apictl is set up.   
+1.  Make sure that the WSO2 API-M 4.1.0 version is started and that the 4.1.0 version of apictl is set up.   
 For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 3.  Run the corresponding apictl command below to delete an API or an API Product in an environment.
@@ -321,53 +321,95 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
             LeasingAPIProduct API Product deleted successfully!
             ```
     
-## Change status of an API in an environment
+## Change status of an API or API Product in an environment
 
-Follow the instructions below to change the status of an API in an environment using apictl:
+Follow the instructions below to change the status of an API or API Product in an environment using apictl:
 
-1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.0 version of apictl is set up.   
+1.  Make sure that the WSO2 API-M 4.1.0 version is started and that the 4.1.0 version of apictl is set up.   
 For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
-3.  Run the corresponding apictl command below to change the status of an API in an environment.
+3.  Run the corresponding apictl command below to change the status of an API or API Product in an environment.
 
-    -   **Command**
-        ``` bash
-        apictl change-status api -a <Action> -n <API name> -v <API version> -e <environment> 
-        ```
-        ``` bash
-        apictl change-status api --action <Action> --name <API name> --version <API version> --environment <environment> 
-        ```
-        ``` bash
-        apictl change-status api --action <Action> --name <API name> --version <API version> --environment <environment> --provider <API provider> 
-        ```
+    1. Change status of an API in an environment.
 
-        !!! info
-            **Flags:**  
-            
-            -   Required :  
-                `--environment` or `-e` : The environment that the command is executed on  
-                `--name` or `-n` : The name of the respective API
-                `--version` or `-v` : The version of the respective API
-                `--action` or `-a` : The action to be taken to change the status of the API
-            -   Optional :  
-                `--provider` or `-r` : The provider of the respective API  
-
-        !!! example
-            ```bash
-            apictl change-status api -a Publish -n PizzaShackAPI -v 1.0.0 -e dev 
+        -   **Command**
+            ``` bash
+            apictl change-status api -a <Action> -n <API name> -v <API version> -e <environment> 
             ```
-            ```bash
-            apictl change-status api --action Publish --name PizzaShackAPI --version 1.0.0 --environment production 
-            ```    
+            ``` bash
+            apictl change-status api --action <Action> --name <API name> --version <API version> --environment <environment> 
+            ```
+            ``` bash
+            apictl change-status api --action <Action> --name <API name> --version <API version> --environment <environment> --provider <API provider> 
+            ```
+
+            !!! info
+                **Flags:**  
+                
+                -   Required :  
+                    `--environment` or `-e` : The environment that the command is executed on  
+                    `--name` or `-n` : The name of the respective API
+                    `--version` or `-v` : The version of the respective API
+                    `--action` or `-a` : The action to be taken to change the status of the API
+                -   Optional :  
+                    `--provider` or `-r` : The provider of the respective API  
+
+            !!! example
+                ```bash
+                apictl change-status api -a Publish -n PizzaShackAPI -v 1.0.0 -e dev 
+                ```
+                ```bash
+                apictl change-status api --action "Publish" --name PizzaShackAPI --version 1.0.0 --environment production 
+                ```    
+                ```go
+                apictl change-status api --action "Demote to Created" --name PizzaShackAPI --version 1.0.0 --environment production --provider Alice 
+                ```  
+
+        -   **Response**
+
             ```go
-            apictl change-status api --action Publish --name PizzaShackAPI --version 1.0.0 --environment production --provider Alice 
-            ```  
+            PizzaShackAPI API state changed successfully!
+            ```
 
-    -   **Response**
+    2. Change status of an API Product in an environment.
 
-        ```go
-        PizzaShackAPI API state changed successfully!
-        ```
+        -   **Command**
+            ``` bash
+            apictl change-status api-product -a <Action> -n <API name> -e <environment> 
+            ```
+            ``` bash
+            apictl change-status api-product --action <Action> --name <API name> --environment <environment> 
+            ```
+            ``` bash
+            apictl change-status api-product --action <Action> --name <API name> --environment <environment> --provider <API provider> 
+            ```
+
+            !!! info
+                **Flags:**  
+                
+                -   Required :  
+                    `--environment` or `-e` : The environment that the command is executed on  
+                    `--name` or `-n` : The name of the respective API Product
+                    `--action` or `-a` : The action to be taken to change the status of the API Product
+                -   Optional :  
+                    `--provider` or `-r` : The provider of the respective API Product 
+
+            !!! example
+                ```bash
+                apictl change-status api-product -a Publish -n PizzaShackAPIProduct -e dev 
+                ```
+                ```bash
+                apictl change-status api-product --action "Publish" --name PizzaShackAPIProduct --environment production 
+                ```    
+                ```go
+                apictl change-status api-product --action "Demote to Created" --name PizzaShackAPIProduct --environment production --provider Alice 
+                ```  
+
+        -   **Response**
+
+            ```go
+            API Product state changed successfully!
+            ```
 
     !!! Info
         Supported action values : `Publish`, `Deploy as a Prototype`, `Demote to Created`, `Demote to Prototyped`, `Block`, `Deprecate`, `Re-Publish`, `Retire`.
@@ -377,7 +419,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
 
 Follow the instructions below to undeploy a revision of an API from a selected gateway environment using apictl:
 
-1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.0 version of apictl is set up.   
+1.  Make sure that the WSO2 API-M 4.1.0 version is started and that the 4.1.0 version of apictl is set up.   
 For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 3.  Run the corresponding apictl command below to undeploy the revision from a gateway environment.
@@ -405,7 +447,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
                     `--rev`  : Revision number of the respective API   
                 -   Optional :  
                     `--provider` or `-r` : The provider of the respective API    
-                    `--gateway-env` or `-g` : The gateway environment which the revisions needs to be undeployed.  
+                    `--gateway-env` or `-g` : The gateway environment which the revisions needs to be undeployed  
     
             !!! example
                 ```bash
@@ -469,3 +511,122 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
         - If ```--gateway-env``` or ```-g``` flag not provided, revision will be undeployed from all the gateway environments it is already deployed.
         - If there are multiple gateway environments, provide them one by one by specifying the flag ```--gateway-env``` or ```-g```. If a label has more than one words,
         wrap the entire label name with quotes.
+
+## Get the log level of APIs or an API in an environment
+
+Follow the instructions below to get the logging details of APIs or an API in an environment using apictl:
+
+1.  Make sure that the WSO2 API-M 4.1.0 version is started and that the 4.1.0 version of apictl is set up.   
+For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
+2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
+3.  Run the corresponding apictl command below to get the logging details of APIs or an API in an environment.
+
+    1. Get the logging details of APIs or an API in an environment.
+
+        -   **Command**
+            ``` bash
+            apictl get api-logging -e <environment>
+            ```
+            ``` bash
+            apictl get api-logging -e <environment> --tenant-domain <tenant domain> 
+            ```
+            ``` bash
+            apictl get api-logging --environment <environment> --tenant-domain <tenant domain> 
+            ```
+            ``` bash
+            apictl get api-logging  -e <environment> --api-id <api-id> 
+            ```
+            ``` bash
+            apictl get api-logging  -e <environment> --api-id <api-id> --tenant-domain <tenant domain> 
+            ```
+
+            !!! info
+                **Flags:**  
+                
+                -   Required :  
+                    `--environment` or `-e` : The environment that the command is executed on  
+                -   Optional :  
+                    `--tenant-domain` : The tenant domain which you need to get the logging details of APIs or an API. If the flag is not provided, carbon.super will be used as the default value when executing the command    
+                    `--api-id` : The UUID of the API which you need to get the logging details
+
+            !!! example
+                ```bash
+                apictl get api-logging -e dev 
+                ```
+                ``` bash
+                apictl get api-logging -e dev --tenant-domain wso2.com
+                ```
+                ``` bash
+                apictl get api-logging --environment dev --tenant-domain wso2.com
+                ```
+                ``` bash
+                apictl get api-logging  -e dev --api-id Bf36ca3a-0332-49ba-abce-e9992228ae06 
+                ```
+                ``` bash
+                apictl get api-logging  -e dev --api-id Bf36ca3a-0332-49ba-abce-e9992228ae06 --tenant-domain wso2.com 
+                ```   
+
+        -   **Response**
+
+            ```go
+            API_ID 	                                     API_CONTEXT               	LOG_LEVEL
+            Bf36ca3a-0332-49ba-abce-e9992228ae06         pizzashack/1.0.0	        FULL
+            Af66fa7a-0546-49ba-adfe-a8976522ea96         sampleapi/1.1.0	        BASIC
+            ```
+
+    !!! Info
+        - The `get api-logging` command can be executed only with a user who has super admin permissions.
+        - Use the tenant-domain flag to get the logging details of the APIs in another tenant other than carbon.super tenant while you are logged in as a super admin user.
+
+## Set the log level of an API in an environment
+
+Follow the instructions below to add/change/remove the log level of an API in an environment using apictl:
+
+1.  Make sure that the WSO2 API-M 4.1.0 version is started and that the 4.1.0 version of apictl is set up.   
+For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
+2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
+3.  Run the corresponding apictl command below to set the log level of an API in an environment.
+
+    1. Set the log level of an API in an environment.
+
+        -   **Command**
+            ``` bash
+            apictl set api-logging --api-id <api-id> --log-level <log level> --environment <environment>
+            ```
+            ``` bash
+            apictl set api-logging --api-id <api-id> --log-level <log level> -e <environment>
+            ```
+            ``` bash
+            apictl set api-logging --api-id <api-id> --log-level <log level> --environment <environment> --tenant-domain <tenant domain> 
+            ```
+
+            !!! info
+                **Flags:**  
+                
+                -   Required :  
+                    `--environment` or `-e` : The environment that the command is executed    
+                    `--log-level`  : The log level of the API which you need to add/change/remove  
+                    `--api-id`  : The UUID of the API which you need to add/change/remove the log level
+                -   Optional :  
+                    `--tenant-domain` : The tenant domain which you need to add/change/remove the log level of an API. If the flag is not provided, carbon.super will be used as the default value when executing the command
+
+            !!! example
+                ``` bash
+                apictl set api-logging --api-id Bf36ca3a-0332-49ba-abce-e9992228ae06 --log-level full --environment dev
+                ```
+                ``` bash
+                apictl set api-logging --api-id Bf36ca3a-0332-49ba-abce-e9992228ae06 --log-level full -e dev
+                ```
+                ``` bash
+                apictl set api-logging --api-id Bf36ca3a-0332-49ba-abce-e9992228ae06 --log-level full --environment dev --tenant-domain wso2.com 
+                ```   
+
+        -   **Response**
+
+            ```go
+            Log level FULL is successfully set to the API.
+            ```
+
+    !!! Info
+        - Supported log-level values : `FULL`, `BASIC`, `STANDARD`, `OFF`.
+        - When you need to disable logging for an API, set the log level to OFF.

@@ -1,13 +1,13 @@
 # Adding an API Subscription Workflow
 
-This section explains how to attach a custom workflow to the API subscription operation in the API Manager. First, see [Workflow Extensions](_Managing_Workflow_Extensions_) for information on different types of workflows executors.
+This section explains how to attach a custom workflow to the API subscription operation in the API Manager. First, see [Workflow Extensions]({{base_path}}/reference/customize-product/extending-api-manager/extending-workflows/customizing-a-workflow-extension/) for information on different types of workflows executors.
 
 Attaching a custom workflow to API subscription enables you to add throttling tiers to an API that consumers cannot choose at the time of subscribing. Only admins can set these tiers to APIs. When a consumer subscribes to an API, he/she has to subscribe to an application in order to get access to the API. However, when API subscription workflow is enabled, when the consumer subscribes to an application, it initially is in the `On Hold` state, and he/she can not use the API, using its production or sandbox keys, until their subscription is approved.
 
 !!! Note
     You will only need to configure either  **WSO2 EI** or **WSO2 BPS**. The WSO2 API Manager configuration will be common for both.
 
-##Configuring WSO2 EI
+## Configuring WSO2 EI
 
 !!! tip
     **Before you begin** , if you have changed the API Manager's default user and role, make sure you do the following changes:
@@ -21,7 +21,7 @@ Attaching a custom workflow to API subscription enables you to add throttling ti
             </htd:argument>
     ```
 
-1.  Download [WSO2 Enterprise Integrator](https://wso2.com/integration) .
+1.  Download [WSO2 Enterprise Integrator](https://wso2.com/integration).
 2.  Set an offset of 2 to the default EI port in `<EI_HOME>/conf/carbon.xml` file. This prevents port conflicts that occur when you start more than one WSO2 product on the same server. For more information, see [Changing the Default Ports with Offset](https://docs.wso2.com/display/AM260/Changing+the+Default+Ports+with+Offset) .
 
     ``` xml
@@ -176,7 +176,7 @@ First, enable the API subscription workflow **.**
         The application creation WS Workflow Executor is now engaged.
 
 
-3.  Go to the API Devportal credentials page and subscribe to an API. It will trigger the API subscription process and create a Human Task instance that pauses the execution of the BPEL until some action is performed on it. After subscribing you will see the subscription status as ON_HOLD
+3.  Go to the API Developer Portal credentials page and subscribe to an API. It will trigger the API subscription process and create a Human Task instance that pauses the execution of the BPEL until some action is performed on it. After subscribing you will see the subscription status as ON_HOLD
 
      ![]({{base_path}}/assets/img/learn/workflow-subscription-onhold.png)
 
@@ -184,11 +184,11 @@ First, enable the API subscription workflow **.**
 
     ![]({{base_path}}/assets/img/learn/workflow-subscription-admin-entry.png)
 
-    After approving go back to the API Devportal credentials page, the application status will be UNBLOCKED
+    After approving go back to the API Developer Portal credentials page, the application status will be UNBLOCKED
      
     ![]({{base_path}}/assets/img/learn/workflow-subscription-complete.png)
 
-5.  Go back to the API Devportal and see that the user is now subscribed to the API.
+5.  Go back to the API Developer Portal and see that the user is now subscribed to the API.
 
     Whenever a user tries to subscribe to an API, a request of the following format is sent to the workflow endpoint:
 

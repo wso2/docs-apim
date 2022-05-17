@@ -4,10 +4,9 @@ The recommended deployment for WSO2 Streaming Integrator (SI) is the Minimum HA 
 not scalable beyond that. If you want to configure WSO2 SI as a scalable deployment, you can use the Active-Active deployment pattern. This section provides an
 overview of the Active-Active deployment pattern and instructions to configure it.
 
-
 ## Overview
 
-![overview]({{base_path}}/assets/img/streaming/active-active-deployment/si-active-active-deployment-pattern.png)
+[![overview]({{base_path}}/assets/img/streaming/active-active-deployment/si-active-active-deployment-pattern.png){: style="width:80%"}]({{base_path}}/assets/img/streaming/active-active-deployment/si-active-active-deployment-pattern.png)
 
 The above diagram represents a deployment where you are not limited to two nodes. You can scale the event processing horizontally by adding more SI
  nodes to the deployment. In this deployment, it is recommended to configure the client application to publish events to multiple SI nodes in a Round
@@ -121,5 +120,5 @@ To configure the Streaming Integrator nodes and deploy them as an active-active 
 3. Configure a database, and then update the default configuration for the `TEST_DB` data source with parameter values suitable for your requirements.
 
 !!! warning
-    As explained in above the events are processed in multiple active nodes. Eventhough this is usually a stateful operation, you can overcome the node-dependent calculations via distributed aggregation. This allows WSO2 SI to execute scripts that depend on incremental distributed aggregation.<br/><br/>
+    As explained in above the events are processed in multiple active nodes. Even though this is usually a stateful operation, you can overcome the node-dependent calculations via distributed aggregation. This allows WSO2 SI to execute scripts that depend on incremental distributed aggregation.<br/><br/>
     However, an active-active deployment can affect alerts because alerts also depend on some in-memory stateful operations such as windows. Due to this, alerts can be generated based on the events received by specific node. Thus the alerts are node-dependent, and you need to disable them to run scripts with distributed incremental aggregation.

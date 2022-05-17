@@ -68,7 +68,7 @@ Let's make the field named **City** a mandatory field and also change the disp
         ![Available claims]({{base_path}}/assets/img/learn/available-claims-city.png)
     2.  Select the **Required** check box and save changes.
         ![Required option for claim]({{base_path}}/assets/img/learn/edit-local-claim-city.png)
-5.  Navigate to Develper Portal Sign-up page and refresh it.
+5.  Navigate to Developer Portal Sign-up page and refresh it.
     You will see that the **City** field is marked as mandatory.
     ![Required option updated sign-up form]({{base_path}}/assets/img/learn/required-field-city-claim.png)
 

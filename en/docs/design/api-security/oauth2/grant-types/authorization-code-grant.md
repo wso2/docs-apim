@@ -54,7 +54,7 @@ grant_type=authorization_code&code=SplxlOBeZQQYbYS6WxSbIA&redirect_uri=https%3A%
 
 The `/token` endpoint responds in the same way like in password grant type.
 
-Note that if you are using a separate server for authentication (e.g., a distributed API Manager setup or an instance of WSO2 Identity Server as the authentication server), be sure to give the full URL of the authentication server as given below, in the `<APIM_HOME>/repository/conf/deployment.toml` file. The default configuration has a relative path, which works in a standalone API Manager setup:
+Note that if you are using a separate server for authentication (e.g., a distributed API Manager setup or an instance of WSO2 Identity Server as the authentication server), be sure to give the full URL of the authentication server as given below, in the `<API-M_HOME>/repository/conf/deployment.toml` file. The default configuration has a relative path, which works in a standalone API Manager setup:
 
 ```
 [authentication.endpoints]
@@ -69,7 +69,7 @@ The steps below show how access tokens are generated for the authorization code 
 !!! note
     **Before you begin**
 
-    The following instructions use the sample playground webapp. For instructions on how to set up the sample webapp, see [Setting up the Sample Webapp](https://is.docs.wso2.com/en/5.10.0/learn/deploying-the-sample-app/#deploying-the-playground2-webapp) .
+    The following instructions use the sample playground webapp. For instructions on how to set up the sample webapp, see [Setting up the Sample Webapp](https://is.docs.wso2.com/en/5.11.0/learn/deploying-the-sample-app/#deploying-the-playground2-webapp).
 
 
 1.  Open a terminal window and add the following entry to the `/etc/hosts` file of your machine to configure the hostname.
@@ -122,7 +122,15 @@ The steps below show how access tokens are generated for the authorization code 
 8.  Select **Remember my consent** to remember the access to your profile information.
 
     [![Provide Consent]({{base_path}}/assets/img/learn/authorization-code-consent-page.png)]({{base_path}}/assets/img/learn/authorization-code-consent-page.png)   
-    
+
+    !!! tip
+        If you want the consent page to show the **application name** as the **display name**, add the following entry to the `deployment.toml` file in the `<API-M_HOME>/repository/conf/` folder.
+
+        ``` toml
+        [oauth]
+        show_display_name_in_consent_page = true
+        ```
+
 9.  Provide following information in the redirected page and click on **Get Access token**.
 
     <table>
@@ -149,7 +157,7 @@ The steps below show how access tokens are generated for the authorization code 
     [![Copy Access Token]({{base_path}}/assets/img/learn/oauth-authorization-code-accesstoken.png)]({{base_path}}/assets/img/learn/oauth-authorization-code-accesstoken.png)
         
 !!! tip
-    If you want to **disable the Authorization Code grant type** in the API-M instance, add the following entry to the `deployment.toml` file in the `<APIM_HOME>/repository/conf/` folder.
+    If you want to **disable the Authorization Code grant type** in the API-M instance, add the following entry to the `deployment.toml` file in the `<API-M_HOME>/repository/conf/` folder.
 
     ``` toml
     [oauth.grant_type.authorization_code]

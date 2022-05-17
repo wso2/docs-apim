@@ -21,7 +21,7 @@ Follow the steps below to import the Salesforce certificate into the integration
 1. To view the certificate, log in to your Salesforce account in your browser.
 2. Search the **Certificate and Key Management** in the search box.
 
-   <img src="{{base_path}}/assets/img/integrate/connectors/salesforcesoap-certificste-and-key-management.png" title="salesforcesoap-certificste-and-key-management" width="600" alt="salesforcesoap-certificste-and-key-management"/>  
+     <img src="{{base_path}}/assets/img/integrate/connectors/salesforcesoap-certificste-and-key-management.png" title="salesforcesoap-certificste-and-key-management" width="90%" alt="salesforcesoap-certificste-and-key-management"/>  
     
 3. Export the certificate to the file system.
 4. Import the certificate to the integration runtime's client keystore using the following [command]({{base_path}}/install-and-setup/security/importing_ssl_certificate/).
@@ -33,12 +33,12 @@ Follow the steps below to import the Salesforce certificate into the integration
 5. Restart the server and deploy the following Salesforce configuration:
 
     ```
-    <salesforce.init>
+     <salesforce.init>
         <username>MyUsername</username>
         <password>MyPassword</password>
         <loginUrl>https://login.salesforce.com/services/Soap/u/42.0</loginUrl>
         <blocking>false</blocking>
-    </salesforce.init>
+     </salesforce.init>
     ```
 
 > **Note**: Secure Vault is supported for [encrypting passwords]({{base_path}}/install-and-setup/security/encrypting_plain_text/). See, Working with Passwords on integrating and using Secure Vault.

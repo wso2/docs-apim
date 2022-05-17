@@ -518,7 +518,7 @@ Generic properties allow you to configure messages as they're processed by the 
 </tr>
 <tr class="odd">
 <td><p><strong>Description</strong></p></td>
-<td><p>By default, Axis2 spawns a new thread to handle each outgoing message. This property holds the primary thread until a VFS proxy writes to a VFS endpoint. You need to r emove this property from the message to change this behavior when queuing transports like JMS are involved.</p></td>
+<td><p>By default, Axis2 spawns a new thread to handle each outgoing message. This property holds the primary thread until a VFS proxy writes to a VFS endpoint. You need to remove this property from the message to change this behavior when queuing transports like JMS are involved.</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>Example</strong></p></td>
@@ -777,7 +777,7 @@ Generic properties allow you to configure messages as they're processed by the 
 
 ## RabbitMQ Properties
 
-The following generic properties can be used in the [Property mediator]({{base_path}}/reference/mediators/property-Mediator) and the [Property Group mediator]({{base_path}}/reference/mediators/property-Group-Mediator.md) for RabbitMQ use cases.
+The following generic properties can be used in the [Property mediator]({{base_path}}/reference/mediators/property-mediator) and the [Property Group mediator]({{base_path}}/reference/mediators/property-group-mediator/) for RabbitMQ use cases.
 
 ### SET_ROLLBACK_ONLY
 
@@ -891,6 +891,66 @@ The following generic properties can be used in the [Property mediator]({{base_p
 			<div class="code panel pdl" style="border-width: 1px;">
 			<div class="codeContent panelContent pdl">
 			<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1"></a>&lt;property name=<span class="st">&quot;SET_REQUEUE_ON_ROLLBACK&quot;</span> value=<span class="st">&quot;true&quot;</span> scope=<span class="st">&quot;default&quot;</span> type=<span class="st">&quot;STRING&quot;</span>&gt;&lt;/property&gt;</span></code></pre></div>
+			</div>
+			</div>
+			</div>
+		</td>
+	</tr>
+</table>
+
+### FORCE_COLLECT_PAYLOAD
+
+<table>
+	<tr>
+		<th>
+			Parameter
+		</th>
+		<th>
+			Description
+		</th>
+	</tr>
+	<tr>
+		<td>
+			Name
+		</td>
+		<td>
+			FORCE_COLLECT_PAYLOAD
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Possible Values
+		</td>
+		<td>
+			true/false
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Scope
+		</td>
+		<td>
+			default
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Description
+		</td>
+		<td>
+			When tracing data, the payload is collected when the respective mediator is content altering only. This 
+			property can be used when you want to collect payload forcefully regardless of the nature of the mediator. 
+			Note that there will be a performance impact because payload is collected for every mediator.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Example
+		</td>
+		<td><div class="content-wrapper">
+			<div class="code panel pdl" style="border-width: 1px;">
+			<div class="codeContent panelContent pdl">
+			<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1"></a>&lt;property name=<span class="st">&quot;FORCE_COLLECT_PAYLOAD&quot;</span> value=<span class="st">&quot;true&quot;</span> scope=<span class="st">&quot;default&quot;</span> type=<span class="st">&quot;STRING&quot;</span>&gt;&lt;/property&gt;</span></code></pre></div>
 			</div>
 			</div>
 			</div>

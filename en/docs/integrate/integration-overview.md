@@ -2,7 +2,7 @@
 
 # Integration Overview
 
-WSO2 API Manager 4.0.0 is shipped with an integration runtime (Micro Integrator) with comprehensive enterprise integration capabilities. Therefore, you can now use WSO2 API Manager to develop complex integration services and expose them as managed APIs in an API marketplace. This allows you to enable API-led connectivity across your business using a single platform.
+WSO2 API Manager 4.1.0 is shipped with an integration runtime (Micro Integrator) with comprehensive enterprise integration capabilities. Therefore, you can now use WSO2 API Manager to develop complex integration services and expose them as managed APIs in an API marketplace. This allows you to enable API-led connectivity across your business using a single platform.
 
 ## Get Started with Integration
 
@@ -234,7 +234,7 @@ Learn about the dashboards, tools, and solutions that are available for managing
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card" onclick="location.href='{{base_path}}/install-and-setup/setup/mi-setup/observability/observability-deployment-strategy';">
+        <div class="card" onclick="location.href='{{base_path}}/observe/micro-integrator/cloud-native-observability-overview';">
             <div class="line"></div>
             <div class="card-content">
                 <p class="title">Observability for Integrations</p>
@@ -320,6 +320,11 @@ Learn how to implement various integration use cases, deploy them in the Micro I
     <tr>
         <td>
             <a href="{{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial">Exposing an Integration Service as a Managed API</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="{{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial-for-proxy-services">Exposing an Integration SOAP Service as a Managed API</a>
         </td>
     </tr>
     </table>

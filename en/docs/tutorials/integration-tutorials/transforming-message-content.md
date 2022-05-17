@@ -50,7 +50,7 @@ The client message format must be transformed to the back-end service message fo
 
 ### Step 1: Set up the workspace
 
-Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/tooling/) based on your operating system.
+Download the relevant [WSO2 Integration Studio](https://wso2.com/api-management/tooling/) based on your operating system.
 
 ### Step 2: Develop the integration artifacts
 
@@ -61,11 +61,11 @@ An Integration project is a maven multi module project, which will contain all t
 1.  Open **WSO2 Integration Studio**.
 2.  Click **New Integration Project** in the **Getting Started** tab as shown below. 
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.png" width="700">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.jpg" width="700">
 
     This will open the <b>New Integration Project</b> dialog box.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-simple-message-project.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-simple-message-project.jpg" width="500">
 
 3.  Enter `SampleServices` as the project name and select the following check boxes to create the required modules.
     -   **Create ESB Configs**
@@ -206,7 +206,7 @@ Let's create an Endpoint to represent the Hospital Service back-end service.
 
 #### Define the mediation flow
 
-Let's configure the API resource with the data transforrmation logic.
+Let's configure the API resource with the data transformation logic.
 
 1.  Drag a **Property** mediator from the **Mediators** palette to the In Sequence of the API resource and name it **Get Hospital**. 
 
@@ -391,7 +391,7 @@ Let's configure the API resource with the data transforrmation logic.
 
     <img src="{{base_path}}/assets/img/integrate/tutorials/message-transformation/data-mapper-properties.png">
 
-16.  Add a Call mediator from the **Mediators** palette and add the HospitalServicesEP endpont from the **Defined Endpoints** palette to the empty box adjoining the Call mediator.
+16.  Add a Call mediator from the **Mediators** palette and add the HospitalServicesEP endpoint from the **Defined Endpoints** palette to the empty box adjoining the Call mediator.
 
       <img src="{{base_path}}/assets/img/integrate/tutorials/message-transformation/add-call-mediator-for-transformation.png">
 
@@ -448,14 +448,9 @@ Let's test the use case by sending a simple client request that invokes the serv
 
 Let's send a request to the API resource to make a reservation. You can use the embedded <b>HTTP Client</b> of WSO2 Integration Studio as follows:
 
-1. Open the <b>HTTP Client</b> of WSO2 Integration Studio.
+1. Open the Postman application. If you do not have the application, download it from here : [Postman](https://www.postman.com/downloads/)
 
-    !!! Tip
-        If you don't see the <b>HTTP Client</b> pane, go to <b>Window -> Show View - Other</b> and select <b>HTTP Client</b> to enable the client pane.
-
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/http4e-client-empty.png" width="800">
-
-2. Enter the request information as given below and click the <b>Send</b> icon (<img src="{{base_path}}/assets/img/integrate/tutorials/common/play-head-icon.png" width="20">).
+2. Add the request information as given below and click the <b>Send</b> button.
     
     <table>
         <tr>
@@ -508,6 +503,10 @@ Let's send a request to the API resource to make a reservation. You can use the 
             </ul>
         </tr>
      </table>
+
+     <br/><br/>
+     <video src="{{base_path}}/assets/vids/surgery-reserve.webm" width="720" height="480" controls></video>
+     <br/><br/>
      
 If you want to send the client request from your terminal:
 

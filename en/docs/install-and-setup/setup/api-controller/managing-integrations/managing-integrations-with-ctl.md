@@ -5,7 +5,7 @@ WSO2 API Controller, **apictl** allows you to monitor the Synapse artifacts (dep
 !!! info
     **Before you begin** 
 
-    -  Ensure that WSO2 Micro Integrator is started, if not follow the steps in [Installing via the Installer]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer).
+    -  Ensure that WSO2 Micro Integrator is started. See the instructions on [installing the Micro Integrator]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi).
 
     -  Make sure the apictl is downloaded and initialized, if not follow the steps in [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 
@@ -140,9 +140,9 @@ You can view details of users stored in the [external user store]({{base_path}}/
 
 2.  Get information on a specific user.
 
-    -   **Command**
+    - **Command**
         ``` bash
-        apictl mi get users [user-name] -e <environment>
+        apictl mi get users [user-name] -d [domain] -e <environment>
         ```
 
         !!! info
@@ -151,19 +151,20 @@ You can view details of users stored in the [external user store]({{base_path}}/
             -   Required :  
                 `--environment` or `-e` : Environment of the Micro Integrator to be searched
             -   Optional :  
+                `--domain` or `-d` : Domain name of the secondary user store to be searched  
                 `--format` : pretty-print using templates
 
         !!! example
             ```bash
-            apictl mi get users capp-tester -e dev
+            apictl mi get users capp-tester -d testing.com -e dev
             ```
 
-    -   **Response**
+    - **Response**
 
         ```go
-        Name - capp-tester
-        Is Admin - true
-        Roles - Internal/everyone, admin
+        Name - TESTING.COM/capp-tester
+        Is Admin - false
+        Roles - TESTING.COM/tester, Application/applicationRole1
         ```
 
 ### Add a new user
@@ -191,6 +192,9 @@ You can use the command below to add a new user to a Micro Integrator.
     ```go
     Adding new user [ capp-tester ] status: Added
     ```
+    
+!!! note
+    To add a new user to a secondary user store, provide the corresponding user store domain when prompted.
 
 ### Delete a user
 
@@ -205,11 +209,13 @@ You can use the command below to remove a user from the Micro Integrator.
         **Flags:**
 
         -   Required :  
-            `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            `--environment` or `-e` : Environment of the Micro Integrator
+        -   Optional :  
+            `--domain` or `-d` : The domain of the secondary user store from which the user should be deleted 
 
     !!! example
         ```bash
-        apictl mi delete user capp-tester -e dev
+        apictl mi delete user capp-tester -d testing.com -e dev
         ```
 
 -   **Response**
@@ -217,6 +223,169 @@ You can use the command below to remove a user from the Micro Integrator.
     ```go
     Deleting user [ capp-tester ] status: Deleted
     ```
+    
+## Manage Roles
+
+The Micro Integrator has limited role support without fine-grained permission tree support as in the Enterprise Integrator.
+
+In Micro Integrator, we have one admin role and all the other roles from primary and secondary user stores are considered non-admin roles.
+
+### Get information about roles
+
+1. List roles of the Micro Integrator.
+    - **Command**
+        ``` bash
+        apictl mi get roles -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+    
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+
+        !!! example
+            ```bash
+            apictl mi get roles -e dev
+            ```
+    
+    - **Response**
+
+        ```go
+        ROLE
+        admin
+        primaryRole1
+        Application/applicationRole1
+        Internal/everyone
+        Internal/internalRole1
+        TEST.COM/testRole1
+        ```
+      
+2.  Get information on a specific role.
+    - **Command**
+        ``` bash
+        apictl mi get roles [role-name] -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            -   Optional :  
+                `--domain` or `-d` : Domain of the secondary user store to be searched
+
+        !!! example
+            ```bash
+            apictl mi get roles tester -d testing.com -e dev
+            ```
+    
+    - **Response**
+
+        ```go
+        Role Name - TESTING.COM/tester
+        Users  - TESTING.COM/capp-tester
+        ```
+      
+!!! note
+    To get hybrid roles (application/internal) specify the role type as the domain.
+
+    ```go
+    apictl mi get roles tester -d application -e dev
+    ```
+
+### Add a new role
+
+- **Command**
+    ``` bash
+    apictl mi add role [role-name] -e <environment>
+    ```
+
+    !!! info
+        **Flags:**
+
+        -   Required :  
+            `--environment` or `-e` : Environment of the Micro Integrator
+
+    !!! example
+        ```bash
+        apictl mi add role tester -e dev
+        ```
+- **Response**
+
+    ```go
+    Adding new role [ tester ] status: Added
+    ```
+  
+!!! note
+    To add a new role to a secondary user store, provide the corresponding user store domain when prompted.
+
+!!! note
+    To add hybrid roles (application/internal) specify the type in the role name.
+
+    ```go
+    apictl mi add role internal/InternalRole -e dev
+    ```
+
+### Delete a role
+
+- **Command**
+
+    ``` bash
+    apictl mi delete role [role-name] -e <environment>
+    ```
+
+    !!! info
+        **Flags:**
+
+           -   Required :  
+               `--environment` or `-e` : Environment of the Micro Integrator
+           -   Optional :  
+               `--domain` or `-d` : The domain of the secondary user store from which the role should be deleted 
+
+    !!! example
+        ```bash
+        apictl mi delete role tester -d testing.com -e dev
+        ```
+- **Response**
+
+    ```go
+    Deleting new role [ tester ] status: Deleted
+    ```
+    
+!!! note
+    To delete hybrid roles (application/internal) specify the role type as domain.
+    ```go
+    apictl mi delete role InternalRole -d internal -e dev
+    ```
+
+### Assign/revoke roles to/from users
+
+- **Command**
+
+    ``` bash
+    apictl mi update user [user-name] -e <environment>
+    ```
+
+    !!! info
+        **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator
+
+    !!! example
+        ```bash
+        apictl mi update user capp-tester -e dev
+        ```
+
+- **Response**
+
+    ```go
+    Added/removed the roles
+    ```
+
+!!! note
+    Use a space-separated list of role names when entering the added/removed roles 
 
 ## Monitor Integration Artifacts
 

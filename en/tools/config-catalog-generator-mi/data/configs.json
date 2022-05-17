@@ -355,6 +355,14 @@
                             "default": "admin",
                             "possible": "-",
                             "description": "Enter a password for the user specified by 'user.name'. Note that this will overwrite the default 'admin' password that is stored in the user store."
+                        },
+                        {
+                            "name": "user.is_admin",
+                            "type": "boolean",
+                            "required": false,
+                            "default": false,
+                            "possible": "\"true\" or \"false\"",
+                            "description": "Specifies whether or not the user has admin privileges."
                         }
                     ]
                 }

@@ -1,52 +1,66 @@
 # Applying Security to a Proxy Service
 
-The steps below demonstrate how you can apply security to a proxy service via WSO2 Integration Studio.
+Follow the instructions below to apply security to a proxy service via WSO2 Integration Studio:
 
 ## Prerequisites
 
-Be sure to [configure a user store]({{base_path}}/install-and-setup/setup/mi-setup/setup/user_stores/setting_up_a_userstore) for the Micro Integrator and add the required users and roles.
+Be sure to [configure a user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore) for the Micro Integrator and add the required users and roles.
 
-## Step 1: Creating the security policy file
+## Step 1 - Create the security policy file
 
 Follow the instructions given below to create a **WS-Policy** resource in your registry project. This will be your security policy file.
 
-1.  Once you have created a [registry resource project]({{base_path}}/integrate/develop/create-integration-project/#registry-resource-project), right-click the roject in the left navigation panel, click **New** , and then click **Registry Resource**. This will open the **New Registry Resource** window.  
-    ![]({{base_path}}/assets/img/integrate/apply-security/119130870/119130887.png)
-2.  Select the **From existing template** option as shown below and
-    click **Next** .  
-    ![]({{base_path}}/assets/img/integrate/apply-security/119130870/119130886.png)
-3.  Enter a resource name and select the **WS-Policy** template along
-    with the preferred registry path.  
-    ![]({{base_path}}/assets/img/integrate/apply-security/119130870/119130885.png)
-    ![]({{base_path}}/assets/img/integrate/apply-security/119130870/119130884.png)
-4.  Click **Finish** . The policy file is now listed in the project
-    explorer as shown below  
-    ![]({{base_path}}/assets/img/integrate/apply-security/119130870/119130883.png)
-      
-5.  Double-click the policy file to open the file. Note that you get a
-    **Design View** and **Source View** of the policy.
+1. Create a [registry resource project]({{base_path}}/integrate/develop/create-integration-project/#registry-resource-project).
 
-6.  Let's use the **Design View** to enable the required security scenario. For example, enable the **Sign and Encyrpt** security scenario as shown below.
+2. Right-click on the registry resource project in the left navigation panel, click **New**, and then click **Registry Resource**. 
+    
+     The **New Registry Resource** window appears.
+
+    [![Click registry resource menu]({{base_path}}/assets/img/integrate/apply-security/119130870/119130887.jpg)]({{base_path}}/assets/img/integrate/apply-security/119130870/119130887.jpg)
+
+3.  Select **From existing template** and click **Next**.
+
+    [![Registry resources artifact creation options]({{base_path}}/assets/img/integrate/apply-security/119130870/119130886.jpg)]({{base_path}}/assets/img/integrate/apply-security/119130870/119130886.jpg)
+
+4.  Enter a resource name and select the **WS-Policy** template along with the preferred registry path.  
+
+    [![Registry resource name]({{base_path}}/assets/img/integrate/apply-security/119130870/119130885.jpg)]({{base_path}}/assets/img/integrate/apply-security/119130870/119130885.jpg)
+
+    [![Registry resource details]({{base_path}}/assets/img/integrate/apply-security/119130870/119130884.jpg)]({{base_path}}/assets/img/integrate/apply-security/119130870/119130884.jpg)
+
+5.  Click **Finish**. 
+
+     The policy file is now listed in the project explorer as shown below.
+
+    [![Policy file in project explorer]({{base_path}}/assets/img/integrate/apply-security/119130870/119130883.jpg)]({{base_path}}/assets/img/integrate/apply-security/119130870/119130883.jpg)
+      
+6.  Double-click on the policy file to open the file. 
+
+     Note that you get a **Design View** and **Source View** of the policy.
+
+7.  Let's use the **Design View** to enable the required security scenario. 
+
+     For example, enable the **Sign and Encrypt** security scenario as shown below.
 
     !!! Tip
         Click the icon next to the scenario to get details of the scenario.
     
-    ![]({{base_path}}/assets/img/integrate/apply-security/119130870/119130882.png)
+    [![Sign and Encrypt security scenario]({{base_path}}/assets/img/integrate/apply-security/119130870/119130882.jpg){: style=width:90%}]({{base_path}}/assets/img/integrate/apply-security/119130870/119130882.jpg)
 
-7.  You can provide also provide encryption properties, signature properties, and advanced rampart configurations as shown below.
+8.  You can also provide encryption properties, signature properties, and advanced rampart configurations as shown below.
 
     **Encryption/Signature Properties**
 
-    ![]({{base_path}}/assets/img/integrate/apply-security/119130870/119130890.png)
+    [![Encryption/Signature Properties]({{base_path}}/assets/img/integrate/apply-security/119130870/119130890.jpg)]({{base_path}}/assets/img/integrate/apply-security/119130870/119130890.jpg)
 
     **Rampart Properties**
 
-    ![]({{base_path}}/assets/img/integrate/apply-security/119130870/119130889.png)
+    [![Rampart Properties]({{base_path}}/assets/img/integrate/apply-security/119130870/119130889.jpg)]({{base_path}}/assets/img/integrate/apply-security/119130870/119130889.jpg)
     
     !!! Info 
-        Change the tokenStoreClass in the policy file to 'org.wso2.micro.integrator.security.extensions.SecurityTokenStore'
+        - Change the tokenStoreClass in the policy file to `org.wso2.micro.integrator.security.extensions.SecurityTokenStore`
         
-        Also replace ServerCrypto class with 'org.wso2.micro.integrator.security.util.ServerCrypto' if present.
+        - Replace ServerCrypto class with `org.wso2.micro.integrator.security.util.ServerCrypto` if present.
         
 <!--
 #### Specifying role-based access?
@@ -54,15 +68,15 @@ Follow the instructions given below to create a **WS-Policy** resource in your r
 For certain scenarios, you can specify user roles. After you select the
 scenario, scroll to the right to see the **User Roles** button.
 
-![]({{base_path}}/assets/img/integrate/apply-security/119130870/119130874.png)
+![]({{base_path}}/assets/img/integrate/apply-security/119130870/119130874.jpg)
 
 Either define the user roles inline or retrieve the user roles from the server.
 
 -   **Define Inline**
-    ![]({{base_path}}/assets/img/integrate/apply-security/119130870/119130872.png)
+    ![]({{base_path}}/assets/img/integrate/apply-security/119130870/119130872.jpg)
 
 -   **Get from the server**
-    ![]({{base_path}}/assets/img/integrate/apply-security/119130870/119130871.png)
+    ![]({{base_path}}/assets/img/integrate/apply-security/119130870/119130871.jpg)
 
 !!! Info
     By default, the role names are not case sensitive. If you want to make them case sensitive, add the following property in the `<MI_HOME>/conf/deployment.yaml` file.        
@@ -72,91 +86,96 @@ Either define the user roles inline or retrieve the user roles from the server.
      ```
 -->
 
-## Step 2: Add the security policy to the proxy service
+## Step 2 - Add the security policy to the proxy service
 
-Follow the steps given below.
+1.  Add a proxy service to your workspace.
 
-1.  You can either [create a new proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service), or [import an existing proxy service]({{base_path}}/integrate/develop/importing-artifacts) to your workspace.
-2.  Double-click the proxy service on the project explorer to open the
-    file and click on the service on design view.
-3.  In the **Properties** tab shown below and tick on **Security
-    Enabled** property.  
+     You can do either one of the following actions for this purpose.
 
-    ![]({{base_path}}/assets/img/integrate/apply-security/119130870/119130879.png)
+    - [Create a new proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service)
+    - [Import an existing proxy service]({{base_path}}/integrate/develop/importing-artifacts)
 
-4.  Select the **Browse** icon for the **Service Policies** field. In
-    the dialog box that opens, create a new record and click the
-    **Browse** icon to open the **Resource Key** dialog as shown
-    below.  
+2.  Double-click the proxy service on the project explorer to open the file and click on the service on design view.
 
-    ![]({{base_path}}/assets/img/integrate/apply-security/119130870/119130877.png)
+3.  Select the **Security Enabled** property in the **Properties** tab.
 
-5.  Click **workspace**, to add the security policy from the current
-    workspace. You can select the path to the
-    `sample_policy.xml` file that you created in the
-    previous steps.  
+    [![Enable Security]({{base_path}}/assets/img/integrate/apply-security/119130870/119130879.jpg)]({{base_path}}/assets/img/integrate/apply-security/119130870/119130879.jpg)
 
-    ![]({{base_path}}/assets/img/integrate/apply-security/119130870/119130876.png)
+4.  Select the **Browse** icon for the **Service Policies** field. In the dialog box that opens, create a new record and click the **Browse** icon to open the **Resource Key** dialog as shown below.  
+
+    [![Resource Key dialog box]({{base_path}}/assets/img/integrate/apply-security/119130870/119130877.jpg){: style=width:80%}]({{base_path}}/assets/img/integrate/apply-security/119130870/119130877.jpg)
+
+5.  Click **workspace**, to add the security policy from the current workspace. You can select the path to the `sample_policy.xml` file that you created in the previous steps.  
+
+    [![Add the security policy]({{base_path}}/assets/img/integrate/apply-security/119130870/119130876.jpg)]({{base_path}}/assets/img/integrate/apply-security/119130870/119130876.jpg)
 
 6.  Save the proxy service file.
 
-## Step 3: Package the artifacts
+## Step 3 - Package the artifacts
 
-See the instructions on [packaging the artifacts]({{base_path}}/integrate/develop/packaging-artifacts) into a composite application project.
+[Package the artifacts into a composite application project]({{base_path}}/integrate/develop/packaging-artifacts).
 
-## Step 4: Build and run the artifacts
+## Step 4 - Build and run the artifacts
 
-See the instructions [deploying the artifacts]({{base_path}}/integrate/develop/deploy-and-run).
+[Deploy the artifacts]({{base_path}}/integrate/develop/deploy-and-run).
 
-## Step 5: Testing the service
+## Step 5 - Testing the service
 
 Create a Soap UI project with the relevant security settings and then send the request to the hosted service.
 
 ### General guidelines on testing with SOAP UI
 
-1.  Create a “SOAP Project” in SOAP UI using the WSDL URL of the proxy service (eg: http://localhost:8280/services/SampleProxy?wsdl)
+1.  Create a "SOAP Project" in SOAP UI using the WSDL URL of the proxy service.
 
-    <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/create-soapui-project.png" width="600">
+     Example: `http://localhost:8280/services/SampleProxy?wsdl`
 
-2.  Double click on the created SOAP project, click on “WS-Security-Configuration” -> “Keystores”, and add the WSO2 keystore.
+    <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/create-soapui-project.jpg" width="600">
 
-    <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/create-keystore.png" width="600">
-    
-3.  We need to enter keystore password for the keystore configuration. 
-4.  Click on “Outgoing WS-Security Configuration”, and add a new policy by specifying a name. (Name can be anything).
+2.  Double click on the created SOAP project, click on **WS-Security-Configuration**, **Keystores**, and add the WSO2 keystore.
 
-    <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/create-outgoing-wss-configuration.png" width="600">
+    <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/create-keystore.jpg" width="600">
     
-5.  Add required WSS entries for the created configuration (What you need add will vary according to the policy you are using). Explanation about adding three main sections is given below.
+3.  Enter the keystore password for the keystore configuration.
 
-    - Adding **Signature**  
-    
-    <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-signature-entry.png" width="600">
-    
-    - Adding **Timestamp**
-    
-    <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-timestamp-entry.png" width="600">
-    
-    - Adding **Encryption**
-    
-    <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-encryption-entry.png" width="600">
-    
-    !!! Info
-        Note: Please note that the order of the WS entries matters. So always add the above one after the other (If you are adding only two sections, you need to maintain the order).
-        
-6.  Once we are done with WS security configurations, we have to specify the created WS-policy under “Outgoing WSS” at the request “Authorization”.
+4.  Click on **Outgoing WS-Security Configuration**, and add a new policy by specifying a name. 
 
-    <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-with-out-policy.png" width="700">
+     The name can be anything.
+
+    <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/create-outgoing-wss-configuration.jpg" width="600">
+    
+5.  Add the required WSS entries for the created configuration.
    
-7.  Now you can invoke the Proxy Service. 
+     What you need add will vary according to the policy you are using. The explanation about adding three main sections is given below.
+
+    - **Adding a Signature**  
+    
+         <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-signature-entry.jpg"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-signature-entry.jpg" width="60%" alt="Adding a Signature"></a>
+    
+    - **Adding a Timestamp**
+    
+         <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-timestamp-entry.jpg"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-timestamp-entry.jpg" width="60%" alt="Adding a Timestamp"></a>
+    
+    - **Adding an Encryption**
+    
+         <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-encryption-entry.jpg"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-encryption-entry.jpg" width="60%" alt="Adding an Encryption"></a>
+    
+    !!! Note
+        The order of the WS entries matters. So always add the above one after the other. If you are adding only two sections, you need to maintain the order.
+        
+6.  Specify the created WS-policy under **Outgoing WSS** at the request **Authorization**.
+
+    <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-with-out-policy.jpg"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-with-out-policy.jpg" alt="Specify the created WS-policy"></a>
+   
+7.  Invoke the Proxy Service.
 
 !!! Info
 
-    When defining Outgoing WS-Security Configuration, you need to pick on the WS entries based on your WS policy.
+    When defining the Outgoing WS-Security Configuration, you need to pick the WS entries based on your WS policy.
     
     Eg:
     
-    - Non Repudiation policy needs only Timestamp and Signature. Confidentiality needs all three : Timestamp, Signature and Encryption.
-    - For UsernameToken policy, you do not need to provide a Outgoing WS-Security Configuration. Providing the basic auth configuration is enough.
+    - A Non Repudiation policy needs only Timestamp and Signature. 
+    - A Confidentiality policy needs all three: Timestamp, Signature and Encryption.
+    - You do not need to provide an Outgoing WS-Security Configuration for a Username Token policy. Providing the basic auth configuration is enough.
     
-        <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-username-token.png" width="700">
+        <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-username-token.jpg"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-username-token.jpg"></a>

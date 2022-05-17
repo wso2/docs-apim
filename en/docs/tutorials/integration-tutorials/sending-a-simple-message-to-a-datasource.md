@@ -11,7 +11,7 @@ A **data service** provides a web service interface to access data that is stor
 
 ### Step 1: Set up the workspace
 
--   Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/tooling/) based on your operating system. The path to the extracted/installed folder is referred to as `MI_TOOLING_HOME` throughout this tutorial.
+-   Download the relevant [WSO2 Integration Studio](https://wso2.com/api-management/tooling/) based on your operating system. The path to the extracted/installed folder is referred to as `MI_TOOLING_HOME` throughout this tutorial.
 
 -   To demonstrate how data services work, we will use a MySQL database as the datasource. Follow the steps given below to set up a MySQL database:
 
@@ -49,7 +49,8 @@ Data Service Module. Follow the steps given below to create a module:
 
 1.  Open **WSO2 Integration Studio** and click **New Maven Multi Module Project** in 
     the **Getting Started** tab as shown below.  
-    ![]({{base_path}}/assets/img/create_project/create_mmm_project.png)
+
+    [![Create a Maven Multi Module Project]({{base_path}}/assets/img/integrate/create_project/create_mmm_project.png)]({{base_path}}/assets/img/integrate/create_project/create_mmm_project.png)
 
 2.  In the **Maven Modules Creation** dialog box that opens, give a name
     (artifactId) for the project.
@@ -62,7 +63,7 @@ Data Service Module. Follow the steps given below to create a module:
 All the data services' artifacts that you create should be stored in a
 Data Service Module. Follow the steps given below to create a module:
 
-1.  Right click on the created **Maven Multi Module Project** and goto 
+1.  Right click on the created **Maven Multi Module Project** and go to 
     **New -> Data Service Configs**.  
 2.  In the **New Data Service Configs** dialog box that opens, give a name
     for the config module and click **Next**.
@@ -145,7 +146,9 @@ configured in the previous step:
     | SQL Query  | select EmployeeNumber, FirstName, LastName, Email from Employees where EmployeeNumber=:EmployeeNumber|
 
 4.  Click **Input Mappings** to expand the section. 
+
     ![]({{base_path}}/assets/img/integrate/tutorials/data_services/input_mapping_expanded.png)
+
 5.  Click **Generate** to generate input mappings automatically.
 
     !!! Tip
@@ -238,9 +241,13 @@ configured in the previous step:
 Now, let's create a REST resource that can be used to invoke the query.
 
 1.  Click **Resources** to expand the section. 
+
     <img src="{{base_path}}/assets/img/integrate/tutorials/data_services/resource_expanded.png">
+
 2.  Click **Add New** to open the **Create Resource** page.
+
     <img src="{{base_path}}/assets/img/integrate/tutorials/data_services/create_resource.png" width="500">
+
 3.  Enter the following resource details.
 
     <table>
@@ -265,6 +272,10 @@ Now, let's create a REST resource that can be used to invoke the query.
     </table>
        
 4.  Save the resource.
+
+!!!	tip
+    Alternatively, you can generate a data service from a datasource. For more information, refer [Generate Data Services]({{base_path}}/integrate/develop/creating-artifacts/data-services/creating-data-services/#generate-data-service-from-a-datasource).
+
 
 ### Step 3: Package the artifacts
 
@@ -312,14 +323,9 @@ Let's test the use case by sending a simple client request that invokes the serv
 
 Let's send a request to the API resource to make a reservation. You can use the embedded <b>HTTP Client</b> of WSO2 Integration Studio as follows:
 
-1. Open the <b>HTTP Client</b> of WSO2 Integration Studio.
+1. Open the Postman application. If you do not have the application, download it from here : [Postman](https://www.postman.com/downloads/)
 
-    !!! Tip
-        If you don't see the <b>HTTP Client</b> pane, go to <b>Window -> Show View - Other</b> and select <b>HTTP Client</b> to enable the client pane.
-
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/http4e-client-empty.png" width="800">
-
-2. Enter the request information as given below and click the <b>Send</b> icon (<img src="{{base_path}}/assets/img/integrate/tutorials/119132155/play-head-icon.png" width="20">).
+2. Add the request information as given below and click the <b>Send</b> button.
     
     <table>
         <tr>
@@ -335,7 +341,7 @@ Let's send a request to the API resource to make a reservation. You can use the 
         </tr>
      </table>
      
-     <img src="{{base_path}}/assets/img/integrate/tutorials/119132155/http4e-client-data-source.png" width="800">
+     <img src="{{base_path}}/assets/img/integrate/tutorials/119132155/rdbms-employee.png" width="800">
      
 If you want to send the client request from your terminal:
 

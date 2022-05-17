@@ -8,7 +8,7 @@ deploying them in your production environment.
 
 ## What you'll build
 
-We are going to use the same use case we considered in the [Quick Start Guide](../../overview/quick-start-guide). 
+We are going to use the same use case we considered in the [Quick Start Guide]({{base_path}}/get-started/integration-quick-start-guide). 
 In the quick start guide, we just executed the already-built integration scenario. 
 Here, we are going to build the integration scenario from scratch. Let’s recall the 
 business scenario:
@@ -26,7 +26,7 @@ Both the Grand Oak service and Pine Valley service are exposed over the HTTP pro
   http://<HOST_NAME>:<PORT>/grandOak/doctors/<DOCTOR_TYPE>
   ```
 
-- The Pine Vallery service accepts POST requests in the following service endpoint URL:
+- The Pine Valley service accepts POST requests in the following service endpoint URL:
   ```bash
   http://<HOST_NAME>:<PORT>/pineValley/doctors
   ```
@@ -74,7 +74,7 @@ Let's create two Endpoint artifacts for the two healthcare services:
 
 1.  Right-click `HealthcareConfigs` and go to **New** → **Endpoint** to open the **New Endpoint Artifact** dialog box.
 
-    <img src="{{base_path}}/assets/img/integrate/developing-first-integration/4-dev-get-started-select-endpoint.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/developing-first-integration/4-dev-get-started-select-endpoint.jpg" width="500">
     
 2.  In the <b>New Endpoint Artifact</b> dialog box that opens, select **Create a New Endpoint** and click **Next**.
 3.  For the ‘Grand Oak hospital service’, let’s use the following values:
@@ -276,7 +276,7 @@ go to **New** → **REST API** to open the **API Artifact Creation Options** dia
     Note the `$1` in the Payload format. It denotes a parameter that can get a value assigned dynamically. The value for the parameters needs to be assigned using Arguments **(Args)**. 
     **Args** can be added using the **PayloadFactoryArgument** dialog box, which appears when you click the (<img src="{{base_path}}/assets/img/integrate/tutorials/common/plus-icon.png" width="20">) sign.
 
-    <img src="{{base_path}}/assets/img/integrate/developing-first-integration/14-dev-get-started-payloadfactory-expression.png" width="700">
+    <img src="{{base_path}}/assets/img/integrate/developing-first-integration/14-dev-get-started-payloadfactory-expression.jpg" width="700">
         
     In the `PayloadFactoryArgument` dialog box, select **Expression** as the **Argument Type**, and click **Argument Expression**. You will then see the **Expression Selector** dialog box. Enter **$ctx:uri.var.doctorType** as the value for the expression.
     
@@ -291,7 +291,7 @@ go to **New** → **REST API** to open the **API Artifact Creation Options** dia
     
     Drag the Aggregate mediator and drop it next to the Clone mediator as shown below.
 
-    <img src="{{base_path}}/assets/img/integrate/developing-first-integration/15-dev-get-started-aggregate-mediator.png">
+    <img src="{{base_path}}/assets/img/integrate/developing-first-integration/15-dev-get-started-aggregate-mediator.jpg">
    
     Specify values for the required Aggregate mediator properties.
 
@@ -312,7 +312,7 @@ go to **New** → **REST API** to open the **API Artifact Creation Options** dia
 
     To send the response back to the client, we can use the **Respond** mediator. Add the Respond mediator as shown below.
 
-    <img src="{{base_path}}/assets/img/integrate/developing-first-integration/16-dev-get-started-drop-mediator.png">
+    <img src="{{base_path}}/assets/img/integrate/developing-first-integration/16-dev-get-started-drop-mediator.jpg">
     
 The final mediation configuration looks similar to the above diagram.     
 Following is what you will see in the **Source View** of WSO2 Integration Studio.
@@ -370,7 +370,7 @@ There are several ways to deploy and run the integration scenario.
 
 1. Right-click `HealthcareCompositeExporter` and click **Export Project Artifacts and Run**.
 
-    <img src="{{base_path}}/assets/img/integrate/developing-first-integration/17-dev-get-started-build-and-run-1.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/developing-first-integration/17-dev-get-started-build-and-run-1.jpg" width="500">
 
 2. You will see the following dialog box. Select the `HealthcareConfigs` folder in the artifact list and click **Finish**.
 
@@ -384,8 +384,8 @@ The embedded Micro Integrator starts with the deployed artifacts. You will see t
 
 **Before you begin**, be sure to install the Micro Integrator on your machine:
 
-1.  Go to the [website](https://wso2.com/integration/#) to download the Micro Integrator. 
-2.  Click **Download** and see that the installation options are listed. You can either download and run the **installer** or use the **binary** file. The home directory of your Micro Integrator installation will be referred to as `<MI_HOME>` from hereon.
+1.  Go to the [WSO2 Micro Integrator web page](https://wso2.com/integration/micro-integrator/#), click **Download**, and then click **Zip Archive** to download the Micro Integrator distribution as a ZIP file.
+2.  Extract the ZIP file. This will be the `<MI_HOME>` folder.
 
 Once you have downloaded and set up the Micro Integrator locally, follow the steps given below.
 
@@ -394,34 +394,27 @@ Once you have downloaded and set up the Micro Integrator locally, follow the ste
 2.  **Deploy the Healthcare service**: Copy the exported CAR file of the Healthcare service to the `MI_HOME/repository/deployment/server/carbonapps` directory.
 
 3.  **Start the Micro Integrator**:
-    
-    If you set up the product using the **installer**, follow the steps relevant to your OS as shown below.
 
-    -   On **MacOS/Linux/CentOS**, open a terminal and execute the following command:
-        ```bash
-        sudo wso2mi
-        ```
-    -   On **Windows**, go to **Start Menu -> Programs -> WSO2 -> Micro Integrator**. This will open a terminal and start the Micro Integrator.
+    1.    Open a terminal and navigate to the `<MI_HOME>/bin` folder.
+    2.    Execute one of the commands given below.
 
-    If you set up the product using the **binary** distribution, open a terminal, navigate to the `<MI_HOME>/bin` directory, and execute the command relevant to your OS as shown below.
+          ```bash tab="On MacOS/Linux"
+          ./micro-integrator.sh
+          ```
 
-    ```bash tab='On MacOS/Linux/CentOS'
-    sh micro-integrator.sh
-    ```
-
-    ```bash tab='On Windows'
-    micro-integrator.bat
-    ```
+          ```bash tab="On Windows"
+          micro-integrator.bat
+          ```
 
 ## Step 4 - Observe deployed artifacts
 
-Once you have deployed the artifacts and started the Micro Integrator server, you can start the <b>Dashboard</b> to observe details of the deployed artifacts.
+Once you have deployed the artifacts and started the Micro Integrator server, you can [install]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi-dashboard) and [start the <b>Dashboard</b>]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi-dashboard) to observe details of the deployed artifacts.
 
 If you are running the embedded Micro Integrator, click <b>Open Monitoring Dashboard</b> in the <b>Runtime Services</b> tab as shown below.
 
-<img src="{{base_path}}/assets/img/integrate/developing-first-integration/20-dev-get-started-open-dashboard.png" width="500">
+<img src="{{base_path}}/assets/img/integrate/developing-first-integration/20-dev-get-started-open-dashboard.jpg" width="500">
 
-You will be directed to the log-in screen of the Dashboard from your default browser as shown below. Sign in using `admin` as the user name and password.
+You will be directed to the sign-in screen of the Dashboard from your default browser as shown below. Sign in using `admin` as the user name and password.
 
 <img src="{{base_path}}/assets/img/integrate/developing-first-integration/21-dev-get-started-dashboard-login.png">
 
@@ -437,7 +430,7 @@ Now, let's test the integration service.
 
 Let's start the mock back-end services for this use case:
 
-1.  Download the [`DoctorInfo-JDK11.jar` file](https://ei.docs.wso2.com/en/7.1.0/micro-integrator{{base_path}}/assets/attach/developing-first-integration/DoctorInfo-JDK11.jar). This contains two healthcare services.
+1.  Download the [`DoctorInfo-JDK11.jar` file]({{base_path}}/assets/attachments/developing-first-integration/doctorinfo-jdk11.jar). This contains two healthcare services.
 2.  Open a terminal, navigate to the location of the downloaded `DoctorInfo-JDK11.jar` file, and execute the following command to start the services:
 
     ```bash
@@ -448,35 +441,18 @@ Let's start the mock back-end services for this use case:
 
 There are two ways to invoke the service:
 
-- **Option 1: Using WSO2 Integration Studio**
+- **Option 1: Using Postman**
 
-    Let's invoke the API from the embedded <b>HTTP Client</b> of WSO2 Integration Studio as follows:
+    Let's invoke the API from Postman as follows:
 
-    1.  Open the <b>HTTP Client</b> of WSO2 Integration Studio.
-
-        !!! Tip
-            If you don't see the <b>HTTP Client</b> tab, go to <b>Window -> Show View - Other</b> and select <b>HTTP Client</b> to enable the client tab.
-
-        <img src="{{base_path}}/assets/img/integrate/developing-first-integration/http4e-client-empty.png" width="800">
-        
-    2.  Enter the request information as given below and click the <b>Send</b> icon (<img src="{{base_path}}/assets/img/integrate/tutorials/common/play-head-icon.png" width="20">).
-        
-        <table>
-            <tr>
-                <th>Method</th>
-                <td>
-                  <code>GET</code> 
-                </td>
-            </tr>
-            <tr>
-                <th>URL</th>
-                <td>
-                    <code>http://localhost:8290/healthcare/doctor/Ophthalmologist</code></br></br>
-                </td>
-            </tr>
-        </table>
-        
-    The response is printed in the **HTTP Response** section.
+    1. Open the Postman application. If you do not have the application, download it from here : [Postman](https://www.postman.com/downloads/)
+    2. Create a collection with appropriate name. Ex : 'IntegrationStudio collection'.
+    3. Add a new request to this collection and name it appropriately. Ex: 'Healthcare request'.
+    4. In the 'Enter request URL' section paste our endpoint URL : ```http://localhost:8290/healthcare/doctor/Ophthalmologist```
+    5. Select 'GET' as http method and click 'Send' button.
+    <br/><br/>
+    <video src="{{base_path}}/assets/vids/healthcare-doctor-ophthalmologist.webm" width="720" height="480" controls></video>
+    <br/><br/>
 
 - **Option 2: Using your terminal**
 

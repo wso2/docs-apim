@@ -12,12 +12,12 @@ The result of the query should be as follows when you query to view the records
 
 ### Step 1: Set up the workspace
 
-Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/tooling/) based on your operating system.
+Download the relevant [WSO2 Integration Studio](https://wso2.com/api-management/tooling/) based on your operating system.
 
 Let's setup a MySQL database:
 
 1.  Manually set up the database.
-2.  Create a table named `           info          ` in your schema. You
+2.  Create a table named `info` in your schema. You
     can run the following commands to do this.
 
     ```java
@@ -45,7 +45,7 @@ Create an integration project with the following modules: **ESB Configs** and **
 
 1.  Open **WSO2 Integration Studio**.
 2.  Click **New Integration Project** in the **Getting Started** tab as shown below. 
-    ![]({{base_path}}/assets/img/new-project/new-integration-project.png)
+    ![]({{base_path}}/assets/img/integrate/new-project/new-integration-project.png)
 
 3.  Enter `FileProcessingService` as the project name.
 4.  Click **Finish**. The created project is saved in the **Project Explorer**.
@@ -69,7 +69,7 @@ Create an integration project with the following modules: **ESB Configs** and **
         </out>
     </sequence>
     ```
-2.  Create the Fault sequence with tthe following configuration. See the instructions on [creating a sequence]({{base_path}}/integrate/develop/creating-artifacts/creating-reusable-sequences).
+2.  Create the Fault sequence with the following configuration. See the instructions on [creating a sequence]({{base_path}}/integrate/develop/creating-artifacts/creating-reusable-sequences).
 
     ```xml	
     <sequence name="fault" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
@@ -84,7 +84,7 @@ Create an integration project with the following modules: **ESB Configs** and **
 
 #### Create the `FileProxy`
 
-1.  Create a proxy service named `FileProxy` with the following configuration. See the instructons on [creating a proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service).
+1.  Create a proxy service named `FileProxy` with the following configuration. See the instructions on [creating a proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service).
 
     ```xml
     <proxy xmlns="http://ws.apache.org/ns/synapse" name="FileProxy" transports="vfs" startOnLoad="true" trace="disable">
@@ -244,7 +244,7 @@ See the instructions on [creating a local registry configuration]({{base_path}}/
 
 Package the artifacts in your composite application module to be able to deploy the artifacts in the server.
 
-1.  Open the `          pom.xml         ` file in the composite exporter module.
+1.  Open the `pom.xml` file in the composite exporter module.
 2.  Ensure that the relevant artifacts are selected in the POM file.
 3.  Save the changes.
 

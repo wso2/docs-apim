@@ -13,10 +13,10 @@ If you do not want to configure this yourself, you can simply [get the project](
 ## Configure the connector in WSO2 Integration Studio
 
 1. Follow these steps to set up the Integration Project and the Connector Exporter Project. 
-{!reference/connectors/importing-connector-to-integration-studio.md!}
+{!includes/reference/connectors/importing-connector-to-integration-studio.md!}
 
 2. Right click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API. 
-    <img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.jpg" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
 3. Follow these steps to [configure the Gmail API]({{base_path}}/reference/connectors/gmail-connector/configuring-gmail-api/) and obtain the Client Id, Client Secret, Access Token and Refresh Token. 
 
@@ -89,7 +89,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 7. In the Rest API and in the Sequence, provide your obtained **Client ID**, **Client Secret**, **Access Token**, and **Refresh Token** accordingly. The **userID** should be your Gmail address. 
 
 8. Follow these steps to export the artifacts. 
-{!reference/connectors/exporting-artifacts.md !}
+{!includes/reference/connectors/exporting-artifacts.md!}
 
 ## Get the project
 
@@ -105,7 +105,7 @@ You can download the ZIP file and extract the contents to get the project code.
 ## Deployment
 Follow these steps to deploy the exported CApp in the integration runtime.<br>
 
-{!reference/connectors/deploy-capp.md!}
+{!includes/reference/connectors/deploy-capp.md!}
 
 ## Testing
 Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).

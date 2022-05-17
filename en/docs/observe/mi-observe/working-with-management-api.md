@@ -17,7 +17,7 @@ The management API is secured using JWT authentication by default. Therefore, wh
 Follow the steps given below to acquire the JWT token.
 
 1.	First, encode your username:password in Basic Auth format (encoded in base64). For example, use the default `admin:admin` credentials.
-2.	Invoke the `/login` resource of the API with your encoded credintials as shown below.
+2.	Invoke the `/login` resource of the API with your encoded credentials as shown below.
   	```bash
   	curl -X GET "https://localhost:9164/management/login" -H "accept: application/json" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -i
   	```
@@ -33,7 +33,7 @@ Follow the steps given below to acquire the JWT token.
 You can now use this token when you invoke a [resource](#accessing-api-resources).
 
 !!! Info
-     When the default JWT security handler is engaged, all the management API resources except `/login` is protected by JWT auth. Therefore, it is necessary to send the token as a bearer token when invoking the API resources.
+     When the default JWT security handler is engaged, all the management API resources except `/login` are protected by JWT auth. Therefore, it is necessary to send the token as a bearer token when invoking the API resources.
 
 ```bash
 curl -X GET "https://localhost:9164/management/inbound-endpoints" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%”
@@ -41,7 +41,7 @@ curl -X GET "https://localhost:9164/management/inbound-endpoints" -H "accept: ap
 
 ### Log out from management API
 
-Invoke the `/logout` resource to revoke the JWT token you used for [invoking the api resource](#invoking-an-api-resource).
+Invoke the `/logout` resource to revoke the JWT token you used for [invoking the API resource](#invoking-an-api-resource).
 
 ```bash
 curl -X GET "https://localhost:9164/management/logout" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
@@ -82,20 +82,23 @@ The management API has multiple resources to provide information regarding the d
 	**Example**:
 
   	```bash tab='Request'
-  	curl -X GET "https://localhost:9164/management/users/user1" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
+  	curl -X GET "https://localhost:9164/management/users/user1?domain=wso2.com" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
   	```
 
     ```bash tab='Response'
     {
-      userid: “user1”,
+      userid: "WSO2.COM/user1",
       isAdmin: true/false,
       roles :
       [
-           role1,
-          role2,
+          "WSO2.COM/role1",
+          "role2",
       ]
     }
     ```
+
+	!!! note
+		When fetching users from the primary user store, the `domain` query parameter can be ignored or set as `primary`.
 
 -	**Resource**: `/users/pattern=”*”&role=admin`
 
@@ -133,9 +136,15 @@ The management API has multiple resources to provide information regarding the d
     {
      "userId":"user4",
      "password":"pwd1",
-     "isAdmin":"true"
+     "isAdmin":"false",
+     "domain":"wso2.com"
     }
     ```
+
+	!!! note
+		When adding users to the primary user store, the `domain` can be ignored or set as `primary`.
+
+		We cannot add admin users to the secondary user stores. 
 
     Execute the following request and receive the response:
 
@@ -171,6 +180,169 @@ The management API has multiple resources to provide information regarding the d
     }
   	```
 
+	**Example**:
+
+    The following request deletes `user1` from the secondary user store: 
+
+  	```bash tab='Request'
+  	curl -X DELETE "https://localhost:9164/management/users/user1?domain=wso2.com" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
+  	```
+
+  	```bash tab='Response'
+    {
+      "userId":"user1",
+      “status”:deleted
+    }
+  	```
+
+### GET Roles
+
+-	**Resource**: `/roles`
+
+	**Description**: Retrieves a list of all roles stored in an [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore).
+
+	**Example**:
+
+  	```bash tab='Request'
+  	curl -X GET "https://localhost:9164/management/roles" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
+  	```
+
+    ```bash tab='Response'
+    {
+    	count:3
+    	list:
+    	[
+    		{"role": "admin"},
+    		{"role": "Internal/everyone"},
+			{"role": "WSO2.COM/wso2Role"}
+    	]
+    }
+    ```
+
+-	**Resource**: `/roles/{role_name}`
+
+	**Description**: Retrieves information related to a specified role stored in the [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore).
+
+	**Example**:
+
+  	```bash tab='Request'
+  	curl -X GET "https://localhost:9164/management/roles/wso2role?domain=wso2.com" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
+  	```
+
+    ```bash tab='Response'
+    {
+      role: "WSO2.COM/wso2role",
+      users :
+      [
+          "WSO2.COM/wso2User1",
+          "user2",
+      ]
+    }
+    ```
+
+	!!! note
+		When fetching roles from the primary user store, the `domain` query parameter can be ignored or set as `primary`.
+		
+		When fetching hybrid roles, the `domain` query parameter should be set as `Internal` or `Application` accordingly.
+
+### ADD ROLES
+
+-	**Resource**: `/roles`
+
+	**Description**: Adds a role to the [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore).
+
+	**Example**:
+
+    First create the following JSON file with role details as shown below.
+
+    ```json
+    {
+		"role" : "wso2role",
+		"domain" : "wso2.com"
+	}
+    ```
+
+	!!! note
+		When adding roles to the primary user store, the `domain` can be ignored or set as `primary`.
+
+        When adding a hybrid role, respective hybrid domain (Internal/Application) should be added to the role name Ex: Internal/internalRole 
+
+    Execute the following request and receive the response:
+
+  	```bash tab='Request'
+  	curl -X POST -d @role "https://localhost:9164/management/roles" -H "accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer %AccessToken% " -k -i
+  	```
+
+  	```bash tab='Response'
+	{
+		"role": "wso2role",
+		"status": "Added"
+	}
+  	```
+
+### REMOVE Roles
+
+-	**Resource**: `/users`
+
+	**Description**: Removes a role from the [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore). 
+
+	**Example**:
+
+    The following request deletes the `wso2role` from the user store:
+
+  	```bash tab='Request'
+  	curl -X DELETE "https://localhost:9164/management/roles/wso2role?domain=wso2.com" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k -i
+  	```
+
+  	```bash tab='Response'
+	{
+		"role": "wso2role",
+		"status": "Deleted"
+	}
+  	```
+
+	!!! note
+		When deleting roles from the primary user store, the `domain` can be ignored or set as `primary`.
+
+### ASSIGN / REVOKE Roles
+
+-	**Resource**: `/roles`
+
+	**Description**: Assign/remove set of roles to/from a given user in the [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore). 
+
+	**Example**:
+
+    First create the following JSON file with role details as shown below.
+
+    ```json
+    {
+    	"userId" : "wso2user",
+    	"addedRoles" :["Internal/internalRole", "Application/applicationRole"],
+    	"removedRoles":["wso2role"],
+    	"domain" : "wso2.com"
+	}
+    ```
+
+	!!! note
+		When the user belongs to the primary user store, `domain` can be ignored or set as `primary`.
+
+        Users in secondary user stores can have roles from that user store and hybrid roles only.
+
+		Users in secondary user stores cannot have the admin role.
+
+    Execute the following request and receive the response:
+
+  	```bash tab='Request'
+  	curl -X PUT -d @user "https://localhost:9164/management/roles" -H "accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer %AccessToken% " -k -i
+  	```
+
+  	```bash tab='Response'
+	{
+		"userId": "wso2user",
+		"status": "Added/removed the roles"
+	}
+
+  	```
 ### GET PROXY SERVICES
 
 -	**Resource**: `/proxy-services`
@@ -257,7 +429,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/applications`
 
-	**Description**: This operation provides you a list of available Applications.
+	**Description**: This operation provides you a list of available active and faulty Applications.
 
 	**Example**:
 
@@ -267,10 +439,18 @@ The management API has multiple resources to provide information regarding the d
 
 	```bash tab='Response'
 	{
-	  "count": 1,
-	  "list": [
+	  "totalCount": 2,
+	  "activeCount": 1,
+	  "faultyCount": 1,
+	  "activeList": [
 	    {
 	      "name": "SampleServicesCompositeApplication",
+	      "version": "1.0.0"
+	    }
+	  ],
+	  "faultyList": [
+	    {
+	      "name": "FaultyCAppCompositeExporter",
 	      "version": "1.0.0"
 	    }
 	  ]
@@ -284,6 +464,23 @@ The management API has multiple resources to provide information regarding the d
 	**Example**:
 	```
 	curl -X GET "https://localhost:9164/management/applications?carbonAppName=HelloCApp" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
+	```
+
+### DOWNLOAD CARBON APPLICATION
+
+-	**Resource**: `/applications`
+
+	**Description**: Download a carbon application.
+
+    **Example**:
+    
+  	```bash
+		wget \
+    	  https://localhost:9164/management/applications?carbonAppName=myHttpServiceCompositeExporter_1.0.0.car \
+    	  -O myHttpServiceCompositeExporter_1.0.0.car \
+    	  --header 'Authorization: Bearer TOKEN' \
+    	  --header 'accept: application/octet-stream' \
+    	  --no-check-certificate -i
 	```
 
 ### GET ENDPOINTS
@@ -362,7 +559,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/apis`
 
-	**Description**: Retrieves a list of available apis.
+	**Description**: Retrieves a list of available APIs.
 
 	**Example**:
 
@@ -388,13 +585,13 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/apis?apiName={api}`
 
-	**Description**: Retrieves information related to a specified api.
+	**Description**: Retrieves information related to a specified API.
 
 ### ENABLE/DISABLE MESSAGING TRACING for APIs
 
 -	**Resource**: `/apis`
 
-	**Description**: Enable or disable message tracing for a specified api.
+	**Description**: Enable or disable message tracing for a specified API.
 
 	**Example**:
 
@@ -826,6 +1023,102 @@ The management API has multiple resources to provide information regarding the d
 	}
 	```
 
+### SHUTDOWN SERVER
+
+-	**Resource**: `/server`
+
+	**Description**: Shutdown the micro integrator server instance forcefully.
+
+	**Example**:
+
+	```bash tab='Request'
+		curl -X PATCH \
+    	  https://localhost:9164/management/server \
+    	  -H 'authorization: Bearer TOKEN' \
+    	  -H 'content-type: application/json' \
+    	  -d '{
+    		"status": "shutdown"
+    	}' -k -i
+	```
+
+  	```bash tab='Response'
+  	{
+	"Message":"The server will start to shutdown."
+	}
+  	```
+
+### SHUTDOWN SERVER GRACEFULLY
+
+-	**Resource**: `/server`
+
+	**Description**: Shutdown the micro integrator server instance gracefully.
+
+	**Example**:
+
+	```bash tab='Request'
+		curl -X PATCH \
+    	  https://localhost:9164/management/server \
+    	  -H 'authorization: Bearer TOKEN' \
+    	  -H 'content-type: application/json' \
+    	  -d '{
+    		"status": "shutdownGracefully"
+    	}' -k -i
+	```
+
+  	```bash tab='Response'
+  	{
+	"Message":"The server will start to shutdown gracefully."
+	}
+  	```
+
+### RESTART SERVER
+
+-	**Resource**: `/server`
+
+	**Description**: Restart the micro integrator server instance forcefully.
+
+	**Example**:
+
+	```bash tab='Request'
+		curl -X PATCH \
+    	  https://localhost:9164/management/server \
+    	  -H 'authorization: Bearer TOKEN' \
+    	  -H 'content-type: application/json' \
+    	  -d '{
+    		"status": "restart"
+    	}' -k -i
+	```
+
+  	```bash tab='Response'
+  	{
+	"Message":"The server will start to restart."
+	}
+  	```
+
+### RESTART SERVER GRACEFULLY
+
+-	**Resource**: `/server`
+
+	**Description**: Restart the micro integrator server instance gracefully.
+
+	**Example**:
+
+	```bash tab='Request'
+		curl -X PATCH \
+    	  https://localhost:9164/management/server \
+    	  -H 'authorization: Bearer TOKEN' \
+    	  -H 'content-type: application/json' \
+    	  -d '{
+    		"status": "restartGracefully"
+    	}' -k -i
+	```
+
+  	```bash tab='Response'
+  	{
+	"Message":"The server will start to restart gracefully."
+	}
+  	```
+
 ### GET DATA SERVICES
 
 -	**Resource**: `/data-services`
@@ -861,6 +1154,43 @@ The management API has multiple resources to provide information regarding the d
 	curl -X GET "https://localhost:9164/management/data-services?dataServiceName=StudentDataService" -H "accept:          application/json" -H "Authorization: Bearer TOKEN" -k -i
 	```
 
+### GET DATA SOURCES
+-	**Resource**: `/data-sources`
+
+	**Description**: Retrieves a list of all data sources deployed.
+
+	**Example**:
+	
+	```bash tab='Request'
+	curl -X GET "https://localhost:9164/management/data-sources" -H "accept: application/json" -H "Authorization: Bearer         TOKEN" -k -i
+	```
+	
+	```bash tab='Response'
+	{"count":1,"list":[{"name":"MySQLConnection","type":"RDBMS"}]}
+	```
+
+
+-	**Resource**: `/data-sources?name={datasource}`
+
+	**Description**: Retrieves information related to a specific data source.
+
+	**Example**:
+
+	```bash tab='Request'
+	curl -X GET "https://localhost:9164/management/data-sources?name=MySQLConnection" -H "accept:          application/json" -H "Authorization: Bearer TOKEN" -k -i
+	```
+	
+	```bash tab='Response'
+    {
+	"configuration":"<configuration><driverClassName>com.mysql.jdbc.Driver</driverClassName><url>jdbc:mysql://localhost:3307/AccountDetails</url><username>root</username><password>root</password></configuration>",
+	"driverClass":"com.mysql.jdbc.Driver",
+	"name":"MySQLConnection",
+	"description":"MySQL Connection",
+	"type":"RDBMS",
+	"url":"jdbc:mysql://localhost:3307/AccountDetails",
+	"status":"ACTIVE"
+	}
+	```
 
 ### GET LOG LEVEL
 

@@ -1,0 +1,2 @@
+[adapter.truststore]
+  location = "/home/wso2/security/truststore"

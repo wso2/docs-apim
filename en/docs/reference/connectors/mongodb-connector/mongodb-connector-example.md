@@ -38,7 +38,7 @@ If you want to connect to MongoDB Atlas, follow the steps mentioned below to get
 
 Follow these steps to set up the Integration Project and the Connector Exporter Project.
 
-{!reference/connectors/importing-connector-to-integration-studio.md!}
+{!includes/reference/connectors/importing-connector-to-integration-studio.md!}
 
 ## Creating the Integration Logic
 
@@ -48,7 +48,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 2.  Right-click the created Integration Project and select, -> **New** -> **Rest API** to create the REST API.
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.jpg" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
 3.  Provide the API name as `MongoConnector` and the API context as `/mongodbconnector`.
 
@@ -129,7 +129,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 </api>
 ```
 
-{!reference/connectors/exporting-artifacts.md!}
+{!includes/reference/connectors/exporting-artifacts.md!}
 
 ## Get the project
 
@@ -143,7 +143,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp to the integration runtime.
 
-{!reference/connectors/deploy-capp.md!}
+{!includes/reference/connectors/deploy-capp.md!}
 
 ??? note "Click here for instructions on removing the iterative mongodb server logs"
 Add the configuration below to **remove** the iterative `org.mongodb.driver.cluster` server logs;
@@ -258,5 +258,4 @@ In order to find documents by ObjectId, the find query payload should be in the 
 
 ## What's Next
 
-- You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers](../../../../setup/installation/run_in_containers).
-- To customize this example for your own scenario, see [MongoDB Connector Configuration](mongodb-connector-config.md) documentation for all operation details of the connector.
+- To customize this example for your own scenario, see [MongoDB Connector Configuration]({{base_path}}/reference/connectors/mongodb-connector/mongodb-connector-config/) documentation for all operation details of the connector.

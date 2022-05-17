@@ -1,4 +1,4 @@
-# Micro Integrator Dashboard
+# Monitoring MI Artifacts and Logs
 
 The Micro Integrator (MI) dashboard monitors the MI instances in a deployment. This can be a single MI instance or multiple MI instances in a group (cluster). It provides a graphical view of the integration artifacts that are deployed in the MI instances. You can also perform various management 
 and administration tasks using the dashboard. 
@@ -48,30 +48,10 @@ Follow the steps given below to get started with the Micro Integrator Dashboard.
 
 ### Step 1 - Download the MI Dashboard
 
-See the following topics to install the MI server and dashboard.
+Download the binary distribution of the product, and then follow the instructions to start the Micro Integrator and the dashboard.
 
-<table>
-    <tr>
-        <td>
-            <a href="{{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer">Using the Installer</a>
-        </td>
-<!--
-        <td>
-            Download and run the <b>product installer</b> and then follow the instructions to start the Micro Integrator and the dashboard.
-        </td>
--->
-    </tr>
-    <tr>
-        <td>
-            <a href="{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/install-mi-in-vm-binary">Using the Binary</a>
-        </td>
-<!--
-        <td>
-            Download the binary distribution of the product, and then follow the instructions to start the Micro Integrator and the dashboard.
-        </td>
--->
-    </tr>
-</table>
+-   [Install the Micro Integrator]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi).
+-   [Install the Micro Integrator Dashboard]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi-dashboard).
 
 ### Step 2 - Configure the MI servers
 
@@ -86,6 +66,23 @@ Follow the steps given below to configure the MI servers to publish data to the 
     group_id = "mi_dev"
     node_id = "dev_node_2"
     ```
+    
+    If the Micro Integrator server is deployed in a Kubernetes environment, add the following configuration to the `deployment.toml` file. 
+
+    <br/>Limitation: When there are replicas in the deployment, the write operations will not work properly.
+
+    If communicating via Ingress, use the following configuration:
+    ```toml
+    dashboard_url = "https://{hostname/ip}:{port}/dashboard/api/"
+    management_hostname = "<INGRESS_HOSTNAME>"
+    ```
+    
+    If communicating via Service instead, use the following configuration:
+    ```toml
+    dashboard_url = "https://{hostname/ip}:{port}/dashboard/api/"
+    management_hostname = "<SERVICE_NAME>"
+    management_port = <SERVICE_PORT>
+    ```
 
     <table>
         <tr>
@@ -93,7 +90,7 @@ Follow the steps given below to configure the MI servers to publish data to the 
                 dashboard_url
             </th>
             <td>
-                <b>Required</b>. This is the url to access dashboard server. Replace hostname/ip and port (default - 9743) with relevant values from your environment.
+                <b>Required</b>. This is the URL to access dashboard server. Replace the hostname/IP and port (default - 9743) with relevant values from your environment.
             </td>
         </tr>
         <tr>
@@ -101,7 +98,7 @@ Follow the steps given below to configure the MI servers to publish data to the 
                 heartbeat_interval
             </th>
             <td>
-                <b>Required</b>. The time interval (in seconds) between two heartbeats sent from the Micro Integrator to the dashboard server.
+                <b>Optional</b>. The time interval (in seconds) between two heartbeats sent from the Micro Integrator to the dashboard server. By default, the heartbeat_interval is set to `5`. 
             </td>
         </tr>
         <tr>
@@ -118,7 +115,23 @@ Follow the steps given below to configure the MI servers to publish data to the 
                 node_id
             </th>
             <td>
-                <b>Optional</b>. By default, in a clustered deployment, the relevant node_id is used as this configuration. For more information about the cluster node ID, see the instructions on <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei/#node-id">configuring an MI cluster</a>. In a non-clustered deployment, a random uuid is used if the node_id is not set for this configuration.
+                <b>Optional</b>. By default, in a clustered deployment, the relevant `node_id` is used as this configuration. For more information about the cluster node ID, see the instructions on <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei/#node-id">configuring an MI cluster</a>. In a non-clustered deployment, a random UUID is used if the `node_id` is not set for this configuration.
+            </td>
+        </tr>
+        <tr>
+            <th>
+                management_hostname
+            </th>
+            <td>
+                <b>Required if MI server is deployed in a Kubernetes environment</b>. Hostname for the Micro Integrator management endpoint.
+            </td>
+        </tr>
+        <tr>
+            <th>
+                management_port
+            </th>
+            <td>
+                <b>Optional</b>. Port of the Micro Integrator management endpoint.
             </td>
         </tr>
     </table> 
@@ -130,22 +143,55 @@ Follow the steps given below to configure the MI servers to publish data to the 
 
         -   The user credentials for signing in to the dashboard should be stored in your user store. This can be the default **file-based user store** or an **external LDAP/RDBMS** user store.
         -   [User management]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/managing_users) is possible only if you have an RDBMS or LDAP user store for your Micro Integrator.
-        -   If you have an [external RDBMS user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-rdbms-user-store), be sure that the RDBMS driver is correctly added to the `<MI_HOME>/lib` folder. Without the driver, you will not be able to sign in.
+        -   If you have an [external RDBMS user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-rdbms-user-store), be sure that the RDBMS driver is correctly added to the `<MI_HOME>/lib` folder. You will not be able to sign in without the driver.
 
-### Step 3 - Start the MI servers
+3.  Regardless of the user who logs in, the dashboard uses the user configured in its `deployment.toml` to fetch the data to the dashboard server. Then the dashboard renders these data in the UI according to logged-in user. Hence, configure the super admin user credentials in the user store as mentioned below in the `deployment.toml` file (stored in the `<MI-DASHBOARD_HOME>/conf/` folder).
 
-[Start the MI servers]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer) connected to the dashboard.
+    ```toml
+    [mi_user_store]
+    username = "admin"
+    password = "admin"
+    ```
+    
+### Step 3 - Start the MI Dashboard
 
-### Step 4 - Start the MI Dashboard
+Follow the steps given below.
 
-[Start the Dashboard]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer).
+1.    Open a terminal and navigate to the `<MI-DASHBOARD_HOME>/bin` folder.
+2.    Execute one of the commands given below.
 
+      ```bash tab="On MacOS/Linux"
+      ./dashboard.sh
+      ```
+
+      ```bash tab="On Windows"
+      dashboard.bat
+      ```
+      
+### Step 4 - Start the MI servers
+
+Follow the steps given below.
+
+1.    Open a terminal and navigate to the `<MI_HOME>/bin` folder.
+2.    Execute one of the commands given below.
+
+      ```bash tab="On MacOS/Linux"
+      ./micro-integrator.sh
+      ```
+
+      ```bash tab="On Windows"
+      micro-integrator.bat
+      ```
+      
 ### Step 5 - Sign in to the Dashboard
 
 Once you have [set up and started the dashboard](#setting-up-the-dashboard), you can access the dashboard URL.
 
 !!! Note "Before you begin"
-    Be sure to start the Micro Integrator server before attempting to sign in to the dashboard.
+    Be sure to have at least one Micro Integrator server connected to the dashboard before attempting to sign in to it. This can be verified by checking the presence of the following log.
+    ```
+    New node <node_id> in group : <group_id> is registered. Inserting heartbeat information
+    ```
   
 1.  Copy the following dashboard URL to your browser:
 
@@ -164,7 +210,8 @@ Once you have [set up and started the dashboard](#setting-up-the-dashboard), you
             </th>
             <td>
                 The user name to sign in.</br></br>
-                <b>Note</b>: This should be a valid username that is saved in the Micro Integrator server's user store. See <a href="{{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore">configuring user stores</a> for information.
+                <b>Note</b>: This should be a valid username that is saved in the Micro Integrator server's user store. By default, the 'admin' user name is configured in the default user store.</br></br> 
+                See <a href="{{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore">configuring user stores</a> for information.
             </td>
         </tr>
         <tr>
@@ -172,7 +219,7 @@ Once you have [set up and started the dashboard](#setting-up-the-dashboard), you
                 Password
             </th>
             <td>
-                The password of the username.
+                The password of the user name. By default, 'admin' is the user name and password. 
             </td>
         </tr>
     </table> 
@@ -181,7 +228,7 @@ Once you have [set up and started the dashboard](#setting-up-the-dashboard), you
 
 You are redirected to the home page of the Micro Integrator dashboard. 
      
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-home.png" width="1000">
+<a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-home.png"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-home.png" width="1000"></a>
 
 ### Step 6 - Monitor MI artifacts and logs
 
@@ -189,21 +236,21 @@ Follow the steps given below.
 
 1.  Select the group ID that you want to view from the upper left menu.  
     
-    <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-select-group.png" width="1000">
+    <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-select-group.png"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-select-group.png" width="1000"></a>
 
-    You can see the list of server nodes in each group as shown in the above diagram.
+    You can see the list of server nodes in each group, as shown in the above diagram.
 
-2.  Click a node ID, a side navigational panel open to display the server information.
+2.  Click a node ID, and a side navigational panel opens to display the server information.
     
-    <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-server-sidepanal.png" width="1000">
+    <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-server-sidepanal.png"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-server-sidepanal.png" width="1000"></a>
 
-3.  Select the set of nodes you want to monitor as shown in the below figure.
+3.  Select the set of nodes you want to monitor, as shown in the below figure.
     
-    <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-select-nodes.png" width="1000">
+    <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-select-nodes.png"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-select-nodes.png" width="1000"></a>
 
 Now you can view details of artifacts, update artifacts, and perform various other administration tasks. Select the required option from the left-hand navigator.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-list.png" width="300">
+<a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-list.png"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-list.png" width="300"></a>
 
 <!--
 ### Proxy Services

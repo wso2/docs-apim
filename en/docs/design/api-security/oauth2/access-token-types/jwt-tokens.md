@@ -88,19 +88,19 @@ Sign in to the Developer Portal.
       </table>
    </html>
 
-      [![Create new application]({{base_path}}/assets/img/learn/api-security/oauth2/access-token-types/add-new-application.png)]({{base_path}}/assets/img/learn/api-security/oauth2/access-token-types/add-new-application.png)
+      [![Create new application]({{base_path}}/assets/img/learn/api-security/oauth2/access-token-types/add-new-application.png){: style=width:70%}]({{base_path}}/assets/img/learn/api-security/oauth2/access-token-types/add-new-application.png)
 
 ### Step 3 - Generate a JWT access token
 
 1. Click **APIs** and click on the PizzaShackAPI.
 
-2. Click **Credentials**.
+2. Click **Subscriptions**.
 
 3. Select the application that you created and select a throttling policy.
 
 4. Click **Subscribe**.
 
-      [![Subscribe to the API]({{base_path}}/assets/img/learn/api-security/oauth2/access-token-types/subscribe-to-api.png)]({{base_path}}/assets/img/learn/api-security/oauth2/access-token-types/subscribe-to-api.png)
+      [![Subscribe to the API]({{base_path}}/assets/img/learn/api-security/oauth2/access-token-types/subscribe-to-api.png){: style=width:70%}]({{base_path}}/assets/img/learn/api-security/oauth2/access-token-types/subscribe-to-api.png)
 
 5. Click **PROD KEYS**, which corresponds to the JWT based application.
 
@@ -265,4 +265,4 @@ By default, the claim mapping is done in a one-to-one manner. But, if the mappin
 
 ### Scope validation
 
-By default, the WSO2 API Manager validates the scopes coming in the `scope` claim of the JWT. If the JWT contains the scopes in a different claim, users can map that claim into the `scope` claim as per [Transform JWT Claims](#transform-jwt-claims) section.
+By default, the WSO2 API Manager validates the scopes coming in the `scope` claim of the JWT. If the JWT contains the scopes in a different claim, users can map that claim into the `scope` claim as per [JWT claim transformation](#jwt-claim-transformation) section.

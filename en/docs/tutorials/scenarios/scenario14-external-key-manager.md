@@ -2,7 +2,7 @@
 
 This is a tutorial that is part of a series and can be used as a standalone tutorial on how to configure a Key Manager. For more details on the scenario and general prerequisites, please see [the scenario overview page]({{base_path}}/tutorials/scenarios/scenario-overview).
 
-**_Time to Complete : 5 mins_**
+**_Time to Complete : 5 minutes_**
 
 ## User story
 
@@ -10,7 +10,7 @@ RailCo has users in their internal identity management system. They do not want 
 
 WSO2 API Manager comes with out-of-the-box external key manager connectors to various Identity providers such as Okta, Auth0, Keycloak, etc. Additionally, it has provided interfaces to write custom Key Manager implementation to plug any external third-party Key Manager solution. 
 
-For this scenario, we assume Railco has Keycloak IDP as their internal identity provider. Following are the steps to configure Keycloak idp as the external keymanager for RailCo.
+For this scenario, we assume Railco has Keycloak IDP as their internal identity provider. Following are the steps to configure Keycloak IdP as the external Key Manager for RailCo.
 
 <img src="{{base_path}}/assets/img/tutorials/scenario-tutorials/scenario14.png" title="Key Manager Description" width="630"/>
 
@@ -64,9 +64,9 @@ Now the Key Manager is configured.
 
 Let’s invoke an API using a token generated from Keycloak.
 
-1. Log on to Railco tenant domain’s Developer Portal [https://localhost:9443/devportal/]https://localhost:9443/devportal/() using tom@railco.com and password _user123_.
+1. Log on to Railco tenant domain’s Developer Portal [https://localhost:9443/devportal/](https://localhost:9443/devportal/) using tom@railco.com and password _user123_.
 2. Go to the **Applications** page and select **KeyCloakAPP**. This application is already subscribed to the **RailCoTrainAPI**. 
-3. Select **Production Keys → Oauth2 Tokens** . You will see a tab for **Keycloak**
+3. Select **Production Keys → OAuth2 Tokens** . You will see a tab for **Keycloak**
     
     ![Keycloak application]({{base_path}}/assets/img/tutorials/scenarios/keycloak-app.png)
 

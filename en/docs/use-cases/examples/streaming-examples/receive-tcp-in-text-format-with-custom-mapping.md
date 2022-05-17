@@ -32,7 +32,7 @@ If the message `Source Listener has created for url tcp://localhost:9892/SweetPr
 * Start the application and check whether the specified messages appear on the console.
 
 ## Viewing the Results:
-See the output. Following messages would be shown on the console continuousely.
+See the output. Following messages would be shown on the console continuously.
 ```
 INFO {io.siddhi.core.stream.output.sink.LogSink} - ReceiveTCPInTextFormatWithCustomMapping : LowProductionAlertStream : Event{timestamp=1512971370311, data=["Eclair", 132.0], isExpired=false}
 INFO {io.siddhi.core.stream.output.sink.LogSink} - ReceiveTCPInTextFormatWithCustomMapping : LowProductionAlertStream : Event{timestamp=1512971371299, data=["Ice", 6733.0], isExpired=false}

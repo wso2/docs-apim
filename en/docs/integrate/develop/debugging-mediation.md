@@ -15,9 +15,9 @@ Above two approaches are discussed in detail below.
 
     ![select debugging]({{base_path}}/assets/img/integrate/mediation-debugging/debugging-1.png)
 
-2.  It will ask to choose the artifacts those needs to be deployed to the embedded Micro Integrator. Internally WSO2 Integration Studio will generate a CAR application with choosed artifacts and deploy.  
+2.  It will ask to choose the artifacts those needs to be deployed to the embedded Micro Integrator. Internally WSO2 Integration Studio will generate a CAR application with chosen artifacts and deploy.  
     ![select debugging]({{base_path}}/assets/img/integrate/mediation-debugging/debugging-2.png)
-3.  On the console of WSO2 Integration Sturdio, notice that Micro
+3.  On the console of WSO2 Integration Studio, notice that Micro
     Integrator is started with the artifacts deployed. HTTP traffic is
     listened on the 8290 port.
 4.  Add some breakpoints in the flow as below. You can mark a particular
@@ -52,7 +52,7 @@ Follow the steps below to enable debugging with respect to mediation.
 
     ![select debugging]({{base_path}}/assets/img/integrate/mediation-debugging/debugging-8.png)
       
-3.  Add the new configuration to the Debug menu. Then you can access the configuation easily.  
+3.  Add the new configuration to the Debug menu. Then you can access the configuration easily.  
     ![select debugging]({{base_path}}/assets/img/integrate/mediation-debugging/debugging-9.png)
       
 4.  Execute the following commands (passing a system variable at start up) to start WSO2 Micro Integrator in debug

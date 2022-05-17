@@ -1,6 +1,6 @@
 # Setting up the SalesforceBulk Environment  
 
-The SalesforceBulk connector allows you to access the [SalesforceBulk REST API](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/) from an integration sequence. SalesforceBulk is a RESTful API that allows you to either quickly load large sets of your organisation’s data into Salesforce or delete large sets of your organisation’s data from Salesforce.
+The SalesforceBulk connector allows you to access the [SalesforceBulk REST API](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/) from an integration sequence. SalesforceBulk is a RESTful API that allows you to either quickly load large sets of your organization's data into Salesforce or delete large sets of your organization's data from Salesforce.
 
 > **Note**: To work with the Salesforce Bulk connector, you need to have a Salesforce account. If you do not have a Salesforce account, go to [https://developer.salesforce.com/signup](https://developer.salesforce.com/signup) and create a Salesforce developer account.
 
@@ -10,7 +10,7 @@ Salesforce uses the OAuth protocol to allow application users to securely access
 
 Follow the steps below to create a connected application using Salesforce and to obtain the consumer key as well as the consumer secret for the created connected application.
 
-{!reference/connectors/salesforce-connectors/sf-access-token-generation.md!} 
+{!includes/reference/connectors/salesforce-connectors/sf-access-token-generation.md!} 
 
 ### Configuring Axis2 configurations
 

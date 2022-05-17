@@ -6,7 +6,7 @@ The **WSO2 API Controller (apictl)** is the command-line tool of WSO2 API Manage
 
 Follow the steps given below to get started:
 
-1.  Go to the [**WSO2 API Manager** website](https://wso2.com/integration/) -> **Download** -> **Other Resources**, and click **APICTL**.
+1.  Go to the [**WSO2 API Manager** website](https://wso2.com/api-manager/) -> **TRY IT NOW** -> **Tooling**, and download the **API Controller**.
 
 2.  Extract the downloaded distribution and initialize apictl by executing the following command from your terminal.
 
@@ -296,7 +296,7 @@ Log out from an API Manager environment.
 
 ### apictl get
 
-Displays a list containing all the APIs, all the API Products, applications of a specific user, or a list of all the environments.
+Displays a list containing all the APIs, all the API Products, applications of a specific user, all the environments or log levels of APIs.
 
 -   Usage
 
@@ -353,6 +353,14 @@ Displays a list containing all the APIs, all the API Products, applications of a
             </th>
             <td>
                 Generate access token to invoke the API or API product.
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <code>api-logging</code>
+            </th>
+            <td>
+                Display log level of the API or APIs.
             </td>
         </tr>
     </table>
@@ -860,6 +868,12 @@ Set configuration parameters. You can use one of the following flags.
         </tr>
     </table>
 
+Use `api-logging` option to set the log level of the API. 
+
+```bash
+apictl set api-logging [flag] [argument]
+```
+
 ### apictl k8s
 
 Managing APIs in a Kubernetes API-M environment.
@@ -938,7 +952,7 @@ Managing APIs in a Kubernetes API-M environment.
 
 ### apictl aws
 
-AWS Api-gateway related commands such as init. Be sure to install and configure the AWS CLI before executing the aws init command. See the [AWS documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html) for more information.
+AWS API Gateway related commands such as init. Be sure to install and configure the AWS CLI before executing the aws init command. See the [AWS documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html) for more information.
 
 -   Usage
 

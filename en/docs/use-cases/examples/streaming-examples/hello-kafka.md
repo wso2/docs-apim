@@ -27,7 +27,7 @@ This application demonstrates how to use the Kafka transport in Siddhi to receiv
             ```bash
             sh {WSO2SIHome}/bin/jartobundle.sh <{Source} Directory Path> <{Destination} Directory Path>
             ```
-        4. Add the OSGI converted kafka libs from `{Destination}` directory to `{WSO2SIHome}/lib`.
+        4. Add the OSGI converted Kafka libs from `{Destination}` directory to `{WSO2SIHome}/lib`.
         5. Add the original Kafka libs from `{Source}` to `{WSO2SIHome}/samples/sample-clients/lib`.
         6. Navigate to `{KafkaHome}` and start zookeeper node using following command.
         ```bash

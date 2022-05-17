@@ -48,7 +48,7 @@ Create the artifacts:
 
 Invoke the inbound endpoint:
 
-1. Log on to the ActiveMQ console using the <http://localhost:8161/admin> url.
+1. Log on to the ActiveMQ console using the <http://localhost:8161/admin> URL.
 2. Browse the queue `ordersQueue` listening via the above endpoint.
 3. Add a new message with the following content to the queue:
 

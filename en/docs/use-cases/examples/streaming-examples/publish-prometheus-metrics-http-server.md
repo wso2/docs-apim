@@ -1,7 +1,7 @@
 # Publishing Consumed Events to Prometheus Metrics and Exposing then via HTTP
 
 ## Purpose:
-This application demonstrates how to use siddhi-io-prometheus for publishing events through http server.
+This application demonstrates how to use siddhi-io-prometheus for publishing events through HTTP server.
 
 ## Prerequisites:
 1. The following steps must be executed to enable WSO2 SP to publish events to Prometheus
@@ -45,14 +45,14 @@ This application demonstrates how to use siddhi-io-prometheus for publishing eve
 
 ## Viewing the Results:
 1. See the output events through one or more of the following methods:
-	* Open the url "http://localhost:9080/metrics" in your browser. The folllowing output will be displayed,
+	* Open the url "http://localhost:9080/metrics" in your browser. The following output will be displayed,
 	    - "# HELP SweetProductionStream help for counter SweetProductionStream"
         - "# TYPE SweetProductionStream counter"
         - "SweetProductionStream{Name="gingerbread",} 72.3"
         - "SweetProductionStream{Name="lollipop",} 23.8"
         - "SweetProductionStream{Name="toffees",} 87.8""
 
-2. Send http request to the endpoint "http://localhost:9090" to the running prometheus server using the curl command:
+2. Send HTTP request to the endpoint "http://localhost:9090" to the running prometheus server using the curl command:
     1. Open a new terminal and issue the following command:
         * curl -X GET http://localhost:9090/
     2. If there is no error, the result will be shown on the terminal in JSON Format similar to the following :

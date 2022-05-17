@@ -473,6 +473,9 @@ paths:
                     └── service2
                         ├── definition.yaml
                         └── metadata.yaml
+                    └── service3
+                        ├── definition.wsdl
+                        └── metadata.yaml
                     ```
                   format: binary
                 verifier:
@@ -490,6 +493,10 @@ paths:
                         {
                           "key":"service2-1.0.0",
                           "md5":"7f5850d98866b5ce34fa1812d0e6d080ad8b7082cd9387eb80311ba75bfe776"
+                        },
+                        {
+                          "key":"service3-1.0.0",
+                          "md5":"8f5850d98866b5ce34fa1812d0e6d080ad8b7082cd9387eb80311ba75bfe8b2"
                         }
                       ]
                     ```

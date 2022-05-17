@@ -1,6 +1,6 @@
 # Managing Users
 
-See the topics given below to understand **user management** in the Micro Integrator of EI 7.1.0.
+See the topics given below to understand **user management** in the Micro Integrator.
 
 ## User credentials in the MI
 
@@ -12,7 +12,7 @@ WSO2 Micro Integrator requires <b>user</b> credentials for <i>authentication</i>
 
 -	Authentication for integration use cases
 
-	Some integration use cases require authentication by <b>dynamic username token</b> and similar <b>[WS-Security]({{base_path}}/reference/mi-security-reference/security-implementation)</b> options. If you already have an external RDBMS or LDAP user store with pre-defined roles, you can have role-based authentication for your WS-Security user cases. 
+	Some integration use cases require authentication by <b>dynamic username token</b> and similar <b>[WS-Security]({{base_path}}/reference/mi-security-reference/security-implementation)</b> options. If you already have an external RDBMS or LDAP user store with predefined roles, you can have role-based authentication for your WS-Security user cases. 
 
 	 User authentication is also required for [securing REST API artifacts]({{base_path}}/integrate/develop/advanced-development/applying-security-to-an-api).
 
@@ -25,7 +25,7 @@ WSO2 Micro Integrator requires <b>user</b> credentials for <i>authentication</i>
 Micro Integrator users with admin privileges can manage other users in an [LDAP]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-ldap-user-store) or [RDBMS]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-rdbms-user-store) user store that is connected to the Micro Integrator server. These user management tasks include <b>viewing</b>, <b>adding</b>, and <b>removing</b> users.
 
 !!! Tip
-	Admin users can basically access any resource (of the Micro Integrator's management API) that has <b>authorization</b> previliges enabled. By default, only the `users` resource of the management API allows authorization, which allows an admin to perform user management. 
+	Admin users can basically access any resource (of the Micro Integrator's management API) that has <b>authorization</b> privileges enabled. By default, only the `users` resource of the management API allows authorization, which allows an admin to perform user management. 
 
 	Read more about about [authorization in the management API]({{base_path}}/install-and-setup/setup/mi-setup/security/securing_management_api/#authorization).
 

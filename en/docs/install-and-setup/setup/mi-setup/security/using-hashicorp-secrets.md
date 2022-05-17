@@ -11,10 +11,11 @@ By default, the Micro Integrator is configured to use [WSO2 secure vault for enc
 ## Before you begin
 
 -   Generate the required secrets in your HashiCorp vault. 
--   Select the server authentication method that you want to use when connecting the Micro Integrator with HashiCorp. There are two authentication methods available for HashiCorp:
+-   Select the server authentication method that you want to use when connecting the Micro Integrator with HashiCorp. There are three authentication methods available for HashiCorp:
 
     -   [Static Token](https://learn.hashicorp.com/tutorials/vault/tokens?in=vault/auth-methods) authentication
     -   [AppRole Pull](https://learn.hashicorp.com/tutorials/vault/approle) authentication
+    -   [LDAP](https://learn.hashicorp.com/tutorials/vault/openldap) authentication
 
     If you select <b>Static Token</b> authentication, you need to generate a tokenID from HashiCorp. If you select <b>AppRole Pull</b> authentication, you need to generate a secret ID and role ID. See the HashiCorp documentation for details and instructions.
 
@@ -32,22 +33,37 @@ Add the following configurations to the `deployment.toml` file (stored in the `<
 !!! Tip
     Be sure to apply the security tokens relevant to the [authentication method](#before-you-begin) you are using. 
 
-```toml
-[[external_vault]]
-name = "hashicorp"
-address = "http://127.0.0.1:8200"
-# If Static Token authentication is used, apply the rootToken:
-rootToken = "ROOT_TOKEN"
-# If AppRole Pull authentication is used, apply the roleId and secretId:
-roleId = "ROLE_ID"
-secretId = "SECRET_ID"
-cachableDuration = 15000
-engineVersion = 2
-namespace = "NAMESPACE"
-trustStoreFile = "${carbon.home}/repository/resources/security/client-truststore.jks"
-keyStoreFile = "${carbon.home}/repository/resources/security/wso2carbon.jks"
-keyStorePassword = "KEY_STORE_PASSWORD"
-```
+
+    ```toml tab='Static Token'
+    [[external_vault]]
+    name = "hashicorp" # required
+    address = "http://127.0.0.1:8200" # required
+    rootToken = "ROOT_TOKEN" # required
+    cacheableDuration = "15000"
+    engineVersion = "2"
+    # If namespace is used, apply the namespace value:
+    namespace = "NAMESPACE"
+    # If HashiCorp vault server is hosted in HTTPS protocol, apply below fields
+    trustStoreFile = "${carbon.home}/repository/resources/security/client-truststore.jks"
+    keyStoreFile = "${carbon.home}/repository/resources/security/wso2carbon.jks"
+    keyStorePassword = "KEY_STORE_PASSWORD"
+    ```
+
+    ```toml tab='AppRole'
+    [[external_vault]]
+    name = "hashicorp" # required
+    address = "http://127.0.0.1:8200" # required
+    roleId = "ROLE_ID" # required
+    secretId = "SECRET_ID" # required
+    cacheableDuration = "15000"
+    engineVersion = "2"
+    # If namespace is used, apply the namespace value:
+    namespace = "NAMESPACE"
+    # If HashiCorp vault server is hosted in HTTPS protocol, apply below fields
+    trustStoreFile = "${carbon.home}/repository/resources/security/client-truststore.jks"
+    keyStoreFile = "${carbon.home}/repository/resources/security/wso2carbon.jks"
+    keyStorePassword = "KEY_STORE_PASSWORD"
+    ```
 
 <table>
     <tr>
@@ -101,7 +117,7 @@ keyStorePassword = "KEY_STORE_PASSWORD"
     </tr>
     <tr>
         <td>
-            cachableDuration
+            cacheableDuration
         </td>
         <td>
             All resources fetched from the HashiCorp vault are cached for this number of milliseconds.</br>
@@ -153,6 +169,10 @@ keyStorePassword = "KEY_STORE_PASSWORD"
     </tr>
 </table>
 
+!!! Note
+    For information on enabling AppRole auth method in HashiCorp secure vault, see the [ACL rules](https://www.vaultproject.io/docs/secrets/kv/kv-v2#acl-rules) and [configuration](https://www.vaultproject.io/docs/auth/approle#configuration) sections.
+
+
 ## Accessing HashiCorp secrets in synapse configurations
 
 Once your Micro Integrator is connected to HashiCorp, you can point to the secrets stored in the HashiCorp vault from your synapse configurations.
@@ -161,6 +181,16 @@ Given below is a sample synapse property that uses a HashiCorp secret:
 
 ```xml
 <property name="HashiCorpSecret" expression="hashicorp:vault-lookup('path-name', 'field-name') />
+```
+    
+## Accessing HashiCorp secrets using environment variables in synapse configurations
+
+You can point to the secret stored in the HashiCorp vault from your synapse configurations using environment variables.
+
+Given below is a sample synapse property to retrieve a HashiCorp secret using environment variables.
+
+```xml
+ <property name="HashiCorpSecret" expression="hashicorp:vault-lookup('$env:path-name', '$env:field-name')" />
 ```
 
 ## Renewing security token (AppRole Pull authentication)

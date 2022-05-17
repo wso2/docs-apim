@@ -1,0 +1,12 @@
+[adapter.sourceControl]
+  enabled = false
+  pollInterval = 30
+  retryInterval = 5
+  maxRetryCount = 20
+  artifactsDirectory = "/home/wso2/git-artifacts"
+  [adapter.sourceControl.repository]
+    URL = "https://github.com/wso2/product-microgateway.git"
+    branch = "main"
+    username = "$env{git_username}"
+    accessToken = "$env{git_access_token}"
+    sshKeyFile = "/home/wso2/ssh-keys/id_ed25519"

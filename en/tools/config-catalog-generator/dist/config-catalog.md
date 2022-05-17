@@ -1,4 +1,4 @@
-# Configuration Catalog
+# API Manager Configuration Catalog
 
 The new configuration model based on the toml format is introduced from API Manager 3.0.0 onwards. In older versions of the product, users had to modify different configuration files depending on the components related to the specific feature they were configuring. With this update, all configuration files have been merged to make configurations easier. Therefore, the `<API-M_HOME>/repository/conf/deployment.toml` file is the single source used to configure and tune the various features in API Manager.
 
@@ -44,7 +44,6 @@ pool_options.maxActiv=5
                     <div class="mb-config-example">
 <pre><code class="toml">[server]
 hostname = "localhost"
-node_ip = "127.0.0.1"
 #offset=0
 mode = "single" #single or ha
 base_path = "${carbon.protocol}://${carbon.host}:${carbon.management.port}"
@@ -1166,7 +1165,7 @@ local_claim = "http://wso2.org/claims/givenname"</code></pre>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[apim.gateway.environment]]
-name = "Production and Sandbox"
+name = "Default"
 type = "hybrid"
 display_in_api_console = true
 description = "This is a hybrid gateway that handles both production and sandbox token traffic."
@@ -1200,31 +1199,12 @@ https_endpoint = "https://localhost:${https.nio.port}"</code></pre>
                                             <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>Production and Sandbox</code></span>
+                                            <span class="param-default-value">Default: <code>Default</code></span>
                                         </div>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>User can add preferred values and should not be changed once configured.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>display_name</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>&lt;name&gt; of the environment</code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p>User can add preferred set a name to display</p>
+                                        <p>User can add preferred values as the name.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1443,7 +1423,7 @@ https_endpoint = "https://localhost:${https.nio.port}"</code></pre>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[apim.gateway.environment]]
-name = "Production and Sandbox"
+name = "Default"
 type = "hybrid"
 display_in_api_console = true
 description = "This is a hybrid gateway that handles both production and sandbox token traffic."
@@ -2598,6 +2578,53 @@ key_validation_handler_impl = "org.wso2.carbon.apimgt.keymgt.handlers.DefaultKey
                                     </div>
                                     <div class="param-description">
                                         <p>You can provide a custom key validation handler implmentation. To do this, set the &quot;key_validation_handler_type&quot; to custom</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="config-wrap">
+                            <code>[apim.http_client]</code>
+                            <span class="badge-required">Required</span>
+                            <p>
+                                Configuration related to the http client used for key validation calls made from gateway to key manager component. For the default JWT tokens (from APIM 3.2.0 onwards, the default token type is JWT), the key validation takes place within GW node itself, as the JWT token is self-contained. So no key validation call is made for JWT tokens. But if the token used is a reference token (if the deployment is migrated from older version which used reference tokens), the key validation http calls will be made to the Key manager component for token introspection. This dedicated http client is used for this purpose. 
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>max_total</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> int </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>100</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The maximum number of connections that will be created for the key validation calls. If there is a considerable latency, the connections in use at a given time will take a long time to be released and added back to the connection pool. As a result, connections may not be available for some requests. In such situations, it is recommended to increase the value for this parameter.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>default_max_per_route</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> int </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>50</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The maximum number of connections that will be created per host server by the client. Will have to increase this too, when required as similarly for the config max_total.</p>
                                     </div>
                                 </div>
                             </div>
@@ -4818,25 +4845,6 @@ enable_authentication = true</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>signature</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code></code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Signature of the sender account.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
                                   <span class="param-name-wrap"> <code>hostname</code> </span>
                                 </div>
                                 <div class="param-info">
@@ -4852,6 +4860,25 @@ enable_authentication = true</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>The SMTP server to connect to.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>signature</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Signature of the sender account.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8327,7 +8354,7 @@ sender.ssl_profile.interval = "600000"</code></pre>
                                             <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>APIM_HOME/repository/resources/security/wso2carbon.jks</code></span>
+                                            <span class="param-default-value">Default: <code>API-M_HOME/repository/resources/security/wso2carbon.jks</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
@@ -8411,7 +8438,7 @@ sender.ssl_profile.interval = "600000"</code></pre>
                                             <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>APIM_HOME/repository/resources/security/wso2truststore.jks</code></span>
+                                            <span class="param-default-value">Default: <code>API-M_HOME/repository/resources/security/wso2truststore.jks</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
@@ -8579,7 +8606,7 @@ sender.ssl_profile.interval = "600000"</code></pre>
                                             <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>APIM_HOME/repository/resources/security/wso2carbon.jks</code></span>
+                                            <span class="param-default-value">Default: <code>API-M_HOME/repository/resources/security/wso2carbon.jks</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
@@ -8663,7 +8690,7 @@ sender.ssl_profile.interval = "600000"</code></pre>
                                             <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>APIM_HOME/repository/resources/security/wso2truststore.jks</code></span>
+                                            <span class="param-default-value">Default: <code>API-M_HOME/repository/resources/security/wso2truststore.jks</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
@@ -9196,8 +9223,24 @@ sender.parameters.SO_TIMEOUT = 60000</code></pre>
                 <label class="tab-selector" for="_tab_61"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[transport.passthru_http.sender.parameters]
-proxyProfiles = "<profile><targetHosts>example.com</targetHosts><proxyHost>localhost</proxyHost><proxyPort>8080</proxyPort><proxyUserName>squidUser</proxyUserName><proxyPassword>password</proxyPassword></profile>"</code></pre>
+<pre><code class="toml">#You can use one of the two options listed below for the configuration
+
+#Option 1
+[transport.passthru_http.sender.parameters]
+proxyProfiles = "&lt;targetHosts&gt;example.one.com,example.two.com&lt;/targetHosts&gt;
+&lt;proxyHost&gt;example.proxy.com&lt;/proxyHost&gt;
+&lt;proxyPort&gt;8080&lt;/proxyPort&gt;
+&lt;proxyUserName&gt;ProxyUser&lt;/proxyUserName&gt;
+&lt;proxyPassword&gt;password&lt;/proxyPassword&gt;&lt;/profile&gt;"
+
+#Option 2
+[[transport.http.proxy_profile]]
+target_hosts = ["example.one.com","example.two.com"]
+proxy_host = "example.proxy.com"
+proxy_port = "8080"
+proxy_username = "ProxyUser"
+proxy_password = "password"
+bypass_hosts = ["localhost"]</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -9359,8 +9402,25 @@ proxyProfiles = "<profile><targetHosts>example.com</targetHosts><proxyHost>local
                 <label class="tab-selector" for="_tab_62"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[transport.passthru_https.sender.parameters]
-proxyProfiles = "<profile><targetHosts>example.com</targetHosts><proxyHost>localhost</proxyHost><proxyPort>8080</proxyPort><proxyUserName>squidUser</proxyUserName><proxyPassword>password</proxyPassword></profile>"</code></pre>
+<pre><code class="toml">#You can use one of the two options listed below for the configuration
+
+#Option 1
+[transport. passthru_https.sender.parameters]
+proxyProfiles = "&lt;targetHosts&gt;example.one.com,example.two.com&lt;/targetHosts&gt;
+&lt;proxyHost&gt;example.proxy.com&lt;/proxyHost&gt;
+&lt;proxyPort&gt;3128&lt;/proxyPort&gt;
+&lt;proxyUserName&gt;ProxyUser&lt;/proxyUserName&gt;
+&lt;proxyPassword&gt;password&lt;/proxyPassword&gt;&lt;/profile&gt;"
+
+#Option 2
+[[transport.http. secured_proxy_profile]]
+target_hosts = ["example.one.com","example.two.com"]
+proxy_host = "example.proxy.com"
+proxy_port = "3128"
+proxy_username = "ProxyUser"
+proxy_password = "password"
+bypass_hosts = ["localhost"]
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -9739,7 +9799,7 @@ sender.trust_store.password = "$ref{truststore.password}"</code></pre>
                                             <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>APIM_HOME/repository/resources/security/wso2truststore.jks</code></span>
+                                            <span class="param-default-value">Default: <code>API-M_HOME/repository/resources/security/wso2truststore.jks</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
@@ -13608,6 +13668,25 @@ UserCoreCacheTimeOut = 5 </code></pre>
                                         <p>User core cache expiration duration</p>
                                     </div>
                                 </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>CaseInsensitiveUsername</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Set the value to false for case insensitive JDBC user stores</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -13619,7 +13698,7 @@ UserCoreCacheTimeOut = 5 </code></pre>
 
 
 
-## Global handler configurations
+## Custom keystore configurations
 
 
 <div class="mb-config-catalog">
@@ -13631,30 +13710,32 @@ UserCoreCacheTimeOut = 5 </code></pre>
                 <label class="tab-selector" for="_tab_91"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[synapse_handlers.custom_handler_name]
-enabled=true
-class="org.wso2.carbon.apimgt.gateway.handlers.custom.customer_handler"
-</code></pre>
+<pre><code class="toml">[custom_keystore.APIKeyKeyStore]
+file_name = "apikeysigner.jks"
+type = "JKS"
+password = "wso2carbon"
+alias = "apikeysigner"
+key_password = "wso2carbon"</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[synapse_handlers.custom_handler_name]</code>
+                            <code>[custom_keystore.APIKeyKeyStore]</code>
                             
                             <p>
-                                configuration used to define or enable disable global handler.
+                                This includes configuration for custom Keystores in WSO2 API Manager 
                             </p>
                         </div>
                         <div class="params-wrap">
                             <div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>enabled</code> </span>
+                                  <span class="param-name-wrap"> <code>file_name</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
                                         <p>
-                                            <span class="param-type string"> boolean </span>
+                                            <span class="param-type string"> string </span>
                                             
                                         </p>
                                         <div class="param-default">
@@ -13663,18 +13744,18 @@ class="org.wso2.carbon.apimgt.gateway.handlers.custom.customer_handler"
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Enable or disable a defined global handler.</p>
+                                        <p>The name of the Keystore (the Keystore file should be placed inside &lt;API-M_HOME&gt;/repository/resources/security directory)</p>
                                     </div>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>class</code> </span>
+                                  <span class="param-name-wrap"> <code>type</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code></code></span>
@@ -13682,7 +13763,120 @@ class="org.wso2.carbon.apimgt.gateway.handlers.custom.customer_handler"
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Fully qualified class name of the global handler.</p>
+                                        <p>The Keystore type.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>password</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The Keystore password.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>alias</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Private key alias of the Keystore.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>key_password</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The private key password of the Keystore (WSO2 recommends that you maintain the identical Keystore password and key password due to known limitations).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## HTTP Access Logs
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="92" type="checkbox" id="_tab_92">
+                <label class="tab-selector" for="_tab_92"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[http_access_log]
+useLogger = true</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[http_access_log]</code>
+                            
+                            <p>
+                                This includes configuration for HTTP access log records.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>useLogger</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Allows logs to get written into the `&lt;APIM_HOME&gt;repository/logs/wso2carbon.log` or any other log file and show up on the console.</p>
                                     </div>
                                 </div>
                             </div>

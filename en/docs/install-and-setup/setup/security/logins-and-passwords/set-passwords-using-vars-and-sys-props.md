@@ -1,6 +1,6 @@
 # Set Passwords using Environment Variables or System Properties
 
-The instructions on this page explain how you can set the passwords of system users, keystores, and trustores, etc. using system properties and environment variable, rather than hardcoding them in the configuration file itself. 
+The instructions on this page explain how you can set the passwords of system users, keystores, and truststores, etc. using system properties and environment variable, rather than hard coding them in the configuration file itself. 
 
 ## Set passwords using environment variables 
 

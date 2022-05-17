@@ -1,0 +1,5 @@
+[[enforcer.filters]]
+    className = "org.wso2.choreo.connect.custom.CCCustomFilter"
+    position = 3
+    [enforcer.filters.configProperties]
+        testConfig1 = "testValue1"

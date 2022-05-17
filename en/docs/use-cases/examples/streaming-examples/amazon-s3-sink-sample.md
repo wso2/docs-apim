@@ -65,7 +65,7 @@ To test the sample Siddhi application, simulate random events for it via the Str
 
     7. In the **quantity(INT)** field, select **Primitive based**.
 
-    8. Save the simulator configuration by clicking **Save**. Th.e simulation is added to the list of saved feed simulations as shown below.
+    8. Save the simulator configuration by clicking **Save**. The simulation is added to the list of saved feed simulations as shown below.
 
         ![saved simulation]({{base_path}}/assets/img/streaming/amazon-s3-sink-sample/simulation-list.png)
 
