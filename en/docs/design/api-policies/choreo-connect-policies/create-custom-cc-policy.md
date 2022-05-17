@@ -1,4 +1,4 @@
-# Create a Custom Choreo Connect Policies
+# Create a Custom Choreo Connect Policy
 
 Choreo Connect supports the following operations and the policies supporting these operations are shipped with the WSO2 API Manager by default. The following table contains the action name and parameters of the operations that are supported in Choreo Connect.
 
