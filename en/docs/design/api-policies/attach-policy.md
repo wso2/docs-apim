@@ -16,7 +16,7 @@ Follow the instructions below to attach one or more default policies that are sh
         Keep in mind that the policies attached under a given `API Gateway` will be removed when you switch between Gateways. However, this policy removal will be reflected in your API only if you click on the **Save** button found at the bottom of the Policies page.
 
     !!! tip
-        * Policy list is dependant on the selected gateway (i.e. policy list under `Regular Gateway` is diferent to that of `Choreo Connect`).
+        * The policy list is dependant on the selected Gateway (i.e. policy list under `Regular Gateway` is different to that of `Choreo Connect`).
         
         * Listed below are the key differences between the two types.
 
