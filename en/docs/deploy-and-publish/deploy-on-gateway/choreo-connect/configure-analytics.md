@@ -1,7 +1,6 @@
 # Configuring Analytics for Choreo Connect
 
-Choreo Connect Analytics provides reports, dashboards, statistics, and graphs for the APIs deployed on Choreo Connect.
-Choreo Connect can not only publish analytics data to the Choreo platform but also to platforms that supports the ELK stack. The following subsections will explain in detail how you could enable and configure analytics for each platform to gain insights into the services exposed via Choreo Connect.
+Choreo Connect is capable of publishing fine grained analytics events which can then be used to generate reports, dashboards, statistics, and graphs for the APIs deployed on Choreo Connect. Choreo Connect can not only publish analytics data to the Choreo platform but also to platforms that supports the ELK stack. The following subsections will explain in detail how you could enable and configure analytics for each platform to gain insights into the services exposed via Choreo Connect.
 
 !!! tip
     To learn more on the analytics-related concepts, see [Choreo Connect Analytics - Concepts]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/choreo-connect-analytics/).
