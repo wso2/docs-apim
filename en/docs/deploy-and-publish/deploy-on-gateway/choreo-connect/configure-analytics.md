@@ -132,8 +132,8 @@ The Enforcer component in Choreo Connect can log analytics-related data to be us
            type = "ELK"
 
         [analytics.enforcer]
-        [analytics.enforcer.configProperties]
-           "publisher.reporter.class" = "org.wso2.am.analytics.publisher.sample.reporter.CustomReporter"
+           [analytics.enforcer.configProperties]
+              "publisher.reporter.class" = "org.wso2.am.analytics.publisher.sample.reporter.CustomReporter"
         ```
 
 #### Step 1.2 - Enable logs
