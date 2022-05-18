@@ -20,11 +20,11 @@ The following prerequisites should be completed before upgrading.
 To connect the Streaming Integrator to the same databases as WSO2 SP 4.4.0 so that the persisted data can be accessed, configure the data sources as follows:
 
 - Configure the data sources in the `<SI_HOME>/conf/server/deployment.yaml` file the same way you have configured them in `<SP_HOME>/conf/wso2/worker/deployment.yaml` file.
-- Configure the data sources in the `<SI__TOOLING_HOME>/conf/server/deployment.yaml` file the same way you have configured them in `<SP_HOME>/conf/wso2/editor/deployment.yaml` file.
-- Check the data source configured for Business Rules  in the `<SP_HOME>/conf/wso2/dashboard/deployment.yaml` file, and configure that data source with the same parameter values in the `<SI__TOOLING_HOME>/conf/server/deployment.yaml` file.
+- Configure the data sources in the `<SI_TOOLING_HOME>/conf/server/deployment.yaml` file the same way you have configured them in `<SP_HOME>/conf/wso2/editor/deployment.yaml` file.
+- Check the data source configured for Business Rules  in the `<SP_HOME>/conf/wso2/dashboard/deployment.yaml` file, and configure that data source with the same parameter values in the `<SI_TOOLING_HOME>/conf/server/deployment.yaml` file. 
 
     !!!info
-        The Business Rules feature which was a part of the `Dashboard` profile of the Stream Processor is now shipped with Streaming Integrator Tooling. Therefore, configurations related to this feature are added in the `<SI__TOOLING_HOME>/conf/server/deployment.yaml` file.
+        The Business Rules feature which was a part of the `Dashboard` profile of the Stream Processor is now shipped with Streaming Integrator Tooling. Therefore, configurations related to this feature are added in the `<SI_TOOLING_HOME>/conf/server/deployment.yaml` file.
 
 For the complete list of data sources configured for the Streaming Integrator, see [Configuring Data sources](https://ei.docs.wso2.com/en/latest/streaming-integrator/setup/configuring-data-sources/).
 
@@ -32,12 +32,12 @@ For the complete list of data sources configured for the Streaming Integrator, s
 
 To migrate the Siddhi applications that you have deployed in WSO2 SP 4.4.0, follow the procedure below:
 
-1. Copy all the Siddhi applications in the `<SP_HOME/wso2/worker/deployment/siddhi-files` directory.
+1. Copy all the Siddhi applications in the `<SP_HOME>/wso2/worker/deployment/siddhi-files` directory.
 
-2. Place the Siddhi applications you copied in the `<SI_HOME/wso2/server/deployment/siddhi-files` directory.
+2. Place the Siddhi applications you copied in the `<SI_HOME>/wso2/server/deployment/siddhi-files` directory.
 
 !!! note
-    Note that some extensions are not packed by default when migrating from SP to SI. You can find these extensions in the `SP_HOME/lib` directory, and copy them as required.
+    Note that some extensions are not packed by default when migrating from SP to SI. You can find these extensions in the `<SP_HOME>/lib` directory, and copy them as required.
 
 ## Testing the migration
 
