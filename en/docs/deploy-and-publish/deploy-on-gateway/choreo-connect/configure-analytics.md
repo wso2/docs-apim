@@ -49,7 +49,7 @@ Follow the instructions below to configure analytics with Choreo:
 
           ``` toml
           [analytics]
-          enabled = true
+              enabled = true
           [analytics.adapter]
               bufferFlushInterval = "1s"
               bufferSizeBytes = 16384
@@ -122,11 +122,11 @@ The Enforcer component in Choreo Connect can log analytics-related data to be us
 
     ``` toml
     [analytics]
-       enabled = true
+        enabled = true
        
     [analytics.enforcer]
-    [analytics.enforcer.configProperties]
-    "publisher.reporter.class" = "org.wso2.am.analytics.publisher.sample.reporter.CustomReporter"
+        [analytics.enforcer.configProperties]
+            "publisher.reporter.class" = "org.wso2.am.analytics.publisher.sample.reporter.CustomReporter"
     ```
    
 !!! note "If you want to use a custom reporter class"
@@ -138,11 +138,11 @@ The Enforcer component in Choreo Connect can log analytics-related data to be us
         
         ``` toml
         [analytics]
-           enabled = true
+            enabled = true
 
         [analytics.enforcer]
-        [analytics.enforcer.configProperties]
-        "publisher.reporter.class" = "org.wso2.am.analytics.publisher.sample.reporter.CustomReporter"
+            [analytics.enforcer.configProperties]
+                "publisher.reporter.class" = "org.wso2.am.analytics.publisher.sample.reporter.CustomReporter"
         ```
 
 #### Step 1.3 - Enable logs
