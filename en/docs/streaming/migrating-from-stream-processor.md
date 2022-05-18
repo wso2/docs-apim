@@ -11,10 +11,9 @@ The following prerequisites should be completed before upgrading.
 - Make a backup of the SP 4.4.0 database and copy the <SP_HOME> directory in order to backup the product configurations.
 - Download the Streaming Integrator from the [Enterprise Integrator Home](https://wso2.com/integration/)
 
-!!! info "Updating the artifact IDs"
-    Note the following when migrating from WSO2 Streaming Processor(SP) to WSO2 Streaming Integrator(SI)
-    SP 4.x uses Siddhi 4.x and SI uses Siddhi 5.x from 1.x onwards. Therefore the group ID should be **renamed**
-    from `org.wso2.siddhi` to `io.siddhi`
+!!! info "Migrating Custom Siddhi Extensions"
+    Note the following when migrating custom Siddhi extensions from WSO2 Stream Processor(SP) to WSO2 Streaming Integrator(SI).
+    SP 4.x uses Siddhi 4.x and SI uses Siddhi 5.x from 1.x onwards. Therefore the group ID and package names should be **renamed** from `org.wso2.siddhi` to `io.siddhi`
 
 ## Migrating Databases
 
