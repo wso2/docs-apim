@@ -224,8 +224,8 @@ The following code snippet contains sample configuration of the parameters file 
                 production:
                     enabled: true
                     type: basic
-                    username: admin
-                    password: admin
+                    username: 'admin'
+                    password: 'admin'
             certs:
                 - hostName: 'https://dev.wso2.com'
                   alias: Dev
@@ -252,7 +252,7 @@ The following code snippet contains sample configuration of the parameters file 
                         suspendErrorCode: 
                             - "101504"
                             - "101501"
-                        retryTimeOut: $RETRY
+                        retryTimeOut: ${RETRY}
                         retryDelay: 23000
                         retryErroCode:
                             - "101503" 
@@ -265,13 +265,13 @@ The following code snippet contains sample configuration of the parameters file 
                 production:
                     enabled: true
                     type: digest
-                    username: admin
-                    password: admin
+                    username: 'admin'
+                    password: 'admin'
                 sandbox:
                     enabled: true
                     type: basic
-                    username: admin
-                    password: admin
+                    username: 'admin'
+                    password: 'admin'
         - name: production
           configs:
             endpoints:
@@ -299,7 +299,8 @@ You can provide the parameters file using `--params` flag when importing an API.
 -   You can deploy an API project which does not include `deployment_environments.yaml` (working copy of the API or a revision without deployment environments) by specifying the `deploymentEnvironments` fields in the parameters file.
 -   Production/Sandbox backends for each environment can be specified in the parameters file with additional configurations, such as timeouts.
 -   Under the `security` field, you can specify the endpoint security details for the `production` and the `sandbox` endpoint separately. If the `enabled` attribute is `true`, you must specify the `username`, `password` and the `type` (can be either only `basic` or `digest`). If the `enabled` attribute is `false`, then none of the security parameters will be set. If the `enabled` attribute is not set (blank), then the security parameters in the `api.yaml` file will be considered.
--   The parameters file supports detecting environment variables during the API import process. You can use the usual notation. For example, `url: $DEV_PROD_URL`.  If an environment variable is not set, the tool will fail. In addition, the system will also request for a set of required environment variables.
+-   Quotes are mandatory if `password` contains special characters.
+-   The parameters file supports detecting environment variables during the API import process. You can use the usual notation as described [here]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects/). For example, `url: ${DEV_PROD_URL}`.  If an environment variable is not set, the tool will fail. In addition, the system will also request for a set of required environment variables.
 -   To learn about setting up different endpoint types such as HTTP/REST, HTTP/SOAP (with load balancing and failover), Dynamic and AWS Lambda, see [Configuring Different Endpoint Types]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-types).
 -   You can define the subscription level policies of an API using the field `policies`. There you can specify one or more subscription level policies that is available in the particular environment where you are importing the API to.
 -   Refer the section [Handling the certificates using the parameters file](#handling-the-certificates-using-the-params-file) to learn how to configure certificates using the parameters file.
@@ -481,7 +482,7 @@ The following code snippet contains sample configuration of the parameters file 
                                   suspendErrorCode: 
                                       - "101504"
                                       - "101501"
-                                  retryTimeOut: $RETRY
+                                  retryTimeOut: ${RETRY}
                                   retryDelay: 23000
                                   retryErroCode:
                                       - "101503" 
@@ -494,8 +495,8 @@ The following code snippet contains sample configuration of the parameters file 
                           production:
                               enabled: true
                               type: basic
-                              username: admin
-                              password: admin
+                              username: 'admin'
+                              password: 'admin'
                       certs:
                           - hostName: https://prod1.wso2.com
                             alias: alice
@@ -513,13 +514,13 @@ The following code snippet contains sample configuration of the parameters file 
                           production:
                               enabled: true
                               type: digest
-                              username: admin
-                              password: admin
+                              username: 'admin'
+                              password: 'admin'
                           sandbox:
                               enabled: true
                               type: basic
-                              username: admin
-                              password: admin
+                              username: 'admin'
+                              password: 'admin'
                       certs:
                           - hostName: https://prod1.wso2.com
                             alias: bob
@@ -568,7 +569,7 @@ You can provide the parameters file using `--params` flag when importing an API 
 -   The parameters file of an API Product does not support the fields `endpoints`, `security` and `certs` like in the parameters file of an API. It only supports the fields `deploymentEnvironments`, `policies`, `mutualSslCerts` and another special field named `dependentAPIs`.
 -   The field `dependentAPIs` can be used to specify the parameters of dependent APIs. The parameters of a particular dependent API of an API Product is similar to the parameters of an API, but there is no use of specifying the `deploymentEnvironments` field under a dependent API. The reason for that is, the deployment environments of the API Product will be considered for dependent APIs as well.
 -   You can deploy an API Product which does not include `deployment_environments.yaml` (working copy of the API Product or a revision without deployment environments) by specifying the `deploymentEnvironments` fields in the parameters file.
--   The parameters file supports detecting environment variables during the API Product import process. You can use the usual notation. For example, `url: $DEV_PROD_URL`.  If an environment variable is not set, the tool will fail. In addition, the system will also request for a set of required environment variables.
+-   The parameters file supports detecting environment variables during the API Product import process. You can use the usual notation as described [here]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects/). For example, `url: ${DEV_PROD_URL}`.  If an environment variable is not set, the tool will fail. In addition, the system will also request for a set of required environment variables.
 -   Refer the section [Handling the certificates using the parameters file](#handling-the-certificates-using-the-params-file) to learn how to configure certificates using the parameters file.
 
 ## Handling the certificates using the parameters file
