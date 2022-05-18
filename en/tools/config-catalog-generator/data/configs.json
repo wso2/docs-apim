@@ -335,6 +335,14 @@
                             "default": "SHA256withRSA",
                             "possible": "NONE",
                             "description": "Specify NONE to disbale the sigining."
+                        },
+                        {
+                            "name": "enable_claim_retrieval",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "",
+                            "possible": "true, false",
+                            "description": " Enable to add user claims to the backend JWT token. This will provide the user claims related to the authorized user to the default Keymanager implementation. For custom keymanager implementations, implement the getUserClaims() in the KeyManager implementation."
                         }
                     ]
                 }
