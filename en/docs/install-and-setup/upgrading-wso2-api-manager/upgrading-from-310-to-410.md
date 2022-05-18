@@ -2263,15 +2263,34 @@ Follow the instructions below to move all the existing API Manager configuration
         [[apim.gateway.environment]]
         name = "Production and Sandbox"
         ```
+        Modify the `[apim.sync_runtime_artifacts.gateway]` tag in the `<API-M_HOME>/repository/conf/deployment.toml`, so that the value of `gateway_labels` should be the name of old gateway environment (old default one is "Production and Sandbox") or we need to add the old one as a new gateway environment, while the new current default label (current default one is "Default") remains as it is.
+
+        ```toml
+        [apim.sync_runtime_artifacts.gateway]
+        gateway_labels = ["Production and Sandbox","Default"]
+        ```
+        or
+        ```toml
+        [apim.sync_runtime_artifacts.gateway]
+        gateway_labels = ["Production and Sandbox"]
+        ```
+
+    This config defines an array of the labels that the Gateway is going to subscribe to. Only the APIs with these labels will be pulled from the extension point and deployed.
+
     !!! Info
         If you have changed the name of the gateway environment in your older version, then when migrating, make sure
-        that you change the `[apim.gateway.environment]` tag accordingly. For example, if your gateway environment was named `Test` in the `<OLD_API-M_HOME>/repository/conf/api-manager.xml` file, you have to change the toml config as shown below.
+        that you change the `[apim.gateway.environment]` tag and `[apim.sync_runtime_artifacts.gateway]` tag accordingly. For example, if your gateway environment was named `Test` in the `<OLD_API-M_HOME>/repository/conf/api-manager.xml` file, you have to change the toml config as shown below.
 
         ```toml
         [[apim.gateway.environment]]
         name = "Test"
         ``` 
     
+        ```toml
+        [apim.sync_runtime_artifacts.gateway]
+        gateway_labels = ["Test"]
+        ```
+
     You have to run the following migration client to update the registry artifacts.
 
     1. Download and extract the [migration-resources.zip]({{base_path}}/assets/attachments/install-and-setup/migration-resources.zip). Copy the extracted `migration-resources`  to the `<API-M_4.0.0_HOME>` folder.

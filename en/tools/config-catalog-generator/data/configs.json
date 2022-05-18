@@ -511,6 +511,29 @@
             "exampleFile": "apim.gateway.environment.toml"
         },
         {
+            "options": [
+                {
+                    "name": "apim.sync_runtime_artifacts.gateway",
+                    "required": true,
+                    "description": "Define information on labels that the gateway is going to subscribe to. Only the APIs with these labels will be pulled from the extension point and deployed",
+                    "params": [
+                        {
+                            "name": "gateway_labels",
+                            "type": "string array",
+                            "required": true,
+                            "default": "Default",
+                            "possible": [
+                                "TestGWLabel",
+                                "Default"
+                            ],
+                            "description": "Array of the labels that the gateway is going to subscribe to"
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.sync_runtime_artifacts.gateway.toml"
+        },
+        {
             "title": "Virtual host of API-M gateway environment configurations",
             "options": [
                 {
