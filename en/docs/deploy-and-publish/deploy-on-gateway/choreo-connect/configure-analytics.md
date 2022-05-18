@@ -116,7 +116,7 @@ The Enforcer component in Choreo Connect can log analytics-related data to be us
     ``` toml
     [analytics]
        enabled = true
-       type = "elk"
+       type = "ELK"
           
     [analytics.enforcer]
     [analytics.enforcer.configProperties]
