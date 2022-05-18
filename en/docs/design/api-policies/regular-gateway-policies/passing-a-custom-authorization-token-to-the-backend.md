@@ -13,9 +13,9 @@ before sending it to the backend.
 
 Here's a summary:
 
-`Client (headers: Authorization, custom) -> Gateway (drop: Authorization, convert: custom->Authorization) -> Backend                     `
+**Client** `(headers: Authorization, Custom)`--> **Gateway** `(drop: Authorization, convert: Custom->Authorization)` --> **Backend**
 
-1.  Add the following sequence content in to a file and save it as XML file.
+1.  Add the following sequence content to a file and save it as `tokenExchange.xml`.
 
     !!! example
         ```xml
@@ -28,7 +28,7 @@ Here's a summary:
 
 2.  Log in to the **API Publisher**, create a new REST API with the information given in the table below by following the instructions in [Create a REST API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/).
 
-    | Field         | Sample value         |
+    | Field         | Sample Value         |
     |---------------|----------------------|
     | Name          | TestCustomHeader     |
     | Context       | /testcustomheader    |
@@ -36,14 +36,28 @@ Here's a summary:
     | Business Plan | Gold                 |
     | Endpoint      | http://wso2cloud-custom-auth-header-sample-1-0-0.wso2apps.com/custom-auth-header/validate-header |
 
-3.  Navigate to the **API Configurations** --> **Runtime** tab, enable the **Message Mediation** in Request flow. Engage the `In` 
-sequence that you created earlier and click **Save** .
+3.  Navigate to the **API Configurations** --> **Policies** tab. Create a new policy with the information given in the table below by following the instructions in [Create a Policy]({{base_path}}/design/api-policies/create-policy/).
 
-    [![Uploading Token Exchange Sequence ]({{base_path}}/assets/img/learn/api-gateway/message-mediation/token-exchange-seq-upload.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/token-exchange-seq-upload.png)
+    | Section                   | Field             | Sample Value          |
+    |---------------------------|-------------------|-----------------------|
+    | General Details           | Name              | Custom Authorization Token |
+    |                           | Description       | Passing a custom authorization token to the backend |
+    |                           | Applicable Flows  | Request               |
+    | Gateway Specific Details  | Supported Gateways| Regular Gateway       |
+    |                           | Policy File       | `tokenExchange.xml` file you creaated |
+    | Policy Attributes         | N/A               | N/A                     |
+
+4.  Next, find the **Custom Authorization Token** policy that you just created by following Step 3, from the `Request` tab of the policy list. Drag and drop this policy to the desired API operation(s) by following the instructions in [Attach Policies]({{base_path}}/design/api-policies/attach-policy/).
+
+    [![Custom Authorization Token Policy]({{base_path}}/assets/img/design/api-policies/custom-authorization-token-policy.png)]({{base_path}}/assets/img/design/api-policies/custom-authorization-token-policy.png)
+
+5.  Finally, scroll down and click on the **Save** button in order to apply the attached policies to the API.
+
+    [![Disable Chunking]({{base_path}}/assets/img/design/api-policies/save-attached-policies.png)]({{base_path}}/assets/img/design/api-policies/save-attached-policies.png)
       
-4. If the API is not in `PUBLISHED` state, go to **Lifecycle** tab, click **REDPLOY** to re-publish the API. 
+6.  Make sure to navigate to the **Deployments** tab and click on **Deploy New Revision** button. Also, if the API is not in `PUBLISHED` state, navigate to the **Lifecycle** tab and publish your API.
 
-5. Go **Developer Portal**, subscribe and obtain a token to invoke the published API. 
+5. Go to the **Developer Portal**, subscribe and obtain a token to invoke the published API. 
 
     !!! tip
         Follow the instructions in [here]({{base_path}}/consume/manage-application/generate-keys/generate-api-keys/#generating-application-keys) to generate an application access token.  

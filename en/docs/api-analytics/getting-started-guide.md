@@ -8,7 +8,7 @@ Follow the instructions below to sign in to Choreo.
 
 1. Navigate to Choreo using the following URL. 
     
-     [https://console.choreo.dev](https://console.choreo.dev/?apianalytics=true?utm_source=apim_docs).
+     <a href="https://console.choreo.dev/?apianalytics=true?utm_source=apim_docs" onclick="appInsights.trackEvent({name: 'apim-docs-api-analytics-get-started-link'});">https://console.choreo.dev</a>.
 
 2. Sign-in to Choreo.
    
@@ -82,7 +82,7 @@ If your system connects to the service through a proxy server/firewall, you need
 
 ## Step 4 - View the Analytics Dashboards
 
-Invoke APIs and open [Choreo Insights](https://console.choreo.dev/insights/overview) to view the dashboards.
+Invoke APIs and open <a href="https://console.choreo.dev/insights/overview" onclick="appInsights.trackEvent({name: 'apim-docs-get-started-view-api-analytics-dashboard'});">Choreo Insights</a> to view the dashboards.
 
 For more detailed information on the Choreo Insights dashboards and their usage, go to the [View API Insights](https://wso2.com/choreo/docs/insights/view-api-insights/) page of the Choreo documentation.
 

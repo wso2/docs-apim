@@ -55,15 +55,15 @@ public class SimpleClassMediator extends AbstractMediator {
 
 Then we can export this class as a jar file and add as a library to `<API-M_HOME>/repository/components/lib` directory.
 
-By referring this class with the fully qualified class name in a class mediator in the API as below, we can execute it in the insequence or outsequence of the API globally or per API as described above.
+By referring to this class with the fully qualified class name in a class mediator, we can create a new policy. Considering the below file content structure, you can create your own content and save as a `.xml` file. We will make use of this `.xml` file (i.e. policy file) when creating the policy (refer to [Create a Policy]({{base_path}}/design/api-policies/create-policy/) for further details). Thus created policy can then be attached to either the request flow or response flow of any API operation (refer [Attach Policies]({{base_path}}/design/api-policies/attach-policy/) for further details).
 
-
-```xml
-<class name="samples.mediators.SimpleClassMediator">                
-    <property name="propertyName" value="propertyValue"/>
-    ....
-</class>
-```
+!!! example
+    ```xml
+    <class name="samples.mediators.SimpleClassMediator">
+        <property name="propertyName" value="propertyValue"/>
+        ....
+    </class>
+    ```
 
 If any properties are specified in the java class of the class mediator, the corresponding setter methods are invoked once in the class during initialization.
 

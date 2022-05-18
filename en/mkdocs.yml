@@ -81,9 +81,10 @@ nav:
         - Change the Thumbnail of an API: design/create-api/change-api-thumbnail.md
         - Create Prototype APIs: 
             - Overview: design/prototype-api/overview.md
-            - Mock Implementation with API Gateway: design/prototype-api/create-mocked-js-api.md
-            - Mock Implementation with Choreo Connect: design/prototype-api/create-mocked-oas-api.md
-            - Expose an Existing Backend Implementation as a Prototype API: design/prototype-api/backend-url-prototype-api.md
+            - Mock Implementation: 
+                - With API Gateway: design/prototype-api/create-mocked-js-api.md
+                - With Choreo Connect: design/prototype-api/create-mocked-oas-api.md
+            - Existing Backend Implementation as a Prototype API: design/prototype-api/backend-url-prototype-api.md
         - Create API Products:
                 - API Product Overview: design/create-api-product/api-product-overview.md
                 - Create an API Product: design/create-api-product/create-api-product.md
@@ -117,18 +118,19 @@ nav:
             - Overview: design/api-policies/overview.md
             - Attach Policies: design/api-policies/attach-policy.md
             - Create a Policy: design/api-policies/create-policy.md
-            - Using Policies in the Gateway:
-                - Add Dynamic Endpoints: design/api-policies/gateway-policies/adding-dynamic-endpoints.md
-                - Remove Specific Request Headers From Response: design/api-policies/gateway-policies/removing-specific-request-headers-from-response.md
-                - Pass a Custom Authorization Token to the Backend: design/api-policies/gateway-policies/passing-a-custom-authorization-token-to-the-backend.md
-                - URL Mapping: design/api-policies/gateway-policies/mapping-the-parameters-of-your-backend-urls-with-the-api-publisher-urls.md
-                - Disable Message Chunking: design/api-policies/gateway-policies/disabling-message-chunking.md
-                - Transform API Message Payload: design/api-policies/gateway-policies/transforming-api-message-payload.md
-                - Add a Non-Blocking Send Operation: design/api-policies/gateway-policies/adding-a-non-blocking-send-operation.md
-                - Add a Class Mediator: design/api-policies/gateway-policies/adding-a-class-mediator.md
-                - Configure Message Builders and Formatters: design/api-policies/gateway-policies/configuring-message-builders-formatters.md
-            - Sample Custom Policies:
-                - Create a Custom Choreo Connect Policy: design/api-policies/samples/create-custom-cc-policy.md
+            - Regular Gateway Policies:
+                - Add Dynamic Endpoints: design/api-policies/regular-gateway-policies/adding-dynamic-endpoints.md
+                - Remove Specific Request Headers From Response: design/api-policies/regular-gateway-policies/removing-specific-request-headers-from-response.md
+                - Pass a Custom Authorization Token to the Backend: design/api-policies/regular-gateway-policies/passing-a-custom-authorization-token-to-the-backend.md
+                - URL Mapping: design/api-policies/regular-gateway-policies/mapping-the-parameters-of-your-backend-urls-with-the-api-publisher-urls.md
+                - Disable Message Chunking: design/api-policies/regular-gateway-policies/disabling-message-chunking.md
+                - Transform API Message Payload: design/api-policies/regular-gateway-policies/transforming-api-message-payload.md
+                - Add a Non-Blocking Send Operation: design/api-policies/regular-gateway-policies/adding-a-non-blocking-send-operation.md
+                - Add a Class Mediator: design/api-policies/regular-gateway-policies/adding-a-class-mediator.md
+                - Configure Message Builders and Formatters: design/api-policies/regular-gateway-policies/configuring-message-builders-formatters.md
+            - Choreo Connect Policies:
+                - Call Interceptor Service: design/api-policies/choreo-connect-policies/call-interceptor-service.md
+                - Create a Custom Policy: design/api-policies/choreo-connect-policies/create-custom-cc-policy.md
         - API Security:
             - Authentication:
                 - Overview: design/api-security/api-authentication/api-authentication-overview.md
@@ -262,7 +264,7 @@ nav:
                     - Expose via Custom Hostnames: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-with-custom-hostnames.md
                     - Immutable Gateway:
                         - Deploy as an Immutable Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-apis-as-immutable-gateway.md
-                    - Rest API with a Mock Implementation: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-with-mock-impl.md
+                    - REST API with a Mock Implementation: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-with-mock-impl.md
                 - Security:
                     - API Authentication:
                         - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-authentication.md
@@ -1825,7 +1827,7 @@ plugins:
               'learn/design-api/create-api/generate-rest-api-from-soap-backend.md': 'https://apim.docs.wso2.com/en/4.1.0/design/create-api/create-rest-api/generate-rest-api-from-soap-backend/'
               'learn/design-api/create-api/test-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.1.0/design/create-api/create-rest-api/test-a-rest-api/'
               'learn/api-gateway/overview-of-the-api-gateway.md': 'https://apim.docs.wso2.com/en/4.1.0/deploy-and-publish/deploy-on-gateway/api-gateway/overview-of-the-api-gateway/'
-              'learn/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests.md': 'https://apim.docs.wso2.com/en/4.1.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests/'
+              'learn/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests.md': 'https://apim.docs.wso2.com/en/4.1.0/design/api-policies/attach-policy/'
               'learn/api-gateway/message-mediation/creating-and-uploading-using-integration-studio.md': 'https://apim.docs.wso2.com/en/4.1.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/creating-and-uploading-using-integration-studio/'
               'learn/api-gateway/message-mediation/adding-dynamic-endpoints.md': 'https://apim.docs.wso2.com/en/4.1.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-dynamic-endpoints/'
               'learn/api-gateway/message-mediation/removing-specific-request-headers-from-response.md': 'https://apim.docs.wso2.com/en/4.1.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/removing-specific-request-headers-from-response/'
@@ -2173,6 +2175,7 @@ plugins:
               'install-and-setup/setup/mi-setup/observability/observability-deployment-strategy.md': 'https://apim.docs.wso2.com/en/4.1.0/observe/micro-integrator/cloud-native-observability-overview/'
               'design/prototype-api/create-a-mock-api-with-an-inline-script.md': 'https://apim.docs.wso2.com/en/4.1.0/design/prototype-api/create-a-prototype-api/'
               'design/prototype-api/deploy-and-test-mock-apis.md': 'https://apim.docs.wso2.com/en/4.1.0/design/prototype-api/create-a-prototype-api/'
+              'design/prototype-api/create-a-prototype-api.md': 'https://apim.docs.wso2.com/en/4.1.0/design/prototype-api/overview/'
               'deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-log4j.md': 'https://apim.docs.wso2.com/en/4.1.0/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-log4j2/'
               'deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-log4j.md': 'https://apim.docs.wso2.com/en/4.1.0/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-log4j2/'
               'deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/inter-component-communication.md': 'https://apim.docs.wso2.com/en/4.1.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview/#communication-between-the-components'
@@ -2208,6 +2211,7 @@ extra_javascript:
     - assets/js/theme.js
     - assets/lib/backtotop/js/util.js
     - assets/lib/backtotop/js/main.js
+    - assets/lib/insights/insights.js
 extra:
     social:
         - type: github
