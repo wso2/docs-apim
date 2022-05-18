@@ -117,10 +117,6 @@ The Enforcer component in Choreo Connect can log analytics-related data to be us
     [analytics]
        enabled = true
        type = "ELK"
-          
-    [analytics.enforcer]
-    [analytics.enforcer.configProperties]
-       "publisher.reporter.class" = "org.wso2.am.analytics.publisher.sample.reporter.CustomReporter"
     ```
    
 !!! note "If you want to use a custom reporter class"
@@ -128,16 +124,16 @@ The Enforcer component in Choreo Connect can log analytics-related data to be us
      
     1. Compile the new custom reporter implementation as a JAR file.</br>
     2. Mount it to the `/home/wso2/lib/dropins` directory within the Enforcer by adding the JAR file to the choreo-connect-1.x.x/docker-compose/resources/enforcer/dropins directory.</br>
-    3. Set the `publisher.reporter.class` in the `config.toml` file as follows:
+    3. Set the value of the `publisher.reporter.class` property to the class name of the new reporter implementation in the `config.toml` file as follows:
     	
         ```toml
         [analytics]
-         enabled = true
-         type = "elk"
+           enabled = true
+           type = "ELK"
 
         [analytics.enforcer]
         [analytics.enforcer.configProperties]
-         "publisher.reporter.class" = "org.wso2.am.analytics.publisher.sample.reporter.CustomReporter"
+           "publisher.reporter.class" = "org.wso2.am.analytics.publisher.sample.reporter.CustomReporter"
         ```
 
 #### Step 1.2 - Enable logs
