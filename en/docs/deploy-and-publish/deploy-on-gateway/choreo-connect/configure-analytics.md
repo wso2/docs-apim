@@ -123,6 +123,10 @@ The Enforcer component in Choreo Connect can log analytics-related data to be us
     ``` toml
     [analytics]
        enabled = true
+       
+    [analytics.enforcer]
+    [analytics.enforcer.configProperties]
+    "publisher.reporter.class" = "org.wso2.am.analytics.publisher.sample.reporter.CustomReporter"
     ```
    
 !!! note "If you want to use a custom reporter class"
