@@ -1,7 +1,7 @@
 # Configuring Analytics for Choreo Connect
 
 Choreo Connect is capable of publishing fine grained analytics events which can then be used to generate reports, dashboards, statistics, and graphs for the APIs deployed on Choreo Connect.
-Choreo Connect can not only publish analytics data to the Choreo platform but also to platforms that supports the ELK stack. The following subsections will explain in detail how you could enable and configure analytics for each platform to gain insights into the services exposed via Choreo Connect.
+Choreo Connect can not only publish analytics data to the Choreo platform but also to platforms that support the ELK stack. The following subsections will explain in detail how you could enable and configure analytics for each platform to gain insights into the services exposed via Choreo Connect.
 
 !!! tip
     To learn more on the analytics-related concepts, see [Choreo Connect Analytics - Concepts]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/choreo-connect-analytics/).
@@ -49,7 +49,7 @@ Follow the instructions below to configure analytics with Choreo:
 
           ``` toml
           [analytics]
-          enabled = true
+              enabled = true
           [analytics.adapter]
               bufferFlushInterval = "1s"
               bufferSizeBytes = 16384
@@ -122,19 +122,28 @@ The Enforcer component in Choreo Connect can log analytics-related data to be us
 
     ``` toml
     [analytics]
-       enabled = true
-          
+        enabled = true
+
     [analytics.enforcer]
-    [analytics.enforcer.configProperties]
-       "publisher.reporter.class" = "org.wso2.am.analytics.publisher.sample.reporter.CustomReporter"
+        [analytics.enforcer.configProperties]
+            "publisher.reporter.class" = "org.wso2.am.analytics.publisher.sample.reporter.CustomReporter"
     ```
    
-!!! note "If you want to use any other reporter class"
-    If you want to use any other reporter class, follow the instructions below:
+!!! note "If you want to use a custom reporter class"
+    If you want to use a custom reporter class, follow the instructions below:
      
     1. Compile the new reporter implementation as a JAR file.</br>
-    2. Add the copied file in to the `choreo-connect-1.x.x/docker-compose/resources/enforcer/dropins` directory.</br> 
-    3. Set the value of the `publisher.reporter.class` property to the class name of the new reporter implementation.
+    2. Mount it to the `/home/wso2/lib/dropins` directory within the Enforcer by adding the JAR file to the choreo-connect-1.x.x/docker-compose/resources/enforcer/dropins directory.</br>
+    3. Set the value of the `publisher.reporter.class` property to the class name of the new reporter implementation in the `config.toml` file as follows:
+        
+        ``` toml
+        [analytics]
+            enabled = true
+
+        [analytics.enforcer]
+            [analytics.enforcer.configProperties]
+                "publisher.reporter.class" = "org.wso2.am.analytics.publisher.sample.reporter.CustomReporter"
+        ```
 
 #### Step 1.3 - Enable logs
 
