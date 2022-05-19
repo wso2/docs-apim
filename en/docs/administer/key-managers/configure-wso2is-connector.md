@@ -82,6 +82,18 @@ Follow the steps given below to configure WSO2 IS as a third-party Key Manager c
      - [WSO2 IS Connector for the WSO2 API-M GA release]({{base_path}}/assets/attachments/administer/wso2is-km-connector-1.0.16_ga.zip).
      - [WSO2 IS Connector for the WSO2 API-M WUM updated version (as at 5th January 2022 (2022-01-05))]({{base_path}}/assets/attachments/administer/wso2is-km-connector-wum.zip).
      - [WSO2 IS Connector for the WSO2 API-M U2 updated version (from update level - 3.2.0.108.full)]({{base_path}}/assets/attachments/administer/wso2is-km-connector-u2.zip).
+   
+!!! tip "Recommendation"
+      If you are using U2 for getting updates, you can use wso2apim-is-plugin 3.2.0 to seamlessly install and get updates for IS connector components.
+      Please follow the steps given below to use wso2apim-is-plugin.
+
+      - Download wso2apim-is-plugin-3.2.0.zip from [here](https://wso2.com/api-management/previous-releases/) and unzip it. Let's refer to this as `<APIM_IS_PLUGIN_HOME>`
+      - Navigate into `<APIM_IS_PLUGIN_HOME>/bin` directory and execute your OS specific update binary file to get the U2 updates
+      - Execute the merge script by passing the `<IS_HOME>` as the first argument
+
+      ```sh
+         sh merge.sh /Users/wso2/product-is/wso2is-5.10.0
+      ```
 
 4. Extract the distribution and copy the following JAR files to the `<IS_HOME>/repository/components/dropins` directory.
 
