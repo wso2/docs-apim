@@ -181,6 +181,8 @@ paths:
           content: {}
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_view
@@ -244,8 +246,12 @@ paths:
                 $ref: '#/components/schemas/API'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         415:
           $ref: '#/components/responses/UnsupportedMediaType'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -300,10 +306,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_view
@@ -365,6 +375,8 @@ paths:
                 $ref: '#/components/schemas/API'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
@@ -373,6 +385,8 @@ paths:
           $ref: '#/components/responses/Conflict'
         412:
           $ref: '#/components/responses/PreconditionFailed'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -398,6 +412,8 @@ paths:
             OK.
             Resource successfully deleted.
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
@@ -406,6 +422,8 @@ paths:
           $ref: '#/components/responses/Conflict'
         412:
           $ref: '#/components/responses/PreconditionFailed'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_delete
@@ -499,6 +517,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         500:
@@ -553,10 +573,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_view
@@ -624,12 +648,16 @@ paths:
                 example: ""
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
           $ref: '#/components/responses/NotFound'
         412:
           $ref: '#/components/responses/PreconditionFailed'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -682,10 +710,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -736,10 +768,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -805,10 +841,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_view
@@ -863,10 +903,14 @@ paths:
           content: {}
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_view
@@ -927,12 +971,16 @@ paths:
                 $ref: '#/components/schemas/ResourcePolicyInfo'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
           $ref: '#/components/responses/NotFound'
         412:
           $ref: '#/components/responses/PreconditionFailed'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -981,10 +1029,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_view
@@ -1050,10 +1102,14 @@ paths:
                 $ref: '#/components/schemas/FileInfo'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         412:
           $ref: '#/components/responses/PreconditionFailed'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -1104,10 +1160,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource.
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_view
@@ -1162,8 +1222,12 @@ paths:
                 $ref: '#/components/schemas/API'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -1247,12 +1311,16 @@ paths:
                 $ref: '#/components/schemas/WorkflowResponse'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         409:
           $ref: '#/components/responses/Conflict'
         412:
           $ref: '#/components/responses/PreconditionFailed'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_publish
@@ -1299,8 +1367,12 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_publish
@@ -1351,10 +1423,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         412:
           $ref: '#/components/responses/PreconditionFailed'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_publish
@@ -1380,10 +1456,14 @@ paths:
             OK.
             Lifecycle state change pending task removed successfully.
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         412:
           $ref: '#/components/responses/PreconditionFailed'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_publish
@@ -1423,8 +1503,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/APIRevisionList'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -1462,10 +1546,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/APIRevision'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         412:
           $ref: '#/components/responses/PreconditionFailed'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -1504,8 +1592,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/APIRevision'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -1541,8 +1633,12 @@ paths:
           description: |
             No Content.
             Successfully deleted the revision
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -1575,8 +1671,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/APIRevisionDeploymentList'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -1615,8 +1715,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/APIRevisionDeployment'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -1661,8 +1765,12 @@ paths:
                   $ref: '#/components/schemas/APIRevisionDeployment'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -1716,8 +1824,12 @@ paths:
                   $ref: '#/components/schemas/APIRevisionDeployment'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -1752,8 +1864,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -1804,6 +1920,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         500:
@@ -1839,6 +1957,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CommentList'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         500:
@@ -2193,8 +2313,12 @@ paths:
                 $ref: '#/components/schemas/API'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         415:
           $ref: '#/components/responses/UnsupportedMediaType'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -2280,8 +2404,12 @@ paths:
                 $ref: '#/components/schemas/API'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         415:
           $ref: '#/components/responses/UnsupportedMediaType'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -2350,8 +2478,12 @@ paths:
                 $ref: '#/components/schemas/API'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         415:
           $ref: '#/components/responses/UnsupportedMediaType'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -2411,8 +2543,12 @@ paths:
                 $ref: '#/components/schemas/OpenAPIDefinitionValidationResponse'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -2458,8 +2594,12 @@ paths:
                 $ref: '#/components/schemas/ApiEndpointValidationResponse'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -2509,8 +2649,12 @@ paths:
           content: {}
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -2557,8 +2701,12 @@ paths:
                 $ref: '#/components/schemas/WSDLValidationResponse'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -2603,8 +2751,12 @@ paths:
                 $ref: '#/components/schemas/GraphQLValidationResponse'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -2656,10 +2808,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_view
@@ -2719,12 +2875,16 @@ paths:
           content: {}
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
           $ref: '#/components/responses/NotFound'
         412:
           $ref: '#/components/responses/PreconditionFailed'
+        500:
+          $ref: '#/components/responses/InternalServerError's
       security:
         - OAuth2Security:
             - apim:api_create
@@ -2766,8 +2926,12 @@ paths:
                         "arn:aws:lambda:us-west-2:123456789012:function:my-function2"
                      ]
                   }
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_view
@@ -2801,10 +2965,14 @@ paths:
           content: {}
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_publish
@@ -2831,10 +2999,14 @@ paths:
           content: {}
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_publish
@@ -2882,8 +3054,12 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_publish
@@ -2930,10 +3106,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_view
@@ -2988,8 +3168,12 @@ paths:
                 $ref: '#/components/schemas/Document'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         415:
           $ref: '#/components/responses/UnsupportedMediaType'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -3043,10 +3227,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_view
@@ -3107,10 +3295,14 @@ paths:
                 $ref: '#/components/schemas/Document'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         412:
           $ref: '#/components/responses/PreconditionFailed'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -3137,10 +3329,14 @@ paths:
             OK.
             Resource successfully deleted.
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         412:
           $ref: '#/components/responses/PreconditionFailed'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -3216,10 +3412,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_view
@@ -3290,10 +3490,14 @@ paths:
                 $ref: '#/components/schemas/Document'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         412:
           $ref: '#/components/responses/PreconditionFailed'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -3329,10 +3533,14 @@ paths:
             Successful response if the document name exists.
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: |
             Not Found.
             The specified resource does not exist.
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -3385,8 +3593,12 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_view
@@ -3458,10 +3670,14 @@ paths:
                 $ref: '#/components/schemas/Mediation'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         412:
           $ref: '#/components/responses/PreconditionFailed'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -3516,10 +3732,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_view
@@ -3546,12 +3766,16 @@ paths:
             OK.
             Resource successfully deleted.
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
           $ref: '#/components/responses/NotFound'
         412:
           $ref: '#/components/responses/PreconditionFailed'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -3602,8 +3826,12 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_view
@@ -3675,12 +3903,16 @@ paths:
                 $ref: '#/components/schemas/Mediation'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
           $ref: '#/components/responses/NotFound'
         412:
           $ref: '#/components/responses/PreconditionFailed'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -3710,10 +3942,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/WSDLInfo'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_view
@@ -3758,10 +3994,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_view
@@ -3824,12 +4064,16 @@ paths:
           content: {}
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
           $ref: '#/components/responses/NotFound'
         412:
           $ref: '#/components/responses/PreconditionFailed'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -3863,8 +4107,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GraphQLQueryComplexityInfo'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -3896,8 +4144,12 @@ paths:
             Created.
             Complexity details created successfully.
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -3932,8 +4184,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GraphQLSchemaTypeList'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -3988,10 +4244,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_view
@@ -4027,8 +4287,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AuditReport'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_view
@@ -4069,6 +4333,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/APIExternalStoreList'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         500:
@@ -4121,6 +4387,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/APIExternalStoreList'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         500:
@@ -4154,8 +4422,12 @@ paths:
                 $ref: '#/components/schemas/APIKey'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_generate_key
@@ -4239,6 +4511,8 @@ paths:
               schema:
                 type: string
                 format: binary
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         500:
@@ -4300,6 +4574,8 @@ paths:
           description: |
             Created.
             API Imported Successfully.
+        401:
+          $ref: '#/components/responses/Unauthorized'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
@@ -4370,8 +4646,12 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:subscription_view
@@ -4422,6 +4702,8 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           description: |
             Not Found.
@@ -4430,6 +4712,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:subscription_view
@@ -4457,8 +4741,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SubscriberInfo'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:subscription_view
@@ -4512,10 +4800,14 @@ paths:
           content: {}
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         412:
           $ref: '#/components/responses/PreconditionFailed'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:subscription_block
@@ -4556,10 +4848,14 @@ paths:
           content: {}
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         412:
           $ref: '#/components/responses/PreconditionFailed'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:subscription_block
@@ -4612,8 +4908,12 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_view
@@ -4662,8 +4962,12 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_view
@@ -4719,10 +5023,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_view
@@ -4776,8 +5084,12 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_view
@@ -4830,8 +5142,12 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_view
@@ -4874,6 +5190,8 @@ paths:
                 $ref: '#/components/schemas/ClientCertificates'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         500:
           $ref: '#/components/responses/InternalServerError'
       security:
@@ -4938,6 +5256,8 @@ paths:
                 $ref: '#/components/schemas/ClientCertMetadata'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         500:
           $ref: '#/components/responses/InternalServerError'
       security:
@@ -4980,6 +5300,8 @@ paths:
                 $ref: '#/components/schemas/CertificateInfo'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         500:
@@ -5044,6 +5366,8 @@ paths:
                 $ref: '#/components/schemas/ClientCertMetadata'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         500:
@@ -5088,6 +5412,8 @@ paths:
           content: {}
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         500:
@@ -5129,6 +5455,8 @@ paths:
           content: {}
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         500:
@@ -5183,6 +5511,8 @@ paths:
                 $ref: '#/components/schemas/Certificates'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         500:
@@ -5247,6 +5577,8 @@ paths:
                 $ref: '#/components/schemas/CertMetadata'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         500:
           $ref: '#/components/responses/InternalServerError'
       security:
@@ -5290,6 +5622,8 @@ paths:
                 $ref: '#/components/schemas/CertificateInfo'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         500:
@@ -5353,6 +5687,8 @@ paths:
                 $ref: '#/components/schemas/CertMetadata'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         500:
@@ -5395,6 +5731,8 @@ paths:
           content: {}
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         500:
@@ -5435,6 +5773,8 @@ paths:
           content: {}
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         500:
@@ -5496,8 +5836,12 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_view
@@ -5555,8 +5899,12 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_view
@@ -5607,8 +5955,12 @@ paths:
                 $ref: '#/components/schemas/APIProduct'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         415:
           $ref: '#/components/responses/UnsupportedMediaType'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_publish
@@ -5663,10 +6015,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_publish
@@ -5726,12 +6082,16 @@ paths:
                 $ref: '#/components/schemas/APIProduct'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
           $ref: '#/components/responses/NotFound'
         412:
           $ref: '#/components/responses/PreconditionFailed'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_publish
@@ -5757,12 +6117,16 @@ paths:
             OK.
             Resource successfully deleted.
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
           $ref: '#/components/responses/NotFound'
         412:
           $ref: '#/components/responses/PreconditionFailed'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_publish
@@ -5813,10 +6177,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_publish
@@ -5882,10 +6250,14 @@ paths:
                 $ref: '#/components/schemas/FileInfo'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         412:
           $ref: '#/components/responses/PreconditionFailed'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_publish
@@ -5934,10 +6306,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_publish
@@ -5989,10 +6365,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_publish
@@ -6040,10 +6420,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_publish
@@ -6097,8 +6481,12 @@ paths:
                 $ref: '#/components/schemas/Document'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         415:
           $ref: '#/components/responses/UnsupportedMediaType'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_publish
@@ -6152,10 +6540,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_publish
@@ -6216,10 +6608,14 @@ paths:
                 $ref: '#/components/schemas/Document'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         412:
           $ref: '#/components/responses/PreconditionFailed'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_publish
@@ -6245,10 +6641,14 @@ paths:
             OK.
             Resource successfully deleted.
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         412:
           $ref: '#/components/responses/PreconditionFailed'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_publish
@@ -6321,10 +6721,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_publish
@@ -6395,10 +6799,14 @@ paths:
                 $ref: '#/components/schemas/Document'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         412:
           $ref: '#/components/responses/PreconditionFailed'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_publish
@@ -6438,8 +6846,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/APIRevisionList'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -6477,10 +6889,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/APIRevision'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         412:
           $ref: '#/components/responses/PreconditionFailed'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -6518,8 +6934,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/APIRevision'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -6555,8 +6975,12 @@ paths:
           description: |
             No Content.
             Successfully deleted the revision
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -6588,8 +7012,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/APIRevisionDeploymentList'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -6628,8 +7056,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/APIRevisionDeployment'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -6677,8 +7109,12 @@ paths:
                   $ref: '#/components/schemas/APIRevisionDeployment'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -6732,8 +7168,12 @@ paths:
                   $ref: '#/components/schemas/APIRevisionDeployment'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -6768,8 +7208,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/APIProduct'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -6849,6 +7293,8 @@ paths:
               schema:
                 type: string
                 format: binary
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         500:
@@ -6921,6 +7367,8 @@ paths:
             Created.
             API Product Imported Successfully.
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
@@ -6955,8 +7403,12 @@ paths:
         200:
           description: OK. Requested role name exists.
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -6980,8 +7432,12 @@ paths:
         200:
           description: OK. Requested user has the role.
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -7010,6 +7466,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExternalStore'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         500:
           $ref: '#/components/responses/InternalServerError'
       security:
@@ -7039,8 +7497,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Settings'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:publisher_settings
@@ -7092,10 +7554,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TenantList'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_view
@@ -7118,8 +7584,12 @@ paths:
         200:
           description: OK. Requested tenant exists.
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_view
@@ -7185,6 +7655,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ScopeList'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         500:
           $ref: '#/components/responses/InternalServerError'
       security:
@@ -7226,8 +7698,12 @@ paths:
                 $ref: '#/components/schemas/Scope'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         415:
           $ref: '#/components/responses/UnsupportedMediaType'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:shared_scope_manage
@@ -7261,8 +7737,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Scope'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_view
@@ -7304,8 +7784,12 @@ paths:
                 $ref: '#/components/schemas/Scope'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:shared_scope_manage
@@ -7329,8 +7813,12 @@ paths:
             OK.
             Resource successfully deleted.
           content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:shared_scope_manage
@@ -7354,6 +7842,8 @@ paths:
           content: {}
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -7388,8 +7878,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SharedScopeUsage'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_view
@@ -7473,8 +7967,12 @@ paths:
                 $ref: '#/components/schemas/AsyncAPISpecificationValidationResponse'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -7536,8 +8034,12 @@ paths:
                 $ref: '#/components/schemas/API'
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         415:
           $ref: '#/components/responses/UnsupportedMediaType'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
@@ -7588,10 +8090,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: { }
+        401:
+          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         406:
           $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_view
@@ -7658,12 +8164,16 @@ paths:
                 example: ""
         400:
           $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
         403:
           $ref: '#/components/responses/Forbidden'
         404:
           $ref: '#/components/responses/NotFound'
         412:
           $ref: '#/components/responses/PreconditionFailed'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:api_create
