@@ -36,7 +36,7 @@ The **WSO2 API-M** runtime is tested with the following databases:
 |**DBMS**     |**Versions**|
 |--------------|-----------|
 |MySQL         | 5.7, 8    |
-|Oracle        | 12c, 19c  |
+|Oracle        | 12c release 2, 19c  |
 |Microsoft SQL Server| 2017|
 |PostgreSQL            |10 |
 
@@ -106,7 +106,7 @@ The **Micro Integrator** runtime is tested with the following databases:
 |**DBMS**     |**Versions**|
 |--------------|-----------|
 |MySQL         | 5.7, 8    |
-|Oracle        | 12c, 19c  |
+|Oracle        | 12c release 2, 19c  |
 |Microsoft SQL Server| 2017|
 |PostgreSQL            |10 |
 
