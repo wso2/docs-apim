@@ -111,9 +111,11 @@ Note that the artifacts are deployed in the Solace broker, therefore API level a
     The Applications subscribed to Solace APIs have pre-generated Production keys. Therefore, only the corresponding subscription will be made in the Solace broker. If you have not generated any keys such as Sandbox keys, then subscriptions will not be made in the Solace broker. If you subscribed to an application without Production keys and if you generate the Production keys then a subscription is created internally.
     
 !!! Info
-    Internally an application is created for the subscription, and for a successful subscription, you can see a log like this in the carbon logs.    
+    * Internally an application is created for the subscription, and for a successful subscription, you can see a log like this in the carbon logs.    
     
-    `INFO - SolaceNotifierUtils Solace application 'app1' created successfully`
+      `INFO - SolaceNotifierUtils Solace application 'app1' created successfully`
+      
+    * When subscribing to a Solace API, it takes few seconds to proceed. If you try to click the **Subscribe** button twice within a short period of time, it will give out an error in subscribing and the same error will appear when looking for Solace information.
 
 ## Invoking an API
 
