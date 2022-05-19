@@ -4,7 +4,7 @@ The Streaming Integrator performs all functions that are also performed by [WSO2
 
 If you are currently using WSO2 Stream Processor to carry out any streaming integration/stream processing activities and want to carry them out in the Streaming Integrator, you can migrate your setup as follows:
 
-## Preparing to upgrade
+## Step 1 - Before you begin
 
 The following prerequisites should be completed before upgrading.
 
@@ -15,7 +15,7 @@ The following prerequisites should be completed before upgrading.
     Note the following when migrating custom Siddhi extensions from WSO2 Stream Processor(SP) to WSO2 Streaming Integrator(SI).
     SP 4.x uses Siddhi 4.x and SI uses Siddhi 5.x from 1.x onwards. Therefore the group ID and package names should be **renamed** from `org.wso2.siddhi` to `io.siddhi`
 
-## Migrating Databases
+## Step 2 - Migrating Databases
 
 To connect the Streaming Integrator to the same databases as WSO2 SP 4.4.0 so that the persisted data can be accessed, configure the data sources as follows:
 
@@ -28,7 +28,7 @@ To connect the Streaming Integrator to the same databases as WSO2 SP 4.4.0 so th
 
 For the complete list of data sources configured for the Streaming Integrator, see [Configuring Data sources](https://ei.docs.wso2.com/en/latest/streaming-integrator/setup/configuring-data-sources/).
 
-## Migrating Siddhi applications
+## Step 3 - Migrating Siddhi applications
 
 To migrate the Siddhi applications that you have deployed in WSO2 SP 4.4.0, follow the procedure below:
 
@@ -39,6 +39,6 @@ To migrate the Siddhi applications that you have deployed in WSO2 SP 4.4.0, foll
 !!! note
     Note that some extensions are not packed by default when migrating from SP to SI. You can find these extensions in the `<SP_HOME>/lib` directory, and copy them as required.
 
-## Testing the migration
+## Step 4 - Testing the migration
 
 Simulate a few events to the Siddhi applications deployed in the Streaming Integrator to test whether they are generating the expected results.
