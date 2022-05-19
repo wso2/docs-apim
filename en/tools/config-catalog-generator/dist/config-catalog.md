@@ -959,6 +959,27 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                                         <p>Specify NONE to disbale the sigining.</p>
                                     </div>
                                 </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enable_claim_retrieval</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p> Enable to add user claims to the backend JWT token. This will provide the user claims related to the authorized user to the default Keymanager implementation. For custom keymanager implementations, implement the getUserClaims() in the KeyManager implementation.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
