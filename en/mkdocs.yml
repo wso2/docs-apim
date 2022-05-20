@@ -685,6 +685,7 @@ nav:
                       - Store APIs: develop/streaming-apps/store-apis.md
                       - Healthcheck APIs: develop/streaming-apps/healthcheck-apis.md
                       - HTTP Status Codes: develop/streaming-apps/http-status-codes.md
+          - Migrating from WSO2 SP: streaming/migrating-from-stream-processor.md
           - Streaming Examples:
                 - Extract Data from Static Sources in Real Time:
                        - Capture MySQL Inserts via CDC: use-cases/examples/streaming-examples/cdc-with-listening-mode.md
