@@ -2,7 +2,7 @@
 
 WSO2 API Manager Analytics provides reports, statistics, and graphs on the APIs deployed in WSO2 API Manager. You can configure alerts to monitor these APIs and detect unusual activity, manage locations via Geo-location statistics, and carry out a detailed analysis of the logs. WSO2 API Manager has an enhanced distribution of Analytics to cater to the API Manager specific scenarios that are used here to configure API-M Analytics.
 
-Refer the  [**Quick Setup**](#quick-setup) section to set up analytics for quick demos and try-out scenarios, or refer the [**Standard Setup**](#standard-setup) section to set up analytics for a production environment.
+To set up analytics for quick demos and try-out scenarios, see the  [**Quick Setup**](#quick-setup) section, or to set up analytics for a production environment, see the [**Standard Setup**](#standard-setup) section.
 
 !!! note
      -   It is not recommended to configure the Gateway node as an analytics server.
