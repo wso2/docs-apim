@@ -1,12 +1,11 @@
 # Configuring APIM Analytics
 
-This section explains how to configure analytics for WSO2 API Manager (WSO2 API-M). The API Manager integrates with the [WSO2 Streaming Integrator](https://wso2.com/integration/streaming-integrator) to provide reports, statistics and graphs on the APIs deployed in WSO2 API Manager. You can then configure alerts to monitor these APIs and detect unusual activity, manage locations via geo location statistics and carry out detailed analysis of the logs. WSO2 API Manager has an enhanced distribution of Analytics to cater to API Manager specific scenarios which is used here to configure APIM Analytics.
+WSO2 API Manager Analytics provides reports, statistics, and graphs on the APIs deployed in WSO2 API Manager. You can configure alerts to monitor these APIs and detect unusual activity, manage locations via Geo-location statistics, and carry out a detailed analysis of the logs. WSO2 API Manager has an enhanced distribution of Analytics to cater to the API Manager specific scenarios that are used here to configure API-M Analytics.
 
-Please refer the  [**Quick Setup**](#quick-setup) section to set up analytics for quick demos and try-out scenarios, or refer the [**Standard Setup**](#standard-setup) section to set up analytics for a production environment.
+To set up analytics for quick demos and try-out scenarios, see the  [**Quick Setup**](#quick-setup) section, or to set up analytics for a production environment, see the [**Standard Setup**](#standard-setup) section.
 
 !!! note
-      -   WSO2 recommends using the API-M Analytics (powered by [WSO2 Enterprise Integrator 7.0.x - Streaming Integrator](https://wso2.com/integration/streaming-integrator)) distribution to set up the minimum high availability deployment with API Manager. For configuration details, see [Minimum High Availability Deployment for Streaming Integrator](https://ei.docs.wso2.com/en/latest/streaming-integrator/setup/deploying-si-as-minimum-ha-cluster/).
-      -   It is not recommended to configure the Gateway node as an analytics server.
+     -   It is not recommended to configure the Gateway node as an analytics server.
 
 
 -   [**Quick Setup**](#quick-setup)
@@ -24,11 +23,9 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
     
 2.  Download and install WSO2 API-M Analytics.
 
-    To download WSO2 API-M Analytics go to the [WSO2 API Manager page](https://wso2.com/api-management/install/), click **Download** to expand the installation options.Navigate to the **Other Resources** section, and click **Analytics**. 
-    As the process of installing API-M Analytics is identical to installing WSO2 Enterprise Integrator 7.0.x - Streaming Integrator, for more information go to the [WSO2 SI documentation](https://ei.docs.wso2.com/en/latest/streaming-integrator/setup/installing-si-in-vm).
+    To download WSO2 API-M Analytics go to the [WSO2 API Manager page](https://wso2.com/api-management/install/), click **Download** to expand the installation options.Navigate to the **Other Resources** section, and click **Analytics**.
 
     ![]({{base_path}}/assets/img/learn/analytics-download-page.png)
-    
     
        <html><div class="admonition warning">
        <p class="admonition-title">Note</p>
