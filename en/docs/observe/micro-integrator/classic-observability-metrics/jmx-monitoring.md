@@ -63,7 +63,7 @@ See the list of [Micro Integrator MBeans](#mbeans-for-the-micro-integrator) that
 
 [Jolokia](https://jolokia.org) is a JMX-HTTP bridge, which is an alternative to JSR-160 connectors. It is an agent-based approach that supports many platforms. In addition to basic JMX operations, it enhances JMX monitoring with unique features like bulk requests and fine-grained security policies.
 
-Follow the steps below to use Jolokia to monitor a WSO2 product using JVM Agent. 
+Follow the steps below to use Jolokia to monitor a WSO2 product using a JVM Agent. 
 It can be dynamically attached (and
 detached) to an already running Java process. This universal agent uses the JVM agent API and is available for every Sun/Oracle JVM 1.6 and later.
 
