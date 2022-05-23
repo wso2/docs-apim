@@ -89,7 +89,7 @@ Follow the steps below to use Jolokia to monitor a WSO2 product using OSGi Agent
 1. Download [Osgi-Agent (full bundle)](https://jolokia.org/download.html). (These instructions are tested with the Jolokia OSGI Agent version 1.7.1 by downloading the `jolokia-osgi-bundle-1.7.1.jar` file.)
 2. Add it to the `<MI_HOME>/dropins/` directory.
 3. Start the WSO2 product server.
-4. You can define the port with System Variables ex: ./micro-integrator.sh -Dorg.osgi.service.http.port=9763
+4. You can define the port with system variables. E.g., `./micro-integrator.sh -Dorg.osgi.service.http.port=9763`
 
    Once the server starts, you can read MBeans using Jolokia APIs. The following are a few examples.
 
