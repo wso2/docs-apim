@@ -115,7 +115,7 @@ Follow the instructions below to compile the reporter implementation as a JAR fi
 2. Navigate to the `analytics-event-publisher/target` directory.
 3. Copy and paste the generated JAR in to the `choreo-connect-1.x.x/docker-compose/resources/enforcer/dropins` directory.
 
-     This JAR will be mounted in to the `/home/wso2/lib/dropins` directory within the Enforcer when the Enforcer starts.
+     This JAR will be mounted into the `/home/wso2/lib/dropins` directory within the Enforcer when the Enforcer starts.
 
 #### Step 1.2 - Configure the config.toml file
 
