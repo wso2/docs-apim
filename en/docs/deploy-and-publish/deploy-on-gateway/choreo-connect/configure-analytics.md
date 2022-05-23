@@ -106,14 +106,16 @@ The Enforcer component in Choreo Connect can log analytics-related data to be us
 
 ### Step 1 - Configure Choreo Connect
 
-#### Step 1.1 - Prepare the reporter JAR
+#### Step 1.1 - Compile the reporter implementation
+
+Follow the instructions below to compile the reporter implementation as a JAR file:
 
 1. Checkout and build the [wso2/samples-apim](https://github.com/wso2/samples-apim) repository.
 
 2. Navigate to the `analytics-event-publisher/target` directory.
-3. Copy and paste the generated JAR in to the `choreo-connect-1.x.x/docker-compose/resources/enforcer/dropins` directory. 
-     
-     This JAR is added to the Java classpath when the Enforcer starts.
+3. Copy and paste the generated JAR in to the `choreo-connect-1.x.x/docker-compose/resources/enforcer/dropins` directory.
+
+     This JAR will be mounted in to the `/home/wso2/lib/dropins` directory within the Enforcer when the Enforcer starts.
 
 #### Step 1.2 - Configure the config.toml file
 
@@ -130,20 +132,8 @@ The Enforcer component in Choreo Connect can log analytics-related data to be us
     ```
    
 !!! note "If you want to use a custom reporter class"
-    If you want to use a custom reporter class, follow the instructions below:
      
-    1. Compile the new reporter implementation as a JAR file.</br>
-    2. Mount it to the `/home/wso2/lib/dropins` directory within the Enforcer by adding the JAR file to the choreo-connect-1.x.x/docker-compose/resources/enforcer/dropins directory.</br>
-    3. Set the value of the `publisher.reporter.class` property to the class name of the new reporter implementation in the `config.toml` file as follows:
-        
-        ``` toml
-        [analytics]
-            enabled = true
-
-        [analytics.enforcer]
-            [analytics.enforcer.configProperties]
-                "publisher.reporter.class" = "org.wso2.am.analytics.publisher.sample.reporter.CustomReporter"
-        ```
+     Set the value of the `publisher.reporter.class` property to the class name of the new reporter implementation in the `config.toml` file.
 
 #### Step 1.3 - Enable logs
 
