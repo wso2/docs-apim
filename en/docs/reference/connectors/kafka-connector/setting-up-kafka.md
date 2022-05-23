@@ -20,6 +20,9 @@ Copy the following additional client libraries to the `<MI_HOME>/lib` directory 
 * [common-utils-5.4.0.jar](https://mvnrepository.com/artifact/io.confluent/common-utils/5.4.0)
 * [kafka-avro-serializer-5.3.0.jar](https://mvnrepository.com/artifact/io.confluent/kafka-avro-serializer/5.3.0)
 * [kafka-schema-registry-client-5.3.0.jar](https://mvnrepository.com/artifact/io.confluent/kafka-schema-registry-client/5.3.0)
+   
+!!! Note "Library versions"
+    Note that the libraries mentioned above are the versions **tested** with the connector.
 
 Navigate to <KAFKA_HOME> and run the following command to start the ZooKeeper server:
 
