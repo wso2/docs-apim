@@ -4,6 +4,9 @@ To use the Kafka connector, download and install [Apache Kafka](http://kafka.apa
 
 > **Note**: The recommended version is [Kafka_2.11-2.2.1](https://www.apache.org/dyn/closer.cgi?path=/kafka/1.0.0/kafka_2.11-2.2.1.tgz). For all available versions of Kafka that you can download, see https://kafka.apache.org/downloads. The recommended Java version is 1.8.
 
+!!! Note "Library versions"
+    Note that the libraries mentioned below are the versions **tested** with the connector.
+
 To configure the Kafka connector, copy the following client libraries from the `<KAFKA_HOME>/lib` directory to the `<MI_HOME>/lib` directory.
 
 * [kafka_2.11-2.2.1.jar](https://mvnrepository.com/artifact/org.apache.kafka/kafka_2.11/2.2.1)  
@@ -20,9 +23,7 @@ Copy the following additional client libraries to the `<MI_HOME>/lib` directory 
 * [common-utils-5.4.0.jar](https://mvnrepository.com/artifact/io.confluent/common-utils/5.4.0)
 * [kafka-avro-serializer-5.3.0.jar](https://mvnrepository.com/artifact/io.confluent/kafka-avro-serializer/5.3.0)
 * [kafka-schema-registry-client-5.3.0.jar](https://mvnrepository.com/artifact/io.confluent/kafka-schema-registry-client/5.3.0)
-   
-!!! Note "Library versions"
-    Note that the libraries mentioned above are the versions **tested** with the connector.
+  
 
 Navigate to <KAFKA_HOME> and run the following command to start the ZooKeeper server:
 
