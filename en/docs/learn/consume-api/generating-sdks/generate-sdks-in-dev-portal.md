@@ -38,8 +38,7 @@ Follow the instructions below to configure the languages available for SDK gener
 
      ```
      [apim.sdk]
-
-     supported_languages = ["android", "java", "csharp", "dart", "flash", "groovy","javascript", "jmeter","perl","php","python","ruby","swift5","clojure"]
-    ```
+     supported_languages = ["android", "java", "csharp", "dart", "flash", "groovy", "javascript", "jmeter", "perl", "php", "python", "ruby", "swift5", "clojure"]
+     ```
     
-1.  [Restart the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/) to apply the configuration changes.
+3.  [Restart the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/) to apply the configuration changes.
