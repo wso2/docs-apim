@@ -4190,7 +4190,7 @@ group_id = "org.wso2"
 artifact_id = "org.wso2.client"
 model_package = "org.wso2.client.model"
 api_package = "org.wso2.client.api"
-supported_languages = ["android", "java", "csharp", "dart", "flash", "groovy","javascript", "jmeter","perl","php","python","ruby","swift5","clojure"]
+supported_languages = ["android", "java", "csharp", "dart", "flash", "groovy", "javascript", "jmeter", "perl", "php", "python", "ruby", "swift5", "clojure"]
                     </code></pre>
                     </div>
                 </div>
