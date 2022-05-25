@@ -31,7 +31,7 @@ The newly arrived node then becomes the passive node and starts processing all t
 
 Before you configure a minimum high availability API-M Analytics cluster, the following needs to be carried out.
 
-1.  Download the WSO2 API-M Analytics distribution. Click **DOWNLOAD ANALYTICS** in the [WSO2 API Manager page](http://wso2.com/products/api-manager/) .
+1.  Download the WSO2 API-M Analytics distribution. Click **DOWNLOAD ANALYTICS** in the [WSO2 API Manager page](https://wso2.com/api-manager/) .
 2.  Take the following steps to install WSO2 APIM Analytics. Because this procedure is identical to installing WSO2 Data Analytics Server (DAS), these steps take you to the DAS documentation for details.
     1.  Ensure that you have met the [Installation Prerequisites](http://docs.wso2.com/data-analytics-server/Getting%20Started) .
     2.  Go to the installation instructions relevant to your operating system:

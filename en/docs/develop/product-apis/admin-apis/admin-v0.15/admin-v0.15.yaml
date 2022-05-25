@@ -10,7 +10,7 @@ info:
     Please see [full swagger definition](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.5.349/components/apimgt/org.wso2.carbon.apimgt.rest.api.admin/src/main/resources/admin-api.yaml) of the API which is written using [swagger 2.0](http://swagger.io/) specification.
   contact:
     name: "WSO2"
-    url: "http://wso2.com/products/api-manager/"
+    url: "https://wso2.com/api-manager/"
     email: "architecture@wso2.com"
   license:
     name: "Apache 2.0"

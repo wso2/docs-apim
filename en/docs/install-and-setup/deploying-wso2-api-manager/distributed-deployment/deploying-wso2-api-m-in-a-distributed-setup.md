@@ -10,7 +10,7 @@ Follow the instructions below to deploy WSO2 API Manager (WSO2 API-M) in a distr
 
     The following instructions describe how to download, install, and configure WSO2 API Manager, with five instances.
     
-    1.  Download the [WSO2 API Manager](http://wso2.com/products/api-manager/) in each of the five servers in the cluster for distributed deployment.
+    1.  Download the [WSO2 API Manager](https://wso2.com/api-manager/) in each of the five servers in the cluster for distributed deployment.
     2.  Unzip the WSO2 API Manager zipped archive, and rename each of those directories respectively as Key Manager, Gateway, Publisher, Developer Portal, and Traffic Manager.
         These five directories are located in a server of their own and are used for each component of WSO2 API-M. Each of these unzipped directories are referred to as `<API-M_HOME>` or `<PRODUCT_HOME>` in this document.
     
