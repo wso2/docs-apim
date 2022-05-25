@@ -1611,8 +1611,8 @@
                             "name": "supported_languages",
                             "type": "string",
                             "required": false,
-                            "default": "android,java,scala,csharp,dart,flash,groovy,javascript,jmeter,nodejs,perl,php,python,ruby,swift,clojure,asyncScala,csharpDotNet2",
-                            "possible": "",
+                            "default": "android, java, javascript, jmeter",
+                            "possible": "android, java, javascript, jmeter, csharp, dart, flash, groovy, perl, php, python, ruby, swift5, clojure",
                             "description": "Supported programming languages."
                         }
                     ]
