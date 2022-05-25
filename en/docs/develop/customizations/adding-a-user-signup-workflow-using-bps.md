@@ -100,7 +100,7 @@ This section explains how to attach a custom workflow to the user signup operati
 !!! note
     Follow this sub section, only if you will be using the **Business Process Server(BPS)** for the business process tasks. If not please refer the sub section for [Configuring the Entreprise Integrator.]({{base_path}}/learn/consume-api/customizations/adding-a-user-signup-workflow/#configuring-the-enterprise-integrator)
 
-1.  Download [WSO2 Business Process Server](http://wso2.com/products/business-process-server/) .
+1.  Download [WSO2 Business Process Server](https://wso2.com/api-manager/) .
 
 2.  Set an offset of 2 to the default BPS port in the `<BPS_HOME>/repository/conf/carbon.xml` file. This prevents port conflicts that occur when you start more than one WSO2 product on the same server. For more information, see [Changing the Default Ports with Offset]({{base_path}}/reference/guides/changing-the-default-ports-with-offset).
 
