@@ -12,7 +12,6 @@ Multiple Gateway environments can be registered in the WSO2 API Manager Control 
 
 Let's assume you have two environments called "choreo-connect-1" and "choreo-connect-2".
 
-1. In each of the Adapters, add the relevant environment to `environmentLabels` in `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf/config.toml` under `controlPlane`.
 !!! Important
     Even though the Adapter has the capability to deploy APIs under multiple environment labels (Gateway labels), it is recommended to apply a single Gateway environment label to maintain a simple deployment architecture.
 
@@ -86,8 +85,6 @@ Let's assume you have two environments called "choreo-connect-1" and "choreo-con
       ``` tab="Environment-2"
       ROUTER_LABEL=choreo-connect-2
       ```
-
-3. Add the Gateway environments "choreo-connect-1" and "choreo-connect-2" from the Gateways in the API Manager Admin Portal.
 
 3. Start Choreo Connect deployment from docker-compose.
 
