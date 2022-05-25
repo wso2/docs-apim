@@ -30,7 +30,8 @@ Let's assume you have two environments called "choreo-connect-1" and "choreo-con
         reconnectInterval = 5000
         reconnectRetryCount = 60
     ```
-    ```toml tab="Adapter 1"
+
+    ```toml tab="Environment-1"
     [controlPlane]
       enabled = true
       serviceURL = "https://apim:9443/"
@@ -43,7 +44,7 @@ Let's assume you have two environments called "choreo-connect-1" and "choreo-con
         reconnectRetryCount = 60
     ```
 
-    ```toml tab="Adapter 2"
+    ```toml tab="Environment-2"
     [controlPlane]
       enabled = true
       serviceURL = "https://apim:9443/"
@@ -56,26 +57,33 @@ Let's assume you have two environments called "choreo-connect-1" and "choreo-con
         reconnectRetryCount = 60
     ```
 
-2. Next let's configure the Gateway environment label in the Enforcer and Router. To do that, update the following environment variables in each service in the docker-compose file.
+2.  Next let's configure the Gateway environment label in the Enforcer and Router. To do that, update the following environment variables in each service in the docker-compose file.
    
-   -  Enforcer
+    - Enforcer
+
       ``` tab="Format"
       ENFORCER_LABEL=<GATEWAY_LABEL>
       ```
-      ``` tab="Enforcer 1"
+
+      ``` tab="Environment-1"
       ENFORCER_LABEL=choreo-connect-1
       ```
-      ``` tab="Enforcer 2"
+
+      ``` tab="Environment-2"
       ENFORCER_LABEL=choreo-connect-2
       ```
-   -  Router
+
+    - Router
+
       ``` tab="Format"
       ROUTER_LABEL=<GATEWAY_LABEL>
       ```
-      ``` tab="Enforcer 1"
+
+      ``` tab="Environment-1"
       ROUTER_LABEL=choreo-connect-1
       ```
-      ``` tab="Enforcer 2"
+
+      ``` tab="Environment-2"
       ROUTER_LABEL=choreo-connect-2
       ```
 
