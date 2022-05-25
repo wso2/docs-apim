@@ -15,7 +15,7 @@ Let's assume you have two environments called "choreo-connect-1" and "choreo-con
 !!! Important
     Even though the adapter has the capability to deploy APIs under multiple environment Labels (gateway labels), it is recommanded to apply for a single gateway environment label to maintain the deployment architecture simple.
 
-1. In each of the Adapter, add the relevant environment to `environmentLabels` in `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf/config.toml` under `controlPlane`.
+1. In each of the Adapters, add the relevant environment to `environmentLabels` in `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf/config.toml` under `controlPlane`.
 
     ```toml tab="Format"
     [controlPlane]
