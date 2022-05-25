@@ -55,7 +55,7 @@ Let's assume you have two environments called "choreo-connect-1" and "choreo-con
         reconnectRetryCount = 60
     ```
 
-2. Next let's configure the Gateway environment label in the Enforcer and Router. For that update the following environment variables in each service in the docker-compose file.
+2. Next let's configure the Gateway environment label in the Enforcer and Router. To do that, update the following environment variables in each service in the docker-compose file.
    
    -  Enforcer
       ``` tab="Format"
