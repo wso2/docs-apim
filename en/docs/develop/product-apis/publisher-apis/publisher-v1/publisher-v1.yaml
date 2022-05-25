@@ -103,7 +103,7 @@ info:
     [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/a09044034b5c3c1b01a9)
   contact:
     name: "WSO2"
-    url: "http://wso2.com/products/api-manager/"
+    url: "https://wso2.com/api-manager/"
     email: "architecture@wso2.com"
   license:
     name: "Apache 2.0"

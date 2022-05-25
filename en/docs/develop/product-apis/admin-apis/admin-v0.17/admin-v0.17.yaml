@@ -93,7 +93,7 @@ info:
     If you use a different authentication mechanism, this process may change.
   contact:
     name: "WSO2"
-    url: "http://wso2.com/products/api-manager/"
+    url: "https://wso2.com/api-manager/"
     email: "architecture@wso2.com"
   license:
     name: "Apache 2.0"
