@@ -13,7 +13,7 @@ This feature is particularly useful when multiple WSO2 products are hosted under
 !!! note
 Note the following:
 
--   This functionality is only available for WSO2 products that are based on Carbon 4.3.0 or a later Carbon version. See the [WSO2 product release matrix](http://wso2.com/products/carbon/release-matrix/) for more information about WSO2 Carbon platform releases.
+-   This functionality is only available for WSO2 products that are based on Carbon 4.3.0 or a later Carbon version. See the [WSO2 product release matrix](https://wso2.com/products/carbon/release-matrix/) for more information about WSO2 Carbon platform releases.
 -   Once you have configured your products with a proxy server, it will no longer be possible to access the product behind the proxy. See the section given below on [configuring products to use the proxy server](#AddingaCustomProxyPath-Step2) for more information.
 
 

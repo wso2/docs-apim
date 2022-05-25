@@ -4,7 +4,7 @@ When workflow extensions are enabled using default workflow executors, they crea
 
 API Manager provides a task clean up feature to prevent deleted items from showing up in the Admin Portal. The `WorkflowExecutor` class is introduced with the `cleanUpPendingTask(String workflowExtRef)` method, which is triggered by application or subscription deletion. This method implements the logic to notify WSO2 BPS that a task with the `workflowExtRef` ID has been deleted.
 
-The BPEL process in WSO2 BPS should contain a cancel event to support process cancellation. Each BPEL process should support correlation and event cancellation in order to successfully cleanup unnecessary tasks. For more information on BPEL correlation, see [Process Correlation](https://docs.wso2.com/display/BPS350/Process+Correlation) and the [BPEL Correlation Guide](http://wso2.com/library/presentations/2015/07/screencast-wso2-business-process-server-bpel-correlation-guide/) .
+The BPEL process in WSO2 BPS should contain a cancel event to support process cancellation. Each BPEL process should support correlation and event cancellation in order to successfully cleanup unnecessary tasks. For more information on BPEL correlation, see [Process Correlation](https://docs.wso2.com/display/BPS350/Process+Correlation) and the [BPEL Correlation Guide](https://wso2.com/library/presentations/2015/07/screencast-wso2-business-process-server-bpel-correlation-guide/) .
 
 The final BPEL should have a design similar to the following diagram,
 
