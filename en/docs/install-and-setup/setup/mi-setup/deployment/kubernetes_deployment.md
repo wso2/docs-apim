@@ -1,21 +1,29 @@
 # Deploying the Micro Integrator on Kubernetes
 
-You can set up a Kubernetes cluster for the Micro Integrator using one of the methods given below.
+You can set up a Kubernetes (K8s) cluster for the Micro Integrator using one of the options given below.
 
-## Using the K8s Operator
+## Options for Kubernetes cluster set up 
 
-The API operator for Kubernetes provides first-class support for Micro Integrator deployments in the Kubernetes ecosystem. It uses the `Integration` custom resource (`integration_cr.yaml` file) that is available in the Kubernetes module (exported from WSO2 Integration Studio) and deploys the integration in your Kubernetes environment.
+### Using the K8s Operator
 
--   See the instructions on [deploying integrations on Kubernetes using the Operator]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments).
+The API operator for Kubernetes provides first-class support for Micro Integrator deployments in the Kubernetes ecosystem. It uses the `Integration` custom resource (`integration_cr.yaml` file) that is available in the Kubernetes module, which is exported from WSO2 Integration Studio, and deploys the integration in your Kubernetes environment.
 
-## Using Helm resources
+-   For instructions, see [deploying integrations on Kubernetes using the Operator]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments).
+
+### Using Helm resources
 
 WSO2 releases Helm resources for all product deployments. You can get the [Helm resources for the Micro Integrator](https://github.com/wso2/kubernetes-mi/) and set up a Micro Integrator deployment on Kubernetes.
 
--   See the instructions on [deploying integrations on Kubernetes using Helm resources]({{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying-micro-integrator-with-helm).
+-   For instructions, see [deploying integrations on Kubernetes using Helm resources]({{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying-micro-integrator-with-helm).
 
-## Using pure Kubernetes resources
+### Using pure Kubernetes resources
 
-Integration developers can directly generate the Kubernetes artifacts that are required for a Kubernetes deployment using WSO2 Integration Studio. Once these resources are generated, you can set a Kubernetes deployment by following the Kubernetes documentation.
+Integration developers can directly generate the Kubernetes artifacts that are required for a Kubernetes deployment using WSO2 Integration Studio. After you have generated these resources, you can set a Kubernetes deployment by following the Kubernetes documentation.
 
--   Find out more about the [Kubernetes Exporter]({{base_path}}/integrate/develop/create-kubernetes-project) in WSO2 Integration Studio.
+-   For information on the Kubernetes Exporter in WSO2 Integration Studio, see [Create Kubernetes project]]({{base_path}}/integrate/develop/create-kubernetes-project).
+
+## Selecting a deployment option
+
+Take the following into consideration when deciding on whether to use the Kubernetes Operator or pure Kubernetes resources.
+
+The Kubernetes Operator (K8s Operator) is configuration-driven. Therefore, it is easier to provide all-in-one configurations to a K8s Operator and get it up and running, when compared to deploying pure K8s resources. In addition, the K8s Operator offers first-class support for MI deployments via the Integration custom resource. 
