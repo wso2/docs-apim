@@ -1,6 +1,27 @@
 # Deploying the Micro Integrator on Kubernetes
 
-You can set up a Kubernetes (K8s) cluster for the Micro Integrator using one of the options given below.
+You can set up a Kubernetes (K8s) cluster for the Micro Integrator using one of the following deployment options.
+
+- [Using the Kubernetes Operator](#using-the-kubernetes-operator)
+
+- [Using Helm resources](#using-helm-resources)
+
+- [Using pure Kubernetes resources](#using-pure-kubernetes-resources)
+
+## Selecting a deployment option
+
+Take the following into consideration when deciding on whether to use the Kubernetes Operator or pure Kubernetes resources.
+
+- The Kubernetes Operator (K8s Operator) is configuration-driven. Therefore, it is easier to provide all-in-one configurations to a K8s Operator and get it up and running when compared to using Helm resources or deploying pure Kubernetes resources.
+
+- The K8s Operator offers first-class support for MI deployments via the Integration custom resource.
+
+- The following is the list of deployment options in sequential order based on the ease of use.
+     1. Kubernetes Operator
+     2. Helm resources
+     3. Pure Kubernetes resources
+
+- If you have a lot of customizations in your deployment, you may consider using Helm resources or pure Kubernetes resources.
 
 ## Options for Kubernetes cluster set up 
 
@@ -20,10 +41,5 @@ WSO2 releases Helm resources for all product deployments. You can get the [Helm 
 
 Integration developers can directly generate the Kubernetes artifacts that are required for a Kubernetes deployment using WSO2 Integration Studio. After you have generated these resources, you can set a Kubernetes deployment by following the Kubernetes documentation.
 
--   For information on the Kubernetes Exporter in WSO2 Integration Studio, see [Create Kubernetes project]]({{base_path}}/integrate/develop/create-kubernetes-project).
+-   For information on the Kubernetes Exporter in WSO2 Integration Studio, see [Create Kubernetes project]({{base_path}}/integrate/develop/create-kubernetes-project).
 
-## Selecting a deployment option
-
-Take the following into consideration when deciding on whether to use the Kubernetes Operator or pure Kubernetes resources.
-
-The Kubernetes Operator (K8s Operator) is configuration-driven. Therefore, it is easier to provide all-in-one configurations to a K8s Operator and get it up and running, when compared to deploying pure K8s resources. In addition, the K8s Operator offers first-class support for MI deployments via the Integration custom resource. 
