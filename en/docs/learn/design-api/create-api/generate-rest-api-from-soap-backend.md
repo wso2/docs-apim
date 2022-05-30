@@ -1,14 +1,14 @@
 # Generate REST API from SOAP Backend
 
-This feature allows users to expose their legacy SOAP backends as REST APIs through WSO2 API Manager. 
-WSO2 API Manager supports WSDL 1.1 based SOAP backends.
+This feature allows users to expose their legacy SOAP backends as REST APIs through WSO2 API Manager.
 
-Follow the instructions below to generate REST APIs in WSO2 API Manager for an existing SOAP backend.
+## Generating REST APIs for an existing SOAP backend
+
+Follow the instructions below to generate REST APIs in WSO2 API Manager for an existing SOAP backend:
 
    <html><div class="admonition note">
-      <p class="admonition-title">Note</p>
-      <ul>Before you begin... </ul>
-      <ul>Make sure that you have a valid WSDL URL from the SOAP backend. It should belong to the WSDL 1.1 version.</ul>
+      <p class="admonition-title">Before you begin</p>
+      <p>Make sure that you have a valid WSDL URL from the SOAP backend. For more information, see <a href="{{base_path}}/learn/design-api/create-api/generate-rest-api-from-soap-backend/#compatibility">Compatibility</a>.</p>
       </div>
     </html>
 
@@ -89,3 +89,41 @@ Follow the instructions below to generate REST APIs in WSO2 API Manager for an e
 
     The incoming JSON message parameters are stored using properties. A payload factory mediator is used to generate the SOAP payload required for the backend.
 
+## Compatibility
+
+### Versions
+
+WSO2 API Manager **supports** WSDL based SOAP backends based on the following WSDL versions.
+
+- 1.1
+- 1.2
+
+### Headers
+
+WSO2 API Manager **does not support** the following headers.
+
+- WS-Secured (WSS) header
+
+### XSD types
+
+WSO2 API Manager **supports** the following XSD types.
+
+#### Primitive types
+
+- String
+- Byte
+- Short
+- Int
+- Long
+- Float
+- Double
+- boolean
+
+#### Other types
+
+- Element
+- ComplexType
+- Extension
+- Attribute
+- SimpleType
+- Restriction
