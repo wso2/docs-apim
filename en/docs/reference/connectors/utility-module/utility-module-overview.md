@@ -16,7 +16,9 @@ Access the Utility Module by navigating to the [Connector Store](https://store.w
 
 | **Connector version** | **Supported Product Versions** |
 | ------------- |------------- |
-|  [1.0.0](https://github.com/wso2-extensions/mediation-utility-module)        |  API-M 4.0.0</br>EI 7.1.0</br>EI 7.0.x</br>EI 6.6.0</br>EI 6.5.0</br>EI 6.4.0 |
+|  [1.0.1](https://github.com/wso2-extensions/mediation-utility-module)        |  MI 4.1.0</br>MI 4.0.0 |
+|  [1.0.0](https://github.com/wso2-extensions/mediation-utility-module)        |  MI 4.1.0</br>MI 4.0.0 |
+
 
 For older versions, see the details in the Connector Store.
 
