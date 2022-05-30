@@ -117,7 +117,7 @@ WSO2 API Manager **supports** the following XSD types.
 - Long
 - Float
 - Double
-- boolean
+- Boolean
 
 #### Other types
 
