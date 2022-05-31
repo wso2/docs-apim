@@ -216,7 +216,6 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
     **[Learn more](https://siddhi-io.github.io/siddhi-io-kafka/api/latest/)**
 
-
 ## Removed features and functionalities
 
 These features are unsupported and removed from WSO2 API Manager 4.1.0 onwards.
