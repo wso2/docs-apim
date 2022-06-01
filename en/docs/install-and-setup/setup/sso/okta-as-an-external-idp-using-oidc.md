@@ -191,8 +191,10 @@ Before you begin, make sure you do the following.
     1. Click **Main**, **Identity**, and then click **Add** under **Users and Roles**.
     
     2. Click **Add New Role**.
+
+         [![Add role for Okta in API-M]({{base_path}}/assets/img/learn/okta-apim-add-role.png)]({{base_path}}/assets/img/learn/okta-apim-add-role.png)
    
-    3.  Add a new role based on the following details and click **Next >**.
+    3.  Add a new role based on the following details and click **Finish**.
 
          <table>
          <tr>
@@ -208,82 +210,8 @@ Before you begin, make sure you do the following.
          <td><code>okta_role</code></td>
          </tr>
          </table>
-
-         [![Add role for Okta in API-M]({{base_path}}/assets/img/learn/okta-apim-add-role.png)]({{base_path}}/assets/img/learn/okta-apim-add-role.png)
          
-         <a href="{{base_path}}/assets/img/learn/okta-apim-add-role-name.png"><img src="{{base_path}}/assets/img/learn/okta-apim-add-role-name.png" width="400" height="200"/></a>
-
-    4. Assign the following permissions to the role and click **Save**.
-
-         <table>
-         <tr>
-         <th><b>Hiererchy</b></th>
-         <th><b>Permissions</b></th>
-         </tr>
-         <tr>
-         <td><b>Admin Permissions > Configure > Governance</b></td>
-         <td>
-         <ul>
-         <li><code>Providers</code></li>
-         <li><code>APIs</code></li>
-         <li><code>Documents</code></li>
-         <li><code>Lifecycles</code></li>
-         <li><code>Generic Artifacts</code></li>
-         <li><code>Product Documents</code></li>
-         <li><code>Manage RXT</code></li>
-         <li><code>Products</code></li>
-         </ul>
-         </td>
-         </tr>
-         <tr>
-         <td><b>Admin Permissions</b></td>
-         <td><ul>
-         <li><code>Login</code></li>
-         </ul></td>
-         </tr>
-         <tr>
-         <td><b>Admin Permissions > Manage > Resources > Govern</b></td>
-         <td>         <ul>
-         <li><code>Metadata</code></li>
-         <li><code>Lifecycles</code></li>
-         <li><code>Products</code></li>
-         <ul><li><code>Add</code></li>
-         <li><code>List</code></li></ul>
-         <li><code>Generic Artifacts</code></li>
-         <ul><li><code>Add</code></li>
-         <li><code>List</code></li></ul>
-         <li><code>Product Documents</code></li>
-         <ul><li><code>Add</code></li>
-         <li><code>List</code></li></ul>
-         <li><code>APIs</code></li>
-         <ul><li><code>Add</code></li>
-         <li><code>List</code></li></ul>
-         <li><code>Documents</code></li>
-         <ul><li><code>Add</code></li>
-         <li><code>List</code></li></ul>
-         <li><code>Providers</code></li>
-         <ul><li><code>List</code></li>
-         <li><code>Add</code></li></ul>
-         </ul></td>
-         </tr>
-         <tr>
-         <td><b>Admin Permissions > Manage > API</b></td>
-         <td>
-         <ul>
-         <li><code>Subscribe</code></li>
-         <li><code>Create</code></li>
-         <li><code>Publish</code></li>
-         </ul>
-         </td>
-         </tr>
-         </table>
-
-        <a href="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions3.png" alt="API-M add role permissions for Okta"><img src="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions3.png" width="28%"/></a>
-        <br/>
-        <br/>
-        <a href="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions2.png"><img src="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions2.png" width="30%"/></a>
-        <br/><br/>
-        <a href="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions1.png"><img src="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions1.png" width="30%"/></a>
+         <a href="{{base_path}}/assets/img/learn/okta-apim-add-role-name.png"><img src="{{base_path}}/assets/img/learn/okta-apim-add-role-name.png" width="50%"/></a>
 
 3. Add scope mapping via the WSO2 API Manager Admin Portal.
 
@@ -299,11 +227,11 @@ Before you begin, make sure you do the following.
      
          [![Okta API-M role permission mapping]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui.png)]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui.png) 
     
-    5. Enter `okta_role` as the role name and click **Next**.
+    4. Enter `okta_role` as the role name and click **Next**.
 
          [![Edit Okta API-M role permission mapping]({{base_path}}/assets/img/learn/okta-apim-role-permission-mapping-admin-ui-edit1.png)]({{base_path}}/assets/img/learn/okta-apim-role-permission-mapping-admin-ui-edit1.png) 
 
-    6. Go to **Select permissions**, click  **Custom permissions**, and start assigning the permissions as shown below. 
+    5. Go to **Select permissions**, click  **Custom permissions**, and start assigning the permissions as shown below. 
     
          These permissions will allow a user having the `okta_role` to log in to the Publisher and the Developer Portal.
 
@@ -479,10 +407,6 @@ Before you begin, make sure you do the following.
          <td>
          <ul>
          <li>
-         Manage all admin operations</br>
-         <code>apim:admin</code>
-         </li>
-         <li>
          Retrieve, Manage and Import, Export applications</br>
          <code>apim:app_manage</code>
          </li>
@@ -513,7 +437,7 @@ Before you begin, make sure you do the following.
 
         [![Okta API-M role permission mapping]({{base_path}}/assets/img/learn/okta-apim-role-permission-mapping-admin-ui-edit2.png)]({{base_path}}/assets/img/learn/okta-apim-role-permission-mapping-admin-ui-edit2.png)
 
-    7. Click **Save** to save your changes.
+    6. Click **Save** to save your changes.
 
     !!! note
         If you want your user to perform analytics-based tasks, you should add the `okta_role` to the required analytics scopes based on your preference. The steps below are given as an example.
@@ -657,4 +581,7 @@ Before you begin, make sure you do the following.
     
     4. Repeat the latter mentioned two steps for `apim_devportal`.
 
-Now you will be able to Sign in to the Publisher and Developer Portal using Okta.
+         Now you will be able to Sign in to the Publisher and Developer Portal using Okta.
+
+         [![Okta API-M login]({{base_path}}/assets/img/learn/okta-login.png){: style="width:30%"}]({{base_path}}/assets/img/learn/okta-login.png)
+
