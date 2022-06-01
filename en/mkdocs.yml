@@ -916,7 +916,9 @@ nav:
                 - Amazon SQS Example: reference/connectors/amazonsqs-connector/amazonsqs-connector-example.md
                 - Amazon SQS Reference: reference/connectors/amazonsqs-connector/amazonsqs-connector-config.md
                 - Amazon SQS Inbound Endpoint Example: reference/connectors/amazonsqs-connector/amazonsqs-inbound-endpoint-example.md
-                - Amazon SQS Inbound Endpoint Reference: reference/connectors/amazonsqs-connector/amazonsqs-inbound-endpoint-reference-configuration.md
+                - Amazon SQS Inbound Endpoint Reference:
+                    - 1.0.x: reference/connectors/amazonsqs-connector/amazon-inbound-endpoint-1.0.x/amazonsqs-inbound-endpoint-reference-configuration.md
+                    - 1.1.x: reference/connectors/amazonsqs-connector/amazonsqs-inbound-endpoint-reference-configuration.md
             - BigQuery Connector:
                 - BigQuery Overview: reference/connectors/bigquery-connector/bigquery-connector-overview.md
                 - Set up the BigQuery Environment: reference/connectors/bigquery-connector/bigquery-connector-configuration.md
