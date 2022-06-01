@@ -3,9 +3,7 @@
 The following configurations allow you to configure AmazonSQS Inbound Endpoint for your scenario. 
 
 !!! note
-If your server is running on an EC2 instance, you can use [IAM role for authentication](https://docs.amazonaws.cn/en_us/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) with Amazon SQS Inbound Endpoint v1.1.0 and above.
-Please note that both the `secretKey` and `accessKey` parameters should be excluded when using IAM Role authentication. 
-
+    If your server is running on an EC2 instance, you can use [IAM role for authentication](https://docs.amazonaws.cn/en_us/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) with Amazon SQS Inbound Endpoint v1.1.0 and above. Please note that both the `secretKey` and `accessKey` parameters should be excluded when using IAM Role authentication.
 
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
