@@ -20,7 +20,7 @@ info:
     Please see [full OpenAPI Specification](https://raw.githubusercontent.com/wso2/carbon-apimgt/v9.20.74/components/apimgt/org.wso2.carbon.apimgt.rest.api.store.v1/src/main/resources/devportal-api.yaml) of the API which is written using [OAS 3.0](http://swagger.io/) specification.
 
     # Authentication
-    Our REST APIs are protected using OAuth2 and access control is achieved through scopes. Before you start invoking
+    The Developer Portal REST APIs are protected using OAuth2 and access control is achieved through scopes. Before you start invoking
     the API, you need to obtain an access token with the required scopes. This guide will walk you through the steps
     that you will need to follow to obtain an access token.
     First you need to obtain the consumer key/secret key pair by calling the dynamic client registration (DCR) endpoint. You can add your preferred grant types
@@ -104,7 +104,7 @@ info:
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: v2
+  version: v2.1
 servers:
   - url: https://apis.wso2.com/api/am/devportal/v2
 ######################################################
@@ -946,10 +946,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CommentList'
-        401:
-          $ref: '#/components/responses/Unauthorized'
-        406:
-          $ref: '#/components/responses/NotAcceptable'
+        404:
+          $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security: []
       x-code-samples:
@@ -1170,12 +1170,24 @@ paths:
           content: {}
         401:
           $ref: '#/components/responses/Unauthorized'
+        403:
+          description: |
+            Forbidden.
+            The request must be conditional but no condition has been specified.
+          content: {}
         404:
           $ref: '#/components/responses/NotFound'
+        405:
+          description: |
+            MethodNotAllowed.
+            Request method is known by the server but is not supported by the target resource.
+          content: {}
+        500:
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:subscribe
-            - apim:admin
+            - apim:admin # special scope added to moderate comments
       x-code-samples:
         - lang: Curl
           source: curl -k -X DELETE -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
@@ -1270,6 +1282,7 @@ paths:
         - lang: Curl
           source: curl -k -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
             "https://localhost:9443/api/am/store/v1/topics/5b65808c-cdf2-43e1-a695-de63e3ad0ae9"
+
   /apis/{apiId}/subscription-policies:
     get:
       tags:
@@ -2620,6 +2633,51 @@ paths:
           -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/devportal/v2/subscriptions/multiple"'
 
   ######################################################
+  # The "Subscriptions related to API" resource API
+  ######################################################
+  /subscriptions/{apiId}/additionalInfo:
+    get:
+      tags:
+        - Subscriptions
+      summary: Get Additional Information of subscriptions attached to an API.
+      description: |
+        This operation can be used to retrieve all additional Information of subscriptions attached to an API by providing the API id.
+      operationId: getAdditionalInfoOfAPISubscriptions
+      parameters:
+        - $ref: '#/components/parameters/apiId'
+        - $ref: '#/components/parameters/groupId'
+        - $ref: '#/components/parameters/requestedTenant'
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/If-None-Match'
+      responses:
+        200:
+          description: |
+            OK.
+            Types and fields returned successfully.
+          headers:
+            Content-Type:
+              description: |
+                The content of the body.
+              schema:
+                type: string
+                default: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdditionalSubscriptionInfoList'
+        404:
+          description: |
+            Not Found.
+            Retrieving types and fields failed.
+          content: {}
+      security:
+        - OAuth2Security: []
+      x-code-samples:
+        - lang: Curl
+          source: curl -k "https://localhost:9443/api/am/devportal/v2/subscriptions/e93fb282-b456-48fc-8981-003fb89086ae/additionalInfo"
+
+  ######################################################
   # The "Individual Subscription" resource APIs
   ######################################################
   /subscriptions/{subscriptionId}:
@@ -2872,9 +2930,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ThrottlingPolicyList'
+                $ref: '#/components/schemas/ThrottlingPolicyList'
         304:
           description: |
             Not Modified.
@@ -3124,6 +3180,7 @@ paths:
         - lang: Curl
           source: curl -k -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
             "https://localhost:9443/api/am/store/v1/webhooks/subscriptions?applicationId=5b65808c-cdf2-43e1-a695-de63e3ad0ae9&apiId=ae4eae22-3f65-387b-a171-d37eaa366fa8"
+
   ######################################################
   # The Developer Portal settings List
   ######################################################
@@ -3131,9 +3188,9 @@ paths:
     get:
       tags:
         - Settings
-      summary: Retreive Devportal settings
+      summary: Retreive Developer Portal settings
       description: |
-        Retreive Devportal Settings
+        Retreive Developer Portal settings
       parameters:
         - $ref: '#/components/parameters/requestedTenant'
       responses:
@@ -3538,6 +3595,9 @@ components:
         type:
           type: string
           example: WS
+        createdTime:
+          type: string
+          example: 1614020559444
         provider:
           type: string
           description: |
@@ -3571,6 +3631,9 @@ components:
         monetizationLabel:
           type: string
           example: Free
+        gatewayVendor:
+          type: string
+          example: WSO2
     APIInfoList:
       title: API Info List
       type: object
@@ -3823,7 +3886,20 @@ components:
         lastUpdatedTime:
           type: string
           example: 2020-10-31T13:57:16.229
-
+        gatewayVendor:
+          title: Gateway vendor of the API
+          type: string
+          example:
+            wso2
+        asyncTransportProtocols:
+          type: array
+          description: |
+            Supported transports for the aync API.
+          example:
+            - http
+            - mqtt
+          items:
+            type: string
     APIMonetizationInfo:
       title: API monetization object
       required:
@@ -3861,7 +3937,7 @@ components:
           readOnly: true
           example: 01234567-0123-0123-0123-012345678901
         name:
-          maxLength: 70
+          maxLength: 100
           minLength: 1
           type: string
           example: CalculatorApp
@@ -4351,13 +4427,17 @@ components:
           example: 2021-02-12-19:57:25
         category:
           type: string
+          readOnly: true
           default: general
+          example : general
         parentCommentId:
           type: string
+          readOnly: true
           example: 6f38aea2-f41e-4ac9-b3f2-a9493d00ba97
         entryPoint:
           type: string
-          enum: [ devPortal, publisher ]
+          readOnly: true
+          enum: [devPortal, publisher]
         commenterInfo:
           $ref: '#/components/schemas/CommenterInfo'
         replies:
@@ -4368,11 +4448,13 @@ components:
       properties:
         count:
           type: integer
+          readOnly: true
           description: |
             Number of Comments returned.
           example: 1
         list:
           type: array
+          readOnly: true
           items:
             $ref: '#/components/schemas/Comment'
         pagination:
@@ -4645,6 +4727,12 @@ components:
           type: string
           description: Token to be revoked, if any
           example: ""
+        grantType:
+          type: string
+          default: CLIENT_CREDENTIALS
+          enum:
+            - CLIENT_CREDENTIALS
+            - TOKEN_EXCHANGE
         additionalProperties:
           type: object
           properties: {}
@@ -5284,9 +5372,25 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/KeyManagerApplicationConfiguration'
+        alias:
+          type: string
+          description: |
+            The alias of Identity Provider.
+            If the tokenType is EXCHANGED, the alias value should be inclusive in the audience values of the JWT token
+          example: https://localhost:9443/oauth2/token
         additionalProperties:
           type: object
           properties: {}
+        tokenType:
+          type: string
+          description: The type of the tokens to be used (exchanged or without exchanged).
+            Accepted values are EXCHANGED, DIRECT and BOTH.
+          example: EXCHANGED
+          default: DIRECT
+          enum:
+            - EXCHANGED
+            - DIRECT
+            - BOTH
     KeyManagerApplicationConfiguration:
       title: Key Manager application Configuration
       type: object
@@ -5391,7 +5495,6 @@ components:
             - name
           items:
             type: string
-
     CurrentAndNewPasswords:
       title: Current and new passowrd of the user
       type: object
@@ -5402,6 +5505,89 @@ components:
         newPassword:
           type: string
           example: newpassword1234
+    AdditionalSubscriptionInfoList:
+      title: Additional Subscription Info List
+      type: object
+      properties:
+        count:
+          type: integer
+          description: |
+            Number of additional information sets of subscription returned.
+          example: 1
+        list:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdditionalSubscriptionInfo'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    AdditionalSubscriptionInfo:
+      title: Additional Information of subscriptions related to an API
+      type: object
+      properties:
+        subscriptionId:
+          type: string
+          description: The UUID of the subscription
+          readOnly: true
+          example: faae5fcc-cbae-40c4-bf43-89931630d313
+        applicationId:
+          type: string
+          description: The UUID of the application
+          example: b3ade481-30b0-4b38-9a67-498a40873a6d
+        applicationName:
+          type: string
+          description: The name of the application
+          example: Sample Application
+        apiId:
+          type: string
+          description: The unique identifier of the API.
+          example: 2962f3bb-8330-438e-baee-0ee1d6434ba4
+        isSolaceAPI:
+          type: boolean
+          example: false
+        solaceOrganization:
+          type: string
+          example: SolaceWso2
+        solaceDeployedEnvironments:
+          type: array
+          items:
+            type: object
+            properties:
+              environmentName:
+                type: string
+              environmentDisplayName:
+                type: string
+              organizationName:
+                type: string
+              solaceURLs:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    protocol:
+                      type: string
+                      example: Defalt
+                    endpointURL:
+                      type: string
+                      example: Default
+              SolaceTopicsObject:
+                type: object
+                properties:
+                  defaultSyntax:
+                    $ref: '#/components/schemas/SolaceTopics'
+                  mqttSyntax:
+                    $ref: '#/components/schemas/SolaceTopics'
+    SolaceTopics:
+      title: SolaceTopics
+      type: object
+      properties:
+        publishTopics:
+          type: array
+          items:
+            type: string
+        subscribeTopics:
+          type: array
+          items:
+            type: string
   responses:
     BadRequest:
       description: Bad Request. Invalid request or validation error.
@@ -5747,7 +5933,7 @@ components:
             openid: Authorize access to user details
             apim:subscribe: Subscribe API
             apim:api_key: Generate API Keys
-            apim:app_manage: Retrieve, Manage applications
+            apim:app_manage: Retrieve, Manage and Import, Export applications
             apim:sub_manage: Retrieve, Manage subscriptions
             apim:store_settings: Retrieve Developer Portal settings
             apim:sub_alert_manage: Retrieve, subscribe and configure Developer Portal alert types
