@@ -245,6 +245,10 @@ Before you begin, make sure you do the following.
          <td>
          <ul>
          <li>
+         View throttling policies</br>
+         <code>apim:tier_view</code>
+         </li>
+         <li>
          Retrieve and publish Monetization related usage records</br>
          <code>apim:monetization_usage_publish</code>
          </li>
@@ -255,26 +259,6 @@ Before you begin, make sure you do the following.
          <td><b>publisher</b></td>
          <td>
          <ul>
-         <li>
-         Manage all API related operations</br>
-         <code>apim:api_manage</code>
-         </li>
-         <li>
-         View common operation policies</br>
-         <code>apim:common_operation_policy_view</code>
-         </li>
-         <li>
-         Manage all Subscription related operations</br>
-         <code>apim:subscription_manage</code></code>
-         </li>
-         <li>
-         View, Retrieve API list</br>
-         <code>apim:api_list_view</code>
-         </li>
-         <li>
-         Add, Update and Delete common operation policies</br>
-         <code>apim:common_operation_policy_manage</code>
-         </li>
          <li>
          Create threat protection policies</br>
          <code>apim:threat_protection_policy_create</code>
@@ -300,10 +284,6 @@ Before you begin, make sure you do the following.
          <code>apim:client_certificates_update</code>
          </li>
          <li>
-         View, Retrieve API definition</br>
-         <code>apim:api_definition_view</code>
-         </li>
-         <li>
          Generate Internal Key</br>
          <code>apim:api_generate_key</code>
          </li>
@@ -320,12 +300,8 @@ Before you begin, make sure you do the following.
          <code>apim:pub_alert_manage</code>
          </li>
          <li>
-         Create, update and delete API documents</br>
+         Update and delete API documents</br>
          <code>apim:document_manage</code>
-         </li>
-         <li>
-         View, create, update and remove endpoint certificates</br>
-         <code>apim:ep_certificates_manage</code>
          </li>
          <li>
          Read permission to comments</br>
@@ -334,18 +310,6 @@ Before you begin, make sure you do the following.
          <li>
          Write permission to comments</br>
          <code>apim:comment_write</code>
-         </li>
-         <li>
-         View, update and delete throttling policies</br>
-         <code>apim:tier_manage</code>
-         </li>
-         <li>
-         Read and Write comments</br>
-         <code>apim:comment_manage</code>
-         </li>
-         <li>
-         View throttling policies</br>
-         <code>apim:tier_view</code>
          </li>
          <li>
          Create API documents</br>
@@ -388,16 +352,8 @@ Before you begin, make sure you do the following.
          <code>apim:mediation_policy_view</code>
          </li>
          <li>
-         View, create, update and remove client certificates</br>
-         <code>apim:client_certificates_manage</code>
-         </li>
-         <li>
          Add backend endpoint certificates</br>
          <code>apim:ep_certificates_add</code>
-         </li>
-         <li>
-         View, create, update and remove API specific mediation policies</br>
-         <code>apim:api_mediation_policy_manage</code>
          </li>
          </ul>
          </td>
@@ -407,7 +363,7 @@ Before you begin, make sure you do the following.
          <td>
          <ul>
          <li>
-         Retrieve, Manage and Import, Export applications</br>
+         Retrieve, Manage applications</br>
          <code>apim:app_manage</code>
          </li>
          <li>
