@@ -22,6 +22,7 @@ By default, a single endpoint or a collection of endpoints is configured as Load
 
 ## Endpoint Types based on the service exposed by the endpoint
 
+Endpoints gets processed and validated based on the type of API as well. 
 
 |Type                     |Description                                         |
 |-------------------------|----------------------------------------------------|
