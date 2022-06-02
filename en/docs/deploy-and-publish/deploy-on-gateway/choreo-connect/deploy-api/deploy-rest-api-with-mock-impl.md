@@ -9,7 +9,7 @@ Pick a method given below to start creating an API with a Mock Implementation.
 |[Choreo Connect with WSO2 API Manager as a Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/)   | [Via WSO2 API Manager Publisher Portal](#via-wso2-api-manager-publisher-portal)  |
 |[Choreo Connect as a Standalone Gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/)  |[Via apictl for Standalone Mode](#via-apictl-for-standalone-mode) |
 
-### Updating the OpenAPI definition to generate a Mock Implementation
+### Mock Implementation with OpenAPI examples
 
 !!! abstract
     {!includes/design/add-oas-example.md!}
@@ -42,23 +42,23 @@ Pick a method given below to start creating an API with a Mock Implementation.
 
 3. Add response examples to OpenAPI Specification.    
 
-    Update the OpenAPI definition referring to the examples given in [Updating the OpenAPI definition to generate a Mock Implementation](#updating-the-openapi-definition-to-generate-a-mock-implementation). You could also directly copy paste the sample for [OpenAPI definition for Mock Implementation](https://github.com/wso2/product-microgateway/blob/main/samples/openAPI-definitions/mock-impl-sample.yaml).
+    Update the OpenAPI definition referring to the examples given in [Mock Implementation with OpenAPI examples](#mock-implementation-with-openapi-examples). You could also directly copy paste the sample for [OpenAPI definition for Mock Implementation](https://github.com/wso2/product-microgateway/blob/main/samples/openAPI-definitions/mock-impl-sample.yaml).
 
-5. After adding examples to the OpenAPI specification, remember to click **Update Content** and **Save**.
+4. After adding examples to the OpenAPI specification, remember to click **Update Content** and **Save**.
 
 #### Step 2.2 - Change the Endpoint Type
 
-6. Navigate to **Endpoints** under **API Configurations**.
+1. Navigate to **Endpoints** under **API Configurations**.
 
-7. Select **Mock Implementation** as the endpoint type by clicking **Add**. 
+2. Select **Mock Implementation** as the endpoint type by clicking **Add**. 
 
-8. Select Choreo Connect as the gateway type. 
+3. Select Choreo Connect as the gateway type. 
 
-9. Click **proceed** if a dialog box appears to disregard "mock endpoint implementation scripts". 
+4. Click **proceed** if a dialog box appears to disregard "mock endpoint implementation scripts". 
 
-10. View the mock examples that would be returned for each resource. If you need to modify the examples, you have to edit the API definition as mentioned before.
+5. View the mock examples that would be returned for each resource. If you need to modify the examples, you have to edit the API definition as mentioned before.
 
-11. Click **Save** to enable mock implementation with OAS examples.
+6. Click **Save** to enable mock implementation with OAS examples.
 
 ### Step 3 - Deploy the API
 
@@ -94,33 +94,35 @@ Invoke the API using the commands given in the [Invoke the API](#invoke-the-api)
 
 {! ./includes/obtain-jwt.md !}
 
-Execute the following command to get different responses based on the examples you provided.
+Use the command given below to get the default response for the resource `/pet/findByStatus`.
 
-- Default response for `/pet/findByStatus`
+```
+curl -X GET "https://localhost:9095/v3/1.0.6/pet/findByStatus" -H "Accept: application/json" -H "Authorization:Bearer $TOKEN" -k 
+```
 
-    ```
-    curl -X GET "https://localhost:9095/v3/1.0.6/pet/findByStatus" -H "Accept: application/json" -H "Authorization:Bearer $TOKEN" -k
-    ```
+!!! example
 
-- Default response for `/pet/findByTag`
+    Execute the following commands to get different responses based on the examples you provided.
+   
+    **Default response** for `/pet/findByTag`
 
     ```
     curl -X GET "https://localhost:9095/v3/1.0.6/pet/findByTag" -H "Accept: application/json" -H "Authorization:Bearer $TOKEN" -k
     ```
 
-- Example reference 1 for `/pet/findByTag`
+    Response based on **example Reference 1** for `/pet/findByTag`
 
     ```
     curl -X GET "https://localhost:9095/v3/1.0.6/pet/findByTag" -H "Prefer: example=ref1" -H "Accept: application/json" -H "Authorization:Bearer $TOKEN" -k
     ```
 
-- Example for response codes 50X for `/pet/findByTag`
+    Response based on **example for response code 50X** for `/pet/findByTag`
 
     ```
     curl -v -X GET "https://localhost:9095/v3/1.0.6/pet/findByTag" -H "Prefer: code=503" -H "Accept: application/json" -H "Authorization:Bearer $TOKEN" -k
     ```
 
-- Example reference 1 of response codes 50X  for `/pet/findByTag`
+    Response based on **example reference 1** of **response codes 50X**  for `/pet/findByTag`
 
     ```
     curl -v -X GET "https://localhost:9095/v3/1.0.6/pet/findByTag" -H "Prefer: code=503, example=ref1" -H "Accept: application/json" -H "Authorization:Bearer $TOKEN" -k
