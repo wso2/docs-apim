@@ -92,13 +92,13 @@
 
     <!-- TODO(amali): add examples in swagger 2.0-->
 
-    !!! note 
-        For more information on defining response body examples in open API specification, follow [Request and Response Body Examples](https://swagger.io/docs/specification/adding-examples/).
+    For more information on OpenAPI response body example specifications, visit [Request and Response Body Examples](https://swagger.io/docs/specification/adding-examples/).
 
     !!! example
+        You can find a complete OpenAPI example for Mock Implementation here: [OpenAPI for Mock Implementation](https://github.com/wso2/product-microgateway/blob/main/samples/openAPI-definitions/mock-impl-sample.yaml)
 
-        If you take the example in **Multiple Examples for an Operation** and update the API definition with it, you can use `Prefer` header and `Accept` header to get different examples for a resource if multiple examples were defined for the resource.
-        Using `Prefer` header you can specify which `code` and/or `example` should be returned as the response for the mock request.
+        If you take the example in **Multiple Examples for an Operation** mentioned previously and update the OpenAPI definition with it, you can use `Prefer` header and `Accept` header to get different examples for same resource operation.
+        Using `Prefer` header you can specify which `code` and/or `example` should be returned as the response.
 
         Invoking `GET` for `/pet/findByStatus` will return the default example as given below.
 
@@ -132,35 +132,27 @@
 
     !!! tip "Behavioral Characteristics"
 
-        The following are the behavioral characteristics of the Mock Implementation with Choreo Connect.
+        The following are the behavioral characteristics of Mock Implementation with Choreo Connect.
 
-        **Example not provided**   
-            
-        - If the invoked resource does not contain mock response examples provided in the api definition, then a response with `501, Not Implemented` status code would be returned with `900871` error code.
-          
         **Preferred Status Code in the Prefer Header**   
 
-        - If the request has a valid integer value as the code preference, 
-          Choreo connect picks the most matched response examples from the OpenAPI specification checking on the exact codes and
+        - If the request has a valid integer value as the **code** preference, 
+          Choreo Connect picks the most matched response example from the OpenAPI specification by checking the exact codes and
           wild cards matches. Status code of the response will be same as the code preference given in the request. 
-          However, if there are no response examples matching the preferred status code, then `501, Not Implemented` status code 
-          would be returned with `900871` error code.
           
         - If the request does not have a code preference,
-          Choreo Connect will check for examples under `default` responses, if even no default responses are defined, 
+          Choreo Connect will check for examples under `default` responses. If no default responses are defined, 
           then picks a one out of the response examples. 
           
         **Accept Type in the Accept Header** 
           
         - If the request has accept-types,
-          Choreo connect will pick examples defined under a matching media type. However, if there are no matches for accept 
-          types in the examples, then `501, Not Implemented` status code would be returned with `900871` error code.
+          Choreo connect will pick examples defined under a matching media type. 
           
         - If the request does not have accept-types, 
           Choreo connect will check for examples with 'application/json' as the media type. If there are no examples for 'application/json', then picks one out of available media-type examples.
 
-        **Preference not found**
+        **Preference not found** or **Example not provided**
             
-        - If the request has an example preference,
-          Choreo Connect will pick the example content with the matching example name from the example list we got after applying above steps. If there's no matching example found, then `501, Not Implemented` status code would be returned with `900871` error code.
+        - If the request has an example preference provided with the `Prefer` or `Accept` header, but does not match any of the cases above or has no matching examples, then `501, Not Implemented` status code would be returned with `900871` error code. The same error response will be returned if the invoked resource does not contain any mock response examples in the OpenAPI definition.
 
