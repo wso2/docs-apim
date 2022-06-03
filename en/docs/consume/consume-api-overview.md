@@ -43,8 +43,7 @@ Before using an API for development, the API consumer may want to test it’s ca
     -   <a href="{{base_path}}/consume/invoke-apis/invoke-apis-using-tools/include-additional-headers-in-the-api-console">Include Additional Headers in the API Console</a>
 -   <a href="{{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console">Test GraphQL APIs Using the Integrated GraphQL Console</a>
 -   <a href="{{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client">Test an API Using a SOAP Client</a>
-<!-- Feature removed for further improvement
- -   <a href="{{base_path}}/consume/invoke-apis/invoke-apis-using-tools/try-out-using-postman">Test an API Using Postman</a> -->
+ -   <a href="{{base_path}}/consume/invoke-apis/invoke-apis-using-tools/try-out-using-postman">Test a REST API Using Postman</a>
 
 ## Rate and Support APIs
 
