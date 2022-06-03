@@ -1,6 +1,6 @@
 # Distributed Deployment of API Manager
 
-[WSO2 API Manager](https://wso2.com/api-manager/) (WSO2 API-M) is a complete API management solution, used for creating and publishing APIs, creating and managing a developer community, and routing API traffic in a scalable manner. The WSO2 API-M includes the following five components: Publisher, Developer Portal, Gateway, Key Manager, and Traffic Manager.
+[WSO2 API Manager](http://wso2.com/products/api-manager/) (WSO2 API-M) is a complete API management solution, used for creating and publishing APIs, creating and managing a developer community, and routing API traffic in a scalable manner. The WSO2 API-M includes the following five components: Publisher, Developer Portal, Gateway, Key Manager, and Traffic Manager.
 
 Typically, when you get started with WSO2 API Manager in a development environment, you deploy WSO2 API Manager as a single instance with all its components on a single server. For details, see [All-in-One Deployment Overview]({{base_path}}/install-and-setup/deploying-wso2-api-manager/single-node/all-in-one-deployment-overview/).
 
