@@ -90,7 +90,7 @@ Attaching a custom workflow to API subscription enables you to add throttling ti
         </htd:argument>
     ```
 
-1.  Download [WSO2 Business Process Server](https://wso2.com/api-manager/) .
+1.  Download [WSO2 Business Process Server](http://wso2.com/products/business-process-server/) .
 2.  Set an offset of 2 to the default BPS port in `<BPS_HOME>/repository/conf/carbon.xml` file. This prevents port conflicts that occur when you start more than one WSO2 product on the same server. For more information, see [Changing the Default Ports with Offset](https://docs.wso2.com/display/AM260/Changing+the+Default+Ports+with+Offset) .
 
     ``` xml

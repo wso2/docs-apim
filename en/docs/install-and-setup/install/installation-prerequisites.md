@@ -27,7 +27,7 @@ It is <b>not recommended to use Apache DS</b> in a production environment due to
 <p>For environments that WSO2 products are tested with, see 
 <a href="{{base_path}}/install-and-setup/setup/reference/product-compatibility/#tested-wso2-products">Compatibility of WSO2 Products</a>.</p></li>
 <li><p>
-If you have difficulty in setting up any WSO2 product in a specific platform or database, please <a href="https://wso2.com/subscription/">contact us</a>.</p>
+If you have difficulty in setting up any WSO2 product in a specific platform or database, please <a href="http://wso2.com/support/">contact us</a>.</p>
 </li>
 </ul>
 </td></tr></table></html>
