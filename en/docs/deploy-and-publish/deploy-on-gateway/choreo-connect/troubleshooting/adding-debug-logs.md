@@ -256,6 +256,10 @@ Router to client response headers
 
 Follow [Command line options]({{envoy_path}}/operations/cli) for more information.
 
+### Enable Wire Logs
+
+To enable wire logs, follow the instructions provided in [Router Wire Logs]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-router).
+
 ### Admin portal
 
 The admin interface can be used to view statistics, envoy configurations, etc. For more information, please follow [Envoy admin interface]({{envoy_path}}/start/quick-start/admin)
