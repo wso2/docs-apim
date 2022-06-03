@@ -7,76 +7,178 @@ Follow the instructions below to connect Okta as a third-party Identity Provider
 Before you begin, make sure you do the following.
 
 1. Create an account in [https://developer.okta.com/](https://developer.okta.com/)
-2. Download API Manager version 4.0.0 distribution from [https://wso2.com/api-management/](https://wso2.com/api-management/)
-3. Unzip the distribution and open the `deployment.toml` file located in `<API-M_HOME>/repository/conf/` directory. Add the following configuration.
-    ```
-    [tenant_mgt]
-    enable_email_domain= true
-    ```
-    You need to enable this because Okta uses the email as the username by default. To  use the email as the username in WSO2 API Manager you have to enable it as it is not enabled by default. Once enabled, you can use your email or a normal username as your username.
+2. Download the WSO2 API Manager distribution from [https://wso2.com/api-management/](https://wso2.com/api-management/).
+3. Enable the email domain on WSO2 API Manager.
+
+     You need to enable this because Okta uses the email as the username by default. As the email domain is not enabled by default, you have to enable it to  use the email as the username in WSO2 API Manager. Once enabled, you can use your email or a normal username as your username.
+
+     Follow the instructions below:
+
+     1. Unzip the WSO2 API Manager distribution.
+     2. Open the `deployment.toml` file, which is located in the `<API-M_HOME>/repository/conf/` directory. 
+     3. Add the following configuration.
+
+        ```
+        [tenant_mgt]
+        enable_email_domain= true
+        ```
+
 4. Start the WSO2 API Manager server.
 
 ## Step 1 - Configure Okta
 
+!!! note
+    For more information on working with the Okta Admin Portal, see the official Okta documentation.
+
 1. Navigate to the Okta Admin Portal.
 
-2. Click **Applications** and then click **Add Application**.
+2. Add an application in Okta.
+   
+     Select **Web** as the platform type of the application and create an application based on the following application settings.
 
-     [![Add new application in Okta]({{base_path}}/assets/img/learn/okta-add-new-application.png)]({{base_path}}/assets/img/learn/okta-add-new-application.png)
+    <table>
+      <tr>
+      <th><b>Field</b></th>
+      <th><b>Value</b></th>
+      </tr>
+      <tr>
+      <td>Name</td>
+      <td><code>oidc_app</code></td>
+      </tr>
+      <tr>
+      <td>Base URIs</td>
+      <td>Let's not add a new base URI</td>
+      </tr>
+      <tr>
+      <td>Login Redirect URIs</td>
+      <td><code>https://localhost:9443/commonauth</code></td>
+      </tr>
+      <tr>
+      <td>Logout Redirect URIs</td>
+      <td><code>https://localhost:9443/commonauth</code></td>
+      </tr>
+      <tr>
+      <td>Group Assignments</td>
+      <td><code>Everyone</code></td>
+      </tr>
+      <tr>
+      <td>Grant type allowed</td>
+      <td><code>Authorization Code</code></td>
+      </tr>
+    </table>
 
-3. Select the type as **web** and use the following details.
+3. Add an attribute to the default user profile.
 
-    [![Add new web application in Okta]({{base_path}}/assets/img/learn/okta-add-new-application-web.png)]({{base_path}}/assets/img/learn/okta-add-new-application-web.png)
+     Add a new attribute, with the following details, to the default user profile of Okta to represent the user role.
 
-    [![Add new application details in Okta]({{base_path}}/assets/img/learn/okta-add-new-application-details.png)]({{base_path}}/assets/img/learn/okta-add-new-application-details.png)
+    <table>
+      <tr>
+      <th><b>Field</b></th>
+      <th><b>Value</b></th>
+      </tr>
+      <tr>
+      <td>Data Type</td>
+      <td><code>String</code></td>
+      </tr>
+      <tr>
+      <td>Display Name</td>
+      <td>Role</td>
+      </tr>
+      <tr>
+      <td>Variable Name</td>
+      <td><code>role</code></td>
+      </tr>
+      <tr>
+      <td>Description</td>
+      <td></td>
+      </tr>
+      <tr>
+      <td>Attribute Length</td>
+      <td><code>Between</code></td>
+      </tr>
+      <tr>
+      <td>min</td>
+      <td></td>
+      </tr>
+      <tr>
+      <td>max</td>
+      <td></td>
+      </tr>
+    </table>
 
-4. Add a new attribute to the default user profile of Okta to represent the user role. 
+4. Add the claims that need to be returned from the ID Token in Okta. 
 
-    1. Navigate to **Users** -> **Profile Editor**. 
-    
-    2. Click **Profile** to edit the default profile.
+     These claims will be used to map the user details with WSO2 API Manager for authentication and authorization purposes.
 
-         [![Add new attribute in Okta]({{base_path}}/assets/img/learn/okta-add-new-attribute.png)]({{base_path}}/assets/img/learn/okta-add-new-attribute.png)
+     Let's add two claims that have the following details.
 
-         You will be able to see the user attributes in the Profile Editor. 
-         
-    3. Click **Add Attribute** to add new user attributes.
+     **Claim 1**
 
-         [![See newly added attribute in Okta]({{base_path}}/assets/img/learn/okta-add-new-attribute-add.png)]({{base_path}}/assets/img/learn/okta-add-new-attribute-add.png) 
+     <table>
+      <tr>
+      <th><b>Field</b></th>
+      <th><b>Value</b></th>
+      </tr>
+      <tr>
+      <td>Name</td>
+      <td><code>wso2user</code></td>
+      </tr>
+      <tr>
+      <td>Include in token type</td>
+      <td>
+      <code>ID Token</code></br>
+      <code>Always</code>
+      </td>
+      </tr>
+      <tr>
+      <td>Value Type</td>
+      <td><code>Expression</code></td>
+      </tr>
+      <tr>
+      <td>Value</td>
+      <td><code>user.login</code></td>
+      </tr>
+      <tr>
+      <td>Include in</td>
+      <td><code>The following scopes:</code></br><code>openid</code></td>
+      </tr>
+    </table>
 
-    4. Enter the user role details and click **Save**.
+    **Claim 2**
 
-        [![Add new attribute details in Okta]({{base_path}}/assets/img/learn/okta-add-new-attribute-details.png)]({{base_path}}/assets/img/learn/okta-add-new-attribute-details.png) 
+     <table>
+      <tr>
+      <th><b>Field</b></th>
+      <th><b>Value</b></th>
+      </tr>
+      <tr>
+      <td>Name</td>
+      <td><code>roles</code></td>
+      </tr>
+      <tr>
+      <td>Include in token type</td>
+      <td>
+      <code>ID Token</code></br>
+      <code>Always</code>
+      </td>
+      </tr>
+      <tr>
+      <td>Value Type</td>
+      <td><code>Expression</code></td>
+      </tr>
+      <tr>
+      <td>Value</td>
+      <td><code>user.login</code></td>
+      </tr>
+      <tr>
+      <td>Include in</td>
+      <td><code>The following scopes:</code></br><code>openid</code></td>
+      </tr>
+    </table>
 
-5. Add the claims that need to be returned from the ID Token in Okta. 
+5. Add a role to the provisioned user in Okta.
 
-     These claims will be used to map the user details with WSO2 API Manager. 
-     
-     1. Navigate to **API** -> **Authorization Servers** and select the default server.
-
-         [![Add new claims in Okta]({{base_path}}/assets/img/learn/okta-add-new-claims.png)]({{base_path}}/assets/img/learn/okta-add-new-claims.png) 
-
-     2. Add the following two claims as shown in the images below.
-
-         [![Add new claims user in Okta]({{base_path}}/assets/img/learn/okta-add-new-claims-user.png)]({{base_path}}/assets/img/learn/okta-add-new-claims-user.png) 
-
-         [![Add new claims role in Okta]({{base_path}}/assets/img/learn/okta-add-new-claims-role.png)]({{base_path}}/assets/img/learn/okta-add-new-claims-role.png) 
-
-6. Enable WSO2 API Manager to map an internal role to a provisioned user.
-     1. Go to **Users** -> **People** and click on your profile name.
-
-         [![Edit profile in Okta]({{base_path}}/assets/img/learn/okta-profile-edit.png)]({{base_path}}/assets/img/learn/okta-profile-edit.png)
-
-     2. Navigate to the profile edit page as shown below.
-         
-         <a href="{{base_path}}/assets/img/learn/okta-profile-edit2.png"><img src="{{base_path}}/assets/img/learn/okta-profile-edit2.png" width="600" height="400"/></a>
-
-    3. Add **any** as the role value as shown below. 
-         
-         This will be used by API Manager to map an internal role to a provisioned user.
-         
-         [![Edit Okta profile]({{base_path}}/assets/img/learn/okta-profile-edit3.png)]({{base_path}}/assets/img/learn/okta-profile-edit3.png)
-
+     This will enable WSO2 API Manager to map an internal role to the provisioned user. Edit the provisioned user's profile and add `any` as the Role.
 
 ## Step 2 - Configure API Manager
 
@@ -86,59 +188,215 @@ Before you begin, make sure you do the following.
 
 2. Create a role that needs to be assigned to users that will be provisioned from Okta. 
 
-    1. Go to **Users and Roles**.
+    1. Click **Main**, **Identity**, and then click **Add** under **Users and Roles**.
     
-    2. Click **Add** to add a new role.
+    2. Click **Add New Role**.
 
          [![Add role for Okta in API-M]({{base_path}}/assets/img/learn/okta-apim-add-role.png)]({{base_path}}/assets/img/learn/okta-apim-add-role.png)
+   
+    3.  Add a new role based on the following details and click **Finish**.
+
+         <table>
+         <tr>
+         <th><b>Field</b></th>
+         <th><b>Value</b></th>
+         </tr>
+         <tr>
+         <td>Domain</td>
+         <td><code>Primary</code></td>
+         </tr>
+         <tr>
+         <td>Role Name</td>
+         <td><code>okta_role</code></td>
+         </tr>
+         </table>
          
-         <a href="{{base_path}}/assets/img/learn/okta-apim-add-role-name.png"><img src="{{base_path}}/assets/img/learn/okta-apim-add-role-name.png" width="400" height="200"/></a>
+         <a href="{{base_path}}/assets/img/learn/okta-apim-add-role-name.png"><img src="{{base_path}}/assets/img/learn/okta-apim-add-role-name.png" width="50%"/></a>
 
-    3. Assign the following permissions to the role and click **Save**.
-
-        <a href="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions3.png" alt="API-M add role permissions for Okta"><img src="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions3.png" width="400"/></a>
-        <br/>
-        
-        <a href="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions2.png"><img src="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions2.png" width="400"/></a>
-        <br/>
-        <a href="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions1.png"><img src="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions1.png" width="300"/></a>
-
-3. Add role permissions via the WSO2 API Manager Admin Portal.
+3. Add scope mapping via the WSO2 API Manager Admin Portal.
 
     1. Sign in to the WSO2 API Manager Admin Portal.
     
          `https://localhost:9443/admin`
          
-    2. Click **Settings** and then click **Role Permissions**.
+    2. Click **Settings** and then click **Scope Assignments**.
 
-         [![Okta API-M role pemission mapping]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui.png)]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui.png) 
+         [![Scope Assignments menu]({{base_path}}/assets/img/learn/scope-assignment-menu.png){:style="width:28%"}]({{base_path}}/assets/img/learn/scope-assignment-menu.png) 
 
-    3. Click **Add role permission**.
+    3. Click **Add Scope Mappings**.
+     
+         [![Okta API-M role permission mapping]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui.png)]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui.png) 
     
-    4. Enter `okta_role` in the **Provide role name** field and click **Next**.
+    4. Enter `okta_role` as the role name and click **Next**.
 
-         [![Edit Okta API-M role pemission mapping]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit1.png)]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit1.png) 
+         [![Edit Okta API-M role permission mapping]({{base_path}}/assets/img/learn/okta-apim-role-permission-mapping-admin-ui-edit1.png)]({{base_path}}/assets/img/learn/okta-apim-role-permission-mapping-admin-ui-edit1.png) 
 
     5. Go to **Select permissions**, click  **Custom permissions**, and start assigning the permissions as shown below. 
     
-         These permissions will allow a user having the `okta_role` to login to Publisher and Developer Portals.
+         These permissions will allow a user having the `okta_role` to log in to the Publisher and the Developer Portal.
 
-        [![Okta API-M role pemission mapping]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit2.png)]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit2.png)
+         <table>
+         <tr>
+         <th><b>Hiererchy</b></th>
+         <th><b>Permissions</b></th>
+         </tr>
+         <tr>
+         <td><b>admin</b></td>
+         <td>
+         <ul>
+         <li>
+         View throttling policies</br>
+         <code>apim:tier_view</code>
+         </li>
+         <li>
+         Retrieve and publish Monetization related usage records</br>
+         <code>apim:monetization_usage_publish</code>
+         </li>
+         </ul>
+         </td>
+         </tr>
+         <tr>
+         <td><b>publisher</b></td>
+         <td>
+         <ul>
+         <li>
+         Create threat protection policies</br>
+         <code>apim:threat_protection_policy_create</code>
+         </li>
+         <li>
+         Update and delete mediation policies</br>
+         <code>apim:mediation_policy_manage</code>
+         </li>
+         <li>
+         Update and delete backend endpoint certificates</br>
+         <code>apim:ep_certificates_update</code>
+         </li>
+         <li>
+         View backend endpoint certificates</br>
+         <code>apim:ep_certificates_view</code>
+         </li>
+         <li>
+         Publish API</br>
+         <code>apim:api_publish</code>
+         </li>
+         <li>
+         Update and delete client certificates</br>
+         <code>apim:client_certificates_update</code>
+         </li>
+         <li>
+         Generate Internal Key</br>
+         <code>apim:api_generate_key</code>
+         </li>
+         <li>
+         View API</br>
+         <code>apim:api_view</code>
+         </li>
+         <li>
+         Create mediation policies</br>
+         <code>apim:mediation_policy_create</code>
+         </li>
+         <li>
+         Get/ subscribe/ configure publisher alerts</br>
+         <code>apim:pub_alert_manage</code>
+         </li>
+         <li>
+         Update and delete API documents</br>
+         <code>apim:document_manage</code>
+         </li>
+         <li>
+         Read permission to comments</br>
+         <code>apim:comment_view</code></code>
+         </li>
+         <li>
+         Write permission to comments</br>
+         <code>apim:comment_write</code>
+         </li>
+         <li>
+         Create API documents</br>
+         <code>apim:document_create</code>
+         </li>
+         <li>
+         Update and delete threat protection policies</br>
+         <code>apim:threat_protection_policy_manage</code>
+         </li>
+         <li>
+         View Subscription</br>
+         <code>apim:subscription_view</code>
+         </li>
+         <li>
+         Create API</br>
+         <code>apim:api_create</code>
+         </li>
+         <li>
+         Add client certificates</br>
+         <code>apim:client_certificates_add</code>
+         </li>
+         <li>
+         Delete API</br>
+         <code>apim:api_delete</code>
+         </li>
+         <li>
+         View client certificates</br>
+         <code>apim:client_certificates_view</code>
+         </li>
+         <li>
+         Retrieve store settings</br>
+         <code>apim:publisher_settings</code>
+         </li>
+         <li>
+         Block Subscription</br>
+         <code>apim:subscription_block</code>
+         </li>
+         <li>
+         View mediation policies</br>
+         <code>apim:mediation_policy_view</code>
+         </li>
+         <li>
+         Add backend endpoint certificates</br>
+         <code>apim:ep_certificates_add</code>
+         </li>
+         </ul>
+         </td>
+         </tr>
+         <tr>
+         <td><b>devportal</b></td>
+         <td>
+         <ul>
+         <li>
+         Retrieve, Manage applications</br>
+         <code>apim:app_manage</code>
+         </li>
+         <li>
+         Retrieve Developer Portal settings</br>
+         <code>apim:store_settings</code>
+         </li>
+         <li>
+         Retrieve, subscribe and configure Developer Portal alert types</br>
+         <code>apim:sub_alert_manage</code>
+         </li>
+         <li>
+         Generate API Keys</br>
+         <code>apim:api_key</code>
+         </li>
+         <li>
+         Retrieve, Manage subscriptions</br>
+         <code>apim:sub_manage</code>
+         </li>
+         <li>
+         Subscribe API</br>
+         <code>apim:subscribe</code>
+         </li>
+         </ul>
+         </td>
+         </tr>
+         </table>
 
-        [![Okta API-M role pemission mapping]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit3.png)]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit3.png)
-
-        [![Okta API-M role pemission mapping]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit4.png)]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit4.png)
-
-        [![Okta API-M role pemission mapping]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit5.png)]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit5.png)
-
-        [![Okta API-M role pemission mapping]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit6.png)]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit6.png)
-
-        [![Okta API-M role pemission mapping]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit7.png)]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit7.png)
+        [![Okta API-M role permission mapping]({{base_path}}/assets/img/learn/okta-apim-role-permission-mapping-admin-ui-edit2.png)]({{base_path}}/assets/img/learn/okta-apim-role-permission-mapping-admin-ui-edit2.png)
 
     6. Click **Save** to save your changes.
 
     !!! note
-        If you want your user to perform analytics-based tasks, you should add the `okta_role` to the required analytics scopes according to your preference. The steps below are given as an example.
+        If you want your user to perform analytics-based tasks, you should add the `okta_role` to the required analytics scopes based on your preference. The steps below are given as an example.
 
         1. Sign in to the API-M Management Console.
              `https://localhost:9443/carbon`
@@ -147,7 +405,7 @@ Before you begin, make sure you do the following.
 
         3. Enter `/_system/config/apimgt/applicationdata/tenant-conf.json` as the location and click **Go** to browse the registry and locate the required resource.
 
-        4. Update the `RESTAPIScopes` JSON field by adding `okta_role` to the `Roles` field under the corresponding `Name` fields as shown below for the analytics related scopes.
+        4. Update the `RESTAPIScopes` JSON field by adding `okta_role` to the `Roles` field under the corresponding `Name` fields as shown below for the analytics-related scopes.
             ```bash
             {
                 "Name": "apim_analytics:api_analytics:view",
@@ -172,7 +430,7 @@ Before you begin, make sure you do the following.
 
          [![Add an IDP for Okta SAML]({{base_path}}/assets/img/learn/okta-saml-add-idp.png)]({{base_path}}/assets/img/learn/okta-saml-add-idp.png) 
 
-     4. Expand **Federated authenticators** -> **OAuth2/OpenID Connect Configuration** and add the following details.
+     4. Expand **Federated Authenticators** -> **OAuth2/OpenID Connect Configuration** and add the following details.
         
         [![API-M IDP OIDC details]({{base_path}}/assets/img/learn/okta-apim-idp-odic-details.png)]({{base_path}}/assets/img/learn/okta-apim-idp-odic-details.png)
 
@@ -188,53 +446,55 @@ Before you begin, make sure you do the following.
                 <th><b>Sample value</b></th>
             </tr>
             <tr>
-                <td colspan="2" class="confluenceTd">Enable OAuth2/OpenIDConnect</td>
-                <td class="confluenceTd">True</td>
+                <td colspan="2">Enable OAuth2/OpenIDConnect</td>
+                <td>True</td>
             </tr>
             <tr>
-                <td colspan="2" class="confluenceTd">Client id</td>
-                <td class="confluenceTd">You can find this value from the Okta application that you created.</td>
+                <td colspan="2">Client ID</td>
+                <td>You can find this value from the Okta application that you created.</td>
             </tr>
             <tr>
-                <td colspan="2" class="confluenceTd">Client secret</td>
-                <td class="confluenceTd">You can find this value from the Okta application that you created.</td>
+                <td colspan="2">Client Secret</td>
+                <td>You can find this value from the Okta application that you created.</td>
             </tr>
             <tr>
-                <td colspan="2" class="confluenceTd">Authorization Endpoint URL</td>
-                <td class="confluenceTd">https://your_okta_url/oauth2/default/v1/authorize</td>
+                <td colspan="2">Authorization Endpoint URL</td>
+                <td><code>https://your_okta_url/oauth2/default/v1/authorize</code></td>
             </tr>
             <tr>
-                <td colspan="2" class="confluenceTd">Token Endpoint URL</td>
-                <td colspan="1" class="confluenceTd">https://your_okta_url/oauth2/default/v1/token</td>
+                <td colspan="2">Token Endpoint URL</td>
+                <td colspan="1"><code>https://your_okta_url/oauth2/default/v1/token</code></td>
             </tr>
             <tr>
-                <td colspan="2" class="confluenceTd">callback url</td>
-                <td class="confluenceTd">
-                    https://localhost:9443/commonauth
+                <td colspan="2">Callback URL</td>
+                <td>
+                    <code>https://localhost:9443/commonauth</code>
                 </td>
             </tr>
             <tr>
-                <td colspan="2" class="confluenceTd">Userinfo Endpoint URL</td>
-                <td colspan="1" class="confluenceTd">
-                    https://your_okta_url/oauth2/default/v1/userinfo
+                <td colspan="2">Userinfo Endpoint URL</td>
+                <td colspan="1">
+                    <code>https://your_okta_url/oauth2/default/v1/userinfo</code>
                 </td>
             </tr>
             <tr>
-                <td colspan="2" class="confluenceTd">Logout Endpoint URL</td>
-                <td colspan="1" class="confluenceTd">
-                    https://your_okta_url/oauth2/default/v1/logout
+                <td colspan="2">Logout Endpoint URL</td>
+                <td colspan="1">
+                    <code>https://your_okta_url/oauth2/default/v1/logout</<code>code>
                 </td>
             </tr>
             <tr>
-                <td colspan="2" class="confluenceTd">Additional Query Parameters</td>
-                <td colspan="1" class="confluenceTd">
-                    scope=openid%20profile
+                <td colspan="2">Additional Query Parameters</td>
+                <td colspan="1">
+                    <code>scope=openid profile</code>
                 </td>
             </tr>
         </tbody>
         </table>
 
-     5. Expand **Claim Configuration** -> **Basic Claim Configuration**. Add the claim configurations as shown in the image below.
+     5. Expand **Claim Configuration** -> **Basic Claim Configuration**. 
+     
+         Add the claim configurations as shown in the image below.
          
          [![Okta API-M IDP claims details]({{base_path}}/assets/img/learn/okta-apim-idp-claims-details.png)]({{base_path}}/assets/img/learn/okta-apim-idp-claims-details.png) 
 
@@ -249,7 +509,7 @@ Before you begin, make sure you do the following.
          <a href="{{base_path}}/assets/img/learn/okta-apim-role-oidc-jit.png"><img src="{{base_path}}/assets/img/learn/okta-apim-role-oidc-jit.png" width="600"/></a>
 
     !!! info
-        When Just-In-Time Provisioning is enabled, the user details will be saved in the API Manager user store. User profile details will be updated via the federation following each login event. To preserve the user profile details without any changes you need to enable `SystemRolesRetainedProvisionHandler`.
+        When Just-In-Time Provisioning is enabled, the user details will be saved in the API Manager user store. User profile details will be updated via the federation following each login event. To preserve the user profile details without any changes, you need to enable `SystemRolesRetainedProvisionHandler`.
         
         Add the following to the `<API-M_HOME>/repository/conf/deployment.toml` file and restart the server.
 
@@ -258,7 +518,7 @@ Before you begin, make sure you do the following.
         provisioning_handler = "org.wso2.carbon.identity.application.authentication.framework.handler.provisioning.impl.SystemRolesRetainedProvisionHandler"
         ```
 
-8. Update the Service Providers.
+5. Update the Service Providers.
 
     1. Click **Service Providers** -> **List** in the WSO2 API-M Management Console.
         
@@ -277,4 +537,7 @@ Before you begin, make sure you do the following.
     
     4. Repeat the latter mentioned two steps for `apim_devportal`.
 
-Now you will be able to Sign in to the Publisher and Developer Portal using Okta.
+         Now you will be able to Sign in to the Publisher and Developer Portal using Okta.
+
+         [![Okta API-M login]({{base_path}}/assets/img/learn/okta-login.png){: style="width:30%"}]({{base_path}}/assets/img/learn/okta-login.png)
+
