@@ -439,29 +439,6 @@ Before you begin, make sure you do the following.
 
     6. Click **Save** to save your changes.
 
-    !!! note
-        If you want your user to perform analytics-based tasks, you should add the `okta_role` to the required analytics scopes based on your preference. The steps below are given as an example.
-
-        1. Sign in to the API-M Management Console.
-             `https://localhost:9443/carbon`
-
-        2. Navigate to **Main > Resources > Browse**.
-
-        3. Enter `/_system/config/apimgt/applicationdata/tenant-conf.json` as the location and click **Go** to browse the registry and locate the required resource.
-
-        4. Update the `RESTAPIScopes` JSON field by adding `okta_role` to the `Roles` field under the corresponding `Name` fields as shown below for the analytics-related scopes.
-            ```bash
-            {
-                "Name": "apim_analytics:api_analytics:view",
-                "Roles": "admin,Internal/creator,Internal/publisher,okta_role"
-            },
-            {
-                "Name": "apim_analytics:application_analytics:view",
-                "Roles": "admin,Internal/subscriber,okta_role"
-            },
-            ```
-        5. Click **Save Content**.
-
 4. Add an Identity Provider.
 
      1. Sign in to the WSO2 API-M Management Console.
