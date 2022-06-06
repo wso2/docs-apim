@@ -32,7 +32,8 @@ By default, **Android, Java, JavaScript**, and **JMeter** the SDKs that are avai
 
 <div class="admonition note">
 <p class="admonition-title">Changes based on WSO2 Updates</p>
-<p>The supported languages for SDK generation varies as follows based on the WSO2 Update level that you are using.
+<p>The following changes with regard to the supported languages for SDK generation is available as an update in WSO2 API-M 3.2.0. If you do not already have this update, see the instructions on <a href="https://updates.docs.wso2.com/en/latest/updates/update-commands/">updating your product</a>.
+
 <table>
 <tr>
 <th><b>Supported Language</b>
