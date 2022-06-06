@@ -14,7 +14,7 @@ For example, the following sample custom policy allows the admin user to send 5 
 
 2.  Click **Rate Limiting Policies** tab and click **Custom Policies** tab.
 
-     <a href="{{base_path}}/assets/img/learn/custom_policy_left_tag.png"><img src="{{base_path}}/assets/img/learn/custom_policy_left_tag.png" alt="Add Custom policy page" width="40%"></a>
+     <a href="{{base_path}}/assets/img/learn/custom_policy_left_tag.png"><img src="{{base_path}}/assets/img/learn/custom_policy_left_tag.png" alt="Add Custom policy page" width="30%"></a>
     
 3.  To add a new policy, click **Define Policy**.
 
