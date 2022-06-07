@@ -62,7 +62,7 @@ $ curl --http2-prior-knowledge http://localhost:2350/hello -v
 When the client and server needs to do encrypted text communication, then the client and the server can negotiate to a protocol version when creating a session using ALPN protocol (prior to sending the HTTP request as opposed to clear text case described above). See the following example snippet it has printed `ALPN, server accepted to use h2` which means HTTP calls going to happen using HTTP/2 version.
 
 ```yaml
-$ $ curl <--http2> or <--http2-prior-knowledge> http://localhost:2350/hello -v
+$ curl --cacert ./backend.crt <--http2> or <--http2-prior-knowledge> https://localhost:2351/hello
 *   Trying ::1:2351...
 * Connected to localhost (::1) port 2351 (#0)
 * ALPN, offering h2
