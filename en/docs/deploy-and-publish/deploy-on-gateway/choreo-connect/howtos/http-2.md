@@ -122,7 +122,7 @@ You can set this confuration to `AUTO`, `HTTP1`, or `HTTP2`.
 Currently the upstream connections by default works with HTTP/1.1 version. To use HTTP/2 communications with endpoints you need to set the following swagger extension configuration for the API you deploy to the gateway.
 
 ```yaml
-x-wso2-http2-enabled: true
+x-wso2-http2-backend-enabled: true
 ```
 
 Choreo Connect Router to endpoint connections are initiated only with HTTP/2 prior knowledge not with HTTP/2 upgrade calls in clear text scenario. Therefore if your endpoint only supports HTTP/1.1 then connection establishment will fail.
@@ -140,7 +140,7 @@ Choreo Connect Router to endpoint connections are initiated only with HTTP/2 pri
 ```
 
 ```toml tab="Swagger yaml"
-x-wso2-http2-enabled: true
+x-wso2-http2-backend-enabled: true
 ```
 
 #### The client supports HTTP 2.0 but the backend does not support HTTP 2.0
@@ -169,5 +169,5 @@ x-wso2-http2-enabled: true
 ```
 
 ```toml tab="Swagger yaml"
-x-wso2-http2-enabled: true
+x-wso2-http2-backend-enabled: true
 ```
