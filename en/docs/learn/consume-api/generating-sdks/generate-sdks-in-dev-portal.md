@@ -50,7 +50,7 @@ By default, **Android, Java, JavaScript**, and **JMeter** the SDKs that are avai
 </td>
 <td>Added
 </td>
-<td>46
+<td>46</br>(3.2.0.46)
 </td>
 <td>Released Date: June 14, 2021
 </td>
@@ -60,7 +60,7 @@ By default, **Android, Java, JavaScript**, and **JMeter** the SDKs that are avai
 </td>
 <td>Removed
 </td>
-<td>119
+<td>119</br>(3.2.0.119)
 </td>
 <td>Released Date: January 13, 2022
 </td>
