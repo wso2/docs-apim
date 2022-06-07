@@ -357,6 +357,8 @@ nav:
                     - Error Handling: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/error-handling.md
                     - Enforcer Admin API: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/enforcer-admin-api/enforcer-v1.0.0.md
                     - Debug Memory Issues: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/debug-memory.md
+                - HowTos: 
+                    - HTTP 2.0: deploy-and-publish/deploy-on-gateway/choreo-connect/howtos/http-2.md
         - Publish on Developer Portal:
             - Publish an API: deploy-and-publish/publish-on-dev-portal/publish-an-api.md
             - Add a Third-party API: deploy-and-publish/publish-on-dev-portal/third-party-api-support.md
@@ -2223,6 +2225,6 @@ extra:
         - type: linkedin
           link: https://www.linkedin.com/company/wso2
     site_version: 4.1.0
-    #base_path: http://localhost:8000
-    base_path: https://apim.docs.wso2.com/en/4.1.0
+    base_path: http://localhost:8000
+    # base_path: https://apim.docs.wso2.com/en/4.1.0
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.20.0
