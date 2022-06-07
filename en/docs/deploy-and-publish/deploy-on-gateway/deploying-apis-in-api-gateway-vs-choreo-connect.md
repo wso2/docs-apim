@@ -28,7 +28,7 @@ API Gateway and Choreo Connect both support different security mechanisms.
 | **Security Mechanism**           | **Choreo Connect**                                              | **API Gateway**                       |
 |------------------------------|:-------------------------------------------------------------:|:---------------------------------:|
 | OAuth2                        | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) |
-| Mutual SSL                   | ![(No)]({{base_path}}/assets/img/deploy/error.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) |
+| Mutual SSL                   | ![(Yes))]({{base_path}}/assets/img/deploy/check.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) |
 | Basic Auth                   | Custom Filter can be developed                    | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) |
 | API Keys                     | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) |
 

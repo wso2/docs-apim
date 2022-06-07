@@ -29,6 +29,7 @@ The following is a list of Choreo Connect's important features.
     - Backend JWT generation (Passing end user details to the backend services)
     - Support for API keys
     - Open Policy Agent(OPA) support
+    - Mutual SSL authentication for APIs
 
 - Rate Limiting
     - API/Resource, application, and subscription level rate limiting 
@@ -75,7 +76,6 @@ The Choreo Connect currently does not support the following major functionalitie
 - GraphQL APIs
 - gRPC APIs
 - API Products
-- Mutual SSL authentication for APIs
 - Basic Authentication for APIs
 - Bandwidth-based rate limiting for REST APIs
   

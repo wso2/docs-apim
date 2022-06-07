@@ -1,95 +1,82 @@
 # Mutual SSL Authentication
 
-Certificate-based authentication on the Microgateway is authenticating a request based on a digital certificate, before granting access to the backend. By way of certificate-based authentication, the Microgateway supports mutual SSL. In mutual SSL, both parties the client and the server identifies themselves in order to create a successful SSL connection. Mutual SSL allows a client to make a request without a username and password, provided that the server is aware of the client's certificate.
+Certificate-based authentication on the Choreo Connect is authenticating a request based on a digital certificate, before granting access to the backend. By way of certificate-based authentication, the Choreo Connect supports mutual SSL. In mutual SSL, both parties the client and the server identifies themselves in order to create a successful SSL connection. Mutual SSL allows a client to make a request without a username and password, provided that the server is aware of the client's certificate.
 
-### Enabling Mutual SSL Authentication for an API
+{!includes/design/create-mtls-api.md!}
 
-You can use the x-wso2-transports extension to enable mutual SSL client verification for the API. By default, Mutual SSL is optional.
+!!!Important
+    To invoke mTLS enabled APIs that deployed in Choreo Connect, the CA certificates of the client's public certificates should be added as trusted certificates to the router.
 
-**API definition**
+      - [Add a Certificate to Choreo Connect Router as a Trusted Certificate]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/backend-certificates/#add-a-certificate-to-choreo-connect-router-as-a-trusted-certificate)
 
-``` yml
-x-wso2-mutual-ssl: "mandatory" # can be "mandatory" or "optional"
-```
+{!includes/design/invoke-mtls-api-using-postman.md!}
 
-|value| Description|
-|-----|------------|
-|mandatory| Enable mutual SSL and make **mutual SSL mandatory**. The client should be verified and the mutual SSL handshake must be passed. the API request will be unauthorized if the handshake is failed.|
-|optional| Enable mutual SSL but make **mutual SSL optional**. Even if the mutual SSL handshake failed, the API request is not necessarily unauthenticated. If the mutual SSL handshake is passed, the request will be filtered by the mutual SSL handler.|
+### Invoke an API secured with Mutual SSL using cURL
 
+-   
 
-### Support Mutual SSL Authentication for an API
+     ``` tab="Format"
+      curl -k --location -X GET "<API_URL>" -H  "accept: application/json" -H  "Authorization: Bearer <access-token>" --key <client_private_key> --cert <client_public_certificate>
+     ```
 
-The Microgateway supports mutual SSL at the API level. It validates the certificate against per API by the name, version, and alias. There are two scenarios in Mutual SSL, the first one is Client directly connects with Microgateway and the second one is the load balancer in front of the Microgateway.
+     ``` tab="Example"
+      curl -k --location -X GET 'https://localhost:9095/test/1.0/foo' -H 'accept: applicaition/json' -H 'Authorization: Bearer  0ee9aa70-d631-3401-b152-521b431036ca' --key client.key --cert client.pem
+     ```
 
-![Mutual SSL overview]({{base_path}}/assets/img/publish/mutualssl.png)
-
-1. <b> Mutual SSL configuration without Load Balancer.</b>
-   
-    Update the mutual SSL configuration in the micro-gw.conf file residing in the <MICROGW_HOME>/conf directory. Here name is Swagger Petstore, version is 1.0.5, and aliasList is ballerina and wso2apim310.
-```
-    [mutualSSLConfig]
-      [[mutualSSLConfig.api.certificates]]
-        name = "Swagger Petstore"
-        version = "1.0.5"
-        aliasList = ["ballerina", "wso2apim310"]
-```
-
-2. <b> Mutual SSL configuration with Load Balancer. </b>
-    
-    If you are using a load balancer in front of Microgateway then you have to add additional configuration inside the mutualSSLConfig file. Here certificateHeadername is the header name which is appended by the load balancer to store the certificate. Here certificate header name is X-SSL-CERT.
-```
-    [mutualSSLConfig]
-      [[mutualSSLConfig.api.certificates]]
-        name = "Swagger Petstore"
-        version = "1.0.5"
-        aliasList = ["ballerina", "wso2apim310"]
-        certificateHeadername = "X-SSL-CERT"
-``` 
-   
-!!! note
-    If you do not need to validate the MTSL between the load balancer and the Micro gateway then you need to add an additional configuration other than the above. isClientCertificateValidationEnabled is set to true by default in the Microgateway which means it always validates the MTSL between the microgateway and Load balancer. 
-``` 
-    [mutualSSLConfig]
-     isClientCertificateValidationEnabled = false   
-```
-### Configure Client and WSO2 Microgateway for Mutual SSL
-
-Add the client's public certificate to the WSO2 Microgateway's trustStorePath in listenerConfig configuration. Also, configure Microgateway's public certificate on the client-side. For more information [importing certificates to the WSO2 Microgateway Truststore]({{base_path}}/publish/security/importing-certificates-to-the-api-microgateway-truststore/)
-
-``` yml tab="micro-gw.conf"
-[listenerConfig]
-    keyStorePath = "${mgw-runtime.home}/runtime/bre/security/ballerinaKeystore.p12"
-    keyStorePassword = "ballerina"
-    trustStorePath = "${mgw-runtime.home}/runtime/bre/security/ballerinaTruststore.p12"
-    trustStorePassword = "ballerina"
-```
-
-!!! note
-    Mutual SSL authentication is currently supporting only HTTP 1.1 . Therefore the following
-    configuration should be added to the micro-gw.conf file.
-    ```yml
-    [http2]
-        enable = false
+!!!Note
+    `enableClientValidation` configuration should be `true` for this scenario. No need to change anything since this is the default configuration. If you have changed this to `false`, then this will not work.
+    ```
+     [enforcer.security.mutualSSL]
+         enableClientValidation = true
     ```
 
-### Invoking an API using certificate-based authentication
+### Limitations
 
-When invoking an API, you can pass the certificate to the API Microgateway as follows.
+Listed below are the known limitations for this feature.
+
+-   Application subscription is not permitted for APIs that are only protected with Mutual SSL. Therefore, subscription or application-level throttling is not applicable to these types of APIs.
+
+-   Resource-level throttling is not applicable to the APIs that are only protected with Mutual SSL.
+
+-   Resource-level security will not be applicable to the APIs that are only protected with Mutual SSL.
+
+-   Scope-level security will not be applicable to the APIs that are only protected with Mutual SSL.
+
+{!includes/handling-mtls-ssl-termination.md!}
+
+### Using MTLS Header to invoke APIs secured with Mutual SSL
+
+By default, the Choreo Connect retrieves the client certificate from the **X-WSO2-CLIENT-CERTIFICATE** HTTP header.
+
+Follow the instructions below to change the header:
+
+1.  Navigate to the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf/config.toml` file.
+2.  Configure the `certificateHeader` under the `[enforcer.security.mutualSSL]` configuration.
+
+    ``` tab="Format"
+     [enforcer.security.mutualSSL]
+        certificateHeader = "<Header Name>"
+        enableClientValidation = false     # This should be false to check the header value for the client certificate
+        clientCertificateEncode = false    # This should be true if the client certificate in the header is encoded
+    ```
+
+    ``` tab="Example"
+     [enforcer.security.mutualSSL]
+        certificateHeader = "SSL-CLIENT-CERT"
+        enableClientValidation = false
+        clientCertificateEncode = false
+    ```
+
+3.  Start the Server.
+4.  Invoke the API  with the custom header.
+
+     ``` bash tab="Format"
+     curl -k --location -X GET "<API_URL>" -H  "accept: application/json" -H  "Authorization: Bearer <access-token>" -H "<MTSL_Header_name>:<Certificate_Key>"
+     ```
+
+     ``` bash tab="Example"
+     curl -k --location -X GET 'https://localhost:9095/test/1.0/foo' -H 'accept: applicaition/json' -H 'Authorization: Bearer 0ee9aa70-d631-3401-b152-521b431036ca' -H 'SSL-CLIENT-CERT: -----BEGIN CERTIFICATE-----LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURsakNDQW40Q0NRRDc2MUpWekluMGNUQU5CZ2txaGtpRzl3MEJBUXNGQURDQmpERUxNQWtHQTFVRUJoTUMKVTB3eEVEQU9CZ05WQkFnTUIxZGxjM1JsY200eEVEQU9CZ05WQkFjTUIwTnZiRzl0WW04eERUQUxCZ05WQkFvTQpCRmRUVHpJeEN6QUpCZ05WQkFzTUFrTlRNUkl3RUFZRFZRUUREQWxzYjJOaGJHaHZjM1F4S1RBbkJna3Foa2lHCjl3MEJDUUVXR25kaGRHaHpZV3hoYTI5eVlXeGxaMlZBWjIxaGFXd3VZMjl0TUI0WERUSXhNREV4TkRBME16VXoKTlZvWERUSXlNREV4TkRBME16VXpOVm93Z1l3eEN6QUpCZ05WQkFZVEFsTk1NUkF3RGdZRFZRUUlEQWRYWlhOMApaWEp1TVJBd0RnWURWUVFIREFkRGIyeHZiV0p2TVEwd0N3WURWUVFLREFSWFUwOHlNUXN3Q1FZRFZRUUxEQUpEClV6RVNNQkFHQTFVRUF3d0piRzlqWVd4b2IzTjBNU2t3SndZSktvWklodmNOQVFrQkZocDNZWFJvYzJGc1lXdHYKY21Gc1pXZGxRR2R0WVdsc0xtTnZiVENDQVNJd0RRWUpLb1pJaHZjTkFRRUJCUUFEZ2dFUEFEQ0NBUW9DZ2dFQgpBTWMrRjhJblZmMzAwZ2FraTh2QUZ6cUFTSGNQV0xZalQ4dmMwOUs1TzZHRjgzaXpUa2F0UDFtYW1ydWlKL2VRCk1KL2VLVGhJdzR3MWEzS3Y4cjJwc3d2bWRjdjAzZnhRNis2aFh3Ykh5VUtHWFFwbVhtL3d5VE01NzRlR1cybXAKM2toTjlIdFV0SU5uS3BzSENLcFI3MFhGKzNrTTZleHJJNnRJUUpxdTdKM2t1OEdqRVI3R1Vma2trYXI1OGs3eApibEpIWG5URkdjWXJNSXAvcS9YUENqR0pGajhub2tNbjhnL0dWTExCVGFXSWJVa3E2ejRJYjk1dHNOd2thU1dhCnh6U2t3K3JIVkZLWnpPTlV1WTdKTk16Zkp6RkllZG5lY0U3c2Y0WnFIRlF6aUpVbW9qWklDMXp5bFdZdzQ4OEUKNUZvaU9xTWpHYTlUMXhXMUpOWTBab01DQXdFQUFUQU5CZ2txaGtpRzl3MEJBUXNGQUFPQ0FRRUFSZTdrcWZlbwpjd1htazRLWlBKMmlnaGY2VU9jc2dYSEZqMnVpQTNhSWMrd2xwREJpdkdCbDJHM2gxQXl6UFNtcVpYaUcvTGttCkg1dm43VUpGQXlQRVBlQ25HdWduTk5kZGpnSFp0SEdJLzdXcm1LTHdIOEU3TWdmSWJ6dk5Hd3ZXWmRrZi9DblcKNjNDYzhhTzJQMDhYd0dHU25JSDg2cWF6NEtvZUF1aFlCdHZyekNObERraTFjZ1E1bHczU0djU3dxMlB0eEd4cApvS0xWOUJYUzlVdUNJRDRrYjFqRUo3YlplTis0Z0pDbTVGTldUbWdhWXFDcjdERWIwRkhpWitLVnBsZzJZZ3ZYCkM2Z2ZrRm9NYTVJREwvWGVja0J0dFlITzFKcWUyMElRKy9kVHB4ZWE4RjE5aDVmeDRZWVlsRFhLWS8wRmxiRXoKZ1l2UGFIUnVKWnFlV1E9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==-----END CERTIFICATE-----'
+     ```
 
 !!! note
-    In this tutorial, a self-signed certificate is added into the already available ballerina truststore.
-
-!!! note
-    The instructions below are based on Firefox 65.0.1.
-
-1.  Navigate to the browsers certificate management section. on Firefox, navigate to Preferences &gt; Privacy & Security &gt; Certificates
-    ![browser certificates]({{base_path}}/assets/img/publish/mutual-ssl-browse-certs.png){width="700"}
-2.  Add the certificate used for the SSL connection.
-    ![add certificate]({{base_path}}/assets/img/publish/mutual-ssl-add-cert.png){width="650"}
-3.  Invoke the REST API using a REST API client from the browser.
-    ![invoke rest API]({{base_path}}/assets/img/publish/invoke-rest-api.png)
-4.  The browser will present a user identification request, to select a certificate in order to use for the SSL connection. Select the certificate you added and click OK.
-    ![user identification request]({{base_path}}/assets/img/publish/mutual-ssl-user-identification-request.png)
-
-
+     The MTLS flow described above uses the **Nginx** load balancer. When using a different ELB to configure the MTSL with SSL termination, refer the service provider's documentation and feature catalog to do the necessary configurations.

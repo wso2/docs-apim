@@ -4,45 +4,13 @@ In contrast to the usual one-way SSL authentication where a client verifies the 
 
 The following section explains as to how the APIs in WSO2 API Manager can be secured using mutual SSL in addition to OAuth2.
 
-## Create an API secured with Mutual SSL
-
-1.  [Create an API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/).
-2.  Click **Develop -> API Configurations -> Runtime**.
-3.  Select **Mutual SSL**.
-    
-     [![Enable mutual SSL]({{base_path}}/assets/img/learn/enable-mutual-ssl.png)]({{base_path}}/assets/img/learn/enable-mutual-ssl.png)
-
-4.  Click **Add Certificate** to upload a new client certificate.
-    
-    !!! note
-        This feature currently supports only the `.crt` format for certificates.
-
-        If you need to use a certificate in any other format, you can convert it using a standard tool before uploading it.
-
-
-5.  Provide an alias and public certificate. Select the tier that should be used to throttle out the calls using this particular client certificate and click **Upload**.
-    
-     [![Upload Certificate]({{base_path}}/assets/img/learn/upload-certificate.png)]({{base_path}}/assets/img/learn/upload-certificate.png)
-    
-6.  **Save and Deploy** the API.
+{!includes/design/create-mtls-api.md!}
 
 !!! note
      If you are on a Windows environment, the HTTPS listener would have started on a host address of 0:0:0:0:0:0:0:0. You can verify that from the Carbon logs.
      In that case, you need to define 0:0:0:0:0:0:0:0 as the bindAddress in `<APIM_HOME>/repository/resources/security/listenerprofiles.xml`  
     
-### Invoke an API secured with Mutual SSL using Postman
-
-Import the certificate and private key to Postman.
-
-1. Navigate to the certificates tab in Postman settings.
-    
-     [![Add the certificate to Postman]({{base_path}}/assets/img/learn/add-certificate-to-postman.png)]({{base_path}}/assets/img/learn/add-certificate-to-postman.png)
-    
-2. Add the certificate and private key.
-
-     [![Provide certificate and private key]({{base_path}}/assets/img/learn/provide-crt-and-private-key.png)]({{base_path}}/assets/img/learn/provide-crt-and-private-key.png)
-    
-3.  Invoke the API from Postman.
+{!includes/design/invoke-mtls-api-using-postman.md!}
 
 ### Limitations
 
@@ -56,18 +24,7 @@ Listed below are the known limitations for this feature.
 
 -   Scope-level security will not be applicable to the APIs that are only protected with Mutual SSL.
 
-### Handling MTLS when SSL is terminated by the Load Balancer or Reverse Proxy
-
-When SSL termination of API requests takes place at the Load Balancer or Reverse Proxy, the following prerequisites need to be met by the Load Balancer.
-
--   Terminate the mutual SSL connection from the client.
--   Pass the client SSL certificate to the Gateway in an HTTP Header. 
-
-     For more information, see the [Nginx documentation](https://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_client_certificate).
-
-The following diagram illustrates how Mutual SSL works in such an environment.
-
-[![MTLS Load Balancer]({{base_path}}/assets/img/learn/mtls-loadbalancer.png)]({{base_path}}/assets/img/learn/mtls-loadbalancer.png)
+{!includes/handling-mtls-ssl-termination.md!}
 
 ### Using MTLS Header to invoke APIs secured with Mutual SSL
 
