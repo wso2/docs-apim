@@ -104,8 +104,6 @@ Follow the instructions below to change the type of the default datasource.
     url = "jdbc:oracle:thin:<DB_host>:1521:<sid>"
     username = "<USER_NAME>"
     password = "<PASSWORD>"
-    driver = "oracle.jdbc.driver.OracleDriver"
-    validationQuery = "SELECT 1 FROM DUAL"
     ```
     
     ``` tab="Example"
@@ -114,16 +112,12 @@ Follow the instructions below to change the type of the default datasource.
     url = "jdbc:oracle:thin:@localhost:1521/orcl1"
     username = "sharedadmin"
     password = "sharedadmin"
-    driver = "oracle.jdbc.driver.OracleDriver"
-    validationQuery = "SELECT 1 FROM DUAL"
     
     [database.apim_db]
     type = "oracle"
     url = "jdbc:oracle:thin:@localhost:1521/orcl2"
     username = "apimadmin"
     password = "apimadmin"
-    driver = "oracle.jdbc.driver.OracleDriver"
-    validationQuery = "SELECT 1 FROM DUAL"
     ```
 
     !!! important "Configuring the 'url'"
@@ -152,8 +146,6 @@ Follow the instructions below to change the type of the default datasource.
     url = "jdbc:oracle:thin:<DB_host>:1521:<sid>"
     username = "<USER_NAME>"
     password = "<PASSWORD>"
-    driver = "oracle.jdbc.driver.OracleDriver"
-    validationQuery = "SELECT 1 FROM DUAL"
     pool_options.<OPTION-1> = <VALUE-1>
     pool_options.<OPTION-2> = <VALUE-2>
     ...
@@ -165,8 +157,6 @@ Follow the instructions below to change the type of the default datasource.
     url = "jdbc:oracle:thin:@localhost:1521/orcl1"
     username = "sharedadmin"
     password = "sharedadmin"
-    driver = "oracle.jdbc.driver.OracleDriver"
-    validationQuery = "SELECT 1 FROM DUAL"
     pool_options.maxActive = 100
     pool_options.maxWait = 10000
     pool_options.validationInterval = 10000
@@ -176,8 +166,6 @@ Follow the instructions below to change the type of the default datasource.
     url = "jdbc:oracle:thin:@localhost:1521/orcl2"
     username = "apimadmin"
     password = "apimadmin"
-    driver = "oracle.jdbc.driver.OracleDriver"
-    validationQuery = "SELECT 1 FROM DUAL"
     pool_options.maxActive = 50
     pool_options.maxWait = 30000
     ```
@@ -210,6 +198,4 @@ Follow the instructions below to change the type of the default datasource.
         url = "jdbc:oracle:thin:@localhost:1521/orcl"
         username = "carbonadmin"
         password = "carbonadmin"
-        driver = "oracle.jdbc.driver.OracleDriver"
-        validationQuery = "SELECT 1 FROM DUAL"
         ```
