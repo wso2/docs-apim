@@ -50,6 +50,7 @@ See the example .toml file given below.
   clusterTimeoutInSeconds = 20
   enforcerResponseTimeoutInSeconds = 20
   systemHost = "localhost"
+  useRemoteAddress = false
 </code></pre>
                     </div>
                 </div>
@@ -194,6 +195,25 @@ See the example .toml file given below.
                                     </div>
                                     <div class="param-description">
                                         <p>The timeout for response coming from enforcer to route per API request.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>useRemoteAddress</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>If configured true, router appends the immediate downstream IP address to the x-forward-for header.</p>
                                     </div>
                                 </div>
                             </div>
