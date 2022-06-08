@@ -87,21 +87,19 @@ The following code snippet contains sample configuration of the parameter file.
               production:
                   url: 'https://test.wso2.com'
                   config:
-                    factor: 3
-                    suspendMaxDuration: 25000
-                    suspendDuration: 45000
-                    suspendErrorCode: 
-                        - "101504"
-                        - "101501"
-                    retryTimeOut: $RETRY
-                    retryDelay: 23000
-                    retryErroCode:
-                        - "101503" 
-                        - "101504"
-                    actionSelect: discard
-                    actionDuration: 75000
-              sandbox:
-                  url: 'https://test.sandbox.wso2.com'
+                      factor: 3
+                      suspendMaxDuration: 25000
+                      suspendDuration: 45000
+                      suspendErrorCode: 
+                          - "101504"
+                          - "101501"
+                      retryTimeOut: $RETRY
+                      retryDelay: 23000
+                      retryErroCode:
+                          - "101503" 
+                          - "101504" 
+                      actionSelect: discard
+                      actionDuration: 75000           
           security:
               enabled: true
               type: digest
