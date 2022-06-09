@@ -1354,7 +1354,7 @@ enabled = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Disable the HTTP header checking for the client certificate. If this is false, Choreo Connect will check the HTTP header value for the client certificate.</p>
+                                        <p>Select between directly sending client certificate and sending client certificate within a header</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1373,7 +1373,7 @@ enabled = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Enables the certificate decode process in Choreo Connect when the certificate is passed the Choreo Connect in a HTTP header.</p>
+                                        <p>Enable/Disable client certificate decode process in Choreo Connect when the certificate is passed in a header.</p>
                                     </div>
                                 </div>
                             </div>

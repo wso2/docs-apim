@@ -467,14 +467,14 @@
               "type": "boolean",
               "required": false,
               "default": "true",
-              "description": "Disable the HTTP header checking for the client certificate. If this is false, Choreo Connect will check the HTTP header value for the client certificate."
+              "description": "Select between directly sending client certificate and sending client certificate within a header"
             },
             {
               "name": "clientCertificateEncode",
               "type": "boolean",
               "required": false,
               "default": "false",
-              "description": "Enables the certificate decode process in Choreo Connect when the certificate is passed the Choreo Connect in a HTTP header."
+              "description": "Enable/Disable client certificate decode process in Choreo Connect when the certificate is passed in a header."
             }
           ]
         }
