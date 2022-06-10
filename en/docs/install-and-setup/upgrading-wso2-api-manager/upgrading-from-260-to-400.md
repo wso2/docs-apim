@@ -263,9 +263,15 @@ Therefore, if registry versioning was enabled in WSO2 API-M 2.6.0 setup, it is *
     !!! note "NOTE"
         Changing these configurations should only be done before the initial API-M Server startup. If changes are done after the initial startup, the registry resource created previously will not be available.
 
--   [Step 1 - Migrate the API Manager configurations](#step-1-migrate-the-api-manager-configurations)
--   [Step 2 - Upgrade API Manager to 4.0.0](#step-2-upgrade-api-manager-to-400)
--   [Step 3 - Restart the WSO2 API-M 4.0.0 server](#step-3-restart-the-wso2-api-m-400-server)
+- [Preparing for Migration](#preparing-for-migration)
+
+    - [Disabling versioning in the registry configuration](#disabling-versioning-in-the-registry-configuration)
+
+- [Step 1 - Migrate the API Manager configurations](#step-1---migrate-the-api-manager-configurations)
+
+- [Step 2 - Upgrade API Manager to 4.0.0](#step-2---upgrade-api-manager-to-400)
+
+- [Step 3 - Restart the WSO2 API-M 4.0.0 server](#step-3---restart-the-wso2-api-m-400-server)
 
 ### Step 1 - Migrate the API Manager configurations
 
@@ -896,7 +902,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     SERVICE_KEY VARCHAR(100) NOT NULL,
                     MD5 VARCHAR(100) NOT NULL,
                     SERVICE_NAME VARCHAR(255) NOT NULL,
-                    DISPLAY_NAME VARCHAR(255) NOT NULL,
                     SERVICE_VERSION VARCHAR(30) NOT NULL,
                     SERVICE_URL VARCHAR(2048) NOT NULL,
                     TENANT_ID INTEGER NOT NULL,
@@ -910,7 +915,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     CREATED_BY VARCHAR(255),
                     UPDATED_BY VARCHAR(255),
                     SERVICE_DEFINITION BLOB NOT NULL,
-                    METADATA BLOB NOT NULL,
                     PRIMARY KEY (UUID),
                     CONSTRAINT SERVICE_KEY_TENANT UNIQUE(SERVICE_KEY, TENANT_ID),
                     CONSTRAINT SERVICE_NAME_VERSION_TENANT UNIQUE (SERVICE_NAME, SERVICE_VERSION, TENANT_ID))
@@ -1466,7 +1470,6 @@ Follow the instructions below to move all the existing API Manager configuration
           SERVICE_KEY VARCHAR(100) NOT NULL,
           MD5 VARCHAR(100) NOT NULL,
           SERVICE_NAME VARCHAR(255) NOT NULL,
-          DISPLAY_NAME VARCHAR(255) NOT NULL,
           SERVICE_VERSION VARCHAR(30) NOT NULL,
           SERVICE_URL VARCHAR(2048) NOT NULL,
           TENANT_ID INTEGER NOT NULL,
@@ -1948,7 +1951,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     SERVICE_KEY VARCHAR(100) NOT NULL,
                     MD5 VARCHAR(100) NOT NULL,
                     SERVICE_NAME VARCHAR(255) NOT NULL,
-                    DISPLAY_NAME VARCHAR(255) NOT NULL,
                     SERVICE_VERSION VARCHAR(30) NOT NULL,
                     TENANT_ID INTEGER NOT NULL,
                     SERVICE_URL VARCHAR(2048) NOT NULL,
@@ -1962,7 +1964,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     CREATED_BY VARCHAR(255),
                     UPDATED_BY VARCHAR(255),
                     SERVICE_DEFINITION BLOB NOT NULL,
-                    METADATA BLOB NOT NULL,
                     PRIMARY KEY (UUID),
                     UNIQUE (SERVICE_NAME, SERVICE_VERSION, TENANT_ID),
                     UNIQUE (SERVICE_KEY, TENANT_ID)
@@ -2618,7 +2619,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     SERVICE_KEY VARCHAR(100) NOT NULL,
                     MD5 VARCHAR(100) NOT NULL,
                     SERVICE_NAME VARCHAR(255) NOT NULL,
-                    DISPLAY_NAME VARCHAR(255) NOT NULL,
                     SERVICE_VERSION VARCHAR(30) NOT NULL,
                     TENANT_ID INTEGER NOT NULL,
                     SERVICE_URL VARCHAR(2048) NOT NULL,
@@ -2632,7 +2632,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     CREATED_BY VARCHAR(255),
                     UPDATED_BY VARCHAR(255),
                     SERVICE_DEFINITION BLOB NOT NULL,
-                    METADATA BLOB NOT NULL,
                     PRIMARY KEY (UUID),
                     CONSTRAINT SERVICE_KEY_TENANT UNIQUE(SERVICE_KEY, TENANT_ID),
                     CONSTRAINT SERVICE_NAME_VERSION_TENANT UNIQUE (SERVICE_NAME, SERVICE_VERSION, TENANT_ID))
@@ -3193,7 +3192,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     SERVICE_KEY VARCHAR(100) NOT NULL,
                     MD5 VARCHAR(100) NOT NULL,
                     SERVICE_NAME VARCHAR(255) NOT NULL,
-                    DISPLAY_NAME VARCHAR(255) NOT NULL,
                     SERVICE_VERSION VARCHAR(30) NOT NULL,
                     TENANT_ID INTEGER NOT NULL,
                     SERVICE_URL VARCHAR(2048) NOT NULL,
@@ -3207,7 +3205,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     CREATED_BY VARCHAR(255),
                     UPDATED_BY VARCHAR(255),
                     SERVICE_DEFINITION BYTEA NOT NULL,
-                    METADATA BYTEA NOT NULL,
                     PRIMARY KEY (UUID),
                     UNIQUE (SERVICE_NAME, SERVICE_VERSION, TENANT_ID),
                     UNIQUE (SERVICE_KEY, TENANT_ID)
@@ -3504,7 +3501,7 @@ Follow the instructions below to move all the existing API Manager configuration
             -Dmigrate -Dcomponent=identity
             ```
 
-6.  Migrate the API Manager artifacts.
+7.  Migrate the API Manager artifacts.
 
     !!! Note
         Modify the `[apim.gateway.environment]` tag in the `<API-M_HOME>/repository/conf/deployment.toml` file, the name should change to "Production and Sandbox". By default, it is set as `Default` in API Manager 4.0.0.
@@ -3576,7 +3573,7 @@ Follow the instructions below to move all the existing API Manager configuration
     
             ```
     
-7.  Re-index the artifacts in the registry.
+8.  Re-index the artifacts in the registry.
     1.  Run the [reg-index.sql]({{base_path}}/assets/attachments/install-and-setup/reg-index.sql) script against the `SHARED_DB` database.
 
         !!! note
