@@ -161,4 +161,4 @@ For instructions on generating keys see, Application Keys.
 
 If you have successfully created a subscription for the API, you can navigate to the Solace info page to view it. A successful subscription means subscribing from an application with production keys generated. If the subscription is unsuccessful, the subscriptions and topic info of the Solace API will not be viewable.
 
- <a href="{{base_path}}/assets/img/tutorials/solace/consume-topic.png"><img src="{{base_path}}/assets/img/tutorials/solace/solace-info-error.png" alt="View Solace Info" name="Consume Topic"></a>
+ <a href="{{base_path}}/assets/img/tutorials/solace/solace-info-error.png"><img src="{{base_path}}/assets/img/tutorials/solace/solace-info-error.png" alt="View Solace Info" name="Consume Topic"></a>

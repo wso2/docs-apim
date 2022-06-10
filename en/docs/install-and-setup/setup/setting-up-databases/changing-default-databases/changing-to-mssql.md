@@ -123,8 +123,6 @@ Follow the steps below to change the type of the default datasource.
     url = "jdbc:sqlserver://localhost:1433;databaseName=<DATABASE_NAME>;SendStringParametersAsUnicode=false"
     username = "<USER_NAME>"
     password = "<PASSWORD>"
-    driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
-    validationQuery = "SELECT 1"
     ```
 
     ``` tab="Example"
@@ -133,16 +131,12 @@ Follow the steps below to change the type of the default datasource.
     url = "jdbc:sqlserver://localhost:1433;databaseName=shared_db;SendStringParametersAsUnicode=false"
     username = "sharedadmin"
     password = "sharedadmin"
-    driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
-    validationQuery = "SELECT 1"
 
     [database.apim_db]
     type = "mssql"
     url = "jdbc:sqlserver://localhost:1433;databaseName=apim_db;SendStringParametersAsUnicode=false"
     username = "apimadmin"
     password = "apimadmin"
-    driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
-    validationQuery = "SELECT 1"
     ```
     
     !!! warning
@@ -168,8 +162,6 @@ Follow the steps below to change the type of the default datasource.
     url = "jdbc:sqlserver://localhost:1433;databaseName=<DATABASE_NAME>;SendStringParametersAsUnicode=false"
     username = "<USER_NAME>"
     password = "<PASSWORD>"
-    driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
-    validationQuery = "SELECT 1"
     pool_options.<OPTION-1> = <VALUE-1>
     pool_options.<OPTION-2> = <VALUE-2>
     ...
@@ -181,8 +173,6 @@ Follow the steps below to change the type of the default datasource.
     url = "jdbc:sqlserver://localhost:1433;databaseName=shared_db;SendStringParametersAsUnicode=false"
     username = "sharedadmin"
     password = "sharedadmin"
-    driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
-    validationQuery = "SELECT 1"
     pool_options.maxActive = 100
     pool_options.maxWait = 10000
     pool_options.validationInterval = 10000
@@ -192,8 +182,6 @@ Follow the steps below to change the type of the default datasource.
     url = "jdbc:sqlserver://localhost:1433;databaseName=apim_db;SendStringParametersAsUnicode=false"
     username = "apimadmin"
     password = "apimadmin"
-    driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
-    validationQuery = "SELECT 1"
     pool_options.maxActive = 50
     pool_options.maxWait = 30000
     ```
@@ -220,6 +208,4 @@ Follow the steps below to change the type of the default datasource.
         url = "jdbc:sqlserver://localhost:1433;databaseName=carbon_db;SendStringParametersAsUnicode=false"
         username = "carbonadmin"
         password = "carbonadmin"
-        driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
-        validationQuery = "SELECT 1"
         ```
