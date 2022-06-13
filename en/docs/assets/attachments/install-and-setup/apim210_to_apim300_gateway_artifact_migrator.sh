@@ -19,6 +19,7 @@ c='<handler class="org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthentic
 find . -wholename './[0-9]*/synapse-configs/default/*.xml' -print0 -o -name '*.xml' -print0 | xargs -0 sed -i -e 's/org.wso2.carbon.mediator.cache.digest.DOMHASHGenerator/org.wso2.carbon.mediator.cache.digest.REQUESTHASHGenerator/'
 find . -wholename './[0-9]*/synapse-configs/default/*.xml' -print0 -o -name '*.xml' -print0 | xargs -0 sed -i -e 's/org.wso2.caching.digest.REQUESTHASHGenerator/org.wso2.carbon.mediator.cache.digest.REQUESTHASHGenerator/'
 find . -wholename './[0-9]*/synapse-configs/default/*.xml' -print0 -o -name '*.xml' -print0 | xargs -0 sed -i -e "s@<handler class=\"org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler\"/>@${c}@"
+find . -wholename './[0-9]*/synapse-configs/default/*.xml' -print0 -o -name '*.xml' -print0 | xargs -0 perl -pi -ne 'BEGIN {undef $/} s/<handler class="org.wso2.carbon.apimgt.gateway.handlers.throttling.APIThrottleHandler">(.|\n)*?<\/handler>/<handler class="org.wso2.carbon.apimgt.gateway.handlers.throttling.ThrottleHandler"\/>/'
 
 popd > /dev/null
 
