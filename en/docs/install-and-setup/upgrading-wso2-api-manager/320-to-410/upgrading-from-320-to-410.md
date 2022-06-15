@@ -77,18 +77,17 @@ Follow the instructions below to upgrade your WSO2 API Manager server **from WSO
                 username = "username"
                 password = "password"
                 ```
-
-
+    
         2. User Stores (WSO2UM_DB) 
         
-        Ex:
-        ```
-        [database.user]
-        type = "mysql"
-        url = "jdbc:mysql://localhost:3306/um_db"
-        username = "username"
-        password = "password"
-        ```    
+            Ex:
+            ```
+            [database.user]
+            type = "mysql"
+            url = "jdbc:mysql://localhost:3306/um_db"
+            username = "username"
+            password = "password"
+            ```    
 
     !!! attention "If you are using another DB type"
         If you are using DB type other than **H2** or **MySQL** or **Oracle**, you need to add the `driver` and `validationQuery` parameter configuration additionally as given below.
@@ -124,7 +123,7 @@ Follow the instructions below to upgrade your WSO2 API Manager server **from WSO
         ```    
 
 2.   If you have used separate DB for user management, you need to update `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the correct database for user management purposes.
-
+     
     ```
     [realm_manager]
     data_source = "WSO2USER_DB"
@@ -208,15 +207,15 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Mana
 1.  Make sure you backed up all the databases in APIM 3.2.0
 
     !!! note "If you are using PostgreSQL"
-    The database user should have the 'Superuser' permission to migrate the API Manager Databases. If the user is not already a superuser, assign the permission before starting the migration.
-
-        ```
-        ALTER USER <user> WITH SUPERUSER;
-        ```
+    
+        The database user should have the 'Superuser' permission to migrate the API Manager Databases. If the user is not already a superuser, assign the permission before starting the migration.
+            ```
+            ALTER USER <user> WITH SUPERUSER;
+            ```
 
 2.  Download the identity component migration resources and unzip it in a local directory.
 
-    Navigate to the [latest release tag](https://github.com/wso2-extensions/apim-identity-migration-resources/tags) and download the `wso2is-migration-x.x.x.zip` under **Assets**.
+    Navigate to the [latest release tag](https://github.com/wso2-extensions/apim-identity-migration-resources/releases) and download the `wso2is-migration-x.x.x.zip` under **Assets**.
          
     Let's refer to this directory that you downloaded and extracted as `<IS_MIGRATION_TOOL_HOME>`. 
 
