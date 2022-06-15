@@ -10,6 +10,8 @@ The following information describes how to upgrade your API Manager server **fro
 2. Before you migrate, follow [Upgrading Guidelines]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-guidelines) to get an understanding on the migration process.
 
 3. Download [WSO2 API Manager 4.1.0](http://wso2.com/api-management/) and unzip it in the <API-M_4.1.0_HOME> directory.
+
+4. Update APIM 4.1.0 to the latest U2 update level.
     
 Follow the instructions below to upgrade your WSO2 API Manager server **from WSO2 API-M 3.2.0 to 4.1.0**.
 
