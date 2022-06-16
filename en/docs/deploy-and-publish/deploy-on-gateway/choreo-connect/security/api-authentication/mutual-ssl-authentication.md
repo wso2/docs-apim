@@ -50,7 +50,7 @@ By default, the Choreo Connect retrieves the client certificate from the **X-WSO
 
 Follow the instructions below to change the header:
 
-1.  Navigate to the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf/config.toml` file.
+1.  Navigate to the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect(-with-apim)/conf/config.toml` file.
 2.  Configure the `certificateHeader` under the `[enforcer.security.mutualSSL]` configuration.
 
     ``` tab="Format"
