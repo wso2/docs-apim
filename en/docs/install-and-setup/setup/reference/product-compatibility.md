@@ -1,10 +1,19 @@
 # Product Compatibility
 
-The following compatibility details are with regard to WSO2 API Manager (WSO2 API-M) 3.2.0 and WSO2 API-M Analytics 3.2.0.
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The following compatibility details are with regard to the following products.
+<ul>
+<li><b>WSO2 API Manager (WSO2 API-M) 3.2.0</b></li>
+<li><b>WSO2 API-M Analytics 3.2.0.</b></li>
+</ul></p>
+</div>
 
 ## Tested Operating Systems and JDKs
 
-As WSO2 API Manager is a Java application, you can generally run WSO2 API-M on most operating systems. The following are the JDKs that are tested with WSO2 API-M.
+As WSO2 API Manager and WSO2 API-M Analytics is a Java application, you can generally run WSO2 API-M and WSO2 API-M Analytics on most operating systems. 
+
+The following is the list of tested JDKs.
 
 <table>
 <tbody>
@@ -38,7 +47,7 @@ As WSO2 API Manager is a Java application, you can generally run WSO2 API-M on m
 
 ## Tested DBMSs
 
-WSO2 API Manager supports the following DBMSs.
+WSO2 API Manager and WSO2 API-M Analytics support the following DBMSs.
 
 <html>
 <ul>
@@ -55,8 +64,6 @@ WSO2 API Manager supports the following DBMSs.
 -   Firefox 62.0.2
 
 ## Tested WSO2 Products
-
-The following is a list of other WSO2 products that is tested with WSO2 API Manager 3.2.0.
 
 - [WSO2 Enterprise Integrator 6.6.0](https://wso2.com/enterprise-integrator/6.6.0#)
 - [WSO2 Identity Server 5.10.0](https://wso2.com/identity-and-access-management/previous-releases/)
