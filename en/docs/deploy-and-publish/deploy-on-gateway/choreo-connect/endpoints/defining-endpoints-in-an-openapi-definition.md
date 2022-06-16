@@ -152,7 +152,76 @@ security:
 !!! info
 
         - If a resource level production endpoint is provided but no resource level sandbox endpoint is provided, Choreo Connect will use the API level sandbox endpoint as the resource level sandbox endpoint for that particular resource.
+
+        In the following example, `https://localhost:2380/v1` will be used as the production level endpoint and `https://localhost:2381/v2/sand` will be used as the sandbox level endpoint for the resource `/pet/findByStatus`.
+
+        ``` yaml tab="Example"
+        .
+        .
+        info:
+        .
+        .
+        x-wso2-basePath: 
+        x-wso2-production-endpoints:
+            urls: 
+            - https://localhost:2380/v2/prod
+        x-wso2-sandbox-endpoints:
+            urls:
+            - https://localhost:2381/v2/sand
+        paths:
+            /pet/findByStatus:
+                x-wso2-production-endpoints:
+                    urls:
+                    -  https://localhost:2380/v1
+                get:
+                    tags:
+                    - pets
+                    summary: Finds Pets by status
+                    description: Multiple status values can be provided with comma separated strings
+                    operationId: findPetsByStatus
+                    parameters:
+                    - name: status
+                    in: query
+                    description: Status values that need to be considered for filter
+                .
+                .
+        ```
+
         - If a resource level sandbox endpoint is provided but no resource level production endpoint is provided, Choreo Connect will use the API level production endpoint as the resource level production endpoint for that particular resource.
+
+        In the following example, `https://localhost:2380/v1` will be used as the sandbox level endpoint and `https://localhost:2381/v2/prod` will be used as the production level endpoint for the resource `/pet/findByStatus`.
+
+        ``` yaml tab="Example"
+        .
+        .
+        info:
+        .
+        .
+        x-wso2-basePath: 
+        x-wso2-production-endpoints:
+            urls: 
+            - https://localhost:2380/v2/prod
+        x-wso2-sandbox-endpoints:
+            urls:
+            - https://localhost:2381/v2/sand
+        paths:
+            /pet/findByStatus:
+                x-wso2-sandbox-endpoints:
+                    urls:
+                    -  https://localhost:2380/v1
+                get:
+                    tags:
+                    - pets
+                    summary: Finds Pets by status
+                    description: Multiple status values can be provided with comma separated strings
+                    operationId: findPetsByStatus
+                    parameters:
+                    - name: status
+                    in: query
+                    description: Status values that need to be considered for filter
+                .
+                .
+        ```
 
 
 ### Endpoint Objects
