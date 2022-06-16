@@ -347,11 +347,11 @@ You have to run the following migration client to update the API Manager artifac
 4.  Start the API-M server to migrate the api-m components as follows.
 
     ``` tab="Linux / Mac OS"
-    sh api-manager.sh -Dmigrate  -DmigrateFromVersion=3.2.0 -DmigratedVersion=4.1.0
+    sh api-manager.sh -Dmigrate -DmigrateFromVersion=3.2.0 -DmigratedVersion=4.1.0
     ```
     
     ``` tab="Windows"
-    api-manager.bat -Dmigrate  -DmigrateFromVersion=3.2.0 -DmigratedVersion=4.1.0
+    api-manager.bat -Dmigrate -DmigrateFromVersion=3.2.0 -DmigratedVersion=4.1.0
     ```
 
 5.  Shutdown the API-M server.
