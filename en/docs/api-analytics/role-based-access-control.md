@@ -4,7 +4,7 @@ Enterprises and companies who want to use Choreo Insights collaboratively can ut
 
 ## Inviting new users to access API Analytics
 
-1. Sign in to <a href="https://console.choreo.dev/login/" onclick="appInsights.trackEvent({name: 'apim-docs-api-analytics-role-based-access-control',properties: { utm_source: 'APIM_docs' }});">Choreo console</a> using your credentials. 
+1. Sign in to <a href="https://console.choreo.dev/login/">Choreo console</a> using your credentials. 
 
      If you are not a registered user, you will have to sign up beforehand.
 
