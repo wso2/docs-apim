@@ -131,7 +131,7 @@ Choreo Connect Router to endpoint connections are initiated only with HTTP/2 pri
 
 #### Both client and backend supports HTTP 2.0
 
-[![Choreo h2 h2 connection]({{base_path}}/assets/img/deploy/http2/choreo-h2-h2-connection.svg)]({{base_path}}/assets/img/deploy/http2/choreo-h2-h2-connection.svg)
+[![Choreo h2 h2 connection]({{base_path}}/assets/img/deploy/http2/choreo-h2-h2-connection.png)]({{base_path}}/assets/img/deploy/http2/choreo-h2-h2-connection.png)
 
 ```toml tab="config.toml"
 [router]
@@ -145,7 +145,7 @@ x-wso2-http2-backend-enabled: true
 
 #### The client supports HTTP 2.0 but the backend does not support HTTP 2.0
 
-[![Choreo h2 h1 connection]({{base_path}}/assets/img/deploy/http2/choreo-h2-h1-connection.svg)]({{base_path}}/assets/img/deploy/http2/choreo-h2-h1-connection.svg)
+[![Choreo h2 h1 connection]({{base_path}}/assets/img/deploy/http2/choreo-h2-h1-connection.png)]({{base_path}}/assets/img/deploy/http2/choreo-h2-h1-connection.png)
 
 ```toml tab="config.toml"
 [router]
@@ -160,7 +160,7 @@ x-wso2-http2-backend-enabled: true
 
 #### The client does not support HTTP/2 but the backend suppports HTTP 2.0
 
-[![Choreo h1 h2 connection]({{base_path}}/assets/img/deploy/http2/choreo-h1-h2-connection.svg)]({{base_path}}/assets/img/deploy/http2/choreo-h1-h2-connection.svg)
+[![Choreo h1 h2 connection]({{base_path}}/assets/img/deploy/http2/choreo-h1-h2-connection.png)]({{base_path}}/assets/img/deploy/http2/choreo-h1-h2-connection.png)
 
 ```toml tab="config.toml"
 [router]
