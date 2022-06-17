@@ -131,7 +131,7 @@ Follow the steps given below to configure WSO2 IS as a third-party Key Manager c
 
       [![Add new Key Manager]({{base_path}}/assets/img/administer/add-key-manager.png)]({{base_path}}/assets/img/administer/add-key-manager.png)
 
-5. Add the  Key Manager configurations.
+5. Add the Key Manager configurations.
 
      The following table provides definitions for each configuration.
 
