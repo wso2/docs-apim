@@ -128,7 +128,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     !!! note
         It is not recommended to use default H2 databases other than `WSO2_MB_STORE_DB` in production. Therefore migration of default H2 databases will not be supported since API-M 4.0.0.
-        It is recommended to use the default H2 database for the `WSO2_MB_STORE_DB` database in API-Manager. So do **not** migrate `WSO2_MB_STORE_DB` database from API-M 2.1.0 version to API-M 4.1.0 version, and use the **default H2** `WSO2_MB_STORE_DB` database available in API-M 4.1.0 version.
+        It is recommended to use the default H2 database for the `WSO2_MB_STORE_DB` database in API-Manager. So do **not** migrate `WSO2_MB_STORE_DB` database from API-M 2.6.0 version to API-M 4.1.0 version, and use the **default H2** `WSO2_MB_STORE_DB` database available in API-M 4.1.0 version.
 
 3.  Update <API-M_4.0.0_HOME>/repository/conf/deployment.toml file as follows, to point to the correct database for user management purposes.
 
