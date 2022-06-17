@@ -130,7 +130,7 @@ Follow the instructions below to move all the existing API Manager configuration
         It is not recommended to use default H2 databases other than `WSO2_MB_STORE_DB` in production. Therefore migration of default H2 databases will not be supported since API-M 4.0.0.
         It is recommended to use the default H2 database for the `WSO2_MB_STORE_DB` database in API-Manager. So do **not** migrate `WSO2_MB_STORE_DB` database from API-M 2.6.0 version to API-M 4.1.0 version, and use the **default H2** `WSO2_MB_STORE_DB` database available in API-M 4.1.0 version.
 
-3.  Update <API-M_4.0.0_HOME>/repository/conf/deployment.toml file as follows, to point to the correct database for user management purposes.
+3.  Update <API-M_4.1.0_HOME>/repository/conf/deployment.toml file as follows, to point to the correct database for user management purposes.
 
     ```
     [realm_manager]
@@ -1279,5 +1279,5 @@ This concludes the upgrade process.
     The migration client that you use in this guide automatically migrates your tenants, workflows, external user stores, synapse artifacts, execution plans, etc. to the upgraded environment. Therefore, there is no need to migrate them manually.
 
 !!! note
-    If you are using a migrated API and wants to consume it via an application which supports JWT authentication (default type in API-M 4.0.0), you need to republish the API. Without republishing the API, JWT authentication doesn't work as it looks for a local entry which will get populated while publishing.
+    If you are using a migrated API and wants to consume it via an application which supports JWT authentication (default type in API-M 4.1.0), you need to republish the API. Without republishing the API, JWT authentication doesn't work as it looks for a local entry which will get populated while publishing.
     You can consume the migrated API via an OAuth2 application without an issue.
