@@ -79,21 +79,26 @@ Follow the steps given below to configure WSO2 IS as a third-party Key Manager c
     ```
 
 3. Download the WSO2 IS Connector based on the WSO2 API-M version.
-     - [WSO2 IS Connector for the WSO2 API-M GA release]({{base_path}}/assets/attachments/administer/wso2is-km-connector-1.0.16_ga.zip).
-     - [WSO2 IS Connector for the WSO2 API-M WUM updated version (as at 5th January 2022 (2022-01-05))]({{base_path}}/assets/attachments/administer/wso2is-km-connector-wum.zip).
-     - [WSO2 IS Connector for the WSO2 API-M U2 updated version (from update level - 3.2.0.108.full)]({{base_path}}/assets/attachments/administer/wso2is-km-connector-u2.zip).
-   
-!!! tip "Recommendation"
-      If you are using U2 for getting updates, you can use wso2apim-is-plugin 3.2.0 to seamlessly install and get updates for IS connector components.
-      Please follow the steps given below to use wso2apim-is-plugin.
 
-      - Download wso2apim-is-plugin-3.2.0.zip from [here](https://wso2.com/api-management/previous-releases/) and unzip it. Let's refer to this as `<APIM_IS_PLUGIN_HOME>`
-      - Navigate into `<APIM_IS_PLUGIN_HOME>/bin` directory and execute your OS specific update binary file to get the U2 updates
-      - Execute the merge script by passing the `<IS_HOME>` as the first argument
+      - [WSO2 IS Connector for the WSO2 API-M GA release]({{base_path}}/assets/attachments/administer/wso2is-km-connector-1.0.16_ga.zip).
+      - [WSO2 IS Connector for the WSO2 API-M WUM updated version (as at 5th January 2022 (2022-01-05))]({{base_path}}/assets/attachments/administer/wso2is-km-connector-wum.zip).
+      - [WSO2 IS Connector for the WSO2 API-M U2 updated version (from update level - 3.2.0.108.full)]({{base_path}}/assets/attachments/administer/wso2is-km-connector-u2.zip).
 
-      ```sh
-         sh merge.sh /Users/wso2/product-is/wso2is-5.10.0
-      ```
+      <div class="admonition tip">
+      <p class="admonition-title">Recommendation</p>
+      <p>If you are using U2 for getting updates, you can use wso2apim-is-plugin 3.2.0 to seamlessly install and get updates for IS connector components.</br>
+      Follow the steps given below to use wso2apim-is-plugin.
+      <ol><li>Download wso2apim-is-plugin-3.2.0.zip from [here](https://wso2.com/api-management/previous-releases/) and unzip it. Let's refer to this as <code>&lt;APIM_IS_PLUGIN_HOME&gt;</code></li>
+      <li>Navigate into <code>&lt;APIM_IS_PLUGIN_HOME&gt;/bin</code> directory and execute your OS specific update binary file to get the U2 updates</li>
+      <li>Execute the merge script by passing the <code>&lt;IS_HOME&gt;</code> as the first argument.</br>
+          <code>
+          sh merge.sh /Users/wso2/product-is/wso2is-5.10.0
+          </code>
+      </li></ol>
+      
+      
+      </p>
+      </div>
 
 4. Extract the distribution and copy the following JAR files to the `<IS_HOME>/repository/components/dropins` directory.
 
@@ -112,30 +117,30 @@ Follow the steps given below to configure WSO2 IS as a third-party Key Manager c
 
 1. Start WSO2 API Manager.
 
-     `<APIM_HOME>` refers to the root folder of the extracted WSO2 APIM.
+      `<APIM_HOME>` refers to the root folder of the extracted WSO2 APIM.
 
 2. Sign in to the Admin Portal. 
  
-     `https://<hostname>:9443/admin`
+      `https://<hostname>:9443/admin`
 
-     `https://localhost:9443/admin`
+      `https://localhost:9443/admin`
 
-3. Click **Key Managers** and then click **Add Key Manager** to add the configuration related to a new Key Manager.
+3. Click **Key Managers**.
 
-     ![Add new Key Manager]({{base_path}}/assets/img/administer/add-key-manager.png)
+4. Click **Add Key Manager** to add the configuration related to a new Key Manager.
 
-4. Add the  Key Manager configurations.
-  
-     ![Add wso2is configurations]({{base_path}}/assets/img/administer/wso2is-km-configuration.png)
+      [![Add new Key Manager]({{base_path}}/assets/img/administer/add-key-manager.png)]({{base_path}}/assets/img/administer/add-key-manager.png)
+
+5. Add the  Key Manager configurations.
 
      The following table provides definitions for each configuration.
 
       <table>
       <thead>
       <tr class="header">
-      <th>Configuration</th>
-      <th>Description</th>
-      <th></th>
+      <th><b>Configuration</b></th>
+      <th><b>Description</b></th>
+      <th><b>Required or Not</b></th>
       </tr>
       </thead>
       <tbody>
@@ -167,60 +172,56 @@ Follow the steps given below to configure WSO2 IS as a third-party Key Manager c
       </tr>
       <tr class="even">
       <td>Issuer</td>
-      <td>The issuer that consumes or validates access tokens </br>e.g., https://localhost:9444/services</td>
+      <td>The issuer that consumes or validates access tokens </br>e.g., <code>https://localhost:9444/services</code></td>
       <td>Optional</td>
       </tr>
       <tr class="odd">
-      <td><b>Key Manager Endpoints</b></td>
-      <td></td>
-      <td></td>
+      <td colspan="3"><b>Key Manager Endpoints</b></td>
       </tr>
       <tr class="even">
       <td>Client Registration Endpoint </td>
       <td><p>The endpoint that verifies the identity and obtain profile information of the end-user based on the authentication performed by an authorization server.</br>
-        e.g., https://localhost:9444/keymanager-operations/dcr/register</p></td>
+        e.g., <code>https://localhost:9444/keymanager-operations/dcr/register</code></p></td>
       <td>Optional if the well-known URI is provided.</td>
       </tr>
       <tr class="odd">
       <td>Introspection Endpoint</td>
       <td><p>The endpoint that allows authorized protected resources to query the authorization server to determine the set of metadata for a given token that was presented to them by an OAuth Client.</br>
-        e.g., https://localhost:9444/oauth2/introspect</p></td>
+        e.g., <code>https://localhost:9444/oauth2/introspect</code></p></td>
       <td>Optional if the well-known URI is provided.</td>
       </tr>
       <tr class="even">
       <td>Token Endpoint</td>
       <td>The endpoint that issues the access tokens.</br>
-        e.g., https://localhost:9444/oauth2/token</td>
+        e.g., <code>https://localhost:9444/oauth2/token</code></td>
       <td>Optional</td>
       </tr>
       <tr class="odd">
       <td>Revoke Endpoint</td>
       <td>The endpoint that revokes the access tokens.</br>
-        e.g., https://localhost:9444/oauth2/revoke</td>
+        e.g., <code>https://localhost:9444/oauth2/revoke</code></code></td>
       <td>Optional</td>
       </tr>
       <tr class="even">
       <td>Userinfo Endpoint</td>
       <td><p>The endpoint that allows clients to verify the identity of the end-user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end-user.</br>
-      e.g., https://localhost:9444/oauth2/userinfo?schema=openid</p></td>
+      e.g., <code>https://localhost:9444/oauth2/userinfo?schema=openid</code></p></td>
       <td>Optional</td>
       </tr>
       <tr class="odd">
       <td>Authorize Endpoint</td>
       <td>The endpoint used to obtain an authorization grant from the resource owner via the user-agent redirection.</br>
-      e.g., https://localhost:9444/oauth2/authorize</td>
+      e.g., <code>https://localhost:9444/oauth2/authorize</code></td>
       <td>Optional</td>
       </tr>
       <tr class="even">
       <td>Scope Management Endpoint </td>
       <td>The endpoint used to manage the scopes.</br>
-      e.g., https://wso2is.com:9444/api/identity/oauth2/v1.0/scopes</td>
+      e.g., <code>https://wso2is.com:9444/api/identity/oauth2/v1.0/scopes</code></td>
       <td>Mandatory</td>
       </tr>
       <tr class="odd">
-      <td><b>Connector Configurations</b></td>
-      <td></td>
-      <td></td>
+      <td  colspan="3"><b>Connector Configurations</b></td>
       </tr>
       <tr class="even">
       <td>Username</td>
@@ -250,7 +251,7 @@ Follow the steps given below to configure WSO2 IS as a third-party Key Manager c
       <tr class="odd">
       <td>Grant Types</td>
       <td>The supported grant types. Add multiple grant types by adding a grant type press Enter.</br>
-       e.g., refresh_token, password, client_credentials, authorization_code</td>
+       e.g., <code>refresh_token</code>, <code>password</code>, <code>client_credentials</code>, <code>authorization_code</code></td>
       <td>Optional</td>
       </tr>
       <tr class="even">
@@ -267,13 +268,11 @@ Follow the steps given below to configure WSO2 IS as a third-party Key Manager c
       <td>JWKS</td>
       <td>The JSON Web Key Set (JWKS) endpoint is a read-only endpoint. This URL returns the Identity Server's public key set in JSON web key set format.
       This contains the signing key(s) the Relying Party (RP) uses to validate signatures from the Identity Server. </br>
-      e.g., https://localhost:9443/oauth2/jwks</td>
+      e.g., <code>https://localhost:9444/oauth2/jwks</code></td>
       <td>Optional</td>
       </tr>
       <tr class="odd">
-      <td><b>Advanced Configurations</b></td>
-      <td></td>
-      <td></td>
+      <td colspan="3"><b>Advanced Configurations</b></td>
       </tr>
       <tr class="even">
       <td>Token Generation</td>
@@ -335,4 +334,4 @@ Follow the steps given below to configure WSO2 IS as a third-party Key Manager c
       </tbody>
       </table>
 
-You can also configure the WSO2 Identity Server as the identity provider. For more information on how to do this, see [Configuring WSO2 Identity Server as an Identity Provider]({{base_path}}/reference/customize-product/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso/#configuring-wso2-identity-server-as-a-saml-20-sso-identity-provider).
+You can also configure the WSO2 Identity Server as the identity provider. For more information on how to do this, see [Configuring WSO2 Identity Server as an Identity Provider]({{base_path}}/develop/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso/#configuring-wso2-identity-server-as-a-saml-20-sso-identity-provider).
