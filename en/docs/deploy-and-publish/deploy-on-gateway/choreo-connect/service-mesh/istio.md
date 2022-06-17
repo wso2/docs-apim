@@ -20,3 +20,11 @@ Microservices can be deployed in the Istio service mesh and made available using
 
 
 Istio Sidecar sample can be found in [GitHub](https://github.com/wso2/product-microgateway/tree/main/samples/istio/sidecar-mode).
+
+### Service to Service Communication
+
+<img src="{{base_path}}/assets/img/deploy/istio-east-west-traffic.png" width="75%" alt="East-West traffic API management">
+
+Microservices can be deployed in the Istio service mesh and the communication between microservices can be configured to route through Choreo Connect as an Internal API Gateway. Choreo Connect is deployed in the Istio service mesh as a separate service where it applies API Management for the microservices. Requests arrive Choreo Connect validated before passing it the relevant microservice , as indicated in the diagram.
+
+Istio Service to Service Communication sample can be found in [GitHub](https://github.com/wso2/product-microgateway/tree/main/samples/istio/service-to-service).
