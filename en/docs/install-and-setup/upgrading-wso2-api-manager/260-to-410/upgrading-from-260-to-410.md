@@ -11,14 +11,6 @@ The following information describes how to upgrade your API Manager server **fro
 !!! Attention
     As the on-premise analytics data cannot be migrated to the Cloud, you need to maintain the old analytics server and keep the UI running for as long as you need that data (e.g., 3 months) after migrating to the new version of analytics in WSO2 API-M 4.1.0.
     
-!!! note "If you are using PostgreSQL"
-    The DB user needs to have superuser role to run the migration client and the relevant scripts
-    ```
-    ALTER USER <user> WITH SUPERUSER;
-    ```
-!!! note "If you are using Oracle"
-    Commit the changes after running the scripts given below
-    
 Follow the instructions below to upgrade your WSO2 API Manager server **from WSO2 API-M 2.6.0 to 4.1.0**.
 
 ### Preparing for Migration
@@ -503,6 +495,9 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Mana
         ```
         ALTER USER <user> WITH SUPERUSER;
         ```
+
+!!! note "If you are using Oracle"
+    Commit the changes after running the scripts given below
 
 !!! note "If you are using DB2"
     Move indexes to the TS32K Tablespace. The index tablespace in the `IDN_OAUTH2_ACCESS_TOKEN` and `IDN_OAUTH2_AUTHORIZATION_CODE` tables need to be moved to the existing TS32K tablespace in order to support newly added table indexes.
