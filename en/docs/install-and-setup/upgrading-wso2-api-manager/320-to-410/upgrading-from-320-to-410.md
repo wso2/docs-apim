@@ -229,43 +229,25 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Mana
     migrateVersion: "5.11.0"
     ```
 
-    !!! note
-        Make sure you have enabled migration by setting the `migrationEnable` element to `true` as shown above. You have to remove the following 3 steps from  migration-config.yaml which is included under version: "5.10.0"
-            ```
-                -
-                    name: "MigrationValidator"
-                    order: 2
-                -
-                    name: "SchemaMigrator"
-                    order: 5
-                    parameters:
-                    location: "step2"
-                    schema: "identity"            
-                -
-                    name: "TenantPortalMigrator"
-                    order: 11
-            ```
-        Remove the following 2 steps from  migration-config.yaml which is included under version: "5.11.0"
-            ```
-                -
-                    name: "EncryptionAdminFlowMigrator"
-                    order: 1
-                    parameters:
-                    currentEncryptionAlgorithm: "RSA/ECB/OAEPwithSHA1andMGF1Padding"
-                    migratedEncryptionAlgorithm: "AES/GCM/NoPadding"
-                    schema: "identity"
-                -
-                    name: "EncryptionUserFlowMigrator"
-                    order: 2
-                    parameters:
-                    currentEncryptionAlgorithm: "RSA/ECB/OAEPwithSHA1andMGF1Padding"
-                    migratedEncryptionAlgorithm: "AES/GCM/NoPadding"
-                    schema: "identity"
-            ```
+5. Remove the following 3 steps from  migration-config.yaml which is included under version: "5.10.0"
+ ```
+ -
+     name: "MigrationValidator"
+     order: 2
+ -
+     name: "SchemaMigrator"
+     order: 5
+     parameters:
+     location: "step2"
+     schema: "identity"
+ -
+     name: "TenantPortalMigrator"
+     order: 11   
+ ```
 
-5.  Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
+6.  Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
 
-6. Update <API-M_4.1.0_HOME>/repository/conf/deployment.toml file as follows, to point to the previous user store.
+7. Update <API-M_4.1.0_HOME>/repository/conf/deployment.toml file as follows, to point to the previous user store.
     
     !!! note
         This step is only required if the user store type in previous version is set to "database" instead of default "database_unique_id".
@@ -275,7 +257,7 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Mana
         type = "database"
     ```
 
-7.  Start WSO2 API Manager 4.1.0 as follows to carry out the complete Identity component migration.
+8.  Start WSO2 API Manager 4.1.0 as follows to carry out the complete Identity component migration.
         
     !!! note
         If you are migrating your user stores to the new user store managers with the unique ID capabilities, Follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/latest/setup/migrating-userstore-managers/) before moving to the next step
@@ -316,7 +298,7 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Mana
     2.  Re-run the command above.
         **Make sure to revert the change done in Step 1 , after the migration is complete.**
 
-8.  After you have successfully completed the migration, stop the server and remove the following files and folders.
+9.  After you have successfully completed the migration, stop the server and remove the following files and folders.
 
     -   Remove the `org.wso2.carbon.is.migration-x.x.x.jar` file, which is in the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
 
