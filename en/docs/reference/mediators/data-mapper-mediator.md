@@ -101,7 +101,7 @@ shown below.
     You can also create the input and output JSON Schemas manually using the Data Mapper Diagram Editor. For instructions, see [Creating a JSON Schema Manually]({{base_path}}/reference/mediators/data-mapper-json-schema-specification).
 
 ![]({{base_path}}/assets/img/integrate/mediators/119131284/119134796.png) 
-![]({{base_path}}/assets/img/integrate/mediators/119131284/119131291.png){: style="width:70%"}
+[![]({{base_path}}/assets/img/integrate/mediators/119131284/119131291.png){: style="width:70%"}]({{base_path}}/assets/img/integrate/mediators/119131284/119131291.png)
 
 You can load the following input/output message formats:
 
