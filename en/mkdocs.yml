@@ -260,6 +260,8 @@ nav:
                     - Choreo Connect Analytics: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/choreo-connect-analytics.md
                 - Deploy an API:
                     - REST API: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-in-choreo-connect.md
+                    - SOAP API:
+                        - SOAP to SOAP (Passthrough): deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/soap/deploy-soap-api-passthrough.md
                     - WebSocket API: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-websocket-api-in-choreo-connect.md
                     - Expose via Custom Hostnames: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-with-custom-hostnames.md
                     - Immutable Gateway:
@@ -2227,6 +2229,6 @@ extra:
         - type: linkedin
           link: https://www.linkedin.com/company/wso2
     site_version: 4.1.0
-    #base_path: http://localhost:8000
+    # base_path: http://localhost:8000
     base_path: https://apim.docs.wso2.com/en/4.1.0
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.20.0
