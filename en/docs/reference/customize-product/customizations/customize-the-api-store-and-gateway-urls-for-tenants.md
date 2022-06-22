@@ -3,7 +3,9 @@
 The default URL of WSO2 API Manager Developer Portal (`https://<HostName>:9443/devportal`) and the gateway URLs (`http://<HostName>:8280/t/<tenant-domain>` and `https://<HostName>:8243/t/<tenant-domain>`) can be customized per tenant. Following steps illustrate how to configure devportal and gateway custom URLs for a given tenant.
 
 -   [Configure per tenant custom domain mappings](#configure-per-tenant-custom-domain-mappings)
+
 -   [Configure per tenant service provider creation for devportal](#configure-per-tenant-service-provider-creation-for-devportal)
+
 -   [Configure the load balancer for custom URLs](#configure-the-load-balancer-for-custom-urls)
 
 ## Configure per tenant custom domain mappings
@@ -119,7 +121,7 @@ Carry out the following steps to configure NGINX as the load balancer to support
                 proxy_redirect https://{server-IP}:9443/devportal/ /;
                 proxy_set_header X-WSO2-Tenant "{tenant-domain}";
         }
-        location ~ (/api/am/store/v1|/oauth2|/authenticationendpoint|/logincontext|/commonauth) {
+        location ~ (/api/am/devportal/v2|/api/am/store/v1|/authenticationendpoint|/logincontext|/commonauth|/oidc) {
                 proxy_set_header X-Forwarded-Host $host;
                 proxy_set_header X-Forwarded-Server $host;
                 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -129,36 +131,57 @@ Carry out the following steps to configure NGINX as the load balancer to support
                 proxy_pass https://{server-IP}:9443;
                 proxy_set_header X-WSO2-Tenant "{tenant-domain}";
         }
+        location ~ (/oauth2) {
+               proxy_set_header X-Forwarded-Host $host;
+               proxy_set_header X-Forwarded-Server $host;
+               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+               proxy_set_header Host $http_host;
+               proxy_read_timeout 5m;
+               proxy_send_timeout 5m;
+               proxy_pass https://{server-IP}:9443;
+               proxy_redirect {devportal-URL-for-super-tenant}:9443/devportal/ {devportal-URL-for-specific-tenant}/;
+               proxy_set_header X-WSO2-Tenant "{tenant-domain}";
+        }
     }
     ```
 
     ```tab="Example"
     server{
-        listen 443;
-        ssl on;
-        server_name "developer.wso2.com";
-        ssl_certificate /usr/local/etc/nginx/ssl/nginx.crt;
-        ssl_certificate_key /usr/local/etc/nginx/ssl/nginx.key;
+        listen 443 ssl;
+        server_name developer.wso2.com;
+        ssl_certificate /usr/local/etc/nginx/ssl/test.crt;
+        ssl_certificate_key /usr/local/etc/nginx/ssl/test.key;
         location /{
-                proxy_set_header X-Forwarded-Host $host;
-                proxy_set_header X-Forwarded-Server $host;
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                proxy_set_header Host $http_host;
-                proxy_read_timeout 5m;
-                proxy_send_timeout 5m;
-                proxy_pass https://192.168.1.8:9443/devportal/;
-                proxy_redirect https://localhost:9443/devportal/ /;
-                proxy_set_header X-WSO2-Tenant "wso2.com";
+               proxy_set_header X-Forwarded-Host $host;
+               proxy_set_header X-Forwarded-Server $host;
+               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+               proxy_set_header Host $http_host;
+               proxy_read_timeout 5m;
+               proxy_send_timeout 5m;
+               proxy_pass https://192.168.1.8:9443/devportal/;
+               proxy_redirect https://192.168.1.8:9443/devportal/ /;
+               proxy_set_header X-WSO2-Tenant "wso2.com";
         }
-        location ~ (/api/am/store/v1|/oauth2|/authenticationendpoint|/logincontext|/commonauth|/oidc) {
-                proxy_set_header X-Forwarded-Host $host;
-                proxy_set_header X-Forwarded-Server $host;
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                proxy_set_header Host $http_host;
-                proxy_read_timeout 5m;
-                proxy_send_timeout 5m;
-                proxy_pass https://192.168.1.8:9443;
-                proxy_set_header X-WSO2-Tenant "wso2.com";
+        location ~ (/api/am/devportal/v2|/api/am/store/v1|/authenticationendpoint|/logincontext|/commonauth|/oidc) {
+               proxy_set_header X-Forwarded-Host $host;
+               proxy_set_header X-Forwarded-Server $host;
+               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+               proxy_set_header Host $http_host;
+               proxy_read_timeout 5m;
+               proxy_send_timeout 5m;
+               proxy_pass https://192.168.1.8:9443;
+               proxy_set_header X-WSO2-Tenant "wso2.com";
+        }       
+        location ~ (/oauth2) {
+               proxy_set_header X-Forwarded-Host $host;
+               proxy_set_header X-Forwarded-Server $host;
+               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+               proxy_set_header Host $http_host;
+               proxy_read_timeout 5m;
+               proxy_send_timeout 5m;
+               proxy_pass https://192.168.1.8:9443;
+               proxy_redirect https://192.168.1.8:9443/devportal/ https://developer.wso2.com/;
+               proxy_set_header X-WSO2-Tenant "wso2.com";
         }
     }
     ```
