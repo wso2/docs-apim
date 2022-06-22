@@ -1,16 +1,17 @@
 # Upgrading API Manager from 2.6.0 to 4.1.0
 
-The following information describes how to upgrade your API Manager server **from APIM 2.6.0 to 4.1.0**.
+The following information describes how to upgrade your API Manager server **from API-M 2.6.0 to 4.1.0**.
 
-!!! note
-    Before you follow this section, see [Upgrading Process]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-process) for more information.
+## Prerequisites
 
-!!! Attention
-    If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, first you have to follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.11.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-570-to-is-5110) instead of below steps.
+1. Review what has changed in this release. See [What Has Changed]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/320-to-410/what-has-changed).
 
-!!! Attention
-    As the on-premise analytics data cannot be migrated to the Cloud, you need to maintain the old analytics server and keep the UI running for as long as you need that data (e.g., 3 months) after migrating to the new version of analytics in WSO2 API-M 4.1.0.
-    
+2. Before you migrate, follow [Upgrading Guidelines]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-guidelines) to get an understanding on the migration process.
+
+3. Download [WSO2 API Manager 4.1.0](http://wso2.com/api-management/) and unzip it in the <API-M_4.1.0_HOME> directory.
+
+4. Update API-M 4.1.0 to the latest U2 update level.
+
 Follow the instructions below to upgrade your WSO2 API Manager server **from WSO2 API-M 2.6.0 to 4.1.0**.
 
  - [Step 1 - Migrate the API Manager configurations](#step-1-migrate-the-api-manager-configurations)
@@ -24,11 +25,6 @@ Follow the instructions below to upgrade your WSO2 API Manager server **from WSO
 
 !!! warning
     Do not copy entire configuration files from the current version of WSO2 API Manager to the new one, as the configuration modal has been changed and now all the configurations are being done via a single file (deployment.toml). Instead, redo the configuration changes in the new configuration file.
-
-!!! note
-    
-    - For more information on the configurations in the new configuration model, see the [Configuration Catalog]({{base_path}}/reference/config-catalog).
-    - For more information on the mapping between WSO2 API Manager's old configuration files and the new `deployment.toml` file, see [Understanding the New Configuration Model]({{base_path}}/reference/understanding-the-new-configuration-model).
 
 Follow the instructions below to move all the existing API Manager configurations from the current environment to the new one.
 
@@ -150,7 +146,8 @@ Follow the instructions below to move all the existing API Manager configuration
      gateway_labels = ["Production and Sandbox","Default"]
      ```
     or
-     ```toml
+   
+    ```toml
      [apim.sync_runtime_artifacts.gateway]
      gateway_labels = ["Production and Sandbox"]
     ```
@@ -471,7 +468,7 @@ Follow the instructions below to migrate existing API Manager resources from the
         ./ciphertool.bat -Dconfigure
         ```
 
-6. If you already have used secondary user stores in API-M 2.6.0, you have to copy the user store file created inside the old API-M version to the new APIM version.
+6. If you already have used secondary user stores in API-M 2.6.0, you have to copy the user store file created inside the old API-M version to the new API-M version.
 
     For secondary user stores created for the super tenant,
     
@@ -550,7 +547,7 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Mana
     EXTENTSIZE 4;
     ```
 
-1.  Make sure you backed up all the databases in APIM 2.6.0
+1.  Make sure you backed up all the databases in API-M 2.6.0
 
 2. Run the below script against the AM_DB.
    
@@ -1133,36 +1130,27 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Mana
 
 7. Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
 
-8. Update <API-M_4.1.0_HOME>/repository/conf/deployment.toml file as follows, to point to the previous user store.
+8. Update `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the previous user store.
 
     ```
     [user_store]
     type = "database"
     ```
-    
-9.  Start WSO2 API Manager 4.1.0 as follows to carry out the complete Identity component migration.
-    
-    !!! note
-        If you are migrating your user stores to the new user store managers with the unique ID capabilities, Follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/latest/setup/migrating-userstore-managers/) before moving to the next step
-                
-        ```tab="Linux / Mac OS"
-        sh api-manager.sh -Dmigrate -Dcomponent=identity
-        ```
-    
-        ```tab="Windows"
-        api-manager.bat -Dmigrate -Dcomponent=identity
-        ```
+
+9. If you are migrating your user stores to the new user store managers with the unique ID capabilities, Follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/latest/setup/migrating-userstore-managers/) before moving to the next step
+
+10. Start WSO2 API Manager 4.1.0 as follows to carry out the complete Identity component migration.
+
+    ```tab="Linux / Mac OS"
+    sh api-manager.sh -Dmigrate -Dcomponent=identity
+    ```
+
+    ```tab="Windows"
+    api-manager.bat -Dmigrate -Dcomponent=identity
+    ```
 
     !!! note
         Note that depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do not stop the server during the migration process and wait until the migration process finishes completely and the server gets started.
-    
-    !!! note
-        Note that if you want to use the latest user store, update the <API-M_4.1.0_HOME>/repository/conf/deployment.toml as follows after the identity migration,
-
-        ```
-        [user_store]
-        type = "database_unique_id"
-        ``` 
 
     !!! warning "Troubleshooting"
         When running the above step if you encounter the following error message, follow the steps in this section. Note that this error could occur only if the identity tables contain a huge volume of data.
@@ -1182,18 +1170,25 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Mana
 
         **Make sure to revert the change done in Step 1 , after the migration is complete.**
 
-10.  After you have successfully completed the migration, stop the server and remove the following files and folders.
+11.  After you have successfully completed the migration, stop the server and remove the following files and folders.
 
     -   Remove the `org.wso2.carbon.is.migration-x.x.x.jar` file, which is in the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
-
+    
     -   Remove the `migration-resources` directory, which is in the `<API-M_4.1.0_HOME>` directory.
-
+    
     -   If you ran WSO2 API-M as a Windows Service when doing the identity component migration , then you need to remove the following parameters in the command line arguments section (CMD_LINE_ARGS) of the api-manager.bat file.
-
+    
         ```
         -Dmigrate -Dcomponent=identity
         ```
-
+    
+    -   If you followed step 9 above, and want to use the latest user store, update the <API-M_4.1.0_HOME>/repository/conf/deployment.toml as follows after the identity migration,
+    
+        ```
+        [user_store]
+        type = "database_unique_id"
+        ```
+        
 ### Step 4: Migrate the API Manager Components
 
 You have to run the following migration client to update the API Manager artifacts.

@@ -26,7 +26,7 @@ If you consume APIs which are exposed from the API Publisher, Developer Portal, 
 
 - When Migrating a Kubernetes environment to a newer API Manager version it is recommended to do the data migration in a single container and then do the deployment.  - If you have done any customizations to the **default sequences** that ship with the product, you may merge the customizations. Also note that the fault messages have been changed from XML to JSON from API-M 4.0.0 onwards.  
 
-- Prior to WSO2 API Manager 4.0.0, the distributed deployment consisted of five main product profiles, namely Publisher, Developer Portal, Gateway, Key Manager, and Traffic Manager. However, the new architecture in APIM 4.0.0 only has three profiles, namely Gateway, Traffic Manager, and Control Plane.
+- Prior to WSO2 API Manager 4.0.0, the distributed deployment consisted of five main product profiles, namely Publisher, Developer Portal, Gateway, Key Manager, and Traffic Manager. However, the new architecture in API-M 4.0.0 only has three profiles, namely Gateway, Traffic Manager, and Control Plane.
 
 - All the data is persisted in databases **from WSO2 API-M 4.0.0 onwards**. Therefore, it is recommended to execute the migration client in the Control Plane profile.
         
@@ -94,7 +94,7 @@ APICTL Project structure has been changed and Sequences directory has been repla
 For more information see, [OPA policy support]({{base_path}}/design/api-security/opa-validation/overview/#attaching-opa-policy)
 
 #### GraphQL subscription 
-If the GraphQL subscription operations are available on your existing GraphQL APIs in 4.0.0,  APIM 4.1.0 is supported for subscription opertaion under websocket flow.
+If the GraphQL subscription operations are available on your existing GraphQL APIs in 4.0.0,  API-M 4.1.0 is supported for subscription opertaion under websocket flow.
 
 For more information see, [GraphQL subscription]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console/#invoke-a-graphql-subscription-operation)
 
