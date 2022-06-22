@@ -1251,13 +1251,6 @@ You have to run the following migration client to update the API Manager artifac
 
     -   Remove the `migration-resources` directory, which is in the `<API-M_4.1.0_HOME>` directory.
 
-6. In WSO2 Identity Server 5.11.0, groups include user store roles and roles include internal roles. To enable this role and group separation the following property should be enabled via the deployment.toml file.
-
-    ```
-    [authorization_manager.properties]
-    GroupAndRoleSeparationEnabled = true
-    ```
-
 ### Step 5: Re-Index the API Manager artifacts
 
 1. To re-index the API artifacts in the registry, Add the following configuration into the `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file.
@@ -1286,11 +1279,18 @@ You have to run the following migration client to update the API Manager artifac
     If you use a clustered/distributed API Manager setup, do the above change in deployment.toml of Publisher and Devportal nodes. Make sure to keep a delay between nodes to execute this step to re-index each node, as the database can experience a large load.
 
 !!! note
-    Note that it takes a considerable amount of time for the API Manager to re-index the artifacts, depending on the API and the number of tenants.
+    Note that it takes a considerable amount of time for the API Manager to re-index the artifacts, depending on the API count and the number of tenants.
 
 ### Step 6 - Restart the WSO2 API-M 4.1.0 server
 
-1.  Restart the WSO2 API-M server.
+1. In WSO2 Identity Server 5.11.0, groups include user store roles and roles include internal roles. To enable this role and group separation the following property should be enabled via the deployment.toml file.
+
+    ```
+    [authorization_manager.properties]
+    GroupAndRoleSeparationEnabled = true
+    ```
+
+2.  Restart the WSO2 API-M server.
 
     ```tab="Linux / Mac OS"
     sh api-manager.sh
@@ -1302,5 +1302,3 @@ You have to run the following migration client to update the API Manager artifac
 
 This concludes the upgrade process.
 
-!!! tip
-    The migration client that you use in this guide automatically migrates your tenants, workflows, external user stores, synapse artifacts, execution plans, etc. to the upgraded environment. Therefore, there is no need to migrate them manually.

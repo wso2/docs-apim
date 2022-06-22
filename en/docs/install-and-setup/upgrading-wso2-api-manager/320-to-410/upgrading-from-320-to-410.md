@@ -382,7 +382,16 @@ You have to run the following migration client to update the API Manager artifac
              
 2. If the `<API-M_4.1.0_HOME>/solr` directory exists, take a backup and thereafter delete it. 
 
-3. Restart the server.
+    !!! important
+        If you use a clustered/distributed API Manager setup, do the above change in deployment.toml of Publisher and Devportal nodes. Make sure to keep a delay between nodes to execute this step to re-index each node, as the database can experience a large load.
+
+    !!! note
+
+        Note that it takes a considerable amount of time for the API Manager to re-index the artifacts, depending on the API count and the number of tenants.
+
+### Step 6 - Restart the WSO2 API-M 4.1.0 server
+
+1. Restart the server.
 
     ```tab="Linux / Mac OS"
         sh api-manager.sh
@@ -391,12 +400,5 @@ You have to run the following migration client to update the API Manager artifac
     ```tab="Windows"
         api-manager.bat
     ```
-
-    !!! important 
-        If you use a clustered/distributed API Manager setup, do the above change in deployment.toml of Publisher and Devportal nodes. Make sure to keep a delay between nodes to execute this step to re-index each node, as the database can experience a large load.
-
-    !!! note
-
-        Note that it takes a considerable amount of time for the API Manager to re-index the artifacts, depending on the API and the number of tenants.
 
 This concludes the upgrade process.

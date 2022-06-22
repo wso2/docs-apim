@@ -632,11 +632,11 @@ You have to run the following migration client to update the API Manager artifac
         api-manager.bat
     ```
 
-   !!! important
-   If you use a clustered/distributed API Manager setup, do the above change in deployment.toml of Publisher and Devportal nodes. Make sure to keep a delay between nodes to execute this step to re-index each node, as the database can experience a large load.
+    !!! important
+        If you use a clustered/distributed API Manager setup, do the above change in deployment.toml of Publisher and Devportal nodes. Make sure to keep a delay between nodes to execute this step to re-index each node, as the database can experience a large load.
 
-   !!! note
-   Note that it takes a considerable amount of time for the API Manager to re-index the artifacts, depending on the API and the number of tenants.
+    !!! note
+        Note that it takes a considerable amount of time for the API Manager to re-index the artifacts, depending on the API count and the number of tenants.
 
 ### Step 6 - Restart the WSO2 API-M 4.1.0 server
 
@@ -651,6 +651,3 @@ You have to run the following migration client to update the API Manager artifac
     ```
 
 This concludes the upgrade process.
-
-!!! tip
-    The migration client that you use in this guide automatically migrates your tenants, workflows, external user stores, synapse configurations, execution plans and etc. to the upgraded environment. Therefore, there is no need to migrate them manually.
