@@ -33,11 +33,12 @@ Clone the repository and change to the cloned path.
 1. Start the Choreo-Connect Docker compose setup if you have not started it yet. For instructions, see [Deploying Choreo Connect as a Standalone Gateway on Docker]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-docker/#quick-start-guide-docker).
 
 2. Find the sample interceptor implementations in the directory [samples/interceptors](https://github.com/wso2/product-microgateway/tree/main/samples/interceptors#readme).
-   You can find implementations for following languages.
+   You can find implementations for following languages or tools.
       - Ballerina
       - Node.js
       - Java
       - Go
+      - WSO2 Micro Integrator
 
 3. Change to the directory `samples/interceptors/<PROGRAMMING_LANGUAGE>` and start the Docker compose setup with the legacy backend and interceptor service.
     ```shell
