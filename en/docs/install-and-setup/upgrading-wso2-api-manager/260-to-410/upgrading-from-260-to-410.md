@@ -143,7 +143,7 @@ Follow the instructions below to move all the existing API Manager configuration
     
      ```toml
      [apim.sync_runtime_artifacts.gateway]
-     gateway_labels = ["Production and Sandbox","Default"]
+     gateway_labels = ["Production and Sandbox", "Default"]
      ```
     or
    
@@ -1121,25 +1121,43 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Mana
         name: "SchemaMigrator"
         order: 5
         parameters:
-        location: "step2"
-        schema: "identity"
+            location: "step2"
+            schema: "identity"
     -
         name: "TenantPortalMigrator"
         order: 11   
     ```
 
-7. Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
+7. Remove the following 2 steps from  migration-config.yaml which is included under version: "5.11.0"
+    ```
+    -
+        name: "EncryptionAdminFlowMigrator"
+        order: 1
+        parameters:
+           currentEncryptionAlgorithm: "RSA/ECB/OAEPwithSHA1andMGF1Padding"
+           migratedEncryptionAlgorithm: "AES/GCM/NoPadding"
+           schema: "identity"
+    -
+        name: "EncryptionUserFlowMigrator"
+        order: 2
+        parameters:
+           currentEncryptionAlgorithm: "RSA/ECB/OAEPwithSHA1andMGF1Padding"
+           migratedEncryptionAlgorithm: "AES/GCM/NoPadding"
+           schema: "identity"
+    ```
+   
+8. Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
 
-8. Update `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the previous user store.
+9. Update `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the previous user store.
 
     ```
     [user_store]
     type = "database"
     ```
 
-9. If you are migrating your user stores to the new user store managers with the unique ID capabilities, Follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/latest/setup/migrating-userstore-managers/) before moving to the next step
+10. If you are migrating your user stores to the new user store managers with the unique ID capabilities, Follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/latest/setup/migrating-userstore-managers/) before moving to the next step
 
-10. Start WSO2 API Manager 4.1.0 as follows to carry out the complete Identity component migration.
+11. Start WSO2 API Manager 4.1.0 as follows to carry out the complete Identity component migration.
 
     ```tab="Linux / Mac OS"
     sh api-manager.sh -Dmigrate -Dcomponent=identity
@@ -1170,7 +1188,7 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Mana
 
         **Make sure to revert the change done in Step 1 , after the migration is complete.**
 
-11.  After you have successfully completed the migration, stop the server and remove the following files and folders.
+12.  After you have successfully completed the migration, stop the server and remove the following files and folders.
 
     -   Remove the `org.wso2.carbon.is.migration-x.x.x.jar` file, which is in the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
     
@@ -1205,7 +1223,19 @@ You have to run the following migration client to update the API Manager artifac
 
 3. Copy the org.wso2.carbon.am.migration-4.1.0.x.jar file in the `<AM_MIGRATION_CLIENT_HOME>/dropins` directory into the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
 
-4.  Start the API-M server to migrate the API-M components as follows.
+4. Prior to API-M migration run the below command to validate the API definitions.
+
+    ``` tab="Linux / Mac OS"
+    sh api-manager.sh -DmigrateFromVersion=4.0.0 -DrunPreMigration=apiDefinitionValidation
+    ```
+
+    ``` tab="Windows"
+    api-manager.bat -DmigrateFromVersion=4.0.0  -DrunPreMigration=apiDefinitionValidation
+    ```
+
+    Check the server logs and verify if there are any errors logs. If you have encountered any errors in the API definitions, you have to correct them manually on the old version before proceeding to step 5.
+
+5.  Start the API-M server to migrate the API-M components as follows.
 
     ``` tab="Linux / Mac OS"
     sh api-manager.sh -Dmigrate -DmigrateFromVersion=2.6.0 -DmigratedVersion=4.1.0
@@ -1221,9 +1251,12 @@ You have to run the following migration client to update the API Manager artifac
 
     -   Remove the `migration-resources` directory, which is in the `<API-M_4.1.0_HOME>` directory.
 
-    !!! note
+6. In WSO2 Identity Server 5.11.0, groups include user store roles and roles include internal roles. To enable this role and group separation the following property should be enabled via the deployment.toml file.
 
-        Make sure you have copied the tenants userstores if you have configured them in API-M 2.6.0
+    ```
+    [authorization_manager.properties]
+    GroupAndRoleSeparationEnabled = true
+    ```
 
 ### Step 5: Re-Index the API Manager artifacts
 
@@ -1271,7 +1304,3 @@ This concludes the upgrade process.
 
 !!! tip
     The migration client that you use in this guide automatically migrates your tenants, workflows, external user stores, synapse artifacts, execution plans, etc. to the upgraded environment. Therefore, there is no need to migrate them manually.
-
-!!! note
-    If you are using a migrated API and wants to consume it via an application which supports JWT authentication (default type in API-M 4.1.0), you need to republish the API. Without republishing the API, JWT authentication doesn't work as it looks for a local entry which will get populated while publishing.
-    You can consume the migrated API via an OAuth2 application without an issue.
