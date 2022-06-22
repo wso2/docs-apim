@@ -50,6 +50,7 @@ See the example .toml file given below.
   clusterTimeoutInSeconds = 20
   enforcerResponseTimeoutInSeconds = 20
   systemHost = "localhost"
+  enableMtlsApis = false
 </code></pre>
                     </div>
                 </div>
@@ -194,6 +195,25 @@ See the example .toml file given below.
                                     </div>
                                     <div class="param-description">
                                         <p>The timeout for response coming from enforcer to route per API request.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enableMtlsApis</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable mTLS APIs in Choreo Connect.</p>
                                     </div>
                                 </div>
                             </div>
@@ -1033,6 +1053,8 @@ allowCredentials = false
     </section>
 </div>
 
+
+
 ## Request Payload Passing To Enforcer
 
 
@@ -1040,16 +1062,16 @@ allowCredentials = false
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
-            <input name="8" type="checkbox" id="_tab_8">
-                <label class="tab-selector" for="_tab_8"><i class="icon fa fa-code"></i></label>
+            
+            <input name="10" type="checkbox" id="_tab_10">
+                <label class="tab-selector" for="_tab_10"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[router.payloadPassingToEnforcer]
   passRequestPayload = true
   maxRequestBytes = 10240
   allowPartialMessage = false
-  packAsBytes = false
+  packAsBytes = true
 </code></pre>
                     </div>
                 </div>
@@ -1076,7 +1098,9 @@ allowCredentials = false
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>
                                         </div>
-                                        
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
                                     </div>
                                     <div class="param-description">
                                         <p>Enable/Disable request payload passing to the Enforcer.</p>
@@ -1090,6 +1114,7 @@ allowCredentials = false
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>10240</code></span>
@@ -1108,6 +1133,7 @@ allowCredentials = false
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>
@@ -1115,7 +1141,7 @@ allowCredentials = false
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>If enabled, the request payload will be buffered until the <code>maxRequestBytes</code> is reached.</p>
+                                        <p>If enabled, the request payload will be buffered until the maxRequestBytes is reached.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1126,6 +1152,7 @@ allowCredentials = false
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>

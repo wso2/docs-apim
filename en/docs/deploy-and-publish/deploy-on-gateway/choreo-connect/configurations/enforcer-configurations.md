@@ -1306,7 +1306,8 @@ enabled = true</code></pre>
 <pre><code class="toml">[enforcer.security.mutualSSL]
   certificateHeader = "X-WSO2-CLIENT-CERTIFICATE"
   enableClientValidation = true
-  clientCertificateEncode = false</code></pre>
+  clientCertificateEncode = false
+  enableOutboundCertificateHeader = false</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -1327,7 +1328,7 @@ enabled = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>X-WSO2-CLIENT-CERTIFICATE</code></span>
@@ -1346,7 +1347,7 @@ enabled = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>true</code></span>
@@ -1365,7 +1366,7 @@ enabled = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>
@@ -1374,6 +1375,25 @@ enabled = true</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>Enable/Disable client certificate decode process in Choreo Connect when the certificate is passed in a header.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enableOutboundAuthHeader</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Remove client certificate header from backend request.</p>
                                     </div>
                                 </div>
                             </div>

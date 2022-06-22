@@ -2,3 +2,4 @@
   certificateHeader = "X-WSO2-CLIENT-CERTIFICATE"
   enableClientValidation = true
   clientCertificateEncode = false
+  enableOutboundCertificateHeader = false

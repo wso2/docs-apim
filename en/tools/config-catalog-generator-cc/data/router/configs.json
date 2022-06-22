@@ -56,6 +56,13 @@
               "required": false,
               "default": "20",
               "description": "The timeout for response coming from enforcer to route per API request."
+            },
+            {
+              "name": "enableMtlsApis",
+              "type": "boolean",
+              "required": false,
+              "default": "false",
+              "description": "Enable mTLS APIs in Choreo Connect."
             }
           ]
         }

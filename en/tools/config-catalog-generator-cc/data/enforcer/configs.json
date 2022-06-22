@@ -458,23 +458,30 @@
             {
               "name": "certificateHeader",
               "type": "string",
-              "required": false,
+              "required": true,
               "default": "X-WSO2-CLIENT-CERTIFICATE",
               "description": "Header name which client certificate coming from the downstream client"
             },
             {
               "name": "enableClientValidation",
               "type": "boolean",
-              "required": false,
+              "required": true,
               "default": "true",
               "description": "Select between directly sending client certificate and sending client certificate within a header"
             },
             {
               "name": "clientCertificateEncode",
               "type": "boolean",
-              "required": false,
+              "required": true,
               "default": "false",
               "description": "Enable/Disable client certificate decode process in Choreo Connect when the certificate is passed in a header."
+            },
+            {
+              "name": "enableOutboundAuthHeader",
+              "type": "boolean",
+              "required": true,
+              "default": "false",
+              "description": "Remove client certificate header from backend request."
             }
           ]
         }

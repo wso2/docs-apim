@@ -2,6 +2,16 @@
 
 Certificate-based authentication on the Choreo Connect is authenticating a request based on a digital certificate, before granting access to the backend. By way of certificate-based authentication, the Choreo Connect supports mutual SSL. In mutual SSL, both parties the client and the server identifies themselves in order to create a successful SSL connection. Mutual SSL allows a client to make a request without a username and password, provided that the server is aware of the client's certificate.
 
+### Prerequisites
+
+- Navigate to the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect(-with-apim)/conf/config.toml` file.
+- Configure the `enableMtlsApis` to `true` under the `[router]` configuration to enable the mTLS APIs in the Choreo Connect.
+
+     ```
+      [router]
+         enableMtlsApis = true
+     ```
+
 {!includes/design/create-mtls-api.md!}
 
 !!!Important
@@ -44,20 +54,21 @@ Listed below are the known limitations for this feature.
 
 {!includes/handling-mtls-ssl-termination.md!}
 
-### Using MTLS Header to invoke APIs secured with Mutual SSL
+### Using mTLS Header to invoke APIs secured with Mutual SSL
 
 By default, the Choreo Connect retrieves the client certificate from the **X-WSO2-CLIENT-CERTIFICATE** HTTP header.
 
-Follow the instructions below to change the header:
+Follow the instructions below to enable the mTLS Header and some properties:
 
 1.  Navigate to the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect(-with-apim)/conf/config.toml` file.
-2.  Configure the `certificateHeader` under the `[enforcer.security.mutualSSL]` configuration.
+2.  Configure the `enableClientValidation` to `false` under the `[enforcer.security.mutualSSL]` configuration to enable the mTLS Header.
 
     ``` tab="Format"
      [enforcer.security.mutualSSL]
-        certificateHeader = "<Header Name>"
-        enableClientValidation = false     # This should be false to check the header value for the client certificate
-        clientCertificateEncode = false    # This should be true if the client certificate in the header is encoded
+        certificateHeader = "<Header Name>"      # This will give a custom header name for the mTLS header
+        enableClientValidation = false           # This should be false to check the header value for the client certificate
+        clientCertificateEncode = false          # This should be true if the client certificate in the header is encoded
+        enableOutboundCertificateHeader = false  # This should be true if the client certificate is needed to be sent to the backend
     ```
 
     ``` tab="Example"
@@ -65,6 +76,7 @@ Follow the instructions below to change the header:
         certificateHeader = "SSL-CLIENT-CERT"
         enableClientValidation = false
         clientCertificateEncode = false
+        enableOutboundCertificateHeader = false
     ```
 
 3.  Start the Server.
