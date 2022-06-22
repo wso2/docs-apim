@@ -1,3 +1,7 @@
+{!includes/work-in-progress.md!}
+
+<div hidden>
+
 WSO2 API Manager Server 4.1.0 brings a range of new features and major improvements. The following aspects have changed in 4.1.0 compared to the previous WSO2 API-M versions.
 
 !!! Attention "If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager"
@@ -98,3 +102,4 @@ If the GraphQL subscription operations are available on your existing GraphQL AP
 
 For more information see, [GraphQL subscription]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console/#invoke-a-graphql-subscription-operation)
 
+</div>
