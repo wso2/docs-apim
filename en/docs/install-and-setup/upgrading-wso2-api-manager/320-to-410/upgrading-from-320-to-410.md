@@ -340,7 +340,19 @@ You have to run the following migration client to update the API Manager artifac
 
 3. Copy the org.wso2.carbon.am.migration-4.1.0.x.jar file in the `<AM_MIGRATION_CLIENT_HOME>/dropins` directory into the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
 
-4.  Start the API-M server to migrate the API-M components as follows.
+4. Prior to API-M migration run the below command to validate the API definitions.
+
+    ``` tab="Linux / Mac OS"
+    sh api-manager.sh -Dmigrate -DmigrateFromVersion=3.2.0 -DmigratedVersion=4.1.0 -DrunPreMigration=apiDefinitionValidation
+    ```
+
+    ``` tab="Windows"
+    api-manager.bat -Dmigrate -DmigrateFromVersion=3.2.0 -DmigratedVersion=4.1.0 -DrunPreMigration=apiDefinitionValidation
+    ```
+
+    Check the server logs and verify if there are any errors logs. If you have encountered any errors in the API definitions, you have to correct them manually on the old version before proceeding to step 5.
+
+5.  Start the API-M server to migrate the API-M components as follows.
 
     ``` tab="Linux / Mac OS"
     sh api-manager.sh -Dmigrate -DmigrateFromVersion=3.2.0 -DmigratedVersion=4.1.0
@@ -350,7 +362,7 @@ You have to run the following migration client to update the API Manager artifac
     api-manager.bat -Dmigrate -DmigrateFromVersion=3.2.0 -DmigratedVersion=4.1.0
     ```
 
-5.  Shutdown the API-M server.
+6.  Shutdown the API-M server.
     
     -   Remove the `org.wso2.carbon.apimgt.migrate.client-4.1.0.x.jar` file, which is in the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
 

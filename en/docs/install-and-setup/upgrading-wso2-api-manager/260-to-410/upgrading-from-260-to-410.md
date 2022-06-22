@@ -1226,11 +1226,11 @@ You have to run the following migration client to update the API Manager artifac
 4. Prior to API-M migration run the below command to validate the API definitions.
 
     ``` tab="Linux / Mac OS"
-    sh api-manager.sh -DmigrateFromVersion=4.0.0 -DrunPreMigration=apiDefinitionValidation
+    sh api-manager.sh -Dmigrate -DmigrateFromVersion=2.6.0 -DmigratedVersion=4.1.0 -DrunPreMigration=apiDefinitionValidation
     ```
 
     ``` tab="Windows"
-    api-manager.bat -DmigrateFromVersion=4.0.0  -DrunPreMigration=apiDefinitionValidation
+    api-manager.bat -Dmigrate -DmigrateFromVersion=2.6.0 -DmigratedVersion=4.1.0 -DrunPreMigration=apiDefinitionValidation
     ```
 
     Check the server logs and verify if there are any errors logs. If you have encountered any errors in the API definitions, you have to correct them manually on the old version before proceeding to step 5.
