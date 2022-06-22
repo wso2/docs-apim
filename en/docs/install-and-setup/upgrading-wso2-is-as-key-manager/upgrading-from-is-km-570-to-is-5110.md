@@ -1,6 +1,10 @@
+{!includes/work-in-progress.md!}
+
+<div hidden>
+
 # Upgrading WSO2 IS as Key Manager to 5.11.0
 
-The following information describes how to upgrade your **WSO2 API Manager (WSO2 API-M)** environment **from APIM 2.6.0 to 4.0.0** when **WSO2 Identity Server (WSO2 IS)** is the **Key Manager** in the pre-migrated setup.
+The following information describes how to upgrade your **WSO2 API Manager (WSO2 API-M)** environment **from APIM 2.6.0 to 4.1.0** when **WSO2 Identity Server (WSO2 IS)** is the **Key Manager** in the pre-migrated setup.
 
 !!! note
     -   You can follow the below information in either one of the following situations:
@@ -8,7 +12,7 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
         -   You are currently using a pre-packaged WSO2 Identity Server as Key Manager 5.7.0 distribution.
 
 -   [Step 1 - Upgrade IS as Key Manager 5.7.0 to IS 5.11.0](#step-1-upgrade-is-as-key-manager-570-to-is-5110)
--   [Step 2 - Upgrade API Manager 2.6.0 to 4.0.0](#step-2-upgrade-api-manager-260-to-400)
+-   [Step 2 - Upgrade API Manager 2.6.0 to 4.1.0](#step-2-upgrade-api-manager-260-to-410)
 
 ## Step 1 - Upgrade IS as Key Manager 5.7.0 to IS 5.11.0
 
@@ -92,7 +96,7 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
 
 ### Step B - Migrate IS from 5.7.0 to 5.11.0
 
-1. Follow Step 2 and 3 under [Step 2 - Upgrade API Manager to 4.0.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-400/#step-2-upgrade-api-manager-to-400) to backup and upgrade the WSO2 API-M `WSO2AM_DB` from 2.6.0 to 4.0.0. This will be used as the `identity_db` in IS 5.11.0.
+1. Follow Step 2 and 3 under [Step 2 - Upgrade API Manager to 4.1.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-410/#step-2-upgrade-api-manager-to-410) to backup and upgrade the WSO2 API-M `WSO2AM_DB` from 2.6.0 to 4.1.0. This will be used as the `identity_db` in IS 5.11.0.
 
 2. Follow the guidelines in [WSO2 IS 5.11.0 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/) to migrate your current IS as KM 5.7.0 distribution to IS 5.11.0.
 
@@ -184,14 +188,14 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
         ```
 
               
-## Step 2 - Upgrade API Manager 2.6.0 to 4.0.0
+## Step 2 - Upgrade API Manager 2.6.0 to 4.1.0
 
-Follow the steps mentioned in [Upgrading API-M from 2.6.0 to 4.0.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-400/) to upgrade your API-M environment from 2.6.0 to 4.0.0.
+Follow the steps mentioned in [Upgrading API-M from 2.6.0 to 4.1.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-410/) to upgrade your API-M environment from 2.6.0 to 4.1.0.
 
 !!! important
 
-    -   When following guidelines under [Step 1 - Migrate the API Manager configurations]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-400/#step-1-migrate-the-api-manager-configurations), make sure to add
-    the following to the `<API-M_HOME>/repository/conf/deployment.toml`. This is to configure your IS 5.11.0 as the **Resident Key Manager** of your API-M 4.0.0 deployment.
+    -   When following guidelines under [Step 1 - Migrate the API Manager configurations]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-410/#step-1-migrate-the-api-manager-configurations), make sure to add
+    the following to the `<API-M_HOME>/repository/conf/deployment.toml`. This is to configure your IS 5.11.0 as the **Resident Key Manager** of your API-M 4.1.0 deployment.
         ```
         [apim.key_manager]
         service_url = "https://<IS_5.11.0_HOST_NAME>:<PORT>/services/"
@@ -200,13 +204,13 @@ Follow the steps mentioned in [Upgrading API-M from 2.6.0 to 4.0.0]({{base_path}
 
         -  Do NOT copy anyother Key Manager specific configurations coming from previous API-M version to the latest pointing to the IS instance.
 
-    -   When following guidelines under [Step 2 - Upgrade API Manager to 4.0.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-400/#step-2-upgrade-api-manager-to-400), make sure you **SKIP** the following
+    -   When following guidelines under [Step 2 - Upgrade API Manager to 4.1.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-410/#step-2-upgrade-api-manager-to-410), make sure you **SKIP** the following
     steps.
 
-        -   **Step 3** to upgrade the `WSO2AM_DB` from 2.6.0 to 4.0.0. You have already done this in Step 1 of [Step A - Setup IS 5.11.0 as a Key Manager]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-570-to-is-5110/#step-a-setup-is-5110-as-a-key-manager).
+        -   **Step 3** to upgrade the `WSO2AM_DB` from 2.6.0 to 4.1.0. You have already done this in Step 1 of [Step A - Setup IS 5.11.0 as a Key Manager]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-570-to-is-5110/#step-a-setup-is-5110-as-a-key-manager).
         -   **Step 5** to upgrade identity component in API-M from 5.7.0 to 5.11.0. You have already done this in Step 2 of [Step A - Setup IS 5.11.0 as a Key Manager]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-570-to-is-5110/#step-a-setup-is-5110-as-a-key-manager).
 
-    - After configuring WSO2 IS as the **Resident Key Manager** and before starting the API-M 4.0.0 server for the first time in **Step 6** under [Step 2 - Upgrade API Manager to 4.0.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-400/#step-2-upgrade-api-manager-to-400), make sure you have already started WSO2 IS 5.11.0.
+    - After configuring WSO2 IS as the **Resident Key Manager** and before starting the API-M 4.1.0 server for the first time in **Step 6** under [Step 2 - Upgrade API Manager to 4.1.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-410/#step-2-upgrade-api-manager-to-410), make sure you have already started WSO2 IS 5.11.0.
 
 !!! info
 
@@ -215,3 +219,4 @@ Follow the steps mentioned in [Upgrading API-M from 2.6.0 to 4.0.0]({{base_path}
     [user_store]
     type = "database_unique_id"
     ```
+</div>
