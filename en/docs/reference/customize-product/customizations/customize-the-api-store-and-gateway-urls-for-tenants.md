@@ -180,13 +180,11 @@ Carry out the following steps to configure NGINX as the load balancer to support
                proxy_read_timeout 5m;
                proxy_send_timeout 5m;
                proxy_pass https://192.168.1.8:9443;
-               proxy_redirect https://192.168.1.8:9443/devportal/ https://developer.wso2.com/;
+               proxy_redirect https://192.168.1.8:9443/ https://developer.wso2.com/;
                proxy_set_header X-WSO2-Tenant "wso2.com";
         }
     }
     ```
-
-
 
 4.  Add following Nginx server configurations to handle customized **Gateway URL** configured for the tenant.
 
