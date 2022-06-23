@@ -176,7 +176,7 @@ Follow the instructions below to migrate existing API Manager resources from the
 3.  If you manually added any JAR files to the `<API-M_3.2.0_HOME>/repository/components/lib` directory, copy those and paste them in the `<API-M_4.1.0_HOME>/repository/components/lib` directory.
 
 4.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_4.1.0_HOME>/repository/resources/security` directory to persist 
-the information about the added private keys, certificates and the list of trusted CA that have been used in API-M_3.2.0.
+the information about the added private keys, certificates and the list of trusted CA that have been used in API-M_3.2.0. If you wish to add WSO2 IS 5.11.0 as the Resident Key Manager in API-M 4.1.0 new deployment, you have to copy the same keystores in to `<IS_5.11.0_HOME>/repository/resources/security` directory.
 
     !!! note "If you have enabled Secure Vault"
 

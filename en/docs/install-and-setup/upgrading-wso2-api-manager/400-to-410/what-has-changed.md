@@ -2,9 +2,6 @@ WSO2 API Manager Server 4.1.0 brings a range of new features and major improveme
 
 This page provides details about the behavioral changes from WSO2 API Manager Server 4.0.0 to 4.1.0
 
-!!! Attention "If you are using Analytics"
-    As the on-premise analytics data cannot be migrated to the Cloud, you need to maintain the old analytics server and keep the UI running for as long as you need that data (e.g., 3 months) after migrating to the new version of analytics in WSO2 API-M 4.1.0.
-
 ### REST API versions 
 If you consume APIs which are exposed from the API Publisher, Developer Portal, Admin Portal and Gateway directly through the UIs or an external REST client like cURL, please note the latest version of them as below.  
 
@@ -15,7 +12,7 @@ If you consume APIs which are exposed from the API Publisher, Developer Portal, 
 
 ### Mediation policies migration
 
-With 4.1.0 release, WSO2 API manager has realigned it’s previous API level mediation policies feature to a more sophisticated policy feature which provides support for not only mediation policies, but a vast number of different use cases. Instead of API level policy allocation, the new feature supports policies at the operation level for regular gateway (synapse based) and at resource level for the choreo connect gateway. With this support, previous mediation policy support via Admin REST APIs is no longer available, instead  publisher REST API `operation-policies` support the same functionality. Publisher UI mediation policies which were displayed under runtime configuration has been removed and it is moved to a separate tab called `policies`. Therefore, you will be able to see the mediation policies in previous apim versions under policies UI.
+With 4.1.0 release, WSO2 API manager has realigned its previous API level mediation policies feature to a more sophisticated policy feature which provides support for not only mediation policies, but a vast number of different use cases. Instead of API level policy allocation, the new feature supports policies at the operation level for regular gateway (synapse based) and at resource level for the Choreo Connect gateway. With this support, previous mediation policy support via Admin REST APIs is no longer available, instead  publisher REST API `operation-policies` support the same functionality. Publisher UI mediation policies which were displayed under runtime configuration has been removed and it is moved to a separate tab called `policies`. Therefore, you will be able to see the mediation policies in previous apim versions under policies UI.
 
 Major functionalities of the new policies feature are listed below.
 
