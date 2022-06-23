@@ -126,7 +126,7 @@ Follow the instructions below to move all the existing API Manager configuration
         It is not recommended to use default H2 databases other than `WSO2_MB_STORE_DB` in production. Therefore migration of default H2 databases will not be supported since API-M 4.0.0.
         It is recommended to use the default H2 database for the `WSO2_MB_STORE_DB` database in API-Manager. So do **not** migrate `WSO2_MB_STORE_DB` database from API-M 2.6.0 version to API-M 4.1.0 version, and use the **default H2** `WSO2_MB_STORE_DB` database available in API-M 4.1.0 version.
 
-3.  Update <API-M_4.1.0_HOME>/repository/conf/deployment.toml file as follows, to point to the correct database for user management purposes.
+3.  Update `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the correct database for user management purposes.
 
     ```
     [realm_manager]
@@ -1200,7 +1200,7 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Mana
         -Dmigrate -Dcomponent=identity
         ```
     
-    -   If you followed step 9 above, and want to use the latest user store, update the <API-M_4.1.0_HOME>/repository/conf/deployment.toml as follows after the identity migration,
+    -   If you followed step 9 above, and want to use the latest user store, update the `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` as follows after the identity migration,
     
         ```
         [user_store]
@@ -1276,14 +1276,14 @@ You have to run the following migration client to update the API Manager artifac
     ```
 
 !!! important
-    If you use a clustered/distributed API Manager setup, do the above change in deployment.toml of Publisher and Devportal nodes. Make sure to keep a delay between nodes to execute this step to re-index each node, as the database can experience a large load.
+    If you use a clustered/distributed API Manager setup, do the above change in `deployment.toml` of Publisher and Devportal nodes. Make sure to keep a delay between nodes to execute this step to re-index each node, as the database can experience a large load.
 
 !!! note
     Note that it takes a considerable amount of time for the API Manager to re-index the artifacts, depending on the API count and the number of tenants.
 
 ### Step 6 - Restart the WSO2 API-M 4.1.0 server
 
-1. In WSO2 Identity Server 5.11.0, groups include user store roles and roles include internal roles. To enable this role and group separation the following property should be enabled via the deployment.toml file.
+1. In WSO2 Identity Server 5.11.0, groups include user store roles and roles include internal roles. To enable this role and group separation the following property should be enabled via the `deployment.toml` file.
 
     ```
     [authorization_manager.properties]

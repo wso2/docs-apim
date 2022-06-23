@@ -1,7 +1,3 @@
-{!includes/work-in-progress.md!}
-
-<div hidden>
-
 # Upgrading WSO2 IS as Key Manager to 5.11.0
 
 The following information describes how to upgrade your **WSO2 API Manager (WSO2 API-M)** environment **from APIM 3.0.0 to 4.1.0** when **WSO2 Identity Server (WSO2 IS)** is the **Key Manager** in the pre-migrated setup.
@@ -23,6 +19,7 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
 
 1. Download and install WSO2 IS 5.11.0 distribution from [here](https://wso2.com/identity-and-access-management/).
    If you have downloaded the archive, extract it. `<IS_HOME>` refers to the root folder of the extracted WSO2 IS.
+   
 2. Add following configurations in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
     ??? info "deployment.toml"
@@ -96,9 +93,9 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
 
 ### Step B - Migrate IS from 5.9.0 to 5.11.0
 
-1. Follow Step 2 and 3 under [Step 2 - Upgrade API Manager to 4.1.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-410/#step-2-upgrade-api-manager-to-410) to backup and upgrade the WSO2 API-M `WSO2AM_DB` from 3.0.0 to 4.1.0. This will be used as the `identity_db` in IS 5.11.0.
+1.  Make sure you backed up all the databases in API-M 3.2.0
 
-2. Follow the guidelines in [WSO2 IS 5.11.0 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/) to migrate your current IS as KM 5.9.0 distribution to IS 5.11.0.
+2. Follow the steps 1 to 8 in [WSO2 IS 5.11.0 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/) to prepare your current IS as KM 5.10.0 for migration to IS 5.11.0.
 
     !!! Important
         When following the instructions in [Migration the configurations](https://is.docs.wso2.com/en/5.11.0/setup/migrating-preparing-for-migration/#migrating-the-configurations) section of IS 5.11.0 migration guide, make sure to
@@ -152,31 +149,81 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
 
     !!! Important
         Follow [Step 10 Part (d) of IS 5.11 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/) only if you have **enabled Symmetric Key Encryption** in the previous IS as KM setup. If not, that step can be skipped.
-
-    !!! Important
-        Before executing the IS migration client according to [Step 11 of IS 5.11 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/), keep in mind to remove the following entries from `migration-config.yaml` in the migration-resources directory.
-        ```        
-        - version: "5.10.0"
-            migratorConfigs:
-            -
-                name: "MigrationValidator"
-                order: 2
-            -
-                name: "SchemaMigrator"
-                order: 5
-                parameters:
-                location: "step2"
-                schema: "identity"
-            -
-                name: "TenantPortalMigrator"
-                order: 11
-        ```
-
+   
     !!! warning
     
         Depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do **NOT** stop the server during the migration process and please wait until the migration process finish completely and server get started.
 
-3. After you have successfully completed the migration, stop the server and remove the following files and folders.
+3.  Download the identity component migration resources and unzip it in a local directory.
+
+    Navigate to the [latest release tag](https://github.com/wso2-extensions/apim-identity-migration-resources/releases) and download the `wso2is-migration-x.x.x.zip` under **Assets**.
+
+    Let's refer to this directory that you downloaded and extracted as `<IS_MIGRATION_TOOL_HOME>`.
+
+4.  Copy the `migration-resources` folder from the extracted folder to the `<IS_HOME>` directory.
+
+5.  Open the `migration-config.yaml` file in the migration-resources directory and make sure that the `currentVersion` element is set to 5.10.0, as shown below.
+
+    ``` java
+    migrationEnable: "true"
+    currentVersion: "5.9.0"
+    migrateVersion: "5.11.0"
+    ```
+6. Remove the following 2 steps from  migration-config.yaml which is included under version: "5.10.0"
+
+    ```
+    - version: "5.10.0"
+        migratorConfigs:
+        -
+            name: "MigrationValidator"
+            order: 2
+        -
+            name: "SchemaMigrator"
+            order: 5
+            parameters:
+            location: "step2"
+            schema: "identity"
+        -
+            name: "TenantPortalMigrator"
+            order: 11
+    ```
+
+7. Remove the following 2 steps from  migration-config.yaml which is included under version: "5.11.0"
+
+    ```
+    -
+        name: "EncryptionAdminFlowMigrator"
+        order: 1
+        parameters:
+           currentEncryptionAlgorithm: "RSA/ECB/OAEPwithSHA1andMGF1Padding"
+           migratedEncryptionAlgorithm: "AES/GCM/NoPadding"
+           schema: "identity"
+    -
+        name: "EncryptionUserFlowMigrator"
+        order: 2
+        parameters:
+           currentEncryptionAlgorithm: "RSA/ECB/OAEPwithSHA1andMGF1Padding"
+           migratedEncryptionAlgorithm: "AES/GCM/NoPadding"
+           schema: "identity"
+    ```
+
+8.  Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<IS_HOME>/repository/components/dropins` directory.
+
+9.  Start WSO2 API Manager 4.1.0 as follows to carry out the complete Identity component migration.
+
+    ```tab="Linux / Mac OS"
+    sh api-manager.sh -Dmigrate -Dcomponent=identity
+    ```
+
+    ```tab="Windows"
+    api-manager.bat -Dmigrate -Dcomponent=identity
+    ```
+
+    !!! warning
+
+        Depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do **NOT** stop the server during the migration process and please wait until the migration process finish completely and server get started.
+
+10. After you have successfully completed the migration, stop the server and remove the following files and folders.
 
     -   Remove the `org.wso2.carbon.is.migration-x.x.x.jar` file, which is in the `<IS_HOME>/repository/components/dropins` directory.
 
@@ -218,6 +265,5 @@ Follow the steps mentioned in [Upgrading API-M from 3.0.0 to 4.1.0]({{base_path}
     ```
     [user_store]
     type = "database_unique_id"
-    ```
-</div>    
+    ``` 
 
