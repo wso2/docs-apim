@@ -429,7 +429,7 @@ Follow the instructions below to migrate existing API Manager resources from the
     !!! note
         Log4j2 has hot deployment support, and **Managing Logs** section has been removed from the Management Console. You can now use the log4j2.properties file to modify logging configurations without restarting the server.
 
-5.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_4.1.0_HOME>/repository/resources/security` directory.
+5.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_4.1.0_HOME>/repository/resources/security` directory. If you wish to add WSO2 IS 5.11.0 as the Resident Key Manager in API-M 4.1.0 new deployment, you have to copy the same keystores in to `<IS_5.11.0_HOME>/repository/resources/security` directory.
 
     !!! Attention
         In API Manager 4.1.0, it is required to use a certificate with the RSA key size greater than 2048. If you have used a certificate that has a weak RSA key (key size less than 2048) in previous version, you need to add the following configuration to `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file to configure internal and primary keystores. You should point the internal keystore to the keystore copied from API Manager 2.6.0 and the primary keystore can be pointed to a keystore with a certificate, which has a strong RSA key.
@@ -1260,20 +1260,10 @@ You have to run the following migration client to update the API Manager artifac
     re_indexing = 1
     ```
 
-   Note that you need to increase the value of `re_indexing` by one each time you need to re-index.
+    Note that you need to increase the value of `re_indexing` by one each time you need to re-index.
 
 
 2. If the `<API-M_4.1.0_HOME>/solr` directory exists, take a backup and thereafter delete it.
-
-3. Restart the server.
-
-    ```tab="Linux / Mac OS"
-        sh api-manager.sh
-    ```
-
-    ```tab="Windows"
-        api-manager.bat
-    ```
 
 !!! important
     If you use a clustered/distributed API Manager setup, do the above change in `deployment.toml` of Publisher and Devportal nodes. Make sure to keep a delay between nodes to execute this step to re-index each node, as the database can experience a large load.
