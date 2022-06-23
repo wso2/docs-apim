@@ -216,11 +216,11 @@ You have to follow the below instructions to upgrade the API Manager components.
 4.  Start the API Manager server to migrate the API Manager components as follows.
 
     ``` tab="Linux / Mac OS"
-    sh api-manager.sh -DmigrateFromVersion=4.0.0
+    sh api-manager.sh -Dmigrate -DmigrateFromVersion=4.0.0 -DmigratedVersion=4.1.0
     ```
     
     ``` tab="Windows"
-    api-manager.bat -DmigrateFromVersion=4.0.0
+    api-manager.bat -Dmigrate -DmigrateFromVersion=4.0.0 -DmigratedVersion=4.1.0
     ```
 
 5.  Shut down the API Manager server.
