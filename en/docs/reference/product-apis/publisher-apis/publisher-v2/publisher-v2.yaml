@@ -1085,7 +1085,7 @@ paths:
       x-code-samples:
         - lang: Curl
           source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -F file=image.jpeg "https://127.0.0.1:9443/api/am/publisher/v3/apis/2fd14eb8-b828-4013-b448-0739d2e76bf7/thumbnail"'
+          -F file=@image.jpeg "https://127.0.0.1:9443/api/am/publisher/v3/apis/2fd14eb8-b828-4013-b448-0739d2e76bf7/thumbnail"'
 
   /apis/{apiId}/subscription-policies:
     get:
@@ -1525,7 +1525,7 @@ paths:
         - API Revisions
       summary: Retrieve Revision
       description: |
-        Retrieve a revision of an API
+        Retrieve a revision of an API (This resource is not supported in the current release)
       operationId: getAPIRevision
       parameters:
         - $ref: '#/components/parameters/apiId'
@@ -1768,7 +1768,7 @@ paths:
             - apim:api_import_export
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json
                 "https://127.0.0.1:9443/api/am/publisher/v3/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/undeploy-revision?revisionId=e0824883-3e86-403a-aec1-22bbc454eb7c"'
 
   /apis/{apiId}/restore-revision:
@@ -1895,7 +1895,8 @@ paths:
             - apim:comment_manage
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/publisher/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments"
+          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+            "https://localhost:9443/api/am/publisher/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments"'
 
     post:
       tags:
@@ -2021,7 +2022,8 @@ paths:
             - apim:comment_manage
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/publisher/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4"
+          source: 'curl -k -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+            "https://localhost:9443/api/am/publisher/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4"'
 
     patch:
       tags:
@@ -2188,7 +2190,8 @@ paths:
             - apim:comment_manage
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/publisher/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4/replies"
+          source: 'curl -k -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+            "https://localhost:9443/api/am/publisher/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4/replies"'
 
   /apis/import-openapi:
     post:
@@ -2909,7 +2912,7 @@ paths:
       x-code-samples:
         - lang: Curl
           source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/publisher/v3/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/monetize"'
+          "https://127.0.0.1:9443/api/am/publisher/v3/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/monetization"'
       operationId: getAPIMonetization
 
   /apis/{apiId}/revenue:
@@ -3540,13 +3543,13 @@ paths:
           headers:
             ETag:
               description: |
-                Entity Tag of the response resource. Used by caches, or in conditional requests (Will be supported in future).
+                Entity Tag of the response resource. Used by caches, or in conditional requests (This is not supported by WSO2 API Manager as of yet).
               schema:
                 type: string
             Last-Modified:
               description: |
                 Date and time the resource has been modifed the last time.
-                Used by caches, or in conditional requests (Will be supported in future).
+                Used by caches, or in conditional requests (This is not supported by WSO2 API Manager as of yet).
               schema:
                 type: string
             Location:
@@ -3574,16 +3577,16 @@ paths:
             - apim:api_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
           -F file=@api.wsdl "https://127.0.0.1:9443/api/am/publisher/v3/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/wsdl"'
 
   /apis/{apiId}/graphql-policies/complexity:
     get:
       tags:
         - GraphQL Policies
-      summary: Get the Complexity Related Details of an API
+      summary: Get the Complexity-Related Details of an API
       description: |
-        This operation can be used to retrieve complexity related details belonging to an API by providing the API id.
+        This operation can be used to retrieve complexity-related details belonging to an API by providing the API ID.
       parameters:
         - $ref: '#/components/parameters/apiId'
       responses:
@@ -3620,9 +3623,9 @@ paths:
     put:
       tags:
         - GraphQL Policies
-      summary: Update Complexity Related Details of an API
+      summary: Update Complexity-Related Details of an API
       description: |
-        This operation can be used to update complexity details belonging to an API by providing the id of the API.
+        This operation can be used to update complexity-related details belonging to an API by providing the API ID.
       parameters:
         - $ref: '#/components/parameters/apiId'
       requestBody:
@@ -3655,7 +3658,7 @@ paths:
         - GraphQL Policies
       summary: Retrieve Types and Fields of a GraphQL Schema
       description: |
-        This operation can be used to retrieve all types and fields of the GraphQL Schema by providing the API id.
+        This operation can be used to retrieve all types and fields of the GraphQL Schema by providing the API ID.
       parameters:
         - $ref: '#/components/parameters/apiId'
       responses:
@@ -3694,7 +3697,7 @@ paths:
         - APIs
       summary: Get Resource Paths of an API
       description: |
-        This operation can be used to retrieve resource paths defined for a specific api.
+        This operation can be used to retrieve resource paths defined for a specific API.
       parameters:
         - $ref: '#/components/parameters/apiId'
         - $ref: '#/components/parameters/limit'
@@ -3790,7 +3793,7 @@ paths:
         - External Stores
       summary: Get the List of External Stores to which an API is Published
       description: |
-        This operation can be used to retrieve a list of external stores which an API is published to by providing the id of the API.
+        This operation can be used to retrieve a list of external stores which an API is published to by providing the ID of the API.
       operationId: getAllPublishedExternalStoresByAPI
       parameters:
         - $ref: '#/components/parameters/apiId'
@@ -3854,13 +3857,13 @@ paths:
             ETag:
               description: |
                 Entity Tag of the blocked subscription.
-                Used by caches, or in conditional requests (Will be supported in future).
+                Used by caches, or in conditional requests (This is not supported by WSO2 API Manager as of yet).
               schema:
                 type: string
             Last-Modified:
               description: |
-                Date and time the subscription has been blocked.
-                Used by caches, or in conditional requests (Will be supported in future).
+                Date and time the subscription which was blocked.
+                Used by caches, or in conditional requests (This is not supported by WSO2 API Manager as of yet).
               schema:
                 type: string
           content:
@@ -3886,7 +3889,7 @@ paths:
         - APIs
       summary: Generate internal API Key to invoke APIS.
       description: |
-        This operation can be used to generate internal api key which used to invoke API.
+        This operation can be used to generate internal API key which used to invoke API.
       operationId: generateInternalAPIKey
       parameters:
         - $ref: '#/components/parameters/apiId'
@@ -3961,7 +3964,7 @@ paths:
         - name: preserveStatus
           in: query
           description: |
-            Preserve API Status on export
+            Preserve API Status during export
           schema:
             type: boolean
         - name: latestRevision
@@ -4043,7 +4046,7 @@ paths:
               properties:
                 file:
                   type: string
-                  description: Zip archive consisting on exported api configuration
+                  description: Zip archive consisting on exported API configuration
                   format: binary
       responses:
         200:
@@ -4570,7 +4573,7 @@ paths:
                   description: Alias for the certificate
                 tier:
                   type: string
-                  description: api tier to which the certificate should be applied.
+                  description: API tier to which the certificate should be applied.
         required: true
       responses:
         200:
@@ -4806,7 +4809,7 @@ paths:
       x-code-samples:
         - lang: Curl
           source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/publisher/v3/apis/d48a3412-1b85-49be-99f4-b81a3722ae73/client-certificates/wso2carbon/content"'
+            "https://127.0.0.1:9443/api/am/publisher/v3/apis/d48a3412-1b85-49be-99f4-b81a3722ae73/client-certificates/wso2carbon/content" > test.crt'
       operationId: getAPIClientCertificateContentByAlias
 
   ######################################################
@@ -4927,7 +4930,7 @@ paths:
         - lang: Curl
           source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
           -H "Content-Type: multipart/form-data" -F certificate=@test.crt -F alias=alias
-          -F "endpoint=endpoint=https://www.abc.com" "https://127.0.0.1:9443/api/am/publisher/v3/apis/d48a3412-1b85-49be-99f4-b81a3722ae73/endpoint-certificates"'
+          -F endpoint=https://www.abc.com "https://127.0.0.1:9443/api/am/publisher/v3/endpoint-certificates"'
       operationId: addEndpointCertificate
 
   /endpoint-certificates/{alias}:
@@ -5037,7 +5040,7 @@ paths:
       x-code-samples:
         - lang: Curl
           source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: multipart/form-data" -F certificate=@test.crt "https://127.0.0.1:9443/api/am/publisher/v3/apis/d48a3412-1b85-49be-99f4-b81a3722ae73/endpoint-certificates/wso2carbon"'
+          -H "Content-Type: multipart/form-data" -F certificate=@test.crt "https://127.0.0.1:9443/api/am/publisher/v3/endpoint-certificates/wso2carbon"'
       operationId: updateEndpointCertificateByAlias
 
     delete:
@@ -5123,7 +5126,7 @@ paths:
       x-code-samples:
         - lang: Curl
           source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/publisher/v3/endpoint-certificates/wso2carbon/content"'
+            "https://127.0.0.1:9443/api/am/publisher/v3/endpoint-certificates/wso2carbon/content" > test.crt'
       operationId: getEndpointCertificateContentByAlias
 
   ######################################################
@@ -5696,7 +5699,7 @@ paths:
         - API Product Documents
       summary: Get a List of Documents of an API Product
       description: |
-        This operation can be used to retrive a list of documents belonging to an API Product by providing the id of the API Product.
+        This operation can be used to retrive a list of documents belonging to an API Product by providing the ID of the API Product.
       parameters:
         - $ref: '#/components/parameters/apiProductId'
         - $ref: '#/components/parameters/limit'
@@ -6205,7 +6208,7 @@ paths:
         - API Product Revisions
       summary: Retrieve Revision
       description: |
-        Retrieve a revision of an API Product
+        Retrieve a revision of an API Product (This resource is not supported at the moment)
       operationId: getAPIProductRevision
       parameters:
         - $ref: '#/components/parameters/apiProductId'
@@ -6393,7 +6396,7 @@ paths:
             - apim:api_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json
             "https://127.0.0.1:9443/api/am/publisher/v3/api-products/890a4f4d-09eb-4877-a323-57f6ce2ed79b/deploy-revision?revisionId=e0824883-3e86-403a-aec1-22bbc454eb7c"'
 
   /api-products/{apiProductId}/undeploy-revision:
@@ -6646,7 +6649,7 @@ paths:
       x-code-samples:
         - lang: Curl
           source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-            -F file=@admin-PizzaShackAPIProduct.zip "https://127.0.0.1:9443/api/am/admin/v3/api-products/importt?preserveProvider=false&overwriteAPIProduct=false&overwriteAPIs=false&importAPIs=false"'
+            -F file=@admin-PizzaShackAPIProduct.zip "https://127.0.0.1:9443/api/am/publisher/v3/api-products/import?preserveProvider=false&overwriteAPIProduct=false&overwriteAPIs=false&importAPIs=false"'
       operationId: importAPIProduct
 
   ######################################################
@@ -7205,12 +7208,16 @@ paths:
         - OAuth2Security:
             - apim:api_create
             - apim:api_manage
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+            -F file=@streetlights.yml "https://127.0.0.1:9443/api/am/publisher/v3/apis/validate-asyncapi"'
 
   /apis/import-asyncapi:
     post:
       tags:
         - APIs
-      summary: import an AsyncAPI Specification
+      summary: Import an AsyncAPI Specification
       description:
         This operation can be used to create and API from the AsyncAPI Specification. Provide either 'url' or 'file'
         to specify the definition.
@@ -7265,6 +7272,10 @@ paths:
         - OAuth2Security:
             - apim:api_create
             - apim:api_manage
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+                -F file=@streetlights.yml -F additionalProperties=@import-asyncapi.json "https://127.0.0.1:9443/api/am/publisher/v3/apis/import-asyncapi"'
 
   /apis/{apiId}/asyncapi:
     get:
@@ -7317,6 +7328,10 @@ paths:
             - apim:api_view
             - apim:api_manage
             - apim:api_definition_view
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+            "https://127.0.0.1:9443/api/am/publisher/v3/apis/01234567-0123-0123-0123-012345678901/asyncapi"'
 
     put:
       tags:
@@ -7386,11 +7401,15 @@ paths:
         - OAuth2Security:
             - apim:api_create
             - apim:api_manage
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+            -F file=@streetlights.yml "https://127.0.0.1:9443/api/am/publisher/v3/apis/01234567-0123-0123-0123-012345678901/asyncapi"'
   /apis/{apiId}/environments/{envId}/keys:
     get:
       tags:
         - APIs
-      summary: get environment specific API properties
+      summary: Get environment specific API properties
       description: |
         This operation can be used to retrieve environment specific API properties from an existing API.
       parameters:
@@ -7415,6 +7434,10 @@ paths:
         - OAuth2Security:
             - apim:api_create
             - apim:api_manage
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+            "https://127.0.0.1:9443/api/am/publisher/v3/apis/01234567-0123-0123-0123-012345678901/environments/9b37ac57-78b9-4fac-b0d4-dc8f4b15c023/keys"'
     put:
       tags:
         - APIs
@@ -7449,6 +7472,10 @@ paths:
         - OAuth2Security:
             - apim:api_create
             - apim:api_manage
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json
+            "https://127.0.0.1:9443/api/am/publisher/v3/apis/01234567-0123-0123-0123-012345678901/environments/9b37ac57-78b9-4fac-b0d4-dc8f4b15c023/keys"'
   /apis/{apiId}/operation-policies:
     get:
       tags:
@@ -8270,9 +8297,9 @@ components:
           type: string
           example: PizzaShackAPI
         mode:
-          maxLength: 32766
+          maxLength: 20
           type: string
-          example: This is a simple API for Pizza Shack online pizza delivery store.
+          example: Pizza
         description:
           maxLength: 32766
           type: string
@@ -8476,17 +8503,6 @@ components:
           example: []
           items:
             type: string
-        mediationPolicies:
-          type: array
-          example:
-            - name: json_to_xml_in_message
-              type: in
-            - name: xml_to_json_out_message
-              type: out
-            - name: json_fault
-              type: fault
-          items:
-            $ref: '#/components/schemas/MediationPolicy'
         subscriptionAvailability:
           type: string
           description: The subscription availability. Accepts one of the following.
@@ -8847,7 +8863,7 @@ components:
           maxLength: 255
           minLength: 1
           type: string
-          example: default
+          example: Default
         vhost:
           maxLength: 255
           minLength: 1
@@ -8936,7 +8952,7 @@ components:
         state:
           type: string
           description: |
-            State of the API product. Only published api products are visible on the Developer Portal
+            State of the API product. Only published API products are visible on the Developer Portal
           enum:
             - CREATED
             - PUBLISHED
@@ -8995,7 +9011,7 @@ components:
         state:
           type: string
           description: |
-            State of the API product. Only published api products are visible on the Developer Portal
+            State of the API product. Only published API products are visible on the Developer Portal
           default: CREATED
           enum:
             - CREATED
@@ -9945,24 +9961,6 @@ components:
           additionalProperties:
             type: string
           description: Map of custom properties related to API revenue
-    MediationPolicy:
-      title: Mediation Policy
-      required:
-        - name
-      type: object
-      properties:
-        id:
-          type: string
-          example: 69ea3fa6-55c6-472e-896d-e449dd34a824
-        name:
-          type: string
-          example: log_in_message
-        type:
-          type: string
-          example: in
-        shared:
-          type: boolean
-          example: true
     Error:
       title: Error object returned with 4XX HTTP Status
       required:
@@ -12009,7 +12007,7 @@ components:
       name: scopeId
       in: path
       description: |
-        Scope name
+        Base64 URL encoded value of the scope name
       required: true
       schema:
         type: string
