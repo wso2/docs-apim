@@ -204,11 +204,11 @@ You have to follow the below instructions to upgrade the API Manager components.
 5. Start the API Manager server to validate the API definitions.
        
     ``` tab="Linux / Mac OS"
-    sh api-manager.sh -DmigrateFromVersion=4.0.0 -DrunPreMigration=apiDefinitionValidation
+    sh api-manager.sh -Dmigrate -DmigrateFromVersion=4.0.0 -DmigratedVersion=4.1.0 -DrunPreMigration=apiDefinitionValidation
     ```
 
     ``` tab="Windows"
-    api-manager.bat -DmigrateFromVersion=4.0.0  -DrunPreMigration=apiDefinitionValidation
+    api-manager.bat -Dmigrate -DmigrateFromVersion=4.0.0 -DmigratedVersion=4.1.0 -DrunPreMigration=apiDefinitionValidation
     ```
 
     Check the server logs and verify if there are any errors logs. If you have encountered any errors in the API definitions, you have to correct them manually on an old version before the component migration. 
