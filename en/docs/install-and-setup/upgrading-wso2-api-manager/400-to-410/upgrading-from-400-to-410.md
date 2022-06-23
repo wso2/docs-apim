@@ -182,18 +182,26 @@ If you wish to configure WSO2 IS 5.11.0 as the Resident Key Manager in API-M 4.1
 
 ### Step 3: Migrate the API Manager Components
 
-You have to run the following migration client to update the API Manager artifacts.
+You have to follow the below instructions to upgrade the API Manager components.
 
-1. Copy the `<AM_MIGRATION_CLIENT_HOME>/migration-resources`  to the `<API-M_4.1.0_HOME>` directory.
+1. Make sure you backed up all the databases in API-M 4.0.0
 
-2. Copy the org.wso2.carbon.am.migration-4.1.0.x.jar file in the `<AM_MIGRATION_CLIENT_HOME>/dropins` directory into the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
+2. Navigate to the [latest release tag (v4.1.0.x)](https://github.com/wso2-extensions/apim-migration-resources/releases) under **Assets** and download the `wso2am-migration-4.1.0.x.zip`. Unzip it to a local directory.
+
+    !!! note
+
+        x of wso2am-migration-4.1.0.x.zip denotes the version number of the most recently-released migration resources.
+
+        The directory where the wso2am-migration-4.1.0.x.zip is unziped will be referred to as `<AM_MIGRATION_CLIENT_HOME>`
+
+3. Copy the `<AM_MIGRATION_CLIENT_HOME>/migration-resources`  to the `<API-M_4.1.0_HOME>` directory.
+
+4. Copy the org.wso2.carbon.am.migration-4.1.0.x.jar file in the `<AM_MIGRATION_CLIENT_HOME>/dropins` directory into the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
 
     !!! note "If you have configured WSO2 IS 5.11.0 as Resident Key Manager"
         Make sure you have already started the WSO2 Identity Server instance before executing the next step.
 
-3. Make sure you backed up all the databases in API-M 4.0.0
-
-4. Start the API Manager server to validate the API definitions.
+5. Start the API Manager server to validate the API definitions.
        
     ``` tab="Linux / Mac OS"
     sh api-manager.sh -DmigrateFromVersion=4.0.0 -DrunPreMigration=apiDefinitionValidation
@@ -267,6 +275,6 @@ You have to run the following migration client to update the API Manager artifac
     ```tab="Windows"
         api-manager.bat
     ```
-       
+
 This concludes the upgrade process.
 
