@@ -82,14 +82,26 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
         custom_webapps = ["/keymanager-operations/"]
         ```
 
-3. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-extensions-1.4.2.zip).
+3. IS 5.11.0 uses Symmetric encryption as default and APIM 410 uses Asymmetric algorithm as default. So when using IS 5.11.0 as KM please add below configurations to `deployment.toml`.
+   ```
+   [keystore]
+   userstore_password_encryption = "InternalKeyStore"
+   
+   [system.parameter]
+   "org.wso2.CipherTransformation"="RSA/ECB/OAEPwithSHA1andMGF1Padding"
+   
+   [encryption]
+   internal_crypto_provider = "org.wso2.carbon.crypto.provider.KeyStoreBasedInternalCryptoProvider"
+   ```   
 
-4. Extract the distribution and copy the following JAR files to the `<IS_HOME>/repository/components/dropins` directory.
+4. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-extensions-1.4.2.zip).
+
+5. Extract the distribution and copy the following JAR files to the `<IS_HOME>/repository/components/dropins` directory.
 
      - `wso2is.key.manager.core-1.2.10.jar`
      - `wso2is.notification.event.handlers_1.2.10.jar`
 
-5. Add `keymanager-operations.war` from the extracted distribution to the `<IS_HOME>/repository/deployment/server/webapps` directory.
+6. Add `keymanager-operations.war` from the extracted distribution to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
 ### Step B - Migrate IS from 5.9.0 to 5.11.0
 
@@ -146,13 +158,6 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
             data_source = "WSO2USER_DB"
             ```
         -   You **DO NOT NEED** to copy the API-M Key Manager specific configurations from `<OLD_IS_KM_HOME>/repository/conf/api-manager.xml` of previous IS as KM version to IS 5.11.0.
-
-    !!! Important
-        Follow [Step 10 Part (d) of IS 5.11 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/) only if you have **enabled Symmetric Key Encryption** in the previous IS as KM setup. If not, that step can be skipped.
-   
-    !!! warning
-    
-        Depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do **NOT** stop the server during the migration process and please wait until the migration process finish completely and server get started.
 
 3.  Download the identity component migration resources and unzip it in a local directory.
 
