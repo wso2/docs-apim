@@ -404,7 +404,7 @@ Follow the instructions below to move all the existing API Manager configuration
         !!! note "NOTE"
             Changing these configurations should only be done before the initial API-M Server startup. If changes are done after the initial startup, the registry resource created previously will not be available.
 
-6.  If you have enabled any other feature related configurations at <API-M_4.1.0_HOME>/repository/conf/deployment.toml, make sure to add them in to <API-M_4.1.0_HOME>/repository/conf/deployment.toml file.
+6.  If you have enabled any other feature related configurations at `<API-M_4.1.0_HOME>/repository/conf/deployment.toml`, make sure to add them in to `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file.
 
 ### Step 2: Migrate the API Manager Resources
 
@@ -557,7 +557,7 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Manag
         -Dmigrate -Dcomponent=identity
         ```
         
-    -   If you followed step 8 above, and want to use the latest user store, update the <API-M_4.1.0_HOME>/repository/conf/deployment.toml as follows after the identity migration,
+    -   If you followed step 8 above, and want to use the latest user store, update the `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` as follows after the identity migration,
 
         ```
         [user_store]
@@ -633,7 +633,7 @@ You have to run the following migration client to update the API Manager artifac
     ```
 
     !!! important
-        If you use a clustered/distributed API Manager setup, do the above change in deployment.toml of Publisher and Devportal nodes. Make sure to keep a delay between nodes to execute this step to re-index each node, as the database can experience a large load.
+        If you use a clustered/distributed API Manager setup, do the above change in `deployment.toml` of Publisher and Devportal nodes. Make sure to keep a delay between nodes to execute this step to re-index each node, as the database can experience a large load.
 
     !!! note
         Note that it takes a considerable amount of time for the API Manager to re-index the artifacts, depending on the API count and the number of tenants.

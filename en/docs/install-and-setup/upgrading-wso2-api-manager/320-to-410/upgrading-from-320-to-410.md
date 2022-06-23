@@ -317,7 +317,7 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Mana
         -Dmigrate -Dcomponent=identity
         ```
         
-    -   If you followed step 8 above, and want to use the latest user store, update the <API-M_4.1.0_HOME>/repository/conf/deployment.toml as follows after the identity migration,
+    -   If you followed step 8 above, and want to use the latest user store, update the `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` as follows after the identity migration,
     
         ```
         [user_store]
@@ -383,7 +383,7 @@ You have to run the following migration client to update the API Manager artifac
 2. If the `<API-M_4.1.0_HOME>/solr` directory exists, take a backup and thereafter delete it. 
 
     !!! important
-        If you use a clustered/distributed API Manager setup, do the above change in deployment.toml of Publisher and Devportal nodes. Make sure to keep a delay between nodes to execute this step to re-index each node, as the database can experience a large load.
+        If you use a clustered/distributed API Manager setup, do the above change in `deployment.toml` of Publisher and Devportal nodes. Make sure to keep a delay between nodes to execute this step to re-index each node, as the database can experience a large load.
 
     !!! note
 

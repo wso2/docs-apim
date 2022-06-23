@@ -1,7 +1,3 @@
-{!includes/work-in-progress.md!}
-
-<div hidden>
-
 # Upgrading WSO2 IS as Key Manager to 5.11.0
 
 The following information describes how to upgrade your **WSO2 API Manager (WSO2 API-M)** environment **from APIM 2.6.0 to 4.1.0** when **WSO2 Identity Server (WSO2 IS)** is the **Key Manager** in the pre-migrated setup.
@@ -85,20 +81,578 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
         custom_webapps = ["/keymanager-operations/"]
         ```
 
-3. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-extensions-1.4.2.zip).
+3. IS 5.11.0 uses Symmetric encryption as default and APIM 410 uses Asymmetric algorithm as default. So when using IS 5.11.0 as KM please add below configurations to `deployment.toml`.
+   ```
+   [keystore]
+   userstore_password_encryption = "InternalKeyStore"
+   
+   [system.parameter]
+   "org.wso2.CipherTransformation"="RSA/ECB/OAEPwithSHA1andMGF1Padding"
+   
+   [encryption]
+   internal_crypto_provider = "org.wso2.carbon.crypto.provider.KeyStoreBasedInternalCryptoProvider"
+   ```   
 
-4. Extract the distribution and copy the following JAR files to the `<IS_HOME>/repository/components/dropins` directory.
+4. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-extensions-1.4.2.zip).
+
+5. Extract the distribution and copy the following JAR files to the `<IS_HOME>/repository/components/dropins` directory.
 
      - `wso2is.key.manager.core-1.2.10.jar`
      - `wso2is.notification.event.handlers_1.2.10.jar`
 
-5. Add `keymanager-operations.war` from the extracted distribution to the `<IS_HOME>/repository/deployment/server/webapps` directory.
+6. Add `keymanager-operations.war` from the extracted distribution to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
 ### Step B - Migrate IS from 5.7.0 to 5.11.0
 
-1. Follow Step 2 and 3 under [Step 2 - Upgrade API Manager to 4.1.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-410/#step-2-upgrade-api-manager-to-410) to backup and upgrade the WSO2 API-M `WSO2AM_DB` from 2.6.0 to 4.1.0. This will be used as the `identity_db` in IS 5.11.0.
+1. Make sure you backed up all the databases in API-M 3.2.0
 
-2. Follow the guidelines in [WSO2 IS 5.11.0 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/) to migrate your current IS as KM 5.7.0 distribution to IS 5.11.0.
+2. Run the below script against the AM_DB.
+
+    ??? info "DB Scripts"
+        ```tab="DB2"
+        CREATE TABLE IDN_UMA_RESOURCE (
+        ID                  INTEGER   NOT NULL,
+        RESOURCE_ID         VARCHAR(255),
+        RESOURCE_NAME       VARCHAR(255),
+        TIME_CREATED        TIMESTAMP NOT NULL,
+        RESOURCE_OWNER_NAME VARCHAR(255),
+        CLIENT_ID           VARCHAR(255),
+        TENANT_ID           INTEGER DEFAULT -1234,
+        USER_DOMAIN         VARCHAR(50),
+        PRIMARY KEY (ID)
+        )
+        /
+
+        CREATE SEQUENCE IDN_UMA_RESOURCE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        /
+        
+        CREATE TRIGGER IDN_UMA_RESOURCE_TRIG NO CASCADE
+        BEFORE INSERT
+        ON IDN_UMA_RESOURCE
+        REFERENCING NEW AS NEW
+        FOR EACH ROW MODE DB2SQL
+        BEGIN ATOMIC
+        SET (NEW.ID) = (NEXTVAL FOR IDN_UMA_RESOURCE_SEQ);
+        END
+        /
+        
+        CREATE INDEX IDX_RID ON IDN_UMA_RESOURCE (RESOURCE_ID)
+        /
+        
+        CREATE INDEX IDX_USER ON IDN_UMA_RESOURCE (RESOURCE_OWNER_NAME, USER_DOMAIN)
+        /
+        
+        CREATE TABLE IDN_UMA_RESOURCE_META_DATA (
+        ID                INTEGER NOT NULL,
+        RESOURCE_IDENTITY INTEGER NOT NULL,
+        PROPERTY_KEY      VARCHAR(40),
+        PROPERTY_VALUE    VARCHAR(255),
+        PRIMARY KEY (ID),
+        FOREIGN KEY (RESOURCE_IDENTITY) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
+        )
+        /
+        
+        CREATE SEQUENCE IDN_UMA_RESOURCE_META_DATA_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        /
+        
+        CREATE TRIGGER IDN_UMA_RESOURCE_META_DATA_TRIG NO CASCADE
+        BEFORE INSERT
+        ON IDN_UMA_RESOURCE_META_DATA
+        REFERENCING NEW AS NEW
+        FOR EACH ROW MODE DB2SQL
+        BEGIN ATOMIC
+        SET (NEW.ID) = (NEXTVAL FOR IDN_UMA_RESOURCE_META_DATA_SEQ);
+        END
+        /
+        
+        CREATE TABLE IDN_UMA_RESOURCE_SCOPE (
+        ID                INTEGER NOT NULL,
+        RESOURCE_IDENTITY INTEGER NOT NULL,
+        SCOPE_NAME        VARCHAR(255),
+        PRIMARY KEY (ID),
+        FOREIGN KEY (RESOURCE_IDENTITY) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
+        )
+        /
+        
+        CREATE SEQUENCE IDN_UMA_RESOURCE_SCOPE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        /
+        
+        CREATE TRIGGER IDN_UMA_RESOURCE_SCOPE_TRIG  NO CASCADE
+        BEFORE INSERT
+        ON IDN_UMA_RESOURCE_SCOPE
+        REFERENCING NEW AS NEW
+        FOR EACH ROW MODE DB2SQL
+        BEGIN ATOMIC
+        SET (NEW.ID) = (NEXTVAL FOR IDN_UMA_RESOURCE_SCOPE_SEQ);
+        END
+        /
+        
+        CREATE INDEX IDX_RS ON IDN_UMA_RESOURCE_SCOPE (SCOPE_NAME)
+        /
+        
+        CREATE TABLE IDN_UMA_PERMISSION_TICKET (
+        ID              INTEGER      NOT NULL,
+        PT              VARCHAR(255) NOT NULL,
+        TIME_CREATED    TIMESTAMP    NOT NULL,
+        EXPIRY_TIME     TIMESTAMP    NOT NULL,
+        TICKET_STATE    VARCHAR(25) DEFAULT 'ACTIVE',
+        TENANT_ID       INTEGER     DEFAULT -1234,
+        PRIMARY KEY (ID)
+        )
+        /
+        
+        CREATE SEQUENCE IDN_UMA_PERMISSION_TICKET_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        /
+        
+        CREATE TRIGGER IDN_UMA_PERMISSION_TICKET_TRIG NO CASCADE
+        BEFORE INSERT
+        ON IDN_UMA_PERMISSION_TICKET
+        REFERENCING NEW AS NEW
+        FOR EACH ROW MODE DB2SQL
+        BEGIN ATOMIC
+        SET (NEW.ID) = (NEXTVAL FOR IDN_UMA_PERMISSION_TICKET_SEQ);
+        END
+        /
+        
+        CREATE INDEX IDX_PT ON IDN_UMA_PERMISSION_TICKET (PT)
+        /
+        
+        CREATE TABLE IDN_UMA_PT_RESOURCE (
+        ID             INTEGER NOT NULL,
+        PT_RESOURCE_ID INTEGER NOT NULL,
+        PT_ID          INTEGER NOT NULL,
+        PRIMARY KEY (ID),
+        FOREIGN KEY (PT_ID) REFERENCES IDN_UMA_PERMISSION_TICKET (ID) ON DELETE CASCADE,
+        FOREIGN KEY (PT_RESOURCE_ID) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
+        )
+        /
+        
+        CREATE SEQUENCE IDN_UMA_PT_RESOURCE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        /
+        
+        CREATE TRIGGER IDN_UMA_PT_RESOURCE_TRIG NO CASCADE
+        BEFORE INSERT
+        ON IDN_UMA_PT_RESOURCE
+        REFERENCING NEW AS NEW
+        FOR EACH ROW MODE DB2SQL
+        BEGIN ATOMIC
+        SET (NEW.ID) = (NEXTVAL FOR IDN_UMA_PT_RESOURCE_SEQ);
+        END
+        /
+        
+        CREATE TABLE IDN_UMA_PT_RESOURCE_SCOPE (
+        ID             INTEGER NOT NULL,
+        PT_RESOURCE_ID INTEGER NOT NULL,
+        PT_SCOPE_ID    INTEGER NOT NULL,
+        PRIMARY KEY (ID),
+        FOREIGN KEY (PT_RESOURCE_ID) REFERENCES IDN_UMA_PT_RESOURCE (ID) ON DELETE CASCADE,
+        FOREIGN KEY (PT_SCOPE_ID) REFERENCES IDN_UMA_RESOURCE_SCOPE (ID) ON DELETE CASCADE
+        )
+        /
+        
+        CREATE SEQUENCE IDN_UMA_PT_RESOURCE_SCOPE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        /
+        
+        CREATE TRIGGER IDN_UMA_PT_RESOURCE_SCOPE_TRIG NO CASCADE
+        BEFORE INSERT
+        ON IDN_UMA_PT_RESOURCE_SCOPE
+        REFERENCING NEW AS NEW
+        FOR EACH ROW MODE DB2SQL
+        BEGIN ATOMIC
+        SET (NEW.ID) = (NEXTVAL FOR IDN_UMA_PT_RESOURCE_SCOPE_SEQ);
+        END
+        /
+        ```
+    
+        ```tab="MSSQL"
+        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_UMA_RESOURCE]') AND TYPE IN (N'U'))
+        CREATE TABLE IDN_UMA_RESOURCE (
+        ID                  INTEGER IDENTITY NOT NULL,
+        RESOURCE_ID         VARCHAR(255),
+        RESOURCE_NAME       VARCHAR(255),
+        TIME_CREATED        DATETIME         NOT NULL,
+        RESOURCE_OWNER_NAME VARCHAR(255),
+        CLIENT_ID           VARCHAR(255),
+        TENANT_ID           INTEGER DEFAULT -1234,
+        USER_DOMAIN         VARCHAR(50),
+        PRIMARY KEY (ID)
+        );
+        
+        CREATE INDEX IDX_RID ON IDN_UMA_RESOURCE (RESOURCE_ID);
+        
+        CREATE INDEX IDX_USER ON IDN_UMA_RESOURCE (RESOURCE_OWNER_NAME, USER_DOMAIN);
+        
+        IF NOT EXISTS ( SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_UMA_RESOURCE_META_DATA]') AND TYPE IN (N'U'))
+        CREATE TABLE IDN_UMA_RESOURCE_META_DATA (
+        ID                INTEGER IDENTITY NOT NULL,
+        RESOURCE_IDENTITY INTEGER                NOT NULL,
+        PROPERTY_KEY      VARCHAR(40),
+        PROPERTY_VALUE    VARCHAR(255),
+        PRIMARY KEY (ID),
+        FOREIGN KEY (RESOURCE_IDENTITY) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
+        );
+    
+        IF NOT EXISTS ( SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_UMA_RESOURCE_SCOPE]') AND TYPE IN (N'U'))
+        CREATE TABLE IDN_UMA_RESOURCE_SCOPE (
+        ID                INTEGER IDENTITY NOT NULL,
+        RESOURCE_IDENTITY INTEGER                NOT NULL,
+        SCOPE_NAME        VARCHAR(255),
+        PRIMARY KEY (ID),
+        FOREIGN KEY (RESOURCE_IDENTITY) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
+        );
+        
+        CREATE INDEX IDX_RS ON IDN_UMA_RESOURCE_SCOPE (SCOPE_NAME);
+        
+        IF NOT EXISTS ( SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_UMA_PERMISSION_TICKET]') AND TYPE IN (N'U'))
+        CREATE TABLE IDN_UMA_PERMISSION_TICKET (
+        ID              INTEGER IDENTITY NOT NULL,
+        PT              VARCHAR(255)     NOT NULL,
+        TIME_CREATED    DATETIME         NOT NULL,
+        EXPIRY_TIME     DATETIME         NOT NULL,
+        TICKET_STATE    VARCHAR(25) DEFAULT 'ACTIVE',
+        TENANT_ID       INTEGER     DEFAULT -1234,
+        PRIMARY KEY (ID)
+        );
+        
+        CREATE INDEX IDX_PT ON IDN_UMA_PERMISSION_TICKET (PT);
+    
+        IF NOT EXISTS ( SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_UMA_PT_RESOURCE]') AND TYPE IN (N'U'))
+        CREATE TABLE IDN_UMA_PT_RESOURCE (
+        ID             INTEGER IDENTITY NOT NULL,
+        PT_RESOURCE_ID INTEGER                NOT NULL,
+        PT_ID          INTEGER                NOT NULL,
+        PRIMARY KEY (ID),
+        FOREIGN KEY (PT_ID) REFERENCES IDN_UMA_PERMISSION_TICKET (ID) ON DELETE CASCADE,
+        FOREIGN KEY (PT_RESOURCE_ID) REFERENCES IDN_UMA_RESOURCE (ID)
+        );
+    
+        IF NOT EXISTS ( SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_UMA_PT_RESOURCE_SCOPE]') AND TYPE IN (N'U'))
+        CREATE TABLE IDN_UMA_PT_RESOURCE_SCOPE (
+        ID             INTEGER IDENTITY NOT NULL,
+        PT_RESOURCE_ID INTEGER                NOT NULL,
+        PT_SCOPE_ID    INTEGER                NOT NULL,
+        PRIMARY KEY (ID),
+        FOREIGN KEY (PT_RESOURCE_ID) REFERENCES IDN_UMA_PT_RESOURCE (ID) ON DELETE CASCADE,
+        FOREIGN KEY (PT_SCOPE_ID) REFERENCES IDN_UMA_RESOURCE_SCOPE (ID)
+        );
+        ```
+    
+        ```tab="MySQL"
+        CREATE TABLE IF NOT EXISTS IDN_UMA_RESOURCE (
+        ID                  INTEGER AUTO_INCREMENT NOT NULL,
+        RESOURCE_ID         VARCHAR(255),
+        RESOURCE_NAME       VARCHAR(255),
+        TIME_CREATED        TIMESTAMP              NOT NULL,
+        RESOURCE_OWNER_NAME VARCHAR(255),
+        CLIENT_ID           VARCHAR(255),
+        TENANT_ID           INTEGER DEFAULT -1234,
+        USER_DOMAIN         VARCHAR(50),
+        PRIMARY KEY (ID)
+        );
+        
+        CREATE INDEX IDX_RID ON IDN_UMA_RESOURCE (RESOURCE_ID);
+        
+        CREATE INDEX IDX_USER ON IDN_UMA_RESOURCE (RESOURCE_OWNER_NAME, USER_DOMAIN);
+        
+        CREATE TABLE IF NOT EXISTS IDN_UMA_RESOURCE_META_DATA (
+        ID                INTEGER AUTO_INCREMENT NOT NULL,
+        RESOURCE_IDENTITY INTEGER                NOT NULL,
+        PROPERTY_KEY      VARCHAR(40),
+        PROPERTY_VALUE    VARCHAR(255),
+        PRIMARY KEY (ID),
+        FOREIGN KEY (RESOURCE_IDENTITY) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
+        );
+        
+        CREATE TABLE IF NOT EXISTS IDN_UMA_RESOURCE_SCOPE (
+        ID                INTEGER AUTO_INCREMENT NOT NULL,
+        RESOURCE_IDENTITY INTEGER                NOT NULL,
+        SCOPE_NAME        VARCHAR(255),
+        PRIMARY KEY (ID),
+        FOREIGN KEY (RESOURCE_IDENTITY) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
+        );
+        
+        CREATE INDEX IDX_RS ON IDN_UMA_RESOURCE_SCOPE (SCOPE_NAME);
+        
+        CREATE TABLE IF NOT EXISTS IDN_UMA_PERMISSION_TICKET (
+        ID              INTEGER AUTO_INCREMENT NOT NULL,
+        PT              VARCHAR(255)           NOT NULL,
+        TIME_CREATED    TIMESTAMP              NOT NULL,
+        EXPIRY_TIME     TIMESTAMP              NOT NULL,
+        TICKET_STATE    VARCHAR(25) DEFAULT 'ACTIVE',
+        TENANT_ID       INTEGER     DEFAULT -1234,
+        PRIMARY KEY (ID)
+        );
+        
+        CREATE INDEX IDX_PT ON IDN_UMA_PERMISSION_TICKET (PT);
+        
+        CREATE TABLE IF NOT EXISTS IDN_UMA_PT_RESOURCE (
+        ID             INTEGER AUTO_INCREMENT NOT NULL,
+        PT_RESOURCE_ID INTEGER                NOT NULL,
+        PT_ID          INTEGER                NOT NULL,
+        PRIMARY KEY (ID),
+        FOREIGN KEY (PT_ID) REFERENCES IDN_UMA_PERMISSION_TICKET (ID) ON DELETE CASCADE,
+        FOREIGN KEY (PT_RESOURCE_ID) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
+        );
+        
+        CREATE TABLE IF NOT EXISTS IDN_UMA_PT_RESOURCE_SCOPE (
+        ID             INTEGER AUTO_INCREMENT NOT NULL,
+        PT_RESOURCE_ID INTEGER                NOT NULL,
+        PT_SCOPE_ID    INTEGER                NOT NULL,
+        PRIMARY KEY (ID),
+        FOREIGN KEY (PT_RESOURCE_ID) REFERENCES IDN_UMA_PT_RESOURCE (ID) ON DELETE CASCADE,
+        FOREIGN KEY (PT_SCOPE_ID) REFERENCES IDN_UMA_RESOURCE_SCOPE (ID) ON DELETE CASCADE
+        );
+        ```
+    
+        ```tab="Oracle"
+        CREATE TABLE IDN_UMA_RESOURCE (
+        ID                  INTEGER,
+        RESOURCE_ID         VARCHAR2(255),
+        RESOURCE_NAME       VARCHAR2(255),
+        TIME_CREATED        TIMESTAMP              NOT NULL,
+        RESOURCE_OWNER_NAME VARCHAR2(255),
+        CLIENT_ID           VARCHAR2(255),
+        TENANT_ID           INTEGER DEFAULT -1234,
+        USER_DOMAIN         VARCHAR2(50),
+        PRIMARY KEY (ID)
+        )
+        /
+        
+        CREATE SEQUENCE IDN_UMA_RESOURCE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        /
+        
+        CREATE OR REPLACE TRIGGER IDN_UMA_RESOURCE_TRIG
+        BEFORE INSERT
+        ON IDN_UMA_RESOURCE
+        REFERENCING NEW AS NEW
+        FOR EACH ROW
+        BEGIN
+        SELECT IDN_UMA_RESOURCE_SEQ.nextval INTO :NEW.ID FROM dual;
+        END;
+        /
+        
+        CREATE INDEX IDX_RID ON IDN_UMA_RESOURCE (RESOURCE_ID)
+        /
+        
+        CREATE INDEX IDX_USER ON IDN_UMA_RESOURCE (RESOURCE_OWNER_NAME, USER_DOMAIN)
+        /
+        
+        CREATE TABLE IDN_UMA_RESOURCE_META_DATA (
+        ID                INTEGER,
+        RESOURCE_IDENTITY INTEGER                NOT NULL,
+        PROPERTY_KEY      VARCHAR2(40),
+        PROPERTY_VALUE    VARCHAR2(255),
+        PRIMARY KEY (ID),
+        FOREIGN KEY (RESOURCE_IDENTITY) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
+        )
+        /
+        
+        CREATE SEQUENCE IDN_UMA_RESOURCE_META_DATA_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        /
+        
+        CREATE OR REPLACE TRIGGER IDN_UMA_RESOURCE_METADATA_TRIG
+        BEFORE INSERT
+        ON IDN_UMA_RESOURCE_META_DATA
+        REFERENCING NEW AS NEW
+        FOR EACH ROW
+        BEGIN
+        SELECT IDN_UMA_RESOURCE_META_DATA_SEQ.nextval INTO :NEW.ID FROM dual;
+        END;
+        /
+        
+        CREATE TABLE IDN_UMA_RESOURCE_SCOPE (
+        ID                INTEGER,
+        RESOURCE_IDENTITY INTEGER                NOT NULL,
+        SCOPE_NAME        VARCHAR2(255),
+        PRIMARY KEY (ID),
+        FOREIGN KEY (RESOURCE_IDENTITY) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
+        )
+        /
+        
+        CREATE SEQUENCE IDN_UMA_RESOURCE_SCOPE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        /
+        
+        CREATE OR REPLACE TRIGGER IDN_UMA_RESOURCE_SCOPE_TRIG
+        BEFORE INSERT
+        ON IDN_UMA_RESOURCE_SCOPE
+        REFERENCING NEW AS NEW
+        FOR EACH ROW
+        BEGIN
+        SELECT IDN_UMA_RESOURCE_SCOPE_SEQ.nextval INTO :NEW.ID FROM dual;
+        END;
+        /
+        
+        CREATE INDEX IDX_RS ON IDN_UMA_RESOURCE_SCOPE (SCOPE_NAME)
+        /
+        
+        CREATE TABLE IDN_UMA_PERMISSION_TICKET (
+        ID              INTEGER,
+        PT              VARCHAR2(255)           NOT NULL,
+        TIME_CREATED    TIMESTAMP              NOT NULL,
+        EXPIRY_TIME     TIMESTAMP              NOT NULL,
+        TICKET_STATE    VARCHAR2(25) DEFAULT 'ACTIVE',
+        TENANT_ID       INTEGER     DEFAULT -1234,
+        PRIMARY KEY (ID)
+        )
+        /
+        
+        CREATE SEQUENCE IDN_UMA_PERMISSION_TICKET_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        /
+        
+        CREATE OR REPLACE TRIGGER IDN_UMA_PERMISSION_TICKET_TRIG
+        BEFORE INSERT
+        ON IDN_UMA_PERMISSION_TICKET
+        REFERENCING NEW AS NEW
+        FOR EACH ROW
+        BEGIN
+        SELECT IDN_UMA_PERMISSION_TICKET_SEQ.nextval INTO :NEW.ID FROM dual;
+        END;
+        /
+        
+        CREATE INDEX IDX_PT ON IDN_UMA_PERMISSION_TICKET (PT)
+        /
+        
+        CREATE TABLE IDN_UMA_PT_RESOURCE (
+        ID             INTEGER,
+        PT_RESOURCE_ID INTEGER                NOT NULL,
+        PT_ID          INTEGER                NOT NULL,
+        PRIMARY KEY (ID),
+        FOREIGN KEY (PT_ID) REFERENCES IDN_UMA_PERMISSION_TICKET (ID) ON DELETE CASCADE,
+        FOREIGN KEY (PT_RESOURCE_ID) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
+        )
+        /
+        
+        CREATE SEQUENCE IDN_UMA_PT_RESOURCE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        /
+        
+        CREATE OR REPLACE TRIGGER IDN_UMA_PT_RESOURCE_TRIG
+        BEFORE INSERT
+        ON IDN_UMA_PT_RESOURCE
+        REFERENCING NEW AS NEW
+        FOR EACH ROW
+        BEGIN
+        SELECT IDN_UMA_PT_RESOURCE_SEQ.nextval INTO :NEW.ID FROM dual;
+        END;
+        /
+        
+        CREATE TABLE IDN_UMA_PT_RESOURCE_SCOPE (
+        ID             INTEGER,
+        PT_RESOURCE_ID INTEGER                NOT NULL,
+        PT_SCOPE_ID    INTEGER                NOT NULL,
+        PRIMARY KEY (ID),
+        FOREIGN KEY (PT_RESOURCE_ID) REFERENCES IDN_UMA_PT_RESOURCE (ID) ON DELETE CASCADE,
+        FOREIGN KEY (PT_SCOPE_ID) REFERENCES IDN_UMA_RESOURCE_SCOPE (ID) ON DELETE CASCADE
+        )
+        /
+        
+        CREATE SEQUENCE IDN_UMA_PT_RESOURCE_SCOPE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        /
+        
+        CREATE OR REPLACE TRIGGER IDN_UMA_PT_RESOURCE_SCOPE_TRIG
+        BEFORE INSERT
+        ON IDN_UMA_PT_RESOURCE_SCOPE
+        REFERENCING NEW AS NEW
+        FOR EACH ROW
+        BEGIN
+        SELECT IDN_UMA_PT_RESOURCE_SCOPE_SEQ.nextval INTO :NEW.ID FROM dual;
+        END;
+        /
+        ```
+    
+        ```tab="PostgreSQL"
+        DROP TABLE IF EXISTS IDN_UMA_RESOURCE;
+        DROP SEQUENCE IF EXISTS IDN_UMA_RESOURCE_SEQ;
+        CREATE SEQUENCE IDN_UMA_RESOURCE_SEQ;
+        CREATE TABLE IDN_UMA_RESOURCE (
+        ID                  INTEGER DEFAULT NEXTVAL('IDN_UMA_RESOURCE_SEQ') NOT NULL,
+        RESOURCE_ID         VARCHAR(255),
+        RESOURCE_NAME       VARCHAR(255),
+        TIME_CREATED        TIMESTAMP                                   NOT NULL,
+        RESOURCE_OWNER_NAME VARCHAR(255),
+        CLIENT_ID           VARCHAR(255),
+        TENANT_ID           INTEGER DEFAULT -1234,
+        USER_DOMAIN         VARCHAR(50),
+        PRIMARY KEY (ID)
+        );
+        
+        DROP INDEX IF EXISTS IDX_RID;
+        
+        CREATE INDEX IDX_RID ON IDN_UMA_RESOURCE (RESOURCE_ID);
+        
+        DROP INDEX IF EXISTS IDX_USER;
+        
+        CREATE INDEX IDX_USER ON IDN_UMA_RESOURCE (RESOURCE_OWNER_NAME, USER_DOMAIN);
+        
+        DROP TABLE IF EXISTS IDN_UMA_RESOURCE_META_DATA;
+        DROP SEQUENCE IF EXISTS IDN_UMA_RESOURCE_META_DATA_SEQ;
+        CREATE SEQUENCE IDN_UMA_RESOURCE_META_DATA_SEQ;
+        CREATE TABLE IDN_UMA_RESOURCE_META_DATA (
+        ID                INTEGER DEFAULT NEXTVAL ('IDN_UMA_RESOURCE_META_DATA_SEQ') NOT NULL,
+        RESOURCE_IDENTITY INTEGER                NOT NULL,
+        PROPERTY_KEY      VARCHAR(40),
+        PROPERTY_VALUE    VARCHAR(255),
+        PRIMARY KEY (ID),
+        FOREIGN KEY (RESOURCE_IDENTITY) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
+        );
+        
+        DROP TABLE IF EXISTS IDN_UMA_RESOURCE_SCOPE;
+        DROP SEQUENCE IF EXISTS IDN_UMA_RESOURCE_SCOPE_SEQ;
+        CREATE SEQUENCE IDN_UMA_RESOURCE_SCOPE_SEQ;
+        CREATE TABLE IDN_UMA_RESOURCE_SCOPE (
+        ID                INTEGER DEFAULT NEXTVAL ('IDN_UMA_RESOURCE_SCOPE_SEQ') NOT NULL,
+        RESOURCE_IDENTITY INTEGER                NOT NULL,
+        SCOPE_NAME        VARCHAR(255),
+        PRIMARY KEY (ID),
+        FOREIGN KEY (RESOURCE_IDENTITY) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
+        );
+        
+        DROP INDEX IF EXISTS IDX_RS;
+        
+        CREATE INDEX IDX_RS ON IDN_UMA_RESOURCE_SCOPE (SCOPE_NAME);
+        
+        DROP TABLE IF EXISTS IDN_UMA_PERMISSION_TICKET;
+        DROP SEQUENCE IF EXISTS IDN_UMA_PERMISSION_TICKET_SEQ;
+        CREATE SEQUENCE IDN_UMA_PERMISSION_TICKET_SEQ;
+        CREATE TABLE IDN_UMA_PERMISSION_TICKET (
+        ID              INTEGER DEFAULT NEXTVAL('IDN_UMA_PERMISSION_TICKET_SEQ') NOT NULL,
+        PT              VARCHAR(255)                                         NOT NULL,
+        TIME_CREATED    TIMESTAMP                                            NOT NULL,
+        EXPIRY_TIME     TIMESTAMP                                            NOT NULL,
+        TICKET_STATE    VARCHAR(25) DEFAULT 'ACTIVE',
+        TENANT_ID       INTEGER     DEFAULT -1234,
+        PRIMARY KEY (ID)
+        );
+        
+        DROP INDEX IF EXISTS IDX_PT;
+        
+        CREATE INDEX IDX_PT ON IDN_UMA_PERMISSION_TICKET (PT);
+        
+        DROP TABLE IF EXISTS IDN_UMA_PT_RESOURCE;
+        DROP SEQUENCE IF EXISTS IDN_UMA_PT_RESOURCE_SEQ;
+        CREATE SEQUENCE IDN_UMA_PT_RESOURCE_SEQ;
+        CREATE TABLE IDN_UMA_PT_RESOURCE (
+        ID             INTEGER DEFAULT NEXTVAL ('IDN_UMA_PT_RESOURCE_SEQ') NOT NULL,
+        PT_RESOURCE_ID INTEGER                NOT NULL,
+        PT_ID          INTEGER                NOT NULL,
+        PRIMARY KEY (ID),
+        FOREIGN KEY (PT_ID) REFERENCES IDN_UMA_PERMISSION_TICKET (ID) ON DELETE CASCADE,
+        FOREIGN KEY (PT_RESOURCE_ID) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
+        );
+        
+        DROP TABLE IF EXISTS IDN_UMA_PT_RESOURCE_SCOPE;
+        DROP SEQUENCE IF EXISTS IDN_UMA_PT_RESOURCE_SCOPE_SEQ;
+        CREATE SEQUENCE IDN_UMA_PT_RESOURCE_SCOPE_SEQ;
+        CREATE TABLE IDN_UMA_PT_RESOURCE_SCOPE (
+        ID             INTEGER DEFAULT NEXTVAL ('IDN_UMA_PT_RESOURCE_SCOPE_SEQ') NOT NULL,
+        PT_RESOURCE_ID INTEGER                NOT NULL,
+        PT_SCOPE_ID    INTEGER                NOT NULL,
+        PRIMARY KEY (ID),
+        FOREIGN KEY (PT_RESOURCE_ID) REFERENCES IDN_UMA_PT_RESOURCE (ID) ON DELETE CASCADE,
+        FOREIGN KEY (PT_SCOPE_ID) REFERENCES IDN_UMA_RESOURCE_SCOPE (ID) ON DELETE CASCADE
+        );
+        ```
+
+3. Follow the steps 1 to 8 in [WSO2 IS 5.11.0 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/) to prepare your current IS as KM 5.10.0 for migration to IS 5.11.0.
 
     !!! Important
         When following the instructions in [Migration the configurations](https://is.docs.wso2.com/en/5.11.0/setup/migrating-preparing-for-migration/#migrating-the-configurations) section of IS 5.11.0 migration guide, make sure to
@@ -150,33 +704,76 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
             ```
         -   You **DO NOT NEED** to copy the API-M Key Manager specific configurations from `<OLD_IS_KM_HOME>/repository/conf/api-manager.xml` of previous IS as KM version to IS 5.11.0.
 
-    !!! Important
-        Follow [Step 10 Part (d) of IS 5.11 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/) only if you have **enabled Symmetric Key Encryption** in the previous IS as KM setup. If not, that step can be skipped.
+4.  Download the identity component migration resources and unzip it in a local directory.
 
-    !!! Important
-        Before executing the IS migration client according to [Step 11 of IS 5.10 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/), keep in mind to remove the following entries from `migration-config.yaml` in the migration-resources directory.
-        ```        
-        - version: "5.10.0"
-            migratorConfigs:
-            -
-                name: "MigrationValidator"
-                order: 2
-            -
-                name: "SchemaMigrator"
-                order: 5
-                parameters:
-                location: "step2"
-                schema: "identity"
-            -
-                name: "TenantPortalMigrator"
-                order: 11
-        ```
+    Navigate to the [latest release tag](https://github.com/wso2-extensions/apim-identity-migration-resources/releases) and download the `wso2is-migration-x.x.x.zip` under **Assets**.
+
+    Let's refer to this directory that you downloaded and extracted as `<IS_MIGRATION_TOOL_HOME>`.
+
+5.  Copy the `migration-resources` folder from the extracted folder to the `<IS_HOME>` directory.
+
+6.  Open the `migration-config.yaml` file in the migration-resources directory and make sure that the `currentVersion` element is set to 5.10.0, as shown below.
+
+    ``` java
+    migrationEnable: "true"
+    currentVersion: "5.7.0"
+    migrateVersion: "5.11.0"
+    ```
+7. Remove the following 2 steps from  migration-config.yaml which is included under version: "5.10.0"
+
+    ```
+    - version: "5.10.0"
+        migratorConfigs:
+        -
+            name: "MigrationValidator"
+            order: 2
+        -
+            name: "SchemaMigrator"
+            order: 5
+            parameters:
+            location: "step2"
+            schema: "identity"
+        -
+            name: "TenantPortalMigrator"
+            order: 11
+    ```
+
+8. Remove the following 2 steps from  migration-config.yaml which is included under version: "5.11.0"
+
+    ```
+    -
+        name: "EncryptionAdminFlowMigrator"
+        order: 1
+        parameters:
+           currentEncryptionAlgorithm: "RSA/ECB/OAEPwithSHA1andMGF1Padding"
+           migratedEncryptionAlgorithm: "AES/GCM/NoPadding"
+           schema: "identity"
+    -
+        name: "EncryptionUserFlowMigrator"
+        order: 2
+        parameters:
+           currentEncryptionAlgorithm: "RSA/ECB/OAEPwithSHA1andMGF1Padding"
+           migratedEncryptionAlgorithm: "AES/GCM/NoPadding"
+           schema: "identity"
+    ```
+
+9.  Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<IS_HOME>/repository/components/dropins` directory.
+
+10.  Start WSO2 API Manager 4.1.0 as follows to carry out the complete Identity component migration.
+
+    ```tab="Linux / Mac OS"
+    sh api-manager.sh -Dmigrate -Dcomponent=identity
+    ```
+
+    ```tab="Windows"
+    api-manager.bat -Dmigrate -Dcomponent=identity
+    ```
 
     !!! warning
-    
+
         Depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do **NOT** stop the server during the migration process and please wait until the migration process finish completely and server get started.
 
-3. After you have successfully completed the migration, stop the server and remove the following files and folders.
+11. After you have successfully completed the migration, stop the server and remove the following files and folders.
 
     -   Remove the `org.wso2.carbon.is.migration-x.x.x.jar` file, which is in the `<IS_HOME>/repository/components/dropins` directory.
 
@@ -186,7 +783,6 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
         ```
         -Dmigrate -Dcomponent=identity        
         ```
-
               
 ## Step 2 - Upgrade API Manager 2.6.0 to 4.1.0
 
@@ -219,4 +815,4 @@ Follow the steps mentioned in [Upgrading API-M from 2.6.0 to 4.1.0]({{base_path}
     [user_store]
     type = "database_unique_id"
     ```
-</div>
+
