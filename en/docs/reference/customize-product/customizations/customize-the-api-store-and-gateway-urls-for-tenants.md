@@ -154,7 +154,7 @@ Carry out the following steps to configure NGINX as the load balancer to support
                proxy_redirect https://192.168.1.8:9443/devportal/ /;
                proxy_set_header X-WSO2-Tenant "wso2.com";
         }
-        location ~ (/api/am/devportal/v3|/authenticationendpoint|/logincontext|/commonauth|/oidc) {
+        location ~ (/api/am/devportal/v2|/authenticationendpoint|/logincontext|/commonauth|/oidc) {
                proxy_set_header X-Forwarded-Host $host;
                proxy_set_header X-Forwarded-Server $host;
                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
