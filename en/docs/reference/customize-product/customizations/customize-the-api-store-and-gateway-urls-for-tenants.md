@@ -139,7 +139,7 @@ Carry out the following steps to configure NGINX as the load balancer to support
                proxy_read_timeout 5m;
                proxy_send_timeout 5m;
                proxy_pass https://{server-IP}:9443;
-               proxy_redirect {devportal-URL-for-super-tenant}:9443/devportal/ {devportal-URL-for-specific-tenant}/;
+               proxy_redirect {server-hostname-configured-in-toml-file}/ {custom-url-for-dev-portal}/;
                proxy_set_header X-WSO2-Tenant "{tenant-domain}";
         }
     }
@@ -185,6 +185,8 @@ Carry out the following steps to configure NGINX as the load balancer to support
         }
     }
     ```
+
+
 
 4.  Add following Nginx server configurations to handle customized **Gateway URL** configured for the tenant.
 
