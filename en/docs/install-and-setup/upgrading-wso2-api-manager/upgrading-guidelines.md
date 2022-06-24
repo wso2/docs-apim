@@ -3,10 +3,10 @@
 This section contains the complete upgrading process related to the WSO2 API Manager.
 Go through the guidelines given below before attempting to upgrade the production environment.
 
-!!! note "If you are migrating from an older API-M version"
+??? note "If you are migrating API-M from a version older than 2.6.0"
     - To upgrade **from a version older than 2.6.0**, follow the instructions in [2.6.0 migration guide](https://docs.wso2.com/display/AM260/Upgrading+from+the+Previous+Release) and migrate to API-M 2.6.0 first. Then refer to [API-M 2.6.0 to 4.1.0 Migration Guide]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/260-to-410/upgrading-from-260-to-410/) to migrate to API-M 4.1.0.
 
-!!! note "If you are migrating IS as KM from a version older than 5.7.0"
+??? note "If you are migrating IS as KM from a version older than 5.7.0"
     - To upgrade IS as KM **from a version older than 5.7.0**, follow the instructions in [5.7.0 migration guide](https://docs.wso2.com/display/AM260/Upgrading+from+the+Previous+Release+when+WSO2+IS+is+the+Key+Manager) and migrate to IS as KM 5.7.0 first. Then refer to [IS as KM 5.7.0 to IS 5.11.0 Migration Guide]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-570-to-is-5110/) to migrate to IS 5.11.0.
     
 !!! info
