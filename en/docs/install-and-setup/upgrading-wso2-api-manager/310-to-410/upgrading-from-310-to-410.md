@@ -465,7 +465,7 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Manag
 
     ``` java
     migrationEnable: "true"
-    currentVersion: "5.9.0"
+    currentVersion: "5.10.0"
     migrateVersion: "5.11.0"
     ```
 
