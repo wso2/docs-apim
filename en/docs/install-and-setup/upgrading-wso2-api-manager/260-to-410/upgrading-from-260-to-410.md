@@ -1236,12 +1236,12 @@ You have to run the following migration client to update the API Manager artifac
 
 3. Copy the org.wso2.carbon.am.migration-4.1.0.x.jar file in the `<AM_MIGRATION_CLIENT_HOME>/dropins` directory into the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
 
-4. Prior to API-M migration run the below commad to execute pre migration step which will       validate your old data.
+4. Prior to API-M migration, run the below commad to execute pre migration step which will       validate your old data.
 
     - Available validators: `apiAvailabilityValidation`, `apiDefinitionValidation`
 
     In this step, you can run data validation on all the existing validators or selected validators. If you only use the `-DrunPreMigration` command, all existing validations will 
-    be enabled. If not, you can provide a specific validator, such as `-DrunPreMigration = apiDefinitionValidation`, which only validates the API definitions.
+    be enabled. If not, you can provide a specific validator, such as `-DrunPreMigration=apiDefinitionValidation`, which only validates the API definitions.
 
     ``` tab="Linux / Mac OS"
     sh api-manager.sh -Dmigrate -DmigrateFromVersion=2.6.0 -DmigratedVersion=4.1.0 -DrunPreMigration
