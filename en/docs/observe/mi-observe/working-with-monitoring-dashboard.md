@@ -252,6 +252,15 @@ Now you can view details of artifacts, update artifacts, and perform various oth
 
 <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-list.png"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-list.png" width="300"></a>
 
+## Monitoring health of MI Dashboard
+MI Monitoring Dashboard provide a health check endpoint that can be used to monitor the status of the Dashboard. The following API format can be used to invoke the health API:
+```
+https://localhost:9743/dashboard/api/healthz
+```
+If MI Dashboard is up and running properly, Then the following response will be responded:
+```
+{"status":"ready"}
+```
 <!--
 ### Proxy Services
 
