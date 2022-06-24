@@ -34,47 +34,52 @@ Given below are the main steps your will follow when you deploy integration solu
 
 3. Open the `integration_cr.yaml` file from the Kubernetes project in WSO2 Integration Studio.
 4. With K8s API operator(k8s-api-operator) 2.0.3 we are providing the capability to, 
-   1. Support volumeMounts to deploy(replace existing) config files without
+
+    1. Support volumeMounts to deploy(replace existing) config files without
       need to change the image by using config maps.
-   2. Change image pull policy to either Always, Never or IfNotPresent.
-   3. Add Node Affinity / Anti-Affinity
-   4. Add Pod Affinity / Anti Affinity
+    2. Change image pull policy to either Always, Never or IfNotPresent.
+    3. Add Node Affinity / Anti-Affinity
+    4. Add Pod Affinity / Anti Affinity
+   
 5. See the example given below
+
 ```yaml
-   apiVersion: wso2.com/v1alpha2
-   kind: Integration
-   metadata:
-     name: hello-world
-   spec:
-     image: "<Docker image for the Hello World Scenario>"
-     deploySpec:
-       pullPolicy: IfNotPresent
-       minReplicas: 1
-       configmapDetails:
-         - name: log-config
-           mountPath: /home/wso2carbon/wso2mi-4.0.0/conf
-           fileName: log4j2.properties
-         - name: toml-config
-           mountPath: /home/wso2carbon/wso2mi-4.0.0/conf
-           fileName: deployment.toml
-       affinity:
-         nodeAffinity:
-           requiredDuringSchedulingIgnoredDuringExecution:
-             nodeSelectorTerms:
-               - matchExpressions:
-                   - key: topology.kubernetes.io/zone
-                     operator: In
-                     values:
-                       - us-east-1a
-           preferredDuringSchedulingIgnoredDuringExecution:
-             - weight: 1
-               preference:
-                 matchExpressions:
-                   - key: section
-                     operator: In
-                     values:
-                       - integration
-  ```
+       apiVersion: wso2.com/v1alpha2
+       kind: Integration
+       metadata:
+         name: hello-world
+       spec:
+         image: "<Docker image for the Hello World Scenario>"
+         deploySpec:
+           pullPolicy: IfNotPresent
+           minReplicas: 1
+           configmapDetails:
+             - name: log-config
+               mountPath: /home/wso2carbon/wso2mi-4.0.0/conf
+               fileName: log4j2.properties
+             - name: toml-config
+               mountPath: /home/wso2carbon/wso2mi-4.0.0/conf
+               fileName: deployment.toml
+           affinity:
+             nodeAffinity:
+               requiredDuringSchedulingIgnoredDuringExecution:
+                 nodeSelectorTerms:
+                   - matchExpressions:
+                       - key: topology.kubernetes.io/zone
+                         operator: In
+                         values:
+                           - us-east-1a
+               preferredDuringSchedulingIgnoredDuringExecution:
+                 - weight: 1
+                   preference:
+                     matchExpressions:
+                       - key: section
+                         operator: In
+                         values:
+                           - integration
+    
+```
+    
 <table>
       <tr>
         <th>
@@ -114,9 +119,9 @@ config file that needs to be replaced.
 </table>
 
    
-8. See that the details of your **integration** are correctly included in the file. See the example given below.
+6. See that the details of your **integration** are correctly included in the file. See the example given below.
 
-    ```yaml
+```yaml
     apiVersion: "wso2.com/v1alpha2"
     kind: "Integration"
     metadata:
@@ -167,9 +172,8 @@ config file that needs to be replaced.
             name: CONFIG_MAP_NAME
         - secretRef:
             name: SECRET_NAME   
-    ```
-
-    <table>
+```
+<table>
       <tr>
         <th>
           <b>Property</b>
@@ -308,7 +312,7 @@ config file that needs to be replaced.
       </tr>
     </table>
 
-9. Open a terminal, navigate to the location of your `integration_cr.yaml` file, and execute the following command to deploy the integration solution into the Kubernetes cluster:
+7. Open a terminal, navigate to the location of your `integration_cr.yaml` file, and execute the following command to deploy the integration solution into the Kubernetes cluster:
     ```bash
     kubectl apply -f integration_cr.yaml
     ``` 
