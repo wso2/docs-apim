@@ -4,7 +4,7 @@ WSO2 API Manager Server 4.1.0 brings a range of new features and major improveme
 
     Follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.11.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-5100-to-is-5110). 
 
-This page provides details about the behavioral changes from WSO2 API Manager Server 3.1.0 to 4.1.0
+This page provides details about the behavioral changes from WSO2 API Manager Server 2.6.0 to 4.1.0
 
 ### Changes in WSO2 API Manager
 
@@ -14,6 +14,9 @@ This page provides details about the behavioral changes from WSO2 API Manager Se
     For more information on the mapping between WSO2 API Manager's old configuration files and the new `deployment.toml` file, see [Understanding the New Configuration Model]({{base_path}}/reference/understanding-the-new-configuration-model).
   
 - From 3.0.0 onwards, previous Jaggery based UIs for Publisher and Developer portals are replaced with new ReactJS based applications. From 3.2.0 onwards, previous Jaggery based Admin portal UI is replaced with a new ReactJS based application.
+    
+    !!! note
+        From API-M 3.0.0, Store Portal has been renamed as Developer Portal
   
 - Out-of-the-box support to generate an Opaque (Reference) access token via the Developer Portal has been removed from WSO2 API Manager version 3.2.0 onwards. Hence, now the Application Developers can create new applications that only generate JWT type access tokens.
 
