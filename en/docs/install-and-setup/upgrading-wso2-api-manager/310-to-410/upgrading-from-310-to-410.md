@@ -569,7 +569,25 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Manag
         [authorization_manager.properties]
         GroupAndRoleSeparationEnabled = false
         ```
-        
+
+    !!! important
+        In WSO2 Identity Server 5.11.0, groups include user store roles and roles include internal roles. Therefore, from IS 5.11.0 onwards, there cannot be exist same admin role in both primary and internal user domains. If the same admin role exists in both UM domains of your older version, you have to rename the internal admin 
+        role into different role name. To do that, you have to follow the below steps on 
+        User db.
+
+        1. Rename admin role to different role name
+            ```
+            UPDATE UM_HYBRID_ROLE SET UM_ROLE_NAME='admin-test' WHERE UM_ROLE_NAME='admin';
+            ```
+        2. Get the <internal-domain-id> of `INTERNAL` user domain.
+            ```
+            SELECT UM_DOMAIN_ID FROM UM_DOMAIN WHERE UM_DOMAIN_NAME='INTERNAL';
+            ```
+        3. Update the renamed admin role in UM_ROLE_PERMISSION
+            ```   
+            UPDATE UM_ROLE_PERMISSION SET UM_ROLE_NAME='admin-test' WHERE UM_ROLE_NAME='admin' AND (UM_DOMAIN_ID=<internal-domain-id>);
+            ```
+
     -   If you followed step 8 above, and want to use the latest user store, update the `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` as follows after the identity migration,
 
         ```
@@ -593,12 +611,12 @@ You have to run the following migration client to update the API Manager artifac
 
 3. Copy the org.wso2.carbon.am.migration-4.1.0.x.jar file in the `<AM_MIGRATION_CLIENT_HOME>/dropins` directory into the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
 
-4. Prior to API-M migration, run the below commad to execute pre migration step which will       validate your old data.
+4. Prior to API-M migration, run the below commad to execute pre migration step which will validate your old data.
 
     - Available validators: `apiAvailabilityValidation`, `apiDefinitionValidation`
 
     In this step, you can run data validation on all the existing validators or selected validators. If you only use the `-DrunPreMigration` command, all existing validations will 
-    be enabled. If not, you can provide a specific validator, such as `-DrunPreMigration=apiDefinitionValidation`, which only validates the API definitions.
+    be enabled. If not, you can provide a specific validator, such as  `-DrunPreMigration=apiDefinitionValidation`, which only validates the API definitions.
 
     ``` tab="Linux / Mac OS"
     sh api-manager.sh -Dmigrate -DmigrateFromVersion=3.1.0 -DmigratedVersion=4.1.0 -DrunPreMigration
