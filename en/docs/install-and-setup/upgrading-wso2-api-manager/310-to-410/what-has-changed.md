@@ -28,7 +28,7 @@ This page provides details about the behavioral changes from WSO2 API Manager Se
 - API Key Validation calls which were sent over the network will now be made against an in-memory store.
   
 - Out-of-the-box support for Third Party Key Managers was introduced from 3.2.0 onwards
-  API-M 3.2 is prepacked with an inbuilt resident Key Manager and has the inbuilt capability of configuring WSO2 Identity Server (WSO2 IS) as a third-party Key Manager using WSO2 IS Connector
+  API-M 3.2 is prepacked with an inbuilt resident Key Manager and has the inbuilt capability of configuring WSO2 Identity Server (WSO2 IS) as a third-party Key Manager using WSO2 IS Connector.
   API-M is capable of supporting other authorization servers like Keycloak, Okta, Auth0, PingFederate as a Key Manager.
 
 - From API-M 4.0.0 onwards, API Manager offers analytics as a cloud service. 

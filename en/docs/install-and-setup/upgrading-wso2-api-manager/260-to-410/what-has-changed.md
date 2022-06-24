@@ -4,7 +4,7 @@ WSO2 API Manager Server 4.1.0 brings a range of new features and major improveme
 
     Follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.11.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-5100-to-is-5110). 
 
-This page provides details about the behavioral changes from WSO2 API Manager Server 3.1.0 to 4.1.0
+This page provides details about the behavioral changes from WSO2 API Manager Server 2.6.0 to 4.1.0
 
 ### Changes in WSO2 API Manager
 
@@ -13,7 +13,7 @@ This page provides details about the behavioral changes from WSO2 API Manager Se
     For more information on the configurations in the new configuration model, see the [Configuration Catalog]({{base_path}}/reference/config-catalog).
     For more information on the mapping between WSO2 API Manager's old configuration files and the new `deployment.toml` file, see [Understanding the New Configuration Model]({{base_path}}/reference/understanding-the-new-configuration-model).
   
-- From 3.0.0 onwards, previous Jaggery based UIs for Publisher and Developer portals are replaced with new ReactJS based applications. From 3.2.0 onwards, previous Jaggery based Admin portal UI is replaced with a new ReactJS based application.
+- From 3.0.0 onwards, previous Jaggery based UIs for Publisher and Store are replaced with new ReactJS based applications. Furthermore, the Store has been renamed as Developer Portal. From 3.2.0 onwards, previous Jaggery based Admin portal UI is replaced with a new ReactJS based application.
   
 - Out-of-the-box support to generate an Opaque (Reference) access token via the Developer Portal has been removed from WSO2 API Manager version 3.2.0 onwards. Hence, now the Application Developers can create new applications that only generate JWT type access tokens.
 
@@ -33,7 +33,7 @@ This page provides details about the behavioral changes from WSO2 API Manager Se
 - API Key Validation calls which were sent over the network will now be made against an in-memory store.
 
 - Out-of-the-box support for Third Party Key Managers was introduced from 3.2.0 onwards
-  API-M 3.2 is prepacked with an inbuilt resident Key Manager and has the inbuilt capability of configuring WSO2 Identity Server (WSO2 IS) as a third-party Key Manager using WSO2 IS Connector
+  API-M 3.2 is prepacked with an inbuilt resident Key Manager and has the inbuilt capability of configuring WSO2 Identity Server (WSO2 IS) as a third-party Key Manager using WSO2 IS Connector.
   API-M is capable of supporting other authorization servers like Keycloak, Okta, Auth0, PingFederate as a Key Manager.
 
 - From API-M 4.0.0 onwards, API Manager offers analytics as a cloud service.
