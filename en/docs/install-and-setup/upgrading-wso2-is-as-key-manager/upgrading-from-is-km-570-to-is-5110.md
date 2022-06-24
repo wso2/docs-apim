@@ -7,18 +7,24 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
         -   You are currently using a WSO2 IS 5.7.0 vanilla distribution that has WSO2 API Management related Key Manager features installed on top of it.
         -   You are currently using a pre-packaged WSO2 Identity Server as Key Manager 5.7.0 distribution.
 
--   [Step 1 - Upgrade IS as Key Manager 5.7.0 to IS 5.11.0](#step-1-upgrade-is-as-key-manager-570-to-is-5110)
--   [Step 2 - Upgrade API Manager 2.6.0 to 4.1.0](#step-2-upgrade-api-manager-260-to-410)
+-   [Step A - Upgrade IS as Key Manager 5.7.0 to IS 5.11.0](#upgrade-is-as-key-manager-570-to-is-5110)
+-   [Step B - Upgrade API Manager 2.6.0 to 4.1.0](#step-b-upgrade-api-manager-260-to-410)
 
-## Step 1 - Upgrade IS as Key Manager 5.7.0 to IS 5.11.0
+## Step A - Upgrade IS as Key Manager 5.7.0 to IS 5.11.0
 
-- [Step A - Setup IS 5.11.0 as a Key Manager](#step-a-setup-is-5110-as-a-key-manager)
-- [Step B - Migrate IS from 5.7.0 to 5.11.0](#step-b-migrate-is-from-570-to-5110)
+Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.7.0 to IS 5.11.0
 
-### Step A - Setup IS 5.11.0 as a Key Manager
+-   [Step 1 - Migrate the IS as KM configurations to IS 5.11.0](#step-1-migrate-the-is-as-km-configurations)
 
-1. Download and install WSO2 IS 5.11.0 distribution from [here](https://wso2.com/identity-and-access-management/).
-   If you have downloaded the archive, extract it. `<IS_HOME>` refers to the root folder of the extracted WSO2 IS.
+-   [Step 2 - Migrate the IS as KM resources to IS 5.11.0](#step-2-migrate-the-is-as-km-resources)
+
+-   [Step 3 - Migrate the IS as KM components to IS 5.11.0](#step-3-migrate-the-is-as-km-components)
+
+### Step 1 - Migrate the IS as KM configurations
+
+1. Download WSO2 IS 5.11.0 distribution from [here](https://wso2.com/identity-and-access-management/) and extract it.
+   `<IS_HOME>` refers to the root folder of the extracted WSO2 IS 5.11.0.
+   
 2. Add following configurations in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
     ??? info "deployment.toml"
@@ -92,19 +98,74 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
    [encryption]
    internal_crypto_provider = "org.wso2.carbon.crypto.provider.KeyStoreBasedInternalCryptoProvider"
    ```   
+4. Migrate IS KM 5.10.0 configurations as per the instructions in [Migrating the configurations](https://is.docs.wso2.com/en/5.11.0/setup/migrating-preparing-for-migration/#migrating-the-configurations).
 
-4. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-extensions-1.4.2.zip).
+    !!! Important
+        When following the instructions in [Migration the configurations](https://is.docs.wso2.com/en/5.11.0/setup/migrating-preparing-for-migration/#migrating-the-configurations) section of IS 5.11.0 migration guide, make sure to
+        follow the below guidelines as well.
 
-5. Extract the distribution and copy the following JAR files to the `<IS_HOME>/repository/components/dropins` directory.
+        -   Configure the `identity_db` datasource in `<IS_HOME>/repository/conf/deployment.toml` of IS 5.11.0  by pointing to the **old** `WSO2AM_DB`.
+            ```
+            [database.identity_db]
+            type = "mysql"
+            url = "jdbc:mysql://localhost:3306/am_db"
+            username = "wso2carbon"
+            password = "wso2carbon"
+            ```
+
+        -   If you have used a **JDBCUserStoreManager** as the userstore in previous IS as KM setup, comment/remove the following from `<IS_HOME>/repository/conf/deployment.toml` in IS 5.11.0.
+            ```
+            #[user_store]
+            #type = "read_write_ldap_unique_id"
+            #connection_url = "ldap://localhost:${Ports.EmbeddedLDAP.LDAPServerPort}"
+            #connection_name = "uid=admin,ou=system"
+            #connection_password = "admin"
+            #base_dn = "dc=wso2,dc=org"      
+            ```
+            Instead, add the following to the `<IS_HOME>/repository/conf/deployment.toml` in IS 5.11.0
+            ```
+            [user_store]
+            type = "database"
+            ```
+
+        -   If you have used **separate DBs** for user management and registry in the previous IS as KM version, you need to configure WSO2REG_DB and WSO2USER_DB databases separately in `<IS_HOME>/repository/conf/deployment.toml` of IS 5.11.0 to avoid any issues.
+            ```
+            [database.shared_db]
+            type = "mysql"
+            url = "jdbc:mysql://localhost:3306/reg_db"
+            username = "wso2carbon"
+            password = "wso2carbon"
+
+            [database.user]
+            type = "mysql"
+            url = "jdbc:mysql://localhost:3306/um_db"
+            username = "wso2carbon"
+            password = "wso2carbon"
+            ```
+
+        -   If you have used a separate user management database as the primary userstore in previous IS as KM setup, add the following to the `<IS_HOME>/repository/conf/deployment.toml` in IS 5.11.0.
+            ```
+            [realm_manager]
+            data_source = "WSO2USER_DB"
+            ```
+        -   You **DO NOT NEED** to copy the API-M Key Manager specific configurations from `<OLD_IS_KM_HOME>/repository/conf/api-manager.xml` of previous IS as KM version to IS 5.11.0.
+
+### Step 2 - Migrate the IS as KM Resources
+   
+1. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-extensions-1.4.2.zip).
+
+2. Extract the distribution and copy the following JAR files to the `<IS_HOME>/repository/components/dropins` directory.
 
      - `wso2is.key.manager.core-1.2.10.jar`
      - `wso2is.notification.event.handlers_1.2.10.jar`
 
-6. Add `keymanager-operations.war` from the extracted distribution to the `<IS_HOME>/repository/deployment/server/webapps` directory.
+3. Add `keymanager-operations.war` from the extracted distribution to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
-### Step B - Migrate IS from 5.7.0 to 5.11.0
+4. Follow the steps 1 to 8 in [WSO2 IS 5.11.0 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/) **except for step 6** to prepare your current IS as KM 5.10.0 for migration to IS 5.11.0.
 
-1. Make sure you backed up all the databases in API-M 3.2.0
+### Step 3 - Migrate the IS as KM Components
+
+1. Make sure you backed up all the databases in API-M 2.6.0
 
 2. Run the below script against the AM_DB.
 
@@ -652,58 +713,6 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
         );
         ```
 
-3. Follow the steps 1 to 8 in [WSO2 IS 5.11.0 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/) to prepare your current IS as KM 5.10.0 for migration to IS 5.11.0.
-
-    !!! Important
-        When following the instructions in [Migration the configurations](https://is.docs.wso2.com/en/5.11.0/setup/migrating-preparing-for-migration/#migrating-the-configurations) section of IS 5.11.0 migration guide, make sure to
-        follow the below guidelines as well.
-
-        -   Configure the `identity_db` datasource in `<IS_HOME>/repository/conf/deployment.toml` of IS 5.11.0  by pointing to the **old** `WSO2AM_DB`.
-            ```
-            [database.identity_db]
-            type = "mysql"
-            url = "jdbc:mysql://localhost:3306/am_db"
-            username = "wso2carbon"
-            password = "wso2carbon"
-            ```
-
-        -   If you have used a **JDBCUserStoreManager** as the userstore in previous IS as KM setup, comment/remove the following from `<IS_HOME>/repository/conf/deployment.toml` in IS 5.11.0.
-            ```
-            #[user_store]
-            #type = "read_write_ldap_unique_id"
-            #connection_url = "ldap://localhost:${Ports.EmbeddedLDAP.LDAPServerPort}"
-            #connection_name = "uid=admin,ou=system"
-            #connection_password = "admin"
-            #base_dn = "dc=wso2,dc=org"      
-            ```
-            Instead, add the following to the `<IS_HOME>/repository/conf/deployment.toml` in IS 5.11.0
-            ```
-            [user_store]
-            type = "database"
-            ```
-
-        -   If you have used **separate DBs** for user management and registry in the previous IS as KM version, you need to configure WSO2REG_DB and WSO2USER_DB databases separately in `<IS_HOME>/repository/conf/deployment.toml` of IS 5.11.0 to avoid any issues.
-            ```
-            [database.shared_db]
-            type = "mysql"
-            url = "jdbc:mysql://localhost:3306/reg_db"
-            username = "wso2carbon"
-            password = "wso2carbon"
-
-            [database.user]
-            type = "mysql"
-            url = "jdbc:mysql://localhost:3306/um_db"
-            username = "wso2carbon"
-            password = "wso2carbon"
-            ```
-
-        -   If you have used a separate user management database as the primary userstore in previous IS as KM setup, add the following to the `<IS_HOME>/repository/conf/deployment.toml` in IS 5.11.0.
-            ```
-            [realm_manager]
-            data_source = "WSO2USER_DB"
-            ```
-        -   You **DO NOT NEED** to copy the API-M Key Manager specific configurations from `<OLD_IS_KM_HOME>/repository/conf/api-manager.xml` of previous IS as KM version to IS 5.11.0.
-
 4.  Download the identity component migration resources and unzip it in a local directory.
 
     Navigate to the [latest release tag](https://github.com/wso2-extensions/apim-identity-migration-resources/releases) and download the `wso2is-migration-x.x.x.zip` under **Assets**.
@@ -800,11 +809,9 @@ Follow the steps mentioned in [Upgrading API-M from 2.6.0 to 4.1.0]({{base_path}
 
         -  Do NOT copy anyother Key Manager specific configurations coming from previous API-M version to the latest pointing to the IS instance.
 
-    -   When following guidelines under [Step 2 - Upgrade API Manager to 4.1.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-410/#step-2-upgrade-api-manager-to-410), make sure you **SKIP** the following
-    steps.
+    -   **SKIP** guidelines under [Step 3 - Migrate the Identity Components]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/260-to-410/upgrading-from-260-to-410/#step-3-migrate-the-identity-components)
 
-        -   **Step 3** to upgrade the `WSO2AM_DB` from 2.6.0 to 4.1.0. You have already done this in Step 1 of [Step A - Setup IS 5.11.0 as a Key Manager]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-570-to-is-5110/#step-a-setup-is-5110-as-a-key-manager).
-        -   **Step 5** to upgrade identity component in API-M from 5.7.0 to 5.11.0. You have already done this in Step 2 of [Step A - Setup IS 5.11.0 as a Key Manager]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-570-to-is-5110/#step-a-setup-is-5110-as-a-key-manager).
+         -   You have already done this in Step 3 of [Step A - Upgrade IS as Key Manager 5.7.0 to IS 5.11.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-570-to-is-5110/#upgrade-is-as-key-manager-570-to-is-5110).
 
     - After configuring WSO2 IS as the **Resident Key Manager** and before starting the API-M 4.1.0 server for the first time in **Step 6** under [Step 2 - Upgrade API Manager to 4.1.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-410/#step-2-upgrade-api-manager-to-410), make sure you have already started WSO2 IS 5.11.0.
 

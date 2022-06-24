@@ -4,9 +4,6 @@ WSO2 API Manager Server 4.1.0 brings a range of new features and major improveme
 
     Follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.11.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-5100-to-is-5110). 
 
-!!! Attention "If you are using Analytics"
-    As the on-premise analytics data cannot be migrated to the Cloud, you need to maintain the old analytics server and keep the UI running for as long as you need that data (e.g., 3 months) after migrating to the new version of analytics in WSO2 API-M 4.1.0.
-
 This page provides details about the behavioral changes from WSO2 API Manager Server 3.1.0 to 4.1.0
 
 ### Changes in WSO2 API Manager
@@ -15,7 +12,9 @@ This page provides details about the behavioral changes from WSO2 API Manager Se
   
     For more information on the configurations in the new configuration model, see the [Configuration Catalog]({{base_path}}/reference/config-catalog).
     For more information on the mapping between WSO2 API Manager's old configuration files and the new `deployment.toml` file, see [Understanding the New Configuration Model]({{base_path}}/reference/understanding-the-new-configuration-model).
-
+  
+- From 3.0.0 onwards, previous Jaggery based UIs for Publisher and Developer portals are replaced with new ReactJS based applications. From 3.2.0 onwards, previous Jaggery based Admin portal UI is replaced with a new ReactJS based application.
+  
 - Out-of-the-box support to generate an Opaque (Reference) access token via the Developer Portal has been removed from WSO2 API Manager version 3.2.0 onwards. Hence, now the Application Developers can create new applications that only generate JWT type access tokens.
 
     ??? Note "What will happen to migrated applications?"
@@ -31,6 +30,17 @@ This page provides details about the behavioral changes from WSO2 API Manager Se
       
         The profiles supported in WSO2 API Manager 4.0.0 onwards for a distributed setup are only the Gateway Profile, Control Plane Profile, and the Traffic Manager Profile where the Key Manager component is embedded within the Control Plane. However, if your requirement is to continue using Opaque (Reference) tokens, you will need to maintain a separate Key Manager node or a Cluster to be able to scale it with the Gateway nodes. For instructions on how to configure a separate Key Manager profile along with the Control Plane, Gateway and Traffic Manager profiles, see [Deploying WSO2 API Manager in a Distributed Setup with Key Manager Separated]({{base_path}}/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-km-separated).
 
+- API Key Validation calls which were sent over the network will now be made against an in-memory store.
+
+- Out-of-the-box support for Third Party Key Managers was introduced from 3.2.0 onwards
+  API-M 3.2 is prepacked with an inbuilt resident Key Manager and has the inbuilt capability of configuring WSO2 Identity Server (WSO2 IS) as a third-party Key Manager using WSO2 IS Connector
+  API-M is capable of supporting other authorization servers like Keycloak, Okta, Auth0, PingFederate as a Key Manager.
+
+- From API-M 4.0.0 onwards, API Manager offers analytics as a cloud service.
+
+    !!! Important "If you are using Analytics"
+        As the on-premise analytics data cannot be migrated to the Cloud, you need to maintain the old analytics server and keep the UI running for as long as you need that data (e.g., 3 months) after migrating to the new version of analytics in WSO2 API-M 4.1.0.
+  
 - From API-M 4.0.0 onwards, synapse artifacts have been removed from the file system and are managed via database. At server startup the synapse configs are loaded to the memory from the Traffic Manager.
 
 - When Migrating a Kubernetes environment to a newer API Manager version it is recommended to do the data migration in a single container and then do the deployment.  - If you have done any customizations to the **default sequences** that ship with the product, you may merge the customizations. Also note that the fault messages have been changed from XML to JSON from API-M 4.0.0 onwards.

@@ -161,6 +161,7 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.10.0 to IS 5.1
 
 3. Add `keymanager-operations.war` from the extracted distribution to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
+
 4. Follow the steps 1 to 8 in [WSO2 IS 5.11.0 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/) **except for step 6** to prepare your current IS as KM 5.10.0 for migration to IS 5.11.0.
 
 ### Step 3 - Migrate the IS as KM Components
