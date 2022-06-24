@@ -7,12 +7,12 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
         -   You are currently using a WSO2 IS 5.9.0 vanilla distribution that has WSO2 API Management related Key Manager features installed on top of it.
         -   You are currently using a pre-packaged WSO2 Identity Server as Key Manager 5.9.0 distribution.
 
--   [Step A - Upgrade IS as Key Manager 5.10.0 to IS 5.11.0](#upgrade-is-as-key-manager-5100-to-is-5110)
+-   [Step A - Upgrade IS as Key Manager 5.9.0 to IS 5.11.0](#upgrade-is-as-key-manager-5100-to-is-5110)
 -   [Step B - Upgrade API Manager 3.0.0 to 4.1.0](#step-b-upgrade-api-manager-300-to-410)
 
-## Step A - Upgrade IS as Key Manager 5.10.0 to IS 5.11.0
+## Step A - Upgrade IS as Key Manager 5.9.0 to IS 5.11.0
 
-Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.10.0 to IS 5.11.0
+Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.9.0 to IS 5.11.0
 
 -   [Step 1 - Migrate the IS as KM configurations to IS 5.11.0](#step-1-migrate-the-is-as-km-configurations)
 
@@ -162,7 +162,7 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.10.0 to IS 5.1
 
 3. Add `keymanager-operations.war` from the extracted distribution to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
-4. Follow the steps 1 to 8 in [WSO2 IS 5.11.0 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/) **except for step 6** to prepare your current IS as KM 5.10.0 for migration to IS 5.11.0.
+4. Follow the steps 1 to 8 in [WSO2 IS 5.11.0 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/) **except for step 6** to prepare your current IS as KM 5.9.0 for migration to IS 5.11.0.
 
 ### Step 3 - Migrate the IS as KM Components
 
@@ -176,7 +176,7 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.10.0 to IS 5.1
 
 4.  Copy the `migration-resources` folder from the extracted folder to the `<IS_HOME>` directory.
 
-5.  Open the `migration-config.yaml` file in the migration-resources directory and make sure that the `currentVersion` element is set to 5.10.0, as shown below.
+5.  Open the `migration-config.yaml` file in the migration-resources directory and make sure that the `currentVersion` element is set to 5.9.0, as shown below.
 
     ``` java
     migrationEnable: "true"
