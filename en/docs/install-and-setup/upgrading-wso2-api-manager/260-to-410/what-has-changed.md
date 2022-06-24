@@ -14,8 +14,10 @@ This page provides details about the behavioral changes from WSO2 API Manager Se
     For more information on the mapping between WSO2 API Manager's old configuration files and the new `deployment.toml` file, see [Understanding the New Configuration Model]({{base_path}}/reference/understanding-the-new-configuration-model).
   
 - From 3.0.0 onwards, previous Jaggery based UIs for Publisher and Developer portals are replaced with new ReactJS based applications. From 3.2.0 onwards, previous Jaggery based Admin portal UI is replaced with a new ReactJS based application.
-    !!! note
     
+    !!! note
+        From API-M 3.0.0, Store Portal has been renamed as Developer Portal
+  
 - Out-of-the-box support to generate an Opaque (Reference) access token via the Developer Portal has been removed from WSO2 API Manager version 3.2.0 onwards. Hence, now the Application Developers can create new applications that only generate JWT type access tokens.
 
     ??? Note "What will happen to migrated applications?"
