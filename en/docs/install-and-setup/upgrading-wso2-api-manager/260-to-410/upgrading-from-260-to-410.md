@@ -1302,6 +1302,26 @@ You have to run the following migration client to update the API Manager artifac
     ```tab="Windows"
     api-manager.bat
     ```
+    
+!!! important "If you had configured custom key managers in API-M 2.6.0"
+    With API-M 3.2.0 we have introduced an admin functionality for admins/tenant admins to configure different authorization servers as Key Managers. Please follow below steps for **each tenant** to configure the key managers in your migrated setup.
+
+    1. Navigate to admin portal and register the relevant Identity Provider as a Key Manager in the Admin Portal by providing the required details.
+    
+    2. Retrieve UUID of the Key Manager added in step 1.
+        
+        ??? "How to find the Key Manager UUID"
+             Go to the Key Manager overview and locate the alphanemric string at the end of the URL as below. 
+                
+                 https://<host>:<port>/admin/settings/key-managers/0ccfca69-676f-4ee9-ae88-c231dc443cfb
+    
+    3. Update Key Manager UUID in `AM_APPLICATION_KEY_MAPPING` table.
+        
+        ```UPDATE AM_APPLICATION_KEY_MAPPING SET KEY_MANAGER  = '<uuid>' WHERE APPLICATION_ID IN (SELECT APPLICATION_ID FROM AM_APPLICATION WHERE ORGANIZATION="<tenantdomain>");```
+    
+    4. Update Key Manager UUID in `AM_APPLICATION_REGISTRATION` table.
+        
+        ```UPDATE AM_APPLICATION_REGISTRATION SET KEY_MANAGER  = '<uuid>' WHERE APP_ID IN (SELECT APPLICATION_ID FROM AM_APPLICATION WHERE ORGANIZATION="<tenantdomain>");```
 
 This concludes the upgrade process.
 
