@@ -2,15 +2,16 @@ WSO2 API Manager Server 4.1.0 brings a range of new features and major improveme
 
 !!! Attention "If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager"
    
-    Follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.11.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-5100-to-is-5110). 
-
-!!! Attention "If you are using Analytics"
-    As the on-premise analytics data cannot be migrated to the Cloud, you need to maintain the old analytics server and keep the UI running for as long as you need that data (e.g., 3 months) after migrating to the new version of analytics in WSO2 API-M 4.1.0.
-
+    Follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.11.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-5100-to-is-5110).
   
 This page provides details about the behavioral changes from WSO2 API Manager Server 3.2.0 to 4.1.0
 
 ### Changes in WSO2 API Manager 4.1.0
+
+- From API-M 4.0.0 onwards, API Manager offers analytics as a cloud service.
+
+    !!! Important "If you are using Analytics"
+        As the on-premise analytics data cannot be migrated to the Cloud, you need to maintain the old analytics server and keep the UI running for as long as you need that data (e.g., 3 months) after migrating to the new version of analytics in WSO2 API-M 4.1.0.
 
 - From API-M 4.0.0 onwards, synapse artifacts have been removed from the file system and are managed via database. At server startup the synapse configs are loaded to the memory from the Traffic Manager.
 
