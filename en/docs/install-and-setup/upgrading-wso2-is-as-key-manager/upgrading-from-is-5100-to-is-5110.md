@@ -30,12 +30,6 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.10.0 to IS 5.1
         name = "org.wso2.is.notification.ApimOauthEventInterceptor"
         order = 1
     
-        [event_listener.properties]
-        notification_endpoint = "https://localhost:9443/internal/data/v1/notify"
-        username = "${admin.username}"
-        password = "${admin.password}"
-        'header.X-WSO2-KEY-MANAGER' = "WSO2IS"
-    
         [[resource.access_control]]
         context = "(.)/keymanager-operations/user-info/claims(.)"
         secure = true
@@ -82,7 +76,17 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.10.0 to IS 5.1
         custom_webapps = ["/keymanager-operations/"]
         ```
 
-3. IS 5.11.0 uses Symmetric encryption as default and API-M 410 uses Asymmetric algorithm as default. So when using IS 5.11.0 as KM, if you had used Asymmetric encryption in the previous API-M version, please add below configurations to `deployment.toml`.
+3. Configure the event listener endpoint to publish controller events to the Traffic Manager.
+
+    ```
+    [event_listener.properties]
+    notification_endpoint = "https://<tm.wso2.com>:9443/internal/data/v1/notify"
+    username = "${admin.username}"
+    password = "${admin.password}"
+    'header.X-WSO2-KEY-MANAGER' = "WSO2-IS"
+    ```
+   
+4. IS 5.11.0 uses Symmetric encryption as default and API-M 4.1.0 uses Asymmetric algorithm as default. So when using IS 5.11.0 as KM, if you had used Asymmetric encryption in the previous API-M version, please add below configurations to `deployment.toml`.
     ```
     [keystore]
     userstore_password_encryption = "InternalKeyStore"
@@ -94,7 +98,7 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.10.0 to IS 5.1
     internal_crypto_provider = "org.wso2.carbon.crypto.provider.KeyStoreBasedInternalCryptoProvider"
     ```   
 
-4. Migrate IS KM 5.10.0 configurations as per the instructions in [Migrating the configurations](https://is.docs.wso2.com/en/5.11.0/setup/migrating-preparing-for-migration/#migrating-the-configurations).
+5. Migrate IS KM 5.10.0 configurations as per the instructions in [Migrating the configurations](https://is.docs.wso2.com/en/5.11.0/setup/migrating-preparing-for-migration/#migrating-the-configurations).
 
     !!! Important
         When following the instructions of IS 5.11.0 migration guide, make sure to follow the below guidelines as well.
@@ -156,8 +160,8 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.10.0 to IS 5.1
 
 2. Extract the distribution and copy the following JAR files to the `<IS_HOME>/repository/components/dropins` directory.
 
-   - `wso2is.key.manager.core-1.2.10.jar`
-   - `wso2is.notification.event.handlers_1.2.10.jar`
+    - `wso2is.key.manager.core-1.2.10.jar`
+    - `wso2is.notification.event.handlers_1.2.10.jar`
 
 3. Add `keymanager-operations.war` from the extracted distribution to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
@@ -269,6 +273,6 @@ Follow the steps mentioned in [Upgrading API-M from 3.2.0 to 4.1.0]({{base_path}
 
         -   You have already done this in Step 3 of [Step A - Upgrade IS as Key Manager 5.10.0 to IS 5.11.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-5100-to-is-5110/#upgrade-is-as-key-manager-5100-to-is-5110).
 
-    - After configuring WSO2 IS 5.11.0 as the **Resident Key Manager** and before starting the API-M 4.1.0 server for the first time in **Step 5** under [Step 2 - Upgrade API Manager to 4.1.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-320-to-410/#step-2-upgrade-api-manager-to-410), make sure you have already started WSO2 IS 5.11.0.
+    - After configuring WSO2 IS 5.11.0 as the **Resident Key Manager** and before starting the API-M 4.1.0 server for the first time in **Step 6** under [Step 6 - Restart the WSO2 API-M 4.1.0 Server]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/320-to-410/upgrading-from-320-to-410/#step-6-restart-the-wso2-api-m-410-server), make sure you have already started WSO2 IS 5.11.0.
 
     

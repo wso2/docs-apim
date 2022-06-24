@@ -4,7 +4,7 @@ The following information describes how to upgrade your API Manager server **fro
 
 ## Prerequisites
 
-1. Review what has changed in this release. See [What Has Changed]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/320-to-410/what-has-changed).
+1. Review what has changed in this release. See [What Has Changed]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/260-to-410/what-has-changed).
 
 2. Before you migrate, follow [Upgrading Guidelines]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-guidelines) to get an understanding on the migration process.
 
@@ -1290,7 +1290,7 @@ You have to run the following migration client to update the API Manager artifac
 !!! note
     Note that it takes a considerable amount of time for the API Manager to re-index the artifacts, depending on the API count and the number of tenants.
 
-### Step 6 - Restart the WSO2 API-M 4.1.0 server
+### Step 6 - Restart the WSO2 API-M 4.1.0 Server
 
 1. In WSO2 Identity Server 5.11.0, groups include user store roles and roles include internal roles. To enable this role and group separation the following property should be enabled via the `deployment.toml` file.
 
@@ -1314,6 +1314,8 @@ You have to run the following migration client to update the API Manager artifac
 
     1. Navigate to admin portal and register the relevant Identity Provider as a Key Manager in the Admin Portal by providing the required details.
     
+        For more details please refer document [Configuring Key Managers]({{base_path}}/administer/key-managers/overview/#configuring-key-managers-with-wso2-api-m). If the custom Key Manager type is not among the out-of-the-box supported KM connector list, you may have to configure it as a custom Key manager as per document [Configure Custom Key Manager]({{basepath}}/administer/key-managers/configure-custom-connector/)
+
     2. Retrieve UUID of the Key Manager added in step 1.
         
         ??? "How to find the Key Manager UUID"
