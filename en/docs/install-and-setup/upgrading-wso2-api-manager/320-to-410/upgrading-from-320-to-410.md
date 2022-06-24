@@ -26,6 +26,8 @@ Follow the instructions below to upgrade your WSO2 API Manager server **from WSO
     
 -   [Step 5 - Re-Index the API Manager artifacts](#step-5-re-index-the-api-manager-artifacts)
 
+-   [Step 6 - Restart the WSO2 API-M 4.1.0 server](#step-6-restart-the-wso2-api-m-410-server)
+
 ### Step 1 - Migrate the API Manager configurations
 
 !!! warning
@@ -408,7 +410,7 @@ You have to run the following migration client to update the API Manager artifac
 
         Note that it takes a considerable amount of time for the API Manager to re-index the artifacts, depending on the API count and the number of tenants.
 
-### Step 6 - Restart the WSO2 API-M 4.1.0 server
+### Step 6 - Restart the WSO2 API-M 4.1.0 Server
 
 1. Restart the server.
 
