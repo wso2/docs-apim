@@ -257,7 +257,9 @@ MI Monitoring Dashboard provide a health check endpoint that can be used to moni
 ```
 https://localhost:9743/dashboard/api/healthz
 ```
-If MI Dashboard is up and running properly, Then the following response will be responded:
+
+If the MI Dashboard is up and running properly, the following response will appear.
+
 ```
 {"status":"ready"}
 ```
