@@ -254,6 +254,7 @@ Now you can view details of artifacts, update artifacts, and perform various oth
 
 ## Monitoring health of MI Dashboard
 
+
 The MI Monitoring Dashboard provides a health check endpoint that can be used to monitor the status of the Dashboard. The following API format can be used to invoke the health API.
 
 ```
