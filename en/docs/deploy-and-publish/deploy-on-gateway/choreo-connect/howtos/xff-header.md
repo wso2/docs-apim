@@ -8,13 +8,13 @@ Router operates in a transparent mode where it does not add/modify `x-forward-fo
 
 Since the incoming HTTP request does not contain a `x-forward-for` header, upstream service does not receive a `x-forward-for` header in this scenario.
 
-[![xff-scenario-1]({{base_path}}/assets/img/deploy/mgw/xff-scenario-1.svg)]({{base_path}}/assets/img/deploy/mgw/xff-scenario-1.svg)
+[![xff-scenario-1]({{base_path}}/assets/img/deploy/mgw/xff-scenario-1.png)]({{base_path}}/assets/img/deploy/mgw/xff-scenario-1.png)
 
 #### 2. Incoming HTTP request contains a `x-forward-for` header.
 
 Upstream service receives the `x-forward-for` header of the incoming HTTP request without any modifications.
 
-[![xff-scenario-2]({{base_path}}/assets/img/deploy/mgw/xff-scenario-2.svg)]({{base_path}}/assets/img/deploy/mgw/xff-scenario-2.svg)
+[![xff-scenario-2]({{base_path}}/assets/img/deploy/mgw/xff-scenario-2.png)]({{base_path}}/assets/img/deploy/mgw/xff-scenario-2.png)
 
 ## x-forward-for header manipulation when the router is configured with `use_remote_address = true`
 
@@ -22,10 +22,10 @@ Upstream service receives the `x-forward-for` header of the incoming HTTP reques
 
 Router adds a new `x-forward-for` header and sets the value to the immediate downstream IP address. Upstream service receives the `x-forward-for` header added by the router.
 
-[![xff-scenario-3]({{base_path}}/assets/img/deploy/mgw/xff-scenario-3.svg)]({{base_path}}/assets/img/deploy/mgw/xff-scenario-3.svg)
+[![xff-scenario-3]({{base_path}}/assets/img/deploy/mgw/xff-scenario-3.png)]({{base_path}}/assets/img/deploy/mgw/xff-scenario-3.png)
 
 #### 2. Incoming HTTP request contains a `x-forward-for` header.
 
 Router appends the IP address of the immediate downstream to the `x-forward-for` header of the incoming HTTP request. Upstream service receives the `x-forward-for` header modified by the router.
 
-[![xff-scenario-4]({{base_path}}/assets/img/deploy/mgw/xff-scenario-4.svg)]({{base_path}}/assets/img/deploy/mgw/xff-scenario-4.svg)
+[![xff-scenario-4]({{base_path}}/assets/img/deploy/mgw/xff-scenario-4.png)]({{base_path}}/assets/img/deploy/mgw/xff-scenario-4.png)

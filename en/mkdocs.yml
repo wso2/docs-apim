@@ -357,8 +357,7 @@ nav:
                     - Error Handling: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/error-handling.md
                     - Enforcer Admin API: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/enforcer-admin-api/enforcer-v1.0.0.md
                     - Debug Memory Issues: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/debug-memory.md
-                - HowTos:
-                    - x-forward-for (XFF): deploy-and-publish/deploy-on-gateway/choreo-connect/howtos/xff-header.md
+                - x-forward-for (XFF): deploy-and-publish/deploy-on-gateway/choreo-connect/howtos/xff-header.md
         - Publish on Developer Portal:
             - Publish an API: deploy-and-publish/publish-on-dev-portal/publish-an-api.md
             - Add a Third-party API: deploy-and-publish/publish-on-dev-portal/third-party-api-support.md
