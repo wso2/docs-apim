@@ -208,7 +208,7 @@ You have to follow the below instructions to upgrade the API Manager components.
     - Available validators: `apiAvailabilityValidation`, `apiDefinitionValidation`
 
     In this step, you can run data validation on all the existing validators or selected validators. If you only use the `-DrunPreMigration` command, all existing validations will 
-    be enabled. If not, you can provide a specific validator, such as `-DrunPreMigration=apiDefinitionValidation`, which only validates the API definitions.
+    be enabled. If not, you can provide a specific validator, such as  `-DrunPreMigration=apiDefinitionValidation`, which only validates the API definitions.
 
     ``` tab="Linux / Mac OS"
     sh api-manager.sh -Dmigrate -DmigrateFromVersion=4.0.0 -DmigratedVersion=4.1.0 -DrunPreMigration
