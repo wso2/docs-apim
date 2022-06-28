@@ -5099,7 +5099,7 @@ sender.so_timeout = 60000</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The username to authenticate to the target proxy.</p>
+                                        <p>The password for authenticating the proxy server.</p>
                                     </div>
                                 </div>
                             </div>

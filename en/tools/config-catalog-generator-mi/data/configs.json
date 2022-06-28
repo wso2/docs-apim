@@ -1825,7 +1825,7 @@
                             "required": false,
                             "default": "-",
                             "possible": "-",
-                            "description": "The username to authenticate to the target proxy."
+                            "description": "The password for authenticating the proxy server."
                         }
                     ]
                 }
