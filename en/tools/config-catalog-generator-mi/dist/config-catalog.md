@@ -935,6 +935,7 @@ enable = true
 [[internal_apis.users]]
 user.name = "user-1"
 user.password = "pwd-1"
+user.is_admin = true
 
 [[internal_apis.users]]
 user.name = "user-2"
@@ -1022,6 +1023,27 @@ user.password = "pwd-2"
                                     </div>
                                     <div class="param-description">
                                         <p>Enter a password for the user specified by &#39;user.name&#39;. Note that this will overwrite the default &#39;admin&#39; password that is stored in the user store.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>user.is_admin</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Specifies whether or not the user has admin privileges.</p>
                                     </div>
                                 </div>
                             </div>
@@ -4206,6 +4228,48 @@ force_json_validation = false</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
+                                  <span class="param-name-wrap"> <code>sender.proxy_username</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The username for authenticating the HTTP proxy server.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>sender.proxy_password</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The password for authenticating the HTTP proxy server.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
                                   <span class="param-name-wrap"> <code>sender.secured_proxy_host</code> </span>
                                 </div>
                                 <div class="param-info">
@@ -4244,6 +4308,48 @@ force_json_validation = false</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>The port through which the target proxy (specified by the &#39;sender.secured_proxy_port&#39; parameter) accepts HTTPS traffic.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>sender.secured_proxy_username</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The username for authenticating the HTTPS proxy server.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>sender.secured_proxy_password</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The password for authenticating the HTTPS proxy server.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -4956,7 +5062,7 @@ sender.so_timeout = 60000</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>sender.secured_proxy_host</code> </span>
+                                  <span class="param-name-wrap"> <code>sender.proxy_username</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -4972,17 +5078,17 @@ sender.so_timeout = 60000</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>If the outgoing messages should be sent through an HTTPS proxy server (in blocking mode), use this parameter to specify the target proxy.</p>
+                                        <p>The username for authenticating the proxy server.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>sender.secured_proxy_port</code> </span>
+                                  <span class="param-name-wrap"> <code>sender.proxy_password</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
                                         <p>
-                                            <span class="param-type string"> integer </span>
+                                            <span class="param-type string"> string </span>
                                             
                                         </p>
                                         <div class="param-default">
@@ -4993,7 +5099,7 @@ sender.so_timeout = 60000</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The port through which the target proxy (specified by the &#39;sender.secured_proxy_host&#39; parameter) accepts HTTPS traffic (in blocking mode).</p>
+                                        <p>The password for authenticating the proxy server.</p>
                                     </div>
                                 </div>
                             </div>
