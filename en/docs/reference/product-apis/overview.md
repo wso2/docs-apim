@@ -6,7 +6,7 @@ There are two versions of REST APIs available for the Admin Portal.
 <br>
 <table>
   <tr>
-    <td nowrap="true"><a href="{{base_path}}/reference/product-apis/publisher-apis/publisher-v2/publisher-v2/">WSO2 Publisher API v2</a></td>
+    <td nowrap="true"><a href="{{base_path}}/reference/product-apis/publisher-apis/publisher-v3/publisher-v3/">WSO2 Publisher API v3</a></td>
     <td rowspan="3" style="vertical-align: middle;background-color: white"><b>WSO2 recommends that you use the v2 REST APIs</b> as it is up to date and has support for the latest WSO2 API Manager 4.1.0 features with regard to the Publisher, Developer Portal, and Admin Portal.
     </td>
   </tr>
@@ -14,10 +14,11 @@ There are two versions of REST APIs available for the Admin Portal.
     <td nowrap="true"><a href="{{base_path}}/reference/product-apis/devportal-apis/devportal-v2/devportal-v2/">WSO2 Developer Portal API v2</a></td>
   </tr>
    <tr>
-    <td nowrap="true"><a href="{{base_path}}/reference/product-apis/admin-apis/admin-v2/admin-v2/">WSO2 Admin Portal API v2</a></td>
+    <td nowrap="true"><a href="{{base_path}}/reference/product-apis/admin-apis/admin-v3/admin-v3/">WSO2 Admin Portal API v2</a></td>
   </tr>
   <tr>
-    <td nowrap="true"><a href="{{base_path}}/reference/product-apis/gateway-apis/gateway-v1/gateway-v1/">WSO2 Gateway API v1</a></td>
+    <td nowrap="true"><a href="{{base_path}}/reference/product-apis/gateway-apis/
+gateway-v2/gateway-v2/">WSO2 Gateway API v1</a></td>
     <td rowspan="3" style="vertical-align: middle;background-color: white"></td>
   </tr>
   <tr>
