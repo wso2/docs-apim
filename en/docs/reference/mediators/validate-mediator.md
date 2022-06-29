@@ -300,7 +300,7 @@ to be sent back to the party, which sends the message.
     <on-fail>
         <payloadFactory media-type="json">
             <format>{"Error":"$1",
-            "Error Details " : " $2"       }</format>
+            "Error Details" : "$2"       }</format>
             <args>
                 <arg evaluator="xml" expression="$ctx:ERROR_MESSAGE" />
                 <arg evaluator="xml" expression="$ctx:ERROR_DETAIL" />
@@ -345,7 +345,7 @@ schema.
     <on-fail>
         <payloadFactory media-type="json">
             <format>{"Error":"$1",
-            "Error Details " : " $2"       }</format>
+            "Error Details" : "$2"       }</format>
             <args>
                 <arg evaluator="xml" expression="$ctx:ERROR_MESSAGE" />
                 <arg evaluator="xml" expression="$ctx:ERROR_DETAIL" />
@@ -376,6 +376,6 @@ When you send an invalid JSON, the following response will appear.
 ```
 {
     "Error": "object has missing required properties ([\"request\"])",
-    "Error Details ": " Error while validating Json message error: object has missing required properties ([\"request\"])\n    level: \"error\"\n    schema: {\"loadingURI\":\"#\",\"pointer\":\"/properties/getQuote\"}\n    instance: {\"pointer\":\"/getQuote\"}\n    domain: \"validation\"\n    keyword: \"required\"\n    required: [\"request\"]\n    missing: [\"request\"]\n"
+    "Error Details": "Error while validating Json message error: object has missing required properties ([\"request\"])\n    level: \"error\"\n    schema: {\"loadingURI\":\"#\",\"pointer\":\"/properties/getQuote\"}\n    instance: {\"pointer\":\"/getQuote\"}\n    domain: \"validation\"\n    keyword: \"required\"\n    required: [\"request\"]\n    missing: [\"request\"]\n"
 }
 ```
