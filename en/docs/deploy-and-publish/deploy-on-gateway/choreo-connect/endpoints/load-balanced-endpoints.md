@@ -31,6 +31,10 @@ After creating an API in the APIM publisher, select the API you want to apply lo
     
 2.  Click **Save & Deploy**.
 
+!!! warning
+    The endpoint URLs that you provide as the load balance endpoints should have the same base path as in the `x-wso2-production-endpoints`.
+    If you define some other base path, it will not result in the expected behaviour.
+
 ### Step 2 - Invoke API Endpoint Via The Choreo Connect
 
 After obtaining a valid JWT token, you can invoke APIs as described [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/#step-6-invoke-the-api-via-choreo-connect). 
@@ -112,6 +116,10 @@ paths:
           description: OK
 ...
 ```
+
+!!! warning
+    The endpoint URLs that you provide as load balance endpoints should have the same base path as in the `x-wso2-production-endpoints`.
+    If you define some other base path, it will not result in the expected behaviour.
 
 ### Step 2 - Deploy the API Project And Invoke With Load Balanced Endpoints
 
