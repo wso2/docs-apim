@@ -105,13 +105,6 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.9.0 to IS 5.11
 5. Migrate IS KM 5.10.0 configurations as per the instructions in [Migrating the configurations](https://is.docs.wso2.com/en/5.11.0/setup/migrating-preparing-for-migration/#migrating-the-configurations).
 
     !!! Important
-<<<<<<< HEAD
-=======
-
->>>>>>> Fixing formatting issues
-        When following the instructions in [Migration the configurations](https://is.docs.wso2.com/en/5.11.0/setup/migrating-preparing-for-migration/#migrating-the-configurations) section of IS 5.11.0 migration guide, make sure to
-        follow the below guidelines as well.
-
         -   Configure the `identity_db` datasource in `<IS_HOME>/repository/conf/deployment.toml` of IS 5.11.0  by pointing to the **old** `WSO2AM_DB`.
             ```
             [database.identity_db]
@@ -250,25 +243,38 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.9.0 to IS 5.11
 
 7.  Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<IS_HOME>/repository/components/dropins` directory.
 
-8.  Start WSO2 API Manager 4.1.0 as follows to carry out the complete Identity component migration.
+8. Add below configuration  to `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` to disable group role separation.
+
+     ```
+     [authorization_manager.properties]
+     GroupAndRoleSeparationEnabled = false
+     ```
+
+9.  Start WSO2 API Manager 4.1.0 as follows to carry out the complete Identity component migration.
 
     ```tab="Linux / Mac OS"
-    sh api-manager.sh -Dmigrate -Dcomponent=identity
+    sh wso2server.sh -Dmigrate -Dcomponent=identity
     ```
 
     ```tab="Windows"
-    api-manager.bat -Dmigrate -Dcomponent=identity
+    wso2server.bat -Dmigrate -Dcomponent=identity
     ```
 
     !!! warning
 
         Depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do **NOT** stop the server during the migration process and please wait until the migration process finish completely and server get started.
 
-9. After you have successfully completed the migration, stop the server and remove the following files and folders.
+10. After you have successfully completed the migration, stop the server and remove the following files and folders.
 
     -   Remove the `org.wso2.carbon.is.migration-x.x.x.jar` file, which is in the `<IS_HOME>/repository/components/dropins` directory.
 
     -   Remove the migration-resources directory, which is in the `<IS_HOME>` directory.
+
+    -   Remove the below configuration from `<API-M_4.1.0_HOME>/repository/conf/deployment.toml`
+         ```
+         [authorization_manager.properties]
+         GroupAndRoleSeparationEnabled = false
+         ```
 
     -   If you ran WSO2 IS as a Windows Service when doing the IS migration , then you need to remove the following parameters in the command line arguments section (CMD_LINE_ARGS) of the `wso2server.bat` file.
         ```
@@ -280,23 +286,23 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.9.0 to IS 5.11
 
 Follow the steps mentioned in [Upgrading API-M from 3.0.0 to 4.1.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-410/) to upgrade your API-M environment from 3.0.0 to 4.1.0.
 
-    !!! important
+!!! important
 
-        -   When following guidelines under [Step 1 - Migrate the API Manager configurations]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-410/#step-1-migrate-the-api-manager-configurations), make sure to add
-        the following to the `<API-M_HOME>/repository/conf/deployment.toml`. This is to configure your IS 5.11.0 as the **Resident Key Manager** of your API-M 4.1.0 deployment.
-            ```
-            [apim.key_manager]
-            service_url = "https://<IS_5.11.0_HOST_NAME>:<PORT>/services/"
-            type = "WSO2-IS"
-            ```
+    -   When following guidelines under [Step 1 - Migrate the API Manager configurations]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-410/#step-1-migrate-the-api-manager-configurations), make sure to add
+    the following to the `<API-M_HOME>/repository/conf/deployment.toml`. This is to configure your IS 5.11.0 as the **Resident Key Manager** of your API-M 4.1.0 deployment.
+        ```
+        [apim.key_manager]
+        service_url = "https://<IS_5.11.0_HOST_NAME>:<PORT>/services/"
+        type = "WSO2-IS"
+        ```
 
-            -  Do NOT copy any other Key Manager specific configurations coming from previous API-M version to the latest pointing to the IS instance.
+        -  Do NOT copy any other Key Manager specific configurations coming from previous API-M version to the latest pointing to the IS instance.
 
-        -   **SKIP** guidelines under [Step 3 - Migrate the Identity Components]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/300-to-410/upgrading-from-300-to-410/#step-3-migrate-the-identity-components)
+    -   **SKIP** guidelines under [Step 3 - Migrate the Identity Components]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/300-to-410/upgrading-from-300-to-410/#step-3-migrate-the-identity-components)
 
-            -   You have already done this in Step 3 of [Step A - Upgrade IS as Key Manager 5.9.0 to IS 5.11.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-590-to-is-5110/#upgrade-is-as-key-manager-590-to-is-5110).
+        -   You have already done this in Step 3 of [Step A - Upgrade IS as Key Manager 5.9.0 to IS 5.11.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-590-to-is-5110/#upgrade-is-as-key-manager-590-to-is-5110).
 
-        - After configuring WSO2 IS as the **Resident Key Manager** and before starting the API-M 4.1.0 server for the first time in **Step 5** under [Step 2 - Upgrade API Manager to 4.1.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-410/#step-2-upgrade-api-manager-to-410), make sure you have already started WSO2 IS 5.11.0.
+    - After configuring WSO2 IS as the **Resident Key Manager** and before starting the API-M 4.1.0 server for the first time in **Step 5** under [Step 2 - Upgrade API Manager to 4.1.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-410/#step-2-upgrade-api-manager-to-410), make sure you have already started WSO2 IS 5.11.0.
 
 !!! info
 

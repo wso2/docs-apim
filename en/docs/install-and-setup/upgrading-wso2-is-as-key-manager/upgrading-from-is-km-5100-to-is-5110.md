@@ -252,30 +252,43 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.10.0 to IS 5.1
 
 7.  Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<IS_HOME>/repository/components/dropins` directory.
 
-8.  Start WSO2 API Manager 4.1.0 as follows to carry out the complete Identity component migration.
+8. Add below configuration  to `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` to disable group role separation.
+
+     ```
+     [authorization_manager.properties]
+     GroupAndRoleSeparationEnabled = false
+     ```
+
+9.  Start WSO2 API Manager 4.1.0 as follows to carry out the complete Identity component migration.
 
     ```tab="Linux / Mac OS"
-    sh api-manager.sh -Dmigrate -Dcomponent=identity
+    sh wso2server.sh -Dmigrate -Dcomponent=identity
     ```
 
     ```tab="Windows"
-    api-manager.bat -Dmigrate -Dcomponent=identity
+    wso2server.bat -Dmigrate -Dcomponent=identity
     ```
 
     !!! warning
 
         Depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do **NOT** stop the server during the migration process and please wait until the migration process finish completely and server get started.
 
-9. After you have successfully completed the migration, stop the server and remove the following files and folders.
-
--   Remove the `org.wso2.carbon.is.migration-x.x.x.jar` file, which is in the `<IS_HOME>/repository/components/dropins` directory.
-
--   Remove the migration-resources directory, which is in the `<IS_HOME>` directory.
-
--   If you ran WSO2 IS as a Windows Service when doing the IS migration , then you need to remove the following parameters in the command line arguments section (CMD_LINE_ARGS) of the `wso2server.bat` file.
-    ```
-    -Dmigrate -Dcomponent=identity
-    ```
+10. After you have successfully completed the migration, stop the server and remove the following files and folders.
+    
+    -   Remove the `org.wso2.carbon.is.migration-x.x.x.jar` file, which is in the `<IS_HOME>/repository/components/dropins` directory.
+    
+    -   Remove the migration-resources directory, which is in the `<IS_HOME>` directory.
+    
+    -   Remove the below configuration from `<API-M_4.1.0_HOME>/repository/conf/deployment.toml`
+         ```
+         [authorization_manager.properties]
+         GroupAndRoleSeparationEnabled = false
+         ```
+    
+    -   If you ran WSO2 IS as a Windows Service when doing the IS migration , then you need to remove the following parameters in the command line arguments section (CMD_LINE_ARGS) of the `wso2server.bat` file.
+        ```
+        -Dmigrate -Dcomponent=identity
+        ```
 
 ## Step B - Upgrade API Manager 3.1.0 to 4.1.0
 
