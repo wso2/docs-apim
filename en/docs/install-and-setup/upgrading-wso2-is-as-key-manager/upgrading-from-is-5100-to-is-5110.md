@@ -250,11 +250,11 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.10.0 to IS 5.1
 8.  Start WSO2 API Manager 4.1.0 as follows to carry out the complete Identity component migration.
 
     ```tab="Linux / Mac OS"
-    sh api-manager.sh -Dmigrate -Dcomponent=identity
+    sh wso2server.sh -Dmigrate -Dcomponent=identity
     ```
 
     ```tab="Windows"
-    api-manager.bat -Dmigrate -Dcomponent=identity
+    wso2server.bat -Dmigrate -Dcomponent=identity
     ```
 
     !!! warning
