@@ -97,7 +97,7 @@ enable = false
 
 ### Disabling Servlet Transport
 
-Add the following configuration in the `deployment.toml` file which resides in the `<API-M_HOME>/repository/conf` directory.
+Add the following configuration in the `deployment.toml` file that resides in the `<API-M_HOME>/repository/conf` directory.
 
 ``` toml
 [transport.servlet_http.connector]
