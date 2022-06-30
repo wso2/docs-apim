@@ -8,6 +8,8 @@ This page provides details about the behavioral changes from WSO2 API Manager Se
 
 ### Changes in WSO2 API Manager 4.1.0
 
+- From API-M 4.0.0 onwards Other '_overview' type documents override the API description, if you had created such documents in your lower environments, please note that those documents will not be displayed in document listing page. You can edit those documents the same way you edit the API description.
+  
 - From API-M 4.0.0 onwards, API Manager offers analytics as a cloud service.
 
     !!! Important "If you are using Analytics"
