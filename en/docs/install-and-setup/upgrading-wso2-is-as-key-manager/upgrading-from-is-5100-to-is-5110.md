@@ -172,25 +172,6 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.10.0 to IS 5.1
 
 1.  Make sure you backed up all the databases in API-M 3.2.0
 
-    !!! important
-    
-        In WSO2 Identity Server 5.11.0, groups include user store roles and roles include internal roles. Therefore, from IS 5.11.0 onwards, there cannot be exist same admin role in both primary and internal user domains. If the same admin role exists in both UM domains of your older version, you have to rename the internal admin 
-        role into different role name. To do that, you have to follow the below steps on 
-        User db.
-
-        1. Rename admin role to different role name
-            ```
-            UPDATE UM_HYBRID_ROLE SET UM_ROLE_NAME='admin-test' WHERE UM_ROLE_NAME='admin';
-            ```
-        2. Get the <internal-domain-id> of `INTERNAL` user domain.
-            ```
-            SELECT UM_DOMAIN_ID FROM UM_DOMAIN WHERE UM_DOMAIN_NAME='INTERNAL';
-            ```
-        3. Update the renamed admin role in UM_ROLE_PERMISSION
-            ```   
-            UPDATE UM_ROLE_PERMISSION SET UM_ROLE_NAME='admin-test' WHERE UM_ROLE_NAME='admin' AND (UM_DOMAIN_ID=<internal-domain-id>);
-            ```
-
 2.  Download the identity component migration resources and unzip it in a local directory.
 
     Navigate to the [latest release tag](https://github.com/wso2-extensions/apim-identity-migration-resources/releases) and download the `wso2is-migration-x.x.x.zip` under **Assets**.

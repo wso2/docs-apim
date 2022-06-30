@@ -513,24 +513,6 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Manag
     GroupAndRoleSeparationEnabled = false
     ```
 
-    !!! important
-        In WSO2 Identity Server 5.11.0, groups include user store roles and roles include internal roles. Therefore, from IS 5.11.0 onwards, there cannot be exist same admin role in both primary and internal user domains. If the same admin role exists in both UM domains of your older version, you have to rename the internal admin 
-        role into different role name. To do that, you have to follow the below steps on 
-        User db.
-
-        1. Rename admin role to different role name
-            ```
-            UPDATE UM_HYBRID_ROLE SET UM_ROLE_NAME='admin-test' WHERE UM_ROLE_NAME='admin';
-            ```
-        2. Get the <internal-domain-id> of `INTERNAL` user domain.
-            ```
-            SELECT UM_DOMAIN_ID FROM UM_DOMAIN WHERE UM_DOMAIN_NAME='INTERNAL';
-            ```
-        3. Update the renamed admin role in UM_ROLE_PERMISSION
-            ```   
-            UPDATE UM_ROLE_PERMISSION SET UM_ROLE_NAME='admin-test' WHERE UM_ROLE_NAME='admin' AND (UM_DOMAIN_ID=<internal-domain-id>);
-            ```    
-
 9. Update `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the previous user store.
 
     ```
