@@ -247,14 +247,14 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.10.0 to IS 5.1
 
 7.  Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<IS_HOME>/repository/components/dropins` directory.
 
-8. Add below configuration  to `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` to disable group role separation.
+8. Add below configuration  to `<IS_HOME>/repository/conf/deployment.toml` to disable group role separation.
 
      ```
      [authorization_manager.properties]
      GroupAndRoleSeparationEnabled = false
      ```
 
-9.  Start WSO2 API Manager 4.1.0 as follows to carry out the complete Identity component migration.
+9.  Start WSO2 IS 5.11.0 as follows to carry out the complete Identity component migration.
 
     ```tab="Linux / Mac OS"
     sh wso2server.sh -Dmigrate -Dcomponent=identity
@@ -274,7 +274,7 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.10.0 to IS 5.1
 
     -   Remove the migration-resources directory, which is in the `<IS_HOME>` directory.
 
-    -   Remove the below configuration from `<API-M_4.1.0_HOME>/repository/conf/deployment.toml`
+    -   Remove the below configuration from `<IS_HOME>/repository/conf/deployment.toml`
          ```
          [authorization_manager.properties]
          GroupAndRoleSeparationEnabled = false

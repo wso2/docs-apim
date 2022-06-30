@@ -35,6 +35,10 @@ This page provides details about the behavioral changes from WSO2 API Manager Se
 
 - API Key Validation calls which were sent over the network will now be made against an in-memory store.
 
+- Due to security reasons, API-M from 3.1.0 onwards supports only pdf, doc and txt type files as file type API documents. 
+
+- From API-M 4.0.0 onwards Other '_overview' type documents override the API description, if you had created such documents in your lower environments, please note that those documents will not be displayed in document listing page. You can edit those documents the same way you edit the API description.
+  
 - Out-of-the-box support for Third Party Key Managers was introduced from 3.2.0 onwards
   API-M 3.2 is prepacked with an inbuilt resident Key Manager and has the inbuilt capability of configuring WSO2 Identity Server (WSO2 IS) as a third-party Key Manager using WSO2 IS Connector.
   API-M is capable of supporting other authorization servers like Keycloak, Okta, Auth0, PingFederate as a Key Manager.

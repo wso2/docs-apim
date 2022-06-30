@@ -26,6 +26,8 @@ This page provides details about the behavioral changes from WSO2 API Manager Se
         The profiles supported in WSO2 API Manager 4.0.0 onwards for a distributed setup are only the Gateway Profile, Control Plane Profile, and the Traffic Manager Profile where the Key Manager component is embedded within the Control Plane. However, if your requirement is to continue using Opaque (Reference) tokens, you will need to maintain a separate Key Manager node or a Cluster to be able to scale it with the Gateway nodes. For instructions on how to configure a separate Key Manager profile along with the Control Plane, Gateway and Traffic Manager profiles, see [Deploying WSO2 API Manager in a Distributed Setup with Key Manager Separated]({{base_path}}/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-km-separated).
 
 - API Key Validation calls which were sent over the network will now be made against an in-memory store.
+
+- From API-M 4.0.0 onwards Other '_overview' type documents override the API description, if you had created such documents in your lower environments, please note that those documents will not be displayed in document listing page. You can edit those documents the same way you edit the API description.
   
 - Out-of-the-box support for Third Party Key Managers was introduced from 3.2.0 onwards
   API-M 3.2 is prepacked with an inbuilt resident Key Manager and has the inbuilt capability of configuring WSO2 Identity Server (WSO2 IS) as a third-party Key Manager using WSO2 IS Connector.
