@@ -56,13 +56,6 @@
               "required": false,
               "default": "20",
               "description": "The timeout for response coming from enforcer to route per API request."
-            },
-            {
-              "name": "enableMtlsApis",
-              "type": "boolean",
-              "required": false,
-              "default": "false",
-              "description": "Enable mTLS APIs in Choreo Connect."
             }
           ]
         }
@@ -355,6 +348,34 @@
         }
       ],
       "exampleFile": "upstream_tls.toml"
+    },
+    {
+      "title": "Downstream TLS",
+      "options": [
+        {
+          "name": "router.downstream.tls",
+          "required": false,
+          "description": "The configurations for SSL configuration related to the downstream in Choreo Connect.",
+          "params": [
+            {
+              "name": "trustedCertPath",
+              "type": "string",
+              "required": true,
+              "default": "/etc/ssl/certs/ca-certificates.crt",
+              "description": "Path to trusted ca-certificates"
+            },
+            {
+              "name": "mTLSAPIsEnabled",
+              "type": "boolean",
+              "required": true,
+              "default": "false",
+              "possible": "true, false",
+              "description": "Enable mTLS APIs in Choreo Connect."
+            }
+          ]
+        }
+      ],
+      "exampleFile": "downstream_tls.toml"
     },
     {
       "title": "Request Payload Passing To Enforcer",

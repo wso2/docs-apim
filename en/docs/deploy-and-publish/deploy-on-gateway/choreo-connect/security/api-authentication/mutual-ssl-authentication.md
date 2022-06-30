@@ -5,11 +5,12 @@ Certificate-based authentication on the Choreo Connect is authenticating a reque
 ### Prerequisites
 
 - Navigate to the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect(-with-apim)/conf/config.toml` file.
-- Configure the `enableMtlsApis` to `true` under the `[router]` configuration to enable the mTLS APIs in the Choreo Connect.
+- Configure the `mTLSAPIsEnabled` to `true` under the `[router.downstream.tls]` configuration to enable the mTLS APIs in the Choreo Connect.
 
      ```
-      [router]
-         enableMtlsApis = true
+      [router.downstream.tls]
+         trustedCertPath = "/etc/ssl/certs/ca-certificates.crt"  # Default path for client ca-certificates
+         mTLSAPIsEnabled = true
      ```
 
 {!includes/design/create-mtls-api.md!}
@@ -18,6 +19,8 @@ Certificate-based authentication on the Choreo Connect is authenticating a reque
     To invoke mTLS enabled APIs that deployed in Choreo Connect, the CA certificates of the client's public certificates should be added as trusted certificates to the router.
 
       - [Add a Certificate to Choreo Connect Router as a Trusted Certificate]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/backend-certificates/#add-a-certificate-to-choreo-connect-router-as-a-trusted-certificate)
+
+    If you need to change the location of the volume mount, the `trustedCertPath` value under the `[router.downstream.tls]` in config.toml should also be changed.
 
 {!includes/design/invoke-mtls-api-using-postman.md!}
 

@@ -6,4 +6,3 @@
   clusterTimeoutInSeconds = 20
   enforcerResponseTimeoutInSeconds = 20
   systemHost = "localhost"
-  enableMtlsApis = false
