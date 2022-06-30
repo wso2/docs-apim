@@ -101,7 +101,7 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.7.0 to IS 5.11
    [encryption]
    internal_crypto_provider = "org.wso2.carbon.crypto.provider.KeyStoreBasedInternalCryptoProvider"
    ```   
-5. Migrate IS KM 5.10.0 configurations as per the instructions in [Migrating the configurations](https://is.docs.wso2.com/en/5.11.0/setup/migrating-preparing-for-migration/#migrating-the-configurations).
+5. Migrate IS KM 5.7.0 configurations as per the instructions in [Migrating the configurations](https://is.docs.wso2.com/en/5.11.0/setup/migrating-preparing-for-migration/#migrating-the-configurations).
 
     !!! Important
         When following the instructions in [Migration the configurations](https://is.docs.wso2.com/en/5.11.0/setup/migrating-preparing-for-migration/#migrating-the-configurations) section of IS 5.11.0 migration guide, make sure to
@@ -164,7 +164,7 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.7.0 to IS 5.11
 
 3. Add `keymanager-operations.war` from the extracted distribution to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
-4. Follow the steps 1 to 8 in [WSO2 IS 5.11.0 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/) **except for step 6** to prepare your current IS as KM 5.10.0 for migration to IS 5.11.0.
+4. Follow the steps 1 to 8 in [WSO2 IS 5.11.0 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/) **except for step 6** to prepare your current IS as KM 5.7.0 for migration to IS 5.11.0.
 
 ### Step 3 - Migrate the IS as KM Components
 
@@ -724,7 +724,7 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.7.0 to IS 5.11
 
 5.  Copy the `migration-resources` folder from the extracted folder to the `<IS_HOME>` directory.
 
-6.  Open the `migration-config.yaml` file in the migration-resources directory and make sure that the `currentVersion` element is set to 5.10.0, as shown below.
+6.  Open the `migration-config.yaml` file in the migration-resources directory and make sure that the `currentVersion` element is set to 5.7.0, as shown below.
 
     ``` java
     migrationEnable: "true"
