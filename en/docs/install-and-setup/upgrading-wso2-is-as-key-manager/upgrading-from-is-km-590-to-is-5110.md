@@ -250,13 +250,7 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.9.0 to IS 5.11
     -   Remove the `org.wso2.carbon.is.migration-x.x.x.jar` file, which is in the `<IS_HOME>/repository/components/dropins` directory.
 
     -   Remove the migration-resources directory, which is in the `<IS_HOME>` directory.
-
-    -   Remove the below configuration from `<IS_HOME>/repository/conf/deployment.toml`
-         ```
-         [authorization_manager.properties]
-         GroupAndRoleSeparationEnabled = false
-         ```
-
+    
     -   If you ran WSO2 IS as a Windows Service when doing the IS migration , then you need to remove the following parameters in the command line arguments section (CMD_LINE_ARGS) of the `wso2server.bat` file.
         ```
         -Dmigrate -Dcomponent=identity        
