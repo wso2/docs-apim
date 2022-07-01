@@ -563,12 +563,6 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Manag
         ```
         -Dmigrate -Dcomponent=identity
         ```
-        
-    - Remove the below configuration from `<API-M_4.1.0_HOME>/repository/conf/deployment.toml`
-        ```
-        [authorization_manager.properties]
-        GroupAndRoleSeparationEnabled = false
-        ```
 
     !!! important
         In WSO2 Identity Server 5.11.0, groups include user store roles and roles include internal roles. Therefore, from IS 5.11.0 onwards, there cannot be exist same admin role in both primary and internal user domains. If the same admin role exists in both UM domains of your older version, you have to rename the internal admin 
