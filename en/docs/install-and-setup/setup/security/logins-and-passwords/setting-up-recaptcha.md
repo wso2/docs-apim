@@ -31,10 +31,11 @@ Follow the steps provided below to configure this.
     -   **Domains:** is.apim.com  
 
     ![configuring-recaptcha-api-keys]({{base_path}}/assets/img/learn/api-security/recaptcha/configuring-recaptcha-api-keys.png) 
+   
 3. Take note of the site key and secret that you receive.
     ![note-site-key-secret]({{base_path}}/assets/img/learn/api-security/recaptcha/note-site-key-secret.png) 
-4. Open the `deployment.toml` file located in the `<API-M_HOME>/repository/conf/`       `
-    directory and add the following configurations.
+   
+4. Open the `deployment.toml` file located in the `<API-M_HOME>/repository/conf/` directory and add the following configurations.
 
     ``` toml 
     # Google reCAPTCHA settings
@@ -54,6 +55,8 @@ Follow the steps provided below to configure this.
 
     # reCaptcha secret key
     secret_key="6Lc8THgUAAAAAEu83iOwSin_CSt6gqe97aa7EGFd"
+   
+    parameters_in_url_enabled = true
     ```
 
     !!! note
