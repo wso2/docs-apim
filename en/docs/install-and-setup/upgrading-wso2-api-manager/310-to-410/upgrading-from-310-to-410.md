@@ -461,7 +461,7 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Manag
 
 3.  Copy the `migration-resources` folder from the extracted folder to the `<API-M_4.1.0_HOME>` directory.
 
-4.  Open the `migration-config.yaml` file in the migration-resources directory and make sure that the `currentVersion` element is set to 5.7.0, as shown below.
+4.  Open the `migration-config.yaml` file in the migration-resources directory and make sure that the `currentVersion` element is set to 5.10.0, as shown below.
 
     ``` java
     migrationEnable: "true"
