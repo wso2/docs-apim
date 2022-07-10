@@ -2225,7 +2225,7 @@ extra:
           link: https://www.linkedin.com/company/wso2
     choreo_connect:
         version: 1.1.0
-        envoy_version: v1.20.2
+        envoy_version: v1.20.2 # for GA release
         helm_chart:
             version: 1.1.0-3
             git_tag: 1.1.0.3
