@@ -40,11 +40,11 @@ Enforcer is implemented in Java and it is configured with required parameters to
 
 ## Taking a heap dump of Router
 
-Router uses the Envoy Proxy as the core component that does the traffic routing. The default Router which is used in you production environment is not supporting heap profiling and we have build a separate Router Docker image which enables heap profiling. Follow the steps below to take a heap profile of the Router.
+Router uses the Envoy Proxy as the core component that does the traffic routing. The default Router which is used in you production environment is not supporting heap profiling and we have built a separate Router Docker image which enables heap profiling. Follow the steps below to take a heap profile of the Router.
 
 ### Prerequisites
 
-1.  Install [pprof](https://github.com/google/pprof#readme) and [Graphviz](http://www.graphviz.org/).
+1.  Install [pprof](https://github.com/google/pprof#readme) and [Graphviz](http://www.graphviz.org/) in your local machine. **pprof** is used to analyze the heap profile and **Graphviz** enables to analyze them with graphs.
 
 2.  Build ***Router Debug Image***, if you are taking heap profile **on top of an updated Router image**.
 
@@ -113,7 +113,7 @@ Router uses the Envoy Proxy as the core component that does the traffic routing.
         --set wso2.deployment.gatewayRuntime.router.imageTag=<TAG>
     ```
 
-2.  Expose the admin portal port (port 9000) to the host.
+2.  Expose the admin portal port (port 9000) to your local machine.
 
     ```text tab="Docker Compose"
     Already done in the default Docker Compose setup.
@@ -133,7 +133,7 @@ Router uses the Envoy Proxy as the core component that does the traffic routing.
     curl -X POST -s "http://localhost:9000/heapprofiler?enable=n"
     ```
 
-5.  Copy profile data and envoy binary to the directory `./profile-data` in host.
+5.  Execute following commands to copy profile data and envoy binary to the directory `./profile-data` in you local machine.
 
     ```bash
     export POD_NAME=<K8S_CHOREO_CONNECT_GATEWAY_RUNTIME_POD_NAME>
