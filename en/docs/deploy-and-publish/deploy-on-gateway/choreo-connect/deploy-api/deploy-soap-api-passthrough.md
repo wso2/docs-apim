@@ -11,6 +11,9 @@ You can deploy a SOAP API (SOAP to SOAP pass-through) in the following ways depe
 |[Choreo Connect as a Standalone Gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/)  |[Via apictl for Standalone Mode](#via-apictl-for-standalone-mode) |
 
 
+!!! Note
+    This guide uses the [Phone Verify](http://ws.cdyne.com/phoneverify/phoneverify.asmx) from CDYNE as the backend here (WSDL: `http://ws.cdyne.com/phoneverify/phoneverify.asmx?wsdl`). You may use your own backend and continue with the same steps. 
+
 ## Via WSO2 API Manager Publisher Portal
 
 Follow the instructions below to deploy a SOAP API in a Choreo Connect instance run with WSO2 API Manager as the Control Plane.
@@ -25,14 +28,30 @@ Follow the instructions below to deploy a SOAP API in a Choreo Connect instance 
 
 ### Step 1 - Create a SOAP API using API Manager publisher portal.
 
-Create a SOAP API Pass-through using the WSDL definition of your SOAP service by following the below method described in WSO2 API Manager.
+Create a SOAP API Pass-through using the WSDL definition of your SOAP service by using the following steps.
 
-- [Create a SOAP API Pass-through using WSO2 API Manager Publisher Portal.]({{base_path}}/design/create-api/create-rest-api/expose-a-soap-service-as-a-rest-api/#expose-a-soap-service-as-a-rest-api)
+1. Sign in to publisher portal and click on **Create API** .
+2. Select **SOAP API** and click on **Import WSDL** . 
+3. Then select Pass Through option as the Implementation type and choose the Input type as either **WSDL URL** or **WSDL File/Archive** depending on your SOAP service. 
+    - Select **WSDL URL** and enter `http://ws.cdyne.com/phoneverify/phoneverify.asmx?wsdl` for this example.
+4. Click **Next** to proceed and then enter the following details and click **CREATE**
+
+    | Field   | Sample Value       |
+    |---------|--------------------|
+    | Name    | PhoneVerification  |
+    | Context | /phoneverify       |
+    | Version | 1.0                |
+    | Endpoint| http://ws.cdyne.com/phoneverify/phoneverify.asmx|
+
+!!! Info
+    You may find more details on the above steps from [Create a SOAP API Pass-through using WSO2 API Manager Publisher Portal.]({{base_path}}/design/create-api/create-rest-api/expose-a-soap-service-as-a-rest-api/#expose-a-soap-service-as-a-rest-api)
 
 
 ### Step 2 - Deploy the SOAP API using API Manager publisher portal.
 
-Follow [this]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/) guide to easily deploy the API that you just created in the previous step.
+From publisher portal, Navigate to the API created in above step and deploy the API from **Deployments** section.
+
+Follow [Deploy an API]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/) guide to find more details on deploying an API.
 
 
 ### Step 3 - Invoke the API
@@ -49,9 +68,9 @@ To invoke the API through WSO2 API Manager, you can follow the steps below.
 
         [![Invoke Soap API]({{base_path}}/assets/img/deploy/mgw/invoke-soap-api.png)]({{base_path}}/assets/img/deploy/mgw/invoke-soap-api.png)
 
-        Here you can need to provide the values for following parameters.
+        Here you need to provide the values for following parameters.
 
-        1. **SOAP Request(body)** - The SOAP request body that you will be using to invoke the SOAP endpoint (SOAP Envelope). 
+        1. **SOAP Request (body)** - The SOAP request body that you will be using to invoke the SOAP endpoint (SOAP Envelope). 
         For this example you may provide:
             ``` xml
             <soap:Envelope
@@ -246,7 +265,7 @@ TOKEN=$(curl -X POST "https://localhost:9095/testkey" -H "Authorization: Basic Y
 ```
 
 !!! Info
-    Refer [Enforcer Test Key Authentication]({{base_path}}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt/) to learn more on above command.
+    Refer [Enforcer Test Key Authentication]({{base_path}}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt/) to learn more on test key generation.
 
 Execute the following cURL command to Invoke the API using the access token.
 
