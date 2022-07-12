@@ -14,10 +14,9 @@ As WSO2 API Manager is a Java application, you can generally run it on most oper
 |--------------------|------------|
 |Windows             | 2016       |
 |Windows Server      | 2019       |
-|Ubuntu              |18.04       |
+|Ubuntu              | 18.04, 20.04 |
 |Red Hat Enterprise Linux   |7.0  |
 |CentOS              |7.4, 7.5    |
-|Red Hat Enterprise Linux   |7.0  |
 
 #### Tested JDKs
 
@@ -28,8 +27,8 @@ The **WSO2 API-M** runtime has been tested with the following JDKs:
 |CorrettoJDK         | 8, 11     |
 |AdoptOpenJDK        | 8, 11     |
 |OpenJDK             | 8, 11     |
-|CentOS              | 7.4, 7.5  |
 |Oracle JDK          | 8, 11     |
+|Temurin OpenJDK     | 8 and 11  |
 
 #### Tested DBMSs
 
@@ -108,12 +107,12 @@ The **Micro Integrator** runtime is tested with the following operating systems:
 
 The **Micro Integrator** runtime is tested with the following JDKs:
 
-|**JDKS**            |**Versions**|
-|--------------------|-----------|
-|CorrettoJDK         | 8         |
-|AdoptOpenJDK        | 8         |
-|OpenJDK             | 11        |
-|Oracle JDK          |8, 11      |
+| **JDKS**            |**Versions**|
+|---------------------|------------|
+| CorrettoJDK         | 8, 11      |
+| AdoptOpenJDK        | 8, 11      |
+| OpenJDK             | 11         |
+| Oracle JDK          | 8, 11      |
 
 #### Tested DBMSs
 
@@ -144,10 +143,10 @@ The **Streaming Integrator** runtime is tested with the following operating syst
 
 The **Streaming Integrator** runtime is tested with the following JDKS:
 
-|**JDK**             |**Version**|
-|--------------------|-----------|
-|Oracle JDK          | 8         |
-|OpenJDK             | 8         |
+|**JDK**             |**Version**    |
+|--------------------|---------------|
+|Oracle JDK          | 8 , 11        |
+|OpenJDK             | 8 , 11        |
 
 #### Tested DBMSs
 

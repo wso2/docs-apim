@@ -16,7 +16,7 @@ to setup the APICTL in your development environment.
 
 ### Step 1.2 - Download and extract Choreo Connect distribution .zip file
 
-Latest Choreo Connect distribution can be downloaded from the [GitHub repository](https://github.com/wso2/product-microgateway/releases).
+Latest Choreo Connect distribution can be downloaded from [https://wso2.com/choreo/choreo-connect/](https://wso2.com/choreo/choreo-connect/).
 Extract the Choreo Connect distribution zip. Extracted folder will be called as `<CHOREO-CONNECT_HOME>` hereafter.
 
 ## Step 2 - Initialize an API project
@@ -28,7 +28,7 @@ Run the following command to create a project named "petstore".  This will crea
 apictl init petstore --oas <api definition path>
 ```
 
-Let's use the [Petstore sample open API definition](https://petstore.swagger.io/)
+Let's use the [Petstore sample OpenAPI definition](https://petstore.swagger.io/)
 
 ```shell
 apictl init petstore --oas https://petstore.swagger.io/v2/swagger.json

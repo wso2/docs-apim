@@ -38,7 +38,7 @@ If you want to connect to MongoDB Atlas, follow the steps mentioned below to get
 
 Follow these steps to set up the Integration Project and the Connector Exporter Project.
 
-{!reference/connectors/importing-connector-to-integration-studio.md!}
+{!includes/reference/connectors/importing-connector-to-integration-studio.md!}
 
 ## Creating the Integration Logic
 
@@ -129,7 +129,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 </api>
 ```
 
-{!reference/connectors/exporting-artifacts.md!}
+{!includes/reference/connectors/exporting-artifacts.md!}
 
 ## Get the project
 
@@ -143,7 +143,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp to the integration runtime.
 
-{!reference/connectors/deploy-capp.md!}
+{!includes/reference/connectors/deploy-capp.md!}
 
 ??? note "Click here for instructions on removing the iterative mongodb server logs"
 Add the configuration below to **remove** the iterative `org.mongodb.driver.cluster` server logs;
@@ -162,6 +162,9 @@ Add the configuration below to **remove** the iterative `org.mongodb.driver.clus
     2. Add the driver to the `<PRODUCT_HOME>/dropins` folder.
 
     3. Restart the server.
+
+!!! Warning
+    Note that WSO2 API Manager 3.0.0, 3.1.0, 3.2.0, and 4.0.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
 
 ## Testing
 
@@ -258,4 +261,4 @@ In order to find documents by ObjectId, the find query payload should be in the 
 
 ## What's Next
 
-- To customize this example for your own scenario, see [MongoDB Connector Configuration](mongodb-connector-config.md) documentation for all operation details of the connector.
+- To customize this example for your own scenario, see [MongoDB Connector Configuration]({{base_path}}/reference/connectors/mongodb-connector/mongodb-connector-config/) documentation for all operation details of the connector.

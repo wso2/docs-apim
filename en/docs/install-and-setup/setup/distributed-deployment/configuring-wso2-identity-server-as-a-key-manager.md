@@ -20,7 +20,7 @@ It is assumed that you have already downloaded WSO2 API Manager.
 ## Step 2 - Optionally, configure port offset for WSO2 IS
 
 !!! note
-    This is only required if you are running both WSO2 API Manager and WSO2 Identity Server on the same Virtual Machine (VM). For more information, see [Changing the Default Ports with Offset]({{base_path}}/install-and-setup/deploying-wso2-api-manager/changing-the-default-ports-with-offset).
+    This is only required if you are running both WSO2 API Manager and WSO2 Identity Server on the same Virtual Machine (VM). For more information, see [Changing the Default Ports with Offset]({{base_path}}/install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset).
 
 Open the `<IS_HOME>/repository/conf/deployment.toml` file and change the offset to 1 by applying the following configuration as follows:
 
@@ -147,8 +147,8 @@ Follow the instructions below to set up and configure the databases for the WSO2
 
 2. Extract the distribution and copy the following JAR files, which are in the `<wso2is-extensions-1.2.10>/dropins` directory, to the `<IS_HOME>/repository/components/dropins` directory.
 
-     - `wso2is.key.manager.core-1.2.10.jar`
-     - `wso2is.notification.event.handlers_1.2.10.jar`
+     - `wso2is.key.manager.core-1.4.2`
+     - `wso2is.notification.event.handlers-1.4.2`
 
 3. Add the `keymanager-operations.war`, which is in the `<wso2is-extensions-1.2.10>/webapps` directory, to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 

@@ -704,7 +704,7 @@ You can use the admin REST API, which is available in WSO2 API Manager, to publi
 
 1.  Obtain the consumer key and secret key pair by calling the dynamic client registration endpoint.  
      
-     For more information, see [Admin REST API v1.0]({{base_path}}/develop/product-apis/admin-apis/admin-v2/admin-v2/).
+     For more information, see [Admin REST API v2.0]({{base_path}}/reference/product-apis/admin-apis/admin-v2/admin-v2/).
 
     ``` java
     curl -X POST -H "Authorization: Basic <base64encoded-admin-account-credentials>" -H "Content-Type: application/json" -d @payload.json https://localhost:9443/client-registration/v0.17/register
@@ -723,7 +723,7 @@ You can use the admin REST API, which is available in WSO2 API Manager, to publi
 2.  Obtain a token with the monetization usage scope (`scope=apim:monetization_usage_publish`).
 
     ``` java
-    curl -X POST https://localhost:8243/token -H 'Authorization: Basic <base64encoded-registeration-credentials>' -d 'grant_type=password&username=admin&password=admin&scope=apim:monetization_usage_publish'
+    curl -X POST https://localhost:9443/oauth2/token -H 'Authorization: Basic <base64encoded-registeration-credentials>' -d 'grant_type=password&username=admin&password=admin&scope=apim:monetization_usage_publish'
     ```
       
     -   `<base64encoded-registeration-credentials>` - base64 encoded client credentials received as the response in the client registration step (in `<client-id>:<client-secret>` format). WSO2 does not recommend the use of online base64 encoders for this purpose.

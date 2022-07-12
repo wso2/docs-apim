@@ -34,7 +34,7 @@
                 apictl init SampleAPI --definition definition.yaml --force=true                
                 ```
             
-            As an example, you can use the [Sample-Api.yaml](https://github.com/wso2/product-apim-tooling/blob/master/import-export-cli/integration/testdata/sample-api.yaml) here to generate an API Project.
+            As an example, you can use the [Sample-Api.yaml](https://github.com/wso2/product-apim-tooling/blob/4.0.x/import-export-cli/integration/testdata/sample-api.yaml) here to generate an API Project.
 
         -   Response    
             ```go
@@ -268,17 +268,6 @@
                         </td>
                         <td>
                             <p><span style="font-weight: 400;">API level&nbsp;</span></p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p><span style="font-weight: 400;">x-wso2-application-security</span></p>
-                        </td>
-                        <td>
-                            <p><span style="font-weight: 400;">Specify application security (basic_auth, api_key, oauth2)</span></p>
-                        </td>
-                        <td>
-                            <p><span style="font-weight: 400;">API level/ Resource level</span></p>
                         </td>
                     </tr>
                 </tbody>

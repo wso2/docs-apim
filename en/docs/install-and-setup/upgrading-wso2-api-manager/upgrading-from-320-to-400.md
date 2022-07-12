@@ -705,7 +705,7 @@ Follow the instructions below to move all the existing API Manager configuration
          CREATE TABLE IF NOT EXISTS AM_GW_API_ARTIFACTS (
            API_ID VARCHAR(255) NOT NULL,
            REVISION_ID VARCHAR(255) NOT NULL,
-           ARTIFACT blob,
+           ARTIFACT MEDIUMBLOB,
            TIME_STAMP TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
            PRIMARY KEY (REVISION_ID, API_ID),
            FOREIGN KEY (API_ID) REFERENCES AM_GW_PUBLISHED_API_DETAILS(API_ID) ON UPDATE CASCADE ON DELETE NO ACTION
@@ -892,7 +892,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE AM_GW_API_ARTIFACTS (
           API_ID varchar(255) NOT NULL,
           REVISION_ID varchar(255) NOT NULL,
-          ARTIFACT blob,
+          ARTIFACT MEDIUMBLOB,
           TIME_STAMP TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
           PRIMARY KEY (REVISION_ID, API_ID),
           FOREIGN KEY (API_ID) REFERENCES AM_GW_PUBLISHED_API_DETAILS(API_ID)
@@ -1441,23 +1441,8 @@ Follow the instructions below to move all the existing API Manager configuration
         ./ciphertool.bat -Dconfigure
         ```
     - In order to work with the [API Security Audit Feature]({{base_path}}/design/api-security/configuring-api-security-audit/) you need to have the public certificate of the [42crunch](https://42crunch.com/) in the client-truststore. Follow the guidelines given in [Importing Certificates to the Truststore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-3-importing-certificates-to-the-truststore).
-
-
-6.  Configure the [SymmetricKeyInternalCryptoProvider](https://is.docs.wso2.com/en/5.11.0/administer/symmetric-overview/) as the default internal cryptor provider.
-    Generate your own secret key using a tool like OpenSSL.
     
-    i.e.,
-       ```
-        openssl enc -nosalt -aes-128-cbc -k hello-world -P
-       ```        
-    Add the configuration to the <NEW_IS_HOME>/repository/conf/deployment.toml file.
-    
-       ```
-       [encryption]
-       key = "<provide-your-key-here>"
-       ```
-
-6.  Upgrade the Identity component in WSO2 API Manager from version 5.10.0 to 5.11.0.
+5.  Upgrade the Identity component in WSO2 API Manager from version 5.10.0 to 5.11.0.
 
     1.  Download the identity component migration resources and unzip it in a local directory.
 
@@ -1566,14 +1551,34 @@ Follow the instructions below to move all the existing API Manager configuration
         [[apim.gateway.environment]]
         name = "Production and Sandbox"
         ```
+        
+        Modify the `[apim.sync_runtime_artifacts.gateway]` tag in the `<API-M_HOME>/repository/conf/deployment.toml`, so that the value of `gateway_labels` should be the name of old gateway environment (old default one is "Production and Sandbox") or we need to add the old one as a new gateway environment, while the new current default label (current default one is "Default") remains as it is.
+        
+        ```toml
+        [apim.sync_runtime_artifacts.gateway]
+        gateway_labels = ["Production and Sandbox","Default"]
+        ```
+        or
+        ```toml
+        [apim.sync_runtime_artifacts.gateway]
+        gateway_labels = ["Production and Sandbox"]
+        ```
+
+        This config defines an array of the labels that the Gateway is going to subscribe to. Only the APIs with these labels will be pulled from the extension point and deployed.
+
     !!! Info
         If you have changed the name of the gateway environment in your older version, then when migrating, make sure
-        that you change the `[apim.gateway.environment]` tag accordingly. For example, if your gateway environment was named `Test` in the `<OLD_API-M_HOME>/repository/conf/api-manager.xml` file, you have to change the toml config as shown below.
+        that you change the `[apim.gateway.environment]` tag and `[apim.sync_runtime_artifacts.gateway]` tag accordingly. For example, if your gateway environment was named `Test` in the `<OLD_API-M_HOME>/repository/conf/api-manager.xml` file, you have to change the toml config as shown below.
 
         ```toml
         [[apim.gateway.environment]]
         name = "Test"
         ``` 
+
+        ```toml
+        [apim.sync_runtime_artifacts.gateway]
+        gateway_labels = ["Test"]
+        ```
 
     You have to run the following migration client to update the API Manager artifacts.
 

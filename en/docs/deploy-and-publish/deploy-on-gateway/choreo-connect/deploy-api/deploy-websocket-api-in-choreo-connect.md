@@ -11,6 +11,13 @@ Follow the instructions below to use Choreo Connect with WSO2 API Manager as the
 
     This guide assumes that you already have a Choreo Connect instance that is up and running. If not, checkout the [Quick Start Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/) on how to install and run Choreo Connect. To learn more about Choreo Connect, have a look at the [Overview of Choreo Connect]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview).
 
+
+!!! note
+    **Limitations compared to WSO2 API Manager 4.0.0**
+
+    WSO2 API Manager allows users to provide multiple topics per Websocket API. In contrast, Choreo Connect does not support topics currently. The inbound request URL follows the structure `<choreo-connect-gateway-url>/<API-Context>/<Version>`. And internally, the request will be forwarded to the API's endpoint URL with no topic appended to the end of the URL.
+
+
 ### Step 1 - Create a WebSocket API in API Manager
 
  For instructions on how to create a WebSocket API, see [Create a WebSocket API]({{base_path}}/design/create-api/create-streaming-api/create-a-websocket-streaming-api/).

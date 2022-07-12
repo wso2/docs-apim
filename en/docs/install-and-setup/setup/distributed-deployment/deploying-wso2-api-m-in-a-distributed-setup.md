@@ -40,7 +40,7 @@ Given below are the API-M nodes you can have in a distributed deployment by defa
 
 To install and set up the API-M servers:
 
-1.  Download the [WSO2 API Manager](http://wso2.com/products/api-manager/).
+1.  Download the [WSO2 API Manager](https://wso2.com/api-manager/).
 2.  Create copies of the API-M distribution for the individual profiles.
 
 ## Step 2 - Install and configure the databases
@@ -159,7 +159,7 @@ Configure the Gateway to communicate with the Control Plane.
             apis = ["api1.xml","api2.xml"]
             endpoints = ["endpoint1.xml"]
             sequences = ["post_with_nobody.xml"]
-            local-entries = ["file.xml"]
+            local_entries = ["file.xml"]
             ```
 
     3. Open the deployment.toml files of each Gateway node and add the cluster hostname. For example, if the hostname is gw.am.wso2.com:

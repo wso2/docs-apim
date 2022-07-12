@@ -1,9 +1,9 @@
 # Analytics for Choreo Connect
 Choreo Connect Analytics provides reports, dashboards, statistics, and graphs for the APIs deployed on Choreo Connect.
-WSO2 Choreo Connect has the capability to publish events to the Choreo platform in order to generate analytics. This page describes the concepts behind publishing analytics events from Choreo Connect.
+WSO2 Choreo Connect has the capability to publish events to the Choreo Analytics Cloud in order to generate analytics. This page describes the concepts behind publishing analytics events from Choreo Connect.
 
 ### Overview
-WSO2 Choreo Connect supports publishing Analytics as Real-Time events to an Analytics server (Choreo portal) via [Azure event hub](https://azure.microsoft.com/en-us/services/event-hubs/). 
+Choreo Connect supports publishing Analytics as Real-Time events to Choreo Analytics Cloud. 
 
 ### Architecture
 

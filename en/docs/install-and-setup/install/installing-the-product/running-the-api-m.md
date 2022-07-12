@@ -106,10 +106,11 @@ To sign in to each web portal:
     org.apache.synapse.SynapseException: Error initializing inbound endpoint SecureWebhookServer at org.apache.synapse.inbound.InboundEndpoint.init(InboundEndpoint.java:83) ~[synapse-core_2.1.7.wso2v227.jar:2.1.7-wso2v227]
     ```
 
-    This may occur due to a native `launchd` service `com.apple.ftp-proxy.plist` living at `/System/Library/LaunchDaemons/com.apple.ftp-proxy.plist` that fires `/usr/libexec/ftp-proxy`. To fix this issue, change the default port that the webhooks HTTPS inbound endpoint is listening in all the Gateway nodes in `<API-M_HOME>/repository/deployment/server/synapse-configs/default/inbound-endpoints/SecureWebhookServer.xml`. Change 8021 to a different port.
+    This may occur due to a native `launchd` service `com.apple.ftp-proxy.plist` living at `/System/Library/LaunchDaemons/com.apple.ftp-proxy.plist` that fires `/usr/libexec/ftp-proxy`. To fix this issue, change the default port that the webhooks HTTPS inbound endpoint is listening in all the Gateway nodes in `<APIM_HOME>/repository/conf/deployment.toml`.
 
-    ```xml
-    <p:parameter  name="inbound.http.port">8021</p:parameter>
+    ```toml
+    [apim.webhooks.https]
+    port=8021
     ```
 
     For the Control Plane nodes (with the Publisher), change the `deployment.toml` file as follows:

@@ -109,3 +109,34 @@ For more information, see [OpenTracer Configurations]({{base_path}}/reference/co
     20:19:47,019 [-] [PassThroughMessageProcessor-15] TRACE {"Latency":83,"Operation":"API:Response_Latency","Tags":{"span.resource":"/menu","span.kind":"server","span.api.name":"PizzaShackAPI","span.consumerkey":"Fn9RGuFeefEe7W07jOq_mvQvLJwa","span.request.method":"GET","span.request.path":"pizzashack/1.0.0/menu","span.api.version":"1.0.0","span.activity.id":"urn:uuid:339f337a-8848-41ec-adba-73da367fa66e"}}
     
     ```
+
+## Using the Custom Tracer Implementation
+
+You can use any tracing server with a custom tracer implementation in WSO2 API Manager to publish your tracing data. As an example, let's use the Elastic APM (Application Performance Monitoring), which is a tracing server, and let's implement a custom tracer in WSO2 API Manager for it using the instructions given below:
+
+1. Implement the `org.wso2.carbon.apimgt.tracing.OpenTracer` interface and add your implementation. The getTracer method should contain the generation of the `Tracer` instance. Also, the getName method should return the tracer name to be configured in the `deployment.toml` file. In this specific scenario let's name this tracer `elastic`. This tracer needs to be loaded as an osgi service using a module activator. The sample project for the elastic APM tracer can be downloaded from [here]({{base_path}}/assets/attachments/administer/custom.tracing.client.zip).
+
+2. Build the Maven project and add the JAR file to the `dropins` directory. (`<API-M_HOME>/repository/components/dropins`)
+
+3. Add the following configuration into the `deployment.toml` file.
+
+    ```toml tab="Format"
+    [apim.open_tracer]
+    remote_tracer.enable = true
+    remote_tracer.name = <custom_tracer_name>
+    ```
+
+    ```toml tab="Example"
+    [apim.open_tracer]
+    remote_tracer.enable = true
+    remote_tracer.name = "elastic"
+    ```
+
+4. Add the Elastic Opentracer JAR file in to the `lib` directory (`<API-M_HOME>/repository/components/lib`). You can download it from [here](https://mvnrepository.com/artifact/co.elastic.apm/apm-opentracing). 
+
+    !!! tip
+        Elastic opentracing also requires the addition of a Java Agent. This can be added by altering the startup script. Make sure to check the documentation for the tracer you are using so that such requirements can be satisfied. 
+
+5. Start the server.
+
+     After you invoke the APIs, the tracing data will be published to the configured tracing server, which in this example is the Elastic APM.

@@ -7,13 +7,21 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
         -   You are currently using a WSO2 IS 5.3.0 vanilla distribution that has WSO2 API Management related Key Manager features installed on top of it.
         -   You are currently using a pre-packaged WSO2 Identity Server as Key Manager 5.3.0 distribution.
 
--   [Step 1 - Upgrade IS as Key Manager 5.3.0 to IS 5.11.0](#step-1-upgrade-is-as-key-manager-530-to-is-5110)
--   [Step 2 - Upgrade API Manager 2.1.0 to 4.0.0](#step-2-upgrade-api-manager-210-to-400)
+- [Step 1 - Upgrade IS as Key Manager 5.3.0 to IS 5.11.0](#step-1---upgrade-is-as-key-manager-530-to-is-5110)
+
+     - [Step A - Setup IS 5.11.0 as a Key Manager](#step-a---setup-is-5110-as-a-key-manager)
+
+     - [Step B - Migrate IS from 5.3.0 to 5.11.0](#step-b---migrate-is-from-530-to-5110)
+
+- [Step 2 - Upgrade API Manager 2.1.0 to 4.0.0](#step-2---upgrade-api-manager-210-to-400)
 
 ## Step 1 - Upgrade IS as Key Manager 5.3.0 to IS 5.11.0
 
-- [Step A - Setup IS 5.11.0 as a Key Manager](#step-a-setup-is-5110-as-a-key-manager)
-- [Step B - Migrate IS from 5.3.0 to 5.11.0](#step-b-migrate-is-from-530-to-5110)
+- [Step 1 - Upgrade IS as Key Manager 5.3.0 to IS 5.11.0](#step-1---upgrade-is-as-key-manager-530-to-is-5110)
+
+     - [Step A - Setup IS 5.11.0 as a Key Manager](#step-a---setup-is-5110-as-a-key-manager)
+
+     - [Step B - Migrate IS from 5.3.0 to 5.11.0](#step-b---migrate-is-from-530-to-5110)
 
 ### Step A - Setup IS 5.11.0 as a Key Manager
 
@@ -80,15 +88,27 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
         [tenant_context.rewrite]
         custom_webapps = ["/keymanager-operations/"]
         ```
-        
-3. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-extensions-1.2.10.zip).
 
-4. Extract the distribution and copy the following JAR files to the `<IS_HOME>/repository/components/dropins` directory.
+3. IS 5.11.0 uses Symmetric encryption as default and API-M 4.0.0 uses Asymmetric algorithm as default. So when using IS 5.11.0 as KM please add below configurations to `deployment.toml`.
+   ```
+   [keystore]
+   userstore_password_encryption = "InternalKeyStore"
+   
+   [system.parameter]
+   "org.wso2.CipherTransformation"="RSA/ECB/OAEPwithSHA1andMGF1Padding"
+   
+   [encryption]
+   internal_crypto_provider = "org.wso2.carbon.crypto.provider.KeyStoreBasedInternalCryptoProvider"
+   ```   
+
+4. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-extensions-1.2.10.zip).
+
+5. Extract the distribution and copy the following JAR files to the `<IS_HOME>/repository/components/dropins` directory.
 
      - `wso2is.key.manager.core-1.2.10.jar`
-     - `wso2is.notification.event.handlers_1.2.10.jar`
+     - `wso2is.notification.event.handlers_1.2.10.6.jar`
 
-5. Add `keymanager-operations.war` from the extracted distribution to the `<IS_HOME>/repository/deployment/server/webapps` directory.
+6. Add `keymanager-operations.war` from the extracted distribution to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
 ### Step B - Migrate IS from 5.3.0 to 5.11.0
 
@@ -204,7 +224,7 @@ Follow the steps mentioned in [Upgrading API-M from 2.1.0 to 4.0.0]({{base_path}
     steps.
 
         -   **Step 3** to upgrade the `WSO2AM_DB` from 2.1.0 to 4.0.0. You have already done this in Step 1 of [Step A - Setup IS 5.11.0 as a Key Manager]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-530-to-is-5110/#step-a-setup-is-5110-as-a-key-manager).
-        -   **Step 5** to upgrade identity component in API-M from 5.3.0 to 5.11.0. You have already done this in Step 2 of [Step A - Setup IS 5.11.0 as a Key Manager]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-530-to-is-5110/#step-a-setup-is-5110-as-a-key-manager).
+        -   **Step 6** to upgrade identity component in API-M from 5.3.0 to 5.11.0. You have already done this in Step 2 of [Step A - Setup IS 5.11.0 as a Key Manager]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-530-to-is-5110/#step-a-setup-is-5110-as-a-key-manager).
 
     - After configuring WSO2 IS as the **Resident Key Manager** and before starting the API-M 4.0.0 server for the first time in **Step 6** under [Step 2 - Upgrade API Manager to 4.0.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-210-to-400/#step-2-upgrade-api-manager-to-400), make sure you have already started WSO2 IS 5.11.0.
 
@@ -215,3 +235,4 @@ Follow the steps mentioned in [Upgrading API-M from 2.1.0 to 4.0.0]({{base_path}
     [user_store]
     type = "database_unique_id"
     ```
+    

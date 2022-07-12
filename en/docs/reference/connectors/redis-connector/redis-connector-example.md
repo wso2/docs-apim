@@ -36,7 +36,7 @@ Connectors can be added to integration flows in [WSO2 Integration Studio](https:
 
 Follow these steps to set up the Integration Project and the Connector Exporter Project. 
 
-{!reference/connectors/importing-connector-to-integration-studio.md!} 
+{!includes/reference/connectors/importing-connector-to-integration-studio.md!} 
 
 ### Add integration logic
 
@@ -259,7 +259,7 @@ Now you can switch into the Source view and check the XML configuration files of
 
 Follow these steps to deploy the exported CApp in the integration runtime. 
 
-{!reference/connectors/deploy-capp.md!}   
+{!includes/reference/connectors/deploy-capp.md!}   
 
 ## Testing
 

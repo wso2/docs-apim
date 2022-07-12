@@ -4,14 +4,17 @@ Choreo Connect is required to be notified when a token is revoked by the Securit
 When Choreo Connect is working with JWT formatted self-contained access tokens, it does not communicate with the STS for checking the validity of the token. It considers any token with a trusted signature as valid as long as the token is not expired. 
 However, this model becomes a problem when the respective token is revoked by the STS. As a result, there needs to be a mechanism where Choreo Connect gets notified when a token is revoked before its expiry.
 
-Choreo Connect uses Real-time and Persistent Notifications to identify tokens that are revoked before their expiry. Real-time Notifications help you identify such revoked tokens in real-time after Choreo Connect server has spun up. In contrast, when using Persistent notifications, the persistent storage maintains a current list of the revoked tokens. This will help new Choreo Connect servers that spin up to obtain information about the previously revoked tokens, which still have not expired. 
+Choreo Connect uses Real-time and Persistent Notifications to identify tokens that are revoked before their expiry. Real-time Notifications help you identify such revoked tokens in real-time after Choreo Connect server has spun up. In contrast, when using Persistent notifications, the persistent storage maintains a current list of the revoked tokens. This will help new Choreo Connect servers that spin up to obtain information about the previously revoked tokens, which still have not expired.
+
+[![Revoked Tokens in Choreo Connect]({{base_path}}/assets/img/deploy/mgw/choreo-connect-jwt-revocation.png){: style="width:80%"}]({{base_path}}/assets/img/deploy/mgw/choreo-connect-jwt-revocation.png)
 
 ## Methods to detect JWT token revocation
 
-- [Revoked Tokens](#revoked-tokens)
-  - [Methods to detect JWT token revocation](#methods-to-detect-jwt-token-revocation)
-    - [Real-time Notifier](#real-time-notifier)
-    - [Persistent Notifier](#persistent-notifier)
+The methods to detect JWT token revocation are described as follows:
+
+   - [Real-time Notifier](#real-time-notifier)
+  
+   - [Persistent Notifier](#persistent-notifier)
 
 ### Real-time Notifier
 

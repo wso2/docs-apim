@@ -9,11 +9,11 @@ We can create an API resource to process defined HTTP request methods. Furthermo
 
 ## Properties
 
-See the topics given below for the list of properties that can be configured when [creating a REST API artifact]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api.md).
+See the topics given below for the list of properties that can be configured when [creating a REST API artifact]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api/).
 
 ### REST API Properties (Required)
 
-The following properties are required in order to [create the REST API artifact]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api.md).
+The following properties are required in order to [create the REST API artifact]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api/).
 
 <table>
     <tr>
@@ -34,7 +34,7 @@ The following properties are required in order to [create the REST API artifact]
 
 ### REST API Properties (Optional)
 
-The following properties are optional properties you can configure when [creating a REST API artifact]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api.md).
+The following properties are optional properties you can configure when [creating a REST API artifact]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api/).
 
 <table>
     <tr>
@@ -66,7 +66,7 @@ The following properties are optional properties you can configure when [creatin
 
 ### REST API Resource Properties
 
-When you [creating a REST API artifact]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api.md), you need to configure the API resource. Listed below are the properties you can configure when [defining an API resource]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api/#step-3-update-api-resource-properties).
+When you [creating a REST API artifact]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api/), you need to configure the API resource. Listed below are the properties you can configure when [defining an API resource]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api/#step-3-update-api-resource-properties).
 
 <table>
     <tr>

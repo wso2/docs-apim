@@ -13,6 +13,8 @@ By default, WSO2 supports rollover based on a time period. This interval is, by 
 
 Log growth in [Carbon Logs]({{base_path}}/administer/logging-and-monitoring/logging/configuring-logging/#configuring-carbon-logs) can be managed by following configurations in `<API-M_HOME>/repository/conf/log4j2.properties` file.
 
+!!! Warning
+    Note that WSO2 API Manager 3.0.0, 3.1.0, 3.2.0, and 4.0.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
 
 -   Rollover based on a time period can be configured by changing `appender.CARBON_LOGFILE.policies.time.interval` value in days (Default value is 1 day).
 

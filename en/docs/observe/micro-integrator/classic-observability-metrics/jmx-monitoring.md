@@ -6,6 +6,9 @@ title: JMX Monitoring - WSO2 API Manager 4.0.0
 
 Java Management Extensions (JMX) is a technology that lets you implement management interfaces for Java applications. A management interface, as defined by JMX is composed of named objects called MBeans (Management Beans). MBeans are registered with a name (an ObjectName) in an MBeanServer. To manage a resource or many resources in your application, you can write an MBean defining its management interface and register that MBean in your MBeanServer. The content of the MBeanServer can then be exposed through various protocols, implemented by protocol connectors or protocol adaptors.
 
+!!! note
+    Prometheus-based monitoring is recommended for remote monitoring in more recent versions of the Micro Integrator.
+
 ## Configuring JMX in Micro Integrator
 
 With [**JConsole**](#monitoring-with-jconsole), you can attach the Micro Integrator as a local process and monitor the MBeans that are provided. There is nothing explicitly enable. 
@@ -55,6 +58,49 @@ Once the **product server is started**, you can start the `JConsole` tool as fol
          [![jconsole MBeans]({{base_path}}/assets/img/integrate/jmx/jconsole-mbeans.png){: style="width:90%")}]({{base_path}}/assets/img/integrate/jmx/jconsole-mbeans.png)
 
 See the list of [Micro Integrator MBeans](#mbeans-for-the-micro-integrator) that you can monitor.
+
+## Monitoring a WSO2 product with Jolokia
+
+[Jolokia](https://jolokia.org) is a JMX-HTTP bridge, which is an alternative to JSR-160 connectors. It is an agent-based approach that supports many platforms. In addition to basic JMX operations, it enhances JMX monitoring with unique features like bulk requests and fine-grained security policies.
+
+Follow the steps below to use Jolokia to monitor a WSO2 product using a JVM Agent.
+It can be dynamically attached (and
+detached) to an already running Java process. This universal agent uses the JVM agent API and is available for every Sun/Oracle JVM 1.6 and later.
+
+1. Download [JVM-Agent](https://jolokia.org/download.html). (These instructions are tested with the Jolokia JVM-Agent version 1.7.1 by downloading the `jolokia-jvm-1.7.1.jar` file.)
+2. Add it to the `<MI_HOME>/dropins/` directory.
+3. Start the WSO2 product server.
+4. Get the PID of wso2 server
+5. Start the JVM Agent ex: java -jar jolokia-jvm-1.7.1.jar --host=localhost --port=9764 start <PID>
+6. Also you can call it with --help to get a short usage information:
+
+   Once the server starts, you can read MBeans using Jolokia APIs. The following are a few examples.
+
+    -   List all available MBeans: `http://localhost:9763/jolokia/list` (Change the appropriate hostname and port accordingly.)
+    -   WSO2 ESB MBean:
+        ```
+        http://localhost:9763/jolokia/read/org.apache.synapse:Name=https-sender,Type=PassThroughConnections/ActiveConnections
+        ```
+
+    -   Reading Heap Memory: `http://localhost:9763/jolokia/read/java.lang:type=Memory/HeapMemoryUsage`
+
+Follow the steps below to use Jolokia to monitor a WSO2 product using OSGi Agent.
+
+1. Download [Osgi-Agent (full bundle)](https://jolokia.org/download.html). (These instructions are tested with the Jolokia OSGI Agent version 1.7.1 by downloading the `jolokia-osgi-bundle-1.7.1.jar` file.)
+2. Add it to the `<MI_HOME>/dropins/` directory.
+3. Start the WSO2 product server.
+4. You can define the port with system variables. E.g., `./micro-integrator.sh -Dorg.osgi.service.http.port=9763`
+
+   Once the server starts, you can read MBeans using Jolokia APIs. The following are a few examples.
+
+    - List all available MBeans: `http://localhost:9763/jolokia/list` (Change the appropriate hostname and port accordingly.)
+    - WSO2 ESB MBean:
+        ```
+        http://localhost:9763/jolokia/read/org.apache.synapse:Name=https-sender,Type=PassThroughConnections/ActiveConnections
+        ```
+
+    - Reading Heap Memory: `http://localhost:9763/jolokia/read/java.lang:type=Memory/HeapMemoryUsage`
+
 
 ## MBeans for the Micro Integrator
 

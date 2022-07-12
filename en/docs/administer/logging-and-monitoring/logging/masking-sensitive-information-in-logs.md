@@ -14,7 +14,10 @@ To configure this feature, follow the instructions below.
 
     ```java
     appender.CARBON_CONSOLE.layout.pattern = [%d{DEFAULT}] %5p - %c{1} %mm%n
-    ``` 
+    ```
+
+    !!! Warning
+    Note that WSO2 API Manager 3.0.0, 3.1.0, 3.2.0, and 4.0.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677). 
  
 3. The masking patterns are configured in `<API-M_HOME>/repository/conf/wso2-log-masking.properties`. You can change its default configurations in `<API-M_HOME>/repository/conf/deployment.toml`
 

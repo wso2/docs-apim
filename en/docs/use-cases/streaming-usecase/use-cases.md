@@ -48,7 +48,7 @@ The following guides cover the supporting tasks that can be performed by WSO2 St
 
 - [Error Handling]({{base_path}}/use-cases/streaming-usecase/handling-errors)
 
-- [Metrics (Monitoring )]({{base_path}}/admin/monitoring-si-performance-via-grafana)
+- [Metrics (Monitoring)]({{base_path}}/observe/streaming-integrator/setting-up-si-statistics-dashboards/)
 
-- [Query API]({{base_path}}/ref/store-APIs.md)
+- [Query API]({{base_path}}/develop/streaming-apps/store-apis)
  

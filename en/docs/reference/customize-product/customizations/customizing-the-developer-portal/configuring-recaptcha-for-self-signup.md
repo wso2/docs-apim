@@ -11,7 +11,7 @@ brute force attacks.
 
 !!! info 
     -   For more information on setting up self registration, see
-        [Self-Sign-Up]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup.md).
+        [Self-Sign-Up]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup/).
     -   For more information on brute force attacks, see [Mitigating Brute
         Force Attacks](https://is.docs.wso2.com/en/latest/administer/mitigating-brute-force-attacks/).
 

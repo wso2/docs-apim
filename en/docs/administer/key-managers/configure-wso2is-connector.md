@@ -8,11 +8,13 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
 
 1. Download and install the [WSO2 Identity Server 5.11.0](https://wso2.com/identity-server/).
      
-     If you downloaded the archive, extract it.
+      If you downloaded the archive, extract it.
      `<IS_HOME>` refers to the root folder of the extracted WSO2 IS.
    
-     !!! tip
-         Refer to the [Release Matrix](https://wso2.com/products/carbon/release-matrix/) for compatible product versions.
+      <div class="admonition tip">
+      <p class="admonition-title">Tip</p>
+      <p>Refer to the <a href="https://wso2.com/products/carbon/release-matrix/">Release Matrix</a> for compatible product versions.</p>
+      </div>
 
 2. Add following configurations in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
@@ -85,8 +87,8 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
 
 4. Extract the distribution and copy the following JAR files to the `<IS_HOME>/repository/components/dropins` directory.
 
-     - `wso2is.key.manager.core-1.2.10.jar`
-     - `wso2is.notification.event.handlers_1.2.10.jar`
+     - `wso2is.key.manager.core-1.4.2`
+     - `wso2is.notification.event.handlers-1.4.2`
 
 5. Add `keymanager-operations.war` to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
@@ -99,30 +101,30 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
 
 1. Start WSO2 API Manager.
 
-     `<APIM_HOME>` refers to the root folder of the extracted WSO2 APIM.
+      `<APIM_HOME>` refers to the root folder of the extracted WSO2 APIM.
 
 2. Sign in to the Admin Portal. 
  
-     `https://<hostname>:9443/admin`
+      `https://<hostname>:9443/admin`
 
-     `https://localhost:9443/admin`
+      `https://localhost:9443/admin`
 
-3. Click **Key Managers** and then click **Add Key Manager** to add the configuration related to a new Key Manager.
+3. Click **Key Managers**.
 
-     ![Add new Key Manager]({{base_path}}/assets/img/administer/add-key-manager.png)
+4. Click **Add Key Manager** to add the configuration related to a new Key Manager.
 
-4. Add the  Key Manager configurations.
-  
-     ![Add wso2is configurations]({{base_path}}/assets/img/administer/wso2is-km-configuration.png)
+      [![Add new Key Manager]({{base_path}}/assets/img/administer/add-key-manager.png)]({{base_path}}/assets/img/administer/add-key-manager.png)
+
+5. Add the Key Manager configurations.
 
      The following table provides definitions for each configuration.
 
       <table>
       <thead>
       <tr class="header">
-      <th>Configuration</th>
-      <th>Description</th>
-      <th></th>
+      <th><b>Configuration</b></th>
+      <th><b>Description</b></th>
+      <th><b>Required or Not</b></th>
       </tr>
       </thead>
       <tbody>
@@ -154,22 +156,20 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
       </tr>
       <tr class="even">
       <td>Issuer</td>
-      <td>The issuer that consumes or validates access tokens </br>e.g., https://localhost:9444/services</td>
+      <td>The issuer that consumes or validates access tokens </br>e.g., <code>https://localhost:9444/services</code></td>
       <td>Optional</td>
       </tr>
       <tr class="odd">
-      <td><b>Key Manager Endpoints</b></td>
-      <td></td>
-      <td></td>
+      <td colspan="3"><b>Key Manager Endpoints</b></td>
       </tr>
       <tr class="even">
       <td>Client Registration Endpoint </td>
       <td><p>The endpoint that verifies the identity and obtain profile information of the end-user based on the authentication performed by an authorization server.</br>
-        e.g., https://localhost:9444/keymanager-operations/dcr/register</p></br>
+        e.g., <code>https://localhost:9444/keymanager-operations/dcr/register</code></p></br>
           <p>If you have set the following as a well known endpoint, you need to set the Client Registration Endpoint as https://localhost:9444/keymanager-operations/dcr/register</p>
           <ol>
-               <li>https://localhost:9444/oauth2/oidcdiscovery/.well-known/openid-configuration</li>
-               <li>https://localhost:9444/oauth2/token/.well-known/openid-configuration</li>
+               <li><code>https://localhost:9444/oauth2/oidcdiscovery/.well-known/openid-configuration</code></li>
+               <li><code>https://localhost:9444/oauth2/token/.well-known/openid-configuration</code></li>
           </ol></p>
       </td>
       <td>Optional if the well-known URI is provided.</td>
@@ -177,29 +177,29 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
       <tr class="odd">
       <td>Introspection Endpoint</td>
       <td><p>The endpoint that allows authorized protected resources to query the authorization server to determine the set of metadata for a given token that was presented to them by an OAuth Client.</br>
-        e.g., https://localhost:9444/oauth2/introspect</p></td>
+        e.g., <code>https://localhost:9444/oauth2/introspect</code></p></td>
       <td>Optional if the well-known URI is provided.</td>
       </tr>
       <tr class="even">
       <td>Token Endpoint</td>
       <td>The endpoint that issues the access tokens.</br>
-        e.g., https://localhost:9444/oauth2/token</td>
+        e.g., <code>https://localhost:9444/oauth2/token</code></td>
       <td>Optional</td>
       </tr>
       <tr class="odd">
       <td>Revoke Endpoint</td>
       <td>The endpoint that revokes the access tokens.</br>
-        e.g., https://localhost:9444/oauth2/revoke</td>
+        e.g., <code>https://localhost:9444/oauth2/revoke</code></code></td>
       <td>Optional</td>
       </tr>
       <tr class="even">
       <td>Userinfo Endpoint</td>
       <td><p>The endpoint that allows clients to verify the identity of the end-user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end-user.</br>
-      e.g., https://localhost:9444/oauth2/userinfo?schema=openid</p>
+      e.g., <code>https://localhost:9444/oauth2/userinfo?schema=openid</code></p>
           <p>If you have set the following as a well known endpoint, you need to set the Userinfo Endpoint as https://localhost:9444/oauth2/userinfo?schema=openid</p>
           <ol>
-               <li>https://localhost:9444/oauth2/oidcdiscovery/.well-known/openid-configuration</li>
-               <li>https://localhost:9444/oauth2/token/.well-known/openid-configuration</li>
+               <li><code>https://localhost:9444/oauth2/oidcdiscovery/.well-known/openid-configuration</code></li>
+               <li><code>https://localhost:9444/oauth2/token/.well-known/openid-configuration</code></li>
           </ol></p>      
       </td>
       <td>Optional</td>
@@ -207,25 +207,17 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
       <tr class="odd">
       <td>Authorize Endpoint</td>
       <td>The endpoint used to obtain an authorization grant from the resource owner via the user-agent redirection.</br>
-      e.g., https://localhost:9444/oauth2/authorize</td>
+      e.g., <code>https://localhost:9444/oauth2/authorize</code></td>
       <td>Optional</td>
       </tr>
       <tr class="even">
       <td>Scope Management Endpoint </td>
       <td>The endpoint used to manage the scopes.</br>
-      e.g., https://wso2is.com:9444/api/identity/oauth2/v1.0/scopes
-          <p>If you have set the following as a well known endpoint, you need to set the Scope Management Endpoint as https://wso2is.com:9444/api/identity/oauth2/v1.0/scopes</p>
-          <ol>
-               <li>https://localhost:9444/oauth2/oidcdiscovery/.well-known/openid-configuration</li>
-               <li>https://localhost:9444/oauth2/token/.well-known/openid-configuration</li>
-          </ol></p>      
-      </td>
+      e.g., <code>https://wso2is.com:9444/api/identity/oauth2/v1.0/scopes</code></td>
       <td>Mandatory</td>
       </tr>
       <tr class="odd">
-      <td><b>Connector Configurations</b></td>
-      <td></td>
-      <td></td>
+      <td  colspan="3"><b>Connector Configurations</b></td>
       </tr>
       <tr class="even">
       <td>Username</td>
@@ -255,7 +247,7 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
       <tr class="odd">
       <td>Grant Types</td>
       <td>The supported grant types. Add multiple grant types by adding a grant type press Enter.</br>
-       e.g., refresh_token, password, client_credentials, authorization_code</td>
+       e.g., <code>refresh_token</code>, <code>password</code>, <code>client_credentials</code>, <code>authorization_code</code></td>
       <td>Optional</td>
       </tr>
       <tr class="even">
@@ -272,13 +264,11 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
       <td>JWKS</td>
       <td>The JSON Web Key Set (JWKS) endpoint is a read-only endpoint. This URL returns the Identity Server's public key set in JSON web key set format.
       This contains the signing key(s) the Relying Party (RP) uses to validate signatures from the Identity Server. </br>
-      e.g., https://localhost:9443/oauth2/jwks</td>
+      e.g., <code>https://localhost:9444/oauth2/jwks</code></td>
       <td>Optional</td>
       </tr>
       <tr class="odd">
-      <td><b>Advanced Configurations</b></td>
-      <td></td>
-      <td></td>
+      <td colspan="3"><b>Advanced Configurations</b></td>
       </tr>
       <tr class="even">
       <td>Token Generation</td>
@@ -340,4 +330,4 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
       </tbody>
       </table>
 
-You can also configure the WSO2 Identity Server as the identity provider. For more information on how to do this, see [Configuring WSO2 Identity Server as an Identity Provider]({{base_path}}/reference/customize-product/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso/#configuring-wso2-identity-server-as-a-saml-20-sso-identity-provider).
+You can also configure the WSO2 Identity Server as the identity provider. For more information on how to do this, see [Configuring WSO2 Identity Server as an Identity Provider]({{base_path}}/develop/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso/#configuring-wso2-identity-server-as-a-saml-20-sso-identity-provider).

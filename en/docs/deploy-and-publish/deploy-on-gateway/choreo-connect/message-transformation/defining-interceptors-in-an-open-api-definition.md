@@ -14,8 +14,9 @@ based on your requirement for the mediation.
 
 ## Request flow Interceptor
 
-You can define the request flow interceptor as follows in the Open API Definition with the extension `x-wso2-request-interceptor`.
-For a detailed description of the keys, see [Description of Keys of Interceptor Open API Extension](#description-of-keys-of-interceptor-open-api-extension).
+You can define the request flow interceptor as follows in the OpenAPI Definition with the extension `x-wso2-request-interceptor`.
+For a detailed description of the keys, see [Description of Keys of Interceptor OpenAPI Extension](#description-of-keys-of-interceptor-open-api-extension).
+Also, for a detailed example, see the [detailed sample OpenAPI definition with request flow interceptor](https://github.com/wso2/product-microgateway/blob/main/samples/openAPI-definitions/interceptors_sample.yaml).
 
 ``` yaml tab="Format"
 x-wso2-request-interceptor:
@@ -89,7 +90,7 @@ paths:
 deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/request-flow-interceptor.md -->
 !!! info
     If you update the request body before reaching the backend, ensure to add `request_body` to the `includes` section
-    of the Open API Specification. Your scenario might be that regardless of the request body from the client,
+    of the OpenAPI Specification. Your scenario might be that regardless of the request body from the client,
     you define your own request body (say, based on a header value) to send to the backend.
     Even though you do not read the request body, you should include the above condition.
 
@@ -182,15 +183,15 @@ paths:
 deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/response-flow-interceptor.md -->
 !!! info
     If you update the response body before reaching the client, make sure to add `response_body` to the `includes` section
-    of the Open API Specification. You may have a scenario like, what ever the response body from the backend, based on a header value
+    of the OpenAPI Specification. You may have a scenario like, what ever the response body from the backend, based on a header value
     you define your own response body to be sent to the client. Even though you do not read the response body, the above inclusion
     should be done to update the response body.
 
-## Description of Keys of Interceptor Open API Extension
+## Description of Keys of Interceptor OpenAPI Extension
 
 Following is the description of each key in the extension.
 
-| Open API Extension Key | Description                                                                                                            |
+| OpenAPI Extension Key | Description                                                                                                            |
 |------------------------|------------------------------------------------------------------------------------------------------------------------|
 | serviceURL             | Service URL of the interceptor service                                                                                 |
 | includes               | Defines what should be included in the request body to interceptor service.                                            |

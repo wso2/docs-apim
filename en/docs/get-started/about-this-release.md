@@ -22,10 +22,6 @@ It is now available to download from [here](https://wso2.com/api-management/#).
     
 	 If you are an API Publisher, there can be a situation where you need to keep track of the different deployments of your API. For this purpose, a new concept named **Revisions** has been introduced. The revisions of your API can be **deployed** to specific Gateway Environment(s) as needed. You cannot edit the revisions. However, if required, you can **restore** your API to a specific revision if you want to discard the latest changes.
 
-- **[OpenAPI or GraphQL to Postman Collection]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console/)**
-
-    If required, instead of using the integrated GraphQL console or the integrated API Console, you can try out your GraphQL API and REST API respectively by downloading a Postman collection for your API and trying it out on Postman. For more information, see [Try out using Postman]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/try-out-using-postman/).
-
 - **[Support for ForgeRock Key Manager]({{base_path}}/administer/key-managers/configure-forgerock-connector/)**
 
     WSO2 API Manager can connect to ForgeRock out-of-the-box using the [WSO2 API-M ForgeRock Connector](https://github.com/wso2-extensions/apim-km-forgerock). WSO2 API Manager has the capability to support multiple Key Managers at the same time. So with the use of connectors, it is capable of supporting any authorization server as a Key Manager, and in this case, it supports a connection to ForgeRock as a third-party Key Manager.
@@ -65,15 +61,23 @@ It is now available to download from [here](https://wso2.com/api-management/#).
 
 - **[Message Tracing]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-tracing/)**
 
-    The support for this feature will be removed from subsequent versions starting from WSO2 API Manager 4.0.0.
+     The support for this feature will be removed from subsequent versions starting from WSO2 API Manager 4.0.0.
 
 ### Removed features and functionalities
 
-- Microgateway Labels
+- **Microgateway Labels**
 
       [Grouping APIs with Microgateway Labels](https://apim.docs.wso2.com/en/3.2.0/learn/api-microgateway/grouping-apis-with-labels/)
       is removed from this release. Instead, you can use [Virtual Hosts (VHosts)]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames)
       and dynamically manageable Gateway environments to group and expose APIs with custom hostnames.
+
+- **Implicit Grant**
+    
+      Implicit Grant types have been removed due to [security concerns](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics-14#section-2.1.2).
+
+- **Documentation content search**
+   
+	 Use the content search instead of the documentation content search (doc: keyword search) in the future.
 
 ### Key changes
 
@@ -97,6 +101,17 @@ It is now available to download from [here](https://wso2.com/api-management/#).
     | Traffic Manager profile | The Traffic Manager profile.      |    `-Dprofile=traffic-manager` |
 
 - API-related Synapse artifacts were moved from the file system to the in-memory. Therefore, there will not be any Synapse artifacts stored in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/api` directory. These Synapse artifacts are stored in the database and loaded to memory when the server starts up and when a new API revision is deployed and published.
+
+	??? note "Expand to see how to retrieve the `.xml` files related to the existing artifacts"
+		**Note that the instructions below should be followed to troubleshoot, in this scenario.**
+		
+		- Add the configuration given below to the `<API-M_HOME>/repository/deployment.toml` file.
+			```
+			[synapse_properties]
+			'synapse.artifacts.file.storage.enabled' = true
+			```
+		- Restart the server.
+		- Check the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/api` folder or any other synapse artifact, you will be able to notice that the xml files for the APIs have been created there.
 
 - With the inclusion of API revisioning it is required to have an API revision deployed in a Gateway to be able to publish an API.
 
@@ -636,6 +651,8 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 
 The Choreo Connect is a lightweight gateway for APIs. It is used for message security, transport security, routing, and other common API Management related quality of services. It can collect information required for usage metering and throttling capabilities. The Choreo Connect natively supports scaling in highly decentralized environments including microservice architecture.
 
+WSO2 API Manager 4.0.0 is compatible with Choreo Connect 1.0.0.
+
 #### New features
 
 Please see the [supported features]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features/)
@@ -652,7 +669,6 @@ K8s API Operator v2.0.0 is compatible with API Manager v4.0.0.
 
 ### New features
 
-- Deploy APIs to Choreo Connect (API Microgateway)
 - Deploy APIs to API Manager
 - Deploy Integrations with Micro Integrator
 
@@ -660,7 +676,7 @@ K8s API Operator v2.0.0 is compatible with API Manager v4.0.0.
 
 ## **Compatible WSO2 product versions**
 
-WSO2 API Manager 4.0.0 is based on WSO2 Carbon 4.6.1 and is expected to be compatible with any of the WSO2 products that are based on any Carbon 4.6.x version. If you encounter any compatibility issues, please [contact team WSO2](http://wso2.com/support/). For more information on the products in each Carbon platform release, see the [Release Matrix](http://wso2.com/products/carbon/release-matrix/).
+WSO2 API Manager 4.0.0 is based on WSO2 Carbon 4.6.1 and is expected to be compatible with any of the WSO2 products that are based on any Carbon 4.6.x version. If you encounter any compatibility issues, please [contact team WSO2](https://wso2.com/subscription/). For more information on the products in each Carbon platform release, see the [Release Matrix](https://wso2.com/products/carbon/release-matrix/).
 
 <hr style="border:8px solid gray"> </hr>
 

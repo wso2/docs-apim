@@ -26,11 +26,12 @@ Docker and Docker compose need to be installed. Please refer [https://docs.docke
 
 A basic infrastructure has already been created for you to try out the scenarios. To run the setup please follow these steps.
 
-1. Clone https://github.com/wso2/samples-apim.git 
-2. Start the setup using the command `docker-compose up -d`.
-3. You can view the logs using the command `docker-compose logs -f`.
-4. It might take 5-10 minutes for setup to complete (if it is the first time, based on your download speed it might take longer). 
-5. When you see the below log you can start working on the scenarios.
+1. Download the [samples](https://github.com/wso2/samples-apim/releases/tag/v4.0.0) from the source code.
+2. Go to `samples-apim/apim-tutorial`.
+3. Start the setup using the `docker-compose up -d` command.
+4. You can view the logs using the `docker-compose logs -f` command.
+    Note that it might take 5-10 minutes for setup to complete (if it is the first time, based on your download speed it might take longer). 
+5. You can start working on the scenarios as soon as you see the log entry shown below.
     ```
     “==Data population completed==”
     ```
@@ -62,19 +63,19 @@ The following default users are created. For the ease of use, every tenant has 3
     <tr>
         <td>Quantis
         </td>
-        <td>admin@qunatis.com
+        <td>admin@quantis.com
         </td>
         <td>
             <ul>
-                <li>apiprovider@qunatis.com</li>
-                <li>andy@qunatis.com</li>
+                <li>apiprovider@quantis.com</li>
+                <li>andy@quantis.com</li>
         </td>
         <td>
             <ul>
                 <li>devuser@qunatis.com</li>
-                <li>bob@qunatis.com</li>
-                <li>sindy@qunatis.com</li>
-                <li>logan@qunatis.com</li>
+                <li>bob@quantis.com</li>
+                <li>sindy@quantis.com</li>
+                <li>logan@quantis.com</li>
             </ul>
         </td>
     </tr>

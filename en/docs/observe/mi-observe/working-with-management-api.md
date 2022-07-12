@@ -861,6 +861,43 @@ The management API has multiple resources to provide information regarding the d
 	curl -X GET "https://localhost:9164/management/data-services?dataServiceName=StudentDataService" -H "accept:          application/json" -H "Authorization: Bearer TOKEN" -k -i
 	```
 
+### GET DATA SOURCES
+-	**Resource**: `/data-sources`
+
+	**Description**: Retrieves a list of all data sources deployed.
+
+	**Example**:
+	
+	```bash tab='Request'
+	curl -X GET "https://localhost:9164/management/data-sources" -H "accept: application/json" -H "Authorization: Bearer         TOKEN" -k -i
+	```
+	
+	```bash tab='Response'
+	{"count":1,"list":[{"name":"MySQLConnection","type":"RDBMS"}]}
+	```
+
+
+-	**Resource**: `/data-sources?name={datasource}`
+
+	**Description**: Retrieves information related to a specific data source.
+
+	**Example**:
+
+	```bash tab='Request'
+	curl -X GET "https://localhost:9164/management/data-sources?name=MySQLConnection" -H "accept:          application/json" -H "Authorization: Bearer TOKEN" -k -i
+	```
+	
+	```bash tab='Response'
+    {
+	"configuration":"<configuration><driverClassName>com.mysql.jdbc.Driver</driverClassName><url>jdbc:mysql://localhost:3307/AccountDetails</url><username>root</username><password>root</password></configuration>",
+	"driverClass":"com.mysql.jdbc.Driver",
+	"name":"MySQLConnection",
+	"description":"MySQL Connection",
+	"type":"RDBMS",
+	"url":"jdbc:mysql://localhost:3307/AccountDetails",
+	"status":"ACTIVE"
+	}
+	```
 
 ### GET LOG LEVEL
 

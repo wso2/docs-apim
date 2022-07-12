@@ -25,17 +25,103 @@ Listed below are the system requirements for deploying integration solutions in 
 
 Given below are the main steps your will follow when you deploy integration solutions in a Kubernetes cluster.
 
-1.  Be sure that the [system requirements](#prerequisites-system-requirements) are fulfilled, and that the [K8s API operator]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/install) is installed in your Kubernetes environment.
-2.  Your integration solution should be prepared using **WSO2 Integration Studio** as follows:
+1. Be sure that the [system requirements](#prerequisites-system-requirements) are fulfilled, and that the [K8s API operator]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/install) is installed in your Kubernetes environment.
+2. Your integration solution should be prepared using **WSO2 Integration Studio** as follows:
 
     1. Create the integration solution.
     2. Generate a Kubernetes project for the solution.
     3. Build the Docker image of your integration and push it to your Docker registry.
 
-3.  Open the `integration_cr.yaml` file from the Kubernetes project in WSO2 Integration Studio.
-4.  See that the details of your **integration** are correctly included in the file. See the example given below.
+3. Open the `integration_cr.yaml` file from the Kubernetes project in WSO2 Integration Studio.
+4. With K8s API operator(k8s-api-operator) 2.0.3 we are providing the capability to, 
 
-    ```yaml
+    1. Support volumeMounts to deploy(replace existing) config files without
+      need to change the image by using config maps.
+    2. Change image pull policy to either Always, Never or IfNotPresent.
+    3. Add Node Affinity / Anti-Affinity
+    4. Add Pod Affinity / Anti Affinity
+   
+5. See the example given below
+
+```yaml
+       apiVersion: wso2.com/v1alpha2
+       kind: Integration
+       metadata:
+         name: hello-world
+       spec:
+         image: "<Docker image for the Hello World Scenario>"
+         deploySpec:
+           pullPolicy: IfNotPresent
+           minReplicas: 1
+           configmapDetails:
+             - name: log-config
+               mountPath: /home/wso2carbon/wso2mi-4.0.0/conf
+               fileName: log4j2.properties
+             - name: toml-config
+               mountPath: /home/wso2carbon/wso2mi-4.0.0/conf
+               fileName: deployment.toml
+           affinity:
+             nodeAffinity:
+               requiredDuringSchedulingIgnoredDuringExecution:
+                 nodeSelectorTerms:
+                   - matchExpressions:
+                       - key: topology.kubernetes.io/zone
+                         operator: In
+                         values:
+                           - us-east-1a
+               preferredDuringSchedulingIgnoredDuringExecution:
+                 - weight: 1
+                   preference:
+                     matchExpressions:
+                       - key: section
+                         operator: In
+                         values:
+                           - integration
+    
+```
+    
+<table>
+      <tr>
+        <th>
+          <b>Property</b>
+        </th>
+        <th>
+          <b>Description</b>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          configmapDetails
+        </td>
+        <td>
+             First we need to deploy required config files through config-maps to k8s environment. Then under 
+<b>name</b> we can provide that config-map name (This is an array) and then the <b>mountPath</b> and then under 
+<b>fileName</b> the 
+config file that needs to be replaced.
+        </td> 
+      </tr>
+      <tr>
+        <td>
+          affinity
+        </td>
+        <td>
+            We can provide Node Affinity / Anti-Affinity and Pod Affinity / Anti-Affinity properties under this property
+        </td>
+      </tr>
+      <tr>
+          <td>
+            pullPolicy
+          </td>
+          <td>
+              We can define either <b>Always</b>, <b>Never</b> or <b>IfNotPresent</b>
+          </td>
+      </tr>
+</table>
+
+   
+6. See that the details of your **integration** are correctly included in the file. See the example given below.
+
+```yaml
     apiVersion: "wso2.com/v1alpha2"
     kind: "Integration"
     metadata:
@@ -86,9 +172,8 @@ Given below are the main steps your will follow when you deploy integration solu
             name: CONFIG_MAP_NAME
         - secretRef:
             name: SECRET_NAME   
-    ```
-
-    <table>
+```
+<table>
       <tr>
         <th>
           <b>Property</b>
@@ -227,7 +312,7 @@ Given below are the main steps your will follow when you deploy integration solu
       </tr>
     </table>
 
-5.  Open a terminal, navigate to the location of your `integration_cr.yaml` file, and execute the following command to deploy the integration solution into the Kubernetes cluster:
+7. Open a terminal, navigate to the location of your `integration_cr.yaml` file, and execute the following command to deploy the integration solution into the Kubernetes cluster:
     ```bash
     kubectl apply -f integration_cr.yaml
     ``` 

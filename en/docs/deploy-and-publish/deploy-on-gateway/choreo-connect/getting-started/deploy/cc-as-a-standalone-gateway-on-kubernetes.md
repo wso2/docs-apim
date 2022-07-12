@@ -10,6 +10,8 @@ Let's deploy an API, using WSO2 API Controller (apictl), on Choreo Connect, whic
       - Minimum Memory : 2GB
 3.  Deploy an ingress controller - [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/) for this sample.
 
+{!includes/deploy/k8s-setup-note.md!}
+
 ## Objectives
 
 1.  Create and deploy an API project.
@@ -21,7 +23,7 @@ Let's get started...
 
 1.  Download and extract Choreo Connect distribution .zip file
 
-     Latest Choreo Connect distribution can be downloaded from the [GitHub repository](https://github.com/wso2/product-microgateway/releases). Extract the Choreo Connect distribution .zip file. The extracted folder will be called as `CHOREO-CONNECT_HOME` hereafter.
+    Latest Choreo Connect distribution can be downloaded from [https://wso2.com/choreo/choreo-connect/](https://wso2.com/choreo/choreo-connect/). Extract the Choreo Connect distribution .zip file. The extracted folder will be called as `CHOREO-CONNECT_HOME` hereafter.
 
 2.  Apply the Kubernetes configurations for Choreo Connect using the kubectl tool.
 
@@ -58,7 +60,7 @@ Let's create our first project with the name "petstore" by adding the [OpenAPI d
     apictl init petstore --oas <api definition path>
     ```
     
-    Let's use the [Petstore sample open API definition](https://petstore.swagger.io/)
+    Let's use the [Petstore sample OpenAPI definition](https://petstore.swagger.io/)
     
     ```shell
     apictl init petstore --oas https://petstore.swagger.io/v2/swagger.json

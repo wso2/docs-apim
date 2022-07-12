@@ -48,7 +48,7 @@ Given below are the API-M nodes you can have in a distributed deployment.
 
 To install and set up the API-M servers:
 
-1.  Download the [WSO2 API Manager](http://wso2.com/products/api-manager/).
+1.  Download the [WSO2 API Manager](https://wso2.com/api-manager/).
 2.  Create copies of the API-M distribution for the individual profiles.
 
 ## Step 2 - Install and configure the databases
@@ -183,7 +183,7 @@ Follow the instructions given below to configure the Gateway node so that it can
 
       ```
 
-      ```toml tab="Single Control Plane"
+      ```toml tab="Single Traffic Manager"
       [apim.throttling]
       service_url = "https://[traffic-manager-host]:${mgt.transport.https.port}/services/"
       throttle_decision_endpoints = ["tcp://traffic-manager-host:5672"]

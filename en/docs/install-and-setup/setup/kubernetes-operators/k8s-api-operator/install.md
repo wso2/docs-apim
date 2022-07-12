@@ -18,7 +18,7 @@ Follow the steps given below to install the operator in standalone mode.
 1. Install the API Operator: 
 
     ```shell
-    kubectl apply -f https://github.com/wso2/k8s-api-operator/releases/download/v2.0.0/api-operator-configs.yaml
+    kubectl apply -f https://github.com/wso2/k8s-api-operator/releases/download/v2.0.3/api-operator-configs.yaml
     ```
 
 2. Verify the installation:
@@ -109,9 +109,11 @@ By default, the K8s API operator is configured to watch the deployed namespace. 
               - '*'
          - apiGroups:
               - extensions
+              - networking.k8s.io
            resources:
               - ingresses
               - ingress
+              - ingressclasses
            verbs:
               - '*'
          - apiGroups:

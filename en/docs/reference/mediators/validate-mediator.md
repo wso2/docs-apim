@@ -299,9 +299,11 @@ to be sent back to the party, which sends the message.
     <schema key="conf:/schema/StockQuoteSchema.json"/>
     <on-fail>
         <payloadFactory media-type="json">
-            <format>{"Error":"$1"}</format>
+            <format>{"Error":"$1",
+            "Error Details" : "$2"       }</format>
             <args>
-                <arg evaluator="xml" expression="$ctx:ERROR_MESSAGE"/>
+                <arg evaluator="xml" expression="$ctx:ERROR_MESSAGE" />
+                <arg evaluator="xml" expression="$ctx:ERROR_DETAIL" />
             </args>
         </payloadFactory>
         <property name="HTTP_SC" value="500" scope="axis2"/>
@@ -322,6 +324,15 @@ An example for a valid JSON payload request is given below.
 }
 ```
 
+When you send an invalid JSON, the following response will appear.
+
+```
+{
+    "Error": "object has missing required properties ([\"request\"])",
+    "Error Details ": " Error while validating Json message error: object has missing required properties ([\"request\"])\n    level: \"error\"\n    schema: {\"loadingURI\":\"#\",\"pointer\":\"/properties/getQuote\"}\n    instance: {\"pointer\":\"/getQuote\"}\n    domain: \"validation\"\n    keyword: \"required\"\n    required: [\"request\"]\n    missing: [\"request\"]\n"
+}
+```
+
 #### Validate mediator with source (JSONPath)
 
 In this example, it extracts the message element from the JSON request
@@ -333,9 +344,11 @@ schema.
     <schema key="conf:/schema/StockQuoteSchema.json"/>
     <on-fail>
         <payloadFactory media-type="json">
-            <format>{"Error":$1"}</format>
+            <format>{"Error":"$1",
+            "Error Details" : "$2"       }</format>
             <args>
-                <arg evaluator="xml" expression="$ctx:ERROR_MESSAGE"/>
+                <arg evaluator="xml" expression="$ctx:ERROR_MESSAGE" />
+                <arg evaluator="xml" expression="$ctx:ERROR_DETAIL" />
             </args>
         </payloadFactory>
         <property name="HTTP_SC" value="500" scope="axis2"/>
@@ -355,5 +368,14 @@ An example for a valid JSON request payload is given below.
          }
       }
    }
+}
+```
+
+When you send an invalid JSON, the following response will appear.
+
+```
+{
+    "Error": "object has missing required properties ([\"request\"])",
+    "Error Details": "Error while validating Json message error: object has missing required properties ([\"request\"])\n    level: \"error\"\n    schema: {\"loadingURI\":\"#\",\"pointer\":\"/properties/getQuote\"}\n    instance: {\"pointer\":\"/getQuote\"}\n    domain: \"validation\"\n    keyword: \"required\"\n    required: [\"request\"]\n    missing: [\"request\"]\n"
 }
 ```

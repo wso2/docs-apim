@@ -1,8 +1,15 @@
 # Configuring Timeouts in Choreo Connect
 
-If you define a Timeout in Choreo Connect, whenever a backend endpoint takes an unusual time to respond, the Timeout definition will allow the client to get a timely response.
+You can use timeouts to gracefully handle connections that take an unusual amount of time to respond. Timeouts mainly ensure that the client gets a success or an error response within the specified amount of time, and thereby the client does not hang indefinitely. Timeouts also enable both the client and the backend to free its resources, allocated for the connection, within the time gap defined.
 
-You can use the Timeout to gracefully handle connections that take an unexpected amount of time to respond. As a result, this ensures that the client does not hang indefinitely, letting a client get a success or an error response within the specified amount of time. Thereby, this allows both the client and the backend to free its resources allocated for the connection.
+Timeouts can be defined at two levels.
+
+- [Endpoint Level]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/resiliency/timeout/#endpoint-level-upstream-timeouts) 
+    - Only upstream timeouts can be defined at this level
+    - Must be explicitly defined
+- [Global Level]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/resiliency/timeout/#global-level-timeouts)
+    - Multiple types of timeouts including upstream timeout can be defined
+    - If not specified, default values are assigned 
 
 ## Endpoint Level Upstream Timeouts
 
@@ -26,7 +33,7 @@ x-wso2-sandbox-endpoints:
 
 | **Field** | **Description** |
 |-------|-------------|
-| timeoutInMillis | The Endpoint Level Upstream Timeout needs to be defined in Milliseconds. |
+| timeoutInMillis | The time duration that the Router waits for the response from the backend, starting from the time the request arrived at the router. The response maybe a success or an error response. |
 
 The timeout covers the entire duration for all retry requests, including the time gaps between the requests, and therefore directly relates to the time the client would have to wait for a response. For more information, see [x-envoy-max-retries]({{envoy_path}}/configuration/http/http_filters/router_filter#config-http-filters-router-x-envoy-max-retries) in the official Envoy documentation. The Global Level Route Timeout is applied if you have not set an Endpoint Level Upstream Timeout.
 
@@ -90,7 +97,7 @@ clusterTimeoutInSeconds = 20
 | requestHeadersTimeoutInSeconds | The time duration that the Router waits for the request headers to be received by the upstream, starting from the time it was initiated at the client. |
 | streamIdleTimeoutInSeconds | The time duration that the Router will allow a stream to exist with no upstream or downstream activity. This timeout is applied to regular requests/responses as well as streaming requests/responses, and can be overridden by the following configuration:`router.upstream.timeouts.routeIdleTimeoutInSeconds` |
 | idleTimeoutInSeconds | The time at which a downstream connection will be terminated if there are no active streams. |
-| routeTimeoutInSeconds | This is the value that gets overridden by the timeout set at the endpoint level. If not set at either places, the default value of 60s is applied. |
+| routeTimeoutInSeconds | The time duration that the Router waits for the response from the backend, starting from the time the request arrived at the router. This is the value that gets overridden by the timeout set at the endpoint level. If not set at either places, the default value of 60s is applied. |
 | maxRouteTimeoutInSeconds | Maximum value accepted as the Endpoint Level Upstream Timeout. If a larger Route Timeout value is set at the endpoint level using the `timeoutInMillis` configuration, the `maxRouteTimeoutInSeconds` value will override the latter mentioned Endpoint Level Upstream Timeout value. |
 | routeIdleTimeoutInSeconds | The backend (upstream) connection idle timeout. The amount of time the request’s stream may be idle. |
 
@@ -113,3 +120,4 @@ For more information with regard to the latter mentioned configurations with reg
 ## See Also
 
 - [Circuit Breakers]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/resiliency/circuit-breakers)
+

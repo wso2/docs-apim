@@ -49,7 +49,7 @@ The default HTTPS transport listener (Secured PassThrough) and transport sender 
 
 When this feature is enabled, the transport listener verifies client
 certificates when a client tries to make an HTTPS connection with the
-Micro Integrator. The transport sender verifies server
+Micro Integrator. Therefore the client needs to send it's public certificate along with the requests to the Micro Integrator. The transport sender verifies server
 certificates when the Micro Integrator tries to make an HTTPS
 connection with a backend server. 
 
@@ -66,6 +66,7 @@ To enable this feature for the HTTP PassThrough, add the following parameters fo
 listener.certificate_revocation_verifier_enable = true
 listener.certificate_revocation_cache_size = 1024
 listener.certificate_revocation_cache_delay = 1000
+listener.verify_client = "require"
 
 ```
 
@@ -102,9 +103,9 @@ listener.parameter.PreferredCiphers = "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,T
 ```
 
 !!! Note
-    To check the above configuration changes related to SSL. Download [TestSSLServer.jar](https://docs.wso2.com/download/attachments/53125465/TestSSLServer.jar?version=1&modificationDate=1471859455000&api=v2) and test with the following command.
+    To check the above configuration changes related to SSL. Download [testsslserver.jar]({{base_path}}/assets/attachments/admin/testsslserver.jar) and test with the following command.
 
-    $ java -jar TestSSLServer.jar localhost 8253
+    $ java -jar testsslserver.jar localhost 8253
 
 ## Configuring the VFS transport
 
@@ -206,6 +207,9 @@ Download **Quickfix/J**. In the distribution archive you will find all the depen
 Also [download](https://logging.apache.org/log4j/1.2/download.html) the following JAR and add it to the `<MI_HOME>/libs` folder.
 
 -   log4j-1.2.17.jar
+
+!!! Warning
+    Note that WSO2 API Manager 3.0.0, 3.1.0, 3.2.0, and 4.0.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
 
 ### Configuring Sample FIX Applications
 

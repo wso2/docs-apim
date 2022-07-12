@@ -398,6 +398,9 @@ Follow the instructions below to move all the existing API Manager configuration
     !!! warning
         Taking the `log4j.properties` file from your old WSO2 API-M Server and adding it to WSO2 API-M Server 4.0.0 will no longer work. Refer [Upgrading to Log4j2]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2) to see how to add a log appender or a logger to the log4j2.properties file.
 
+    !!! Warning
+        Note that WSO2 API Manager 3.0.0, 3.1.0, 3.2.0, and 4.0.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
+
     !!! note
         Log4j2 has hot deployment support therefore the **Managing Logs** section has been removed from the Management Console. You can now use the `log4j2.properties` file to modify the required logging configurations without restarting the server.
 
@@ -1775,7 +1778,7 @@ Follow the instructions below to move all the existing API Manager configuration
         
          CREATE TABLE IF NOT EXISTS AM_GW_API_ARTIFACTS (
           API_ID varchar(255) NOT NULL,
-          ARTIFACT blob,
+          ARTIFACT MEDIUMBLOB,
           GATEWAY_INSTRUCTION varchar(20),
           GATEWAY_LABEL varchar(255),
           TIME_STAMP TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -1927,7 +1930,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE IF NOT EXISTS AM_GW_API_ARTIFACTS (
           API_ID VARCHAR(255) NOT NULL,
           REVISION_ID VARCHAR(255) NOT NULL,
-          ARTIFACT blob,
+          ARTIFACT MEDIUMBLOB,
           TIME_STAMP TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
           PRIMARY KEY (REVISION_ID, API_ID),
           FOREIGN KEY (API_ID) REFERENCES AM_GW_PUBLISHED_API_DETAILS(API_ID) ON UPDATE CASCADE ON DELETE NO ACTION
@@ -3340,21 +3343,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     - In order to work with the [API Security Audit Feature]({{base_path}}/design/api-security/configuring-api-security-audit/) you need to have the public certificate of the [42crunch](https://42crunch.com/) in the client-truststore. Follow the guidelines given in [Importing Certificates to the Truststore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-3-importing-certificates-to-the-truststore).
     
-6.  Configure the [SymmetricKeyInternalCryptoProvider](https://is.docs.wso2.com/en/5.11.0/administer/symmetric-overview/) as the default internal cryptor provider.
-    Generate your own secret key using a tool like OpenSSL.
-    
-    i.e.,
-       ```
-        openssl enc -nosalt -aes-128-cbc -k hello-world -P
-       ```        
-    Add the configuration to the <NEW_IS_HOME>/repository/conf/deployment.toml file.
-    
-       ```
-       [encryption]
-       key = "<provide-your-key-here>"
-       ```
-
-7.  Upgrade the Identity component in WSO2 API Manager from version 5.2.0 to 5.11.0.
+6.  Upgrade the Identity component in WSO2 API Manager from version 5.2.0 to 5.11.0.
 
     ??? note "If you are using DB2"
         Move indexes to the TS32K Tablespace. The index tablespace in the `IDN_OAUTH2_ACCESS_TOKEN` and `IDN_OAUTH2_AUTHORIZATION_CODE` tables need to be moved to the existing TS32K tablespace in order to support the newly added table indexes.

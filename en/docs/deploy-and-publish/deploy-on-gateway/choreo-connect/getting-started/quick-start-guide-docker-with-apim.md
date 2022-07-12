@@ -4,11 +4,14 @@ This is a step-by-step guide on how to quickly deploy an API using WSO2 API Mana
 
 ## Before you begin...
 
-Install and set up [Docker](https://www.docker.com).
+Install and set up [Docker](https://www.docker.com) and allocate the following resources for Docker.
+
+  - Minimum CPU : 4vCPU
+  - Minimum Memory : 4GB
 
 ### Step 1 - Download and extract Choreo Connect distribution .zip file
 
-The latest Choreo Connect distribution can be downloaded from the [GitHub repository](https://github.com/wso2/product-microgateway/releases). Extract the Choreo Connect distribution .zip file. The extracted folder will be referred to as `CHOREO-CONNECT_HOME` hereafter.
+The latest Choreo Connect distribution can be downloaded from [https://wso2.com/choreo/choreo-connect/](https://wso2.com/choreo/choreo-connect/). Extract the Choreo Connect distribution .zip file. The extracted folder will be referred to as `CHOREO-CONNECT_HOME` hereafter.
 
 ### Step 2 - Start Choreo Connect and API Manager
 
@@ -123,3 +126,10 @@ Follow the instructions below to invoke the previously created API with the gene
      [![Successful response]({{base_path}}/assets/img/deploy/mgw/try-it-success.png)]({{base_path}}/assets/img/deploy/mgw/try-it-success.png)
 
 __Congratulations!__ You have successfully created your first API, subscribed to it through an OAuth 2.0 application, obtained an access token for testing, and invoked your API with Choreo Connect.
+
+## See also
+
+- [Choreo Connect Overview]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview/)
+- [Supported Features]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features/)
+- [Deployment Options]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-deploy-overview/)
+- [Production Deployment Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/production-deployment-guideline/)

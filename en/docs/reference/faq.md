@@ -12,7 +12,7 @@ WSO2 API Manager is a complete solution for creating, publishing and managing al
 
 ### Is there commercial support available for WSO2 API Manager?
 
-It is completely supported from evaluation to production. For more details, see [WSO2 Support](http://wso2.com/support/).
+It is completely supported from evaluation to production. For more details, see [WSO2 Support](https://wso2.com/subscription/).
 
 ### What are the default ports opened in the API Manager?
 
@@ -20,7 +20,7 @@ For a list of all default ports available, see [Default Ports of WSO2 Products](
 
 ### What are the technologies used underneath WSO2 API Manager?
 
-The API Manager is built on top of [WSO2 Carbon](http://wso2.com/products/carbon), an OSGi based components framework for SOA. For more details, see [API Manager components]({{base_path}}/getting-started/key-concepts/).
+The API Manager is built on top of [WSO2 Carbon](https://wso2.com/products/carbon/), an OSGi based components framework for SOA. For more details, see [API Manager components]({{base_path}}/getting-started/key-concepts/).
 
 ### Can I get involved in API-M development activities?
 
@@ -93,6 +93,14 @@ To enable using your email (e.g., `admin@wso2.com`) as your username when deploy
 ```
 [apim.throttling.jms]
 username="admin!wso2.com!carbon.super"
+```
+
+If you have enabled event hub for distributed deployment, add the following configurations as well.
+
+```
+[apim.event_hub.jms]
+username="admin!wso2.com!carbon.super"
+password="$ref{super_admin.password}"
 ```
 
 For more details, see [Setting up an e-mail login]({{base_path}}/install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords/#setting-up-an-e-mail-login).
@@ -173,7 +181,7 @@ Example:
 
 ### How can I manage authentication centrally in a clustered environment?
 
-You can enable centralized authentication using a WSO2 Identity Server based [security and identity gateway solution](http://wso2.com/whitepapers/wso2-security-and-identity-gateway-solution/), which [enables SSO](https://is.docs.wso2.com/en/latest/learn/configuring-saml2-single-sign-on-across-different-wso2-products/) (Single Sign On) across all the servers.
+You can enable centralized authentication using a WSO2 Identity Server based [security and identity gateway solution](https://wso2.com/whitepapers/wso2-security-and-identity-gateway-solution/), which [enables SSO](https://is.docs.wso2.com/en/latest/learn/configuring-saml2-single-sign-on-across-different-wso2-products/) (Single Sign On) across all the servers.
 
 ### How can I manage the API permissions/visibility?
 
