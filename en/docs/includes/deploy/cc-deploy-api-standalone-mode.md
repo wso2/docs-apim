@@ -1,4 +1,4 @@
-### Step 3 - Add a Choreo Connect Environment to apictl
+git### Step 3 - Add a Choreo Connect Environment to apictl
 
 To use apictl for Choreo Connect, a Choreo Connect environment needs to be added to apictl. This environment will hold the adapter URL for further commands.
 
@@ -35,5 +35,5 @@ apictl mg login dev -u admin -p admin -k
 Now let's deploy the API to Choreo Connect by executing the following command.     
 
 ``` bash
-apictl mg deploy api -f <path_to_the_API_project_just_created>/petstore -e dev -k
+apictl mg deploy api -f <path_to_the_API_project_just_created>/<projectName> -e dev -k
 ```  
