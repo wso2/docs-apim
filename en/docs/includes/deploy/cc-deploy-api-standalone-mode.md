@@ -1,4 +1,4 @@
-git### Step 3 - Add a Choreo Connect Environment to apictl
+### Step 3 - Add a Choreo Connect Environment to apictl
 
 To use apictl for Choreo Connect, a Choreo Connect environment needs to be added to apictl. This environment will hold the adapter URL for further commands.
 
