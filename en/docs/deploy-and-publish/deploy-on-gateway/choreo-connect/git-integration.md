@@ -310,7 +310,7 @@ To authenticate the repository with SSH key, the SSH private key file path shoul
     ```
 
     ```dockerfile tab='Example'
-      FROM wso2/choreo-connect-adapter:1.1.0
+      FROM wso2/choreo-connect-adapter:{{choreo_connect.version}}
 
       USER root
 

@@ -61,7 +61,7 @@ Execute the command that is relevant to your Helm version.
         --set wso2.deployment.am.ingress.gateway.hostname=gw.wso2.com \
         --set wso2.deployment.am.ingress.gateway.enabled=false \
         --set wso2.deployment.am.imagePullPolicy=IfNotPresent \
-        --set-file wso2.deployment.am.config."deployment\.toml"=https://raw.githubusercontent.com/wso2/kubernetes-microgateway/v1.1.0.1/resources/controlplane-deployment.toml
+        --set-file wso2.deployment.am.config."deployment\.toml"=https://raw.githubusercontent.com/wso2/kubernetes-microgateway/{{choreo_connect.helm_chart.git_tag}}/resources/controlplane-deployment.toml
     ```
 
 -   Using **Helm v3**
@@ -71,7 +71,7 @@ Execute the command that is relevant to your Helm version.
         --set wso2.deployment.am.ingress.gateway.hostname=gw.wso2.com \
         --set wso2.deployment.am.ingress.gateway.enabled=false \
         --set wso2.deployment.am.imagePullPolicy=IfNotPresent \
-        --set-file wso2.deployment.am.config."deployment\.toml"=https://raw.githubusercontent.com/wso2/kubernetes-microgateway/v1.1.0.1/resources/controlplane-deployment.toml
+        --set-file wso2.deployment.am.config."deployment\.toml"=https://raw.githubusercontent.com/wso2/kubernetes-microgateway/{{choreo_connect.helm_chart.git_tag}}/resources/controlplane-deployment.toml
     ```
 
 ## Option 1: Install Chart from WSO2 Helm Chart Repository
@@ -91,14 +91,14 @@ Execute the following command to install the Helm Cart by selecting the helm ver
 -   Using **Helm v2**
 
     ```bash tab='Format'
-    helm install --name <RELEASE_NAME> wso2/choreo-connect --version 1.1.0-1 --namespace <NAMESPACE> \
+    helm install --name <RELEASE_NAME> wso2/choreo-connect --version {{choreo_connect.helm_chart.version}} --namespace <NAMESPACE> \
         --set wso2.deployment.mode=APIM_AS_CP \
         --set wso2.apim.controlPlane.hostName=am.wso2.com \
         --set wso2.apim.controlPlane.serviceName=wso2am-single-node-am-service.apim
     ```
 
     ```bash tab='Sample'
-    helm install --name my-release wso2/choreo-connect --version 1.1.0-1 --namespace cc \
+    helm install --name my-release wso2/choreo-connect --version {{choreo_connect.helm_chart.version}} --namespace cc \
         --set wso2.deployment.mode=APIM_AS_CP \
         --set wso2.apim.controlPlane.hostName=am.wso2.com \
         --set wso2.apim.controlPlane.serviceName=wso2am-single-node-am-service.apim
@@ -107,14 +107,14 @@ Execute the following command to install the Helm Cart by selecting the helm ver
 -   Using **Helm v3**
 
     ```bash tab='Format'
-    helm install <RELEASE_NAME> wso2/choreo-connect --version 1.1.0-1 --namespace <NAMESPACE> --create-namespace \
+    helm install <RELEASE_NAME> wso2/choreo-connect --version {{choreo_connect.helm_chart.version}} --namespace <NAMESPACE> --create-namespace \
         --set wso2.deployment.mode=APIM_AS_CP \
         --set wso2.apim.controlPlane.hostName=am.wso2.com \
         --set wso2.apim.controlPlane.serviceName=wso2am-single-node-am-service.apim
     ```
 
     ```bash tab='Sample'
-    helm install my-release wso2/choreo-connect --version 1.1.0-1 --namespace cc --create-namespace \
+    helm install my-release wso2/choreo-connect --version {{choreo_connect.helm_chart.version}} --namespace cc --create-namespace \
         --set wso2.deployment.mode=APIM_AS_CP \
         --set wso2.apim.controlPlane.hostName=am.wso2.com \
         --set wso2.apim.controlPlane.serviceName=wso2am-single-node-am-service.apim
@@ -129,7 +129,7 @@ Please see the following example.
 -   Using **Helm v2**
 
     ```bash tab='Format'
-    helm install --name <RELEASE_NAME> wso2/choreo-connect --version 1.1.0-1 --namespace <NAMESPACE> \
+    helm install --name <RELEASE_NAME> wso2/choreo-connect --version {{choreo_connect.helm_chart.version}} --namespace <NAMESPACE> \
         --set wso2.subscription.username=<SUBSCRIPTION_USERNAME> \
         --set wso2.subscription.password=<SUBSCRIPTION_PASSWORD>
     ```
@@ -137,7 +137,7 @@ Please see the following example.
 -   Using **Helm v3**
 
     ```bash tab='Format'
-    helm install <RELEASE_NAME> wso2/choreo-connect --version 1.1.0-1 --namespace <NAMESPACE> --create-namespace \
+    helm install <RELEASE_NAME> wso2/choreo-connect --version {{choreo_connect.helm_chart.version}} --namespace <NAMESPACE> --create-namespace \
         --set wso2.subscription.username=<SUBSCRIPTION_USERNAME> \
         --set wso2.subscription.password=<SUBSCRIPTION_PASSWORD>
     ```
@@ -156,7 +156,7 @@ Check out the Helm Resources for the Choreo Connect Git repository.
 
     ```bash
     git clone https://github.com/wso2/kubernetes-microgateway.git
-    git checkout tags/v1.1.0.1
+    git checkout tags/{{choreo_connect.helm_chart.git_tag}}
     ```
 
 This creates a local copy of [wso2/kubernetes-microgateway](https://github.com/wso2/kubernetes-microgateway), which includes all the Helm Resources for Choreo Connect.
@@ -170,7 +170,7 @@ Follow the steps given below to configure how your Choreo Connect deployment sho
 1.  Open the `values.yaml` file in the `<KUBERNETES_HOME>/helm/choreo-connect` directory of your local copy.
 
     !!! Info
-        Before you do any changes, go through the [default configurations](https://github.com/wso2/kubernetes-microgateway/tree/v1.1.0.1/helm/choreo-connect) in this file.
+        Before you do any changes, go through the [default configurations](https://github.com/wso2/kubernetes-microgateway/tree/{{choreo_connect.helm_chart.git_tag}}/helm/choreo-connect) in this file.
 
 2.  Use the following guidelines to update the deployment configurations:
 
@@ -205,7 +205,7 @@ Follow the steps given below to configure how your Choreo Connect deployment sho
                     serviceName: "<controlplane kubernetes service name>"
         ```
 
-    -   You can update [other configurations](https://github.com/wso2/kubernetes-microgateway/tree/v1.1.0.1/helm/choreo-connect/README.md) as required.
+    -   You can update [other configurations](https://github.com/wso2/kubernetes-microgateway/tree/{{choreo_connect.helm_chart.git_tag}}/helm/choreo-connect/README.md) as required.
 
 3.  Save the `values.yaml` file.
 
@@ -222,13 +222,13 @@ Once you have set up your Helm resources locally, follow the instructions given 
     -   Using **Helm v2**
 
         ```bash
-        helm install --name <RELEASE_NAME> wso2/choreo-connect --version 1.1.0-1 --namespace <NAMESPACE>
+        helm install --name <RELEASE_NAME> wso2/choreo-connect --version {{choreo_connect.helm_chart.version}} --namespace <NAMESPACE>
         ```
 
     -   Using **Helm v3**
 
         ```bash
-        helm install <RELEASE_NAME> wso2/choreo-connect --version 1.1.0-1 --namespace <NAMESPACE> --create-namespace
+        helm install <RELEASE_NAME> wso2/choreo-connect --version {{choreo_connect.helm_chart.version}} --namespace <NAMESPACE> --create-namespace
         ```
 
 #### Update configurations during deployment

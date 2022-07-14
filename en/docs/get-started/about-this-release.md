@@ -228,7 +228,7 @@ These features are unsupported and removed from WSO2 API Manager 4.1.0 onwards.
 ## Compatible WSO2 product versions
 
 - WSO2 API Manager 4.1.0 is compatible with WSO2 Identity Server 5.11.0.
-- WSO2 API Manager 4.1.0 is compatible with Choreo Connect 1.1.0.
+- WSO2 API Manager 4.1.0 is compatible with Choreo Connect {{choreo_connect.version}}.
 
 ## Fixed issues
 
