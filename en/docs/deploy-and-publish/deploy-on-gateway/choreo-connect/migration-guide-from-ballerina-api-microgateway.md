@@ -1,4 +1,4 @@
-# Migrate from API Microgateway to Choreo Connect
+# Migrate from Ballerina API Microgateway to Choreo Connect
 
 Earlier versions of the Choreo Connect were named as WSO2 API Microgateway (Ballerina MGW). The final version of API Microgateway is 3.X.X and it is compatible with WSO2 API Manager 3.0 series only. With the release of WSO2 API Manager 4.0.0 Choreo Connect 1.0.0 released as the new version of API Microgateway. This document explains how you can migrate from API Microgateway to the Choreo Connect.
 
@@ -9,7 +9,7 @@ Earlier versions of the Choreo Connect were named as WSO2 API Microgateway (Ball
 
 | **Feature**          | **Ballerina MGW**                                   | **Choreo Connect**                                  |
 |----------------------|:---------------------------------------------------:|:---------------------------------------------------:|
-| SOAP  backends       | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) |
+| SOAP  backends       | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) | ![(No)]({{base_path}}/assets/img/deploy/error.svg) |
 | REST APIs            | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) |
 | gRPC APIs            | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) | ![(No)]({{base_path}}/assets/img/deploy/error.svg)  |
 | Websocket APIs       | ![(No)]({{base_path}}/assets/img/deploy/error.svg)  | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) |
