@@ -21,7 +21,7 @@ Interface, the classloading happens in the enforcer. See the following sections 
    <dependency>
        <groupId>org.wso2.choreo.connect</groupId>
        <artifactId>org.wso2.choreo.connect.enforcer.commons</artifactId>
-       <version>1.1.0</version>
+       <version>{{choreo_connect.version}}</version>
    </dependency>
    ```
 
