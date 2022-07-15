@@ -7,12 +7,13 @@ Choreo Connect's most recent version (v1.0.0) does not support all of WSO2 API M
 The following is a list of Choreo Connect's important features.
 
 - API Manager as a Control Plane
-    - Deploying and managing APIs (REST, WebSocket)
+    - Deploying and managing APIs (REST, SOAP, WebSocket)
     - Testing APIs with internal test keys via the WSO2 API Manager Publisher Portal
     - Subscription blocking/unblocking via the WSO2 API Manager Publisher Portal
     - Applying CORS configuration via the WSO2 API Manager Publisher Portal
     - Adding Key Managers via the WSO2 API Manager Admin Portal
     - WebSocket APIs
+    - SOAP APIs
     - Support for virtual hosts (Vhosts) to expose the APIs
     - Publishing APIs to multiple Gateway environments
     - Default API version
