@@ -54,16 +54,23 @@ From publisher portal, Navigate to the API created in above step and deploy the 
 Follow [Deploy an API]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/) guide to find more details on deploying an API.
 
 
-### Step 3 - Invoke the API
+### Step 3 - Publish & Invoke the API
 
 After the API is deployed in WSO2 API Manager publisher portal, it gets exposed in the Choreo Connect gateway. You can invoke the API with a valid access token.
 
 To invoke the API through WSO2 API Manager, you can follow the steps below.
 
-1. Publish the API from the publisher portal - [Publish API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api/)
-2. Login to **Developer portal** and subscribe this API to an Application and then invoke it by generating an access token - You can follow steps(Step 5 & Step 6) [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/#step-4-invoke-the-api-from-publisher) to invoke the SOAP API through WSO2 API Manager.
-    
-    !!! Note
+1. Go to the publisher portal and select the API you just created in the previous steps.
+2. Navigate to the **Lifecycle** section and from there click **Publish** to publish the API.
+3. Login to **Developer portal** `https://localhost:9444/devportal` and select the newly created API.
+4. Navigate to the Subscriptions page and subscribe the API to the default application visible as **DefaultApplication** with an available Rate Limiting Policy.
+5. Now go to the **Applications** and select **DefaultApplication**.
+6. Click on **Production Keys** and then click **Generate Keys** with the default settings, to generate production keys.
+7. Now go back to APIs and select your API and go to **Try Out** section from there. In the Try Out section you can get a Test Key with the **DefaultApplication** for production endpoint by clicking on **GET TEST KEY** .
+8. Then you can invoke the API using the swagger console UI appear in the same page or you may use cURL to invoke it.
+   
+
+    !!! Info
         When invoking SOAP API (Pass through) via WSO2 API Manager, you will see a UI like below.
 
         [![Invoke Soap API]({{base_path}}/assets/img/deploy/mgw/invoke-soap-api.png)]({{base_path}}/assets/img/deploy/mgw/invoke-soap-api.png)
@@ -91,7 +98,14 @@ To invoke the API through WSO2 API Manager, you can follow the steps below.
         For example you may provide this as,
             ``` uri
             http://ws.cdyne.com/PhoneVerify/query/CheckPhoneNumber
-            ```
+        ```
+
+!!! Note
+    For more information on above steps, following guides will be useful. 
+
+    - [Publish API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api/).
+    - [Invoke API]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/#step-4-invoke-the-api-from-publisher).
+
 
 !!! tip
     If you want to invoke the using a test key API without publishing, you may follow the methods below.
@@ -289,3 +303,6 @@ A sample content for `request.xml` file referred in above cURL command looks lik
 	</soap:Body>
 </soap:Envelope>
 ```
+
+## What's Next
+As the normal REST APIs, SOAP APIs will also supported with the basic features like Rate Limiting, Security, API Insights & Observability, etc.. You may find more details on [Supported Features]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features/#supported-features) and respective pages. 
