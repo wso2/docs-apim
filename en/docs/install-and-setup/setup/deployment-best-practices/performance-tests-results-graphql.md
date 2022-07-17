@@ -2,16 +2,16 @@
 
 The performance of WSO2 API Manager was measured for GraphQL APIs. While the schema, the queries, and the responses were mimicked using the [Starwars API](https://github.com/wso2/samples-apim/tree/master/graphql-backend), the backend used for the test is a Netty backend. The netty service is configured so that the response is aligned with the GraphQL request in order to only provide the data requested by a particular query.
 
-Tests were done using 50, 100, 200, 500, and 1000 concurrent users. Concurrent users mean that it consists of multiple users accessing the API Gateway at the same time. Three GraphQL queries were used for the tests. These queries were constructed with varying operation counts. First query with 1 operation, second with 4 operations, and third with 9 operations. It is important to note that when this operation count increases, the higher the workload for API Manager. Details regarding the query variations are listed down below:
+Tests were done using **50**, **100**, **200**, **500**, and **1000** concurrent users. Concurrent users mean that it consists of multiple users accessing the API Gateway at the same time. Three GraphQL queries were used for the tests. These queries were constructed with varying operation counts. First query with 1 operation, second with 4 operations, and third with 9 operations. It is important to note that when this operation count increases, the higher the workload for API Manager. Details regarding the query variations are outlined below. Furhter, the three queries and their responses can be found [here](https://github.com/ashera96/performance-apim/tree/master/resources).
 
 <table>
 <thead>
   <tr>
-    <th>Query</th>
-    <th>No. of Operations</th>
-    <th>Query Depth</th>
-    <th>Query Size</th>
-    <th>Response Size</th>
+    <th><b>Query</b></th>
+    <th><b>No. of Operations</b></th>
+    <th><b>Query Depth</b></th>
+    <th><b>Query Size</b></th>
+    <th><b>Response Size</b></th>
   </tr>
 </thead>
 <tbody>
@@ -39,10 +39,10 @@ Tests were done using 50, 100, 200, 500, and 1000 concurrent users. Concurrent u
 </tbody>
 </table>
 
+Two key performance metrics were used to measure the performance of each test. 
 
-The key performance metric used to measure the performance of GraphQL APIs is: 
-
-- Throughput: This measures the number of API invocations that the API Manager Gateway server processed during a specific time interval (e.g., per second).
+- Throughput: This measures the number of API invocations that the API Manager Gateway server processed during a specific time interval (e.g., per second). 
+- Response Time: This measures end-to-end processing time for an operation (of invoking an API using HTTPS protocol). The complete distribution of response times was recorded.
 
 ## Deployment used for the test
 
@@ -92,16 +92,17 @@ The key performance metric used to measure the performance of GraphQL APIs is:
 </table>
 
 - Token type: JWT
-- The operating system is Ubuntu 20.04
+- The operating system is Ubuntu 18.04
+- MySQL version in RDS instance is 5.7
 - Java version is JDK 11
 
 ### Performance test scripts
 
-All scripts used to run the performance tests and analyze results are in the following repositories.
+All scripts used to run the performance tests and analyze results are in the following repositories:
 
-- [https://github.com/wso2/performance-common](https://github.com/wso2/performance-common)
+- [performance-common](https://github.com/ashera96/performance-common)
 
-- [https://github.com/wso2/performance-apim](https://github.com/wso2/performance-apim)
+- [performance-apim](https://github.com/ashera96/performance-apim)
 
 ## Results
 
