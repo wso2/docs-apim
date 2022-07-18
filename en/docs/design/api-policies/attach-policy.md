@@ -18,14 +18,14 @@ Follow the instructions below to attach one or more default policies that are sh
     !!! tip
         * The policy list is dependant on the selected Gateway (i.e. policy list under `Regular Gateway` is different to that of `Choreo Connect`).
         
-        * Listed below are the key differences between the two types.
+        * Given below is the key difference between the two types.
 
-        | Gateway         | Difference              |
+        | Gateway         | Supported Flows         |
         |-----------------|-------------------------|
-        | Regular Gateway | **Operation level** granularity |
-        |                 | Supported flows under each operation: `Request`, `Response`, `Fault` |
-        | Choreo Connect  | **Resource level** granularity |
-        |                 | Supported flows under each resource: `Request`, `Response` |
+        | Regular Gateway | `Request`, `Response`, `Fault` |
+        | Choreo Connect  | `Request`, `Response` |
+
+        * Choreo Connect supports policies at **Operation level** 1.2.0 version onwards, while the older version Choreo Connect 1.1.0 only supports at resource level.
 
 4. Pick out the desired operation and flow to which you want to attach policies. Once that is decided, you can expand that API operation. At this point you will notice that by default the UI will open up the first API operation on initial page visit (for PizzaShack API, `/order POST` is expanded by default).
 

@@ -129,6 +129,7 @@ nav:
                 - Add a Class Mediator: design/api-policies/regular-gateway-policies/adding-a-class-mediator.md
                 - Configure Message Builders and Formatters: design/api-policies/regular-gateway-policies/configuring-message-builders-formatters.md
             - Choreo Connect Policies:
+                - Overview: design/api-policies/choreo-connect-policies/cc-op-policy-overview.md
                 - Call Interceptor Service: design/api-policies/choreo-connect-policies/call-interceptor-service.md
                 - Create a Custom Policy: design/api-policies/choreo-connect-policies/create-custom-cc-policy.md
         - API Security:
@@ -329,15 +330,17 @@ nav:
                     - Request Payload Passing: deploy-and-publish/deploy-on-gateway/choreo-connect/extensions/request-payload-passing.md
                 - Rate Limiting:
                     - Enable Distributed Rate Limiting: deploy-and-publish/deploy-on-gateway/choreo-connect/rate-limiting/distributed-throttling.md
-                - Message Transformation:
-                    - Message Transformation: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/message-transformation-overview.md
-                    - Interceptor Microservice:
-                        - Interceptor Microservice: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/interceptor-microservice.md
-                        - Request Flow Interceptor: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/request-flow-interceptor.md
-                        - Response Flow Interceptor: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/response-flow-interceptor.md
-                        - Interceptor Context and Invocation Context: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/interceptor-context-and-invocation-context.md
-                        - Sample Interceptor Services: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/sample-interceptor-services.md
-                    - Define Interceptors in an OpenAPI Definition: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/defining-interceptors-in-an-open-api-definition.md
+                - Mediation:
+                    - Message Transformation: 
+                        - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/message-transformation-overview.md
+                        - Interceptor Microservice:
+                            - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/interceptor-microservice.md
+                            - Request Flow Interceptor: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/request-flow-interceptor.md
+                            - Response Flow Interceptor: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/response-flow-interceptor.md
+                            - Interceptor Context and Invocation Context: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/interceptor-context-and-invocation-context.md
+                            - Sample Interceptor Services: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/sample-interceptor-services.md
+                        - Define Interceptors in an OpenAPI Definition: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/defining-interceptors-in-an-open-api-definition.md
+                    - Operational Policies: design/api-policies/choreo-connect-policies/cc-op-policy-overview.md
                 - Service Discovery:
                     - Configure Choreo Connect with Consul: deploy-and-publish/deploy-on-gateway/choreo-connect/service-discovery/service-discovery-overview.md
                     - Service Discovery:  deploy-and-publish/deploy-on-gateway/choreo-connect/service-discovery/choreo-connect-and-service-discovery.md
