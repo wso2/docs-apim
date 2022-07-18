@@ -37,7 +37,7 @@ Follow the instructions below to enable mock response generation based on the Op
     Add the following resource which includes an response example. For HTTP status specific examples and content type specific responses, have a look at [Mock Implementation with OpenAPI examples](#mock-implementation-with-openapi-examples).
 
     ```
-    /pet/findByStatus:
+    /pet/{petId}:
       get:
         responses:
           '200':
@@ -87,7 +87,7 @@ Follow the instructions below to enable mock response generation based on the Op
 
      [![Try out prototype]({{base_path}}/assets/img/learn/prototype-api/create-prototype-api-dev-portal-tryout-petstore.png)]({{base_path}}/assets/img/learn/prototype-api/create-prototype-api-dev-portal-tryout-petstore.png)
 
-4. Expand any method and click **Try it out**.
+4. Expand the method you just updated with the mock response and click **Try it out**.
 
      [![Click Try it out]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-tryout-click.png)]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-tryout-click.png)
 
