@@ -266,7 +266,7 @@ Execute the following commands to get your API project deployed in Choreo Connec
     apictl mg add env dev --adapter https://localhost:9843
     ```
 
-2. Log in to the Choreo Connect Environment in `apictl`
+2. Log in to the Choreo Connect Environment in `apictl`.
     ```bash
     apictl mg login dev -u admin -p admin -k
     ```
