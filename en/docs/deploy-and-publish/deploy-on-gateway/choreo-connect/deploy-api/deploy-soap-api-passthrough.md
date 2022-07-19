@@ -214,7 +214,7 @@ The following steps will show you how to create the `apictl` project, deploy it 
 
 ### Step 1 - Initialize the apictl project
 
-Use the follwing command to initialize the `apictl` project. You may use the above sample swagger provided.
+Use the following command to initialize the `apictl` project. You may use the above sample Swagger provided.
 
 ```bash
 apictl init PhoneVerify --oas <path to swagger.yaml>
