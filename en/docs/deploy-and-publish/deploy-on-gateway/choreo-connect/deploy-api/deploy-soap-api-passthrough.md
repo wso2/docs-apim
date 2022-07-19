@@ -271,7 +271,7 @@ Execute the following commands to get your API project deployed in Choreo Connec
     apictl mg login dev -u admin -p admin -k
     ```
 
-3. Deploy the API
+3. Deploy the API.
     ```bash
     apictl mg deploy api -f PhoneVerify -e dev -k
     ```
