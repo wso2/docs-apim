@@ -101,7 +101,7 @@ To invoke the API through WSO2 API Manager, you can follow the steps below.
            For example you may provide this as,
             ``` uri
             http://ws.cdyne.com/PhoneVerify/query/CheckPhoneNumber
-           ```
+            ```
 
 !!! Note
     For more information on above steps, following guides will be useful. 
