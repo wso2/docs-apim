@@ -248,7 +248,7 @@ PhoneVerify
 
 ### Step 2 - Set the project type as `SOAP`
 
-In the `api.yaml` file of the created project, change the `type` as `SOAP`.
+In the `api.yaml` file of the created project, change the `type` to `SOAP`.
 
 ```yaml
 data:
