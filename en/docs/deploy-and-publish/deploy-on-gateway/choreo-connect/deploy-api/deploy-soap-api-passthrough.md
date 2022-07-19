@@ -70,7 +70,7 @@ To invoke the API through WSO2 API Manager, you can follow the steps below.
 5. Now go to the **Applications** and select **DefaultApplication**.
 6. Click on **Production Keys** and then click **Generate Keys** with the default settings, to generate production keys.
 7. Now go back to APIs and select your API and go to **Try Out** section from there. In the Try Out section you can get a Test Key with the **DefaultApplication** for production endpoint by clicking on **GET TEST KEY** .
-8. Then you can invoke the API using the swagger console UI appear in the same page or you may use cURL to invoke it.
+8. Then you can invoke the API using the Swagger console UI that appears in the same page or you may use cURL to invoke it.
    
 
     !!! Info
