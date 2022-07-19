@@ -308,4 +308,4 @@ A sample content for `request.xml` file referred in above cURL command looks lik
 ```
 
 ## What's Next
-As the normal REST APIs, SOAP APIs will also supported with the basic features like Rate Limiting, Security, API Insights & Observability, etc.. You may find more details on [Supported Features]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features/#supported-features) and respective pages. 
+As the normal REST APIs, SOAP APIs will also supported with the basic features like Rate Limiting, Security, API Insights & Observability, etc. You may find more details on [Supported Features]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features/#supported-features) and respective pages. 
