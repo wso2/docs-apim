@@ -277,7 +277,7 @@ Execute the following commands to get your API project deployed in Choreo Connec
     ```
 
 !!! Note
-    More details on above commands can be find the the documentation page [Managing Choreo Connect]({{base_path}}/install-and-setup/setup/api-controller/managing-choreo-connect/managing-choreo-connect-with-ctl/) under CI/CD documentations.
+    More details on the above commands can be found in the [Managing Choreo Connect]({{base_path}}/install-and-setup/setup/api-controller/managing-choreo-connect/managing-choreo-connect-with-ctl/) page under CI/CD documentation.
 
 ### Step 4 - Invoke the API
 
