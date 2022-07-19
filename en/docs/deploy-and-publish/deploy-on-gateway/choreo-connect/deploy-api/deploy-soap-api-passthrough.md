@@ -220,7 +220,7 @@ Use the following command to initialize the `apictl` project. You may use the ab
 apictl init PhoneVerify --oas <path to swagger.yaml>
 ```
 
-It will create you a project with following file structure in the current working directory.
+This creates a project with the following file structure in the current working directory.
 
 ```text
 PhoneVerify
