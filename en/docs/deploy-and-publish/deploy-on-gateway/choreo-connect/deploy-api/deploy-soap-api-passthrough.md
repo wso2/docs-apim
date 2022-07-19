@@ -251,7 +251,7 @@ data:
 
 ### Step 3 - Deploy the API
 
-Execute the following commands to get your API project deployed in Choreo Connect Gateway.
+Execute the following commands to get your API project deployed in Choreo Connect.
 
 1. Add a Choreo Connect Environment to `apictl`
     ```bash
