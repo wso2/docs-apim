@@ -50,7 +50,7 @@ Create a SOAP API Pass-through using the WSDL definition of your SOAP service by
     You may find more details on the above steps from [Create a SOAP API Pass-through using WSO2 API Manager Publisher Portal.]({{base_path}}/design/create-api/create-rest-api/expose-a-soap-service-as-a-rest-api/#expose-a-soap-service-as-a-rest-api)
 
 
-### Step 2 - Deploy the SOAP API using API Manager publisher portal.
+### Step 2 - Deploy the SOAP API using API Manager Publisher Portal
 
 From the Publisher Portal, navigate to the API created in the above step and deploy the API from the **Deployments** section.
 
