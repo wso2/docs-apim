@@ -261,7 +261,7 @@ data:
 
 Execute the following commands to get your API project deployed in Choreo Connect.
 
-1. Add a Choreo Connect Environment to `apictl`
+1. Add a Choreo Connect Environment to `apictl`.
     ```bash
     apictl mg add env dev --adapter https://localhost:9843
     ```
