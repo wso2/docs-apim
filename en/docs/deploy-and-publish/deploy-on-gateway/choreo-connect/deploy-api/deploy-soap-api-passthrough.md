@@ -66,7 +66,7 @@ To invoke the API through WSO2 API Manager, you can follow the steps below.
 1. Go to the Publisher Portal and select the API you just created in the previous steps.
 2. Navigate to the **Lifecycle** section and from there click **Publish** to publish the API.
 3. Log in to Developer Portal via `https://localhost:9444/devportal` and select the newly created API.
-4. Navigate to the Subscriptions page and subscribe the API to the default application visible as **DefaultApplication** with an available Rate Limiting Policy.
+4. Navigate to the **Subscriptions** page and subscribe the API to the default application visible as **DefaultApplication** with an available Rate Limiting Policy.
 5. Now go to the **Applications** and select **DefaultApplication**.
 6. Click on **Production Keys** and then click **Generate Keys** with the default settings, to generate production keys.
 7. Now go back to APIs and select your API and go to **Try Out** section from there. In the Try Out section you can get a Test Key with the **DefaultApplication** for production endpoint by clicking on **GET TEST KEY** .
