@@ -292,7 +292,7 @@ TOKEN=$(curl -X POST "https://localhost:9095/testkey" -H "Authorization: Basic Y
 !!! Info
     Refer [Enforcer Test Key Authentication]({{base_path}}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt/) to learn more on test key generation.
 
-Execute the following cURL command to Invoke the API using the access token.
+Execute the following cURL command to invoke the API using the access token.
 
 ```bash tab="SOAP 1.1"
 curl -X 'POST' 'https://localhost:9095/phoneverify/1.0.0' -H 'Content-Type: text/xml' -H "Authorization: Bearer $TOKEN" -H "SOAPAction: http://ws.cdyne.com/PhoneVerify/query/CheckPhoneNumber" -d @request.xml -k -v
