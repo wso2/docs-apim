@@ -81,7 +81,7 @@ To invoke the API through WSO2 API Manager, you can follow the steps below.
         Here you need to provide the values for following parameters.
 
         1. **SOAP Request (body)** - The SOAP request body that you will be using to invoke the SOAP endpoint (SOAP Envelope). 
-        For this example you may provide:
+           For this example you may provide:
             ``` xml
             <soap:Envelope
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
