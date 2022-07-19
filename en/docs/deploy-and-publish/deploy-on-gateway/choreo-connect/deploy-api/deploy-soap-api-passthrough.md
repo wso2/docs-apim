@@ -1,11 +1,11 @@
-# Deploying a SOAP API(Pass-through)  in Choreo Connect
+# Deploying a SOAP API(Pass-Through)  in Choreo Connect
 
 !!! attention "Update Level 90"
     This feature is available only as an update, after Update level 90 and further. For more information, see [Updating WSO2 API Manager]({{base_path}}/administer/product-administration/updating-wso2-api-manager).
 
 WSO2 Choreo Connect supports the deployment of an existing SOAP and WSDL based services exposd via the gateway. The organizations that have SOAP/WSDL based services can easily proxy their existing services while providing key features like API Security, rate limiting, observability, etc.. without the cost of a major migration. 
 
-You can deploy a SOAP API (SOAP to SOAP pass-through) in the following ways depending on the Choreo Connect **mode** you have chosen.
+You can deploy a SOAP API (SOAP to SOAP Pass-Through) in the following ways depending on the Choreo Connect **mode** you have chosen.
 
 
 |**Mode**         | **Method**    |
@@ -31,7 +31,7 @@ Follow the instructions below to deploy a SOAP API in a Choreo Connect instance 
 
 ### Step 1 - Create a SOAP API using API Manager publisher portal.
 
-Create a SOAP API Pass-through using the WSDL definition of your SOAP service by using the following steps.
+Create a SOAP API Pass-Through using the WSDL definition of your SOAP service by using the following steps.
 
 1. Sign in to publisher portal and click on **Create API** .
 2. Select **SOAP API** and click on **Import WSDL** . 
@@ -82,7 +82,8 @@ To invoke the API through WSO2 API Manager, you can follow the steps below.
 
         1. **SOAP Request (body)** - The SOAP request body that you will be using to invoke the SOAP endpoint (SOAP Envelope). 
         For this example you may provide:
-            ``` xml
+            ```xml
+            <?xml version="1.0" encoding="utf-8"?>
             <soap:Envelope
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
@@ -95,13 +96,12 @@ To invoke the API through WSO2 API Manager, you can follow the steps below.
                     </CheckPhoneNumber>
                 </soap:Body>
             </soap:Envelope>
-            
             ```
-        2. **SOAPAction (header)** - The SOAPAction HTTP request header field can be used to indicate the intent of the SOAP HTTP request. The value is a URI identifying the intent. If you are using SOAP 1.1, you must provide this value.
+        2. **SOAPAction (header)** - The SOAPAction HTTP request header field can be used to indicate the intent of the SOAP HTTP request. The value is a URI identifying the intent. **If you are using SOAP 1.1, you must provide this value.**
         For example you may provide this as,
             ``` uri
             http://ws.cdyne.com/PhoneVerify/query/CheckPhoneNumber
-        ```
+            ```
 
 !!! Note
     For more information on above steps, following guides will be useful. 
@@ -238,6 +238,14 @@ PhoneVerify
 └── README.md
 ```
 
+!!! Tip
+    A sample API project for SOAP API (Pass-Through) is available in the [Choreo Connect GitHub Repository](https://github.com/wso2/product-microgateway). You can find it under `samples/apiProjects/SampleSOAPApi` directory.
+
+    You can deploy this project directly in Choreo Connect using `apictl` as explained in next few steps.
+
+    Also don't forget to change the production and sandbox endpoints to `http://ws.cdyne.com/phoneverify/phoneverify.asmx` in `api.yaml` and `Definitions/swagger.yaml` files in the project. 
+
+
 ### Step 2 - Set the project type as `SOAP`
 
 In the `api.yaml` file of the created project, change the `type` as `SOAP`.
@@ -286,13 +294,18 @@ TOKEN=$(curl -X POST "https://localhost:9095/testkey" -H "Authorization: Basic Y
 
 Execute the following cURL command to Invoke the API using the access token.
 
-```bash
+```bash tab="SOAP 1.1"
 curl -X 'POST' 'https://localhost:9095/phoneverify/1.0.0' -H 'Content-Type: text/xml' -H "Authorization: Bearer $TOKEN" -H "SOAPAction: http://ws.cdyne.com/PhoneVerify/query/CheckPhoneNumber" -d @request.xml -k -v
+```
+
+```bash tab="SOAP 1.2"
+curl -X 'POST' 'https://localhost:9095/phoneverify/1.0.0' -H 'Content-Type: application/soap+xml' -H "Authorization: Bearer $TOKEN"  -d @request.xml -k -v
 ```
 
 A sample content for `request.xml` file referred in above cURL command looks like follows.
 
-```xml
+```xml tab="SOAP 1.1"
+<?xml version="1.0" encoding="utf-8"?>
 <soap:Envelope
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
@@ -306,6 +319,37 @@ A sample content for `request.xml` file referred in above cURL command looks lik
 	</soap:Body>
 </soap:Envelope>
 ```
+
+```xml tab="SOAP 1.2"
+<?xml version="1.0" encoding="utf-8"?>
+<soap12:Envelope
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+	<soap12:Body>
+		<CheckPhoneNumber
+			xmlns="http://ws.cdyne.com/PhoneVerify/query">
+			<PhoneNumber>18006785432</PhoneNumber>
+			<LicenseKey>18006785432</LicenseKey>
+		</CheckPhoneNumber>
+	</soap12:Body>
+</soap12:Envelope>
+```
+
+### Error Response Types
+The default error response type in WSO2 Choreo Connect is `JSON`. However, when you are using Choreo Connect with SOAP backends, you may need to have error responses in respective (`text/xml` or `application/soap+xml`) types. You will be able to enable this by setting the following config as `true`. 
+
+```yaml
+[adapter]
+soapErrorInXMLEnabled = true
+```
+
+!!! Note
+    When `soapErrorInXMLEnabled` is `true`, Choreo Connect will respond with either SOAP 1.1 or 1.2 formats depending on the following criteria.
+    
+    - SOAP 1.1 - If the `SOAPAction` header present in the request and `Content-Type` is `text/xml`.
+    - SOAP 1.2 - If the `Content-Type` is `application/soap+xml`
+  
 
 ## What's Next
 As the normal REST APIs, SOAP APIs will also supported with the basic features like Rate Limiting, Security, API Insights & Observability, etc.. You may find more details on [Supported Features]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features/#supported-features) and respective pages. 
