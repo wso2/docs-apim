@@ -3,7 +3,7 @@
 !!! attention "Update Level 90"
     This feature is available only as an update, after Update level 90 and further. For more information, see [Updating WSO2 API Manager]({{base_path}}/administer/product-administration/updating-wso2-api-manager).
 
-WSO2 Choreo Connect supports the deployment of an existing SOAP and WSDL based services exposd via the gateway. The organizations that have SOAP/WSDL based services can easily proxy their existing services while providing key features like API Security, rate limiting, observability, etc.. without the cost of a major migration. 
+WSO2 Choreo Connect supports the deployment of existing SOAP and WSDL-based services exposed via the Gateway. The organizations that have SOAP/WSDL based services can easily proxy their existing services, while providing key features like API Security, rate limiting, observability, etc. without the cost of a major migration. 
 
 You can deploy a SOAP API (SOAP to SOAP pass-through) in the following ways depending on the Choreo Connect **mode** you have chosen.
 
