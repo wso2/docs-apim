@@ -239,7 +239,7 @@ PhoneVerify
 ```
 
 !!! Tip
-    A sample API project for SOAP API (Pass-Through) is available in the [Choreo Connect GitHub Repository](https://github.com/wso2/product-microgateway). You can find it under `samples/apiProjects/SampleSOAPApi` directory.
+    A sample API project for SOAP API (Pass-Through) is available in the [Choreo Connect GitHub Repository](https://github.com/wso2/product-microgateway). You can find it under the `samples/apiProjects/SampleSOAPApi` directory.
 
     You can deploy this project directly in Choreo Connect using `apictl` as explained in next few steps.
 
