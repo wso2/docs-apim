@@ -122,7 +122,7 @@ To invoke the API through WSO2 API Manager, you can follow the steps below.
 
 ## Via apictl for Standalone Mode
 
-The WSO2 API Controller (apictl) does not provide a straight forward method for generating a `apictl` project for SOAP APIs. However you can use a project extracted from the WSO2 API Manager(you may download the project for API created in above guide) or a sample swagger for SOAP APIs. This guide will continue using a sample swagger for SOAP API.
+The WSO2 API Controller (apictl) does not provide a straight forward method for generating a `apictl` project for SOAP APIs. However, you can use a project extracted from the WSO2 API Manager (you may download the project for the API created above) or a sample Swagger for SOAP APIs. This guide will continue using a sample Swagger for SOAP API.
 
 The swagger definition for our `PhoneVerify` example as follows.
 
