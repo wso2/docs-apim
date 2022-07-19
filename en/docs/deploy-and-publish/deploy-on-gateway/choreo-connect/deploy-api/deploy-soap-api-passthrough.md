@@ -33,7 +33,7 @@ Follow the instructions below to deploy a SOAP API in a Choreo Connect instance 
 
 Create a SOAP API Pass-through using the WSDL definition of your SOAP service by using the following steps.
 
-1. Sign in to publisher portal and click on **Create API** .
+1. Sign in to Publisher Portal and click on **Create API** .
 2. Select **SOAP API** and click on **Import WSDL** . 
 3. Then select Pass Through option as the Implementation type and choose the Input type as either **WSDL URL** or **WSDL File/Archive** depending on your SOAP service. 
     - Select **WSDL URL** and enter `http://ws.cdyne.com/phoneverify/phoneverify.asmx?wsdl` for this example.
