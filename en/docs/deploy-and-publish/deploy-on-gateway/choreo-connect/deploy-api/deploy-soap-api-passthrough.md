@@ -104,7 +104,7 @@ To invoke the API through WSO2 API Manager, you can follow the steps below.
             ```
 
 !!! Note
-    For more information on above steps, following guides will be useful. 
+    For more information on the above steps, go through the following documentation. 
 
     - [Publish API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api/).
     - [Invoke API]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/#step-4-invoke-the-api-from-publisher).
