@@ -3,7 +3,7 @@
 !!! attention "Update Level 90"
     This feature is available only as an update, after Update level 90 and further. For more information, see [Updating WSO2 API Manager]({{base_path}}/administer/product-administration/updating-wso2-api-manager).
 
-WSO2 Choreo Connect supports the deployment of an existing SOAP and WSDL based services exposd via the gateway. The organizations that have SOAP/WSDL based services can easily proxy their existing services while providing key features like API Security, rate limiting, observability, etc.. without the cost of a major migration. 
+WSO2 Choreo Connect supports the deployment of existing SOAP and WSDL-based services exposed via the Gateway. The organizations that have SOAP/WSDL based services can easily proxy their existing services, while providing key features like API Security, rate limiting, observability, etc. without the cost of a major migration. 
 
 You can deploy a SOAP API (SOAP to SOAP Pass-Through) in the following ways depending on the Choreo Connect **mode** you have chosen.
 
@@ -15,7 +15,7 @@ You can deploy a SOAP API (SOAP to SOAP Pass-Through) in the following ways depe
 
 
 !!! Note
-    This guide uses the [Phone Verify](http://ws.cdyne.com/phoneverify/phoneverify.asmx) from CDYNE as the backend here (WSDL: `http://ws.cdyne.com/phoneverify/phoneverify.asmx?wsdl`). You may use your own backend and continue with the same steps. 
+    This guide uses [Phone Verify](http://ws.cdyne.com/phoneverify/phoneverify.asmx) from CDYNE as the backend (WSDL: `http://ws.cdyne.com/phoneverify/phoneverify.asmx?wsdl`). You may use your own backend and continue with the same steps. 
 
 ## Via WSO2 API Manager Publisher Portal
 
@@ -25,15 +25,15 @@ Follow the instructions below to deploy a SOAP API in a Choreo Connect instance 
 
     This guide assumes that you already have a Choreo Connect instance configured to run with API Manager. If not,
 
-    - To start Choreo Connect with an existing API Manager instance, follow the steps mentioned in the [Using Choreo Connect Deployed on Docker with WSO2 API Manager Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-apim-as-control-plane)
+    - To start Choreo Connect with an existing API Manager instance, follow the steps mentioned in the [Using Choreo Connect Deployed on Docker with WSO2 API Manager Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-apim-as-control-plane).
 
     - To start a complete deployment setup that includes a WSO2 API Manager instance and a Choreo Connect instance already configured to work with API Manager, follow the steps in the [Quick Start Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim).
 
-### Step 1 - Create a SOAP API using API Manager publisher portal.
+### Step 1 - Create a SOAP API using API Manager Publisher Portal
 
 Create a SOAP API Pass-Through using the WSDL definition of your SOAP service by using the following steps.
 
-1. Sign in to publisher portal and click on **Create API** .
+1. Sign in to Publisher Portal and click on **Create API** .
 2. Select **SOAP API** and click on **Import WSDL** . 
 3. Then select Pass Through option as the Implementation type and choose the Input type as either **WSDL URL** or **WSDL File/Archive** depending on your SOAP service. 
     - Select **WSDL URL** and enter `http://ws.cdyne.com/phoneverify/phoneverify.asmx?wsdl` for this example.
@@ -50,9 +50,9 @@ Create a SOAP API Pass-Through using the WSDL definition of your SOAP service by
     You may find more details on the above steps from [Create a SOAP API Pass-through using WSO2 API Manager Publisher Portal.]({{base_path}}/design/create-api/create-rest-api/expose-a-soap-service-as-a-rest-api/#expose-a-soap-service-as-a-rest-api)
 
 
-### Step 2 - Deploy the SOAP API using API Manager publisher portal.
+### Step 2 - Deploy the SOAP API using API Manager Publisher Portal
 
-From publisher portal, Navigate to the API created in above step and deploy the API from **Deployments** section.
+From the Publisher Portal, navigate to the API created in the above step and deploy the API from the **Deployments** section.
 
 Follow [Deploy an API]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/) guide to find more details on deploying an API.
 
@@ -63,14 +63,14 @@ After the API is deployed in WSO2 API Manager publisher portal, it gets exposed 
 
 To invoke the API through WSO2 API Manager, you can follow the steps below.
 
-1. Go to the publisher portal and select the API you just created in the previous steps.
+1. Go to the Publisher Portal and select the API you just created in the previous steps.
 2. Navigate to the **Lifecycle** section and from there click **Publish** to publish the API.
-3. Login to **Developer portal** `https://localhost:9444/devportal` and select the newly created API.
-4. Navigate to the Subscriptions page and subscribe the API to the default application visible as **DefaultApplication** with an available Rate Limiting Policy.
+3. Log in to Developer Portal via `https://localhost:9444/devportal` and select the newly created API.
+4. Navigate to the **Subscriptions** page and subscribe the API to the default application visible as **DefaultApplication** with an available Rate Limiting Policy.
 5. Now go to the **Applications** and select **DefaultApplication**.
 6. Click on **Production Keys** and then click **Generate Keys** with the default settings, to generate production keys.
 7. Now go back to APIs and select your API and go to **Try Out** section from there. In the Try Out section you can get a Test Key with the **DefaultApplication** for production endpoint by clicking on **GET TEST KEY** .
-8. Then you can invoke the API using the swagger console UI appear in the same page or you may use cURL to invoke it.
+8. Then you can invoke the API using the Swagger console UI that appears in the same page or you may use cURL to invoke it.
    
 
     !!! Info
@@ -98,13 +98,13 @@ To invoke the API through WSO2 API Manager, you can follow the steps below.
             </soap:Envelope>
             ```
         2. **SOAPAction (header)** - The SOAPAction HTTP request header field can be used to indicate the intent of the SOAP HTTP request. The value is a URI identifying the intent. **If you are using SOAP 1.1, you must provide this value.**
-        For example you may provide this as,
+           For example you may provide this as,
             ``` uri
             http://ws.cdyne.com/PhoneVerify/query/CheckPhoneNumber
             ```
 
 !!! Note
-    For more information on above steps, following guides will be useful. 
+    For more information on the above steps, go through the following documentation. 
 
     - [Publish API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api/).
     - [Invoke API]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/#step-4-invoke-the-api-from-publisher).
@@ -122,9 +122,9 @@ To invoke the API through WSO2 API Manager, you can follow the steps below.
 
 ## Via apictl for Standalone Mode
 
-The WSO2 API Controller (apictl) does not provide a straight forward method for generating a `apictl` project for SOAP APIs. However you can use a project extracted from the WSO2 API Manager(you may download the project for API created in above guide) or a sample swagger for SOAP APIs. This guide will continue using a sample swagger for SOAP API.
+The WSO2 API Controller (apictl) does not provide a straight forward method for generating a `apictl` project for SOAP APIs. However, you can use a project extracted from the WSO2 API Manager (you may download the project for the API created above) or a sample Swagger for SOAP APIs. This guide will continue using a sample Swagger for SOAP API.
 
-The swagger definition for our `PhoneVerify` example as follows.
+The Swagger definition for our `PhoneVerify` example is as follows.
 
 ``` yaml
 info:
@@ -206,7 +206,7 @@ x-wso2-transports:
 - https
 ```
 
-Following steps will show you how to create the `apictl` project, deploy it on the Choreo Connect gateway and invoke it using a test token, for our `PhoneVerify` example.
+The following steps will show you how to create the `apictl` project, deploy it on the Choreo Connect Gateway, and invoke it using a test token, for our `PhoneVerify` example.
 
 !!! Info "Before you begin"
     Please make sure you have completed [Download and initilaize]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool) `apictl` and Choreo Connet is up and running in [standalone mode]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-deploy-overview/#choreo-connect-deployment-options). 
@@ -214,7 +214,7 @@ Following steps will show you how to create the `apictl` project, deploy it on t
 
 ### Step 1 - Initialize the apictl project
 
-Use the follwing command to initialize the `apictl` project. You may use the above sample swagger provided.
+Use the following command to initialize the `apictl` project. You may use the above sample Swagger provided.
 
 ```bash
 apictl init PhoneVerify --oas <path to swagger.yaml>
@@ -259,7 +259,7 @@ data:
 
 ### Step 3 - Deploy the API
 
-Execute the following commands to get your API project deployed in Choreo Connect gateway.
+Execute the following commands to get your API project deployed in Choreo Connect.
 
 1. Add a Choreo Connect Environment to `apictl`
     ```bash
@@ -352,4 +352,4 @@ soapErrorInXMLEnabled = true
   
 
 ## What's Next
-As the normal REST APIs, SOAP APIs will also supported with the basic features like Rate Limiting, Security, API Insights & Observability, etc.. You may find more details on [Supported Features]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features/#supported-features) and respective pages. 
+As the normal REST APIs, SOAP APIs will also supported with the basic features like Rate Limiting, Security, API Insights & Observability, etc. You may find more details on [Supported Features]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features/#supported-features) and respective pages. 
