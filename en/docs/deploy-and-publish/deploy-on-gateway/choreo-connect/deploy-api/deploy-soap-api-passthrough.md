@@ -63,7 +63,7 @@ After the API is deployed in WSO2 API Manager publisher portal, it gets exposed 
 
 To invoke the API through WSO2 API Manager, you can follow the steps below.
 
-1. Go to the publisher portal and select the API you just created in the previous steps.
+1. Go to the Publisher Portal and select the API you just created in the previous steps.
 2. Navigate to the **Lifecycle** section and from there click **Publish** to publish the API.
 3. Login to **Developer portal** `https://localhost:9444/devportal` and select the newly created API.
 4. Navigate to the Subscriptions page and subscribe the API to the default application visible as **DefaultApplication** with an available Rate Limiting Policy.
