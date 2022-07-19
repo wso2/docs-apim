@@ -243,7 +243,7 @@ PhoneVerify
 
     You can deploy this project directly in Choreo Connect using `apictl` as explained in next few steps.
 
-    Also don't forget to change the production and sandbox endpoints to `http://ws.cdyne.com/phoneverify/phoneverify.asmx` in `api.yaml` and `Definitions/swagger.yaml` files in the project. 
+    Also, ensure that you change the production and sandbox endpoints to `http://ws.cdyne.com/phoneverify/phoneverify.asmx` in `api.yaml` and `Definitions/swagger.yaml` files in the project. 
 
 
 ### Step 2 - Set the project type as `SOAP`
