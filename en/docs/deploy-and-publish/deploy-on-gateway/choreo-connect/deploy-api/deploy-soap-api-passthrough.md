@@ -15,7 +15,7 @@ You can deploy a SOAP API (SOAP to SOAP pass-through) in the following ways depe
 
 
 !!! Note
-    This guide uses the [Phone Verify](http://ws.cdyne.com/phoneverify/phoneverify.asmx) from CDYNE as the backend here (WSDL: `http://ws.cdyne.com/phoneverify/phoneverify.asmx?wsdl`). You may use your own backend and continue with the same steps. 
+    This guide uses [Phone Verify](http://ws.cdyne.com/phoneverify/phoneverify.asmx) from CDYNE as the backend (WSDL: `http://ws.cdyne.com/phoneverify/phoneverify.asmx?wsdl`). You may use your own backend and continue with the same steps. 
 
 ## Via WSO2 API Manager Publisher Portal
 
