@@ -1313,6 +1313,12 @@ nav:
                 - Run the MI as a Windows Service: install-and-setup/install/installing-the-product/installing-mi-as-a-windows-service.md
             - Install the MI Dashboard:
                 - Install the MI Dashboard: install-and-setup/install/installing-the-product/installing-mi-dashboard.md
+                - Configure Databases:
+                    - MySQL Database: install-and-setup/install/installing-the-product/setting-up-mysql.md
+                    - MSSQL Database: install-and-setup/install/installing-the-product/setting-up-mssql.md
+                    - Oracle Database: install-and-setup/install/installing-the-product/setting-up-oracle.md
+                    - PostgreSQL Database: install-and-setup/install/installing-the-product/setting-up-postgresql.md
+                    - IBM Database: install-and-setup/install/installing-the-product/setting-up-ibm-db2.md
                 - Run the MI Dashboard: install-and-setup/install/installing-the-product/running-the-mi-dashboard.md
                 - Run the MI Dashboard as a Windows Service: install-and-setup/install/installing-the-product/running-the-mi-dashboard-as-windows-service.md
             - Install the Streaming Integrator (SI):
@@ -2160,6 +2166,5 @@ extra:
         - type: linkedin
           link: https://www.linkedin.com/company/wso2
     site_version: 4.0.0
-    #base_path: http://localhost:8000
     base_path: https://apim.docs.wso2.com/en/4.0.0
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.20.0

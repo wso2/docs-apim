@@ -2,6 +2,20 @@
 
 Follow the steps given below to install the Micro Integrator (MI) Dashboard.
 
+## Configuring an RDBMS datasource
+
+1.	To set up a new RDBMS, select the preferred RDBMS type and follow the instructions.
+
+	!!! Tip
+		If you are using default H2 RDBMS set up, you can skip this step.
+
+	- [Setting up a MySQL database]({{base_path}}/install-and-setup/install/installing-the-product/setting-up-mysql)
+	- [Setting up an MSSQL database]({{base_path}}/install-and-setup/install/installing-the-product/setting-up-mssql)
+	- [Setting up an Oracle database]({{base_path}}/install-and-setup/install/installing-the-product/setting-up-oracle)
+	- [Setting up a Postgre database]({{base_path}}/install-and-setup/install/installing-the-product/setting-up-postgresql)
+	- [Setting up an IBM database]({{base_path}}/install-and-setup/install/installing-the-product/setting-up-ibm-db2)
+
+
 ## Installing the MI Dashboard
 
 1.  Go to the [WSO2 Micro Integrator web page](https://wso2.com/integration/micro-integrator/#), click **Download**, and then click **Other Resources/MI Dashboard** to download the MI Dashboard as a ZIP file.
