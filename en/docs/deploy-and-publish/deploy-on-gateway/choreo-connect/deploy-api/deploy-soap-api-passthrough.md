@@ -52,7 +52,7 @@ Create a SOAP API Pass-through using the WSDL definition of your SOAP service by
 
 ### Step 2 - Deploy the SOAP API using API Manager publisher portal.
 
-From publisher portal, Navigate to the API created in above step and deploy the API from **Deployments** section.
+From the Publisher Portal, navigate to the API created in the above step and deploy the API from the **Deployments** section.
 
 Follow [Deploy an API]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/) guide to find more details on deploying an API.
 
