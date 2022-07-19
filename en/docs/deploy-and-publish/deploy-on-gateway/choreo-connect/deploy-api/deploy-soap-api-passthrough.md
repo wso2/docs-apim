@@ -29,7 +29,7 @@ Follow the instructions below to deploy a SOAP API in a Choreo Connect instance 
 
     - To start a complete deployment setup that includes a WSO2 API Manager instance and a Choreo Connect instance already configured to work with API Manager, follow the steps in the [Quick Start Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim).
 
-### Step 1 - Create a SOAP API using API Manager publisher portal.
+### Step 1 - Create a SOAP API using API Manager Publisher Portal
 
 Create a SOAP API Pass-through using the WSDL definition of your SOAP service by using the following steps.
 
