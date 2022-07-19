@@ -98,7 +98,7 @@ To invoke the API through WSO2 API Manager, you can follow the steps below.
             
             ```
         2. **SOAPAction (header)** - The SOAPAction HTTP request header field can be used to indicate the intent of the SOAP HTTP request. The value is a URI identifying the intent. If you are using SOAP 1.1, you must provide this value.
-        For example you may provide this as,
+           For example you may provide this as,
             ``` uri
             http://ws.cdyne.com/PhoneVerify/query/CheckPhoneNumber
         ```
