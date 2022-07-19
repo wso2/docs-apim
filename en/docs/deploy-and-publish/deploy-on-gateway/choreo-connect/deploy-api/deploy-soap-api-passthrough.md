@@ -59,7 +59,7 @@ Follow [Deploy an API]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy
 
 ### Step 3 - Publish & Invoke the API
 
-After the API is deployed in WSO2 API Manager publisher portal, it gets exposed in the Choreo Connect gateway. You can invoke the API with a valid access token.
+After the API is deployed in WSO2 API Manager Publisher Portal, it gets exposed in the Choreo Connect Gateway. You can invoke the API with a valid access token.
 
 To invoke the API through WSO2 API Manager, you can follow the steps below.
 
