@@ -113,7 +113,7 @@ To invoke the API through WSO2 API Manager, you can follow the steps below.
 !!! tip
     If you want to invoke the using a test key API without publishing, you may follow the methods below.
         
-    1. Via WSO2 API Manager publisher portal - [Test a REST API]({{base_path}}}/design/create-api/create-rest-api/test-a-rest-api/)
+    1. Via WSO2 API Manager Publisher Portal - [Test a REST API]({{base_path}}}/design/create-api/create-rest-api/test-a-rest-api/)
     2. Generating a Enforcer test key - [Enforcer Test Key Authentication]({{base_path}}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt/)
 
 !!! tip
