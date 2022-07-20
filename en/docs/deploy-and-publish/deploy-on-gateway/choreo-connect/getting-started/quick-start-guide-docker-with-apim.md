@@ -9,6 +9,9 @@ Install and set up [Docker](https://www.docker.com) and allocate the following r
   - Minimum CPU : 4vCPU
   - Minimum Memory : 4GB
 
+!!! note
+    Choreo Connect Docker based deployment option explained here **only for the tryout purpose.** This method is **not recommended to use in production deployments**. For production deployments you can use Kubernetes based Choreo Connect deployment with [Helm artifacts]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane-helm-artifacts/) or [YAML artifacts]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane/).
+
 ### Step 1 - Download and extract Choreo Connect distribution .zip file
 
 The latest Choreo Connect distribution can be downloaded from [https://wso2.com/choreo/choreo-connect/](https://wso2.com/choreo/choreo-connect/). Extract the Choreo Connect distribution .zip file. The extracted folder will be referred to as `CHOREO-CONNECT_HOME` hereafter.
