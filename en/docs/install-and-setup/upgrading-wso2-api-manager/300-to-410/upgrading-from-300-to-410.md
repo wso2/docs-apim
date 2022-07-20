@@ -600,7 +600,7 @@ You have to run the following migration client to update the API Manager artifac
     ```
 
     ``` tab="Windows"
-    api-manager.bat -Dmigrate -DmigrateFromVersion=3.0.0 -DmigratedVersion=4.1.0 
+    api-manager.bat -Dmigrate -DmigrateFromVersion='3.0.0' -DmigratedVersion='4.1.0' 
     -DrunPreMigration
     ```
 

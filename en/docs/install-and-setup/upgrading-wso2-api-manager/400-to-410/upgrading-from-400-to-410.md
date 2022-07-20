@@ -215,7 +215,7 @@ You have to follow the below instructions to upgrade the API Manager components.
     ```
 
     ``` tab="Windows"
-    api-manager.bat -Dmigrate -DmigrateFromVersion=4.0.0 -DmigratedVersion=4.1.0 
+    api-manager.bat -Dmigrate -DmigrateFromVersion='4.0.0' -DmigratedVersion='4.1.0' 
     -DrunPreMigration
     ```
     
