@@ -1,6 +1,6 @@
-# Deploying Choreo Connect as a Standalone Gateway on Docker
+# Deploying Choreo Connect as a Standalone Gateway on Docker Compose
 
-Let's deploy an API in Choreo Connect running on Docker as a Standalone Gateway. We can use [WSO2 API Controller (apictl)]({{base_path}}/reference/apictl/wso2-api-controller/) the Command Line Tool to deploy the API.
+Let's deploy an API in Choreo Connect running on Docker Compose as a Standalone Gateway. We can use [WSO2 API Controller (apictl)]({{base_path}}/reference/apictl/wso2-api-controller/) the Command Line Tool to deploy the API.
 
 !!! info "Before you begin"
 

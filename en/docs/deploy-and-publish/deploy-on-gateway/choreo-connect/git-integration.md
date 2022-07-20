@@ -26,7 +26,7 @@ Follow the instructions below to configure Git Integration for Choreo Connect:
 
 1. Initialize the API project(s).
      
-     For more information, see [Choreo Connect Deployed on Docker with WSO2 API Controller Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-docker/#step-2-initialize-an-api-project).
+     For more information, see [Choreo Connect Deployed on Docker Compose with WSO2 API Controller Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-docker/#step-2-initialize-an-api-project).
      
 2. Create a new repository on any of the following Git hosting services.
 
