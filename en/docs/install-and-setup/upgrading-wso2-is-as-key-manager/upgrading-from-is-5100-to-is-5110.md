@@ -107,7 +107,7 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
 
 1. Follow Step 2 and 3 under [Step 2 - Upgrade API Manager to 4.0.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-320-to-400/#step-2-upgrade-api-manager-to-400) to backup and upgrade the WSO2 API-M `WSO2AM_DB` from 3.2.0 to 4.0.0. This will be used as the `identity_db` in IS 5.11.0.
 
-2. Follow the guidelines in [WSO2 IS 5.11.0 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/) to migrate your current IS as KM 5.10.0 distribution to IS 5.11.0.
+2. Follow the guidelines in [WSO2 IS 5.11.0 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/) to migrate your current IS as KM 5.10.0 distribution to IS 5.11.0. Make sure to use the APIM specific IS migration resources downloaded from the latest release tag under Assets dowloaded from [this link](https://github.com/wso2-extensions/apim-identity-migration-resources/releases).
 
     !!! Important
         When following the instructions in [Migrating the configurations](https://is.docs.wso2.com/en/5.11.0/setup/migrating-preparing-for-migration/#migrating-the-configurations) section of IS 5.11.0 migration guide, make sure to
