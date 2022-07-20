@@ -10,7 +10,7 @@ Install and set up [Docker](https://www.docker.com) and allocate the following r
   - Minimum Memory : 4GB
 
 !!! note
-    Choreo Connect Docker based deployment option explained here **only for the tryout purpose.** This method is **not recommended to use in production deployments**. For production deployments you can use Kubernetes based Choreo Connect deployment with [Helm artifacts]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane-helm-artifacts/) or [YAML artifacts]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane/).
+    The Choreo Connect Docker Compose based deployment option explained here is **only for tryout purposes.** This method is **not recommended for production deployments**. For production deployments, you can use the Kubernetes based Choreo Connect deployment with [Helm artifacts]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane-helm-artifacts/) or [YAML artifacts]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane/).
 
 ### Step 1 - Download and extract Choreo Connect distribution .zip file
 

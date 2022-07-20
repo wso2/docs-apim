@@ -1,6 +1,6 @@
 # Production Deployment Guideline
 
-Given below are the common guidelines for deploying Choreo Connect in a **production environment** using [Helm deployment option]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-deploy-overview/).
+Kubernetes should be used for Choreo Connect production deployments. The common guidelines for deploying Choreo Connect in a production environment using the [Helm deployment option]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-deploy-overview/) provided below.
 
 You can deploy Choreo Connect using one of the following options.
 
