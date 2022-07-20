@@ -7,6 +7,9 @@ You can deploy Choreo Connect using one of the following options.
 - [API Manager as Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/)
 - [Standalone Gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/)
 
+!!! note
+    Choreo Connect Docker based deployment option provided **only for the tryout purpose.** Docker based deployment option is **not recommended to use in production deployments**. For production deployments you can use Kubernetes based Choreo Connect deployment with [Helm artifacts]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane-helm-artifacts/) or [YAML artifacts]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane/).
+
 This document walk you through following sections.
 
 - [Common Configurations](#common-configurations) - Common for both Standalone Gateway and API Manager as Control Plane
