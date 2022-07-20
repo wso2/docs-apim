@@ -304,7 +304,7 @@ nav:
                 - Deployment Options:
                     - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-deploy-overview.md
                     - Installation Prerequisites: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/installation-prerequisites.md
-                    - On Docker:
+                    - On Docker Compose:
                         - With WSO2 API Manager as a Control Plane : deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-apim-as-control-plane.md
                         - As a Standalone Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-docker.md
                     - On Kubernetes with Helm Artifacts:
