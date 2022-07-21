@@ -59,7 +59,7 @@ $ curl --http2-prior-knowledge http://localhost:2350/hello -v
 
 ### HTTP/2 encrypted text (TLS) connection
 
-When the client and server needs to do encrypted text communication, then the client and the server can negotiate to a protocol version when creating a session using ALPN protocol (prior to sending the HTTP request as opposed to clear text case described above). See the following example snippet it has printed `ALPN, server accepted to use h2` which means HTTP calls going to happen using HTTP/2 version.
+When the client and server needs to do encrypted text communication, the client and the server can negotiate a protocol version when creating a session using ALPN protocol (prior to sending the HTTP request as opposed to the clear text case described above). See the following example snippet it has printed `ALPN, server accepted to use h2`, which means HTTP calls will happen using HTTP/2 version.
 
 ```yaml
 $ curl --cacert ./backend.crt <--http2> or <--http2-prior-knowledge> https://localhost:2351/hello
