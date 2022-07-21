@@ -36,7 +36,7 @@ $ curl --http2 http://localhost:2350/hello -v
 
 ### HTTP/2 clear text connection with prior knowledge
 
-If the client already knows that the server also supports HTTP/2 then the client can directly send requests with HTTP/2 like below and the server responds with HTTP/2.
+If the client already knows that the server also supports HTTP/2, the client can directly send requests with HTTP/2 like below and the server responds with HTTP/2.
 
 ```yaml
 $ curl --http2-prior-knowledge http://localhost:2350/hello -v
