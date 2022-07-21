@@ -125,7 +125,7 @@ Currently the upstream connections by default works with HTTP/1.1 version. To us
 x-wso2-http2-backend-enabled: true
 ```
 
-Choreo Connect Router to endpoint connections are initiated only with HTTP/2 prior knowledge not with HTTP/2 upgrade calls in clear text scenario. Therefore if your endpoint only supports HTTP/1.1 then connection establishment will fail.
+Choreo Connect Router to endpoint connections are initiated only with HTTP/2 prior knowledge not with HTTP/2 upgrade calls in a clear text scenario. Therefore, if your endpoint only supports HTTP/1.1 then connection establishment will fail.
 
 ## Use cases with example configurations
 
