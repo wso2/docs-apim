@@ -119,7 +119,7 @@ You can set this confuration to `AUTO`, `HTTP1`, or `HTTP2`.
 
 ## Upstream configuration
 
-Currently the upstream connections by default works with HTTP/1.1 version. To use HTTP/2 communications with endpoints you need to set the following swagger extension configuration for the API you deploy to the gateway.
+Currently the upstream connections by default works with HTTP/1.1 version. To use HTTP/2 communications with endpoints, you need to set the following Swagger extension configuration for the API you deploy to the Gateway.
 
 ```yaml
 x-wso2-http2-backend-enabled: true
