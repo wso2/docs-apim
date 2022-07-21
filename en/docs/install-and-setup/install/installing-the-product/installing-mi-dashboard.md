@@ -4,7 +4,8 @@ Follow the steps given below to install the Micro Integrator (MI) Dashboard.
 
 ## Configuring an RDBMS datasource
 
-1.	To set up a new RDBMS, select the preferred RDBMS type and follow the instructions.
+1.	To set up a new RDBMS, select the preferred RDBMS type and follow the instructions. This capability is available 
+      from U2 level 17 onwards (wso2mi-dashboard 4.0.1.17.full)
 
 	!!! Tip
 		If you are using default H2 RDBMS set up, you can skip this step.

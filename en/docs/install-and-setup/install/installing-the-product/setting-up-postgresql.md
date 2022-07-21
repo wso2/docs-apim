@@ -46,4 +46,4 @@ connectionTimeout = "400000"
 maxLifetime = "2000000"
 ```
 
-See the descriptions of [database connection parameters]({{base_path}}/reference/config-catalog-mi-dashboard/#database-connection).
+For more information, see the descriptions of [database connection parameters]({{base_path}}/reference/config-catalog-mi-dashboard/#database-connection).
