@@ -27,6 +27,8 @@ Perform the relavant configurations in the `log_config.toml` according to the in
 
 In order to enable debug logs, follow the instructions provided in [Router Debug Logs]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-router/#router-debug-logs).
 
+To enable wire logs, follow the instructions provided in [Router Wire Logs]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-router/#router-wire-logs).
+
 ## Admin portal
 
 The admin interface can be used to view statistics, envoy configurations, etc. For more information, please follow [Envoy admin interface]({{envoy_path}}/start/quick-start/admin)

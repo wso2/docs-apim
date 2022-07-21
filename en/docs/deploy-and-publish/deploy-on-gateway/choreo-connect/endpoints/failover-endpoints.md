@@ -33,6 +33,10 @@ After creating an API in the API Publisher, select the API you want to provide t
     
 2.  Click **Save & Deploy**.
 
+!!! warning
+    The endpoint URLs that you provide as failover endpoints should have the same base path as in the `x-wso2-production-endpoints`.
+    If you define some other base path, it will not result in the expected behaviour.
+
 ### Step 2 - Invoke API Endpoint Via The Choreo Connect
 
 After obtaining a valid JWT token, you can invoke the API as described in [the Choreo Connect Quick Start Guide with Docker]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/#step-6-invoke-the-api-via-choreo-connect). 
@@ -111,6 +115,10 @@ paths:
           description: OK
 ...
 ```
+!!! warning
+    The endpoint URLs that you provide as failover endpoints should have the same base path as in the `x-wso2-production-endpoints`.
+    If you define some other base path, it will not result in the expected behaviour.
+    
 
 ### Step 2 - Deploy the API project and invoke the API with failover endpoints
 

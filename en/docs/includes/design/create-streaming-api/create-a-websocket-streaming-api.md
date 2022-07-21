@@ -153,7 +153,7 @@ Topics of a WebSocket API are always **Subscribe (sub) and Publish (pub)**, wher
 
          The provided URL Mapping will be appended to the WebSocket endpoint URL that you provided when creating the API, and the traffic via this topic will be sent to the resulting URL.
 
-         Expand the created topic, provide a URL Mapping and click **Save**.
+         Expand **both** PUB and SUB under the created topic, provide the same URL Mapping for both and click **Save**.
 
          <table><tr><td> Description</td> <td>Chat room notifications</td> </tr>
          <tr><td>URL Mapping</td> <td><code>/notifications</code></td> </tr></table>
