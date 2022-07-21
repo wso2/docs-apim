@@ -4,7 +4,7 @@ Follow the steps given below to set up the required IBM databases for your Micro
 
 ## Prerequisites
 
-Install DB2. Following steps are tested in DB2 v11.5.7.0
+Install DB2. The following steps are tested in DB2 v11.5.7.0.
 
 ## Setting up the databases
 
