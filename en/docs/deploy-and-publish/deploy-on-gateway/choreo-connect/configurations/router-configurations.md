@@ -213,7 +213,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>If configured true, router appends the immediate downstream IP address to the x-forward-for header.</p>
+                                        <p>If configured as true, the Router appends the immediate downstream IP address to the x-forward-for header.</p>
                                     </div>
                                 </div>
                             </div>
