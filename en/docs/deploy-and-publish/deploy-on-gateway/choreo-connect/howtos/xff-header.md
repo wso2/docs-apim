@@ -1,4 +1,4 @@
-x-forwarded-for (XFF) is a standard proxy header defined by [RFC 7239](https://datatracker.ietf.org/doc/html/rfc7239.html) which indicates the IP addresses that a request has flowed through on its way from the client to the server. Choreo Connect supports x-forward-for header manipulation using `use_remote_address` field in the router configuration.
+x-forwarded-for (XFF) is a standard proxy header defined by [RFC 7239](https://datatracker.ietf.org/doc/html/rfc7239.html), which indicates the IP addresses that a request has flowed through on its way from the client to the server. Choreo Connect supports x-forward-for header manipulation using `use_remote_address` field in the Router configuration.
 
 ## x-forward-for header manipulation when the router is configured with `use_remote_address = false` (Default configuration)
 
