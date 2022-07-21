@@ -1148,41 +1148,36 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Mana
    
 8. Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
 
-9. Add below configuration to `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` to disable group role separation.
-
-    ```
-    [authorization_manager.properties]
-    GroupAndRoleSeparationEnabled = false
-    ```
-
     !!! important
-        In WSO2 Identity Server 5.11.0, groups include user store roles and roles include internal roles. Therefore, from IS 5.11.0 onwards, there cannot be exist same admin role in both primary and internal user domains. If the same admin role exists in both UM domains of your older version, you have to rename the internal admin 
-        role into different role name. To do that, you have to follow the below steps on 
-        User db.
+        In WSO2 Identity Server 5.11.0, groups include user store roles and roles include internal roles. Therefore, from IS 5.11.0 onwards, we cannot have the same admin role in both primary and internal user domains. If the same admin role exists in both UM domains of your older version, you have to rename the internal admin role into a different role name. To do that, you have to follow the below steps.
 
-        1. Rename admin role to different role name
-            ```
-            UPDATE UM_HYBRID_ROLE SET UM_ROLE_NAME='admin-test' WHERE UM_ROLE_NAME='admin';
-            ```
-        2. Get the <internal-domain-id> of `INTERNAL` user domain.
-            ```
-            SELECT UM_DOMAIN_ID FROM UM_DOMAIN WHERE UM_DOMAIN_NAME='INTERNAL';
-            ```
-        3. Update the renamed admin role in UM_ROLE_PERMISSION
-            ```   
-            UPDATE UM_ROLE_PERMISSION SET UM_ROLE_NAME='admin-test' WHERE UM_ROLE_NAME='admin' AND (UM_DOMAIN_ID=<internal-domain-id>);
-            ```
+        - Add the following configuration to `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file. Rename the admin role with the new role name and specifically set `create_admin_account` to false.
 
-10. Update `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the previous user store.
+        ```
+        [super_admin]
+        admin_role = "<NEW-ADMIN-ROLE-NAME>"
+        create_admin_account = false
+        ```
+
+        - Open the `migration-config.yaml` file in the migration-resources directory and add the admin role name of the current version to the parameter `currentAdminRoleName` under the `GroupsAndRolesMigrator`.
+
+        ```
+        name: "GroupsAndRolesMigrator"
+            order: 4
+            parameters:
+                currentAdminRoleName: "<CURRENT-ADMIN-ROLE_NAME>"
+        ```
+
+9. Update `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the previous user store.
 
     ```
     [user_store]
     type = "database"
     ```
 
-11. If you are migrating your user stores to the new user store managers with the unique ID capabilities, Follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/latest/setup/migrating-userstore-managers/) before moving to the next step
+10. If you are migrating your user stores to the new user store managers with the unique ID capabilities, Follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/latest/setup/migrating-userstore-managers/) before moving to the next step
 
-12. Start WSO2 API Manager 4.1.0 as follows to carry out the complete Identity component migration.
+11. Start WSO2 API Manager 4.1.0 as follows to carry out the complete Identity component migration.
 
     ```tab="Linux / Mac OS"
     sh api-manager.sh -Dmigrate -Dcomponent=identity
@@ -1213,7 +1208,7 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Mana
 
         **Make sure to revert the change done in Step 1 , after the migration is complete.**
 
-13.  After you have successfully completed the migration, stop the server and remove the following files and folders.
+12.  After you have successfully completed the migration, stop the server and remove the following files and folders.
 
     -   Remove the `org.wso2.carbon.is.migration-x.x.x.jar` file, which is in the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
     
@@ -1304,14 +1299,7 @@ You have to run the following migration client to update the API Manager artifac
 
 ### Step 6 - Restart the WSO2 API-M 4.1.0 Server
 
-1. In WSO2 Identity Server 5.11.0, groups include user store roles and roles include internal roles. To enable this role and group separation the following property should be enabled via the `deployment.toml` file.
-
-    ```
-    [authorization_manager.properties]
-    GroupAndRoleSeparationEnabled = true
-    ```
-
-2.  Restart the WSO2 API-M server.
+1.  Restart the WSO2 API-M server.
 
     ```tab="Linux / Mac OS"
     sh api-manager.sh
