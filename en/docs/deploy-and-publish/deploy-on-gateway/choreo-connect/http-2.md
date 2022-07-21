@@ -6,7 +6,7 @@ There are few cases to consider as discussed below.
 
 ### HTTP/2 clear text connection with h2c upgrade call
 
-When HTTP/2 client can asks server to upgrade to HTTP/2 by using a HTTP/1.1 call with some special headers as you can see in the below snippet called Connection, Upgrade (h2c means HTTP/2 with clear text), HTTP2-Settings headers in the request. If the server is able to upgrade it responds again with HTTP/1.1 call with connection: upgrade, upgrade: h2c headers and then again respond to the initial actual request using HTTP/2.
+The HTTP/2 client can request the server to upgrade to HTTP/2 by using a HTTP/1.1 call with some special headers as you can see in the below snippet called `Connection`, `Upgrade` (h2c means HTTP/2 with clear text), and `HTTP2-Settings` headers in the request. If the server is able to upgrade, it sends a response again with HTTP/1.1 call with `connection: upgrade` and `upgrade: h2c` headers and again responds to the initial actual request using HTTP/2.
 
 ```yaml
 $ curl --http2 http://localhost:2350/hello -v
