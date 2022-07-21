@@ -1,6 +1,18 @@
-Choreo Connect supports the following policies at operation level for request and response flows. To add policies to the API, open API Manager Publisher Portal, navigate to the **Policies** tab, and drag and drop the policies to the relevant flow in the required order.
+# Choreo Connect API Policies
 
-## Request flow
+Choreo Connect supports API policies at the HTTP method level for request and response flows. Follow the steps given below to add policies to an API.
+
+1. Open the API Manager Publisher Portal.
+2. Select the API.
+3. Navigate to the **Policies** tab.
+4. Select **Choreo Connect** as the gateway type. 
+5. Then, drag and drop the policies to the relevant flow in the required order.
+
+[![Select Choreo Connect]({{base_path}}/assets/img/design/api-policies/choreo-connect-policy.png){: style="width:90%"}]({{base_path}}/assets/img/design/api-policies/choreo-connect-policy.png)
+
+Following are the policies supported by Choreo Connect.
+
+## Request flow policies
 
 - Add header
 - Remove header
@@ -10,7 +22,7 @@ Choreo Connect supports the following policies at operation level for request an
 - Validate Request with OPA
 - Call Interceptor Service
 
-## Response flow
+## Response flow policies
 
 - Add header
 - Remove header
@@ -21,5 +33,6 @@ Choreo Connect supports the following policies at operation level for request an
 - [Attaching Policies]({{base_path}}/design/api-policies/attach-policy/)
 - [API Policies Overview]({{base_path}}/design/api-policies/overview/)
 - [Policy to Validate Request with Open Policy Agent]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authorization/opa-validation/)
+- [Custom Policies]({{base_path}}/design/api-policies/choreo-connect-policies/create-custom-cc-policy/)
 - [Message Transformation with Interceptors]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/message-transformation-overview/)
 - [Request Flow Custom Filters]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/extensions/custom-filters/)

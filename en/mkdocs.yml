@@ -340,7 +340,7 @@ nav:
                             - Interceptor Context and Invocation Context: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/interceptor-context-and-invocation-context.md
                             - Sample Interceptor Services: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/sample-interceptor-services.md
                         - Define Interceptors in an OpenAPI Definition: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/defining-interceptors-in-an-open-api-definition.md
-                    - Operational Policies: design/api-policies/choreo-connect-policies/cc-op-policy-overview.md
+                    - API Policies: design/api-policies/choreo-connect-policies/cc-op-policy-overview.md
                 - Service Discovery:
                     - Configure Choreo Connect with Consul: deploy-and-publish/deploy-on-gateway/choreo-connect/service-discovery/service-discovery-overview.md
                     - Service Discovery:  deploy-and-publish/deploy-on-gateway/choreo-connect/service-discovery/choreo-connect-and-service-discovery.md
