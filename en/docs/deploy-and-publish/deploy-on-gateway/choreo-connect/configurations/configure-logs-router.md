@@ -194,7 +194,7 @@ include = ["Headers", "Body", "Trailers"]
 
 You need to set `enable` property as `true` as well as keep at least one from the set {"Headers", "Body", "Trailers"} depending on which parts you want to inspect in the `include` array.
 
-An API request invoked at Choreo Connect with the above wire log configuration will generate logs like below.
+An API request invoked at Choreo Connect with the above wire log configuration will generate logs similar to the following.
 
 ```yaml
 [2022-06-03 09:53:03.304][24][info][lua] [source/extensions/filters/http/lua/lua_filter.cc:795] script log: 
