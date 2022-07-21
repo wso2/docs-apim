@@ -182,7 +182,7 @@ Follow [command line options]({{envoy_path}}/operations/cli) for more informatio
 
 ## Router wire logs
 
-By enabling wire logs in the router component, you can inspect headers, body, and trailers of the request/response. This is helpful to see the changes applied to the request or response after request path and/or response path interceptors.
+By enabling wire logs in the Router component, you can inspect headers, body, and trailers of the request/response. This is helpful to see the changes applied to the request or response after request path and/or response path interceptors.
 
 To enable the wire logs, add the following configuration to the `log_config.toml` file in [these directories]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-overview/#log_config_toml) depending on your Choreo Connect deployment setup.
 
