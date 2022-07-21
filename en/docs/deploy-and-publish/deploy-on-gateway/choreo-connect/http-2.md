@@ -1,4 +1,4 @@
-Choreo Connect is able to support HTTP 2.0 (HTTP/2) in both incoming connections from clients to gateway and from gateway to endpoints. For more information on HTTP/2 and its benefits, refer to the [HTTP/2 homepage](https://http2.github.io/).
+Choreo Connect is able to support HTTP 2.0 (HTTP/2) in both incoming connections from clients to the Gateway and from the Gateway to endpoints. For more information on HTTP/2 and its benefits, refer to the [HTTP/2 homepage](https://http2.github.io/).
 
 ## How HTTP 2.0 connections are created
 
