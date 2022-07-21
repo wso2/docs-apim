@@ -109,7 +109,7 @@ $ curl --cacert ./backend.crt <--http2> or <--http2-prior-knowledge> https://loc
 
 ## Downstream configuration
 
-Clients can initiate HTTP connections with Choreo Connect Router using HTTP/1.1 call or HTTP/1.1 call to switch protocol to HTTP/2 (if upstream does not support HTTP/2 then fallback to HTTP/1.1) or direct HTTP/2 call (with prior knowledge). It is the default configuration which is called `AUTO`. If you want only a specific HTTP version to work then you can add following configuration to the `config.toml` file which is located in the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf` or `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf` directory. 
+Clients can initiate HTTP connections with Choreo Connect Router using HTTP/1.1 call or HTTP/1.1 call to switch protocol to HTTP/2 (if upstream does not support HTTP/2 then fallback to HTTP/1.1) or direct HTTP/2 call (with prior knowledge). It is the default configuration that is called `AUTO`. If you want only a specific HTTP version to work with, you can add the following configuration to the `config.toml` file that is located in the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf` or `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf` directory. 
 
 ```yaml
 [router]
