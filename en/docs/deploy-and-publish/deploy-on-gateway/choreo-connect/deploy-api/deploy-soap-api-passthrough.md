@@ -1,4 +1,4 @@
-# Deploying a SOAP API(Pass-through)  in Choreo Connect
+# Deploying a SOAP API (Pass-through)  in Choreo Connect
 
 WSO2 Choreo Connect supports the deployment of an existing SOAP and WSDL based services exposd via the gateway. The organizations that have SOAP/WSDL based services can easily proxy their existing services while providing key features like API Security, rate limiting, observability, etc.. without the cost of a major migration. 
 
