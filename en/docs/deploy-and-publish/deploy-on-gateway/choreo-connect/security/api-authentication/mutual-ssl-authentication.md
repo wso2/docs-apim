@@ -15,7 +15,7 @@ Certificate-based authentication on the Choreo Connect is authenticating a reque
 
 {!includes/design/create-mtls-api.md!}
 
-!!!Important
+!!! Important
     To invoke mTLS enabled APIs that deployed in Choreo Connect, the CA certificates of the client's public certificates should be added as trusted certificates to the router.
 
       - [Add a Certificate to Choreo Connect Router as a Trusted Certificate]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/backend-certificates/#add-a-certificate-to-choreo-connect-router-as-a-trusted-certificate)
