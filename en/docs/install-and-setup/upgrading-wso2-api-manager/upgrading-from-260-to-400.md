@@ -3422,6 +3422,11 @@ Follow the instructions below to move all the existing API Manager configuration
                     name: "TenantPortalMigrator"
                     order: 11   
                 ```
+            Also remove the following step from migration-config.yaml included under version: "5.11.0".
+                ```              
+                    -   name: "SCIMGroupRoleMigrator"
+                        order: 18
+                ```
 
     4. Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
 
@@ -3590,13 +3595,6 @@ Follow the instructions below to move all the existing API Manager configuration
     5.  Start the WSO2 API-M server.
 
     6.  Stop the WSO2 API-M server and remove the `tenantloader-1.0.jar` from the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
-
-!!! important
-    When using WSO2 Identity Server 5.11.0, groups include user store roles and roles include internal roles. To enable this role and group separation the following property should be enabled via the `deployment.toml` file.
-    ```
-    [authorization_manager.properties]
-    GroupAndRoleSeparationEnabled = true
-    ```
 
 ### Step 3 - Restart the WSO2 API-M 4.0.0 server
 
