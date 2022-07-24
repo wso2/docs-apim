@@ -1128,7 +1128,7 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Mana
         order: 11   
     ```
 
-7. Remove the following 2 steps from  migration-config.yaml which is included under version: "5.11.0"
+7. Remove the following 3 steps from  migration-config.yaml which is included under version: "5.11.0"
     ```
     -
         name: "EncryptionAdminFlowMigrator"
@@ -1144,6 +1144,9 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Mana
            currentEncryptionAlgorithm: "RSA/ECB/OAEPwithSHA1andMGF1Padding"
            migratedEncryptionAlgorithm: "AES/GCM/NoPadding"
            schema: "identity"
+           
+    -   name: "SCIMGroupRoleMigrator"
+        order: 18
     ```
    
 8. Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
