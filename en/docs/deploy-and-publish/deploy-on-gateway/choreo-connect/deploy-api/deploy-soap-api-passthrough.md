@@ -59,7 +59,7 @@ Follow [Deploy an API]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy
 
 ### Step 3 - Publish & Invoke the API
 
-After the API is deployed in WSO2 API Manager publisher portal, it gets exposed in the Choreo Connect gateway. You can invoke the API with a valid access token.
+After the API is deployed in WSO2 API Manager Publisher Portal, it gets exposed in the Choreo Connect Gateway. You can invoke the API with a valid access token.
 
 To invoke the API through WSO2 API Manager, you can follow the steps below.
 
@@ -113,7 +113,7 @@ To invoke the API through WSO2 API Manager, you can follow the steps below.
 !!! tip
     If you want to invoke the using a test key API without publishing, you may follow the methods below.
         
-    1. Via WSO2 API Manager publisher portal - [Test a REST API]({{base_path}}}/design/create-api/create-rest-api/test-a-rest-api/)
+    1. Via WSO2 API Manager Publisher Portal - [Test a REST API]({{base_path}}}/design/create-api/create-rest-api/test-a-rest-api/)
     2. Generating a Enforcer test key - [Enforcer Test Key Authentication]({{base_path}}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt/)
 
 !!! tip
@@ -209,7 +209,7 @@ x-wso2-transports:
 The following steps will show you how to create the `apictl` project, deploy it on the Choreo Connect Gateway, and invoke it using a test token, for our `PhoneVerify` example.
 
 !!! Info "Before you begin"
-    Please make sure you have completed [Download and initilaize]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool) `apictl` and Choreo Connet is up and running in [standalone mode]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-deploy-overview/#choreo-connect-deployment-options). 
+    [Download and initialize]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool) `apictl` and Choreo Connect is up and running in [standalone mode]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-deploy-overview/#choreo-connect-deployment-options). 
 
 
 ### Step 1 - Initialize the apictl project
@@ -220,7 +220,7 @@ Use the following command to initialize the `apictl` project. You may use the ab
 apictl init PhoneVerify --oas <path to swagger.yaml>
 ```
 
-It will create you a project with following file structure in the current working directory.
+This creates a project with the following file structure in the current working directory.
 
 ```text
 PhoneVerify
@@ -239,16 +239,16 @@ PhoneVerify
 ```
 
 !!! Tip
-    A sample API project for SOAP API (Pass-Through) is available in the [Choreo Connect GitHub Repository](https://github.com/wso2/product-microgateway). You can find it under `samples/apiProjects/SampleSOAPApi` directory.
+    A sample API project for SOAP API (Pass-Through) is available in the [Choreo Connect GitHub Repository](https://github.com/wso2/product-microgateway). You can find it under the `samples/apiProjects/SampleSOAPApi` directory.
 
     You can deploy this project directly in Choreo Connect using `apictl` as explained in next few steps.
 
-    Also don't forget to change the production and sandbox endpoints to `http://ws.cdyne.com/phoneverify/phoneverify.asmx` in `api.yaml` and `Definitions/swagger.yaml` files in the project. 
+    Also, ensure that you change the production and sandbox endpoints to `http://ws.cdyne.com/phoneverify/phoneverify.asmx` in `api.yaml` and `Definitions/swagger.yaml` files in the project. 
 
 
 ### Step 2 - Set the project type as `SOAP`
 
-In the `api.yaml` file of the created project, change the `type` as `SOAP`.
+In the `api.yaml` file of the created project, change the `type` to `SOAP`.
 
 ```yaml
 data:
@@ -261,29 +261,29 @@ data:
 
 Execute the following commands to get your API project deployed in Choreo Connect.
 
-1. Add a Choreo Connect Environment to `apictl`
+1. Add a Choreo Connect Environment to `apictl`.
     ```bash
     apictl mg add env dev --adapter https://localhost:9843
     ```
 
-2. Log in to the Choreo Connect Environment in `apictl`
+2. Log in to the Choreo Connect Environment in `apictl`.
     ```bash
     apictl mg login dev -u admin -p admin -k
     ```
 
-3. Deploy the API
+3. Deploy the API.
     ```bash
     apictl mg deploy api -f PhoneVerify -e dev -k
     ```
 
 !!! Note
-    More details on above commands can be find the the documentation page [Managing Choreo Connect]({{base_path}}/install-and-setup/setup/api-controller/managing-choreo-connect/managing-choreo-connect-with-ctl/) under CI/CD documentations.
+    More details on the above commands can be found in the [Managing Choreo Connect]({{base_path}}/install-and-setup/setup/api-controller/managing-choreo-connect/managing-choreo-connect-with-ctl/) page under CI/CD documentation.
 
 ### Step 4 - Invoke the API
 
 After the APIs are exposed via Choreo Connect, you can invoke an API with a valid access token.
 
-Let's use the following command to generate a JWT to access the API, and set it to the variable TOKEN.
+Let's use the following command to generate a JWT to access the API and set it to the variable TOKEN.
 
 ```bash
 TOKEN=$(curl -X POST "https://localhost:9095/testkey" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -v)
@@ -292,7 +292,7 @@ TOKEN=$(curl -X POST "https://localhost:9095/testkey" -H "Authorization: Basic Y
 !!! Info
     Refer [Enforcer Test Key Authentication]({{base_path}}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt/) to learn more on test key generation.
 
-Execute the following cURL command to Invoke the API using the access token.
+Execute the following cURL command to invoke the API using the access token.
 
 ```bash tab="SOAP 1.1"
 curl -X 'POST' 'https://localhost:9095/phoneverify/1.0.0' -H 'Content-Type: text/xml' -H "Authorization: Bearer $TOKEN" -H "SOAPAction: http://ws.cdyne.com/PhoneVerify/query/CheckPhoneNumber" -d @request.xml -k -v
@@ -352,4 +352,4 @@ soapErrorInXMLEnabled = true
   
 
 ## What's Next
-As the normal REST APIs, SOAP APIs will also supported with the basic features like Rate Limiting, Security, API Insights & Observability, etc. You may find more details on [Supported Features]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features/#supported-features) and respective pages. 
+As in the case for normal REST APIs, SOAP APIs will also support the basic features like Rate Limiting, Security, API Insights and Observability, etc. You can find more details on [Supported Features]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features/#supported-features) and respective pages. 
