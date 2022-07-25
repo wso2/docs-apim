@@ -1,4 +1,4 @@
-# Deploying a SOAP API(Pass-Through)  in Choreo Connect
+# Deploying a SOAP API(Pass-Through) in Choreo Connect
 
 !!! attention "Update Level 4"
     This feature is available only as an update, after Update level 4 and further. For more information, see [Updating WSO2 API Manager]({{base_path}}/administer/product-administration/updating-wso2-api-manager).
