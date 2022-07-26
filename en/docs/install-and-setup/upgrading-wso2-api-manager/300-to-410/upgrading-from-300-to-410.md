@@ -486,7 +486,7 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Manag
         order: 11   
     ```
 
-6. Remove the following 2 steps from  migration-config.yaml which is included under version: "5.11.0"
+6. Remove the following 3 steps from `migration-config.yaml`, which is included under version: "5.11.0"
     ```
     -
         name: "EncryptionAdminFlowMigrator"
@@ -502,27 +502,23 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Manag
            currentEncryptionAlgorithm: "RSA/ECB/OAEPwithSHA1andMGF1Padding"
            migratedEncryptionAlgorithm: "AES/GCM/NoPadding"
            schema: "identity"
+                      
+    -   name: "SCIMGroupRoleMigrator"
+        order: 18
     ```
 
 7. Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
 
-8. Add below configuration  to `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` to disable group role separation. 
-   
-    ```
-    [authorization_manager.properties]
-    GroupAndRoleSeparationEnabled = false
-    ```
-
-9. Update `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the previous user store.
+8. Update `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the previous user store.
 
     ```
     [user_store]
     type = "database"
     ```
 
-10. If you are migrating your user stores to the new user store managers with the unique ID capabilities, Follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/latest/setup/migrating-userstore-managers/) before moving to the next step
+9. If you are migrating your user stores to the new user store managers with the unique ID capabilities, follow the guidelines given in the [Migrating User Store Managers documentation](https://is.docs.wso2.com/en/latest/setup/migrating-userstore-managers/) before moving to the next step.
 
-11. Start WSO2 API Manager 4.1.0 as follows to carry out the complete Identity component migration.
+10. Start WSO2 API Manager 4.1.0 as follows to carry out the complete Identity component migration.
 
     ```tab="Linux / Mac OS"
     sh api-manager.sh -Dmigrate -Dcomponent=identity
@@ -553,7 +549,7 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Manag
 
         **Make sure to revert the change done in Step 1 , after the migration is complete.**
 
-12.  After you have successfully completed the migration, stop the server and remove the following files and folders.
+11.  After you have successfully completed the migration, stop the server and remove the following files and folders.
 
     -   Remove the `org.wso2.carbon.is.migration-x.x.x.jar` file, which is in the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
     
