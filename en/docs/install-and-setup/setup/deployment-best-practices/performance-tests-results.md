@@ -126,7 +126,7 @@ In order to see the memory usage, the Garbage Collection (GC) logs in the API Ma
 ```
 
 In addition, the GC log for each performance test was analyzed using the GCViewer.
-The GC Throughput was calculated for each test to check whether GC operations are not impacting the performance of the server. The GC Throughput is the time percentage of the application, which was not busy with GC operations. For example, if the application ran for 10 minutes and 30 seconds were taken for GC operations, the GC Throughput is 1-301060100=95%. A GC Throughput over 90% is good, and that means the allocated heap was enough to handle all concurrent requests, which allocate objects in the memory. On the contrary, if the GC throughput is a lower value, it indicates that the allocated memory is not enough for API Manager to function efficiently.
+The GC Throughput was calculated for each test to check whether GC operations are not impacting the performance of the server. The GC Throughput is the time percentage of the application, which was not busy with GC operations. For example, if the application ran for 10 minutes and 30 seconds were taken for GC operations, the GC Throughput is (1 - 30/(10*60)) * 100 = 95%. A GC Throughput over 90% is good, and that means the allocated heap was enough to handle all concurrent requests, which allocate objects in the memory. On the contrary, if the GC throughput is a lower value, it indicates that the allocated memory is not enough for API Manager to function efficiently.
 
 The following chart depicts the GC Throughput (%) based on the number of concurrent users for the PassThrough scenario (Echo API) for different payload sizes.
 
