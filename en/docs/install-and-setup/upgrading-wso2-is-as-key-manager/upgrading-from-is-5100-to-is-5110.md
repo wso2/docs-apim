@@ -229,9 +229,9 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.10.0 to IS 5.1
 7.  Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<IS_HOME>/repository/components/dropins` directory.
 
     !!! important
-        In WSO2 Identity Server 5.11.0, groups include user store roles and roles include internal roles. Therefore, from IS 5.11.0 onwards, we cannot have the same admin role in both primary and internal user domains. If the same admin role exists in both UM domains of your older version, you have to rename the internal admin role into a different role name. To do that, you have to follow the below steps.
+        In WSO2 Identity Server 5.11.0, groups include user store roles and roles include internal roles. Therefore, from IS 5.11.0 onwards, we cannot have the same admin role in both primary and internal user domains. If the same admin role exists in both UM domains of your older version, we should add the PRIMARY/admin to the internal domain with a different admin role name during the group role separation. To do that, you have to follow the below steps.
 
-        - Add the following configuration to `<IS_HOME>/repository/conf/deployment.toml` file. Rename the admin role with the new role name and specifically set `create_admin_account` to false.
+        - Add the following configuration to `<IS_HOME>/repository/conf/deployment.toml` file. Rename the admin role with a new role name. This can be any value you prefer.
 
         ```
         [super_admin]
@@ -239,7 +239,7 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.10.0 to IS 5.1
         create_admin_account = false
         ```
 
-        - Open the `migration-config.yaml` file in the migration-resources directory and add the admin role name of the current version to the parameter `currentAdminRoleName` under the `GroupsAndRolesMigrator`.
+        - Open the `migration-config.yaml` file in the migration-resources directory and add the admin role name of the current version to the parameter `currentAdminRoleName` under the `GroupsAndRolesMigrator`. For example, **"admin"** which is the default admin role name.
 
         ```
         name: "GroupsAndRolesMigrator"
@@ -248,7 +248,14 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.10.0 to IS 5.1
                 currentAdminRoleName: "<CURRENT-ADMIN-ROLE_NAME>"
         ```
 
-8.  Start WSO2 IS 5.11.0 as follows to carry out the complete Identity component migration.
+8. Modify `create_admin_account` to false in `<IS_HOME>/repository/conf/deployment.toml` if it is not changed already.
+
+    ```
+    [super_admin]
+    create_admin_account = false
+    ```
+
+9.  Start WSO2 IS 5.11.0 as follows to carry out the complete Identity component migration.
 
     ```tab="Linux / Mac OS"
     sh wso2server.sh -Dmigrate -Dcomponent=identity
@@ -262,7 +269,7 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.10.0 to IS 5.1
 
         Depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do **NOT** stop the server during the migration process and please wait until the migration process finish completely and server get started.
 
-9. After you have successfully completed the migration, stop the server and remove the following files and folders.
+10. After you have successfully completed the migration, stop the server and remove the following files and folders.
 
     -   Remove the `org.wso2.carbon.is.migration-x.x.x.jar` file, which is in the `<IS_HOME>/repository/components/dropins` directory.
 
