@@ -486,7 +486,7 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Manag
         order: 11   
     ```
 
-6. Remove the following 3 steps from  migration-config.yaml which is included under version: "5.11.0"
+6. Remove the following 3 steps from `migration-config.yaml`, which is included under version: "5.11.0"
     ```
     -
         name: "EncryptionAdminFlowMigrator"
