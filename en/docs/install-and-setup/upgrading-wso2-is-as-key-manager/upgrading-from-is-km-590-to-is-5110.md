@@ -161,6 +161,26 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
     !!! Important
         Follow [Step 10 Part (d) of IS 5.11 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/) only if you have **enabled Symmetric Key Encryption** in the previous IS as KM setup. If not, that step can be skipped.
 
+    !!! important
+        In WSO2 Identity Server 5.11.0, groups include user store roles and roles include internal roles. Therefore, from IS 5.11.0 onwards, we cannot have the same admin role in both primary and internal user domains. If the same admin role exists in both UM domains of your older version, we should add the PRIMARY/admin to the internal domain with a different admin role name during the group role separation. To do that, you have to follow the below steps.
+
+        - Add the following configuration to `<IS_HOME>/repository/conf/deployment.toml` file. Rename the admin role with a new role name. This can be any value you prefer.
+
+        ```
+        [super_admin]
+        admin_role = "<NEW-ADMIN-ROLE-NAME>"
+        create_admin_account = false
+        ```
+
+        - Open the `migration-config.yaml` file in the migration-resources directory and add the admin role name of the current version to the parameter `currentAdminRoleName` under the `GroupsAndRolesMigrator`. For example, **"admin"** which is the default admin role name.
+
+        ```
+        name: "GroupsAndRolesMigrator"
+            order: 4
+            parameters:
+                currentAdminRoleName: "<CURRENT-ADMIN-ROLE_NAME>"
+        ```
+
     !!! Important
         Before executing the IS migration client according to [Step 11 of IS 5.11 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/), keep in mind to remove the following entries from `migration-config.yaml` in the migration-resources directory.
         ```        

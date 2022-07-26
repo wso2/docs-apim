@@ -3361,6 +3361,11 @@ Follow the instructions below to move all the existing API Manager configuration
                     name: "EventPublisherMigrator"
                     order: 11                                       
                 ```
+            Also remove the following step from migration-config.yaml included under version: "5.11.0".
+                ```              
+                    -   name: "SCIMGroupRoleMigrator"
+                        order: 18
+                ```
 
     4. Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
 

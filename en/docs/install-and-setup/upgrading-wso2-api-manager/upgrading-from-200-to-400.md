@@ -3417,29 +3417,33 @@ Follow the instructions below to move all the existing API Manager configuration
 
         !!! note
             Make sure you have enabled migration by setting the `migrationEnable` element to `true` as shown above. You have to remove the following 5 steps from the `migration-config.yaml` file.
-           
-        ```
-            -
-                name: "MigrationValidator"
-                order: 2
-            -
-                name: "SchemaMigrator"
-                order: 5
-                parameters:
-                location: "step2"
-                schema: "identity"
-            -
-                name: "TenantPortalMigrator"
-                order: 11  
-            -
-                name: "EventPublisherMigrator"
-                order: 11
-            -
-                name: "ChallengeQuestionDataMigrator"
-                order: 6
-                parameters:
-                    schema: "identity"                       
-        ```
+                ```
+                    -
+                        name: "MigrationValidator"
+                        order: 2
+                    -
+                        name: "SchemaMigrator"
+                        order: 5
+                        parameters:
+                        location: "step2"
+                        schema: "identity"
+                    -
+                        name: "TenantPortalMigrator"
+                        order: 11  
+                    -
+                        name: "EventPublisherMigrator"
+                        order: 11
+                    -
+                        name: "ChallengeQuestionDataMigrator"
+                        order: 6
+                        parameters:
+                            schema: "identity"                       
+                ```
+            Also remove the following step from migration-config.yaml included under version: "5.11.0".
+                ```              
+                    -   name: "SCIMGroupRoleMigrator"
+                        order: 18
+                ```
 
     4.  Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
 

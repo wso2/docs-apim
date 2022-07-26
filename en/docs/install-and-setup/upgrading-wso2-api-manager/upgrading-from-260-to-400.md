@@ -3422,6 +3422,11 @@ Follow the instructions below to move all the existing API Manager configuration
                     name: "TenantPortalMigrator"
                     order: 11   
                 ```
+            Also remove the following step from migration-config.yaml included under version: "5.11.0".
+                ```              
+                    -   name: "SCIMGroupRoleMigrator"
+                        order: 18
+                ```
 
     4. Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
 
@@ -3495,6 +3500,20 @@ Follow the instructions below to move all the existing API Manager configuration
         [[apim.gateway.environment]]
         name = "Production and Sandbox"
         ```
+
+        Modify the `[apim.sync_runtime_artifacts.gateway]` tag in the `<API-M_HOME>/repository/conf/deployment.toml`, so that the value of `gateway_labels` should be the name of old Gateway environment (old default one is "Production and Sandbox") or we need to add the old one as a new Gateway environment, while the new current default label (current default one is "Default") remains as it is.
+        
+        ```toml
+        [apim.sync_runtime_artifacts.gateway]
+        gateway_labels = ["Production and Sandbox","Default"]
+        ```
+        or
+        ```toml
+        [apim.sync_runtime_artifacts.gateway]
+        gateway_labels = ["Production and Sandbox"]
+        ```
+
+        This config defines an array of the labels that the Gateway is going to subscribe to. Only the APIs with these labels will be pulled from the extension point and deployed.
 
     !!! Info
         If you have changed the name of the gateway environment in your older version, then when migrating, make sure
@@ -3575,7 +3594,6 @@ Follow the instructions below to move all the existing API Manager configuration
     3.  Add the following configuration in `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file.
         
         ```
-        
         [indexing]
         re_indexing= 1
         
@@ -3590,13 +3608,6 @@ Follow the instructions below to move all the existing API Manager configuration
     5.  Start the WSO2 API-M server.
 
     6.  Stop the WSO2 API-M server and remove the `tenantloader-1.0.jar` from the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
-
-!!! important
-    When using WSO2 Identity Server 5.11.0, groups include user store roles and roles include internal roles. To enable this role and group separation the following property should be enabled via the `deployment.toml` file.
-    ```
-    [authorization_manager.properties]
-    GroupAndRoleSeparationEnabled = true
-    ```
 
 ### Step 3 - Restart the WSO2 API-M 4.0.0 server
 
