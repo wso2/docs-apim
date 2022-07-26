@@ -712,7 +712,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE AM_API_SERVICE_MAPPING (
             API_ID INTEGER NOT NULL,
             SERVICE_KEY VARCHAR(256) NOT NULL,
-            MD5 VARCHAR(100) NOT NULL,
+            MD5 VARCHAR(100),
             TENANT_ID INTEGER NOT NULL,
             PRIMARY KEY (API_ID, SERVICE_KEY),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE
@@ -1063,7 +1063,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE AM_API_SERVICE_MAPPING (
             API_ID INTEGER NOT NULL,
             SERVICE_KEY VARCHAR(256) NOT NULL,
-            MD5 VARCHAR(100) NOT NULL,
+            MD5 VARCHAR(100),
             TENANT_ID INTEGER NOT NULL,
             PRIMARY KEY (API_ID, SERVICE_KEY),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE
@@ -1329,7 +1329,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE IF NOT EXISTS AM_API_SERVICE_MAPPING (
             API_ID INTEGER NOT NULL,
             SERVICE_KEY VARCHAR(256) NOT NULL,
-            MD5 VARCHAR(100) NOT NULL,
+            MD5 VARCHAR(100),
             TENANT_ID INTEGER NOT NULL,
             PRIMARY KEY (API_ID, SERVICE_KEY),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE
@@ -1699,7 +1699,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE AM_API_SERVICE_MAPPING (
             API_ID INTEGER NOT NULL,
             SERVICE_KEY VARCHAR(256) NOT NULL,
-            MD5 VARCHAR(100) NOT NULL,
+            MD5 VARCHAR(100),
             TENANT_ID INTEGER NOT NULL,
             PRIMARY KEY (API_ID, SERVICE_KEY),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE
@@ -2064,7 +2064,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE AM_API_SERVICE_MAPPING (
             API_ID INTEGER NOT NULL,
             SERVICE_KEY VARCHAR(256) NOT NULL,
-            MD5 VARCHAR(100) NOT NULL,
+            MD5 VARCHAR(100),
             TENANT_ID INTEGER NOT NULL,
             PRIMARY KEY (API_ID, SERVICE_KEY),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE
