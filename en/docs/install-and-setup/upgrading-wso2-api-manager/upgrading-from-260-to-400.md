@@ -3501,7 +3501,7 @@ Follow the instructions below to move all the existing API Manager configuration
         name = "Production and Sandbox"
         ```
 
-        Modify the `[apim.sync_runtime_artifacts.gateway]` tag in the `<API-M_HOME>/repository/conf/deployment.toml`, so that the value of `gateway_labels` should be the name of old gateway environment (old default one is "Production and Sandbox") or we need to add the old one as a new gateway environment, while the new current default label (current default one is "Default") remains as it is.
+        Modify the `[apim.sync_runtime_artifacts.gateway]` tag in the `<API-M_HOME>/repository/conf/deployment.toml`, so that the value of `gateway_labels` should be the name of old Gateway environment (old default one is "Production and Sandbox") or we need to add the old one as a new Gateway environment, while the new current default label (current default one is "Default") remains as it is.
         
         ```toml
         [apim.sync_runtime_artifacts.gateway]
