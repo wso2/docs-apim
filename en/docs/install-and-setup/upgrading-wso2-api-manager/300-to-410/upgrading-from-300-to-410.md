@@ -516,7 +516,7 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Manag
     type = "database"
     ```
 
-9. If you are migrating your user stores to the new user store managers with the unique ID capabilities, Follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/latest/setup/migrating-userstore-managers/) before moving to the next step
+9. If you are migrating your user stores to the new user store managers with the unique ID capabilities, follow the guidelines given in the [Migrating User Store Managers documentation](https://is.docs.wso2.com/en/latest/setup/migrating-userstore-managers/) before moving to the next step.
 
 10. Start WSO2 API Manager 4.1.0 as follows to carry out the complete Identity component migration.
 
