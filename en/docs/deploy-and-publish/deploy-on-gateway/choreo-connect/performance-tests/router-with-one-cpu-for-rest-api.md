@@ -49,7 +49,7 @@ These test results were obtained considering a Choreo Connect deployment with de
 ## Throughput (requests/sec) vs. concurrent users
 The following graph illustrates the throughput against the number of concurrent users.
 
-<a href="{{base_path}}/assets/img/deploy/mgw/performance-test/throughput-110-1cpu.png"><img src="{{base_path}}/assets/img/deploy/mgw/performance-test/throughput-110-1cpu.png" width="90%" ></a>
+<a href="{{base_path}}/assets/img/deploy/mgw/performance-test/throughput-100-1cpu.png"><img src="{{base_path}}/assets/img/deploy/mgw/performance-test/throughput-100-1cpu.png" width="90%" ></a>
 
 **Key observations:**
 
@@ -59,7 +59,7 @@ The following graph illustrates the throughput against the number of concurrent 
 
 Backend delay is assigned as zero milliseconds when obtaining test results. The below graph shows how response time varied for different concurrent user counts. Also, the same graph shows the impact of the payload size considering the same two parameters.
 
-<a href="{{base_path}}/assets/img/deploy/mgw/performance-test/response-time-110-1cpu.png"><img src="{{base_path}}/assets/img/deploy/mgw/performance-test/response-time-110-1cpu.png" width="90%" ></a>
+<a href="{{base_path}}/assets/img/deploy/mgw/performance-test/response-100-1cpu.png"><img src="{{base_path}}/assets/img/deploy/mgw/performance-test/response-100-1cpu.png" width="90%" ></a>
 
 **Key observations:**
 
@@ -69,6 +69,6 @@ Backend delay is assigned as zero milliseconds when obtaining test results. The 
 
 Below graphs show 90th, 95th, and 99th Response Time percentiles for 0ms backend delay. This is useful to measure the percentage of requests that exceeded the response time value for a given percentile. A percentile can also tell the percentage of requests completed below the particular response time value.
 
-<a href="{{base_path}}/assets/img/deploy/mgw/performance-test/percentiles-110-1cpu.png"><img src="{{base_path}}/assets/img/deploy/mgw/performance-test/percentiles-110-1cpu.png" width="90%" ></a>
+<a href="{{base_path}}/assets/img/deploy/mgw/performance-test/percentiles-100-1cpu.png"><img src="{{base_path}}/assets/img/deploy/mgw/performance-test/percentiles-100-1cpu.png" width="90%" ></a>
 
 Test scenario results in CSV format are available [here](https://raw.githubusercontent.com/wso2/product-microgateway/main/performance/benchmarks/cpus-1/summary.csv).

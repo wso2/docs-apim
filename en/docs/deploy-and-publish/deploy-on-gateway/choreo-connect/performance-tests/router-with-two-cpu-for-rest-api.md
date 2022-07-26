@@ -42,46 +42,14 @@ Test results explained in below obtained assigning Router's concurrency level as
 </tbody>
 </table>
 
-For the Enforcer's Java Virtual Machine (JVM), memory allocation changed as below. 
-
-- `Xmx1500m (Maximum memory allocation for the JVM)`
-- `Xms1500m (Satrting memory allocation for the JVM)`
-
-In order to handle high request counts in Enforcer, `authService`'s resource allocation changed as below.
-
-``` toml
-
-[enforcer.authService]
-    # Port of the Enforcer auth service
-    port = 8081
-    # Maximum message size in bytes
-    maxMessageSize = 1000000000
-    # Maximum header size in bytes
-    maxHeaderLimit = 8192
-    # Keep alive time in seconds for connection with the router via external authz service
-    keepAliveTime = 600
-    # Thread pool configurations of gRPC netty based server in Enforcer that handles the incoming requests in the Choreo Connect
-    [enforcer.authService.threadPool]
-        # Minimum number of workers to keep alive
-        coreSize = 400
-        # Maximum pool size
-        maxSize = 1000
-        # Timeout in seconds for idle threads waiting for work
-        keepAliveTime = 600
-        # Queue size of the worker threads
-        queueSize = 2000
-
-```
-
 Below graphs depict performance test results considering different test parameters.
-
 
 # Comparison of results
 
 ## Throughput (requests/sec) vs. concurrent users
 The following graph illustrates the throughput against the number of concurrent users.
 
-<a href="{{base_path}}/assets/img/deploy/mgw/performance-test/throughput-110-2cpu.png"><img src="{{base_path}}/assets/img/deploy/mgw/performance-test/throughput-110-2cpu.png" width="90%" ></a>
+<a href="{{base_path}}/assets/img/deploy/mgw/performance-test/throughput-100-2cpu.png"><img src="{{base_path}}/assets/img/deploy/mgw/performance-test/throughput-100-2cpu.png" width="90%" ></a>
 
 **Key observations:**
 
@@ -91,7 +59,7 @@ The following graph illustrates the throughput against the number of concurrent 
 
 Backend delay is assigned as zero milliseconds when obtaining test results. The below graph shows how response time varied for different concurrent user counts. Also, the same graph shows the impact of the payload size for the average response time.
 
-<a href="{{base_path}}/assets/img/deploy/mgw/performance-test/response-time-110-2cpu.png"><img src="{{base_path}}/assets/img/deploy/mgw/performance-test/response-time-110-2cpu.png" width="90%" ></a>
+<a href="{{base_path}}/assets/img/deploy/mgw/performance-test/response-100-2cpu.png"><img src="{{base_path}}/assets/img/deploy/mgw/performance-test/response-100-2cpu.png" width="90%" ></a>
 
 **Key observations:**
 
@@ -101,6 +69,6 @@ Backend delay is assigned as zero milliseconds when obtaining test results. The 
 
 Below graphs show 90th, 95th, and 99th Response Time percentiles for 0ms backend delay. This is useful to measure the percentage of requests that exceeded the response time value for a given percentile. A percentile can also tell the percentage of requests completed below the particular response time value.
 
-<a href="{{base_path}}/assets/img/deploy/mgw/performance-test/percentiles-110-2cpu.png"><img src="{{base_path}}/assets/img/deploy/mgw/performance-test/percentiles-110-2cpu.png" width="90%" ></a>
+<a href="{{base_path}}/assets/img/deploy/mgw/performance-test/percentile-100-2cpu.png"><img src="{{base_path}}/assets/img/deploy/mgw/performance-test/percentiles-100-2cpu.png" width="90%" ></a>
 
 Test scenario results in CSV format are available [here](https://raw.githubusercontent.com/wso2/product-microgateway/main/performance/benchmarks/cpus-2/summary.csv)
