@@ -116,7 +116,7 @@ When using AWS Lambda, you can execute your code without having to manage or pro
     [![Save resources]({{base_path}}/assets/img/learn/resource-save-lambda.png)]({{base_path}}/assets/img/learn/resource-save-lambda.png)
 
 !!! note
-    4.1.0 onwards WSO2 API Manager supports [Lambda Proxy Integration](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html) concept by default. You can pass path parameters, query parameters, and headers along with the payload to the Lambda backend. These properties can be accessed via `event` object parameter of the Lambda function. For example refer to following sample `event` object.
+    From version 4.1.0 onwards, WSO2 API Manager supports the [Lambda Proxy Integration](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html) concept by default. You can pass path parameters, query parameters, and headers along with the payload to the Lambda backend. These properties can be accessed via the `event` object parameter of the Lambda function. For example refer to following sample `event` object.
 
     ```
         {
