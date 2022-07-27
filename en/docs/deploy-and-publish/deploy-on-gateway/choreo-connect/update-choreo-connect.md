@@ -1,8 +1,12 @@
 # Update Choreo Connect
 
-WSO2 introduces [WSO2 Updates](https://updates.docs.wso2.com/en/latest/) , which is a command-line utility that allows you to get the latest updates that are available for a particular product release. These updates include the latest bug fixes and security fixes that are released by WSO2 after a particular product version is released. Therefore, you do not need to wait and upgrade to the next product release to get these bug fixes.
+Choreo Connect components are available as public docker images in [WSO2](https://hub.docker.com/u/wso2) organization in the docker hub whereas you will be able to find images corresponding to [Choreo Connect releases](https://github.com/wso2/product-microgateway/releases). 
 
-You can easily upgrade Choreo Connect [Using WSO2 Updates 2.0](https://updates.docs.wso2.com/en/latest/updates/update-tool/). The docker images related to Choreo Connect updates are reside in [WSO2 private docker registry](https://docker.wso2.com/) and the image tags are having the following format for Choreo Connect components.
+However, if you have a WSO2 Subscription you will be able to use latest docker images with updates, which includes bug fixes, features, improvements, etc. on top of genarally available releases. This documentation is about how you can use that particular updates.
+
+## Docker Image Tags
+
+The docker images related to Choreo Connect updates are reside in [WSO2 private docker registry](https://docker.wso2.com/) and the image tags are having the following format for Choreo Connect components.
 
 <table>
     <thead>
@@ -49,12 +53,14 @@ You can easily upgrade Choreo Connect [Using WSO2 Updates 2.0](https://updates.d
     </tbody>
 </table>
 
-For more details on components' versioning, you may follow through the documentation on [Docker image tags with Updates 2.0
-](https://updates.docs.wso2.com/en/latest/updates/using-wso2-docker-images/).
+!!! Info
+    For more details on versioning, you may follow through the documentation on [Docker image tags with Updates 2.0](https://updates.docs.wso2.com/en/latest/updates/using-wso2-docker-images/).
 
-You can use the following steps the upgrade Choreo Connect for a particular update level.
+You will be able to use **Updates Portal** to see more details about these update levels in docker image tags, which will be covered in next section.
 
-1. Use your subscription details to login to the [Updates Portal](https://updates.docs.wso2.com/en/latest/updates/updates-portal/) and decide the correct docker image tag that you will use to update. You will be able to see the information like General description, Implementation details, Impact, Bug fixes and specific Instructions on each update via the **Updates Portal** . 
-2. Run all the security and compliance checks on the selected Docker image and verify its compliance with your security requirements.
-3. Rollout the docker image to a lower environment and test.
-4. Use the image in higher environments as required.
+## Updates Portal
+
+Use your subscription details to login to the Updates Portal via [https://updates-info.wso2.com](https://updates-info.wso2.com/). You will be able to see the information like General description, Implementation details, Impact, Bug fixes and specific Instructions on each update in the **Update Levels** section by choosing Choreo Connect as the product and appropriate product version.
+
+!!! Info
+    For more information on this, refer to the official documentation for [Updates Portal](https://updates.docs.wso2.com/en/latest/updates/updates-portal/).
