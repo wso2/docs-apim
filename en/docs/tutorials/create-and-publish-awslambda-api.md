@@ -37,7 +37,7 @@ When using AWS Lambda, you can execute your code without having to manage or pro
 4. **[Optional]** Enable STS AssumeRole
 
     !!!note
-        In both options above, Lambda function should belong to the **same AWS account**. You need to enable STS AssumeRole for cross-account Lambda function invocation. Note that, support for AWS STS AssumeRole has been introduced to WSO2 API Manager 4.1.0 via an U2 update and is effective from 10th July 2022.
+        In both options above, Lambda function should belong to the **same AWS account**. You need to enable STS AssumeRole for cross-account Lambda function invocation. Note that, support for AWS STS AssumeRole has been introduced to WSO2 API Manager 4.1.0 via an U2 update (Update level 20) and is effective from 27th July 2022.
 
     If your Lambda functions exists on different AWS account, you can use AWS STS AssumeRole feature. For more information see [AWS STS AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html). However, you should setup required policies in both accounts to assume a role.
 
