@@ -145,4 +145,4 @@ When using AWS Lambda, you can execute your code without having to manage or pro
 1. Go to **Deployments** page and click on **Deploy** button to deploy the API to gateway.
 2. Go to **Lifecycle** page and click on **PUBLISH** to publish the API to Developer Portal.
 
-You have successfully published the AWS Lambda API. Try invoking the Lambda API in Developer Portal.
+You have successfully published the AWS Lambda API. Try invoking the Lambda API in the Developer Portal.
