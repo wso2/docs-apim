@@ -353,7 +353,7 @@ nav:
                 - Token Caching: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-caching.md
                 - Production Deployment Guideline: deploy-and-publish/deploy-on-gateway/choreo-connect/production-deployment-guideline.md
                 - Performance Tests: 
-                    - Performance Test Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/performance-tests/performance-test-results-overview-cc.md
+                    - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/performance-tests/performance-test-results-overview-cc.md
                     - Router with One CPU: deploy-and-publish/deploy-on-gateway/choreo-connect/performance-tests/router-with-one-cpu-for-rest-api.md
                     - Router with Two CPU: deploy-and-publish/deploy-on-gateway/choreo-connect/performance-tests/router-with-two-cpu-for-rest-api.md
                 - Troubleshooting:
