@@ -23,7 +23,7 @@ When using AWS Lambda, you can execute your code without having to manage or pro
 
 3. Select the preferred **Access Method**
 
-    AWS SDK needs AWS credentials and AWS region to invoke AWS Lambda functions. The access method defines how you provide those AWS credentials. There are two ways that you can select. 
+    AWS SDK needs AWS credentials and AWS region to invoke AWS Lambda functions. The access method defines how you provide those AWS credentials. There are two ways that you can select this. 
 
     1. **Using IAM role-supplied temporary AWS credentials**
 
