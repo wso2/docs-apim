@@ -75,3 +75,7 @@ Follow the instructions below to attach one or more default policies that are sh
 10. Finally, when you are satisfied with the dragged and dropped policies, you can go ahead and click on the **Save** button at the bottom of the page. Note that if you do not click on save, none of the dropped policies will be saved to the API.
 
     [![Attach policies]({{base_path}}/assets/img/design/api-policies/save-attached-policies.png){: style="width:90%"}]({{base_path}}/assets/img/design/api-policies/save-attached-policies.png)
+
+Once you drag and drop a default policy (Common policy that can be added to all the APIs) and save, to maintain the consistency of API object, the attached policy will be revisioned specific to the API. 
+In case you delete the Common Policy from the publisher portal from the policies tab, this revision will be preserved as an API specific policy and once the policy is detached from the API, this revision will be cleared from the data storage.
+If you have created a different policy with the same name after deleting the original policy, you have to detach and reattach the policy to the resources if you need to apply the new policy.
