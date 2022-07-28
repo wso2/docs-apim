@@ -1,6 +1,6 @@
 # ImportingCommon API Policy Via Dev First Approach
 
-**WSO2 API Controller (apictl)** allows you to create Common API Policies without using the Publisher Portal of the WSO2 API Manager (WSO2 API-M). You can use this feature to create a Common API Policy **from scratch** or **using an existing Swagger or Open API specification** in the desired WSO2 API-M environment.
+**WSO2 API Controller (apictl)** allows you to create Common API Policies without using the Publisher Portal of the WSO2 API Manager (WSO2 API-M). You can use this feature to create a Common API Policy **from scratch** in the desired WSO2 API-M environment.
 
 !!! info
     **Before you begin** 

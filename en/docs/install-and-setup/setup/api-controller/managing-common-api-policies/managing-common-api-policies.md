@@ -3,7 +3,7 @@
 ## Add Common API Policies in an environment
 
 You can add Common API Policies via the Publisher Portal.
-However, **WSO2 API Controller (apictl)** allows you to create and deploy Common API Policies without using the Publisher Portal. For more information on adding Common API Policies, see [Importing APIs Via Dev First Approach]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/importing-common-api-policies-via-dev-first-approach).
+However, **WSO2 API Controller (apictl)** allows you to create API Policies without using the Publisher Portal. For more information on adding Common API Policies, see [Importing Common API Policies Via Dev First Approach]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/importing-common-api-policies-via-dev-first-approach).
 
 ## Get Common API Policies in an environment
 
@@ -94,7 +94,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
                     `--name` or `-n` : Name of the Common API Policy to be deleted  
 
             !!!note
-                In api controller v4.2.0, --version flag is not provided. Instead, internally it considers the default version which is `v1` when finding the policy.
+                In api controller v4.2.0, --version flag support is not provided. Instead, internally it considers the default version which is `v1` when finding the policy.
 
             !!! example
                 ```bash
