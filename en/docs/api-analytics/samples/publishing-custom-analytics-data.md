@@ -1,5 +1,5 @@
 ---
-title: Publishing Custom Analytics Events Data - API Manager Documentation 4.0.0
+title: Publishing Custom Analytics Events Data - API Manager Documentation 4.1.0
 ---
 
 # Publishing Custom Analytics Events Data
@@ -9,8 +9,8 @@ title: Publishing Custom Analytics Events Data - API Manager Documentation 4.0.0
 Instead of publishing already available analytics events data, it is also possible to publish custom analytics data with the existing event schema. This guide will explain the steps required to do it.
 
 !!! Important
-    - Only the latest APIM-4.0.0 updates include this feature support.
-    - You can check if this feature is available in your current pack by viewing the trace logs without adding the jar containing the implemented class as [here]({{base_path}}/api-analytics/samples/publishing-custom-analytics-data/#build-the-project).
+    - Note that, support for publishing custom analytics events data has been introduced to WSO2 API Manager 4.1.0 via an U2 update (Update level 21).
+    - You can check if this feature is available in your current pack by viewing the trace logs without adding the jar containing the implemented class as [here]({{base_path}}/api-analytics/samples/publishing-custom-analytics-data/#configuring-the-sample).
     - If the feature is available in the pack you will be able to see a property object named `property` which includes `apiContext` and `userName` as default values.
 
     ```json
@@ -26,7 +26,7 @@ This section will cover the steps required to create a sample and configure the 
 
 You have to create a new `Java/Maven project`. 
 
-There is an already [created sample](https://github.com/wso2/samples-apim/tree/4.0.0/analytics-custom-data-provider) and if you wish to use that sample instead of developing the sample from scratch, then you can ignore the steps of creating the sample and start from [here]({{base_path}}/api-analytics/samples/publishing-custom-analytics-data/#build-the-project).
+There is an already [created sample](https://github.com/wso2/samples-apim/tree/4.1.0/analytics-custom-data-provider) and if you wish to use that sample instead of developing the sample from scratch, then you can ignore the steps of creating the sample and start from [here]({{base_path}}/api-analytics/samples/publishing-custom-analytics-data/#build-the-project).
 
 This section will cover how to configure the `pom.xml`, class implementations and building the created sample.
 
@@ -80,7 +80,7 @@ Add dependencies,
 
 !!! Info
 
-	- The versions for ${carbon.apimgt.gateway.version}, ${carbon.apimgt.common.analytics.version}, and ${synapse.version} can be found in the jar versions available in the current API Manager 4.0.0 package.
+	- The versions for ${carbon.apimgt.gateway.version}, ${carbon.apimgt.common.analytics.version}, and ${synapse.version} can be found in the jar versions available in the current API Manager 4.1.0 package.
 
 ### Implementing Required Class
 
@@ -90,7 +90,7 @@ Custom analytics data can be added to the existing event schema with the use of 
 
 In order to achieve this behavior, create a class implementing the `AnalyticsCustomDataProvider` Interface of `org.wso2.carbon.apimgt.common.analytics.collectors`.
 
-Implementation of this class should look something similar to [this](https://github.com/wso2/samples-apim/blob/4.0.0/analytics-custom-data-provider/src/main/java/org/wso2/carbon/apimgt/gateway/sample/publisher/CustomDataProvider.java).
+Implementation of this class should look something similar to [this](https://github.com/wso2/samples-apim/blob/4.1.0/analytics-custom-data-provider/src/main/java/org/wso2/carbon/apimgt/gateway/sample/publisher/CustomDataProvider.java).
 
 #### Build the Project
 
@@ -103,15 +103,15 @@ Build the project using,
 This section will cover the steps required to configure WSO2 API-M Gateway for the sample created above. The steps covered are adding the .jar file, configuring the deployment.toml file, and enabling the logs.
 
 !!! Warning
-    Note that WSO2 API Manager 3.0.0, 3.1.0, 3.2.0, and 4.0.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
+    Note that WSO2 API Manager 3.0.0, 3.1.0, 3.2.0, and 4.1.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
 
 1. Adding the .jar file.
 
-    Place the created .jar file inside the `wso2am-4.0.0/repository/components/lib` directory.
+    Place the created .jar file inside the `wso2am-4.1.0/repository/components/lib` directory.
 
 2. Configuring the deployment.toml file.
 
-    Edit `apim.analytics` configurations in the `deployment.toml` file located inside `wso2am-4.0.0/repository/conf` with the following configuration.
+    Edit `apim.analytics` configurations in the `deployment.toml` file located inside `wso2am-4.1.0/repository/conf` with the following configuration.
 
         [apim.analytics]
         enable = true
@@ -123,7 +123,7 @@ This section will cover the steps required to configure WSO2 API-M Gateway for t
 
 3. Enabling Logs
 
-    To [enable trace logs]({{base_path}}/administer/logging-and-monitoring/logging/configuring-logging/#enabling-logs-for-a-component) for the component: `org.wso2.am.analytics.publisher`, edit `log4j2.properties` file located inside `wso2am-4.0.0/repository/conf` directory. 
+    To [enable trace logs]({{base_path}}/administer/logging-and-monitoring/logging/configuring-logging/#enabling-logs-for-a-component) for the component: `org.wso2.am.analytics.publisher`, edit `log4j2.properties` file located inside `wso2am-4.1.0/repository/conf` directory. 
 
     a) Add a reporter to the loggers list:
 
@@ -135,7 +135,7 @@ This section will cover the steps required to configure WSO2 API-M Gateway for t
         logger.org-wso2-analytics-publisher.level = TRACE
         logger.org-wso2-analytics-publisher.appenderRef.CARBON_TRACE_LOGFILE.ref = CARBON_TRACE_LOGFILE
 
-4. Now you can trigger an event and check the `<WSO2AM-4.0.0-HOME>/repository/logs/wso2carbon-trace-messages.log` to find the event object passed out from API Manager.
+4. Now you can trigger an event and check the `<WSO2AM-4.1.0-HOME>/repository/logs/wso2carbon-trace-messages.log` to find the event object passed out from API Manager.
 
 ```log
 TRACE {org.wso2.am.analytics.publisher.client.EventHubClient} - [{ Cloud-Analytics-Queue-Worker-pool-2-thread-1 }] - 
