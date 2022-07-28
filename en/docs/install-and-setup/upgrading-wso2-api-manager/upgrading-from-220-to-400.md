@@ -2016,6 +2016,10 @@ Follow the instructions below to move all the existing API Manager configuration
         ALTER TABLE AM_API_COMMENTS
             ADD COMMENT_ID VARCHAR(255) DEFAULT (SYS_GUID()) NOT NULL
         /
+    
+        ALTER TABLE AM_API_COMMENTS
+            ADD CONSTRAINT add_pk PRIMARY KEY (COMMENT_ID)
+        /
 
         ALTER TABLE AM_API_RATINGS
             DROP COLUMN RATING_ID
