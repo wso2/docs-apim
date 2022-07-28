@@ -780,6 +780,7 @@ nav:
                 #- Analytics API Guide: api-analytics/analytics-api-guide.md
                 #- Troubleshooting Analytics: add this infor in the main troubleshooting page GW> Analytics
             - Publish Analytics Events to External Systems: api-analytics/samples/publishing-analytics-events-to-external-systems.md
+            - Publish Custom Analytics Events Data: api-analytics/samples/publishing-custom-analytics-data.md
             - Architecture: api-analytics/api-analytics-architecture.md
         - MI Analytics:
             - Set up: mi-analytics/setting-up-mi-analytics.md
