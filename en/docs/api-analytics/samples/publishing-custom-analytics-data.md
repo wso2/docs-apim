@@ -9,7 +9,7 @@ title: Publishing Custom Analytics Events Data - API Manager Documentation 4.0.0
 Instead of publishing already available analytics events data, it is also possible to publish custom analytics data with the existing event schema. This guide will explain the steps required to do it.
 
 !!! Important
-    - Only the latest APIM-4.0.0 updates include this feature support.
+    - Note that, support for publishing custom analytics events data has been introduced to WSO2 API Manager 4.0.0 via an U2 update (Update level 130) and is effective from 27th July 2022.
     - You can check if this feature is available in your current pack by viewing the trace logs without adding the jar containing the implemented class as [here]({{base_path}}/api-analytics/samples/publishing-custom-analytics-data/#build-the-project).
     - If the feature is available in the pack you will be able to see a property object named `property` which includes `apiContext` and `userName` as default values.
 
