@@ -49,7 +49,7 @@ Router uses the Envoy Proxy as the core component that does the traffic routing.
 2.  Build ***Router Debug Image***, if you are taking heap profile **on top of an updated Router image**.
 
     !!! note
-        For the **GA version** of the Router docker image you can use `choreo-connect-router:{{choreo_connect.version}}-debug-{{choreo_connect.envoy_version}}` as the ***Router Debug Image***.
+        For the **GA version** of the Router docker image you can use `wso2am/choreo-connect-router:{{choreo_connect.version}}-debug-{{choreo_connect.envoy_version}}` as the ***Router Debug Image***.
 
     1.  Create a Dockerfile as follows. Here we create a custom docker image by replacing the envoy binary in default docker image with heap profile enabled envoy binary.
 
