@@ -399,27 +399,14 @@ docker build -t <IMAGE_NAME> -f <DOCKER_FILE_PATH> <CONTEXT>
 docker build -t myimages/choreo-connect-adapter-petstore:{{choreo_connect.version}} -f Dockerfile .
 ```
 
-!!! Important
-    Make sure push all the images to the same docker registry. You can specify the docker registry in `wso2.deployment.dockerRegistry` of the helm release.
-    The docker registry is applied for the all docker images of the Choreo Connect components, i.e. Adapter, Enforcer and Router.
-    
-    Hence for the above sample, push Enforcer and Router images to the registry `myimages`.
-
-    ```bash tab='Enforcer'
-    docker tag wso2/choreo-connect-enforcer myimages/choreo-connect-enforcer
-    docker push myimages/choreo-connect-enforcer
-    ```
-
-    ```bash tab='Router'
-    docker tag wso2/choreo-connect-router myimages/choreo-connect-router
-    docker push myimages/choreo-connect-router
-    ```
-
 #### Step 3: Update Adapter Docker Image Name
 
 Update the following values in the helm release with the Adapter docker image, image pull secrets. You can separate each gateway environments by specifying the value `wso2.deployment.labelName`.
 
 {!includes/deploy/cc-prod-guide-helm-values-yaml-tip.md!}
+
+!!! important
+    Make sure to set `wso2.deployment.adapter.apiArtifactsMountEmptyDir=false`. This field is available from Helm chart version `1.1.0.5`.
 
 ```yaml tab='Format'
 wso2:
@@ -432,12 +419,16 @@ wso2:
     imagePullSecrets: <LIST_OF_PULL_SECRETS>
 
     adapter:
+      # Docker registry. If this value is not empty, this overrides the value in 'wso2.deployment.dockerRegistry'
+      dockerRegistry: <DOCKER_REGISTRY_FOR_ADAPTER>
       # Image name for adapter
       imageName: "<ADAPTER_IMAGE_NAME>"
       # Image tag for adapter
       imageTag: "<IMAGE_TAG>"
       # Refer to the Kubernetes documentation on updating images (https://kubernetes.io/docs/concepts/containers/images/#updating-images)
       imagePullPolicy: <IMAGE_PULL_POLICY>
+      # Mount an empty directory on API artifacts directory
+      apiArtifactsMountEmptyDir: false
 ```
 
 ```yaml tab='Sample'
@@ -446,17 +437,21 @@ wso2:
     # Label (environment) name of the deployment
     labelName: "default"
     # If a custom image must be used, define the docker registry. Default to DockerHub. If subscription specified it will be "docker.wso2.com"
-    dockerRegistry: "myimages"
+    dockerRegistry: ""
     # Image pull secrets to pull images from docker registry. If subscriptions are specified a secret with subscriptions details are created and imagePullSecrets will be default to it.
     imagePullSecrets: []
 
     adapter:
+      # Docker registry. If this value is not empty, this overrides the value in 'wso2.deployment.dockerRegistry'
+      dockerRegistry: "myimages"
       # Image name for adapter
       imageName: "choreo-connect-adapter-petstore"
       # Image tag for adapter
       imageTag: "{{choreo_connect.version}}"
       # Refer to the Kubernetes documentation on updating images (https://kubernetes.io/docs/concepts/containers/images/#updating-images)
       imagePullPolicy: IfNotPresent
+      # Mount an empty directory on API artifacts directory
+      apiArtifactsMountEmptyDir: false
 ```
 
 #### Step 4: Disable the Adapter Rest API

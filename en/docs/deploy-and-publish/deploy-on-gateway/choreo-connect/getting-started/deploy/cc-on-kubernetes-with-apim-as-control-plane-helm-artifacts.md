@@ -213,7 +213,7 @@ Follow the steps given below to configure how your Choreo Connect deployment sho
 
 Once you have set up your Helm resources locally, follow the instructions given below to set up the deployment.
 
-1.  Open a terminal and navigate to the `<KUBERNETES_HOME>/helm/choreo-connect` directory.
+1.  Open a terminal and navigate to the `<KUBERNETES_HOME>` directory.
 2.  Execute the command that is relevant to your Helm version.
 
     !!! Tip
@@ -222,13 +222,13 @@ Once you have set up your Helm resources locally, follow the instructions given 
     -   Using **Helm v2**
 
         ```bash
-        helm install --name <RELEASE_NAME> wso2/choreo-connect --version {{choreo_connect.helm_chart.version}} --namespace <NAMESPACE>
+        helm install --name <RELEASE_NAME> ./helm/choreo-connect {{choreo_connect.helm_chart.version}} --namespace <NAMESPACE>
         ```
 
     -   Using **Helm v3**
 
         ```bash
-        helm install <RELEASE_NAME> wso2/choreo-connect --version {{choreo_connect.helm_chart.version}} --namespace <NAMESPACE> --create-namespace
+        helm install <RELEASE_NAME> ./helm/choreo-connect {{choreo_connect.helm_chart.version}} --namespace <NAMESPACE> --create-namespace
         ```
 
 #### Update configurations during deployment
