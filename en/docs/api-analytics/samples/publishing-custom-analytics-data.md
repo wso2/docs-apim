@@ -50,12 +50,12 @@ Add dependencies,
     <dependency>
         <groupId>org.wso2.carbon.apimgt</groupId>
         <artifactId>org.wso2.carbon.apimgt.gateway</artifactId>
-        <version>${carbon.apimgt.gateway.version}</version>
+        <version>${carbon.apimgt.version}</version>
     </dependency>
     <dependency>
         <groupId>org.wso2.carbon.apimgt</groupId>
         <artifactId>org.wso2.carbon.apimgt.common.analytics</artifactId>
-        <version>${carbon.apimgt.common.analytics.version}</version>
+        <version>${carbon.apimgt.version}</version>
     </dependency>
     <dependency>
         <groupId>org.apache.synapse</groupId>
@@ -80,7 +80,21 @@ Add dependencies,
 
 !!! Info
 
-	- The versions for ${carbon.apimgt.gateway.version}, ${carbon.apimgt.common.analytics.version}, and ${synapse.version} can be found in the jar versions available in the current API Manager 4.0.0 package.
+	- The versions for ${carbon.apimgt.version}, and ${synapse.version} can be found in the jar versions available in the current API Manager 4.0.0 package.
+    - Since this feature support available in the latest update levels, you have to follow the below steps to add the required artifacts to the local m2 repository and point it as a repository in pom file.
+        1. Add org.wso2.carbon.apimgt.gateway and org.wso2.carbon.apimgt.common.analytics jars to the local m2 manually.
+        ```code
+        mvn install:install-file -Dfile=<PATH_TO_FILE>/org.wso2.carbon.apimgt.gateway_<COMPENENT_VERSION>.jar -DgroupId=org.wso2.carbon.apimgt -DartifactId=org.wso2.carbon.apimgt.gateway -Dversion=<COMPENENT_VERSION> -Dpackaging=jar
+        mvn install:install-file -Dfile=<PATH_TO_FILE>/org.wso2.carbon.apimgt.common.analytics_<COMPENENT_VERSION>.jar -DgroupId=org.wso2.carbon.apimgt -DartifactId=org.wso2.carbon.apimgt.common.analytics -Dversion=<COMPENENT_VERSION> -Dpackaging=jar
+        ```
+        2. Point local m2 repository in project pom
+        ```code
+        <repository>
+            <id>local-maven-repo</id>
+            <url>file://home/user/.m2/repository</url>
+        </repository>
+        ```
+        Follow the URL pattern when providing the repo url
 
 ### Implementing Required Class
 
