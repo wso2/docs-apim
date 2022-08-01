@@ -51,7 +51,7 @@ The Router uses the Envoy Proxy as the core component that does the traffic rout
     !!! note
         For the **GA version** of the Router Docker image, you can use `wso2am/choreo-connect-router:{{choreo_connect.version}}-debug-{{choreo_connect.envoy_version}}` as the **Router Debug Image**.
 
-    1.  Create a Dockerfile as follows. Here we create a custom docker image by replacing the envoy binary in default docker image with heap profile enabled envoy binary.
+    1.  Create a Dockerfile as follows. Here we create a custom Docker image by replacing the envoy binary in default Docker image with heap profile enabled envoy binary.
 
         <!-- Following docker image "wso2am/choreo-connect-router" contains envoy version in its tag, it should be updated per router envoy version update -->
 
