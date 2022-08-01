@@ -9,7 +9,7 @@ Following contains the steps that you required to follow to create a custom OPA 
         <dependency>
             <groupId>org.wso2.choreo.connect</groupId>
             <artifactId>org.wso2.choreo.connect.enforcer.commons</artifactId>
-            <version>1.1.0</version>
+            <version>{{choreo_connect.version}}</version>
         </dependency>
         ```
 
