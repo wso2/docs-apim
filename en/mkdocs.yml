@@ -2165,6 +2165,12 @@ extra:
           link: https://twitter.com/wso2
         - type: linkedin
           link: https://www.linkedin.com/company/wso2
+    choreo_connect:
+        version: 1.0.0
+        envoy_version: v1.20.0 # for GA release
+        helm_chart:
+            version: 1.0.0-7
+            git_tag: v1.0.0.7
     site_version: 4.0.0
     base_path: https://apim.docs.wso2.com/en/4.0.0
     #base_path: http://localhost:8000
