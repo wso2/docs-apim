@@ -40,7 +40,7 @@ Enforcer is implemented in Java and it is configured with required parameters to
 
 ## Taking a heap dump of Router
 
-Router uses the Envoy Proxy as the core component that does the traffic routing. The default Router which is used in you production environment is not supporting heap profiling and we have built a separate Router Docker image which enables heap profiling. Follow the steps below to take a heap profile of the Router.
+The Router uses the Envoy Proxy as the core component that does the traffic routing. The default Router that is used in your production environment does not support heap profiling and we have built a separate Router Docker image that enables heap profiling. Follow the steps below to take a heap profile of the Router.
 
 ### Prerequisites
 
@@ -49,9 +49,9 @@ Router uses the Envoy Proxy as the core component that does the traffic routing.
 2.  Build ***Router Debug Image***, if you are taking heap profile **on top of an updated Router image**.
 
     !!! note
-        For the **GA version** of the Router docker image you can use `wso2am/choreo-connect-router:{{choreo_connect.version}}-debug-{{choreo_connect.envoy_version}}` as the ***Router Debug Image***.
+        For the **GA version** of the Router Docker image, you can use `wso2am/choreo-connect-router:{{choreo_connect.version}}-debug-{{choreo_connect.envoy_version}}` as the **Router Debug Image**.
 
-    1.  Create a Dockerfile as follows. Here we create a custom docker image by replacing the envoy binary in default docker image with heap profile enabled envoy binary.
+    1.  Create a Dockerfile as follows. Here we create a custom Docker image by replacing the envoy binary in default Docker image with heap profile enabled envoy binary.
 
         <!-- Following docker image "wso2am/choreo-connect-router" contains envoy version in its tag, it should be updated per router envoy version update -->
 
@@ -65,7 +65,7 @@ Router uses the Envoy Proxy as the core component that does the traffic routing.
         COPY --from=wso2am/choreo-connect-router:{{choreo_connect.version}}-debug-{{choreo_connect.envoy_version}} /usr/local/bin/envoy /usr/local/bin/envoy
         ```
 
-    2. Build an docker image and push it to a Docker registry that your K8s cluster can pull it.
+    2. Build a Docker image and push it to a Docker registry that your Kubernetes cluster can pull it.
 
         ```bash tab="Format"
         docker build -t <DOCKER_REGISTRY>/<DEBUG_IMAGE_NAME>:<TAG> .
