@@ -40,7 +40,7 @@ Enforcer is implemented in Java and it is configured with required parameters to
 
 ## Taking a heap dump of Router
 
-Router uses the Envoy Proxy as the core component that does the traffic routing. The default Router which is used in you production environment is not supporting heap profiling and we have built a separate Router Docker image which enables heap profiling. Follow the steps below to take a heap profile of the Router.
+The Router uses the Envoy Proxy as the core component that does the traffic routing. The default Router that is used in your production environment does not support heap profiling and we have built a separate Router Docker image that enables heap profiling. Follow the steps below to take a heap profile of the Router.
 
 ### Prerequisites
 
