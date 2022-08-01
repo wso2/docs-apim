@@ -65,7 +65,7 @@ The Router uses the Envoy Proxy as the core component that does the traffic rout
         COPY --from=wso2am/choreo-connect-router:{{choreo_connect.version}}-debug-{{choreo_connect.envoy_version}} /usr/local/bin/envoy /usr/local/bin/envoy
         ```
 
-    2. Build an docker image and push it to a Docker registry that your K8s cluster can pull it.
+    2. Build a Docker image and push it to a Docker registry that your Kubernetes cluster can pull it.
 
         ```bash tab="Format"
         docker build -t <DOCKER_REGISTRY>/<DEBUG_IMAGE_NAME>:<TAG> .
