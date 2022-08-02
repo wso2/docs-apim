@@ -349,4 +349,4 @@ soapErrorInXMLEnabled = true
   
 
 ## What's Next
-As in the case for normal REST APIs, SOAP APIs will also support the basic features like Rate Limiting, Security, API Insights and Observability, etc. You can find more details on [Supported Features]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features/#supported-features) and respective pages.
+As in the case for normal REST APIs, SOAP APIs will also support the basic features like Rate Limiting, Security, API Insights and Observability, etc. You can find more details in [Supported Features]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features/#supported-features) and respective pages.
