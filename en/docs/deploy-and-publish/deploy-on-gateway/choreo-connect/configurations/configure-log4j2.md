@@ -9,8 +9,8 @@ All WSO2 products are shipped with the log4j2 logging capabilities, which genera
 
 | **Deployment** | **File name** | **Directory** |
 |----------------|---------------|---------------|
-| Docker with apictl | `log4j2.properties` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/` |
-| Docker with WSO2 API Manager | `log4j2.properties` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf/` |
+| Docker Compose with apictl | `log4j2.properties` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/` |
+| Docker Compose with WSO2 API Manager | `log4j2.properties` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf/` |
 | Kubernetes with apictl | `log4j2-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect/` |
 | Kubernetes with WSO2 API Manager | `log4j2-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect-with-apim/` |
 
