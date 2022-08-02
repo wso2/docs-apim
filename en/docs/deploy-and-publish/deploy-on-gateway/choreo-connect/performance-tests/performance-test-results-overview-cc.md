@@ -1,6 +1,6 @@
 # Performance Test Results
 
-The performance of Choreo Connect was measured using an API that invoke a simple "Netty Echo Service". The task covered by the Netty service is to echo back any request posted to the service. The API used for the test cases was a secured API, which directly invokes the backend through Choreo Connect using JWT tokens.
+The performance of Choreo Connect was measured using an API that invokes a simple "Netty Echo Service". The task covered by the Netty service is to echo back any request posted to the service. The API used for the test cases was a secured API, which directly invokes the backend through Choreo Connect using JWT tokens.
 
 Tests were performed considering 10, 50, 100, 200, 500, 1000 concurrent users. Concurrent users mean that it consists of multiple users accessing Choreo Connect at the same time. Different Message Sizes (Payloads) were used for the tests. The message sizes used are 50B, 1KiB, 10KiB, and 100KiB. The back-end delay was 0ms. The test client was Apache JMeter. Test scenarios were executed for 20 minutes including a warmup period of 5 minutes. When analyzing test results, test outcomes relevant to that period were removed.
 
