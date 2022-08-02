@@ -9,6 +9,9 @@ Let's start Choreo Connect with a WSO2 API Manager instance which will be acting
     - Minimum CPU : 4vCPU
     - Minimum Memory : 4GB
 
+!!! note
+    The Choreo Connect Docker Compose based deployment option explained here is **only for tryout purposes.** This method is **not recommended for production deployments**. For production deployments, you can use the Kubernetes based Choreo Connect deployment with [Helm artifacts]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane-helm-artifacts/) or [YAML artifacts]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane/).
+
 ### Step 1 - Download and extract the Choreo Connect distribution .zip file
 
 1. Download the latest Choreo Connect distribution from [https://wso2.com/choreo/choreo-connect/](https://wso2.com/choreo/choreo-connect/). 
