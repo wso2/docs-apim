@@ -224,6 +224,10 @@ These features are unsupported and removed from WSO2 API Manager 4.1.0 onwards.
 
      The message tracer feature for WSO2 DAS is no longer supported and removed from the product.
 
+- **Hazelcast Based Gateway Clustering**
+
+     The Hazelcast based gateway clustering is no longer supported and removed from the product.
+
 
 ## Compatible WSO2 product versions
 
