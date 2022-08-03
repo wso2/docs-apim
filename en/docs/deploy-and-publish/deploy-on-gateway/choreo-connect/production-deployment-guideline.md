@@ -1,11 +1,14 @@
 # Production Deployment Guideline
 
-Given below are the common guidelines for deploying Choreo Connect in a **production environment** using [Helm deployment option]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-deploy-overview/).
+Kubernetes should be used for Choreo Connect production deployments. The common guidelines for deploying Choreo Connect in a production environment using the [Helm deployment option]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-deploy-overview/) provided below.
 
 You can deploy Choreo Connect using one of the following options.
 
 - [API Manager as Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/)
 - [Standalone Gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/)
+
+!!! note
+    Choreo Connect Docker based deployment option provided **only for the tryout purpose.** Docker based deployment option is **not recommended to use in production deployments**. For production deployments you can use Kubernetes based Choreo Connect deployment with [Helm artifacts]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane-helm-artifacts/) or [YAML artifacts]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane/).
 
 This document walk you through following sections.
 
@@ -296,12 +299,12 @@ For example lets say you want to replace the CA certificates of Choreo Connect R
 Create a Dockerfile as follows.
 
 ```dockerfile tab='Format'
-FROM wso2/choreo-connect-router:1.0.0
+FROM wso2/choreo-connect-router:{{choreo_connect.version}}
 <YOUR_DOCKER_COMMANDS>
 ```
 
 ```dockerfile tab='Sample'
-FROM wso2/choreo-connect-router:1.0.0
+FROM wso2/choreo-connect-router:{{choreo_connect.version}}
 COPY my-ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 ```
 
@@ -312,7 +315,7 @@ docker build -t <IMAGE_NAME> -f <DOCKER_FILE_PATH> <CONTEXT>
 ```
 
 ```bash tab='Sample'
-docker build -t myimages/choreo-connect-router:1.0.0 -f Dockerfile .
+docker build -t myimages/choreo-connect-router:{{choreo_connect.version}} -f Dockerfile .
 ```
 
 ## Mode 1: API Manager as Control Plane Configurations
@@ -380,12 +383,12 @@ cp -r petstore/ apictl-projects-dir/petstore
 Create a Dockerfile as follows.
 
 ```dockerfile tab='Format'
-FROM wso2/choreo-connect-adapter:1.0.0
+FROM wso2/choreo-connect-adapter:{{choreo_connect.version}}
 COPY <DIR_WITH_APICTL_PROJECTS> /home/wso2/artifacts/apis
 ```
 
 ```dockerfile tab='Sample'
-FROM wso2/choreo-connect-adapter:1.0.0
+FROM wso2/choreo-connect-adapter:{{choreo_connect.version}}
 COPY apictl-projects-dir /home/wso2/artifacts/apis
 ```
 
@@ -396,30 +399,17 @@ docker build -t <IMAGE_NAME> -f <DOCKER_FILE_PATH> <CONTEXT>
 ```
 
 ```bash tab='Sample'
-docker build -t myimages/choreo-connect-adapter-petstore:1.0.0 -f Dockerfile .
+docker build -t myimages/choreo-connect-adapter-petstore:{{choreo_connect.version}} -f Dockerfile .
 ```
-
-!!! Important
-    Make sure push all the images to the same docker registry. You can specify the docker registry in `wso2.deployment.dockerRegistry` of the helm release.
-    The docker registry is applied for the all docker images of the Choreo Connect components, i.e. Adapter, Enforcer and Router.
-    
-    Hence for the above sample, push Enforcer and Router images to the registry `myimages`.
-
-    ```bash tab='Enforcer'
-    docker tag wso2/choreo-connect-enforcer myimages/choreo-connect-enforcer
-    docker push myimages/choreo-connect-enforcer
-    ```
-
-    ```bash tab='Router'
-    docker tag wso2/choreo-connect-router myimages/choreo-connect-router
-    docker push myimages/choreo-connect-router
-    ```
 
 #### Step 3: Update Adapter Docker Image Name
 
 Update the following values in the helm release with the Adapter docker image, image pull secrets. You can separate each gateway environments by specifying the value `wso2.deployment.labelName`.
 
 {!includes/deploy/cc-prod-guide-helm-values-yaml-tip.md!}
+
+!!! important
+    Make sure to set `wso2.deployment.adapter.apiArtifactsMountEmptyDir=false`. This field is available from Helm chart version `1.1.0.5`.
 
 ```yaml tab='Format'
 wso2:
@@ -432,12 +422,16 @@ wso2:
     imagePullSecrets: <LIST_OF_PULL_SECRETS>
 
     adapter:
+      # Docker registry. If this value is not empty, this overrides the value in 'wso2.deployment.dockerRegistry'
+      dockerRegistry: <DOCKER_REGISTRY_FOR_ADAPTER>
       # Image name for adapter
       imageName: "<ADAPTER_IMAGE_NAME>"
       # Image tag for adapter
       imageTag: "<IMAGE_TAG>"
       # Refer to the Kubernetes documentation on updating images (https://kubernetes.io/docs/concepts/containers/images/#updating-images)
       imagePullPolicy: <IMAGE_PULL_POLICY>
+      # Mount an empty directory on API artifacts directory
+      apiArtifactsMountEmptyDir: false
 ```
 
 ```yaml tab='Sample'
@@ -446,17 +440,21 @@ wso2:
     # Label (environment) name of the deployment
     labelName: "default"
     # If a custom image must be used, define the docker registry. Default to DockerHub. If subscription specified it will be "docker.wso2.com"
-    dockerRegistry: "myimages"
+    dockerRegistry: ""
     # Image pull secrets to pull images from docker registry. If subscriptions are specified a secret with subscriptions details are created and imagePullSecrets will be default to it.
     imagePullSecrets: []
 
     adapter:
+      # Docker registry. If this value is not empty, this overrides the value in 'wso2.deployment.dockerRegistry'
+      dockerRegistry: "myimages"
       # Image name for adapter
       imageName: "choreo-connect-adapter-petstore"
       # Image tag for adapter
-      imageTag: "1.0.0"
+      imageTag: "{{choreo_connect.version}}"
       # Refer to the Kubernetes documentation on updating images (https://kubernetes.io/docs/concepts/containers/images/#updating-images)
       imagePullPolicy: IfNotPresent
+      # Mount an empty directory on API artifacts directory
+      apiArtifactsMountEmptyDir: false
 ```
 
 #### Step 4: Disable the Adapter Rest API

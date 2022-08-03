@@ -848,7 +848,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     SERVICE_KEY VARCHAR(100) NOT NULL,
                     MD5 VARCHAR(100) NOT NULL,
                     SERVICE_NAME VARCHAR(255) NOT NULL,
-                    DISPLAY_NAME VARCHAR(255) NOT NULL,
                     SERVICE_VERSION VARCHAR(30) NOT NULL,
                     SERVICE_URL VARCHAR(2048) NOT NULL,
                     TENANT_ID INTEGER NOT NULL,
@@ -862,7 +861,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     CREATED_BY VARCHAR(255),
                     UPDATED_BY VARCHAR(255),
                     SERVICE_DEFINITION BLOB NOT NULL,
-                    METADATA BLOB NOT NULL,
                     PRIMARY KEY (UUID),
                     CONSTRAINT SERVICE_KEY_TENANT UNIQUE(SERVICE_KEY, TENANT_ID),
                     CONSTRAINT SERVICE_NAME_VERSION_TENANT UNIQUE (SERVICE_NAME, SERVICE_VERSION, TENANT_ID))
@@ -912,7 +910,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE AM_API_SERVICE_MAPPING (
             API_ID INTEGER NOT NULL,
             SERVICE_KEY VARCHAR(256) NOT NULL,
-            MD5 VARCHAR(100) NOT NULL,
+            MD5 VARCHAR(100),
             TENANT_ID INTEGER NOT NULL,
             PRIMARY KEY (API_ID, SERVICE_KEY),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE
@@ -1431,7 +1429,6 @@ Follow the instructions below to move all the existing API Manager configuration
           SERVICE_KEY VARCHAR(100) NOT NULL,
           MD5 VARCHAR(100) NOT NULL,
           SERVICE_NAME VARCHAR(255) NOT NULL,
-          DISPLAY_NAME VARCHAR(255) NOT NULL,
           SERVICE_VERSION VARCHAR(30) NOT NULL,
           SERVICE_URL VARCHAR(2048) NOT NULL,
           TENANT_ID INTEGER NOT NULL,
@@ -1445,7 +1442,6 @@ Follow the instructions below to move all the existing API Manager configuration
           CREATED_BY VARCHAR(255),
           UPDATED_BY VARCHAR(255),
           SERVICE_DEFINITION VARBINARY(MAX) NOT NULL,
-          METADATA VARBINARY(MAX) NOT NULL,
           PRIMARY KEY (UUID),
           CONSTRAINT SERVICE_KEY_TENANT UNIQUE(SERVICE_KEY, TENANT_ID),
           CONSTRAINT SERVICE_NAME_VERSION_TENANT UNIQUE (SERVICE_NAME, SERVICE_VERSION, TENANT_ID)
@@ -1484,7 +1480,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE AM_API_SERVICE_MAPPING (
             API_ID INTEGER NOT NULL,
             SERVICE_KEY VARCHAR(256) NOT NULL,
-            MD5 VARCHAR(100) NOT NULL,
+            MD5 VARCHAR(100),
             TENANT_ID INTEGER NOT NULL,
             PRIMARY KEY (API_ID, SERVICE_KEY),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE
@@ -1912,7 +1908,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     SERVICE_KEY VARCHAR(100) NOT NULL,
                     MD5 VARCHAR(100) NOT NULL,
                     SERVICE_NAME VARCHAR(255) NOT NULL,
-                    DISPLAY_NAME VARCHAR(255) NOT NULL,
                     SERVICE_VERSION VARCHAR(30) NOT NULL,
                     TENANT_ID INTEGER NOT NULL,
                     SERVICE_URL VARCHAR(2048) NOT NULL,
@@ -1926,7 +1921,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     CREATED_BY VARCHAR(255),
                     UPDATED_BY VARCHAR(255),
                     SERVICE_DEFINITION BLOB NOT NULL,
-                    METADATA BLOB NOT NULL,
                     PRIMARY KEY (UUID),
                     UNIQUE (SERVICE_NAME, SERVICE_VERSION, TENANT_ID),
                     UNIQUE (SERVICE_KEY, TENANT_ID)
@@ -1935,7 +1929,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE IF NOT EXISTS AM_API_SERVICE_MAPPING (
             API_ID INTEGER NOT NULL,
             SERVICE_KEY VARCHAR(256) NOT NULL,
-            MD5 VARCHAR(100) NOT NULL,
+            MD5 VARCHAR(100),
             TENANT_ID INTEGER NOT NULL,
             PRIMARY KEY (API_ID, SERVICE_KEY),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE
@@ -2522,7 +2516,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     SERVICE_KEY VARCHAR(100) NOT NULL,
                     MD5 VARCHAR(100) NOT NULL,
                     SERVICE_NAME VARCHAR(255) NOT NULL,
-                    DISPLAY_NAME VARCHAR(255) NOT NULL,
                     SERVICE_VERSION VARCHAR(30) NOT NULL,
                     TENANT_ID INTEGER NOT NULL,
                     SERVICE_URL VARCHAR(2048) NOT NULL,
@@ -2536,7 +2529,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     CREATED_BY VARCHAR(255),
                     UPDATED_BY VARCHAR(255),
                     SERVICE_DEFINITION BLOB NOT NULL,
-                    METADATA BLOB NOT NULL,
                     PRIMARY KEY (UUID),
                     CONSTRAINT SERVICE_KEY_TENANT UNIQUE(SERVICE_KEY, TENANT_ID),
                     CONSTRAINT SERVICE_NAME_VERSION_TENANT UNIQUE (SERVICE_NAME, SERVICE_VERSION, TENANT_ID))
@@ -2586,7 +2578,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE AM_API_SERVICE_MAPPING (
             API_ID INTEGER NOT NULL,
             SERVICE_KEY VARCHAR(256) NOT NULL,
-            MD5 VARCHAR(100) NOT NULL,
+            MD5 VARCHAR(100),
             TENANT_ID INTEGER NOT NULL,
             PRIMARY KEY (API_ID, SERVICE_KEY),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE
@@ -3128,7 +3120,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     SERVICE_KEY VARCHAR(100) NOT NULL,
                     MD5 VARCHAR(100) NOT NULL,
                     SERVICE_NAME VARCHAR(255) NOT NULL,
-                    DISPLAY_NAME VARCHAR(255) NOT NULL,
                     SERVICE_VERSION VARCHAR(30) NOT NULL,
                     TENANT_ID INTEGER NOT NULL,
                     SERVICE_URL VARCHAR(2048) NOT NULL,
@@ -3142,7 +3133,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     CREATED_BY VARCHAR(255),
                     UPDATED_BY VARCHAR(255),
                     SERVICE_DEFINITION BYTEA NOT NULL,
-                    METADATA BYTEA NOT NULL,
                     PRIMARY KEY (UUID),
                     UNIQUE (SERVICE_NAME, SERVICE_VERSION, TENANT_ID),
                     UNIQUE (SERVICE_KEY, TENANT_ID)
@@ -3184,7 +3174,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE AM_API_SERVICE_MAPPING (
             API_ID INTEGER NOT NULL,
             SERVICE_KEY VARCHAR(256) NOT NULL,
-            MD5 VARCHAR(100) NOT NULL,
+            MD5 VARCHAR(100),
             TENANT_ID INTEGER NOT NULL,
             PRIMARY KEY (API_ID, SERVICE_KEY),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE
@@ -3360,6 +3350,11 @@ Follow the instructions below to move all the existing API Manager configuration
                 -
                     name: "EventPublisherMigrator"
                     order: 11                                       
+                ```
+            Also remove the following step from migration-config.yaml included under version: "5.11.0".
+                ```              
+                    -   name: "SCIMGroupRoleMigrator"
+                        order: 18
                 ```
 
     4. Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.

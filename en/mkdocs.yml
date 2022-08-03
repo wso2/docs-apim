@@ -271,7 +271,7 @@ nav:
                 - Deployment Options:
                     - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-deploy-overview.md
                     - Installation Prerequisites: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/installation-prerequisites.md
-                    - Choreo Connect on Docker:
+                    - Choreo Connect on Docker Compose:
                         - With WSO2 API Manager as a Control Plane : deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-apim-as-control-plane.md
                         - As a Standalone Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-docker.md
                     - Choreo Connect on Kubernetes - Helm Artifacts:
@@ -321,6 +321,7 @@ nav:
                     - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/performance-tests/performance-test-results-overview-cc.md
                     - Router with One CPU: deploy-and-publish/deploy-on-gateway/choreo-connect/performance-tests/router-with-one-cpu-for-rest-api.md
                     - Router with Two CPU: deploy-and-publish/deploy-on-gateway/choreo-connect/performance-tests/router-with-two-cpu-for-rest-api.md
+                - Migrate from Ballerina API Microgateway to Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/migration-guide-from-ballerina-api-microgateway.md
                 - Troubleshooting:
                     - Enable Debug Logs: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/adding-debug-logs.md
                     - Error Handling: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/error-handling.md
@@ -1317,6 +1318,12 @@ nav:
                 - Run the MI as a Windows Service: install-and-setup/install/installing-the-product/installing-mi-as-a-windows-service.md
             - Install the MI Dashboard:
                 - Install the MI Dashboard: install-and-setup/install/installing-the-product/installing-mi-dashboard.md
+                - Configure Databases:
+                    - MySQL Database: install-and-setup/install/installing-the-product/setting-up-mysql.md
+                    - MSSQL Database: install-and-setup/install/installing-the-product/setting-up-mssql.md
+                    - Oracle Database: install-and-setup/install/installing-the-product/setting-up-oracle.md
+                    - PostgreSQL Database: install-and-setup/install/installing-the-product/setting-up-postgresql.md
+                    - IBM Database: install-and-setup/install/installing-the-product/setting-up-ibm-db2.md
                 - Run the MI Dashboard: install-and-setup/install/installing-the-product/running-the-mi-dashboard.md
                 - Run the MI Dashboard as a Windows Service: install-and-setup/install/installing-the-product/running-the-mi-dashboard-as-windows-service.md
             - Install the Streaming Integrator (SI):
@@ -2163,7 +2170,13 @@ extra:
           link: https://twitter.com/wso2
         - type: linkedin
           link: https://www.linkedin.com/company/wso2
+    choreo_connect:
+        version: 1.0.0
+        envoy_version: v1.20.0 # for GA release
+        helm_chart:
+            version: 1.0.0-7
+            git_tag: v1.0.0.7
     site_version: 4.0.0
-    #base_path: http://localhost:8000
     base_path: https://apim.docs.wso2.com/en/4.0.0
+    #base_path: http://localhost:8000
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.20.0

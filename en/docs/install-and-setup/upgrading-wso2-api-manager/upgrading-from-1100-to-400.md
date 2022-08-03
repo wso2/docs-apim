@@ -4416,6 +4416,11 @@ Follow the instructions below to move all the existing API Manager configuration
                     location: "step2"
                     schema: "identity"
                 ```
+            Also remove the following step from migration-config.yaml included under version: "5.11.0".
+                ```              
+                    -   name: "SCIMGroupRoleMigrator"
+                        order: 18
+                ```
 
     4. Remove the following entries from the `migration-config.yaml` file, which is in the `migration-resources` directory.
 
