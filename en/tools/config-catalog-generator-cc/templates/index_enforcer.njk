@@ -16,9 +16,11 @@ See the example .toml file given below.
   maxHeaderLimit = 8192
   keepAliveTime = 600
 
-[enforcer.apimCredentials]
-  username="admin"
-  password="$env{apim_admin_pwd}"
+[enforcer.authService.threadPool]
+  coreSize = 400
+  maxSize = 500
+  keepAliveTime = 600
+  queueSize = 1000
 
 ```
 {% set parameters = {'comp': 'enforcer'} %}

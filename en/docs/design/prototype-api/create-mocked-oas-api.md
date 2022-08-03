@@ -22,7 +22,7 @@ Follow the instructions below to enable mock response generation based on the Op
 
 ## Step 2 - Implement the API
 
-### Update the OpenAPI Specification
+### Step 2.1 - Update the OpenAPI Specification
 
 1. Navigate to **API Definition** under **API Configurations** to view the OpenAPI specification.
 
@@ -34,12 +34,27 @@ Follow the instructions below to enable mock response generation based on the Op
 
 3. Add response examples to OpenAPI Specification.    
 
-{!includes/design/add-oas-example.md!}
+    Add the following resource which includes an response example. For HTTP status specific examples and content type specific responses, have a look at [Mock Implementation with OpenAPI examples](#mock-implementation-with-openapi-examples).
+
+    ```
+    /pet/findByStatus:
+      get:
+        responses:
+          '200':
+            description: OK
+            headers:
+              x-wso2-example:
+                example: example header value
+            content:
+              application/json:
+                example:
+                  mock response: hello world
+    ```
 
 
-5. After adding examples to the OpenAPI specification, remember to click **Update Content** and **Save**.
+4. After adding examples to the OpenAPI specification, remember to click **Update Content** and **Save**.
 
-### Change the Endpoint Type
+### Step 2.2 - Change the Endpoint Type
 
 6. Navigate to **Endpoints** under **API Configurations**.
 
@@ -82,7 +97,12 @@ Follow the instructions below to enable mock response generation based on the Op
 
     - Use the `Prefer` header to specify which `code` and/or `example` should be returned as the response for the mock request.
 
+    - Check **Example** in the section given below on how to invoke with `Prefer` header.
 
+## Mock Implementation with OpenAPI examples
+
+!!! abstract
+    {!includes/design/add-oas-example.md!}
 ## See also
 
 - [Deploy a REST API with a Mock Implementation in Choreo Connect]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-with-mock-impl/)    

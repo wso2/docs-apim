@@ -15,7 +15,7 @@ You can deploy a WebSocket API in the following ways depending on the Choreo Con
     - If you have a requirement to append different **paths** to the backend URL for different **Channels** (**Topics**), a URL-mapping can be added. The **Topics** that do not include a URL-mapping will have the usual behavior as mentioned above.
     - WebSocket APIs support OAuth 2.0 Security and each **Topic** can have its own local scope.         
     - If configured, Choreo Connect is also capable of publishing analytics for WebSocket frames sent and received by the client.         
-    - Currently, the properties such as URL Mapping and Security are supported at the topic action level with similarity to REST APIs. Therefore, in WebSocket APIs, these must be defined under **Publish** or **Subscribe**. Yet, from a Gateway point of view, since both Publish and Subscribe are initiated with a GET request that appears the same, if a **Topic** has properties defined under both Publish and Subscribe, the properties for **Publish** will be prioritized.
+    - **Pub** is prioritized over **Sub**. Currently, properties such as URL Mapping and Security are supported at Pub/Sub level rather than per topic (similar to REST APIs). Therefore, in WebSocket APIs, these must be defined under **Publish** or **Subscribe**. Yet, from a Gateway point of view, both Publish and Subscribe are initiated with a GET request that appears the same. Hence, if a **Topic** has both Publish and Subscribe, the properties for **Publish** will be prioritized.
 
 ## Via WSO2 API Manager Publisher Portal
 

@@ -1,3 +1,5 @@
+# Performance Test Results for Router with One CPU
+
 These test results were obtained considering a Choreo Connect deployment with default values. Therefore the concurrency level used for the tests was two. Below table shows resource allocations for the Choreo Connect components.
 
 <table>

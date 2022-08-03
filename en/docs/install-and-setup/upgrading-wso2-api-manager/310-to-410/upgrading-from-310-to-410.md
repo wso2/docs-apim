@@ -485,7 +485,7 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Manag
         order: 11   
     ```
 
-6. Remove the following 2 steps from  migration-config.yaml which is included under version: "5.11.0"
+6. Remove the following 3 steps from  migration-config.yaml which is included under version: "5.11.0"
     ```
     -
         name: "EncryptionAdminFlowMigrator"
@@ -501,27 +501,23 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Manag
             currentEncryptionAlgorithm: "RSA/ECB/OAEPwithSHA1andMGF1Padding"
             migratedEncryptionAlgorithm: "AES/GCM/NoPadding"
             schema: "identity"
+                       
+    -   name: "SCIMGroupRoleMigrator"
+        order: 18
     ```
 
 7. Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
 
-8. Add below configuration  to `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` to disable group role separation.
-
-    ```
-    [authorization_manager.properties]
-    GroupAndRoleSeparationEnabled = false
-    ```
-
-9. If the user store type in the previous version is set to "database" instead of default "database_unique_id", update `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the previous user store.
+8. If the user store type in the previous version is set to "database" instead of default "database_unique_id", update `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the previous user store.
 
     ```
     [user_store]
     type = "database"
     ```
    
-10. If you are migrating your user stores to the new user store managers with the unique ID capabilities, Follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/latest/setup/migrating-userstore-managers/) before moving to the next step
+9. If you are migrating your user stores to the new user store managers with the unique ID capabilities, follow the guidelines given in the [Migrating User Store Managers documentation](https://is.docs.wso2.com/en/latest/setup/migrating-userstore-managers/) before moving to the next step.
 
-11.  Start WSO2 API Manager 4.1.0 as follows to carry out the complete Identity component migration.
+10.  Start WSO2 API Manager 4.1.0 as follows to carry out the complete Identity component migration.
 
     ```tab="Linux / Mac OS"
     sh api-manager.sh -Dmigrate -Dcomponent=identity
@@ -552,7 +548,7 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Manag
 
         **Make sure to revert the change done in Step 1 , after the migration is complete.**
 
-12.  After you have successfully completed the migration, stop the server and remove the following files and folders.
+11.  After you have successfully completed the migration, stop the server and remove the following files and folders.
 
     -   Remove the `org.wso2.carbon.is.migration-x.x.x.jar` file, which is in the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
 
@@ -563,24 +559,6 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Manag
         ```
         -Dmigrate -Dcomponent=identity
         ```
-
-    !!! important
-        In WSO2 Identity Server 5.11.0, groups include user store roles and roles include internal roles. Therefore, from IS 5.11.0 onwards, there cannot be exist same admin role in both primary and internal user domains. If the same admin role exists in both UM domains of your older version, you have to rename the internal admin 
-        role into different role name. To do that, you have to follow the below steps on 
-        User db.
-
-        1. Rename admin role to different role name
-            ```
-            UPDATE UM_HYBRID_ROLE SET UM_ROLE_NAME='admin-test' WHERE UM_ROLE_NAME='admin';
-            ```
-        2. Get the <internal-domain-id> of `INTERNAL` user domain.
-            ```
-            SELECT UM_DOMAIN_ID FROM UM_DOMAIN WHERE UM_DOMAIN_NAME='INTERNAL';
-            ```
-        3. Update the renamed admin role in UM_ROLE_PERMISSION
-            ```   
-            UPDATE UM_ROLE_PERMISSION SET UM_ROLE_NAME='admin-test' WHERE UM_ROLE_NAME='admin' AND (UM_DOMAIN_ID=<internal-domain-id>);
-            ```
 
     -   If you followed step 8 above, and want to use the latest user store, update the `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` as follows after the identity migration,
 
@@ -617,7 +595,7 @@ You have to run the following migration client to update the API Manager artifac
     ```
 
     ``` tab="Windows"
-    api-manager.bat -Dmigrate -DmigrateFromVersion=3.1.0 -DmigratedVersion=4.1.0 
+    api-manager.bat -Dmigrate -DmigrateFromVersion='3.1.0' -DmigratedVersion='4.1.0' 
     -DrunPreMigration
     ```
 
