@@ -33,6 +33,9 @@
         ```go
         apictl export policy api --name <Common API Policy name> --environment <environment>  
         ```
+        ```go
+        apictl export policy api --name <Common API Policy name> --environment <environment> --format <Policy Definition file format>
+        ```
 
         !!! info
             **Flags:**  
@@ -40,11 +43,16 @@
             -    Required :  
                 `--name` or `-n` : Name of the API Product to be exported      
                 `--environment` or `-e` : Environment from which the API Product should be exported  
-            
+            -   Optional :  
+                `--format` : File format of exported policy definition file (JSON or YAML). The default value is YAML.   
+
         !!! example
             ```go
-            apictl export policy api -n addHeader -e dev 
+            apictl export policy api -n addHeader -e dev
             ```          
+            ```go
+            apictl export policy api -n addHeader -e dev --format JSON
+            ``` 
 
     -   **Response**
 
@@ -78,15 +86,15 @@ The structure of an exported Common API Policy ZIP file is explained below:
     </thead>
     <tbody>
         <tr class="odd">
-            <td><code>policySpecification.yaml</code></td>
+            <td><code>POLICYNAME.yaml</code></td>
             <td>Contains all the basic information required for a Common API Policy to be imported to another environment.</td>
         </tr>
         <tr class="even">
-            <td><code>synapseDefinition.yaml</code></td>
+            <td><code>POLICYNAME.yaml</code></td>
             <td>Synapse gateway configurations which get applied during the runtime.</td>
         </tr>
         <tr class="odd">
-            <td><code>ccDefinition.gotmpl</code></td>
+            <td><code>POLICYNAME.gotmpl</code></td>
             <td>Choreo Connect gateway configurations which get applied during the runtime.</td>
         </tr>
     </tbody>
