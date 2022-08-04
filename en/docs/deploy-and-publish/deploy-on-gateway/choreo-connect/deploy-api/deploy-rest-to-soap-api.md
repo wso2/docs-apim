@@ -1,8 +1,8 @@
-# Exposing a SOAP Endpoint as a REST API
+# REST API from a SOAP Endpoint
 
 When it comes to web services, they are designed to provide rich functionlity to end users by supporting interoperable interactions over a network. Web services are mainly categorized into two types called SOAP and RESTful services. However due to various reasons like flexibility, scalability, complexity, performance, etc. RESTful services became more better for modern clients. Due to this reason exposing a SOAP endpoint as a RESTfull service is helpfull as it provides more flexibilities when integrating web services with various end user applications.
 
-This guide will explain you on how to perform the SOAP to REST transformation using [WSO2 Micro Integrator](https://ei.docs.wso2.com/en/latest/) and how to deploy the converted API in Choreo Connect gateway to provision the [key features]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features/) that the Choreo Connect is supporting by using an example.
+This guide will explain you on how to perform the SOAP to REST transformation using [WSO2 Micro Integrator]({{base_path}}/integrate/integration-overview/) and how to deploy the converted API in Choreo Connect gateway to provision the [key features]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features/) that the Choreo Connect is supporting by using an example.
 
 The following diagram illustrates the request flow from client to the backend through WSO2 Micro Integrator and the response flow from backend to client through WSO2 Micro Integrator for this example. The WSO2 Micro Integrator acting as the backend for the Choreo Connect Gateway whereas its handling the `JSON` to `SOAP` message transformation as well as `GET` to `POST` method transformation.
 
@@ -29,9 +29,19 @@ Following steps will guide you through creation of SOAP to REST transformation u
 
     This guide assumes that you already have installed WSO2 Integration Studio, if not you can follow up instructions on [Installing WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio/).
 
+!!! Tip
+    The project that will be creating in below **Step 1** & **Step 2** is available in `/samples/rest-to-soap-conversion` directory of the [Choreo Connect's github repository](https://github.com/wso2/product-microgateway).
+
+    If you wish to use that, you can go through the following steps to import it directly to the Integration Studio and use.
+
+    1. Clone the [Choreo Connect repository](https://github.com/wso2/product-microgateway).
+    2. Import the `PhoneVerify` sample project to the Integration studio. Refer [Importing Projects]({{base_path}}/integrate/develop/importing-projects/) for more information.
+    3. [Configure Micro Integrator to Update APIM Service Catalog]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-to-soap-api/#step-3-configure-micro-integrator-to-update-apim-service-catalog) if required.
+    4. [Deploy the Artifacts]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-to-soap-api/#step-5-deploy-the-artifacts-in-micro-integrator).
+
 ### Step 1 - Create an Integration project with ESB Configs module and Composit Exporter module
 
-Navigate to `File->New->Integration Project` from Integration studio and enter the project name as `PhoneVerification`.
+Select **File->New->Integration Project** from Integration studio and enter the project name as `PhoneVerification`.
 
 Make sure to tick the **Create ESB Configs** and **Create Composite Exporter** when creating the Integration project.
 
@@ -41,7 +51,7 @@ For more information refer to [Creating an Integration Project]({{base_path}}/in
 
 1. In the left hand side project explorer panel, expand the created project `PhoneVerification`.
 2. Right click on `PhoneVerfificationConfigs` and select **New->REST API**.
-3. Select the **Import API Artifact** option and provide file having content of [this](link from mgw sample project).
+3. Select the **Import API Artifact** option and provide file having [this synapse configuration](https://raw.githubusercontent.com/wso2/product-microgateway/rest-to-soap-cc/samples/rest-to-soap-conversion/PhoneVerification/PhoneVerificationConfigs/src/main/synapse-config/api/PhoneVerify.xml).
 
 !!! Note
     If you want to design your API from scratch, select **Create New API Artifact** option in the above step and create it using Integration Studio. For more information on this refer documentation on [Creating a REST API]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api/).
@@ -104,38 +114,6 @@ This step will show you how to Update the swagger definition to change some impo
     http://host.docker.internal:8290/phoneverify
     ```
 
-#### Update Query Parameters in Swagger definition
-
-!!! Note
-    This step is required only if you are using Choreo Connect with WSO2 API Manager and testing the API through Publisher or Developer Portal.
-
-1. Open the file in `PhoneVerification/PhoneVerificationConfigs/src/main/resources/metadata/PhoneVerify_swagger.yaml`.
-2. Add the query parameters to the request path `/checkphonenumber` as follows.
-    ```yaml
-    paths:
-        /checkphonenumber:
-            get:
-            parameters:
-            - name: PhoneNumber
-                in: query
-                required: false
-                style: form
-                explode: true
-                schema:
-                type: string
-            - name: LicenseKey
-                in: query
-                required: false
-                style: form
-                explode: true
-                schema:
-                type: string
-            responses:
-                default:
-                description: Default response
-    ```
-
-
 ### Step 5 - Deploy the Artifacts in Micro Integrator
 
 You have multiple options to deploy your REST API. See the [Deploying Artifacts]({{base_path}}/integrate/develop/deploy-artifacts/#deploy-artifacts-in-the-embedded-micro-integrator) for more information.
@@ -161,7 +139,6 @@ Refer to [Deploy Artifacts using Embedded Micro Integrator]({{base_path}}/integr
 ## Deploy the REST API in Choreo Connect Gateway
 
 You can deploy the created REST API in the following ways depending on the Choreo Connect **mode** you have chosen.
-
 
 |**Mode**         | **Method**    |
 |--------------|-----------|
