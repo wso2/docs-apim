@@ -37,6 +37,9 @@ Follow the instructions below to display a list of Common API Policies in an env
                     `--limit` or `-l` : Maximum number of Common API Policies to return (Default 25)
                     `--format` : pretty-print environments using templates
 
+            !!!note
+                When executing the `apictl get policies api` command, using both the `--all` and `--limit` flags is not allowed.
+
             !!! example
                 ```bash
                 apictl get policies api -e dev 
@@ -94,7 +97,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
                     `--name` or `-n` : Name of the Common API Policy to be deleted  
 
             !!!note
-                In api controller v4.2.0, --version flag support is not provided. Instead, internally it considers the default version which is `v1` when finding the policy.
+                In apictl v4.1.0, --version flag support is not provided. Instead, internally it considers the default version which is `v1` when finding the policy.
 
             !!! example
                 ```bash
@@ -102,13 +105,10 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
                 ```
                 ```bash
                 apictl delete policy api --name addHeader --environment production 
-                ```    
-                ```go
-                apictl delete policy api --name addHeader --environment production
-                ```  
+                ```
 
         -   **Response**
 
             ```go
-            testHeader Common API Policy deleted successfully!
+            addHeader Common API Policy deleted successfully!
             ```

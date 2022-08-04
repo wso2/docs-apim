@@ -43,28 +43,28 @@
             
         !!! example
             ```go
-            apictl export api-product -n addHeader -e dev 
+            apictl export policy api -n addHeader -e dev 
             ```          
 
     -   **Response**
 
         ``` bash tab="Response Format"
         Successfully exported API Policy!
-        Find the exported API Policies at /Users/benura/.wso2apictl/exported/policies/operation/<Policy Name>_<Polic Version>.zip
+        Find the exported API Policies at /Users/benura/.wso2apictl/exported/policies/api/<Environment Name>/<Policy Name>_<Polic Version>.zip
         ```
 
         ``` bash tab="Example Response"
         Successfully exported API Policy!
-        Find the exported API Policies at /Users/benura/.wso2apictl/exported/policies/operation/testHeader_v1.zip
+        Find the exported API Policies at /Users/benura/.wso2apictl/exported/policies/api/<Environment Name>/testHeader_v1.zip
         ```
 
 The exported ZIP file has the following structure:
 
 ``` java
 <Common API Policy Name>
-├── policySpecification.yaml
-├── synapseDefinition.j2
-├── ccDefinition.gotmpl
+├── <Common API Policy Name>.yaml
+├── <Common API Policy Name>.j2
+├── <Common API Policy Name>.gotmpl
 ```
 
 The structure of an exported Common API Policy ZIP file is explained below:

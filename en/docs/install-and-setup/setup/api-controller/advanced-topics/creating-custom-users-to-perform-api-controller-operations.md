@@ -97,6 +97,14 @@ Further, you can create your own custom user with a custom role to perform speci
 <td>apim:api_product_import_export,<br>apim:api_import_export</td>
 </tr>
 <tr class="odd">
+<td>import api policy</td>
+<td>apim:policies_import_export</td>
+</tr>
+<tr class="even">
+<td>export api policy</td>
+<td>apim:policies_import_export</td>
+</tr>
+<tr class="odd">
 <td>get apps</td>
 <td>apim:app_import_export</td>
 </tr>
