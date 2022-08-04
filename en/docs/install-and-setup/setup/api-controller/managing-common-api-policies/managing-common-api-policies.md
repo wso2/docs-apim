@@ -83,10 +83,10 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
 
         -   **Command**
             ``` bash
-            apictl delete policy api -n <Common API Policy name> -e <environment>
+            apictl delete policy api -n <Common API Policy-name> -e <environment>
             ```
             ``` bash
-            apictl delete policy api --name <API name> --environment <environment> 
+            apictl delete policy api --name <Common API Policy-name> --environment <environment> 
             ```
 
             !!! info

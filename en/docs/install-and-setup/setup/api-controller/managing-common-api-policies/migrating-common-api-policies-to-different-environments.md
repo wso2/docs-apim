@@ -69,10 +69,10 @@
 The exported ZIP file has the following structure:
 
 ``` java
-<Common API Policy Name>
-├── <Common API Policy Name>.yaml
-├── <Common API Policy Name>.j2
-├── <Common API Policy Name>.gotmpl
+<Common API Policy-name>
+├── <Common API Policy-name>.yaml
+├── <Common API Policy-name>.j2
+├── <Common API Policy-name>.gotmpl
 ```
 
 The structure of an exported Common API Policy ZIP file is explained below:
@@ -86,15 +86,15 @@ The structure of an exported Common API Policy ZIP file is explained below:
     </thead>
     <tbody>
         <tr class="odd">
-            <td><code>POLICYNAME.yaml</code></td>
+            <td><code>Policy-name.yaml</code></td>
             <td>Contains all the basic information required for a Common API Policy to be imported to another environment.</td>
         </tr>
         <tr class="even">
-            <td><code>POLICYNAME.yaml</code></td>
+            <td><code>Policy-name.yaml</code></td>
             <td>Synapse gateway configurations which get applied during the runtime.</td>
         </tr>
         <tr class="odd">
-            <td><code>POLICYNAME.gotmpl</code></td>
+            <td><code>Policy-name.gotmpl</code></td>
             <td>Choreo Connect gateway configurations which get applied during the runtime.</td>
         </tr>
     </tbody>
