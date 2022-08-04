@@ -78,31 +78,84 @@ The WebSocket API exposed via Choreo Connect can be invoked using a WebSocket cl
 
 ## Via apictl for Standalone Mode
 
-The CLI tool **apictl** does not support initializing projects for Streaming APIs yet. However, you can download a WebSocket API from a WSO2 API Manager instance and deploy the downloaded project in Choreo Connect. You do not need any special configurations in API-M or Choreo Connect for this. If you do not have a running API Manager instance already, simply download the pack from the [official site](https://wso2.com/api-manager/) and start one locally.
+The CLI tool ([**apictl**]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl)) does not support initializing projects for Streaming APIs yet. However, you can download the sample WebSocket API project in [here](https://github.com/wso2/product-microgateway/tree/main/samples/apiProjects/SampleWebsocketApi) and try out it by deploying to the Choreo Connect. When you are using your own WebSocket API with Choreo Connect, you can change the relevant attribute values in `api.yaml` and `definitions/asyncapi.yaml` files. There is a explanation regarding those attribute values in [here](https://github.com/wso2/product-microgateway/tree/main/samples/apiProjects/apiProjects/SampleWebsocketApi/README.md).
 
-The following are the steps to download and deploy the API using apictl.
+Below steps explain how to try out WebSocket API in Choreo Connect stand alone mode using the above project.
 
-### Step 1 - Create an API 
+### Step 1 - Download the API
 
-Create a WebSocket API following the exact steps in [Create a WebSocket API in API Manager](#step-1-create-a-websocket-api-in-api-manager). 
+Download the sample WebSocket API in [here](https://github.com/wso2/product-microgateway/tree/main/samples/apiProjects/SampleWebsocketApi). The WebSocket API project should adhere to the below file structure.
 
-### Step 2 - Download the API
+```bash
+.
+├── Definitions
+│   └── asyncapi.yaml
+└── api.yaml
+```
 
-After creating the API and making the necessary changes, click **Download API** in the top right corner. The downloaded .zip file can be deployed via apictl using the next few commands.
+### Step 2 - Add a Choreo Connect Environment to apictl
 
-{! ./includes/deploy/cc-deploy-api-standalone-mode.md !}
+1. Start the Choreo Connect in stand alone mode.
 
-### Step 6 - Generate an access token
+2. Download the CLI tool ([**apictl**]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl)) and add Choreo Connect environment to it using the below command. This environment will hold the adapter URL for further commands
 
-{! ./includes/obtain-jwt.md !}
+    !!! info
 
-### Step 7 - Invoke the API
+        Note `mg` in the below command. The apictl commands that starts as `apictl mg` are Choreo Connect specific. If a command does not have `mg` after `apictl` then the command could probably be common to both Choreo Connect and API Manager, but it could also be API Manager specific. 
+
+    !!! tip
+
+        The apictl commands here onwards are executed with the -k flag to avoid SSL verification with the Choreo Connect.
+
+        To communicate via HTTPS without skipping SSL verification (without -k flag), add the cert in the Choreo Connect truststore into the `<USER_HOME>/.wso2apictl/certs` folder.
+
+
+    ``` bash
+     apictl mg add env dev --adapter https://localhost:9843
+    ```
+
+### Step 3 - Log in to the Choreo Connect Environment in apictl
+
+Use the following command to log in to the above Choreo Connect cluster (in other words log in to the Choreo Connect adapter). When you log in, an access token will be retrieved from Choreo Connect and it will be saved in the apictl.
+
+``` bash tab="Format"
+apictl mg login dev -u <username> -p <password> -k
+```
+
+``` bash tab="Example"
+apictl mg login dev -u admin -p admin -k
+```
+
+
+### Step 5 - Deploy the API
+
+Deploy the above WebSocket API to Choreo Connect by executing the following command.     
+
+``` bash
+apictl mg deploy api -f <path_to_the_WebSocket_API_project> -e dev -k
+```  
+
+### Step 5 - Generate an access token
+
+The following command generates a JWT to test the API, and sets it to the variable called `TOKEN`. 
+
+``` tab="Format"
+TOKEN=$(curl -X POST "https://<hostname>:<port>/testkey" -d "scope=<scope values>" -H "Authorization: Basic base64(username:password)" -k -v)
+```
+
+``` tab="Example"
+TOKEN=$(curl -X POST "https://localhost:9095/testkey" -d "" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -v)
+```
+
+### Step 6 - Invoke the API
 
 1. Install wscat client.
 
 2. Invoke the API using the following command.
 
     ```
-    wscat -c 'ws://localhost:9090/websocket/1.0.0/notification -H "Authorization:Bearer $TOKEN"
+    wscat -c 'ws://localhost:9090/websocket/1.0.0/notifications' -H "Authorization:Bearer $TOKEN"
     ```
+    
+3. Once connected, type anything you want. The websocket server will echo back what you type.
 
