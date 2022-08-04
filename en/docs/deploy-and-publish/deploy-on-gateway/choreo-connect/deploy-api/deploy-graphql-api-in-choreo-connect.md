@@ -83,7 +83,7 @@ Below instructions explain how to deploy a GraphQL to the Choreo Connect via the
 
 ## Via apictl for Standalone Mode
 
-The CLI tool ([**apictl**]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl)) does not support initializing projects for Streaming APIs yet. However, you can download a GraphQL API from a WSO2 API Manager instance and deploy the downloaded project in Choreo Connect. You do not need any special configurations in API-M or Choreo Connect for this. If you do not have a running API Manager instance already, simply download the pack from the [official site](https://wso2.com/api-manager/) and start one locally.
+The CLI tool ([**apictl**]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl)) does not support initializing projects for GraphQL APIs yet. However, you can download the sample GraphQL API project in [here](https://github.com/wso2/product-microgateway/tree/main/samples/apiProjects/SampleGraphQLApi) and try out it by deploying to the Choreo Connect. When you are using your own GraphQLApi API with Choreo Connect, you can change the relevant attribute values in `api.yaml`, `graphql-complexity.yaml` and `definitions/schema.graphql` files. There is a explanation regarding those attribute values in [here](https://github.com/wso2/product-microgateway/tree/main/samples/apiProjects/apiProjects/SampleGraphQLApi/README.md).
 
 The following are the steps to download and deploy the API using apictl.
 
