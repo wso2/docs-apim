@@ -188,22 +188,14 @@ You have to follow the below instructions to upgrade the API Manager components.
 
 1. Make sure you backed up all the databases in API-M 4.0.0
 
-2. Navigate to the [latest release tag (v4.1.0.x)](https://github.com/wso2-extensions/apim-migration-resources/releases) under **Assets** and download the `wso2am-migration-4.1.0.x.zip`. Unzip it to a local directory.
+2. Download and extract the [migration-resources.zip]({{base_path}}/assets/attachments/install-and-setup/migration/migration-resources.zip). Copy the extracted migration-resources to the `<API-M_4.1.0_HOME>` folder.
 
-    !!! note
-
-        x of wso2am-migration-4.1.0.x.zip denotes the version number of the most recently-released migration resources.
-
-        The directory where the wso2am-migration-4.1.0.x.zip is unziped will be referred to as `<AM_MIGRATION_CLIENT_HOME>`
-
-3. Copy the `<AM_MIGRATION_CLIENT_HOME>/migration-resources`  to the `<API-M_4.1.0_HOME>` directory.
-
-4. Copy the org.wso2.carbon.am.migration-4.1.0.x.jar file in the `<AM_MIGRATION_CLIENT_HOME>/dropins` directory into the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
+3. Copy the [org.wso2.carbon.apimgt.migrate.client-4.1.0.x.jar]({{base_path}}/assets/attachments/install-and-setup/migration/org.wso2.carbon.apimgt.migrate.client-4.1.0.x.jar) file into the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
 
     !!! note "If you have configured WSO2 IS 5.11.0 as Resident Key Manager"
         Make sure you have already started the WSO2 Identity Server instance before executing the next step.
 
-5. Prior to API-M migration, run the below commad to execute pre migration step which will       validate your old data.
+4. Prior to API-M migration, run the below commad to execute pre migration step which will validate your old data.
 
     - Available validators: `apiAvailabilityValidation`, `apiDefinitionValidation`
 
@@ -221,7 +213,7 @@ You have to follow the below instructions to upgrade the API Manager components.
     
     Check the server logs and verify if there are any errors logs. If you have encountered any errors in the API definitions, you have to correct them manually on an old version before the component migration. 
 
-6.  Start the API Manager server to migrate the API Manager components as follows.
+5.  Start the API Manager server to migrate the API Manager components as follows.
 
     ``` tab="Linux / Mac OS"
     sh api-manager.sh -Dmigrate -DmigrateFromVersion=4.0.0 -DmigratedVersion=4.1.0
@@ -231,7 +223,7 @@ You have to follow the below instructions to upgrade the API Manager components.
     api-manager.bat -Dmigrate -DmigrateFromVersion=4.0.0 -DmigratedVersion=4.1.0
     ```
 
-7.  Shut down the API Manager server.
+6.  Shut down the API Manager server.
     
     -   Remove the `org.wso2.carbon.apimgt.migrate.client-4.1.0.x.jar` file, which is in the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
 
