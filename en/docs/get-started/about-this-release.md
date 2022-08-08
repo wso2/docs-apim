@@ -221,6 +221,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 These features are deprecated and will be removed from subsequent versions of WSO2 API Manager.
 
 - **[Generate REST API from SOAP Backend]({{base_path}}/design/create-api/create-rest-api/generate-rest-api-from-soap-backend/)**
+- **Hazelcast Based Gateway Clustering**
 
 ## Removed features and functionalities
 
