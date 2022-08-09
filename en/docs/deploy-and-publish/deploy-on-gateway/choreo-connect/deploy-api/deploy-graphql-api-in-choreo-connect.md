@@ -1,10 +1,18 @@
 # Deploying a GraphQL API in Choreo Connect
 
+GraphQL is a querying language for APIs. Initially it was developed by Facebook. When compared to the REST APIs, GraphQL APIs allow
+you to query only the required data. Response will have only the data you requested (over-fetching and under-fetching will not happen). Using a single request you can fetch data
+related to multiple resources. This is not possible with REST APIs. If REST API is used, you will have to consider multiple requests
+to gather the same amount of data. GraphQL APIs are based on a strong type system. Schema Definition Language (SDL) file defines the
+contract between client and the server. It explains how client can access the data provided by the server. This page explains how to 
+deploy a GraphQL API in Choero Connect and also explains the supported features of Choreo Connect for GraphQL APIs.
+
 Choreo Connect supports below features additionally to the basic GraphQL API invocations.
 
 - Runtime configurations
     - Transport level security
     - [GraphQL query analysis (query complexity and query depth limitation)]({{base_path}}/design/rate-limiting/graphql-api/overview-query-limits-for-graphql/#static-query-analyzer)
+    - Cross-Origin Resource Sharing (CORS)
 - [Rate limiting policies (API level and operation level) with the support of WSO2 API-M]({{base_path}}/design/create-api/create-a-graphql-api/#rate-limiting-for-graphql-operations)
 - [Security scopes]({{base_path}}/design/create-api/create-a-graphql-api/#authorization-for-graphql-operations)
 - Enable/ disable security for GraphQL operations
@@ -25,17 +33,120 @@ Below instructions explain how to deploy a GraphQL to the Choreo Connect via the
 
 !!! info "Before you begin"
 
-    - This guide assumes that you already have a up and running Choreo Connect instance configured with WSO2 API Manager. If not, checkout the [Quick Start Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/) on how to install and run Choreo Connect. To learn more about Choreo Connect, have a look at the [Overview of Choreo Connect]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview).
-    - Also you need to have a correctly defined GraphQL schema file (SDL).
+    - This guide assumes that you already have a up and running Choreo Connect instance configured with WSO2 API Manager. If not, you can refer to the [Quick Start Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/) on how to run Choreo Connect with WSO2 API Manager. To learn more about Choreo Connect related componentes, refer to the [Overview of Choreo Connect]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview).
+    - GraphQL schema file (SDL) and a GraphQL server implementaion relevant to the SDL.
 
-### Step 1 - Create a GraphQL API in API Manager
+### Step 1 - Create a GraphQL API in WSO2 API Manager publisher portal
 
-1. Create a GraphQL API in WSO2 API-M publisher portal by following the step number two in [here]({{base_path}}/design/create-api/create-a-graphql-api/#step-2-design-a-graphql-api).
+You can create a GraphQL API in WSO2 API-M publisher portal by following the steps described below.
+
+
+1. Sign in to the API Publisher Portal.
+
+    `https://<hostname>:9443/publisher`
+
+    Example: `https://localhost:9443/publisher`
+
+    Let's use `admin` as the username and password to sign in.
+
+2. Click **Create API** and then click **Import GraphQL SDL**.
+
+    [![Create GraphQL Schema Option]({{base_path}}/assets/img/learn/create-graphql-schema-option.png)]({{base_path}}/assets/img/learn/create-graphql-schema-option.png)
+
+3. Import the schema by dragging and dropping the file or by uploading the file, and click **Next**.
+
+    Let's use the [StarWarsAPI schema definition](../../assets/attachments/learn/schema_graphql.graphql) to create the schema file. 
+
+    <div class="admonition note">
+    <p class="admonition-title">Note</p>
+    <ul><li>
+        <p>You need to define the SDL Schema based on the [GraphQL schema design best practices](https://leapgraph.com/graphql-schema-design-best-practices).</p></li>
+        <li>The file extension can be either `.graphql`, `.txt`, or `.json`. </li><li> The file name can be any name, which is based on your preference.</li></ul>
+    </div>
+
+    [![Import a GraphQL schema by adding a file]({{base_path}}/assets/img/learn/import-graphql-schema-via-file.png){: style="width:80%"}]({{base_path}}/assets/img/learn/import-graphql-schema-via-file.png)
+
+4. Enter the GraphQL API related details and click **Create**.
+
+    Let's create an API named "StarWarsAPI" using the following sample data.
+
+       <table>
+          <thead>
+            <tr class="header">
+                <th><div>
+                    <div>
+                        <b>Field</b>
+                    </div>
+                    </div>
+                </th>
+          <th><div>
+          <div>
+          <b>Description</b>
+          </div>
+          </div></th>
+          </tr>
+          </thead>
+          <td >
+             <p>Name</p>
+          </td>
+          <td>
+             <p>StarWarsAPI</p>
+          </td>
+          </tr>
+          <tr>
+          <td>
+             <p>Context</p>
+          </td>
+          <td>
+             <p><code>/swapi</code></p>
+          </td>
+          </tr>
+          <tr>
+          <td>
+             <p>Version</p>
+          </td>
+          <td>
+             <p>1.0.0</p>
+          </td>
+          </tr>
+          <tr>
+          <td>
+             <p>Endpoint</p>
+          </td>
+          <td>
+             <a href="http://localhost:8080/graphql" target="_blank">http://localhost:8080/graphql</a>
+          </td>
+          </tr>
+          </table>
+
+       [![Add GraphQL API details]({{base_path}}/assets/img/learn/create-graphql-api-details.png){: style="width:75%"}](../../assets/img/learn/create-graphql-api-details.png)
+
+5. Click `Create` button.
+
+!!! note
+
+    Server implementation relevant to the above API can be obtained from [here]({{base_path}}/tutorials/create-and-publish-a-graphql-api/#step-1-start-the-graphql-backend-server)
+
 
 ### Step 2 - Deploy and publish the API
 
-1. Deploy the API in Choreo Connect by navigating to the **Deployments** page in API-M publisher portal. For more information, see the step three and four explained in [here]({{base_path}}/tutorials/create-and-publish-a-graphql-api/#step-3-deploy-the-graphql-api).
-2. Change the API's life cycle state from **CREATED** to **PUBLISHED** in order to make it visible in the WSO2 API-M Dev Portal.
+
+1. Navigate to **Deploy** and click **Deployments** to retrieve the API deployment page.
+2. Click **Deploy** to deploy the API in Choreo Connect.
+
+       [![Deploy GraphQL API]({{base_path}}/assets/img/learn/deploy-graphql-api.png)]({{base_path}}/assets/img/learn/deploy-graphql-api.png)
+
+       The Deployment page appears.
+
+       [![GraphQL API Deployment page]({{base_path}}/assets/img/learn/graphql-api-revision-1.png)]({{base_path}}/assets/img/learn/graphql-api-revision-1.png)
+
+3. Navigate to **Publish** and click **Lifecycle**.
+
+       The API lifecycle page appears.
+
+4. Click **Publish** to publish the API to the API Developer Portal.
+
+       [![Publish GraphQL API]({{base_path}}/assets/img/learn/publish-graphql-api.png)]({{base_path}}/assets/img/learn/publish-graphql-api.png)
 
 ### Step 3 - Generate an Access Token to invoke the API
 
@@ -47,9 +158,7 @@ Below instructions explain how to deploy a GraphQL to the Choreo Connect via the
 
 4. Open **APIs** from the top menu and select your API.
 
-5. Open the **Subscriptions** tab from the left menu bar, click on **PROD KEYS**, and generate keys.
-
-6. Open the **Try Out** tab and click **GET TEST KEY**. This will include the access token in the cURL command you generate in the section below.
+5. Open the **Try Out** tab and click **GET TEST KEY**. This will include the access token in the cURL command you generate in the section below.
 
 ### Step 4 - Invoke the API by providing a valid GraphQL query
 
@@ -77,15 +186,16 @@ Below instructions explain how to deploy a GraphQL to the Choreo Connect via the
 
     [![Response of GraphQL Query]({{base_path}}/assets/img/learn/graphql-response-query.png)]({{base_path}}/assets/img/learn/graphql-response-query.png)
 
-    If you inspect the network calls from your browser developer tools, you can see the messages passed between the GraphiQL client and the backend.
-    
-
-
 ## Via apictl for Standalone Mode
 
-The CLI tool ([**apictl**]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl)) does not support initializing projects for GraphQL APIs yet. However, you can download the sample GraphQL API project in [here](https://github.com/wso2/product-microgateway/tree/main/samples/apiProjects/SampleGraphQLApi) and try out it by deploying to the Choreo Connect. When you are using your own GraphQLApi API with Choreo Connect, you can change the relevant attribute values in `api.yaml`, `graphql-complexity.yaml` and `definitions/schema.graphql` files. There is a explanation regarding those attribute values in [here](https://github.com/wso2/product-microgateway/tree/main/samples/apiProjects/apiProjects/SampleGraphQLApi/README.md).
+The CLI tool ([**apictl**]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl)) 
+does not support initializing projects for GraphQL APIs yet. However, you can download the sample GraphQL API project in 
+[here](https://github.com/wso2/product-microgateway/tree/main/samples/apiProjects/SampleGraphQLApi) and try out it by deploying 
+to the Choreo Connect. When you are using your own GraphQL API with Choreo Connect, you can change the relevant attribute values 
+in `api.yaml`, `graphql-complexity.yaml` and `definitions/schema.graphql` files. There is an explanation regarding those attribute values in 
+[here](https://github.com/wso2/product-microgateway/tree/main/samples/apiProjects/apiProjects/SampleGraphQLApi/README.md).
 
-The following are the steps to download and deploy the API using apictl.
+The following steps describe how to deploy GraphQL API in Choreo Connect standalone mode.
 
 ### Step 1 - Create an API Project
 
@@ -101,14 +211,12 @@ When using GraphQL APIs in Choreo Connect standalone mode, you need to have an A
 ```
 
 !!! note
-    - Similar to the sample project, you can deploy your own GraphQL API in Choreo Connect by changing the relevant attribute values that are defined in the `yaml` files.
+    - Similar to the sample project, you can deploy your own GraphQL API in Choreo Connect by changing the relevant attribute values that are defined in the `api.yaml` file.
     - `graphql-complexity.yaml` is an optional file where you can define complexities relevant to the GraphQL queries.
-
-You can download a sample GraphQL API project from [here](link) to try out this deployment mode.
 
 ### Step 2 - Add a Choreo Connect Environment to apictl
 
-To use apictl with Choreo Connect, a Choreo Connect environment needs to be added to apictl. This environment will hold the adapter URL for further commands.
+To use apictl with Choreo Connect, a Choreo Connect environment needs to be added to the apictl. This environment will hold the adapter URL for further commands.
 
 ``` bash
 apictl mg add env dev --adapter https://localhost:9843
@@ -146,7 +254,7 @@ apictl mg deploy api -f <path_to_the_API_project_just_created>/<gqlProjectName> 
 
 ### Step 5 - Generate an access token
 
-After the APIs are exposed via Choreo Connect, you can invoke an API with a valid access token.
+After exposing the GraphQL API via Choreo Connect, you can invoke an API with a valid access token.
 
 Let's use the following command to generate a JWT to access the API, and set it to the variable `TOKEN`. 
 
