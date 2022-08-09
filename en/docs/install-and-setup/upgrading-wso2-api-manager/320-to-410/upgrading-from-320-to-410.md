@@ -353,6 +353,17 @@ You have to run the following migration client to update the API Manager artifac
     -DrunPreMigration
     ```
 
+    !!! note "If you want to save the invalid api definitions"
+        You can save the invalid api definitions to the local file system during this data validation step if required. Use the `-DsaveInvalidDefinition` option for this as follows. The invalid definitions will be stored under a folder named `<API-M_4.1.0_HOME>/invalid-swagger-definitions` in the form of `<API_UUID>.json`. Then you can manually correct these definitions.
+
+        ```tab="Linux / Mac OS"
+        sh api-manager.sh -Dmigrate -DmigrateFromVersion=4.0.0 -DmigratedVersion=4.1.0 -DrunPreMigration -DsaveInvalidDefinition
+        ```
+
+        ``` tab="Windows"
+        api-manager.bat -Dmigrate -DmigrateFromVersion='4.0.0' -DmigratedVersion='4.1.0' -DrunPreMigration -DsaveInvalidDefinition
+        ```
+
     Check the server logs and verify if there are any errors logs. If you have encountered any errors in the API definitions, you have to correct them manually on the old version before proceeding to step 5.
 
 4.  Start the API-M server to migrate the API-M components as follows.
