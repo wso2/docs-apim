@@ -190,7 +190,7 @@ You have to follow the below instructions to upgrade the API Manager components.
 
 2. Download and extract the [migration-resources.zip]({{base_path}}/assets/attachments/install-and-setup/migration/migration-resources.zip). Copy the extracted migration-resources to the `<API-M_4.1.0_HOME>` folder.
 
-3. Copy the [org.wso2.carbon.apimgt.migrate.client-4.1.0.x.jar]({{base_path}}/assets/attachments/install-and-setup/migration/org.wso2.carbon.apimgt.migrate.client-4.1.0.x.jar) file into the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
+3. Copy the [org.wso2.carbon.apimgt.migrate.client-4.1.0.x.jar]({{base_path}}/assets/attachments/install-and-setup/migration/org.wso2.carbon.apimgt.migrate.client-4.1.0.31.jar) file into the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
 
     !!! note "If you have configured WSO2 IS 5.11.0 as Resident Key Manager"
         Make sure you have already started the WSO2 Identity Server instance before executing the next step.
