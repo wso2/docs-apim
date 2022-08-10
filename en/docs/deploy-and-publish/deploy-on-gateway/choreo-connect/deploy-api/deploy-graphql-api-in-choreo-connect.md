@@ -165,7 +165,7 @@ You can create a GraphQL API in WSO2 API-M publisher portal by following the ste
 
 ### Step 4 - Invoke the API by providing a valid GraphQL query
 
-1. Since GraphQL APIs require a GraphQL query to provide results, you need to have a valid query. A sample query is provided in below section. In API Manager publisher portal, GraphiQL is used for build queries. You can use explorer option available there to build queries. More information regarding valid GraphQL query generation includes in [here]({{base_path}}/tutorials/create-and-publish-a-graphql-api/#step-51-optionally-try-out-a-query-operation).
+1. Since GraphQL APIs require a GraphQL query to provide results, you need to have a valid query. A sample query is provided in the below section. In API Manager Publisher Portal, GraphQL is used for build queries. You can use the explorer option available there to build queries. For more information regarding valid GraphQL query generation, see [here]({{base_path}}/tutorials/create-and-publish-a-graphql-api/#step-51-optionally-try-out-a-query-operation).
 
     ``` 
     query{
