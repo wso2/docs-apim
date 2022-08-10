@@ -275,7 +275,7 @@ TOKEN=$(curl -X POST "https://localhost:9095/testkey" -d "" -H "Authorization: B
 ### Step 6 - Invoke the API
 
 !!! note
-    - Choreo Connect handles GraphQL API requests considering the `POST` HTTP method type only. Therefore, the query given in the request should follow the JSON structure explained in [here](https://graphql.org/learn/serving-over-http/#post-request).
+    - Choreo Connect handles GraphQL API requests considering the `POST` HTTP method type only. Therefore, the query given in the request should follow the JSON structure explained [here](https://graphql.org/learn/serving-over-http/#post-request).
     - Request should include one of the http request `Content-Type` headers listed in below. 
         - `-H "Content-Type: application/json"`
         - `-H "Content-Type: application/graphql"`
