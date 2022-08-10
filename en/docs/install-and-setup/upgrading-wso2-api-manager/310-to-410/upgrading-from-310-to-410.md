@@ -575,7 +575,7 @@ You have to run the following migration client to update the API Manager artifac
 
 2. Copy the [org.wso2.carbon.apimgt.migrate.client-4.1.0.x.jar]({{base_path}}/assets/attachments/install-and-setup/migration/org.wso2.carbon.apimgt.migrate.client-4.1.0.31.jar) file into the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
 
-3. Prior to API-M migration, run the below commad to execute pre migration step which will validate your old data.
+3. Prior to API-M migration, run the below command to execute the pre-migration step that will validate your old data.
 
     - Available validators: `apiAvailabilityValidation`, `apiDefinitionValidation`
 
