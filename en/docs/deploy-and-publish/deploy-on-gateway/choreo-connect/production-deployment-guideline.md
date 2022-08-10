@@ -482,4 +482,4 @@ When you have to deploy a config change to the Choreo Connect running on product
 Steps:
 
 1. Do the config change and first rollout restart the Adapter.
-2. After all replicas of adapter pod are started and ready, rollout restart enforcer & router (`choreo-connect-deployment`).
+2. After all the replicas of the Adapter pod have been started and are ready, rollout restart the Enforcer and Router (`choreo-connect-deployment`).
