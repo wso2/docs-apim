@@ -572,19 +572,11 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Manag
 
 You have to run the following migration client to update the API Manager artifacts.
 
-1.  Navigate to the [latest release tag (v4.1.0.x)](https://github.com/wso2-extensions/apim-migration-resources/releases) under **Assets** and download the `wso2am-migration-4.1.0.x.zip`. Unzip it to a local directory.
+1. Download and extract the [migration-resources.zip]({{base_path}}/assets/attachments/install-and-setup/migration/migration-resources.zip). Copy the extracted migration-resources to the `<API-M_4.1.0_HOME>` folder.
 
-    !!! note
+2. Copy the [org.wso2.carbon.apimgt.migrate.client-4.1.0.x.jar]({{base_path}}/assets/attachments/install-and-setup/migration/org.wso2.carbon.apimgt.migrate.client-4.1.0.31.jar) file into the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
 
-        x of wso2am-migration-4.1.0.x.zip denotes the version number of the most recently-released migration resources.
-
-        The directory where the wso2am-migration-4.1.0.x.zip is unziped will be referred to as `<AM_MIGRATION_CLIENT_HOME>`
-
-2. Copy the `<AM_MIGRATION_CLIENT_HOME>/migration-resources` to the `<API-M_4.1.0_HOME>` directory.
-
-3. Copy the org.wso2.carbon.am.migration-4.1.0.x.jar file in the `<AM_MIGRATION_CLIENT_HOME>/dropins` directory into the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
-
-4. Prior to API-M migration, run the below commad to execute pre migration step which will validate your old data.
+3. Prior to API-M migration, run the below command to execute the pre-migration step that will validate your old data.
 
     - Available validators: `apiAvailabilityValidation`, `apiDefinitionValidation`
 
@@ -600,9 +592,20 @@ You have to run the following migration client to update the API Manager artifac
     -DrunPreMigration
     ```
 
+    !!! note "If you want to save the invalid API definitions"
+        You can save the invalid API definitions to the local file system during this data validation step if required. Use the `-DsaveInvalidDefinition` option for this as follows. The invalid definitions will be stored under a folder named `<API-M_4.1.0_HOME>/invalid-swagger-definitions` in the form of `<API_UUID>.json`. Then you can manually correct these definitions.
+
+        ```tab="Linux / Mac OS"
+        sh api-manager.sh -Dmigrate -DmigrateFromVersion=4.0.0 -DmigratedVersion=4.1.0 -DrunPreMigration -DsaveInvalidDefinition
+        ```
+
+        ``` tab="Windows"
+        api-manager.bat -Dmigrate -DmigrateFromVersion='4.0.0' -DmigratedVersion='4.1.0' -DrunPreMigration -DsaveInvalidDefinition
+        ```
+
     Check the server logs and verify if there are any errors logs. If you have encountered any errors in the API definitions, you have to correct them manually on the old version before proceeding to step 5.
 
-5.  Start the API-M server to migrate the API-M components as follows.
+4.  Start the API-M server to migrate the API-M components as follows.
 
     ``` tab="Linux / Mac OS"
     sh api-manager.sh -Dmigrate -DmigrateFromVersion=3.0.0 -DmigratedVersion=4.1.0
@@ -612,7 +615,7 @@ You have to run the following migration client to update the API Manager artifac
     api-manager.bat -Dmigrate -DmigrateFromVersion=3.0.0 -DmigratedVersion=4.1.0
     ```
 
-6.  Shutdown the API-M server.
+5.  Shutdown the API-M server.
 
     -   Remove the `org.wso2.carbon.apimgt.migrate.client-4.1.0.x.jar` file, which is in the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
 
