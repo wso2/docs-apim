@@ -219,7 +219,7 @@ When using GraphQL APIs in Choreo Connect standalone mode, you need to have an A
 
 ### Step 2 - Add a Choreo Connect Environment to apictl
 
-To use apictl with Choreo Connect, a Choreo Connect environment needs to be added to the apictl. This environment will hold the adapter URL for further commands.
+To use apictl with Choreo Connect, a Choreo Connect environment needs to be added to the apictl. This environment will hold the Adapter URL for further commands.
 
 ``` bash
 apictl mg add env dev --adapter https://localhost:9843
