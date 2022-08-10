@@ -10,7 +10,7 @@ deploy a GraphQL API in Choero Connect and also explains the supported features 
 !!! attention "Update Level _"
     This feature is available only as an update, after Update level _ and further. For more information, see [Link]({{base_path}}<>).
 
-Choreo Connect supports below features additionally to the basic GraphQL API invocations.
+Choreo Connect supports the below features in addition to the basic GraphQL API invocations.
 
 - Runtime configurations
     - Transport level security
