@@ -202,7 +202,7 @@ The following steps describe how to deploy GraphQL API in Choreo Connect standal
 
 ### Step 1 - Create an API Project
 
-When using GraphQL APIs in Choreo Connect standalone mode, you need to have an API project. Structure of a sample GraphQL API project included in below.
+When using GraphQL APIs in Choreo Connect standalone mode, you need to have an API project. The structure of a sample GraphQL API project is included below.
 
 ```bash
 .
