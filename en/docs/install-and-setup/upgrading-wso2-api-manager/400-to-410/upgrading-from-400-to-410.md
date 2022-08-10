@@ -195,7 +195,7 @@ You have to follow the below instructions to upgrade the API Manager components.
     !!! note "If you have configured WSO2 IS 5.11.0 as Resident Key Manager"
         Make sure you have already started the WSO2 Identity Server instance before executing the next step.
 
-4. Prior to API-M migration, run the below commad to execute pre migration step which will validate your old data.
+4. Prior to API-M migration, run the below command to execute the pre-migration step that will validate your old data.
 
     - Available validators: `apiAvailabilityValidation`, `apiDefinitionValidation`
 
