@@ -39,7 +39,7 @@ Below instructions explain how to deploy a GraphQL to the Choreo Connect via the
     - This guide assumes that you already have a up and running Choreo Connect instance configured with WSO2 API Manager. If not, you can refer to the [Quick Start Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/) on how to run Choreo Connect with WSO2 API Manager. To learn more about Choreo Connect related componentes, refer to the [Overview of Choreo Connect]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview).
     - GraphQL schema file (SDL) and a GraphQL server implementaion relevant to the SDL.
 
-### Step 1 - Create a GraphQL API in WSO2 API Manager publisher portal
+### Step 1 - Create a GraphQL API in WSO2 API Manager Publisher Portal
 
 You can create a GraphQL API in WSO2 API-M Publisher Portal by following the steps described below.
 
