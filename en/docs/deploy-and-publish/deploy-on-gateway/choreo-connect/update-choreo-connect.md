@@ -60,7 +60,7 @@ You will be able to use the **Updates Portal** to see more details about these u
 
 ## Updates Portal
 
-Use your subscription details to login to the Updates Portal via [https://updates-info.wso2.com](https://updates-info.wso2.com/). You will be able to see the information like General description, Implementation details, Impact, Bug fixes and specific Instructions on each update in the **Update Levels** section by choosing Choreo Connect as the product and appropriate product version.
+Use your subscription details to log in to the Updates Portal via [https://updates-info.wso2.com](https://updates-info.wso2.com/). You will be able to see information like General description, Implementation details, Impact, Bug fixes, and specific Instructions on each update in the **Update Levels** section by choosing Choreo Connect as the product and the appropriate product version.
 
 !!! Info
     For more information on this, refer to the official documentation for [Updates Portal](https://updates.docs.wso2.com/en/latest/updates/updates-portal/).
