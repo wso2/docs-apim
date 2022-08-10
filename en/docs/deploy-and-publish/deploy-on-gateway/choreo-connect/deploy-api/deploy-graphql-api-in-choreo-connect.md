@@ -192,7 +192,7 @@ You can create a GraphQL API in WSO2 API-M publisher portal by following the ste
 ## Via apictl for Standalone Mode
 
 The CLI tool ([**apictl**]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl)) 
-does not support initializing projects for GraphQL APIs yet. However, you can download the sample GraphQL API project in 
+does not support initializing projects for GraphQL APIs yet. However, you can download the sample GraphQL API project from 
 [here](https://github.com/wso2/product-microgateway/tree/main/samples/apiProjects/SampleGraphQLApi) and try out it by deploying 
 to the Choreo Connect. When you are using your own GraphQL API with Choreo Connect, you can change the relevant attribute values 
 in `api.yaml`, `graphql-complexity.yaml` and `definitions/schema.graphql` files. There is an explanation regarding those attribute values in 
