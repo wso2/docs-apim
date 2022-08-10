@@ -1,6 +1,6 @@
 # Deploying a GraphQL API in Choreo Connect
 
-GraphQL is a querying language for APIs. Initially it was developed by Facebook. When compared to the REST APIs, GraphQL APIs allow
+GraphQL is a querying language for APIs that was initially developed by Facebook. When compared to the REST APIs, GraphQL APIs allow
 you to query only the required data. Response will have only the data you requested (over-fetching and under-fetching will not happen). Using a single request you can fetch data
 related to multiple resources. This is not possible with REST APIs. If REST API is used, you will have to consider multiple requests
 to gather the same amount of data. GraphQL APIs are based on a strong type system. Schema Definition Language (SDL) file defines the
