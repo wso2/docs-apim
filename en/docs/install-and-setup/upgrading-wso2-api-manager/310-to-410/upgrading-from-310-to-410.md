@@ -591,7 +591,7 @@ You have to run the following migration client to update the API Manager artifac
     -DrunPreMigration
     ```
 
-    !!! note "If you want to save the invalid api definitions"
+    !!! note "If you want to save the invalid API definitions"
         You can save the invalid api definitions to the local file system during this data validation step if required. Use the `-DsaveInvalidDefinition` option for this as follows. The invalid definitions will be stored under a folder named `<API-M_4.1.0_HOME>/invalid-swagger-definitions` in the form of `<API_UUID>.json`. Then you can manually correct these definitions.
 
         ```tab="Linux / Mac OS"
