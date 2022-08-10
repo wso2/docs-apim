@@ -477,7 +477,7 @@ Follow the document on [Deploying Choreo Connect as a Standalone Gateway on Kube
 When you have to deploy a config change to the Choreo Connect running on production environment, we recommand you to complete the following steps in order.
 
 !!! Attention
-    You must follow this, if the change of the config is related to **enforcer** as `enforcer` is fetching configs from adapter only at the startup.
+    You must follow this, if the config change is related to the **Enforcer** as the `enforcer` fetches configs from the Adapter only at the startup.
 
 Steps:
 
