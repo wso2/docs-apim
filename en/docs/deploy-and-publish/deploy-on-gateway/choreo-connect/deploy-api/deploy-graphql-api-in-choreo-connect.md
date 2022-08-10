@@ -185,7 +185,7 @@ You can create a GraphQL API in WSO2 API-M publisher portal by following the ste
 
 2. Click **Execute**.
 
-    You will get a response for the GraphQL API invocation, as shown in below.
+    You will get a response for the GraphQL API invocation, as shown below.
 
     [![Response of GraphQL Query]({{base_path}}/assets/img/learn/graphql-response-query.png)]({{base_path}}/assets/img/learn/graphql-response-query.png)
 
