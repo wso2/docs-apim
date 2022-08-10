@@ -6,7 +6,7 @@ However, if you have a WSO2 Subscription you will be able to use latest Docker i
 
 ## Docker Image Tags
 
-The docker images related to Choreo Connect updates are reside in [WSO2 private docker registry](https://docker.wso2.com/) and the image tags are having the following format for Choreo Connect components.
+The Docker images related to Choreo Connect updates reside in [WSO2 private Docker registry](https://docker.wso2.com/) and the image tags have the following format for Choreo Connect components.
 
 <table>
     <thead>
