@@ -472,7 +472,7 @@ wso2.deployment.adapter.security.adapterRestService.enabled="false"
 
 Follow the document on [Deploying Choreo Connect as a Standalone Gateway on Kubernetes - Helm Artifacts]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-kubernetes-helm-artifacts/) to deploy Choreo Connect.
 
-### Applying Config Changes into Running Instance of Choreo Connect 
+### Applying config changes into a running instance of Choreo Connect 
 
 When you have to deploy a config change to the Choreo Connect running on production environment, we recommand you to complete the following steps in order.
 
