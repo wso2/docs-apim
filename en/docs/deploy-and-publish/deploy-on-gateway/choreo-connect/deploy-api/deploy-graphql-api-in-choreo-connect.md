@@ -41,7 +41,7 @@ Below instructions explain how to deploy a GraphQL to the Choreo Connect via the
 
 ### Step 1 - Create a GraphQL API in WSO2 API Manager publisher portal
 
-You can create a GraphQL API in WSO2 API-M publisher portal by following the steps described below.
+You can create a GraphQL API in WSO2 API-M Publisher Portal by following the steps described below.
 
 
 1. Sign in to the API Publisher Portal.
