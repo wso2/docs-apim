@@ -23,7 +23,7 @@ Choreo Connect supports below features additionally to the basic GraphQL API inv
 !!! note
     Currently Choreo Connect supports **`query`** and **`mutation`** GraphQL operations only.
 
-You can deploy GraphQL APIs using Choreo Connect by following one of the two deployment modes described in below.
+You can deploy GraphQL APIs using Choreo Connect by following one of the two deployment modes described below.
 
 |**Mode**                               | **Method**    |
 |---------------------------------------|---------------|
