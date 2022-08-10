@@ -32,7 +32,7 @@ You can deploy GraphQL APIs using Choreo Connect by following one of the two dep
 
 ## Via WSO2 API Manager Publisher Portal
 
-Below instructions explain how to deploy a GraphQL to the Choreo Connect via the Publisher Portal in WSO2 API Manager.
+Below instructions explain how to deploy a GraphQL API to Choreo Connect via the Publisher Portal in WSO2 API Manager.
 
 !!! info "Before you begin"
 
