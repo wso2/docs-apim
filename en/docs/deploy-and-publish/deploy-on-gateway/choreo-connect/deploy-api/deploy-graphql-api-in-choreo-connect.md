@@ -198,7 +198,7 @@ to the Choreo Connect. When you are using your own GraphQL API with Choreo Conne
 in `api.yaml`, `graphql-complexity.yaml` and `definitions/schema.graphql` files. There is an explanation regarding those attribute values in 
 [here](https://github.com/wso2/product-microgateway/tree/main/samples/apiProjects/apiProjects/SampleGraphQLApi/README.md).
 
-The following steps describe how to deploy GraphQL API in Choreo Connect standalone mode.
+The following steps describe how to deploy a GraphQL API in Choreo Connect standalone mode.
 
 ### Step 1 - Create an API Project
 
