@@ -509,7 +509,7 @@ Follow the instructions below to move all the existing API Manager configuration
         )
         /
 
-        CREATE TABLE IDN_UMA_RESOURCE (
+        CREATE TABLE IF NOT EXISTS IDN_UMA_RESOURCE (
         ID                  INTEGER   NOT NULL,
         RESOURCE_ID         VARCHAR(255),
         RESOURCE_NAME       VARCHAR(255),
@@ -525,7 +525,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE SEQUENCE IDN_UMA_RESOURCE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
         /
 
-        CREATE TRIGGER IDN_UMA_RESOURCE_TRIG NO CASCADE
+        CREATE OR REPLACE TRIGGER IDN_UMA_RESOURCE_TRIG NO CASCADE
         BEFORE INSERT
         ON IDN_UMA_RESOURCE
         REFERENCING NEW AS NEW
@@ -541,7 +541,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE INDEX IDX_USER ON IDN_UMA_RESOURCE (RESOURCE_OWNER_NAME, USER_DOMAIN)
         /
 
-        CREATE TABLE IDN_UMA_RESOURCE_META_DATA (
+        CREATE TABLE IF NOT EXISTS IDN_UMA_RESOURCE_META_DATA (
             ID INTEGER NOT NULL,
             RESOURCE_IDENTITY INTEGER NOT NULL,
             PROPERTY_KEY VARCHAR(40),
@@ -554,7 +554,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE SEQUENCE IDN_UMA_RESOURCE_META_DATA_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
         /
 
-        CREATE TRIGGER IDN_UMA_RESOURCE_META_DATA_TRIG NO CASCADE
+        CREATE OR REPLACE TRIGGER IDN_UMA_RESOURCE_META_DATA_TRIG NO CASCADE
         BEFORE INSERT
         ON IDN_UMA_RESOURCE_META_DATA
         REFERENCING NEW AS NEW
@@ -564,7 +564,7 @@ Follow the instructions below to move all the existing API Manager configuration
         END
         /
 
-        CREATE TABLE IDN_UMA_RESOURCE_SCOPE (
+        CREATE TABLE IF NOT EXISTS IDN_UMA_RESOURCE_SCOPE (
             ID INTEGER NOT NULL,
             RESOURCE_IDENTITY INTEGER NOT NULL,
             SCOPE_NAME VARCHAR(255),
@@ -576,7 +576,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE SEQUENCE IDN_UMA_RESOURCE_SCOPE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
         /
 
-        CREATE TRIGGER IDN_UMA_RESOURCE_SCOPE_TRIG  NO CASCADE
+        CREATE OR REPLACE TRIGGER IDN_UMA_RESOURCE_SCOPE_TRIG  NO CASCADE
         BEFORE INSERT
         ON IDN_UMA_RESOURCE_SCOPE
         REFERENCING NEW AS NEW
@@ -589,7 +589,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE INDEX IDX_RS ON IDN_UMA_RESOURCE_SCOPE (SCOPE_NAME)
         /
 
-        CREATE TABLE IDN_UMA_PERMISSION_TICKET (
+        CREATE TABLE IF NOT EXISTS IDN_UMA_PERMISSION_TICKET (
             ID INTEGER NOT NULL,
             PT VARCHAR(255) NOT NULL,
             TIME_CREATED TIMESTAMP NOT NULL,
@@ -603,7 +603,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE SEQUENCE IDN_UMA_PERMISSION_TICKET_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
         /
 
-        CREATE TRIGGER IDN_UMA_PERMISSION_TICKET_TRIG NO CASCADE
+        CREATE OR REPLACE TRIGGER IDN_UMA_PERMISSION_TICKET_TRIG NO CASCADE
         BEFORE INSERT
         ON IDN_UMA_PERMISSION_TICKET
         REFERENCING NEW AS NEW
@@ -616,7 +616,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE INDEX IDX_PT ON IDN_UMA_PERMISSION_TICKET (PT)
         /
 
-        CREATE TABLE IDN_UMA_PT_RESOURCE (
+        CREATE TABLE IF NOT EXISTS IDN_UMA_PT_RESOURCE (
             ID INTEGER NOT NULL,
             PT_RESOURCE_ID INTEGER NOT NULL,
             PT_ID INTEGER NOT NULL,
@@ -629,7 +629,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE SEQUENCE IDN_UMA_PT_RESOURCE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
         /
 
-        CREATE TRIGGER IDN_UMA_PT_RESOURCE_TRIG NO CASCADE
+        CREATE OR REPLACE TRIGGER IDN_UMA_PT_RESOURCE_TRIG NO CASCADE
         BEFORE INSERT
         ON IDN_UMA_PT_RESOURCE
         REFERENCING NEW AS NEW
@@ -639,7 +639,7 @@ Follow the instructions below to move all the existing API Manager configuration
         END
         /
 
-        CREATE TABLE IDN_UMA_PT_RESOURCE_SCOPE (
+        CREATE TABLE IF NOT EXISTS IDN_UMA_PT_RESOURCE_SCOPE (
             ID INTEGER NOT NULL,
             PT_RESOURCE_ID INTEGER NOT NULL,
             PT_SCOPE_ID INTEGER NOT NULL,
@@ -652,7 +652,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE SEQUENCE IDN_UMA_PT_RESOURCE_SCOPE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
         /
 
-        CREATE TRIGGER IDN_UMA_PT_RESOURCE_SCOPE_TRIG NO CASCADE
+        CREATE OR REPLACE TRIGGER IDN_UMA_PT_RESOURCE_SCOPE_TRIG NO CASCADE
         BEFORE INSERT
         ON IDN_UMA_PT_RESOURCE_SCOPE
         REFERENCING NEW AS NEW
@@ -2350,7 +2350,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
         DROP PROCEDURE add_if_not_exists
         /
-        
+
         -- IDN UMA Tables End --
 
         CREATE TABLE AM_API_CATEGORIES (
