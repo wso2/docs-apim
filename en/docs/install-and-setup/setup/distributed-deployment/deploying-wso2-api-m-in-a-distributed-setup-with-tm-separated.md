@@ -574,7 +574,6 @@ username= "$ref{super_admin.username}"
 password= "$ref{super_admin.password}"
 enable_data_publishing = true
 service_url = "https://tm.wso2.com:9443/services/"
-throttle_decision_endpoints = ["tcp://tm.wso2.com:5672"]
 
 [[apim.throttling.url_group]]
 traffic_manager_urls=["tcp://tm.wso2.com:9611"]
