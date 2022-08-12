@@ -66,6 +66,9 @@ A common policy is a globally maintained policy and you can easily utilize this 
 
     [![Gateway-specific details]({{base_path}}/assets/img/design/api-policies/common-policy-3.png){: style="width:90%"}]({{base_path}}/assets/img/design/api-policies/common-policy-3.png)
 
+   !!! note
+      Please note that the policy content should not contain any XML – Prolog components. Eg: Should not begin with `<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>`. You have to start from a root element or child elements.
+
 5. The final section in the form is the **Policy Attributes** section. These attributes are derived from the policy file that you uploaded in the previous step. If you observe the policy content you should notice two dynamic values embedded into that policy, namely the headerName and headerValue. Those are the attributes that we should include when creating our policy (note that you can have a static policy with no attributes if the policy content is static). Let’s fill the **Policy Attributes** section using the following details.
 
     [![Policy attributes]({{base_path}}/assets/img/design/api-policies/common-policy-4.png){: style="width:90%"}]({{base_path}}/assets/img/design/api-policies/common-policy-4.png)
