@@ -45,7 +45,7 @@ Follow the instructions below to display a list of common API Policies in an env
                     `--format` : pretty-print environments using templates
 
             !!!note
-                When executing the `apictl get policies api` command, using both the `--all` and `--limit` flags is not allowed.
+                When executing the `apictl get policies api` command, using both the `--all` and `--limit` flags at once is not allowed.
 
             !!! example
                 ```bash
