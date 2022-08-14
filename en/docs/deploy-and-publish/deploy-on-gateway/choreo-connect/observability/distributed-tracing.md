@@ -7,6 +7,7 @@ Supported distributed tracing systems,
 - Jaeger
 - Zipkin
 - Azure Application Insights
+- OTLP gRPC supported telemetry backends
 
 ## Configure Distributed Tracing
 
@@ -124,3 +125,103 @@ Follow these steps to configure WSO2 Choreo Connect with Azure Application Insig
 You will be able to see all traces. Detailed trace view will look like below.
 
 ![Azure Trace]({{base_path}}/assets/img/deploy/mgw/trace-azure.png)
+
+### OpenTelemetry protocol (OTLP)
+
+ OTLP is a vendor agnostic protocol defined as a part of [OpenTelemetry](https://opentelemetry.io/) project to publish telemetry data to any telemetry backend that supports OTLP. Most of the open source and commercial telemetry backends have native OTLP support or provide OTLP support in the form of a separate distribution. Refer the [OpenTelemetry vendor support](https://opentelemetry.io/vendors/) documentation for more information.
+
+#### Configure Choreo Connect to publish OTLP traces to a jaegar backend
+
+1. Update the docker compose files with the following configuration to start a jaegar service with OTLP gRPC collector enabled.
+
+    ```yaml tab="Configuration"
+    jaeger:
+      image: jaegertracing/all-in-one:1.37
+      environment:
+        - COLLECTOR_OTLP_ENABLED=true
+      ports:
+        - "16686:16686"
+        - "4317:4317"
+    ```
+
+!!! Important
+    Please note that only jaeger versions >= 1.35 support OTLP gRPC telemetry data collection. Also it is required to set the environment variable `COLLECTOR_OTLP_ENABLED=true`.
+
+1. Add the following configuration to the `config.toml` file.
+
+    ```toml tab="Configuration"
+    [tracing]
+      enabled = true
+      type = "otlp"
+      [tracing.configProperties]
+        # maximum length of the request path to extract and include in the HttpUrl tag.
+        maxPathLength = "256"
+        # jaeger host
+        host = "jaeger"
+        # jaeger port for OTLP gRPC collector
+        port = "4317"
+        # library Name to be tagged in traces (`otel.library.name`).
+        instrumentationName = "CHOREO-CONNECT"
+        # Maximum number of sampled traces per second string
+        maximumTracesPerSecond = "2"
+    ```
+
+1. Start Choreo Connect deployment.
+1. [Create and Deploy an API]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker-with-apim/)
+1. Invoke the newly created API and open Jaeger UI to view the traces. E.g., `<http://localhost:16686>`.
+
+You will be able to browse through the request traces and expand each trace to view complete trace details.
+
+#### Configure Choreo Connect to publish OTLP traces to New Relic OTLP gRPC collector
+
+1. Create an account in New Relic portal and generate a license key to publish traces. [New Relic OTLP guide](https://docs.newrelic.com/docs/more-integrations/open-source-telemetry-integrations/opentelemetry/opentelemetry-setup/)
+1. Add the following configuration to the `config.toml` file.
+
+    ```toml tab="Configuration"
+    [tracing]
+      enabled = true
+      type = "otlp"
+      [tracing.configProperties]
+        # maximum length of the request path to extract and include in the HttpUrl tag.
+        maxPathLength = "256"
+        # New Relic OTLP gRPC collector endpoint
+        connectionString = "https://otlp.nr-data.net"
+        # auth header name
+        authHeaderName = "api-key"
+        # auth header value
+        authHeaderValue = "<INGEST_LICENSE_KEY>"
+        # library Name to be tagged in traces (`otel.library.name`).
+        instrumentationName = "CHOREO-CONNECT"
+        # Maximum number of sampled traces per second string
+        maximumTracesPerSecond = "2"
+    ```
+
+    ```toml tab="Example"
+    [tracing]
+      enabled = true
+      type = "otlp"
+      [tracing.configProperties]
+        # maximum length of the request path to extract and include in the HttpUrl tag.
+        maxPathLength = "256"
+        # New Relic OTLP gRPC collector endpoint
+        connectionString = "https://otlp.nr-data.net"
+        # auth header name
+        authHeaderName = "api-key"
+        # auth header value
+        authHeaderValue = "e8f478ae6d3c97f845e16b6cfba0ea5e95e3NRAL"
+        # library Name to be tagged in traces (`otel.library.name`).
+        instrumentationName = "CHOREO-CONNECT"
+        # Maximum number of sampled traces per second string
+        maximumTracesPerSecond = "2"
+    ```
+
+1. Start Choreo Connect deployment.
+1. [Create and Deploy an API]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker-with-apim/)
+1. Invoke the newly created API and go to New Relic Tracing dashboard to view the traces.
+
+You will be able to browse through the request traces and expand each trace to view complete trace details.
+
+![OTLP Trace]({{base_path}}/assets/img/deploy/mgw/trace-otlp.png)
+
+!!! info
+    Similarly any telemetry backend that supports OTLP gRPC telemetry data collection can be used by setting up related values for `connectionString`, `authHeaderName` and `authHeaderValue`.
