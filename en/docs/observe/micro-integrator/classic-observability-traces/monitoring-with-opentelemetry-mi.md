@@ -104,7 +104,7 @@ Log reporter records all the information related to the trace in the form of log
 [opentelemetry]
 enable = true
 logs = true
-type = “log”
+type = "log"
 ```
 
 After you invoke an artifact you will be able to see tracing data in the `wso2-mi-open-telemetry.log` in the `<MI_HOME>/repository/logs` folder.
@@ -138,24 +138,24 @@ OpenTelemetry protocol(OTLP) is a general-purpose telemetry data delivery protoc
     [opentelemetry]
     enable = true
     logs = true
-    type = “otlp”
-    url = “endpoint-url”
+    type = "otlp"
+    url = "endpoint-url"
 
     [[opentelemetry.properties]]
-    name = “name-of-the-header”
-    value = “key-value-of-the-header” 
+    name = "name-of-the-header"
+    value = "key-value-of-the-header" 
     ```
 
     ```toml tab="Example"
     [opentelemetry]
     enable = true
     logs = true
-    type = “otlp”
-    url = “https://otlp.nr-data.net:4317/v1/traces”
+    type = "otlp"
+    url = "https://otlp.nr-data.net:4317/v1/traces"
 
     [[opentelemetry.properties]]
-    name = “api-key”
-    value = “<your-insight-insert-key>” 
+    name = "api-key"
+    value = "<your-insight-insert-key>" 
     ```
 
     !!! note 
@@ -335,7 +335,7 @@ Add the following configuration into the `deployment.toml` file.
 [opentelemetry]
 enable = true
 logs = true
-type = “sysout”
+type = "sysout"
 ```
 
 If you need more opentelemetry.properties than the developed ones, you can edit the for loop of synapse.properties.j2 file in the `<MI_HOME>/repository/resources/conf/templates/conf` folder in the following way
@@ -352,12 +352,12 @@ So that the deployment toml file will be,
 [opentelemetry]
 enable = true
 logs = true
-type = “type-name”
-url = “endpoint-url”
+type = "type-name"
+url = "endpoint-url"
 
 [[opentelemetry.properties]]
-header = “header”
-key = “key-of-the-header” 
+header = "header"
+key = "key-of-the-header" 
 ```
 
 Also in the custom tracer class a method should be implemented to return those properties which will be similar to the method `getHeaderKeyProperty` in `OTLPTelemetryManager` class and the constant of `org.apache.syanpse.flow.statistics.tracing.opentelemetry.management.TelemetryConstants` class also needs to be changed according to the name given by you..
