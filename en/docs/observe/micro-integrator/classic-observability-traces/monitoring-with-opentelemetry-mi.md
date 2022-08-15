@@ -60,7 +60,7 @@ Then, add the configurations for the specific type of tracing in order to enable
 
 2. Start the server. Once that is done, [Download Jaeger](https://www.jaegertracing.io/download/) and start it as mentioned in its [Quick Start Guide](https://www.jaegertracing.io/docs/1.15/#quick-start). Then the traces can be viewed from the [Jaeger UI](http://localhost:16686).
 
-    [![Distributed tracing jaeger]({{base_path}}/assets/img/administer/opentelemetry-jaeger.png)]({{base_path}}/assets/img/administer/opentelemetry-jaeger.png)
+    [![Distributed tracing jaeger]({{base_path}}/assets/img/administer/opentelemetry-jaeger-mi.png)]({{base_path}}/assets/img/administer/opentelemetry-jaeger-mi.png)
 
 
 ## Enabling Zipkin Tracing
@@ -93,7 +93,7 @@ Then, add the configurations for the specific type of tracing in order to enable
 
 2. Start the server. Once that is done, Download Zipkin and start it as mentioned in its Quick Start Guide. Then the traces can be viewed from Zipkin UI (http://localhost:9411). 
 
-    [![Distributed tracing zipkin]({{base_path}}/assets/img/administer/opentelemetry-zipkin.png)]({{base_path}}/assets/img/administer/opentelemetry-zipkin.png)
+    [![Distributed tracing zipkin]({{base_path}}/assets/img/administer/opentelemetry-zipkin-mi.png)]({{base_path}}/assets/img/administer/opentelemetry-zipkin-mi.png)
 
 
 ## Enabling Log Tracing
@@ -170,6 +170,7 @@ logs = true
 type = "zipkin"
 url = "https://trace-api.newrelic.com/trace/v1?Api-Key=<Place
 _your_Insight_Insert_key_here>&Data-Format=zipkin&Data-Format-Version=2"
+
 ```
 
 !!! note 
@@ -179,22 +180,32 @@ _your_Insight_Insert_key_here>&Data-Format=zipkin&Data-Format-Version=2"
 
         For other vendors, please consult the respective documentations.
 
+
 ## Using the Custom Tracer Implementation
 
 By using a custom tracer implementation in WSO2 MI, you can publish tracing data from WSO2 MI to any tracing server. Let's implement a custom tracer which simply prints the logs via the System.out in WSO2 MI using the instructions given below:
 
+- Implement the `org.apache.syanpse.flow.statistics.tracing.opentelemetry.management.OpenTelemetryManager` interface and add your implementation. 
 
-Implement the `org.apache.syanpse.flow.statistics.tracing.opentelemetry.management.OpenTelemetryManager` interface and add your implementation. 
-The init method should contain the generation of the `Tracer` instance by configuring the endpoint url, headers, `SdkTraceProvider` and `OpenTelemetry` instance. 
-Then the `handler` attribute can be defined using initialized tracer and opentelemetry instances. 
-The getTelemetryTracer method should return the tracer with the given instrumentation name. 
-The close method should close the initialized `SdkTraceProvider` instance to shutdown the SDK cleanly at JVM exit. 
-The getServiceName method should return the service name.
-Finally, the getHandler method should return the above initialized handler.
+- The `init` method should contain the generation of the `Tracer` instance by configuring the endpoint URL, headers, `SdkTraceProvider` and `OpenTelemetry` instance. 
+
+- Then the `handler` attribute can be defined using initialized tracer and opentelemetry instances. 
+
+- The `getTelemetryTracer` method should return the tracer with the given instrumentation name. 
+
+- The close method should close the initialized `SdkTraceProvider` instance to shutdown the SDK cleanly at JVM exit. 
+
+- The `getServiceName` method should return the service name.
+
+- Finally, the `getHandler` method should return the above initialized handler.
+
 The following are the components involved in building your custom tracer:
-An implementation of `SpanExporter` - Publishes the spans.
-An implementation of `OpenTelemetryManager` - Coordinates the span, and the relevant SpanExporter.
-If you are building without an already available SpanExporter, then you should create one. In the below example, let’s create a SysoutExporter) as below by implementing the ```SpanExporter``` interface, which will simply output the logs to the standard output.
+
+- An implementation of `SpanExporter` - Publishes the spans.
+
+- An implementation of `OpenTelemetryManager` - Coordinates the span, and the relevant `SpanExporter`.
+
+If you are building without an already available SpanExporter, then you should create one. In the below example, let’s create a SysoutExporter) as below by implementing the `SpanExporter` interface, which will simply output the logs to the standard output.
 
 ```java
 public class SysOutExporter implements SpanExporter {
@@ -321,24 +332,26 @@ public class SysoutTelemetryManager implements OpenTelemetryManager {
 }
 ```
 
-Build the Maven project and add the JAR file to the `<MI_HOME>/dropins` directory.
-Edit the infer.json file in the `<MI_HOME>/repository/resources/conf` folder in the following way under opentelemetry.type,
+1. Build the Apache Maven project and add the JAR file to the `<MI_HOME>/dropins` directory.
 
-```
-"sysout": {
-  	"synapse_properties.'opentelemetry.class'": "org.apache.synapse.aspects.flow.statistics.tracing.opentelemetry.management.SysoutTelemetryManager"
-	}
-```
-Add the following configuration into the `deployment.toml` file.
+2. Edit the infer.json file in the `<MI_HOME>/repository/resources/conf` folder in the following way under opentelemetry.type,
 
-```toml tab="Format"
-[opentelemetry]
-enable = true
-logs = true
-type = "sysout"
-```
+    ```
+    "sysout": {
+  	    "synapse_properties.'opentelemetry.class'": "org.apache.synapse.aspects.flow.statistics.tracing.opentelemetry.management.SysoutTelemetryManager"
+	    }
+    ```
 
-If you need more opentelemetry.properties than the developed ones, you can edit the for loop of synapse.properties.j2 file in the `<MI_HOME>/repository/resources/conf/templates/conf` folder in the following way
+3. Add the following configuration into the `deployment.toml` file.
+
+    ```toml tab="Format"
+    [opentelemetry]
+    enable = true
+    logs = true
+    type = "sysout"
+    ```
+
+If you need more `opentelemetry.properties` than the developed ones, you can edit the `for` loop of `synapse.properties.j2` file in the `<MI_HOME>/repository/resources/conf/templates/conf` folder in the following way.
 
 ```
 {%for property in opentelemetry.properties %}
@@ -346,7 +359,7 @@ opentelemetry.properties.{{property.header}} = {{property.key}}
 {% endfor %}
 ```
 
-So that the deployment toml file will be,
+The deployment toml file will be as follows:
 
 ```toml tab="Format"
 [opentelemetry]
@@ -361,7 +374,6 @@ key = "key-of-the-header"
 ```
 
 Also in the custom tracer class a method should be implemented to return those properties which will be similar to the method `getHeaderKeyProperty` in `OTLPTelemetryManager` class and the constant of `org.apache.syanpse.flow.statistics.tracing.opentelemetry.management.TelemetryConstants` class also needs to be changed according to the name given by you..
-
 
 OpenTelemetry ensured backward compatibility with OpenTracing for Jaeger and Zipkin by testing the below versions. 
 
