@@ -334,7 +334,7 @@ public class SysoutTelemetryManager implements OpenTelemetryManager {
 
 1. Build the Apache Maven project and add the JAR file to the `<MI_HOME>/dropins` directory.
 
-2. Edit the infer.json file in the `<MI_HOME>/repository/resources/conf` folder in the following way under opentelemetry.type,
+2. Edit the `infer.json` file in the `<MI_HOME>/repository/resources/conf` folder in the following way under `opentelemetry.type`.
 
     ```
     "sysout": {
@@ -342,7 +342,7 @@ public class SysoutTelemetryManager implements OpenTelemetryManager {
 	    }
     ```
 
-3. Add the following configuration into the `deployment.toml` file.
+3. Add the following configuration to the `deployment.toml` file.
 
     ```toml tab="Format"
     [opentelemetry]
@@ -359,7 +359,7 @@ opentelemetry.properties.{{property.header}} = {{property.key}}
 {% endfor %}
 ```
 
-The deployment toml file will be as follows:
+The `deployment.toml` file entry will be as follows:
 
 ```toml tab="Format"
 [opentelemetry]
@@ -373,7 +373,7 @@ header = "header"
 key = "key-of-the-header" 
 ```
 
-Also in the custom tracer class a method should be implemented to return those properties which will be similar to the method `getHeaderKeyProperty` in `OTLPTelemetryManager` class and the constant of `org.apache.syanpse.flow.statistics.tracing.opentelemetry.management.TelemetryConstants` class also needs to be changed according to the name given by you..
+Also, in the custom tracer class, a method should be implemented to return those properties that will be similar to the method `getHeaderKeyProperty` in `OTLPTelemetryManager` class and the constant of `org.apache.syanpse.flow.statistics.tracing.opentelemetry.management.TelemetryConstants` class also needs to be changed according to the name given by you..
 
 OpenTelemetry ensured backward compatibility with OpenTracing for Jaeger and Zipkin by testing the below versions. 
 
