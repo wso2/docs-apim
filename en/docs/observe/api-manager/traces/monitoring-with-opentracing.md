@@ -43,20 +43,20 @@ For more information, see [OpenTracer Configurations]({{base_path}}/reference/co
 1. Copy the following configuration into the `deployment.toml` file.
 
     ```toml tab="Format"
-    [apim.open_tracer]
-    remote_tracer.enable = true
-    remote_tracer.name = "zipkin"
-    remote_tracer.properties.hostname = "<hostname-of-zikin-endpoint>"
-    remote_tracer.properties.port = "<port-o-zipkin-endpoint>"
-    ```
+	[apim.open_tracer]
+	remote_tracer.enable = true
+	remote_tracer.name = "zipkin"
+	remote_tracer.properties.hostname = "<hostname-of-zikin-endpoint>"
+	remote_tracer.properties.port = "<port-o-zipkin-endpoint>"
+	```
 
-    ```toml tab="Example"
-    [apim.open_tracer]
-    remote_tracer.enable = true
-    remote_tracer.name = "zipkin"
-    remote_tracer.properties.hostname = "localhost"
-    remote_tracer.properties.port = "9411"
-    ```
+	```toml tab="Example"
+	[apim.open_tracer]
+	remote_tracer.enable = true
+	remote_tracer.name = "zipkin"
+	remote_tracer.properties.hostname = "localhost"
+	remote_tracer.properties.port = “9411”
+	```
 
 2. Start the server.
 
