@@ -3,7 +3,8 @@
 Tracing a message in MI is important to debug, observe, and identify possible bottlenecks in a message path. This is known as distributed tracing. OpenTelemetry allows you to enable distributed tracing for WSO2 MI.
 
 OpenTelemetry is a single set of APIs and libraries that standardize how telemetry data such as traces, metrics and logs are collected, transmitted and managed. It provides a secure, vendor-neutral specification for instrumentation and offers a way for developers to follow the thread to trace requests from beginning to end across touchpoints and understand distributed systems at scale. OpenTelemetry will also help to trace the message and identify the latencies that took place in each process or method. Thereby, OpenTelemetry will help you to carry out a time-related analysis.
-OpenTelemetry Configurations for MI
+
+## OpenTelemetry Configurations for MI
 
 Below configurations should be added by the client to enable and view traces through OpenTelemetry.
 
@@ -14,19 +15,19 @@ WSO2 MI supports the following types of ways to retrieve instrumented data.
  - Log
  - OTLP - This type can support APMs such as NewRelic, Elastic, etc.
 
-First add these configurations to enable statistics collection.
+First add the below configurations to enable statistics collection in the `<MI-HOME>/repository/conf/deployment.toml` file.
 
-```
+```toml
 [mediation]
 flow.statistics.capture_all= true
 stat.tracer.collect_payloads= true
 stat.tracer.collect_mediation_properties= true
 ```
 
-Then, add the configurations for the specific type in order to enable OpenTelemetry.
+Then, add the configurations for the specific type of tracing in order to enable OpenTelemetry.
 
-Note:
-OpenTracing will no longer support WSO2 MI as it is deprecated and OpenTelemetry will be supported to enable distributed tracing. The `[opentracing]` section that was present in the `deployment.toml` file of WSO2 MI 4.1.0 - which denoted OpenTracing related configurations has been replaced by the `[opentelemetry]` section.  
+!!! note
+    OpenTracing will no longer support WSO2 MI as it is deprecated and OpenTelemetry will be supported to enable distributed tracing. The `[opentracing]` section that was present in the `deployment.toml` file of WSO2 MI 4.1.0 - which denoted OpenTracing related configurations has been replaced by the `[opentelemetry]` section.  
 
 ## Enabling Jaeger Tracing
 
@@ -66,32 +67,33 @@ OpenTracing will no longer support WSO2 MI as it is deprecated and OpenTelemetry
 
 1. Copy the following configuration into the `deployment.toml` file.
 
-```toml tab="Format"
-[opentelemetry]
-enable = true
-logs = true
-type = "zipkin"
-host = "<hostname-of-zipkin-endpoint>"
-port =  "<port-of-zipkin-endpoint>"
+    ```toml tab="Format"
+    [opentelemetry]
+    enable = true
+    logs = true
+    type = "zipkin"
+    host = "<hostname-of-zipkin-endpoint>"
+    port =  "<port-of-zipkin-endpoint>"
 
-# instead of host and port, ‘url’ can be used directly in the following way.
-url =  "<url-of-zipkin-endpoint>"
-```
+    # instead of host and port, ‘url’ can be used directly in the following way.
+    url =  "<url-of-zipkin-endpoint>"
+    ```
 
-```toml tab="Example"
-[opentelemetry]
-enable = true
-logs = true
-type = "zipkin"
-host = "localhost"
-port = 9411
+    ```toml tab="Example"
+    [opentelemetry]
+    enable = true
+    logs = true
+    type = "zipkin"
+    host = "localhost"
+    port = 9411
 
-# or
-url = "http://localhost:9411"
-```
-2. Start the server.
-Once that is done, Download Zipkin and start it as mentioned in its Quick Start Guide. Then the traces can be viewed from Zipkin UI (http://localhost:9411). 
-[![Distributed tracing zipkin]({{base_path}}/assets/img/administer/opentelemetry-zipkin.png)]({{base_path}}/assets/img/administer/opentelemetry-zipkin.png)
+    # or
+    url = "http://localhost:9411"
+    ```
+
+2. Start the server. Once that is done, Download Zipkin and start it as mentioned in its Quick Start Guide. Then the traces can be viewed from Zipkin UI (http://localhost:9411). 
+
+    [![Distributed tracing zipkin]({{base_path}}/assets/img/administer/opentelemetry-zipkin.png)]({{base_path}}/assets/img/administer/opentelemetry-zipkin.png)
 
 
 ## Enabling Log Tracing
@@ -170,15 +172,15 @@ url = "https://trace-api.newrelic.com/trace/v1?Api-Key=<Place
 _your_Insight_Insert_key_here>&Data-Format=zipkin&Data-Format-Version=2"
 ```
 
+!!! note 
+    To configure the API key in Newrelic:
 
+    - Go to **Profile -> API keys -> Insights Insert key -> Insert keys** to create an account in New Relic. 
 
-Note: Here are the steps to configure the Api-key in Newrelic
+        For other vendors, please consult the respective documentations.
 
-Create an account in New Relic.
-● Profile -> API keys -> Insights Insert key -> Insert keys
+## Using the Custom Tracer Implementation
 
-For other vendors, please consult the respective documentations.
-Using the Custom Tracer Implementation
 By using a custom tracer implementation in WSO2 MI, you can publish tracing data from WSO2 MI to any tracing server. Let's implement a custom tracer which simply prints the logs via the System.out in WSO2 MI using the instructions given below:
 
 
@@ -194,7 +196,7 @@ An implementation of `SpanExporter` - Publishes the spans.
 An implementation of `OpenTelemetryManager` - Coordinates the span, and the relevant SpanExporter.
 If you are building without an already available SpanExporter, then you should create one. In the below example, let’s create a SysoutExporter) as below by implementing the ```SpanExporter``` interface, which will simply output the logs to the standard output.
 
-```
+```java
 public class SysOutExporter implements SpanExporter {
 
    private final Log log = LogFactory.getLog(TelemetryConstants.TRACER);
@@ -251,8 +253,10 @@ public class SysOutExporter implements SpanExporter {
    }
 }
 ```
+
 Then you can create the class as below.
-```
+
+```java
 public class SysoutTelemetryManager implements OpenTelemetryManager {
 
    private static final Log logger = LogFactory.getLog(SysoutTelemetryManager.class);
@@ -319,6 +323,7 @@ public class SysoutTelemetryManager implements OpenTelemetryManager {
 
 Build the Maven project and add the JAR file to the ```dropins``` directory. (```<MI_HOME>/dropins```)
 Edit the infer.json file in the ```<MI_HOME>/repository/resources/conf``` folder in the following way under opentelemetry.type,
+
 ```
 "sysout": {
   	"synapse_properties.'opentelemetry.class'": "org.apache.synapse.aspects.flow.statistics.tracing.opentelemetry.management.SysoutTelemetryManager"
@@ -334,12 +339,15 @@ type = “sysout”
 ```
 
 If you need more opentelemetry.properties than the developed ones, you can edit the for loop of synapse.properties.j2 file in the ```<MI_HOME>/repository/resources/conf/templates/conf``` folder in the following way
+
 ```
 {%for property in opentelemetry.properties %}
 opentelemetry.properties.{{property.header}} = {{property.key}}
 {% endfor %}
 ```
+
 So that the deployment toml file will be,
+
 ```toml tab="Format"
 [opentelemetry]
 enable = true
@@ -351,6 +359,7 @@ url = “endpoint-url”
 header = “header”
 key = “key-of-the-header” 
 ```
+
 Also in the custom tracer class a method should be implemented to return those properties which will be similar to the method getHeaderKeyProperty in ```OTLPTelemetryManager``` class and the constant of
  ```org.apache.syanpse.flow.statistics.tracing.opentelemetry.management.TelemetryConstants``` class also needs to be changed according to the name given by you..
 
