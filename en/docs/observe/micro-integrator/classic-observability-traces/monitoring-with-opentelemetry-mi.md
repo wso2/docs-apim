@@ -28,7 +28,7 @@ Then, add the configurations for the specific type in order to enable OpenTeleme
 Note:
 OpenTracing will no longer support WSO2 MI as it is deprecated and OpenTelemetry will be supported to enable distributed tracing. The `[opentracing]` section that was present in the `deployment.toml` file of WSO2 MI 4.1.0 - which denoted OpenTracing related configurations has been replaced by the `[opentelemetry]` section.  
 
-## Jaeger
+## Enabling Jaeger Tracing
 
 1. Copy the following configuration into the `deployment.toml` file.
 
@@ -62,7 +62,8 @@ OpenTracing will no longer support WSO2 MI as it is deprecated and OpenTelemetry
     [![Distributed tracing jaeger]({{base_path}}/assets/img/administer/opentelemetry-jaeger.png)]({{base_path}}/assets/img/administer/opentelemetry-jaeger.png)
 
 
-Zipkin
+## Enabling Zipkin Tracing
+
 1. Copy the following configuration into the `deployment.toml` file.
 
 ```toml tab="Format"
@@ -93,8 +94,10 @@ Once that is done, Download Zipkin and start it as mentioned in its Quick Start 
 [![Distributed tracing zipkin]({{base_path}}/assets/img/administer/opentelemetry-zipkin.png)]({{base_path}}/assets/img/administer/opentelemetry-zipkin.png)
 
 
-Log
+## Enabling Log Tracing
+
 Log reporter records all the information related to the trace in the form of logs, and appends them to a log file. This is different from Jaeger or Zipkin, as there are no traces visualized, and no need to install anything in order to view the traces.
+
 ```toml
 [opentelemetry]
 enable = true
@@ -122,34 +125,39 @@ After you invoke an artifact you will be able to see tracing data in the `wso2-m
 07-01-2022-11:31:01,719 [-] [BatchSpanProcessor_WorkerThread-1] TRACE {"Span Id":"5692e999f708a67d","Trace Id":"9f3d860546d053aa06d55844a7d209a4","Operation":"HealthcareAPI","Latency":"971ms","Tags":"AttributesMap{data={componentType=API, componentId=HealthcareAPI@0:HealthcareAPI, hashcode=1400154233, threadId=106, Transport Headers={Accept=*/*, Accept-Encoding=gzip, deflate, br, Accept-Language=en-US,en;q=0.5, activityid=24b17154-8f82-4a0e-8ac9-81ae61d95762, Connection=Keep-Alive, Host=localhost:8290, Origin=https://localhost:9443, Referer=https://localhost:9443/, Sec-Fetch-Dest=empty, Sec-Fetch-Mode=cors, Sec-Fetch-Site=same-site, uber-trace-id=12091cfc04f002deb631dee437ef4479:5024662f6c48b6fa:0:1, User-Agent=Synapse-PT-HttpComponents-NIO, X-B3-Sampled=1, 
 X-B3-SpanId=f960a2c19e696aa7, X-B3-TraceId=9f3d860546d053aa06d55844a7d209a4}, componentName=HealthcareAPI}, capacity=128, totalAddedValues=6}"}
 ```
-OTLP
+
+## Enabling OTLP Tracing
+
 OpenTelemetry protocol(OTLP) is a general-purpose telemetry data delivery protocol used to exchange data between the client and the server. This type can support APMs such as NewRelic, Elastic, etc.
+
 1. Copy the following configuration into the `deployment.toml` file to use OTLP.
 
-```toml tab="Format"
-[opentelemetry]
-enable = true
-logs = true
-type = “otlp”
-url = “endpoint-url”
+    ```toml tab="Format"
+    [opentelemetry]
+    enable = true
+    logs = true
+    type = “otlp”
+    url = “endpoint-url”
 
-[[opentelemetry.properties]]
-name = “name-of-the-header”
-value = “key-value-of-the-header” 
-```
+    [[opentelemetry.properties]]
+    name = “name-of-the-header”
+    value = “key-value-of-the-header” 
+    ```
 
-```toml tab="Example"
-[opentelemetry]
-enable = true
-logs = true
-type = “otlp”
-url = “https://otlp.nr-data.net:4317/v1/traces”
+    ```toml tab="Example"
+    [opentelemetry]
+    enable = true
+    logs = true
+    type = “otlp”
+    url = “https://otlp.nr-data.net:4317/v1/traces”
 
-[[opentelemetry.properties]]
-name = “api-key”
-value = “<your-insight-insert-key>” 
-```
-Note: Above example illustrates the OpenTelemetry configurations for NewRelic APM.
+    [[opentelemetry.properties]]
+    name = “api-key”
+    value = “<your-insight-insert-key>” 
+    ```
+
+    !!! note 
+        Above example illustrates the OpenTelemetry configurations for NewRelic APM.
 
 It is recommended to use OTLP to view the traces through NewRelic APM. But still you can use zipkin format traces to view the traces through NewRelic in the following way.
 
