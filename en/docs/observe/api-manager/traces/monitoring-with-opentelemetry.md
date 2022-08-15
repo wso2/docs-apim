@@ -41,13 +41,6 @@ For more information, see [OpenTelemetry Configurations]({{base_path}}/reference
 	[![Distributed tracing jaeger]({{base_path}}/assets/img/administer/opentelemetry-jaeger.png)]({{base_path}}/assets/img/administer/opentelemetry-jaeger.png)
 
 
-opentelemetry-jaeger
-
-
-
-
-
-
 ## Enabling Zipkin Tracing
 
 1. Copy the following configuration into the `deployment.toml` file.
@@ -72,10 +65,7 @@ opentelemetry-jaeger
 
  	After you invoke the APIs you will see the tracing data in Zipkin as follow:
 
-[![Distributed tracing zipkin]({{base_path}}/assets/img/administer/opentelemetry-zipkin.png)]({{base_path}}/assets/img/administer/opentelemetry-zipkin.png)
-
-
-opentelemetry-zipkin
+    [![Distributed tracing zipkin]({{base_path}}/assets/img/administer/opentelemetry-zipkin.png)]({{base_path}}/assets/img/administer/opentelemetry-zipkin.png)
 
 
 ## Enabling Log Tracing
@@ -131,3 +121,4 @@ For Elastic APM the URL can be taken from, ```Edit Elastic APM integration -> Se
 
 !!! note 
     For other vendors, please consult the respective documentations.
+
