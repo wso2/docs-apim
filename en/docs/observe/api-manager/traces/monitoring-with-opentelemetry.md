@@ -83,7 +83,7 @@ For more information, see [OpenTelemetry Configurations]({{base_path}}/reference
 	After you invoke the APIs you will be able to see tracing data in the `wso2-apimgt-open-tracing.log` in the `<API-M_HOME>/repository/logs` folder.
 
 
-```bash
+```log
 12:54:29,882 [-] [BatchSpanProcessor_WorkerThread-1] TRACE {"Span Id":"b33fdfe6a7eadba1","Tracer Id":"507aeb1eecfbdc794d17f4e75ccb8ab0","Operation":"OPTIONS--/menu","Latency":"44ms","Tags":"{}"}
 12:54:29,882 [-] [BatchSpanProcessor_WorkerThread-1] TRACE {"Span Id":"ce4a4b3d6f559c09","Tracer Id":"507aeb1eecfbdc794d17f4e75ccb8ab0","Operation":"PizzaShackAPI--1.0.0--carbon.super","Latency":"50ms","Tags":"AttributesMap{data={span.activity.id=9d6e304a-d212-4d28-be41-86c8603c6560, span.request.path=pizzashack/1.0.0/menu, span.api.version=1.0.0, span.api.name=PizzaShackAPI, span.request.method=OPTIONS, span.resource=/menu}, capacity=128, totalAddedValues=6}"}
 12:54:29,883 [-] [BatchSpanProcessor_WorkerThread-1] TRACE {"Span Id":"de8cb3899a718d0e","Tracer Id":"507aeb1eecfbdc794d17f4e75ccb8ab0","Operation":"API:CORS_Request_Latency","Latency":"36ms","Tags":"{}"}
