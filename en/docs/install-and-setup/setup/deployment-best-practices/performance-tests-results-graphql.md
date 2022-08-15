@@ -1,6 +1,6 @@
 # Performance Test Results
 
-The performance of WSO2 API Manager was measured for GraphQL APIs. While the schema, the queries, and the responses were mimicked using the [Starwars API](https://github.com/wso2/samples-apim/tree/master/graphql-backend), the backend used for the test is a Netty backend. The netty service is configured so that the response is aligned with the GraphQL request in order to only provide the data requested by a particular query.
+The performance of WSO2 API Manager was measured for GraphQL APIs. While the schema, the queries, and the responses were mimicked using the [Starwars API](https://github.com/wso2/samples-apim/tree/master/graphql-backend), the backend used for the test is a Netty backend. The Netty service is configured so that the response is aligned with the GraphQL request in order to only provide the data requested by a particular query.
 
 Tests were done using **50**, **100**, **200**, **500**, and **1000** concurrent users. Concurrent users mean that it consists of multiple users accessing the API Gateway at the same time. Three GraphQL queries were used for the tests. These queries were constructed with varying operation counts. First query with 1 operation, second with 4 operations, and third with 9 operations. It is important to note that when this operation count increases, the higher the workload for API Manager. Details regarding the query variations are outlined below. The three queries and their responses can be found [here](https://github.com/ashera96/performance-apim/tree/master/resources).
 
