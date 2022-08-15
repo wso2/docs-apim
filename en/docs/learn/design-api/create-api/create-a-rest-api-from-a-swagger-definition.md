@@ -14,7 +14,7 @@ Follow the instructions below to create a REST API using a Open API definition f
 2.  Go to **CREATE API** and Click **I Have an Existing API**.
     ![](../../../assets/img/learn/create-a-rest-api-using-existing-swagger-def.jpg)
 
-3.  Select **OpenAPI URL** and provide `http://petstore.swagger.io/v2/swagger.json` as the URL. Click **NEXT** .
+3.  Select **OpenAPI URL** and provide `https://petstore.swagger.io/v2/swagger.json` as the URL. Click **NEXT** .
     ![](../../../assets/img/learn/create-rest-api-using-swagger-def-form1.jpg)
 
 4.  Edit the information as given below and Click **CREATE**
