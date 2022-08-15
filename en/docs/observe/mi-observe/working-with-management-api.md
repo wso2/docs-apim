@@ -1311,7 +1311,7 @@ The management API has multiple resources to provide information regarding the d
 
 	```	
 	
-### ENABLE/DISABLE CORRELATION LOGS
+### ENABLE/DISABLE CORRELATION LOGGING DURING RUNTIME
 
 -	**Resource**: `/configs`
 
