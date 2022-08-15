@@ -17,21 +17,20 @@ For more information, see [OpenTracer Configurations]({{base_path}}/reference/co
 1. Copy the following configuration into the `deployment.toml` file.
 
     ```toml tab="Format"
-    [apim.open_tracer]
-    remote_tracer.enable = true
-    remote_tracer.name = "jaeger"
-    remote_tracer.properties.hostname = "<hostname-of-jaeger-endpoint>"
-    remote_tracer.properties.port = "<port-of-jaeger-endpoint>"
-    ```
+	[apim.open_tracer]
+	remote_tracer.enable = true
+	remote_tracer.name = "jaeger"
+	remote_tracer.properties.hostname = "<hostname-of-jaeger-endpoint>"
+	remote_tracer.properties.port = "<port-of-jaeger-endpoint>"
+	```
 
-    ```toml tab="Example"
-    [apim.open_tracer]
-    remote_tracer.enable = true
-    remote_tracer.name = "jaeger"
-    remote_tracer.properties.hostname = "localhost"
-    remote_tracer.properties.port = "6831" 
-    #6832 can also be used as the port
-    ```
+	```toml tab="Example"
+	[apim.open_tracer]
+	remote_tracer.enable = true
+	remote_tracer.name = "jaeger"
+	remote_tracer.properties.hostname = "localhost"
+	remote_tracer.properties.port = “6831”
+	```
 
 2. Start the server.
 

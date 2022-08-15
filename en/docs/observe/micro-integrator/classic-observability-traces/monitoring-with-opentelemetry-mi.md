@@ -365,8 +365,9 @@ Also in the custom tracer class a method should be implemented to return those p
 
 
 OpenTelemetry ensured backward compatibility with OpenTracing for Jaeger and Zipkin by testing the below versions. 
-Zipkin 2.12.9
-Jaeger 1.14.0
-Jaeger 1.10.0
+
+- Zipkin 2.12.9
+- Jaeger 1.14.0
+- Jaeger 1.10.0
 
 Therefore, the existing versions can be used without any issue.
