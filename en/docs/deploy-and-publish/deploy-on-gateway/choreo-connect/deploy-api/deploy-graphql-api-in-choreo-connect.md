@@ -7,8 +7,8 @@ to gather the same amount of data. GraphQL APIs are based on a strong type syste
 contract between client and the server. It explains how client can access the data provided by the server. This page explains how to
 deploy a GraphQL API in Choero Connect and also explains the supported features of Choreo Connect for GraphQL APIs.
 
-!!! attention "Update Level _"
-    This feature is available only as an update, after Update level _ and further. For more information, see [Link]({{base_path}}<>).
+!!! attention "Update Level 5"
+    This feature is available only as an update, after Update level 1.1.0.5 (released on 15 Aug 2022) and further. For more information regarding Choreo Connect updates, see [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/update-choreo-connect/).
 
 Choreo Connect supports below features additionally to the basic GraphQL API invocations.
 
@@ -38,6 +38,7 @@ Below instructions explain how to deploy a GraphQL to the Choreo Connect via the
 
     - This guide assumes that you already have a up and running Choreo Connect instance configured with WSO2 API Manager. If not, you can refer to the [Quick Start Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/) on how to run Choreo Connect with WSO2 API Manager. To learn more about Choreo Connect related componentes, refer to the [Overview of Choreo Connect]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview).
     - GraphQL schema file (SDL) and a GraphQL server implementaion relevant to the SDL.
+    - You need to have a GraphQL schema file (SDL) and a GraphQL server implementaion relevant to the SDL. You can obtain the SDL file relevant to this example from [here]({{base_path}}/assets/attachments/learn/schema_graphql.graphql) and the server implementation relevant to that SDL available in [here]({{base_path}}/tutorials/create-and-publish-a-graphql-api/#step-1-start-the-graphql-backend-server).
 
 ### Step 1 - Create a GraphQL API in WSO2 API Manager publisher portal
 
@@ -58,7 +59,7 @@ You can create a GraphQL API in WSO2 API-M publisher portal by following the ste
 
 3. Import the schema by dragging and dropping the file or by uploading the file, and click **Next**.
 
-    Let's use the [StarWarsAPI schema definition](../../assets/attachments/learn/schema_graphql.graphql) to create the schema file. 
+    Let's use the [StarWarsAPI schema definition]({{base_path}}/assets/attachments/learn/schema_graphql.graphql) to create the schema file. 
 
     <div class="admonition note">
     <p class="admonition-title">Note</p>
@@ -117,7 +118,7 @@ You can create a GraphQL API in WSO2 API-M publisher portal by following the ste
              <p>Endpoint</p>
           </td>
           <td>
-             <a href="http://localhost:8080/graphql" target="_blank">http://localhost:8080/graphql</a>
+             <a href="http://host.docker.internal:8080/graphql" target="_blank">http://host.docker.internal:8080/graphql</a>
           </td>
           </tr>
           </table>
@@ -125,11 +126,6 @@ You can create a GraphQL API in WSO2 API-M publisher portal by following the ste
        [![Add GraphQL API details]({{base_path}}/assets/img/learn/create-graphql-api-details.png){: style="width:75%"}](../../assets/img/learn/create-graphql-api-details.png)
 
 5. Click `Create` button.
-
-!!! note
-
-    Server implementation relevant to the above API can be obtained from [here]({{base_path}}/tutorials/create-and-publish-a-graphql-api/#step-1-start-the-graphql-backend-server)
-
 
 ### Step 2 - Deploy and publish the API
 
@@ -280,8 +276,7 @@ TOKEN=$(curl -X POST "https://localhost:9095/testkey" -d "" -H "Authorization: B
         - `-H "Content-Type: application/json"`
         - `-H "Content-Type: application/graphql"`
 
-
-1. Invoke the API using the following cURL command structure.
+- Invoke the API using the following cURL command structure.
 
     ```bash tab="Format"
     curl -X POST "<Docker-hostname>:<Docker-port>/<API-context>/<API-version>" -H "Authorization: Bearer $TOKEN" -d "<query>" -H "Content-Type: application/json" -k 
