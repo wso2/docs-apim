@@ -113,7 +113,7 @@ For more information, see [OpenTelemetry Configurations]({{base_path}}/reference
     value = "<key-value-of-the-header>"
 	```
 
-For Elastic APM the URL can be taken from, ```Edit Elastic APM integration -> Settings -> General -> Server configuration -> Url``` after creating an account in Elastic and the ```name``` will be ```"Authorization"``` and the ```value``` can be either ```"Bearer <Secret-token>"``` or ```"ApiKey <Elastic-apm-key>"```.
+For Elastic APM the URL can be taken from, `Edit Elastic APM integration -> Settings -> General -> Server configuration -> Url` after creating an account in Elastic and the `name` will be `"Authorization"` and the `value` can be either `"Bearer <Secret-token>"` or `"ApiKey <Elastic-apm-key>"`.
 
 !!! note 
     The secret token can be taken from ```Edit Elastic APM integration -> Settings -> Agent authorization -> Secret Token``` and an Elastic APM key can be created from ```Menu -> Stack Management > Security -> API Keys -> Create API Key```.
@@ -128,7 +128,32 @@ You can use any tracing server with a custom tracer implementation in WSO2 API M
 
 Implement the `org.wso2.carbon.apimgt.tracing.telemetry.APIMOpenTelemetry` interface and add your implementation. The following are the methods that the ```APIMOpenTelemetry``` interface uses to carry out various related operations.
 
-
+<table>
+  <tr>
+    <th>Method</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>init</td>
+    <td>Provide the service name to this method as a parameter and configure an instance of OpenTelemetrySdk.</td>
+  </tr>
+  <tr>
+    <td>getAPIMOpenTelemetry</td>
+    <td>Returns the initialized OpenTelemetry instance.</td>
+  </tr>
+  <tr>
+    <td>getTelemetryTracer</td>
+    <td>Returns the initialized tracer instance.</td>
+  </tr>
+  <tr>
+    <td>getName</td>
+    <td>Returns the name of the type.</td>
+  </tr>
+  <tr>
+    <td>close</td>
+    <td>Shutdown the SDK cleanly at JVM exit.</td>
+  </tr>
+</table>
 
 For more information view manually instrumented [Jaeger tracer](https://github.com/wso2/carbon-apimgt/blob/master/components/apimgt/org.wso2.carbon.apimgt.tracing/src/main/java/org/wso2/carbon/apimgt/tracing/telemetry/JaegerTelemetry.java).
 
