@@ -46,7 +46,7 @@ Two key performance metrics were used to measure the performance of each test.
 
 ## Deployment used for the test
 
-[![API-M graphql performance test all-in-one deployment]({{base_path}}/assets/img/setup-and-install/performance-test-results/graphql/apim_performance_test_all_in_one_deployment_graphql.png){: style="width:80%"}]({{base_path}}/assets/img/setup-and-install/performance-test-results/graphql/apim_performance_test_all_in_one_deployment_graphql.png)
+[![API-M GraphQL performance test all-in-one deployment]({{base_path}}/assets/img/setup-and-install/performance-test-results/graphql/apim_performance_test_all_in_one_deployment_graphql.png){: style="width:80%"}]({{base_path}}/assets/img/setup-and-install/performance-test-results/graphql/apim_performance_test_all_in_one_deployment_graphql.png)
 
 <table>
 <thead>
