@@ -132,7 +132,7 @@ Implement the `org.wso2.carbon.apimgt.tracing.telemetry.APIMOpenTelemetry` inter
 
 For more information view manually instrumented [Jaeger tracer](https://github.com/wso2/carbon-apimgt/blob/master/components/apimgt/org.wso2.carbon.apimgt.tracing/src/main/java/org/wso2/carbon/apimgt/tracing/telemetry/JaegerTelemetry.java).
 
-1. Build the Maven project and add the JAR file to the ```dropins``` directory. (```<API-M_HOME>/repository/components/dropins```).
+1. Build the Maven project and add the JAR file to the `<API-M_HOME>/repository/components/dropins` directory.
 
 2. Add the following configuration into the deployment.toml file.
 
@@ -142,7 +142,7 @@ For more information view manually instrumented [Jaeger tracer](https://github.c
 	remote_tracer.name = "<custom-tracer-name>"
     ```
 
-3. Add any external JAR files to the ```lib``` directory if required. (```<API-M_HOME>/repository/components/lib```).
+3. Add any external JAR files to the `<API-M_HOME>/repository/components/lib` directory if required.
 
 4. Start the server. 
 
