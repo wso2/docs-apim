@@ -13,7 +13,7 @@ WSO2 MI supports the following types of ways to retrieve instrumented data.
  - Jaeger
  - Zipkin
  - Log
- - OTLP - This type can support APMs such as NewRelic, Elastic, etc.
+ - [OTLP](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/otlp.md) - This type can support APMs such as NewRelic, Elastic, etc.
 
 First add the below configurations to enable statistics collection in the `<MI-HOME>/repository/conf/deployment.toml` file.
 
@@ -58,7 +58,7 @@ Then, add the configurations for the specific type of tracing in order to enable
     url = "http://localhost:14250"
     ```
 
-2. Start the server. Once that is done, Download Jaeger and start it as mentioned in its Quick Start Guide. Then the traces can be viewed from the Jaeger UI. (http://localhost:16686).
+2. Start the server. Once that is done, [Download Jaeger](https://www.jaegertracing.io/download/) and start it as mentioned in its [Quick Start Guide](https://www.jaegertracing.io/docs/1.15/#quick-start). Then the traces can be viewed from the [Jaeger UI](http://localhost:16686).
 
     [![Distributed tracing jaeger]({{base_path}}/assets/img/administer/opentelemetry-jaeger.png)]({{base_path}}/assets/img/administer/opentelemetry-jaeger.png)
 
@@ -184,11 +184,11 @@ _your_Insight_Insert_key_here>&Data-Format=zipkin&Data-Format-Version=2"
 By using a custom tracer implementation in WSO2 MI, you can publish tracing data from WSO2 MI to any tracing server. Let's implement a custom tracer which simply prints the logs via the System.out in WSO2 MI using the instructions given below:
 
 
-Implement the ```org.apache.syanpse.flow.statistics.tracing.opentelemetry.management.OpenTelemetryManager``` interface and add your implementation. 
-The init method should contain the generation of the ```Tracer``` instance by configuring the endpoint url, headers, ```SdkTraceProvider``` and ```OpenTelemetry``` instance. 
-Then the ```handler``` attribute can be defined using initialized tracer and opentelemetry instances. 
+Implement the `org.apache.syanpse.flow.statistics.tracing.opentelemetry.management.OpenTelemetryManager` interface and add your implementation. 
+The init method should contain the generation of the `Tracer` instance by configuring the endpoint url, headers, `SdkTraceProvider` and `OpenTelemetry` instance. 
+Then the `handler` attribute can be defined using initialized tracer and opentelemetry instances. 
 The getTelemetryTracer method should return the tracer with the given instrumentation name. 
-The close method should close the initialized ```SdkTraceProvider``` instance to shutdown the SDK cleanly at JVM exit. 
+The close method should close the initialized `SdkTraceProvider` instance to shutdown the SDK cleanly at JVM exit. 
 The getServiceName method should return the service name.
 Finally, the getHandler method should return the above initialized handler.
 The following are the components involved in building your custom tracer:
@@ -321,15 +321,15 @@ public class SysoutTelemetryManager implements OpenTelemetryManager {
 }
 ```
 
-Build the Maven project and add the JAR file to the ```dropins``` directory. (```<MI_HOME>/dropins```)
-Edit the infer.json file in the ```<MI_HOME>/repository/resources/conf``` folder in the following way under opentelemetry.type,
+Build the Maven project and add the JAR file to the `<MI_HOME>/dropins` directory.
+Edit the infer.json file in the `<MI_HOME>/repository/resources/conf` folder in the following way under opentelemetry.type,
 
 ```
 "sysout": {
   	"synapse_properties.'opentelemetry.class'": "org.apache.synapse.aspects.flow.statistics.tracing.opentelemetry.management.SysoutTelemetryManager"
 	}
 ```
-Add the following configuration into the ```deployment.toml``` file.
+Add the following configuration into the `deployment.toml` file.
 
 ```toml tab="Format"
 [opentelemetry]
@@ -338,7 +338,7 @@ logs = true
 type = “sysout”
 ```
 
-If you need more opentelemetry.properties than the developed ones, you can edit the for loop of synapse.properties.j2 file in the ```<MI_HOME>/repository/resources/conf/templates/conf``` folder in the following way
+If you need more opentelemetry.properties than the developed ones, you can edit the for loop of synapse.properties.j2 file in the `<MI_HOME>/repository/resources/conf/templates/conf` folder in the following way
 
 ```
 {%for property in opentelemetry.properties %}
@@ -360,8 +360,7 @@ header = “header”
 key = “key-of-the-header” 
 ```
 
-Also in the custom tracer class a method should be implemented to return those properties which will be similar to the method getHeaderKeyProperty in ```OTLPTelemetryManager``` class and the constant of
- ```org.apache.syanpse.flow.statistics.tracing.opentelemetry.management.TelemetryConstants``` class also needs to be changed according to the name given by you..
+Also in the custom tracer class a method should be implemented to return those properties which will be similar to the method `getHeaderKeyProperty` in `OTLPTelemetryManager` class and the constant of `org.apache.syanpse.flow.statistics.tracing.opentelemetry.management.TelemetryConstants` class also needs to be changed according to the name given by you..
 
 
 OpenTelemetry ensured backward compatibility with OpenTracing for Jaeger and Zipkin by testing the below versions. 

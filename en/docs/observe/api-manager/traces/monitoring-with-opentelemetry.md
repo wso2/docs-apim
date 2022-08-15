@@ -116,7 +116,7 @@ For more information, see [OpenTelemetry Configurations]({{base_path}}/reference
 For Elastic APM the URL can be taken from, `Edit Elastic APM integration -> Settings -> General -> Server configuration -> Url` after creating an account in Elastic and the `name` will be `"Authorization"` and the `value` can be either `"Bearer <Secret-token>"` or `"ApiKey <Elastic-apm-key>"`.
 
 !!! note 
-    The secret token can be taken from ```Edit Elastic APM integration -> Settings -> Agent authorization -> Secret Token``` and an Elastic APM key can be created from ```Menu -> Stack Management > Security -> API Keys -> Create API Key```.
+    The secret token can be taken from `Edit Elastic APM integration -> Settings -> Agent authorization -> Secret Token` and an Elastic APM key can be created from `Menu -> Stack Management > Security -> API Keys -> Create API Key`.
 
 
 !!! note 
@@ -126,7 +126,7 @@ For Elastic APM the URL can be taken from, `Edit Elastic APM integration -> Sett
 
 You can use any tracing server with a custom tracer implementation in WSO2 API Manager to publish your tracing data. let's implement a custom tracer in WSO2 API Manager for it using the instructions given below:
 
-Implement the `org.wso2.carbon.apimgt.tracing.telemetry.APIMOpenTelemetry` interface and add your implementation. The following are the methods that the ```APIMOpenTelemetry``` interface uses to carry out various related operations.
+Implement the `org.wso2.carbon.apimgt.tracing.telemetry.APIMOpenTelemetry` interface and add your implementation. The following are the methods that the `APIMOpenTelemetry` interface uses to carry out various related operations.
 
 <table>
   <tr>
