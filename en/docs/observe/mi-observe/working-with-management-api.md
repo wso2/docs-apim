@@ -1293,7 +1293,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/configs?configName=correlation`
 
-	**Description**: Retrieves correlation log enable/disable status
+	**Description**: Retrieves correlation log configuration status.
 
 	**Example**:
 
