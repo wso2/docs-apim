@@ -1289,7 +1289,7 @@ The management API has multiple resources to provide information regarding the d
 	}
 	```
 	
-### GET CORRELATION LOG STATUS
+### GET CORRELATION LOGGING CONFIGURATION STATUS
 
 -	**Resource**: `/configs?configName=correlation`
 
