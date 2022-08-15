@@ -136,7 +136,7 @@ For example, when there are 100 concurrent users, the 90th response time percent
 
 The figure below represents the percentile values for Query 1.
 
-[![Response time 0ms 1KiB]({{base_path}}/assets/img/setup-and-install/performance-test-results/graphql/response_time_summary_Query 1 (Operation count: 1 | Query depth: 2 | Query size: 157B | Response size: 790B)_0ms.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/graphql/response_time_summary_Query 1 (Operation count: 1 | Query depth: 2 | Query size: 157B | Response size: 790B)_0ms.png)
+[![Response time 0ms 1KiB]({{base_path}}/assets/img/setup-and-install/performance-test-results/graphql/response-time-summary-query1-0ms.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/graphql/response-time-summary-query1-0ms.png)
 
 **Key observations:**
 
