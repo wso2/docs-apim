@@ -29,7 +29,7 @@ For more information, see [OpenTracer Configurations]({{base_path}}/reference/co
 	remote_tracer.enable = true
 	remote_tracer.name = "jaeger"
 	remote_tracer.properties.hostname = "localhost"
-	remote_tracer.properties.port = “6831”
+	remote_tracer.properties.port = "6831"
 	```
 
 2. Start the server.
@@ -55,7 +55,7 @@ For more information, see [OpenTracer Configurations]({{base_path}}/reference/co
 	remote_tracer.enable = true
 	remote_tracer.name = "zipkin"
 	remote_tracer.properties.hostname = "localhost"
-	remote_tracer.properties.port = “9411”
+	remote_tracer.properties.port = "9411"
 	```
 
 2. Start the server.
