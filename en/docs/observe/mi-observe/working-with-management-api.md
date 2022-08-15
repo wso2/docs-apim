@@ -1315,7 +1315,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/configs`
 
-	**Description**: Enable or disable correlation logs 
+	**Description**: Enable or disable correlation logging in a running server.
 
 	**Example**:
 
