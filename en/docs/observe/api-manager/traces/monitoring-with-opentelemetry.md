@@ -122,3 +122,27 @@ For Elastic APM the URL can be taken from, ```Edit Elastic APM integration -> Se
 !!! note 
     For other vendors, please consult the respective documentations.
 
+## Using the Custom Tracer Implementation
+
+You can use any tracing server with a custom tracer implementation in WSO2 API Manager to publish your tracing data. let's implement a custom tracer in WSO2 API Manager for it using the instructions given below:
+
+Implement the `org.wso2.carbon.apimgt.tracing.telemetry.APIMOpenTelemetry` interface and add your implementation. The following are the methods that the ```APIMOpenTelemetry``` interface uses to carry out various related operations.
+
+
+
+For more information view manually instrumented [Jaeger tracer](https://github.com/wso2/carbon-apimgt/blob/master/components/apimgt/org.wso2.carbon.apimgt.tracing/src/main/java/org/wso2/carbon/apimgt/tracing/telemetry/JaegerTelemetry.java).
+
+1. Build the Maven project and add the JAR file to the ```dropins``` directory. (```<API-M_HOME>/repository/components/dropins```).
+
+2. Add the following configuration into the deployment.toml file.
+
+    ```toml tab="Format"
+	[apim.open_telemetry]
+	remote_tracer.enable = true
+	remote_tracer.name = "<custom-tracer-name>"
+    ```
+
+3. Add any external JAR files to the ```lib``` directory if required. (```<API-M_HOME>/repository/components/lib```).
+
+4. Start the server. 
+
