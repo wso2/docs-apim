@@ -373,7 +373,7 @@ header = "header"
 key = "key-of-the-header" 
 ```
 
-Also, in the custom tracer class, a method should be implemented to return those properties that will be similar to the method `getHeaderKeyProperty` in `OTLPTelemetryManager` class and the constant of `org.apache.syanpse.flow.statistics.tracing.opentelemetry.management.TelemetryConstants` class also needs to be changed according to the name given by you..
+Also, in the custom tracer class, a method should be implemented to return those properties that will be similar to the method `getHeaderKeyProperty` in `OTLPTelemetryManager` class and the constant of `org.apache.syanpse.flow.statistics.tracing.opentelemetry.management.TelemetryConstants` class also needs to be changed according to the name given. For more information, view manually instrumented [OTLP tracer](https://github.com/wso2/wso2-synapse/blob/master/modules/core/src/main/java/org/apache/synapse/aspects/flow/statistics/tracing/opentelemetry/management/OTLPTelemetryManager.java).
 
 OpenTelemetry ensured backward compatibility with OpenTracing for Jaeger and Zipkin by testing the below versions. 
 
