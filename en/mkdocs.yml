@@ -1588,6 +1588,9 @@ nav:
                 - Manage Applications:
                     - Manage Applications: install-and-setup/setup/api-controller/managing-applications/managing-applications.md
                     - Migrate Apps to Different Environments: install-and-setup/setup/api-controller/managing-applications/migrating-applications-to-different-environments.md
+                - Manage Common API Policies:
+                    - Manage Common API Policies: install-and-setup/setup/api-controller/managing-common-api-policies/managing-common-api-policies.md
+                    - Migrate Common API Policies to Different Environments: install-and-setup/setup/api-controller/managing-common-api-policies/migrating-common-api-policies-to-different-environments.md
                 - Manage APIs in Kubernetes: install-and-setup/setup/api-controller/managing-apis-in-kubernetes/managing-apis-in-kubernetes.md
                 - Manage Choreo Connect: install-and-setup/setup/api-controller/managing-choreo-connect/managing-choreo-connect-with-ctl.md
                 - Manage Integrations: install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl.md
