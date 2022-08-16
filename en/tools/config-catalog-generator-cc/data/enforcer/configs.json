@@ -49,40 +49,6 @@
       "exampleFile": "auth_service.toml"
     },
     {
-      "title": "Filters",
-      "options": [
-        {
-          "name": "enforcer.filters",
-          "required": false,
-          "description": "The configurations for engaging custom filters in the Enforcer.",
-          "params": [
-            {
-              "name": "className",
-              "type": "string",
-              "required": true,
-              "default": "",
-              "description": "Fully qualified class name of the custom filter implementation."
-            },
-            {
-              "name": "position",
-              "type": "integer",
-              "required": true,
-              "default": "",
-              "description": "Position should be the final position (including already available filters) after all the filters are engaged. Position starts from 1."
-            },
-            {
-              "name": "configProperties",
-              "type": "string",
-              "required": false,
-              "default": "",
-              "description": "Filter specific custom configurations. Only `(string, string)` key-value pairs are accepted."
-            }
-          ]
-        }
-      ],
-      "exampleFile": "filters.toml"
-    },
-    {
       "title": "Auth Service thread pool",
       "options": [
         {
@@ -124,31 +90,38 @@
       "exampleFile": "auth_service_threadpool.toml"
     },
     {
-      "title": "API Manager Credentials",
+      "title": "Filters",
       "options": [
         {
-          "name": "enforcer.apimCredentials",
-          "required": true,
-          "description": "The credentials of the API Manager",
+          "name": "enforcer.filters",
+          "required": false,
+          "description": "The configurations for engaging custom filters in the Enforcer.",
           "params": [
             {
-              "name": "username",
+              "name": "className",
               "type": "string",
               "required": true,
-              "default": "admin",
-              "description": "Username"
+              "default": "",
+              "description": "Fully qualified class name of the custom filter implementation."
             },
             {
-              "name": "password",
-              "type": "string",
+              "name": "position",
+              "type": "integer",
               "required": true,
-              "default": "$env{apim_admin_pwd}",
-              "description": "Password"
+              "default": "",
+              "description": "Position should be the final position (including already available filters) after all the filters are engaged. Position starts from 1."
+            },
+            {
+              "name": "configProperties",
+              "type": "string",
+              "required": false,
+              "default": "",
+              "description": "Filter specific custom configurations. Only `(string, string)` key-value pairs are accepted."
             }
           ]
         }
       ],
-      "exampleFile": "apim_credentials.toml"
+      "exampleFile": "filters.toml"
     },
     {
       "title": "Cache",
@@ -190,7 +163,7 @@
         {
           "name": "enforcer.management",
           "required": true,
-          "description": "The configurations for the Enforcer admin credentials.",
+          "description": "The configurations for the Enforcer REST API credentials.",
           "params": [
             {
               "name": "username",

@@ -2,7 +2,7 @@
 
 Choreo Connect provides the ability to secure APIs in API level and resource levels. The following section would concisely guide you through the available security options in Choreo Connect. API security can be divided into two main categories; namely, Application-level security and Transport-level security.
 
-By default, APIs are secured with application security. However, if you want to disable all security for API/resource, for more information, see [Disabling Security]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/disabling-security/).
+By default, APIs are secured with application security. However, if you want to disable security for the API or only for a specific resource, see [Disabling Security]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/disabling-security/).
 
 ### Application Security
 Application security can be provided in the API and resource levels. The following are the API authentication types granted by Choreo Connect.

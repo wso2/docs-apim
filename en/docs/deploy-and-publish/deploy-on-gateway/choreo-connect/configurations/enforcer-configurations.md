@@ -16,9 +16,11 @@ See the example .toml file given below.
   maxHeaderLimit = 8192
   keepAliveTime = 600
 
-[enforcer.apimCredentials]
-  username="admin"
-  password="$env{apim_admin_pwd}"
+[enforcer.authService.threadPool]
+  coreSize = 400
+  maxSize = 500
+  keepAliveTime = 600
+  queueSize = 1000
 
 ```
 
@@ -161,7 +163,7 @@ See the example .toml file given below.
 
 
 
-## Filters
+## Auth Service thread pool
 
 
 <div class="mb-config-catalog">
@@ -171,103 +173,6 @@ See the example .toml file given below.
             
             <input name="3" type="checkbox" id="_tab_3">
                 <label class="tab-selector" for="_tab_3"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
-                    <div class="mb-config-example">
-<pre><code class="toml">[[enforcer.filters]]
-    className = "org.wso2.choreo.connect.custom.CCCustomFilter"
-    position = 3
-    [enforcer.filters.configProperties]
-        testConfig1 = "testValue1"</code></pre>
-                    </div>
-                </div>
-                <div class="doc-wrapper">
-                    <div class="mb-config">
-                        <div class="config-wrap">
-                            <code>[enforcer.filters]</code>
-                            
-                            <p>
-                                The configurations for engaging custom filters in the Enforcer.
-                            </p>
-                        </div>
-                        <div class="params-wrap">
-                            <div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>className</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code></code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Fully qualified class name of the custom filter implementation.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>position</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> integer </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code></code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Position should be the final position (including already available filters) after all the filters are engaged. Position starts from 1.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>configProperties</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code></code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Filter specific custom configurations. Only `(string, string)` key-value pairs are accepted.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
-
-
-
-## Auth Service thread pool
-
-
-<div class="mb-config-catalog">
-    <section>
-        <div class="mb-config-options">
-            <div class="superfences-tabs">
-            
-            <input name="4" type="checkbox" id="_tab_4">
-                <label class="tab-selector" for="_tab_4"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[enforcer.authService.threadPool]
@@ -374,7 +279,7 @@ See the example .toml file given below.
 
 
 
-## API Manager Credentials
+## Filters
 
 
 <div class="mb-config-catalog">
@@ -382,28 +287,30 @@ See the example .toml file given below.
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="5" type="checkbox" id="_tab_5">
-                <label class="tab-selector" for="_tab_5"><i class="icon fa fa-code"></i></label>
+            <input name="4" type="checkbox" id="_tab_4">
+                <label class="tab-selector" for="_tab_4"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[enforcer.apimCredentials]
-  username="admin"
-  password="$env{apim_admin_pwd}"</code></pre>
+<pre><code class="toml">[[enforcer.filters]]
+    className = "org.wso2.choreo.connect.custom.CCCustomFilter"
+    position = 3
+    [enforcer.filters.configProperties]
+        testConfig1 = "testValue1"</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[enforcer.apimCredentials]</code>
-                            <span class="badge-required">Required</span>
+                            <code>[enforcer.filters]</code>
+                            
                             <p>
-                                The credentials of the API Manager
+                                The configurations for engaging custom filters in the Enforcer.
                             </p>
                         </div>
                         <div class="params-wrap">
                             <div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>username</code> </span>
+                                  <span class="param-name-wrap"> <code>className</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -412,31 +319,50 @@ See the example .toml file given below.
                                             <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>admin</code></span>
+                                            <span class="param-default-value">Default: <code></code></span>
                                         </div>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Username</p>
+                                        <p>Fully qualified class name of the custom filter implementation.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>password</code> </span>
+                                  <span class="param-name-wrap"> <code>position</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Position should be the final position (including already available filters) after all the filters are engaged. Position starts from 1.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>configProperties</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>$env{apim_admin_pwd}</code></span>
+                                            <span class="param-default-value">Default: <code></code></span>
                                         </div>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Password</p>
+                                        <p>Filter specific custom configurations. Only `(string, string)` key-value pairs are accepted.</p>
                                     </div>
                                 </div>
                             </div>
@@ -458,8 +384,8 @@ See the example .toml file given below.
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="6" type="checkbox" id="_tab_6">
-                <label class="tab-selector" for="_tab_6"><i class="icon fa fa-code"></i></label>
+            <input name="5" type="checkbox" id="_tab_5">
+                <label class="tab-selector" for="_tab_5"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[enforcer.cache]
@@ -554,8 +480,8 @@ See the example .toml file given below.
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="7" type="checkbox" id="_tab_7">
-                <label class="tab-selector" for="_tab_7"><i class="icon fa fa-code"></i></label>
+            <input name="6" type="checkbox" id="_tab_6">
+                <label class="tab-selector" for="_tab_6"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[enforcer.management]
@@ -569,7 +495,7 @@ password = "admin"</code></pre>
                             <code>[enforcer.management]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                The configurations for the Enforcer admin credentials.
+                                The configurations for the Enforcer REST API credentials.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -630,8 +556,8 @@ password = "admin"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="8" type="checkbox" id="_tab_8">
-                <label class="tab-selector" for="_tab_8"><i class="icon fa fa-code"></i></label>
+            <input name="7" type="checkbox" id="_tab_7">
+                <label class="tab-selector" for="_tab_7"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[enforcer.restserver]
@@ -686,8 +612,8 @@ enabled = true</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="9" type="checkbox" id="_tab_9">
-                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+            <input name="8" type="checkbox" id="_tab_8">
+                <label class="tab-selector" for="_tab_8"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[enforcer.jwtGenerator]
@@ -947,8 +873,8 @@ enabled = true</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="10" type="checkbox" id="_tab_10">
-                <label class="tab-selector" for="_tab_10"><i class="icon fa fa-code"></i></label>
+            <input name="9" type="checkbox" id="_tab_9">
+                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[enforcer.jwtIssuer]
@@ -1147,8 +1073,8 @@ enabled = true</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="11" type="checkbox" id="_tab_11">
-                <label class="tab-selector" for="_tab_11"><i class="icon fa fa-code"></i></label>
+            <input name="10" type="checkbox" id="_tab_10">
+                <label class="tab-selector" for="_tab_10"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[enforcer.jwtIssuer.jwtUser]]
@@ -1223,8 +1149,8 @@ enabled = true</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="12" type="checkbox" id="_tab_12">
-                <label class="tab-selector" for="_tab_12"><i class="icon fa fa-code"></i></label>
+            <input name="11" type="checkbox" id="_tab_11">
+                <label class="tab-selector" for="_tab_11"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[enforcer.security.authHeader]
@@ -1299,8 +1225,8 @@ enabled = true</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="13" type="checkbox" id="_tab_13">
-                <label class="tab-selector" for="_tab_13"><i class="icon fa fa-code"></i></label>
+            <input name="12" type="checkbox" id="_tab_12">
+                <label class="tab-selector" for="_tab_12"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[enforcer.security.tokenService]]
@@ -1476,8 +1402,8 @@ enabled = true</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="14" type="checkbox" id="_tab_14">
-                <label class="tab-selector" for="_tab_14"><i class="icon fa fa-code"></i></label>
+            <input name="13" type="checkbox" id="_tab_13">
+                <label class="tab-selector" for="_tab_13"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[enforcer.throttling]
@@ -1633,8 +1559,8 @@ enabled = true</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="15" type="checkbox" id="_tab_15">
-                <label class="tab-selector" for="_tab_15"><i class="icon fa fa-code"></i></label>
+            <input name="14" type="checkbox" id="_tab_14">
+                <label class="tab-selector" for="_tab_14"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[enforcer.throttling.publisher]
@@ -1709,8 +1635,8 @@ enabled = true</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="16" type="checkbox" id="_tab_16">
-                <label class="tab-selector" for="_tab_16"><i class="icon fa fa-code"></i></label>
+            <input name="15" type="checkbox" id="_tab_15">
+                <label class="tab-selector" for="_tab_15"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[enforcer.throttling.publisher.URLGroup]]
@@ -1785,8 +1711,8 @@ enabled = true</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="17" type="checkbox" id="_tab_17">
-                <label class="tab-selector" for="_tab_17"><i class="icon fa fa-code"></i></label>
+            <input name="16" type="checkbox" id="_tab_16">
+                <label class="tab-selector" for="_tab_16"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[enforcer.throttling.publisher.pool]
@@ -1921,8 +1847,8 @@ enabled = true</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="18" type="checkbox" id="_tab_18">
-                <label class="tab-selector" for="_tab_18"><i class="icon fa fa-code"></i></label>
+            <input name="17" type="checkbox" id="_tab_17">
+                <label class="tab-selector" for="_tab_17"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[enforcer.throttling.publisher.agent]
@@ -2299,8 +2225,8 @@ enabled = true</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="19" type="checkbox" id="_tab_19">
-                <label class="tab-selector" for="_tab_19"><i class="icon fa fa-code"></i></label>
+            <input name="18" type="checkbox" id="_tab_18">
+                <label class="tab-selector" for="_tab_18"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[enforcer.metrics]
