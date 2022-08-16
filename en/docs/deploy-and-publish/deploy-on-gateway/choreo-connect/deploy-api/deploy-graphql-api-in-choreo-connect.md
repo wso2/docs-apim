@@ -114,7 +114,7 @@ You can create a GraphQL API in WSO2 API-M Publisher Portal by following the ste
              <p>Endpoint</p>
           </td>
           <td>
-             <a href="http://host.docker.internal:8080/graphql" target="_blank">http://host.docker.internal:8080/graphql</a>
+             <a href="http://hostName:8080/graphql" target="_blank">http://hostName:8080/graphql</a>
           </td>
           </tr>
           </table>
@@ -193,7 +193,7 @@ The following steps describe how to deploy a GraphQL API in Choreo Connect stand
 
 ### Step 1 - Create an API Project
 
-When using GraphQL APIs in Choreo Connect standalone mode, you need to have an API project. The tructure of a sample GraphQL API project is included in below.
+When using GraphQL APIs in Choreo Connect standalone mode, you need to have an API project. The structure of a sample GraphQL API project is included in below.
 
 ```bash
 .
