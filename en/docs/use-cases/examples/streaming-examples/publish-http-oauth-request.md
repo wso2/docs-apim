@@ -26,8 +26,8 @@ This application demonstrates how to configure WSO2 Streaming Integrator Tooling
     | **Parameter**     | **Description**                                                                              |
     |-------------------|----------------------------------------------------------------------------------------------|
     | `publisher.url`   | The publisher URL (e.g., `https://localhost:8005/abc`).                                      |
-    | `consumer.key`    | The consumer key for the http request (e.g., `abcdef`).                                      |
-    | `consumer.secret` | The consumer secret for the http request (e.g., `abcdef`).                                   |
+    | `consumer.key`    | The consumer key for the HTTP request (e.g., `abcdef`).                                      |
+    | `consumer.secret` | The consumer secret for the HTTP request (e.g., `abcdef`).                                   |
     | `token.url`       | The URL of the token end point (e.g., `https://localhost:8005/token`).                       |
     | `method`          | The method type (e.g., POST). This is an optional parameter. You can specify a value if you want to use a method different to the default method. |
     | `header` (Authorization header) | The access token for the API endpoint request (e.g., `abcdef` is the default value.). It automatically gets the access token using the password/client-credential/refresh grant. Here, the grant type depends on the user input. |
@@ -114,7 +114,7 @@ Send events via one or more of the following methods:
 
 ## Viewing the Results
 
-The following is logged in ther terminal.
+The following is logged in the terminal.
 
 ```
 Siddhi App test successfully deployed.
@@ -127,7 +127,7 @@ INFO {org.wso2.extension.siddhi.io.http.sink.HttpSink} - Request sent successful
 
 ## Notes
 
-- If the termianl logs `Error when pushing events to Siddhi debugger engine`, it could be due to a timeout issue. To address it, follow the steps below:
+- If the terminal logs `Error when pushing events to Siddhi debugger engine`, it could be due to a timeout issue. To address it, follow the steps below:
 
     1. Stop the Siddhi application by clicking the **Stop** icon.
     

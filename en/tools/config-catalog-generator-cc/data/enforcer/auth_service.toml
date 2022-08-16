@@ -1,0 +1,5 @@
+[enforcer.authService]
+  port = 8081
+  maxMessageSize = 1000000000
+  maxHeaderLimit = 8192
+  keepAliveTime = 600

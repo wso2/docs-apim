@@ -11,7 +11,7 @@ To publish events to analytics cloud, you need to configure WSO2 API Manager to 
     enable = true
     ```
 
-2. The analytics cloud config endpoint is required to publish events to cloud. You need to configure the auth_token property with an auth token. The config endpoint and auth token configurations are as follows.
+2. The analytics cloud configuration endpoint is required to publish events to cloud. You need to configure the auth_token property with an auth token. The configuration endpoint and auth token configurations are as follows.
 
     ```toml
     [apim.analytics]

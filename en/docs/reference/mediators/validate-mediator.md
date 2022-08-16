@@ -66,7 +66,7 @@ You can click <strong>NameSpaces</strong> to add namespaces if you are providing
 <td><div class="content-wrapper">
 <p>The key for the schema location. It can be specified using one of the following methods.</p>
 <ul>
-<li>If the key is a static value, select <strong>Static Key</strong> from the list and enter a static key in the data field. This value should be pre-defined and saved as a resource in the Registry. Click either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> as relevant to select the required key from the resource tree.</li>
+<li>If the key is a static value, select <strong>Static Key</strong> from the list and enter a static key in the data field. This value should be predefined and saved as a resource in the Registry. Click either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> as relevant to select the required key from the resource tree.</li>
 <li>If the key is a dynamic value, Select <strong>Dynamic Key</strong> from the list and enter an expression to calculate the value in the data field.</li>
 </ul>
 <p>Click <strong>Add Key</strong> to add a new schema key. Click <strong>Delete</strong> in the relevant row to delete a schema key.</p>
@@ -238,7 +238,7 @@ E.g: <code>json-eval($.msg)</code>
 <td><strong>Schema keys defined for Validate Mediator</strong></td>
 <td><p>The key for the schema location. It can be specified using one of the following methods.</p>
 <ul>
-<li>If the key is a static value, select Static Key from the list and enter a static key in the data field. This value should be pre-defined and saved as a resource in the Registry . Click either Configuration Registry or Governance Registry as relevant to select the required key from the resource tree.</li>
+<li>If the key is a static value, select Static Key from the list and enter a static key in the data field. This value should be predefined and saved as a resource in the Registry . Click either Configuration Registry or Governance Registry as relevant to select the required key from the resource tree.</li>
 <li>If the key is a dynamic value, Select Dynamic Key from the list and enter an expression to calculate the value in the data field.</li>
 </ul>
 <p>Click <strong>Add Key</strong> to add a new schema key. Click <strong>Delete</strong> in the relevant row to delete a schema key.</p></td>
@@ -299,9 +299,11 @@ to be sent back to the party, which sends the message.
     <schema key="conf:/schema/StockQuoteSchema.json"/>
     <on-fail>
         <payloadFactory media-type="json">
-            <format>{"Error":"$1"}</format>
+            <format>{"Error":"$1",
+            "Error Details" : "$2"       }</format>
             <args>
-                <arg evaluator="xml" expression="$ctx:ERROR_MESSAGE"/>
+                <arg evaluator="xml" expression="$ctx:ERROR_MESSAGE" />
+                <arg evaluator="xml" expression="$ctx:ERROR_DETAIL" />
             </args>
         </payloadFactory>
         <property name="HTTP_SC" value="500" scope="axis2"/>
@@ -322,6 +324,15 @@ An example for a valid JSON payload request is given below.
 }
 ```
 
+When you send an invalid JSON, the following response will appear.
+
+```
+{
+    "Error": "object has missing required properties ([\"request\"])",
+    "Error Details ": " Error while validating Json message error: object has missing required properties ([\"request\"])\n    level: \"error\"\n    schema: {\"loadingURI\":\"#\",\"pointer\":\"/properties/getQuote\"}\n    instance: {\"pointer\":\"/getQuote\"}\n    domain: \"validation\"\n    keyword: \"required\"\n    required: [\"request\"]\n    missing: [\"request\"]\n"
+}
+```
+
 #### Validate mediator with source (JSONPath)
 
 In this example, it extracts the message element from the JSON request
@@ -333,9 +344,11 @@ schema.
     <schema key="conf:/schema/StockQuoteSchema.json"/>
     <on-fail>
         <payloadFactory media-type="json">
-            <format>{"Error":$1"}</format>
+            <format>{"Error":"$1",
+            "Error Details" : "$2"       }</format>
             <args>
-                <arg evaluator="xml" expression="$ctx:ERROR_MESSAGE"/>
+                <arg evaluator="xml" expression="$ctx:ERROR_MESSAGE" />
+                <arg evaluator="xml" expression="$ctx:ERROR_DETAIL" />
             </args>
         </payloadFactory>
         <property name="HTTP_SC" value="500" scope="axis2"/>
@@ -355,5 +368,14 @@ An example for a valid JSON request payload is given below.
          }
       }
    }
+}
+```
+
+When you send an invalid JSON, the following response will appear.
+
+```
+{
+    "Error": "object has missing required properties ([\"request\"])",
+    "Error Details": "Error while validating Json message error: object has missing required properties ([\"request\"])\n    level: \"error\"\n    schema: {\"loadingURI\":\"#\",\"pointer\":\"/properties/getQuote\"}\n    instance: {\"pointer\":\"/getQuote\"}\n    domain: \"validation\"\n    keyword: \"required\"\n    required: [\"request\"]\n    missing: [\"request\"]\n"
 }
 ```

@@ -12,7 +12,7 @@ This section covers the following topics.
 -   [Configuring External IDP through Identity Server for SSO]({{base_path}}/develop/extending-api-manager/saml2-sso/configuring-external-idp-through-identity-server-for-sso)
 
 !!! info
-    The **Single Sign-On with openID Connect** feature is enabled by default in the API Manager.  
+    The **Single Sign-On with OpenID Connect** feature is enabled by default in the API Manager.  
     
 !!! tip
     For more information on SAML related terminologies discussed in the sections above, go to [Assertions and Protocols for the OASIS SAML 2.0](https://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf) documentation.

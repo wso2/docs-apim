@@ -49,7 +49,7 @@ Send events through one or more of the following methods.
 	from ProductionTrainStream#streamingml:updateHoeffdingTree('classifierModel', 3, density, solubility, sweetType )
 	```
 
-##### Send events to the simulator http endpoint through the curl command:
+##### Send events to the simulator HTTP endpoint through the curl command:
 1. Open a new terminal and issue the following command:
 ```bash
 * curl -X POST -d '{"streamName": "ProductionTrainStream", "siddhiAppName": "streaming-hoeffding-classifier-sample","data": [50.4, 30.03, candy]}' http://localhost:9390/simulation/single -H 'content-type: text/plain'
@@ -86,7 +86,7 @@ Send events through one or more of the following methods.
 	emperature: 20.5
 	```
 
-##### Send events to the simulator http endpoint through the curl command:
+##### Send events to the simulator HTTP endpoint through the curl command:
 1. Open a new terminal and issue the following command:
 ```bash
 curl -X POST -d '{"streamName": "SweetProductionStream", "siddhiAppName": "streaming-hoeffding-classifier-sample","data": [30.4, 20.5]}' http://localhost:9390/simulation/single -H 'content-type: text/plain'

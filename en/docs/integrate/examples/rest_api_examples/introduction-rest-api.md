@@ -6,7 +6,7 @@ You can configure REST endpoints in the Micro Integrator by directly specifying 
 
 Following is a sample REST API configuration that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
-This is a REST api with two api resources. The GET calls are handled by the first resource. These REST calls will get converted into SOAP calls and sent to the back-end service. The response will be sent to the client in POX format.
+This is a REST API with two API resources. The GET calls are handled by the first resource. These REST calls will get converted into SOAP calls and sent to the back-end service. The response will be sent to the client in POX format.
 
 ```xml
 <api name="StockQuoteAPI" context="/stockquote" xmlns="http://ws.apache.org/ns/synapse">
@@ -55,7 +55,7 @@ Create the artifacts:
 
 1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
 2. [Create an integration project]({{base_path}}/integrate/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-3. [Create the rest api]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api) with the configurations given above.
+3. [Create the rest API]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 
 Set up the back-end service:
@@ -73,7 +73,7 @@ Set up the back-end service:
       axis2server.bat
       ```
 
-Invoke the sample Api:
+Invoke the sample API:
 
 -   Sending a GET request.
    

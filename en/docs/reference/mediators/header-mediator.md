@@ -22,7 +22,7 @@ The parameters available to configure the Header mediator are as follows.
 <table>
 <thead>
 <tr class="header">
-<th>Paramater Name</th>
+<th>Parameter Name</th>
 <th>Description</th>
 </tr>
 </thead>

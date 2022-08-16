@@ -130,4 +130,4 @@ You can get the transaction count for a particular month or period. This data ca
 
 -  Start the [APICTL]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller) and use the [mi transaction]({{base_path}}/install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl/#monitor-transactions) option.
 
--  Directly access the [Management API resources]({{bae_path}}/observe/mi-observe/working-with-management-api) and invoke the [/transaction/count]({{base_path}}/observe/mi-observe/working-with-management-api/#get-transaction-count) and [/transaction/report]({{base_path}}/observe/mi-observe/working-with-management-api/#get-transaction-report-data) resources.
+-  Directly access the [Management API resources]({{base_path}}/observe/mi-observe/working-with-management-api) and invoke the [/transaction/count]({{base_path}}/observe/mi-observe/working-with-management-api/#get-transaction-count) and [/transaction/report]({{base_path}}/observe/mi-observe/working-with-management-api/#get-transaction-report-data) resources.

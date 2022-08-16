@@ -1,0 +1,17 @@
+# Choreo Connect Control Plane Configuration Catalog
+
+This document describes all the configuration parameters that are used in WSO2 Choreo Connect Control Plane.
+
+## Instructions for use
+
+Select the configuration sections, parameters, and values that are required for your use and add them to the `config.toml`
+file located in `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/`.
+See the example .toml file given below.
+
+```toml
+[controlPlane]
+  enabled = false
+```
+
+{% set parameters = {'comp': 'control-plane'} %}
+{% include "../templates/_configs.njk" %}

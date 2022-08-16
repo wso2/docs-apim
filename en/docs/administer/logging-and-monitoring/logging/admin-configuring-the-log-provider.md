@@ -1,8 +1,11 @@
 # Configuring the Log Provider
 
-Logs of a system can be stored in many ways. For example, they can be stored in a file system, an sql server such as MySQL, a no-sql server like Cassandra, etc. According to the default configurations in a Carbon product, the logs are stored in the `<PRODUCT_HOME>/repository/logs/` directory as `.log` files.
+Logs of a system can be stored in many ways. For example, they can be stored in a file system, an SQL server such as MySQL, a no-sql server like Cassandra, etc. According to the default configurations in a Carbon product, the logs are stored in the `<PRODUCT_HOME>/repository/logs/` directory as `.log` files.
 
 To [view and download the logs](https://docs.wso2.com/display/ADMIN44x/View+and+Download+Logs) using the management console, the following configurations are required: the [Logging Management](https://docs.wso2.com/display/ADMIN44x/Monitoring+Logs+using+Management+Console) feature should be installed, [the log4j properties should be configured](https://docs.wso2.com/display/ADMIN44x/Configuring+Log4j+Properties) and the LogProvider and LogFileProvider interfaces should be implemented and configured for the server as described below.
+
+!!! Warning
+    Note that WSO2 API Manager 3.0.0, 3.1.0, 3.2.0, and 4.0.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
 
 -   [Implementing the LogProvider interface](#ConfiguringtheLogProvider-ImplementingtheLogProviderinterface)
 -   [Implementing the LogFileProvider interface](#ConfiguringtheLogProvider-ImplementingtheLogFileProviderinterface)
@@ -19,7 +22,7 @@ The `LogProvider` interface has the following methods:
 -   getSystemLogs() - Return a list of system LogEvents.
 -   getAllLogs(String tenantDomain, String serverKey) - Return list of all the logs available under given domain and server key
 -   getLogsByAppName(String appName, String tenantDomain, String serverKey) - Return list of all the LogEvents belonging to the application, which is deployed under given tenant domain and server key.
--   getLogs(String type, String keyword, String appName, String tenantDomain, String serverKey) - Returns list of all LogEvents related to the given application, which match to given type and LogEvent message has given key word with it. User can use this api for search operations.
+-   getLogs(String type, String keyword, String appName, String tenantDomain, String serverKey) - Returns list of all LogEvents related to the given application, which match to given type and LogEvent message has given key word with it. User can use this API for search operations.
 -   logsCount(String tenantDomain, String serverKey) - Return LogEvent count
 -   clearLogs() - Clear operation. For example, if it is an "in memory" log provider, this method can be used to clear the memory.
 

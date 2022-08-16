@@ -71,9 +71,9 @@ const Configurations = {
 
 | Option | type | Description |
 | ------ | -- | ----------- |
-| position | string | Sets the possition of the menu. Accepts 'horizontal', 'vertical-left', 'vertical-right' |
+| position | string | Sets the position of the menu. Accepts 'horizontal', 'vertical-left', 'vertical-right' |
 | style | string | Sets the menu icon position and visibility. Accepts'icon top', 'icon left', 'no icon', 'no text' |
-| iconSize | integer | Icon size in pixles |
+| iconSize | integer | Icon size in pixels |
 | leftMenuTextStyle | string | Set the font style for the menu text |
 | width | integer | Defines the menu width |
 | background | string | Set the background for the left menu |
@@ -81,7 +81,7 @@ const Configurations = {
 | leftMenuActive | string | Set the background color of the menu when it's selected |
 | leftMenuActiveSubmenu | string | Set the background color for submenu elements. Example use can be found at the Application details page |
 | rootIconVisible | boolean | Set the top Icons visibility. By default set to true, Set it to false to hide it. |
-| rootIconSize | integer | Define the size of root icon. The value is considerd in pixels when rendering. |
+| rootIconSize | integer | Define the size of root icon. The value is considered in pixels when rendering. |
 | rootIconTextVisible | boolean | Set the visibility of the root icon text. By default it's hidden. |
 |rootBackground | string | Set the background color of the root icon containing element |
 

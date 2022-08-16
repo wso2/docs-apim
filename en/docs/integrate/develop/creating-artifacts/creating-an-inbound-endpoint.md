@@ -60,7 +60,7 @@ To update properties from the **Design** view:
     - [HTTP Inbound Parameters]({{base_path}}/reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/http-inbound-endpoint-properties)
     - [CXF WS RM Inbound Parameters]({{base_path}}/reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/cxf-ws-rm-inbound-endpoint-properties)
     - [HL7 Inbound Parameters]({{base_path}}/reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/hl7-inbound-endpoint-properties)
-    - [Websocket Inbound Parameters]({{base_path}}/reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/websocket-inbound-endpoint-properties)
+    - [WebSocket Inbound Parameters]({{base_path}}/reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/websocket-inbound-endpoint-properties)
     - [File Inbound Parameters]({{base_path}}/reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/file-inbound-endpoint-properties)
     - [JMS Inbound Parameters]({{base_path}}/reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/jms-inbound-endpoint-properties)
     - [Kafka Inbound Parameters]({{base_path}}/reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/kafka-inbound-endpoint-properties)
@@ -97,7 +97,7 @@ Click the **Source** tab to view the XML-based synapse configuration (source cod
 -   [MQTT Inbound Endpoint example]({{base_path}}/integrate/examples/inbound_endpoint_examples/inbound-endpoint-mqtt-protocol)
 -   [RabbitMQ Inbound Endpoint example]({{base_path}}/integrate/examples/inbound_endpoint_examples/inbound-endpoint-rabbitmq-protocol)
 -   [Kafka Inbound Endpoint example]({{base_path}}/integrate/examples/inbound_endpoint_examples/inbound-endpoint-kafka)
--   [Websocket Inbound Endpoint example]({{base_path}}/integrate/examples/inbound_endpoint_examples/inbound-endpoint-secured-websocket)
+-   [WebSocket Inbound Endpoint example]({{base_path}}/integrate/examples/inbound_endpoint_examples/inbound-endpoint-secured-websocket)
 -   [Using Inbound Endpoints with Registry]({{base_path}}/integrate/examples/inbound_endpoint_examples/inbound-endpoint-with-registry)
 
 ## Tutorial

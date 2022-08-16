@@ -35,7 +35,7 @@ The scenario tutorials provide a real world example that can be solved using API
 
 ## API Management Tutorials
 
-The following list of tutorials guide you to use the API-first approach when creating a managed API and exposing it to the API markertplace.
+The following list of tutorials guide you to use the API-first approach when creating a managed API and exposing it to the API marketplace.
 
 <table>
     <tr>
@@ -81,6 +81,7 @@ The integration tutorials walk you through the main capabilities and features of
                 <li><a href="{{base_path}}/tutorials/integration-tutorials/using-templates">Reusing Mediation Sequences</a></li>
                 <li><a href="{{base_path}}/tutorials/integration-tutorials/using-the-gmail-connector">Sending Emails from an Integration Service</a></li>
                 <li><a href="{{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial">Exposing an Integration Service as a Managed API</a></li>
+                <li><a href="{{base_path}}/tutorials/integration-tutorials/sap-integration">Integrating with SAP</a></li>
             </ul>
         </td>
     </tr>

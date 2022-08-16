@@ -1,0 +1,8 @@
+[router]
+  listenerHost = "0.0.0.0"
+  listenerPort = 9090
+  securedListenerHost = "0.0.0.0"
+  securedListenerPort = 9095
+  clusterTimeoutInSeconds = 20
+  enforcerResponseTimeoutInSeconds = 20
+  systemHost = "localhost"

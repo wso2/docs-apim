@@ -2,7 +2,7 @@
 
 If you need to create a custom mediator that performs some logic on a message, you can either create a new mediator project, or import an existing mediator project using WSO2 Integration Studio.
 
-Once a mediator project is finalised, you can export it as a deployable artifact by right-clicking on the project and selecting **Export Project as Deployable Archive** . This creates a JAR file that you can deploy. Alternatively, you can group the mediator project as a Composite Application Project, create a Composite Application Archive (CAR), and deploy it to the Micro Integrator.
+Once a mediator project is finalized, you can export it as a deployable artifact by right-clicking on the project and selecting **Export Project as Deployable Archive** . This creates a JAR file that you can deploy. Alternatively, you can group the mediator project as a Composite Application Project, create a Composite Application Archive (CAR), and deploy it to the Micro Integrator.
 
 !!! Info
     A URL classloader is used to load classes in the mediator (class mediators are not deployed as OSGi bundles). Therefore, it is only possible to refer to the class mediator from artifacts packed in the same CAR file in which the class mediator is packed. Accessing the class mediator from an artifact packed in another CAR file is not possible. However, it is possible to refer to the class mediator from a sequence packed in the same CAR file and call that sequence from any other artifact packed in other CAR files.

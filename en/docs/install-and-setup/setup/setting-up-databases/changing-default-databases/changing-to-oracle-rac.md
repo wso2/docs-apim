@@ -41,7 +41,7 @@ Copy the Oracle JDBC libraries (for example, the `<ORACLE_HOME>/jdbc/lib/ojdbc14
 
 ### Executing db scripts to create tables on Oracle RAC database
 
-1.  To create tables in the registry and user manager database (`WSO2_SHARED_DB`), login to the database via client and execute the relevant sql file. 
+1.  To create tables in the registry and user manager database (`WSO2_SHARED_DB`), login to the database via client and execute the relevant SQL file. 
 
     For example, let's consider `shared_db` as the database.
 
@@ -49,7 +49,7 @@ Copy the Oracle JDBC libraries (for example, the `<ORACLE_HOME>/jdbc/lib/ojdbc14
     SQL> @<API-M_HOME>/dbscripts/oracle_rac.sql
     ```
 
-2.  To create tables in the apim database (`WSO2AM_DB`), login to the database via client and execute the relevant sql file. 
+2.  To create tables in the apim database (`WSO2AM_DB`), login to the database via client and execute the relevant SQL file. 
 
     For example, let's consider `apim_db` as the database.
 

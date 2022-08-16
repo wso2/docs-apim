@@ -36,7 +36,7 @@ The following are documented connectors available from the [connector store](htt
         </tr>
         <tr>
             <td><a href="{{base_path}}/reference/connectors/gmail-connector/gmail-connector-overview/">Gmail</a></td>
-            <td>The Gail Connector allows you to integrate with the <a href="https://developers.google.com/gmail/api/v1/reference">Gmail REST API</a>.</td>
+            <td>The Gmail Connector allows you to integrate with the <a href="https://developers.google.com/gmail/api/v1/reference">Gmail REST API</a>.</td>
         </tr>
         <tr>
             <td><a href="{{base_path}}/reference/connectors/google-firebase-connector/google-firebase-overview/">Google Firebase</a></td>

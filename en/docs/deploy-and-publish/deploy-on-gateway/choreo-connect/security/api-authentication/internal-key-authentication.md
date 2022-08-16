@@ -1,15 +1,18 @@
 # Internal Key Authentication
 
-This authentication is used to testing APIs that are created in the Publisher to make sure that the APIs meet the required functionalities and behaviour.
+This authentication can be used to test APIs that are created in the API Manager Publisher right after deploying the API and even before publishing. An Internal Key can be generated from API Manager Publisher and can be used when, 
+
+- Choreo Connect is run with API Manager as the Control Plane, or 
+- Choreo Connect is run as a standalone Gateway and **APIM Publisher** is set as a [token service]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/configuring-an-external-key-manager/).
 
 ### Step 1 - Deploy a created API to Choreo Connect via APIM
-Follow the documentation [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect/#via-api-manager),
+Follow the documentation [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-in-choreo-connect),
 
 ### Step 2 - Generate Internal Key from APIM Publisher
-Follow the steps 1 - 4 in [here]({{base_path}}/design/create-api/test-a-rest-api/)
+Follow the steps 1 - 4 [here]({{base_path}}/design/create-api/test-a-rest-api/)
 
 ### Step 3 - Invoke the API using the Internal Key
-Use the cURL command below to invoke the API via the gateway.
+Use the cURL command below to invoke the API via the Gateway.
 
 ``` bash tab="Format"
 curl -k -X GET "<API_URL>" -H  "accept: application/json" -H  "Internal-Key: <Internal-Key>"
@@ -20,7 +23,7 @@ curl -k -X GET "https://localhost:9095/pizzashack/1.0.0/menu" -H  "accept: appli
 ```
 
 !!! Important
-    If the APIM publisher uses certificate with different alias name, add the alias name for certificateAlias Configuration in below configuration define at config.toml.
+    If the APIM Publisher uses a certificate with a different alias name, add the alias name for the `certificateAlias` configuration defined in the config.toml file as indicated below.
 
     ```
     [[security.enforcer.tokenService]]

@@ -36,7 +36,7 @@ You would need to create an API prototype for the purpose of early promotion and
     !!! note
         After creating a new version, you typically deploy it as a prototype for the purpose of testing and early promotion.
 
-4.  Click **View in Dev Portal** in the API Publisher to navigate to the Developer Portal.
+4.  Click **View in Developer Portal** in the API Publisher to navigate to the Developer Portal.
 
      [![View in Dev Portal]({{base_path}}/assets/img/learn/prototype-api-view-in-dev-portal.png)]({{base_path}}/assets/img/learn/prototype-api-view-in-dev-portal.png)
     

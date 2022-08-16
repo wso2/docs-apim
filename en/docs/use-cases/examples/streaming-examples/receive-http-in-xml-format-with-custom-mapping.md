@@ -15,7 +15,7 @@ Save this sample.
 	```
 
 ## Testing the Sample:
-##### Option 1: Publish events with http sample client:
+##### Option 1: Publish events with HTTP sample client:
 Navigate to `{WSO2SIHome}/samples/sample-clients/http-client` and run `ant` command as follows:
 
 Run `ant` command in the terminal  as follows:

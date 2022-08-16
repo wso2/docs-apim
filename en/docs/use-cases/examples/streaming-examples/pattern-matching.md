@@ -16,7 +16,7 @@ If you edit this application while it's running, stop the application -> Save ->
 
 ## Testing the Sample:
 1. Simulate single events. For this, click on 'Event Simulator' (double arrows on left tab) -> 'Single Simulation' -> Select 'PatternMatching' as 'Siddhi App Name' -> Select 'RoomTemperatureStream' as 'Stream Name' -> Provide attribute values -> Send
-2. To generate an alert, send one event, followed by another event (within 2 mins) where the temperature of the second event shows an increment by 5 degrees or more (eg. Temperature of event 1 = 17.0, Temperature of event 2 = 30.0). Note that these two events may or may not be consecutive.
+2. To generate an alert, send one event, followed by another event (within 2 minutes) where the temperature of the second event shows an increment by 5 degrees or more (e.g.. Temperature of event 1 = 17.0, Temperature of event 2 = 30.0). Note that these two events may or may not be consecutive.
 
 ## Viewing the Results:
 See the output on the console. Output will be shown if the second temperature input is incremented by 5 degrees or more.

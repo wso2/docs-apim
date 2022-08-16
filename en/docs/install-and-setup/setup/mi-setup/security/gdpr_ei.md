@@ -111,7 +111,7 @@ this as shown below.
 
 The user name that is used when you invoke this query will be logged in
 the following log files: wso2carbon.log file, audit.log file, warn.log,
-and the [service-specific log file]({{base_path}}/integrate/develop/enabling-logs-for-services)
+and the [service-specific log file]({{base_path}}/integrate/develop/monitoring-service-level-logs)
 that is enabled for the proxy service.
 
 ```xml
@@ -143,7 +143,7 @@ Let's look at how to anonymize the username value in log files.
 3.  Update the `           config.json          ` file (stored in the
     `           TOOL_HOME/conf/          `
     directory) as shown below. This file contains references to all the
-    log files (except any [service-specific log file]({{base_path}}/integrate/develop/enabling-logs-for-services) in the system that store the above user information. If you have
+    log files (except any [service-specific log file]({{base_path}}/integrate/develop/monitoring-service-level-logs) in the system that store the above user information. If you have
     enabled a service-specific log file, you need to add that file name
     (see the element descriptions given below).
 
@@ -190,7 +190,7 @@ Let's look at how to anonymize the username value in log files.
         (stored in the log-file-path) that will persist the user's PII.
         Note that the above log-file-name-regex includes the audit.log,
         warn.log, and wso2carbon.log files, **as well as** the archived
-        files of the same logs. If you have enabled a [service-specific log file]({{base_path}}/integrate/develop/enabling-logs-for-services), **be sure to add** the file name to this list.
+        files of the same logs. If you have enabled a [service-specific log file]({{base_path}}/integrate/develop/monitoring-service-level-logs), **be sure to add** the file name to this list.
 
 4.  Open a command prompt and navigate to the `           TOOL_HOME/bin          ` directory.
 5.  Execute the following command to anonymize the user information that

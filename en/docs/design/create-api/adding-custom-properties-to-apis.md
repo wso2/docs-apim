@@ -1,6 +1,6 @@
 # Adding Custom Properties to APIs
 
-Usually, APIs have a pre-defined set of properties such as the name, version, context, etc. However, there may be instances where you want to add specific custom properties to your API. You can do this in either of the following ways:
+Usually, APIs have a predefined set of properties such as the name, version, context, etc. However, there may be instances where you want to add specific custom properties to your API. You can do this in either of the following ways:
 
 -   [Add custom properties via the API Publisher](#AddcustompropertiesviatheAPIPublisher)
 -   [Add custom properties via the REST API](#AddcustompropertiesviatheRESTAPI)
@@ -31,7 +31,7 @@ After the custom properties have been added, you can [search for APIs using cust
 
       [![Add new property menu]({{base_path}}/assets/img/learn/properties-add-property.png)]({{base_path}}/assets/img/learn/properties-add-property.png)
 
-4. Enter a custom property name and value (e.g., property name: environment, property value: preprod), mark devportal visibility as appropriate and click **ADD** to add it.
+4. Enter a custom property name and value (e.g., property name: environment, property value: preprod), mark Developer Portal visibility as appropriate and click **ADD** to add it.
 
       [![Add new property]({{base_path}}/assets/img/learn/add-new-property.png)]({{base_path}}/assets/img/learn/add-new-property.png)
 

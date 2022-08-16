@@ -278,10 +278,10 @@ As you build and run the integration flow, you may identify errors that need to 
                     <a href="{{base_path}}/integrate/develop/using-wire-logs">Wire Logs</a>
                 </li>
                 <li>
-                    <a href="{{base_path}}/integrate/develop/enabling-logs-for-services">Proxy Service Access Logs</a>
+                    <a href="{{base_path}}/integrate/develop/monitoring-service-level-logs">Proxy Service Access Logs</a>
                 </li>
                 <li>
-                    <a href="{{base_path}}/integrate/develop/enabling-logs-for-api">REST API Access Logs</a>
+                    <a href="{{base_path}}/integrate/develop/monitoring-api-level-logs">REST API Access Logs</a>
                 </li>
             </ul>
         </td>

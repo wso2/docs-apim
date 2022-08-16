@@ -87,7 +87,7 @@ Use the `<API-M_HOME>/bin/chpasswd.sh` script.
     username = "$ref{super_admin.username}@carbon.super"
 
     [apim.throttling]
-    receiver_username = "$ref{super_admin.username}@carbon.super"
+    username = "$ref{super_admin.username}@carbon.super"
 
     [apim.throttling.jms]
     username="admin!wso2.com!carbon.super"
@@ -124,7 +124,7 @@ Use the `<API-M_HOME>/bin/chpasswd.sh` script.
     <td>This property specifies whether the email authentication is activated or not.</td>
     </tr>
     <tr>
-    <td>`[apim.throttling] receiver_username`</td>
+    <td>`[apim.throttling] username`</td>
     <td>When the email login feature is enabled, the super tenant will be attached with the username. This property facilitates the latter mentioned requirement.</td>
     </tr>
     <tr>

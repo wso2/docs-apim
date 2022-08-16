@@ -5,7 +5,7 @@ Given below is a sample scenario that demonstrates how to create an Amazon Lambd
 ## What you'll build
 To use the Amazon Lambda connector, add the <amazonlambda.init> element in your configuration before carrying out any Amazon Lambda operations. This Amazon Lambda configuration authenticates with Amazon Lambda by specifying the AWS access key ID and secret access key ID, which are used for every operation. The signature is used with every request and thus differs based on the request the user makes.
 
-This example demonstrates how to use Amazon Lambda Connector to use `createFunction` opertaion.
+This example demonstrates how to use Amazon Lambda Connector to use `createFunction` operation.
 
 Here we exposed the `createFunction` operation via an API. The API has one resource with the context `/createFunction`.
 
@@ -27,7 +27,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 Follow these steps to set up the Integration Project and the Connector Exporter Project.
 
-{!reference/connectors/importing-connector-to-integration-studio.md!}
+{!includes/reference/connectors/importing-connector-to-integration-studio.md!}
 
 1. Right click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API.
 
@@ -101,7 +101,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
     ```
 3. Now we can export the imported connector and the API into a single CAR application. The CAR application is what we are going to deploy during server runtime.
 
-{!reference/connectors/exporting-artifacts.md!}
+{!includes/reference/connectors/exporting-artifacts.md!}
 
 ## Create Amazon Lambda Deployment Package (Lambda function) 
 In this scenario we created sample AWS Deployment Package (Lambda function) in Python.
@@ -157,7 +157,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp in the integration runtime. 
 
-{!reference/connectors/deploy-capp.md!}
+{!includes/reference/connectors/deploy-capp.md!}
 
 ## Testing
 

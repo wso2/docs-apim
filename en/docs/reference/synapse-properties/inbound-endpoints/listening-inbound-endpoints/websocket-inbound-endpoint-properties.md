@@ -1,7 +1,7 @@
-# Websocket Inbound Endpoint
+# WebSocket Inbound Endpoint
 ## Introduction
 
-The WebSocket Inbound protocol is based on the <a href="http://tools.ietf.org/html/rfc6455">Websocket protocol</a> and allows full-duplex message mediation.
+The WebSocket Inbound protocol is based on the <a href="http://tools.ietf.org/html/rfc6455">WebSocket protocol</a> and allows full-duplex message mediation.
 
 ## Syntax
 
@@ -34,11 +34,11 @@ The WebSocket Inbound protocol is based on the <a href="http://tools.ietf.org/ht
 
 ## Properties
 
-Listed below are the properties used for [creating a Websocket inbound endpiont]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
+Listed below are the properties used for [creating a WebSocket inbound endpoint]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
 
 ### Required Properties
 
-The following properties are required when [creating a Websocket inbound endpiont]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
+The following properties are required when [creating a WebSocket inbound endpoint]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
 
 <table>
   <tr>
@@ -79,9 +79,9 @@ The following properties are required when [creating a Websocket inbound endpion
       </tr>
 </table>
 
-### Required Properties (for Secured Websocket)
+### Required Properties (for Secured WebSocket)
 
-In addition to the [common websocket inbound properties](#common-websocket-inbound-required-properties) listed above, the following properties are required when [creating a **secured** Websocket inbound endpiont]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
+In addition to the [common WebSocket inbound properties](#common-websocket-inbound-required-properties) listed above, the following properties are required when [creating a **secured** WebSocket inbound endpoint]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
 
 <table>
   <tr>
@@ -132,7 +132,7 @@ In addition to the [common websocket inbound properties](#common-websocket-inbou
 
 ### Optional Properties
 
-The following optional properties can be configured when [creating a Websocket inbound endpiont]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
+The following optional properties can be configured when [creating a WebSocket inbound endpoint]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
 
 <table>
    <thead>
@@ -179,9 +179,9 @@ The following optional properties can be configured when [creating a Websocket i
    </tbody>
 </table>
 
-### Optional Properties (for Secured Websocket)
+### Optional Properties (for Secured WebSocket)
 
-The following optional properties can be configured when [creating a **Secured** Websocket inbound endpiont]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
+The following optional properties can be configured when [creating a **Secured** WebSocket inbound endpoint]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
 
 <table>
   <tr>

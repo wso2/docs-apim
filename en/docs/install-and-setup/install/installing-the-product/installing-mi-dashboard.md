@@ -2,10 +2,38 @@
 
 Follow the steps given below to install the Micro Integrator (MI) Dashboard.
 
+## Configuring an RDBMS datasource
+
+1.	To set up a new RDBMS, select the preferred RDBMS type and follow the instructions. This capability is available 
+      from U2 level 17 onwards (wso2mi-dashboard 4.0.1.17.full)
+
+	!!! Tip
+		If you are using default H2 RDBMS set up, you can skip this step.
+
+	- [Setting up a MySQL database]({{base_path}}/install-and-setup/install/installing-the-product/setting-up-mysql)
+	- [Setting up an MSSQL database]({{base_path}}/install-and-setup/install/installing-the-product/setting-up-mssql)
+	- [Setting up an Oracle database]({{base_path}}/install-and-setup/install/installing-the-product/setting-up-oracle)
+	- [Setting up a Postgre database]({{base_path}}/install-and-setup/install/installing-the-product/setting-up-postgresql)
+	- [Setting up an IBM database]({{base_path}}/install-and-setup/install/installing-the-product/setting-up-ibm-db2)
+
+
 ## Installing the MI Dashboard
 
 1.  Go to the [WSO2 Micro Integrator web page](https://wso2.com/integration/micro-integrator/#), click **Download**, and then click **Other Resources/MI Dashboard** to download the MI Dashboard as a ZIP file.
 2.  Extract the archive file to a dedicated directory for the Micro Integrator Dashboard, which will hereafter be referred to as `<MI-DASHBOARD_HOME>`.
+
+!!! info
+    To connect the MI servers with the dashboard, add the following configuration to the `deployment.toml` file (stored in the `<MI_HOME>/conf/` folder of each server instance.
+    ```
+    [dashboard_config]
+    dashboard_url = "https://{hostname/ip}:{port}/dashboard/api/"
+    heartbeat_interval = 5
+    group_id = "mi_dev"
+    node_id = "dev_node_2"
+    ```
+    For more information, see [Micro Integrator Dashboard]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard/#step-2-configure-the-mi-servers).
+
+
 
 ## Setting up JAVA_HOME
 
@@ -17,15 +45,15 @@ You must set your `JAVA_HOME` environment variable to point to the directory whe
 ??? note "On Linux/OS X"
 
     1.  In your home directory, open the BASHRC file (.bash\_profile file on Mac) using editors such as vi, emacs, pico, or mcedit.
-    2.  Assuming you have JDK 1.8.0\_xx in your system, add the following two lines at the bottom of the file, replacing `/usr/java/jdk1.8.0_xx` with the actual directory where the JDK is installed.
+    2.  Assuming you have JDK 11.0.x in your system, add the following two lines at the bottom of the file, replacing `/usr/java/jdk-11.0.x` with the actual directory where the JDK is installed.
 
         ``` java
         On Linux:
-        export JAVA_HOME=/usr/java/jdk1.8.0_xx
+        export JAVA_HOME=/usr/java/jdk-11.0.x
         export PATH=${JAVA_HOME}/bin:${PATH}
              
         On OS X:
-        export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.8.0.jdk/Contents/Home
+        export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/11.0.x.jdk/Contents/Home
         ```
 
     3.  Save the file.
@@ -51,16 +79,12 @@ You must set your `JAVA_HOME` environment variable to point to the directory whe
 ??? note "On Solaris"
 
     1.  In your home directory, open the BASHRC file in your favorite text editor such as vi, emacs, pico, or mcedit.
-    2.  Assuming you have JDK 1.8.0\_xx in your system, add the following two lines at the bottom of the file, replacing `/usr/java/jdk1.8.0_xx` with the actual directory where the JDK is installed.
+    2.  Assuming you have JDK 11.0.x in your system, add the following two lines at the bottom of the file, replacing `/usr/java/jdk-11.0.x` with the actual directory where the JDK is installed.
 
         ``` java
-        export JAVA_HOME=/usr/java/jdk1.8.0_xx
+        export JAVA_HOME=/usr/java/jdk-11.0.x
         export PATH=${JAVA_HOME}/bin:${PATH}
         ```
-
-        The file should now look like this:
-
-        ![]({{base_path}}/assets/attachments/103334399/103334401.png)
 
     3.  Save the file.
 
@@ -79,7 +103,7 @@ You must set your `JAVA_HOME` environment variable to point to the directory whe
 
 ??? note "On Windows"
 
-    Typically, the JDK is installed in a directory under `C:/Program Files/Java` , such as `C:/Program Files/Java/jdk1.8.0_xx`. If you have multiple versions installed, choose the latest one, which you can find by sorting by date.
+    Typically, the JDK is installed in a directory under `C:/Program Files/Java` , such as `C:/Program Files/Java/jdk-11.0.x`. If you have multiple versions installed, choose the latest one, which you can find by sorting by date.
 
     You set up `JAVA_HOME` using the System Properties, as described below. Alternatively, if you just want to set `JAVA_HOME` temporarily for the current command prompt window, set it at the command prompt.
 
@@ -99,7 +123,7 @@ You must set your `JAVA_HOME` environment variable to point to the directory whe
 
     4.  Enter the following information:
         -   In the **Variable name** field, enter: `JAVA_HOME`
-        -   In the **Variable value** field, enter the installation path of the Java Development Kit, such as: `c:/Program Files/Java/jdk1.8.0_xx           `
+        -   In the **Variable value** field, enter the installation path of the Java Development Kit, such as: `c:/Program Files/Java/jdk-11.0.x           `
 
     The `JAVA_HOME` variable is now set and will apply to any subsequent command prompt windows you open. If you have existing command prompt windows running, you must close and reopen them for the `JAVA_HOME` variable to take effect, or manually set the `JAVA_HOME` variable in those command prompt windows as described in the next section. To verify that the `JAVA_HOME` variable is set correctly, open a command window (from the **Start** menu, click **Run**, and then type `CMD` and click **Enter**) and execute the following command:
 

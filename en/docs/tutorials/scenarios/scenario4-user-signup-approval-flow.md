@@ -2,7 +2,7 @@
 
 This is a tutorial that is part of a series and can be used as a standalone tutorial on how to sign up a new user. For more details on the scenario and general prerequisites, please see [the scenario overview page]({{base_path}}/tutorials/scenarios/scenario-overview).
 
-**_Time to Complete : 3 mins_**
+**_Time to Complete : 3 minutes_**
 
 ## User Story
 

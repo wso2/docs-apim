@@ -174,6 +174,28 @@ The sample scenario can be depicted as follows:
     ```xml
     <property name="SET_ROLLBACK_ONLY" scope="default" type="STRING" value="true"/>
     ```
+
+    !!! note 
+        There should not be thread switches while mediating messages here as well. Thus if you need to call a backend in the middle of message mediation, use call mediator in blocking mode as shown in upper section.
+
+    !!! note "Working with Client Acknowledgement"
+        You can alterntively use Client Acknowledgment of JMS (this will not slow down message consumption).
+
+        Configure JMS transport or inbound JMS protocol to use JMS Client Acknowledgment:
+
+        ```  
+        <parameter name="transport.jms.CacheLevel">consumer</parameter>
+        <parameter name="transport.jms.SessionAcknowledgement">CLIENT_ACKNOWLEDGE</parameter>
+        <parameter name="transport.jms.SessionTransacted">false</parameter>
+        ```
+
+        Upon mediation failure, configure a fault sequence to be executed and set the below property to recover the JMS session, so that we tell broker to redeliver messages from the point last acknowledgement is received. 
+
+        ```
+        <property name="SET_RECOVER" scope="axis2" type="STRING" value="true"/>
+        ```
+
+
     
 3.  Deploy the back-end service
     `          SimpleStockQuoteService         ` . 

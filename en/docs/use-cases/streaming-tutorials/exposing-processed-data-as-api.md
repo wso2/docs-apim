@@ -215,7 +215,7 @@ In this section, deploy a stateful Siddhi application and use the REST API to ta
     INFO {org.wso2.carbon.streaming.integrator.core.internal.StreamProcessorService} - Siddhi App CountProductions deployed successfully.
     ```
 
-8. Now let's send  two sweet production events using `CURL` by issuing tghe following two `CURL` commands via the command line:
+8. Now let's send  two sweet production events using `CURL` by issuing the following two `CURL` commands via the command line:
     ```
     curl -X POST -d "{\"event\": {\"name\":\"Almond cookie\",\"amount\": 100.0}}"  http://localhost:8007/productionStream --header "Content-Type:application/json"
     ```

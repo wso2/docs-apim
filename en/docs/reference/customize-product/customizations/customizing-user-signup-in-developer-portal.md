@@ -68,7 +68,7 @@ Let's make the field named **City** a mandatory field and also change the disp
         ![Available claims]({{base_path}}/assets/img/learn/available-claims-city.png)
     2.  Select the **Required** check box and save changes.
         ![Required option for claim]({{base_path}}/assets/img/learn/edit-local-claim-city.png)
-5.  Navigate to Develper Portal Sign-up page and refresh it.
+5.  Navigate to Developer Portal Sign-up page and refresh it.
     You will see that the **City** field is marked as mandatory.
     ![Required option updated sign-up form]({{base_path}}/assets/img/learn/required-field-city-claim.png)
 
@@ -83,9 +83,9 @@ Follow the steps below to add consent purposes.
 1.  Start the WSO2 API Manager server and navigate to WSO2 API-M Management Console (<https://localhost:9443/carbon/>).
 2.  Navigate to the **Main** tab. Select **Consent Purposes** , which is under the **Manage** tab, and click **Add**.
 3.  Fill in the details of the PII categories as shown below.
-    ![Add consent purpose](../../../assets/img/learn/add-consent-purpose.png)
-4.  Click **Finish** .
+    ![Add consent purpose]({{base_path}}/assets/img/learn/add-consent-purpose.png)
+4.  Click **Finish**.
 
 If a specific tenant admin has previously specified consent purposes via the WSO2 API-M Management Console, during the sign-up process, the list of those consent purposes will be shown to the respective users who belong to the same tenant domain in order to obtain their consent.
 
-![Show consents during signup](../../../assets/img/learn/list-consents-on-signup.png)
+![Show consents during signup]({{base_path}}/assets/img/learn/list-consents-on-signup.png)

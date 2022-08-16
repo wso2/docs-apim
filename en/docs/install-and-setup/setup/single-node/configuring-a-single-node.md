@@ -6,14 +6,15 @@ This page walks you through how to manually configure and deploy WSO2 API Manage
 
 Follow the instructions below to configure and deploy API-M using a single node:
 
--   [Step 1 - Create a SSL Certificate](#step-1-create-a-ssl-certificate)
--   [Step 2 - Configure the Load Balancer](#step-2-configure-the-load-balancer)
--   [Step 3 - Configure the Databases](#step-3-configure-the-databases)
--   [Step 4 - Configure Gateway URLs to Expose APIs](#step-4-configure-gateway-urls-to-expose-apis)
--   [Step 5 - Configure Dev Portal URL in Publisher](#step-5-configure-dev-portal-url-in-publisher)
--   [Step 5 - Configure API-M Analytics](#step-5-configure-api-m-analytics)
--   [Step 6 - Configure Production Hardening](#step-6-configure-production-hardening)
--   [Step 7 - Start the WSO2 API-M server](#step-7-start-the-wso2-api-m-server)
+- [Configuring a Single Node](#configuring-a-single-node)
+  - [Step 1 - Create a SSL Certificate](#step-1---create-a-ssl-certificate)
+  - [Step 2 - Configure the Load Balancer](#step-2---configure-the-load-balancer)
+  - [Step 3 - Configure the Databases](#step-3---configure-the-databases)
+  - [Step 4 - Configure Gateway URLs to Expose APIs](#step-4---configure-gateway-urls-to-expose-apis)
+  - [Step 5 - Configure Dev Portal URL in Publisher](#step-5---configure-dev-portal-url-in-publisher)
+  - [Step 6 - Configure API-M Analytics](#step-6---configure-api-m-analytics)
+  - [Step 7 - Configure Production Hardening](#step-7---configure-production-hardening)
+  - [Step 8 - Start the WSO2 API-M server](#step-8---start-the-wso2-api-m-server)
 
 ----------------------------
 
@@ -25,15 +26,15 @@ Follow the instructions below to configure and deploy API-M using a single node:
     `wso2carbon.jks` is configured with private key and self signed public key pair for all purposes, such as encrypting 
     sensitive information, communicating over SSL etc. 
     
-    In a **production setup**, it is advised to set up several different keystores with separate trust chains for different use cases. For more information, see [Recommendations for setting up keystores in WSO2 products]({{base_path}}/administer/product-security/configuring-keystores/configuring-keystores-in-wso2-api-manager/#recommendations-for-setting-up-keystores).
+    In a **production setup**, it is advised to set up several different keystores with separate trust chains for different use cases. For more information, see [Recommendations for setting up keystores in WSO2 products]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/#recommendations-for-setting-up-keystores).
 
-To create an all purpose keystore or multiple keystores for authentication and protection of data, follow the steps in [Creating New Keystores]({{base_path}}/administer/product-security/configuring-keystores/keystore-basics/creating-new-keystores/).
+To create an all purpose keystore or multiple keystores for authentication and protection of data, follow the steps in [Creating New Keystores]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/).
 
 ## Step 2 - Configure the Load Balancer
 
 In order to access the WSO2 API-M Portals and Gateway in both WSO2 API-M instances, you need to front the system with a load balancer. You can use any load balancer that is available to your system.
 
-Follow the steps in [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer) to configure the load balancer/reverse proxy which is fronting the API-M instance in the demiliterized zone (DMZ).
+Follow the steps in [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer) to configure the load balancer/reverse proxy which is fronting the API-M instance in the demiliterized zone (DMZ).
 
 ??? tip
     For example, if you are using the hostname `api.am.wso2.com` is used to access all portals (publisher, store, admin, and carbon) and `gw.am.wso2.com` is used to invoke APIs, the `deployment.toml` in `<API-M_HOME>/repository/conf` directory, should have the following reverse proxy configurations.
@@ -81,7 +82,7 @@ Update the endpoints with your chosen hostname for Gateway as shown below.
 In this case, let's use `gw.am.wso2.com` as the hostname.
     ``` java
     [[apim.gateway.environment]]
-    name = "Production and Sandbox"
+    name = "Default"
     type = "hybrid"
     display_in_api_console = true
     description = "This is a hybrid gateway that handles both production and sandbox token traffic."
@@ -109,13 +110,13 @@ In this case, let's use `api.am.wso2.com` as the hostname:
 
 API Manager Analytics is delivered via the API Manager Analytics cloud solution. You need to configure the API Manager Gateway to publish analytics data into the cloud.
 
-See the instructions on [configuring the API Gateway]({{base_path}}/observe/api-manager-analytics/configure-analytics/configure-synapse-gateway) with the cloud-based analytics solution.
+See the instructions on [configuring the API Gateway]({{base_path}}/api-analytics/gateways/configure-synapse-gateway) with the cloud-based analytics solution.
 
 ## Step 7 - Configure Production Hardening
 
 In a **production setup**, ensure that you have taken into account the respective security hardening factors 
 (e.g., changing and encrypting the default passwords, configuring JVM security etc.) and other production deployment 
-guidelines (e.g., tuning parameters, backup and recovery remmendations etc.) before deploying WSO2 API-M node. 
+guidelines (e.g., tuning parameters, backup and recovery recommendations etc.) before deploying WSO2 API-M node. 
 
 For more information on security hardening guidelines, see [Security Guidelines for Production Deployment]({{base_path}}/install-and-setup/deploying-wso2-api-manager/security-guidelines-for-production-deployment/).
 

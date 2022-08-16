@@ -1,0 +1,4 @@
+[[servlet_access_control_filter]]
+filter_name = "Remote Address Filter"
+allow_ip_regex = "127.0.0.1"
+url_pattern = "/carbon/admin/login.jsp"

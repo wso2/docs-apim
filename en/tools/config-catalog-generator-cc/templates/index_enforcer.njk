@@ -1,0 +1,25 @@
+# Choreo Connect Enforcer Configuration Catalog
+
+This document describes all the configuration parameters that are used in WSO2 Choreo Connect Enforcer.
+
+## Instructions for use
+
+Select the configuration sections, parameters, and values that are required for your use and add them to the `config.toml`
+file located in `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/`.
+See the example .toml file given below.
+
+```toml
+# This is an example .toml file.
+[enforcer.authService]
+  port = 8081
+  maxMessageSize = 1000000000
+  maxHeaderLimit = 8192
+  keepAliveTime = 600
+
+[enforcer.apimCredentials]
+  username="admin"
+  password="$env{apim_admin_pwd}"
+
+```
+{% set parameters = {'comp': 'enforcer'} %}
+{% include "../templates/_configs.njk" %}

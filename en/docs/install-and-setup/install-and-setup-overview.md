@@ -54,7 +54,7 @@ To set up the API Manager component, see the following topics.
 <table>
 <tr>
     <th>
-        <a href="{{base_path}}/install-and-setup/setup/deployment-overview">Applying WSO2 WUM Updates</a>
+        <a href="{{base_path}}/administer/updating-wso2-api-manager">Applying WSO2 WUM Updates</a>
     </th>
     <td>
         Explains how to get the latest updates that are available for a particular release of the API Manager.
@@ -356,14 +356,6 @@ See the topics given below to manage APIs, API products, Apps, etc. in the API-M
             <li>
                 <a href="{{base_path}}/install-and-setup/setup/api-controller/managing-applications/migrating-applications-to-different-environments">Migrating Apps to Different Environments</a>
             </li>                
-        </td>
-    </tr>
-    <tr>
-        <th>
-            <a href="{{base_path}}/install-and-setup/setup/api-controller/managing-microgateways/managing-microgateways-with-ctl">Managing Microgateways</a>
-        </th>
-        <td>
-            Explains how to interract with multiple microgateways via the API Controller
         </td>
     </tr>
     <tr>
@@ -718,15 +710,15 @@ To set up and configure the Micro Integrator runtime, see the topics given below
 </tr>
 <tr>
     <th>
-        <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/observability-deployment-strategy">Observability</a>
+        <a href="{{base_path}}/observe/micro-integrator/cloud-native-observability-overview">Observability</a>
     </th>
     <td>
         There are two possible observability solutions that you can enable for the Micro Integrator component. This section explains how to set them up and well as how to configure logging. The topics covered are as follows:
         <li>
-            <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment">Setting up Cloud-Native Observability on a VM</a>
+            <a href="{{base_path}}/observe/micro-integrator/setting-up-cloud-native-observability-on-a-vm">Setting up Cloud-Native Observability on a VM</a>
         </li>
         <li>
-            <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-cloud-native-observability-in-kubernetes">Setting up Cloud-Native Observability on Kubernetes</a>
+            <a href="{{base_path}}/observe/micro-integrator/setting-up-cloud-native-observability-in-kubernetes/">Setting up Cloud-Native Observability on Kubernetes</a>
         </li>
         <li>
             <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-classic-observability-deployment">Setting up Classic Observability Deployment</a>
@@ -735,16 +727,16 @@ To set up and configure the Micro Integrator runtime, see the topics given below
             <a>Configuring Logs</a>
         </li>
             <li>
-                <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/enabling_component_logs">Enabling Logs for a Component</a>
+                <a href="{{base_path}}/observe/micro-integrator/classic-observability-logs/enabling-logs-for-a-component">Enabling Logs for a Component</a>
             </li>
             <li>
-                <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties">Configuring Logs</a>
+                <a href="{{base_path}}/observe/micro-integrator/classic-observability-logs/configuring-log4j2-properties">Configuring Logs</a>
             </li>
             <li>
-                <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/managing_log_growth">Managing Log Growth</a>
+                <a href="{{base_path}}/administer/logging-and-monitoring/logging/managing-log-growth">Managing Log Growth</a>
             </li>
             <li>
-                <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/masking_sensitive_info_in_logs">Masking Sensitive Information in Logs</a>
+                <a href="{{base_path}}/administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs">Masking Sensitive Information in Logs</a>
             </li>                                                                                           
     </td>
 </tr>
@@ -757,6 +749,9 @@ To set up and configure the Micro Integrator runtime, see the topics given below
     </td>
 </tr>       
 </table>
+
+!!! Warning
+    Note that WSO2 API Manager 3.0.0, 3.1.0, 3.2.0, and 4.0.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
  
 ### Deploying
 
@@ -791,7 +786,7 @@ To deploy the Micro Integrator runtime, see the topics given below.
 
 ### CI/CD
 
-To implement continuous integration and continuous deployment pipelined for integrations, see the topics given below.
+To implement continuous integration and continuous deployment pipelines for integrations, see the topics given below.
 
 <table>
     <tr>

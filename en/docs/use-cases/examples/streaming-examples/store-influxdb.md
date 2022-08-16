@@ -1,7 +1,7 @@
 # Working with an influxDB Store
 
 ## Purpose:
-This application demostrates how to perform InfluxDB operations using Siddhi queries.The following streams can be used to insert, search, delete, and update or insert  data into the InfluxDB store.  
+This application demonstrates how to perform InfluxDB operations using Siddhi queries. The following streams can be used to insert, search, delete, and update or insert  data into the InfluxDB store.  
 insert - insertStream,stockStream  
 delete - deleteStream  
 search - searchStream  

@@ -2,7 +2,7 @@
 
 The Microsoft Dynamics 365 (Microsoft Dynamics CRM) Connector allows you to access the [Microsoft Dynamics 365 Web API](https://docs.microsoft.com/en-us/previous-versions/dynamicscrm-2016/developers-guide/mt593051(v=crm.8)?redirectedfrom=MSDN) through the WSO2 integration runtime. The Microsoft Dynamics CRM system (now known as Microsoft Dynamics 365) is a standalone CRM product from Microsoft that provides sales, marketing, and service management capabilities only via individual modules.
 
-To use the Microsoft Dynamics 365, you must have folowing accounts. 
+To use the Microsoft Dynamics 365, you must have following accounts. 
 
 * A Microsoft Dynamics 365 (online) system user account with administrator role for the Microsoft Office 365 subscription
 * A Microsoft Azure subscription for application registration
@@ -41,7 +41,7 @@ Dynamics 365 authentication is recommended only through Azure AD (for online ins
      
     6. Now you have successfully created an Azure app. Double click the app and you will see its details as shown below. Copy the value of the **Application (client) ID** and **Directory (tenant) ID**.
         
-       <img src="{{base_path}}/assets/img/integrate/connectors/application-id.png" title="Application ID" width="800" alt="Application ID"/>
+       <img src="{{base_path}}/assets/img/integrate/connectors/application-id.jpg" title="Application ID" width="800" alt="Application ID"/>
   
     7. You need to give permission to the app to access Dynamics 365. Navigate to **View API permissions**. 
     
@@ -49,7 +49,7 @@ Dynamics 365 authentication is recommended only through Azure AD (for online ins
     
     8. Click **Add a permission**. 
     
-       <img src="{{base_path}}/assets/img/integrate/connectors/add-permission.png" title="Add a permission" width="800" alt="Add a permission"/>  
+       <img src="{{base_path}}/assets/img/integrate/connectors/add-permission.jpg" title="Add a permission" width="800" alt="Add a permission"/>  
            
     9. Then select **Dynamics CRM**.     
     
@@ -69,7 +69,7 @@ Dynamics 365 authentication is recommended only through Azure AD (for online ins
     
     13. Now you need to create secret keys. Navigate to **Certificates & secrets**.
         
-        <img src="{{base_path}}/assets/img/integrate/connectors/certificate-and-secrets.png" title="Create certificate and secrets" width="800" alt="Create certificate and secrets"/> 
+        <img src="{{base_path}}/assets/img/integrate/connectors/certificate-and-secrets.jpg" title="Create certificate and secrets" width="800" alt="Create certificate and secrets"/> 
     
     14. Click **New client secrets**.
     
@@ -77,11 +77,11 @@ Dynamics 365 authentication is recommended only through Azure AD (for online ins
      
     15. Add **Description** and **Expires** values. Click **Add** and copy the value.    
     
-        <img src="{{base_path}}/assets/img/integrate/connectors/add-client-secret.png" title="Add client secret" width="800" alt="Add client secret"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/add-client-secret.jpg" title="Add client secret" width="800" alt="Add client secret"/>
     
     16. Search **Users** inside the Azure Active Directory and Create **New user** (this user would be linked to the Application User, which is created in the Dynamics 365 CRM).    
         
-        <img src="{{base_path}}/assets/img/integrate/connectors/add-new-user.png" title="Create new user" width="800" alt="Create new user"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/add-new-user.jpg" title="Create new user" width="800" alt="Create new user"/>
         
     17. Fill all mandatory fields and click **Create**.    
        
@@ -113,7 +113,7 @@ Dynamics 365 authentication is recommended only through Azure AD (for online ins
        
     7. Click **Security** -> **Users**.   
         
-       <img src="{{base_path}}/assets/img/integrate/connectors/MSdynamics365-Users.png" title="Dynamics365 users" width="800" alt="Dynamics365 users"/>
+       <img src="{{base_path}}/assets/img/integrate/connectors/msdynamics365-users.png" title="Dynamics365 users" width="800" alt="Dynamics365 users"/>
     
     8. Choose **Application Users** in the view filter.Select -> **New**.
     
@@ -145,7 +145,7 @@ Body: x-www-form-urlencoded
 | Key        | Value |
 | ------------- |-------------|
 | client_id    | Application ID of the registered app in Azure. |
-| resource      |https://trial.crm.dynamics.com (Dynamics 365 Online Insance URL |
+| resource      |https://trial.crm.dynamics.com (Dynamics 365 Online Instance URL |
 | Client_secret |Key value from the registered app in Azure|
 | Grant_type    |client_credentials|
 

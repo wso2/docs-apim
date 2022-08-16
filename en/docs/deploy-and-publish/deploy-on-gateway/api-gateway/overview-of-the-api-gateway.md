@@ -1,6 +1,6 @@
 # Overview of the API Gateway
 
-[![API-M overview]({{base_path}}/assets/img/learn/apim-overview.png)]({{base_path}}/assets/img/learn/apim-overview.png)
+[![API-M overview]({{base_path}}/assets/img/learn/apim-overview.png){: style="width:60%"}]({{base_path}}/assets/img/learn/apim-overview.png)
 
 **WSO2 API Gateway** provides a runtime and a backend component (an API proxy) for API calls. It secures, protects, manages, and scales API calls by intercepting API requests and applying policies, such as throttling and security, using handlers and managing API statistics.
 
@@ -13,7 +13,7 @@ After the API Manager server has started, you can access the Gateway using the M
 
 **Gateway Architecture**
 
-[![Gateway overview]({{base_path}}/assets/img/learn/gateway-overview.png)]({{base_path}}/assets/img/learn/gateway-overview.png)
+[![Gateway overview]({{base_path}}/assets/img/learn/gateway-overview.png){: style="width:80%"}]({{base_path}}/assets/img/learn/gateway-overview.png)
 
 Messages that reach the Gateway are processed as follows:
 

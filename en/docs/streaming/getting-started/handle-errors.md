@@ -1,6 +1,6 @@
 # Step 6: Handle Errors
 
-The events handled by Siddhi applications can result in errors due to multiple reasons such as errors in the transport, mapping errors, etc. WSO2 Streeaming Integrator allows you to specify how you want such errors to be managed if they occur It provides an error store in which you can store events with errors so that you can later view them, correct the error (i.e., if they are mapping errors) and replay them. For the different types of actions you can take to manage errors, see the [Error Handling Guide]({{base_path}}/use-cases/streaming-usecase/handling-errors).
+The events handled by Siddhi applications can result in errors due to multiple reasons such as errors in the transport, mapping errors, etc. WSO2 Streaming Integrator allows you to specify how you want such errors to be managed if they occur It provides an error store in which you can store events with errors so that you can later view them, correct the error (i.e., if they are mapping errors) and replay them. For the different types of actions you can take to manage errors, see the [Error Handling Guide]({{base_path}}/use-cases/streaming-usecase/handling-errors).
 
 Let's assume that the foreman of the Sweet Factory in this scenario requires errors to be stored in an error store so that they can be checked and replayed after making a correction.
 
@@ -109,7 +109,7 @@ group by name
 insert  into PublishFilteredDataStream;
 ```
 
-## Testing the Siddhi aplication
+## Testing the Siddhi application
 
 For testing purposes, let's generate an error with a mapping error as follows:
 

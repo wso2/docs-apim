@@ -73,7 +73,7 @@ Create the artifacts:
        enable_mtom = true
        ```
       When this is enabled, all outgoing messages will be serialized and
-        sent as MTOM optimized MIME messages.You can override this
+        sent as MTOM optimized MIME messages. You can override this
         configuration per service in the `services.xml`
         configuration file.
 

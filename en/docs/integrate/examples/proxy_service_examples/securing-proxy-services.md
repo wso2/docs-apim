@@ -35,10 +35,10 @@ Following is a sample proxy service configuration that we can used to implement 
 ## Build and run
 
 The wsdl file `sample_proxy_1.wsdl` can be downloaded from  [sample_proxy_1.wsdl](https://github.com/wso2-docs/WSO2_EI/blob/master/samples-protocol-switching/sample_proxy_1.wsdl). 
-The wsdl uri needs to be updated with the path to the `sample_proxy_1.wsdl` file.
+The wsdl URI needs to be updated with the path to the `sample_proxy_1.wsdl` file.
 
 The security policy file `policy1.xml` can be downloaded from  [policy1.xml](https://github.com/wso2-docs/WSO2_EI/blob/master/sec-policies/policy1.xml). 
-The security policy file uri needs to be updated with the path to the policy1.xml file.
+The security policy file URI needs to be updated with the path to the policy1.xml file.
 This sample security policy file validates username token and admin role is allowed to invoke the service. 
 
 Create the artifacts:

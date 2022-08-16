@@ -281,7 +281,7 @@ To try out logging events with errors, consider the same example previously used
    
 2. To generate a sink error, give an incorrect destination path for your output file. For example, in this scenario, be sure that the `manager` directory does not exist in the `/Users/foo/manager/managercopy.csv` path. 
 
-    Then generate an input event by adding the foillowing row in the `Users/foo/productions.csv` input file.
+    Then generate an input event by adding the following row in the `Users/foo/productions.csv` input file.
     
     `Crossaints,90.0`
     

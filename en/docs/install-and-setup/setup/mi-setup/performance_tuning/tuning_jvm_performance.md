@@ -12,7 +12,7 @@ to configure:
     maximum heap memory allocated for the JVM. Increasing the memory
     allocation increases the memory available for the server, which
     results in increasing the maximum TPS and reducing the latency. We
-    recommend atleast 2 GB of heap memory allocation for instances.  
+    recommend at least 2 GB of heap memory allocation for instances.  
     For example, If you want to set 2 GB as the maximum heap memory
     size, you need to configure the parameter as follows:
 

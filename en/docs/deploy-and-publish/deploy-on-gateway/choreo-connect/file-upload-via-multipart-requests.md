@@ -1,6 +1,6 @@
 # File Upload via Multipart Requests
 
-#### File uploads with other data
+## File uploads with other data
 
 First, use the requestBody keyword to describe the request payload containing a file. Under content, you can use the multipart media type to describe a file sent with other data.
 
@@ -23,7 +23,7 @@ First, use the requestBody keyword to describe the request payload containing a 
                 format: binary
 ```
 
-#### Multiple File Upload
+## Multiple file uploads
 
 You can use the multipart media type to define uploading an array of files.
 

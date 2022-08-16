@@ -1014,7 +1014,7 @@ Ordered
 Boolean
 </td>
 <td>
-A boolean specifying whether the mongod instance should perform an ordered or unordered insert.
+A boolean specifying whether the MongoDB instance should perform an ordered or unordered insert.
 </td>
 <td>
 true

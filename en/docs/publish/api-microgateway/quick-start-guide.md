@@ -19,7 +19,7 @@ This section is a step-by-step guide to create, publish, and invoke an API using
 ### Step 1 - Setup Microgateway and CLI tool(APICTL)
 
 1.  Download the CLI tool(APICTL) and the microgateway distribution from the 
-    [github release page's](https://github.com/wso2/product-microgateway/releases) Assets and 
+    [GitHub release page's](https://github.com/wso2/product-microgateway/releases) Assets and 
     extract them to a folder of your choice.
     
     From here onwards, CLI tool extracted location will be referred as `CLI_HOME` and Microgateway distribution extracted 

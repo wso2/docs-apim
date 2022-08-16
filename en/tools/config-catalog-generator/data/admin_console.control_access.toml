@@ -1,0 +1,3 @@
+[admin_console.control_access]
+enable = true
+allow = ["IP1", "IP2", "IP3"]

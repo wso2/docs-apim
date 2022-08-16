@@ -80,7 +80,7 @@ define stream PurchasesStream (name string, amount double);
 define stream MaterialDispatchesStream (name string, amount double); 
 ```
 
-The `PurchasesStream` uses a [`cdc` source](https://siddhi-io.github.io/siddhi-io-cdc/api/2.0.8/#cdc-source) to **extract** all the insert records of the `PurchaseRecords` database table in real time. At the same time, the `MaterialDispatches` stream **extracts** all the material dispatches saved in the `MaterialDispatches.xml` file in realtime by tailing it. Here, you are receiving data via heterogeneous sources as well as in heterogeneous formats (i.e., in key value format from the database and in XML format fromn the file).
+The `PurchasesStream` uses a [`cdc` source](https://siddhi-io.github.io/siddhi-io-cdc/api/2.0.8/#cdc-source) to **extract** all the insert records of the `PurchaseRecords` database table in real time. At the same time, the `MaterialDispatches` stream **extracts** all the material dispatches saved in the `MaterialDispatches.xml` file in realtime by tailing it. Here, you are receiving data via heterogeneous sources as well as in heterogeneous formats (i.e., in key value format from the database and in XML format from the file).
 
 To maintain stock records, you can define a table as follows:
 
@@ -119,7 +119,7 @@ update or insert into StockRecords
 
 The above query performs a join between the `StockUpdatesStream` stream and the `StockRecords` table,  and adds the stock update calculated to the existing amount in the `StockRecords` table. Then to **load** the final output, the query performs an `update or insert into` operation to the `Stock Records` table. This means, if the table already has a record with a same value for the `name` field as the latest output event generated in the `StockUpdatesStream` stream, the output event overwrites the record in the table. If no such matching record is found, the output event is inserted as a new record.
 
-The queries above updtes the ETL flow as shown in the diagram 
+The queries above updates the ETL flow as shown in the diagram 
 
 Once you add all the new Siddhi queries and configurations introduced in this section to the original `ManagingStocksApp` Siddi application, it looks as follows:
 

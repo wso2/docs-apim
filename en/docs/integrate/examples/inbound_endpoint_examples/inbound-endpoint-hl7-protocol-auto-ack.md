@@ -57,5 +57,5 @@ To execute the sample, use the **HAPI HL7 TestPanel**:
 -   Generate and send an HL7 message using the messages dialog frame.
 
 You will see that the Micro Integrator receives the HL7 message and logs a
-serialisation of this message in a SOAP envelope. You will also see that
+serialization of this message in a SOAP envelope. You will also see that
 the HAPI HL7 TestPanel receives an acknowledgement.

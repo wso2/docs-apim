@@ -9,11 +9,11 @@ Any available transport can be used to receive and send messages from the proxy 
 
 ## Properties
 
-See the topics given below for the list of properties that can be configured when [creating a proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service.md).
+See the topics given below for the list of properties that can be configured when [creating a proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service/).
 
 ### General Properties
 
-Listed below are the main properties that are required when [creating a proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service.md) of any type.
+Listed below are the main properties that are required when [creating a proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service/) of any type.
 
 <table>
   <tr>
@@ -46,7 +46,7 @@ Listed below are the main properties that are required when [creating a proxy se
 
 ### Logging Properties
 
-The following properties are required when [creating a logging proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service.md):
+The following properties are required when [creating a logging proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service/):
 
 <table>
   <tr>
@@ -97,7 +97,7 @@ The following properties are required when [creating a logging proxy service]({{
 
 ### WSDL Properties
 
-The following properties are required when [creating a WSDL-based proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service.md):
+The following properties are required when [creating a WSDL-based proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service/):
 
 <table>
   <tr>
@@ -138,7 +138,7 @@ The following properties are required when [creating a WSDL-based proxy service]
 
 ### Transformer Proxy Properties
 
-The following properties are required when [creating a transformer proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service.md):
+The following properties are required when [creating a transformer proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service/):
 
 <table>
   <tr>

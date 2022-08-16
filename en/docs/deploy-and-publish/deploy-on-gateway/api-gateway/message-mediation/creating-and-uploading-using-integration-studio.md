@@ -1,4 +1,4 @@
-# Creating and Uploading using WSO2 Integration Studio
+# Creating and Uploading Custom Mediation Policies using WSO2 Integration Studio
 
 You can design all custom mediation policies using a tool such as WSO2 Integration Studio and then store the policy in the registry which can be later deployed to the Gateway.
 
@@ -6,74 +6,75 @@ Let's see how to create a custom mediation policy using the WSO2 Integration Stu
 This custom policy adds a full trace log that gets printed when you invoke a particular API deployed in the Gateway.
 
 1. Navigate to the Integration Studio page - <https://wso2.com/integration/integration-studio/>
-2. Click **Download** to download the WSO2 Integration Studio based on your preferred platform (i.e., Mac, Windows, Linux).  
-     *For example, if you are using a Ubuntu 64 bit computer you need to download, WSO2-Integration-Studio-7.1.0-linux-gtk-x86_64.tar.gz.*
+
+2. Click **Download** to download the WSO2 Integration Studio based on your preferred platform (i.e., Mac, Windows, Linux).
+
+      *For example, if you are using a Ubuntu 64-bit computer you need to download, WSO2-Integration-Studio-8.1.0-linux-gtk-x86_64.tar.gz.*
+
 3. Extract the downloaded archive of the Integration Studio to the desired location and run the **IntegrationStudio** application to start the tool.
 
-    [![Integration Studio]({{base_path}}/assets/img/learn/api-gateway/message-mediation/integration-studio.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/integration-studio.png)
-
+      [![Integration Studio]({{base_path}}/assets/img/learn/api-gateway/message-mediation/integration-studio.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/integration-studio.png)
 
     !!! tip
-        To learn more about using WSO2 Integration Studio, see the [WSO2 Integration Studio](https://ei.docs.wso2.com/en/latest/micro-integrator/develop/WSO2-Integration-Studio/ documentation.
+        To learn more about using WSO2 Integration Studio, see the [WSO2 Integration Studio]({{base_path}}/integrate/develop/wso2-integration-studio/) documentation.
 
-4. Click **ESB Project -> Create New** to create a new ESB solution project.
+4. Click **Window -> Perspective -> Open Perspective -> Other** to get the Perspective options.
   
-     [![Integration Project]({{base_path}}/assets/img/learn/api-gateway/message-mediation/integration-project.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/integration-project.png)
+      [![Perspective Path]({{base_path}}/assets/img/learn/api-gateway/message-mediation/open-perspective.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/open-perspective.png)
 
-5. Enter the **Project Name** as `TestProject` and click **Finish**. 
-
-     You will be redirected to the following page.
+5. Select **WSO2 APIManager** from the perspective list and click **Open**.
   
-     [![Composite App POM]({{base_path}}/assets/img/learn/api-gateway/message-mediation/composite-app-pom.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/composite-app-pom.png)
+      [![APIM Perspective]({{base_path}}/assets/img/learn/api-gateway/message-mediation/apim-perspective.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/apim-perspective.png)
 
-6. Navigate to the directory path **TestProject -> TestProjectConfigs -> src -> main -> synapse-config -> sequences** in the **Project Explorer** 
-window.
+      You will be redirected to the following page.
+
+     [![APIM Perspective View]({{base_path}}/assets/img/learn/api-gateway/message-mediation/apim-perspective-view.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/apim-perspective-view.png)
+
+6. Click on the Login icon. 
+   
+      The Add Registry dialog box appears.
   
-     [![Sequences]({{base_path}}/assets/img/learn/api-gateway/message-mediation/sequences.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/sequences.png)
+     [![Login]({{base_path}}/assets/img/learn/api-gateway/message-mediation/login.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/login.png)
 
-7. Right-click on the **sequences** directory and go to **New -> Sequence** to create a new sequence.  
+7. Enter the URL of the Publisher, Username and Password and click **OK**.
+
+    [![Checkin to register]({{base_path}}/assets/img/learn/api-gateway/message-mediation/checkin.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/checkin.png)
+
+8. Locate the path where the sequence needs to be added `(IN/OUT/FAULT)` from the **Registry Tree Browser**.
+
+    [![Locate Path]({{base_path}}/assets/img/learn/api-gateway/message-mediation/registry-path.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/registry-path.png)
     
-     If you want to import an existing sequence, proceed with the **Import Sequence** option.
+9.  Click **Create** and create a new sequence, provide the sequence name as `newSequence`, and click **Finish**.
   
-     [![Create a new sequence]({{base_path}}/assets/img/learn/api-gateway/message-mediation/create-new-sequence.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/create-new-sequence.png)
+     [![Create a new sequence]({{base_path}}/assets/img/learn/api-gateway/message-mediation/create-sequence.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/create-sequence.png)
 
-8. Create a new sequence, provide the sequence name as `newSequence`, and click **Finish**.
-  
-     [![Create a new sequence]({{base_path}}/assets/img/learn/api-gateway/message-mediation/create-new-sequence-2.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/create-new-sequence-2.png)
+     Your sequence now appears on the Integration Studio Editor. 
 
-     Your sequence now appears on the Integration Studio console. 
+10. Drag and drop a **Log Mediator** from the **Mediators** section, to your sequence and **Save** the `newSequence.xml` file.
 
-9. Drag and drop a **Log Mediator** from the **Mediators** section, to your sequence and **Save** the `newSequence.xml` file.
+     [![New sequence XML]({{base_path}}/assets/img/learn/api-gateway/message-mediation/newsequence-log-xml.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/newsequence-log-xml.png)
 
-     [![New sequence XML]({{base_path}}/assets/img/learn/api-gateway/message-mediation/newsequence-xml.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/newsequence-xml.png)
-
-10. Right-click on the created mediator, click **Show Properties View**, and enter the following values in the **Log Mediator**.
+11. Right-click on the created mediator, click **Show Properties View**, and enter the following values in the **Log Mediator**.
     
      `Log Level:  Full`
-    
-     [![Add sequence properties]({{base_path}}/assets/img/learn/api-gateway/message-mediation/add-sequence-properties.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/add-sequence-properties.png)
+
+12. Right-click on the sequence file (`newSequence.xml`), and click **Commit file**.
   
-11. Right-click on the sequence file (`newSequence.xml`), and go to **WSO2 registry -> Check in to WSO2 Registry**. 
+     [![push to register]({{base_path}}/assets/img/learn/api-gateway/message-mediation/commit-to-reg.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/commit-to-reg.png)
 
-     You will be prompted with the following dialog box.
-  
-     [![checkin to register]({{base_path}}/assets/img/learn/api-gateway/message-mediation/check-in-to-reg.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/check-in-to-reg.png)
+13. Click **Yes** and push the changes into the remote registry.
 
-12. Enter the URL of the Publisher on the dialog box that appears. Click on the icon that appears on the right-top to open the **Registry Tree Browser**. 
+14. Click **Ok** and acknowledge the successful message popped up.
 
-13. Locate the path where the sequence needs to be added `(IN/OUT/FAULT)` from the **Registry Tree Browser**.  
-  
-     [![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/reg-browser.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/reg-browser.png)
+    [![Success]({{base_path}}/assets/img/learn/api-gateway/message-mediation/success-message.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/success-message.png)
 
-14. Click **OK** and **Checkin**.
-
-15. Navigate to the API Manager Management Console and click **Registry Browser** to verify whether the sequence was added successfully.
+15. Navigate to the API Manager Management Console and click **Resources** > **Browser**, under the **Main** section to access the Registry Browser and to verify whether the sequence was added successfully.
     
      [![API Manager Management Console]({{base_path}}/assets/img/learn/api-gateway/message-mediation/mgt-console-reg-browser.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/mgt-console-reg-browser.png)
     
 16. Sign in to the **API Publisher**. 
 
-17. Click **CREATE API** and then design a new REST API to create an API.
+17. Click **Create API** and then create a new REST type API.
 
      For more information, see [Create a REST API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/).
 
@@ -92,6 +93,5 @@ window.
      You will see the following trace log in the server logs.
 
     ``` bash
-    [2019-12-19 15:27:30,770]  INFO - LogMediator To: /test/1.0, MessageID: urn:uuid:042a64ab-590a-4128-bd99-ef6974893610, Direction: request, Envelope: <?xml version='1.0' encoding='utf-8'?><soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope"><soapenv:Body/></soapenv:Envelope
+    [2021-09-28 15:27:30,770]  INFO - LogMediator To: /test/1.0, MessageID: urn:uuid:042a64ab-590a-4128-bd99-ef6974893610, Direction: request, Envelope: <?xml version='1.0' encoding='utf-8'?><soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope"><soapenv:Body/></soapenv:Envelope
     ```
- 

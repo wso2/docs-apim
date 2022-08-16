@@ -140,14 +140,14 @@ To edit the existing sequence follow the steps below.
 
 ### Applying the XML validator policy
 
-You can apply the pre-defined XML Policy through the UI. Follow the instructions below to apply the xml\_validator in sequence.
+You can apply the predefined XML Policy through the UI. Follow the instructions below to apply the xml\_validator in sequence.
 
 -   Create an API or edit an existing API.
 
 -   Go to **Message Mediation** Policies under the **Implement** tab.
 
 -   Select **Enable Message Mediation** . Select xml\_validator from the drop-down menu for In Flow.
-    ![]({{base_path}}/assets/attachments/126559467/126559468.png)
+    ![]({{base_path}}/assets/attachments/126559467/126559468.jpg)
 -   Click **Save and Publish** to save the changes.
 
 ### Testing the XML threat protector

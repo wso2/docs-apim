@@ -12,8 +12,10 @@ spec:
   swaggerConfigMapName: petstore-cm
 ```
 
-When it comes to managing APIs, users are able to deploy APIs in Kubernetes with/without the control plane(API Manager).
-Follow the quick start guides below to get started with managing APIs in Kubernetes.
+When it comes to managing APIs, users are able to deploy APIs in Kubernetes with/without the Control Plane (API Manager).
 
-- [Without the Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-kubernetes)
-- [With the Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-kubernetes-with-apim/)
+Follow the deployment guides below to get started with managing APIs in Kubernetes.
+
+- [Choreo Connect as a Standalone Gateway on Kubernetes]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-kubernetes)
+
+- [Choreo Connect on Kubernetes with WSO2 API Manager as a Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane/)

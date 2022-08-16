@@ -22,7 +22,7 @@ must be completed.
 ### Configuring database system persistence
 
 The supported databases are H2, MySQL, Postgres, MSSQL and Oracle. The
-relevant jdbc driver jar should be downloaded and added to the
+relevant JDBC driver jar should be downloaded and added to the
 `<SI_HOME>/lib` directory to prior to using database
 system persistence.
 

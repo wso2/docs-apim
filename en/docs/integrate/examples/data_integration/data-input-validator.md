@@ -78,7 +78,7 @@ Create the artifacts:
 Let's send a request with invalid and valid data to the data service:
 
 1. Download and Install [SoapUI](https://www.soapui.org/downloads/soapui.html) to run this SOAP service.
-2. Create a new SOAP project in SoapUI by using the following wsdl file:
+2. Create a new SOAP project in SoapUI by using the following WSDL file:
    ```bash
    http://localhost:8290/services/input_validator_sample?wsdl
    ```
@@ -95,9 +95,7 @@ Let's send a request with invalid and valid data to the data service:
     </dat:addEmployeeOp>
     ```
     
-4. Invoke the **addEmployeeOp** operation.
-
-   A validation error is thrown as the response because the **addEmployeeOp** operation has failed. This is because                  the FirstName only has 2 characters.
+4. Invoke the **addEmployeeOp** operation. A validation error is thrown as the response because the **addEmployeeOp** operation has failed. This is because the FirstName only has 2 characters.
 
 5. Now, change the FirstName value in the request as shown below and invoke the operation again.
     ```xml

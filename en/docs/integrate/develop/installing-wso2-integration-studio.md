@@ -29,7 +29,7 @@ Follow the steps given below.
         * If you are a MacOS user, be sure to add it to the **Applications** directory.
         * If you are a Microsoft Windows user, extract it outside the **Programs** directory. This is done because the Integration Studio requires permission to write to files.
         
-3.  Run the **IntegrationStudio** application to start the tool.
+3.  Run the **Integration Studio** application to start the tool.
 
 !!! info
     **Getting an error message?** See the [troubleshooting](#troubleshooting) tips.
@@ -52,7 +52,7 @@ You can check the version of the Integration Studio as below.
 * For MacOS : Integration Studio > About Integration Studio
 * For Windows/Linux : Help > About Integration Studio
 
-    <a href="{{base_path}}/assets/img/integrate/about-integration-studio.png"><img src="{{base_path}}/assets/img/integrate/about-integration-studio.png" alt="get studio information" width="400"></a>
+    <a href="{{base_path}}/assets/img/integrate/about-integration-studio.jpg"><img src="{{base_path}}/assets/img/integrate/about-integration-studio.jpg" alt="get studio information" width="400"></a>
 
 ### Troubleshooting
 

@@ -115,7 +115,7 @@ The Streaming Integrator is by default shipped with most of the available Siddhi
 Before deploying the `SweetFactoryApp` Siddhi application to the Streaming Integrator Server, you need to test it to check whether the Siddhi queries you wrote work as expected. For this purpose, you can simulate events via the Event Simulator in Streaming Integrator Tooling as follows:
 
 !!! tip
-    Although you are using the Event Simulateor instead of performing an insert operation in the MySQL database table you created, you need to start the MySQL server before following the steps below.
+    Although you are using the Event Simulator instead of performing an insert operation in the MySQL database table you created, you need to start the MySQL server before following the steps below.
 
 1. In Streaming Integrator Tooling, click the **Event Simulator** icon in the left pane of the editor to open the **Single Simulation** panel.
 
@@ -148,4 +148,4 @@ Before deploying the `SweetFactoryApp` Siddhi application to the Streaming Integ
    
 
 !!! tip "What's Next?"
-    Now you can deploy the `SweetFactoryApp` Siddhi application you created. To do this, proceed to [Step 3: Deploy the Siddhi Application](deploy-siddhi-application.md).
+    Now you can deploy the `SweetFactoryApp` Siddhi application you created. To do this, proceed to [Step 3: Deploy the Siddhi Application]({{base_path}}/streaming/getting-started/deploy-siddhi-application/).

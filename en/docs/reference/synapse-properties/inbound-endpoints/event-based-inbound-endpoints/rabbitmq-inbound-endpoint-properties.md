@@ -24,11 +24,11 @@
 
 ## Properties
 
-Listed below are the properties used for [creating a RabbitMQ inbound endpiont]({{base_path}}/integrate//develop/creating-artifacts/creating-an-inbound-endpoint).
+Listed below are the properties used for [creating a RabbitMQ inbound endpoint]({{base_path}}/integrate//develop/creating-artifacts/creating-an-inbound-endpoint).
 
 ### Required Properties
 
-The following properties are required when [creating a RabbitMQ inbound endpiont]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
+The following properties are required when [creating a RabbitMQ inbound endpoint]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
 
 <table>
   <tr>
@@ -89,7 +89,7 @@ The following properties are required when [creating a RabbitMQ inbound endpiont
 
 ### Optional Properties
 
-The following optional properties can be configured when [creating an RabbitMQ inbound endpiont]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
+The following optional properties can be configured when [creating an RabbitMQ inbound endpoint]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
 Note that the optional properties related to defining a **queue** should contain the `rabbitmq.queue.optional.` prefix,
 and the optional properties related to defining an **exchange** should contain the `rabbitmq.exchange.optional.` prefix.
 
@@ -338,7 +338,7 @@ following parameters in the inbound endpoint:
 ```
 
 If the parameters are configured with sample values as given above, the
-server makes 5 retry attempts with a time interval of 10000 miliseconds between each
+server makes 5 retry attempts with a time interval of 10000 milliseconds between each
 retry attempt to reconnect when the connection is lost. If reconnecting
 fails after 5 retry attempts, the Micro Integrator terminates the connection.
 

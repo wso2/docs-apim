@@ -35,7 +35,7 @@ The tool captures the following information about the system:
 -   Memory information of the Java process \*\* Java heap memory dump
     -   Histogram of the heap
     -   Objects waiting for finalization
-    -   Java heap summary. GC algo used, etc.
+    -   Java heap summary. GC algorithm used, etc.
     -   Statistics on permgen space of Java heap
 -   Information about the running Carbon instance \*\* Product name and version
     -   Carbon framework version (This includes the patched version)

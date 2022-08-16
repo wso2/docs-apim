@@ -65,7 +65,7 @@ select *
 update or insert into ProductValueTable;
 ```
 
-In the above application, events in the `CheckUnitValueStream` stream are published to the `http://localhost:5005/CheckProductValueEP` URL via the connected `http-request` sink to invoke a service that returns the unit value for the name of the product sent. WSO2 Streaming Integrator captures this response (i.e., unit value) in the `StoreUnitValueStream` stream via the `http-response` source connected to the stream. In orcder to allow WSO2 Streaming Integrator to identify the response as the result of the request it previously sent, the same value is specified for the `sink.id` parameter in both the source configuration and the sink configuration.
+In the above application, events in the `CheckUnitValueStream` stream are published to the `http://localhost:5005/CheckProductValueEP` URL via the connected `http-request` sink to invoke a service that returns the unit value for the name of the product sent. WSO2 Streaming Integrator captures this response (i.e., unit value) in the `StoreUnitValueStream` stream via the `http-response` source connected to the stream. In order to allow WSO2 Streaming Integrator to identify the response as the result of the request it previously sent, the same value is specified for the `sink.id` parameter in both the source configuration and the sink configuration.
 To store the unit values obtained for further processing, all the events in the `StoreUnitValueStream` stream are inserted into a table named `ProductValueTable`.
 
 ## Enriching data with built-in extensions
@@ -193,7 +193,7 @@ To try out the examples given above, follow the steps below.
    
    3. Sends requests with the product name to an external service with the `http://localhost:5005/CheckProductValueEP` endpoint and receives the unit value of the submitted product name as a response. This response is captured in the `GetUnitValueStream` stream.
    
-   4. Calculates the stock value by multiplying the latest stock with the unit value obtained from the external service. This is done by joining the `GetUnitValueStream` stream with the `LatestStockStream` stream. The result is then logges with the `Stock Value` prefix.
+   4. Calculates the stock value by multiplying the latest stock with the unit value obtained from the external service. This is done by joining the `GetUnitValueStream` stream with the `LatestStockStream` stream. The result is then logged with the `Stock Value` prefix.
    
 4. In Streaming Integrator Tooling, create a new Siddhi application as follows, save it, and then start it.
 

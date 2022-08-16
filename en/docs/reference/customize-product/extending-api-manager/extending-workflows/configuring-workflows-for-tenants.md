@@ -52,7 +52,7 @@ Follow the steps below to deploy a BPEL and a HumanTask for a tenant in the API 
      
      Do the same configuration in the `<EI_HOME>/wso2/business-process/conf/user-mgt.xml` file file so that both API Manager and EI are pointing to the same datasource.
 
-2. Identify the user store used by by API Manager by refering to the `<UserStoreManager>` tag in the `<APIM_HOME>/repository/conf/user-mgt.xml` file. 
+2. Identify the user store used by by API Manager by referring to the `<UserStoreManager>` tag in the `<APIM_HOME>/repository/conf/user-mgt.xml` file. 
 
      By default both API Manager and EI use a JDBC based Userstore manager, so no changes are required. But if API Manager uses a different user store such as LDAP or Active Directory, the same `<UserStoreManager>` configuration needs to be done in the `<EI_HOME>/wso2/business-process/conf/user-mgt.xml` file.
 

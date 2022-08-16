@@ -15,7 +15,7 @@ Save this sample.
     ```
 
 ## Testing the Sample:
-##### Option 1: Publish events with http sample client:
+##### Option 1: Publish events with HTTP sample client:
 Navigate to `{WSO2SIHome}/samples/sample-clients/http-client` and run `ant` command as follows:
 
 Run `ant` command in the terminal  as follows:
@@ -28,7 +28,7 @@ ant -Dtype=xml -DnoOfEventsToSend=5
 ```
 
 ##### Option 2: Publish events with curl command:
-Publish few events in xml format to the http endpoint as follows (The values for name and amount attributes can be changed as desired).
+Publish few events in xml format to the HTTP endpoint as follows (The values for name and amount attributes can be changed as desired).
 ```bash
 curl -X POST -d '<events><event><name>sugar</name><amount>300</amount></event></events>' http://localhost:8006/productionStream --header "Content-Type:application/xml"
 ```

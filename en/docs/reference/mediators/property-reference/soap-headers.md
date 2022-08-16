@@ -1,14 +1,14 @@
 # SOAP Headers
 
 !!! Info
-	The following properties are SOAP headers that can be used with the [Property mediator]({{base_path}}/reference/mediators/property-Mediator) and the [Property Group mediator]({{base_path}}/reference/mediators/property-Group-Mediator).
+	The following properties are SOAP headers that can be used with the [Property mediator]({{base_path}}/reference/mediators/property-mediator) and the [Property Group mediator]({{base_path}}/reference/mediators/property-group-mediator).
 
 SOAP headers provide information about the message, such as the To and
-From values. You can use the `         get-property()        ` function
-in the [Property mediator]({{base_path}}/reference/mediators/property-Mediator) to retrieve these
-headers. You can also add Custom SOAP headers using either the
-[PayloadFactory mediator]({{base_path}}/reference/mediators/payloadFactory-Mediator)
-or the [Script mediator]({{base_path}}/reference/mediators/script-Mediator).
+From values. You can use the `get-property()` function
+in the [Property mediator]({{base_path}}/reference/mediators/property-mediator) to retrieve these
+headers. You can also add Custom SOAP headers using either the
+[PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator)
+or the [Script mediator]({{base_path}}/reference/mediators/script-mediator).
 
 ## To
 

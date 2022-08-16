@@ -1,0 +1,8 @@
+[[enforcer.security.tokenService]]
+  name="Resident Key Manager"
+  issuer = "https://localhost:9443/oauth2/token"
+  certificateAlias = "wso2carbon"
+  jwksURL = ""
+  validateSubscription = false
+  consumerKeyClaim = "azp"
+  certificateFilePath = "/home/wso2/security/truststore/wso2carbon.pem"

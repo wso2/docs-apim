@@ -2,7 +2,7 @@
 
 This tutorial is part of a series that guides you through all the capabilities of API Manager. This involves creating a REST API from an OpenAPI Definition. For more details on the scenario and general prerequisites, please see [the scenario overview page]({{base_path}}/tutorials/scenarios/scenario-overview).
 
-**_Time to Complete : 10 mins_**
+**_Time to Complete : 10 minutes_**
 
 ## User story
 
@@ -90,7 +90,7 @@ The API needs to be published in-order to access it from the Developer portal. F
 1. Go to **Portal Configurations → Subscriptions** and select one from **Business Plans**. Select a business plan (say “Unlimited”) and save.
 2. Go to **Lifecycle** section and select **Publish**.
 
-Now the API is published. To view this API go to https://localhost:9443/devportal/ Dev portal and select **Coltrain** tenant domain. This will redirect you to the Coltrain developer portal.
+Now the API is published. To view this API go to https://localhost:9443/devportal/ Developer portal and select **Coltrain** tenant domain. This will redirect you to the Coltrain developer portal.
 
 Select the **ColTrainScheduleCommunityAPI** and select the **Try-Out** button from the left menu. This will open up an in-built API console for this API. You could now try out the API by clicking the resources. 
 

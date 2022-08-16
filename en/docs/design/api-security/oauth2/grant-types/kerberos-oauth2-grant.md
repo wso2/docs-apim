@@ -19,7 +19,7 @@ The following section describes the flow involved in exchanging a Kerberos ticke
      <a name="step3"></a>
 
 3.  <p id="kerberos-grant-token-request">
-    The Kerberos client requests the OAuth2 token. For more information on how to generate the kerberos token, see [step 7](#step7) below.
+    The Kerberos client requests the OAuth2 token. For more information on how to generate the Kerberos token, see [step 7](#step7) below.
     
      The message format of the OAuth2 token request should be as follows. You can use one of the following two cURL commands to request for the OAuth2 token.
     </p>
@@ -27,21 +27,21 @@ The following section describes the flow involved in exchanging a Kerberos ticke
     Format 1 :
     
     ``` java tab="Format"
-    curl -v -X POST -H "Authorization: Basic <base64-encoded(client-id:client-secret)>" -k -d "grant_type=kerberos&kerberos_realm=<kerberos-realm>&kerberos_token=<kerberos-token>&scope=<scope>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:8243/token
+    curl -v -X POST -H "Authorization: Basic <base64-encoded(client-id:client-secret)>" -k -d "grant_type=kerberos&kerberos_realm=<kerberos-realm>&kerberos_token=<kerberos-token>&scope=<scope>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
     ``` 
     
     ``` java tab="Example"
-    curl -v -X POST -H "Authorization: Basic <base64-encoded(client-id:client-secret)>" -k -d "grant_type=kerberos&kerberos_realm=example.com&kerberos_token=YII1...&scope=my_scope" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:8243/token
+    curl -v -X POST -H "Authorization: Basic <base64-encoded(client-id:client-secret)>" -k -d "grant_type=kerberos&kerberos_realm=example.com&kerberos_token=YII1...&scope=my_scope" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
     ```   
 
     Format 2 :
 
     ``` java tab="Format"
-    curl -u <client-id>:<client-secret> -k -d "grant_type=kerberos&kerberos_realm=<kerberos-realm>&kerberos_token=<kerberos-token>&scope=<scope>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:8243/token
+    curl -u <client-id>:<client-secret> -k -d "grant_type=kerberos&kerberos_realm=<kerberos-realm>&kerberos_token=<kerberos-token>&scope=<scope>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
     ```
     
     ``` java tab="Example"
-    curl -u <client-id>:<client-secret> -k -d "grant_type=kerberos&kerberos_realm=example.com&kerberos_token=YII1...&scope=my_scope" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:8243/token
+    curl -u <client-id>:<client-secret> -k -d "grant_type=kerberos&kerberos_realm=example.com&kerberos_token=YII1...&scope=my_scope" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
     ```  
 
     **cURL Response**
@@ -92,7 +92,7 @@ Follow the instructions below to configure Kerberos Grant using the Identity Se
     
     3. Click **Identity Server as a Key Manager Pack** under **OTHER RESOURCES**.
 
-2.  Download the [kerberos grant.jar]({{base_path}}/assets/attachments/kerberos-grant-1.0.0.jar) file.
+2.  Download the [Kerberos grant.jar]({{base_path}}/assets/attachments/kerberos-grant-1.0.0.jar) file.
 3.  Copy the JAR into the `<IS-KM_HOME>/repository/components/lib` directory.
 4.  To enable the **Kerberos grant**, add the following entry to the
     `deployment.toml` file in the `<IS-KM_HOME>/repository/conf/` folder.
@@ -109,7 +109,7 @@ Follow the instructions below to configure Kerberos Grant using the Identity Se
     2.  Navigate to the **Main** menu, click **Add** under the **Service
         Providers** menu. `                       `
     3.  Add a new Service Provider and configure OAuth2 for your client
-        application with **kerberos** as an allowed grant type.
+        application with **Kerberos** as an allowed grant type.
 
         ??? note "Click for instructions to configure OAuth2"
 
@@ -179,7 +179,7 @@ Follow the instructions below to configure Kerberos Grant using the Identity Se
         
         <a name="step7"></a>
 
-7.  Generate the kerberos token.
+7.  Generate the Kerberos token.
 
     1.  Git clone the `KerbClientProject`.
 

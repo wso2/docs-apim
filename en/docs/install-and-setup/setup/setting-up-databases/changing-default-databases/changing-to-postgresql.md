@@ -36,7 +36,7 @@ Follow the  instructions below to set up the PostgreSQL database and users.
     postgres# grant all privileges on database <DATABASE_NAME> to apimadmin;
     ```
    
-1. Log out from the postgres command prompt by executing the following command:
+1. Log out from the Postgres command prompt by executing the following command:
    
    ```sh
    postgres# quit;

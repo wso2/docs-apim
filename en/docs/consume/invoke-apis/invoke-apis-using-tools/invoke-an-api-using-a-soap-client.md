@@ -1,17 +1,17 @@
-# Invoke an API using a SOAP Client
+# Test an API Using a SOAP Client
 
-You can use any SOAP client to **invoke an API** . We use the SOAP UI in this example.
+You can use any SOAP client to **test an API**. Let's use the SOAP UI in the following example.
 
-The examples here uses the `PhoneVerification` API, which is created in section [Expose a SOAP service as a REST API]({{base_path}}/tutorials/expose-a-soap-service-as-a-rest-api/) .
+The examples here uses the `PhoneVerification` API, which is created in section [Expose a SOAP service as a REST API]({{base_path}}/tutorials/expose-a-soap-service-as-a-rest-api/).
 
 Let's invoke the `PhoneVerification` API using a SOAP client.
 
-1.  Sign in to the Developer Portal and click an API that you want to invoke (e.g., `PhoneVerification` ).
+1.  Sign in to the Developer Portal and click an API that you want to invoke (e.g., `PhoneVerification` ).
 2.  The API's **Overview** page opens. Select an application (e.g., `DefaultApplication` ), with an available tier and subscribe to the API.
 
     [![Subscribe to Phone Verification API]({{base_path}}/assets/img/learn/subscribe-phone-verification.png)]({{base_path}}/assets/img/learn/subscribe-phone-verification.png)
 
-3.  Click the **Applications** menu, open the default application using which you subscribed to the API, and navigate to **OAuth2 Tokens** under **Production Keys**.
+3.  Click the **Applications** menu, open the default application using which you subscribed to the API, and navigate to **OAuth2 Tokens** under **Production Keys**.
     
     [![oauth2 phone verification]({{base_path}}/assets/img/learn/oauth2-phone-verification.png)]({{base_path}}/assets/img/learn/oauth2-phone-verification.png)
     
@@ -27,7 +27,7 @@ Let's invoke the `PhoneVerification` API using a SOAP client.
     
     [![Create new SOAP UI Project]({{base_path}}/assets/attachments/103332601/soap-ui-new-project.png)]({{base_path}}/assets/attachments/103332601/soap-ui-new-project.png)
     
-8.  Give your API's WSDL and click **OK** .
+8.  Give your API's WSDL and click **OK**.
     In this case, the WSDL is as follows: <http://ws.cdyne.com/phoneverify/phoneverify.asmx?wsdl>
     
     [![SOAP UI New Project Window]({{base_path}}/assets/attachments/103332601/soap-ui-project-wizard.png)]({{base_path}}/assets/attachments/103332601/soap-ui-project-wizard.png)
@@ -36,14 +36,14 @@ Let's invoke the `PhoneVerification` API using a SOAP client.
     
     [![Set Authorization Header]({{base_path}}/assets/attachments/103332601/soap-ui-set-header.png)]({{base_path}}/assets/attachments/103332601/soap-ui-set-header.png)
 
-10.  Give the value of the Authorization header in the following format: `Bearer <the-access-token-you-copied-in-step4>          `
+10.  Give the value of the Authorization header in the following format: `Bearer <the-access-token-you-copied-in-step4>`
     
     [![Set Bearer token]({{base_path}}/assets/attachments/103332601/soap-ui-set-token.png)]({{base_path}}/assets/attachments/103332601/soap-ui-set-token.png)
 
 11. Add the following dummy values and submit the request.
 
     1.  Change the endpoint with the production URL of the API.
-        You can copy the production URL from the API's **Overview** tab in the Developer Portal (i.e., It is `https://localhost:8243/phoneverify/1.0.0` for the `PhoneVerification` API). Append the resources to the end of the URL, if any. The resource is `/CheckPhoneNumber` for the `PhoneVerification` API that we use here.
+        You can copy the production URL from the API's **Overview** tab in the Developer Portal (i.e., It is `https://localhost:8243/phoneverify/1.0.0` for the `PhoneVerification` API). Append the resources to the end of the URL, if any. The resource is `/CheckPhoneNumber` for the `PhoneVerification` API that we use here.
 
     2.  In the SOAP request, change the parameters, which are PhoneNumber and LicenseKey.
 
@@ -84,5 +84,3 @@ You have now successfully invoked an API using a SOAP client.
     3.  Publish the app with a scope protecting access - use the admin role for your scope.
 
     Admins can then subscribe to the app and invoke it using OAUTH2.0 security.
-
-

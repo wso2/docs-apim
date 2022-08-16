@@ -42,7 +42,7 @@ Create the artifacts:
 
 1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
 2. [Create an integration project]({{base_path}}/integrate/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-3. [Create the rest api]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api) with the configurations given above.
+3. [Create the rest API]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 
 Set up the back-end service:
@@ -66,7 +66,7 @@ Send the following request to the Micro Integrator:
 curl -v http://127.0.0.1:8290/stockquote/view/IBM
 ```
 
-The response message will contain the following response code (201) and the requeste stock quote information.  
+The response message will contain the following response code (201) and the requested stock quote information.  
 
 ```bash
 < HTTP/1.1 201 Created

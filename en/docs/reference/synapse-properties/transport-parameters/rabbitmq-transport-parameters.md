@@ -361,4 +361,4 @@ In your integration solution, the following RabbitMQ send parameters can be spec
 
 ### Mediator Properties
 
-In addition to the parameters described above, you can define RabbitMQ properties using the [Property mediator]({{base_path}}/reference/mediators/property-mediator.md) and the [Property Group mediator]({{base_path}}/reference/mediators/property-group-mediator.md).
+In addition to the parameters described above, you can define RabbitMQ properties using the [Property mediator]({{base_path}}/reference/mediators/property-mediator/) and the [Property Group mediator]({{base_path}}/reference/mediators/property-group-mediator/).

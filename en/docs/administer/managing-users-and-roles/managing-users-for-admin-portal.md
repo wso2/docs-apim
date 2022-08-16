@@ -63,6 +63,10 @@ Assign the scopes according to the role of the user.
     [![Minimum Version of Admin Portal]({{base_path}}/assets/img/administer/minimum-version-admin-portal.png)]({{base_path}}/assets/img/administer/minimum-version-admin-portal.png)
 
     - To allow a user to perform all Admin Portal functions assign the `apim:admin` scope to the associated role.
+    
+!!! Info
+    **If you are using an Update 2.0 based API-M 4.0.0 distribution, from 4.0.0.91 update level**
+    you can change the minimum scopes to login via updating the `minScopesToLogin` configuration in the`<API-M_HOME>/repository/deployment/server/jaggeryapps/admin/site/public/conf/settings.js`
 
 ## Step 3 - Create a user to access the Admin Portal
 
@@ -86,6 +90,6 @@ Now a user with custom permissions to access and manage Admin Portal has been cr
 
 ## Step 4 - Sign in to the Admin Portal
 
-Sign in to Admin Portal (`https://<API-M_host>:<API-M_port>/admin`) as the user that you created in <a href="step2">Step 2</a>, and use `admin`/`admin` as the credentials. 
+Sign in to Admin Portal (`https://<API-M_host>:<API-M_port>/admin`) as the user that you created in Step 3, and use `Manager` and the new password as the credentials. 
 
 Now you will be able to sign in and perform specific operations in the Admin Portal with this user.

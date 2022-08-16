@@ -1,22 +1,22 @@
 # Regular Expression Threat Protection for API Gateway
 
-WSO2 API Manager provides pre-defined regex patterns to sanitize the request from SQL injection attacks. The attacks 
+WSO2 API Manager provides predefined regex patterns to sanitize the request from SQL injection attacks. The attacks 
 may depend on the API traffic at runtime. The API developers should identify the common attacks and select the 
 appropriate restrictive measures. This feature extracts the data from XML, JSON payloads, Queryparam, URI path, headers 
-and validates the content against pre defined regular expressions. If any predefined regex keyword is matched with the 
+and validates the content against predefined regular expressions. If any predefined regex keyword is matched with the 
 content, the API request is considered as a threat and it is blocked and rejected. This secures the backend resources 
 from activities that make the system vulnerable.  You can configure your own restriction patterns to thwart various 
 attacks such as the following:
 
--   Javascript Injection
+-   JavaScript Injection
 -   Server-side Include Injection
 -   XPath Injection
 -   Java Exception Injection
--   XPath Abbreiviated Syntax Injection
+-   XPath Abbreviated Syntax Injection
 
-### Blacklisting patterns
+### Denying request patterns
 
-We recommend the following patterns for blacklisting.
+We recommend the following patterns for denying requests.
 
 <table>
     <thead>
@@ -57,7 +57,7 @@ We recommend the following patterns for blacklisting.
             </td>
         </tr>
         <tr class="odd">
-            <td>Javascript Exception</td>
+            <td>JavaScript Exception</td>
             <td><p><code>&lt;\s*script\b[^&gt;]*&gt;[^&lt;]+&lt;\s*/\s*script\s*&gt;</code></p></td>
         </tr>
         <tr class="even">
@@ -78,7 +78,7 @@ To edit the existing sequence follow the steps below.
 
 ### Applying the Regular Expression Policy
 
-You can apply the pre-defined Regular Expression Policy through the UI. Follow the instructions below to apply the 
+You can apply the predefined Regular Expression Policy through the UI. Follow the instructions below to apply the 
 regex\_policy in sequence.
 
 1.  Create an API or edit an existing API.
@@ -86,7 +86,7 @@ regex\_policy in sequence.
 3.  Select **Edit** in the message mediation bar and select **Common Policies** .
 4.  Select `regex_policy` from the drop-down menu for Common Policies.
 
-    [ ![]({{base_path}}/assets/img/learn/mediation-regex-policy.png) ]({{base_path}}/assets/img/learn/mediation-regex-policy.png)
+    <a href="{{base_path}}/assets/img/learn/mediation-regex-policy.png"><img src="{{base_path}}/assets/img/learn/mediation-regex-policy.png" width="70%" alt="Select Regex policy from the drop-down menu"></a> 
     
 4.  Scroll down the page and click **Save** to save the changes.
 

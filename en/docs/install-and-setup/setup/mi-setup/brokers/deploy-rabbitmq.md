@@ -47,7 +47,7 @@ Follow the steps given below to set up a single-node RabbitMQ deployment. Note t
     sudo ./rabbitmq-plugins enable rabbitmq_management
     ```
     
-6. Visit the following url to view the UI:
+6. Visit the following URL to view the UI:
 
     ```bash
     http://localhost:15672/#/

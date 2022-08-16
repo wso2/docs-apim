@@ -47,6 +47,7 @@ Following are the artifact configurations that we can use to implement this scen
      name="SamplingProcessor" messageStore="MyStore">
     <parameter name="interval">20000</parameter>
     <parameter name="sequence">send_seq</parameter>
+    <parameter name="is.active">true</parameter>
 </messageProcessor> 
 ```
 

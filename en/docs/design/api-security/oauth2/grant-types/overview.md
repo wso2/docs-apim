@@ -8,7 +8,6 @@ WSO2 API Manager supports following grant types including the basic grant types 
 - [Password Grant]({{base_path}}/design/api-security/oauth2/grant-types/password-grant)
 - [Client Credentials Grant]({{base_path}}/design/api-security/oauth2/grant-types/client-credentials-grant)
 - [Authorization Code Grant]({{base_path}}/design/api-security/oauth2/grant-types/authorization-code-grant)
-- [Implicit Grant]({{base_path}}/design/api-security/oauth2/grant-types/implicit-grant)
 - [Refresh Token Grant]({{base_path}}/design/api-security/oauth2/grant-types/refresh-token-grant)
 - [JWT Grant]({{base_path}}/design/api-security/oauth2/grant-types/jwt-grant)
 - [SAML Extension Grant]({{base_path}}/design/api-security/oauth2/grant-types/saml-extension-grant)

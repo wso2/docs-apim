@@ -10,7 +10,7 @@ When the client sends the appointment reservation request to the Micro Integrato
 
 -   REST API
 -   HTTP Endpoint
--   Property Meditor
+-   Property Mediator
 -   Call Mediator
 
 ## Let's get started!
@@ -30,11 +30,11 @@ An Integration project is a maven multi module project, which will contain all t
 1.  Open **WSO2 Integration Studio**.
 2.  Click **New Integration Project** in the **Getting Started** tab as shown below. 
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.png" width="700">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.jpg" width="700">
 
     This will open the <b>New Integration Project</b> dialog box.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-simple-message-project.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-simple-message-project.jpg" width="500">
 
 3.  Enter `SampleServices` as the project name and select the following check boxes to create the required modules.
     -   **Create ESB Configs**
@@ -119,7 +119,7 @@ Let's create three different HTTP endpoints for the above services.
 You have now created the three endpoints for the hospital back-end services that will be used to make appointment reservations.
 
 !!! Tip
-    You can also create a single endpoint where the differentiation of the hospital name can be handled using a variable in the URI template. See the tutorial on [Exposing Several Services as a Single Service](exposing-several-services-as-a-single-service).
+    You can also create a single endpoint where the differentiation of the hospital name can be handled using a variable in the URI template. See the tutorial on [Exposing Several Services as a Single Service]({{base_path}}/tutorials/integration-tutorials/exposing-several-services-as-a-single-service).
 
     Using three different endpoints is advantageous when the back-end services are very different from one another and/or when there is a requirement to configure error handling differently for each of them.
 
@@ -368,7 +368,7 @@ You can now start configuring the API resource.
     </tr>
     </table>
 
-8.  Drag a **Call** mediator from the **Mediators** pallete after the Log mediator and add the **GrandOakEP endpoint** from **Defined Endpoints** palette to the empty box adjoining the Call mediator. 
+8.  Drag a **Call** mediator from the **Mediators** pallette after the Log mediator and add the **GrandOakEP endpoint** from **Defined Endpoints** palette to the empty box adjoining the Call mediator. 
 
 9.  Add **Log mediators** in the other two **Case boxes** in the Switch mediator and then enter the same properties. Make sure to name the two Log mediators as follows:
 
@@ -395,7 +395,7 @@ You have successfully created all the artifacts that are required for routing me
 
 Package the artifacts in your composite application module (SampleServicesCompositeExporter) to be able to deploy the artifacts in the server.
 
-1.  Open the `          pom.xml         ` file in the composite exporter module.
+1.  Open the `pom.xml` file in the composite exporter module.
 2.  Ensure that the following artifacts are selected in the POM file.
 
     -   `HealthcareAPI`

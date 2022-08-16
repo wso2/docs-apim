@@ -1,0 +1,29 @@
+# Choreo Connect Router Configuration Catalog
+
+This document describes all the configuration parameters that are used in WSO2 Choreo Connect Router.
+
+## Instructions for use
+
+Select the configuration sections, parameters, and values that are required for your use and add them to the `config.toml`
+file located in `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/`.
+See the example .toml file given below.
+
+```toml
+# This is an example .toml file.
+[router]
+  listenerHost = "0.0.0.0"
+  listenerPort = 9090
+  securedListenerHost = "0.0.0.0"
+  securedListenerPort = 9095
+  clusterTimeoutInSeconds = 20
+  enforcerResponseTimeoutInSeconds = 20
+  # system hostname for system API resources (eg: /testkey and /health)
+  systemHost = "localhost"
+
+[router.keystore]
+  certPath = "/home/wso2/security/keystore/mg.pem"
+  keyPath = "/home/wso2/security/keystore/mg.key"
+
+```
+{% set parameters = {'comp': 'router'} %}
+{% include "../templates/_configs.njk" %}

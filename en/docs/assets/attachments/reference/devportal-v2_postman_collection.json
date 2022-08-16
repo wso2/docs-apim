@@ -1,0 +1,2559 @@
+{
+	"info": {
+		"_postman_id": "70cf89a8-49d5-46e5-901c-8f13646d1913",
+		"name": "WSO2 API Manager 4.0.0 - DevPortal REST APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register DCR Application",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"var clientId = response.clientId;",
+									"var clientSecret = response.clientSecret;",
+									"pm.collectionVariables.set(\"dcrClientId\", clientId);",
+									"pm.collectionVariables.set(\"dcrClientSecret\", clientSecret);",
+									"",
+									"var base64EncodedCredentials = btoa(clientId + \":\" + clientSecret);",
+									"pm.collectionVariables.set(\"base64EncodedDCRCredentials\", base64EncodedCredentials);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n  \"callbackUrl\":\"www.google.lk\",\n  \"clientName\":\"rest_api_devportal\",\n  \"owner\":\"admin\",\n  \"grantType\":\"client_credentials password refresh_token\",\n  \"saasApp\":true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{dcrEndpoint}}",
+							"host": [
+								"{{dcrEndpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Access Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"access-token\", response.access_token);"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var url = pm.collectionVariables.get(\"basepath\").concat(\"/settings\");",
+									"",
+									"var getRequest = {",
+									" url: url,",
+									" method: 'GET',",
+									"};",
+									" ",
+									"pm.sendRequest(getRequest, (error, response) => {",
+									" if (error == null) {",
+									"     if (response == null) {",
+									"       //use existing scopes list",
+									"     } else {",
+									"         var scopeslist = response.json().scopes;",
+									"         var scopeString = scopeslist.toString();",
+									"         var scopeArr = scopeString.split(\",\");",
+									"         var scopes = scopeArr.join(\" \");",
+									"         pm.collectionVariables.set(\"restAPIScopes\", scopes);",
+									"     }",
+									" }",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedDCRCredentials}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{tokenEndpoint}}?grant_type=password&username={{username}}&password={{password}}&scope={{restAPIScopes}}",
+							"host": [
+								"{{tokenEndpoint}}"
+							],
+							"query": [
+								{
+									"key": "grant_type",
+									"value": "password"
+								},
+								{
+									"key": "username",
+									"value": "{{username}}"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}"
+								},
+								{
+									"key": "scope",
+									"value": "{{restAPIScopes}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "APIs",
+			"item": [
+				{
+					"name": "Retrieve/Search APIs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSO2-Tenant",
+								"value": "{{tenant}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/apis",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Details of an API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSO2-Tenant",
+								"value": "{{tenant}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Swagger Definition",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSO2-Tenant",
+								"value": "{{tenant}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/swagger",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"swagger"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get GraphQL Definition",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSO2-Tenant",
+								"value": "{{tenant}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/graphql-schema",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"graphql-schema"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get API WSDL definition",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/wsdl",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"wsdl"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Thumbnail Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSO2-Tenant",
+								"value": "{{tenant}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/thumbnail",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"thumbnail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Details of the Subscription Throttling Policies of an API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSO2-Tenant",
+								"value": "{{tenant}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/subscription-policies",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"subscription-policies"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SDKs",
+			"item": [
+				{
+					"name": "Generate a SDK for an API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/{{apiId}}/sdks/{{language}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"{{apiId}}",
+								"sdks",
+								"{{language}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a List of Supported SDK Languages",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/sdk-gen/languages",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"sdk-gen",
+								"languages"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Documents",
+			"item": [
+				{
+					"name": "Get a List of Documents of an API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSO2-Tenant",
+								"value": "{{tenant}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/documents",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"documents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Document of an API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSO2-Tenant",
+								"value": "{{tenant}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/documents/{{documentId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"documents",
+								"{{documentId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the Content of an API Document",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSO2-Tenant",
+								"value": "{{tenant}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/documents/{{documentId}}/content",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"documents",
+								"{{documentId}}",
+								"content"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ratings",
+			"item": [
+				{
+					"name": "Retrieve API Ratings",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSO2-Tenant",
+								"value": "{{tenant}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/ratings",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"ratings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve API Rating of User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSO2-Tenant",
+								"value": "{{tenant}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/user-rating",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"user-rating"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add or Update Logged in User's Rating for an API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-WSO2-Tenant",
+								"value": "{{tenant}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"rating\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/user-rating",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"user-rating"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User API Rating",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-WSO2-Tenant",
+								"value": "{{tenant}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/user-rating",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"user-rating"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "Retrieve API Comments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/comments",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add an API Comment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"commentId\", response.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"content\": \"Comment 6\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/comments",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Details of an API Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/comments/{{commentId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"comments",
+								"{{commentId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update an API Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"content\": \"Updated Comment\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/comments/{{commentId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"comments",
+								"{{commentId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Replies to an API Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/comments/{{commentId}}/replies",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"comments",
+								"{{commentId}}",
+								"replies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an API Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/comments/{{commentId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"comments",
+								"{{commentId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Applications",
+			"item": [
+				{
+					"name": "Retrieve/Search Applications",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/applications",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"applications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a New Application",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"applicationId\", response.applicationId);",
+									"pm.collectionVariables.set(\"applicationName\", response.name);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"CalculatorApp\",\n  \"throttlingPolicy\": \"Unlimited\",\n  \"description\": \"Sample calculator application\",\n  \"tokenType\": \"JWT\",\n  \"groups\": [],\n  \"attributes\": {},\n  \"subscriptionScopes\": []\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/applications",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"applications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Details of an Application",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/applications/{{applicationId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"applications",
+								"{{applicationId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update an Application",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"{{applicationName}}\",\n  \"throttlingPolicy\": \"Unlimited\",\n  \"description\": \"Sample calculator application Updated\",\n  \"tokenType\": \"JWT\",\n  \"groups\": [],\n  \"attributes\": {},\n  \"subscriptionScopes\": []\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/applications/{{applicationId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"applications",
+								"{{applicationId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove an Application",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/applications/{{applicationId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"applications",
+								"{{applicationId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Application Keys",
+			"item": [
+				{
+					"name": "Generate Application Keys",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"keyMappingId\", response.keyMappingId);",
+									"pm.collectionVariables.set(\"keyManager\", response.keyManager);",
+									"pm.collectionVariables.set(\"appConsumerKey\", response.consumerKey);",
+									"pm.collectionVariables.set(\"appConsumerSecret\", response.consumerSecret);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"keyType\": \"PRODUCTION\",\n  \"keyManager\": \"Resident Key Manager\",\n  \"grantTypesToBeSupported\": [\n    \"password\",\n    \"client_credentials\"\n  ],\n  \"callbackUrl\": \"http://sample.com/callback/url\",\n  \"scopes\": [\n    \"am_application_scope\",\n    \"default\"\n  ],\n  \"validityTime\": 3600,\n  \"additionalProperties\": {}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/applications/{{applicationId}}/generate-keys",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"applications",
+								"{{applicationId}}",
+								"generate-keys"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Map Application Keys",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"consumerKey\": \"oYhwZu4P2ThDmiDprBk6c0YfjR8a\",\n  \"consumerSecret\": \"ondWGtFTCOVM4sfPyOfZ7fel610a\",\n  \"keyManager\": \"Resident Key Manager\",\n  \"keyType\": \"PRODUCTION\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/applications/{{applicationId}}/map-keys",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"applications",
+								"{{applicationId}}",
+								"map-keys"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve All Application Keys",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/applications/{{applicationId}}/oauth-keys",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"applications",
+								"{{applicationId}}",
+								"oauth-keys"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Key Details of a Given Type",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/applications/{{applicationId}}/oauth-keys/{{keyMappingId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"applications",
+								"{{applicationId}}",
+								"oauth-keys",
+								"{{keyMappingId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Grant Types and Callback URL of an Application",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"keyMappingId\": \"{{keyMappingId}}\",\n    \"keyManager\": \"{{keyManager}}\",\n    \"supportedGrantTypes\": [\n        \"refresh_token\",\n        \"urn:ietf:params:oauth:grant-type:saml2-bearer\",\n        \"password\",\n        \"client_credentials\",\n        \"iwa:ntlm\"\n    ],\n    \"callbackUrl\": \"http://sample2/com/callback\",\n    \"additionalProperties\": {}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/applications/{{applicationId}}/oauth-keys/{{keyMappingId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"applications",
+								"{{applicationId}}",
+								"oauth-keys",
+								"{{keyMappingId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Re-Generate Consumer Secret",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/applications/{{applicationId}}/oauth-keys/{{keyMappingId}}/regenerate-secret",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"applications",
+								"{{applicationId}}",
+								"oauth-keys",
+								"{{keyMappingId}}",
+								"regenerate-secret"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Clean-Up Application Keys",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/applications/{{applicationId}}/oauth-keys/{{keyMappingId}}/clean-up",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"applications",
+								"{{applicationId}}",
+								"oauth-keys",
+								"{{keyMappingId}}",
+								"clean-up"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Application Tokens",
+			"item": [
+				{
+					"name": "Generate Application Token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"consumerSecret\": \"{{appConsumerSecret}}\",\n  \"validityPeriod\": 3600,\n  \"scopes\": [\n    \n  ],\n  \"revokeToken\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/applications/{{applicationId}}/oauth-keys/{{keyMappingId}}/generate-token",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"applications",
+								"{{applicationId}}",
+								"oauth-keys",
+								"{{keyMappingId}}",
+								"generate-token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Keys",
+			"item": [
+				{
+					"name": "Generate API Key",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"apikey\", response.apikey);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"validityPeriod\": 3600,\n  \"additionalProperties\": {}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/applications/{{applicationId}}/api-keys/{{keyType}}/generate",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"applications",
+								"{{applicationId}}",
+								"api-keys",
+								"{{keyType}}",
+								"generate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Revoke API Key",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"apikey\": \"{{apikey}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/applications/{{applicationId}}/api-keys/{{keyType}}/revoke",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"applications",
+								"{{applicationId}}",
+								"api-keys",
+								"{{keyType}}",
+								"revoke"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subscriptions",
+			"item": [
+				{
+					"name": "Get All Subscriptions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/subscriptions?applicationId={{applicationId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"subscriptions"
+							],
+							"query": [
+								{
+									"key": "applicationId",
+									"value": "{{applicationId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a New Subscription",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"subscriptionId\", response.subscriptionId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"applicationId\": \"{{applicationId}}\",\n  \"apiId\": \"{{apiId}}\",\n  \"throttlingPolicy\": \"Unlimited\",\n  \"requestedThrottlingPolicy\": \"Gold\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/subscriptions",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"subscriptions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Subscriptions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n  {\n    \"applicationId\": \"b3ade481-30b0-4b38-9a67-498a40873a6d\",\n    \"apiId\": \"2962f3bb-8330-438e-baee-0ee1d6434ba4\",\n    \"throttlingPolicy\": \"Unlimited\",\n    \"requestedThrottlingPolicy\": \"Unlimited\"\n  },\n  {\n    \"applicationId\": \"a504e72a-9477-4f5c-aca8-692f7c8077e5\",\n    \"apiId\": \"2962f3bb-8330-438e-baee-0ee1d6434ba4\",\n    \"throttlingPolicy\": \"Unlimited\",\n    \"requestedThrottlingPolicy\": \"Unlimited\"\n  }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/subscriptions/multiple",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"subscriptions",
+								"multiple"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Details of a Subscription",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/subscriptions/{{subscriptionId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"subscriptions",
+								"{{subscriptionId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Existing Subscription",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"applicationId\": \"{{applicationId}}\",\n  \"apiId\": \"{{apiId}}\",\n  \"throttlingPolicy\": \"Unlimited\",\n  \"requestedThrottlingPolicy\": \"Unlimited\",\n  \"status\": \"UNBLOCKED\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/subscriptions/{{subscriptionId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"subscriptions",
+								"{{subscriptionId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove a Subscription",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/subscriptions/{{subscriptionId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"subscriptions",
+								"{{subscriptionId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Monetization",
+			"item": [
+				{
+					"name": "Get Details of a Pending Invoice for a Monetized Subscription with Metered Billing",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/subscriptions/{{subscriptionId}}/usage",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"subscriptions",
+								"{{subscriptionId}}",
+								"usage"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Throttling Policies",
+			"item": [
+				{
+					"name": "Get All Available Throttling Policies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/throttling-policies/{{policyLevel}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"throttling-policies",
+								"{{policyLevel}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Details of a Throttling Policy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSO2-Tenant",
+								"value": "{{tenant}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/throttling-policies/{{policyLevel}}/{{policyId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"throttling-policies",
+								"{{policyLevel}}",
+								"{{policyId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tags",
+			"item": [
+				{
+					"name": "Get All Tags",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSO2-Tenant",
+								"value": "{{tenant}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/tags",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"tags"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Unified Search",
+			"item": [
+				{
+					"name": "Retrieve/Search APIs and API Documents by Content",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/search?query={{searchTerm}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"search"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "{{searchTerm}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Settings",
+			"item": [
+				{
+					"name": "Retrieve Store Settings",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/settings",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"settings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Application Attributes from Configuration",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/settings/application-attributes",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"settings",
+								"application-attributes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tenants",
+			"item": [
+				{
+					"name": "Get Tenants by State",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/tenants?state={{tenantState}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"tenants"
+							],
+							"query": [
+								{
+									"key": "state",
+									"value": "{{tenantState}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Recommendations",
+			"item": [
+				{
+					"name": "Give API Recommendations for a User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/recommendations",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"recommendations"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Categories",
+			"item": [
+				{
+					"name": "Get All API Categories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/api-categories",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"api-categories"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Key Managers",
+			"item": [
+				{
+					"name": "Get All Key Managers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/key-managers",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"key-managers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GraphQL Policies",
+			"item": [
+				{
+					"name": "Get the Complexity Related Details of an API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/graphql-policies/complexity",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"graphql-policies",
+								"complexity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Types and Fields of a GraphQL Schema",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/graphql-policies/complexity/types",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"graphql-policies",
+								"complexity",
+								"types"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Change the Password of the user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"currentPassword\": \"password\",\n  \"newPassword\": \"newpassword\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/me/change-password",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"me",
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Import Export",
+			"item": [
+				{
+					"name": "Export Application",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/applications/export?appName={{applicationName}}&appOwner={{username}}&withKeys=true",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"applications",
+								"export"
+							],
+							"query": [
+								{
+									"key": "appName",
+									"value": "{{applicationName}}"
+								},
+								{
+									"key": "appOwner",
+									"value": "{{username}}"
+								},
+								{
+									"key": "withKeys",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Import Application",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/sachini/Downloads/test-artifacts/admin_CalculatorApp.zip"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{basepath}}/applications/import",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"applications",
+								"import"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Webhooks",
+			"item": [
+				{
+					"name": "Get Webhook Subscriptions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/webhooks/subscriptions?applicationId={{applicationId}}&apiId={{apiId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"webhooks",
+								"subscriptions"
+							],
+							"query": [
+								{
+									"key": "applicationId",
+									"value": "{{applicationId}}"
+								},
+								{
+									"key": "apiId",
+									"value": "{{apiId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Topic",
+			"item": [
+				{
+					"name": "Get Topics of Async API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/topics",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"topics"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "basepath",
+			"value": "https://localhost:9443/api/am/devportal/v2"
+		},
+		{
+			"key": "apiId",
+			"value": "02e658e7-71c7-4b1d-a623-be145b789340"
+		},
+		{
+			"key": "base64(username:password)",
+			"value": "YWRtaW46YWRtaW4="
+		},
+		{
+			"key": "access-token",
+			"value": "401fd530-57a1-3469-b76f-5d4a4a224a3d"
+		},
+		{
+			"key": "policyLevel",
+			"value": "application"
+		},
+		{
+			"key": "policyId",
+			"value": "10PerMin"
+		},
+		{
+			"key": "applicationId",
+			"value": "16cd2684-9657-4a01-a956-4efd89e96077"
+		},
+		{
+			"key": "language",
+			"value": "java"
+		},
+		{
+			"key": "documentId",
+			"value": "2c91175e-95c6-48dc-9952-6ebea8cf1bfc"
+		},
+		{
+			"key": "commentId",
+			"value": "345f7783-62bc-42a2-8c85-a3fba935c259"
+		},
+		{
+			"key": "subscriptionId",
+			"value": "68ff5d83-8887-46f0-bed3-d73d1c137fc4"
+		},
+		{
+			"key": "searchTerm",
+			"value": "HelloWorld"
+		},
+		{
+			"key": "tenantState",
+			"value": "active"
+		},
+		{
+			"key": "keyType",
+			"value": "PRODUCTION"
+		},
+		{
+			"key": "keyMappingId",
+			"value": "4cb6d726-e360-4d5b-9bdd-4f4182446197"
+		},
+		{
+			"key": "alertType",
+			"value": "AbnormalRequestsPerMin"
+		},
+		{
+			"key": "configurationId",
+			"value": "UGV0c3RvcmUjMS4wI0NhbGN1bGF0b3JBcHA"
+		},
+		{
+			"key": "tenant",
+			"value": "abc.com"
+		},
+		{
+			"key": "appName",
+			"value": "CalculatorAppNew3"
+		},
+		{
+			"key": "tokenEndpoint",
+			"value": "https://localhost:9443/oauth2/token"
+		},
+		{
+			"key": "username",
+			"value": "admin"
+		},
+		{
+			"key": "password",
+			"value": "admin"
+		},
+		{
+			"key": "base64EncodedDCRCredentials",
+			"value": ""
+		},
+		{
+			"key": "dcrClientId",
+			"value": ""
+		},
+		{
+			"key": "dcrClientSecret",
+			"value": ""
+		},
+		{
+			"key": "commendId",
+			"value": ""
+		},
+		{
+			"key": "applicationName",
+			"value": ""
+		},
+		{
+			"key": "appConsumerKey",
+			"value": ""
+		},
+		{
+			"key": "appConsumerSecret",
+			"value": ""
+		},
+		{
+			"key": "restAPIScopes",
+			"value": ""
+		},
+		{
+			"key": "dcrEndpoint",
+			"value": "https://localhost:9443/client-registration/v0.17/register"
+		},
+		{
+			"key": "apikey",
+			"value": ""
+		},
+		{
+			"key": "alertApiName",
+			"value": "PetStore"
+		},
+		{
+			"key": "keyManager",
+			"value": ""
+		}
+	]
+}

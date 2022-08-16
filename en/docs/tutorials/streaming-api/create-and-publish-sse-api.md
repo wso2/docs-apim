@@ -6,7 +6,7 @@ This tutorial will guide you to create a [SSE Streaming API]({{base_path}}/use-c
 
 1.  {!includes/sign-in-publisher.md!}
 
-2.  Click **CREATE API**, go to **Streaming API**, and click **WebSocket API**.
+2.  Click **CREATE API**, go to **Streaming API**, and click **SSE API**.
 
     [![Design New Streaming API]({{base_path}}/assets/img/design/create-api/streaming-api/design-new-streaming-api.png)]({{base_path}}/assets/img/design/create-api/streaming-api/design-new-streaming-api.png)
 

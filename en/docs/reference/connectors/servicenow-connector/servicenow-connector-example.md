@@ -8,7 +8,7 @@ This example explains how to use ServiceNow Connector to create records in a tab
 
 It will have two HTTP API resources, which are `postRecord` and `readRecord`. 
 
-<img src="{{base_path}}/assets/img/integrate/connectors/servicenow.png" title="ServiceNow Scenario" width="800" alt="ServiceNow Scenario"/>
+[![ServiceNow scenario]({{base_path}}/assets/img/integrate/connectors/servicenow-scenario.png)]({{base_path}}/assets/img/integrate/connectors/servicenow-scenario.png)
 
 * `/postRecord`: It creates a new record in the existing incident table in the ServiceNow instance.
 
@@ -24,10 +24,11 @@ Please follow the steps mentioned in the [Setting up ServiceNow Instance]({{base
 
 Follow these steps to set up the Integration Project and the Connector Exporter Project. 
 
-{!reference/connectors/importing-connector-to-integration-studio.md!} 
+{!includes/reference/connectors/importing-connector-to-integration-studio.md!} 
 
 1. First let's create postRecord sequence and ReadRecord sequences. Right click on the created Integration Project and select, -> **New** -> **Sequence** to create the Sequence. 
-    <img src="{{base_path}}/assets/img/integrate/connectors/add-sequence.png" title="Adding a Sequence" width="800" alt="Adding a Sequence"/>
+
+    <a href="{{base_path}}/assets/img/integrate/connectors/add-sequence.jpg"><img src="{{base_path}}/assets/img/integrate/connectors/add-sequence.jpg" title="Adding a Sequence" width="800" alt="Adding a Sequence"/></a>
 
 2. Provide the Sequence name as PostRecord. You can go to the source view of the XML configuration file of the API and copy the following configuration. 
     ```xml
@@ -98,7 +99,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
     ```
 
-{!reference/connectors/exporting-artifacts.md!}
+{!includes/reference/connectors/exporting-artifacts.md!}
 
 ## Get the project
 
@@ -115,7 +116,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp in the integration runtime. 
 
-{!reference/connectors/deploy-capp.md!}
+{!includes/reference/connectors/deploy-capp.md!}
 
 ## Testing
 

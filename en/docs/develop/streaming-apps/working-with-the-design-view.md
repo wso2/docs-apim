@@ -2,7 +2,7 @@
 
 This section provides an overview of the design view of the Streaming Integrator Tooling.
 
-## Accesing the Design View
+## Accessing the Design View
 
 To open the design view of the Streaming Integrator Tooling:
 
@@ -614,7 +614,7 @@ to the grid of the design view when you create a Siddhi application.
 <a href="#cb1-2"></a>from TradeStream
 <a href="#cb1-3"></a>select symbol, avg(price) as avgPrice, sum(price) as total
 <a href="#cb1-4"></a>    group by symbol
-<a href="#cb1-5"></a>    aggregateby timestamp every seconds...years;</code></pre>
+<a href="#cb1-5"></a>    aggregate by timestamp every seconds...years;</code></pre>
                      </div>
                   </div>
                </div>

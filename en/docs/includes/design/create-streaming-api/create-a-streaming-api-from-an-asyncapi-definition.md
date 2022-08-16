@@ -34,7 +34,7 @@ Follow the instructions below to create a Streaming API using an AsyncAPI defini
       For this example, let's select **AsyncAPI URL**, provide the following URL, and click **Next**.
 
      ```sh
-     https://raw.githubusercontent.com/asyncapi/asyncapi/master/examples/2.0.0/streetlights.yml
+     https://raw.githubusercontent.com/asyncapi/spec/v2.0.0/examples/2.0.0/streetlights.yml
      ```
 
      <a href="../../../../assets/img/design/create-api/streaming-api/websocket-streaming-api-from-asyncapi-url-import.png"><img src="../../../../assets/img/design/create-api/streaming-api/websocket-streaming-api-from-asyncapi-url-import.png" width="80%" alt ="Import Websocket Streaming API from AsyncAPI URL"></a>

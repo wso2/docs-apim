@@ -39,6 +39,6 @@ To deploy your Siddhi application in the Streaming Integrator server, follow the
 
 5. Click **Deploy**.
 
-    As a result, the Siddhi application(s) yoiu selected is saved in the `<SI_HOME>/deployment/siddhi-files` directory, and the following is message displayed in the dialog box.
+    As a result, the Siddhi application(s) you selected is saved in the `<SI_HOME>/deployment/siddhi-files` directory, and the following is message displayed in the dialog box.
 
     ![Siddhi App successfully deployed]({{base_path}}/assets/img/streaming/quick-start-guide-101/siddhi-app-successfully-deployed.png)

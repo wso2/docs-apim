@@ -2,6 +2,9 @@
 
 From kernel 4.5.x onwards the carbon.logging jar is not packed and the pax-logging-api is used instead. With this upgrade the log4j version is also upgraded to log4j2.
 
+!!! Warning
+    Note that WSO2 API Manager 3.0.0, 3.1.0, 3.2.0, and 4.0.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
+
 Refer to the following steps for upgrading to log4j2.
 
 1.  Replace carbon logging or commons.logging dependencies with pax-logging dependency.

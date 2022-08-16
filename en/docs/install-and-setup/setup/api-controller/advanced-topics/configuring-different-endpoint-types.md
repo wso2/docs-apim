@@ -10,7 +10,7 @@ API Manager supports four (4) main types of endpoints as follows.
 4. AWS Lambda Endpoints
 
 !!! info
-    The following fields should be specified as your requirement when setting up different endpoints in the params file.
+    The following fields should be specified as your requirement when setting up different endpoints in the parameters file.
     
     -   **endpointType**
         
@@ -49,7 +49,7 @@ This can be subdivided into three (3) main scenarios.
 
 #### 1. HTTP/REST Endpoint - Without load balancing or failover
 
-The following is an example params file for this scenario. (Note that you can ignore specifying the `endpointType` field if you want, because by default it contains the value as `rest`.)
+The following is an example parameters file for this scenario. (Note that you can ignore specifying the `endpointType` field if you want, because by default it contains the value as `rest`.)
 
 !!! example
     ```go   
@@ -71,7 +71,7 @@ The following is an example params file for this scenario. (Note that you can ig
 
 #### 2. HTTP/REST Endpoint - With load balancing
 
-The following is an example params file for this scenario. (Note that, as mentioned in the above section, you can ignore specifying the `endpointType` field if you want, because by default it contains the value as `rest`.)
+The following is an example parameters file for this scenario. (Note that, as mentioned in the above section, you can ignore specifying the `endpointType` field if you want, because by default it contains the value as `rest`.)
 
 !!! example
     ```go   
@@ -98,7 +98,7 @@ The following is an example params file for this scenario. (Note that, as mentio
 
 #### 3. HTTP/REST Endpoint - With failover
 
-The following is an example params file for this scenario. (Note that, as mentioned in the above sections, you can ignore specifying the `endpointType` field if you want, because by default it contains the value as `rest`.)
+The following is an example parameters file for this scenario. (Note that, as mentioned in the above sections, you can ignore specifying the `endpointType` field if you want, because by default it contains the value as `rest`.)
 
 !!! example
     ```go   
@@ -131,7 +131,7 @@ This too can be subdivided into three (3) main scenarios like in the previous se
 
 #### 1. HTTP/SOAP Endpoint - Without load balancing or failover
 
-The following is an example params file for this scenario. (Make sure to specify the `endpointType` as `soap`)
+The following is an example parameters file for this scenario. (Make sure to specify the `endpointType` as `soap`)
 
 !!! example
     ```go   
@@ -153,7 +153,7 @@ The following is an example params file for this scenario. (Make sure to specify
 
 #### 2. HTTP/SOAP Endpoint - With load balancing
 
-The following is an example params file for this scenario. (Make sure to specify the `endpointType` as `soap`)
+The following is an example parameters file for this scenario. (Make sure to specify the `endpointType` as `soap`)
 
 !!! example
     ```go   
@@ -180,7 +180,7 @@ The following is an example params file for this scenario. (Make sure to specify
 
 #### 3. HTTP/SOAP Endpoint - With failover
 
-The following is an example params file for this scenario. (Make sure to specify the `endpointType` as `soap`)
+The following is an example parameters file for this scenario. (Make sure to specify the `endpointType` as `soap`)
 
 !!! example
     ```go   
@@ -209,7 +209,7 @@ The following is an example params file for this scenario. (Make sure to specify
 
 ### Dynamic Endpoints
 
-The following is an example params file for this scenario. (Make sure to specify the `endpointType` as `dynamic`)
+The following is an example parameters file for this scenario. (Make sure to specify the `endpointType` as `dynamic`)
 
 !!! example
     ```go   
@@ -233,7 +233,7 @@ This can be subdivided into two (2) main scenarios.
 
 #### 1. AWS Lambda - Using IAM role-supplied temporary AWS credentials
 
-The following is an example params file for this scenario. (Make sure to specify the `endpointType` as `aws`)
+The following is an example parameters file for this scenario. (Make sure to specify the `endpointType` as `aws`)
 
 !!! example
     ```go   
@@ -252,7 +252,7 @@ The following is an example params file for this scenario. (Make sure to specify
 
 #### 2. AWS Lambda - Using stored AWS credentials
 
-The following is an example params file for this scenario. (Make sure to specify the `endpointType` as `aws`)
+The following is an example parameters file for this scenario. (Make sure to specify the `endpointType` as `aws`)
 
 !!! example
     ```go   

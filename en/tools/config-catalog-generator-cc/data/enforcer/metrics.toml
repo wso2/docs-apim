@@ -1,0 +1,3 @@
+[enforcer.metrics]
+  enabled = false
+  type = "azure"

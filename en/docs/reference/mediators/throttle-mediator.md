@@ -53,7 +53,7 @@ The parameters available to be configured in this section are as follows.
 <td><p>This section is used to specify the policy for throttling. The following options are available.</p>
 <ul>
 <li><strong>In-Lined Policy</strong>: If this is selected, the Throttle policy can be defined within the Throttle mediator configuration. Click <strong>Throttle Policy Editor</strong> to open the <strong>Mediator Throttling Configuration</strong> dialog box where the details relating to the Throttle policy can be entered. The parameters in this dialog box are described in the table below.</li>
-<li><strong>Referring Policy</strong>: If this is selected, you can refer to a pre-defined Throttle policy which is saved in the Registry. You can enter the key to access the policy in the <strong>Referring Policy</strong> parameter. Click on either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> to select the relevant policy from the Resource Tree.</li>
+<li><strong>Referring Policy</strong>: If this is selected, you can refer to a predefined Throttle policy which is saved in the Registry. You can enter the key to access the policy in the <strong>Referring Policy</strong> parameter. Click on either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> to select the relevant policy from the Resource Tree.</li>
 </ul></td>
 </tr>
 </tbody>
@@ -157,7 +157,7 @@ mediator. The parameters available to be configured in this section are as follo
 <ul>
 <li><strong>In-Lined Policy</strong> : If this is selected, the mediation sequence to be applied to accepted requests can be defined within the Throttle mediator configuration. Click on the <strong>OnAccept</strong> node in the mediation tree to define the sequence in-line.<br />
 </li>
-<li><strong>Referring Policy</strong> : If this is selected, you can refer to a pre-defined mediation sequence in the registry. Click either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> as relevant to select the required sequence from the Resource Tree.</li>
+<li><strong>Referring Policy</strong> : If this is selected, you can refer to a predefined mediation sequence in the registry. Click either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> as relevant to select the required sequence from the Resource Tree.</li>
 </ul>
 </div></td>
 </tr>
@@ -183,7 +183,7 @@ This section is used to specify the mediation sequence that should be applied wh
 <ul>
 <li><strong>In-Lined Policy</strong> : If this is selected, the mediation sequence to be applied to rejected requests can be defined within the Throttle mediator configuration. Click on the <strong>OnReject</strong> node in the mediation tree to define the sequence in-line.<br />
 </li>
-<li><strong>Referring Policy</strong> : If this is selected, you can refer to a pre-defined mediation sequence in the registry. Click either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> as relevant to select the required sequence from the Resource Tree.</li>
+<li><strong>Referring Policy</strong> : If this is selected, you can refer to a predefined mediation sequence in the registry. Click either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> as relevant to select the required sequence from the Resource Tree.</li>
 </ul>
 </div></td>
 </tr>

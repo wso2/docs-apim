@@ -1,9 +1,9 @@
 
-In the following document we will be explaining how to federate the OAuth applications using an external indentity provider.
+In the following document we will be explaining how to federate the OAuth applications using an external identity provider.
 
-### Pre-requisites
+### Prerequisites
 1. Using the latest API-Manager distribution from [https://wso2.com/api-management/](https://wso2.com/api-management/)
-2. Have an external IDP already configured. You can follow our [SSO Documentation]({{base_path}}/install-and-setup/setup/sso/okta-as-an-external-idp-using-oidc) to setup okta as an external IDP
+2. Have an external IDP already configured. You can follow our [SSO Documentation]({{base_path}}/install-and-setup/setup/sso/okta-as-an-external-idp-using-oidc) to setup Okta as an external IDP
 
 ### Configuration
 

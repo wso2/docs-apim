@@ -10,7 +10,7 @@ This application demonstrates how to use siddhi-io-email for publishing events t
     - password: senders password
     - to: receivers address (Ex:- 'example987@wso2.com')
     - subject: subject of the email
-2. You need to enable access to "less secure apps" in the sender's gmail account via "https://myaccount.google.com/lesssecureapps" link
+2. You need to enable access to "less secure apps" in the sender's Gmail account via "https://myaccount.google.com/lesssecureapps" link
 3. Save this sample
 
 ## Executing the Sample:
@@ -29,7 +29,7 @@ This application demonstrates how to use siddhi-io-email for publishing events t
 6. Click on the start button (Arrow symbol) next to the newly created simulator
 
 ## Viewing the Results:
-Check the receiver gmail inbox (The gmail referred to in 'to' Sink configuration) to see the alert as follows.
+Check the receiver Gmail inbox (The Gmail referred to in 'to' Sink configuration) to see the alert as follows.
 
     Subject: <subject of the email>
     Content: <events><event><name>chocolate cake</name><hourlyTotal>10.1</hourlyTotal><currentHour>0.0</currentHour></event></events>

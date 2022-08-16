@@ -18,7 +18,7 @@ All six operations are exposed via an API. The API with the context `/resources`
 * `/createcontainer` : Creates a new container in the Microsoft Azure Storage account with the specified container name for store employee details.
 * `/listcontainer` : Retrieve information about the created containers from the Microsoft Azure Storage account.
 * `/adddetails`: Upload text or binary employee data (blob) and stored into the specified container.
-* `/listdetails` : Retrieve information about the added employee deta (blobs).
+* `/listdetails` : Retrieve information about the added employee data (blobs).
 * `/deletedetails` : Remove added employee data from the specified text or binary employee data (blob).
 * `/deletecontainer` : Remove created container in the Microsoft Azure Storage account.
 
@@ -36,7 +36,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 Follow these steps to set up the ESB Solution Project and the Connector Exporter Project.
 
-{!reference/connectors/importing-connector-to-integration-studio.md!}
+{!includes/reference/connectors/importing-connector-to-integration-studio.md!}
 
 1. Right click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API.
 
@@ -178,7 +178,7 @@ Follow these steps to set up the ESB Solution Project and the Connector Exporter
     
 Now we can export the imported connector and the API into a single CAR application. CAR application is the one we are going to deploy to server runtime. 
    
-{!reference/connectors/exporting-artifacts.md!}
+{!includes/reference/connectors/exporting-artifacts.md!}
 
 ## Get the project
 
@@ -195,7 +195,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp in the integration runtime. 
 
-{!reference/connectors/deploy-capp.md!}
+{!includes/reference/connectors/deploy-capp.md!}
 
 ## Testing
 

@@ -12,7 +12,7 @@ Follow the steps below to create public IBM iSeries server.
 
 1. Go to [https://pub400.com](https://pub400.com/) and click the **Sign up** button.
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/as400-signup.png" title="AS400-signup page" width="600" alt="AS400-signup page"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/as400-signup.jpg" title="AS400-signup page" width="600" alt="AS400-signup page"/>
     
 1. Go to [https://pub400.com](https://pub400.com/) and click the **Sign up** button.
 
@@ -20,7 +20,7 @@ Follow the steps below to create public IBM iSeries server.
     
 3. You will receive an email response with the client credentials to your email account (it will take a few hours).
 
-4. Navigate in to the [IBM i Access - Client Soluthetions](https://www.ibm.com/support/pages/ibm-i-access-client-solutions) page. IBM i Access Client Solutions consolidates the most commonly used tasks for managing your IBM i into one simplified location. 
+4. Navigate in to the [IBM i Access - Client Solutions](https://www.ibm.com/support/pages/ibm-i-access-client-solutions) page. IBM i Access Client Solutions consolidates the most commonly used tasks for managing your IBM i into one simplified location. 
 
 5. Download the **IBM i Access Client Solutions**.
 

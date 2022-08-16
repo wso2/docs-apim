@@ -4,7 +4,7 @@ Automatic message acknowledgement for HL7 messages is enabled in the Micro Integ
 
 If required, you can disable automatic acknowledgement. This allows you to control how and when ACK/NACK messages should be returned to the client. That is, you can define the integration logic to generate an ack/nack message after message validations or related tasks.
 
-## Configuring message acknowldegement for HL7
+## Configuring message acknowledgement for HL7
 
 When auto acknowledgement for HL7 messages is disabled in the Micro Integrator, you can manually configure ACK/NACK messages in the mediation logic by using the Property mediator. 
 
@@ -96,7 +96,7 @@ Create the artifacts:
 To test this scenario, you need the following:
 
 - An HL7 client that sends messages to the port specified by the `transport.hl7.Port` parameter.
-- An HL7 back-end application that recieves messages from the Micro Integrator.
+- An HL7 back-end application that receives messages from the Micro Integrator.
 
 You can simulate the HL7 client and back-end application using a tool such as <b>HAPI</b>.
 
@@ -146,6 +146,6 @@ Create the artifacts:
 To test this scenario, you need the following:
 
 - An HL7 client that sends messages to the port specified by the `transport.hl7.Port` parameter.
-- An HL7 back-end application that recieves messages from the Micro Integrator.
+- An HL7 back-end application that receives messages from the Micro Integrator.
 
 You can simulate the HL7 client and back-end application using a tool such as <b>HAPI</b>.

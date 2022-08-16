@@ -24,7 +24,7 @@ To configure Streaming Integrator 1.1.0 the same way as Streaming Integrator 1.0
 
 ## Step 3: Start the SI 1.1.0 server and install required extensions
 
-The purpose of this step is to Start the Streaming Integrator and identify any further reqirements to run the Siddhi applications that are deployed in it.
+The purpose of this step is to Start the Streaming Integrator and identify any further requirements to run the Siddhi applications that are deployed in it.
 
 1. Navigate to the `<SI 1.1.0_HOME>/bin` directory and issue the appropriate command based on your operating system:
 

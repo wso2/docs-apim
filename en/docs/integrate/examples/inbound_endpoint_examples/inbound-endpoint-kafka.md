@@ -2,7 +2,7 @@
 
 ## Example use case
 
-This sample demonstrates how one way message bridging from Kafka to HTTP can be done using the inbound kafka endpoint.
+This sample demonstrates how one way message bridging from Kafka to HTTP can be done using the inbound Kafka endpoint.
 
 ### Synapse configuration
 
@@ -55,7 +55,7 @@ Create the artifacts:
 
 Set up the back-end service.
 
--   Apache Kafka inbound endpoint should be configured. The recommended version for the customized kafka inbound endpoint is `kafka_2.12-2.2.1`. See [Configuring Kafka](../../../../setup/feature_configs/configuring-kafka) for more information. 
+-   Apache Kafka inbound endpoint should be configured. The recommended version for the customized Kafka inbound endpoint is `kafka_2.12-2.2.1`. See [Configuring Kafka](../../../../setup/feature_configs/configuring-kafka) for more information. 
 
 -   Go to the [WSO2 Connector Store](https://store.wso2.com/store/assets/esbconnector/details/b15e9612-5144-4c97-a3f0-179ea583be88) and click **Download Inbound Endpoint** to download the inbound JAR file. Add the downloaded JAR file to the <MI_HOME>/dropins directory.
 

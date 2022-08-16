@@ -1,7 +1,7 @@
 # Receiving Data via TCP and Preprocessing
 
 ## Purpose
-This application demonstrates how to receive events via TCP transport and carryout data pre-processing with numerous Siddhi extensions (eg. string extension, time extension). For more information on Siddhi extensions please refer to "https://wso2.github.io/siddhi/extensions/". In this sample, a composite ID is obtained using string concatenation and the time format of the incoming event
+This application demonstrates how to receive events via TCP transport and carryout data pre-processing with numerous Siddhi extensions (e.g.. string extension, time extension). For more information on Siddhi extensions please refer to "https://wso2.github.io/siddhi/extensions/". In this sample, a composite ID is obtained using string concatenation and the time format of the incoming event
 
 ## Prerequisites
 1. Ensure that MySQL is installed on your machine.

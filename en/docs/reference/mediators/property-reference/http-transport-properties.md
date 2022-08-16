@@ -505,7 +505,7 @@ HTTP response's Reason- Phrase that is sent by the backend. For example, if the
 <tr class="odd">
 <td><p><strong>Description</strong></p></td>
 <td><p>This property allows to send a request without a body for POST and PUT HTTP methods.</p>
-<p>Applicable only for HTTP Passthrough transport.</p></td>
+<p>Applicable only for HTTP PassThrough transport.</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>Example</strong></p></td>

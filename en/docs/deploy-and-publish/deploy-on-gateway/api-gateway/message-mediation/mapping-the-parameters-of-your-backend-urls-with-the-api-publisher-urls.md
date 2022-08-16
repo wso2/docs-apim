@@ -47,7 +47,7 @@ We do the following mapping in this tutorial:
         </sequence>
         ```
 
-5.  Go to API Publisher, click on the APi to go to the **Runtime Configurations** tab.
+5.  Go to API Publisher, click on the API to go to the **Runtime Configurations** tab.
 
 6.  Enable the **Message Mediation**  switch and engage the `In` sequence that you created earlier.  
 
@@ -59,7 +59,7 @@ We do the following mapping in this tutorial:
 
 7.  Save the API.
 
-8.  Log in to the API Devportal and subscribe to the API and generate an access token to invoke the API.
+8.  Log in to the API Developer Portal and subscribe to the API and generate an access token to invoke the API.
  
 9.  Click the **Try Out** tab of your API and click on **Try it out** on the `/business/{businessId}/address` resource.  
 

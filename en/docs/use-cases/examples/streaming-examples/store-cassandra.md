@@ -23,7 +23,7 @@ This application demonstrates how to perform Cassandra operations using Siddhi q
             ```bash
             <SI_HOME>/bin/jartobundle.sh <PATH_OF_DOWNLOADED_JAR> <PATH_OF_CONVERTED_JAR>
             ```
-        **Note: The driver given in the above link is a OSGi bundled one. Please skip this step if the jar is already OSGi bunbled.**
+        **Note: The driver given in the above link is a OSGi bundled one. Please skip this step if the jar is already OSGi bundled.**
     3. Copy the converted bundles to the {WSO2_SI_Home}/lib directory.
 3. Create a keyspace named 'production' in Cassandra store:
 ```sql

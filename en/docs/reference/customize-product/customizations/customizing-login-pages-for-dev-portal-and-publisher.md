@@ -14,7 +14,7 @@ Usually WSO2 API Manager displays a default login page for all the SAML SSO serv
 
 #### Registering the two service providers in the Identity Server
 
-1.  Download [WSO2 Identity Server](http://wso2.com/products/identity-server/) and extract it.
+1.  Download [WSO2 Identity Server](https://wso2.com/identity-server/) and extract it.
 
 2.  [Run the server](https://is.docs.wso2.com/en/next/setup/running-the-product/) by executing `/bin/api-manager.sh` if on a Unix-based systems, or `/bin/api-manager.bat` if on Windows.
 
@@ -52,7 +52,7 @@ Usually WSO2 API Manager displays a default login page for all the SAML SSO serv
 
 7.  When attempting to login with SAML from WSO2 Identity Server in Publisher and Developer Portal, you can see the following default page located at `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/login.jsp          `
 
-    ![Identity Server Login Page]({{base_path}}/assets/img/learn/identity-server-login-page.png) For instructions on configuring WSO2 Identity Server as an identity provider, see [Configuring Identity Server as IDP for SSO](/administer/product-security/saml2-sso/configuring-identity-server-as-idp-for-sso/) .
+    ![Identity Server Login Page]({{base_path}}/assets/img/learn/identity-server-login-page.png) For instructions on configuring WSO2 Identity Server as an identity provider, see [Configuring Identity Server as IDP for SSO]({{base_path}}/reference/customize-product/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso).
 
 #### Configuring the login page
 

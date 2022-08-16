@@ -19,7 +19,7 @@ The following information describes how to upgrade your API Manager server **fro
 !!! note
     It is not possible to directly upgrade from WSO2 API Manager 1.8.0/1.9.0/1.9.1 to 4.0.0.
 
-[Upgrade your current WSO2 API-M version (1.8.0/1.9.0/1.9.1) to WSO2 API-M 2.0.0](https://docs.wso2.com/display/AM200/Upgrading+from+the+Previous+Release) as expained in the WSO2 API-M 2.0.0 documentation.
+[Upgrade your current WSO2 API-M version (1.8.0/1.9.0/1.9.1) to WSO2 API-M 2.0.0](https://docs.wso2.com/display/AM200/Upgrading+from+the+Previous+Release) as explained in the WSO2 API-M 2.0.0 documentation.
 
 ### Step 2 - Upgrade WSO2 API Manager to 4.0.0
 

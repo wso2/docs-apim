@@ -1,6 +1,6 @@
 # Subscription Validation
 
-The [subscription]({{apim_path}}/learn/consume-api/manage-subscription/subscribe-to-an-api/) validation is configurable per issuer basis. In order to mandate the subscriptions, subscription validation can be enabled.
+The [subscription]({{base_path}}/consume/manage-subscription/subscribe-to-an-api) validation is configurable per issuer basis. In order to mandate the subscriptions, subscription validation can be enabled.
 If validation has failed, it will send an error message with error code 900908.
 
 In Choreo Connect subscription validation can be done in two ways.
@@ -16,7 +16,7 @@ In Choreo Connect subscription validation can be done in two ways.
 
     For JWTs issued by API Manager, to enable subscription validation it requires the Event Hub to fetch Application and Subscription data from WSO2 API Manager.
 
-    The latest versions of API manager do not include the `subscribedAPIs` claim in the JWT, instead, subscription validation is done using the `[eventhub]`. Refer documentation on [Event Hub]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/event-hub/) and [Subscription Validation Model]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/subscription-validation/) to understand how Choreo Connect validates subscriptions using Event Hub.
+    The latest versions of API manager do not include the `subscribedAPIs` claim in the JWT, instead, subscription validation is done using the `[eventhub]`. Refer documentation on [Event Hub]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/event-hub) and [Subscription Validation Model]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/subscription-validation) to understand how Choreo Connect validates subscriptions using Event Hub.
 
 ### Configure Subscription Validation
 
@@ -30,14 +30,14 @@ You can enable or disable subscription validation using the following configurat
         # Configurations for retrieving API and subscription data from API Manager.
         [controlPlane]
         enabled = false
-        serviceUrl = "https://apim:9443/"
-        username="admin"
-        password="$env{cp_admin_pwd}"
+        serviceURL = "https://apim:9443/"
+        username = "admin"
+        password = "$env{cp_admin_pwd}"
         environmentLabels = ["Default"]
         retryInterval = 5
-        skipSSLVerification=true
+        skipSSLVerification = true
         # Message broker connection URL of the control plane
-            [controlPlane.jmsConnectionParameters]
+        [controlPlane.brokerConnectionParameters]
             eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@apim:5672?retries='10'&connectdelay='30'"]
     ```
 

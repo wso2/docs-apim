@@ -4,7 +4,7 @@ The Kafka inbound endpoint acts as a message consumer. It creates a connection t
 
 ## What you'll build
 This sample demonstrates how one way message bridging from Kafka to HTTP can be done using the inbound Kafka endpoint.
-See [Configuring kafka connector]({{base_path}}/reference/connectors/kafka-connector/kafka-connector-config/) for more information.
+See [Configuring Kafka connector]({{base_path}}/reference/connectors/kafka-connector/kafka-connector-config/) for more information.
 
 The following diagram illustrates all the required functionality of the Kafka service that you are going to build. In this example, you only need to consider about the scenario of message consuming.
 
@@ -19,7 +19,7 @@ Before you begin, set up Kafka by following the instructions in [Setting up Kafk
 ## Configure inbound endpoint using WSO2 Integration Studio
 
 1. Download [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/). Create an **Integration Project** as below. 
-<img src="{{base_path}}/assets/img/integrate/connectors/solution-project.png" title="Creating a new Integration Project" width="800" alt="Creating a new Integration Project" />
+<img src="{{base_path}}/assets/img/integrate/connectors/solution-project.jpg" title="Creating a new Integration Project" width="800" alt="Creating a new Integration Project" />
 
 2. Right click on **Source** -> **main** -> **synapse-config** -> **inbound-endpoints** and add a new **custom inbound endpoint**.</br> 
 <img src="{{base_path}}/assets/img/integrate/connectors/db-event-inbound-ep.png" title="Creating inbound endpoint" width="400" alt="Creating inbound endpoint" style="border:1px solid black"/>
@@ -71,7 +71,7 @@ Before you begin, set up Kafka by following the instructions in [Setting up Kafk
 **CApp (Carbon Application)** is the deployable artefact on the integration runtime. Let us see how we can export integration logic we developed into a CApp. To export the `Solution Project` as a CApp, a `Composite Application Project` needs to be created. Usually, when a solution project is created, this project is automatically created by Integration Studio. If not, you can specifically create it by navigating to  **File** -> **New** -> **Other** -> **WSO2** -> **Distribution** -> **Composite Application Project**. 
 
 1. Right click on Composite Application Project and click on **Export Composite Application Project**.</br> 
-  <img src="{{base_path}}/assets/img/integrate/connectors/capp-project1.png" title="Export as a Carbon Application" width="300" alt="Export as a Carbon Application" />
+  <img src="{{base_path}}/assets/img/integrate/connectors/capp-project1.jpg" title="Export as a Carbon Application" width="300" alt="Export as a Carbon Application" />
 
 2. Select an **Export Destination** where you want to save the .car file. 
 
@@ -109,7 +109,7 @@ You can download the ZIP file and extract the contents to get the project code.
    ```
    {"test":"wso2"}
    ```
-   **Expected respons**
+   **Expected response**
    
    You can see the following Message content in the Micro Integrator:
    
@@ -124,4 +124,4 @@ You can download the ZIP file and extract the contents to get the project code.
 ## What's next
 
 * You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
-* To customize this example for your own scenario, see [kafka Connector Configuration]({{base_path}}/reference/connectors/kafka-connector/kafka-connector-config/) documentation.
+* To customize this example for your own scenario, see [Kafka Connector Configuration]({{base_path}}/reference/connectors/kafka-connector/kafka-connector-config/) documentation.

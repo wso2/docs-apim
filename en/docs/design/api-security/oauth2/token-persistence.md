@@ -40,7 +40,7 @@ By default, synchronous token persistence is enabled in WSO2 API Manager 4.0.0. 
 
 [![Asynchronous token persistence]({{base_path}}/assets/img/learn/asynchronous-token-generation.png)]({{base_path}}/assets/img/learn/synchronous-token-persistence.png)
 
-If an existing access token is not found, the OAuth2 component creates a new access token and adds it to a persisting queue. Once the token is added to the queue, the token is returned to the client.There are background threads that consume the queue, and persist the tokens in the queue to the database.
+If an existing access token is not found, the OAuth2 component creates a new access token and adds it to a persisting queue. Once the token is added to the queue, the token is returned to the client. There are background threads that consume the queue, and persist the tokens in the queue to the database.
 
 !!! info
 

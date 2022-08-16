@@ -191,7 +191,7 @@ To try out the example in the previous subtopic, follow the steps below:
         
 ### Supported messaging systems
 
-WSO2 Streaming Integrator allows you to publish messages to the following messaging system via Siddhi extentions.
+WSO2 Streaming Integrator allows you to publish messages to the following messaging system via Siddhi extensions.
 
 | **Transport**    | **Supporting Siddhi Extension**                                                       |
 |------------------|---------------------------------------------------------------------------------------|

@@ -20,13 +20,13 @@ Follow the instructions below to discover the integration services:
 
 1.  {!includes/sign-in-publisher.md!}
 
-2.  Click on the **Hamburger** in the upper left corner of the Publisher and click **Service Catalog** as shown below.
+2.  Click **Services**.
 
-    <a href="{{base_path}}/assets/img/integrate/service-catalog/select-service-catalog.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/select-service-catalog.png" alt="open service catalog" width="200"></a>
+      <a href="{{base_path}}/assets/img/integrate/service-catalog/select-services.png"><img src="{{base_path}}/assets/img/integrate/service-catalog/select-services.png" alt="open service catalog" width="30%"></a>
 
-    The available integration services appear.
+      The available integration services appear.
 
-    <a href="{{base_path}}/assets/img/common/service-catalog/services-catalog-list.png"><img src="{{base_path}}/assets/img/common/service-catalog/services-catalog-list.png" width="50%" alt="service catalog listings"></a>
+      <a href="{{base_path}}/assets/img/common/service-catalog/services-catalog-list.png"><img src="{{base_path}}/assets/img/common/service-catalog/services-catalog-list.png" width="50%" alt="service catalog listings"></a>
 
 ## Step 3 - Optionally, view the details of the service
 

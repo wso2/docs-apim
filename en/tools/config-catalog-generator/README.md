@@ -20,5 +20,5 @@ This is a tool to generate the markdown file of the API Manager server's configu
     ```
 
 6. Go to the `dist/` folder: A markdown file named `config-catalog.md` is created.
-7. Copy the `config-catalog.md` file to the `docs-apim/en/docs/eference` folder.
+7. Copy the `config-catalog.md` file to the `docs-apim/en/docs/reference` folder.
 

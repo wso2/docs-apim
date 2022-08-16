@@ -240,7 +240,7 @@ The following table provides descriptions of the key properties you use to confi
 </tr>
 <tr class="odd">
 <td><pre><code>MultiTenantRealmConfigBuilder</code></pre></td>
-<td>Tenant Manager specific realm config parameter. Can be used to build different types of realms for the tenant.</td>
+<td>Tenant Manager specific realm configuration parameter. Can be used to build different types of realms for the tenant.</td>
 </tr>
 <tr class="even">
 <td><code>             SharedGroupEnabled            </code></td>

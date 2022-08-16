@@ -12,7 +12,7 @@ When there are many users who use production deployment setups, accessing API 
 
 ### Issue in having multiple access tokens
 
-Once user log in to the application, the user may need to provide username and password. We can use that information (username and passowrd) and consumer key, consumer secret pair to receive new token once the authentication failure is detected. We should handle this from client application side. If we allowed users to have multiple tokens at the same time, that will cause security related issues and finally users will end up with thousands of tokens that the user cannot even maintain. And also those affects to the usage of metering and statistics.
+Once user log in to the application, the user may need to provide username and password. We can use that information (username and password) and consumer key, consumer secret pair to receive new token once the authentication failure is detected. We should handle this from client application side. If we allowed users to have multiple tokens at the same time, that will cause security related issues and finally users will end up with thousands of tokens that the user cannot even maintain. And also those affects to the usage of metering and statistics.
 
 ### Recommended Solution
 

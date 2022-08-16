@@ -9,7 +9,7 @@ To view a sample data source configuration for each database type supported, exp
 
 !!!info
     If the database driver is not an OSGI bundle, then it should be converted to OSGI (using jartobundle.sh) before placing it in the
-    `<SI_HOME>|<SI_TOOLING_HOME>/lib` directory. For detailed instructions,see [Adding Third Party Non OSGi Libraries]({{base_path}}/install-and-setup/setup/si-setup/adding-third-party-non-osgi-libraries.md).
+    `<SI_HOME>|<SI_TOOLING_HOME>/lib` directory. For detailed instructions,see [Adding Third Party Non OSGi Libraries]({{base_path}}/install-and-setup/setup/si-setup/adding-third-party-non-osgi-libraries).
 
     e.g., `sh WSO2_SI_HOME/bin/jartobundle.sh ojdbc6.jar WSO2_SI_HOME/lib/`
 
@@ -143,7 +143,7 @@ To view a sample data source configuration for each database type supported, exp
     ```
     
     The Oracle driver need to be converted to OSGi (using `jartobundle.sh`) before put into `SI_HOME/lib` directory. For detailed
-    instructions, see [Adding Third Party Non OSGi Libraries]({{base_path}}/install-and-setup/setup/si-setup/adding-third-party-non-osgi-libraries.md).
+    instructions, see [Adding Third Party Non OSGi Libraries]({{base_path}}/install-and-setup/setup/si-setup/adding-third-party-non-osgi-libraries).
     
     If you are using persisted aggregations, you can include the `connectionInitSql` parameter instead of `connectionTestQuery` as shown in the following sample configuration.
     

@@ -40,8 +40,8 @@ By default, every WSO2 product comes with the following Users, Roles and Permiss
 By default, all WSO2 products have the following roles configured: 
 
 -   **admin** - Provides full access to all features and controls. By default, the admin user is assigned to both the admin and the `Internal/everyone` roles.
--   **Internal/everyone** - This is a pre-defined role that is used to group all the users (across the user stores) together. When you create a new user, automatically the user belongs to the `Internal/everyone` role. It does not include any permissions. This role can be used to identify all logged-in users.
--   **Internal/system** - This is another pre-defined role that does not include any permissions. Unlike the `Internal/everyone` role, this role is **not assigned** to a user by default.
+-   **Internal/everyone** - This is a predefined role that is used to group all the users (across the user stores) together. When you create a new user, automatically the user belongs to the `Internal/everyone` role. It does not include any permissions. This role can be used to identify all logged-in users.
+-   **Internal/system** - This is another predefined role that does not include any permissions. Unlike the `Internal/everyone` role, this role is **not assigned** to a user by default.
 -   **Internal/analytics** - This role can be assigned to users who do not have the publisher or subscriber roles assigned but need permission to view the analytics dashboards.
 
 In addition to the above, the following roles exist by default.
@@ -50,7 +50,7 @@ In addition to the above, the following roles exist by default.
 -  Internal/publisher
 -  Internal/subscriber
 
-For more information about managing roles, see [Managing User Roles]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-roles)
+For more information about managing roles, see [Managing User Roles]({{base_path}}/administer/managing-users-and-roles/managing-user-roles)
 
 You will be able to log in to the management console of the product with the **admin** user defined in the `user-mgt.xml` file. You can then create new users and roles and configure permissions for the roles using the management console. However, note that you cannot modify the permissions of the **admin** role. The possibility of managing users, roles, and permissions is granted by the **User Management** permission. For more information, see [Configuring the User Realm](https://is.docs.wso2.com/en/5.10.0/setup/configuring-the-realm/).
 

@@ -1,0 +1,2 @@
+[controlPlane.httpClient] 
+  requestTimeOut = 30

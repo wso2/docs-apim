@@ -50,7 +50,7 @@ certificate:
     Valid from: Sun Jun 18 19:26:25 IST 2017 until: Sat Jun 19 19:26:25 IST 2027
     ```
 
-3. If you have the certificate file, execute the following openssl
+3. If you have the certificate file, execute the following OpenSSL
     command:
 
     ```bash

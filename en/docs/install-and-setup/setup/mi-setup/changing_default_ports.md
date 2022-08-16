@@ -44,7 +44,7 @@ By default, the Micro Integrator is **internally** configured with a port offset
 			If required, you can manually change the HTTP port in the <code>deployment.toml</code> file (stored in the <code>MI_HOME/conf</code> folder) as shown below.</br></br>
 			<div>
 				<code>[mediation]</code></br>
-				<code>internal.http.api.port = http_port </code></br>
+				<code>internal_http_api_port = http_port </code></br>
 			</div></br>
 			<b>Note</b>: With the default internal port offset, the effective port will be <code>http_port + 10</code>.
 		</td>
@@ -188,3 +188,6 @@ every time the server is started.
     JMX monitoring facility in JVM.
 -   A random UDP port is opened at server startup due to the log4j
     appender (`SyslogAppender`), which is configured in the `<MI_HOME>/conf/log4j2.properties` file.
+
+!!! Warning
+    Note that WSO2 API Manager 3.0.0, 3.1.0, 3.2.0, and 4.0.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).

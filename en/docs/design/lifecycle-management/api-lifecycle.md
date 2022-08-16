@@ -8,7 +8,7 @@ The following API lifecycle states are available in the default API lifecycle.
 
 |   **API Lifecycle State** |   **Use Case** |   **Action**  |
 |-----------------------|------------|-----------|
-|   **CREATED**         | The API has been created, but it is not available for usage.| API metadata is added to the Developer Portal, but it is not deployed in the API Gateway and therefore, it is not visible to subscribers in the Developer Portal.|
+|   **CREATED**         | The API has been created, but it is not available for usage.| API metadata is added to the Developer Portal, but it is not published in the API Gateway and therefore, it is not visible to subscribers in the Developer Portal.|
 |   **PROTOTYPED**      | An API prototype is created for the purpose of early promotion and testing. You can deploy a new API or a new version of an existing API as a prototype. It gives subscribers an early implementation of the API that they can try out without a subscription.|The API is deployed and published in the Developer Portal as a prototype. A prototyped API is usually a mock implementation made public in order to get feedback on its usability. Users can invoke the API without a subscription.|
 |   **PUBLISHED**       | The API is ready to be used by users in the Developer Portal.| The API is visible in the Developer Portal and available for subscription.|
 |   **BLOCKED**         | The API is temporarily blocked from being used. A publisher can publish the API from the BLOCKED state.| Access to the API is temporarily blocked. Runtime calls are blocked and the API is not shown in the Developer Portal anymore.|

@@ -58,7 +58,7 @@ This allows you to get an overall understanding of the level of activity carried
 
 To evaluate the performance of each server as follows:
 
-- By analysing the efficiency of the server by comparing its events received with the overhead it incurs in terms of the system load average and the memory used.
+- By analyzing the efficiency of the server by comparing its events received with the overhead it incurs in terms of the system load average and the memory used.
 - By comparing the events received, system load average and the memory usage of each server with that of other servers.
 
 !!! tip "Recommended action"
@@ -88,7 +88,7 @@ To monitor the overall throughput and evaluate it against other statistics such 
 To monitor the system load average and compare it with other statistics such as the overall throughput, memory used, the number of Siddhi applications deployed in the system etc. and take appropriate measures to reduce it if it is too high, and to optimize the system better if it is relatively low.
  
 !!! tip "Recommended action"
-    If the system load average is too high, you can take appropriate measures to reduce it (by adding more system resources or by identifying Siddhi applications/elements generating a low throughput that you can remove). If the system load average is too low, you can find ways to optimise it (e.g., reducing the system resources allocated, etc.)
+    If the system load average is too high, you can take appropriate measures to reduce it (by adding more system resources or by identifying Siddhi applications/elements generating a low throughput that you can remove). If the system load average is too low, you can find ways to optimize it (e.g., reducing the system resources allocated, etc.)
  
 ## CPU Usage
 

@@ -147,16 +147,16 @@ Given below is a sample response for this operation.
 
 Following example illustrates how to connect to Dayforce with the init operation and query operation.
 
-1.Create a sample proxy as below :
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<proxy xmlns="http://ws.apache.org/ns/synapse"
+1. Create a sample proxy as shown below:
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy xmlns="http://ws.apache.org/ns/synapse"
        name="query"
        startOnLoad="true"
        statistics="disable"
        trace="disable"
        transports="http,https">
-   <target>
+    <target>
       <inSequence>
          <log level="full" separator=","/>
          <property expression="json-eval($.username)" name="username"/>
@@ -177,114 +177,115 @@ Following example illustrates how to connect to Dayforce with the init operation
          </ceridiandayforce.getOrgUnitDetails>
          <send/>
       </inSequence>
-   </target>
-   <description/>
-</proxy>
+    </target>
+    <description/>
+    </proxy>
                                 
 ```
 
-2.Create a json file named query.json and copy the configurations given below to it:
+2. Create a json file named query.json and copy the configurations given below to it:
 
-```json
-{
-  "username": "DFWSTest",
-  "password": "DFWSTest",
-  "clientNamespace": "usconfigr57.dayforcehcm.com/Api/ddn",
-  "apiVersion": "V1",
-  "xRefCode": "Store320",
-  "includeChildOrgUnits": "true"
-}
-```
-3.Replace the credentials with your values.
-
-4.Execute the following curl command:
-
-```bash
-curl http://localhost:8280/services/query -H "Content-Type: application/json" -d @query.json
-```
-5.Dayforce returns HTTP Code 200 with the following response body
-
-```json
-{
-    "Data": {
-        "OrgLevel": {
-            "XRefCode": "Site",
-            "ShortName": "Site",
-            "LongName": "Site"
-        },
-        "PhysicalLocation": true,
-        "PostalCode": "63103",
-        "CountryCode": "USA",
-        "OpeningDate": "2012-01-01T00:00:00",
-        "GeoCity": {
-            "ShortName": "St. Louis"
-        },
-        "County": "St. Louis",
-        "IsOrgManaged": true,
-        "IsMobileOrg": false,
-        "LedgerCode": "",
-        "StateCode": "MO",
-        "Address": "1401 Clark Ave.",
-        "ChildOrgUnits": {
-            "Items": [
-                {
-                    "OrgLevel": {
-                        "XRefCode": "OnSiteDepartment",
-                        "ShortName": "Department",
-                        "LongName": "Department"
-                    },
-                    "XRefCode": "Store 32014",
-                    "ShortName": "Store 320 - Customer Service"
-                },
-                {
-                    "OrgLevel": {
-                        "XRefCode": "OnSiteDepartment",
-                        "ShortName": "Department",
-                        "LongName": "Department"
-                    },
-                    "XRefCode": "Store 32025",
-                    "ShortName": "Store 320 - Meat"
-                },
-                {
-                    "OrgLevel": {
-                        "XRefCode": "OnSiteDepartment",
-                        "ShortName": "Department",
-                        "LongName": "Department"
-                    },
-                    "XRefCode": "Store 32026",
-                    "ShortName": "Store 320 - Produce"
-                },
-                {
-                    "OrgLevel": {
-                        "XRefCode": "OnSiteDepartment",
-                        "ShortName": "Department",
-                        "LongName": "Department"
-                    },
-                    "XRefCode": "Store 32027",
-                    "ShortName": "Store 320 - Seafood"
-                },
-                {
-                    "OrgLevel": {
-                        "XRefCode": "OnSiteDepartment",
-                        "ShortName": "Department",
-                        "LongName": "Department"
-                    },
-                    "XRefCode": "Store 32028",
-                    "ShortName": "Store 320 - Stocking"
-                },
-                {
-                    "OrgLevel": {
-                        "XRefCode": "OnSiteDepartment",
-                        "ShortName": "Department",
-                        "LongName": "Department"
-                    },
-                    "XRefCode": "Store 320 Mgmt",
-                    "ShortName": "Store 320 - Management"
-                }
-            ]
-        },
-        "XRefCode": "Store320",
-        "ShortName": "Store 320"
+    ```json
+    {
+        "username": "DFWSTest",
+        "password": "DFWSTest",
+        "clientNamespace": "usconfigr57.dayforcehcm.com/Api/ddn",
+        "apiVersion": "V1",
+        "xRefCode": "Store320",
+        "includeChildOrgUnits": "true"
     }
-}
-```
+    ```
+
+3. Replace the credentials with your values.
+
+4. Execute the following curl command:
+
+    ```bash
+    curl http://localhost:8280/services/query -H "Content-Type: application/json" -d @query.json
+    ```
+5. Dayforce returns HTTP Code 200 with the following response body.
+
+    ```json
+    {
+        "Data": {
+            "OrgLevel": {
+                "XRefCode": "Site",
+                "ShortName": "Site",
+                "LongName": "Site"
+            },
+            "PhysicalLocation": true,
+            "PostalCode": "63103",
+            "CountryCode": "USA",
+            "OpeningDate": "2012-01-01T00:00:00",
+            "GeoCity": {
+                "ShortName": "St. Louis"
+            },
+            "County": "St. Louis",
+            "IsOrgManaged": true,
+            "IsMobileOrg": false,
+            "LedgerCode": "",
+            "StateCode": "MO",
+            "Address": "1401 Clark Ave.",
+            "ChildOrgUnits": {
+                "Items": [
+                    {
+                        "OrgLevel": {
+                            "XRefCode": "OnSiteDepartment",
+                            "ShortName": "Department",
+                            "LongName": "Department"
+                        },
+                        "XRefCode": "Store 32014",
+                        "ShortName": "Store 320 - Customer Service"
+                    },
+                    {
+                        "OrgLevel": {
+                            "XRefCode": "OnSiteDepartment",
+                            "ShortName": "Department",
+                            "LongName": "Department"
+                        },
+                        "XRefCode": "Store 32025",
+                        "ShortName": "Store 320 - Meat"
+                    },
+                    {
+                        "OrgLevel": {
+                            "XRefCode": "OnSiteDepartment",
+                            "ShortName": "Department",
+                            "LongName": "Department"
+                        },
+                        "XRefCode": "Store 32026",
+                        "ShortName": "Store 320 - Produce"
+                    },
+                    {
+                        "OrgLevel": {
+                            "XRefCode": "OnSiteDepartment",
+                            "ShortName": "Department",
+                            "LongName": "Department"
+                        },
+                        "XRefCode": "Store 32027",
+                        "ShortName": "Store 320 - Seafood"
+                    },
+                    {
+                        "OrgLevel": {
+                            "XRefCode": "OnSiteDepartment",
+                            "ShortName": "Department",
+                            "LongName": "Department"
+                        },
+                        "XRefCode": "Store 32028",
+                        "ShortName": "Store 320 - Stocking"
+                    },
+                    {
+                        "OrgLevel": {
+                            "XRefCode": "OnSiteDepartment",
+                            "ShortName": "Department",
+                            "LongName": "Department"
+                        },
+                        "XRefCode": "Store 320 Mgmt",
+                        "ShortName": "Store 320 - Management"
+                    }
+                ]
+            },
+            "XRefCode": "Store320",
+            "ShortName": "Store 320"
+        }
+    }
+    ```

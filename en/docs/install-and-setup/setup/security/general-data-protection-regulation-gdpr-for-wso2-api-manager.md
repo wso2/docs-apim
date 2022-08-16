@@ -120,7 +120,7 @@ The following is a sample master configuration (`config.json`) file. You can con
 
 You can configure the following in the `config.json` file based on your requirement:
 
-- **`processors`** - A list of processors on which you want the tool run. The processors that you can specify are pre-defined. Possible values are `RDBMS` and `log-file`.
+- **`processors`** - A list of processors on which you want the tool run. The processors that you can specify are predefined. Possible values are `RDBMS` and `log-file`.
 - **`directories`** - The definitions of directories on which you want the tool to run. When you specify a directory definition, be sure to either specify the directory path relative to the location of the `config.json` file or specify the absolute path to the directory.
 
     ??? info "Example code snippet to define multiple directories in the standalone Forget-Me Tool when working with multiple WSO2 products"

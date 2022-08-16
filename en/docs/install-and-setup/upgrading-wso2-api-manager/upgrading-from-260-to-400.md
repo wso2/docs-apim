@@ -8,6 +8,9 @@ The following information describes how to upgrade your API Manager server **fro
 !!! Attention
     If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, first you have to follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.11.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-570-to-is-5110) instead of below steps.
 
+!!! Attention
+    As the on-premise analytics data cannot be migrated to the Cloud, you need to maintain the old analytics server and keep the UI running for as long as you need that data (e.g., 3 months) after migrating to the new version of analytics in WSO2 API-M 4.0.0.
+    
 !!! note "If you are using PostgreSQL"
     The DB user needs to have superuser role to run the migration client and the relevant scripts
     ```
@@ -260,9 +263,15 @@ Therefore, if registry versioning was enabled in WSO2 API-M 2.6.0 setup, it is *
     !!! note "NOTE"
         Changing these configurations should only be done before the initial API-M Server startup. If changes are done after the initial startup, the registry resource created previously will not be available.
 
--   [Step 1 - Migrate the API Manager configurations](#step-1-migrate-the-api-manager-configurations)
--   [Step 2 - Upgrade API Manager to 4.0.0](#step-2-upgrade-api-manager-to-400)
--   [Step 3 - Restart the WSO2 API-M 4.0.0 server](#step-3-restart-the-wso2-api-m-400-server)
+- [Preparing for Migration](#preparing-for-migration)
+
+    - [Disabling versioning in the registry configuration](#disabling-versioning-in-the-registry-configuration)
+
+- [Step 1 - Migrate the API Manager configurations](#step-1---migrate-the-api-manager-configurations)
+
+- [Step 2 - Upgrade API Manager to 4.0.0](#step-2---upgrade-api-manager-to-400)
+
+- [Step 3 - Restart the WSO2 API-M 4.0.0 server](#step-3---restart-the-wso2-api-m-400-server)
 
 ### Step 1 - Migrate the API Manager configurations
 
@@ -391,6 +400,9 @@ Follow the instructions below to move all the existing API Manager configuration
     !!! warning
         Taking the log4j.properties file from your old WSO2 API-M Server and adding it to WSO2 API-M Server 4.0.0 will no longer work. Refer [Upgrading to Log4j2]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2) to see how to add a log appender or a logger to the log4j2.properties file.
 
+    !!! Warning
+        Note that WSO2 API Manager 3.0.0, 3.1.0, 3.2.0, and 4.0.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
+
     !!! note
         Log4j2 has hot deployment support, and **Managing Logs** section has been removed from the Management Console. You can now use the log4j2.properties file to modify logging configurations without restarting the server.
 
@@ -497,7 +509,7 @@ Follow the instructions below to move all the existing API Manager configuration
         )
         /
 
-        CREATE TABLE IDN_UMA_RESOURCE (
+        CREATE TABLE IF NOT EXISTS IDN_UMA_RESOURCE (
         ID                  INTEGER   NOT NULL,
         RESOURCE_ID         VARCHAR(255),
         RESOURCE_NAME       VARCHAR(255),
@@ -513,7 +525,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE SEQUENCE IDN_UMA_RESOURCE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
         /
 
-        CREATE TRIGGER IDN_UMA_RESOURCE_TRIG NO CASCADE
+        CREATE OR REPLACE TRIGGER IDN_UMA_RESOURCE_TRIG NO CASCADE
         BEFORE INSERT
         ON IDN_UMA_RESOURCE
         REFERENCING NEW AS NEW
@@ -529,7 +541,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE INDEX IDX_USER ON IDN_UMA_RESOURCE (RESOURCE_OWNER_NAME, USER_DOMAIN)
         /
 
-        CREATE TABLE IDN_UMA_RESOURCE_META_DATA (
+        CREATE TABLE IF NOT EXISTS IDN_UMA_RESOURCE_META_DATA (
             ID INTEGER NOT NULL,
             RESOURCE_IDENTITY INTEGER NOT NULL,
             PROPERTY_KEY VARCHAR(40),
@@ -542,7 +554,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE SEQUENCE IDN_UMA_RESOURCE_META_DATA_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
         /
 
-        CREATE TRIGGER IDN_UMA_RESOURCE_META_DATA_TRIG NO CASCADE
+        CREATE OR REPLACE TRIGGER IDN_UMA_RESOURCE_META_DATA_TRIG NO CASCADE
         BEFORE INSERT
         ON IDN_UMA_RESOURCE_META_DATA
         REFERENCING NEW AS NEW
@@ -552,7 +564,7 @@ Follow the instructions below to move all the existing API Manager configuration
         END
         /
 
-        CREATE TABLE IDN_UMA_RESOURCE_SCOPE (
+        CREATE TABLE IF NOT EXISTS IDN_UMA_RESOURCE_SCOPE (
             ID INTEGER NOT NULL,
             RESOURCE_IDENTITY INTEGER NOT NULL,
             SCOPE_NAME VARCHAR(255),
@@ -564,7 +576,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE SEQUENCE IDN_UMA_RESOURCE_SCOPE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
         /
 
-        CREATE TRIGGER IDN_UMA_RESOURCE_SCOPE_TRIG  NO CASCADE
+        CREATE OR REPLACE TRIGGER IDN_UMA_RESOURCE_SCOPE_TRIG  NO CASCADE
         BEFORE INSERT
         ON IDN_UMA_RESOURCE_SCOPE
         REFERENCING NEW AS NEW
@@ -577,7 +589,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE INDEX IDX_RS ON IDN_UMA_RESOURCE_SCOPE (SCOPE_NAME)
         /
 
-        CREATE TABLE IDN_UMA_PERMISSION_TICKET (
+        CREATE TABLE IF NOT EXISTS IDN_UMA_PERMISSION_TICKET (
             ID INTEGER NOT NULL,
             PT VARCHAR(255) NOT NULL,
             TIME_CREATED TIMESTAMP NOT NULL,
@@ -591,7 +603,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE SEQUENCE IDN_UMA_PERMISSION_TICKET_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
         /
 
-        CREATE TRIGGER IDN_UMA_PERMISSION_TICKET_TRIG NO CASCADE
+        CREATE OR REPLACE TRIGGER IDN_UMA_PERMISSION_TICKET_TRIG NO CASCADE
         BEFORE INSERT
         ON IDN_UMA_PERMISSION_TICKET
         REFERENCING NEW AS NEW
@@ -604,7 +616,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE INDEX IDX_PT ON IDN_UMA_PERMISSION_TICKET (PT)
         /
 
-        CREATE TABLE IDN_UMA_PT_RESOURCE (
+        CREATE TABLE IF NOT EXISTS IDN_UMA_PT_RESOURCE (
             ID INTEGER NOT NULL,
             PT_RESOURCE_ID INTEGER NOT NULL,
             PT_ID INTEGER NOT NULL,
@@ -617,7 +629,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE SEQUENCE IDN_UMA_PT_RESOURCE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
         /
 
-        CREATE TRIGGER IDN_UMA_PT_RESOURCE_TRIG NO CASCADE
+        CREATE OR REPLACE TRIGGER IDN_UMA_PT_RESOURCE_TRIG NO CASCADE
         BEFORE INSERT
         ON IDN_UMA_PT_RESOURCE
         REFERENCING NEW AS NEW
@@ -627,7 +639,7 @@ Follow the instructions below to move all the existing API Manager configuration
         END
         /
 
-        CREATE TABLE IDN_UMA_PT_RESOURCE_SCOPE (
+        CREATE TABLE IF NOT EXISTS IDN_UMA_PT_RESOURCE_SCOPE (
             ID INTEGER NOT NULL,
             PT_RESOURCE_ID INTEGER NOT NULL,
             PT_SCOPE_ID INTEGER NOT NULL,
@@ -640,7 +652,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE SEQUENCE IDN_UMA_PT_RESOURCE_SCOPE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
         /
 
-        CREATE TRIGGER IDN_UMA_PT_RESOURCE_SCOPE_TRIG NO CASCADE
+        CREATE OR REPLACE TRIGGER IDN_UMA_PT_RESOURCE_SCOPE_TRIG NO CASCADE
         BEFORE INSERT
         ON IDN_UMA_PT_RESOURCE_SCOPE
         REFERENCING NEW AS NEW
@@ -890,7 +902,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     SERVICE_KEY VARCHAR(100) NOT NULL,
                     MD5 VARCHAR(100) NOT NULL,
                     SERVICE_NAME VARCHAR(255) NOT NULL,
-                    DISPLAY_NAME VARCHAR(255) NOT NULL,
                     SERVICE_VERSION VARCHAR(30) NOT NULL,
                     SERVICE_URL VARCHAR(2048) NOT NULL,
                     TENANT_ID INTEGER NOT NULL,
@@ -904,7 +915,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     CREATED_BY VARCHAR(255),
                     UPDATED_BY VARCHAR(255),
                     SERVICE_DEFINITION BLOB NOT NULL,
-                    METADATA BLOB NOT NULL,
                     PRIMARY KEY (UUID),
                     CONSTRAINT SERVICE_KEY_TENANT UNIQUE(SERVICE_KEY, TENANT_ID),
                     CONSTRAINT SERVICE_NAME_VERSION_TENANT UNIQUE (SERVICE_NAME, SERVICE_VERSION, TENANT_ID))
@@ -954,7 +964,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE AM_API_SERVICE_MAPPING (
             API_ID INTEGER NOT NULL,
             SERVICE_KEY VARCHAR(256) NOT NULL,
-            MD5 VARCHAR(100) NOT NULL,
+            MD5 VARCHAR(100),
             TENANT_ID INTEGER NOT NULL,
             PRIMARY KEY (API_ID, SERVICE_KEY),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE
@@ -1460,7 +1470,6 @@ Follow the instructions below to move all the existing API Manager configuration
           SERVICE_KEY VARCHAR(100) NOT NULL,
           MD5 VARCHAR(100) NOT NULL,
           SERVICE_NAME VARCHAR(255) NOT NULL,
-          DISPLAY_NAME VARCHAR(255) NOT NULL,
           SERVICE_VERSION VARCHAR(30) NOT NULL,
           SERVICE_URL VARCHAR(2048) NOT NULL,
           TENANT_ID INTEGER NOT NULL,
@@ -1474,7 +1483,6 @@ Follow the instructions below to move all the existing API Manager configuration
           CREATED_BY VARCHAR(255),
           UPDATED_BY VARCHAR(255),
           SERVICE_DEFINITION VARBINARY(MAX) NOT NULL,
-          METADATA VARBINARY(MAX) NOT NULL,
           PRIMARY KEY (UUID),
           CONSTRAINT SERVICE_KEY_TENANT UNIQUE(SERVICE_KEY, TENANT_ID),
           CONSTRAINT SERVICE_NAME_VERSION_TENANT UNIQUE (SERVICE_NAME, SERVICE_VERSION, TENANT_ID)
@@ -1513,7 +1521,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE AM_API_SERVICE_MAPPING (
             API_ID INTEGER NOT NULL,
             SERVICE_KEY VARCHAR(256) NOT NULL,
-            MD5 VARCHAR(100) NOT NULL,
+            MD5 VARCHAR(100),
             TENANT_ID INTEGER NOT NULL,
             PRIMARY KEY (API_ID, SERVICE_KEY),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE
@@ -1767,7 +1775,7 @@ Follow the instructions below to move all the existing API Manager configuration
         
          CREATE TABLE IF NOT EXISTS AM_GW_API_ARTIFACTS (
           API_ID varchar(255) NOT NULL,
-          ARTIFACT blob,
+          ARTIFACT MEDIUMBLOB,
           GATEWAY_INSTRUCTION varchar(20),
           GATEWAY_LABEL varchar(255),
           TIME_STAMP TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -1921,7 +1929,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE IF NOT EXISTS AM_GW_API_ARTIFACTS (
           API_ID VARCHAR(255) NOT NULL,
           REVISION_ID VARCHAR(255) NOT NULL,
-          ARTIFACT blob,
+          ARTIFACT MEDIUMBLOB,
           TIME_STAMP TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
           PRIMARY KEY (REVISION_ID, API_ID),
           FOREIGN KEY (API_ID) REFERENCES AM_GW_PUBLISHED_API_DETAILS(API_ID) ON UPDATE CASCADE ON DELETE NO ACTION
@@ -1942,7 +1950,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     SERVICE_KEY VARCHAR(100) NOT NULL,
                     MD5 VARCHAR(100) NOT NULL,
                     SERVICE_NAME VARCHAR(255) NOT NULL,
-                    DISPLAY_NAME VARCHAR(255) NOT NULL,
                     SERVICE_VERSION VARCHAR(30) NOT NULL,
                     TENANT_ID INTEGER NOT NULL,
                     SERVICE_URL VARCHAR(2048) NOT NULL,
@@ -1956,7 +1963,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     CREATED_BY VARCHAR(255),
                     UPDATED_BY VARCHAR(255),
                     SERVICE_DEFINITION BLOB NOT NULL,
-                    METADATA BLOB NOT NULL,
                     PRIMARY KEY (UUID),
                     UNIQUE (SERVICE_NAME, SERVICE_VERSION, TENANT_ID),
                     UNIQUE (SERVICE_KEY, TENANT_ID)
@@ -1965,7 +1971,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE IF NOT EXISTS AM_API_SERVICE_MAPPING (
             API_ID INTEGER NOT NULL,
             SERVICE_KEY VARCHAR(256) NOT NULL,
-            MD5 VARCHAR(100) NOT NULL,
+            MD5 VARCHAR(100),
             TENANT_ID INTEGER NOT NULL,
             PRIMARY KEY (API_ID, SERVICE_KEY),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE
@@ -2108,6 +2114,10 @@ Follow the instructions below to move all the existing API Manager configuration
             ADD COMMENT_ID VARCHAR(255) DEFAULT (SYS_GUID()) NOT NULL
         /
 
+        ALTER TABLE AM_API_COMMENTS
+            ADD CONSTRAINT add_pk PRIMARY KEY (COMMENT_ID)
+        /
+
         ALTER TABLE AM_API_RATINGS
             DROP COLUMN RATING_ID
         /
@@ -2173,7 +2183,19 @@ Follow the instructions below to move all the existing API Manager configuration
         )
         /
 
-        CREATE TABLE IDN_UMA_RESOURCE (
+        -- IDN UMA Tables start --
+
+        CREATE OR REPLACE PROCEDURE add_if_not_exists (query IN VARCHAR2)
+        IS
+        BEGIN
+        execute immediate query;
+        dbms_output.put_line(query);
+        exception WHEN OTHERS THEN
+        if SQLCODE = -955 then null; else raise; end if;
+        END;
+        /
+
+        CALL add_if_not_exists('CREATE TABLE IDN_UMA_RESOURCE (
             ID INTEGER,
             RESOURCE_ID VARCHAR2(255),
             RESOURCE_NAME VARCHAR2(255),
@@ -2183,10 +2205,10 @@ Follow the instructions below to move all the existing API Manager configuration
             TENANT_ID INTEGER DEFAULT -1234,
             USER_DOMAIN VARCHAR2(50),
             PRIMARY KEY (ID)
-        )
+        )')
         /
 
-        CREATE SEQUENCE IDN_UMA_RESOURCE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        CALL add_if_not_exists('CREATE SEQUENCE IDN_UMA_RESOURCE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE')
         /
 
         CREATE OR REPLACE TRIGGER IDN_UMA_RESOURCE_TRIG
@@ -2199,33 +2221,23 @@ Follow the instructions below to move all the existing API Manager configuration
         END;
         /
 
-        CREATE OR REPLACE PROCEDURE add_index_if_not_exists (query IN VARCHAR2)
-          IS
-        BEGIN
-          execute immediate query;
-          dbms_output.put_line(query);
-        exception WHEN OTHERS THEN
-          dbms_output.put_line( 'Skipped ');
-        END;
-        /
-        
-        CALL add_index_if_not_exists('CREATE INDEX IDX_RID ON IDN_UMA_RESOURCE (RESOURCE_ID)')
-        /
-        
-        CALL add_index_if_not_exists('CREATE INDEX IDX_USER ON IDN_UMA_RESOURCE (RESOURCE_OWNER_NAME, USER_DOMAIN)')
+        CALL add_if_not_exists('CREATE INDEX IDX_RID ON IDN_UMA_RESOURCE (RESOURCE_ID)')
         /
 
-        CREATE TABLE IDN_UMA_RESOURCE_META_DATA (
+        CALL add_if_not_exists('CREATE INDEX IDX_USER ON IDN_UMA_RESOURCE (RESOURCE_OWNER_NAME, USER_DOMAIN)')
+        /
+
+        CALL add_if_not_exists('CREATE TABLE IDN_UMA_RESOURCE_META_DATA (
             ID INTEGER,
             RESOURCE_IDENTITY INTEGER NOT NULL,
             PROPERTY_KEY VARCHAR2(40),
             PROPERTY_VALUE VARCHAR2(255),
             PRIMARY KEY (ID),
             FOREIGN KEY (RESOURCE_IDENTITY) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
-        )
+        )')
         /
 
-        CREATE SEQUENCE IDN_UMA_RESOURCE_META_DATA_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        CALL add_if_not_exists('CREATE SEQUENCE IDN_UMA_RESOURCE_META_DATA_SEQ START WITH 1 INCREMENT BY 1 NOCACHE')
         /
 
         CREATE OR REPLACE TRIGGER IDN_UMA_RESOURCE_METADATA_TRIG
@@ -2238,16 +2250,16 @@ Follow the instructions below to move all the existing API Manager configuration
         END;
         /
 
-        CREATE TABLE IDN_UMA_RESOURCE_SCOPE (
+        CALL add_if_not_exists('CREATE TABLE IDN_UMA_RESOURCE_SCOPE (
             ID INTEGER,
             RESOURCE_IDENTITY INTEGER NOT NULL,
             SCOPE_NAME VARCHAR2(255),
             PRIMARY KEY (ID),
             FOREIGN KEY (RESOURCE_IDENTITY) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
-        )
+        )')
         /
 
-        CREATE SEQUENCE IDN_UMA_RESOURCE_SCOPE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        CALL add_if_not_exists('CREATE SEQUENCE IDN_UMA_RESOURCE_SCOPE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE')
         /
 
         CREATE OR REPLACE TRIGGER IDN_UMA_RESOURCE_SCOPE_TRIG
@@ -2260,21 +2272,21 @@ Follow the instructions below to move all the existing API Manager configuration
         END;
         /
 
-        CALL add_index_if_not_exists('CREATE INDEX IDX_RS ON IDN_UMA_RESOURCE_SCOPE (SCOPE_NAME)')
+        CALL add_if_not_exists('CREATE INDEX IDX_RS ON IDN_UMA_RESOURCE_SCOPE (SCOPE_NAME)')
         /
 
-        CREATE TABLE IDN_UMA_PERMISSION_TICKET (
+        CALL add_if_not_exists('CREATE TABLE IDN_UMA_PERMISSION_TICKET (
             ID INTEGER,
             PT VARCHAR2(255) NOT NULL,
             TIME_CREATED TIMESTAMP NOT NULL,
             EXPIRY_TIME TIMESTAMP NOT NULL,
-            TICKET_STATE VARCHAR2(25) DEFAULT 'ACTIVE',
+            TICKET_STATE VARCHAR2(25) DEFAULT ''ACTIVE'',
             TENANT_ID INTEGER DEFAULT -1234,
             PRIMARY KEY (ID)
-        )
+        )')
         /
 
-        CREATE SEQUENCE IDN_UMA_PERMISSION_TICKET_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        CALL add_if_not_exists('CREATE SEQUENCE IDN_UMA_PERMISSION_TICKET_SEQ START WITH 1 INCREMENT BY 1 NOCACHE')
         /
 
         CREATE OR REPLACE TRIGGER IDN_UMA_PERMISSION_TICKET_TRIG
@@ -2287,23 +2299,20 @@ Follow the instructions below to move all the existing API Manager configuration
         END;
         /
 
-        CALL add_index_if_not_exists('CREATE INDEX IDX_PT ON IDN_UMA_PERMISSION_TICKET (PT)')
-        /
-        
-        DROP PROCEDURE add_index_if_not_exists
+        CALL add_if_not_exists('CREATE INDEX IDX_PT ON IDN_UMA_PERMISSION_TICKET (PT)')
         /
 
-        CREATE TABLE IDN_UMA_PT_RESOURCE (
+        CALL add_if_not_exists('CREATE TABLE IDN_UMA_PT_RESOURCE (
             ID INTEGER,
             PT_RESOURCE_ID INTEGER NOT NULL,
             PT_ID INTEGER NOT NULL,
             PRIMARY KEY (ID),
             FOREIGN KEY (PT_ID) REFERENCES IDN_UMA_PERMISSION_TICKET (ID) ON DELETE CASCADE,
             FOREIGN KEY (PT_RESOURCE_ID) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
-        )
+        )')
         /
 
-        CREATE SEQUENCE IDN_UMA_PT_RESOURCE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        CALL add_if_not_exists('CREATE SEQUENCE IDN_UMA_PT_RESOURCE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE')
         /
 
         CREATE OR REPLACE TRIGGER IDN_UMA_PT_RESOURCE_TRIG
@@ -2316,17 +2325,17 @@ Follow the instructions below to move all the existing API Manager configuration
         END;
         /
 
-        CREATE TABLE IDN_UMA_PT_RESOURCE_SCOPE (
+        CALL add_if_not_exists('CREATE TABLE IDN_UMA_PT_RESOURCE_SCOPE (
             ID INTEGER,
             PT_RESOURCE_ID INTEGER NOT NULL,
             PT_SCOPE_ID INTEGER NOT NULL,
             PRIMARY KEY (ID),
             FOREIGN KEY (PT_RESOURCE_ID) REFERENCES IDN_UMA_PT_RESOURCE (ID) ON DELETE CASCADE,
             FOREIGN KEY (PT_SCOPE_ID) REFERENCES IDN_UMA_RESOURCE_SCOPE (ID) ON DELETE CASCADE
-        )
+        )')
         /
 
-        CREATE SEQUENCE IDN_UMA_PT_RESOURCE_SCOPE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        CALL add_if_not_exists('CREATE SEQUENCE IDN_UMA_PT_RESOURCE_SCOPE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE')
         /
 
         CREATE OR REPLACE TRIGGER IDN_UMA_PT_RESOURCE_SCOPE_TRIG
@@ -2338,6 +2347,11 @@ Follow the instructions below to move all the existing API Manager configuration
             SELECT IDN_UMA_PT_RESOURCE_SCOPE_SEQ.nextval INTO :NEW.ID FROM dual;
         END;
         /
+
+        DROP PROCEDURE add_if_not_exists
+        /
+
+        -- IDN UMA Tables End --
 
         CREATE TABLE AM_API_CATEGORIES (
             UUID VARCHAR2(50),
@@ -2608,7 +2622,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     SERVICE_KEY VARCHAR(100) NOT NULL,
                     MD5 VARCHAR(100) NOT NULL,
                     SERVICE_NAME VARCHAR(255) NOT NULL,
-                    DISPLAY_NAME VARCHAR(255) NOT NULL,
                     SERVICE_VERSION VARCHAR(30) NOT NULL,
                     TENANT_ID INTEGER NOT NULL,
                     SERVICE_URL VARCHAR(2048) NOT NULL,
@@ -2622,7 +2635,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     CREATED_BY VARCHAR(255),
                     UPDATED_BY VARCHAR(255),
                     SERVICE_DEFINITION BLOB NOT NULL,
-                    METADATA BLOB NOT NULL,
                     PRIMARY KEY (UUID),
                     CONSTRAINT SERVICE_KEY_TENANT UNIQUE(SERVICE_KEY, TENANT_ID),
                     CONSTRAINT SERVICE_NAME_VERSION_TENANT UNIQUE (SERVICE_NAME, SERVICE_VERSION, TENANT_ID))
@@ -2672,7 +2684,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE AM_API_SERVICE_MAPPING (
             API_ID INTEGER NOT NULL,
             SERVICE_KEY VARCHAR(256) NOT NULL,
-            MD5 VARCHAR(100) NOT NULL,
+            MD5 VARCHAR(100),
             TENANT_ID INTEGER NOT NULL,
             PRIMARY KEY (API_ID, SERVICE_KEY),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE
@@ -3183,7 +3195,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     SERVICE_KEY VARCHAR(100) NOT NULL,
                     MD5 VARCHAR(100) NOT NULL,
                     SERVICE_NAME VARCHAR(255) NOT NULL,
-                    DISPLAY_NAME VARCHAR(255) NOT NULL,
                     SERVICE_VERSION VARCHAR(30) NOT NULL,
                     TENANT_ID INTEGER NOT NULL,
                     SERVICE_URL VARCHAR(2048) NOT NULL,
@@ -3197,7 +3208,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     CREATED_BY VARCHAR(255),
                     UPDATED_BY VARCHAR(255),
                     SERVICE_DEFINITION BYTEA NOT NULL,
-                    METADATA BYTEA NOT NULL,
                     PRIMARY KEY (UUID),
                     UNIQUE (SERVICE_NAME, SERVICE_VERSION, TENANT_ID),
                     UNIQUE (SERVICE_KEY, TENANT_ID)
@@ -3239,7 +3249,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE AM_API_SERVICE_MAPPING (
             API_ID INTEGER NOT NULL,
             SERVICE_KEY VARCHAR(256) NOT NULL,
-            MD5 VARCHAR(100) NOT NULL,
+            MD5 VARCHAR(100),
             TENANT_ID INTEGER NOT NULL,
             PRIMARY KEY (API_ID, SERVICE_KEY),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE
@@ -3325,23 +3335,8 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
     - In order to work with the [API Security Audit Feature]({{base_path}}/design/api-security/configuring-api-security-audit/) you need to have the public certificate of the [42crunch](https://42crunch.com/) in the client-truststore. Follow the guidelines given in [Importing Certificates to the Truststore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-3-importing-certificates-to-the-truststore).
-
-
-5.  Configure the [SymmetricKeyInternalCryptoProvider](https://is.docs.wso2.com/en/5.11.0/administer/symmetric-overview/) as the default internal cryptor provider.
-    Generate your own secret key using a tool like OpenSSL.
     
-    i.e.,
-       ```
-        openssl enc -nosalt -aes-128-cbc -k hello-world -P
-       ```        
-    Add the configuration to the <NEW_IS_HOME>/repository/conf/deployment.toml file.
-    
-       ```
-       [encryption]
-       key = "<provide-your-key-here>"
-       ```
-
-6.  Upgrade the Identity component in WSO2 API Manager from version 5.7.0 to 5.11.0.
+5.  Upgrade the Identity component in WSO2 API Manager from version 5.7.0 to 5.11.0.
 
     ??? note "If you are using DB2"
         Move indexes to the TS32K Tablespace. The index tablespace in the `IDN_OAUTH2_ACCESS_TOKEN` and `IDN_OAUTH2_AUTHORIZATION_CODE` tables need to be moved to the existing TS32K tablespace in order to support newly added table indexes.
@@ -3430,6 +3425,11 @@ Follow the instructions below to move all the existing API Manager configuration
                     name: "TenantPortalMigrator"
                     order: 11   
                 ```
+            Also remove the following step from migration-config.yaml included under version: "5.11.0".
+                ```              
+                    -   name: "SCIMGroupRoleMigrator"
+                        order: 18
+                ```
 
     4. Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
 
@@ -3495,6 +3495,38 @@ Follow the instructions below to move all the existing API Manager configuration
             ```
 
 6.  Migrate the API Manager artifacts.
+
+    !!! Note
+        Modify the `[apim.gateway.environment]` tag in the `<API-M_HOME>/repository/conf/deployment.toml` file, the name should change to "Production and Sandbox". By default, it is set as `Default` in API Manager 4.0.0.
+    
+        ```toml
+        [[apim.gateway.environment]]
+        name = "Production and Sandbox"
+        ```
+
+        Modify the `[apim.sync_runtime_artifacts.gateway]` tag in the `<API-M_HOME>/repository/conf/deployment.toml`, so that the value of `gateway_labels` should be the name of old Gateway environment (old default one is "Production and Sandbox") or we need to add the old one as a new Gateway environment, while the new current default label (current default one is "Default") remains as it is.
+        
+        ```toml
+        [apim.sync_runtime_artifacts.gateway]
+        gateway_labels = ["Production and Sandbox","Default"]
+        ```
+        or
+        ```toml
+        [apim.sync_runtime_artifacts.gateway]
+        gateway_labels = ["Production and Sandbox"]
+        ```
+
+        This config defines an array of the labels that the Gateway is going to subscribe to. Only the APIs with these labels will be pulled from the extension point and deployed.
+
+    !!! Info
+        If you have changed the name of the gateway environment in your older version, then when migrating, make sure
+        that you change the `[apim.gateway.environment]` tag accordingly. For example, if your gateway environment was named `Test` in the `<OLD_API-M_HOME>/repository/conf/api-manager.xml` file, you have to change the toml config as shown below.
+
+        ```toml
+        [[apim.gateway.environment]]
+        name = "Test"
+        ```
+
 
     You have to run the following migration client to update the registry artifacts.
 
@@ -3567,7 +3599,9 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
         [indexing]
         re_indexing= 1
+        
         ```
+
         Note that you need to increase the value of `re_indexing` by one each time you need to re-index.
         !!! info 
              If you use a clustered/distributed API Manager setup, do the above change in deployment.toml of Publisher and Devportal nodes
@@ -3596,31 +3630,20 @@ This concludes the upgrade process.
     The migration client that you use in this guide automatically migrates your tenants, workflows, external user stores, synapse artifacts, execution plans, etc. to the upgraded environment. Therefore, there is no need to migrate them manually.
 
 !!! note
-   - If you are using a migrated API and wants to consume it via an application which supports JWT authentication (default type in API-M 4.0.0), you need to republish the API. Without republishing the API, JWT authentication doesn't work as it looks for a local entry which will get populated while publishing.
+    - If you are using a migrated API and wants to consume it via an application which supports JWT authentication (default type in API-M 4.0.0), you need to republish the API. Without republishing the API, JWT authentication doesn't work as it looks for a local entry which will get populated while publishing.
     You can consume the migrated API via an OAuth2 application without an issue.
-    
-   - API-M 4.0.0 synapse artifacts have been removed from the file system and are managed via database. At server startup the synapse configs are loaded to the memory from the Traffic Manager.
-    
-   - When Migrating a Kubernetes environment to a newer API Manager version it is recommended to do the data migration in a single container and then do the deployment.    
 
-   - Prior to WSO2 API Manager 4.0.0, the distributed deployment comprised of five main product profiles, namely Publisher, Developer Portal, Gateway, Key Manager, and Traffic Manager. However, the new architecture in APIM 4.0.0 only has three profiles, namely Gateway, Traffic Manager, and Default.
-   
-     All the data is persisted in databases **from WSO2 API-M 4.0.0 onwards**. Therefore, it is recommended to execute the migration client in the Default profile.
-     
-     For more details on the WSO2 API-M 4.0.0 distributed deployment, see [WSO2 API Manager distributed documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m).
+    - API-M 4.0.0 synapse artifacts have been removed from the file system and are managed via database. At server startup the synapse configs are loaded to the memory from the Traffic Manager.
 
-   - If you have done any customizations to the **default sequences** that ship with product, you may merge the customizations. Also note that the fault messages have been changed from XML to JSON in API-M 4.0.0.  
+    - When Migrating a Kubernetes environment to a newer API Manager version it is recommended to do the data migration in a single container and then do the deployment.    
 
-   - Prior to WSO2 API Manager 4.0.0, the distributed deployment comprised of five main product profiles, namely Publisher, Developer Portal, Gateway, Key Manager, and Traffic Manager. However, the new architecture in APIM 4.0.0 only has three profiles, namely Gateway, Traffic Manager, and Default.
-     All the data is persisted in databases **from WSO2 API-M 4.0.0 onwards**. Therefore, it is recommended to execute the migration client in the Default profile.
-     For more details on the WSO2 API-M 4.0.0 distributed deployment, see [WSO2 API Manager distributed documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m).
-     
-   - **API-M 4.0.0** Server startup script has renamed as <code>api-manager.sh</code> (for Linux) and <code>api-manager.bat</code> (for Windows)    
-    
-!!! note
-    Prior to WSO2 API Manager 4.0.0, the distributed deployment comprised of five main product profiles, namely Publisher, Developer Portal, Gateway, Key Manager, and Traffic Manager. However, the new architecture in APIM 4.0.0 only has three profiles, namely Gateway, Traffic Manager, and Default.
+    - Prior to WSO2 API Manager 4.0.0, the distributed deployment comprised of five main product profiles, namely Publisher, Developer Portal, Gateway, Key Manager, and Traffic Manager. However, the new architecture in APIM 4.0.0 only has three profiles, namely Gateway, Traffic Manager, and Default.
+
     All the data is persisted in databases **from WSO2 API-M 4.0.0 onwards**. Therefore, it is recommended to execute the migration client in the Default profile.
-    For more details on the WSO2 API-M 4.0.0 distributed deployment, see [WSO2 API Manager distributed documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m).    
+
+    For more details on the WSO2 API-M 4.0.0 distributed deployment, see [WSO2 API Manager distributed documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m).
+
+    - If you have done any customizations to the **default sequences** that ship with product, you may merge the customizations. Also note that the fault messages have been changed from XML to JSON in API-M 4.0.0.  
 
 !!! important
 

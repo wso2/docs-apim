@@ -7,7 +7,7 @@ This application demonstrates how to configure WSO2 Streaming Integrator Tooling
 1. Create a Google Cloud Platform account.
 2. Sign in to Google Account and set up a GCP Console project and enable the API.
 3. Create a service account and download a private key as JSON.
-4. Place your json file in any system property.
+4. Place your JSON file in any system property.
 5. Save the sample.
 6. If there is no syntax error, the following message is shown on the console:
     - Siddhi App SendGooglePubSubMessage successfully deployed.
@@ -33,7 +33,7 @@ This application demonstrates how to configure WSO2 Streaming Integrator Tooling
 2019-03-14_12-50-21_966] INFO {io.siddhi.core.stream.output.sink.LogSink} - SendEvent : BarStream : Event{timestamp=1552548021825, data=[Hello], isExpired=false}
 
 ## Notes:
-Make sure the the credential file is correct and user have write access to make api calls.<br/>
+Make sure the the credential file is correct and user have write access to make API calls.<br/>
 Stop this Siddhi application.
 
 ```sql

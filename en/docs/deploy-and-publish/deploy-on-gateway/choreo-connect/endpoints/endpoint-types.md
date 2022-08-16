@@ -1,24 +1,30 @@
 # Endpoint Types
 
-An Endpoint is a specific destination for a message such as an address, WSDL, a failover group, a load-balance group
- etc. Choreo Connect supports a range of different endpoint types, allowing the it to connect with
-  advanced types of back-ends.
+Endpoint types supported by Choreo Connect can be categorized based on multiple aspects.
 
-|Type                     |Description                                                                                                                                                                                                                                                                                                                                                                                                       |
-|-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| HTTP/ REST Endpoint     | A REST service endpoint based on a URI template.                                                                                                                                                                                                                                                                                                                                                         |
-| gRPC Endpoint           | A high performance RPC framework to implement services
-| HTTP/ SOAP Endpoint      | The direct URL of the SOAP web service.                                                                                                                                                                                                                                                                                                                                                                             |
-| Failover Group Endpoint | The endpoints that the service tries to connect to in case of a failure. Selecting the endpoint when the primary endpoint fails, happens in a round-robin manner. Failover Group is a group of leaf endpoints (i.e., address endpoint, HTTP endpoint, and WSDL endpoint). When a failure occurs in the current endpoint (while sending a message), the failover group endpoint will try to send the message to another endpoint. The failover group ensures that the message is delivered as long as there is at least one active endpoint among the listed endpoints.                              |
-| Load Balance Endpoint   | The endpoints where the incoming requests are directed to in a round-robin manner. They automatically handle fail-over as well.                                                                                                                                                                                                                                                                            |
-| Prototype Endpoint   | Prototype endpoint is a type of HTTP Endpoint which can be used when Prototyping an API (for promoting and testing). For instructions, see [Deploy and Test Mock APIs]({{base_path}}/design/prototype-api/deploy-and-test-mock-apis/).                                                                                                                                                                                                                                                                              |
+- Based on key type
+- Based on behavior
+- Based on the service exposed by the endpoint
+
+## Endpoint Types based on Key Type
+
+- Production Endpoints
+- Sandbox Endpoints
+
+When an API is invoked using a JWT (access token or API key), the request gets routed depending on the key type defined in the JWT. In standalone mode, Production and Sandbox endpoints can be defined in the OpenAPI definition using [extensions]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/#openapi-extensions). With API Manager, these can be defined via the Endpoints tab in Publisher. If not defined, the request gets sent to the production endpoint. 
+
+## Endpoint Types based on behavior (routing policy)
+
+- [Load Balanced Endpoints]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/load-balanced-endpoints/#load-balanced-endpoints)
+- [Failover Endpoints]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/failover-endpoints/)
+
+By default, a single endpoint or a collection of endpoints is configured as Load Balanced endpoints in Choreo Connect.
+
+## Endpoint Types based on the service exposed by the endpoint
 
 
-!!! note
-    - **Prototype Endpoints** will be available only for the APIs which are in **PROTOTYPED** state.
-
-
-
-
-
+|Type                     |Description                                         |
+|-------------------------|----------------------------------------------------|
+| HTTP/ REST Endpoint     | A REST service endpoint based on a URI template.   |                  
+| WebSocket Endpoint    | A HTTP based streaming endpoint implemented based on the WebSocket protocol. Once a connection is  established with the endpoint, a channel that enables two way communication is created providing pub sub capabilities. |                         
 

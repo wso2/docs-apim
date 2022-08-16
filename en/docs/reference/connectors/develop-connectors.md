@@ -113,7 +113,7 @@ For example, according to the sample above, it contains two subdirectories named
 
 ### Subdirectory containing operations
 
-Resources folder is used to group the operations in the connector in a more organised manner. 
+Resources folder is used to group the operations in the connector in a more organized manner. 
 
 It may contain subdirectories which contain operations. Each of those subdirectories should contain a component.xml file as below defining each template which represents an operation. Ultimately, all component.xml files in sub-directories should be referred to by the main component.xml file of the connector.
 
@@ -560,7 +560,7 @@ In SaaS connectors, where the logic is implemented using pure integration constr
 
 #### Authentication Mechanism using Refresh Token
 
-In previous versions of connectors, expiry based access token refreshing was prefered for connections. However, in the latest versions, the process of refreshing access tokens will be retry-based, which means that when an endpoint is called with the current access token and a 4XX HTTP response code is returned, the token is refreshed using the refresh token and the call is reattempted. If the second call also fails, the failure message is passed to the client. 
+In previous versions of connectors, expiry based access token refreshing was preferred for connections. However, in the latest versions, the process of refreshing access tokens will be retry-based, which means that when an endpoint is called with the current access token and a 4XX HTTP response code is returned, the token is refreshed using the refresh token and the call is reattempted. If the second call also fails, the failure message is passed to the client. 
 
 In order to implement this, the below template can be used. 
 ```xml
@@ -626,7 +626,7 @@ There are two class mediators made available in carbon-mediation for refreshing 
 
 ### Technology Connectors
 
-In Technology connectors, when the logic is implemented using Java we often need to maintain the connections made. For example, email connections, kafka connections etc. The connection can be created/configured when the `init` operation is invoked and maintained to be used across operations. 
+In Technology connectors, when the logic is implemented using Java we often need to maintain the connections made. For example, email connections, Kafka connections etc. The connection can be created/configured when the `init` operation is invoked and maintained to be used across operations. 
 
 In order to handle this, the connector core consists of a connection handler. Furthermore, it also consists of a generic connection pool to maintain a connection pool for each connector.
 
@@ -688,7 +688,7 @@ Below are some of the utilities provided by the [connector core](https://github.
 
 **RefreshAccessTokenWithExpiry** - This is a class mediator used for refreshing access tokens, similar to the above. However, this does not invoke the end point right away to refresh. Whenever this class mediator is called it will check whether a pre-agreed time limit has passed. If the time has passed it will call the refresh endpoint to get a new access token. See [code](https://github.com/wso2/carbon-mediation/blob/master/components/mediation-connector/org.wso2.carbon.connector.core/src/main/java/org/wso2/carbon/connector/core/RefreshAccessTokenWithExpiry.java).
 
-You can also extend these two classes to change the behavior if the refresh endpoint of the particular SaaS has different behaviours. You can add the child class into the connector project under `java/<appropriate_package>` and refer to those local class mediators.
+You can also extend these two classes to change the behavior if the refresh endpoint of the particular SaaS has different behaviors. You can add the child class into the connector project under `java/<appropriate_package>` and refer to those local class mediators.
 
 ### Connection Handling
 
@@ -780,10 +780,10 @@ When you use the [property mediator]({{base_path}}/reference/mediators/property-
 Please do not use mediators like `<send/>`, `<loopback/>` in sequence templates. They are there for the sake of backward compatibility. Always stick to mediators like `<call/>` and `<respond/>`. 
 
 **Timeout configs for connections**
-Connection timeout is an environment dependent configuration. Developers may define a default value, however it should be available for users to configure. If it is a technology connector, timeout is a configuration of the “connection”. If it is a SaaS connector developer needs to template it so that it can be passed to `<call>` mediator.For more information, see [here](https://github.com/wso2-extensions/esb-connector-salesforcerest/blob/df72e90af3781f995186ccb79ecfcb8ba71fe866/src/main/resources/salesforcerest-config/callOptions.xml#L32).
+Connection timeout is an environment dependent configuration. Developers may define a default value, however it should be available for users to configure. If it is a technology connector, timeout is a configuration of the “connection”. If it is a SaaS connector developer needs to template it so that it can be passed to `<call>` mediator. For more information, see [here](https://github.com/wso2-extensions/esb-connector-salesforcerest/blob/df72e90af3781f995186ccb79ecfcb8ba71fe866/src/main/resources/salesforcerest-config/callOptions.xml#L32).
 
 **Handle errors meaningfully. Use ERROR CODES**
-Sometimes it is required to handle errors within the connector. Sometimes it is required to let the calling template handle the error. Sometimes it is required to forward the error message back to the connector operation invoker as it is. It is good to analyse use cases, and then design which errors need to be handled at which instance. However, it is a good practice to define and use error codes. 
+Sometimes it is required to handle errors within the connector. Sometimes it is required to let the calling template handle the error. Sometimes it is required to forward the error message back to the connector operation invoker as it is. It is good to analyze use cases, and then design which errors need to be handled at which instance. However, it is a good practice to define and use error codes. 
 
 Please read the [WSO2 Error Code guide]({{base_path}}/reference/error_handling/). 
 

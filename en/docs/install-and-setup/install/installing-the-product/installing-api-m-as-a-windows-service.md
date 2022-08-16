@@ -32,6 +32,18 @@ The configuration file used for wrapping Java Applications by YAJSW is `wrapper.
     wrapper.java.classpath.4 = ${carbon_home}/repository/components/plugins/commons-lang_2.6.0.wso2v1.jar 
     ```
 
+!!! tip
+    You may encounter the following issue when starting Windows Services when the file "java" or a "dll" used by Java cannot be found by YAJSW. 
+
+    ```bash 
+    "Error 2: The system cannot find the file specified" 
+    ```
+
+    This can be resolved by providing the "complete java path" for the wrapper.java.command as follows.
+
+    ```bash
+    wrapper.java.command = ${JAVA_HOME}/bin/java
+    ```
 
 **Minimal wrapper.conf configuration**
 
@@ -147,9 +159,9 @@ The configuration file used for wrapping Java Applications by YAJSW is `wrapper.
     wrapper.java.additional.29 = -Dcarbon.new.config.dir.path=${carbon_home}/repository/resources/conf
 ```
 
-### Setting up CARBON\_HOME
+### Setting up carbon\_home
 
-Extract WSO2 API Manager that you want to run as a Windows service, and then set the Windows environment variable `CARBON_HOME` to the extracted product directory location.
+Extract WSO2 API Manager that you want to run as a Windows service, and then set the Windows environment variable `carbon_home` to the extracted product directory location.
 
 ### Running the product in console mode
 
@@ -177,7 +189,7 @@ If the configurations are set properly for YAJSW, you will see console output si
 
 ### Working with the WSO2CARBON service
 
-To install the Carbon-based productWSO2 API Manager as a Windows service, execute the following command in the `<YAJSW_HOME>/bat/` directory:
+To install the Carbon-based product WSO2 API Manager as a Windows service, execute the following command in the `<YAJSW_HOME>/bat/` directory:
 
 ``` java
 installService.bat

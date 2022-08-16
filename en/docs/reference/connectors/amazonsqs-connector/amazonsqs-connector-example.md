@@ -8,7 +8,7 @@ This example explains how to use Amazon SQS Connector to create a queue in the A
 
 It has a single HTTP API resource, which is `sendToQueue`. 
 
-<img src="{{base_path}}/assets/img/integrate/connectors/amazonsqs-connector.png" title="AmazonSQS-Connector" width="800" alt="AmazonSQS-Connector"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/amazonsqs-connector.jpg" title="AmazonSQS-Connector" width="800" alt="AmazonSQS-Connector"/>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
@@ -33,10 +33,10 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 Follow these steps to set up the Integration Project and the Connector Exporter Project. 
 
-{!reference/connectors/importing-connector-to-integration-studio.md!} 
+{!includes/reference/connectors/importing-connector-to-integration-studio.md!} 
 
 1. First let's create the following sequences, which are buildMessage, createQueue, sendMessage and ReceiveAndForwardMessage. Right click on the created Integration Project and select, -> **New** -> **Sequence** to create the Sequence. 
-    <img src="{{base_path}}/assets/img/integrate/connectors/add-sequence.png" title="Adding a Sequence" width="800" alt="Adding a Sequence"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/add-sequence.jpg" title="Adding a Sequence" width="800" alt="Adding a Sequence"/>
 
 2. Provide the Sequence name as buildMessage. You can go to the source view of the XML configuration file of the API and copy the following configuration. In this sequence we are taking the user's input `companyName` and we build the message using a Payload Factory Mediator. 
     ```
@@ -158,7 +158,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
       </api>
     ```
 
-{!reference/connectors/exporting-artifacts.md!}
+{!includes/reference/connectors/exporting-artifacts.md!}
 
 ## Get the project
 
@@ -175,7 +175,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp in the integration runtime. 
 
-{!reference/connectors/deploy-capp.md!}
+{!includes/reference/connectors/deploy-capp.md!}
 
 ## Testing
 

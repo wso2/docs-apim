@@ -1,6 +1,6 @@
 # Tuning the HTTP Transport
 
-See the following topics to tune the HTTP passthrough transport:
+See the following topics to tune the HTTP PassThrough transport:
 
 ## Tuning non-blocking invocations
 

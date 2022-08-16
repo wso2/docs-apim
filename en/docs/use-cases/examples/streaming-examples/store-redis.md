@@ -12,9 +12,9 @@ This application demonstrates how to perform CRUD operations using Siddhi querie
 
 ## Prerequisites:
 1. Download the Redis from https://redis.io/.
-2. Download redis java client 'Jedis' jar (>2.7.0) from https://mvnrepository.com/artifact/redis.clients/jedis and place in `<SI_HOME>/lib` folder.
+2. Download Redis java client 'Jedis' jar (>2.7.0) from https://mvnrepository.com/artifact/redis.clients/jedis and place in `<SI_HOME>/lib` folder.
 3. In `redis.conf`, provide the requirepass as root.
-4. Start redis by redis-server <path-to-redis.conf>.
+4. Start Redis by redis-server <path-to-redis.conf>.
 
 ## Executing the Sample:
 1. Start the Siddhi application by clicking on 'Run'.

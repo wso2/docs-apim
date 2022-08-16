@@ -79,7 +79,7 @@ Follow the steps below to clone the API-M documentation GitHub repository and to
     $ git clone https://github.com/[git-username]/docs-apim.git
     ```
 
-3. Navigate to the folder containing the repo that you cloned in step 4.1 on a terminal window.
+3. Navigate to the folder containing the repo that you cloned in step 3.2 on a terminal window.
 
     For example:
 

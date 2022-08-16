@@ -49,7 +49,7 @@ For more information and instructions, see [Deploying Integrations]({{base_path}
 
 API holds the API related information. Users can provide a configmap name for swaggerConfigMapName, paramsValues and 
 certsValues. The swaggerConfigMapName holds the API project or OpenAPI definition file. The paramsValues and 
-certsValues holds the apictl project param configs and the certificate files for the API respectively.
+certsValues holds the apictl project parameter configs and the certificate files for the API respectively.
 
 ```yaml
 apiVersion: wso2.com/v1alpha2

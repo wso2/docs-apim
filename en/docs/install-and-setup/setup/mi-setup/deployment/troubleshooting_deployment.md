@@ -112,8 +112,8 @@ The tool captures the following information about the system:
 -   Memory information of the Java process (**Java heap memory dump**)
     -   Histogram of the heap
     -   Objects waiting for finalization
-    -   Java heap summary. GC algo used, etc.
-    -   Statistics on permgen space of Java heap
+    -   Java heap summary. GC algorithm used, etc.
+    -   Statistics on PermGen space of Java heap
 -   Information about the running Micro Integrator instance (**Product name and
     version**)
     -   Carbon framework version (This includes the patched version)
@@ -126,7 +126,7 @@ The tool captures the following information about the system:
 
 ## Viewing process threads in Solaris
 
-This information is useful to understandand whether the database
+This information is useful to understand whether the database
 processes are not fully utilizing the CPU's threading capabilities. It
 gives you a better understanding on how 11g and 10g takes advantage of
 threading and how you can validate those queries from the system.

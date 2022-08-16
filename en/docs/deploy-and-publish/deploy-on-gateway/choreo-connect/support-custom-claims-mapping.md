@@ -247,7 +247,7 @@ public class CustomJWTTransformer implements JWTTransformer {
 <dependency>
     <groupId>org.wso2.carbon.apimgt</groupId>
     <artifactId>org.wso2.carbon.apimgt.common.gateway</artifactId>
-    <version>9.0.0</version>
+    <version>9.0.174</version>
 </dependency>
 ```    
         

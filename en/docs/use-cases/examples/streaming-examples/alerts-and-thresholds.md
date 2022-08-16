@@ -66,7 +66,7 @@ To test the sample Siddhi application, simulate a single event for it via the St
 
 ## Viewing the Results
 
-To view the results, check the receiver gmail inbox (i.e., gmail specified via the `to` parameter in the sink configuration). The following is displayed.
+To view the results, check the receiver Gmail inbox (i.e., Gmail specified via the `to` parameter in the sink configuration). The following is displayed.
 
 ```
 Subject: Alert for large value transaction: cardNo:1234567898765432

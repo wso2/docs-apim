@@ -1,3 +1,4 @@
+<!-- omit in toc -->
 # Upgrading API Manager from 3.1.0 to 4.0.0
 
 The following information describes how to upgrade your API Manager server **from APIM 3.1.0 to 4.0.0**.
@@ -9,7 +10,7 @@ The following information describes how to upgrade your API Manager server **fro
     If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, first follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.11.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-5100-to-is-5110).    
 
 !!! Attention
-    If you are using WSO2 API Manager Analytics. Please contact WSO2 Team for migration purposes.
+    As the on-premise analytics data cannot be migrated to the Cloud, you need to maintain the old analytics server and keep the UI running for as long as you need that data (e.g., 3 months) after migrating to the new version of analytics in WSO2 API-M 4.0.0.
   
 !!! note "If you are using PostgreSQL"
     The DB user needs to have superuser role to run the migration client and the relevant scripts
@@ -21,7 +22,9 @@ The following information describes how to upgrade your API Manager server **fro
     
 Follow the instructions below to upgrade your WSO2 API Manager server **from WSO2 API-M 3.1.0 to 4.0.0**.
 
+<!-- omit in toc -->
 ### Preparing for Migration
+<!-- omit in toc -->
 #### Disabling versioning in the registry configuration if it was enabled
 
 If there are frequently updating registry properties, having the versioning enabled for registry resources in the registry can lead to unnecessary growth in the registry related tables in the database. To avoid this, versioning has been disabled by default from API Manager 3.0.0 onwards.
@@ -303,9 +306,9 @@ But, if registry versioning was enabled by you in WSO2 API-M 3.1.0 setup, it is 
     !!! note "NOTE"
         Changing these configurations should only be done before the initial API-M Server startup. If changes are done after the initial startup, the registry resource created previously will not be available.
 
--   [Step 1 - Migrate the API Manager configurations](#step-1-migrate-the-api-manager-configurations)
--   [Step 2 - Upgrade API Manager to 4.0.0](#step-2-upgrade-api-manager-to-400)
--   [Step 3 - Restart the WSO2 API-M 4.0.0 server](#step-3-restart-the-wso2-api-m-400-server)
+- [Step 1 - Migrate the API Manager configurations](#step-1---migrate-the-api-manager-configurations)
+- [Step 2 - Upgrade API Manager to 4.0.0](#step-2---upgrade-api-manager-to-400)
+- [Step 3 - Restart the WSO2 API-M 4.0.0 server](#step-3---restart-the-wso2-api-m-400-server)
 
 ### Step 1 - Migrate the API Manager configurations
 
@@ -647,7 +650,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     SERVICE_KEY VARCHAR(100) NOT NULL,
                     MD5 VARCHAR(100) NOT NULL,
                     SERVICE_NAME VARCHAR(255) NOT NULL,
-                    DISPLAY_NAME VARCHAR(255) NOT NULL,
                     SERVICE_VERSION VARCHAR(30) NOT NULL,
                     SERVICE_URL VARCHAR(2048) NOT NULL,
                     TENANT_ID INTEGER NOT NULL,
@@ -661,7 +663,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     CREATED_BY VARCHAR(255),
                     UPDATED_BY VARCHAR(255),
                     SERVICE_DEFINITION BLOB NOT NULL,
-                    METADATA BLOB NOT NULL,
                     PRIMARY KEY (UUID),
                     CONSTRAINT SERVICE_KEY_TENANT UNIQUE(SERVICE_KEY, TENANT_ID),
                     CONSTRAINT SERVICE_NAME_VERSION_TENANT UNIQUE (SERVICE_NAME, SERVICE_VERSION, TENANT_ID))
@@ -711,7 +712,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE AM_API_SERVICE_MAPPING (
             API_ID INTEGER NOT NULL,
             SERVICE_KEY VARCHAR(256) NOT NULL,
-            MD5 VARCHAR(100) NOT NULL,
+            MD5 VARCHAR(100),
             TENANT_ID INTEGER NOT NULL,
             PRIMARY KEY (API_ID, SERVICE_KEY),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE
@@ -1011,7 +1012,6 @@ Follow the instructions below to move all the existing API Manager configuration
           SERVICE_KEY VARCHAR(100) NOT NULL,
           MD5 VARCHAR(100) NOT NULL,
           SERVICE_NAME VARCHAR(255) NOT NULL,
-          DISPLAY_NAME VARCHAR(255) NOT NULL,
           SERVICE_VERSION VARCHAR(30) NOT NULL,
           SERVICE_URL VARCHAR(2048) NOT NULL,
           TENANT_ID INTEGER NOT NULL,
@@ -1025,7 +1025,6 @@ Follow the instructions below to move all the existing API Manager configuration
           CREATED_BY VARCHAR(255),
           UPDATED_BY VARCHAR(255),
           SERVICE_DEFINITION VARBINARY(MAX) NOT NULL,
-          METADATA VARBINARY(MAX) NOT NULL,
           PRIMARY KEY (UUID),
           CONSTRAINT SERVICE_KEY_TENANT UNIQUE(SERVICE_KEY, TENANT_ID),
           CONSTRAINT SERVICE_NAME_VERSION_TENANT UNIQUE (SERVICE_NAME, SERVICE_VERSION, TENANT_ID)
@@ -1064,7 +1063,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE AM_API_SERVICE_MAPPING (
             API_ID INTEGER NOT NULL,
             SERVICE_KEY VARCHAR(256) NOT NULL,
-            MD5 VARCHAR(100) NOT NULL,
+            MD5 VARCHAR(100),
             TENANT_ID INTEGER NOT NULL,
             PRIMARY KEY (API_ID, SERVICE_KEY),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE
@@ -1134,7 +1133,7 @@ Follow the instructions below to move all the existing API Manager configuration
         
          CREATE TABLE IF NOT EXISTS AM_GW_API_ARTIFACTS (
           API_ID varchar(255) NOT NULL,
-          ARTIFACT blob,
+          ARTIFACT MEDIUMBLOB,
           GATEWAY_INSTRUCTION varchar(20),
           GATEWAY_LABEL varchar(255),
           TIME_STAMP TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -1288,7 +1287,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE IF NOT EXISTS AM_GW_API_ARTIFACTS (
           API_ID VARCHAR(255) NOT NULL,
           REVISION_ID VARCHAR(255) NOT NULL,
-          ARTIFACT blob,
+          ARTIFACT MEDIUMBLOB,
           TIME_STAMP TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
           PRIMARY KEY (REVISION_ID, API_ID),
           FOREIGN KEY (API_ID) REFERENCES AM_GW_PUBLISHED_API_DETAILS(API_ID) ON UPDATE CASCADE ON DELETE NO ACTION
@@ -1309,7 +1308,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     SERVICE_KEY VARCHAR(100) NOT NULL,
                     MD5 VARCHAR(100) NOT NULL,
                     SERVICE_NAME VARCHAR(255) NOT NULL,
-                    DISPLAY_NAME VARCHAR(255) NOT NULL,
                     SERVICE_VERSION VARCHAR(30) NOT NULL,
                     TENANT_ID INTEGER NOT NULL,
                     SERVICE_URL VARCHAR(2048) NOT NULL,
@@ -1323,7 +1321,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     CREATED_BY VARCHAR(255),
                     UPDATED_BY VARCHAR(255),
                     SERVICE_DEFINITION BLOB NOT NULL,
-                    METADATA BLOB NOT NULL,
                     PRIMARY KEY (UUID),
                     UNIQUE (SERVICE_NAME, SERVICE_VERSION, TENANT_ID),
                     UNIQUE (SERVICE_KEY, TENANT_ID)
@@ -1332,7 +1329,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE IF NOT EXISTS AM_API_SERVICE_MAPPING (
             API_ID INTEGER NOT NULL,
             SERVICE_KEY VARCHAR(256) NOT NULL,
-            MD5 VARCHAR(100) NOT NULL,
+            MD5 VARCHAR(100),
             TENANT_ID INTEGER NOT NULL,
             PRIMARY KEY (API_ID, SERVICE_KEY),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE
@@ -1641,7 +1638,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     SERVICE_KEY VARCHAR(100) NOT NULL,
                     MD5 VARCHAR(100) NOT NULL,
                     SERVICE_NAME VARCHAR(255) NOT NULL,
-                    DISPLAY_NAME VARCHAR(255) NOT NULL,
                     SERVICE_VERSION VARCHAR(30) NOT NULL,
                     TENANT_ID INTEGER NOT NULL,
                     SERVICE_URL VARCHAR(2048) NOT NULL,
@@ -1655,7 +1651,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     CREATED_BY VARCHAR(255),
                     UPDATED_BY VARCHAR(255),
                     SERVICE_DEFINITION BLOB NOT NULL,
-                    METADATA BLOB NOT NULL,
                     PRIMARY KEY (UUID),
                     CONSTRAINT SERVICE_KEY_TENANT UNIQUE(SERVICE_KEY, TENANT_ID),
                     CONSTRAINT SERVICE_NAME_VERSION_TENANT UNIQUE (SERVICE_NAME, SERVICE_VERSION, TENANT_ID))
@@ -1705,7 +1700,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE AM_API_SERVICE_MAPPING (
             API_ID INTEGER NOT NULL,
             SERVICE_KEY VARCHAR(256) NOT NULL,
-            MD5 VARCHAR(100) NOT NULL,
+            MD5 VARCHAR(100),
             TENANT_ID INTEGER NOT NULL,
             PRIMARY KEY (API_ID, SERVICE_KEY),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE
@@ -1994,6 +1989,7 @@ Follow the instructions below to move all the existing API Manager configuration
           API_ID VARCHAR(255) NOT NULL,
           REVISION_ID VARCHAR(255) NOT NULL,
           LABEL VARCHAR(255) NOT NULL,
+          VHOST VARCHAR(255) NULL,
           PRIMARY KEY (REVISION_ID, API_ID,LABEL),
           FOREIGN KEY (API_ID) REFERENCES AM_GW_PUBLISHED_API_DETAILS(API_ID) ON UPDATE CASCADE ON DELETE NO ACTION
         );
@@ -2015,7 +2011,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     SERVICE_KEY VARCHAR(100) NOT NULL,
                     MD5 VARCHAR(100) NOT NULL,
                     SERVICE_NAME VARCHAR(255) NOT NULL,
-                    DISPLAY_NAME VARCHAR(255) NOT NULL,
                     SERVICE_VERSION VARCHAR(30) NOT NULL,
                     TENANT_ID INTEGER NOT NULL,
                     SERVICE_URL VARCHAR(2048) NOT NULL,
@@ -2029,7 +2024,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     CREATED_BY VARCHAR(255),
                     UPDATED_BY VARCHAR(255),
                     SERVICE_DEFINITION BYTEA NOT NULL,
-                    METADATA BYTEA NOT NULL,
                     PRIMARY KEY (UUID),
                     UNIQUE (SERVICE_NAME, SERVICE_VERSION, TENANT_ID),
                     UNIQUE (SERVICE_KEY, TENANT_ID)
@@ -2071,7 +2065,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE AM_API_SERVICE_MAPPING (
             API_ID INTEGER NOT NULL,
             SERVICE_KEY VARCHAR(256) NOT NULL,
-            MD5 VARCHAR(100) NOT NULL,
+            MD5 VARCHAR(100),
             TENANT_ID INTEGER NOT NULL,
             PRIMARY KEY (API_ID, SERVICE_KEY),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE
@@ -2131,21 +2125,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
     - In order to work with the [API Security Audit Feature]({{base_path}}/design/api-security/configuring-api-security-audit/) you need to have the public certificate of the [42crunch](https://42crunch.com/) in the client-truststore. Follow the guidelines given in [Importing Certificates to the Truststore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-3-importing-certificates-to-the-truststore).
 
-6.  Configure the [SymmetricKeyInternalCryptoProvider](https://is.docs.wso2.com/en/5.11.0/administer/symmetric-overview/) as the default internal cryptor provider.
-    Generate your own secret key using a tool like OpenSSL.
-    
-    i.e.,
-       ```
-        openssl enc -nosalt -aes-128-cbc -k hello-world -P
-       ```        
-    Add the configuration to the <NEW_IS_HOME>/repository/conf/deployment.toml file.
-    
-       ```
-       [encryption]
-       key = "<provide-your-key-here>"
-       ```
-
-6.  Upgrade the Identity component in WSO2 API Manager from version 5.10.0 to 5.11.0.
+5.  Upgrade the Identity component in WSO2 API Manager from version 5.10.0 to 5.11.0.
 
     1.  Download the identity component migration resources and unzip it in a local directory.
 
@@ -2178,6 +2158,11 @@ Follow the instructions below to move all the existing API Manager configuration
                     -
                         name: "TenantPortalMigrator"
                         order: 11
+                ```
+            Also remove the following step from migration-config.yaml included under version: "5.11.0".
+                ```              
+                    -   name: "SCIMGroupRoleMigrator"
+                        order: 18
                 ```
 
     4.  Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
@@ -2248,6 +2233,22 @@ Follow the instructions below to move all the existing API Manager configuration
             
 6.  Migrate the API Manager artifacts.
 
+    !!! Note
+        Modify the `[apim.gateway.environment]` tag in the `<API-M_HOME>/repository/conf/deployment.toml` file, the name should change to "Production and Sandbox". By default, it is set as `Default` in API Manager 4.0.0.
+    
+        ```toml
+        [[apim.gateway.environment]]
+        name = "Production and Sandbox"
+        ```
+    !!! Info
+        If you have changed the name of the gateway environment in your older version, then when migrating, make sure
+        that you change the `[apim.gateway.environment]` tag accordingly. For example, if your gateway environment was named `Test` in the `<OLD_API-M_HOME>/repository/conf/api-manager.xml` file, you have to change the toml config as shown below.
+
+        ```toml
+        [[apim.gateway.environment]]
+        name = "Test"
+        ``` 
+    
     You have to run the following migration client to update the registry artifacts.
 
     1. Download and extract the [migration-resources.zip]({{base_path}}/assets/attachments/install-and-setup/migration-resources.zip). Copy the extracted `migration-resources`  to the `<API-M_4.0.0_HOME>` folder.
@@ -2317,9 +2318,12 @@ Follow the instructions below to move all the existing API Manager configuration
     3.  Add the following configuration into the `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file.
         
         ```
+        
         [indexing]
         re_indexing = 1
+        
         ```
+        
         Note that you need to increase the value of `re_indexing` by one each time you need to re-index.
 
         !!! info 
@@ -2360,17 +2364,6 @@ This concludes the upgrade process.
   
    - If you have done any customizations to the **default sequences** that ship with product, you may merge the customizations. Also note that the fault messages have been changed from XML to JSON in API-M 4.0.0.  
    
-   - Prior to WSO2 API Manager 4.0.0, the distributed deployment comprised of five main product profiles, namely Publisher, Developer Portal, Gateway, Key Manager, and Traffic Manager. However, the new architecture in APIM 4.0.0 only has three profiles, namely Gateway, Traffic Manager, and Default.
-     All the data is persisted in databases **from WSO2 API-M 4.0.0 onwards**. Therefore, it is recommended to execute the migration client in the Default profile.
-     For more details on the WSO2 API-M 4.0.0 distributed deployment, see [WSO2 API Manager distributed documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m).
- 
-   - **API-M 4.0.0** Server startup script has renamed as <code>api-manager.sh</code> (for Linux) and <code>api-manager.bat</code> (for Windows)    
-    
-!!! note
-    Prior to WSO2 API Manager 4.0.0, the distributed deployment comprised of five main product profiles, namely Publisher, Developer Portal, Gateway, Key Manager, and Traffic Manager. However, the new architecture in APIM 4.0.0 only has three profiles, namely Gateway, Traffic Manager, and Default.
-    All the data is persisted in databases **from WSO2 API-M 4.0.0 onwards**. Therefore, it is recommended to execute the migration client in the Default profile.
-    For more details on the WSO2 API-M 4.0.0 distributed deployment, see [WSO2 API Manager distributed documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m).    
-
 !!! important
 
     **From WSO2 API_M 4.0.0 onwards** error responses in API calls has changed from XML to JSON format.

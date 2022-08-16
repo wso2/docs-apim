@@ -36,13 +36,13 @@ Connectors can be added to integration flows in [WSO2 Integration Studio](https:
 
 Follow these steps to set up the Integration Project and the Connector Exporter Project. 
 
-{!reference/connectors/importing-connector-to-integration-studio.md!} 
+{!includes/reference/connectors/importing-connector-to-integration-studio.md!} 
 
 ### Add integration logic
 
-First create an API, which will be where we configure the integration logic. Right click on the created Integration Project and select, **New** -> **Rest API** to create the REST API. Specify the API name as `SampleRdisAPI` and API context as `/resources`.
+First create an API, which will be where we configure the integration logic. Right click on the created Integration Project and select, **New** -> **Rest API** to create the REST API. Specify the API name as `StockQuoteAPI` and API context as `/stockquote`.
     
-<img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.jpg" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
 #### Configuring the API
 
@@ -154,7 +154,7 @@ Create a resource that sets up Redis hash map and sets a specific field in a has
    
 2. Set up the  operation.
    
-   Navigate into the **Palette** pane and select the graphical operations icons listed under **Redis Connector** section. Then drag and drop the `hDel` operation into the Design pane.The `hDel` operation deletes one or more hash fields
+   Navigate into the **Palette** pane and select the graphical operations icons listed under **Redis Connector** section. Then drag and drop the `hDel` operation into the Design pane. The `hDel` operation deletes one or more hash fields
         
       - **redisKey** : The name of the key where the hash is stored.
       - **redisFields** : The fields that you want to delete.
@@ -164,9 +164,7 @@ Create a resource that sets up Redis hash map and sets a specific field in a has
 3. Forward the backend response to the API caller. Please follow the steps given in section 8 in the `getstockquote` operation.     
                
 Now you can switch into the Source view and check the XML configuration files of the created API and sequences. 
-    
-  ??? note "StockQuoteAPI.xml"
-      ```
+```xml
         <?xml version="1.0" encoding="UTF-8"?>
         <api context="/stockquote" name="StockQuoteAPI" xmlns="http://ws.apache.org/ns/synapse">
             <resource methods="GET" uri-template="/getstockquote/{symbol}">
@@ -256,20 +254,12 @@ Now you can switch into the Source view and check the XML configuration files of
                 <faultSequence/>
             </resource>
         </api>
-        ```
-## Get the project
-
-You can download the ZIP file and extract the contents to get the project code.
-
-<a href="{{base_path}}/assets/attachments/connectors/smpp-connector.zip">
-    <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
-</a>
-
+```
 ## Deployment
 
 Follow these steps to deploy the exported CApp in the integration runtime. 
 
-{!reference/connectors/deploy-capp.md!}   
+{!includes/reference/connectors/deploy-capp.md!}   
 
 ## Testing
 
@@ -353,7 +343,7 @@ Invoke the API as shown below using the curl command. Curl Application can be do
      4) "7791"
      127.0.0.1:6379>
      ```
-2. Retrieve all stock volume details from the redis server.
+2. Retrieve all stock volume details from the Redis server.
  
    **Sample request**
 
@@ -384,7 +374,7 @@ Invoke the API as shown below using the curl command. Curl Application can be do
      }
      ```
      
-   **Sample request 2 : Check the remainning stock volume details**
+   **Sample request 2 : Check the remaining stock volume details**
     
    **Sample request**
    

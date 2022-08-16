@@ -4,7 +4,7 @@ A transport protocol is responsible for carrying messages that are in a specific
 
 ## Configuring the HTTP/HTTPS transport
 
-The HTTP and HTTPS passthrough transports are enabled by default in the Micro Integrator.
+The HTTP and HTTPS PassThrough transports are enabled by default in the Micro Integrator.
 
 See the following sections for a complete list of HTTP/HTTPS parameter.
 
@@ -45,11 +45,11 @@ This will restrict simultaneous open incoming connections to 2. To disable throt
 
 ### Verifying certificate revocation
 
-The default HTTPS transport listener (Secured Passthrough) and transport sender can verify with the certificate authority whether a certificate is still trusted before it completes an SSL connection. If the certificate authority has revoked the certificate, a connection will not be completed.
+The default HTTPS transport listener (Secured PassThrough) and transport sender can verify with the certificate authority whether a certificate is still trusted before it completes an SSL connection. If the certificate authority has revoked the certificate, a connection will not be completed.
 
 When this feature is enabled, the transport listener verifies client
 certificates when a client tries to make an HTTPS connection with the
-Micro Integrator. The transport sender verifies server
+Micro Integrator. Therefore the client needs to send it's public certificate along with the requests to the Micro Integrator. The transport sender verifies server
 certificates when the Micro Integrator tries to make an HTTPS
 connection with a backend server. 
 
@@ -59,13 +59,14 @@ certificate authority at the handshake phase of the SSL protocol. If the
 OCSP is not supported by the certificate authority, the Micro Integrator uses Certified Revocation Lists (CRL) instead. The verification
 process checks all the certificates in a certificate chain.
 
-To enable this feature for the HTTP passthrough, add the following parameters for the HTTP transport receiver and sender in the deployment.toml file:
+To enable this feature for the HTTP PassThrough, add the following parameters for the HTTP transport receiver and sender in the deployment.toml file:
 
 ```toml tab='Passthrough Listener'
 [transport.http]
 listener.certificate_revocation_verifier_enable = true
 listener.certificate_revocation_cache_size = 1024
 listener.certificate_revocation_cache_delay = 1000
+listener.verify_client = "require"
 
 ```
 
@@ -102,9 +103,9 @@ listener.parameter.PreferredCiphers = "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,T
 ```
 
 !!! Note
-    To check the above configuration changes related to SSL. Download [TestSSLServer.jar](https://docs.wso2.com/download/attachments/53125465/TestSSLServer.jar?version=1&modificationDate=1471859455000&api=v2) and test with the following command.
+    To check the above configuration changes related to SSL. Download [testsslserver.jar]({{base_path}}/assets/attachments/admin/testsslserver.jar) and test with the following command.
 
-    $ java -jar TestSSLServer.jar localhost 8253
+    $ java -jar testsslserver.jar localhost 8253
 
 ## Configuring the VFS transport
 
@@ -207,6 +208,9 @@ Also [download](https://logging.apache.org/log4j/1.2/download.html) the followin
 
 -   log4j-1.2.17.jar
 
+!!! Warning
+    Note that WSO2 API Manager 3.0.0, 3.1.0, 3.2.0, and 4.0.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
+
 ### Configuring Sample FIX Applications
 
 If you are using a binary distribution of Quickfix/J, the two samples (FIX messages sender/reveiver) and their configuration files are all packed to two JAR files called
@@ -304,16 +308,16 @@ To enable the MQTT transport listener and sender, set the following parameters t
 listener.enable = false
 sender.enable = false
 ```
-## Configuring the Websocket transport
+## Configuring the WebSocket transport
 
-To enable the Websocket transport sender, set the following parameters to `true` in the `deployment.toml` file (stored in the `MI_HOME/conf` directory).
+To enable the WebSocket transport sender, set the following parameters to `true` in the `deployment.toml` file (stored in the `MI_HOME/conf` directory).
 
 ```toml
 [transport.ws]
 sender.enable = false
 ```
 
-To enable the **secured** Websocket transport sender, set the following parameters to `true` in the `deployment.toml` file (stored in the `MI_HOME/conf` directory.
+To enable the **secured** WebSocket transport sender, set the following parameters to `true` in the `deployment.toml` file (stored in the `MI_HOME/conf` directory.
 
 ```toml
 [transport.wss]
@@ -354,9 +358,7 @@ The HL7 transport allows you to handle Health Level 7 International (HL7) messag
 
 ### Adding the transport
 
-HL7 is not shipped by default in the pack. To make the transport available, download the [HL7_ZIP](https://github
-.com/wso2-docs/WSO2_EI/raw/master/micro-integrator-resources/hl7/1.2.0/wso2mi-hl7-1.2.0.zip), extract it, and copy both
- the .jar files inside it to the `<MI_HOME>/dropins` folder.
+HL7 is not shipped by default in the pack. To make the transport available, download the [HL7_ZIP](https://github.com/wso2-docs/WSO2_EI/raw/master/micro-integrator-resources/hl7/1.2.0/wso2mi-hl7-1.2.0.zip), extract it, and copy both the .jar files inside it to the `<MI_HOME>/dropins` folder.
 
 ### Enabling the transport
 
@@ -468,4 +470,4 @@ See the following topics for instructions on how to configure the Micro Integrat
 
 ## Configuring the Multi-HTTPS transport
 
-This transport is similar to the HTTPS passthrough transport, but it allows you to have different SSL profiles with separate truststores and keystores for different hosts using the same WSO2 Micro Integrator. It can listen to different host IPs and ports for incoming HTTPS connections, and each IP/Port will have a separate SSL profile configured.
+This transport is similar to the HTTPS PassThrough transport, but it allows you to have different SSL profiles with separate truststores and keystores for different hosts using the same WSO2 Micro Integrator. It can listen to different host IPs and ports for incoming HTTPS connections, and each IP/Port will have a separate SSL profile configured.

@@ -7,7 +7,7 @@ Therefore, WSO2 API Manager can connect Keycloak out-of-the-box using the [WSO2 
 Follow the instructions given below to configure Keycloak as a third-party Key Manager. 
 
 !!! info
-    For more information, see the [Getting Started Guide, which is under the official Keycloak documentation](https://www.keycloak.org/docs/latest/getting_started/).
+    For more information, see the [Getting Started Guide, which is under the official Keycloak documentation](https://www.keycloak.org/guides#getting-started).
 
 ## Step 1 - Configure Keycloak
 
@@ -95,7 +95,11 @@ Follow the instructions given below to configure Keycloak as a third-party Key M
 
     3. Add the following configuration to add a new Key Manager.
     
-         [![Add Key Cloak configurations]({{base_path}}/assets/img/administer/keycloak-endpoints.png)]({{base_path}}/assets/img/administer/keycloak-endpoints.png)
+         [![Add Keycloak configurations]({{base_path}}/assets/img/administer/keycloak-endpoints.png)]({{base_path}}/assets/img/administer/keycloak-endpoints.png)
+         
+         !!! tip
+             * Configuring the well-known URL populates all the default configurations in the table once you click **Import**. 
+             * It is mandatory to provide the **Client Id** and **Client Secret**.
 
          The following table provides definitions for each of the configurations.
 
@@ -328,4 +332,5 @@ Follow the instructions given below to configure Keycloak as a third-party Key M
 6. Click **Generate Keys**.
 
 !!! tip
-     If you want to generate the tokens with scopes, those scopes should have been defined in Keycloak as mentioned in the <a href="#step12">Step 1 - (2)</a>.
+     * If you want to generate the tokens with scopes, those scopes should have been defined in Keycloak as mentioned in the <a href="#step12">Step 1 - (2)</a>.
+     * When generating a token in the Developer Portal, you need to have the `code` and `implicit` grant types selected and you need to enter the response type as `none`. Without these, the token generation process fails.

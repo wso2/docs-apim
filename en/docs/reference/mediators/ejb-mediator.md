@@ -74,4 +74,4 @@ The **EJB mediator** calls an external Enterprise JavaBean(EJB) and stores the r
 </ejb>
 ```
 
-In this example, the EJB Mediator does the EJB service invocation by calling **getStoreById** pubished at the application server and exposed via `         ejb:/EJBDemo/StoreRegsiterBean!org.ejb.wso2.test.StoreRegister`. The response will then be assigned to the **target** specified (variable/expression).
+In this example, the EJB Mediator does the EJB service invocation by calling **getStoreById** published at the application server and exposed via `         ejb:/EJBDemo/StoreRegsiterBean!org.ejb.wso2.test.StoreRegister`. The response will then be assigned to the **target** specified (variable/expression).

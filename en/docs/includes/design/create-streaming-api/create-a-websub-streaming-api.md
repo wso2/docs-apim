@@ -20,11 +20,11 @@ For example, you can use WebSub APIs to get notifications as soon as a new messa
 
 Follow the instructions below to create a WebHook API using the basic flow:
 
-### Step 1 - Design a WebSub/Webhook API
+### Step 1 - Design a WebSub/WebHook API
 
 1.  {!includes/sign-in-publisher.md!}
 
-2.  Click **CREATE API**, go to **Streaming API**, and Click **Webhook API**.
+2.  Click **CREATE API**, go to **Streaming API**, and Click **WebHook API**.
 
     <html><div class="admonition note">
       <p class="admonition-title">Note</p>
@@ -34,7 +34,7 @@ Follow the instructions below to create a WebHook API using the basic flow:
 
     [![Design New Streaming API](../../../assets/img/design/create-api/streaming-api/design-new-streaming-api.png)](../../../assets/img/design/create-api/streaming-api/design-new-streaming-api.png)
 
-3.  Enter the details of the new WebSub/Webhook API.
+3.  Enter the details of the new WebSub/WebHook API.
 
      <table>
      <thead>
@@ -73,7 +73,7 @@ Follow the instructions below to create a WebHook API using the basic flow:
 
 ### Step 2 - Configure the Topics
 
-Topics of a WebSub/Webhook API are always **Subscribe only**. By default, a WebSub/Webhook API will have a topic with the name `_default`.
+Topics of a WebSub/WebHook API are always **Subscribe only**. By default, a WebSub/WebHook API will have a topic with the name `_default`.
 
 1. Click **Topics** under **API Configurations** to navigate to the **Topics** page.
 

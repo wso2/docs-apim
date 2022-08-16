@@ -4,7 +4,7 @@
 This application demonstrates how to configure WSO2 Streaming Integrator Tooling to Publish and receive data events processed within Siddhi to files in CSV default format.
 
 ## Prerequisites:
-* Edit the uri '{WSO2SIHome}/samples/artifacts/CSVMappingWithFile/new/example.csv' by replacing {WSO2SIHome} with the absolute path of your WSO2SP home directory. You can also change the path for 'file.uri' in the sink, if you want to publish your event file to a different location.
+* Edit the URI '{WSO2SIHome}/samples/artifacts/CSVMappingWithFile/new/example.csv' by replacing {WSO2SIHome} with the absolute path of your WSO2SP home directory. You can also change the path for 'file.uri' in the sink, if you want to publish your event file to a different location.
 
 * Save this sample. If there is no syntax error, the following messages would be shown on the console:
     - CSVDefaultMapping.siddhi successfully deployed.

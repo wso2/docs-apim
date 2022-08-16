@@ -11,7 +11,7 @@ This section describes how to configure WSO2 Micro Integrator to connect with Sw
     -   swiftmq.jar
 
     !!! Info
-        Always use the standard client libraries that come with a particular version of SwiftMQ in order to avoid version incompatibility issues. Ww recommend that you remove old client libraries, if any, from all locations including `MI_HOME/lib `and `MI_HOME/droppins` before copying the libraries relevant to a given version.
+        Always use the standard client libraries that come with a particular version of SwiftMQ in order to avoid version incompatibility issues. We recommend that you remove old client libraries, if any, from all locations including `MI_HOME/lib `and `MI_HOME/droppins` before copying the libraries relevant to a given version.
 
 4.  If you want the Micro Integrator to receive messages from a SwiftMQ instance, or to send messages to a SwiftMQ instance, you need to update the deployment.toml file with the relevant connection parameters.
 

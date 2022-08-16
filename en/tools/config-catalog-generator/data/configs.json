@@ -335,6 +335,14 @@
                             "default": "SHA256withRSA",
                             "possible": "NONE",
                             "description": "Specify NONE to disbale the sigining."
+                        },
+                        {
+                            "name": "enable_claim_retrieval",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "",
+                            "possible": "true, false",
+                            "description": " Enable to add user claims to the backend JWT token. This will provide the user claims related to the authorized user to the default Keymanager implementation. For custom keymanager implementations, implement the getUserClaims() in the KeyManager implementation."
                         }
                     ]
                 }
@@ -421,17 +429,9 @@
                             "name": "name",
                             "type": "string",
                             "required": true,
-                            "default": "Production and Sandbox",
+                            "default": "Default",
                             "possible": "",
-                            "description": "User can add preferred values and should not be changed once configured."
-                        },
-                        {
-                            "name": "display_name",
-                            "type": "string",
-                            "required": false,
-                            "default": "<name> of the environment",
-                            "possible": "",
-                            "description": "User can add preferred set a name to display"
+                            "description": "User can add preferred values as the name."
                         },
                         {
                             "name": "type",
@@ -517,6 +517,29 @@
                 }
             ],
             "exampleFile": "apim.gateway.environment.toml"
+        },
+        {
+            "options": [
+                {
+                    "name": "apim.sync_runtime_artifacts.gateway",
+                    "required": true,
+                    "description": "Define information on labels that the gateway is going to subscribe to. Only the APIs with these labels will be pulled from the extension point and deployed",
+                    "params": [
+                        {
+                            "name": "gateway_labels",
+                            "type": "string array",
+                            "required": true,
+                            "default": "Default",
+                            "possible": [
+                                "TestGWLabel",
+                                "Default"
+                            ],
+                            "description": "Array of the labels that the gateway is going to subscribe to"
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.sync_runtime_artifacts.gateway.toml"
         },
         {
             "title": "Virtual host of API-M gateway environment configurations",
@@ -956,6 +979,29 @@
                             "default": "",
                             "possible": "",
                             "description": "You can provide a custom key validation handler implmentation. To do this, set the \"key_validation_handler_type\" to custom"
+                        }
+                    ]
+                },
+                {
+                    "name": "apim.http_client",
+                    "required": true,
+                    "description": "Configuration related to the http client used for key validation calls made from gateway to key manager component. For the default JWT tokens (from 3.2.0 onwards, the default token type is JWT), the key validation takes place within GW node itself, as the JWT token is self-contained. So no key validation call is made for JWT tokens. But if the token used is a reference token (if the deployment is migrated from older version which used reference tokens), the key validation http calls will be made to the Key manager component for token introspection. This dedicated http client is used for this purpose. ",
+                    "params": [
+                        {
+                            "name": "max_total",
+                            "type": "int",
+                            "required": true,
+                            "default": "100",
+                            "possible": "",
+                            "description": "The maximum number of connections that will be created for the key validation calls. If there is a considerable latency, the connections in use at a given time will take a long time to be released and added back to the connection pool. As a result, connections may not be available for some requests. In such situations, it is recommended to increase the value for this parameter."
+                        },
+                        {
+                            "name": "default_max_per_route",
+                            "type": "int",
+                            "required": true,
+                            "default": "50",
+                            "possible": "",
+                            "description": "The maximum number of connections that will be created per host server by the client. Will have to increase this too, when required as similarly for the config max_total."
                         }
                     ]
                 }
@@ -1805,20 +1851,20 @@
                             "description": "Password used to authenticate the mail server."
                         },
                         {
-                            "name": "signature",
-                            "type": "string",
-                            "required": false,
-                            "default": "",
-                            "possible": "",
-                            "description": "Signature of the sender account."
-                        },
-                        {
                             "name": "hostname",
                             "type": "string",
                             "required": false,
                             "default": "",
                             "possible": "",
                             "description": "The SMTP server to connect to."
+                        },
+                        {
+                            "name": "signature",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Signature of the sender account."
                         },
                         {
                             "name": "port",
@@ -3121,7 +3167,7 @@
                             "name": "listener.key_store.file_name",
                             "type": "string",
                             "required": true,
-                            "default": "APIM_HOME/repository/resources/security/wso2carbon.jks",
+                            "default": "API-M_HOME/repository/resources/security/wso2carbon.jks",
                             "possible": "-",
                             "description": "The path to the keystore file that is used for securing the HTTP passthrough connection. By default, the keystore file of the primary keystore is enabled for this purpose."
                         },
@@ -3153,7 +3199,7 @@
                             "name": "listener.trust_store.file_name",
                             "type": "string",
                             "required": true,
-                            "default": "APIM_HOME/repository/resources/security/wso2truststore.jks",
+                            "default": "API-M_HOME/repository/resources/security/wso2truststore.jks",
                             "possible": "-",
                             "description": "The path to the keystore file that is used for storing the trusted digital certificates. By default, the product's trust store is configured for this purpose."
                         },
@@ -3217,7 +3263,7 @@
                             "name": "sender.key_store.file_name",
                             "type": "string",
                             "required": true,
-                            "default": "APIM_HOME/repository/resources/security/wso2carbon.jks",
+                            "default": "API-M_HOME/repository/resources/security/wso2carbon.jks",
                             "possible": "-",
                             "description": "The path to the keystore file that is used for securing the HTTP passthrough connection. By default, the keystore file of the primary keystore is enabled for this purpose."
                         },
@@ -3249,7 +3295,7 @@
                             "name": "sender.trust_store.file_name",
                             "type": "string",
                             "required": true,
-                            "default": "APIM_HOME/repository/resources/security/wso2truststore.jks",
+                            "default": "API-M_HOME/repository/resources/security/wso2truststore.jks",
                             "possible": "-",
                             "description": "The path to the keystore file that is used for storing the trusted digital certificates. By default, the product's trust store is configured for this purpose."
                         },
@@ -3634,7 +3680,7 @@
                             "name": "sender.trust_store.location",
                             "type": "string",
                             "required": true,
-                            "default": "APIM_HOME/repository/resources/security/wso2truststore.jks",
+                            "default": "API-M_HOME/repository/resources/security/wso2truststore.jks",
                             "possible": "-",
                             "description": "The file path to the truststore that stores the trusted digital certificates for websocket use cases. By default, the product's trust store is configured for this purpose."
                         },
@@ -5056,6 +5102,14 @@
                             "default": "5",
                             "possible": "",
                             "description": "User core cache expiration duration"
+                        },
+                        {
+                            "name": "CaseInsensitiveUsername",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Set the value to false for case insensitive JDBC user stores"
                         }
 
                     ]
@@ -5064,33 +5118,173 @@
             "exampleFile": "user_store.properties.toml"
         },
         {
-            "title": "Global handler configurations",
+            "title": "Custom keystore configurations",
             "options": [
                 {
-                    "name": "synapse_handlers.custom_handler_name",
+                    "name": "custom_keystore.APIKeyKeyStore",
                     "required": false,
-                    "description": "configuration used to define or enable disable global handler.",
-                    "params": [
+                    "description": "This includes configuration for custom Keystores in WSO2 API Manager ",
+                    "params": [                   
                          {
-                            "name": "enabled",
-                            "type": "boolean",
+                            "name": "file_name",
+                            "type": "string",
                             "required": false,
                             "default": "",
                             "possible": "",
-                            "description": "Enable or disable a defined global handler."
+                            "description": "The name of the Keystore (the Keystore file should be placed inside <API-M_HOME>/repository/resources/security directory)"
                         },
                         {
-                            "name": "class",
+                            "name": "type",
                             "type": "string",
-                            "required": true,
+                            "required": false,
                             "default": "",
                             "possible": "",
-                            "description": "Fully qualified class name of the global handler."
-                        }
+                            "description": "The Keystore type."
+                        },
+                        {
+                            "name": "password",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The Keystore password."
+                        },
+                        {
+                            "name": "alias",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Private key alias of the Keystore."
+                        },
+                        {
+                            "name": "key_password",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The private key password of the Keystore (WSO2 recommends that you maintain the identical Keystore password and key password due to known limitations)."
+                        }                                                                                                                                                                                                                                                                            
                     ]
                 }
             ],
-            "exampleFile": "synapse_handlers.toml"
-        }
+            "exampleFile": "custom_keystore.toml"
+        },
+        {
+            "title": "Restricting access to web portals - Management console",
+            "options": [
+                {
+                    "name": "admin_console.control_access",
+                    "required": false,
+                    "description": "This adds a RemoteAddrValve Tomcat valve in the `<API-M_HOME>/repository/conf/tomcat/carbon/META-INF/context.xml` file and it will only apply to the Carbon management console, and thereby all outside requests to the management console will be blocked.",
+                    "params": [                   
+                         {
+                            "name": "enable",
+                            "type": "string",
+                            "required": false,
+                            "default": "true",
+                            "possible": "",
+                            "description": ""
+                        },
+                        {
+                            "name": "allow",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": ""
+                        }                                                                                                                                                                                                                                                                            
+                    ]
+                }
+            ],
+            "exampleFile": "admin_console.control_access.toml"
+        },
+        {
+            "title": "Restricting access to web portals - Web applications",
+            "options": [
+                {
+                    "name": "web_app.control_access",
+                    "required": false,
+                    "description": "This will add a RemoteAddrValve Tomcat valve in the `<API-M_HOME>/repository/conf/tomcat/context.xml` file and it will apply to each web application hosted on the Carbon server. Therefore, all outside requests to any web application will be blocked.",
+                    "params": [                   
+                         {
+                            "name": "enable",
+                            "type": "string",
+                            "required": false,
+                            "default": "true",
+                            "possible": "",
+                            "description": ""
+                        },
+                        {
+                            "name": "allow",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": ""
+                        }                                                                                                                                                                                                                                                                            
+                    ]
+                }
+            ],
+            "exampleFile": "web_app.control_access.toml"
+        },
+        {
+            "title": "Restricting access to web portals - Servlets",
+            "options": [
+                {
+                    "name": "servlet_access_control_filter",
+                    "required": false,
+                    "description": "This will add Remote Address Filter to the web.xml file (stored in the `<API-M_HOME>/repository/conf/tomcat/` directory) by mapping that filter to the servlet URL. In the Remote Address Filter that you add, you can specify the IP addresses that should be allowed to access the servlet.",
+                    "params": [                   
+                         {
+                            "name": "filter_name",
+                            "type": "string",
+                            "required": false,
+                            "default": "true",
+                            "possible": "",
+                            "description": ""
+                        },
+                        {
+                            "name": "allow_ip_regex",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": ""
+                        },
+                        {
+                            "name": "url_pattern",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": ""
+                        }                                                                                                                                                                                                                                                                            
+                    ]
+                }
+            ],
+            "exampleFile": "servlet_access_control_filter.toml"
+        },
+        {
+            "title": "Web app listener configurations",
+            "options": [
+                {
+                    "name": "web_app.listener",
+                    "required": false,
+                    "description": "This can be configured to add custom Tomcat listener, as shown in the example.",
+                    "params": [                   
+                         {
+                            "name": "class_name",
+                            "type": "string",
+                            "required": true,
+                            "default": "true",
+                            "possible": "",
+                            "description": ""
+                        }                                                                                                                                                                                                                                                                            
+                    ]
+                }
+            ],
+            "exampleFile": "web_app.listener.toml"
+        }                                                                                   
     ]
 }

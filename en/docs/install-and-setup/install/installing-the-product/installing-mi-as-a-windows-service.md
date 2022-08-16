@@ -8,7 +8,7 @@ Follow the instructions given below to run the Micro Integrator as a Windows ser
 
 -	Extract the downloaded ZIP file to a location on your computer. The <b>micro-integrator</b> folder inside the extracted ZIP file will be your <b>MI_HOME</b> directory.
 
--	Set up a [JDK that is compatible with the Micro Integrator](../install_prerequisites/#environment-compatibility) and point the `java_home` variable to your JDK instance. 
+-	Set up a [JDK that is compatible with the Micro Integrator]({{base_path}}/install-and-setup/install/installation-prerequisites/#environment-compatibility) and point the `java_home` variable to your JDK instance. 
  
 -	Point the `wso2mi_home` environment variable to the `MI_HOME` directory.
 
@@ -21,6 +21,19 @@ YASJW uses the configurations defined in the `<YAJSW_HOME>/conf/wrapper.conf` fi
 
 !!! Info
     WSO2 recommends Yet Another Java Service Wrapper (YAJSW) version 12.14. If you are running on JDK 11, previous versions of YAJSW will not be compatible.
+
+!!! tip
+    You may encounter the following issue when starting Windows Services when the file "java" or a "dll" used by Java cannot be found by YAJSW. 
+
+    ```bash 
+    "Error 2: The system cannot find the file specified" 
+    ```
+
+    This can be resolved by providing the "complete java path" for the wrapper.java.command as follows.
+
+    ```bash
+    wrapper.java.command = ${JAVA_HOME}/bin/java
+    ```
 
 ## Installing the service
 

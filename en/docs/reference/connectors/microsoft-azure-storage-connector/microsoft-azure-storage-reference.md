@@ -28,6 +28,11 @@ To use the Microsoft Azure Storage connector, add the <msazurestorage.init> elem
             <td>The access key for the storage account.</td>
             <td>Yes</td>
         </tr>
+        <tr>
+            <td>defaultEndpointsProtocol</td>
+            <td>Type of the protocol(HTTP/HTTPS) to connect.</td>
+            <td>No</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -36,6 +41,7 @@ To use the Microsoft Azure Storage connector, add the <msazurestorage.init> elem
     <msazurestorage.init>
         <accountName>{$ctx:accountName}</accountName>
         <accountKey>{$ctx:accountKey}</accountKey>
+        <defaultEndpointsProtocol>{$ctx:defaultEndpointsProtocol}</defaultEndpointsProtocol>
     </msazurestorage.init>
     ```
     
@@ -66,6 +72,11 @@ To use the Microsoft Azure Storage connector, add the <msazurestorage.init> elem
             <td>The path to a local file to be uploaded.</td>
             <td>Yes</td>
         </tr>
+        <tr>
+            <td>blobContentType</td>
+            <td>The Content-type of the file to be uploaded.</td>
+            <td>No</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -75,6 +86,7 @@ To use the Microsoft Azure Storage connector, add the <msazurestorage.init> elem
         <containerName>{$ctx:containerName}</containerName>
         <fileName>{$ctx:fileName}</fileName>
         <filePath>{$ctx:filePath}</filePath>
+        <blobContentType>{$ctx:fileContentType}</blobContentType>
     </msazurestorage.uploadBlob>
     ```
     

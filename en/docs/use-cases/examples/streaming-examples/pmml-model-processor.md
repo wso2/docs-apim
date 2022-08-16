@@ -31,7 +31,7 @@ Send events through one or more of the following methods.
     3. In the name and amount fields, enter 'candy', 20, 23 respectively and then click Send to send the event.
     4. Send more events as desired.
 
-* Send events to the http endpoint defined by 'publish.url' in the Sink configuration through the curl command:
+* Send events to the HTTP endpoint defined by 'publish.url' in the Sink configuration through the curl command:
     1. Open a new terminal and issue the following command:
         *  curl -X POST -d '{"streamName": "SweetProductionStream", "siddhiAppName": "PmmlModelProcessor","data": ['candy', 20, 23]}' http://localhost:9390/simulation/single -H 'content-type: text/plain'
     2. If there is no error, the following messages are shown on the terminal:

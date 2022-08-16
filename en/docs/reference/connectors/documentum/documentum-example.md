@@ -32,7 +32,7 @@ Connectors can be added to integration flows in [WSO2 Integration Studio](https:
 
 Follow these steps to set up the Integration Project and the Connector Exporter Project. 
 
-{!reference/connectors/importing-connector-to-integration-studio.md!} 
+{!includes/reference/connectors/importing-connector-to-integration-studio.md!} 
 
 Now the connector is added to the palette.
 
@@ -81,7 +81,7 @@ You can see the newly added connector in the design palette.
 
 Now we can export the imported connector and the API into a single CAR application. CAR application is the one we are going to deploy to server runtime. 
 
-{!reference/connectors/exporting-artifacts.md!}
+{!includes/reference/connectors/exporting-artifacts.md!}
 
 Now the exported CApp can be deployed in the integration runtime so that we can run it and test.
 
@@ -100,7 +100,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp in the integration runtime. 
 
-{!reference/connectors/deploy-capp.md!}   
+{!includes/reference/connectors/deploy-capp.md!}   
 
 ## Testing
 

@@ -51,7 +51,7 @@ follows:
 
 ## Example
 
-The following Propert Group Mediator configuration adds the
+The following Property Group Mediator configuration adds the
 `         From        ` , `         Message        ` , and
 `         To        ` properties to the message context. It also removes
 the `         MessageID        ` property from the context. All four

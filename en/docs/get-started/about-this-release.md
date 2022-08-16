@@ -22,10 +22,6 @@ It is now available to download from [here](https://wso2.com/api-management/#).
     
 	 If you are an API Publisher, there can be a situation where you need to keep track of the different deployments of your API. For this purpose, a new concept named **Revisions** has been introduced. The revisions of your API can be **deployed** to specific Gateway Environment(s) as needed. You cannot edit the revisions. However, if required, you can **restore** your API to a specific revision if you want to discard the latest changes.
 
-- **[OpenAPI or GraphQL to Postman Collection]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console/)**
-
-    If required, instead of using the integrated GraphQL console or the integrated API Console, you can try out your GraphQL API and REST API respectively by downloading a Postman collection for your API and trying it out on Postman. For more information, see [Try out using Postman]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/try-out-using-postman/).
-
 - **[Support for ForgeRock Key Manager]({{base_path}}/administer/key-managers/configure-forgerock-connector/)**
 
     WSO2 API Manager can connect to ForgeRock out-of-the-box using the [WSO2 API-M ForgeRock Connector](https://github.com/wso2-extensions/apim-km-forgerock). WSO2 API Manager has the capability to support multiple Key Managers at the same time. So with the use of connectors, it is capable of supporting any authorization server as a Key Manager, and in this case, it supports a connection to ForgeRock as a third-party Key Manager.
@@ -46,6 +42,10 @@ It is now available to download from [here](https://wso2.com/api-management/#).
 
     **Virtual Host** enables you to deploy an API or API Product Revision to a Gateway with a custom hostname. Gateway environments and its virtual hosts can be managed via the Admin Portal, and the API Publisher can choose a host when deploying an API Revision or API Product Revision. 
 
+- **TLSv1.3 support for API Gateway**
+
+    API Gateway supports TLSv1.3 protocol and can be enabled to provide a stronger transport-level security.
+
 <!--
 
 - Changes to Publisher API/UI to support Streaming APIs
@@ -57,13 +57,27 @@ It is now available to download from [here](https://wso2.com/api-management/#).
 - Defaulting code and configs to do with event based
 -->
 
+### Deprecated features and functionalities
+
+- **[Message Tracing]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-tracing/)**
+
+     The support for this feature will be removed from subsequent versions starting from WSO2 API Manager 4.0.0.
+
 ### Removed features and functionalities
 
-- Microgateway Labels
+- **Microgateway Labels**
 
       [Grouping APIs with Microgateway Labels](https://apim.docs.wso2.com/en/3.2.0/learn/api-microgateway/grouping-apis-with-labels/)
       is removed from this release. Instead, you can use [Virtual Hosts (VHosts)]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames)
       and dynamically manageable Gateway environments to group and expose APIs with custom hostnames.
+
+- **Implicit Grant**
+    
+      Implicit Grant types have been removed due to [security concerns](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics-14#section-2.1.2).
+
+- **Documentation content search**
+   
+	 Use the content search instead of the documentation content search (doc: keyword search) in the future.
 
 ### Key changes
 
@@ -78,7 +92,7 @@ It is now available to download from [here](https://wso2.com/api-management/#).
     | `https://<gateway-host>/authorize`      | `https://<keymanager-host>/oauth2/authorize`      |
     | `https://<gateway-host>/userInfo` | `https://<keymanager-host>/oauth2/userInfo` |
 
-- Distributed setup profiles were refactored to three profiles from APIM-4.0.0 onwards.
+- Distributed setup profiles were refactored to three profiles from API Manager 4.0.0 and future releases.
       
     | **Profile**        | **Description**           | **Startup Argument**  |
     | :------------- |:-------------| :-----|
@@ -87,6 +101,17 @@ It is now available to download from [here](https://wso2.com/api-management/#).
     | Traffic Manager profile | The Traffic Manager profile.      |    `-Dprofile=traffic-manager` |
 
 - API-related Synapse artifacts were moved from the file system to the in-memory. Therefore, there will not be any Synapse artifacts stored in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/api` directory. These Synapse artifacts are stored in the database and loaded to memory when the server starts up and when a new API revision is deployed and published.
+
+	??? note "Expand to see how to retrieve the `.xml` files related to the existing artifacts"
+		**Note that the instructions below should be followed to troubleshoot, in this scenario.**
+		
+		- Add the configuration given below to the `<API-M_HOME>/repository/deployment.toml` file.
+			```
+			[synapse_properties]
+			'synapse.artifacts.file.storage.enabled' = true
+			```
+		- Restart the server.
+		- Check the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/api` folder or any other synapse artifact, you will be able to notice that the xml files for the APIs have been created there.
 
 - With the inclusion of API revisioning it is required to have an API revision deployed in a Gateway to be able to publish an API.
 
@@ -118,7 +143,7 @@ It is now available to download from [here](https://wso2.com/api-management/#).
     
 	You can now use the **FreeMarker** template to write the payload. This is particularly useful when defining complex JSON payloads.
 
-- **[OAuth endpoint](reference/synapse-properties/endpoint-properties/)**
+- **[OAuth endpoint]({{base_path}}/reference/synapse-properties/endpoint-properties/)**
     
 	A message exit point or an endpoint defines an external destination for a message. Typically, this is the address of a proxy service that acts as the front-end to the actual service. You can configure the endpoint artifacts with any attributes or semantics needed for communicating with that service. An endpoint could represent a URL, a mailbox, a JMS queue, a TCP socket, etc., along with the settings needed for the connection.
 
@@ -134,6 +159,10 @@ It is now available to download from [here](https://wso2.com/api-management/#).
 
     Data Service Call mediator allows you to invoke data service operations from a mediation sequence without introducing an HTTP call (using the Call or Send mediators) 
     to access the data service.  This improves the server performance because the data service is accessed directly without going through the HTTP transport.
+    
+- **TLSv1.3 support for HTTP transport**
+
+    The HTTP transport has been improved to support TLSv1.3 protocol to provide a stronger transport-level security.
 
 ### Compare this release with the Micro Integrator of WSO2 EI 7.x
 
@@ -404,7 +433,7 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 
 - **[Deploy AsyncAPI definitions to WSO2 API-M Services]({{base_path}}/use-cases/streaming-usecase/exposing-stream-as-managed-api-in-service-catalog/)**
     
-	 WSO2 Streaming Integrator has the inbuilt capability to directly deploy siddhi applications with Async API definitions to WSO2 API Manager services. These services can then be used to create an API and deploy in the API Manager runtime.
+	 WSO2 Streaming Integrator has the inbuilt capability to directly deploy Siddhi applications with Async API definitions to WSO2 API Manager services. These services can then be used to create an API and deploy in the API Manager runtime.
 
 - **SSE Sink / Source support over HTTP**
     
@@ -412,7 +441,7 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 	 
 - **WebSub Sink / Source support over HTTP**
     
-	 Above Source and Sink implementation are based on the [WebSub](https://www.w3.org/TR/websub/) protocol specification.WebSubs only allows one-way communication, from a caller web app to a callee web app. For more information , see [WebSub Sink](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-sink) , [WebSub Source](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-source).
+	 Above Source and Sink implementation are based on the [WebSub](https://www.w3.org/TR/websub/) protocol specification. WebSubs only allows one-way communication, from a caller web app to a callee web app. For more information , see [WebSub Sink](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-sink) , [WebSub Source](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-source).
 
 - **Improved MongoDB Store**
     
@@ -444,7 +473,7 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 	 
 - **Kafka and HTTP metrics monitoring**
     
-	 This release provides Kafka and HTTP metrics monitoring capability. In the previous release, this was only available for File, RDBMS and CDC(Change Data Capture). The metrics can be published to a pre-configured [Prometheus](https://prometheus.io/) server and then you can either create your own [Grafana](https://grafana.com/) dashboard or use the ETL dashboard which is already created by us. For more information on how to configure metrics, refer to [Monitoring ETL Flows](https://apim.docs.wso2.com/en/4.0.0/observe/si-observe/viewing-dashboards/) documentation page.
+	 This release provides Kafka and HTTP metrics monitoring capability. In the previous release, this was only available for File, RDBMS and CDC (Change Data Capture). The metrics can be published to a preconfigured [Prometheus](https://prometheus.io/) server and then you can either create your own [Grafana](https://grafana.com/) dashboard or use the ETL dashboard which is already created by us. For more information on how to configure metrics, refer to [Monitoring ETL Flows]({{base_path}}/observe/streaming-integrator/viewing-etl-flows/) documentation page.
 	 
 
 <hr style="border:8px solid gray"> </hr>
@@ -462,13 +491,13 @@ It is now available to download from [here](https://wso2.com/api-management/tool
 - Support import/export revisioning of APIs and API Products
 - [Adding proxy environment variables support for apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#set-proxy-environment-variables-for-apictl)
 - Resolve parameters at server-side while importing an API/API Product project
-- [Params file support for API Products]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-params-file-for-an-api-product)
+- [Parameter file support for API Products]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-params-file-for-an-api-product)
 - Introducing new schemas for apictl API/API Product/Application project artifacts
-- [Support to override subscription policies of an API using the params file]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-params-file-for-an-api)
+- [Support to override subscription policies of an API using the parameters file]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-params-file-for-an-api)
 - [Support TLS renegotiation configuration]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#set-tls-renegotiation-mode)
 - [Support apictl bundle command (archives an API Project)]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#bundling-the-generated-directory-before-import)
 - [Introducing a structure for deployment and source repositories]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#generating-the-deployment-directory)
-- Support endpoint security separately for Production and Sandbox endpoints via params file
+- Support endpoint security separately for Production and Sandbox endpoints via parameters file
 - VCS support for both the deployment and source repositories
 - Support for import/export of Streaming APIs
 - [Ability to extract APIs from the AWS API-Gateway and to initialize an apictl API project]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-aws-apis-in-the-dev-portal)
@@ -598,13 +627,13 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 	 
 	 Using the Async API View, you can generate an [Async API](https://www.asyncapi.com/) specification for a given Siddhi app. 
 	 
-	 The following sinks/sources can be exposed as an Async API : [websocket-server (sink)](https://siddhi-io.github.io/siddhi-io-websocket/api/3.0.2/#websocket-server-sink),  [web socket-server (source)](https://siddhi-io.github.io/siddhi-io-websocket/api/3.0.2/#websocket-server-source), [websocket (source)](https://siddhi-io.github.io/siddhi-io-websocket/api/3.0.2/#websocket-source), [sse-server (sink)](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#sse-server-sink), [websubhub (source)](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-source)
+	 The following sinks/sources can be exposed as an Async API : [WebSocket server (sink)](https://siddhi-io.github.io/siddhi-io-websocket/api/3.0.2/#websocket-server-sink),  [web socket-server (source)](https://siddhi-io.github.io/siddhi-io-websocket/api/3.0.2/#websocket-server-source), [WebSocket (source)](https://siddhi-io.github.io/siddhi-io-websocket/api/3.0.2/#websocket-source), [SSE server (sink)](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#sse-server-sink), [WebSubHub (source)](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-source)
      
       See the [example use case](https://apim.docs.wso2.com/en/4.0.0/use-cases/streaming-usecase/exposing-stream-as-managed-api-in-service-catalog/).
 
-- **Tooling support for webhubsub Source and webhubsub Sink**
+- **Tooling support for WebSubHub Source and WebSubHub Sink**
     
-	 Tooling support is added for the newly introduced [webhubsub source](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-source) and [webhubsub sink](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-sink). For details, see the **Streaming Integrator - New Features** section above.
+	 Tooling support is added for the newly introduced [WebSubHub source](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-source) and [WebSubHub sink](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-sink). For details, see the **Streaming Integrator - New Features** section above.
 
 - **Tooling support for SSE Source and SSE-server Sink**
 
@@ -618,6 +647,17 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 
 <hr style="border:8px solid gray"> </hr>
 
+## Choreo Connect
+
+The Choreo Connect is a lightweight gateway for APIs. It is used for message security, transport security, routing, and other common API Management related quality of services. It can collect information required for usage metering and throttling capabilities. The Choreo Connect natively supports scaling in highly decentralized environments including microservice architecture.
+
+WSO2 API Manager 4.0.0 is compatible with Choreo Connect {{choreo_connect.version}}.
+
+#### New features
+
+Please see the [supported features]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features/)
+
+
 ## **Kubernetes API Operator**
 
 Microservices are increasingly being deployed on Kubernetes. As a result, it is important to expose these microservices as well documented, easy to consume, managed APIs so that they can be used to develop great applications. The API operator for Kubernetes makes APIs a first-class citizen in the Kubernetes ecosystem. Similar to deploying microservices, you can now use this operator to deploy APIs for individual microservices or compose several microservices into individual APIs. With this, users can expose their microservice as managed APIs in the Kubernetes environment without any additional work.
@@ -629,7 +669,6 @@ K8s API Operator v2.0.0 is compatible with API Manager v4.0.0.
 
 ### New features
 
-- Deploy APIs to Choreo Connect (API Microgateway)
 - Deploy APIs to API Manager
 - Deploy Integrations with Micro Integrator
 
@@ -637,7 +676,7 @@ K8s API Operator v2.0.0 is compatible with API Manager v4.0.0.
 
 ## **Compatible WSO2 product versions**
 
-WSO2 API Manager 4.0.0 is based on WSO2 Carbon 4.6.1 and is expected to be compatible with any of the WSO2 products that are based on any Carbon 4.6.x version. If you encounter any compatibility issues, please [contact team WSO2](http://wso2.com/support/). For more information on the products in each Carbon platform release, see the [Release Matrix](http://wso2.com/products/carbon/release-matrix/).
+WSO2 API Manager 4.0.0 is based on WSO2 Carbon 4.6.1 and is expected to be compatible with any of the WSO2 products that are based on any Carbon 4.6.x version. If you encounter any compatibility issues, please [contact team WSO2](https://wso2.com/subscription/). For more information on the products in each Carbon platform release, see the [Release Matrix](https://wso2.com/products/carbon/release-matrix/).
 
 <hr style="border:8px solid gray"> </hr>
 
@@ -684,6 +723,11 @@ WSO2 API Manager 4.0.0 is based on WSO2 Carbon 4.6.1 and is expected to be compa
 - Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/streaming-integrator-tooling/issues?q=is%3Aissue+is%3Aclosed+label%3A4.0.0).
 
 - Known Issues - All the open issues pertaining to WSO2 API Manager 4.0.0 are reported [here](https://github.com/wso2/streaming-integrator-tooling/issues).
+
+**Choreo Connect**
+
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/product-microgateway/issues?q=is%3Aissue+project%3Awso2%2Fproduct-microgateway%2F8+is%3Aclosed+label%3AType%2FImprovement++)
+- Known Issues - All the open issues are reported [here](https://github.com/wso2/product-microgateway/issues?q=is%3Aopen+is%3Aissue+label%3Aenvoy-gw).
 
 **Kubernetes API Operator**
 

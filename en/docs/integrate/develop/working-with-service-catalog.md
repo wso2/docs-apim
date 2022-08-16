@@ -54,7 +54,7 @@ Update the metadata for your service as explained below.
                     Add the complete URL without parameters. For example: <code>http://localhost:8290/healthcare</code>.</br>
                 </li>
                 <li>
-                    Parameterize using the host and port combination. For example: <code>http://{MI_HOST}:{MI_HOST}/healthcare</code>.
+                    Parameterize using the host and port combination. For example: <code>http://{MI_HOST}:{MI_PORT}/healthcare</code>.
                 </li>
                 <li>
                     Parameterize using a preconfigured URL. For example: <code>http://{MI_URL}/healthcare</code>.
@@ -79,7 +79,7 @@ username = "admin"
 password = "admin"
 ```
 
-See the descriptions of the [service catalog paramaters]({{base_path}}/reference/config-catalog-mi/#service-catalog-client).
+See the descriptions of the [service catalog parameters]({{base_path}}/reference/config-catalog-mi/#service-catalog-client).
 
 ## Step 3 - Start the servers
 

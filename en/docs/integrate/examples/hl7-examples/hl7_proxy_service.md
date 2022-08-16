@@ -37,6 +37,6 @@ Create the artifacts:
 To test this scenario, you need the following:
 
 - An HL7 client that sends messages to the port specified by the `transport.hl7.Port` parameter.
-- An HL7 back-end application that recieves messages from the Micro Integrator.
+- An HL7 back-end application that receives messages from the Micro Integrator.
 
 You can simulate the HL7 client and back-end application using a tool such as <b>HAPI</b>.

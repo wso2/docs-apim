@@ -1,7 +1,7 @@
 # Expose a SOAP service as a REST API
 
 WSO2 API Manager supports the management of an existing SOAP and WSDL based services exposing as REST APIs.
-The organizations who have SOAP/ WSDL based services, can easily bridge their existing services to REST without the cost of a major migration. WSO2 API Manager supports two kinds of services as one for performing a  "pass through" of the SOAP message to the backend and other one is generating [a RESTful api from the backend SOAP service]({{base_path}}/design/create-api/generate-rest-api-from-soap-backend/).
+The organizations who have SOAP/ WSDL based services, can easily bridge their existing services to REST without the cost of a major migration. WSO2 API Manager supports two kinds of services as one for performing a  "pass through" of the SOAP message to the backend and other one is generating [a RESTful API from the backend SOAP service]({{base_path}}/design/create-api/generate-rest-api-from-soap-backend/).
 
 This tutorial will explain the steps to design, publish and invoke a SOAP service as a RESTful API using **Pass Through**
 
@@ -40,7 +40,7 @@ This tutorial will explain the steps to design, publish and invoke a SOAP servic
 4.  The created API appears in the publisher as follows.
     ![SOAP API overview]({{base_path}}/assets/img/learn/created-soap-api.jpg)
 
-5.  API definiton of the Created schema has been displayed at **API Definiton** tab.
+5.  API definition of the Created schema has been displayed at **API Definition** tab.
      [![SOAP API Definition]({{base_path}}/assets/img/learn/api-definition-of-soap-api-created-by-passthrough-mode.jpg)]({{base_path}}/assets/img/learn/api-definition-of-soap-api-created-by-passthrough-mode.jpg)
   
     <html><div class="admonition note"><p class="admonition-title">Note</p>
@@ -64,13 +64,13 @@ This tutorial will explain the steps to design, publish and invoke a SOAP servic
 
 ### Step 2 - Invoke a SOAP service as a REST API.
 
-1.  Log in to the developer portal, navigate to **Subscriptions** tab and subscribe to  the api using (e.g.,DefaultApplication)
+1.  Log in to the developer portal, navigate to **Subscriptions** tab and subscribe to  the API using (e.g.,DefaultApplication)
       ![]({{base_path}}/assets/img/learn/subscribed-to-api.jpg)
 
 2.  Click the **MANAGE APP** button when prompted **View Credentials**.
     ![]({{base_path}}/assets/img/learn/view-credentials.jpg)
 
-3.  Click **GENERATED ACCESS TOKEN** and then it propmt popupto create an application access token.
+3.  Click **GENERATED ACCESS TOKEN** and then it prompt a popup to create an application access token.
     ![]({{base_path}}/assets/img/learn/generate-accesstoken.jpg)
 
 

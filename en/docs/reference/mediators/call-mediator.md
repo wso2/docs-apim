@@ -15,7 +15,7 @@ Non-blocking mode of the Call mediator leverages the non-blocking transports fo
 You can obtain the service endpoint for the Call mediator as follows:
 
 -   Pick from message-level information
--   Pick from a pre-defined endpoint
+-   Pick from a predefined endpoint
 
 If you do not specify an endpoint, the Call mediator tries to send the
 message using the `         WSA:TO        ` address of the message. If
@@ -99,7 +99,7 @@ Select one of the following options to define the endpoint to which the message 
 </tr>
 <tr class="odd">
 <td><strong>Pick From Registry</strong></td>
-<td>If this is selected, the message can be sent to a pre-defined endpoint, which is currently saved as a resource in the registry. Click either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> as relevant to select the required endpoint from the resource tree.</td>
+<td>If this is selected, the message can be sent to a predefined endpoint, which is currently saved as a resource in the registry. Click either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> as relevant to select the required endpoint from the resource tree.</td>
 </tr>
 <tr class="even">
 <td><strong>XPath</strong></td>

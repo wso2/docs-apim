@@ -76,7 +76,7 @@ Send the following message via UDP to the UDP listener port (9999).
     </soapenv:Body>
 </soapenv:Envelope>
 ``` 
-In linux, we can save the above request in a <strong>request.xml</strong> file and use netcat to send the UDP request. 
+In Linux, we can save the above request in a <strong>request.xml</strong> file and use netcat to send the UDP request. 
 
 ```bash
 nc -u localhost 9999 < request.xml

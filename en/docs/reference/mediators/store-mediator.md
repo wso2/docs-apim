@@ -36,15 +36,15 @@ The parameters available to configure the Store mediator is as follows.
 <p>The Message Store, in which messages will be stored. You can give the name of the Message Store either as a <strong>value</strong> or as an <strong><strong>expression</strong> .</strong></p>
 <p>You should add the message store to the ESB profile before you can select it here.</p>
 <ul>
-<li>To give the Message Store name as a value, select <strong>Value</strong> for <strong>Specify As</strong> , and selct the name of the Message Store from the drop down of <strong>Value</strong> .</li>
-<li><p>To give the Message Store name as an expression, select <strong>Expression</strong> for <strong>Specify As</strong> , and e nter the XPath to derive the Message Store from the message context.</p>
+<li>To give the Message Store name as a value, select <strong>Value</strong> for <strong>Specify As</strong> , and select the name of the Message Store from the drop down of <strong>Value</strong> .</li>
+<li><p>To give the Message Store name as an expression, select <strong>Expression</strong> for <strong>Specify As</strong> , and enter the XPath to derive the Message Store from the message context.</p>
 <p>In the namespace editor, add the namespaces that are used in the XPath.</p></li>
 </ul>
 </div></td>
 </tr>
 <tr class="even">
 <td><strong>On Store Sequence</strong></td>
-<td>The sequence< that will be called before the message gets stored. This sequence should be pre-defined in the registry before it can be entered here. Click either <strong>Configuration Registry</strong> or <strong>Governance</strong> <strong>Registry</strong> to select the required sequence from the resource tree.</td>
+<td>The sequence< that will be called before the message gets stored. This sequence should be predefined in the registry before it can be entered here. Click either <strong>Configuration Registry</strong> or <strong>Governance</strong> <strong>Registry</strong> to select the required sequence from the resource tree.</td>
 </tr>
 </tbody>
 </table>

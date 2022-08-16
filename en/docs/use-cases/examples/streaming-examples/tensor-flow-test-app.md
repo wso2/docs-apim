@@ -34,7 +34,7 @@ x: "double:[1,-2]"
 
 4. Send some more events.
 
-##### Send events to the simulator http endpoint through the curl command
+##### Send events to the simulator HTTP endpoint through the curl command
 1. Open a new terminal and issue the following command:
 	```bash
 	curl -X POST \

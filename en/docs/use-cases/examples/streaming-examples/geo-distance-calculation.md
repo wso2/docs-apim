@@ -55,7 +55,7 @@ To test the sample application, simulate a single event for it as follows:
 
 ## Viewing the Results
 
-The following output is logged inthe Streaming Integrator console for the single event you simulated.
+The following output is logged in the Streaming Integrator console for the single event you simulated.
 
 `INFO {io.siddhi.core.query.processor.stream.LogStreamProcessor} - GeoDistanceCalculation: Event :, StreamEvent{ timestamp=1513616078228, beforeWindowData=null, onAfterWindowData=null, outputData=[2322119.848252557], type=CURRENT, next=null}`
 

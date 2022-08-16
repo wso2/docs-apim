@@ -3,7 +3,7 @@
 
 WSO2 Micro Integrator can be configured to execute tasks periodically. According to the default task scheduling implementation in WSO2 Micro Integrator, a task can be configured to inject messages, either to a defined endpoint, to a proxy service, or a specific sequence. If required, you can use a custom task scheduling implementation.
 
-You can schedule a task to run after a time interval of 't' for an 'n' number of times, or you can schedule the task to run once when the server starts. Alternatively, you can use cron expressions to have more control over how the task should be scheduled. For example, you can use a Cron expression to schedule the task to run at 10 pm on the 20th day of every month.
+You can schedule a task to run after a time interval of 't' for an 'n' number of times, or you can schedule the task to run once when the server starts. Alternatively, you can use CRON expressions to have more control over how the task should be scheduled. For example, you can use a CRON expression to schedule the task to run at 10 pm on the 20th day of every month.
 
 <!--
 !!! Info

@@ -76,7 +76,7 @@ Send the following message via TCP to the TCP listener port.
     </soapenv:Body>
 </soapenv:Envelope>
 ``` 
-In linux, we can save the above request in a <strong>request.xml</strong> file and use netcat to send the TCP request. 
+In Linux, we can save the above request in a <strong>request.xml</strong> file and use netcat to send the TCP request. 
 ```
 netcat localhost 6060 < request.xml
 ```

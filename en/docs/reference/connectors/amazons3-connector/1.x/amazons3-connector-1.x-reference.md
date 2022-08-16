@@ -1086,7 +1086,7 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
     ```
 
 ??? note "deleteBucketCors"
-    The deleteBucketCors operation deletes the cors configuration information set for the bucket. To use this operation, you must have permission to perform the s3:PutCORSConfiguration action. The bucket owner has this permission by default and can grant this permission to others. See the [related API documentation](http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketDELETEcors.html) for more information.
+    The deleteBucketCors operation deletes the CORS configuration information set for the bucket. To use this operation, you must have permission to perform the s3:PutCORSConfiguration action. The bucket owner has this permission by default and can grant this permission to others. See the [related API documentation](http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketDELETEcors.html) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -1447,7 +1447,7 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
     ```
 
 ??? note "createBucketCors"
-    The createBucketCors operation returns the cors configuration information set for the bucket. To use this operation, you must have permission to perform the s3:CreateBucketCORS action. By default, the bucket owner has this permission and can grant it to others. When calling init before this operation, the following headers should be removed: xAmzAcl, xAmzGrantRead, xAmzGrantWrite, xAmzGrantReadAcp, xAmzGrantWriteAcp, and xAmzGrantFullControl. See the [related API documentation](http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTcors.html) for more information.
+    The createBucketCors operation returns the CORS configuration information set for the bucket. To use this operation, you must have permission to perform the s3:CreateBucketCORS action. By default, the bucket owner has this permission and can grant it to others. When calling init before this operation, the following headers should be removed: xAmzAcl, xAmzGrantRead, xAmzGrantWrite, xAmzGrantReadAcp, xAmzGrantWriteAcp, and xAmzGrantFullControl. See the [related API documentation](http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTcors.html) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -1503,7 +1503,7 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
     ```
 
 ??? note "getBucketCors"
-    The getBucketCors operation returns the cors configuration information set for the bucket. To use this operation, you must have permission to perform the s3:GetBucketCORS action. By default, the bucket owner has this permission and can grant it to others. When calling init before this operation, the following headers should be removed: xAmzAcl, xAmzGrantRead, xAmzGrantWrite, xAmzGrantReadAcp, xAmzGrantWriteAcp, and xAmzGrantFullControl. See the [related API documentation](http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETcors.html) for more information.
+    The getBucketCors operation returns the CORS configuration information set for the bucket. To use this operation, you must have permission to perform the s3:GetBucketCORS action. By default, the bucket owner has this permission and can grant it to others. When calling init before this operation, the following headers should be removed: xAmzAcl, xAmzGrantRead, xAmzGrantWrite, xAmzGrantReadAcp, xAmzGrantWriteAcp, and xAmzGrantFullControl. See the [related API documentation](http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETcors.html) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>

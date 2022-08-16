@@ -100,11 +100,11 @@ Let's use the
 
     2. Build the implementation of the respective monetization interface and add the JAR into the `<API-M_HOME>/repository/components/lib` directory.
         
-        In this example scenario, you need to add the [org.wso2.apim.monetization.impl-1.1.1.jar]({{base_path}}/assets/attachments/learn/monetization/org.wso2.apim.monetization.impl-1.1.1.jar) JAR into the latter mentioned `lib` folder. Note that this JAR has been derived by building the [wso2-am-stripe-plugin repository](https://github.com/wso2-extensions/wso2-am-stripe-plugin). 
+        In this example scenario, you need to add the [org.wso2.apim.monetization.impl-1.2.0.jar]({{base_path}}/assets/attachments/learn/monetization/org.wso2.apim.monetization.impl-1.2.0.jar) JAR into the latter mentioned `lib` folder. Note that this JAR has been derived by building the [wso2-am-stripe-plugin repository](https://github.com/wso2-extensions/wso2-am-stripe-plugin). 
 
     3.  Define the monetization implementation in WSO2 API Manager.
      
-        Decompile the `org.wso2.apim.monetization.impl-1.0.0.jar` JAR and add the name of the package in the `<API-M_HOME>/repository/conf/deployment.toml` file as follows:
+        Add the full qualified class name of the monetization implementation in the `<API-M_HOME>/repository/conf/deployment.toml` file as follows. The configuration for our sample implementation is provided in the example tab below.
 
         ``` json tab="Format"
         [apim.monetization]
@@ -132,14 +132,12 @@ Let's use the
         url = "jdbc:mysql://<DBHost>:<Port>/<DBName>?autoReconnect=true"
         username = "xxx"
         password = "yyy"
-        defaultAutoCommit = "false"
-        driverClassName = "com.mysql.jdbc.Driver"
-        maxActive = "50"
-        maxWait = "60000"
-        testOnBorrow = "true"
-        validationQuery = "SELECT 1"
-        validationInterval = "30000"
         ```
+        !!! info
+            If you are using MySQL version - 8.0.x, you should add the driver name in the configuration as:
+            ``` java
+            driver="com.mysql.cj.jdbc.Driver"
+            ```       
 
     3.  Navigate to the `<API-M_HOME>/dbscripts/apimgt/` directory and execute the database script that corresponds to the database management system that you are working on.
          
@@ -525,7 +523,7 @@ Let's use the
         ``` java tab="Example"
          [apim.analytics]
          enable = true
-         config_endpoint = "https://analytics-event-auth.st.choreo.dev/auth/v1"
+         config_endpoint = "https://analytics-event-auth.choreo.dev/auth/v1"
          auth_token = "xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
         ```    
    
@@ -538,7 +536,7 @@ Let's use the
 
          ``` java tab="Example"
          [apim.monetization]
-         analytics_query_api_endpoint= "https://analytics-api.st.choreo.dev/query-api"
+         analytics_query_api_endpoint= "https://analytics-api.choreo.dev/query-api"
          ```     
    
     3. Define the Access Token required to access the above Query API. 
@@ -628,7 +626,7 @@ Let's use the
 
 2.  Create a subscription policy.  
      
-     Specify the subscription policy-related data based on your monetization goals. For more information, see [Adding a new subscription-level throttling policy](/learn/rate-limiting/adding-new-throttling-policies#Adding-a-new-subscription---level-throttling-tier).
+     Specify the subscription policy-related data based on your monetization goals. For more information, see [Adding a new subscription-level throttling policy]({{base_path}}/design/rate-limiting/adding-new-throttling-policies/#adding-a-new-subscription-level-rate-limiting-tier).
 
      <html>
       <div class="admonition note">
@@ -706,13 +704,13 @@ You can use the admin REST API, which is available in WSO2 API Manager, to publi
 
 1.  Obtain the consumer key and secret key pair by calling the dynamic client registration endpoint.  
      
-     For more information, see [Admin REST API v1.0]({{base_path}}/develop/product-apis/admin-apis/admin-v2/admin-v2/).
+     For more information, see [Admin REST API v2.0]({{base_path}}/reference/product-apis/admin-apis/admin-v2/admin-v2/).
 
     ``` java
     curl -X POST -H "Authorization: Basic <base64encoded-admin-account-credentials>" -H "Content-Type: application/json" -d @payload.json https://localhost:9443/client-registration/v0.17/register
     ```
 
-    -   `<base64encoded-admin-account-credentials>` - [base64 encoded](https://www.base64encode.org) admin user account credentials (in `<username>:<password>` format).
+    -   `<base64encoded-admin-account-credentials>` - base64 encoded admin user account credentials (in `<username>:<password>` format). WSO2 does not recommend the use of online base64 encoders for this purpose.
     - `payload.json` should take the following format.
         ```json
         "callbackUrl": "www.google.lk",
@@ -725,10 +723,10 @@ You can use the admin REST API, which is available in WSO2 API Manager, to publi
 2.  Obtain a token with the monetization usage scope (`scope=apim:monetization_usage_publish`).
 
     ``` java
-    curl -X POST https://localhost:8243/token -H 'Authorization: Basic <base64encoded-registeration-credentials>' -d 'grant_type=password&username=admin&password=admin&scope=apim:monetization_usage_publish'
+    curl -X POST https://localhost:9443/oauth2/token -H 'Authorization: Basic <base64encoded-registeration-credentials>' -d 'grant_type=password&username=admin&password=admin&scope=apim:monetization_usage_publish'
     ```
       
-    -   `<base64encoded-registeration-credentials>` - [base64 encoded](https://www.base64encode.org) client credentials received as the response in the client registration step (in `<client-id>:<client-secret>` format).
+    -   `<base64encoded-registeration-credentials>` - base64 encoded client credentials received as the response in the client registration step (in `<client-id>:<client-secret>` format). WSO2 does not recommend the use of online base64 encoders for this purpose.
     
 3.  Publish usage data to the Stripe billing engine.
 
@@ -832,7 +830,7 @@ Follow the instructions below to disable monetization for an API:
 
 4.  Enter the [connect ID](#connectID) as the connected account key
 
-5.  .Click **Enable Monetization** to unselect the enable monetization option.
+5.  .Click **Enable Monetization** to deselect the enable monetization option.
 
 6.  Click **Save**.  
     

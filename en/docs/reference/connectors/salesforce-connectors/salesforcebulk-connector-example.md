@@ -1,6 +1,6 @@
 # Salesforce Bulk Connector Example
 
-The Salesforce Bulk Connector allows you to access the [Salesforce Bulk REST API](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/asynch_api_intro.htm) from an integration sequence. SalesforceBulk is a RESTful API that allows you to quickly load large sets of your organisation’s data into Salesforce or delete large sets of your organisation’s data from Salesforce. You can use SalesforceBulk to query, insert, update, upsert or delete a large number of records asynchronously, by submitting the records in batches. Salesforce can process these batches in the background.
+The Salesforce Bulk Connector allows you to access the [Salesforce Bulk REST API](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/asynch_api_intro.htm) from an integration sequence. SalesforceBulk is a RESTful API that allows you to quickly load large sets of your organization's data into Salesforce or delete large sets of your organization's data from Salesforce. You can use SalesforceBulk to query, insert, update, upsert or delete a large number of records asynchronously, by submitting the records in batches. Salesforce can process these batches in the background.
 
 ## What you'll build
 
@@ -28,13 +28,13 @@ Connectors can be added to integration flows in [WSO2 Integration Studio](https:
 
 Follow these steps to set up the Integration Project and the Connector Exporter Project. 
 
-{!reference/connectors/importing-connector-to-integration-studio.md!} 
+{!includes/reference/connectors/importing-connector-to-integration-studio.md!} 
 
 ### Add integration logic
 
 First create an API, which will be where we configure the integration logic. Right click on the created Integration Project and select, **New** -> **Rest API** to create the REST API. Specify the API name as `Salesforcebulk-API` and API context as `/salesforce`.
     
-<img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.jpg" title="Adding a Rest API" alt="Adding a Rest API"/>
 
 #### Configure a resource for the insertEmployeeBulkRecords 
 
@@ -91,7 +91,7 @@ Now follow the steps below to add configurations to the `insertEmployeeBulkRecor
 
     1. Setup the `fileconnector.read` configurations. In this operation we are going to read the CSV file content by using the [WSO2 File Connector]({{base_path}}/reference/connectors/file-connector/file-connector-overview).
     
-        - **contentType** : Content type of the files processsed by the connector.
+        - **contentType** : Content type of the files processed by the connector.
         - **source** : The location of the file. This can be a file on the local physical file system or a file on an FTP server. 
         - **filePattern** : The pattern of the file to be read.
                 
@@ -278,7 +278,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp in the integration runtime. 
 
-{!reference/connectors/deploy-capp.md!}
+{!includes/reference/connectors/deploy-capp.md!}
 
 ## Testing
 

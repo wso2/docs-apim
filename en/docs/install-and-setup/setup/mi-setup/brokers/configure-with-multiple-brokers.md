@@ -8,7 +8,7 @@ The following example illustrates how to configure WSO2 Micro Integrator to list
 both ActiveMQ and WSO2 MB messages.
 
 1.  Download ActiveMQ (version 5.8.0 or later) from the [Apache ActiveMQ](http://activemq.apache.org/) site. 
-2.  Download the WSO2 Message Broker from the [WSO2 Message Broker](http://wso2.com/products/message-broker/) site.
+2.  Download the WSO2 Message Broker from the [WSO2 Message Broker](https://wso2.com/products/message-broker/) site.
 3.  Copy the following client libraries from `AMQ_HOME/lib` directory to `MI_HOME/lib` directory.  
     -   `            activemq-broker-5.8.0.jar           `
     -   `            activemq-client-5.8.0.jar           `

@@ -3,7 +3,7 @@ This sample demonstrates how an HTTP inbound endpoint can act as a
 dynamic http listener. Many http listeners can be added without
 restarting the server. When a message arrives at a port it will bypass
 the inbound side axis2 layer and will be sent directly to the sequence
-for mediation.The response also behaves in the same way.
+for mediation. The response also behaves in the same way.
 
 ## Synapse configuration
 

@@ -1,6 +1,6 @@
 # Using Docker Secrets in Synapse Configurations
 
-WSO2 Micro Integrator comes with a built-in secret repository as a part of its [secure vault implementation](../../../setup/security/encrypting_plain_text/) by default. In addition to this, the Micro Integrator also provides built-in support for Docker secrets and Kubernetes secrets for your containerized deployments.
+WSO2 Micro Integrator comes with a built-in secret repository as a part of its [secure vault implementation]({{base_path}}/install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords) by default. In addition to this, the Micro Integrator also provides built-in support for Docker secrets and Kubernetes secrets for your containerized deployments.
 
 Managing sensitive information in a Docker environment can be achieved using two simple steps:
 

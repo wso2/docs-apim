@@ -1,6 +1,6 @@
 # Upgrading WSO2 IS as Key Manager to 5.11.0
 
-The following information describes how to upgrade your **WSO2 API Manager (WSO2 API-M)** environment **from APIM 3.1.0 to 4.0.0** when **WSO2 Identity Server (WSO2 IS)** is the **Key Manager** in the pre migrated setup.
+The following information describes how to upgrade your **WSO2 API Manager (WSO2 API-M)** environment **from APIM 3.1.0 to 4.0.0** when **WSO2 Identity Server (WSO2 IS)** is the **Key Manager** in the pre-migrated setup.
 
 !!! note
     -   You can follow the below information in either one of the following situations:
@@ -80,21 +80,33 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
         [tenant_context.rewrite]
         custom_webapps = ["/keymanager-operations/"]
         ```
-        
-3. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-extensions-1.2.10.zip).
 
-4. Extract the distribution and copy the following JAR files to the `<IS_HOME>/repository/components/dropins` directory.
+3. IS 5.11.0 uses Symmetric encryption as default and API-M 4.0.0 uses Asymmetric algorithm as default. So when using IS 5.11.0 as KM please add below configurations to `deployment.toml`.
+   ```
+   [keystore]
+   userstore_password_encryption = "InternalKeyStore"
+   
+   [system.parameter]
+   "org.wso2.CipherTransformation"="RSA/ECB/OAEPwithSHA1andMGF1Padding"
+   
+   [encryption]
+   internal_crypto_provider = "org.wso2.carbon.crypto.provider.KeyStoreBasedInternalCryptoProvider"
+   ```   
+
+4. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-extensions-1.2.10.zip).
+
+5. Extract the distribution and copy the following JAR files to the `<IS_HOME>/repository/components/dropins` directory.
 
      - `wso2is.key.manager.core-1.2.10.jar`
-     - `wso2is.notification.event.handlers_1.2.10.jar`
+     - `wso2is.notification.event.handlers_1.2.10.6.jar`
 
-5. Add `keymanager-operations.war` from the extracted distribution to the `<IS_HOME>/repository/deployment/server/webapps` directory.
+6. Add `keymanager-operations.war` from the extracted distribution to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
 ### Step B - Migrate IS from 5.10.0 to 5.11.0
 
 1. Follow Step 2 and 3 under [Step 2 - Upgrade API Manager to 4.0.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-310-to-400/#step-2-upgrade-api-manager-to-400) to backup and upgrade the WSO2 API-M `WSO2AM_DB` from 3.1.0 to 4.0.0. This will be used as the `identity_db` in IS 5.11.0.
 
-2. Folllow the guidelines in [WSO2 IS 5.11.0 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/) to migrate your current IS as KM 5.10.0 distribution to IS 5.11.0.
+2. Follow the guidelines in [WSO2 IS 5.11.0 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/) to migrate your current IS as KM 5.10.0 distribution to IS 5.11.0. Make sure to use the migration resources downloaded from the [latest release](https://github.com/wso2-extensions/apim-identity-migration-resources/releases/latest) under Assets instead of the migration resources found under Step 9 a. in the WSO2 IS 5.11.0 migration guide.
 
     !!! Important
         When following the instructions in [Migrating the configurations](https://is.docs.wso2.com/en/5.11.0/setup/migrating-preparing-for-migration/#migrating-the-configurations) section of IS 5.11.0 migration guide, make sure to
@@ -148,6 +160,26 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
 
     !!! Important
         Follow [Step 10 Part (d) of IS 5.11 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/) only if you have **enabled Symmetric Key Encryption** in the previous IS as KM setup. If not, that step can be skipped.
+
+    !!! important
+        In WSO2 Identity Server 5.11.0, groups include user store roles and roles include internal roles. Therefore, from IS 5.11.0 onwards, we cannot have the same admin role in both primary and internal user domains. If the same admin role exists in both UM domains of your older version, we should add the PRIMARY/admin to the internal domain with a different admin role name during the group role separation. To do that, you have to follow the below steps.
+
+        - Add the following configuration to `<IS_HOME>/repository/conf/deployment.toml` file. Rename the admin role with a new role name. This can be any value you prefer.
+
+        ```
+        [super_admin]
+        admin_role = "<NEW-ADMIN-ROLE-NAME>"
+        create_admin_account = false
+        ```
+
+        - Open the `migration-config.yaml` file in the migration-resources directory and add the admin role name of the current version to the parameter `currentAdminRoleName` under the `GroupsAndRolesMigrator`. For example, **"admin"** which is the default admin role name.
+
+        ```
+        name: "GroupsAndRolesMigrator"
+            order: 4
+            parameters:
+                currentAdminRoleName: "<CURRENT-ADMIN-ROLE_NAME>"
+        ```
 
     !!! Important
         Before executing the IS migration client according to [Step 11 of IS 5.11 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/), keep in mind to remove the following entries from `migration-config.yaml` in the migration-resources directory.

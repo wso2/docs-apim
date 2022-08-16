@@ -13,11 +13,11 @@ This will demonstrate a simple command line based chat room which has two channe
 
 1.  {!includes/sign-in-publisher.md!}
 
-2.  Click **CREATE API**, go to **Streaming API**, and click **WebSocket API**.
+2.  Click **Create API**, go to **Streaming API**, and click **WebSocket API**.
 
      <html><div class="admonition note">
       <p class="admonition-title">Note</p>
-      <p>The <b>CREATE</b> button will only appear for a user who has the <code>creator</code> role permission.</p>
+      <p>The <b>Create</b> button will only appear for a user who has the <code>creator</code> role permission.</p>
       </div>
      </html>
 
@@ -90,10 +90,11 @@ This will demonstrate a simple command line based chat room which has two channe
           
      4. Expand each topic, provide URL Mappings as follows, and click **Save**.
 
-          | **Topic** | **URL Mapping** |
-          |-----------|-----------------|
-          | /notifications | /notifications |
-          | /rooms/{roomID} | /rooms?room={uri.var.roomID} |
+           <table>
+           <tr><th><b>Topic</b> </th><th><b>URL Mapping</b></th></tr>
+           <tr><td>/notifications</td><td>/notifications</td></tr>
+           <tr><td>/rooms/{roomID}</td><td>/rooms?room={uri.var.roomID}</td></tr>
+           </table>
 
           URL Mapping provided for a topic will be appended to the WebSocket endpoint URL, which was provided when creating the API, and the traffic via the topic will be sent to & received from the resulting URL.
 
@@ -146,7 +147,7 @@ Now, you have created and configured the WebSocket API successfully.
 
 3. Subscribe to the API.
 
-    1. Click **Subscriptions** to go to the Subscriptions page and click **SUBSCRIPTION & KEY GENERATION WIZARD**.
+    1. Click **Subscriptions** to go to the Subscriptions page and click **Subscription & Key Generation Wizard**.
     
            This wizard takes you through the steps of creating a new application, subscribing, generating keys, and generating an access token to invoke the API. 
 
@@ -159,7 +160,7 @@ Now, you have created and configured the WebSocket API successfully.
 
          [![Key Generation Wizard]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-key-generation-wizard.png)]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-key-generation-wizard.png)
 
-    2. Copy the authorization token that appears, and click **FINISH**.
+    2. Copy the authorization token that appears, and click **Finish**.
 
          [![Authorization Token]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-subscription-token.png)]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-subscription-token.png)
 
@@ -247,3 +248,7 @@ Now, you have created and configured the WebSocket API successfully.
           </div></html>
 
 You have successfully created and published your first WebSocket API, subscribed to it, obtained an access token for testing, and tested your API with the access token.
+
+### Troubleshooting
+
+If you require more detailed logs in the WebSocket API flow in order to troubleshoot and debug an error in your scenario, see [Troubleshooting WebSocket APIs]({{base_path}}/troubleshooting/troubleshooting-websocket-api/).

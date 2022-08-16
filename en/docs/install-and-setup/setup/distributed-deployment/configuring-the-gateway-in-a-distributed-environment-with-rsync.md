@@ -19,7 +19,7 @@ Note that the configurations in this topic are done based on the following patte
 
 ### Step 1 - Configure the load balancer
 
-For more information, see [Configuring the Proxy Server and the Load Balancer](../../configuring-the-proxy-server-and-the-load-balancer/).
+For more information, see [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer).
 
 ### Step 2 - Configure the Gateway Manager
 
@@ -96,7 +96,7 @@ Worker nodes specialize in serving requests to deployment artifacts and reading 
         ```
     
     4.  Configure rsync. 
-        For information on configuring rsync, see [Configuring rsync for Deployment Synchronization](../../configuring-rsync-for-deployment-synchronization/).
+        For information on configuring rsync, see [Configuring rsync for Deployment Synchronization]({{base_path}}/install-and-setup/setup/mi-setup/deployment/deployment_synchronization/#using-remote-synchronization-rsync).
 
 ### Step 4 - Optionally configure Hazelcast
 
@@ -126,4 +126,4 @@ Start the Gateway Manager and then the Gateway Worker nodes
         sh <GATEWAY_WORKER_HOME>/bin/api-manager.sh -Dprofile=gateway-worker
     ```
     
-    The additional `-Dprofile=gateway-worker` argument indicates that this is a worker node specific to the Gateway. You need to use this parameter to make a server read-only. Changes (i.e., writing or making modifications to the deployment repository, etc.) can not be made in the Gateway worker nodes. Furthermore, starting a node as a Gateway worker ensures that the Developer Portal and Publisher related functions are disabled in the respective node. This parameter also ensures that the node starts in the worker profile, where the UI bundles are not activated and only the backend bundles are activated when the server starts up. For more information on the various product profiles available in WSO2 API Manager, see [API Manager product profiles](../product-profiles/) .
+    The additional `-Dprofile=gateway-worker` argument indicates that this is a worker node specific to the Gateway. You need to use this parameter to make a server read-only. Changes (i.e., writing or making modifications to the deployment repository, etc.) can not be made in the Gateway worker nodes. Furthermore, starting a node as a Gateway worker ensures that the Developer Portal and Publisher related functions are disabled in the respective node. This parameter also ensures that the node starts in the worker profile, where the UI bundles are not activated and only the backend bundles are activated when the server starts up. For more information on the various product profiles available in WSO2 API Manager, see [API Manager product profiles]({{base_path}}/install-and-setup/setup/distributed-deployent/product-profiles) .

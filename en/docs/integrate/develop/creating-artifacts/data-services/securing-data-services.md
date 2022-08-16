@@ -17,9 +17,9 @@ Registry artifacts (such as security policy files) should be stored in a
 module:
 
 1.  Right click on the [Integration project]({{base_path}}/integrate/develop/create-integration-project) 
-    and goto **New → Registry Resource**. 
+    and go to **New → Registry Resource**. 
     
-    !!! Tip Alternatively, you can goto **File → New → Others** and 
+    !!! Tip Alternatively, you can go to **File → New → Others** and 
     select **Registry Resources** from the opening wizard.
 
 2.  Enter a name for the module and click **Next** .
@@ -47,7 +47,7 @@ module:
 4.  Click **Finish** and the policy file will be listed in the
     navigator.
     1.  Let's use the **Design View** to enable the required security
-        scenario. For example, enable the **Sign and Encyrpt** security
+        scenario. For example, enable the **Sign and Encrypt** security
         scenario.
 
         !!! Tip

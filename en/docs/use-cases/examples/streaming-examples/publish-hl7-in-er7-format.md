@@ -9,7 +9,7 @@ This application demonstrates how to configure WSO2 Streaming Integrator Tooling
     - Siddhi App PublishHl7InER7Format successfully deployed.
 
 ## Executing the Sample:
-1. In the HAPI testpanel create a receiving connection with port that provided in the siddhi app.
+1. In the HAPI testpanel create a receiving connection with port that provided in the Siddhi app.
 2. Start the listener.
 3. Start the Siddhi application by clicking on 'Run'.
 4. If the Siddhi application starts successfully, the following messages are shown on the console:

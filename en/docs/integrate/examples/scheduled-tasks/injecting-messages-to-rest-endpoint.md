@@ -1,5 +1,5 @@
 # Injecting Messages to a RESTful Endpoint
-In order to use the Message Injector to inject messages to a RESTful endpint, you can specify the injector with the required payload and inject the message to the sequence or proxy service as defined below. The sample below shows a RESTful message injection through a proxy service.
+In order to use the Message Injector to inject messages to a RESTful endpoint, you can specify the injector with the required payload and inject the message to the sequence or proxy service as defined below. The sample below shows a RESTful message injection through a proxy service.
 
 ## Synapse configurations
 

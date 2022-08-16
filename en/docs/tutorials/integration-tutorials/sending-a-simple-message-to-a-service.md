@@ -30,11 +30,11 @@ An Integration project is a maven multi module project, which will contain all t
 1.  Open **WSO2 Integration Studio**.
 2.  Click **New Integration Project** in the **Getting Started** tab as shown below. 
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.png" width="700">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.jpg" width="700">
 
     This will open the <b>New Integration Project</b> dialog box.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-simple-message-project.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-simple-message-project.jpg" width="500">
 
 3.  Enter `SampleServices` as the project name and select the following check boxes to create the required modules.
     -   **Create ESB Configs**
@@ -97,7 +97,7 @@ An Endpoint artifact is required for the purpose of exposing the URL that connec
     
 #### Create a REST API
 
-A REST API is required for receving the client response and the REST resource within the API will define the mediation logic that will send requests to the Healthcare back-end service and retrieve the available doctor information.
+A REST API is required for receiving the client response and the REST resource within the API will define the mediation logic that will send requests to the Healthcare back-end service and retrieve the available doctor information.
 
 1.  In the Project Explorer, right-click **SampleServicesConfigs** and click **New -> REST API**.
 2.  Ensure **Create A New API Artifact** is selected and click **Next**.
@@ -139,12 +139,12 @@ A REST API is required for receving the client response and the REST resource wi
 
 #### Define the mediation flow 
 
-Once the API resource is created, the design view of the `           HealthcareAPI.xml          ` file will appear as shown below.
+Once the API resource is created, the design view of the `HealthcareAPI.xml` file will appear as shown below.
 
 !!! Note
     - The top part of the canvas is the **In sequence**, which controls how incoming messages are mediated.
     - The middle part of the canvas is the **Out sequence**, which controls how responses are handled. In this case, a **Send** mediator is already in place to send responses back to the requesting client.
-    - The bottom part of the canvas is the **Fault sequence**, which allows you to configure how to handle messages when an error occurs (for more information, see [Error Handling](../../../references/error_handling)).
+    - The bottom part of the canvas is the **Fault sequence**, which allows you to configure how to handle messages when an error occurs (for more information, see [Error Handling]({{base_path}}/troubleshooting/error_handling-mi)).
 
 <img src="{{base_path}}/assets/img/integrate/tutorials/119132413/119132425.png">
 

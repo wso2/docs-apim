@@ -1,4 +1,4 @@
-!!! info "Before you begin"
+!!! Info "Before you begin"
 		Note the following:
 
 	-	The Micro Integrator uses a [file-based registry](../../../install-and-setup/setup/mi-setup/deployment/file_based_registry) instead of a database (which is used in your WSO2 EI version). 
@@ -49,7 +49,7 @@ You can migrate the registry resources by using the **registry migration tool** 
 		</tr>
 		<tr>
 			<td>
-				Internal Truststore Location of EI Server
+				Internal Truststore Location of the EI Server
 			</td>
 			<td>
 				Specify the location of the internal truststore used by the EI server.
@@ -180,7 +180,7 @@ You can migrate the registry resources by using the **registry migration tool** 
 			-	If the process is successful, the **Registry Resource Project** is created in the location you specified. 
 			-	A summary report is created at the export location with file name: `registry_export_summary_<date>.txt`. This report explains whether the registry resource is successfully exported and also provides reasons in case the exprot fails.
 
-		3. [import the Registry Resource Project](../../../integrate/develop/creating-artifacts/creating-registry-resources/#import-from-file-system) to the Registry Resources module in WSO2 Integration Studio.
+		3. [Import the Registry Resource Project](../../../integrate/develop/creating-artifacts/creating-registry-resources/#import-from-file-system) to the Registry Resources module in WSO2 Integration Studio.
 
 		4.	Open the resource editor and make sure that the <b>media type</b> of the resource is set properly.
 			

@@ -2,7 +2,7 @@
 
 This is a tutorial that is part of a series and can be used as a standalone tutorial on how to control access to the API. For more details on the scenario and general prerequisites, please see [the scenario overview page]({{base_path}}/tutorials/scenarios/scenario-overview).
 
-**_Time to Complete : 7 mins_**
+**_Time to Complete : 7 minutes_**
 
 ## User Story
 
@@ -50,7 +50,7 @@ Next task is to set the access control for the resources. To do that, follow the
 4. Define a business plan for the API. For that, go to **Develop → Portal Configurations → Subscriptions** and select a business plan. (ex: Unlimited).
 5. Publish the API using Publish → Lifecycle option.
    
-Now go to the Developer Portal and go to the ColTrain’s domain. You would not be able to not see the **ColTrainInternalTimeTableAPI** api.
+Now go to the Developer Portal and go to the ColTrain’s domain. You would not be able to not see the **ColTrainInternalTimeTableAPI** API.
 
 ![Not visible]({{base_path}}/assets/img/tutorials/scenarios/not-visible.png)
 
@@ -95,7 +95,7 @@ Invoke the POST resource using each token.
 curl -X POST "https://localhost:8243/t/coltrain.com/coltrain-schedule/1.0.0/schedules" -H  "Content-Type: application/json" -H  "Authorization: Bearer <token>" -d "{\"entryId\":\"10\",\"startTime\":\"18:30\",\"endTime\":\"20.30\",\"from\":\"London\",\"to\":\"Oxford\",\"trainType\":\"Standard\"}" -v
 ```
 
-You would see that you could access the resource using jenny@coltrain.com user’s token and you would get an error message for george’s token.
+You would see that you could access the resource using jenny@coltrain.com user’s token and you would get an error message for George's token.
 
 ```
 {"code":"900910","message":"The access token does not allow you to access the requested resource","description":"User is NOT authorized to access the Resource: /schedules. Scope validation failed."}

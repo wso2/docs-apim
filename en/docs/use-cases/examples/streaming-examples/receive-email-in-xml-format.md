@@ -8,9 +8,9 @@ This application demonstrates how to use `siddhi-io-email` for receiving events 
 1. Add relevant `siddhi-io-email` and `siddhi-map-xml` jars to the `{WSO2Home}/lib` folder if not exist.
 
 2. Make sure you have provide less secure access to the sender's email account.
-eg: For gmail this can be done by visiting https://myaccount.google.com/lesssecureapps.
+e.g.: For Gmail this can be done by visiting https://myaccount.google.com/lesssecureapps.
 
-3. Edit the siddhi app by providing following details.
+3. Edit the Siddhi app by providing following details.
     * `receiver_email_username`
     * `receiver_email_password`
 

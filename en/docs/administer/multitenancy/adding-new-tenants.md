@@ -81,7 +81,7 @@ You can invoke these operations using a SOAP client like SOAP UI as follows:
     -   For `TenantMgtAdminService: https://localhost:9443/services/TenantMgtAdminService?wsdl`
     -   For `RemoteTenantManagerService: https://localhost:9443/services/RemoteTenantManagerService?wsdl`
 
-    This assumes that you are running the SOAP UI client from the same machine as the product instance. Note that there are several operations shown in the SOAP UI after importing the wsdl file:
+    This assumes that you are running the SOAP UI client from the same machine as the product instance. Note that there are several operations shown in the SOAP UI after importing the WSDL file:
 
     ![]({{base_path}}/assets/attachments/126562777/126562782.png)
         !!! warning

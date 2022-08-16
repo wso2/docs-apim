@@ -50,7 +50,7 @@ options.
 <thead>
 <tr class="header">
 <th>Available methods</th>
-<th>Default behaviour</th>
+<th>Default behavior</th>
 <th>Reasons for overriding</th>
 </tr>
 </thead>
@@ -105,7 +105,7 @@ options.
 <thead>
 <tr class="header">
 <th>Available methods</th>
-<th>Default behaviour</th>
+<th>Default behavior</th>
 </tr>
 </thead>
 <tbody>
@@ -170,7 +170,7 @@ options.
 
 ### Read methods
 
-| Available methods                                                                                                                       | Default behaviour                                                                                                                                                                          |
+| Available methods                                                                                                                       | Default behavior                                                                                                                                                                          |
 |-----------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `                boolean doCheckExistingUser(String userName)               `                                                           | Returns whether the provided `               userName              ` already exists in the user store.                                                                                     |
 | `                boolean doCheckExistingRole(String roleName)               `                                                           | Returns whether the provided roleName already exists in the user store.                                                                                                                    |
@@ -237,7 +237,7 @@ JDBC user store manager. For this sample, the following tools are used
 to implement the custom user store manager.
 
 -   Java 1.6.0
--   IDE (Eclipse, InteliJ IDEA, etc.)
+-   IDE (Eclipse, IntelliJ IDEA, etc.)
 -   Apache Maven
 
 ### Setting up the implementation

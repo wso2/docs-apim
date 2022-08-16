@@ -8,51 +8,56 @@ Given below is the tested compatibility of the API-M runtime of WSO2 API Manager
 
 #### Tested Operating Systems
 
-As WSO2 API Manager is a Java application. Therefore, you can generally run it on most operating systems. Listed below are operating systems that are testing with the API-M 4.0.0 runtime.
+As WSO2 API Manager is a Java application, you can generally run it on most operating systems. Listed below are the operating systems that have been tested with the API-M 4.0.0 runtime.
 
 |**Operating System**|**Versions**|
 |--------------------|------------|
 |Windows             | 2016       |
-|Ubuntu              |18.04       |
+|Windows Server      | 2019       |
+|Ubuntu              | 18.04, 20.04 |
 |Red Hat Enterprise Linux   |7.0  |
 |CentOS              |7.4, 7.5    |
-|Red Hat Enterprise Linux   |7.0  |
 
 #### Tested JDKs
 
-The **WSO2 API-M** runtime is tested with the following JDKs:
+The **WSO2 API-M** runtime has been tested with the following JDKs:
 
 |**JDKS**            |**Versions**|
 |--------------------|-----------|
 |CorrettoJDK         | 8, 11     |
 |AdoptOpenJDK        | 8, 11     |
-|OpenJDK             |8, 11      |
-|CentOS              |7.4, 7.5   |
-|Oracle JDK          |8, 11      |
+|OpenJDK             | 8, 11     |
+|Oracle JDK          | 8, 11     |
+|Temurin OpenJDK     | 8 and 11  |
 
 #### Tested DBMSs
 
 The **WSO2 API-M** runtime is tested with the following databases:
 
-|**DBMS**     |**Versions**|
-|--------------|-----------|
-|MySQL         | 5.7, 8    |
-|Oracle        | 12c, 19c  |
-|Microsoft SQL Server| 2017|
-|PostgreSQL            |10 |
-
-#### Tested Web Browsers
-
-The **WSO2 API-M** runtime is tested with the following web browsers:
-
-|**Web Browser** |**Versions**|
-|--------------|-----------|
-|Google Chrome | 69        |
-|Firefox       | 62.0.2    |
+<table>
+<th><b>DBMS</b></th>
+<th><b>Version</b></th>
+<tr>
+<td>MySQL</td>
+<td>5.7, 8</td>
+</tr>
+<tr>
+<td>Oracle</td>
+<td>12c, 19c</td>
+</tr>
+<tr>
+<td>Microsoft SQL Server</td>
+<td>2017</td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td>10, 13.2</td>
+</tr>
+</table>
 
 #### Tested WSO2 Products
 
-The following is a list of other WSO2 products that are tested with WSO2 API Manager 4.0.0.
+The following is a list of other WSO2 products that have been tested with WSO2 API Manager 4.0.0.
 
 - [WSO2 Enterprise Integrator 6.6.0](https://wso2.com/enterprise-integrator/6.6.0#)
 - [WSO2 Identity Server 5.11.0](https://wso2.com/identity-and-access-management/#)
@@ -60,7 +65,7 @@ The following is a list of other WSO2 products that are tested with WSO2 API Man
 #### Compatible WSO2 Identity Servers (as Key Manager)
 
 !!! Note 
-    From API Manager 3.2.0 onwards, WSO2 Identity Server is not packaged as a key manager. A remote WSO2 Identity Server instance should be used as the key Manager.
+    From API Manager 3.2.0 onwards, WSO2 Identity Server is not packaged as a Key Manager. A remote WSO2 Identity Server instance should be used as the Key Manager.
 
 <table>
 <thead>
@@ -102,12 +107,12 @@ The **Micro Integrator** runtime is tested with the following operating systems:
 
 The **Micro Integrator** runtime is tested with the following JDKs:
 
-|**JDKS**            |**Versions**|
-|--------------------|-----------|
-|CorrettoJDK         | 8         |
-|AdoptOpenJDK        | 8         |
-|OpenJDK             | 11        |
-|Oracle JDK          |8, 11      |
+| **JDKS**            |**Versions**|
+|---------------------|------------|
+| CorrettoJDK         | 8, 11      |
+| AdoptOpenJDK        | 8, 11      |
+| OpenJDK             | 11         |
+| Oracle JDK          | 8, 11      |
 
 #### Tested DBMSs
 
@@ -138,12 +143,12 @@ The **Streaming Integrator** runtime is tested with the following operating syst
 
 The **Streaming Integrator** runtime is tested with the following JDKS:
 
-|**JDK**             |**Version**|
-|--------------------|-----------|
-|Oracle JDK          | 8         |
-|OpenJDK             | 8         |
+|**JDK**             |**Version**    |
+|--------------------|---------------|
+|Oracle JDK          | 8 , 11        |
+|OpenJDK             | 8 , 11        |
 
-#### Tested DBMSs (Database Management Systems)
+#### Tested DBMSs
 
 The **Streaming Integrator** runtime is tested with the following databases:
 
@@ -155,21 +160,13 @@ The **Streaming Integrator** runtime is tested with the following databases:
 |Oracle              |11.2.0.2-x |
 |PostgreSQL          |9.6        |
 
-#### Tested Web Browsers
-
-The **Streaming Integrator** runtime is tested with the following web browsers:
-
-- Firefox (56.0 and later)
-- Google Chrome
-- Safari
-
 #### Known Incompatibilities
 
-Given below are the OS and JDK incompatibilities we have come across while testing the Streaming Integrator runtime.
+Given below are the OS and JDK incompatibilities that WSO2 has come across while testing the Streaming Integrator runtime.
 
 |**Operating System**|**Operating System Version**|**JDK Version**|
 |--------------------|----------------------------|---------------|
 |macOS High Sierra   |10.13.1 (17B1003)           |JDK1.8.0_20<br/>JDK1.8.0_144<br/>JDK1.8.0_152<br/>JDK1.8.0_162|
 |macOS High Sierra   |10.13.2                     |JDK1.8.0_144<br/>JDK1.8.0_152|
-|Ubunto              |14.04                       |JDK1.8.0_151<br/>JDK1.8.0_152<br/>JDK1.8.0_161|
-|Ubunto              |16.04                       |JDK1.8.0_151<br/>JDK1.8.0_152<br/>JDK1.8.0_161<br/>JDK1.8.0_162|
+|Ubuntu              |14.04                       |JDK1.8.0_151<br/>JDK1.8.0_152<br/>JDK1.8.0_161|
+|Ubuntu              |16.04                       |JDK1.8.0_151<br/>JDK1.8.0_152<br/>JDK1.8.0_161<br/>JDK1.8.0_162|

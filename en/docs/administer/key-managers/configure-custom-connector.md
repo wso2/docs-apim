@@ -79,7 +79,7 @@ You need to write a custom Key Manager connector as explained below.
   
 3. Extend `AbstractKeyManager`.
 
-      The `AbstractKeyManager` implements the `KeyManager` interface. For more information on the operations carried out on the `KeyManager` interface, see [Extending the KeyManager Interface]({{base_path}}/develop/extending-api-manager/extending-key-management/extending-the-key-manager-interface).
+      The `AbstractKeyManager` implements the `KeyManager` interface. For more information on the operations carried out on the `KeyManager` interface, see [Extending the Key Manager Interface]({{base_path}}/develop/extending-api-manager/extending-key-management/extending-the-key-manager-interface).
 
 
       In the sample project, the `AbstractKeyManager` interface has been extended using the `org.wso2.custom.client.CustomOAuthClient.java` class.

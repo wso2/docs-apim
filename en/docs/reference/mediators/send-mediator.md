@@ -44,7 +44,7 @@ If the message is to be sent to one or more endpoints, use the following syntax:
 <ul>
 <li><strong>None</strong>: If this is selected for a Send mediator included in the Out sequence, the message is not sent to any endpoint, but it will be sent back to the client. If this option is selected for a Send mediator included in the In sequence, the message will be sent to the URL specified in its <code>                To               </code> header.</li>
 <li><strong>Define Inline</strong>: If this is selected, the endpoint to which the message should be sent can be included within the Send mediator configuration. Click <strong>Add</strong> to add the required endpoint.</li>
-<li><strong>Pick from Registry</strong>: If this is selected, the message can be sent to a pre-defined endpoint which is currently saved as a resource in the registry. Click either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> as relevant to select the required endpoint from the resource tree.</li>
+<li><strong>Pick from Registry</strong>: If this is selected, the message can be sent to a predefined endpoint which is currently saved as a resource in the registry. Click either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> as relevant to select the required endpoint from the resource tree.</li>
 <li><p><strong>XPath</strong>: If this is selected, the endpoint to which the message should be sent will be derived via an XPath expression. You are required to enter the relevant XPath expression in the text field that appears when this option is selected.</p>
 <p>You can click <strong>NameSpaces</strong> to add namespaces if you are providing an expression. Then the <strong>Namespace Editor</strong> panel would appear where you can provide any number of namespace prefixes and URLs used in the XPath expression.</p>
 </p></li>
@@ -57,7 +57,7 @@ If the message is to be sent to one or more endpoints, use the following syntax:
 <p>The sequence to use for handling the response from the endpoint. Possible options are as follows.</p>
 <ul>
 <li><strong>Default</strong>: If this is selected, the mediation sequence in the Out sequence will be used.</li>
-<li><strong>Static</strong>: If this is selected, the sequence will be static. You can select a pre-defined sequence that is currently saved as a resource in the registry. Click either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> as relevant to select the required sequence from the resource tree.</li>
+<li><strong>Static</strong>: If this is selected, the sequence will be static. You can select a predefined sequence that is currently saved as a resource in the registry. Click either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> as relevant to select the required sequence from the resource tree.</li>
 <li><p><strong>Dynamic</strong>: If this is selected, the sequence will be derived via an XPath expression. The XPath expression should be entered in the <strong>Receiving Sequence</strong> parameter which appears when this option is selected.</p>
 <p>You can click <strong>NameSpaces</strong> to add namespaces if you are providing an expression. Then the <strong>Namespace Editor</strong> panel would appear where you can provide any number of namespace prefixes and URLs used in the XPath expression.</p>
 </p></li>
@@ -114,17 +114,17 @@ endpoint specified.
 ```
 
 In this example, requests are sent to the
-`         PersonInfoEpr        ` endpoint, and responses from the
+`PersonInfoEpr` endpoint, and responses from the
 service at that endpoint are handled by a sequence named personInfoSeq.
 This approach is particularly useful for service chaining. For example,
 if you want to take the responses from the
-`         PersonInfoEpr        ` service and send them to the
-`         CreditEpr        ` service for additional processing before
+`PersonInfoEpr` service and send them to the
+`CreditEpr` service for additional processing before
 sending the final response back to the client. In this case, you can
-configure the `         personInfoSeq        ` sequence to send the
-response to the `         CreditEpr        ` service and also specify
-another receive sequence named `         creditSeq        ` that sends
-the response from the `         CreditEpr        ` service back to the
+configure the `personInfoSeq` sequence to send the
+response to the `CreditEpr` service and also specify
+another receive sequence named `creditSeq` that sends
+the response from the `CreditEpr` service back to the
 client. Following is the configuration of these sequences.
 
 ```
@@ -149,8 +149,8 @@ In this example, the Send mediator in a proxy service using the [VFS
 transport]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-vfs-transport) is
 transferring a file to a VFS endpoint. VFS is a non-blocking transport
 by default, which means a new thread is spawned for each outgoing
-message. The [Property mediator](_Property_Mediator_) added before the
-Send mediator removes the [ClientAPINonBlocking](_Generic_Properties_)
+message. The [Property mediator]({{base_path}}/reference/mediators/property-mediator) added before the
+Send mediator removes the [ClientAPINonBlocking]({{base_path}}/reference/mediators/property-reference/generic-properties)
 property from the message to perform the mediation in a single thread.
 This is required when the file being transferred is large and you want
 to avoid out-of-memory failures.

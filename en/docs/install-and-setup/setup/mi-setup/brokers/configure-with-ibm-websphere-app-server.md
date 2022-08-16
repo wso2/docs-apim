@@ -19,7 +19,7 @@ This page describes how to configure the WSO2 Micro Integrator with IBM WebSpher
     javax.jms,\
     javax.rmi.CORBA,\
     ```
-6. If you want the Micro Integrator to receive messages from an IBM Websphere app server, or to send messages to an IBM Websphere app server, you need to update the deployment.toml file with the relevant connection parameters.
+6. If you want the Micro Integrator to receive messages from an IBM WebSphere app server, or to send messages to an IBM WebSphere app server, you need to update the deployment.toml file with the relevant connection parameters.
 
    Add the following configurations to enable the JMS sender and listener with ActiveMQ connection parameters.
     ```toml

@@ -3,7 +3,7 @@
 This section guides you through the following areas:
 
 -   [Allowed IPs](#allowed-ips)
-    -   [Creating the Advanced Throttling policy](#creating-the-advanced-rate-limit-policy)
+    -   [Creating the advanced rate limiting policy](#creating-the-advanced-rate-limit-policy)
     -   [Engage the policy with an API](#engage-the-policy-with-an-api)
 -   [Denying requests](#denying-requests)
     -   [Denying the PhoneVerification API](#denying-phoneverification-api)
@@ -55,11 +55,11 @@ When requests to an API are to be permitted from a set of known/trusted IPs only
 
 1.  Login to API Publisher https://:9443/publisher.
 2.  Select the API and go to the <b>Resources</b> menu.
-3.  Enable **API level** under **Operational Configuration** and select the newly created Throttling policy.
+3.  Enable **API level** under **Operational Configuration** and select the newly created rate limiting policy.
     [![Apply allowlist to API]({{base_path}}/assets/img/learn/apply-allowlist-to-api.png)]({{base_path}}/assets/img/learn/apply-allowlist-to-api.png)
     
 4.  Save and Publish the API.
-    Now the API will be accessible only by the IP specified in the throttling policy.
+    Now the API will be accessible only by the IP specified in the rate limiting policy.
 
     <div class="admonition info">
     <p class="admonition-title">Note</p>

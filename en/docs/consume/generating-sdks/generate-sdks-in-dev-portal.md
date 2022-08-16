@@ -30,6 +30,44 @@ Follow the instructions below to generate and download client-side SDKs via the 
 
 By default, **Android, Java, JavaScript**, and **JMeter** the SDKs that are available to be downloaded via the Developer Portal in WSO2 API Manager (WSO2 API-M). In addition to the latter mentioned SDKs, WSO2 API Manager also supports SDK generation for the following languages. **Scala, C-Sharp (C#), Dart, Flash, Groovy, Node.js (NodeJs), Perl, PHP, Python, Ruby, Swift, Clojure, AsyncScala, CsharpDotNet2**.
 
+<div class="admonition note">
+<p class="admonition-title">Changes based on WSO2 Updates</p>
+<p>The following changes with regard to the supported languages for SDK generation is available as an update in WSO2 API-M 4.0.0. If you do not already have this update, see the instructions on <a href="https://updates.docs.wso2.com/en/latest/updates/update-commands/">updating your product</a>.
+
+<table>
+<tr>
+<th><b>Supported Language</b>
+</th>
+<th><b>Action</b>
+</th>
+<th><b>Update Level</b>
+</th>
+<th><b>Released Date</b>
+</th>
+</tr>
+<tr>
+<td>Swift 5
+</td>
+<td>Added
+</td>
+<td>65</br>(4.0.0.65)
+</td>
+<td>Released Date: January 24, 2022
+</td>
+</tr>
+<tr>
+<td>Flash
+</td>
+<td>Removed
+</td>
+<td>65</br>(4.0.0.65)
+</td>
+<td>Released Date: January 24, 2022
+</td>
+</tr>
+</table>
+</div>
+
 Follow the instructions below to configure the languages available for SDK generation:
 
 1.  Open `<API-M_HOME>/repository/conf/deployment.toml` file.

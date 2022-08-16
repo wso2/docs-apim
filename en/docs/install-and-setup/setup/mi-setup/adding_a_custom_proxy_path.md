@@ -5,9 +5,9 @@
 
 Adding a custom proxy path is useful when you have a proxy server
 fronting your product server. In this scenario, the "custom proxy path"
-is used for mapping a proxy url with the actual url of your
+is used for mapping a proxy URL with the actual URL of your
 server, which allows clients to access the server with the proxy
-url.
+URL.
 
 This feature is particularly useful when multiple WSO2 products are
 hosted under the same domain name. For example, consider that you have
@@ -28,13 +28,13 @@ In the above example, "apimanager", "micro-integrator", and "iam" are the "proxy
 parameter="value"
 ```
 
- When a client sends a request to the proxy entry url path, e.g.
+ When a client sends a request to the proxy entry URL path, e.g.
 <https://wso2test.com/apimanager> , the request is directed to the
-back-end service url (
+back-end service URL (
 [https://10.100.1.1:<PortNumber>/carbon](https://10.100.1.1:9443/carbon)
 ) where the original service lies. Eventually, the client has to be
-served via the requested proxy entry url path. The mapping between the
-proxy url path and the back-end service url path is resolved by the
+served via the requested proxy entry URL path. The mapping between the
+proxy URL path and the back-end service URL path is resolved by the
 reverse proxy server fronting the back-end service.
 
 !!! Info
@@ -48,22 +48,22 @@ reverse proxy server fronting the back-end service.
 
 This functionality will be demonstrated in this documentation using two
 WSO2 product servers as examples; WSO2 API Manager and WSO2 MI
-as the back-end servers, and [nginx](http://nginx.org/) as the reverse
+as the back-end servers, and [Nginx](http://nginx.org/) as the reverse
 proxy.
 
 Follow the steps given below.
 
 ### Step 1: Install and configure a reverse proxy
 
-1.  Download [nginx server](http://nginx.org/) .
-2.  Install the nginx server in your deployment server by executing the
+1.  Download [Nginx server](http://nginx.org/) .
+2.  Install the Nginx server in your deployment server by executing the
     following command:
 
     ```bash
     sudo apt-get install nginx
     ```
 
-3.  Create a folder called "ssl" inside /etc/nginx, and create the ssl
+3.  Create a folder called "SSL" inside /etc/nginx, and create the SSL
     certificates inside this folder by executing the following
     commands:  
 
@@ -218,7 +218,7 @@ Follow the steps given below.
 
 4.  Set the proxy context path as shown below. This is the proxy path
     string, which will appear in the management console, web apps and
-    services urls.
+    services URLs.
 
     -   For APIM: In <APIM_HOME>/repository/conf/carbon.xml file 
 

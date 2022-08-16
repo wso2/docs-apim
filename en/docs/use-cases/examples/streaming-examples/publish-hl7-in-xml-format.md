@@ -9,7 +9,7 @@ This application demonstrates how to configure WSO2 Streaming Integrator Tooling
     - Siddhi App PublishHl7InXmlFormat successfully deployed.
 
 ## Executing the Sample:
-1. In the HAPI testpanel create a receiving connection with port that provided in the siddhi app.
+1. In the HAPI testpanel create a receiving connection with port that provided in the Siddhi app.
 2. Start the listener.
 3. Start the Siddhi application by clicking on 'Run'.
 4. If the Siddhi application starts successfully, the following messages are shown on the console:
@@ -18,7 +18,7 @@ This application demonstrates how to configure WSO2 Streaming Integrator Tooling
 
 ## Testing the Sample:
 1. Open the event simulator by clicking on the second icon or pressing Ctrl+Shift+I.
-2. In the Single Simulation tab of the panel, specifiy the values as follows:
+2. In the Single Simulation tab of the panel, specify the values as follows:
     * Siddhi App Name   :   PublishHl7InXmlFormat
     * Stream Name   :   xmlStream
 3. In the MSH1, MSH2, MSH3HD1,MSH4HD1, MSH5HD1, MSH6HD1, MSH7, MSH8, CM_MSG1, CM_MSG2, MSH10, MSH11, MSH12 fields enter '|', '^~\&amp;', 'sendingSystemA', 'senderFacilityA', 'receivingSystemB' , 'receivingFacilityB', '20080925161613', ' ', 'ADT', 'A01', 'S123456789', 'P', '2.3' respectively and then click Send to send the event.

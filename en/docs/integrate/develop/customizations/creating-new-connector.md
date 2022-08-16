@@ -102,7 +102,7 @@ Now, let's look at how you can use the new connector in a mediation sequence.
 3. [Create a custom proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) named **googlebooks_listVolume**. In the **Design View**, you will note that the new connector is added to the tool palette.
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/new-connector-pallet.png" width="500">
 
-4. Now, update the proxy service as shown below. You will be defining a mediation logic using the **Propertry** mediator, the new **googleBooks** connector, and the **Respond** mediator:
+4. Now, update the proxy service as shown below. You will be defining a mediation logic using the **Property** mediator, the new **googleBooks** connector, and the **Respond** mediator:
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <proxy xmlns="http://ws.apache.org/ns/synapse"

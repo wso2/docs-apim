@@ -135,7 +135,7 @@ Following are the files and parameters you can configure to optimize performance
     `           /etc/security/limits.conf          ` file of Linux if
     you need to alter the maximum number of processes a system user is
     allowed to run at a given time. Each carbon server instance you run
-    requires upto 1024 threads with the default thread pool
+    requires up to 1024 threads with the default thread pool
     configuration. Therefore, you need to increase both the hard and
     soft nproc value by 1024 per carbon server.
 

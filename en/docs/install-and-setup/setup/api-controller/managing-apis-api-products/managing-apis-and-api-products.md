@@ -9,7 +9,7 @@ However, **WSO2 API Controller (apictl)** allows you to create and deploy APIs w
 
 Follow the instructions below to display a list of APIs or API Products in an environment using apictl:
 
-1.  Make sure that the WSO2 API Manager (WSO2 API-M) 4.0.0 version is started and that the 4.0.0 version of apictl is set up.   
+1.  Make sure that the WSO2 API Manager (WSO2 API-M) 4.0.0 version is started and that the 4.0.1 version of apictl is set up.   
      For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 3.  Run the corresponding apictl command below to get (list) APIs or API Products in an environment.
@@ -45,7 +45,7 @@ Follow the instructions below to display a list of APIs or API Products in an en
                 apictl get apis --environment production --limit 15 
                 ```    
                 ```go
-                apictl get apis --environment production --query provider:Alice --query name:PizzaShackAPI 
+                apictl get apis --environment production --query provider:Alice --query name:PizzaShackAPI version:2.0.0 
                 ```  
 
         -   **Response**
@@ -61,7 +61,7 @@ Follow the instructions below to display a list of APIs or API Products in an en
                 search for APIs.
                 You can search in attributes by using a `:` modifier. Supported attribute modifiers are **name**, 
                 **version**, **provider**, **context**, **status**, **description**, **subcontext**, **doc** and 
-                **label**.  You can also use multiple modifiers specified by multiple `-q` or `--query` flags in the same command.  
+                **label**.  You can also use multiple modifiers specified by multiple `-q` or `--query` flags in the same command. When using multiple modifiers, make sure to separate them with space. 
                 
                 **Examples:**
                    
@@ -110,7 +110,7 @@ Follow the instructions below to display a list of APIs or API Products in an en
                 apictl get api-products --environment production 
                 ```    
                 ```go
-                apictl get api-products --environment production --query provider:Alice --query name:PizzaShackAPI --limit 25 
+                apictl get api-products --environment production --query provider:Alice name:CreditAPIProduct context:"/creditapiproduct" --limit 25 
                 ```  
 
         -   **Response**
@@ -128,7 +128,7 @@ Follow the instructions below to display a list of APIs or API Products in an en
 
 Follow the instructions below to display a list of revisions created for an API or API Product in an environment using apictl:
 
-1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.0 version of apictl is set up.   
+1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.1 version of apictl is set up.   
      For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 3.  Run the corresponding apictl command below to get (list) revisions for the required API or API Product in an
@@ -237,7 +237,7 @@ Follow the instructions below to display a list of revisions created for an API 
 
 Follow the instructions below to delete an API or Application in an environment using apictl:
 
-1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.0 version of apictl is set up.   
+1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.1 version of apictl is set up.   
 For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 3.  Run the corresponding apictl command below to delete an API or an API Product in an environment.
@@ -325,7 +325,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
 
 Follow the instructions below to change the status of an API in an environment using apictl:
 
-1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.0 version of apictl is set up.   
+1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.1 version of apictl is set up.   
 For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 3.  Run the corresponding apictl command below to change the status of an API in an environment.
@@ -357,10 +357,10 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
             apictl change-status api -a Publish -n PizzaShackAPI -v 1.0.0 -e dev 
             ```
             ```bash
-            apictl change-status api --action Publish --name PizzaShackAPI --version 1.0.0 --environment production 
+            apictl change-status api --action "Publish" --name PizzaShackAPI --version 1.0.0 --environment production 
             ```    
             ```go
-            apictl change-status api --action Publish --name PizzaShackAPI --version 1.0.0 --environment production --provider Alice 
+            apictl change-status api --action "Demote to Created" --name PizzaShackAPI --version 1.0.0 --environment production --provider Alice 
             ```  
 
     -   **Response**
@@ -377,7 +377,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
 
 Follow the instructions below to undeploy a revision of an API from a selected gateway environment using apictl:
 
-1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.0 version of apictl is set up.   
+1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.1 version of apictl is set up.   
 For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 3.  Run the corresponding apictl command below to undeploy the revision from a gateway environment.

@@ -27,7 +27,7 @@ It is <b>not recommended to use Apache DS</b> in a production environment due to
 <p>For environments that WSO2 products are tested with, see 
 <a href="{{base_path}}/install-and-setup/setup/reference/product-compatibility/#tested-wso2-products">Compatibility of WSO2 Products</a>.</p></li>
 <li><p>
-If you have difficulty in setting up any WSO2 product in a specific platform or database, please <a href="http://wso2.com/support/">contact us</a>.</p>
+If you have difficulty in setting up any WSO2 product in a specific platform or database, please <a href="https://wso2.com/subscription/">contact us</a>.</p>
 </li>
 </ul>
 </td></tr></table></html>
@@ -40,13 +40,17 @@ Check the following system requirements for the API-M and Micro Integrator runti
 
 <html>
 <table>
+<tr> 
+<th><b>Type</b></th>
+<th> <b>Requirement</th>
+</tr>
 <tr>
 <td><p>Physical</p></td>
 <td>
 <ul><li>3 GHz Dual-core Xeon/Opteron (or latest)</li>
 <li>4 GB RAM (2 GB for JVM and 2 GB for the operating system)</li>
 <li>10 GB free disk space</li>
-<li>  ~ Recommended minimum - 2 Cores. For high concurrencies and better performances - 4 Cores.
+<li>  ~ Recommended minimum - 2 Cores. For high concurrences and better performances - 4 Cores.
 
 Disk space is based on the expected storage requirements that are calculated by considering the file uploads and the backup policies. For example, if three WSO2 product instances are running in a single machine, it requires a 4 GHz CPU, 8 GB RAM (2 GB for the operating system and 6 GB (2 GB for each WSO2 product instance)) and 30 GB of free space.</li></ul>
 </td>
@@ -83,6 +87,10 @@ Three WSO2 product instances can be run in 1 EC2 Extra-Large instance. Based on 
 ### Micro Integrator runtime
 
 <table>
+<tr> 
+<th><b>Type</b></th>
+<th> <b>Requirement</th>
+</tr>
   <tr>
     <td>
       <b>Docker</b>
@@ -119,6 +127,25 @@ Three WSO2 product instances can be run in 1 EC2 Extra-Large instance. Based on 
       </ul>
     </td>
   </tr>
+</table>
+
+### Streaming Integrator runtime
+
+<table>
+<tr> 
+<th><b>Type</b></th>
+<th> <b>Requirement</th>
+</tr>
+<tr>
+<td>
+<b>Virtual Machine (VM)/</br>Physical/</br>Docker</b>
+</td>
+<td>
+<ul><li>You require a minimum of one CPU with 2 cores. It is recommended to have a CPU with 4 cores.</li>
+<li>~ 4 GB minimum memory is recommended and ~ 2 GB heap size.</li>                                      
+<li>~ 1 GB minimum disk (excluding space allocated for log files and databases.) </li></ul>
+</td>
+</tr>
 </table>
 
 ## Database storage requirements
