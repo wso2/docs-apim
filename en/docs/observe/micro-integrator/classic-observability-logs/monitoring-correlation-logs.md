@@ -7,7 +7,7 @@ When Correlation logs are enabled for the Micro Integrator server, a separate lo
  
 ## Enabling Correlation logs
 
-## At the server start-up
+### At the server start-up
 
 You can enable Correlation logging by passing a system property.
 
@@ -25,10 +25,10 @@ You can enable Correlation logging by passing a system property.
 
 Now when you start the Micro Integrator, the `correlation.log` file is created in the `<MI_HOME>/repository/logs/` directory.
 
-## During the runtime 
+### During the runtime 
 
 - You can enable correlation logging by invoking the configs resource of the Management API. For more information, see 
-[enable/disable correlation logs using the Management API]({{base_path}}/observe/mi-observe/working-with-management-api.md#enabledisable-correlation-logging-during-runtime).
+[enable/disable correlation logs using the Management API]({{base_path}}/observe/mi-observe/working-with-management-api/#enabledisable-correlation-logging-during-runtime).
 
 - Alternatively, you can enable correlation logging using the MI dashboard. 
 
