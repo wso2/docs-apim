@@ -1288,6 +1288,54 @@ The management API has multiple resources to provide information regarding the d
 	  "message":"Successfully added logger for ('synapse-api') with level DEBUG for class org.apache.synapse.rest.API"
 	}
 	```
+	
+### GET CORRELATION LOGGING CONFIGURATION STATUS
+
+-	**Resource**: `/configs?configName=correlation`
+
+	**Description**: Retrieves correlation log configuration status.
+
+	**Example**:
+
+	```bash tab='Request'
+	curl -X GET "https://localhost:9164/management/configs?configName=correlation" -H "accept: application/json" -H "Authorization: Bearer Token" -k
+	```
+
+	```bash tab='Response'
+	{   
+	    "configName": "correlation",
+	    "configs": {
+			“enabled” : “false”
+		   	}
+	}
+
+	```	
+	
+### ENABLE/DISABLE CORRELATION LOGGING DURING RUNTIME
+
+-	**Resource**: `/configs`
+
+	**Description**: Enable or disable correlation logging in a running server.
+
+	**Example**:
+
+	```bash tab='Request'
+	curl -X PUT \
+	    "https://localhost:9164/management/configs/" \
+	    -H "accept: application/json" -H "authorization: Bearer Token"    -H 'content-type: application/json' \
+	    -d '{
+	    "configName": "correlation",
+	    "configs": {"enabled" : "true"}
+	    }' -k -i
+	```
+
+	```bash tab='Response'
+	{   
+	    "message": "Successfully Updated Correlation Logs Status"
+	}
+
+	```	
+
 
 ### GET TRANSACTION COUNT
 
