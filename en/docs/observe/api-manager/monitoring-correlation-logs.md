@@ -834,7 +834,7 @@ Denying of threads is needed because some threads keep on printing unnecessary J
 
 In order to enable denying of threads, 
 
-- Add the following configuration as a system property to the APIM startup script.
+- Add the following configuration as a system property to the API Manager startup script.
 
     ``` tab="Format"
     -Dorg.wso2.CorrelationLogInterceptor.BlacklistedThreads=<threadName1>,<threadName2> 
