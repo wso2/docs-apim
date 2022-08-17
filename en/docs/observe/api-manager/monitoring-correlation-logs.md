@@ -851,7 +851,7 @@ In order to enable denying of threads,
 
     OR
 
-- Use the devops API to update the denied threads for the jdbc component
+- Use the DevOps API to update the denied threads for the JDBC component.
 
     ```bash tab="Sample Request"
     curl -X PUT 'https://localhost:9443/api/am/devops/v0/config/correlation' \
