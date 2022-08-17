@@ -14,7 +14,7 @@
 ################################################################################
 openapi: 3.0.1
 info:
-  version: v0
+  version: v0.1
   title: WSO2 API Manager - DevOps
   description: |
     This document specifies a **RESTful API** for WSO2 **API Manager** - DevOps.
@@ -120,6 +120,71 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+
+  "/config/correlation/":
+    get:
+      summary: |
+        GET status of correlation log components
+
+      responses:
+        "200":
+          description: Status of Correlation Log Components
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CorrelationComponentsList"
+        "404":
+          description: |
+            Not Found.
+            Request component not found.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error while retrieving info
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+    put:
+      summary: |
+        Enable / Disable correlation logs
+      description: >
+        This operation enables you to enable / disable correlation logs 
+        of the product. This operation can be done at the product level 
+        or at each component level by providing the componentName query
+        parameter.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CorrelationComponentsList"
+        description: |
+          The enable / disable correlation log status is provided as a payload.
+      responses:
+        "200":
+          description: Successfully Set the status of the correlation logs.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CorrelationComponentsList"
+        "404":
+          description: |
+            Not Found.
+            Request components not found.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error while configuring the correlation log status
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+                
 servers:
   - url: https://apis.wso2.com/api/am/devops/v0
 components:
@@ -149,6 +214,40 @@ components:
         apiId:
           type: string
           example: 12d6e73c-778d-45ac-b57d-117c6c5092a4
+
+    CorrelationComponentsList:
+      title: correlation-components
+      properties:
+        components:
+          type: array
+          items:
+            $ref: "#/components/schemas/CorrelationComponent"
+    CorrelationComponent:
+      title: Correlation Component INFO object
+      properties:
+        name:
+          type: string
+          example: http
+        enabled:
+          type: string
+          example: true
+        properties:
+          type: array
+          items:
+            $ref: "#/components/schemas/CorrelationComponentProperty"
+
+    CorrelationComponentProperty:
+      title: Properties for correlation components
+      properties:
+        name:
+          type: string
+          example: "deniedThreads"
+        value:
+          type: array
+          items:
+            type: string
+            example: "MessageDeliveryTaskThreadPool"
+
     Error:
       title: Error object returned with 4XX HTTP Status
       required:
