@@ -103,7 +103,7 @@ For more instructions, see [WSO2 Devops API v0]({{base_path}}/reference/product-
     ```
 
 !!! note
-    When correlation logs are enabled using the system property, the devops API will not be able to disable the correlation logs. 
+    When correlation logs are enabled using the system property, the DevOps API will not be able to disable the correlation logs. 
 
 ### Method Call Logs
 
