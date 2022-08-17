@@ -13,7 +13,7 @@ Furthermore, when observability is enabled in WSO2 API-M, a random Correlation I
 
 ## Enabling Correlation Logs
 
-Correlation logs are disabled by default and it can be enabled at the server startup using the system parameter OR during the runtime using the Devops REST API. 
+Correlation logs are disabled by default and it can be enabled at the server startup using the system parameter OR during the runtime using the DevOps REST API. 
 
 ### Enable Correlation Logs at the Server Startup
 
