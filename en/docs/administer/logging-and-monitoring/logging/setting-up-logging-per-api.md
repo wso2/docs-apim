@@ -3,12 +3,6 @@ template: templates/swagger.html
 ---
 # Setting up logging per API in API Manager
 
-!!! note
-    You need to get the [latest product updates for your product]({{base_path}}/administer/updating-wso2-api-manager/) to use this feature in the current version of WSO2 API-M. This feature is available as a product update in WSO2 API-M 3.1.0 from September 19, 2020 onwards.
-
-    !!! warning
-        Note that you can deploy updates in a production environment only if you have a valid subscription with WSO2. Read more about [WSO2 Updates](https://wso2.com/updates).
-
 In a production environment, having the feasibility to monitor the HTTP message flow for a given API is important in identifying issues in the HTTP message flow.
 
 This feature enables logging API requests at four levels.
