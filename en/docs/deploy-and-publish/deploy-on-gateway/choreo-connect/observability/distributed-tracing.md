@@ -145,7 +145,7 @@ You will be able to see all traces. Detailed trace view will look like below.
     ```
 
 !!! Important
-    Please note that only jaeger versions >= 1.35 support OTLP gRPC telemetry data collection. Also it is required to set the environment variable `COLLECTOR_OTLP_ENABLED=true`.
+     Note that only Jaeger versions 1.35 and above support OTLP gRPC telemetry data collection. Also, it is required to set the environment variable `COLLECTOR_OTLP_ENABLED=true`.
 
 1. Add the following configuration to the `config.toml` file.
 
