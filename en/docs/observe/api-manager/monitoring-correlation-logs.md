@@ -13,7 +13,11 @@ Furthermore, when observability is enabled in WSO2 API-M, a random Correlation I
 
 ## Enabling Correlation Logs
 
-Enabling observability is simple in API Manager. All you need to do is to find the following system property in the product startup script (stored in the `<API-M_HOME>/bin/` directory) and set it to `true`. By default, this is set to `false`.
+Correlation logs are disabled by default and it can be enabled at the server startup using the system parameter OR during the runtime using the Devops REST API. 
+
+### Enable Correlation Logs at the Server Startup
+
+Enabling observability at the server startup is simple in API Manager. All you need to do is to find the following system property in the product startup script (stored in the `<API-M_HOME>/bin/` directory) and set it to `true`. By default, this is set to `false`.
 
 ```java
 -DenableCorrelationLogs=true
@@ -32,6 +36,74 @@ Enabling observability is simple in API Manager. All you need to do is to find t
 
 !!! note
     When observability is enabled in WSO2 API Manager, a separate log file named `correlation.log` is created in the `<API-M_HOME>/repository/logs` directory.
+
+### Enable Correlation Logs using the Devops REST API
+
+Devops REST API can be used to enable / disable correlation logs during the runtime and retrieve the correlation logs configurations. 
+For more instructions, see [WSO2 Devops API v0]({{base_path}}/reference/product-apis/devops-apis/devops-v0/devops-v0/#/paths/~1config~1correlation~1/get).
+
+1. Enable / disable correlation log configurations 
+   
+    Correlation logs can be configured at a component level granularity using the devops API. 
+
+    ```bash tab="Sample Request"
+    curl -X PUT 'https://localhost:9443/api/am/devops/v0/config/correlation' \
+        -H 'accept: application/json' \
+        -H 'Content-Type: application/json' \
+        -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+        -d '{"components":[{
+            "name":"http",
+            "enabled":"true"},
+            {
+            "name":"ldap",
+            "enabled":"false"},
+            {
+            "name":"jdbc",
+            "enabled":"false"},
+            {
+            "name":"synapse",
+            "enabled":"true"},
+            {
+            "name":"method-calls",
+            "enabled":"false"}]}' -k
+    ```
+    
+    ```bash tab="Sample Response"
+    {"components":[
+    {"name":"http",
+     "enabled":"true",
+     "properties":[]},
+    {"name":"ldap",
+     "enabled":"false",
+     "properties":[]},
+    {"name":"jdbc",
+     "enabled":"false",
+     "properties":[]},
+    {"name":"synapse",
+     "enabled":"true",
+     "properties":[]},
+    {"name":"method-calls",
+     "enabled":"false",
+     "properties":[]}]
+    }
+    ```
+
+
+
+
+   
+2. Get correlation log configurations 
+    
+    ```bash tab="Sample Request"
+    curl -X GET 'https://localhost:9443/api/am/devops/v0/config/correlation/' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -k
+    ```
+    
+    ```bash tab="Sample Response"
+    {"components":[{"name":"http","enabled":"false","properties":[]},{"name":"jdbc","enabled":"false","properties":[{"name":"deniedThreads","value":["MessageDeliveryTaskThreadPool","HumanTaskServer","BPELServer","CarbonDeploymentSchedulerThread"]}]},{"name":"ldap","enabled":"false","properties":[]},{"name":"synapse","enabled":"false","properties":[]},{"name":"method-calls","enabled":"false","properties":[]}]}
+    ```
+
+!!! note
+    When correlation logs are enabled using the system property, the devops API will not be able to disable the correlation logs. 
 
 ### Method Call Logs
 
@@ -760,20 +832,77 @@ For example, let's consider that you need to log all the methods for the gateway
 
 Denying of threads is needed because some threads keep on printing unnecessary JDBC logs continuously. Therefore, by denying these unwanted threads from printing logs, it helps to reduce the cluttering of the logs.
 
-In order to enable denying of threads, add the following configuration as a system property to the APIM startup script.
+In order to enable denying of threads, 
 
-``` tab="Format"
--Dorg.wso2.CorrelationLogInterceptor.BlacklistedThreads=<threadName1>,<threadName2> 
-```
+- Add the following configuration as a system property to the APIM startup script.
 
-``` tab="Example"
-For example, let's assume you need to blacklist threads: `pool-10-thread-1` and `metrics-jdbc-reporter-1-thread-1`    
+    ``` tab="Format"
+    -Dorg.wso2.CorrelationLogInterceptor.BlacklistedThreads=<threadName1>,<threadName2> 
+    ```
 
--Dorg.wso2.CorrelationLogInterceptor.BlacklistedThreads=pool-10-thread-1,metrics-jdbc-reporter-1-thread-1
-```
+    ``` tab="Example"
+    For example, let's assume you need to blacklist threads: `pool-10-thread-1` and `metrics-jdbc-reporter-1-thread-1`    
 
-!!! note
-    Make sure to add it before `org.wso2.carbon.bootstrap.Bootstrap $*`.
+    -Dorg.wso2.CorrelationLogInterceptor.BlacklistedThreads=pool-10-thread-1,metrics-jdbc-reporter-1-thread-1
+    ```
+
+    !!! note
+        Make sure to add it before `org.wso2.carbon.bootstrap.Bootstrap $*`.
+
+    OR
+
+- Use the devops API to update the denied threads for the jdbc component
+
+    ```bash tab="Sample Request"
+    curl -X PUT 'https://localhost:9443/api/am/devops/v0/config/correlation' \
+        -H 'accept: application/json' \
+        -H 'Content-Type: application/json' \
+        -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+        -d '{"components":[{
+            "name":"http",
+            "enabled":"false"},
+            {
+            "name":"ldap",
+            "enabled":"false"},
+            {
+            "name":"jdbc",
+            "enabled":"true",
+            "properties":[{
+            "name":"deniedThreads",
+            "value":["MessageDeliveryTaskThreadPool","HumanTaskServer","BPELServer","CarbonDeploymentSchedulerThread"]}]},
+            {
+            "name":"synapse",
+            "enabled":"false"},
+            {
+            "name":"method-calls",
+            "enabled":"false"}]}' -k
+    ```
+    
+    ```bash tab="Sample Response"
+    {"components":[
+    {"name":"http",
+     "enabled":"false",
+     "properties":[]},
+    {"name":"ldap",
+     "enabled":"false",
+     "properties":[]},
+    {"name":"jdbc",
+     "enabled":"true",
+     "properties":[{
+       "name":"deniedThreads",
+       "value":["MessageDeliveryTaskThreadPool","HumanTaskServer","BPELServer","CarbonDeploymentSchedulerThread"]}]},
+    {"name":"synapse",
+     "enabled":"false",
+     "properties":[]},
+    {"name":"method-calls",
+     "enabled":"false",
+     "properties":[]}]
+    }
+    ```
+
+    !!! note
+        If the correlation logs are enabled using the system property, devops API will not be able to change the denied threads of the jdbc component. 
+
 
 If the above configuration is not added, by default, the `MessageDeliveryTaskThreadPool` thread will be denied as it is found to print a considerable amount of messages for API-M instances. However, if the above configuration is added, the default value will be overridden. 
 
