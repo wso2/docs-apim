@@ -835,7 +835,6 @@ nav:
                 - API Logs: observe/api-manager/monitoring-api-logs.md
             - Traces:
                 - OpenTracing: observe/api-manager/traces/monitoring-with-opentracing.md
-                - OpenTelemetry: observe/api-manager/traces/monitoring-with-opentelemetry.md
             - Metrics:
                 - JMX-Based Monitoring: observe/api-manager/metrics/jmx-based-monitoring.md
         - Micro Integrator Profile:
@@ -851,8 +850,6 @@ nav:
                     - Monitor Logs: observe/micro-integrator/classic-observability-logs/monitoring-logs.md
                     - Monitor Correlation Logs: observe/micro-integrator/classic-observability-logs/monitoring-correlation-logs.md
                     - Monitor Audit Logs: observe/micro-integrator/classic-observability-logs/monitoring-mi-audit-logs.md
-                - Traces:
-                    - OpenTelemetry: observe/micro-integrator/classic-observability-traces/monitoring-with-opentelemetry-mi.md
                 - Metrics:
                     - JMX Monitoring with JMX: observe/micro-integrator/classic-observability-metrics/jmx-monitoring.md
                     - SNMP Monitoring with SNMO: observe/micro-integrator/classic-observability-metrics/snmp-monitoring.md
