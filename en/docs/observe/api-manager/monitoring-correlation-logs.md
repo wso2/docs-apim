@@ -832,7 +832,7 @@ For example, let's consider that you need to log all the methods for the gateway
 
 Denying of threads is needed because some threads keep on printing unnecessary JDBC logs continuously. Therefore, by denying these unwanted threads from printing logs, it helps to reduce the cluttering of the logs.
 
-In order to enable denying of threads, 
+In order to enable denying of threads:
 
 - Add the following configuration as a system property to the API Manager startup script.
 
