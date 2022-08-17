@@ -132,7 +132,7 @@ You will be able to see all traces. Detailed trace view will look like below.
 
 #### Configure Choreo Connect to publish OTLP traces to a jaegar backend
 
-1. Update the docker compose files with the following configuration to start a jaegar service with OTLP gRPC collector enabled.
+1. Update the Docker compose files with the following configuration to start a Jaeger service with OTLP gRPC collector enabled.
 
     ```yaml tab="Configuration"
     jaeger:
