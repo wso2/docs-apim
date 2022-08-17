@@ -87,10 +87,6 @@ For more instructions, see [WSO2 Devops API v0]({{base_path}}/reference/product-
      "properties":[]}]
     }
     ```
-
-
-
-
    
 2. Get correlation log configurations.
     
