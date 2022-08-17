@@ -92,7 +92,7 @@ For more instructions, see [WSO2 Devops API v0]({{base_path}}/reference/product-
 
 
    
-2. Get correlation log configurations 
+2. Get correlation log configurations.
     
     ```bash tab="Sample Request"
     curl -X GET 'https://localhost:9443/api/am/devops/v0/config/correlation/' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -k
