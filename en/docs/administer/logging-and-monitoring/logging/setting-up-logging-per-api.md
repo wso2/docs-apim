@@ -1,7 +1,7 @@
 ---
 template: templates/swagger.html
 ---
-# Setting up logging per API in API Manager
+# Setting Up Logging Per API in API Manager
 
 In a production environment, having the feasibility to monitor the HTTP message flow for a given API is important in identifying issues in the HTTP message flow.
 
