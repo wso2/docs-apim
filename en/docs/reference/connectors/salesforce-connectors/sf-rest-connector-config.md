@@ -3962,3 +3962,98 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
        "NewPassword" : "myNewPassword1234"
     }
     ```
+
+### Reports
+
+??? note "getReport"
+    To retrieve information about a report, use salesforcerest.getReport and specify the following property. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.234.0.api_analytics.meta/api_analytics/sforce_analytics_rest_api_getreportrundata.htm) for more information.
+
+    > **Note**: This operation is available only with Salesforce REST Connector v1.1.2 and above.
+
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Sample Value</th>
+        </tr>
+        <tr>
+            <td>reportId</td>
+            <td>The ID of the report which you want to retrieve.</td>
+            <td>Yes</td>
+            <td>00O8d000004MWaGEAW</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.getReport>
+        <reportId>{$ctx:reportId}</reportId>
+    </salesforcerest.getReport>
+    ```
+
+    **Sample request**
+
+    The following is a sample request that can be handled by the getReport operation.
+
+    ```json
+    {
+        "reportId": "00O8d000004MWaGEAW",
+    }
+    ```
+
+    **Sample Response**
+
+    Given below is a sample response from the getReport operation.
+
+    ```json
+    {
+    "attributes": {
+        "describeUrl": "/services/data/v55.0/analytics/reports/00O8d000004MWaGEAW/describe",
+        "instancesUrl": "/services/data/v55.0/analytics/reports/00O8d000004MWaGEAW/instances",
+        "reportId": "00O8d000004MWaGEAW",
+        "reportName": "SampleReport",
+        "type": "Report"
+    },
+    "allData": true,
+    "factMap": {
+        "T!T": {
+            "aggregates": [
+                {
+                    "label": "13",
+                    "value": 13
+                }
+            ],
+            "rows": [
+                {
+                    "dataCells": [
+                        {
+                            "label": "Customer - Direct",
+                            "recordId": "0018d00000FgQblAAF",
+                            "value": "Customer - Direct"
+                        },
+                        {
+                            "label": "Warm",
+                            "recordId": "0018d00000FgQblAAF",
+                            "value": "Warm"
+                        },
+                        {
+                            "label": "-",
+                            "recordId": "0018d00000FgQblAAF",
+                            "value": null
+                        },
+                        {
+                            "label": "16/08/2022",
+                            "value": "2022-08-15"
+                        },
+                        .
+                        .
+                        .
+                    ]
+                }
+            ]
+            }
+        }
+    }
+    ```
