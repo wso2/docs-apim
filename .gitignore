@@ -28,4 +28,5 @@ en/site
 /en/tools/config-catalog-generator-cc/node_modules/
 
 # prefers Python virtual environment for development
-.venv/
+venv/
+env/

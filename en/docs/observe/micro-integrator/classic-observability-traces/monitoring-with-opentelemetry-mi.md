@@ -353,11 +353,13 @@ public class SysoutTelemetryManager implements OpenTelemetryManager {
 
 If you need more `opentelemetry.properties` than the developed ones, you can edit the `for` loop of `synapse.properties.j2` file in the `<MI_HOME>/repository/resources/conf/templates/conf` folder in the following way.
 
+{% raw %}
 ```
 {%for property in opentelemetry.properties %}
 opentelemetry.properties.{{property.header}} = {{property.key}}
 {% endfor %}
 ```
+{% endraw %}
 
 The `deployment.toml` file entry will be as follows:
 
