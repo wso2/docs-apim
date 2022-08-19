@@ -12,7 +12,7 @@ Follow the instructions below to add advanced UI customizations to the Developer
     - **NodeJS** - This is a platform required for ReactJS development.
     - **NPM**
 
-1. Navigate to the `<API-M_HOME>/repository/deployment/server/jaggeryapps` directory in a terminal and run the following command.
+1. Navigate to the `<API-M_HOME>/repository/deployment/server/webapps` directory in a terminal and run the following command.
 
      ```js
      npm install
@@ -34,7 +34,7 @@ Follow the instructions below to add advanced UI customizations to the Developer
 
      **For example to customize the Developer Portal:**
 
-     1. Navigate to the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal` directory.
+     1. Navigate to the `<API-M_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp` directory.
 
      2. Run the following command.
 
@@ -50,20 +50,20 @@ Follow the instructions below to add advanced UI customizations to the Developer
 3. Make the UI related changes in the respective folder based on the WSO2 API-M Console.
 
      - If you need to rewrite the UI completely, you can make changes in the following directory.
-         - Developer Portal - `devportal/source`
-         - Publisher Portal - `publisher/source`
+         - Developer Portal - `devportal/src/main/webapp/source`
+         - Publisher Portal - `publisher/src/main/webapp/source`
      - If you want to override a specific React component or a file from the `source/src/` directory, you need to make the changes in the following directory by only copying the desired file/files.
-         - Developer Portal - `devportal/override/src`
-         - Publisher Portal - `publisher/override/src`
+         - Developer Portal - `devportal/src/main/webapp/override/src`
+         - Publisher Portal - `publisher/src/main/webapp/override/src`
 
 #### Overriding the API Documentation and Overview components
 
-Any file inside `<APP-ROOT>/override/src` folder can override the original file at `<APP-ROOT>/source/src` folder. The name of the file and location relative to the source folder has to be identical. This concept applies to publisher and admin web-apps as well. For example, [1] is taking precedence over [2] when the npm build is running. 
+Any file inside `<APP-ROOT>/src/main/webapp/override/src` folder can override the original file at `<APP-ROOT>/src/main/webapp/source/src` folder. The name of the file and location relative to the source folder has to be identical. This concept applies to publisher and admin web-apps as well. For example, [1] is taking precedence over [2] when the npm build is running. 
 
-* [1] - devportal/**override**/src/app/components/Apis/Details/Documents/Overview.jsx
-* [2] - devportal/**source**/src/app/components/Apis/Details/Documents/Overview.jsx
+* [1] - devportal/src/main/webapp/**override**/src/app/components/Apis/Details/Documents/Overview.jsx
+* [2] - devportal/src/main/webapp/**source**/src/app/components/Apis/Details/Documents/Overview.jsx
 
-An example for the `<APP-ROOT>/override/src` folder is shown below.
+An example for the `<APP-ROOT>/src/main/webapp/override/src` folder is shown below.
 
 ```sh
 override
@@ -80,7 +80,7 @@ override
 
 #### Adding new files to the override folder
 
-You can add your own files to customize the UI in the `admin/override/src` folder.
+You can add your own files to customize the UI in the `admin/src/main/webapp/override/src` folder.
 
 For example, you can import the **NewFile.jsx** by adding the **AppOverride** prefix to the import and provide the full path relative to the override folder.
 
@@ -116,7 +116,7 @@ import NewFile from './NewFile.jsx';
     - **NodeJS** - This is a JavaScript runtime environment required for ReactJS development.
     - **NPM**
 
-1. Navigate to the `<API-M_HOME>/repository/deployment/server/jaggeryapps/admin` directory in a terminal and run the following command.
+1. Navigate to the `<API-M_HOME>/repository/deployment/server/webapps/admin/src/main/webapp/` directory in a terminal and run the following command.
 
      ```js
      npm ci
@@ -140,18 +140,18 @@ import NewFile from './NewFile.jsx';
 3. Make the UI related changes in the respective folder based on the WSO2 API-M Console.
 
      - If you need to rewrite the admin UI completely, you can make changes in the following directory.
-         - `admin/source`
+         - `admin/src/main/webapp/source`
      - If you want to override a specific React component or a file from the `source/src/` directory, you need to make the changes in the following directory by only copying the desired file/files.
-         - `admin/override/src`
+         - `admin/src/main/webapp/override/src`
 
 #### Overriding the API Documentation and Overview components
 
-Any file inside `<APP-ROOT>/override/src` folder can override the original file at `<APP-ROOT>/source/src` folder. The name of the file and location relative to the source folder has to be identical. This concept applies to publisher and admin web-apps as well. For example, [1] is taking precedence over [2] when the npm build is running. 
+Any file inside `<APP-ROOT>/src/main/webapp/override/src` folder can override the original file at `<APP-ROOT>/src/main/webapp/source/src` folder. The name of the file and location relative to the source folder has to be identical. This concept applies to publisher and admin web-apps as well. For example, [1] is taking precedence over [2] when the npm build is running. 
 
-* [1] - devportal/**override**/src/app/components/Apis/Details/Documents/Overview.jsx
-* [2] - devportal/**source**/src/app/components/Apis/Details/Documents/Overview.jsx
+* [1] - devportal/src/main/webapp/**override**/src/app/components/Apis/Details/Documents/Overview.jsx
+* [2] - devportal/src/main/webapp/**source**/src/app/components/Apis/Details/Documents/Overview.jsx
 
-An example for the `<APP-ROOT>/override/src` folder is shown below.
+An example for the `<APP-ROOT>/src/main/webapp/override/src` folder is shown below.
 
 ```
 override
@@ -167,7 +167,7 @@ override
 ```
 
 #### Adding new files to the override folder
-You can add your own files to customize the UI in the `admin/override/src` folder.
+You can add your own files to customize the UI in the `admin/src/main/webapp/override/src` folder.
 
 For example, you can import the **NewFile.jsx** by adding the **AppOverride** prefix to the import and provide the full path relative to the override folder.
 

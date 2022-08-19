@@ -193,13 +193,13 @@ Follow the steps below to add a new state to the default life cycle.
 
         If you want to change the lifecycle image in Publisher, you can follow the steps mentioned below:
 
-        -   Search for **lifeCycleImage** in `defaultTheme.js` file resides in `<APIM-Home>/repository/deployment/server/jaggeryapps/publisher/site/public/conf` directory and uncomment it.
+        -   Search for **lifeCycleImage** in `defaultTheme.json` file resides in `<APIM-Home>/repository/deployment/server/webapps/publisher/src/main/webapp/site/public/conf` directory and uncomment it.
         -   Replace the path with correct path of image. For instance,
 
                 lifeCycleImage: '/publisher/site/public/images/custom-lifecycle.png,
 
     !!! Tip "For Advanced Customization"
-        If you want to add the custom lifecycle state to the existing lifecycle diagram, you have to customize the LifeCycleImage.jsx file located in  `<APIM-Home>/repository/deployment/server/jaggeryapps/publisher/source/src/app/components/Apis/Details/LifeCycle/` directory, as mentioned in the [Advanced Customization]({{base_path}}/reference/customize-product/customizations/advanced-ui-customization/)section.
+        If you want to add the custom lifecycle state to the existing lifecycle diagram, you have to customize the LifeCycleImage.jsx file located in  `<APIM-Home>/repository/deployment/server/webapps/publisher/src/main/webapp/source/src/app/components/Apis/Details/LifeCycle/` directory, as mentioned in the [Advanced Customization]({{base_path}}/reference/customize-product/customizations/advanced-ui-customization/)section.
 
 
 For more details on customizing the API lifecycle, see [Extending the API Life Cycle]({{base_path}}/design/lifecycle-management/extending-the-api-life-cycle/) .

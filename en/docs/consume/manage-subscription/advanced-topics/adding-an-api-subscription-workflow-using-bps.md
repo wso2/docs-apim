@@ -144,7 +144,7 @@ file to BPS. This is the business process archive file.
 
 ## Configuring the API Manager
 
-Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/admin/site/conf/site.json` file and configure " `workFlowServerURL"` under " `workflows"` to point to the EI/BPS server (e.g. `"workFlowServerURL": "                   https://localhost:9445/services/                  "` )
+Open the `<API-M_HOME>/repository/deployment/server/webapps/admin/src/main/webapp/site/conf/site.json` file and configure " `workFlowServerURL"` under " `workflows"` to point to the EI/BPS server (e.g. `"workFlowServerURL": "                   https://localhost:9445/services/                  "` )
 
 #### Engaging the WS Workflow Executor in the API Manager
 

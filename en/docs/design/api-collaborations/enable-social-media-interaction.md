@@ -13,7 +13,7 @@ Follow the instructions below to enable API Consumers to be able to share the AP
 
 ### Step 1 - Enable the community links option 
 
-1. Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/userTheme.js` configuration file in the WSO2 API Manager server.
+1. Open the `<API-M_HOME>/repository/deployment/server/webapps/devportal/site/public/theme/userTheme.js` configuration file in the WSO2 API Manager server.
 
     <html>
     <div class="admonition note">
