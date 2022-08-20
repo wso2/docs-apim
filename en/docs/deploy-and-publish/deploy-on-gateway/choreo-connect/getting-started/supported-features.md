@@ -14,6 +14,7 @@ The following is a list of Choreo Connect's important features.
     - Adding Key Managers via the WSO2 API Manager Admin Portal
     - WebSocket APIs
     - SOAP APIs
+    - GraphQL APIs
     - Support for virtual hosts (Vhosts) to expose the APIs
     - Publishing APIs to multiple Gateway environments
     - Default API version
@@ -73,7 +74,7 @@ The following is a list of Choreo Connect's important features.
 The Choreo Connect currently does not support the following major functionalities. However, they will be implemented in future iterations.
 
 - Streaming APIs, namely SSE and WebSub/WebHook
-- GraphQL APIs
+- Subscription operation for GraphQL APIs
 - gRPC APIs
 - API Products
 - Mutual SSL authentication for APIs
