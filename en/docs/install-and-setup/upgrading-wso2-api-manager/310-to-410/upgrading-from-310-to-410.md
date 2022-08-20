@@ -602,7 +602,7 @@ You have to run the following migration client to update the API Manager artifac
         api-manager.bat -Dmigrate -DmigrateFromVersion='3.1.0' -DmigratedVersion='4.1.0' -DrunPreMigration -DsaveInvalidDefinition
         ```
 
-    Check the server logs and verify if there are any errors logs. If you have encountered any errors in the API definitions, you have to correct them manually on the old version before proceeding to step 5.
+    Check the server logs and verify if there are any errors logs. If you have encountered any errors in the API definitions, you have to correct them manually on the old version before proceeding to step 4.
 
 4.  Start the API-M server to migrate the API-M components as follows.
 
