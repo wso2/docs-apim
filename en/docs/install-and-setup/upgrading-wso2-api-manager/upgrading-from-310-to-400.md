@@ -2256,30 +2256,30 @@ Follow the instructions below to move all the existing API Manager configuration
 
     3. Prior to API-M migration, run the below command to execute the pre-migration step that will validate your old data.
 
-    - Available validators: `apiAvailabilityValidation`, `apiDefinitionValidation`
+        - Available validators: `apiAvailabilityValidation`, `apiDefinitionValidation`
 
-    In this step, you can run data validation on all the existing validators or selected validators. If you only use the `-DrunPreMigration` command, all existing validations will be enabled. If not, you can provide a specific validator, such as  `-DrunPreMigration=apiDefinitionValidation`, which only validates the API definitions.
+        In this step, you can run data validation on all the existing validators or selected validators. If you only use the `-DrunPreMigration` command, all existing validations will be enabled. If not, you can provide a specific validator, such as  `-DrunPreMigration=apiDefinitionValidation`, which only validates the API definitions.
 
-    ``` tab="Linux / Mac OS"
-    sh api-manager.sh -DmigrateFromVersion=3.1.0 -DrunPreMigration
-    ```
-
-    ``` tab="Windows"
-    api-manager.bat -DmigrateFromVersion='3.1.0' -DrunPreMigration
-    ```
-
-    !!! note "If you want to save the invalid API definitions"
-        You can save the invalid API definitions to the local file system during this data validation step if required. Use the `-DsaveInvalidDefinition` option for this as follows. The invalid definitions will be stored under a folder named `<API-M_4.0.0_HOME>/invalid-swagger-definitions` in the form of `<API_UUID>.json`. Then you can manually correct these definitions.
-
-        ```tab="Linux / Mac OS"
-        sh api-manager.sh -DmigrateFromVersion=3.1.0 -DrunPreMigration -DsaveInvalidDefinition
+        ``` tab="Linux / Mac OS"
+        sh api-manager.sh -DmigrateFromVersion=3.1.0 -DrunPreMigration
         ```
 
         ``` tab="Windows"
-        api-manager.bat -DmigrateFromVersion='3.1.0' -DrunPreMigration -DsaveInvalidDefinition
+        api-manager.bat -DmigrateFromVersion='3.1.0' -DrunPreMigration
         ```
 
-    Check the server logs and verify if there are any errors logs. If you have encountered any errors in the API definitions, you have to correct them manually on the old version before proceeding to step 4.
+        !!! note "If you want to save the invalid API definitions"
+            You can save the invalid API definitions to the local file system during this data validation step if required. Use the `-DsaveInvalidDefinition` option for this as follows. The invalid definitions will be stored under a folder named `<API-M_4.0.0_HOME>/invalid-swagger-definitions` in the form of `<API_UUID>.json`. Then you can manually correct these definitions.
+
+            ```tab="Linux / Mac OS"
+            sh api-manager.sh -DmigrateFromVersion=3.1.0 -DrunPreMigration -DsaveInvalidDefinition
+            ```
+
+            ``` tab="Windows"
+            api-manager.bat -DmigrateFromVersion='3.1.0' -DrunPreMigration -DsaveInvalidDefinition
+            ```
+
+        Check the server logs and verify if there are any errors logs. If you have encountered any errors in the API definitions, you have to correct them manually on the old version before proceeding to the next step.
 
     4.  Start the API-M server as follows.
 
