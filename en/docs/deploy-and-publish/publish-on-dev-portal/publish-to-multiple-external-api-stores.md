@@ -39,13 +39,13 @@ In this guide, let's use two separate instances of WSO2 API Manager, and let's p
 
      Let's consider the second instance as the external API Developer Portal. Let's publish from the first instance of WSO2 API Manager to the Developer Portal of the second instance.
 
-4.  Sign in to the WSO2 API-M management console of the **first** instance (`https://<server-host>:9443/carbon`) as `admin`.
+4.  Sign in to the WSO2 API-M Admin console of the **first** instance (`https://<server-host>:9443/admin`) as `admin`.
 
     !!! tip
         In a **multi-tenant environment**, you must sign in using the tenant's credentials.
 
 
-5.  Navigate to  **Main > Resources > Browse**.
+5.  Navigate to  **Settings > Advanced > Advanced Configurations**.
 
     <img src="{{base_path}}/assets/img/learn/navigate-main-resources.png" alt="Menu option to navigate to the Browse option" title="Menu option to navigate to the Browse option" width="70%" />
     
@@ -58,18 +58,23 @@ In this guide, let's use two separate instances of WSO2 API Manager, and let's p
 
 7.  Click **Edit as Text**, uncomment the `<StoreURL>` element under the `<ExternalAPIStores>` element, and add the details of each external API Developer Portal that you need to publish APIs to.
 
-    ``` xml
-    <ExternalAPIStores>
-        <StoreURL>http://localhost:9443/devportal</StoreURL>
-            <ExternalAPIStore id="DeveloperPortal2" type="wso2" className="org.wso2.carbon.apimgt.impl.publishers.WSO2APIPublisher">
-                <DisplayName>DeveloperPortal2</DisplayName>
-                <Endpoint>http://localhost:9444/devportal</Endpoint>
-                <Username>admin</Username>
-                <Password>admin</Password>
-            </ExternalAPIStore>
-    </ExternalAPIStores>
+    ``` tab="Format"
+       "ExternalAPIStores": {
+            "StoreURL": "http://localhost:9443/devportal",
+            "ExternalAPIStore": 
+            [
+                {
+                    "id": "DeveloperPortal2",
+                    "type": "wso2",
+                    "className": "org.wso2.carbon.apimgt.impl.publishers.WSO2APIPublisher",
+                    "DisplayName": "DeveloperPortal2",
+                    "Endpoint": "http://localhost:9444/devportal",
+                    "Username": "admin",
+                    "Password": "admin"
+                }
+            ]
+       }
     ```
-
     In this example,
 
     - `http://localhost:9444/devportal` is the API Developer Portal of the second WSO2 API Manager instance.
@@ -86,53 +91,61 @@ In this guide, let's use two separate instances of WSO2 API Manager, and let's p
 
         For example, if you have three Developer Portals, and one is a super tenant and other two are tenant Developer Portals, you can configure these three external Developer Portals as follows:
 
-        ``` xml
-        <ExternalAPIStores>
-            <!--Configuration to set the Developer Portal URL of the current running APIM deployment. 
-            APIs published to external developer portals will be redirected to this URL-->
-            
-                <StoreURL>http://<ip_address>:<port>/devportal</StoreURL>
-
-                <ExternalAPIStore id="SLStore" type="wso2" className="org.wso2.carbon.apimgt.impl.publishers.WSO2APIPublisher">
-                    <DisplayName>SL-Store</DisplayName>
-                    <Endpoint>http://<ip_address>:<port>/devportal</Endpoint>
-                    <Username>admin</Username>
-                    <Password>admin</Password>
-                </ExternalAPIStore>
-                
-                <ExternalAPIStore id="USStore" type="wso2" className="org.wso2.carbon.apimgt.impl.publishers.WSO2APIPublisher">
-                    <DisplayName>US-Store</DisplayName>
-                    <Endpoint>http://<ip_address>:<port>/devportal/apis?tenant={tenant_domain}</Endpoint>
-                    <Username>{tenantadmin_username}@{tenant_domain}</Username>
-                    <Password>{tenantadmin_password}</Password>
-                </ExternalAPIStore>
-
-                <ExternalAPIStore id="UKStore" type="wso2" className="org.wso2.carbon.apimgt.impl.publishers.WSO2APIPublisher">
-                    <DisplayName>UKStore</DisplayName>
-                    <Endpoint>http://<ip_address>:<port>/devportal/apis?tenant={tenant_domain}</Endpoint>
-                    <Username>{tenantadmin_username}@{tenant_domain}</Username>
-                    <Password>{tenantadmin_password}</Password>
-                </ExternalAPIStore>
-        </ExternalAPIStores>
-        ```
+    ```tab="Format"
+       "ExternalAPIStores": {
+            "StoreURL": "http://<ip_address>:<port>/devportal",
+            "ExternalAPIStore": 
+            [
+                {
+                    "id": "SLStore",
+                    "type": "wso2",
+                    "className": "org.wso2.carbon.apimgt.impl.publishers.WSO2APIPublisher",
+                    "DisplayName": "SL-Store",
+                    "Endpoint": "http://<ip_address>:<port>/devportal",
+                    "Username": "admin",
+                    "Password": "admin"
+                },
+                {
+                    "id": "USStore",
+                    "type": "wso2",
+                    "className": "org.wso2.carbon.apimgt.impl.publishers.WSO2APIPublisher",
+                    "DisplayName": "US-Store",
+                    "Endpoint": "http://<ip_address>:<port>/devportal/apis?tenant={tenant_domain}",
+                    "Username": "{tenantadmin_username}@{tenant_domain}",
+                    "Password": "{tenantadmin_password}"
+                },
+                {
+                    "id": "UKStore",
+                    "type": "wso2",
+                    "className": "org.wso2.carbon.apimgt.impl.publishers.WSO2APIPublisher",
+                    "DisplayName": "UKStore",
+                    "Endpoint": "http://<ip_address>:<port>/devportal/apis?tenant={tenant_domain}",
+                    "Username": "{tenantadmin_username}@{tenant_domain}",
+                    "Password": "{tenantadmin_password}"
+                }
+            ]
+       }
+    ```
         
         To setup an external API store from a tenant other than the super tenant, you need to configure the external-api-stores.xml file as follows:
-        
-        ```xml
-        <ExternalAPIStores>
-        	<!--Configuration to set the developer portal URL of the current running APIM deployment.
-        	APIs published to external developer portals will be redirected to this URL-->
-        	
-        	<StoreURL>http://<ip_address>:<port>/devportal/apis?tenant={tenant_domain_of_first_deployment}</StoreURL>
-        
-                <ExternalAPIStore id="DeveloperPortal2" type="wso2" className="org.wso2.carbon.apimgt.impl.publishers.WSO2APIPublisher">
-                    <DisplayName>DeveloperPortal2</DisplayName>
-                    <Endpoint>http://<ip_address>:<port>/devportal/apis?tenant={tenant_domain_of_second_deployment}</Endpoint>
-                    <Username>{tenantadmin_username}@{tenant_domain_of_second_deployment}</Username>
-                    <Password>{tenantadmin_password}</Password>
-                </ExternalAPIStore>
-        </ExternalAPIStores>
-        ```
+
+    ``` tab="Format"
+       "ExternalAPIStores": {
+            "StoreURL": "http://<ip_address>:<port>/devportal/apis?tenant={tenant_domain_of_first_deployment}",
+            "ExternalAPIStore": 
+            [
+                {
+                    "id": "DeveloperPortal2",
+                    "type": "wso2",
+                    "className": "org.wso2.carbon.apimgt.impl.publishers.WSO2APIPublisher",
+                    "DisplayName": "DeveloperPortal2",
+                    "Endpoint": "http://<ip_address>:<port>/devportal/apis?tenant={tenant_domain_of_second_deployment}",
+                    "Username": "{tenantadmin_username}@{tenant_domain_of_second_deployment}",
+                    "Password": "{tenantadmin_password}"
+                }
+            ]
+       }
+    ```
     
     !!! tip
         In a **multi-tenant environment**, each tenant can publish to different external Developer Portals by changing the above file in their tenant space. For more information on how APIs appear and are available for subscription in a multi-tenant environment, see [API visibility]({{base_path}}/get-started/key-concepts#api-visibility). Note that publishing to an external Developer Portal only means that the API is advertised there. To subscribe, you must always register and sign in to the original publisher's tenant Developer Portal.
@@ -149,7 +162,7 @@ In this guide, let's use two separate instances of WSO2 API Manager, and let's p
     </thead>
     <tbody>
     <tr class="odd">
-    <td><p><code>                &lt;ExternalAPIStore id=&quot;&quot; type=&quot;&quot; className=&quot;&quot;&gt;               </code></p></td>
+    <td><p><code>                 id, type, className            </code></p></td>
     <td><div class="content-wrapper">
     <p><code>                 id                </code> : The external Developer Portal identifier, which is a unique value.<br />
     <code>                 type                </code> : The type of the Developer Portal. This can be a WSO2-specific API Developer Portal or an external one, which has a different implementation from the default API Developer Portal.<br />
@@ -163,19 +176,19 @@ In this guide, let's use two separate instances of WSO2 API Manager, and let's p
     </div></td>
     </tr>
     <tr class="even">
-    <td><p><code>                &lt;StoreURL&gt;               </code></p></td>
+    <td><p><code>                StoreURL               </code></p></td>
     <td>The URL of the current API-M deployment's API Developer Portal. This is the URL to the API in the original publisher's Developer Portal. APIs that are published to external Developer Portals are redirected to this URL.</td>
     </tr>
     <tr class="odd">
-    <td><code>               &lt;DisplayName&gt;              </code></td>
+    <td><code>               DisplayName              </code></td>
     <td>The name of the external API Developer Portal that is displayed in the Publisher UI.</td>
     </tr>
     <tr class="even">
-    <td><p><code>                &lt;Endpoint&gt;               </code></p></td>
+    <td><p><code>                Endpoint               </code></p></td>
     <td>The URL of the external API Developer Portal.</td>
     </tr>
     <tr class="odd">
-    <td><code>               &lt;Username&gt;              </code> and <code>               &lt;Password&gt;              </code></td>
+    <td><code>               Username              </code> and <code>               Password              </code></td>
     <td><p>The credentials of a user who has permission to create and publish APIs.</p></td>
     </tr>
     </tbody>
