@@ -30,6 +30,10 @@ You can use the dashboard to perform the following administration tasks related 
 
     You can enable/disable tracing for the following artifacts: <i>Proxy Services</i>, <i>Endpoints</i>, <i>APIs</i> <i>Sequences</i> and <i>Inbound Endpoints</i>.
 
+-   <b>View registry resources</b>
+
+    You can view content, properties and metadata of each registry resource.
+
 -   <b>View logs</b>
 
     You can view the log files generated for each Micro Integrator instance of the cluster/group.
