@@ -13,9 +13,9 @@ The default theme of the Publisher portal is built into the portal bundle file. 
 
 This can be used as a reference to identify the custom extension points that are available in the Publisher theme file.
 
-To override the default theme parameters, you have to update the [externalized](https://webpack.js.org/configuration/externals/) `userThemes.js` file in the `<API-M_HOME>/repository/deployment/server/webapps/publisher/src/main/webapp/site/public/conf/userThemes.js` file.
+To override the default theme parameters, you have to update the [externalized](https://webpack.js.org/configuration/externals/) `userThemes.json` file in the `<API-M_HOME>/repository/deployment/server/webapps/publisher/src/main/webapp/site/public/conf/userThemes.json` file.
 
-Changes done in the `userThemes.js` file are reflected directly in the Publisher app (You do not need to restart the server or rebuild the source code).
+Changes done in the `userThemes.json` file are reflected directly in the Publisher app (You do not need to restart the server or rebuild the source code).
 
 When modifying the theme, you can only provide the custom parameter that you want to override in the default theme, the rest of the theme parameters will be inherited from the built-in default theme configuration. 
 

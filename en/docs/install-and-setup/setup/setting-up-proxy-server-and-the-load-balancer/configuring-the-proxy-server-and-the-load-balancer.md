@@ -459,11 +459,12 @@ The following instructions are optional if you do not have a custom URL configur
 2. Set `customUrl.enabled` to `true`
   
     ```json
-        
-    customUrl: {
+    ...    
+    "customUrl": {
         "enabled": true,
         "forwardedHeader": "X-Forwarded-Host",
     },
+    ...
     ```
 
     !!! Note

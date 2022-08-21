@@ -175,7 +175,7 @@ Follow the instructions below to change the direction of the UI:
 2. Reload the Developer Portal to view the changes. 
 
 !!! info
-    If you have done the theme changes for the instance via the `<APIM_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/site/public/theme/defaultTheme.json` file the above configuration is valid. However, if it is the tenant theme file (`defaultTheme.json`) the variable assignment is not required and the `defaultTheme.json` file has to be a valid JSON file. For example, the valid configuration that should go into the `defaultTheme.json` file to change the page direction to RTL (Right To Left) is as follows:
+    If you have done the theme changes for the instance via the `<APIM_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/site/public/theme/defaultTheme.js` file the above configuration is valid. However, if it is the tenant theme file (`defaultTheme.json`) the variable assignment is not required and the `defaultTheme.json` file has to be a valid JSON file. For example, the valid configuration that should go into the `defaultTheme.json` file to change the page direction to RTL (Right To Left) is as follows:
 
     ```js
     {

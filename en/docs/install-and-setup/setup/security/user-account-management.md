@@ -142,26 +142,27 @@ You can display a list of policy guidelines in the change password page that app
   
 <img src="{{base_path}}/assets/img/learn/change-devportal-password-policy-guideline-display.png" alt="Displaying Developer Portal password policy guidelines" width="700"/>
   
-1. Enable password changing guidelines in the `settings.js` file.  
+1. Enable password changing guidelines in the `settings.json` file.  
 
      1. Open the `<API-M_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/site/public/theme/settings.json` file.  
      
      2. Edit the configuration as follows:  
    
         ```json
-         const Settings = {
+         {
             ...
             "passwordChange": {
                 "guidelinesEnabled": true,
                 ...
             },
-         };
+            ...
+         }
         ```
 
 2. List your custom guidelines under `policyList`.
 
     ```json
-     const Settings = {
+     {
         ...
         "passwordChange": {
             "guidelinesEnabled": true,
@@ -171,6 +172,7 @@ You can display a list of policy guidelines in the change password page that app
                 "Policy 3"
             ]
         },
+        ...
      };
     ```
 
