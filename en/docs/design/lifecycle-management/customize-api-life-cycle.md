@@ -9,126 +9,111 @@ Follow the steps below to add a new state to the default life cycle.
 2.  Click **Lifecycle** tab to view the current state and states available by default.
     ![Published life cycle state]({{base_path}}/assets/img/learn/default-lifecycle.png)
 
-3.  Open the API Manager Management Console: <https://localhost:9443/carbon>
+3.  Open the API Manager Management Console: <https://localhost:9443/admin>
 
-4.  Navigate to **Extensions &gt; Configure &gt; Lifecycles**.
+4.  Click on the Advanced tab.
 
-    ![]({{base_path}}/assets/img/learn/lifecycle-menu.png)
+    ![]({{base_path}}/assets/img/learn/admin-dashboard-advanced.png)
 
-5.  Click the **View/Edit** link corresponding to the default API LifeCycle.
+5.  By default LifeCycle configuration doesn't appear in the advanced configurations. To view the default LifeCylce configuration type as **LifeCycle** and select **LifeCycle** autosuggested option.
 
-    ![]({{base_path}}/assets/img/learn/api-lifecycle-veiw.png)    
+    ![]({{base_path}}/assets/img/learn/admin-dashboard-lifecycle-config.png)    
     
-    The APILifeCycle configuration appear.
+    The default LifeCycle is given below.
 
     ``` java
-    <aspect name="APILifeCycle" class="org.wso2.carbon.governance.registry.extensions.aspects.DefaultLifeCycle">
-        <configuration type="literal">
-            <lifecycle>
-                <scxml  xmlns="http://www.w3.org/2005/07/scxml"
-                        version="1.0"
-                        initialstate="Created">
-                    <state id="Created">
-                        <datamodel>
-                            <data name="checkItems">
-                                <item name="Deprecate old versions after publish the API" forEvent="">
-                                </item>
-                                <item name="Requires re-subscription when publish the API" forEvent="">
-                                </item>
-                            </data>
-
-                            <data name="transitionExecution">
-                                <execution forEvent="Deploy as a Prototype"
-                                           class="org.wso2.carbon.apimgt.impl.executors.APIExecutor">
-                                </execution>
-                                <execution forEvent="Publish"
-                                           class="org.wso2.carbon.apimgt.impl.executors.APIExecutor">
-                                </execution>
-                            </data>
-                        </datamodel>
-                        <transition event="Publish" target="Published"/>
-                        <transition event="Deploy as a Prototype" target="Prototyped"/>
-                    </state>
-
-                    <state id="Prototyped">
-                        <datamodel>
-                            <data name="checkItems">
-                                <item name="Deprecate old versions after publish the API" forEvent="">
-                                </item>
-                                <item name="Requires re-subscription when publish the API" forEvent="">
-                                </item>
-                            </data>
-
-                            <data name="transitionExecution">
-                                <execution forEvent="Publish"
-                                           class="org.wso2.carbon.apimgt.impl.executors.APIExecutor">
-                                </execution>
-                                <execution forEvent="Demote to Created"
-                                           class="org.wso2.carbon.apimgt.impl.executors.APIExecutor">
-                                </execution>
-                            </data>
-                        </datamodel>
-                        <transition event="Publish" target="Published"/>
-                        <transition event="Demote to Created" target="Created"/>
-                        <transition event="Deploy as a Prototype" target="Prototyped"/>
-                    </state>
-
-                    <state id="Published">
-                        <datamodel>
-                            <data name="transitionExecution">
-                                <execution forEvent="Block"
-                                           class="org.wso2.carbon.apimgt.impl.executors.APIExecutor">
-                                </execution>
-                                <execution forEvent="Deprecate"
-                                           class="org.wso2.carbon.apimgt.impl.executors.APIExecutor">
-                                </execution>
-                                <execution forEvent="Demote to Created"
-                                           class="org.wso2.carbon.apimgt.impl.executors.APIExecutor">
-                                </execution>
-                                <execution forEvent="Deploy as a Prototype"
-                                           class="org.wso2.carbon.apimgt.impl.executors.APIExecutor">
-                                </execution>
-                            </data>
-                        </datamodel>
-                        <transition event="Block" target="Blocked"/>
-                        <transition event="Deploy as a Prototype" target="Prototyped"/>
-                        <transition event="Demote to Created" target="Created"/>
-                        <transition event="Deprecate" target="Deprecated"/>
-                        <transition event="Publish" target="Published"/>
-                    </state>
-
-                    <state id="Blocked">
-                        <datamodel>
-                            <data name="transitionExecution">
-                                <execution forEvent="Re-Publish"
-                                           class="org.wso2.carbon.apimgt.impl.executors.APIExecutor">
-                                </execution>
-                                <execution forEvent="Deprecate"
-                                           class="org.wso2.carbon.apimgt.impl.executors.APIExecutor">
-                                </execution>
-                            </data>
-                        </datamodel>
-                        <transition event="Deprecate" target="Deprecated"/>
-                        <transition event="Re-Publish" target="Published"/>
-                    </state>
-
-                    <state id="Deprecated">
-                        <datamodel>
-                            <data name="transitionExecution">
-                                <execution forEvent="Retire"
-                                           class="org.wso2.carbon.apimgt.impl.executors.APIExecutor">
-                                </execution>
-                            </data>
-                        </datamodel>
-                        <transition event="Retire" target="Retired"/>
-                    </state>
-
-                    <state id="Retired">
-                    </state>
-                </scxml>
-            </lifecycle>
-        </configuration>
-    </aspect>
+    "LifeCycle": {
+		"States": [
+			{
+				"Transitions": [
+					{
+						"Target": "Published",
+						"Event": "Publish"
+					},
+					{
+						"Target": "Prototyped",
+						"Event": "Deploy as a Prototype"
+					}
+				],
+				"State": "Created",
+				"CheckItems": [
+					"Deprecate old versions after publishing the API",
+					"Requires re-subscription when publishing the API"
+				]
+			},
+			{
+				"Transitions": [
+					{
+						"Target": "Published",
+						"Event": "Publish"
+					},
+					{
+						"Target": "Created",
+						"Event": "Demote to Created"
+					},
+					{
+						"Target": "Prototyped",
+						"Event": "Deploy as a Prototype"
+					}
+				],
+				"State": "Prototyped",
+				"CheckItems": [
+					"Deprecate old versions after publishing the API",
+					"Requires re-subscription when publishing the API"
+				]
+			},
+			{
+				"Transitions": [
+					{
+						"Target": "Blocked",
+						"Event": "Block"
+					},
+					{
+						"Target": "Prototyped",
+						"Event": "Deploy as a Prototype"
+					},
+					{
+						"Target": "Created",
+						"Event": "Demote to Created"
+					},
+					{
+						"Target": "Deprecated",
+						"Event": "Deprecate"
+					},
+					{
+						"Target": "Published",
+						"Event": "Publish"
+					}
+				],
+				"State": "Published"
+			},
+			{
+				"Transitions": [
+					{
+						"Target": "Deprecated",
+						"Event": "Deprecate"
+					},
+					{
+						"Target": "Published",
+						"Event": "Re-Publish"
+					}
+				],
+				"State": "Blocked"
+			},
+			{
+				"Transitions": [
+					{
+						"Target": "Retired",
+						"Event": "Retire"
+					}
+				],
+				"State": "Deprecated"
+			},
+			{
+				"State": "Retired"
+			}
+		]
+	}
     ```
 6.  Update the API lifecycle definition.
 
@@ -140,37 +125,29 @@ Follow the steps below to add a new state to the default life cycle.
 
 
         ``` java
-         <state id="Rejected">
-            <datamodel>
-                <data name="checkItems">
-                    <item name="Deprecate old versions after rejecting the API" forEvent="">
-                    </item>
-                    <item name="Remove subscriptions after rejection" forEvent="">
-                    </item>
-                </data>
-                <data name="transitionExecution">
-                    <execution forEvent="Re-Submit" class="org.wso2.carbon.apimgt.impl.executors.APIExecutor">
-                    </execution>
-                    <execution forEvent="Retire" class="org.wso2.carbon.apimgt.impl.executors.APIExecutor">
-                    </execution>
-                </data>
-            </datamodel>
-            <transition event="Re-Submit" target="Published"/>
-            <transition event="Retire" target="Retired"/>
-        </state>
+         {
+				"State": "Rejected",
+				"Transitions": [
+					{
+						"Event": "Re-Submit",
+						"Target": "Published"
+					},
+					{
+						"Event": "Retire",
+						"Target": "Retired"
+					}
+				]
+			}
         ```
 
-        !!! note
-            The same execution class is used ( `org.wso2.carbon.apimgt.impl.executors.APIExecutor` ) for all state transitions. However, you can plug your own execution code when modifying the life cycle configuration.
-
-            For example, if you want to send notifications for a specific state transition, you can plug your own custom execution class for that particular state in the API life cycle. Any changes are updated in the **Lifecycle** tab accordingly.
-
-
-    2.  Add a new transition event under the PUBLISHED state, to show the state change to REJECTED.
+    1.  Add a new transition event under the PUBLISHED state and under the Transitions, to show the state change to REJECTED.
 
         ``` java
         ...   
-        <transition event="Reject" target="Rejected"/>
+        {
+            "Event": "Reject",
+            "Target": "Rejected"
+		}
         ...
         ```
 
@@ -181,7 +158,7 @@ Follow the steps below to add a new state to the default life cycle.
     ![]({{base_path}}/assets/img/learn/custom-life-cycle-states.png)
 
     !!! tip
-        Consider the following points when extending and customizing the API lifecycle XML configuration.
+        Consider the following points when extending and customizing the API lifecycle JSON configuration.
 
         -   Do not change the life cycle name since it needs to be engaged with the APIs dynamically.
         -   Make sure you keep the **PUBLISHED** and **PROTOTYPED** states as those two states will be used by API Publisher in the API creation wizard.
