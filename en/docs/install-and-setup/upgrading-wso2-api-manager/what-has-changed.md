@@ -19,6 +19,9 @@ This page provides details about the behavioral changes in WSO2 API Manager Serv
 
 - All the data is persisted in databases **from WSO2 API-M 4.0.0 onwards**. Therefore, it is recommended to execute the migration client in the Control Plane profile.
 
+- From API-M 4.0.0, the kid claim has been removed from the backend JWT.
+  If there are customizations that require validating the kid value of the backend JWT, please customize the JWT generator to include kid value.
+
 - From API-M 4.0.0 onwards Other '_overview' type documents override the API description, if you had created such documents in your lower environments, please note that those documents will not be displayed in document listing page. You can edit those documents the same way you edit the API description.
 
   - From **WSO2 API_M 4.0.0 onwards** error responses in API calls has changed from XML to JSON format.
