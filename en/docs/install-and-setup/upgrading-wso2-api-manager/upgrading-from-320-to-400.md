@@ -1581,7 +1581,34 @@ Follow the instructions below to move all the existing API Manager configuration
 
     2. Download and copy the [API Manager Migration Client]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-4.0.0.jar) to the `<API-M_4.0.0_HOME>/repository/components/dropins` folder.
 
-    3.  Start the API-M server as follows.
+    3. Prior to API-M migration, run the below command to execute the pre-migration step that will validate your old data.
+
+        - Available validators: `apiAvailabilityValidation`, `apiDefinitionValidation`
+
+        In this step, you can run data validation on all the existing validators or selected validators. If you only use the `-DrunPreMigration` command, all existing validations will be enabled. If not, you can provide a specific validator, such as  `-DrunPreMigration=apiDefinitionValidation`, which only validates the API definitions.
+
+        ``` tab="Linux / Mac OS"
+        sh api-manager.sh -DmigrateFromVersion=3.2.0 -DrunPreMigration
+        ```
+
+        ``` tab="Windows"
+        api-manager.bat -DmigrateFromVersion='3.2.0' -DrunPreMigration
+        ```
+
+        !!! note "If you want to save the invalid API definitions"
+            You can save the invalid API definitions to the local file system during this data validation step if required. Use the `-DsaveInvalidDefinition` option for this as follows. The invalid definitions will be stored under a folder named `<API-M_4.0.0_HOME>/invalid-swagger-definitions` in the form of `<API_UUID>.json`. Then you can manually correct these definitions.
+
+            ```tab="Linux / Mac OS"
+            sh api-manager.sh -DmigrateFromVersion=3.2.0 -DrunPreMigration -DsaveInvalidDefinition
+            ```
+
+            ``` tab="Windows"
+            api-manager.bat -DmigrateFromVersion='3.2.0' -DrunPreMigration -DsaveInvalidDefinition
+            ```
+
+        Check the server logs and verify if there are any errors logs. If you have encountered any errors in the API definitions, you have to correct them manually on the old version before proceeding to the next step.
+
+    4.  Start the API-M server as follows.
 
         ``` tab="Linux / Mac OS"
         sh api-manager.sh -DmigrateFromVersion=3.2.0
@@ -1591,13 +1618,13 @@ Follow the instructions below to move all the existing API Manager configuration
         api-manager.bat -DmigrateFromVersion=3.2.0
         ```
 
-    4. Shutdown the API-M server.
+    5. Shutdown the API-M server.
     
        -   Remove the `org.wso2.carbon.apimgt.migrate.client-4.0.0.jar` file, which is in the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
 
        -   Remove the `migration-resources` directory, which is in the `<API-M_4.0.0_HOME>` directory.
        
-    5. Execute the following DB script in the respective AM database.
+    6. Execute the following DB script in the respective AM database.
 
         ??? info "DB Scripts"
             ```tab="DB2"
