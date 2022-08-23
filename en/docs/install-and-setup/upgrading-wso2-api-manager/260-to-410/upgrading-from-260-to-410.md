@@ -1216,7 +1216,7 @@ You have to run the following migration client to update the API Manager artifac
 
 1. Download and extract the [migration-resources.zip]({{base_path}}/assets/attachments/install-and-setup/migration/migration-resources.zip). Copy the extracted migration-resources to the `<API-M_4.1.0_HOME>` folder.
 
-2. Copy the [org.wso2.carbon.apimgt.migrate.client-4.1.0.x.jar]({{base_path}}/assets/attachments/install-and-setup/migration/org.wso2.carbon.apimgt.migrate.client-4.1.0.31.jar) file into the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
+2. Copy the [org.wso2.carbon.apimgt.migrate.client-4.1.0.x.jar]({{base_path}}/assets/attachments/install-and-setup/migration/org.wso2.carbon.apimgt.migrate.client-4.1.0.32.jar) file into the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
 
 3. Prior to API-M migration, run the below command to execute the pre-migration step that will validate your old data.
 
@@ -1238,14 +1238,14 @@ You have to run the following migration client to update the API Manager artifac
         You can save the invalid API definitions to the local file system during this data validation step if required. Use the `-DsaveInvalidDefinition` option for this as follows. The invalid definitions will be stored under a folder named `<API-M_4.1.0_HOME>/invalid-swagger-definitions` in the form of `<API_UUID>.json`. Then you can manually correct these definitions.
 
         ```tab="Linux / Mac OS"
-        sh api-manager.sh -Dmigrate -DmigrateFromVersion=4.0.0 -DmigratedVersion=4.1.0 -DrunPreMigration -DsaveInvalidDefinition
+        sh api-manager.sh -Dmigrate -DmigrateFromVersion=2.6.0 -DmigratedVersion=4.1.0 -DrunPreMigration -DsaveInvalidDefinition
         ```
 
         ``` tab="Windows"
-        api-manager.bat -Dmigrate -DmigrateFromVersion='4.0.0' -DmigratedVersion='4.1.0' -DrunPreMigration -DsaveInvalidDefinition
+        api-manager.bat -Dmigrate -DmigrateFromVersion='2.6.0' -DmigratedVersion='4.1.0' -DrunPreMigration -DsaveInvalidDefinition
         ```
 
-    Check the server logs and verify if there are any errors logs. If you have encountered any errors in the API definitions, you have to correct them manually on the old version before proceeding to step 5.
+    Check the server logs and verify if there are any errors logs. If you have encountered any errors in the API definitions, you have to correct them manually on the old version before proceeding to step 4.
 
 4.  Start the API-M server to migrate the API-M components as follows.
 
