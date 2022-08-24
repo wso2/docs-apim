@@ -131,6 +131,8 @@ This page provides details about the behavioral changes in WSO2 API Manager Serv
     !!! note
         From API-M 3.0.0, Store Portal has been renamed as Developer Portal
 
+- In previous API-M versions there used to be 4 Resource Level Security Schemes named `None`, `Application`, `Application User` and `Any`. From 3.0.0 onwards this has been reduced to 2 levels `None` and `Application and Application User`. If fine-grained security is required it is recommended to use [OAuth Scopes](https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#applying-multiple-scopes-per-resource) instead.
+
 - From 3.0.0 onwards, it is possible to enforce multiple authentication schemes for an API at same time.
 
 
