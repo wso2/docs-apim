@@ -386,6 +386,18 @@ Follow the instructions below to move all the existing API Manager configuration
 
 6.  If you manually added any JAR files to the `<API-M_3.0.0_HOME>/repository/components/lib` directory, copy those and paste them in the `<API-M_4.0.0_HOME>/repository/components/lib` directory.
 
+7.  If you have used global sequences in the previous version, please copy the sequence files to `<PRODUCT_HOME>/repository/deployment/server/synapse-configs/default/sequences` folder and add the below config to `deployment.toml` file to prevent the sequence files from getting removed from the file system on server startup.
+
+    ```tab="Format"
+    [apim.sync_runtime_artifacts.gateway.skip_list]
+    sequences = [<SEQUENCE FILES LIST HERE>]
+    ```
+
+    ```tab="Example"
+    [apim.sync_runtime_artifacts.gateway.skip_list]
+    sequences = ["WSO2AM--Ext--In.xml"]
+    ```
+    
 ### Step 2 - Upgrade API Manager to 4.0.0
 
 1.  Stop all WSO2 API Manager server instances that are running.

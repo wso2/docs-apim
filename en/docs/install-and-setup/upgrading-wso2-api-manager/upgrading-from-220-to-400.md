@@ -388,7 +388,19 @@ Follow the instructions below to move all the existing API Manager configuration
 
 6.  If you manually added any JAR files to the `<API-M_2.2.0_HOME>/repository/components/lib` directory, copy those and paste them in the `<API-M_4.0.0_HOME>/repository/components/lib` directory.
 
-7. WSO2 API Manager 4.0.0 has been upgraded to log4j2 (from log4j). You will notice that there is a log4j2.properties file in the `<API-M_4.0.0_HOME>/repository/conf/` directory instead of the log4j.properties file. Follow [Upgrading to Log4j2]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2) to migrate your existing log4j.properties file to log4j2.properties file.
+7.  If you have used global sequences in the previous version, please copy the sequence files to `<PRODUCT_HOME>/repository/deployment/server/synapse-configs/default/sequences` folder and add the below config to `deployment.toml` file to prevent the sequence files from getting removed from the file system on server startup.
+
+    ```tab="Format"
+    [apim.sync_runtime_artifacts.gateway.skip_list]
+    sequences = [<SEQUENCE FILES LIST HERE>]
+    ```
+
+    ```tab="Example"
+    [apim.sync_runtime_artifacts.gateway.skip_list]
+    sequences = ["WSO2AM--Ext--In.xml"]
+    ```
+    
+8.  WSO2 API Manager 4.0.0 has been upgraded to log4j2 (from log4j). You will notice that there is a log4j2.properties file in the `<API-M_4.0.0_HOME>/repository/conf/` directory instead of the log4j.properties file. Follow [Upgrading to Log4j2]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2) to migrate your existing log4j.properties file to log4j2.properties file.
 
     !!! warning
         Taking the log4j.properties file from your old WSO2 API-M Server and adding it to WSO2 API-M Server 4.0.0 will no longer work. Refer [Upgrading to Log4j2]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2) to see how to add a log appender or a logger to the log4j2.properties file.
