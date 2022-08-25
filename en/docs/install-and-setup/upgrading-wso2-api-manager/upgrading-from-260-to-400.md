@@ -3655,7 +3655,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     - For secondary user stores created for the super tenants, you have to copy the `<API-M_2.6.0_HOME>/repository/deployment/server/userstores/` directory inside `<API-M_4.0.0_HOME>/repository/deployment/server/` directory.
     
-    - For secondary user stores created for tenants, you have to copy the userstores to respective tenant directories after executing [step 4](#step-4-migrate-the-api-manager-components) as the tenant directories (`<API-M_2.6.0_HOME>/repository/tenants/`) at API-M 4.0.0 are populated after migrating the api-m components.
+    - For secondary user stores created for tenants, you have to copy the userstores to respective tenant directories after executing [step 2](#step-2-upgrade-api-manager-to-4.0.0) as the tenant directories (`<API-M_2.6.0_HOME>/repository/tenants/`) at API-M 4.0.0 are populated after migrating the API-M components.
 
 ### Step 3 - Restart the WSO2 API-M 4.0.0 server
 
