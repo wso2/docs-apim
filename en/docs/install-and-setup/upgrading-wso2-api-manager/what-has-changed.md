@@ -105,6 +105,8 @@ This page provides details about the behavioral changes in WSO2 API Manager Serv
 
 - API Key Validation calls which were sent over the network will now be made against an in-memory store.
 
+- From 3.2.0 onwards, backend JWT generation happens at the gateway.
+
 - From 3.2.0 onwards, previous Jaggery based Admin portal UI is replaced with a new ReactJS based application.
 
 - Prior to 3.2.0, for simple approval and rejection tasks, having a separate BPS engine was mandatory. From API-M 3.2.0 this overhead is removed by introducing an Approval Workflow Executor with an inbuilt workflow to perform simple approvals and rejections without the BPS engine.
