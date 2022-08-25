@@ -3979,7 +3979,7 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
         </tr>
         <tr>
             <td>reportId</td>
-            <td>The ID of the report which you want to retrieve.</td>
+            <td>The ID of the report that you want to retrieve.</td>
             <td>Yes</td>
             <td>00O8d000004MWaGEAW</td>
         </tr>
