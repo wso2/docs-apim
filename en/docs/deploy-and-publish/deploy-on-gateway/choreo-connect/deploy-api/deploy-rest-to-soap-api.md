@@ -216,7 +216,7 @@ apictl init PhoneVerify --oas http://localhost:8290/PhoneVerify?swagger.json
 ```
 
 !!! Note
-    The swagger URL `http://localhost:8290/PhoneVerify?swagger.json` is used to get the swagger definition of the deployed integration service in previous steps. You may read more details on this from [Using Swagger Documents]({{base_path}}/integrate/develop/advanced-development/using-swagger-for-apis/).
+    The Swagger URL `http://localhost:8290/PhoneVerify?swagger.json` is used to get the Swagger definition of the deployed integration service in previous steps. You may read more details on this from [Using Swagger Documents]({{base_path}}/integrate/develop/advanced-development/using-swagger-for-apis/).
 
 
 #### Step 2 - Deploy the API
