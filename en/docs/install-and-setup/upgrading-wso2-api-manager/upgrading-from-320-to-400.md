@@ -900,7 +900,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE AM_GW_API_ARTIFACTS (
           API_ID varchar(255) NOT NULL,
           REVISION_ID varchar(255) NOT NULL,
-          ARTIFACT MEDIUMBLOB,
+          ARTIFACT BLOB,
           TIME_STAMP TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
           PRIMARY KEY (REVISION_ID, API_ID),
           FOREIGN KEY (API_ID) REFERENCES AM_GW_PUBLISHED_API_DETAILS(API_ID)
