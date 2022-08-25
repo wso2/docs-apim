@@ -331,3 +331,12 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
       </table>
 
 You can also configure the WSO2 Identity Server as the identity provider. For more information on how to do this, see [Configuring WSO2 Identity Server as an Identity Provider]({{base_path}}/reference/customize-product/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso/#configuring-wso2-identity-server-as-a-saml-20-sso-identity-provider).
+
+!!! note
+    You need to do some additional steps when configuring WSO2 Identity Server as 3rd party Key Manager for a tenant.
+    
+    * Make sure you have the latest updated version of connector 1.2.10.
+    * Start API Manager, create a tenant (wso2.com), and add Identity Server as a Key Manager through the Admin Portal for that tenant using the steps given above.
+    * Make sure all Key Manager configurations (dcr, token, revoke, etc.) are tenant aware. E.g., https://localhost:9444/t/wso2.com/oauth2/token.
+    * Add the tenant admin credentials as connector configurations.
+    * Create the same tenant (wso2.com) in the Identity Server side as well
