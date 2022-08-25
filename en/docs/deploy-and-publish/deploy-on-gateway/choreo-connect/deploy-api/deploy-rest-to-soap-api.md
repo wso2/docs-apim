@@ -180,7 +180,7 @@ You can create the API using the Service Catalog as follows.
 
 #### Step 2 - Deploy the API using API Manager Publisher Portal
 
-Go to the **Deployments** from the left side panel of the Publisher portal and Deploy the API.
+Go to the **Deployments** from the left side panel of the Publisher Portal and Deploy the API.
 
 #### Step 4 - Publish the API using API Manager Publisher Portal
 
