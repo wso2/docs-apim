@@ -498,6 +498,16 @@ Follow the instructions below to migrate existing API Manager resources from the
     sequences = ["WSO2AM--Ext--In.xml"]
     ```
 
+6. If you already have used secondary user stores in API-M 2.6.0, you have to copy the user store file created inside the old API-M version to the new API-M version.
+
+    - For secondary user stores created for the super tenant,
+
+        You have to copy the `<API-M_2.6.0_HOME>/repository/deployment/server/userstores/` directory inside `<API-M_4.0.0_HOME>/repository/deployment/server/` directory.
+
+    - For secondary user stores created for tenants,
+
+        You have to copy the userstores to respective tenant directories after executing step 5 as the tenant directories (`<API-M_2.6.0_HOME>/repository/tenants/`) at API-M 4.0.0 are populated after migrating the api-m components.
+
 ### Step 3 - Migrate API-M Database
 
 1.  Make sure you backed up all the databases.
