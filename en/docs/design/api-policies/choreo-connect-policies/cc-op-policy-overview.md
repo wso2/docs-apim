@@ -4,7 +4,7 @@ Choreo Connect supports API policies at the HTTP method level for request and re
 
 1. Open the API Manager Publisher Portal.
 2. Select the API.
-3. Navigate to the **Policies** tab.
+3. Click **Policies** under **API Configurations** in the left menu.
 4. Select **Choreo Connect** as the Gateway type. 
 5. Then, drag and drop the policies to the relevant flow in the required order.
 
