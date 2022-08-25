@@ -40,7 +40,7 @@ x-auth-type could be any of the following values:
 The following example applies Application User authentication type to the given API resource:
        ```
         paths:
-            /getOpeation:
+            /getOperation:
                 get:
                     responses:
                         200:
@@ -58,7 +58,7 @@ The following example applies Application User authentication type to the given 
 The following example applies rate limiting at the operation level:
        ```
         paths:
-            /getOpeation:
+            /getOperation:
                 get:
                     responses:
                         200:
