@@ -3651,6 +3651,16 @@ Follow the instructions below to move all the existing API Manager configuration
 
     6.  Stop the WSO2 API-M server and remove the `tenantloader-1.0.jar` from the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
 
+8. If you already have used secondary user stores in API-M 2.6.0, you have to copy the user store file created inside the old API-M version to the new API-M version.
+
+    For secondary user stores created for the super tenant,
+    
+    You have to copy the `<API-M_2.6.0_HOME>/repository/deployment/server/userstores/` directory inside `<API-M_4.1.0_HOME>/repository/deployment/server/` directory.
+    
+    For secondary user stores created for tenants,
+    
+    You have to copy the userstores to respective tenant directories after executing [step 4](#step-4-migrate-the-api-manager-components) as the tenant directories (`<API-M_2.6.0_HOME>/repository/tenants/`) at API-M 4.1.0 are populated after migrating the api-m components.
+
 ### Step 3 - Restart the WSO2 API-M 4.0.0 server
 
 1.  Restart the WSO2 API-M server.
