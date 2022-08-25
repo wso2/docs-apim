@@ -44,7 +44,7 @@
 ### curl command syntax
 
 ``` java
-curl -X POST https://localhost:9443/stores/query -H "content-type: application/json" -u "admin:admin" -d '{"appName" : "AggregationTest", "query" : "from stockAggregation select *" }' -k
+curl -X POST https://localhost:7443/stores/query -H "content-type: application/json" -u "admin:admin" -d '{"appName" : "AggregationTest", "query" : "from stockAggregation select *" }' -k
 ```
 
 ### Sample curl command
