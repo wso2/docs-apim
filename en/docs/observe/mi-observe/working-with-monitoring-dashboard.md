@@ -32,7 +32,7 @@ You can use the dashboard to perform the following administration tasks related 
 
 -   <b>View registry resources</b>
 
-    You can view content, properties and metadata of each registry resource.
+    You can view content, properties, and metadata of each registry resource.
 
 -   <b>View logs</b>
 
