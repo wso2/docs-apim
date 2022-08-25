@@ -80,7 +80,7 @@ The WebSocket API exposed via Choreo Connect can be invoked using a WebSocket cl
 
 The CLI tool ([**apictl**]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl)) does not support initializing projects for Streaming APIs yet. However, you can download the sample WebSocket API project from [here](https://github.com/wso2/product-microgateway/tree/main/samples/apiProjects/SampleWebsocketApi) and try it out by deploying it to Choreo Connect. When you are using your own WebSocket API with Choreo Connect, you can change the relevant attribute values in `api.yaml` and `definitions/asyncapi.yaml` files. There is an explanation regarding those attribute values [here](https://github.com/wso2/product-microgateway/tree/main/samples/apiProjects/apiProjects/SampleWebsocketApi/README.md).
 
-Below steps explain how to try out WebSocket API in Choreo Connect stand alone mode using the above project.
+Below steps explain how to try out WebSocket API in Choreo Connect standalone mode using the above project.
 
 ### Step 1 - Download the API
 
