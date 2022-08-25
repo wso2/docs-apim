@@ -17,6 +17,16 @@ This page provides details about the behavioral changes in WSO2 API Manager Serv
 
 - From API-M 4.0.0 onwards, synapse artifacts have been removed from the file system and are managed via database. At server startup the synapse configs are loaded to the memory from the Traffic Manager.
 
+- Token endpoint has been removed from the gateway artifacts from API-M 4.0.0 onwards. Use token endpoint in the control plane instead.
+    
+    ```tab="3.2.0"
+    https://localhost:8243/token
+    ```
+
+    ```tab="4.0.0"
+    https://localhost:9443/oauth2/token
+    ```
+
 - All the data is persisted in databases **from WSO2 API-M 4.0.0 onwards**. Therefore, it is recommended to execute the migration client in the Control Plane profile.
 
 - From API-M 4.0.0, the kid claim has been removed from the backend JWT.
@@ -99,6 +109,8 @@ This page provides details about the behavioral changes in WSO2 API Manager Serv
 
 - Support for tag-wise grouping is removed in API-M 3.2.0 and the users are recommended to use [API category based grouping](https://apim.docs.wso2.com/en/latest/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping/) instead.
 
+- From API-M 3.2.0 onwards, support for implicit grant type has been removed.
+ 
 - Out-of-the-box support to generate an Opaque (Reference) access token via the Developer Portal has been removed from WSO2 API Manager version 3.2.0 onwards. Hence, now the Application Developers can create new applications that only generate JWT type access tokens.
 
     ??? Note "What will happen to migrated applications?"
@@ -117,7 +129,22 @@ This page provides details about the behavioral changes in WSO2 API Manager Serv
 
 #### API Manager 3.1.0
 
-- Due to security reasons, API-M from 3.1.0 onwards supports only pdf, doc and txt type files as file typed API documents.
+- API-M from 3.1.0 onwards supports only pdf, doc and txt type files as file typed API documents by default. If you wish to support other document types, please add the below config to `deployment.toml`.
+
+    ```tab="Format"
+    [apim.publisher]
+    supported_document_types = "<DOCUMENT TYPES LIST>"
+    ``` 
+    
+    ```tab="Example"
+    [apim.publisher]
+    supported_document_types = "pdf, txt, zip, json, yaml"
+    ``` 
+  
+- From API-M 3.1.0 onwards, tag-wise grouping has been deprecated. Users are informed to use [API category based grouping](https://apim.docs.wso2.com/en/latest/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping/) instead.
+
+- New user store managers with inbuilt unique ID support was introduced in WSO2 5.10.0 and named with the UniqueID prefix. User store managers that do not have UniqueID as part of the user store manager name are only available for backward compatibility purposes and can only be used if you are migrating from a previous version of WSO2 Identity Server.
+  Please check [Migration of user store managers with unique ID support](https://is.docs.wso2.com/en/5.11.0/setup/migrating-what-has-changed/#migration-of-user-store-managers-with-unique-id-support) for more information.
 
 #### API Manager 3.0.0
 
@@ -130,6 +157,8 @@ This page provides details about the behavioral changes in WSO2 API Manager Serv
 
     !!! note
         From API-M 3.0.0, Store Portal has been renamed as Developer Portal
+
+- From 3.0.0 onwards, WSO2 API Manager has been upgraded to **log4j2** (from log4j). You will notice that there is a `log4j2.properties` file in the `<API-M_4.0.0_HOME>/repository/conf/` directory instead of the `log4j.properties` file. Follow [Upgrading to Log4j2]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2) to migrate your existing `log4j.properties` file to `log4j2.properties` file.
 
 - In previous API-M versions there used to be 4 Resource Level Security Schemes named `None`, `Application`, `Application User` and `Any`. From 3.0.0 onwards this has been reduced to 2 levels `None` and `Application and Application User`. If fine-grained security is required it is recommended to use [OAuth Scopes](https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#fine-grained-access-control-with-oauth-scopes) instead.
 
