@@ -470,4 +470,16 @@ wso2.deployment.adapter.security.adapterRestService.enabled="false"
 
 #### Step 5: Deploy Choreo Connect
 
-Please follow the document about [Deploying Choreo Connect as a Standalone Gateway on Kubernetes - Helm Artifacts]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-kubernetes-helm-artifacts/) for deploying Choreo Connect.
+Follow the document on [Deploying Choreo Connect as a Standalone Gateway on Kubernetes - Helm Artifacts]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-kubernetes-helm-artifacts/) to deploy Choreo Connect.
+
+### Applying config changes into a running instance of Choreo Connect 
+
+When you have to deploy a config change to the Choreo Connect running on production environment, we recommand you to complete the following steps in order.
+
+!!! Attention
+    You must follow this, if the config change is related to the **Enforcer** as the `enforcer` fetches configs from the Adapter only at the startup.
+
+Steps:
+
+1. Do the config change and first [rollout restart](https://kubernetes.io/docs/reference/kubectl/cheatsheet/#updating-resources) the Adapter.
+2. After all the replicas of the Adapter pod have been started and are ready, [rollout restart](https://kubernetes.io/docs/reference/kubectl/cheatsheet/#updating-resources) the Enforcer & Router (`choreo-connect-deployment`).
