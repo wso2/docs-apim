@@ -1157,6 +1157,7 @@ nav:
                 - JSON Transform Mediator: reference/mediators/json-transform-mediator.md
                 - Log Mediator: reference/mediators/log-mediator.md
                 - Loopback Mediator: reference/mediators/loopback-mediator.md
+                - NTLM Mediator: reference/mediators/ntlm-mediator.md
                 - OAuth Mediator: reference/mediators/oauth-mediator.md
                 - PayloadFactory Mediator: reference/mediators/payloadfactory-mediator.md
                 - Property Mediator: reference/mediators/property-mediator.md
