@@ -103,7 +103,6 @@ nav:
         - Lifecycle Managament:
             - API Lifecycle: design/lifecycle-management/api-lifecycle.md
             - Customize API Life Cycle: design/lifecycle-management/customize-api-life-cycle.md
-            - Extend the API Life Cycle: design/lifecycle-management/extending-the-api-life-cycle.md
         - API Versioning:
             - Create a New API Version: design/api-versioning/create-a-new-api-version.md
             - Deprecate the Old Version: design/api-versioning/deprecate-the-old-version.md
@@ -1883,7 +1882,6 @@ plugins:
               'learn/design-api/endpoints/certificates.md': 'https://apim.docs.wso2.com/en/4.1.0/design/endpoints/certificates/'
               'learn/design-api/lifecycle-management/api-lifecycle.md': 'https://apim.docs.wso2.com/en/4.1.0/design/lifecycle-management/api-lifecycle/'
               'learn/design-api/lifecycle-management/customize-api-life-cycle.md': 'https://apim.docs.wso2.com/en/4.1.0/design/lifecycle-management/customize-api-life-cycle/'
-              'learn/design-api/lifecycle-management/extending-the-api-life-cycle.md': 'https://apim.docs.wso2.com/en/4.1.0/design/lifecycle-management/extending-the-api-life-cycle/'
               'learn/design-api/api-versioning/create-a-new-api-version.md': 'https://apim.docs.wso2.com/en/4.1.0/design/api-versioning/create-a-new-api-version/'
               'learn/design-api/api-versioning/deprecate-the-old-version.md': 'https://apim.docs.wso2.com/en/4.1.0/design/api-versioning/deprecate-the-old-version/'
               'learn/design-api/api-versioning/backward-compatibility.md': 'https://apim.docs.wso2.com/en/4.1.0/design/api-versioning/backward-compatibility/'
