@@ -6,7 +6,10 @@ You can use a Schema Definition Language (SDL) schema to design a GraphQL API in
 
 All GraphQL schemas generally have three operation root types, which are namely query, mutation, and subscription. Therefore, every request against a GraphQL endpoint of a GraphQL server should have a payload starting with any one of the root types, including its related operation name. You can manage the security, authorization, and rate limiting aspect of each operation based on its operation name. 
 
-Follow the instructions below to design a GraphQL API
+!!! note
+    GraphQL client supports only `graphql-transport-ws` protocol but the Gateway supports both the `graphql-transport-ws` and `graphql-ws` protocols.
+
+Follow the instructions below to design a GraphQL API.
 
 ### Design a GraphQL API
 
