@@ -3668,6 +3668,10 @@ You have to run the following migration client to update the API Manager artifac
 
 6.  Stop the WSO2 API-M server and remove the `tenantloader-1.0.jar` from the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
 
+    - For secondary user stores created for the super tenants, you have to copy the `<API-M_2.6.0_HOME>/repository/deployment/server/userstores/` directory inside `<API-M_4.0.0_HOME>/repository/deployment/server/` directory.
+    
+    - For secondary user stores created for tenants, you have to copy the userstores to respective tenant directories after executing [step 2](#step-2-upgrade-api-manager-to-4.0.0) as the tenant directories (`<API-M_2.6.0_HOME>/repository/tenants/`) at API-M 4.0.0 are populated after migrating the API-M components.
+
 ### Step 7 - Restart the WSO2 API-M 4.0.0 server
 
 1.  Restart the WSO2 API-M server.
