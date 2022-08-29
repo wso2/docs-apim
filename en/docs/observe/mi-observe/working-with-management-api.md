@@ -1527,6 +1527,8 @@ The management API has multiple resources to provide information regarding the d
 
 	!!! note
 		Only admin users can add new registry resources.
+
+		Use `multipart/form-data` as in `Request 2` to add binary files as registry resources.
 		
 		Change `Content-Type` header according to the payload.
 
@@ -1554,11 +1556,11 @@ The management API has multiple resources to provide information regarding the d
 
 	```bash tab='Request 2'
 	curl -X POST \ 
-	"https://localhost:9164/management/registry-resources/content?path=registry/config/testFolder/test-xml.xml&mediaType=application/xml" \
+	"https://localhost:9164/management/registry-resources/content?path=registry/config/testFolder/test-pdf.pdf&mediaType=application/pdf" \
     -H "accept: application/json" \
     -H "Content-Type: multipart/form-data" \
     -H "Authorization: Bearer TOKEN" \
-    -F 'file=@initialEP.xml' -k -i
+    -F 'file=@samplePdf.pdf' -k -i
   	```
 
   	```bash tab='Response'
@@ -1584,7 +1586,7 @@ The management API has multiple resources to provide information regarding the d
 
   	```bash tab='Request 1'
 	curl -X PUT \ 
-	"https://localhost:9164/management/registry-resources/content?path=registry/config/testFolder/test-xml.xml&mediaType=application/xml" \
+	"https://localhost:9164/management/registry-resources/content?path=registry/config/testFolder/test-xml.xml" \
     -H "accept: application/json" \
     -H "Content-Type: application/xml" \
     -H "Authorization: Bearer TOKEN" \
@@ -1604,11 +1606,11 @@ The management API has multiple resources to provide information regarding the d
 
 	```bash tab='Request 2'
 	curl -X PUT \ 
-	"https://localhost:9164/management/registry-resources/content?path=registry/config/testFolder/test-xml.xml&mediaType=application/xml" \
+	"https://localhost:9164/management/registry-resources/content?path=registry/config/testFolder/test-pdf.pdf" \
     -H "accept: application/json" \
     -H "Content-Type: multipart/form-data" \
     -H "Authorization: Bearer TOKEN" \
-    -F 'file=updatedEP.xml' -k -i
+    -F 'file=updatedPdf.pdf' -k -i
   	```
 
   	```bash tab='Response'
@@ -1644,8 +1646,6 @@ The management API has multiple resources to provide information regarding the d
 ### GET PROPERTIES OF A REGISTRY RESOURCE
 
 -	**Resource**: `/registry-resources/properties?path={registry path}`
-
-	**Resource**: `/registry-resources-properties/{registry path}`
 	
 	**Description**: Retrieves all the properties of a registry resource.
 
@@ -1660,7 +1660,7 @@ The management API has multiple resources to provide information regarding the d
 
   	```bash tab='Response'
 	{
-		"count":3,
+		"count":2,
 		"list":
 		[
 			{
@@ -1702,6 +1702,8 @@ The management API has multiple resources to provide information regarding the d
 
 	!!! note
 		Only admin users can add properties to a registry resource.
+
+		New properties should be in a JSON array with JSON objects for each property.
 
 	**Example**:
 
