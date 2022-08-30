@@ -1078,6 +1078,7 @@ Follow the instructions below to migrate existing API Manager resources from the
             API_ID VARCHAR(255) NOT NULL,
             REVISION_ID VARCHAR(255) NOT NULL,
             LABEL VARCHAR(255) NOT NULL,
+            VHOST VARCHAR(255) NULL,
             PRIMARY KEY (REVISION_ID, API_ID,LABEL),
             FOREIGN KEY (API_ID) REFERENCES AM_GW_PUBLISHED_API_DETAILS(API_ID) ON UPDATE CASCADE ON DELETE NO ACTION
         ) ;
