@@ -17,6 +17,8 @@ This page provides details about the behavioral changes from WSO2 API Manager Se
     
     !!! note
         From API-M 3.0.0, Store Portal has been renamed as Developer Portal
+
+- In previous API-M versions there used to be 4 Resource Level Security Schemes named `None`, `Application`, `Application User` and `Any`. From 3.0.0 onwards this has been reduced to 2 levels `None` and `Application and Application User`. If fine-grained security is required it is recommended to use [OAuth Scopes](https://apim.docs.wso2.com/en/4.1.0/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#applying-multiple-scopes-per-resource) instead.
   
 - Out-of-the-box support to generate an Opaque (Reference) access token via the Developer Portal has been removed from WSO2 API Manager version 3.2.0 onwards. Hence, now the Application Developers can create new applications that only generate JWT type access tokens.
 
@@ -59,6 +61,11 @@ This page provides details about the behavioral changes from WSO2 API Manager Se
 - For more details on the WSO2 API-M 4.1.0 distributed deployment, see [WSO2 API Manager distributed documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m).
 
 - From **API-M 4.0.0**,  server startup script has renamed as <code>api-manager.sh</code> (for Linux) and <code>api-manager.bat</code> (for Windows)
+
+- From API-M 4.0.0, the kid claim has been removed from the backend JWT.
+  If there are customizations that require validating the kid value of the backend JWT, please customize the JWT generator to include kid value.
+
+- Token and Revoke endpoints has been removed from the gateway artifacts from API-M 4.0.0 onwards. Use endpoints in the control plane instead.
 
 - From **WSO2 API_M 4.0.0 onwards** error responses in API calls has changed from XML to JSON format.
 
