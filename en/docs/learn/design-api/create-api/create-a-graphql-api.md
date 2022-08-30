@@ -11,7 +11,7 @@ All GraphQL schemas generally have three operation root types, which are namely 
 
     For more information on how to update using U2, see [Updates 2.0 Documentation](https://updates.docs.wso2.com/en/latest/updates/overview/). For more information on how to update using WUM, see the documentation [Using WSO2 Update Manager](https://docs.wso2.com/display/updates100/Using+WSO2+Update+Manager).
 
-    The Developer Portal's GraphQL client in the U2(Level 132)/WUM/WUM updated distribution of API-M 3.2.0 effective from 26th February 2022 (2022-02-26), supports only [graphql-transport-ws](https://github.com/enisdenjo/graphql-ws/blob/master/PROTOCOL.md) sub protocol.
+    The Developer Portal's GraphQL client in the U2(Level 132)/WUM updated distribution of API-M 3.2.0 effective from 26th February 2022 (2022-02-26), supports only [graphql-transport-ws](https://github.com/enisdenjo/graphql-ws/blob/master/PROTOCOL.md) sub protocol.
     However, API-M Gateway supports both the [graphql-transport-ws](https://github.com/enisdenjo/graphql-ws/blob/master/PROTOCOL.md) sub protocol and [graphql-ws sub protocol](https://github.com/apollographql/subscriptions-transport-ws) sub protocol.
 
 Follow the instructions below to design a GraphQL API
