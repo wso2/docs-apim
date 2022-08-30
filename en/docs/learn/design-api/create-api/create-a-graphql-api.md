@@ -6,8 +6,13 @@ You can use a Schema Definition Language (SDL) schema to design a GraphQL API in
 
 All GraphQL schemas generally have three operation root types, which are namely query, mutation, and subscription. Therefore, every request against a GraphQL endpoint of a GraphQL server should have a payload starting with any one of the root types, including its related operation name. You can manage the security, authorization, and rate limiting aspect of each operation based on its operation name. 
 
-!!! note
-    GraphQL client supports only `graphql-transport-ws` protocol but the Gateway supports both the `graphql-transport-ws` and `graphql-ws` protocols.
+!!! Important
+    **GraphQL Subscription Operations Support Over Websockets** has been introduced via an U2/WUM update and is effective from 26th February 2022 (2022-02-26).
+
+    For more information on how to update using U2, see [Updates 2.0 Documentation](https://updates.docs.wso2.com/en/latest/updates/overview/). For more information on how to update using WUM, see the documentation [Using WSO2 Update Manager](https://docs.wso2.com/display/updates100/Using+WSO2+Update+Manager).
+
+    The developer portal's GraphiQL client in the update2/wum updated distribution of API-M 3.2 .0 efffective from 26th February 2022 (2022-02-26), supports only [graphql-transport-ws](https://github.com/enisdenjo/graphql-ws/blob/master/PROTOCOL.md) sub protocol.
+    However, API-M Gateway supports both the [graphql-transport-ws](https://github.com/enisdenjo/graphql-ws/blob/master/PROTOCOL.md) sub protocol and [graphql-ws sub protocol](https://github.com/apollographql/subscriptions-transport-ws) sub protocol.
 
 Follow the instructions below to design a GraphQL API
 
