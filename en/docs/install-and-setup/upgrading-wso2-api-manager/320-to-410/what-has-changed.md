@@ -27,6 +27,11 @@ This page provides details about the behavioral changes from WSO2 API Manager Se
 
 - From **API-M 4.0.0**,  server startup script has renamed as <code>api-manager.sh</code> (for Linux) and <code>api-manager.bat</code> (for Windows)
 
+- From API-M 4.0.0, the kid claim has been removed from the backend JWT.
+  If there are customizations that require validating the kid value of the backend JWT, please customize the JWT generator to include kid value.
+
+- Token and Revoke endpoints has been removed from the gateway artifacts from API-M 4.0.0 onwards. Use endpoints in the control plane instead.
+
 - From **API_M 4.0.0 onwards** error responses in API calls has changed from XML to JSON format.
 
     !!! Attention "If you have developed client applications to handle XML error responses"
