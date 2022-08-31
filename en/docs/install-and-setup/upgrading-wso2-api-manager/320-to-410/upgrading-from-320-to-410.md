@@ -202,6 +202,18 @@ the information about the added private keys, certificates and the list of trust
     
     You have to copy the userstores to respective tenant directories after executing [step 4](#step-4-migrate-the-api-manager-components) as the tenant directories (`<API-M_3.2.0_HOME>/repository/tenants/`) at API-M 4.1.0 are populated after migrating the api-m components. 
 
+6. If you have used global sequences in the previous version, please copy the sequence files to `<PRODUCT_HOME>/repository/deployment/server/synapse-configs/default/sequences` folder and add the below config to `deployment.toml` file to prevent the sequence files from getting removed from the file system on server startup.
+
+    ```tab="Format"
+    [apim.sync_runtime_artifacts.gateway.skip_list]
+    sequences = [<SEQUENCE FILES LIST HERE>]
+    ```
+
+    ```tab="Example"
+    [apim.sync_runtime_artifacts.gateway.skip_list]
+    sequences = ["WSO2AM--Ext--In.xml"]
+    ```
+
 ### Step 3: Migrate the Identity Components
 
 Follow the instruction below to upgrade the Identity component in WSO2 API Manager from version 5.10.0 to 5.11.0.

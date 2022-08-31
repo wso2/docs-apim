@@ -180,7 +180,19 @@ Follow the instructions below to migrate existing API Manager resources from the
     
     - For secondary user stores created for tenants, you have to copy the userstores to respective tenant directories after executing [step 4](#step-4-migrate-the-api-manager-components) as the tenant directories (`<API-M_4.1.0_HOME>/repository/tenants/`) at API-M 4.1.0 are populated after migrating the API Manager components. 
 
-If you wish to configure WSO2 IS 5.11.0 as the Resident Key Manager in API-M 4.1.0 new deployment, aforementioned secondary user stores needs to be stored in to same path in IS.
+    If you wish to configure WSO2 IS 5.11.0 as the Resident Key Manager in API-M 4.1.0 new deployment, aforementioned secondary user stores needs to be stored in to same path in IS.
+
+6. If you have used global sequences in the previous version, please copy the sequence files to `<PRODUCT_HOME>/repository/deployment/server/synapse-configs/default/sequences` folder and add the below config to `deployment.toml` file to prevent the sequence files from getting removed from the file system on server startup.
+
+    ```tab="Format"
+    [apim.sync_runtime_artifacts.gateway.skip_list]
+    sequences = [<SEQUENCE FILES LIST HERE>]
+    ```
+
+    ```tab="Example"
+    [apim.sync_runtime_artifacts.gateway.skip_list]
+    sequences = ["WSO2AM--Ext--In.xml"]
+    ```
 
 ### Step 3: Migrate the API Manager Components
 
