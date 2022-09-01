@@ -63,9 +63,6 @@ For more information see, [GraphQL subscription]({{base_path}}/consume/invoke-ap
 
 - From API-M 4.0.0 onwards Other '_overview' type documents override the API description, if you had created such documents in your lower environments, please note that those documents will not be displayed in document listing page. You can edit those documents the same way you edit the API description.
 
-- From API-M 4.0.0, the kid claim has been removed from the backend JWT.
-  If there are customizations that require validating the kid value of the backend JWT, please customize the JWT generator to include kid value.
-
 - Token and Revoke endpoints has been removed from the gateway artifacts from API-M 4.0.0 onwards. Use endpoints in the control plane instead.
 
 - From **WSO2 API_M 4.0.0 onwards** error responses in API calls has changed from XML to JSON format.
@@ -137,7 +134,8 @@ For more information see, [GraphQL subscription]({{base_path}}/consume/invoke-ap
 
 - API Key Validation calls which were sent over the network will now be made against an in-memory store.
 
-- From 3.2.0 onwards, backend JWT generation happens at the gateway.
+- From 3.2.0 onwards, backend JWT generation happens at the gateway. 
+  If you have implemented a custom JWT generator extending the AbstractJWTGenerator, then that custom jar should be added to **Gateway Node** not the Key Manager Node. 
 
 - From 3.2.0 onwards, previous Jaggery based Admin portal UI is replaced with a new ReactJS based application.
 
