@@ -12,7 +12,7 @@ Follow the instructions below to configure WSO2 Identity Server (WSO2 IS) as the
 
 ## Step 1 - Download and install WSO2 IS
 
-Download and install the [latest WSO2 Identity Server](https://wso2.com/identity-and-access-management/#). If you downloaded the archive, extract it. `<IS_HOME>` refers to the root folder of the extracted WSO2 Identity Server.
+Download and install [WSO2 Identity Server version 5.11.0](https://wso2.com/identity-and-access-management/#). If you downloaded the archive, extract it. `<IS_HOME>` refers to the root folder of the extracted WSO2 Identity Server.
 
 It is assumed that you have already downloaded WSO2 API Manager.
 `<APIM_HOME>` refers to the root folder of the unzipped WSO2 API-M pack.
