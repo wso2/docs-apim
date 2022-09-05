@@ -185,6 +185,13 @@ Follow the steps below to customize them.
        String cookiePolicyText = null;
        String privacyPolicyText = null;
     ```
+    
+    !!! note
+        It is recommended to have .css related changes in a location similar to the following:
+        
+        ```
+        <APIM-HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/tenant_themes/<tenant-name>/login/css/loginTheme.css
+        ```
    
 4. The changes will be applied during the **API Manager server startup**.
 
