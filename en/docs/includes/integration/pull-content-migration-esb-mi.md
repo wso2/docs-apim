@@ -32,4 +32,5 @@ Note the following:
 -	Ports are different in the Micro Integrator of API-M 4.0.0. Find out about [ports in the Micro Integrator](../../../install-and-setup/setup/reference/default-product-ports/#micro-integrator-ports).
 -	The Micro Integrator of API-M 4.0.0 contains changes that impact your migration process. Be sure to read the [Comparison: ESB vs the Micro Integrator](../../../get-started/about-this-release/#compare-this-release-with-previous-esbs) before you start the migration.
 
--	Note that API-M 4.0.0 does not allow manual patches. You can use [WSO2 Updates](https://updates.docs.wso2.com/en/latest/updates/overview) to get the latest fixes or updates for this release..
+-	Note that API-M 4.0.0 does not allow manual patches. You can use [WSO2 Updates](https://updates.docs.wso2.com/en/latest/updates/overview) to get the latest fixes or updates for this release.
+-	The BPS profile does not exist in the more recent versions of MI and we recommend that you use an alternate product for complex long running processes they are running on BPS. Alternately, you can continue to use BPS until it reaches end-of-life.
