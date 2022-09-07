@@ -106,7 +106,76 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
 
 1. Follow Step 1 and 2 under [Step 3 - Migrate API-M Database]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-400/#step-3-migrate-api-m-database) to backup and upgrade the WSO2 API-M `WSO2AM_DB` from 2.6.0 to 4.0.0. This will be used as the `identity_db` in IS 5.11.0.
 
-2. Follow the guidelines in [WSO2 IS 5.11.0 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/) to migrate your current IS as KM 5.7.0 distribution to IS 5.11.0. Make sure to use the migration resources downloaded from the [latest release](https://github.com/wso2-extensions/apim-identity-migration-resources/releases/latest) under Assets instead of the migration resources found under Step 9 a. in the WSO2 IS 5.11.0 migration guide.
+2. Execute the following DB script in the respective Shared database.
+
+    ??? info "DB Scripts"
+        ```tab="DB2"
+        CREATE OR REPLACE FUNCTION NEWUUID()
+        RETURNS CHAR(36)
+        BEGIN
+        DECLARE @UUID CHAR(32);
+        SET @UUID=LOWER(HEX(RAND()*255) || HEX(RAND()*255));
+        RETURN LEFT(@UUID,8)||'-'||
+        SUBSTR(@UUID,9,4)||'-'||
+        SUBSTR(@UUID,13,4)||'-'||
+        SUBSTR(@UUID,17,4)||'-'||
+        RIGHT(@UUID,12);
+        END
+        /
+
+        ALTER TABLE UM_TENANT ADD COLUMN UM_TENANT_UUID VARCHAR(36) NOT NULL DEFAULT 'NONE'
+        /
+        
+        CALL SYSPROC.ADMIN_CMD('REORG TABLE UM_TENANT')
+        /
+        
+        UPDATE UM_TENANT SET UM_TENANT_UUID = NEWUUID()
+        /
+        
+        CALL SYSPROC.ADMIN_CMD('REORG TABLE UM_TENANT')
+        /
+        
+        ALTER TABLE UM_TENANT ADD UNIQUE (UM_TENANT_UUID)
+        /
+        
+        CALL SYSPROC.ADMIN_CMD('REORG TABLE UM_TENANT')
+        /
+
+        ```
+            
+        ```tab="MySQL"
+        ALTER TABLE UM_TENANT ADD COLUMN UM_TENANT_UUID VARCHAR(36) NOT NULL;
+
+        UPDATE UM_TENANT SET UM_TENANT_UUID = UUID();
+        
+        ALTER TABLE UM_TENANT ADD UNIQUE (UM_TENANT_UUID);
+
+        ```
+                    
+        ```tab="MSSQL"
+        ALTER TABLE UM_TENANT ADD UM_TENANT_UUID VARCHAR(36) NOT NULL DEFAULT LOWER(NEWID());
+
+        ALTER TABLE UM_TENANT ADD UNIQUE (UM_TENANT_UUID);
+    
+        ``` 
+
+        ```tab="PostgreSQL"
+        ALTER TABLE UM_TENANT ADD COLUMN UM_TENANT_UUID VARCHAR(36) NOT NULL DEFAULT uuid_generate_v4();
+
+        ALTER TABLE UM_TENANT ADD UNIQUE (UM_TENANT_UUID);
+
+        ```
+                    
+        ```tab="Oracle"
+        ALTER TABLE UM_TENANT ADD UM_TENANT_UUID VARCHAR(36) DEFAULT LOWER(regexp_replace(rawtohex(sys_guid()), '([A-F0-9]{8})([A-F0-9]{4})([A-F0-9]{4})([A-F0-9]{4})([A-F0-9]{12})', '\1-\2-\3-\4-\5')) NOT NULL
+        /
+        
+        ALTER TABLE UM_TENANT ADD UNIQUE (UM_TENANT_UUID)
+        /
+    
+        ```
+
+3. Follow the guidelines in [WSO2 IS 5.11.0 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/) to migrate your current IS as KM 5.7.0 distribution to IS 5.11.0. Make sure to use the migration resources downloaded from the [latest release](https://github.com/wso2-extensions/apim-identity-migration-resources/releases/latest) under Assets instead of the migration resources found under Step 9 a. in the WSO2 IS 5.11.0 migration guide.
 
     !!! Important
         When following the instructions in [Migration the configurations](https://is.docs.wso2.com/en/5.11.0/setup/migrating-preparing-for-migration/#migrating-the-configurations) section of IS 5.11.0 migration guide, make sure to
@@ -204,7 +273,7 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
     
         Depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do **NOT** stop the server during the migration process and please wait until the migration process finish completely and server get started.
 
-3. After you have successfully completed the migration, stop the server and remove the following files and folders.
+4. After you have successfully completed the migration, stop the server and remove the following files and folders.
 
     -   Remove the `org.wso2.carbon.is.migration-x.x.x.jar` file, which is in the `<IS_HOME>/repository/components/dropins` directory.
 
