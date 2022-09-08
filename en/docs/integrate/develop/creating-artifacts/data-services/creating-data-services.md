@@ -357,6 +357,10 @@ datasource and automatically creates the SELECT, INSERT, UPDATE, and DELETE oper
 
 5. 	From the list of tables, select the tables and the REST resource methods that you want in the generated data service.
 
+	!!!	Note
+		1.	The **POST** REST method is enabled only when the database is not in read-only mode.
+		2.	The **PUT** and **DELETE** REST methods are enabled only when a primary key is defined on the table.
+
 	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/select_tables.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/select_tables.png" width="700"></a>
 
 6. 	You can select a service generation mode from the following two options:
