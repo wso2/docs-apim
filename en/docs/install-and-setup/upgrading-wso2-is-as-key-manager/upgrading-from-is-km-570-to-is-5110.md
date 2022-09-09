@@ -168,6 +168,17 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.7.0 to IS 5.11
 
 ### Step 3 - Migrate the IS as KM Components
 
+!!! note "If you are using PostgreSQL"
+
+    The database user should have the 'Superuser' permission to migrate the API Manager Databases. If the user is not already a superuser, assign the permission before starting the migration.
+        ```
+        ALTER USER <user> WITH SUPERUSER;
+        ```
+
+!!! note "If you are using Oracle"
+    Commit the changes after running the scripts given below
+
+
 1. Make sure you backed up all the databases in API-M 2.6.0
 
 2. Run the below script against the AM_DB.
