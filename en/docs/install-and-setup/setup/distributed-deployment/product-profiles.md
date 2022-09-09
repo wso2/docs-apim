@@ -158,6 +158,9 @@ Create an optimized distribution for a particular API-M profile.
 
 #### Method 2 - Optimizing while starting the server
 
+!!! note
+    Before running these profiles, take the backup of `<PRODUCT-HOME>/repository/resources/conf/templates/repository/conf/axis2` directory.
+
 1.  Start the server using the script based on your operating system, using the command given below.
 
     ``` tab="Sample Format"
@@ -220,6 +223,8 @@ Create an optimized distribution for a particular API-M profile.
     
     ```  
         
+If you have encountered any issue relevant to loading the axis2 configuration, check if all the files are available in the `<PRODUCT-HOME>/repository/resources/conf/templates/repository/conf/axis2` directory and it tallies with the backup directory. If not, please add the missing J2 files accordingly.
+
 Before running this command (with the `--skipConfigOptimization` option) you are expected to do the configuration 
 changes in the `deployment.toml` file manually in the pack. Passing this option allows you to preserve the configurations that you previously manually applied while optimizing the profile.
 
