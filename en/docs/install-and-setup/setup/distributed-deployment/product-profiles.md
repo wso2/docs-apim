@@ -227,7 +227,7 @@ Create an optimized distribution for a particular API-M profile.
     
     ```  
         
-If you have encountered any issue relevant to loading the axis2 configuration, check if all the files are available in the `<PRODUCT-HOME>/repository/resources/conf/templates/repository/conf/axis2` directory and it tallies with the backup directory. If not, please add the missing J2 files accordingly. Do the same for the files available in `<PRODUCT-HOME>/ repository/resources/conf/templates/repository/conf/registry_TM.xml.j2`.
+If you have encountered any issue relevant to loading the axis2 configuration, check if all the files are available in the `<PRODUCT-HOME>/repository/resources/conf/templates/repository/conf/axis2` directory and it tallies with the backup directory. If not, please add the missing J2 files accordingly. Do the same for the files available in `<PRODUCT-HOME>/repository/resources/conf/templates/repository/conf/registry_TM.xml.j2`.
 
 Before running this command (with the `--skipConfigOptimization` option) you are expected to do the configuration 
 changes in the `deployment.toml` file manually in the pack. Passing this option allows you to preserve the configurations that you previously manually applied while optimizing the profile.
