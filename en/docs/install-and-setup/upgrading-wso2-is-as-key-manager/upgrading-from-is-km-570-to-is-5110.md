@@ -178,61 +178,6 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.7.0 to IS 5.11
 !!! note "If you are using Oracle"
     Commit the changes after running the scripts given below
 
-!!! note "If you are using DB2"
-    Move indexes to the TS32K Tablespace. The index tablespace in the `IDN_OAUTH2_ACCESS_TOKEN` and `IDN_OAUTH2_AUTHORIZATION_CODE` tables need to be moved to the existing TS32K tablespace in order to support newly added table indexes.
-
-    SQLADM or DBADM authority is required in order to invoke the `ADMIN_MOVE_TABLE` stored procedure. You must also have the appropriate object creation authorities, including authorities to issue the SELECT statement on the source table and to issue the INSERT statement on the target table.    
-
-    ??? Info "Click here to see the stored procedure" 
-        ``` java
-        CREATE BUFFERPOOL BP32K IMMEDIATE SIZE 250 AUTOMATIC PAGESIZE 32K
-        /
-        CREATE LARGE TABLESPACE TS32K PAGESIZE 32K MANAGED by AUTOMATIC STORAGE BUFFERPOOL BP32K
-        /
-        
-        CALL SYSPROC.ADMIN_MOVE_TABLE(
-        <TABLE_SCHEMA_OF_IDN_OAUTH2_ACCESS_TOKEN_TABLE>,
-        'IDN_OAUTH2_ACCESS_TOKEN',
-        (SELECT TBSPACE FROM SYSCAT.TABLES where TABNAME = 'IDN_OAUTH2_ACCESS_TOKEN' AND TABSCHEMA = <TABLE_SCHEMA_OF_IDN_OAUTH2_ACCESS_TOKEN_TABLE>),
-        'TS32K',
-        (SELECT TBSPACE FROM SYSCAT.TABLES where TABNAME = 'IDN_OAUTH2_ACCESS_TOKEN' AND TABSCHEMA = <TABLE_SCHEMA_OF_IDN_OAUTH2_ACCESS_TOKEN_TABLE>),
-        '',
-        '',
-        '',
-        '',
-        '',
-        'MOVE');
-
-        CALL SYSPROC.ADMIN_MOVE_TABLE(
-        <TABLE_SCHEMA_OF_IDN_OAUTH2_AUTHORIZATION_CODE_TABLE>,
-        'IDN_OAUTH2_AUTHORIZATION_CODE',
-        (SELECT TBSPACE FROM SYSCAT.TABLES where TABNAME = 'IDN_OAUTH2_AUTHORIZATION_CODE' AND TABSCHEMA = <TABLE_SCHEMA_OF_IDN_OAUTH2_AUTHORIZATION_CODE_TABLE>),
-        'TS32K',
-        (SELECT TBSPACE FROM SYSCAT.TABLES where TABNAME = 'IDN_OAUTH2_AUTHORIZATION_CODE' AND TABSCHEMA = <TABLE_SCHEMA_OF_IDN_OAUTH2_AUTHORIZATION_CODE_TABLE>),
-        '',
-        '',
-        '',
-        '',
-        '',
-        'MOVE');
-
-        Where,
-
-        <TABLE_SCHEMA_OF_IDN_OAUTH2_ACCESS_TOKEN_TABLE> and <TABLE_SCHEMA_OF_IDN_OAUTH2_AUTHORIZATION_CODE_TABLE> : Replace these schema’s with each respective schema for the table.
-        ```
-
-    If you receive an error due to missing `SYSTOOLSPACE` or `SYSTOOLSTMPSPACE` tablespaces, create those tablespaces manually using the following script prior to executing the stored procedure given above. For more information, see [SYSTOOLSPACE and SYSTOOLSTMPSPACE table
-    spaces](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.gui.doc/doc/c0023713.html) in the IBM documentation.          
-    ``` java
-    CREATE TABLESPACE SYSTOOLSPACE IN IBMCATGROUP
-    MANAGED BY AUTOMATIC STORAGE USING STOGROUP IBMSTOGROUP
-    EXTENTSIZE 4;
-    
-    CREATE USER TEMPORARY TABLESPACE SYSTOOLSTMPSPACE IN IBMCATGROUP
-    MANAGED BY AUTOMATIC STORAGE USING STOGROUP IBMSTOGROUP
-    EXTENTSIZE 4;
-    ```
-
 
 1. Make sure you backed up all the databases in API-M 2.6.0
 
