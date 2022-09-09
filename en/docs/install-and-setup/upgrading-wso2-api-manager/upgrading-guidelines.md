@@ -80,7 +80,11 @@ test your functional and non-functional requirements.
 
     WSO2 recommends that you perform the migration while the system is under minimum traffic. 
 
+13. When migrating a Kubernetes environment to a newer API Manager version, it is recommended to do the data migration in a separate VM, a local machine, or a single container. Once the data migration is complete, you can simply move the migrated databases into the containerized deployment in Kubernetes. 
+
+    To implement this kind of scenario you have to follow the first four steps in the migration documentation (for example [the first four steps when migrating API-M 3.2.0 to API-M 4.1.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/320-to-410/upgrading-from-320-to-410/) in a separate VM/container/local machine and then move the databases to a containerized setup before doing [step 5, which is to re-index the API-M artifacts]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/320-to-410/upgrading-from-320-to-410/#step-5-re-index-the-api-manager-artifacts). Make sure to use a new mount for the solr and remove the older solr mount from the deployment.
+
 After you have completed the above instructions and are satisfied with the outcome, proceed with the production migration process. After the migration is complete, verify the migration process using the following instructions.
     
--  Monitor the system health (CPU, memory usage etc.).
+-  Monitor the system health (CPU, memory usage, etc.).
 -  Monitor the WSO2 logs for errors.
