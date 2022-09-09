@@ -326,6 +326,12 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.7.0 to IS 5.11
         SET (NEW.ID) = (NEXTVAL FOR IDN_UMA_PT_RESOURCE_SCOPE_SEQ);
         END
         /
+        
+        ALTER TABLE UM_TENANT ADD COLUMN UM_TENANT_UUID VARCHAR(36) NOT NULL DEFAULT uuid_generate_v4();
+        /
+        
+        ALTER TABLE UM_TENANT ADD UNIQUE (UM_TENANT_UUID);
+        /
         ```
     
         ```tab="MSSQL"
