@@ -162,8 +162,7 @@ Create an optimized distribution for a particular API-M profile.
     Before running these profiles, take a backup of the following directories.
     
     - `<PRODUCT-HOME>/repository/resources/conf/templates/repository/conf/axis2` 
-    - `<PRODUCT-HOME>/ repository/resources/conf/templates/repository/conf/registry_TM.xml.j2` 
-    - <PRODUCT-HOME>/ repository/resources/conf/templates/repository/conf/registry_TM.xml.j2
+    - `<PRODUCT-HOME>/repository/resources/conf/templates/repository/conf/registry_TM.xml.j2`
     
 
 1.  Start the server using the script based on your operating system, using the command given below.
