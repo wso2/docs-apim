@@ -46,7 +46,7 @@ It is recommended to use Docker Compose to run Choreo Connect if you want to try
 
 ### When Choreo Connect is deployed in Kubernetes, some pods are in pending status. What can be the root causes?
 
-Use `kubectl describe pod` to find the root cause. Allocate more resources if you don't have enough memory or CPU. If you are deploying for tryout purposes, decrease the values.
+Use `kubectl describe pod` to find the root cause. Allocate more resources if you do not have enough memory or CPU. If you are deploying this to try it out, decrease the values.
 
 ### What are the default ports used in WSO2 Choreo Connect ?
 
