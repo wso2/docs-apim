@@ -139,7 +139,7 @@ You can change the log format only in adapter & enforcer. Currently, Choreo Conn
 
 ### How can I inspect HTTP headers and payloads related to a request?
 
-Enable router trace logs. Refer to the [Router logs configuration]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-router/) for more information. 
+Enable Router trace logs. Refer to the [Router logs configuration]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-router/) for more information. 
 
 ### Where can I get more information about the error codes?
 
