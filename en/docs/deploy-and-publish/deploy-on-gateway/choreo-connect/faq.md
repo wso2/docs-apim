@@ -85,7 +85,7 @@ No, supported API Manager versions are listed below with the respective Choreo C
 
 ### Why do I keep getting gRPC xDS errors during the start up?
 
-During the start up, the enforcer service tries to connect with the adapter to fetch applications, subscriptions and other required resources. The adapter waits for the APIM to start and  relative to the adapter, APIM takes more time to start and hence during this time duration, xDS config discovery client errors are thrown.
+During the start up, the Enforcer service tries to connect with the Adapter to fetch applications, subscriptions, and other required resources. The Adapter waits for the API-M to start and, relative to the Adapter, API-M takes more time to start. So during this time duration, xDS config discovery client errors are thrown.
 
 ## Functionality
 
