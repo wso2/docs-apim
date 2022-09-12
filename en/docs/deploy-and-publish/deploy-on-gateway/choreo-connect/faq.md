@@ -99,7 +99,7 @@ REST, SOAP, GraphQL, WebSocket
 
 ### I want to do a custom validation for all the API requests in addition to the default validations. How can I do that?
 
-You can write a [custom filter]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/extensions/custom-filters/) in the enforcer component or use a separate [interceptor service]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/interceptor-microservice/). Also you can perform custom request validation using the [Open Policy Agent (OPA)]({{base_path}}/design/api-security/opa-validation/custom-opa-policy-for-choreo-connect/).
+You can write a [custom filter]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/extensions/custom-filters/) in the Enforcer component or use a separate [interceptor service]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/interceptor-microservice/). Also, you can perform custom request validation using the [Open Policy Agent (OPA)]({{base_path}}/design/api-security/opa-validation/custom-opa-policy-for-choreo-connect/).
 
 ### Can I perform API request/response transformations?
 
