@@ -113,7 +113,7 @@ Choreo Connect supports several API authentication mechanisms including OAuth 2.
 
 ### Can I use a custom authorization header?
 
-Yes, you can configure a custom authorization header name in Choreo Connect. Refer to the [Custom Authorization Header]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/use-a-custom-authorization-header/) for more information.
+Yes, you can configure a custom authorization header name in Choreo Connect. Refer to [Custom Authorization Header]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/use-a-custom-authorization-header/) for more information.
 
 ### Can I disable API security for a specific API deployed in WSO2 Choreo Connect?
 
