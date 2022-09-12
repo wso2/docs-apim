@@ -117,7 +117,7 @@ Yes, you can configure a custom authorization header name in Choreo Connect. Ref
 
 ### Can I disable API security for a specific API deployed in WSO2 Choreo Connect?
 
-Yes, security can be disabled at API, resource and operation level. Refer to the [Disabling Security]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/disabling-security/) for more information.
+Yes, security can be disabled at API, resource and operation level. Refer to [Disabling Security]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/disabling-security/) for more information.
 
 ### What are the different methods of API authorization supported by WSO2 Choreo Connect?
 
