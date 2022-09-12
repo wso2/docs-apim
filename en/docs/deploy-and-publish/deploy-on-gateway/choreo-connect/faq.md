@@ -168,7 +168,7 @@ Check adapter logs for API deployment and verify whether the API has been succes
 
 `kubectl port-forward <POD_NAME> 9000:9000`
 
-### Getting 401 Unauthorized for API request. Why?
+### Why do I get a 401 unauthorized error for an API request?
 
 401 Unauthorized is returned when the authentication fails in the enforcer for the provided credentials.
 
