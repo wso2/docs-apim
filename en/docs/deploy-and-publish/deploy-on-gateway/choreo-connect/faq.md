@@ -111,7 +111,7 @@ Yes, use a separate [interceptor service]({{base_path}}/deploy-and-publish/deplo
 
 Choreo Connect supports several API authentication mechanisms including OAuth 2.0. Refer to the [API authentication documentation]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-authentication/) for more information.
 
-### Can I use a custom Authorization header ?
+### Can I use a custom authorization header?
 
 Yes, you can configure a custom authorization header name in Choreo Connect. Refer to the [Custom Authorization Header]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/use-a-custom-authorization-header/) for more information.
 
