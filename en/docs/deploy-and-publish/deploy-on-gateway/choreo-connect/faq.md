@@ -143,7 +143,7 @@ Enable router trace logs. Refer to the [Router logs configuration]({{base_path}}
 
 ### Where can I get more information about the error codes?
 
-Refer to the [Error handling]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/error-handling/) for information regarding the error codes.
+Refer to [Error handling]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/error-handling/) for information regarding the error codes.
 
 ### Why am I getting an Unclassified Validation Failure with 500 HTTP status code?
 
