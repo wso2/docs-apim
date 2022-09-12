@@ -34,7 +34,7 @@ It is completely supported from evaluation to production. For more details, see 
 
 ### What are the minimum requirements needed to run WSO2 Choreo Connect?
 
-Refer to the installation [prerequisites section]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/installation-prerequisites/)
+Refer to the [installation prerequisites section]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/installation-prerequisites/).
 
 ### How to deploy WSO2 Choreo Connect in production ?
 
