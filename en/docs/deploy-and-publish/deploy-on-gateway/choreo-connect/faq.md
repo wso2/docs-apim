@@ -164,7 +164,7 @@ Enable access logs in the router and inspect the logs. Refer to the response err
 
 ### Why do I get a 404 that says resource not found when I deploy the API?
 
-Check adapter logs for API deployment and verify whether the API has been successfully deployed or not. Check the router config dump to verify whether a relevant route exists for the invoked resource. To access router config dump, use Kubernetes port forwarding to access the router admin interface.
+Check Adapter logs for API deployment and verify whether the API has been successfully deployed or not. Check the Router config dump to verify whether a relevant route exists for the invoked resource. To access the Router config dump, use Kubernetes port forwarding to access the Router admin interface.
 
 `kubectl port-forward <POD_NAME> 9000:9000`
 
