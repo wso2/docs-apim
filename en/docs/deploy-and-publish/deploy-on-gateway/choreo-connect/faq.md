@@ -61,7 +61,7 @@ Use `kubectl describe pod` to find the root cause. Allocate more resources if yo
 
 ### What are the different deployment patterns available for WSO2 Choreo Connect?
 
-* [Choreo Connect standalone gateway mode with apictl]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/)
+* [Choreo Connect standalone Gateway mode with apictl]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/)
     * [Deploy APIs as Immutable Gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-apis-as-immutable-gateway/)
     * [Git integration with source watcher]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/git-integration/)
 * [Choreo Connect with APIM as a control plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/)
