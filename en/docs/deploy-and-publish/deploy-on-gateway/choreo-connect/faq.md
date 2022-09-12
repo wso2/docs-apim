@@ -59,7 +59,7 @@ Use `kubectl describe pod` to find the root cause. Allocate more resources if yo
 - Adapter xDS port 18000
 - Enforcer admin port - 9001
 
-### What are the different deployment patterns available for WSO2 Choreo Connect ?
+### What are the different deployment patterns available for WSO2 Choreo Connect?
 
 * [Choreo Connect standalone gateway mode with apictl]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/)
     * [Deploy APIs as Immutable Gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-apis-as-immutable-gateway/)
