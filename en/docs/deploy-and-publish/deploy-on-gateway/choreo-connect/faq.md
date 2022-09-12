@@ -155,7 +155,7 @@ This error occurs when the Router is unable to connect to the Enforcer service t
         * `kubectl get deployments` for kubernetes based deployments
 * Runtime exception in the Enforcer service causes a timeout
     * Enable debug logs and router access logs to see whether there’s any unusual behavior / exception
-* Invalid network configuration like host name, port, port bindings etc.
+* Invalid network configuration like host name, port, port bindings, etc.
 * Enforcer service does not have enough resources to process the request (insufficient memory or high CPU usage).
 
 ### Why am I getting an upstream connection termination error with 503 status code?
