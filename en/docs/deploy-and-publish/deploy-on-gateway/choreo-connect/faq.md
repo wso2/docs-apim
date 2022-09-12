@@ -42,7 +42,7 @@ It is recommended to use the helm charts based deployment option for production.
 
 ### Can I run Choreo Connect using Docker Compose?
 
-Docker Compose is recommended to run for try out purposes. Kubernetes should be used for production deployments as Kubernetes provides container management capabilities.
+It is recommended to use Docker Compose to run Choreo Connect if you want to try it out. Kubernetes should be used for production deployments as Kubernetes provides container management capabilities.
 
 ### When Choreo Connect is deployed in Kubernetes, some pods are in pending status. What can be the root causes?
 
