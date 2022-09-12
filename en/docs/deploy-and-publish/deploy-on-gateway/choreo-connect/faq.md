@@ -135,7 +135,7 @@ Debug and trace logs can be enabled separately for each of the components. Refer
 
 ### How can I print logs in different formats?
 
-You can change the log format only in adapter & enforcer. Currently, Choreo Connect supports plain text format (default) and JSON formatted logs only. Refer to the [Logs configuration]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-overview/) for more information.
+You can change the log format only in the Adapter and Enforcer. Currently, Choreo Connect supports plain text format (default) and JSON formatted logs only. Refer to the [Logs configuration]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-overview/) for more information.
 
 ### How can I inspect HTTP headers and payloads related to a request?
 
