@@ -158,7 +158,7 @@ This error occurs when the router is unable to connect to the enforcer service t
 * Invalid network configuration like host name, port, port bindings etc.
 * Enforcer service does not have enough resources to process the request. (insufficient memory or high CPU usage)
 
-### Why am I getting an upstream connection termination error with 503 status code ?
+### Why am I getting an upstream connection termination error with 503 status code?
 
 Enable access logs in the router and inspect the logs. Refer to the response error codes to find the exact reason for upstream connection termination. If further analysis is required, enable router trace logs.
 
