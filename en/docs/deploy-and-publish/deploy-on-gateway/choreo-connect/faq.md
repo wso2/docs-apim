@@ -121,7 +121,7 @@ Yes, security can be disabled at API, resource and operation level. Refer to [Di
 
 ### What are the different methods of API authorization supported by WSO2 Choreo Connect?
 
-Scope validation, subscription validation, custom claims mapping and Open Policy Agent (OPA) validation. Refer to the [API Authorization]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authorization/scope-validation/) for more information.
+Scope validation, subscription validation, custom claims mapping and Open Policy Agent (OPA) validation. Refer to [API Authorization]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authorization/scope-validation/) for more information.
 
 ## Troubleshooting
 
