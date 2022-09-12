@@ -36,7 +36,7 @@ It is completely supported from evaluation to production. For more details, see 
 
 Refer to the [installation prerequisites section]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/installation-prerequisites/).
 
-### How to deploy WSO2 Choreo Connect in production ?
+### How to deploy WSO2 Choreo Connect in production?
 
 It is recommended to use the helm charts based deployment option for production. Refer to the [helm charts based deployment guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane-helm-artifacts/) for more information.
 
