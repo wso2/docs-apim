@@ -40,7 +40,7 @@ Refer to the [installation prerequisites section]({{base_path}}/deploy-and-publi
 
 It is recommended to use the helm charts based deployment option for production. Refer to the [helm charts based deployment guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane-helm-artifacts/) for more information.
 
-### Can I run Choreo Connect using docker compose ?
+### Can I run Choreo Connect using Docker compose?
 
 Docker Compose is recommended to run for try out purposes. Kubernetes should be used for production deployments as Kubernetes provides container management capabilities.
 
