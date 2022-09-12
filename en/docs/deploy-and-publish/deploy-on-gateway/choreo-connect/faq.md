@@ -91,7 +91,7 @@ During the start up, the Enforcer service tries to connect with the Adapter to f
 
 ### What are the application layer protocols supported by WSO2 Choreo Connect ?
 
-HTTP/1.1 , HTTP/2
+HTTP/1.1, HTTP/2
 
 ### What are the API types supported by WSO2 Choreo Connect ?
 
