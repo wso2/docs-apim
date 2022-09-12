@@ -160,7 +160,7 @@ This error occurs when the router is unable to connect to the enforcer service t
 
 ### Why am I getting an upstream connection termination error with 503 status code?
 
-Enable access logs in the router and inspect the logs. Refer to the response error codes to find the exact reason for upstream connection termination. If further analysis is required, enable router trace logs.
+Enable access logs in the Router and inspect the logs. Refer to the response error codes to find the exact reason for upstream connection termination. If further analysis is required, enable Router trace logs.
 
 ### Why do I get a 404 that says resource not found when I deploy the API?
 
