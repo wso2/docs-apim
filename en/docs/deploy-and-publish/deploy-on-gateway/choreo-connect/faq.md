@@ -72,7 +72,7 @@ Yes, you can define the number of replicas you want and scale the services accor
 
 ### How do I apply configuration changes?
 
-`config.toml` file is used by the Adapter to read the configuration and the adapter should be restarted to apply new configuration. If the configuration changes should be applied to the Enforcer,  Enforcer should be restarted as it only reads data at the startup. The Router gets updates directly from the Adapter. So a restart is not required.
+`config.toml` file is used by the Adapter to read the configuration and the Adapter should be restarted to apply the new configuration. If the configuration changes should be applied to the Enforcer, the Enforcer should be restarted as it only reads data at the startup. The Router gets updates directly from the Adapter so a restart is not required.
 
 ### Is Choreo Connect 1.1.0 supported with apim 4.0.0?
 
