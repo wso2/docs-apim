@@ -127,7 +127,7 @@ Scope validation, subscription validation, custom claims mapping and Open Policy
 
 ### Why am I getting Cross-Origin Resource Sharing (CORS) errors?
 
-It could be due to an invalid CORS configuration in the router component. Also another possibility is that the API is not deployed at all. Since the preflight request is usually sent prior to the actual request, users would see a CORS failure. Refer to the [CORS configuration] for more information.
+It could be due to an invalid CORS configuration in the Router component. Also, another possibility is that the API is not deployed at all. Since the preflight request is usually sent prior to the actual request, users would see a CORS failure. Refer to the [CORS configuration] for more information.
 
 ### How can I enable debug logs?
 
