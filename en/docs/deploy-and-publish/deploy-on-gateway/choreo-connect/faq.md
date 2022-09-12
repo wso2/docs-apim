@@ -1,4 +1,4 @@
-# Frequently asked questions (FAQs)
+# Frequently Asked Questions (FAQs)
 
 ## About WSO2 Choreo Connect
 
