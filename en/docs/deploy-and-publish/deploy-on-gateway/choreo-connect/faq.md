@@ -147,7 +147,7 @@ Refer to [Error handling]({{base_path}}/deploy-and-publish/deploy-on-gateway/cho
 
 ### Why am I getting an Unclassified Validation Failure with 500 HTTP status code?
 
-This error occurs when the router is unable to connect to the enforcer service to perform authentication. Possible reasons could be,
+This error occurs when the Router is unable to connect to the Enforcer service to perform authentication. Possible reasons could be:
 
 * Enforcer service not being available
     * Execute the following command to see the status of the enforcer service.
