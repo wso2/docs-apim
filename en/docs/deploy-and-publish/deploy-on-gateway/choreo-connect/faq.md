@@ -18,7 +18,7 @@ The main components of WSO2 Choreo Connect are listed below along with the prima
 
 WSO2 Choreo Connect is a lightweight, decentralized API gateway designed for microservices-related applications whereas WSO2 Synapse Gateway is primarily designed for monolithic applications. For more information, refer [Deploying APIs in API Gateway vs Choreo Connect]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploying-apis-in-api-gateway-vs-choreo-connect/)
 
-### What are the differences between WSO2 API Microgateway (Ballerina MGW) and WSO2 Choreo Connect ?
+### What are the differences between WSO2 API Microgateway (Ballerina MGW) and WSO2 Choreo Connect?
 
 Earlier versions of the Choreo Connect were named as WSO2 API Microgateway (Ballerina MGW) and it was a completely different implementation done using the Ballerina programming language. The final version of API Microgateway is 3.X.X and it is compatible with WSO2 API Manager 3.0 series only. With the release of WSO2 API Manager 4.0.0, Choreo Connect 1.0.0 released as the new version of API Microgateway. Refer to the [migration guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/migration-guide-from-ballerina-api-microgateway/) for more information. 
 
