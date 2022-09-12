@@ -162,7 +162,7 @@ This error occurs when the router is unable to connect to the enforcer service t
 
 Enable access logs in the router and inspect the logs. Refer to the response error codes to find the exact reason for upstream connection termination. If further analysis is required, enable router trace logs.
 
-### I deployed the API and got a 404 saying resource not found. Why is that?
+### Why do I get a 404 that says resource not found when I deployed the API?
 
 Check adapter logs for API deployment and verify whether the API has been successfully deployed or not. Check the router config dump to verify whether a relevant route exists for the invoked resource. To access router config dump, use Kubernetes port forwarding to access the router admin interface.
 
