@@ -4,7 +4,7 @@
 
 ### What is WSO2 Choreo Connect?
 
-WSO2 Choreo Connect is a cloud-native, open-source, and developer-centric API gateway. It provides first-class support for Kubernetes while facilitating an array of API management quality of services (QoS), such as message security, rate-limiting, observability, and message mediation.
+WSO2 Choreo Connect is a cloud-native, open-source, and developer-centric API Gateway. It provides first-class support for Kubernetes while facilitating an array of API management quality of services (QoS), such as message security, rate-limiting, observability, and message mediation.
 
 ### What are the key technologies used underneath WSO2 Choreo Connect ?
 
