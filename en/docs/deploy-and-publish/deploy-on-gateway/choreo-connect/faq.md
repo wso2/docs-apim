@@ -107,7 +107,7 @@ Yes, use a separate [interceptor service]({{base_path}}/deploy-and-publish/deplo
 
 ## Security
 
-### What are the different methods available for API authentication ?
+### What are the different methods available for API authentication?
 
 Choreo Connect supports several API authentication mechanisms including OAuth 2.0. Refer to the [API authentication documentation]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-authentication/) for more information.
 
