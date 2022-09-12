@@ -149,7 +149,7 @@ Refer to [Error handling]({{base_path}}/deploy-and-publish/deploy-on-gateway/cho
 
 This error occurs when the Router is unable to connect to the Enforcer service to perform authentication. Possible reasons could be:
 
-* Enforcer service not being available
+* Enforcer service not being available.
     * Execute the following command to see the status of the Enforcer service.
         * `docker ps` for Docker Compose-based deployments.
         * `kubectl get deployments` for Kubernetes-based deployments.
