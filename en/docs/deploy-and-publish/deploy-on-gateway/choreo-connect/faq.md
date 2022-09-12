@@ -145,7 +145,7 @@ Enable router trace logs. Refer to the [Router logs configuration]({{base_path}}
 
 Refer to the [Error handling]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/error-handling/) for information regarding the error codes.
 
-### Why am I getting an Unclassified Validation Failure with 500 HTTP status code ?
+### Why am I getting an Unclassified Validation Failure with 500 HTTP status code?
 
 This error occurs when the router is unable to connect to the enforcer service to perform authentication. Possible reasons could be,
 
