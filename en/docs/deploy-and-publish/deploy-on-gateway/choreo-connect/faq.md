@@ -131,7 +131,7 @@ It could be due to an invalid CORS configuration in the router component. Also a
 
 ### How can I enable debug logs?
 
-Debug and trace logs can be enabled separately for each of the components. Refer to the [Enable Debug Logs]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/adding-debug-logs/) for more information.
+Debug and trace logs can be enabled separately for each of the components. Refer to [Enable Debug Logs]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/adding-debug-logs/) for more information.
 
 ### How can I print logs in different formats?
 
