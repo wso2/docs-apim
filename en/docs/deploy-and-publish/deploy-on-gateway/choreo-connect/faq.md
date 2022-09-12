@@ -141,7 +141,7 @@ You can change the log format only in adapter & enforcer. Currently, Choreo Conn
 
 Enable router trace logs. Refer to the [Router logs configuration]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-router/) for more information. 
 
-### Where can I get more information about the error codes ?
+### Where can I get more information about the error codes?
 
 Refer to the [Error handling]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/error-handling/) for information regarding the error codes.
 
