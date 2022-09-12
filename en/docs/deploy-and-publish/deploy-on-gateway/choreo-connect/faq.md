@@ -170,7 +170,7 @@ Check adapter logs for API deployment and verify whether the API has been succes
 
 ### Why do I get a 401 unauthorized error for an API request?
 
-401 Unauthorized is returned when the authentication fails in the enforcer for the provided credentials.
+401 Unauthorized is returned when the authentication fails in the Enforcer for the provided credentials.
 
 * Check whether the provided credentials are valid or not. 
 * Check enforcer logs to see the reason for the failure. 
