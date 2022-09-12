@@ -151,7 +151,7 @@ This error occurs when the Router is unable to connect to the Enforcer service t
 
 * Enforcer service not being available
     * Execute the following command to see the status of the Enforcer service.
-        * `docker ps` for docker compose based deployments
+        * `docker ps` for Docker Compose-based deployments
         * `kubectl get deployments` for kubernetes based deployments
 * Runtime exception in the enforcer service causes a timeout
     * Enable debug logs and router access logs to see whether there’s any unusual behavior / exception
