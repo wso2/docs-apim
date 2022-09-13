@@ -633,6 +633,10 @@ You have to run the following migration client to update the API Manager artifac
 
     -   Remove the `migration-resources` directory, which is in the `<API-M_4.1.0_HOME>` directory.
 
+    !!! note
+
+        Make sure you have copied the tenant's userstores if you have configured them in WSO2 API Manager 3.0.0.
+
 ### Step 5: Re-Index the API Manager artifacts
 
 1. To re-index the API artifacts in the registry, Add the following configuration into the `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file.
