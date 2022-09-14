@@ -151,7 +151,7 @@ Follow the instructions below to move all the existing API Manager configuration
 5. If you have enabled any other feature related configurations at `<API-M_4.0.0_HOME>/repository/conf/deployment.toml`, make sure to add them in to `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file.
 
 !!! note
-    If the older API-M setup has been configured for different admin roles other than admin and if the role is not persisted in read-only userstore, make sure not to change the `admin_role` configuration in the deployment.toml this time. You have to configure it after step 4.
+    If the older API-M setup has been configured for a different admin role other than admin and if the role is not persisted in read-only userstore, make sure not to change the `admin_role` configuration in the deployment.toml this time. You have to configure it after step 4.
 
 
 ### Step 2: Migrate the API Manager resources
