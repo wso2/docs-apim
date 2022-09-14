@@ -37,7 +37,6 @@ For example, while transferring bank and financial sector information using the 
            <parameter name="sequential">true</parameter>
            <parameter name="coordination">true</parameter>
            <parameter name="port">5000</parameter>
-           <parameter name="headerLength">2</parameter>
            <parameter name="isProxy">false</parameter>
        </parameters>
    </inboundEndpoint>

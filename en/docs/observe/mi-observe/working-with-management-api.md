@@ -1408,3 +1408,371 @@ The management API has multiple resources to provide information regarding the d
   	  "TransactionCountData": [[col1, col2, col3, col4],[val1, val2, val3, val4]]
   	 }
   	```
+
+### GET REGISTRY DIRECTORY DATA
+
+-	**Resource**: `/registry-resources?path={registry path}`
+
+	**Description**: Retrieves files and folders under the given parent folder with their media type and properties.
+
+	**Example**:
+
+  	```bash tab='Request'
+  	curl -X GET \ 
+	"https://localhost:9164/management/registry-resources?path=registry/config/testFolder" \
+    -H "accept: application/json" \
+    -H "Authorization: Bearer TOKEN" -k -i
+  	```
+
+  	```bash tab='Response'
+  	{
+		"count":2,
+		"list":
+		[
+			{
+				"name":"name1",
+				"mediaType":"type1",
+				"properties":[]
+			},
+    		{
+				"name":"name2",
+				"mediaType":"type2",
+				"properties":
+				[
+					{
+						"name":"prop1",
+						"value":"val1"
+					}
+				]
+			}
+		]
+	}
+  	```
+
+-	**Resource**: `/registry-resources?path={registry path}&expand={true}`
+
+	**Description**: Retrieves a nested JSON containing all the files and folders under the given parent folder.
+
+	**Example**:
+
+  	```bash tab='Request'
+  	curl -X GET \ 
+	"https://localhost:9164/management/registry-resources?path=registry/config/testFolder&expand=true" \
+    -H "accept: application/json" \
+    -H "Authorization: Bearer TOKEN" -k -i
+  	```
+
+  	```bash tab='Response'
+  	{
+		"name":"testFolder",
+		"files":
+		[
+			{
+				"name":"test-text.txt",
+				"files":[],
+				"type":"text/plain"
+			},
+			{
+				"name":"testSubFolder",
+				"files":
+				[
+					{
+						"name":"test-xml.xml",
+						"files":[],
+						"type":"text/xml"
+					}
+				],
+				"type":"directory"
+			}
+		],
+		"type":"directory"
+	}
+  	```
+
+### GET REGISTRY CONTENT
+
+-	**Resource**: `/registry-resources/content?path={registry path}`
+
+	**Description**: Retrieves content of a registry as text.
+
+	**Example**:
+
+  	```bash tab='Request'
+	curl -X GET \ 
+	"https://localhost:9164/management/registry-resources/content?path=registry/config/testFolder/test-xml.xml" \
+    -H "accept: application/json" \
+    -H "Authorization: Bearer TOKEN" -k -i
+  	```
+
+  	```bash tab='Response'
+	<?xml version="1.0" encoding="UTF-8"?>
+	<endpoint name="sampleEP" xmlns="http://ws.apache.org/ns/synapse">
+    <address uri="http://localhost:9000/updatedServices">
+        <suspendOnFailure>
+            <initialDuration>-1</initialDuration>
+            <progressionFactor>1</progressionFactor>
+        </suspendOnFailure>
+        <markForSuspension>
+            <retriesBeforeSuspension>5</retriesBeforeSuspension>
+        </markForSuspension>
+    </address>
+	</endpoint>
+  	```
+
+### ADD A REGISTRY RESOURCE
+
+-	**Resource**: `/registry-resources/content?path={registry path}&mediaType={media type}`
+
+	**Description**: Adds a new registry resource.
+
+	!!! note
+		Only admin users can add new registry resources.
+
+		Use `multipart/form-data` as in `Request 2` to add binary files as registry resources.
+		
+		Change `Content-Type` header according to the payload.
+
+	**Example**:
+
+  	```bash tab='Request 1'
+	curl -X POST \ 
+	"https://localhost:9164/management/registry-resources/content?path=registry/config/testFolder/test-xml.xml&mediaType=application/xml" \
+    -H "accept: application/json" \
+    -H "Content-Type: application/xml" \
+    -H "Authorization: Bearer TOKEN" \
+    -d '<?xml version="1.0" encoding="UTF-8"?>
+	<endpoint name="initialEP" xmlns="http://ws.apache.org/ns/synapse">
+    <address uri="http://localhost:9000/services">
+        <suspendOnFailure>
+            <initialDuration>-1</initialDuration>
+            <progressionFactor>1</progressionFactor>
+        </suspendOnFailure>
+        <markForSuspension>
+            <retriesBeforeSuspension>5</retriesBeforeSuspension>
+        </markForSuspension>
+    </address>
+	</endpoint>' -k -i
+  	```
+
+	```bash tab='Request 2'
+	curl -X POST \ 
+	"https://localhost:9164/management/registry-resources/content?path=registry/config/testFolder/test-pdf.pdf&mediaType=application/pdf" \
+    -H "accept: application/json" \
+    -H "Content-Type: multipart/form-data" \
+    -H "Authorization: Bearer TOKEN" \
+    -F 'file=@samplePdf.pdf' -k -i
+  	```
+
+  	```bash tab='Response'
+	{
+		"message": "Successfully added the registry resource"
+	}
+  	```
+
+### MODIFY REGISTRY RESOURCE
+
+-	**Resource**: `/registry-resources/content?path={registry path}`
+
+	**Description**: Modifies the content of an existing registry resource.
+
+	!!! note
+		Only admin users can modify registry resources.
+		
+		Change `Content-Type` header according to the payload.
+
+		Changes done to the registry resources will be updated to the cache after the predefined `cachableDuration` time period.
+
+	**Example**:
+
+  	```bash tab='Request 1'
+	curl -X PUT \ 
+	"https://localhost:9164/management/registry-resources/content?path=registry/config/testFolder/test-xml.xml" \
+    -H "accept: application/json" \
+    -H "Content-Type: application/xml" \
+    -H "Authorization: Bearer TOKEN" \
+    -d '<?xml version="1.0" encoding="UTF-8"?>
+	<endpoint name="updatedEP" xmlns="http://ws.apache.org/ns/synapse">
+    <address uri="http://localhost:9000/updatedServices">
+        <suspendOnFailure>
+            <initialDuration>-1</initialDuration>
+            <progressionFactor>1</progressionFactor>
+        </suspendOnFailure>
+        <markForSuspension>
+            <retriesBeforeSuspension>5</retriesBeforeSuspension>
+        </markForSuspension>
+    </address>
+	</endpoint>' -k -i
+  	```
+
+	```bash tab='Request 2'
+	curl -X PUT \ 
+	"https://localhost:9164/management/registry-resources/content?path=registry/config/testFolder/test-pdf.pdf" \
+    -H "accept: application/json" \
+    -H "Content-Type: multipart/form-data" \
+    -H "Authorization: Bearer TOKEN" \
+    -F 'file=updatedPdf.pdf' -k -i
+  	```
+
+  	```bash tab='Response'
+	{
+		"message": "Successfully modified the registry resource"
+	}
+  	```
+
+### DELETE A REGISTRY RESOURCE
+
+-	**Resource**: `/registry-resources/content?path={registry path}`
+
+	**Description**: Deletes a registry resource.
+
+	!!! note
+		Only admin users can delete registry resources.
+
+	**Example**:
+
+  	```bash tab='Request'
+	curl -X DELETE \ 
+	"https://localhost:9164/management/registry-resources/content?path=registry/config/testFolder/test-xml.xml" \
+    -H "accept: application/json" \
+    -H "Authorization: Bearer TOKEN" -k -i
+  	```
+
+  	```bash tab='Response'
+	{
+		"message": "Successfully deleted the registry resource"
+	}
+  	```
+
+### GET PROPERTIES OF A REGISTRY RESOURCE
+
+-	**Resource**: `/registry-resources/properties?path={registry path}`
+	
+	**Description**: Retrieves all the properties of a registry resource.
+
+	**Example**:
+
+  	```bash tab='Request'
+	curl -X GET \ 
+	"https://localhost:9164/management/registry-resources/properties?path=registry/config/testFolder/test-text.txt" \
+    -H "accept: application/json" \
+    -H "Authorization: Bearer TOKEN" -k -i
+	```
+
+  	```bash tab='Response'
+	{
+		"count":2,
+		"list":
+		[
+			{
+				"name":"prop1"
+				,"value":"val1"
+			},
+			{
+				"name":"prop2",
+				"value":"val2"
+			}
+		]
+	}
+  	```
+
+-	**Resource**: `/registry-resources/properties?path={registry path}&name={property name}`
+
+	**Description**: Retrieves the value of a property.
+
+	**Example**:
+
+  	```bash tab='Request'
+	curl -X GET \ 
+	"https://localhost:9164/management/registry-resources/properties?path=registry/config/testFolder/test-text.txt&name=prop1" \
+    -H "accept: application/json" \
+    -H "Authorization: Bearer TOKEN" -k -i
+	```
+
+  	```bash tab='Response'
+	{
+		"prop1":"val1"
+	}
+  	```
+
+### ADD PROPERTIES TO A REGISTRY RESOURCE
+
+-	**Resource**: `/registry-resources/properties?path={registry path}`
+
+	**Description**: Adds properties to a registry resource. If the input payload consists an existing property name, property value will be modified.
+
+	!!! note
+		Only admin users can add properties to a registry resource.
+
+		New properties should be in a JSON array with JSON objects for each property.
+
+	**Example**:
+
+  	```bash tab='Request'
+	curl -X POST \ 
+	"https://localhost:9164/management/registry-resources/properties?path=registry/config/testFolder/test-text.txt" \
+    -H "accept: application/json" \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer TOKEN" \
+    -d '[
+		{
+			"name":"prop1",
+			"value":"val1"
+		},
+		{
+			"name":"prop2",
+			"value":"val2"
+		}
+	]' -k -i
+	```
+
+  	```bash tab='Response'
+	{
+		"message": "Successfully added the registry property"
+	}
+  	```
+
+### DELETE A PROPERTY FROM A REGISTRY RESOURCE
+
+-	**Resource**: `/registry-resources/properties?path={registry path}&name={property name}`
+
+	**Description**: Deletes a property from a registry resource.
+
+	!!! note
+		Only admin users can delete properties from a registry resource.
+
+	**Example**:
+
+  	```bash tab='Request'
+	curl -X DELETE\
+	"https://localhost:9164/management/registry-resources/properties?path=registry/config/testFolder/test-text.txt&name=prop1" \
+    -H "accept: application/json" \
+    -H "Authorization: Bearer TOKEN" -k -i
+	```
+
+  	```bash tab='Response'
+	{
+		"message": "Successfully deleted the registry property"
+	}
+  	```
+
+### GET METADATA OF A REGISTRY RESOURCE
+
+-	**Resource**: `/registry-resources/properties?path={registry path}`
+
+	**Description**: Retrieves the media type of a registry resource.
+
+	**Example**:
+
+  	```bash tab='Request'
+	curl -X GET\ 
+	"https://localhost:9164/management/registry-resources/metadata?path=registry/config/testFolder/test-text.txt" \
+    -H "accept: application/json" \
+    -H "Authorization: Bearer TOKEN" -k -i
+	```
+
+  	```bash tab='Response'
+	{
+		"name":"test-text.txt",
+		"mediaType":"text/plain"
+	}
+  	```

@@ -1,6 +1,19 @@
-# Create a Custom Choreo Connect Policy
+# Create a Custom Policy
 
-Choreo Connect supports the following operations and the policies supporting these operations are shipped with the WSO2 API Manager by default. The following table contains the action name and parameters of the operations that are supported in Choreo Connect.
+Choreo Connect Custom Policies allow reusing existing policy definitions to create your own policies with predefined values. They can be created either as common policies or as API specific policies.
+
+**Button to add a common policy**
+
+[![Add common policy]({{base_path}}/assets/img/design/api-policies/common-policy-1.png){: style="width:90%"}]({{base_path}}/assets/img/design/api-policies/common-policy-1.png)
+
+**Button to add a API specific policy**
+
+[![Add common policy]({{base_path}}/assets/img/design/api-policies/specific-policy-1.png){: style="width:90%"}]({{base_path}}/assets/img/design/api-policies/specific-policy-1.png)
+
+Choreo Connect supports the following policies, and the policy templates for them are shipped with WSO2 API Manager by default. When creating a custom policy, you can use the action name and the parameters given below. A parameter can either be an existing template or a specific value.
+
+!!! note
+	Choreo Connect policy definitions are in the .gotmpl file extension. Its content type is YAML and is templated with [go templates](https://pkg.go.dev/text/template).
 
 
 <table>
@@ -17,8 +30,8 @@ Choreo Connect supports the following operations and the policies supporting the
             <li>headerName</li>
             <li>headerValue</li>
         </ul></td>
-    <td>Request</td>
-    <td>Set a header in the request flow.</td>
+    <td>Request Response</td>
+    <td>Set a header in the request flow or response flow.</td>
  </tr>
  <tr>
     <td>REMOVE_HEADER</td>
@@ -26,8 +39,8 @@ Choreo Connect supports the following operations and the policies supporting the
         <ul>
             <li>headerName</li>
         </ul></td>
-    <td>Request</td>
-    <td>Remove a header in the request flow.</td>
+    <td>Request Response</td>
+    <td>Remove a header in the request flow or response flow.</td>
  </tr>
  <tr>
     <td>ADD_QUERY</td>
@@ -43,7 +56,6 @@ Choreo Connect supports the following operations and the policies supporting the
     <td>REWRITE_RESOURCE_METHOD</td>
     <td>
         <ul>
-            <li>currentMethod</li>
             <li>updatedMethod</li>
         </ul></td>
     <td>Request</td>
@@ -88,11 +100,6 @@ Choreo Connect supports the following operations and the policies supporting the
     <td>Validate the request against the Open Policy Agent server.</td>
  </tr>
 </table>
-
-Custom Choreo Connect policies can use these actions and the template or a specific value in parameters.
-
-!!! note
-	Choreo Connect policy definitions are in the .gotmpl file extension. Its content type is YAML and is templated with [go templates](https://pkg.go.dev/text/template).
 
 ## Sample 1 - Custom Call Interceptor Policy
 

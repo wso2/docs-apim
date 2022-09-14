@@ -103,7 +103,6 @@ nav:
         - Lifecycle Managament:
             - API Lifecycle: design/lifecycle-management/api-lifecycle.md
             - Customize API Life Cycle: design/lifecycle-management/customize-api-life-cycle.md
-            - Extend the API Life Cycle: design/lifecycle-management/extending-the-api-life-cycle.md
         - API Versioning:
             - Create a New API Version: design/api-versioning/create-a-new-api-version.md
             - Deprecate the Old Version: design/api-versioning/deprecate-the-old-version.md
@@ -129,6 +128,7 @@ nav:
                 - Add a Class Mediator: design/api-policies/regular-gateway-policies/adding-a-class-mediator.md
                 - Configure Message Builders and Formatters: design/api-policies/regular-gateway-policies/configuring-message-builders-formatters.md
             - Choreo Connect Policies:
+                - Overview: design/api-policies/choreo-connect-policies/cc-op-policy-overview.md
                 - Call Interceptor Service: design/api-policies/choreo-connect-policies/call-interceptor-service.md
                 - Create a Custom Policy: design/api-policies/choreo-connect-policies/create-custom-cc-policy.md
         - API Security:
@@ -331,15 +331,17 @@ nav:
                     - Request Payload Passing: deploy-and-publish/deploy-on-gateway/choreo-connect/extensions/request-payload-passing.md
                 - Rate Limiting:
                     - Enable Distributed Rate Limiting: deploy-and-publish/deploy-on-gateway/choreo-connect/rate-limiting/distributed-throttling.md
-                - Message Transformation:
-                    - Message Transformation: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/message-transformation-overview.md
-                    - Interceptor Microservice:
-                        - Interceptor Microservice: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/interceptor-microservice.md
-                        - Request Flow Interceptor: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/request-flow-interceptor.md
-                        - Response Flow Interceptor: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/response-flow-interceptor.md
-                        - Interceptor Context and Invocation Context: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/interceptor-context-and-invocation-context.md
-                        - Sample Interceptor Services: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/sample-interceptor-services.md
-                    - Define Interceptors in an OpenAPI Definition: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/defining-interceptors-in-an-open-api-definition.md
+                - Mediation:
+                    - Message Transformation: 
+                        - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/message-transformation-overview.md
+                        - Interceptor Microservice:
+                            - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/interceptor-microservice.md
+                            - Request Flow Interceptor: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/request-flow-interceptor.md
+                            - Response Flow Interceptor: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/response-flow-interceptor.md
+                            - Interceptor Context and Invocation Context: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/interceptor-context-and-invocation-context.md
+                            - Sample Interceptor Services: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/sample-interceptor-services.md
+                        - Define Interceptors in an OpenAPI Definition: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/defining-interceptors-in-an-open-api-definition.md
+                    - API Policies: design/api-policies/choreo-connect-policies/cc-op-policy-overview.md
                 - Service Discovery:
                     - Configure Choreo Connect with Consul: deploy-and-publish/deploy-on-gateway/choreo-connect/service-discovery/service-discovery-overview.md
                     - Service Discovery:  deploy-and-publish/deploy-on-gateway/choreo-connect/service-discovery/choreo-connect-and-service-discovery.md
@@ -362,6 +364,7 @@ nav:
                     - Enforcer Admin API: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/enforcer-admin-api/enforcer-v1.0.0.md
                     - Debug Memory Issues: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/debug-memory.md
                 - x-forward-for (XFF): deploy-and-publish/deploy-on-gateway/choreo-connect/xff-header.md
+                - Frequently Asked Questions (FAQs): deploy-and-publish/deploy-on-gateway/choreo-connect/faq.md
         - Publish on Developer Portal:
             - Publish an API: deploy-and-publish/publish-on-dev-portal/publish-an-api.md
             - Add a Third-party API: deploy-and-publish/publish-on-dev-portal/third-party-api-support.md
@@ -1154,6 +1157,7 @@ nav:
                 - JSON Transform Mediator: reference/mediators/json-transform-mediator.md
                 - Log Mediator: reference/mediators/log-mediator.md
                 - Loopback Mediator: reference/mediators/loopback-mediator.md
+                - NTLM Mediator: reference/mediators/ntlm-mediator.md
                 - OAuth Mediator: reference/mediators/oauth-mediator.md
                 - PayloadFactory Mediator: reference/mediators/payloadfactory-mediator.md
                 - Property Mediator: reference/mediators/property-mediator.md
@@ -1883,7 +1887,6 @@ plugins:
               'learn/design-api/endpoints/certificates.md': 'https://apim.docs.wso2.com/en/4.1.0/design/endpoints/certificates/'
               'learn/design-api/lifecycle-management/api-lifecycle.md': 'https://apim.docs.wso2.com/en/4.1.0/design/lifecycle-management/api-lifecycle/'
               'learn/design-api/lifecycle-management/customize-api-life-cycle.md': 'https://apim.docs.wso2.com/en/4.1.0/design/lifecycle-management/customize-api-life-cycle/'
-              'learn/design-api/lifecycle-management/extending-the-api-life-cycle.md': 'https://apim.docs.wso2.com/en/4.1.0/design/lifecycle-management/extending-the-api-life-cycle/'
               'learn/design-api/api-versioning/create-a-new-api-version.md': 'https://apim.docs.wso2.com/en/4.1.0/design/api-versioning/create-a-new-api-version/'
               'learn/design-api/api-versioning/deprecate-the-old-version.md': 'https://apim.docs.wso2.com/en/4.1.0/design/api-versioning/deprecate-the-old-version/'
               'learn/design-api/api-versioning/backward-compatibility.md': 'https://apim.docs.wso2.com/en/4.1.0/design/api-versioning/backward-compatibility/'
