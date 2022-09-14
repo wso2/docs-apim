@@ -289,6 +289,13 @@ You have to follow the below instructions to upgrade the API Manager components.
 
 ### Step 5 - Restart the API Manager server
 
+!!! note
+    If the older API-M setup has been configured for a different admin role other than admin and if the role is not persisted in read-only userstore, make sure to change the `admin_role="<admin_role>"` under `[super_admin]` configuration in the `deployment.toml` file before restarting the server. After that, you have to follow the steps given below.
+
+        1. Log in to the admin portal and navigate to the scope mapping section.
+        2. Map the admin role to the `<admin_role>` role.
+        3. Then log in to the Management Console and delete the **admin** role
+
 1. Restart the server.
 
     ```tab="Linux / Mac OS"
