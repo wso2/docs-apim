@@ -182,6 +182,8 @@ For more information see, [GraphQL subscription]({{base_path}}/consume/invoke-ap
 
 #### API Manager 3.0.0
 
+- If you have used OIDC or SAML2 for SSO in the portal login in an older APIM version, you have to re-configure them as per the [documentation to configure WSO2 IS as an external IDP using OIDC]({{base_path}}/install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-oidc/).
+
 - Until WSO2 API Manager 2.6.0, users had to update multiple configuration files to configure the product. This overhead is removed with the new configuration model because now users only have to update a single file (deployment.toml).
 
   For more information on the configurations in the new configuration model, see the [Configuration Catalog]({{base_path}}/reference/config-catalog).
