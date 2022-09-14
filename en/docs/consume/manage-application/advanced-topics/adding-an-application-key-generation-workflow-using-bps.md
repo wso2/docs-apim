@@ -179,7 +179,7 @@ This section explains as to how you can attach a custom workflow to the **applic
 
 ## Step 2 - Configure WSO2 API Manager
 
-Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/admin/site/conf/site.json` file and configure the value for `workFlowServerURL` under the `workflows` section to point to the EI/BPS server (e.g., `"workFlowServerURL": "https://localhost:9445/services/"`)
+Open the `<API-M_HOME>/repository/deployment/server/webapps/admin/src/main/webapp/site/conf/site.json` file and configure the value for `workFlowServerURL` under the `workflows` section to point to the EI/BPS server (e.g., `"workFlowServerURL": "https://localhost:9445/services/"`)
 
 ``` java
 {

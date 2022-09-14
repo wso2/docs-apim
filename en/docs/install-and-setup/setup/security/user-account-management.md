@@ -142,35 +142,37 @@ You can display a list of policy guidelines in the change password page that app
   
 <img src="{{base_path}}/assets/img/learn/change-devportal-password-policy-guideline-display.png" alt="Displaying Developer Portal password policy guidelines" width="700"/>
   
-1. Enable password changing guidelines in the `settings.js` file.  
+1. Enable password changing guidelines in the `settings.json` file.  
 
-     1. Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/settings.js` file.  
+     1. Open the `<API-M_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/site/public/theme/settings.json` file.  
      
      2. Edit the configuration as follows:  
    
-        ```javascript
-         const Settings = {
+        ```json
+         {
             ...
-            passwordChange: {
-                guidelinesEnabled: true,
+            "passwordChange": {
+                "guidelinesEnabled": true,
                 ...
             },
-         };
+            ...
+         }
         ```
 
 2. List your custom guidelines under `policyList`.
 
-    ```javascript
-     const Settings = {
+    ```json
+     {
         ...
-        passwordChange: {
-            guidelinesEnabled: true,
-            policyList: [
-                'Policy 1',
-                'Policy 2',
-                'Policy 3',
-            ],
+        "passwordChange": {
+            "guidelinesEnabled": true,
+            "policyList": [
+                "Policy 1",
+                "Policy 2",
+                "Policy 3"
+            ]
         },
+        ...
      };
     ```
 

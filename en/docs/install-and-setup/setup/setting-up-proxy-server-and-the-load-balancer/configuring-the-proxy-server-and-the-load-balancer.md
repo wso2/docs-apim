@@ -445,25 +445,26 @@ The following instructions are optional if you do not have a custom URL configur
 
     - **For Developer Portal**
 
-         Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/settings.js` file.
+         Open the `<API-M_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/site/public/theme/settings.json` file.
     
     - **For Publisher**
         
-         Open the file `<API-M_HOME>/repository/deployment/server/jaggeryapps/publisher/site/public/conf/settings.js` file.
+         Open the file `<API-M_HOME>/repository/deployment/server/webapps/publisher/src/main/webapp/site/public/conf/settings.json` file.
     
     - **For Admin Portal**
         
-         Open the file `<API-M_HOME>/repository/deployment/server/jaggeryapps/admin/site/public/conf/settings.js` file.
+         Open the file `<API-M_HOME>/repository/deployment/server/webapps/admin/src/main/webapp/site/public/conf/settings.json` file.
  
 
 2. Set `customUrl.enabled` to `true`
   
     ```json
-        
-    customUrl: { // Dynamically set the redirect origin according to the forwardedHeader host|proxyPort combination
-        enabled: true,
-        forwardedHeader: 'X-Forwarded-Host',
+    ...    
+    "customUrl": {
+        "enabled": true,
+        "forwardedHeader": "X-Forwarded-Host",
     },
+    ...
     ```
 
     !!! Note

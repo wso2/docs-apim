@@ -169,7 +169,7 @@ This section explains how to attach a custom workflow to the user signup operati
 
 #### Configuring the API Manager
 
-1.  Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/admin/site/conf/site.json` file and configure **workFlowServerURL** under **workflows** to point to the EI/BPS server (e.g. `"workFlowServerURL": "https://localhost:9445/services/"` )
+1.  Open the `<API-M_HOME>/repository/deployment/server/webapps/admin/src/main/webapp/site/conf/site.json` file and configure **workFlowServerURL** under **workflows** to point to the EI/BPS server (e.g. `"workFlowServerURL": "https://localhost:9445/services/"` )
 
 !!! note
     When enabling the workflow, make sure to **import the certificate** of API Manager into the client-truststore of the EI/BPS server and also import the certificate of EI/BPS into the client-truststore of API Manager.

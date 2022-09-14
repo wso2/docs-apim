@@ -8,7 +8,7 @@ The `defaultTheme.js` file has all the parameters defining the look and feel of 
 
 Edit the attributes in `themes.light.custom.infoBar` by following the below steps to change the styling of "API Details Info" section and the "Application Details Info" section.
 
-1. Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js` file in a text editor and update the `themes.light.custom.infoBar` attributes.
+1. Open the `<API-M_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/site/public/theme/defaultTheme.js` file in a text editor and update the `themes.light.custom.infoBar` attributes.
 
 2. Refresh the Developer Portal to view the changes.
 
@@ -75,7 +75,7 @@ You can handle most of the use cases with regard to rebranding using these confi
 
 The API details page tags are not visible- [https://github.com/wso2/product-apim/issues/7849](https://github.com/wso2/product-apim/issues/7849).
 
-As a workaround, add the following to the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js` file.
+As a workaround, add the following to the `<API-M_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/site/public/theme/defaultTheme.js` file.
 
 ```js
 const Configurations = {
