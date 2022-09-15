@@ -217,6 +217,7 @@ Copy the JKS files from the `<EI_HOME>/repository/resources/security` folder to 
     -   Configuration management was handled in EI 6.1.1 via multiple files such as `carbon.xml`, `synapse.properties`, and `axis2.xml`.
     -   The Micro Integrator uses a new configuration model where most of the product configurations are managed by a single configuration file named `deployment.toml` (stored in the `<MI_HOME>/conf` directory).
     -   Log configurations are managed with log4j2, which are configured in the `log4j2.properties` file. Prior to EI 6.6.0, all ESB versions use log4j instead of log4j2.
+    - Some mediators like In and Out Mediator have been deprecated and removed from more recent versions of the product.
 
 The following sections of this document will guide you to migrate the product configurations including log4j.
 
