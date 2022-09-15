@@ -12,6 +12,17 @@ The following sections describe how to set up Oracle database to replace the def
 
 ### Setting up the database and users
 
+!!! info
+
+    If you are experiencing issues with the IS as a Key Manager setup with Oracle 12C, make sure the following pool options are added.
+    
+    ```
+    POOL_OPTIONS
+    removeAbandoned
+    logAbandoned (set the default value as false)
+    removeAbandonedTimeout
+    ```
+
 Follow the instructions below to set up an Oracle database.
 
 1. As SYSDBA, create a database user and grant privileges to the user as shown below:
