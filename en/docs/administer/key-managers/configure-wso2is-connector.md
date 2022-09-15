@@ -202,7 +202,7 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
                <li><code>https://localhost:9444/oauth2/token/.well-known/openid-configuration</code></li>
           </ol></p>      
       </td>
-      <td>Optional</td>
+      <td>Mandatory</td>
       </tr>
       <tr class="odd">
       <td>Authorize Endpoint</td>
