@@ -1,6 +1,14 @@
 # Token Persistence
 
-This guide describes OAuth2 token persistence and the possible approaches you can follow for token persistence in a production environment. The OAuth2 component in WSO2 API Manager has two implementations that you can use to handle token persistence in the database, which are namely synchronous and asynchronous token persistence. 
+This guide describes OAuth2 token persistence and the possible approaches you can follow for token persistence in a production environment. 
+
+## JWT tokens
+
+The JWT token persistence behaviour is different to the opaque token persistence behaviour. The JWT token issuer always provides a new JWT token upon a token request and it does not persist a complete JWT access token in the database but only the JTI value of the JWT token. Therefore, there is no way to achieve the same behaviour for JWT tokens as opaque tokens other than customizing the token issuer.
+
+## Opaque tokens
+
+The OAuth2 component in WSO2 API Manager(WSO2 API-M) has two implementations you can use to handle opaque token persistence in the database, which are namely synchronous and asynchronous token persistence.
 
 The following sections guide you through the difference between these two approaches and how to configure them in a production environment.
 
