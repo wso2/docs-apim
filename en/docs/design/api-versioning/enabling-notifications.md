@@ -40,7 +40,7 @@ Follow the instructions below to enable notifications for new API versions:
     [![Browser option]({{base_path}}/assets/img/learn/browse-option.png)]({{base_path}}/assets/img/learn/browse-option.png)
 
 
-4.  Enter `/_system/config/apimgt/applicationdata/tenant-conf.json`, click **Go**, and click **Edit as Text**.
+4.  Enter `<APIM-HOME>/repository/resources/tenant-conf.json`, click **Go**, and click **Edit as Text**.
 
 5.  Set the `NotificationsEnabled` property to `true` as shown below:
 

@@ -71,6 +71,7 @@ The following documents describe some of the most commonly used customizations, 
 **If you do not have access to the file system** , you can upload/download the Devportal theme via the Admin Portal as shown below:
 
 1.  Download the sample theme here [sample-theme.zip]({{base_path}}/assets/attachments/learn/sample-theme.zip). 
+
 2.  The `sample-theme.zip` file contains the following folder structure. 
 
      You can make the changes required to `userTheme.json` file and archive it back. The name of the archive does not matter. But make sure that the `userTheme.json` file name remains the same.
@@ -151,6 +152,7 @@ The path format to the `custom-logo.png` image within the tenant domain theme is
 ```js
 "logo": "/site/public/tenant_themes/<tenant-domain>/apim/images/custom-logo.png",
 ```
+
 The path to the `custom-logo.png` image within the `testorg.com` tenant domain theme is as follows:
 
 ```js
@@ -520,53 +522,57 @@ The following is the Devportal app theme object merging with the React Material 
 
 1. Configure a custom URL for the tenant.
 
-2. Sign in to tenant's Carbon Console and add the following property to `/_system/config/apimgt/applicationdata/tenant-conf.json` file.
+2. Sign in to tenant's Carbon Console and add the following property to `<APIM-HOME>/repository/resources/tenant-conf.json` file.
 
-```json
-"EnablePerTenantServiceProviderCreation" : "true" 
-```
+  ```json
+  "EnablePerTenantServiceProviderCreation" : "true" 
+  ```
 3. `login` folder in the tenant theme contains the config files and resources to define login theme customizations.
-```
-└──login
-└──css
-│    └── custom.css
-├── loginTheme.json
-└── images
-     └── custom-logo.png
-     └── favicon.ico
-```
-4. Apply changes to `login/loginTheme.json` file. A sample file would look like below.
-```js
-{
-  "title" : "WSO2 API Manager",
-  "header" : {
-    "title" : "API Manager" 	
-  },
-  "footer" : {
-    "name" : "WSO2 API Manager"
-  },  
-  "favicon" : {
-    "src" : "favicon.ico"
-  },
-  //"logo" : {
-    //"src" : "custom-logo.png",
-    //"alt" : "logo",
-    //"height" : "60",
-    //"width" : "60"
-  //},
-  "cookie-policy" : {
-    "visible" : true,
-    "text" : "<custom cookie policy text>"
-  },
-  "privacy-policy" : {
-    "visible" : true,
-    "text" : "<custom privacy policy text>"
-  }
-}
-```
 
-!!!Note
-    Please note that it is not allowed to define both a header, title, and a logo for the login customizations. You can only define either a header, title, or a logo.
+  ```
+  └──login
+  └──css
+  │    └── custom.css
+  ├── loginTheme.json
+  └── images
+       └── custom-logo.png
+       └── favicon.ico
+  ```
+
+4. Apply changes to `login/loginTheme.json` file. A sample file would look like below.
+
+  ```js
+  {
+    "title" : "WSO2 API Manager",
+    "header" : {
+      "title" : "API Manager" 	
+    },
+    "footer" : {
+      "name" : "WSO2 API Manager"
+    },  
+    "favicon" : {
+      "src" : "favicon.ico"
+    },
+    //"logo" : {
+      //"src" : "custom-logo.png",
+      //"alt" : "logo",
+      //"height" : "60",
+      //"width" : "60"
+    //},
+    "cookie-policy" : {
+      "visible" : true,
+      "text" : "<custom cookie policy text>"
+    },
+    "privacy-policy" : {
+      "visible" : true,
+      "text" : "<custom privacy policy text>"
+    }
+  }
+  ```
+
+  !!! note
+      Note that it is not allowed to define both a header, title, and a logo for the login customizations. You can only define either a header, title, or a logo.
     
 4. Copy the image files into `login/images` folder and mention the file names against favicon and logo src fields. In case you need to change the look and feel of login pages you can add a custom css file to `login/css` folder. Make sure to name the file as `custom.css`.
+
 5. Zip this file along with other resources in the tenant theme and upload it via the Admin Portal. Or you can make changes manually if you have access to the server's file system.
