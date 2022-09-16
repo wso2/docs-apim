@@ -271,7 +271,7 @@ nav:
                 - Deployment Options:
                     - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-deploy-overview.md
                     - Installation Prerequisites: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/installation-prerequisites.md
-                    - Choreo Connect on Docker:
+                    - Choreo Connect on Docker Compose:
                         - With WSO2 API Manager as a Control Plane : deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-apim-as-control-plane.md
                         - As a Standalone Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-docker.md
                     - Choreo Connect on Kubernetes - Helm Artifacts:
@@ -317,12 +317,18 @@ nav:
                 - File Upload via Multipart Requests: deploy-and-publish/deploy-on-gateway/choreo-connect/file-upload-via-multipart-requests.md
                 - Token Caching: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-caching.md
                 - Production Deployment Guideline: deploy-and-publish/deploy-on-gateway/choreo-connect/production-deployment-guideline.md
+                - Performance Tests: 
+                    - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/performance-tests/performance-test-results-overview-cc.md
+                    - Router with One CPU: deploy-and-publish/deploy-on-gateway/choreo-connect/performance-tests/router-with-one-cpu-for-rest-api.md
+                    - Router with Two CPU: deploy-and-publish/deploy-on-gateway/choreo-connect/performance-tests/router-with-two-cpu-for-rest-api.md
+                - Migrate from Ballerina API Microgateway to Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/migration-guide-from-ballerina-api-microgateway.md
                 - Troubleshooting:
                     - Enable Debug Logs: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/adding-debug-logs.md
                     - Error Handling: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/error-handling.md
                     - Enforcer Admin API: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/enforcer-admin-api/enforcer-v1.0.0.md
                     - Debug Memory Issues: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/debug-memory.md
                 - Update Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/update-choreo-connect.md
+                - Frequently asked questions (FAQs): deploy-and-publish/deploy-on-gateway/choreo-connect/faq.md
         - Publish on Developer Portal:
             - Publish an API: deploy-and-publish/publish-on-dev-portal/publish-an-api.md
             - Publish to Multiple External API Developer Portals: deploy-and-publish/publish-on-dev-portal/publish-to-multiple-external-api-stores.md
@@ -1553,6 +1559,7 @@ nav:
                     - Configure Git Integration: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md
         - Upgrade:
             - Upgrading WSO2 API Manager:
+                - What has Changed: install-and-setup/upgrading-wso2-api-manager/what-has-changed.md
                 - Upgrading Process: install-and-setup/upgrading-wso2-api-manager/upgrading-process.md
                 - 3.2.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-320-to-400.md
                 - 3.1.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-310-to-400.md

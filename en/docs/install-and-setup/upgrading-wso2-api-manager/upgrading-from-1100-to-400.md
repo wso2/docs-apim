@@ -4294,7 +4294,7 @@ Follow the instructions below to move all the existing API Manager configuration
         UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL='' WHERE CALLBACK_URL IS NULL;
         ```
 
-5.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_4.0.0_HOME>/repository/resources/security` directory.
+5.  Copy the keystores (i.e., `client-truststore.jks`, `wso2carbon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_4.0.0_HOME>/repository/resources/security` directory.
 
     !!! Attention
         In API Manager 4.0.0, it is required to use a certificate with the RSA key size greater than 2048. If you have used a certificate that has a weak RSA key (key size less than 2048) in the previous version, you need to add the following configuration to the `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file to configure the internal and primary keystores. You should point the internal keystore to the keystore copied from API Manager 2.0.0 and the primary keystore can be pointed to a keystore with a certificate that has a strong RSA key. 
@@ -4450,7 +4450,7 @@ Follow the instructions below to move all the existing API Manager configuration
     7.  Start WSO2 API Manager 4.0.0 as follows to carry out the complete Identity component migration.
         
         !!! note
-            If you are migrating your user stores to the new user store managers with the unique ID capabilities, follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/latest/setup/migrating-userstore-managers/) section before moving to the next step.
+            If you are migrating your user stores to the new user store managers with the unique ID capabilities, follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/5.11.0/setup/migrating-userstore-managers/) section before moving to the next step.
 
         ```tab="Linux / Mac OS"
         sh api-manager.sh -Dmigrate -Dcomponent=identity

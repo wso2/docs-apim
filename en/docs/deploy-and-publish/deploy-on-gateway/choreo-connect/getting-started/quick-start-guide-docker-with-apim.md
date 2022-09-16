@@ -9,6 +9,9 @@ Install and set up [Docker](https://www.docker.com) and allocate the following r
   - Minimum CPU : 4vCPU
   - Minimum Memory : 4GB
 
+!!! note
+    The Choreo Connect Docker Compose based deployment option explained here is **only for tryout purposes.** This method is **not recommended for production deployments**. For production deployments, you can use the Kubernetes based Choreo Connect deployment with [Helm artifacts]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane-helm-artifacts/) or [YAML artifacts]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane/).
+
 ### Step 1 - Download and extract Choreo Connect distribution .zip file
 
 The latest Choreo Connect distribution can be downloaded from [https://wso2.com/choreo/choreo-connect/](https://wso2.com/choreo/choreo-connect/). Extract the Choreo Connect distribution .zip file. The extracted folder will be referred to as `CHOREO-CONNECT_HOME` hereafter.
@@ -21,7 +24,7 @@ Add the host entry to `/etc/hosts` file as shown below in order to access the AP
 127.0.0.1   apim
 ```
 
-Start Choreo Connect and API Manager on Docker by executing the Docker Compose script inside the `CHOREO-CONNECT_HOME/docker-compose/choreo-connect-with-apim` folder.
+Start Choreo Connect and API Manager on Docker Compose by executing the Docker Compose script inside the `CHOREO-CONNECT_HOME/docker-compose/choreo-connect-with-apim` folder.
 
 {!includes/deploy/cc-tryout-in-arm64-docker-note.md!}
 

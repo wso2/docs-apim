@@ -394,7 +394,19 @@ Follow the instructions below to move all the existing API Manager configuration
 
 6.  If you manually added any JAR files to the `<API-M_2.1.0_HOME>/repository/components/lib` directory, copy those and paste them in the `<API-M_4.0.0_HOME>/repository/components/lib` directory.
 
-7. WSO2 API Manager 4.0.0 has been upgraded to log4j2 (from log4j). You will notice that there is a log4j2.properties file in the `<API-M_4.0.0_HOME>/repository/conf/` directory instead of the log4j.properties file. Follow [Upgrading to Log4j2]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2) to migrate your existing log4j.properties file to log4j2.properties file.
+7.  If you have used global sequences in the previous version, please copy the sequence files to `<PRODUCT_HOME>/repository/deployment/server/synapse-configs/default/sequences` folder and add the below config to `deployment.toml` file to prevent the sequence files from getting removed from the file system on server startup.
+
+    ```tab="Format"
+    [apim.sync_runtime_artifacts.gateway.skip_list]
+    sequences = [<SEQUENCE FILES LIST HERE>]
+    ```
+
+    ```tab="Example"
+    [apim.sync_runtime_artifacts.gateway.skip_list]
+    sequences = ["WSO2AM--Ext--In.xml"]
+    ```
+    
+8.  WSO2 API Manager 4.0.0 has been upgraded to log4j2 (from log4j). You will notice that there is a log4j2.properties file in the `<API-M_4.0.0_HOME>/repository/conf/` directory instead of the log4j.properties file. Follow [Upgrading to Log4j2]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2) to migrate your existing log4j.properties file to log4j2.properties file.
 
     !!! warning
         Taking the log4j.properties file from your old WSO2 API-M Server and adding it to WSO2 API-M Server 4.0.0 will no longer work. Refer [Upgrading to Log4j2]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2) to see how to add a log appender or a logger to the log4j2.properties file.
@@ -2144,7 +2156,12 @@ Follow the instructions below to move all the existing API Manager configuration
             END;
         /
 
-        CREATE TABLE AM_API_CLIENT_CERTIFICATE (
+        DECLARE table_count NUMBER;
+          BEGIN
+            table_count := 0;
+            SELECT COUNT(1) INTO table_count from user_tables WHERE table_name= 'AM_API_CLIENT_CERTIFICATE';
+            IF table_count = 0 THEN
+            EXECUTE IMMEDIATE 'CREATE TABLE AM_API_CLIENT_CERTIFICATE (
             TENANT_ID INTEGER NOT NULL,
             ALIAS VARCHAR2(45) NOT NULL,
             API_ID INTEGER NOT NULL,
@@ -2153,7 +2170,9 @@ Follow the instructions below to move all the existing API Manager configuration
             TIER_NAME VARCHAR2 (512),
             FOREIGN KEY (API_ID) REFERENCES AM_API (API_ID) ON DELETE CASCADE,
             PRIMARY KEY (ALIAS, TENANT_ID, REMOVED)
-        )
+            )';
+          END IF;
+        END;
         /
 
         ALTER TABLE AM_POLICY_SUBSCRIPTION ADD (
@@ -2181,6 +2200,10 @@ Follow the instructions below to move all the existing API Manager configuration
 
         ALTER TABLE AM_API_COMMENTS
             ADD COMMENT_ID VARCHAR(255) DEFAULT (SYS_GUID()) NOT NULL
+        /
+    
+        ALTER TABLE AM_API_COMMENTS
+            ADD CONSTRAINT add_pk PRIMARY KEY (COMMENT_ID)
         /
 
         ALTER TABLE AM_API_RATINGS
@@ -3220,7 +3243,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ALTER TABLE AM_API_COMMENTS ADD FOREIGN KEY(PARENT_COMMENT_ID) REFERENCES AM_API_COMMENTS(COMMENT_ID);
         ```
 
-5.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_4.0.0_HOME>/repository/resources/security` directory.
+5.  Copy the keystores (i.e., `client-truststore.jks`, `wso2carbon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_4.0.0_HOME>/repository/resources/security` directory.
 
     !!! Attention
         In API Manager 4.0.0, it is required to use a certificate with the RSA key size greater than 2048. If you have used a certificate that has a weak RSA key (key size less than 2048) in previous version, you need to add the following configuration to `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file to configure internal and primary keystores. You should point the internal keystore to the keystore copied from API Manager 2.1.0 and the primary keystore can be pointed to a keystore with a certificate, which has a strong RSA key. 
@@ -3369,7 +3392,7 @@ Follow the instructions below to move all the existing API Manager configuration
     7.  Start WSO2 API Manager 4.0.0 as follows to carry out the complete Identity component migration.
         
         !!! note 
-            If you are migrating your user stores to the new user store managers with the unique ID capabilities, Follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/latest/setup/migrating-userstore-managers/) before moving to the next step
+            If you are migrating your user stores to the new user store managers with the unique ID capabilities, Follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/5.11.0/setup/migrating-userstore-managers/) before moving to the next step
         
         ```tab="Linux / Mac OS"
         sh api-manager.sh -Dmigrate -Dcomponent=identity
@@ -3463,7 +3486,7 @@ Follow the instructions below to move all the existing API Manager configuration
     
     1. Download and extract the [migration-resources.zip]({{base_path}}/assets/attachments/install-and-setup/migration-resources.zip). Copy the extracted `migration-resources`  to the `<API-M_4.0.0_HOME>` folder.
 
-    2. Download and copy the [API Manager Migration Client]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-4.0.0.jar) to the `<API-M_4.0.0_HOME>/repository/components/dropins` folder.
+    2. Download and copy the [API Manager Migration Client]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-4.0.0-1.jar) to the `<API-M_4.0.0_HOME>/repository/components/dropins` folder.
 
     3.  Start the API-M server as follows.
 
@@ -3477,7 +3500,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     4. Shutdown the API-M server.
     
-       -   Remove the `org.wso2.carbon.apimgt.migrate.client-4.0.0.jar` file, which is in the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
+       -   Remove the `org.wso2.carbon.apimgt.migrate.client-4.0.0-1.jar` file, which is in the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
 
        -   Remove the `migration-resources` directory, which is in the `<API-M_4.0.0_HOME>` directory.
 
