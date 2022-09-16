@@ -27,7 +27,7 @@ x-wso2-production-endpoints:
 When running the Choreo Connect, you can provide the username, password as Adapter environment variables in the following configurations files based on the deployment that you are using.
 
 | **Deployment** | **Configuration file** |
-| Docker | `docker-composer.yaml` file. |
+| Docker Compose | `docker-composer.yaml` file. |
 | Kubernetes | `adapter-deployment.yaml` file. |
 
 

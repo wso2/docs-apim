@@ -17,8 +17,8 @@ These files are located in the following locations based on your Choreo Connect 
 
 | **Deployment** | **File name** | **Directory** |
 |----------------|---------------|---------------|
-| Docker - Choreo Connect in standalone mode | `log_config.toml` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/` |
-| Docker - Choreo Connect with WSO2 API Manager | `log_config.toml` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf/` |
+| Docker Compose - Choreo Connect in standalone mode | `log_config.toml` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/` |
+| Docker Compose - Choreo Connect with WSO2 API Manager | `log_config.toml` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf/` |
 | k8s - Choreo Connect in standalone mode | `logconfig-toml-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect/` |
 | k8s - Choreo Connect with WSO2 API Manager | `logconfig-toml-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect-with-apim/` |
 

@@ -4,8 +4,13 @@ By default, the community links option is **disabled** (hidden). As a result, th
 
 In addition, the GitHub and Slack channel URLs will not appear in the Developer Portal unless the administrators have defined these URLs via the Publisher.
 
-- [Enable sharing API links on social media](#enable-sharing-api-links-on-social-media)
-- [Add GitHub and Slack channel URLs to an API](#add-github-and-slack-channel-urls-to-an-api)
+- [Enable Social Media Interaction](#enable-social-media-interaction)
+  - [Enable sharing API link on social media](#enable-sharing-api-link-on-social-media)
+    - [Step 1 - Enable the community links option](#step-1---enable-the-community-links-option)
+    - [Step 2 - Verify the changes](#step-2---verify-the-changes)
+  - [Add GitHub and Slack channel URLs to an API](#add-github-and-slack-channel-urls-to-an-api)
+    - [Step 1 - Define your GitHub and Slack channel URLs](#step-1---define-your-github-and-slack-channel-urls)
+    - [Step 2 - Verify the changes](#step-2---verify-the-changes-1)
 
 ## Enable sharing API link on social media
 
@@ -13,7 +18,7 @@ Follow the instructions below to enable API Consumers to be able to share the AP
 
 ### Step 1 - Enable the community links option 
 
-1. Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/userTheme.js` configuration file in the WSO2 API Manager server.
+1. Open the `<API-M_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/site/public/theme/userTheme.json` configuration file in the WSO2 API Manager server.
 
     <html>
     <div class="admonition note">
@@ -31,16 +36,16 @@ Follow the instructions below to enable API Consumers to be able to share the AP
 
 2.  Enable the community links option.
 
-    ```javascript
-    const Configurations = {
-        custom: {
-            social: {
-                showSharing: {
-                    active: true,
+    ```json
+    {
+        "custom": {
+            "social": {
+                "showSharing": {
+                    "active": true
                 }
             }
         }
-    };
+    }
     ```
 
 ### Step 2 - Verify the changes

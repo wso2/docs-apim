@@ -44,7 +44,7 @@ The docker images related to Choreo Connect updates are reside in [WSO2 private 
                 <a href="{{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview/#adapter">Adapter</a>
             </td>
             <td>
-                <code>choreo-connect-enforcer:{WSO2_PRODUCT_VERSION}.{UPDATE_LEVEL}</code>
+                <code>choreo-connect-adapter:{WSO2_PRODUCT_VERSION}.{UPDATE_LEVEL}</code>
             </td>
             <td>
                 <code>choreo-connect-adapter:1.1.0.3</code>
@@ -52,6 +52,13 @@ The docker images related to Choreo Connect updates are reside in [WSO2 private 
         </tr>  
     </tbody>
 </table>
+
+An example for complete image tag looks like follows.
+
+```
+enforcer:
+    image: docker.wso2.com/choreo-connect-enforcer:1.1.0.3
+```
 
 !!! Info
     For more details on versioning, you may follow through the documentation on [Docker image tags with Updates 2.0](https://updates.docs.wso2.com/en/latest/updates/using-wso2-docker-images/).

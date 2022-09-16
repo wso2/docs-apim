@@ -42,8 +42,8 @@ Each component has its private-public key pair and truststore. In the case of th
 
     | **Deployment** | **File name** | **Directory** |
     |------------|-----------|-----------|
-    | Docker with WSO2 API Controller | `config.toml` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/` |
-    | Docker with WSO2 API Manager as the Control Plane | `config.toml` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf/` |
+    | Docker Compose with WSO2 API Controller | `config.toml` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/` |
+    | Docker Compose with WSO2 API Manager as the Control Plane | `config.toml` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf/` |
     | Kubernetes with WSO2 API Controller | `config-toml-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect/` |
     | Kubernetes with WSO2 API Manager as the Control Plane | `config-toml-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect-with-apim/config-toml-configmap.yaml` |
 

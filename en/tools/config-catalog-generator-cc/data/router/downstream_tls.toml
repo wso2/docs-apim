@@ -1,0 +1,4 @@
+[router.downstream.tls]
+  # the default client ca-certificates
+  trustedCertPath = "/etc/ssl/certs/ca-certificates.crt"
+  mTLSAPIsEnabled = false

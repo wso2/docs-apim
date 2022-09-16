@@ -27,7 +27,7 @@ Please refer [Multiple Key Manager Support in WSO2 API Manager]({{base_path}}/ad
 
 ## Via the Choreo Connect Config File
 
-When Choreo Connect runs as a standalone Gateway, the external Key Managers, Token Services or JWT issuers used for API authentication must be configured in the [config.toml]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configuration-overview/#configurations-overview). To know what these parameters mean, go through the descriptions given under [Token Service in Enforcer Configurations]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/enforcer-configurations/#token-service). The following are the token services configured by default. The template with the default values can also be found in `config.toml.template` located together with `config.toml`.
+When Choreo Connect runs as a standalone Gateway, the external Key Managers, Token Services or JWT issuers used for API authentication must be configured in the [config.toml]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configuration-overview/#configurations-overview). To know what these parameters mean, you can go through the descriptions given under [Token Service in Enforcer Configurations]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/enforcer-configurations/#token-service). The following are the token services configured by default. The template with the default values can also be found in `config.toml.template` located together with `config.toml`.
 
 ``` toml
 # Issuer 1
@@ -67,4 +67,4 @@ When Choreo Connect runs as a standalone Gateway, the external Key Managers, Tok
     - token service exposed by Choreo Connect Enforcer named as "MGW"
     - token service exposed by WSO2 API-M Publisher 
 
-    will be set as shown given above.
+    will be set as given in the toml format above.

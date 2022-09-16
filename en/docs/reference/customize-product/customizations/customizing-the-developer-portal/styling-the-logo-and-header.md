@@ -8,7 +8,7 @@ The following is the default look and the configuration. The default header of t
 
  ![changing the logo and header]({{base_path}}/assets/img/learn/changing-the-logo-and-header1.png) 
 
-1. Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js` file in a text editor and set the attributes accordingly as shown below which customizes the logo and the header of the developer portal.
+1. Open the `<API-M_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/site/public/theme/defaultTheme.js` file in a text editor and set the attributes accordingly as shown below which customizes the logo and the header of the developer portal.
 
     ```js
     const Configurations = {

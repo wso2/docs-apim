@@ -1,25 +1,31 @@
 # Error Handling
 
-When errors/exceptions occur in the system, the API Manager throws XML-based error responses to the client by default. To change the format of these error responses, you change the relevant XML file in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences` directory. The directory includes multiple XML files, named after the type of errors that occur. You must select the correct file.
+When errors/exceptions occur in the system, the API Manager throws JSON-based error responses to the client by default. 
 
-For example, to change the message type of authorization errors, open the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences/_auth_failure_handler_.xml` file and change `application/xml` to something like **`application/json`**.
+To change the format of these error responses, you change the relevant XML file in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences` directory. The directory includes multiple XML files, named after the type of errors that occur. You must select the correct file.
 
-``` xml
-<sequence name="_auth_failure_handler_" xmlns="http://ws.apache.org/ns/synapse">
-    <property name="error_message_type" value="application/json"/>
-    <sequence key="_cors_request_handler_"/>
-</sequence>
-```
+WSO2 API Manager has the following default fault sequences located in `<API-M_HOME> /repository/deployment/server/synapse-configs/default/sequences` directory.
 
-Similarly, to change the error messages of throttling errors (e.g., quota exceeding), change the `_throttle_out_handler_.xml` file, for resource mismatch errors, the `_resource_mismatch_handler_.xml` file etc.
+| Fault Sequence                                            | Description                                                                                                                                                                                                                                                   |
+|-----------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `fault.xml`| This is the primary fault sequence that gets invoked when an error occurs during the execution of an API resources                                                                                                                                            |
+| `main.xml`| This sequence is called when the endpoint being called does not exist                                                                                                                                                                                         |
+| `_auth_failure_handler_.xml`| This sequence is called when an API authentication error is encountered                                                                                                                                                                                       |
+| `_production_key_error_.xml`| This sequence is called when a Production key is used to invoke an API that does not have a Production endpoint defined                                                                                                                                       |
+| `_sandbox_key_error_.xml`| This sequence is called when a Sandbox key is used to invoke an API that does not have a Sandbox endpoint defined                                                                                                                                             |
+| `_throttle_out_handler_.xml`| This sequence is called when a given request to an API gets throttled out                                                                                                                                                                                     |
+| `_token_fault_.xml`| This sequence is called when there is an error in invoking the token API                                                                                                                                                                                      |
+| `_resource_mismatch_handler_.xml` | This sequence is called when a matching resource cannot be found by the gateway to the corresponding resource being invoked                                                                                                                                   |
+| `_cors_request_handler_.xml`| This sequence enables sending CORS specific headers when the CORS specific configuration ( `CORSConfiguration` ) is enabled in WSO2 API Manager in the `<API-M_HOME>/repository/conf/deployment.toml` file. |
+| `_threat_fault_.xml`| This sequence is called to send error messages with regard to threat detection.                                                                                                                                                                               |
+| `dispatchSeq.xml`| This sequence is defined as a default handler for any inbound WebSocket calls.                                                                                                                                                                                |
+| `outDispatchSeq.xml`| This sequence is defined to handle any outbound WebSocket calls.                                                                                                                                                                                              |
 
-- [API handlers error codes](#api-handlers-error-codes)
+!!! info
 
-- [Sequences error codes](#sequences-error-codes)
+    The default sequences can also be customized as shown in the section at the bottom of this page. 
 
-- [Transport error codes](#transport-error-codes)
-
-- [Custom error messages](#custom-error-messages)
+## Error Codes
 
 Given below are some error codes and their meanings.
 
@@ -166,7 +172,7 @@ Given below are some error codes and their meanings.
 </tbody>
 </table>
 
-###  Sequences error codes
+### Sequences error codes
 
 <table>
 <thead>
@@ -431,26 +437,3 @@ message's HTTP status code as a custom error message:
       {"fault":{"code":900901,"type":"Status report","message":"Runtime Error","description":"Invalid Credentials"}}   
     ```
 
-WSO2 API Manager has the following default fault sequences located in
-`<API-M_HOME>        `
-`/repository/deployment/server/synapse-configs/default/sequences        `
-directory.
-
-| Fault Sequence                                            | Description                                                                                                                                                                                                                                                   |
-|-----------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `fault.xml`| This is the primary fault sequence that gets invoked when an error occurs during the execution of an API resources                                                                                                                                            |
-| `main.xml`| This sequence is called when the endpoint being called does not exist                                                                                                                                                                                         |
-| `_auth_failure_handler_.xml`| This sequence is called when an API authentication error is encountered                                                                                                                                                                                       |
-| `_production_key_error_.xml`| This sequence is called when a Production key is used to invoke an API that does not have a Production endpoint defined                                                                                                                                       |
-| `_sandbox_key_error_.xml`| This sequence is called when a Sandbox key is used to invoke an API that does not have a Sandbox endpoint defined                                                                                                                                             |
-| `_throttle_out_handler_.xml`| This sequence is called when a given request to an API gets throttled out                                                                                                                                                                                     |
-| `_token_fault_.xml`| This sequence is called when there is an error in invoking the token API                                                                                                                                                                                      |
-| `_resource_mismatch_handler_.xml` | This sequence is called when a matching resource cannot be found by the gateway to the corresponding resource being invoked                                                                                                                                   |
-| `_cors_request_handler_.xml`| This sequence enables sending CORS specific headers when the CORS specific configuration ( `CORSConfiguration` ) is enabled in WSO2 API Manager in the `<API-M_HOME>/repository/conf/deployment.toml` file. |
-| `_threat_fault_.xml`| This sequence is called to send error messages with regard to threat detection.                                                                                                                                                                               |
-| `dispatchSeq.xml`| This sequence is defined as a default handler for any inbound WebSocket calls.                                                                                                                                                                                |
-| `outDispatchSeq.xml`| This sequence is defined to handle any outbound WebSocket calls.                                                                                                                                                                                              |
-
-!!! info
-
-    The default sequences can also be customized as shown in the section above. 

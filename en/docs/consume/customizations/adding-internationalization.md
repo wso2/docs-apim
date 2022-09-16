@@ -82,13 +82,13 @@ For example, let's assume that you are using Google Chrome, and let's change the
     Publisher 
     </td>
     <td>
-    <code>&lt;APIM_HOME&gt;/repository/deployment/server/jaggeryapps/publisher/site/public/locales</code>
+    <code>&lt;APIM_HOME&gt;/repository/deployment/server/webapps/publisher/site/public/locales</code>
     </td>
     </tr>
     <tr>
     <td>
     Developer Portal
-    <td> <code>&lt;APIM_HOME&gt;/repository/deployment/server/jaggeryapps/devportal/site/public/locales</code>
+    <td> <code>&lt;APIM_HOME&gt;/repository/deployment/server/webapps/devportal/site/public/locales</code>
     </td>
     </tr>
     </table>
@@ -106,7 +106,7 @@ Let's add support for the French language to the Developer Portal.
 
 2. Make a copy of the `en.json` file and rename it based on the locale code.
     
-     Rename the copy of the `<APIM_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/locales/en.json` file to `fr.json`.
+     Rename the copy of the `<APIM_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/site/public/locales/en.json` file to `fr.json`.
 
     !!! info
         If you are setting the browser locale to a specific regional language, for example, French (Switzerland), the language with the regional code is `fr-ch`. In this scenario too the two letter locale code is `fr`, because WSO2 API Manager does not support regional language switching.
@@ -175,7 +175,7 @@ Follow the instructions below to change the direction of the UI:
 2. Reload the Developer Portal to view the changes. 
 
 !!! info
-    If you have done the theme changes for the instance via the `<APIM_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js` file the above configuration is valid. However, if it is the tenant theme file (`defaultTheme.json`) the variable assignment is not required and the `defaultTheme.json` file has to be a valid JSON file. For example, the valid configuration that should go into the `defaultTheme.json` file to change the page direction to RTL (Right To Left) is as follows:
+    If you have done the theme changes for the instance via the `<APIM_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/site/public/theme/defaultTheme.js` file the above configuration is valid. However, if it is the tenant theme file (`defaultTheme.js`) the variable assignment is not required and the `defaultTheme.js` file has to be a valid JSON file. For example, the valid configuration that should go into the `defaultTheme.js` file to change the page direction to RTL (Right To Left) is as follows:
 
     ```js
     {
@@ -201,7 +201,7 @@ WSO2 API Manager has the capability of language switching for the **Developer Po
 
 Follow the instructions below to enable the language switch:
 
-1. Open the `<APIM_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js` file.
+1. Open the `<APIM_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/site/public/theme/defaultTheme.js` file.
 
 2. Add the following configuration to the file to enable the language switch.
 

@@ -10,7 +10,7 @@ Follow the instructions below to add advanced UI customizations to the Developer
     - **NodeJS**(minimum 8.12.0) - This is a platform required for ReactJS development.
     - **NPM**(minimum 5.7.0)
 
-1. Navigate to the `<API-M_HOME>/repository/deployment/server/jaggeryapps` directory in a terminal and run the following command.
+1. Navigate to the `<API-M_HOME>/repository/deployment/server/webapps` directory in a terminal and run the following command.
 
      ```js
      npm install
@@ -32,7 +32,7 @@ Follow the instructions below to add advanced UI customizations to the Developer
 
      **For example to customize the Developer Portal:**
 
-     1. Navigate to the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal` directory.
+     1. Navigate to the `<API-M_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/` directory.
 
      2. Run the following command.
 
@@ -43,11 +43,11 @@ Follow the instructions below to add advanced UI customizations to the Developer
 3. Make the UI related changes in the respective folder based on the WSO2 API-M Console.
 
      - If you need to rewrite the UI completely, you can make changes in the following directory.
-         - Developer Portal - `devportal/source`
-         - Publisher Portal - `publisher/source`
+         - Developer Portal - `devportal/src/main/webapp/source`
+         - Publisher Portal - `publisher/src/main/webapp/source`
      - If you want to override a specific React component or a file from the `source/src/` directory, you need to make the changes in the following directory by only copying the desired file/files.
-         - Developer Portal - `devportal/override/src`
-         - Publisher Portal - `publisher/override/src`
+         - Developer Portal - `devportal/src/main/webapp/override/src`
+         - Publisher Portal - `publisher/src/main/webapp/override/src`
 
 #### Overriding the API Documentation and Overview components
 

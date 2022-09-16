@@ -28,7 +28,7 @@ API Gateway and Choreo Connect both support different security mechanisms.
 | **Security Mechanism**           | **Choreo Connect**                                              | **API Gateway**                       |
 |------------------------------|:-------------------------------------------------------------:|:---------------------------------:|
 | OAuth2                        | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) |
-| Mutual SSL                   | ![(No)]({{base_path}}/assets/img/deploy/error.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) |
+| Mutual SSL                   | ![(Yes))]({{base_path}}/assets/img/deploy/check.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) |
 | Basic Auth                   | Custom Filter can be developed                    | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) |
 | API Keys                     | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) |
 
@@ -36,10 +36,10 @@ API Gateway and Choreo Connect both support different security mechanisms.
 
 |   **Feature**                                                  | **Choreo Connect**                                                                        |          **API Gateway**                                                                |
 |----------------------------------------------------|:-------------------------------------------------------------------------:|:-----------------------------------------------------------------------:|
-| SOAP backends                                      | ![(No)]({{base_path}}/assets/img/deploy/error.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
+| SOAP backends                                      | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
 | REST APIs                                          | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
 | JMS backends                                       | ![(No)]({{base_path}}/assets/img/deploy/error.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
-| GraphQL APIs                                       | ![(No)]({{base_path}}/assets/img/deploy/error.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
+| GraphQL APIs                                       | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
 | Web Socket APIs                                    | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
 | Custom mediation/transformation                    | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
 | Advanced rate limiting (header, IP, query param, jwt claims) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |

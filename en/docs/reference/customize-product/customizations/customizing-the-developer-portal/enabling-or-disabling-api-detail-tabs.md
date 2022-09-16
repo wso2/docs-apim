@@ -4,7 +4,7 @@ When you go to the API details page, all the linked tabs (credentials, comments,
 
 The `defaultTheme.js` file has all the parameters defining the look and feel of the developer portal. To learn more about `defaultTheme.js` refer [here]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/overriding-developer-portal-theme/#global-theming).
 
-1. Open `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js` file in a text editor and set the `themes.light.custom.apiDetailPages` attributes accordingly as shown in the below example.
+1. Open `<API-M_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/site/public/theme/defaultTheme.js` file in a text editor and set the `themes.light.custom.apiDetailPages` attributes accordingly as shown in the below example.
 
     ```js
     const Configurations = {

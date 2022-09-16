@@ -189,9 +189,9 @@ sh <PRODUCT_HOME>/bin/api-manager.sh --optimize -Dprofile=gateway-worker
     [2021-08-26 11:30:59] INFO - Removed the api#identity#user#v1.0 file from ../repository/deployment/server/webapps
     [2021-08-26 11:30:59] INFO - Removed the keymanager-operations.war file from ../repository/deployment/server/webapps
     [2021-08-26 11:30:59] INFO - Removed the authenticationendpoint file from ../repository/deployment/server/webapps
-    [2021-08-26 11:30:59] INFO - Removed publisher directory from ../repository/deployment/server/jaggeryapps
-    [2021-08-26 11:30:59] INFO - Removed admin directory from ../repository/deployment/server/jaggeryapps
-    [2021-08-26 11:30:59] INFO - Removed devportal directory from ../repository/deployment/server/jaggeryapps
+    [2021-08-26 11:30:59] INFO - Removed publisher directory from ../repository/deployment/server/webapps
+    [2021-08-26 11:30:59] INFO - Removed admin directory from ../repository/deployment/server/webapps
+    [2021-08-26 11:30:59] INFO - Removed devportal directory from ../repository/deployment/server/webapps
     Finished the optimizations
     Starting the server...
 

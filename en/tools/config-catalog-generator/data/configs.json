@@ -1296,6 +1296,70 @@
                             "description": "This will enable/disable the JMS Message retrieval connection based on the provided value(true/false)."
                         },
                         {
+                            "name": "jms.ssl",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true, false",
+                            "description": "This will configure SSL in the JMS connection."
+                        },
+                        {
+                            "name": "jms.start_delay",
+                            "type": "string",
+                            "required": false,
+                            "default": "not defined",
+                            "possible": "",
+                            "description": "Connection delay to read the Traffic Manager at startup."
+                        },
+                        {
+                            "name": "jms.conn_jndi_name",
+                            "type": "string",
+                            "required": false,
+                            "default": "TopicConnectionFactory",
+                            "possible": "custom value",
+                            "description": "The JNDI name of the connection factory."
+                        },
+                        {
+                            "name": "jms.destination_type",
+                            "type": "string",
+                            "required": false,
+                            "default": "topic",
+                            "possible": "",
+                            "description": "Type of the destination."
+                        },
+                        {
+                            "name": "jms.java_naming_factory_initial",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.andes.jndi.PropertiesFileInitialContextFactory",
+                            "possible": "",
+                            "description": "Define JMS factory initials. If decision_connection_type is andes, this is \"org.wso2.andes.jndi.PropertiesFileInitialContextFactory\""
+                        },
+                        {
+                            "name": "jms.topic_connection_factory",
+                            "type": "string",
+                            "required": false,
+                            "default": "not defined",
+                            "possible": "custom value",
+                            "description": "Type of the connection factory."
+                        },
+                        {
+                            "name": "jms.username",
+                            "type": "string",
+                            "required": false,
+                            "default": "super username",
+                            "possible": "",
+                            "description": "If the credentials of the user is different, use the credentials of the user configured for the JMS connection."
+                        },
+                        {
+                            "name": "jms.password",
+                            "type": "string",
+                            "required": false,
+                            "default": "super user password",
+                            "possible": "",
+                            "description": "If the credentials of the user is different, use the credentials of the user configured for the JMS connection."
+                        },
+                        {
                             "name": "enable_data_publishing",
                             "type": "boolean",
                             "required": false,

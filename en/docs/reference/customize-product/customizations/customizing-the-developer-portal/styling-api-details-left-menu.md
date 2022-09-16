@@ -8,7 +8,7 @@ The `defaultTheme.js` file has all the parameters defining the look and feel of 
 
 You can change the `themes.light.custom.leftMenu` attributes to change the left menu styling. Note that, these changes will effect the same way to application details left menu as well.
 
-1. Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js` file in a text editor and update the `themes.light.custom.leftMenu` attributes.
+1. Open the `<API-M_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/site/public/theme/defaultTheme.js` file in a text editor and update the `themes.light.custom.leftMenu` attributes.
 
 2. Refresh the Developer Portal to view the changes.
 
