@@ -2,7 +2,7 @@
 
 Choreo Connect components are available as public Docker images in [WSO2](https://hub.docker.com/u/wso2) organization in the Docker hub and you will be able to find images corresponding to [Choreo Connect releases](https://github.com/wso2/product-microgateway/releases) from the linked repository.
 
-However, if you have a WSO2 Subscription you will be able to use latest docker images with updates, which includes bug fixes, features, improvements, etc. on top of genarally available releases. This documentation is about how you can use that particular updates.
+However, if you have a WSO2 Subscription you will be able to use the latest Docker images with updates, which include bug fixes, features, improvements, etc. on top of generally available releases. This page provides instructions on how you can use these particular updates.
 
 ## Docker Image Tags
 
