@@ -59,6 +59,9 @@ A sequence diagram explaining the above flow would be as follows:
 
 In this example, **WSO2 Identity Server 5.7.0** is used as the IdP to get a SAML token and the API Manager is used as the OAuth server.
 
+!!! tip
+    Refer to the [configurations in the Identity Server documentation](https://is.docs.wso2.com/en/latest/guides/access-delegation/saml2-bearer-assertion-profile/) to set up the SAML2 Extension Grant to exchange a SAML2 assertion for a valid OAuth access token.
+
 1.  Sign in to the API Manager's management console (`https://localhost:9443/carbon') using admin/admin credentials.
 
     !!! note
