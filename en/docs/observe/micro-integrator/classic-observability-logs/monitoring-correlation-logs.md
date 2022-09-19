@@ -32,6 +32,8 @@ Now when you start the Micro Integrator, the `correlation.log` file is created i
 
 - Alternatively, you can enable correlation logging using the MI dashboard. 
 
+- You cannot disable the correlation logs during runtime if the correlation logs are enabled using the system property. 
+
 ## Sending an HTTP request with a Correlation ID
 
 When the client sends an HTTP request to the Micro Integrator, a Correlation ID for the request can be passed using the Correlation header that is configured in the Micro Integrator. By default, the Correlation header is `activity_id`. If you want to change the default Correlation header, see the topic on [configuring Correlation logs]({{base_path}}/observe/micro-integrator/classic-observability-logs/configuring-log4j2-properties/#correlations-logs). If the client does not pass a Correlation ID in the request, the Micro Integrator will generate an internal value and assign it to the request. The Correlation ID assigned to the incoming request is assigned to all the log entries that are related to the same request.
