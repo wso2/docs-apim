@@ -827,8 +827,11 @@ nav:
             - Publish Analytics Events to External Systems: api-analytics/samples/publishing-analytics-events-to-external-systems.md
             - Architecture: api-analytics/api-analytics-architecture.md
         - MI Analytics:
-            - Set up: mi-analytics/setting-up-mi-analytics.md
-            - Access the Portal: mi-analytics/using-the-analytics-dashboard.md
+            - ELK-Based Analytics:
+                - ELK-Based Analytics Installation Guide: mi-analytics/mi-elk-installation-guide.md
+            - EI Analytics:
+                - Set up: mi-analytics/setting-up-mi-analytics.md
+                - Access the Portal: mi-analytics/using-the-analytics-dashboard.md
     - Observe:
         - Observability Overview: observe/observe-overview.md
         - API Manager:
