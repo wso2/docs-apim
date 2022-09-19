@@ -203,9 +203,9 @@ The elements of the above configuration are explained below.
 
     1.  Sign in to  APIM management console (`https://<Server Host>:9443/carbon`) and create a role named `workflowCallbackRole`. Set the create and publisher or subscriber permissions to this role.
     2.  Go to **Resources** and click **Browse**. 
-    3. Go to `/_system/config/apimgt/applicationdata/tenant-conf.json` and update the role related to ‘apim:api\_workflow’ scope with the newly created role.
+    3. Go to `<APIM-HOME>/repository/resources/tenant-conf.json` and update the role related to ‘apim:api\_workflow’ scope with the newly created role.
 
-        ``` java
+        ``` json
         ...
             {
                 "Name": "apim:api_workflow",

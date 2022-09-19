@@ -33,7 +33,7 @@ Follow the instructions below to create the `creator`, `publisher`, and `subscri
 
     !!! warning
 
-            In WSO2 API Manager, Developer Portal and Publisher Web Application UIs are populated by API-M REST APIs and all the authentication and authorization to access the different components in the UI solely depend on the scope role mapping defined in `/_system/config/apimgt/applicationdata/tenant-conf.json` that can be accessed through the [Management Console](`https://localhost:9443/carbon`) from **Resources** > **Browse**.
+            In WSO2 API Manager, Developer Portal and Publisher Web Application UIs are populated by API-M REST APIs and all the authentication and authorization to access the different components in the UI solely depend on the scope role mapping defined in `<APIM-HOME>/repository/resources/tenant-conf.json` that can be accessed through the [/tenant-config admin RESTful API]({{base_path}}/reference/product-apis/admin-apis/admin-v2/admin-v2/#tag/Tenant-Config/operation/updateTenantConfig) or [/admin UI --> Advanced configurations]({{base_path}}/administer/advanced-configurations/).
 
             By default, the scope-role mapping contains `Internal/creator`, `Internal/publisher`, `Internal/subscriber`, `Internal/analytics`, and `Internal/devops` as the default roles. If there are custom roles defined with API creator, API publisher, admin and API subscriber permissions, those roles have to be configured in the `tenant-conf.json` file under the relevant scopes.
 
