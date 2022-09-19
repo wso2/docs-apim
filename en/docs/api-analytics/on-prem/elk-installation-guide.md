@@ -97,6 +97,7 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
 
 2. Configure **Filebeats** to read the log file in the `repository/logs` folder. 
 
+    ``` tab="Format"
     ``` yaml
     filebeat.inputs:
     -   type: log
@@ -108,11 +109,27 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
     # The Logstash hosts
          hosts: ["{LOGSTASH_URL}:5044"]
     ```
+    ```
+    
+    ``` tab="Example"
+    ``` yaml
+    filebeat.inputs:
+    -   type: log
+        enabled: true
+        paths:
+            - C:\Users\public\Downloads\wso2am-4.1.0\repository\logs\apim_metrics.log
+        include_lines: ['(apimMetrics):']
+    output.logstash:
+    # The Logstash hosts
+         hosts: ["localhost:5044"]
+    ```
+    ```
 
 #### Installing Logstash
 
 1. [Install Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html) according to your operating system.
 
+    ``` tab="Format"
     ``` java
     input {
         beats {
@@ -145,6 +162,43 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
             }
         }
     }
+    ```
+    ```
+    
+    ``` tab="Example"
+    ``` java
+    input {
+        beats {
+            port => 5044
+        }
+    }
+
+    filter {
+        grok {
+            match => ["message", "%{GREEDYDATA:UNWANTED}\ apimMetrics:%{GREEDYDATA:apimMetrics}\, %{GREEDYDATA:UNWANTED} \:%{GREEDYDATA:properties}"]
+        }
+        json {
+            source => "properties"
+        }
+    }
+    output {
+        if [apimMetrics] == " apim:response" {
+            elasticsearch {
+                hosts => ["https://localhost:9200/"]
+                index => "apim_event_response"
+                user => "elastic"
+                password => "Admin1234"
+            }
+        } else if [apimMetrics] == " apim:faulty" {
+            elasticsearch {
+                hosts => ["https://localhost:9200/"]
+                index => "apim_event_faulty"
+                user => "elastic"
+                password => "Admin1234"
+            }
+        }
+    }
+    ```
     ```
 
 #### Installing Kibana
