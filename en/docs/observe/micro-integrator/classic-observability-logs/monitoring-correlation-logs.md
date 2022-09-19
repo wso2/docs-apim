@@ -32,7 +32,7 @@ Now when you start the Micro Integrator, the `correlation.log` file is created i
 
 - Alternatively, you can enable correlation logging using the MI dashboard. 
 
-- You can not disable the correlation logs during the runtime, if the correlation logs are enabled using the system property. 
+- You cannot disable the correlation logs during runtime if the correlation logs are enabled using the system property. 
 
 ## Sending an HTTP request with a Correlation ID
 
