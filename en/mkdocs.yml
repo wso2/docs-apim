@@ -828,10 +828,11 @@ nav:
             - Architecture: api-analytics/api-analytics-architecture.md
         - MI Analytics:
             - ELK-Based Analytics:
-                - ELK-Based Analytics Installation Guide: mi-analytics/mi-elk-installation-guide.md
+                - Setup: mi-analytics/mi-elk-installation-guide.md
+                - Access the Dashboard: mi-analytics/mi-elk-dashboards.md
             - EI Analytics:
-                - Set up: mi-analytics/setting-up-mi-analytics.md
-                - Access the Portal: mi-analytics/using-the-analytics-dashboard.md
+                - Setup: mi-analytics/setting-up-mi-analytics.md
+                - Access the Dashboard: mi-analytics/using-the-analytics-dashboard.md
     - Observe:
         - Observability Overview: observe/observe-overview.md
         - API Manager:

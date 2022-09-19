@@ -47,73 +47,76 @@ In this stage, we download and install the components required from Elastic stac
 
 ### Install Elasticsearch
 
-Install Elasticsearch according to your operating system.
+1. [Install Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/8.3/install-elasticsearch.html) according to your operating system.
 
-1. Make sure Elasticsearch is up and running.
+2. Make sure Elasticsearch is [up and running](https://www.elastic.co/guide/en/elasticsearch/reference/8.3/starting-elasticsearch.html).
 
-2. Install and run Kibana.
-    1. Install Kibana according to your operating system.
-    2. Launch the Kibana web interface.
+
+### Install Kibana.
+
+1. [Install Kibana](https://www.elastic.co/guide/en/kibana/8.3/install.html) according to your operating system.
+
+2. [Launch the Kibana web interface](https://www.elastic.co/guide/en/kibana/8.3/start-stop.html).
 
 3. Log in to the Kibana dashboards.
 
-4. Create a user with manage_index_templates, monitor cluster privileges and create_index, create, write index privileges to wso2-mi-analytics-* indices pattern. The credentials of this user need to be included in the Logstash configuration.
+4. [Create a user](https://www.elastic.co/guide/en/kibana/8.3/tutorial-secure-access-to-kibana.html#_users) with manage_index_templates, monitor cluster privileges and create_index, create, write index privileges to wso2-mi-analytics-* indices pattern. The credentials of this user need to be included in the Logstash configuration.
 
 ### Installing Logstash
 
-Install Logstash according to your operating system.
+1. [Install Logstash](https://www.elastic.co/guide/en/logstash/8.3/installing-logstash.html) according to your operating system.
 
-Use the following configuration file when starting Logstash. Update the logstash_internal_user_password and elasticsearch_home placeholders in the configuration file.
+2. Use the following [configuration file]({{base_path}}/assets/attachments/config.conf) when starting Logstash. Update the `logstash_internal_user_password` and `elasticsearch_home` placeholders in the configuration file.
 
-```
-    input {
-        beats {
-            port => 5044
-        }
-    }
-
-    filter {
-        grok {
-            match => ["message", "%{GREEDYDATA:UNWANTED}\ SYNAPSE_ANALYTICS_DATA %{GREEDYDATA:analyticJson}"]
-        }
-        json {
-            source => "analyticJson"
-            target => "analytic"
+    ``` conf
+        input {
+            beats {
+                port => 5044
+            }
         }
 
-        mutate {
-            copy => {"[analytic][payload][entityType]" => "[@metadata][appNameIndex]"}
+        filter {
+            grok {
+                match => ["message", "%{GREEDYDATA:UNWANTED}\ SYNAPSE_ANALYTICS_DATA %{GREEDYDATA:analyticJson}"]
+            }
+            json {
+                source => "analyticJson"
+                target => "analytic"
+            }
+
+            mutate {
+                copy => {"[analytic][payload][entityType]" => "[@metadata][appNameIndex]"}
+            }
+
+            mutate {
+                remove_field => [ "UNWANTED", "analyticJson", "message" ]
+            }
+
+            mutate {
+                lowercase => ["[@metadata][appNameIndex]"]
+            }
+        }
+        output {
+            elasticsearch {
+                hosts => ["https://localhost:9200"]
+                user => "logstash_username"
+                password => "<logstash_user_password>"
+                index => "wso2-mi-analytics-%{[@metadata][appNameIndex]}"
+                ssl => true
+                ssl_certificate_verification => true
+                cacert => "<elasticsearch_home>/config/certs/http_ca.crt"       
+            }
         }
 
-        mutate {
-            remove_field => [ "UNWANTED", "analyticJson", "message" ]
-        }
-
-        mutate {
-            lowercase => ["[@metadata][appNameIndex]"]
-        }
-    }
-    output {
-        elasticsearch {
-            hosts => ["https://localhost:9200"]
-            user => "logstash_username"
-            password => "<logstash_user_password>"
-            index => "wso2-mi-analytics-%{[@metadata][appNameIndex]}"
-            ssl => true
-            ssl_certificate_verification => true
-            cacert => "<elasticsearch_home>/config/certs/http_ca.crt"       
-        }
-    }
-
-```
+    ```
 
 ### Installing Filebeat
 
-1. Install Filebeat according to your operating system.
+1. [Install Filebeat](https://www.elastic.co/guide/en/beats/filebeat/8.3/filebeat-installation-configuration.html) according to your operating system.
 
-2. Download the sample configuration file and replace <MI_HOME> with the Micro Integrator’s home directory and <LOGSTASH_URL> with Logstash URL.
+2. Download the [sample configuration file]({{base_path}}/assets/attachments/filebeat.yml) and replace <MI_HOME> with the Micro Integrator’s home directory and <LOGSTASH_URL> with Logstash URL.
 
-    ```
+    ``` yaml
     filebeat.inputs:
     - type: filestream
       id: wso2mi-analytics
@@ -127,17 +130,17 @@ Use the following configuration file when starting Logstash. Update the logstash
 
     ```
 
-3. Make sure Filebeat is up and running.
+3. Make sure Filebeat is [up and running](https://www.elastic.co/guide/en/beats/filebeat/8.3/filebeat-installation-configuration.html#start).
 
 ### Import Dashboards and DataViews
 
-1. Download the dashboards.ndjson file.
+1. Download the [dashboards.ndjson]({{base_path}}/assets/attachments/dashboards.ndjson) file.
 
-2. On Kibana UI goto Stack Management → Saved objects and Import the downloaded file. This should import the following objects into Kibana
+2. On Kibana UI go to **Stack Management** → **Saved objects** and **Import** the downloaded file. This should import the following objects into Kibana.
 
 ### Configure Security in ELK
 
-ElasticSearch supports basic authentication via an internal user store. To set up basic authentication in ElasticSearch and Kibana, refer to the ElasticSearch documentation.
+ElasticSearch supports basic authentication via an internal user store. To set up basic authentication in ElasticSearch and Kibana, refer to the [ElasticSearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html).
 
 ## Configure Micro Integrator
 
@@ -145,7 +148,7 @@ To enable operational analytics, you must update the deployment.toml file with t
 
 ### Enabling statistics for artifacts
 
-You must enable statistics for the integration artifacts you wish to monitor. If you want to collect statistics for all your integration artifacts, be sure to add the flow.statistics.capture_all parameter to the deployment.toml file
+You must enable statistics for the integration artifacts you wish to monitor. If you want to collect statistics for all your integration artifacts, be sure to add the `flow.statistics.capture_all` parameter to the deployment.toml file
 
 ``` toml
 [mediation]
@@ -177,11 +180,22 @@ inbound_endpoint_analytics.enabled = true
 
 ```
 
+|Config Key|Data Type|Default Value|Description|
+|:----|:----|:----|:----|
+|api_analytics.enabled|bool|TRUE|If set to false, analytics for APIs will not be published|
+|proxy_service_analytics.enabled|bool|TRUE|If set to false, analytics for Proxy Services will not be published|
+|sequence_analytics.enabled|bool|TRUE|If set to false, analytics for Sequences will not be published|
+|endpoint_analytics.enabled|bool|TRUE|If set to false, analytics for Endpoints will not be published|
+|inbound_endpoint_analytics.enabled|bool|TRUE|If set to false, analytics for Inbound Endpoints will not be published|
+|prefix|string|SYNAPSE_ANALYTICS_DATA|This string will be used as a prefix when Elasticsearch analytics are being published. The purpose of this prefix is to distinguish log lines that hold analytics data from others. If you override this default value, you will have to update the Logstash and Filebeat configuration files accordingly.|
+|enabled|bool|FALSE|If set to true, Elasticsearch service will be enabled|
+|id|string|hostname|An identifier that will be published with the analytic|
+
 ### Creating Log Appender
 
-Open the wso2mi-4.x.x/repository/conf directory and edit the log4j2.properties file following the instructions given below.
+Open the `<MI_HOME>/repository/conf` directory and edit the `log4j2.properties` file following the instructions given below.
 
-1. Add ELK_ANALYTICS_APPENDER to the appenders list.
+1. Add `ELK_ANALYTICS_APPENDER` to the appenders list.
 
     ```
     appenders = ELK_ANALYTICS_APPENDER,.... (list of other available appenders)
@@ -193,7 +207,7 @@ Open the wso2mi-4.x.x/repository/conf directory and edit the log4j2.properties f
 
         Any changes to the layout pattern may require changes in the Logstash configuration file. 
 
-    The synapse-analytics.log file is rolled each day or when the log size reaches the limit of 1000 MB by default. Furthermore, only ten revisions will be kept, and older revisions will be deleted automatically. You can change these configurations by updating the configurations provided in step 2 above.
+    The `synapse-analytics.log` file is rolled each day or when the log size reaches the limit of 1000 MB by default. Furthermore, only ten revisions will be kept, and older revisions will be deleted automatically. You can change these configurations by updating the configurations provided in step 2 above.
 
     ``` log
     appender.ELK_ANALYTICS_APPENDER.type = RollingFile
@@ -226,4 +240,6 @@ Open the wso2mi-4.x.x/repository/conf directory and edit the log4j2.properties f
     logger.ELKAnalytics.additivity = false
     logger.ELKAnalytics.appenderRef.ELK_ANALYTICS_APPENDER.ref = ELK_ANALYTICS_APPENDER
     ```
+
+
 
