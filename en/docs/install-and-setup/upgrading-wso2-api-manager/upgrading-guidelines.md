@@ -90,7 +90,7 @@ test your functional and non-functional requirements.
 
     If there are frequently updating registry properties, having the versioning enabled for registry resources in the registry can lead to unnecessary growth in the registry related tables in the database. To avoid this, versioning has been disabled by default in API Manager 4.1.0.
     
-    Therefore, if registry versioning was enabled in older versions of WSO2 API-M, it is **required** to run some scripts against **the database that is used by the registry**.
+    Therefore, if registry versioning was enabled in older versions of WSO2 API-M, it is **required** to run registry version disabling scripts against **the database that is used by the registry**. For example, see step 5 under [Migrating the API Manager configurations]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/260-to-410/upgrading-from-260-to-410/#step-1-migrate-the-api-manager-configurations) for the associated scripts.
 
 15. If you are using PostgreSQL, during the migration, "uuid-ossp" extension is created in the database. In order to create this extension, the database user should have the 'Superuser' permission. If the user is not already a superuser, assign the permission before starting the migration.
 
