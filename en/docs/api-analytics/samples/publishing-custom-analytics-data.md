@@ -34,49 +34,53 @@ This section will cover how to configure the `pom.xml`, class implementations an
 
 Add wso2-nexus repository to `pom.xml`,
 
-    <repository>
-        <id>wso2-nexus</id>
-        <name>WSO2 internal Repository</name>
-        <url>https://maven.wso2.org/nexus/content/groups/wso2-public/</url>
-        <releases>
-            <enabled>true</enabled>
-            <updatePolicy>daily</updatePolicy>
-            <checksumPolicy>ignore</checksumPolicy>
-        </releases>
-    </repository>
+```code
+<repository>
+    <id>wso2-nexus</id>
+    <name>WSO2 internal Repository</name>
+    <url>https://maven.wso2.org/nexus/content/groups/wso2-public/</url>
+    <releases>
+        <enabled>true</enabled>
+        <updatePolicy>daily</updatePolicy>
+        <checksumPolicy>ignore</checksumPolicy>
+    </releases>
+</repository>
+```
 
 Add dependencies,
 
-    <dependency>
-        <groupId>org.wso2.carbon.apimgt</groupId>
-        <artifactId>org.wso2.carbon.apimgt.gateway</artifactId>
-        <version>${carbon.apimgt.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>org.wso2.carbon.apimgt</groupId>
-        <artifactId>org.wso2.carbon.apimgt.common.analytics</artifactId>
-        <version>${carbon.apimgt.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>org.apache.synapse</groupId>
-        <artifactId>synapse-extensions</artifactId>
-        <version>${synapse.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>org.apache.synapse</groupId>
-        <artifactId>synapse-core</artifactId>
-        <version>${synapse.version}</version>
-        <exclusions>
-            <exclusion>
-                <groupId>org.apache.axis2</groupId>
-                <artifactId>axis2-codegen</artifactId>
-            </exclusion>
-            <exclusion>
-                <groupId>org.wso2.orbit.com.github.fge</groupId>
-                <artifactId>json-schema-validator-all</artifactId>
-            </exclusion>
-        </exclusions>
-    </dependency>
+```code
+<dependency>
+    <groupId>org.wso2.carbon.apimgt</groupId>
+    <artifactId>org.wso2.carbon.apimgt.gateway</artifactId>
+    <version>${carbon.apimgt.version}</version>
+</dependency>
+<dependency>
+    <groupId>org.wso2.carbon.apimgt</groupId>
+    <artifactId>org.wso2.carbon.apimgt.common.analytics</artifactId>
+    <version>${carbon.apimgt.version}</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.synapse</groupId>
+       <artifactId>synapse-extensions</artifactId>
+       <version>${synapse.version}</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.synapse</groupId>
+    <artifactId>synapse-core</artifactId>
+    <version>${synapse.version}</version>
+    <exclusions>
+        <exclusion>
+            <groupId>org.apache.axis2</groupId>
+            <artifactId>axis2-codegen</artifactId>
+        </exclusion>
+        <exclusion>
+            <groupId>org.wso2.orbit.com.github.fge</groupId>
+            <artifactId>json-schema-validator-all</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
+```
 
 !!! Info
 
@@ -91,11 +95,11 @@ Add dependencies,
         3. Point local m2 repository in project pom
         ```code
         <repository>
-            <id>local-maven-repo</id>
-            <url>file://home/user/.m2/repository</url>
+            <id> local-maven-repo </id>
+            <url> file://home/user/.m2/repository </url>
         </repository>
         ```
-        Follow the URL pattern when providing the repo url
+        Follow the same URL pattern when providing the repo url
 
 ### Implementing Required Class
 
@@ -111,7 +115,9 @@ Implementation of this class should look something similar to [this](https://git
 
 Build the project using,
 
-    mvn clean install
+```code
+mvn clean install
+```
 
 ## Configuring the Sample
 
@@ -120,7 +126,7 @@ This section will cover the steps required to configure WSO2 API-M Gateway for t
 !!! Warning
     Note that WSO2 API Manager 3.0.0, 3.1.0, 3.2.0, and 4.0.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
 
-1. Adding the .jar file.
+1. Adding the jar file created in the target directory after building the project.
 
     Place the created .jar file inside the `wso2am-4.0.0/repository/components/lib` directory.
 
@@ -128,10 +134,14 @@ This section will cover the steps required to configure WSO2 API-M Gateway for t
 
     Edit `apim.analytics` configurations in the `deployment.toml` file located inside `wso2am-4.0.0/repository/conf` with the following configuration.
 
-        [apim.analytics]
-        enable = true
-        properties."publisher.custom.data.provider.class" = "<FullyQualifiedClassNameOfAnalyticsCustomDataProviderImplClass>"
-        type = "elk"
+    ```code
+    [apim.analytics]
+    enable = true
+    properties."publisher.custom.data.provider.class" = "<FullyQualifiedClassNameOfAnalyticsCustomDataProviderImplClass>"
+    type = "elk"
+    ```
+
+    This configuration will be used when engaging the custom data provider class.
 
     !!! Important
         Type should be given as `elk` as this property value is filtered out in cloud implementation.
@@ -140,15 +150,16 @@ This section will cover the steps required to configure WSO2 API-M Gateway for t
 
     To [enable trace logs]({{base_path}}/administer/logging-and-monitoring/logging/configuring-logging/#enabling-logs-for-a-component) for the component: `org.wso2.am.analytics.publisher`, edit `log4j2.properties` file located inside `wso2am-4.0.0/repository/conf` directory. 
 
-    a) Add a reporter to the loggers list:
-
-        loggers = org-wso2-analytics-publisher, ...(list of other available loggers)
-
-    b) Add the following configurations after the loggers:
-
-        logger.org-wso2-analytics-publisher.name = org.wso2.am.analytics.publisher
-        logger.org-wso2-analytics-publisher.level = TRACE
-        logger.org-wso2-analytics-publisher.appenderRef.CARBON_TRACE_LOGFILE.ref = CARBON_TRACE_LOGFILE
+    1. Add new publisher to the loggers list:
+    ```code
+    loggers = org-wso2-analytics-publisher, ...(list of other available loggers)
+    ```
+    2. Add the following configurations after the loggers: 
+    ```code
+    logger.org-wso2-analytics-publisher.name = org.wso2.am.analytics.publisher
+    logger.org-wso2-analytics-publisher.level = TRACE
+    logger.org-wso2-analytics-publisher.appenderRef.CARBON_TRACE_LOGFILE.ref = CARBON_TRACE_LOGFILE
+    ```
 
 4. Now you can trigger an event and check the `<WSO2AM-4.0.0-HOME>/repository/logs/wso2carbon-trace-messages.log` to find the event object passed out from API Manager.
 
