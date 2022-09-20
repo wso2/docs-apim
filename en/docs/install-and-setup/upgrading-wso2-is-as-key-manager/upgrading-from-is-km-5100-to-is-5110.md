@@ -7,7 +7,13 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
         -   You are currently using a WSO2 IS 5.10.0 vanilla distribution that has WSO2 API Management related Key Manager features installed on top of it.
         -   You are currently using a pre-packaged WSO2 Identity Server as Key Manager 5.10.0 distribution.
 
-# Upgrading WSO2 IS as Key Manager to 5.11.0
+## Prerequisites
+
+1. Review what has been changed in this release. See [What Has Changed]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/what-has-changed).
+
+2. Before you migrate, follow the [Upgrading Guidelines]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-guidelines) to get an understanding of the migration process.
+
+## Upgrading WSO2 IS as Key Manager to 5.11.0
 
 -   [Step A - Upgrade IS as Key Manager 5.10.0 to IS 5.11.0](#upgrade-is-as-key-manager-5100-to-is-5110)
 -   [Step B - Upgrade API Manager 3.1.0 to 4.1.0](#step-b-upgrade-api-manager-310-to-410)
