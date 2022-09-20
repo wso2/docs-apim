@@ -126,7 +126,7 @@ This section will cover the steps required to configure WSO2 API-M Gateway for t
 !!! Warning
     Note that WSO2 API Manager 3.0.0, 3.1.0, 3.2.0, and 4.0.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
 
-1. Adding the jar file created in the target directory after building the project.
+1. Add the .jar file created in the target directory after building the project.
 
     Place the created .jar file inside the `wso2am-4.0.0/repository/components/lib` directory.
 
