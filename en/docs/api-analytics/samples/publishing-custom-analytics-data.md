@@ -130,7 +130,7 @@ This section will cover the steps required to configure WSO2 API-M Gateway for t
 
     Place the created .jar file inside the `wso2am-4.0.0/repository/components/lib` directory.
 
-2. Configuring the deployment.toml file.
+2. Configure the deployment.toml file.
 
     Edit `apim.analytics` configurations in the `deployment.toml` file located inside `wso2am-4.0.0/repository/conf` with the following configuration.
 
