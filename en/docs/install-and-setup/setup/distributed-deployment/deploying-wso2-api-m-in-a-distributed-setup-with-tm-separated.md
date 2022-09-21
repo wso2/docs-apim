@@ -128,7 +128,7 @@ Follow the instructions given below to configure the Gateway node so that it can
      ```
 
     !!! Info
-        Event hub configuration is used retrive gateway artifacts. Using `event_listening_endpoints` gateway will create a JMS connection with the event hub which then used to subscribe for API/Application/Subscription and Keymanager operations related events. `service_url` points to the internal API resides in the event hub that is used to pull artifacts and information from the db.
+        Event hub configuration is used to retrive gateway artifacts. Using `event_listening_endpoints`, gateway will create a JMS connection with the event hub which then used to subscribe for API/Application/Subscription and Keymanager operations related events. `service_url` points to the internal API resides in the event hub that is used to pull artifacts and information from the db.
 
     * **Connecting the Gateway to the Traffic Manager node**:
       
@@ -158,7 +158,7 @@ Follow the instructions given below to configure the Gateway node so that it can
       ```
 
     !!! Info
-        Throtteling configurations are used by the gateway to connect with the traffic manager. Gateway will publish gateway invokation related events to the TM using the `apim.throttling.url_group.traffic_manager_urls`. Traffic managers will receive these events are throttle decisions will be published to gateway. To receive these throttle decisions, gateway has to create a jms connection using `throttle_decision_endpoints` and listen.
+        Throtteling configurations are used by the gateway to connect with the traffic manager. Gateway will publish gateway invocation related events to the TM using the `apim.throttling.url_group`. Traffic managers will receive these events and throttle decisions will be published to gateway. To receive these throttle decisions, gateway has to create a JMS connection using `throttle_decision_endpoints` and listen.
 
 3. Add the following configurations to the deployment.toml file to configure the Gateway environment. Change the `gateway_labels` property based on your Gateway environment.
 
@@ -454,7 +454,7 @@ Follow the steps given below to configure the Control Plane nodes to communicate
 
     **Add Event Listener Configurations**:
 
-    Below configurations are only added to the control plane if you are using the resident key manager (resides in the Control Plane). Once you add the below configurations, Control plane will listen to token revocation events. If you are using WSO2 IS as keymanager, you need to add these in the IS node.
+    Below configurations are only added to the control plane if you are using the resident key manager (resides in the Control Plane). If you are using WSO2 IS as keymanager, you need to add these in the IS node. Once you add the below configurations, Control plane or Identity Server will listen to token revocation events and invoke the `notification_endpoint` regarding the revoked token. 
 
     ```toml tab="Control Plane with High Availability"
     # Event Listener configurations
@@ -485,9 +485,6 @@ Follow the steps given below to configure the Control Plane nodes to communicate
     password = "${admin.password}"
     'header.X-WSO2-KEY-MANAGER' = "default"
     ```
-
-    !!! Info
-        With these configurations, we are configuring an event listner that will be triggered once an token is revoked. In such revocation event, Control plane or Identity server will inform the `notification_endpoint` regarding this revoked token.
 
 3. If required, encrypt the Auth Keys (access tokens, client secrets, and authorization codes), see [Encrypting OAuth Keys]({{base_path}}/design/api-security/oauth2/encrypting-oauth2-tokens).
 
