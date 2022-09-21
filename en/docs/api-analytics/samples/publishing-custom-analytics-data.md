@@ -132,7 +132,7 @@ This section will cover the steps required to configure WSO2 API-M Gateway for t
 
 2. Configure the deployment.toml file.
 
-    Edit `apim.analytics` configurations in the `deployment.toml` file located inside `wso2am-4.0.0/repository/conf` with the following configuration.
+    Edit the `apim.analytics` configurations in the `deployment.toml` file located inside `wso2am-4.0.0/repository/conf` with the following configuration.
 
     ```code
     [apim.analytics]
