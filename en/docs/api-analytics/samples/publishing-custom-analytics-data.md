@@ -32,7 +32,7 @@ This section will cover how to configure the `pom.xml`, class implementations an
 
 ### Configuring pom.xml
 
-Add wso2-nexus repository to `pom.xml`,
+Add the `wso2-nexus` repository to the `pom.xml` file.
 
 ```code
 <repository>
