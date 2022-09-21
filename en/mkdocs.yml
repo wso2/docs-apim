@@ -1558,9 +1558,9 @@ nav:
                     - Format the Outputs of Get Commands: install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command.md
                     - Configure Git Integration: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md
         - Upgrade:
+            - What has Changed: install-and-setup/upgrading-wso2-api-manager/what-has-changed.md
+            - Upgrading Process: install-and-setup/upgrading-wso2-api-manager/upgrading-process.md
             - Upgrading WSO2 API Manager:
-                - What has Changed: install-and-setup/upgrading-wso2-api-manager/what-has-changed.md
-                - Upgrading Process: install-and-setup/upgrading-wso2-api-manager/upgrading-process.md
                 - 3.2.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-320-to-400.md
                 - 3.1.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-310-to-400.md
                 - 3.0.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-400.md
