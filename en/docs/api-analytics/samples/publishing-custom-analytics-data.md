@@ -148,7 +148,7 @@ This section will cover the steps required to configure WSO2 API-M Gateway for t
 
 3. Enable logs.
 
-    To [enable trace logs]({{base_path}}/administer/logging-and-monitoring/logging/configuring-logging/#enabling-logs-for-a-component) for the component: `org.wso2.am.analytics.publisher`, edit `log4j2.properties` file located inside `wso2am-4.0.0/repository/conf` directory. 
+    To [enable trace logs]({{base_path}}/administer/logging-and-monitoring/logging/configuring-logging/#enabling-logs-for-a-component) for the component: `org.wso2.am.analytics.publisher`, edit the `log4j2.properties` file located inside `wso2am-4.0.0/repository/conf` directory. 
 
     1. Add new publisher to the loggers list:
     ```code
