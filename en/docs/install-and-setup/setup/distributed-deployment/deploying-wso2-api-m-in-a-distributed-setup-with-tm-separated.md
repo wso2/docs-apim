@@ -128,7 +128,7 @@ Follow the instructions given below to configure the Gateway node so that it can
      ```
 
     !!! Info
-        Event hub configuration is used to retrive gateway artifacts. Using `event_listening_endpoints`, gateway will create a JMS connection with the event hub which then used to subscribe for API/Application/Subscription and Keymanager operations related events. `service_url` points to the internal API resides in the event hub that is used to pull artifacts and information from the db.
+        Event hub configuration is used to retrieve Gateway artifacts. Using `event_listening_endpoints`, the Gateway will create a JMS connection with the event hub that is then used to subscribe for API/Application/Subscription and Key Manager operations-related events. The `service_url` points to the internal API that resides in the event hub that is used to pull artifacts and information from the database.
 
     * **Connecting the Gateway to the Traffic Manager node**:
       
