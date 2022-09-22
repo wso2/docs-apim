@@ -54,7 +54,29 @@ test your functional and non-functional requirements.
 9.  Start the migration from the lowest environment (e.g., dev) and continue up to the highest before the production 
 (e.g., pre-prod). Run the test cases in the migrated environments to confirm that your functional and non-functional requirements are met in the migrated environment.
 
-10. Before you carry out the production migration, run a pilot migration on your pre-prod environment. 
+10. When attempting to migrate a distributed setup, you need to do the data migration for the Control Plane profile only. You can do the migration using the following command:
+
+    ```bash
+    sh api-manager.sh -Dprofile=control-plane -Dmigrate -DmigrateFromVersion=<product-version-number> -DmigratedVersion=4.1.0 -DrunPreMigration
+    ```
+
+11. Disable versioning in the registry configuration when migrating IS as a Key Manager from versions older than IS 5.9.0.
+
+    If there are frequently updating registry properties, having the versioning enabled for registry resources in the registry can lead to unnecessary growth in the registry related tables in the database. To avoid this, versioning has been disabled by default in API Manager 4.1.0.
+
+    Therefore, if registry versioning was enabled in older versions of WSO2 API-M, it is **required** to run registry version disabling scripts against **the database that is used by the registry**. For example, see step 5 under [Migrating the API Manager configurations]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/260-to-410/upgrading-from-260-to-410/#step-1-migrate-the-api-manager-configurations) for the associated scripts.
+
+12. If you are using PostgreSQL, during the migration, "uuid-ossp" extension is created in the database. In order to create this extension, the database user should have the 'Superuser' permission. If the user is not already a superuser, assign the permission before starting the migration.
+
+    ```
+    ALTER USER <user> WITH SUPERUSER;
+    ```
+
+13. When migrating a Kubernetes environment to a newer API Manager version, it is recommended to do the data migration in a separate VM, a local machine, or a single container. Once the data migration is complete, you can simply move the migrated databases into the containerized deployment in Kubernetes. 
+
+    To implement this kind of scenario you have to follow the first four steps in the migration documentation (for example [the first four steps when migrating API-M 3.2.0 to API-M 4.1.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/320-to-410/upgrading-from-320-to-410/) in a separate VM/container/local machine and then move the databases to a containerized setup before doing [step 5, which is to re-index the API-M artifacts]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/320-to-410/upgrading-from-320-to-410/#step-5-re-index-the-api-manager-artifacts). Make sure to use a new mount for the solr and remove the older solr mount from the deployment.
+
+14. Before you carry out the production migration, run a pilot migration on your pre-prod environment. 
 
     It will be ideal if the pre-prod environment is similar to the production environment.
 
@@ -62,7 +84,7 @@ test your functional and non-functional requirements.
 
     -  If the production database dump cannot be used, at least ensure that you have a sufficient amount of data in the database to mimic the production environment.
     
-11. When you follow the above instructions, you can get a rough estimate of the time for the final production update, and you can allocate time slots based on the above analysis. 
+15. When you follow the above instructions, you can get a rough estimate of the time for the final production update, and you can allocate time slots based on the above analysis. 
 
     WSO2 recommends that you perform the migration while the system is under minimum traffic. 
 
