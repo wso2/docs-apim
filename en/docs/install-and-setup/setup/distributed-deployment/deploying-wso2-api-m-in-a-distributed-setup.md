@@ -352,7 +352,7 @@ Configure the Control Plane to communicate with the Gateway.
 
     **Add Event Hub Configurations**:
 
-    Add event hub configurations only if you have High Availability for the Control plane. 
+    Add event hub configurations only if you have High Availability for the Control Plane. 
 
     ```toml
     # Event Hub configurations
