@@ -30,6 +30,19 @@ When an API is invoked specifying an API key as the authentication method, the A
 
 The subscription validation is mandatory for the API keys, and the keys generated before an application subscribes to an API will not contain the subscription information under the token details. As a result, these keys will not be allowed to access that specific API. Therefore, API Keys should be generated after the application has subscribed to the required API.
 
+In order to enable API subscription validation, do the following:
+
+1. Navigate to the `<PRODUCT-HOME>/repository/conf/deployment.toml` file.
+
+2. Add the following configuration in the ‘deployment.toml’ file
+
+     ```toml
+     [apim.key_manager]
+     enable_apikey_subscription_validation = true
+     ```
+
+3. Restart the API-M server.
+
 ## Using API keys to secure an API
 
 Follow the instructions below to use API key Authentication in WSO2 API Manager.
