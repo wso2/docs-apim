@@ -715,7 +715,7 @@ Configure the Traffic Manager to communicate with the Control Plane.
     !!! Info
         With `event_listening_endpoints`, the Traffic Manager is subscribed to the JMS stream of both event hubs. Once a policy-related event is received, it will pull the execution plans from the `service_url`.
 
-    If the Traffic manager node is configured with High Availability (HA), configure throttling as follows.
+    If the Traffic Manager node is configured with High Availability (HA), configure rate limiting as follows.
 
     ```toml
     [apim.throttling]
