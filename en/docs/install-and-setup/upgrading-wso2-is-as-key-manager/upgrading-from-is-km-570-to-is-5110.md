@@ -359,8 +359,10 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.7.0 to IS 5.11
         PRIMARY KEY (ID)
         );
         
+        IF NOT EXISTS (SELECT * FROM SYS.indexes WHERE name = 'IDX_RID' and object_id = OBJECT_ID('IDN_UMA_RESOURCE'))
         CREATE INDEX IDX_RID ON IDN_UMA_RESOURCE (RESOURCE_ID);
         
+        IF NOT EXISTS (SELECT * FROM SYS.indexes WHERE name = 'IDX_USER' and object_id = OBJECT_ID('IDN_UMA_RESOURCE'))
         CREATE INDEX IDX_USER ON IDN_UMA_RESOURCE (RESOURCE_OWNER_NAME, USER_DOMAIN);
         
         IF NOT EXISTS ( SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_UMA_RESOURCE_META_DATA]') AND TYPE IN (N'U'))
@@ -382,6 +384,7 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.7.0 to IS 5.11
         FOREIGN KEY (RESOURCE_IDENTITY) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
         );
         
+        IF NOT EXISTS (SELECT * FROM SYS.indexes WHERE name = 'IDX_RS' and object_id = OBJECT_ID('IDN_UMA_RESOURCE_SCOPE'))
         CREATE INDEX IDX_RS ON IDN_UMA_RESOURCE_SCOPE (SCOPE_NAME);
         
         IF NOT EXISTS ( SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_UMA_PERMISSION_TICKET]') AND TYPE IN (N'U'))
@@ -395,6 +398,7 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.7.0 to IS 5.11
         PRIMARY KEY (ID)
         );
         
+        IF NOT EXISTS (SELECT * FROM SYS.indexes WHERE name = 'IDX_PT' and object_id = OBJECT_ID('IDN_UMA_PERMISSION_TICKET'))
         CREATE INDEX IDX_PT ON IDN_UMA_PERMISSION_TICKET (PT);
     
         IF NOT EXISTS ( SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_UMA_PT_RESOURCE]') AND TYPE IN (N'U'))
@@ -430,10 +434,25 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.7.0 to IS 5.11
         USER_DOMAIN         VARCHAR(50),
         PRIMARY KEY (ID)
         );
-        
-        CREATE INDEX IDX_RID ON IDN_UMA_RESOURCE (RESOURCE_ID);
-        
-        CREATE INDEX IDX_USER ON IDN_UMA_RESOURCE (RESOURCE_OWNER_NAME, USER_DOMAIN);
+
+        DROP PROCEDURE IF EXISTS SKIP_INDEX_IF_EXISTS;
+
+        DELIMITER $$
+        CREATE PROCEDURE SKIP_INDEX_IF_EXISTS(indexName varchar(64), tableName varchar(64), tableColumns varchar(255))
+        BEGIN
+            BEGIN
+                DECLARE CONTINUE HANDLER FOR SQLEXCEPTION BEGIN
+                END;
+                SET @s = CONCAT('CREATE INDEX ', indexName, ' ON ', tableName, '(', tableColumns, ')');
+                PREPARE stmt FROM @s;
+                EXECUTE stmt;
+            END;
+        END $$
+        DELIMITER ;
+
+        CALL SKIP_INDEX_IF_EXISTS('IDX_RID', 'IDN_UMA_RESOURCE', 'RESOURCE_ID');
+
+        CALL SKIP_INDEX_IF_EXISTS('IDX_USER', 'IDN_UMA_RESOURCE', 'RESOURCE_OWNER_NAME, USER_DOMAIN');
         
         CREATE TABLE IF NOT EXISTS IDN_UMA_RESOURCE_META_DATA (
         ID                INTEGER AUTO_INCREMENT NOT NULL,
@@ -452,7 +471,7 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.7.0 to IS 5.11
         FOREIGN KEY (RESOURCE_IDENTITY) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
         );
         
-        CREATE INDEX IDX_RS ON IDN_UMA_RESOURCE_SCOPE (SCOPE_NAME);
+        CALL SKIP_INDEX_IF_EXISTS('IDX_RS', 'IDN_UMA_RESOURCE_SCOPE', 'SCOPE_NAME');
         
         CREATE TABLE IF NOT EXISTS IDN_UMA_PERMISSION_TICKET (
         ID              INTEGER AUTO_INCREMENT NOT NULL,
@@ -464,7 +483,9 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.7.0 to IS 5.11
         PRIMARY KEY (ID)
         );
         
-        CREATE INDEX IDX_PT ON IDN_UMA_PERMISSION_TICKET (PT);
+        CALL SKIP_INDEX_IF_EXISTS('IDX_PT', 'IDN_UMA_PERMISSION_TICKET', 'PT');
+
+        DROP PROCEDURE IF EXISTS SKIP_INDEX_IF_EXISTS;
         
         CREATE TABLE IF NOT EXISTS IDN_UMA_PT_RESOURCE (
         ID             INTEGER AUTO_INCREMENT NOT NULL,
@@ -733,15 +754,15 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.7.0 to IS 5.11
         );
         ```
 
-4.  Download the identity component migration resources and unzip it in a local directory.
+4. Download the identity component migration resources and unzip it in a local directory.
 
     Navigate to the [latest release tag](https://github.com/wso2-extensions/apim-identity-migration-resources/releases) and download the `wso2is-migration-x.x.x.zip` under **Assets**.
 
     Let's refer to this directory that you downloaded and extracted as `<IS_MIGRATION_TOOL_HOME>`.
 
-5.  Copy the `migration-resources` folder from the extracted folder to the `<IS_HOME>` directory.
+5. Copy the `migration-resources` folder from the extracted folder to the `<IS_HOME>` directory.
 
-6.  Open the `migration-config.yaml` file in the migration-resources directory and make sure that the `currentVersion` element is set to 5.7.0, as shown below.
+6. Open the `migration-config.yaml` file in the migration-resources directory and make sure that the `currentVersion` element is set to 5.7.0, as shown below.
 
     ``` java
     migrationEnable: "true"
@@ -786,7 +807,7 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.7.0 to IS 5.11
            schema: "identity"
     ```
 
-9.  Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<IS_HOME>/repository/components/dropins` directory.
+9. Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<IS_HOME>/repository/components/dropins` directory.
 
     !!! important
         In WSO2 Identity Server 5.11.0, groups include user store roles and roles include internal roles. Therefore, from IS 5.11.0 onwards, we cannot have the same admin role in both primary and internal user domains. If the same admin role exists in both UM domains of your older version, we should add the PRIMARY/admin to the internal domain with a different admin role name during the group role separation. To do that, you have to follow the below steps.
@@ -815,7 +836,7 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.7.0 to IS 5.11
     create_admin_account = false
     ```
 
-11.  Start WSO2 IS 5.11.0 as follows to carry out the complete Identity component migration.
+11. Start WSO2 IS 5.11.0 as follows to carry out the complete Identity component migration.
 
     ```tab="Linux / Mac OS"
     sh wso2server.sh -Dmigrate -Dcomponent=identity

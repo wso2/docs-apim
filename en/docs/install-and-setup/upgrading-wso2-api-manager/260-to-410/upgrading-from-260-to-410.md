@@ -733,8 +733,10 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Mana
         PRIMARY KEY (ID)
         );
         
+        IF NOT EXISTS (SELECT * FROM SYS.indexes WHERE name = 'IDX_RID' and object_id = OBJECT_ID('IDN_UMA_RESOURCE'))
         CREATE INDEX IDX_RID ON IDN_UMA_RESOURCE (RESOURCE_ID);
         
+        IF NOT EXISTS (SELECT * FROM SYS.indexes WHERE name = 'IDX_USER' and object_id = OBJECT_ID('IDN_UMA_RESOURCE'))
         CREATE INDEX IDX_USER ON IDN_UMA_RESOURCE (RESOURCE_OWNER_NAME, USER_DOMAIN);
         
         IF NOT EXISTS ( SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_UMA_RESOURCE_META_DATA]') AND TYPE IN (N'U'))
@@ -756,6 +758,7 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Mana
         FOREIGN KEY (RESOURCE_IDENTITY) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
         );
         
+        IF NOT EXISTS (SELECT * FROM SYS.indexes WHERE name = 'IDX_RS' and object_id = OBJECT_ID('IDN_UMA_RESOURCE_SCOPE'))
         CREATE INDEX IDX_RS ON IDN_UMA_RESOURCE_SCOPE (SCOPE_NAME);
         
         IF NOT EXISTS ( SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_UMA_PERMISSION_TICKET]') AND TYPE IN (N'U'))
@@ -769,6 +772,7 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Mana
         PRIMARY KEY (ID)
         );
         
+        IF NOT EXISTS (SELECT * FROM SYS.indexes WHERE name = 'IDX_PT' and object_id = OBJECT_ID('IDN_UMA_PERMISSION_TICKET'))
         CREATE INDEX IDX_PT ON IDN_UMA_PERMISSION_TICKET (PT);
     
         IF NOT EXISTS ( SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_UMA_PT_RESOURCE]') AND TYPE IN (N'U'))
@@ -805,9 +809,24 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Mana
         PRIMARY KEY (ID)
         );
         
-        CREATE INDEX IDX_RID ON IDN_UMA_RESOURCE (RESOURCE_ID);
+        DROP PROCEDURE IF EXISTS SKIP_INDEX_IF_EXISTS;
+
+        DELIMITER $$
+        CREATE PROCEDURE SKIP_INDEX_IF_EXISTS(indexName varchar(64), tableName varchar(64), tableColumns varchar(255))
+        BEGIN
+            BEGIN
+                DECLARE CONTINUE HANDLER FOR SQLEXCEPTION BEGIN
+                END;
+                SET @s = CONCAT('CREATE INDEX ', indexName, ' ON ', tableName, '(', tableColumns, ')');
+                PREPARE stmt FROM @s;
+                EXECUTE stmt;
+            END;
+        END $$
+        DELIMITER ;
         
-        CREATE INDEX IDX_USER ON IDN_UMA_RESOURCE (RESOURCE_OWNER_NAME, USER_DOMAIN);
+        CALL SKIP_INDEX_IF_EXISTS('IDX_RID', 'IDN_UMA_RESOURCE', 'RESOURCE_ID');
+
+        CALL SKIP_INDEX_IF_EXISTS('IDX_USER', 'IDN_UMA_RESOURCE', 'RESOURCE_OWNER_NAME, USER_DOMAIN');
         
         CREATE TABLE IF NOT EXISTS IDN_UMA_RESOURCE_META_DATA (
         ID                INTEGER AUTO_INCREMENT NOT NULL,
@@ -825,8 +844,8 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Mana
         PRIMARY KEY (ID),
         FOREIGN KEY (RESOURCE_IDENTITY) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
         );
-        
-        CREATE INDEX IDX_RS ON IDN_UMA_RESOURCE_SCOPE (SCOPE_NAME);
+
+        CALL SKIP_INDEX_IF_EXISTS('IDX_RS', 'IDN_UMA_RESOURCE_SCOPE', 'SCOPE_NAME');
         
         CREATE TABLE IF NOT EXISTS IDN_UMA_PERMISSION_TICKET (
         ID              INTEGER AUTO_INCREMENT NOT NULL,
@@ -838,7 +857,9 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Mana
         PRIMARY KEY (ID)
         );
         
-        CREATE INDEX IDX_PT ON IDN_UMA_PERMISSION_TICKET (PT);
+        CALL SKIP_INDEX_IF_EXISTS('IDX_PT', 'IDN_UMA_PERMISSION_TICKET', 'PT');
+
+        DROP PROCEDURE IF EXISTS SKIP_INDEX_IF_EXISTS;
         
         CREATE TABLE IF NOT EXISTS IDN_UMA_PT_RESOURCE (
         ID             INTEGER AUTO_INCREMENT NOT NULL,
