@@ -32,7 +32,7 @@ This section will cover how to configure the `pom.xml`, class implementations an
 
 ### Configuring pom.xml
 
-Add wso2-nexus repository to `pom.xml`,
+Add wso2-nexus repository to `pom.xml`.
 
 ```code
 <repository>
@@ -124,13 +124,13 @@ mvn clean install
 
 This section will cover the steps required to configure WSO2 API-M Gateway for the sample created above. The steps covered are adding the .jar file, configuring the deployment.toml file, and enabling the logs.
 
-1. Adding the jar file created in the target directory after building the project.
+1. Add the jar file created in the target directory after building the project.
 
     Place the created .jar file inside the `wso2am-4.1.0/repository/components/lib` directory.
 
-2. Configuring the deployment.toml file.
+2. Configure the deployment.toml file.
 
-    Edit `apim.analytics` configurations in the `deployment.toml` file located inside `wso2am-4.1.0/repository/conf` with the following configuration.
+    Edit the `apim.analytics` configurations in the `deployment.toml` file located inside `wso2am-4.1.0/repository/conf` with the following configuration.
 
     ```code
     [apim.analytics]
@@ -144,9 +144,9 @@ This section will cover the steps required to configure WSO2 API-M Gateway for t
     !!! Important
         Type should be given as `elk` as this property value is filtered out in cloud implementation.
 
-3. Enabling Logs
+3. Enable Logs
 
-    To [enable trace logs]({{base_path}}/administer/logging-and-monitoring/logging/configuring-logging/#enabling-logs-for-a-component) for the component: `org.wso2.am.analytics.publisher`, edit `log4j2.properties` file located inside `wso2am-4.1.0/repository/conf` directory. 
+    To [enable trace logs]({{base_path}}/administer/logging-and-monitoring/logging/configuring-logging/#enabling-logs-for-a-component) for the component: `org.wso2.am.analytics.publisher`, edit the `log4j2.properties` file located inside `wso2am-4.1.0/repository/conf` directory. 
 
     1. Add new publisher to the loggers list:
     ```code
