@@ -454,7 +454,7 @@ Follow the steps given below to configure the Control Plane nodes to communicate
 
     **Add Event Listener Configurations**:
 
-    Below configurations are only added to the control plane if you are using the resident key manager (resides in the Control Plane). If you are using WSO2 IS as keymanager, you need to add these in the IS node. Once you add the below configurations, Control plane or Identity Server will listen to token revocation events and invoke the `notification_endpoint` regarding the revoked token. 
+    The below configurations are only added to the Control Plane if you are using the Resident Key Manager (resides in the Control Plane). If you are using WSO2 IS as Key Manager, you need to add these in the IS node. Once you add the below configurations, the Control Plane or Identity Server will listen to token revocation events and invoke the `notification_endpoint` regarding the revoked token. 
 
     ```toml tab="Control Plane with High Availability"
     # Event Listener configurations
