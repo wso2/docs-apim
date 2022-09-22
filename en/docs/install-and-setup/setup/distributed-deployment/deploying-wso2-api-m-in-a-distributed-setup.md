@@ -125,7 +125,7 @@ Configure the Gateway to communicate with the Control Plane.
     ```
 
     !!! Info
-        In here, throttle configurations are used to configure both traffic management as well as event hub for the gateway. 
+        Rate limiting configurations are used to configure both traffic management as well as the event hub for the Gateway in this scenario. 
         
         Gateway will publish gateway invocation related events to the TM using the `apim.throttling.url_group`. Traffic managers will receive these events and throttle decisions will be published to gateway. To receive these throttle decisions, gateway has to create a JMS connection using `throttle_decision_endpoints` and listen.
 
