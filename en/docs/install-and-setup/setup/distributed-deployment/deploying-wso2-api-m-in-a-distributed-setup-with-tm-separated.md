@@ -724,7 +724,7 @@ Configure the Traffic Manager to communicate with the Control Plane.
     ```
 
     !!! Info
-        The `event_duplicate_url` will publish throttle decisions to the other TM node to maintain consistency.
+        The `event_duplicate_url` will publish rate limiting decisions to the other Traffic Manager node to maintain consistency.
 
 3. Follow the steps given below to configure High Availability (HA) for the Traffic Manager.
 
