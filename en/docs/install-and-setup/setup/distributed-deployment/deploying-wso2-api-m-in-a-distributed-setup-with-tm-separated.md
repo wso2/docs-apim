@@ -168,7 +168,7 @@ Follow the instructions given below to configure the Gateway node so that it can
     ```
 
     !!! Info
-        Once an API is deployed/undeployed, Control plan will send a deploy/undeploy event to the gateways. Using this configuration, gateway will filter out it's relevant deploy/undeploy events and retrieve the artifacts.
+        Once an API is deployed/undeployed, the Control Plane will send a deploy/undeploy event to the Gateways. Using this configuration, the Gateway will filter out its relevant deploy/undeploy events and retrieve the artifacts.
 
 4. Enable JSON Web Token (JWT) if required. For instructions, see [Generating JSON Web Token]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway).
 
