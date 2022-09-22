@@ -348,7 +348,7 @@ Configure the Control Plane to communicate with the Gateway.
     !!! Info
         This configuration is used for deploying APIs to the Gateway and for connecting the Developer Portal component to the Gateway if the Gateway is shared across tenants. If the Gateway is not used in multiple tenants, you can create a [Gateway Environment using the Admin Portal]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames/#using-a-new-gateway-environment-to-expose-apis-via-custom-hostnames).  
 
-        Please note that in the above configurations, `service_url` points to the `9443` port of the gateway node while `http_endpoint` and `https_endpoint` points to the `http` and `https nio ports` (8280 and 8243).
+        Note that in the above configurations, `service_url` points to the `9443` port of the Gateway node, while `http_endpoint` and `https_endpoint` points to the `http` and `https nio ports` (8280 and 8243).
 
     **Add Event Hub Configurations**:
 
