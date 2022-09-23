@@ -2226,7 +2226,7 @@ Follow the instructions below to migrate existing API Manager resources from the
         /
         
         ALTER TABLE AM_API_RATINGS
-            ADD CONSTRAINT add_pk PRIMARY KEY (RATING_ID)
+            ADD CONSTRAINT add_pk_ratings PRIMARY KEY (RATING_ID)
         /
 
 
