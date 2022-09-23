@@ -1582,7 +1582,7 @@ Follow the instructions below to move all the existing API Manager configuration
         /
         
         ALTER TABLE AM_API_RATINGS
-            ADD CONSTRAINT add_pk PRIMARY KEY (RATING_ID)
+            ADD CONSTRAINT add_pk_ratings PRIMARY KEY (RATING_ID)
         /
 
         CREATE TABLE AM_NOTIFICATION_SUBSCRIBER (
