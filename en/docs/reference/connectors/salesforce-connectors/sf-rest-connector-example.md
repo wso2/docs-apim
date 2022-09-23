@@ -63,13 +63,19 @@ Now follow the steps below to add configurations to the sequence.
     	In the popup window, the following parameters must be provided.
 
 	    - Connection Name - Unique name to identify the connection by.
-   	    - Connection Type - Type of the connection that specifies the protocol to be used.
-    	- Access Token - The access token to authenticate your API calls.
-	    - API version - The version of the Salesforce API.
-	    - Host Name - Salesforce OAuth endpoint when issuing authentication requests in your application.
-	    - Refresh Token - Value of the refresh token.
-	    - Refresh Token Endpoint - The endpoint of the refresh token.
-	    - Client Secret - Value of your client secret given when you registered your application with Salesforce.
+        - Connection Type - Type of the connection that specifies the protocol to be used.
+	    - Access Token - The access token to authenticate your API calls.
+        - API version - The version of the Salesforce API.
+        - Host Name - Salesforce OAuth endpoint when issuing authentication requests in your application. For example, `https://login.salesforce.com`.
+        - Refresh Token - Value of the refresh token.
+        - Refresh Token Endpoint - The endpoint of the refresh token.
+        - Client Secret - Value of your client secret given when you registered your application with Salesforce.
+        - Client Id - The consumer key of the connected application that you created.
+        - API URL - The instance URL for your organization. For example, `https://ap2.salesforce.com`.
+        - Timeout - You can control how long a user’s session lasts by setting the timeout value. This should be in milliseconds.
+        - Username - The username for Salesforce.
+        - Password - The password for Salesforce (need to append the password with security key).
+        - Blocking - Indicates whether the connector needs to perform blocking invocations to Salesforce. This should be set to `true` or `false`.
      
      4. To get the input values in to the API we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator/). Navigate into the **Palette** pane and select the graphical mediators icons listed under **Mediators** section. Then drag and drop the `Property` mediators into the Design pane as shown bellow.
     
