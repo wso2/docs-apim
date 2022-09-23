@@ -80,9 +80,12 @@ Make a copy of the active instance configured above and use this copy as the sec
 
 ## Step 5 - Configure the Artifact Synchronization 
 
-To enable synchronization for runtime artifacts of the two all in one WSO2 API-M instances, it is recommended to have a
-shared file system. Configure a shared file system as the content synchronization mechanism. You can use a common shared file 
-system such as Network File System (NFS) or any other shared file system that is available. 
+To enable synchronization for runtime artifacts of the two all in one WSO2 API-M instances, it is recommended to have a shared file system if you use secondary user-stores. 
+
+!!! note
+    You do not need to have a shared file system unless you use secondary user-stores since the matadata of Synapse and rate-limiting policies is persisted to the database.
+
+Configure a shared file system as the content synchronization mechanism. You can use a common shared file system such as Network File System (NFS) or any other shared file system that is available.
 
 You need to mount the following folders of the two nodes to the shared file system, in order to share the resources between all the nodes.
 
