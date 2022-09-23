@@ -72,7 +72,7 @@ Now follow the steps below to add configurations to the sequence.
         - Client Secret - Value of your client secret given when you registered your application with Salesforce.
         - Client Id - The consumer key of the connected application that you created.
         - API URL - The instance URL for your organization. For example, `https://ap2.salesforce.com`.
-        - Timeout - You can control how long a user’s session lasts by setting the timeout value. This should be in milliseconds.
+        - Timeout - Timeout duration of the API request. This should be in milliseconds.
         - Username - The username for Salesforce.
         - Password - The password for Salesforce (need to append the password with security key).
         - Blocking - Indicates whether the connector needs to perform blocking invocations to Salesforce. This should be set to `true` or `false`.
