@@ -121,6 +121,29 @@ You can download the ZIP file and extract the contents to get the project code.
    ```
    The Kafka inbound endpoint gets the messages from the Kafka brokers and logs the messages in the Micro Integrator.
    
+## Configure inbound endpoint with Kafka Avro message
+You can setup WSO2 Micro Integrator inbound endpoint with Kafka Avro messaging format as well. Follow the instructions on [Setting up Kafka]({{base_path}}/reference/connectors/kafka-connector/setting-up-kafka/) to setup Kafka on the Micro Integrator. In inbound endpoint XML configurations, change the `value.deserializer` parameter to `io.confluent.kafka.serializers.KafkaAvroDeserializer` and `key.deserializer` parameter to `io.confluent.kafka.serializers.KafkaAvroDeserializer`. Add new parameter `schema.registry.url` and add schema registry URL in there. The following is the modiefied sample of the Kafka inbound endpoint:
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<inboundEndpoint name="KAFKAListenerEP" sequence="kafka_process_seq" onError="fault" class="org.wso2.carbon.inbound.kafka.KafkaMessageConsumer" suspend="false" xmlns="http://ws.apache.org/ns/synapse">
+   <parameters>
+     <parameter name="sequential">true</parameter>
+     <parameter name="interval">10</parameter>
+     <parameter name="coordination">true</parameter>
+     <parameter name="inbound.behavior">polling</parameter>
+     <parameter name="value.deserializer">io.confluent.kafka.serializers.KafkaAvroDeserializer</parameter>
+     <parameter name="topic.name">test</parameter>
+     <parameter name="poll.timeout">100</parameter>
+     <parameter name="bootstrap.servers">localhost:9092</parameter>
+     <parameter name="group.id">hello</parameter>
+     <parameter name="contentType">text/plain</parameter>
+     <parameter name="key.deserializer">io.confluent.kafka.serializers.KafkaAvroDeserializer</parameter>
+     <parameter name="schema.registry.url">http://localhost:8081/</parameter>
+   </parameters>
+</inboundEndpoint>
+```
+Makesure to start Kafka Schema Registry before starting up the Micro Integrator.
+
 ## What's next
 
 * You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
