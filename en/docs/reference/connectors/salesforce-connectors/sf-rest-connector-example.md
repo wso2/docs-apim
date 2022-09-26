@@ -45,25 +45,7 @@ Create the sequence needed to create Salesforce object. We will create two defin
 
 Now follow the steps below to add configurations to the sequence.
     
-1. Initialize the connector.
-    
-    1. Follow these steps to [generate the Access Tokens for Salesforce]({{base_path}}/reference/connectors/salesforce-connectors/sf-access-token-generation/) and obtain the Client Id, Client Secret, Access Token, and Refresh Token.
-    
-    2. Navigate into the **Palette** pane and select the graphical operations icons listed under **Salesforce Connector** section. Then drag and drop the `init` operation into the Design pane.
-        
-        <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-drag-and-drop-init.png" title="Drag and drop init operation" width="500" alt="Drag and drop init operation"/>
-        
-    3. Add the property values into the `init` operation as shown bellow. Replace the `clientSecret`, `clientId`, `accessToken`, `refreshToken` with obtained values from above steps.
-      
-        - **clientSecret** : Value of your client secret given when you registered your application with Salesforce.
-        - **clientId** : Value of your client ID given when you registered your application with Salesforce.
-        - **accessToken** : Value of the access token to access the API via request.
-        - **refreshToken** : Value of the refresh token.
-       
-        <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-api-init-operation-sequnce1.png" title="Add values to the init operation" width="800" alt="Add values to the init operation"/>
-    
-     
-2. Set up the created operation.
+- Set up the created operation.
 
     1. Setup the `create` sequence configurations. In this operation we are going to create a `sObjects` in the Salesforce account. An `SObject` represents a specific table in the database that you can discretely query. It describes the individual metadata for the specified object. Please find the `create` operation parameters listed here.
        
@@ -76,7 +58,26 @@ Now follow the steps below to add configurations to the sequence.
     
         <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-drag-and-drop-create.png" title="Drag and drop create operation" width="500" alt="Drag and drop create operations"/>
     
-    3. To get the input values in to the API we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator/). Navigate into the **Palette** pane and select the graphical mediators icons listed under **Mediators** section. Then drag and drop the `Property` mediators into the Design pane as shown bellow.
+    3. Create a connection from the properties window by clicking on the '+' icon
+
+    	In the popup window, the following parameters must be provided.
+
+	    - Connection Name - Unique name to identify the connection by.
+        - Connection Type - Type of the connection that specifies the protocol to be used.
+	    - Access Token - The access token to authenticate your API calls.
+        - API version - The version of the Salesforce API.
+        - Host Name - Salesforce OAuth endpoint when issuing authentication requests in your application. For example, `https://login.salesforce.com`.
+        - Refresh Token - Value of the refresh token.
+        - Refresh Token Endpoint - The endpoint of the refresh token.
+        - Client Secret - Value of your client secret given when you registered your application with Salesforce.
+        - Client Id - The consumer key of the connected application that you created.
+        - API URL - The instance URL for your organization. For example, `https://ap2.salesforce.com`.
+        - Timeout - Timeout duration of the API request. This should be in milliseconds.
+        - Username - The username for Salesforce.
+        - Password - The password for Salesforce (need to append the password with security key).
+        - Blocking - Indicates whether the connector needs to perform blocking invocations to Salesforce. This should be set to `true` or `false`.
+     
+     4. To get the input values in to the API we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator/). Navigate into the **Palette** pane and select the graphical mediators icons listed under **Mediators** section. Then drag and drop the `Property` mediators into the Design pane as shown bellow.
     
         <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-api-drag-and-drop-property-mediator.png" title="Add property mediators" width="800" alt="Add property mediators"/>
 
