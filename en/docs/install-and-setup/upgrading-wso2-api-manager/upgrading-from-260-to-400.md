@@ -2194,7 +2194,7 @@ Follow the instructions below to migrate existing API Manager resources from the
             CURRENCY VARCHAR(15) DEFAULT NULL NULL
         )
         /
-
+        
         CREATE TABLE AM_MONETIZATION_USAGE (
             ID VARCHAR(100) NOT NULL,
             STATE VARCHAR(50) NOT NULL,
@@ -2224,6 +2224,11 @@ Follow the instructions below to migrate existing API Manager resources from the
         ALTER TABLE AM_API_RATINGS
             ADD RATING_ID VARCHAR(255) DEFAULT (SYS_GUID()) NOT NULL
         /
+        
+        ALTER TABLE AM_API_RATINGS
+            ADD CONSTRAINT add_pk_ratings PRIMARY KEY (RATING_ID)
+        /
+
 
         CREATE TABLE AM_NOTIFICATION_SUBSCRIBER (
             UUID VARCHAR2(255),
