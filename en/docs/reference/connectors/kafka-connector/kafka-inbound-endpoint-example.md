@@ -142,7 +142,7 @@ You can setup WSO2 Micro Integrator inbound endpoint with Kafka Avro messaging f
    </parameters>
 </inboundEndpoint>
 ```
-Makesure to start Kafka Schema Registry before starting up the Micro Integrator.
+Make sure to start Kafka Schema Registry before starting up the Micro Integrator.
 
 ## What's next
 
