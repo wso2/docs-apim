@@ -19,3 +19,24 @@ Follow the instructions given below to import an integration artifact into WSO2 
 
 The artifacts are created in the `src/main/synapse-config/<artifact_type>` folder under the ESB project you specified. 
 
+!!! note
+
+	When importing artifacts with custom mediators, make sure the custom mediator name starts with the "CUSTOM_" prefix. 
+
+	!!! example 
+		```xml
+			<proxy name="example_proxy" startOnLoad="true" transports="http" xmlns="http://ws.apache.org/ns/synapse">
+				<target>
+					<inSequence>
+						<log level="custom"/>
+						<CUSTOM_mymediator>
+							...
+						</CUSTOM_mymediator>
+						<log level="full"/>
+					</inSequence>
+					<outSequence/>
+					<faultSequence/>
+				</target>
+			</proxy> 
+		```
+		
