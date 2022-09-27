@@ -10,6 +10,6 @@ To keep custom runtime artifacts deployed in the file system of the Gateway, add
 apis = ["api1.xml","api2.xml"]
 endpoints = ["endpoint1.xml"]
 sequences = ["post_with_nobody.xml"]
-local-entries = ["file.xml"]
+local_entries = ["file.xml"]
 
 ```
