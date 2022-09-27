@@ -16,19 +16,16 @@ The hostname verification is **disabled** by default. This is done using the `o
     -Dhttpclient.hostnameVerifier=AllowAll \
 ```
 
-When applying the strict hostname verification, you need to change the configuration in the `site/public/conf/settings.js` file of each webapp - Publisher, Developer Portal, and Admin.
+When applying the strict hostname verification, you need to change the configuration in the `site/public/conf/settings.js` file of the Publisher and Admin Portal and the `site/public/theme/setting.js` file of the Developer Portal.
 
-In the Developer Portal this path is a little different as it is available in `site/public/theme/setting.js` and the constant is `Settings` instead of `AppConfig` as shown below. 
 
 ```javascript
-const AppConfig = {
     app: {
         ...
         origin: {
             host: 'localhost',
         },
         ...
-}
 ```
 
 !!! note

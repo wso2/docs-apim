@@ -259,7 +259,7 @@ been removed from Hotspot JVM.</p>
 <td><p>Strict host verification</p>
 <p><br />
 </p></td>
-<td><p>To configure strict host verification, you can template the `site/public/conf/settings.js` file of each webapp - Publisher, Developer Portal, and Admin. You can template this file using a tool like Ansible if that is what you use now or you can maintain a template file for the settings.js alone as a customization where you can change it through the deployment.toml file.</p>
+<td><p>To configure strict host verification, you can template the <code>site/public/conf/settings.js</code> file of the Publisher and Admin Portal and the <code>site/public/theme/setting.js</code> file of the Developer Portal.</p>
 </td>
 </tr>
 </tbody>
