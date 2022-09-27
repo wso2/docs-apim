@@ -204,7 +204,7 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.7.0 to IS 5.11
         )
         /
 
-        CREATE SEQUENCE IDN_UMA_RESOURCE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        CREATE OR REPLACE SEQUENCE IDN_UMA_RESOURCE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
         /
         
         CREATE TRIGGER IDN_UMA_RESOURCE_TRIG NO CASCADE
@@ -233,7 +233,7 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.7.0 to IS 5.11
         )
         /
         
-        CREATE SEQUENCE IDN_UMA_RESOURCE_META_DATA_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        CREATE OR REPLACE SEQUENCE IDN_UMA_RESOURCE_META_DATA_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
         /
         
         CREATE TRIGGER IDN_UMA_RESOURCE_META_DATA_TRIG NO CASCADE
@@ -255,7 +255,7 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.7.0 to IS 5.11
         )
         /
         
-        CREATE SEQUENCE IDN_UMA_RESOURCE_SCOPE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        CREATE OR REPLACE SEQUENCE IDN_UMA_RESOURCE_SCOPE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
         /
         
         CREATE TRIGGER IDN_UMA_RESOURCE_SCOPE_TRIG  NO CASCADE
@@ -282,7 +282,7 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.7.0 to IS 5.11
         )
         /
         
-        CREATE SEQUENCE IDN_UMA_PERMISSION_TICKET_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        CREATE OR REPLACE SEQUENCE IDN_UMA_PERMISSION_TICKET_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
         /
         
         CREATE TRIGGER IDN_UMA_PERMISSION_TICKET_TRIG NO CASCADE
@@ -308,7 +308,7 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.7.0 to IS 5.11
         )
         /
         
-        CREATE SEQUENCE IDN_UMA_PT_RESOURCE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        CREATE OR REPLACE SEQUENCE IDN_UMA_PT_RESOURCE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
         /
         
         CREATE TRIGGER IDN_UMA_PT_RESOURCE_TRIG NO CASCADE
@@ -331,7 +331,7 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.7.0 to IS 5.11
         )
         /
         
-        CREATE SEQUENCE IDN_UMA_PT_RESOURCE_SCOPE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        CREATE OR REPLACE SEQUENCE IDN_UMA_PT_RESOURCE_SCOPE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
         /
         
         CREATE TRIGGER IDN_UMA_PT_RESOURCE_SCOPE_TRIG NO CASCADE
@@ -507,7 +507,17 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.7.0 to IS 5.11
         ```
     
         ```tab="Oracle"
-        CREATE TABLE IDN_UMA_RESOURCE (
+        CREATE OR REPLACE PROCEDURE add_if_not_exists (query IN VARCHAR2)
+        IS
+        BEGIN
+        execute immediate query;
+        dbms_output.put_line(query);
+        exception WHEN OTHERS THEN
+        if SQLCODE = -955 then null; else raise; end if;
+        END;
+        /
+
+        CALL add_if_not_exists('CREATE TABLE IDN_UMA_RESOURCE (
         ID                  INTEGER,
         RESOURCE_ID         VARCHAR2(255),
         RESOURCE_NAME       VARCHAR2(255),
@@ -517,10 +527,10 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.7.0 to IS 5.11
         TENANT_ID           INTEGER DEFAULT -1234,
         USER_DOMAIN         VARCHAR2(50),
         PRIMARY KEY (ID)
-        )
+        )')
         /
         
-        CREATE SEQUENCE IDN_UMA_RESOURCE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        CALL add_if_not_exists('CREATE SEQUENCE IDN_UMA_RESOURCE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE')
         /
         
         CREATE OR REPLACE TRIGGER IDN_UMA_RESOURCE_TRIG
@@ -533,23 +543,23 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.7.0 to IS 5.11
         END;
         /
         
-        CREATE INDEX IDX_RID ON IDN_UMA_RESOURCE (RESOURCE_ID)
+        CALL add_if_not_exists('CREATE INDEX IDX_RID ON IDN_UMA_RESOURCE (RESOURCE_ID)')
         /
         
-        CREATE INDEX IDX_USER ON IDN_UMA_RESOURCE (RESOURCE_OWNER_NAME, USER_DOMAIN)
+        CALL add_if_not_exists('CREATE INDEX IDX_USER ON IDN_UMA_RESOURCE (RESOURCE_OWNER_NAME, USER_DOMAIN)')
         /
         
-        CREATE TABLE IDN_UMA_RESOURCE_META_DATA (
+        CALL add_if_not_exists('CREATE TABLE IDN_UMA_RESOURCE_META_DATA (
         ID                INTEGER,
         RESOURCE_IDENTITY INTEGER                NOT NULL,
         PROPERTY_KEY      VARCHAR2(40),
         PROPERTY_VALUE    VARCHAR2(255),
         PRIMARY KEY (ID),
         FOREIGN KEY (RESOURCE_IDENTITY) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
-        )
+        )')
         /
         
-        CREATE SEQUENCE IDN_UMA_RESOURCE_META_DATA_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        CALL add_if_not_exists('CREATE SEQUENCE IDN_UMA_RESOURCE_META_DATA_SEQ START WITH 1 INCREMENT BY 1 NOCACHE')
         /
         
         CREATE OR REPLACE TRIGGER IDN_UMA_RESOURCE_METADATA_TRIG
@@ -562,16 +572,16 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.7.0 to IS 5.11
         END;
         /
         
-        CREATE TABLE IDN_UMA_RESOURCE_SCOPE (
+        CALL add_if_not_exists('CREATE TABLE IDN_UMA_RESOURCE_SCOPE (
         ID                INTEGER,
         RESOURCE_IDENTITY INTEGER                NOT NULL,
         SCOPE_NAME        VARCHAR2(255),
         PRIMARY KEY (ID),
         FOREIGN KEY (RESOURCE_IDENTITY) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
-        )
+        )')
         /
         
-        CREATE SEQUENCE IDN_UMA_RESOURCE_SCOPE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        CALL add_if_not_exists('CREATE SEQUENCE IDN_UMA_RESOURCE_SCOPE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE')
         /
         
         CREATE OR REPLACE TRIGGER IDN_UMA_RESOURCE_SCOPE_TRIG
@@ -584,21 +594,21 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.7.0 to IS 5.11
         END;
         /
         
-        CREATE INDEX IDX_RS ON IDN_UMA_RESOURCE_SCOPE (SCOPE_NAME)
+        CALL add_if_not_exists('CREATE INDEX IDX_RS ON IDN_UMA_RESOURCE_SCOPE (SCOPE_NAME)')
         /
         
-        CREATE TABLE IDN_UMA_PERMISSION_TICKET (
+        CALL add_if_not_exists('CREATE TABLE IDN_UMA_PERMISSION_TICKET (
         ID              INTEGER,
         PT              VARCHAR2(255)           NOT NULL,
         TIME_CREATED    TIMESTAMP              NOT NULL,
         EXPIRY_TIME     TIMESTAMP              NOT NULL,
-        TICKET_STATE    VARCHAR2(25) DEFAULT 'ACTIVE',
+        TICKET_STATE    VARCHAR2(25) DEFAULT ''ACTIVE'',
         TENANT_ID       INTEGER     DEFAULT -1234,
         PRIMARY KEY (ID)
-        )
+        )')
         /
         
-        CREATE SEQUENCE IDN_UMA_PERMISSION_TICKET_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        CALL add_if_not_exists('CREATE SEQUENCE IDN_UMA_PERMISSION_TICKET_SEQ START WITH 1 INCREMENT BY 1 NOCACHE')
         /
         
         CREATE OR REPLACE TRIGGER IDN_UMA_PERMISSION_TICKET_TRIG
@@ -611,20 +621,20 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.7.0 to IS 5.11
         END;
         /
         
-        CREATE INDEX IDX_PT ON IDN_UMA_PERMISSION_TICKET (PT)
+        CALL add_if_not_exists('CREATE INDEX IDX_PT ON IDN_UMA_PERMISSION_TICKET (PT)')
         /
         
-        CREATE TABLE IDN_UMA_PT_RESOURCE (
+        CALL add_if_not_exists('CREATE TABLE IDN_UMA_PT_RESOURCE (
         ID             INTEGER,
         PT_RESOURCE_ID INTEGER                NOT NULL,
         PT_ID          INTEGER                NOT NULL,
         PRIMARY KEY (ID),
         FOREIGN KEY (PT_ID) REFERENCES IDN_UMA_PERMISSION_TICKET (ID) ON DELETE CASCADE,
         FOREIGN KEY (PT_RESOURCE_ID) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
-        )
+        )')
         /
         
-        CREATE SEQUENCE IDN_UMA_PT_RESOURCE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        CALL add_if_not_exists('CREATE SEQUENCE IDN_UMA_PT_RESOURCE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE')
         /
         
         CREATE OR REPLACE TRIGGER IDN_UMA_PT_RESOURCE_TRIG
@@ -637,17 +647,17 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.7.0 to IS 5.11
         END;
         /
         
-        CREATE TABLE IDN_UMA_PT_RESOURCE_SCOPE (
+        CALL add_if_not_exists('CREATE TABLE IDN_UMA_PT_RESOURCE_SCOPE (
         ID             INTEGER,
         PT_RESOURCE_ID INTEGER                NOT NULL,
         PT_SCOPE_ID    INTEGER                NOT NULL,
         PRIMARY KEY (ID),
         FOREIGN KEY (PT_RESOURCE_ID) REFERENCES IDN_UMA_PT_RESOURCE (ID) ON DELETE CASCADE,
         FOREIGN KEY (PT_SCOPE_ID) REFERENCES IDN_UMA_RESOURCE_SCOPE (ID) ON DELETE CASCADE
-        )
+        )')
         /
         
-        CREATE SEQUENCE IDN_UMA_PT_RESOURCE_SCOPE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        CALL add_if_not_exists('CREATE SEQUENCE IDN_UMA_PT_RESOURCE_SCOPE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE')
         /
         
         CREATE OR REPLACE TRIGGER IDN_UMA_PT_RESOURCE_SCOPE_TRIG
@@ -658,6 +668,9 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.7.0 to IS 5.11
         BEGIN
         SELECT IDN_UMA_PT_RESOURCE_SCOPE_SEQ.nextval INTO :NEW.ID FROM dual;
         END;
+        /
+        
+        DROP PROCEDURE add_if_not_exists
         /
         ```
     
