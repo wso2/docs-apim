@@ -16,6 +16,20 @@ The hostname verification is **disabled** by default. This is done using the `o
     -Dhttpclient.hostnameVerifier=AllowAll \
 ```
 
+!!! note "Strict hostname verification"
+
+    When applying the strict hostname verification, you need to change the configuration in the `site/public/conf/settings.js` file of the Publisher and Admin Portal and the `site/public/theme/setting.js` file of the Developer Portal.
+
+
+    ```javascript
+        app: {
+            ...
+            origin: {
+                host: 'localhost',
+            },
+            ...
+    ```
+
 !!! note
     The values you can use with this `httpclient.hostnameVerifier` property are explained below. Note that these values will behave the same as synapse hostname verification options.
     
