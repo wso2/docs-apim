@@ -134,7 +134,6 @@ Follow the instructions given below to configure the Gateway node so that it can
       
       ```toml tab="Traffic Manager with HA"
       [apim.throttling]
-      service_url = "https://[traffic-manager-LB-host]/services/"
       throttle_decision_endpoints = ["tcp://traffic-manager-1-host:5672", "tcp://Traffic-Manager-2-host:5672"]
 
       [[apim.throttling.url_group]]
@@ -149,7 +148,6 @@ Follow the instructions given below to configure the Gateway node so that it can
 
       ```toml tab="Single Traffic Manager"
       [apim.throttling]
-      service_url = "https://[traffic-manager-host]:${mgt.transport.https.port}/services/"
       throttle_decision_endpoints = ["tcp://traffic-manager-host:5672"]
 
       [[apim.throttling.url_group]]
@@ -191,7 +189,7 @@ Follow the instructions given below to configure the Gateway node so that it can
             apis = ["api1.xml","api2.xml"]
             endpoints = ["endpoint1.xml"]
             sequences = ["post_with_nobody.xml"]
-            local-entries = ["file.xml"]
+            local_entries = ["file.xml"]
 
             ```
 
@@ -248,10 +246,11 @@ create_admin_account = true
 
 [database.shared_db]
 type = "mysql"
-url = "jdbc:mysql://mysql:3306/WSO2SHARED_DB?autoReconnect=true&amp;useSSL=false&amp;allowPublicKeyRetrieval=true"
-username = "wso2carbon"
-password = "wso2carbon"
-driver = "com.mysql.cj.jdbc.Driver"
+hostname = "db.wso2.com"
+name = "shared_db"
+port = "3306"
+username = "sharedadmin"
+password = "sharedadmin"
 
 [keystore.tls]
 file_name =  "wso2carbon.jks"
@@ -265,15 +264,17 @@ file_name = "client-truststore.jks"
 type = "JKS"
 password = "wso2carbon"
 
-[transport.https.properties]
-proxyPort = 443
+[transport.http]
+properties.port = 9763
+properties.proxyPort = 80
+
+[transport.https]
+properties.port = 9443
+properties.proxyPort = 443
 
 # key manager implementation
 [apim.key_manager]
 service_url = "https://api.am.wso2.com/services/"
-username= "$ref{super_admin.username}"
-password= "$ref{super_admin.password}"
-type = "default"
 
 [apim.sync_runtime_artifacts.gateway]
 gateway_labels =["Default"]
@@ -288,13 +289,6 @@ event_listening_endpoints = ["tcp://apim-cp-1:5672", "tcp://apim-cp-2:5672"]
 
 # Traffic Manager configurations
 [apim.throttling]
-service_url = "https://tm.am.wso2.com/services/"
-username = "$ref{super_admin.username}"
-password = "$ref{super_admin.password}"
-enable_unlimited_tier = true
-enable_header_based_throttling = true
-enable_jwt_claim_based_throttling = true
-enable_query_param_based_throttling = true
 throttle_decision_endpoints = ["tcp://traffic-manager-1:5672", "tcp://traffic-manager-2:5672"]
 
 [[apim.throttling.url_group]]
@@ -347,7 +341,6 @@ password = "$ref{super_admin.password}"
 
 # Traffic Manager configurations
 [apim.throttling]
-service_url = "https://tm.wso2.com:9443/services/"
 throttle_decision_endpoints = ["tcp://tm.wso2.com:5672"]
 
 [[apim.throttling.url_group]]
@@ -522,17 +515,19 @@ create_admin_account = true
 
 [database.apim_db]
 type = "mysql"
-url = "jdbc:mysql://mysql:3306/WSO2AM_DB?autoReconnect=true&amp;useSSL=false&amp;allowPublicKeyRetrieval=true"
-username = "wso2carbon"
-password = "wso2carbon"
-driver = "com.mysql.cj.jdbc.Driver"
+hostname = "db.wso2.com"
+name = "apim_db"
+port = "3306"
+username = "apimadmin"
+password = "apimadmin"
 
 [database.shared_db]
 type = "mysql"
-url = "jdbc:mysql://mysql:3306/WSO2SHARED_DB?autoReconnect=true&amp;useSSL=false&amp;allowPublicKeyRetrieval=true"
-username = "wso2carbon"
-password = "wso2carbon"
-driver = "com.mysql.cj.jdbc.Driver"
+hostname = "db.wso2.com"
+name = "shared_db"
+port = "3306"
+username = "sharedadmin"
+password = "sharedadmin"
 
 [keystore.tls]
 file_name =  "wso2carbon.jks"
@@ -621,16 +616,16 @@ type = "mysql"
 hostname = "db.wso2.com"
 name = "apim_db"
 port = "3306"
-username = "root"
-password = "root"
+username = "apimadmin"
+password = "apimadmin"
 
 [database.shared_db]
 type = "mysql"
 hostname = "db.wso2.com"
 name = "shared_db"
 port = "3306"
-username = "root"
-password = "root"
+username = "sharedadmin"
+password = "sharedadmin"
 
 [keystore.tls]
 file_name =  "wso2carbon.jks"
@@ -762,10 +757,11 @@ create_admin_account = true
 
 [database.shared_db]
 type = "mysql"
-url = "jdbc:mysql://mysql:3306/WSO2AM_SHARED_DB?autoReconnect=true&amp;useSSL=false&amp;allowPublicKeyRetrieval=true"
-username = "wso2carbon"
-password = "wso2carbon"
-driver = "com.mysql.cj.jdbc.Driver"
+hostname = "db.wso2.com"
+name = "shared_db"
+port = "3306"
+username = "sharedadmin"
+password = "sharedadmin"
 
 [keystore.tls]
 file_name =  "wso2carbon.jks"

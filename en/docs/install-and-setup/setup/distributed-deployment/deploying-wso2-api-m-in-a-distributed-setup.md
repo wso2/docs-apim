@@ -115,13 +115,13 @@ Configure the Gateway to communicate with the Control Plane.
     ```
 
     ```toml tab="Single Control Plane"
-    [[apim.throttling.url_group]]
-    traffic_manager_urls = ["tcp://control-plane-host:9611"]
-    traffic_manager_auth_urls = ["ssl://control-plane-host:9711"]
-
     [apim.throttling]
     service_url = "https://control-plane-host:${mgt.transport.https.port}/services/"
     throttle_decision_endpoints = ["tcp://control-plane-host:5672"]
+
+    [[apim.throttling.url_group]]
+    traffic_manager_urls = ["tcp://control-plane-host:9611"]
+    traffic_manager_auth_urls = ["ssl://control-plane-host:9711"]
     ```
 
     !!! Info
