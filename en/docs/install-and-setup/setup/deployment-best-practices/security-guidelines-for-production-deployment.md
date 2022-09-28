@@ -255,13 +255,6 @@ been removed from Hotspot JVM.</p>
 <td><p>For password recovery, you can define a regular expression to validate the callback URL. The default configuration allows any callback URL. Note that if you are using the recovery option, it is highly recommended to define the regular expression that validates and only allows access to specific callback URLs.</p>
 </td>
 </tr>
-<tr class="odd">
-<td><p>Strict host verification</p>
-<p><br />
-</p></td>
-<td><p>To configure strict host verification, you can template the <code>site/public/conf/settings.js</code> file of the Publisher and Admin Portal and the <code>site/public/theme/setting.js</code> file of the Developer Portal.</p>
-</td>
-</tr>
 </tbody>
 </table>
 
