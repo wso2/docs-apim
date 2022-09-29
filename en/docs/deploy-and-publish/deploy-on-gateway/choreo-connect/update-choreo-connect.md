@@ -61,7 +61,7 @@ enforcer:
 ```
 
 !!! Info
-    For more details on versioning, you may follow through the documentation on [Docker image tags with Updates 2.0](https://updates.docs.wso2.com/en/latest/updates/using-wso2-docker-images/).
+    For more details on versioning, refer to the documentation on [Docker image tags with Updates 2.0](https://updates.docs.wso2.com/en/latest/updates/using-wso2-docker-images/).
 
 You will be able to use the **Updates Portal** to see more details about these update levels in Docker image tags, which will be covered in the next section.
 
