@@ -1407,23 +1407,7 @@ Follow the instructions below to configure WSO2 API Manager Analytics for the WS
 
 #### Step 3.3 - Configure WSO2 API-M 3.2.0 for Analytics
 
-Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M Analytics migration in order to migrate the statistics related data.
-
-1.  Configure the following datasources in the `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file.
-
-    The following is an example of how the configurations should be defined when using MySQL.
-
-    This datasource points to the **previous API-M version's WSO2AM_DB datasource.**
-
-    ``` java
-    [database.apim_db]
-    type = "mysql"
-    url = "jdbc:mysql://localhost:3306/am_db"
-    username = "username"
-    password = "password"
-    ```
-
-2.  Enable analytics in WSO2 API-M by setting the following configuration to true in the `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file.
+Enable analytics in WSO2 API-M by setting the following configuration to true in the `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file.
 
     ``` java
     [apim.analytics]
