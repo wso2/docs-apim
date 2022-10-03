@@ -164,7 +164,7 @@ Follow the instructions below to move all the existing API Manager configuration
         gateway_labels = ["Test"]
         ```
 
-5. Run the following script on the registry database to add registry index `REG_RESC_PROP_BY_REG_PROP_ID`.
+5.  Run the following script on the registry database to add missing registry indices.
 
 
     ```tab="DB2"

@@ -164,8 +164,8 @@ Follow the instructions below to upgrade your WSO2 API Manager server **from WSO
         [apim.sync_runtime_artifacts.gateway]
         gateway_labels = ["Test"]
         ```
-   
-4. Run the following script on the registry database to add registry index `REG_RESC_PROP_BY_REG_PROP_ID`.
+
+4. Run the following script on the registry database to add missing registry indices.
 
     ```tab="DB2"
     CREATE INDEX REG_TAG_IND_BY_TG1
