@@ -38,6 +38,51 @@ Follow the instructions below to upgrade your WSO2 API Manager server **from WSO
 <!-- omit in toc -->
 ### Preparing for Migration
 <!-- omit in toc -->
+
+#### Creating registry indices
+
+Run the following script on the registry database to add missing registry indices.
+
+??? info "DB Scripts"
+
+       ```tab="DB2"
+       CREATE INDEX REG_TAG_IND_BY_TG1
+       ON REG_RESOURCE_TAG(REG_TAG_ID, REG_TENANT_ID)/
+      
+       CREATE INDEX REG_RESC_PROP_BY_3
+       ON REG_RESOURCE_PROPERTY(REG_TENANT_ID,REG_PROPERTY_ID)/
+       ```
+
+       ```tab="MSSQL"
+       IF EXISTS (SELECT NAME FROM SYSINDEXES WHERE NAME = 'REG_RESOURCE_TAG_IND_BY_REG_TAG_ID')
+       DROP INDEX REG_RESOURCE_TAG.REG_RESOURCE_TAG_IND_BY_REG_TAG_ID
+       CREATE INDEX REG_RESOURCE_TAG_IND_BY_REG_TAG_ID ON REG_RESOURCE_TAG(REG_TAG_ID, REG_TENANT_ID);
+      
+       IF EXISTS (SELECT NAME FROM SYSINDEXES WHERE NAME = 'REG_RESOURCE_PROPERTY_IND_BY_REG_PROP_ID')
+       DROP INDEX REG_RESOURCE_PROPERTY.REG_RESOURCE_PROPERTY_IND_BY_REG_PROP_ID
+       CREATE INDEX REG_RESOURCE_PROPERTY_IND_BY_REG_PROP_ID ON REG_RESOURCE_PROPERTY(REG_TENANT_ID, REG_PROPERTY_ID);
+       ```
+   
+       ```tab="MySQL"
+       CREATE INDEX REG_RESOURCE_TAG_IND_BY_REG_TAG_ID USING HASH ON REG_RESOURCE_TAG(REG_TAG_ID, REG_TENANT_ID);
+       
+       CREATE INDEX REG_RESOURCE_PROPERTY_IND_BY_REG_PROP_ID ON REG_RESOURCE_PROPERTY(REG_TENANT_ID, REG_PROPERTY_ID);
+       ```
+      
+       ```tab="Oracle"
+       CREATE INDEX REG_TAG_IND_BY_TAG_ID ON REG_RESOURCE_TAG(REG_TAG_ID, REG_TENANT_ID)
+       /
+      
+       CREATE INDEX REG_RESC_PROP_BY_REG_PROP_ID ON REG_RESOURCE_PROPERTY(REG_TENANT_ID,REG_PROPERTY_ID)
+       /
+       ```
+       
+       ```tab="PostgreSQL"
+       CREATE INDEX REG_RESOURCE_TAG_IND_BY_REG_TAG_ID ON REG_RESOURCE_TAG(REG_TAG_ID, REG_TENANT_ID);
+
+       CREATE INDEX REG_RESOURCE_PROPERTY_IND_BY_REG_PROP_ID ON REG_RESOURCE_PROPERTY(REG_TENANT_ID, REG_PROPERTY_ID);
+       ```
+
 #### Disabling versioning in the registry configuration if it was enabled
 
 If there are frequently updating registry properties, having the versioning enabled for registry resources in the registry can lead to unnecessary growth in the registry related tables in the database. To avoid this, versioning has been disabled by default from API Manager 3.0.0 onwards.
