@@ -164,7 +164,49 @@ Follow the instructions below to move all the existing API Manager configuration
         gateway_labels = ["Test"]
         ```
 
-5. Disable versioning in the registry configuration
+5.  Run the following script on the registry database to add missing registry indices.
+
+
+    ```tab="DB2"
+    CREATE INDEX REG_TAG_IND_BY_TG1
+    ON REG_RESOURCE_TAG(REG_TAG_ID, REG_TENANT_ID)/
+   
+    CREATE INDEX REG_RESC_PROP_BY_3
+    ON REG_RESOURCE_PROPERTY(REG_TENANT_ID,REG_PROPERTY_ID)/
+    ```
+
+    ```tab="MSSQL"
+    IF EXISTS (SELECT NAME FROM SYSINDEXES WHERE NAME = 'REG_RESOURCE_TAG_IND_BY_REG_TAG_ID')
+    DROP INDEX REG_RESOURCE_TAG.REG_RESOURCE_TAG_IND_BY_REG_TAG_ID
+    CREATE INDEX REG_RESOURCE_TAG_IND_BY_REG_TAG_ID ON REG_RESOURCE_TAG(REG_TAG_ID, REG_TENANT_ID);
+   
+    IF EXISTS (SELECT NAME FROM SYSINDEXES WHERE NAME = 'REG_RESOURCE_PROPERTY_IND_BY_REG_PROP_ID')
+    DROP INDEX REG_RESOURCE_PROPERTY.REG_RESOURCE_PROPERTY_IND_BY_REG_PROP_ID
+    CREATE INDEX REG_RESOURCE_PROPERTY_IND_BY_REG_PROP_ID ON REG_RESOURCE_PROPERTY(REG_TENANT_ID, REG_PROPERTY_ID);
+    ```
+
+    ```tab="MySQL"
+    CREATE INDEX REG_RESOURCE_TAG_IND_BY_REG_TAG_ID USING HASH ON REG_RESOURCE_TAG(REG_TAG_ID, REG_TENANT_ID);
+    
+    CREATE INDEX REG_RESOURCE_PROPERTY_IND_BY_REG_PROP_ID ON REG_RESOURCE_PROPERTY(REG_TENANT_ID, REG_PROPERTY_ID);
+    ```
+   
+    ```tab="Oracle"
+    CREATE INDEX REG_TAG_IND_BY_TAG_ID ON REG_RESOURCE_TAG(REG_TAG_ID, REG_TENANT_ID)
+    /
+   
+    CREATE INDEX REG_RESC_PROP_BY_REG_PROP_ID ON REG_RESOURCE_PROPERTY(REG_TENANT_ID,REG_PROPERTY_ID)
+    /
+    ```
+    
+    ```tab="PostgreSQL"
+    CREATE INDEX REG_RESOURCE_TAG_IND_BY_REG_TAG_ID ON REG_RESOURCE_TAG(REG_TAG_ID, REG_TENANT_ID);
+    CREATE INDEX REG_RESOURCE_PROPERTY_IND_BY_REG_PROP_ID ON REG_RESOURCE_PROPERTY(REG_TENANT_ID, REG_PROPERTY_ID);
+    ```
+
+
+
+6. Disable versioning in the registry configuration
 
     If there are frequently updating registry properties, having the versioning enabled for registry resources in the registry can lead to unnecessary growth in the registry related tables in the database. To avoid this, versioning has been disabled by default in API Manager 4.1.0.
     
@@ -405,7 +447,7 @@ Follow the instructions below to move all the existing API Manager configuration
         !!! note "NOTE"
             Changing these configurations should only be done before the initial API-M Server startup. If changes are done after the initial startup, the registry resource created previously will not be available.
 
-6.  If you have enabled any other feature related configurations at `<API-M_4.1.0_HOME>/repository/conf/deployment.toml`, make sure to add them in to `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file.
+7. If you have enabled any other feature related configurations at `<API-M_4.1.0_HOME>/repository/conf/deployment.toml`, make sure to add them in to `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file.
 
 ### Step 2: Migrate the API Manager Resources
 

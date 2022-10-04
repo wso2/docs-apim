@@ -124,7 +124,7 @@ Follow the instructions below to upgrade your WSO2 API Manager server **from WSO
         validationQuery = "SELECT 1 FROM DUAL"
         ```    
 
-2.   If you have used separate DB for user management, you need to update `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the correct database for user management purposes.
+2. If you have used separate DB for user management, you need to update `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the correct database for user management purposes.
      
     ```
     [realm_manager]
@@ -164,8 +164,47 @@ Follow the instructions below to upgrade your WSO2 API Manager server **from WSO
         [apim.sync_runtime_artifacts.gateway]
         gateway_labels = ["Test"]
         ```
+
+4. Run the following script on the registry database to add missing registry indices.
+
+    ```tab="DB2"
+    CREATE INDEX REG_TAG_IND_BY_TG1
+    ON REG_RESOURCE_TAG(REG_TAG_ID, REG_TENANT_ID)/
    
-4. If you have enabled any other feature related configurations at `<API-M_4.1.0_HOME>/repository/conf/deployment.toml`, make sure to add them in to `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file.
+    CREATE INDEX REG_RESC_PROP_BY_3
+    ON REG_RESOURCE_PROPERTY(REG_TENANT_ID,REG_PROPERTY_ID)/
+    ```
+
+    ```tab="MSSQL"
+    IF EXISTS (SELECT NAME FROM SYSINDEXES WHERE NAME = 'REG_RESOURCE_TAG_IND_BY_REG_TAG_ID')
+    DROP INDEX REG_RESOURCE_TAG.REG_RESOURCE_TAG_IND_BY_REG_TAG_ID
+    CREATE INDEX REG_RESOURCE_TAG_IND_BY_REG_TAG_ID ON REG_RESOURCE_TAG(REG_TAG_ID, REG_TENANT_ID);
+   
+    IF EXISTS (SELECT NAME FROM SYSINDEXES WHERE NAME = 'REG_RESOURCE_PROPERTY_IND_BY_REG_PROP_ID')
+    DROP INDEX REG_RESOURCE_PROPERTY.REG_RESOURCE_PROPERTY_IND_BY_REG_PROP_ID
+    CREATE INDEX REG_RESOURCE_PROPERTY_IND_BY_REG_PROP_ID ON REG_RESOURCE_PROPERTY(REG_TENANT_ID, REG_PROPERTY_ID);
+    ```
+
+    ```tab="MySQL"
+    CREATE INDEX REG_RESOURCE_TAG_IND_BY_REG_TAG_ID USING HASH ON REG_RESOURCE_TAG(REG_TAG_ID, REG_TENANT_ID);
+    
+    CREATE INDEX REG_RESOURCE_PROPERTY_IND_BY_REG_PROP_ID ON REG_RESOURCE_PROPERTY(REG_TENANT_ID, REG_PROPERTY_ID);
+    ```
+   
+    ```tab="Oracle"
+    CREATE INDEX REG_TAG_IND_BY_TAG_ID ON REG_RESOURCE_TAG(REG_TAG_ID, REG_TENANT_ID)
+    /
+   
+    CREATE INDEX REG_RESC_PROP_BY_REG_PROP_ID ON REG_RESOURCE_PROPERTY(REG_TENANT_ID,REG_PROPERTY_ID)
+    /
+    ```
+    
+    ```tab="PostgreSQL"
+    CREATE INDEX REG_RESOURCE_TAG_IND_BY_REG_TAG_ID ON REG_RESOURCE_TAG(REG_TAG_ID, REG_TENANT_ID);
+    CREATE INDEX REG_RESOURCE_PROPERTY_IND_BY_REG_PROP_ID ON REG_RESOURCE_PROPERTY(REG_TENANT_ID, REG_PROPERTY_ID);
+    ```
+   
+5. If you have enabled any other feature related configurations at `<API-M_4.1.0_HOME>/repository/conf/deployment.toml`, make sure to add them in to `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file.
 
 ### Step 2: Migrate the API Manager Resources
 

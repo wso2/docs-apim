@@ -148,7 +148,47 @@ Follow the instructions below to move all the existing API Manager configuration
 
        ```
 
-5. If you have enabled any other feature related configurations at `<API-M_4.0.0_HOME>/repository/conf/deployment.toml`, make sure to add them in to `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file.
+5.  Run the following script on the registry database to add missing registry indices.
+
+
+    ```tab="DB2"
+    CREATE INDEX REG_TAG_IND_BY_TG1
+    ON REG_RESOURCE_TAG(REG_TAG_ID, REG_TENANT_ID)/
+   
+    CREATE INDEX REG_RESC_PROP_BY_3
+    ON REG_RESOURCE_PROPERTY(REG_TENANT_ID,REG_PROPERTY_ID)/
+    ```
+
+    ```tab="MSSQL"
+    IF EXISTS (SELECT NAME FROM SYSINDEXES WHERE NAME = 'REG_RESOURCE_TAG_IND_BY_REG_TAG_ID')
+    DROP INDEX REG_RESOURCE_TAG.REG_RESOURCE_TAG_IND_BY_REG_TAG_ID
+    CREATE INDEX REG_RESOURCE_TAG_IND_BY_REG_TAG_ID ON REG_RESOURCE_TAG(REG_TAG_ID, REG_TENANT_ID);
+   
+    IF EXISTS (SELECT NAME FROM SYSINDEXES WHERE NAME = 'REG_RESOURCE_PROPERTY_IND_BY_REG_PROP_ID')
+    DROP INDEX REG_RESOURCE_PROPERTY.REG_RESOURCE_PROPERTY_IND_BY_REG_PROP_ID
+    CREATE INDEX REG_RESOURCE_PROPERTY_IND_BY_REG_PROP_ID ON REG_RESOURCE_PROPERTY(REG_TENANT_ID, REG_PROPERTY_ID);
+    ```
+
+    ```tab="MySQL"
+    CREATE INDEX REG_RESOURCE_TAG_IND_BY_REG_TAG_ID USING HASH ON REG_RESOURCE_TAG(REG_TAG_ID, REG_TENANT_ID);
+    
+    CREATE INDEX REG_RESOURCE_PROPERTY_IND_BY_REG_PROP_ID ON REG_RESOURCE_PROPERTY(REG_TENANT_ID, REG_PROPERTY_ID);
+    ```
+   
+    ```tab="Oracle"
+    CREATE INDEX REG_TAG_IND_BY_TAG_ID ON REG_RESOURCE_TAG(REG_TAG_ID, REG_TENANT_ID)
+    /
+   
+    CREATE INDEX REG_RESC_PROP_BY_REG_PROP_ID ON REG_RESOURCE_PROPERTY(REG_TENANT_ID,REG_PROPERTY_ID)
+    /
+    ```
+    
+    ```tab="PostgreSQL"
+    CREATE INDEX REG_RESOURCE_TAG_IND_BY_REG_TAG_ID ON REG_RESOURCE_TAG(REG_TAG_ID, REG_TENANT_ID);
+    CREATE INDEX REG_RESOURCE_PROPERTY_IND_BY_REG_PROP_ID ON REG_RESOURCE_PROPERTY(REG_TENANT_ID, REG_PROPERTY_ID);
+    ```
+
+6. If you have enabled any other feature related configurations at `<API-M_4.0.0_HOME>/repository/conf/deployment.toml`, make sure to add them in to `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file.
 
 !!! note
     If the older API-M setup has been configured for a different admin role other than admin and if the role is not persisted in read-only userstore, make sure not to change the `admin_role` configuration in the deployment.toml this time. You have to configure it after step 4.
