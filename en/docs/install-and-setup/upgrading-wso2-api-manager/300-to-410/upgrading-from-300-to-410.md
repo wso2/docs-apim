@@ -211,10 +211,6 @@ Follow the instructions below to move all the existing API Manager configuration
     If there are frequently updating registry properties, having the versioning enabled for registry resources in the registry can lead to unnecessary growth in the registry related tables in the database. To avoid this, versioning has been disabled by default in API Manager 4.1.0.
     
     Therefore, if registry versioning was enabled in WSO2 API-M 3.0.0 setup, it is **required** run the below scripts against **the database that is used by the registry**. Follow the below steps to achieve this.
-    
-    !!! note "NOTE"
-        Alternatively, it is possible to turn on registry versioning in API Manager 4.1.0 and continue. But this is
-        highly **NOT RECOMMENDED** and these configurations should only be changed once.
         
     !!! info "Verifying registry versioning turned on in your current API-M and running the scripts"
         Open the `registry.xml` file in the `<OLD_API-M_HOME>/repository/conf` directory.
@@ -435,17 +431,6 @@ Follow the instructions below to move all the existing API Manager configuration
                 
                 UPDATE REG_RESOURCE_RATING SET REG_RESOURCE_NAME=(SELECT REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_RATING.REG_VERSION);
                 ```
-    
-    !!! warning "Not recommended"
-        If you decide to proceed with registry resource versioning enabled, Add the following configuration to the `<NEW_API-M_HOME>/repository/conf/deployment.toml` file of new WSO2 API Manager.
-        
-        ```
-        [registry.static_configuration]
-        enable=true
-        ```
-            
-        !!! note "NOTE"
-            Changing these configurations should only be done before the initial API-M Server startup. If changes are done after the initial startup, the registry resource created previously will not be available.
 
 7. If you have enabled any other feature related configurations at `<API-M_4.1.0_HOME>/repository/conf/deployment.toml`, make sure to add them in to `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file.
 
