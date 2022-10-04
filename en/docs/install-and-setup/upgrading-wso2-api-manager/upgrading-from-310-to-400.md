@@ -39,7 +39,9 @@ Follow the instructions below to upgrade your WSO2 API Manager server **from WSO
 ### Preparing for Migration
 <!-- omit in toc -->
 
-#### Run the following script on the registry database to add missing registry indices.
+#### Creating registry indices
+
+Run the following script on the registry database to add missing registry indices.
 
 ??? info "DB Scripts"
 

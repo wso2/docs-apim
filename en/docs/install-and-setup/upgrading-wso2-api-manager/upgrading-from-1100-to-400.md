@@ -21,7 +21,9 @@ Before you begin:
     
 ### Preparing for Migration
 
-#### Run the following script on the registry database to add missing registry indices.
+#### Creating registry indices
+
+Run the following script on the registry database to add missing registry indices.
 
 ??? info "DB Scripts"
 
