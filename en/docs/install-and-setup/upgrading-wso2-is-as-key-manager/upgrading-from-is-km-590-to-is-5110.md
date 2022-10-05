@@ -851,7 +851,7 @@ Follow step 1 to step 3 below to upgrade your IS as Key Manager 5.9.0 to IS 5.11
               
 ## Step B - Upgrade API Manager 3.0.0 to 4.1.0
 
-Follow the steps mentioned in [Upgrading API-M from 3.0.0 to 4.1.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-410/) to upgrade your API-M environment from 3.0.0 to 4.1.0.
+Follow the steps mentioned in [Upgrading API-M from 3.0.0 to 4.1.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/300-to-410/upgrading-from-300-to-410/) to upgrade your API-M environment from 3.0.0 to 4.1.0.
 
 !!! important
 
