@@ -2420,6 +2420,6 @@ enabled = true</code></pre>
         <td width="20%">TRUST_DEFAULT_CERTS</td>
         <td width="15%">true / false</td>
         <td width="15%">true</td>
-        <td width="50%">When set to true, loads the trusted root certificates in the <code><JAVA_HOME>/lib/security/cacerts</code> location to the Enforcer truststore, and set this to false to avoid loading them.</td>
+        <td width="50%">When set to true, loads the trusted root certificates in the <code>&lt;JAVA_HOME&gt;/lib/security/cacerts</code> location to the Enforcer truststore, and set this to false to avoid loading them.</td>
     </tr>
 </table>
