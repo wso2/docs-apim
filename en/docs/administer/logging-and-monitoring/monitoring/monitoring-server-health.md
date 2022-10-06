@@ -32,6 +32,21 @@ This section guides you through deploying the Carbon Health Check components in 
 
 5. Copy the webapp `api#health-check#v1.0.war`, which is found in the `<HEALTH_CHECK_HOME>/components/org.wso2.carbon.healthcheck.api.endpoint/target/` directory and paste it in the `<API-M_HOME>/repository/deployment/server/webapps` directory.
 
+6. Copy the `health-check.config.xml` configuration file found in the `<API_HOME>/features/org.wso2.carbon.healthcheck.server_1.0.0` directory to your `<PRODUCT_HOME>/repository/conf/` directory.
+
+7. Correct the health check related configurations as indicated below in the `<API-M-HOME>/repository/conf/deployment.toml` file.
+
+    ```toml
+    [carbon_health_check]
+    enable= true
+
+    [carbon_health_check.health_checker.data_source_health_checker.properties]
+    'monitored.datasources' = "jdbc/WSO2CarbonDB,jdbc/WSO2AM_DB,jdbc/SHARED_DB"
+
+    [carbon_health_check.health_checker.super_tenant_health_checker.properties]
+    {% raw %}{{'monitored.user.stores' = "primary" }}{% endraw %}
+    ```
+
 ### Step 2 - Configure the Health Checker global configurations
 
 1. Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` configuration file.
