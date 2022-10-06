@@ -373,7 +373,7 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Mana
         -Dmigrate -Dcomponent=identity
         ```
          
-    -   If you followed step 8 above, and want to use the latest user store, update the `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` as follows after the identity migration,
+    -   If you followed step 9 above, and want to use the latest user store, update the `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` as follows after the identity migration,
     
         ```
         [user_store]
