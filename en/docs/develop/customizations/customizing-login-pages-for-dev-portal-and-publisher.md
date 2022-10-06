@@ -195,7 +195,7 @@ Follow the steps below to customize them.
     !!! note "Tenant-wise theming"
         You can have a different theme for the login pages of different tenants. To do this, do the following.
         
-        1. Create a folder called **themes** inside the `<APIM-HOME>/repository/deployment/server/webapps/authenticationendpoint/` directory and add the custom copied files you created in this step.
+        1. Create a folder called **themes** inside the `<APIM-HOME>/repository/deployment/server/webapps/authenticationendpoint/` directory or the `<APIM-HOME>/repository/deployment/server/webapps/accountrecoveryendpoint/` directory and add the custom copied files you created in this step.
         2. In the login.jsp file, to add change the matching JSP per tenant, you can add some JSP logic as indicated below. You can get the tenant domain from the request and based on the tenant domain you can insert the matching header.jsp file. If there is no such file, you can show the default folder’s header.jsp file.
         
            ```java
