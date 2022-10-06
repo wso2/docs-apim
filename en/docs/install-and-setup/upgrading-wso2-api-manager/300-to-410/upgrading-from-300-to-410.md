@@ -225,7 +225,7 @@ Follow the instructions below to move all the existing API Manager configuration
     ```
                 
     !!! warning
-        If the above configurations are already set as `false` you should not run the below scripts.
+        If the above configurations are already set as `false`, you should not run the below scripts.
             
     Choose the relevant DB type and run the script against the DB that the registry resides in, to remove the registry versioning details.
     
