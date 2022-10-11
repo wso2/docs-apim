@@ -20,8 +20,9 @@ This section will cover how to configure the `pom.xml`, class implementations an
 
 ### Configuring pom.xml
 
-Add wso2-nexus repository to `pom.xml`,
+Add the `wso2-nexus` repository to the `pom.xml` file.
 
+```code
     <repository>
         <id>wso2-nexus</id>
         <name>WSO2 internal Repository</name>
@@ -32,18 +33,20 @@ Add wso2-nexus repository to `pom.xml`,
             <checksumPolicy>ignore</checksumPolicy>
         </releases>
     </repository>
+```
 
 Add dependencies,
 
+```code
     <dependency>
         <groupId>org.wso2.carbon.apimgt</groupId>
         <artifactId>org.wso2.carbon.apimgt.gateway</artifactId>
-        <version>${carbon.apimgt.gateway.version}</version>
+        <version>${carbon.apimgt.version}</version>
     </dependency>
     <dependency>
         <groupId>org.wso2.carbon.apimgt</groupId>
         <artifactId>org.wso2.carbon.apimgt.common.analytics</artifactId>
-        <version>${carbon.apimgt.common.analytics.version}</version>
+        <version>${carbon.apimgt.version}</version>
     </dependency>
     <dependency>
         <groupId>org.apache.synapse</groupId>
@@ -65,10 +68,11 @@ Add dependencies,
             </exclusion>
         </exclusions>
     </dependency>
+```
 
 !!! Info
 
-	- The versions for ${carbon.apimgt.gateway.version}, ${carbon.apimgt.common.analytics.version}, and ${synapse.version} can be found in the jar versions available in the current API Manager package.
+	- The versions for {carbon.apimgt.version} and ${synapse.version} can be found in the jar versions available in the current API Manager package.
 
 ### Implementing Required Class
 
@@ -84,41 +88,51 @@ Implementation of this class should look something similar to [this](https://git
 
 Build the project using,
 
+```code
     mvn clean install
+```
 
 ## Configuring the Sample
 
 This section will cover the steps required to configure WSO2 API-M Gateway for the sample created above. The steps covered are adding the .jar file, configuring the deployment.toml file, and enabling the logs.
 
-1. Adding the .jar file.
+1. Add the .jar file created in the target directory after building the project.
 
     Place the created .jar file inside the `wso2am-4.2.0/repository/components/lib` directory.
 
-2. Configuring the deployment.toml file.
+2. Configure the deployment.toml file.
 
-    Edit `apim.analytics` configurations in the `deployment.toml` file located inside `wso2am-4.2.0/repository/conf` with the following configuration.
+    Edit the `apim.analytics` configurations in the `deployment.toml` file located inside `wso2am-4.2.0/repository/conf` with the following configuration.
 
+```code
         [apim.analytics]
         enable = true
         properties."publisher.custom.data.provider.class" = "<FullyQualifiedClassNameOfAnalyticsCustomDataProviderImplClass>"
         type = "elk"
+```
 
-    !!! Important
-        Type should be given as `elk` as this property value is filtered out in cloud implementation.
+This configuration will be used when engaging the custom data provider class.
+
+!!! Important
+    Type should be given as `elk` as this property value is filtered out in cloud implementation.
 
 3. Enabling Logs
 
     To [enable trace logs]({{base_path}}/administer/logging-and-monitoring/logging/configuring-logging/#enabling-logs-for-a-component) for the component: `org.wso2.am.analytics.publisher`, edit `log4j2.properties` file located inside `wso2am-4.2.0/repository/conf` directory. 
 
-    a) Add a reporter to the loggers list:
+    1. Add new publisher to the loggers list:
 
+    ```code
         loggers = org-wso2-analytics-publisher, ...(list of other available loggers)
+    ```
 
-    b) Add the following configurations after the loggers:
+    2. Add the following configurations after the loggers:
 
+    ```code
         logger.org-wso2-analytics-publisher.name = org.wso2.am.analytics.publisher
         logger.org-wso2-analytics-publisher.level = TRACE
         logger.org-wso2-analytics-publisher.appenderRef.CARBON_TRACE_LOGFILE.ref = CARBON_TRACE_LOGFILE
+    ```
 
 4. Now you can trigger an event and check the `<WSO2AM-4.2.0-HOME>/repository/logs/wso2carbon-trace-messages.log` to find the event object passed out from API Manager.
 
