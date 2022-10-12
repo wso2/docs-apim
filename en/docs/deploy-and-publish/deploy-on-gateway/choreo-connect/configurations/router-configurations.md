@@ -1253,3 +1253,365 @@ allowCredentials = false
 </div>
 
 
+
+## Filters used in the Router
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="12" type="checkbox" id="_tab_12">
+                <label class="tab-selector" for="_tab_12"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[router.filters]
+  [router.filters.compression]
+    enabled = true
+    library = "gzip"
+  [router.filters.compression.requestDirection]
+    enabled = true
+    minimumContentLength = 30
+    contentType = ["text/html","application/json"]
+  [router.filters.compression.responseDirection]
+    enabled = true
+    minimumContentLength = 30
+    contentType = ["text/html","application/json"]
+    enableForEtagHeader = true
+  [router.filters.compression.libraryProperties]
+    memoryLevel = 3
+    windowBits = 12
+    compressionLevel = 9
+    compressionStrategy = "defaultStrategy"
+    chunkSize = 4096</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[router.filters]</code>
+                            
+                            <p>
+                                Configurations for the filters used in the Choreo Connect Router
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                            </div>
+                        </div><div class="config-wrap">
+                            <code>[router.filters.compression]</code>
+                            <span class="badge-required">Required</span>
+                            <p>
+                                The configurations related to the Choreo Connect Router's compression filter
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enabled</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable/Disable compression filter in Choreo Connect Router.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>library</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>gzip</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Defines compression library used with the compression filter</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="config-wrap">
+                            <code>[router.filters.compression.requestDirection]</code>
+                            <span class="badge-required">Required</span>
+                            <p>
+                                The configurations for the Choreo Connect router's request flow HTTP payload data compression
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enabled</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable/Disable data compression for the Choreo Connect request flow.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>minimumContentLength</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>30</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>Unsigned integer value less than or equal to 4294967295</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Minimum request payload size to consider before applying the data compression</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>contentType</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> list of strings </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>[&quot;text/html&quot;,&quot;application/json&quot;]</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>[application/javascript, application/json, application/xhtml+xml, image/svg+xml, text/css, text/html, text/plain, text/xml]</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Content type to consider for data compression</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="config-wrap">
+                            <code>[router.filters.compression.responseDirection]</code>
+                            <span class="badge-required">Required</span>
+                            <p>
+                                The configurations for the Choreo Connect router's response flow HTTP payload data compression
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enabled</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable/Disable data compression for the Choreo Connect response flow.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>minimumContentLength</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>30</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>Unsigned integer value less than  or equal to 4294967295</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Minimum response payload size to consider before applying the data compression</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>contentType</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> list of strings </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>[&quot;text/html&quot;,&quot;application/json&quot;]</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>[application/javascript, application/json, application/xhtml+xml, image/svg+xml, text/css, text/html, text/plain, text/xml]</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Content type to consider for the data compression</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="config-wrap">
+                            <code>[router.filters.compression.libraryProperties]</code>
+                            
+                            <p>
+                                The configurations for the Choreo Connect router's compression library
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>memoryLevel</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>3</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>Value between 1 to 9</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Amount of internal memory used by the gzip zlib library</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>windowBits</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>12</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>Value between 9 to 15</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Represents the base two logarithmic of the compressor’s window size</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>compressionLevel</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>9</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>Value between 9 to 15</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Denotes zlib library&#39;s compression level. Level 9 provides the highest compression.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>compressionStrategy</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>defaultStrategy</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>gzipFiltered, gzipHuffmanOnly, gzipRLE, gzipFixed</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Denotes zlib library&#39;s compression strategy. Value can change based on the content type shared with the request. For most of the cases default strategy is the best choice.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>chunkSize</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>4096</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>Unsigned integer value less than or equal to 4294967295</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Denotes zlib library&#39;s next output buffer size in bytes</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+

@@ -352,6 +352,7 @@ nav:
                     - Distributed Tracing: deploy-and-publish/deploy-on-gateway/choreo-connect/observability/distributed-tracing.md
                 - Analytics: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-analytics.md
                 - Git Integration: deploy-and-publish/deploy-on-gateway/choreo-connect/git-integration.md
+                - Data Compression: deploy-and-publish/deploy-on-gateway/choreo-connect/data-compression.md
                 - Configure Multiple Gateways with Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-multiple-gateways-with-choreo-connect.md
                 - File Upload via Multipart Requests: deploy-and-publish/deploy-on-gateway/choreo-connect/file-upload-via-multipart-requests.md
                 - HTTP 2.0: deploy-and-publish/deploy-on-gateway/choreo-connect/http-2.md
