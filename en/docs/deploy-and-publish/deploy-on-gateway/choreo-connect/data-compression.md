@@ -3,7 +3,7 @@ Data compression allows to reduce the size of the payload sent with the HTTP req
 improves data transfer speed while utilizing the bandwidth. Choreo Connect supports HTTP data
 compression considering the gzip compression scheme. Data compression can enable considering the request flow, 
 response flow or considering the both flows. You can enable HTTP data compression only for the selected
-HTTP content types. Choreo Connect supports application/javascript, application/json, application/xhtml+xml, 
+HTTP content types. Choreo Connect supports data compression for application/javascript, application/json, application/xhtml+xml, 
 image/svg+xml, text/css, text/html, text/plain, text/xml HTTP content types.
 
 ## Configuring HTTP request data with Choreo Connect
@@ -140,7 +140,7 @@ sent to the upstream.
  curl -X 'POST' "https://localhost:9095/v2/testAPI/*" -H "Content-type:application/json" -H "Accept-encoding: gzip" -H "Authorization:Bearer $TOKEN" -k --data '{"name":"John","age":30,"Address":"No 123, Street Name, Province, Country"}'
  ```
 
-### Applying data compression for response flow
+### Applying data compression for the response flow
 
 If `router.filters.compression.responseDirection` enable value assigned as `true`, Choreo Connect will compress the HTTP response data
 sent to the downstream.
