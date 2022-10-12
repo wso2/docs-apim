@@ -3594,6 +3594,10 @@ Follow the instructions below to move all the existing API Manager configuration
 
     6.  Stop the WSO2 API-M server and remove the `tenantloader-1.0.jar` from the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
 
+        !!! note
+
+            Make sure you have copied the tenant's userstores if you have configured them in WSO2 API Manager 2.1.0.
+
 ### Step 3 - Restart the WSO2 API-M 4.0.0 server
 
 1.  Restart the WSO2 API-M server.

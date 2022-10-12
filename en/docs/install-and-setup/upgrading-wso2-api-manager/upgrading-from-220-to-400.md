@@ -3063,7 +3063,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ALTER TABLE AM_API_COMMENTS ADD FOREIGN KEY(PARENT_COMMENT_ID) REFERENCES AM_API_COMMENTS(COMMENT_ID);
         ```
 
-5.  Copy the keystores (i.e., `client-truststore.jks`, `wso2carbon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_4.0.0_HOME>/repository/resources/security` directory.
+4.  Copy the keystores (i.e., `client-truststore.jks`, `wso2carbon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_4.0.0_HOME>/repository/resources/security` directory.
 
     !!! Attention
         In API Manager 4.0.0, it is required to use a certificate with the RSA key size greater than 2048. If you have used a certificate that has a weak RSA key (key size less than 2048) in previous version, you need to add the following configuration to `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file to configure internal and primary keystores. You should point the internal keystore to the keystore copied from API Manager 2.2.0 and the primary keystore can be pointed to a keystore with a certificate, which has a strong RSA key. 
@@ -3104,7 +3104,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     - In order to work with the [API Security Audit Feature]({{base_path}}/design/api-security/configuring-api-security-audit/) you need to have the public certificate of the [42crunch](https://42crunch.com/) in the client-truststore. Follow the guidelines given in [Importing Certificates to the Truststore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-3-importing-certificates-to-the-truststore).
     
-6.  Upgrade the Identity component in WSO2 API Manager from version 5.5.0 to 5.11.0.
+5.  Upgrade the Identity component in WSO2 API Manager from version 5.5.0 to 5.11.0.
 
     ??? note "If you are using DB2"
         Move indexes to the TS32K Tablespace. The index tablespace in the `IDN_OAUTH2_ACCESS_TOKEN` and `IDN_OAUTH2_AUTHORIZATION_CODE` tables need to be moved to the existing TS32K tablespace in order to support newly added table indexes.
@@ -3260,7 +3260,7 @@ Follow the instructions below to move all the existing API Manager configuration
             -Dmigrate -Dcomponent=identity
             ```
 
-7.  Migrate the API Manager artifacts.
+6.  Migrate the API Manager artifacts.
 
     !!! Note
         Modify the `[apim.gateway.environment]` tag in the `<API-M_HOME>/repository/conf/deployment.toml` file, the name should change to "Production and Sandbox". By default, it is set as `Default` in API Manager 4.0.0.
@@ -3320,7 +3320,8 @@ Follow the instructions below to move all the existing API Manager configuration
             /
     
             ```
-8.  Re-index the artifacts in the registry.
+
+7.  Re-index the artifacts in the registry.
 
     1.  Run the [reg-index.sql]({{base_path}}/assets/attachments/install-and-setup/reg-index.sql) script against the `SHARED_DB` database.
 
@@ -3353,6 +3354,10 @@ Follow the instructions below to move all the existing API Manager configuration
     5.  Start the WSO2 API-M server.
 
     6.  Stop the WSO2 API-M server and remove the `tenantloader-1.0.jar` from the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
+
+        !!! note
+
+            Make sure you have copied the tenant's userstores if you have configured them in WSO2 API Manager 2.2.0.
 
 ### Step 3 - Restart the WSO2 API-M 4.0.0 server
 
