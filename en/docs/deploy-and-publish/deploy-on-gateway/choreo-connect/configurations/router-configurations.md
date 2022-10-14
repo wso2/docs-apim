@@ -1271,7 +1271,7 @@ allowCredentials = false
     enabled = true
     library = "gzip"
   [router.filters.compression.requestDirection]
-    enabled = true
+    enabled = false
     minimumContentLength = 30
     contentType = ["text/html","application/json"]
   [router.filters.compression.responseDirection]
@@ -1344,7 +1344,7 @@ allowCredentials = false
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Defines compression library used with the compression filter</p>
+                                        <p>Defines compression library used with the compression filter.</p>
                                     </div>
                                 </div>
                             </div>
@@ -1436,10 +1436,10 @@ allowCredentials = false
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>false</code></span>
+                                            <span class="param-default-value">Default: <code>true</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>true, false</code></span>

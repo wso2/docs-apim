@@ -3,7 +3,7 @@
     enabled = true
     library = "gzip"
   [router.filters.compression.requestDirection]
-    enabled = true
+    enabled = false
     minimumContentLength = 30
     contentType = ["text/html","application/json"]
   [router.filters.compression.responseDirection]

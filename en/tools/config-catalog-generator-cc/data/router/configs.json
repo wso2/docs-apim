@@ -456,7 +456,7 @@
               "type": "string",
               "required": true,
               "default": "gzip",
-              "description": "Defines compression library used with the compression filter"
+              "description": "Defines compression library used with the compression filter."
             }
           ]
         },
@@ -499,8 +499,8 @@
             {
               "name": "enabled",
               "type": "boolean",
-              "required": false,
-              "default": "false",
+              "required": true,
+              "default": "true",
               "possible": "true, false",
               "description": "Enable/Disable data compression for the Choreo Connect response flow."
             },
