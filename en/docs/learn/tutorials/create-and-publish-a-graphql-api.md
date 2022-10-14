@@ -315,7 +315,6 @@ Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to pu
        reviewAdded(episode: JEDI) {
           stars
           episode
-
           commentary
        }
     }
