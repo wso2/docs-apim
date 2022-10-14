@@ -5247,8 +5247,8 @@
                             "type": "boolean",
                             "required": false,
                             "default": "false",
-                            "possible": "",
-                            "description": "Allows logs to get written into the `<APIM_HOME>repository/logs/wso2carbon.log` or any other log file and show up on the console."
+                             "possible": "true,false",
+                            "description": "Set this to true to allow logs to get written into the `<APIM_HOME>repository/logs/wso2carbon.log` or any other log file and show up on the console."
                         }
                     ]
                 }
