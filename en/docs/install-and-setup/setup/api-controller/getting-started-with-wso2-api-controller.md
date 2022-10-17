@@ -511,7 +511,7 @@ Run the following apictl command to change the default location of the export di
         **Flags:** 
 
         - Required :   
-            `--export-directory`: Path to directory where APIs should be saved.   
+            `--export-directory`: Path to directory where APIs, API Products, and Applications should be saved.   
             Default : `/home/.wso2apictl/exported`
             
             
