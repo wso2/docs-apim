@@ -31,7 +31,7 @@ To configure test JWT generation, open `<CHOREO-CONNECT_HOME>/resources/conf/con
   publicCertificatePath = "/home/wso2/security/truststore/mg.pem"
   privateKeyPath = "/home/wso2/security/keystore/mg.key"
   validityPeriod = 3600 # seconds
-  [[enorfcer.jwtIssuer.jwtUser]]
+  [[enforcer.jwtIssuer.jwtUser]]
     username = "admin"
     password = "admin"
   [[enforcer.jwtIssuer.jwtUser]]
