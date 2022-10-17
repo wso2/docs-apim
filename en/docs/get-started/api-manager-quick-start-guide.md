@@ -222,13 +222,13 @@ API Products, and Applications across WSO2 API-M environments and to perform CI/
 
 ### Before you begin...
 
-1. [Make sure that you run WSO2 API Manager (WSO2 API-M) 4.0.0]({{base_path}}/get-started/api-manager-quick-start-guide/#before-you-begin).
+1. [Make sure that you run WSO2 API Manager (WSO2 API-M) 4.1.0]({{base_path}}/get-started/api-manager-quick-start-guide/#before-you-begin).
 
 2. Download the apictl.
 
      1. Navigate to the [API Manager Tooling page](https://wso2.com/api-management/tooling/).
 
-     2. Download the apictl version 4.0.0 (or the latest of the 4.x family) based your operating system from the **API Controller Tooling** section.
+     2. Download the apictl version 4.1.0 (or the latest of the 4.1.x family) based your operating system from the **API Controller Tooling** section.
  
      3. Extract the ZIP to a preferred location.
 
