@@ -233,75 +233,75 @@ The following code snippet contains sample configuration of the parameters file 
 !!! example
     ```go
     environments:
-        - name: dev
-          configs:
-            endpoints:
-                production:
-                    url: 'https://dev.wso2.com'
-            security:
-                production:
-                    enabled: true
-                    type: basic
-                    username: 'admin'
-                    password: 'admin'
-            certs:
-                - hostName: 'https://dev.wso2.com'
-                  alias: Dev
-                  path: dev.crt 
-            deploymentEnvironments:
-                - displayOnDevportal: true
-                  deploymentEnvironment: Label1
-                  deploymentVhost : localhost
-                - displayOnDevportal: true
-                  deploymentEnvironment: Label2
-                  deploymentVhost : us.wso2.com 
-            policies:
-                - Gold
-                - Silver 
-        - name: test
-          configs:
-            endpoints:
-                production:
-                    url: 'https://test.wso2.com'
-                    config:
-                        factor: 3
-                        suspendMaxDuration: 25000
-                        suspendDuration: 45000
-                        suspendErrorCode: 
-                            - "101504"
-                            - "101501"
-                        retryTimeOut: ${RETRY}
-                        retryDelay: 23000
-                        retryErroCode:
-                            - "101503" 
-                            - "101504"
-                        actionSelect: discard
-                        actionDuration: 75000
-                sandbox:
-                    url: 'https://test.sandbox.wso2.com'
-            security:
-                production:
-                    enabled: true
-                    type: digest
-                    username: 'admin'
-                    password: 'admin'
-                sandbox:
-                    enabled: true
-                    type: basic
-                    username: 'admin'
-                    password: 'admin'
-        - name: production
-          configs:
-            endpoints:
-                production:
-                    url: 'https://prod.wso2.com'
-            mutualSslCerts:
-                - tierName: Unlimited
-                  alias: Prod1
-                  path: prod1.crt
-                - tierName: Gold
-                  alias: Prod2
-                  path: prod2.crt
+    - name: dev
+      configs:
+        endpoints:
+            production:
+                url: 'https://dev.wso2.com'
+        security:
+            production:
+                enabled: true
+                type: basic
+                username: admin
+                password: admin
+        certs:
+            - hostName: 'https://dev.wso2.com'
+              alias: Dev
+              path: dev.crt 
+        deploymentEnvironments:
+            - displayOnDevportal: true
+              deploymentEnvironment: Label1
+              deploymentVhost : localhost
+            - displayOnDevportal: true
+              deploymentEnvironment: Label2
+              deploymentVhost : us.wso2.com 
+        policies:
+            - Gold
+            - Silver 
+    - name: test
+      configs:
+        endpoints:
+            production:
+                url: 'https://test.wso2.com'
+                config:
+                    factor: 3
+                    suspendMaxDuration: "25000"
+                    suspendDuration: "45000"
+                    suspendErrorCode: 
+                        - "101504"
+                        - "101501"
+                    retryTimeOut: $RETRY
+                    retryDelay: "23000"
+                    retryErroCode:
+                        - "101503" 
+                        - "101504"
+                    actionSelect: discard
+                    actionDuration: "75000"
+            sandbox:
+                url: 'https://test.sandbox.wso2.com'
+        security:
+            production:
+                enabled: true
+                type: digest
+                username: admin
+                password: admin
+            sandbox:
+                enabled: true
+                type: basic
+                username: admin
+                password: admin
+    - name: production
+      configs:
+        endpoints:
+            production:
+                url: 'https://prod.wso2.com'
+        mutualSslCerts:
+            - tierName: Unlimited
+              alias: Prod1
+              path: prod1.crt
+            - tierName: Gold
+              alias: Prod2
+              path: prod2.crt
     ```
     
 You can provide the parameters file using `--params` flag when importing an API. A sample command will be as follows.
@@ -522,96 +522,96 @@ The following code snippet contains sample configuration of the parameters file 
 !!! example
     ```go
     environments:
-        - name: dev
-          configs:
-              dependentAPIs:
-                  PizzaShackAPI-1.0.0:
-                      endpoints:
-                          production:
-                              url: https://prod1.wso2.com
-                              config:
-                                  factor: 3
-                                  suspendMaxDuration: 25000
-                                  suspendDuration: 45000
-                                  suspendErrorCode: 
-                                      - "101504"
-                                      - "101501"
-                                  retryTimeOut: ${RETRY}
-                                  retryDelay: 23000
-                                  retryErroCode:
-                                      - "101503" 
-                                      - "101504"
-                                  actionSelect: discard
-                                  actionDuration: 75000
-                          sandbox:
-                              url: https://sand2.wso2.com
-                      security:
-                          production:
-                              enabled: true
-                              type: basic
-                              username: 'admin'
-                              password: 'admin'
-                      certs:
-                          - hostName: https://prod1.wso2.com
-                            alias: alice
-                            path: alice.crt
-                      policies:
-                          - Gold
-                          - Silver
-                  PetstoreAPI-1.0.5:
-                      endpoints:
-                          production:
-                              url: https://prod1.wso2.com
-                          sandbox:
-                              url: https://sand2.wso2.com
-                      security:
-                          production:
-                              enabled: true
-                              type: digest
-                              username: 'admin'
-                              password: 'admin'
-                          sandbox:
-                              enabled: true
-                              type: basic
-                              username: 'admin'
-                              password: 'admin'
-                      certs:
-                          - hostName: https://prod1.wso2.com
-                            alias: bob
-                            path: bob.crt
-                      policies:
-                          - Gold
-                          - Silver
-              deploymentEnvironments:
-                  - displayOnDevportal: true
-                    deploymentEnvironment: Label1
-                    deploymentVhost : localhost
-                  - displayOnDevportal: true
-                    deploymentEnvironment: Label2
-                    deploymentVhost : us.wso2.com  
-              policies:
-                  - Gold
-                  - Silver 
-              mutualSslCerts:
-                  - tierName: Unlimited
-                    alias: Prod1
-                    path: prod1.crt
-                  - tierName: Gold
-                    alias: Prod2
-                    path: prod2.crt
-        - name: production
-          configs:
-              deploymentEnvironments:
-                  - displayOnDevportal: true
-                    deploymentEnvironment: Default
-                    deploymentVhost : localhost
-              mutualSslCerts:
-                  - tierName: Unlimited
-                    alias: Prod1
-                    path: prod1.crt
-                  - tierName: Gold
-                    alias: Prod2
-                    path: prod2.crt
+    - name: dev
+      configs:
+          dependentAPIs:
+              PizzaShackAPI-1.0.0:
+                  endpoints:
+                      production:
+                          url: https://prod1.wso2.com
+                          config:
+                              factor: 3
+                              suspendMaxDuration: "25000"
+                              suspendDuration: "45000"
+                              suspendErrorCode: 
+                                  - "101504"
+                                  - "101501"
+                              retryTimeOut: $RETRY
+                              retryDelay: "23000"
+                              retryErroCode:
+                                  - "101503" 
+                                  - "101504"
+                              actionSelect: discard
+                              actionDuration: "75000"
+                      sandbox:
+                          url: https://sand2.wso2.com
+                  security:
+                      production:
+                          enabled: true
+                          type: basic
+                          username: admin
+                          password: admin
+                  certs:
+                      - hostName: https://prod1.wso2.com
+                        alias: alice
+                        path: alice.crt
+                  policies:
+                      - Gold
+                      - Silver
+              PetstoreAPI-1.0.5:
+                  endpoints:
+                      production:
+                          url: https://prod1.wso2.com
+                      sandbox:
+                          url: https://sand2.wso2.com
+                  security:
+                      production:
+                          enabled: true
+                          type: digest
+                          username: admin
+                          password: admin
+                      sandbox:
+                          enabled: true
+                          type: basic
+                          username: admin
+                          password: admin
+                  certs:
+                      - hostName: https://prod1.wso2.com
+                        alias: bob
+                        path: bob.crt
+                  policies:
+                      - Gold
+                      - Silver
+          deploymentEnvironments:
+              - displayOnDevportal: true
+                deploymentEnvironment: Label1
+                deploymentVhost : localhost
+              - displayOnDevportal: true
+                deploymentEnvironment: Label2
+                deploymentVhost : us.wso2.com  
+          policies:
+              - Gold
+              - Silver 
+          mutualSslCerts:
+              - tierName: Unlimited
+                alias: Prod1
+                path: prod1.crt
+              - tierName: Gold
+                alias: Prod2
+                path: prod2.crt
+    - name: production
+      configs:
+          deploymentEnvironments:
+              - displayOnDevportal: true
+                deploymentEnvironment: Default
+                deploymentVhost : localhost
+          mutualSslCerts:
+              - tierName: Unlimited
+                alias: Prod1
+                path: prod1.crt
+              - tierName: Gold
+                alias: Prod2
+                path: prod2.crt
     ```
     
 You can provide the parameters file using `--params` flag when importing an API Product. A sample command will be as follows.
