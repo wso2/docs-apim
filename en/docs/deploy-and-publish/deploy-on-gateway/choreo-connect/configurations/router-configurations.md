@@ -1409,7 +1409,7 @@ allowCredentials = false
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>[&quot;text/html&quot;,&quot;application/json&quot;]</code></span>
+                                            <span class="param-default-value">Default: <code>[&quot;application/javascript&quot;, &quot;application/json&quot;, &quot;application/xhtml+xml&quot;, &quot;image/svg+xml&quot;, &quot;text/css&quot;, &quot;text/html&quot;, &quot;text/plain&quot;, &quot;text/xml&quot;]</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>[application/javascript, application/json, application/xhtml+xml, image/svg+xml, text/css, text/html, text/plain, text/xml]</code></span>
@@ -1481,7 +1481,7 @@ allowCredentials = false
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>[&quot;text/html&quot;,&quot;application/json&quot;]</code></span>
+                                            <span class="param-default-value">Default: <code>[&quot;application/javascript&quot;, &quot;application/json&quot;, &quot;application/xhtml+xml&quot;, &quot;image/svg+xml&quot;, &quot;text/css&quot;, &quot;text/html&quot;, &quot;text/plain&quot;, &quot;text/xml&quot;]</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>[application/javascript, application/json, application/xhtml+xml, image/svg+xml, text/css, text/html, text/plain, text/xml]</code></span>
