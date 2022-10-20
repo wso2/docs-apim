@@ -2331,7 +2331,7 @@ You have to run the following migration client to update the API Manager artifac
 
 1. Download and extract the [migration-resources.zip]({{base_path}}/assets/attachments/install-and-setup/migration-resources.zip). Copy the extracted `migration-resources`  to the `<API-M_4.0.0_HOME>` folder.
 
-2. Download and copy the [API Manager Migration Client]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-4.0.0-1.jar) to the `<API-M_4.0.0_HOME>/repository/components/dropins` folder.
+2. Download and copy the [API Manager Migration Client]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-4.0.0.3.jar) to the `<API-M_4.0.0_HOME>/repository/components/dropins` folder.
 
 3. Prior to API-M migration, run the below command to execute the pre-migration step that will validate your old data.
 
@@ -2372,7 +2372,7 @@ You have to run the following migration client to update the API Manager artifac
 
 5. Shutdown the API-M server.
     
-    -   Remove the `org.wso2.carbon.apimgt.migrate.client-4.0.0-1.jar` file, which is in the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
+    -   Remove the `org.wso2.carbon.apimgt.migrate.client-4.0.0.3.jar` file, which is in the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
 
     -   Remove the `migration-resources` directory, which is in the `<API-M_4.0.0_HOME>` directory.
 
