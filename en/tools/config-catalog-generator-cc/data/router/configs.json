@@ -408,7 +408,7 @@
               "name": "contentType",
               "type": "list of strings",
               "required": false,
-              "default": "[\"text/html\",\"application/json\"]",
+              "default": "[\"application/javascript\", \"application/json\", \"application/xhtml+xml\", \"image/svg+xml\", \"text/css\", \"text/html\", \"text/plain\", \"text/xml\"]",
               "possible": "[application/javascript, application/json, application/xhtml+xml, image/svg+xml, text/css, text/html, text/plain, text/xml]",
               "description": "Content type to consider for data compression"
             }
@@ -439,7 +439,7 @@
               "name": "contentType",
               "type": "list of strings",
               "required": false,
-              "default": "[\"text/html\",\"application/json\"]",
+              "default": "[\"application/javascript\", \"application/json\", \"application/xhtml+xml\", \"image/svg+xml\", \"text/css\", \"text/html\", \"text/plain\", \"text/xml\"]",
               "possible": "[application/javascript, application/json, application/xhtml+xml, image/svg+xml, text/css, text/html, text/plain, text/xml]",
               "description": "Content type to consider for the data compression"
             }
