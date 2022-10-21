@@ -106,7 +106,7 @@ Following table explains the attribute details relevant to the above configurati
     <tr>
         <td><code>compressionLevel</code></td>
         <td>
-            Denotes zlib library's compression level. This attributes impacts speed and compression amount applied to the 
+            Denotes zlib library's compression level. These attributes impact the speed and compression amount applied to the 
             content. Value range is from 1 to 9. Level 9 provides the highest compression.
         </td>
     </tr>
