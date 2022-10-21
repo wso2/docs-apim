@@ -84,7 +84,7 @@ Following table explains the attribute details relevant to the above configurati
     </tr>
     <tr>
         <td><code>enableForEtagHeader</code></td>
-        <td>Applies data compression even there is an ETag header</td>
+        <td>Applies data compression when there is an ETag header</td>
     </tr>
     <tr>
         <td colspan="2"><center><code><b>Compression Library relevant configurations</b></code></center></td>
