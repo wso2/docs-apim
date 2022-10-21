@@ -114,7 +114,7 @@ Following table explains the attribute details relevant to the above configurati
         <td><code>compressionStrategy</code></td>
         <td>
             Denotes zlib library's compression strategy. Value can change based on the content type shared with the request. 
-            For most of the cases default strategy is the best choice.
+            In most cases, the default strategy is the ideal option.
         </td>
     </tr>
     <tr>
