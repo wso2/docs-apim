@@ -281,3 +281,6 @@ A public URL should be forwarded to `localhost:9021`, so that your local server 
           ```
 
 You have successfully created and published your first WebSub/WebHook API, subscribed to it, obtained an access token for testing, created a subscription to a WebHook, and tested your API with the access token.
+
+!!! note
+    WSO2 API Manager also supports subscription requests with `application/x-www-form-urlencoded` content type, which adheres to the standards specified by [W3C](https://www.w3.org/TR/websub/). This allows you to pass the hub parameters in the request body by passing them as form data. API Manager also supports optional subscriber verification of intent for this type of requests. This can be enabled by adding the property `enableSubscriberVerification` with the value set to `true` at the Publisher Portal. The default value is set to `false`. In later versions this can be directly enabled by WebSub Configurations in API Configurations panel.
