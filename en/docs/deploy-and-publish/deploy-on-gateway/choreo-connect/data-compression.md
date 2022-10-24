@@ -137,7 +137,7 @@ sent to the downstream.
 !!! note
     - To apply the data compression, content size should be higher than the value defined in the configurations (`minimumContentLength`).
     - Data compression will be applied only to the content types defined in the configurations.
-    - If `Content-encoding` header is given in the request, Choreo Connect will not apply data compression during the request flow.
+    - If `Content-encoding` header is given in the request, Choreo Connect will not apply data compression during the request or response flow.
 
  ``` bash tab="Format"
  curl -X 'POST' "https://<CHOREO-CONNECT_ROUTER_HOST>:<CHOREO-CONNECT_ROUTER_PORT>/<API-context>/<API-resource>" -H "Content-type:application/json" -H "Authorization:Bearer $TOKEN" -H "Accept-encoding: gzip" --data <data> -k
