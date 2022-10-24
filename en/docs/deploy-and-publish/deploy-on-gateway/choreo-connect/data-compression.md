@@ -84,7 +84,7 @@ Following table explains the attribute details relevant to the above configurati
     </tr>
     <tr>
         <td><code>enableForEtagHeader</code></td>
-        <td>Applies data compression even there is an ETag header</td>
+        <td>Applies data compression when there is an ETag header</td>
     </tr>
     <tr>
         <td colspan="2"><center><code><b>Compression Library relevant configurations</b></code></center></td>
@@ -106,7 +106,7 @@ Following table explains the attribute details relevant to the above configurati
     <tr>
         <td><code>compressionLevel</code></td>
         <td>
-            Denotes zlib library's compression level. This attributes impacts speed and compression amount applied to the 
+            Denotes zlib library's compression level. These attributes impact the speed and compression amount applied to the 
             content. Value range is from 1 to 9. Level 9 provides the highest compression.
         </td>
     </tr>
@@ -114,7 +114,7 @@ Following table explains the attribute details relevant to the above configurati
         <td><code>compressionStrategy</code></td>
         <td>
             Denotes zlib library's compression strategy. Value can change based on the content type shared with the request. 
-            For most of the cases default strategy is the best choice.
+            In most cases, the default strategy is the ideal option.
         </td>
     </tr>
     <tr>
