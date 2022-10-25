@@ -46,7 +46,7 @@ Follow the  instructions below to set up the PostgreSQL database and users.
 
 1. Unzip the WSO2 API Manager pack. Let's refer to it as `<API-M_HOME>`.
 
-1. Download the [PostgreSQL JDBC driver](http://jdbc.postgresql.org/download.html).
+1. Download the [PostgreSQL JDBC driver](https://jdbc.postgresql.org/download/).
 
 1. Copy it to the `<API-M_HOME>/repository/components/lib/` directory.
 
