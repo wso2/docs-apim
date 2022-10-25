@@ -2,12 +2,28 @@
 
 API Key Authentication in Choreo Connect is a simple authentication scheme that accepts a valid self-contained JWT token issued for accessing APIs. Since self-contained tokens can have all authorization information, the token processing time is fast and more efficient. The common practice is to have a short expiration time for self-contained access tokens.
 
-Pick a method below to enable API Key Authentication depending on the Choreo Connect **mode** you have selected:
+Select one of the methods given below to enable API Key Authentication for an API depending on the Choreo Connect **mode** you are using.
 
 |**Mode**         | **Method**    |
 |--------------|-----------|
 |[Choreo Connect with WSO2 API Manager as a Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/)   | [Secure APIs with API Keys via API-M]({{base_path}}/design/api-security/api-authentication/secure-apis-using-api-keys)  |
 |[Choreo Connect as a Standalone Gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/)  |[Update the OpenAPI definition of the API](#update-the-openapi-definition-of-the-api) |
+
+!!! tip
+    Following is the config added to Choreo Connect by default for API Key Authentication. To change the default settings, add this to config.toml and update as required.
+
+    ```
+    [[enforcer.security.tokenService]]
+    # Provide unique name for the JWT issuer
+    name = "APIM APIkey"
+    validateSubscription = true
+    # Alias name given in Enforcer truststore for the public certificate of the JWT issuer
+    certificateAlias = "apikey_certificate_alias"
+    # Certificate Filepath within Enforcer
+    certificateFilePath = "/home/wso2/security/truststore/wso2carbon.pem"
+    ```
+
+    More information can be found in [Configure an External Key Manager](http://localhost:8000/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/configuring-an-external-key-manager/).
 
 ## Update the OpenAPI definition of the API
 
@@ -92,7 +108,7 @@ Currently, only API Keys issued by WSO2 API Manager are allowed.
 Hence, you need a valid API Key issued for the particular API Name and the version from WSO2 API Manager.
 Follow the steps mentioned on [generating the API Key documentation]({{base_path}}/design/api-security/api-authentication/secure-apis-using-api-keys/#using-api-keys-to-secure-an-api) to generate an API Key from API Manager.
 
-### Step 3 - Invoke the API using the API Key
+### Step 4 - Invoke the API using the API Key
 
 Use one of the following options to invoke APIs using an API key based on the method that you used to define API Key Authentication in [step 1](#step-1-define-api-key-authentication-for-the-api).
 

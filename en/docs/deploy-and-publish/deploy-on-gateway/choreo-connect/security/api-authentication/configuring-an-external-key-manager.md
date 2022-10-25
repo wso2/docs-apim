@@ -30,7 +30,7 @@ Please refer [Multiple Key Manager Support in WSO2 API Manager]({{base_path}}/ad
 When Choreo Connect runs as a standalone Gateway, the external Key Managers, Token Services or JWT issuers used for API authentication must be configured in the [config.toml]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configuration-overview/#configurations-overview). To know what these parameters mean, you can go through the descriptions given under [Token Service in Enforcer Configurations]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/enforcer-configurations/#token-service). The following are the token services configured by default. The template with the default values can also be found in `config.toml.template` located together with `config.toml`.
 
 ``` toml
-# Issuer 1
+# Issuer 1 - Resident Key Manager Issuer for Access tokens
 [[enforcer.security.tokenService]]
   name="Resident Key Manager"
   issuer = "https://localhost:9443/oauth2/token"
@@ -40,7 +40,7 @@ When Choreo Connect runs as a standalone Gateway, the external Key Managers, Tok
   consumerKeyClaim = "azp"
   certificateFilePath = "/home/wso2/security/truststore/wso2carbon.pem"
 
-# Issuer 2
+# Issuer 2 - Issuer for Enforcer test key
 [[enforcer.security.tokenService]]
   name = "MGW"
   issuer = "https://localhost:9095/testkey"
@@ -50,21 +50,32 @@ When Choreo Connect runs as a standalone Gateway, the external Key Managers, Tok
   consumerKeyClaim = ""
   certificateFilePath = "/home/wso2/security/truststore/mg.pem"
 
-# Issuer 3
+# Issuer 3 - Issuer for API Manager Internal Key
 [[enforcer.security.tokenService]]
   name = "APIM Publisher"
   issuer = "https://localhost:9443/publisher"
   validateSubscription = true
   certificateAlias = ""
   certificateFilePath = "/home/wso2/security/truststore/wso2carbon.pem"
+
+# Issuer 4 - Issuer for API Manager API Key
+[[enforcer.security.tokenService]]
+    # Provide unique name for the JWT issuer
+    name = "APIM APIkey"
+    validateSubscription = true
+    # Alias name given in Enforcer truststore for the public certificate of the JWT issuer
+    certificateAlias = "apikey_certificate_alias"
+    # Certificate Filepath within Enforcer
+    certificateFilePath = "/home/wso2/security/truststore/wso2carbon.pem"
 ```
 
 !!! tip
 
     In the configuration file (**config.toml** or **config-toml-configmap.yaml** depending on whether you have deployed Choreo Connect on Docker Compose or K8s), the token services are configured as an array in **toml** format. Therefore when updating the token services, the entire array or all the token services required must exist in this file for all of them to be used. If none of the `[[enforcer.security.tokenService]]` sections are present, then the default array that consists of,
 
-    - "Resident Key Manager" of WSO2 API-M
+    - "Resident Key Manager" of WSO2 API-M with configs for Access tokens
     - token service exposed by Choreo Connect Enforcer named as "MGW"
-    - token service exposed by WSO2 API-M Publisher 
+    - token service exposed by WSO2 API-M Publisher
+    - "Resident Key Manager" of WSO2 API-M with configs for API Keys (hence named as "APIM APIkey") 
 
     will be set as given in the toml format above.
