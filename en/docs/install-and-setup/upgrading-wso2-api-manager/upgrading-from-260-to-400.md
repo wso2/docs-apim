@@ -535,7 +535,7 @@ Follow the instructions below to migrate existing API Manager resources from the
 
     - For secondary user stores created for tenants,
 
-        You have to copy the userstores to respective tenant directories after executing step 5 as the tenant directories (`<API-M_2.6.0_HOME>/repository/tenants/`) at API-M 4.0.0 are populated after migrating the api-m components.
+        You have to copy the userstores to respective tenant directories after executing [step 5](#step-5-migrate-api-manager-components) as the tenant directories (`<API-M_2.6.0_HOME>/repository/tenants/`) at API-M 4.0.0 are populated after migrating the api-m components.
 
 ### Step 3 - Migrate API-M Database
 
@@ -3699,9 +3699,9 @@ You have to run the following migration client to update the API Manager artifac
 
 6.  Stop the WSO2 API-M server and remove the `tenantloader-1.0.jar` from the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
 
-    - For secondary user stores created for the super tenants, you have to copy the `<API-M_2.6.0_HOME>/repository/deployment/server/userstores/` directory inside `<API-M_4.0.0_HOME>/repository/deployment/server/` directory.
-    
-    - For secondary user stores created for tenants, you have to copy the userstores to respective tenant directories after executing [step 2](#step-2-upgrade-api-manager-to-4.0.0) as the tenant directories (`<API-M_2.6.0_HOME>/repository/tenants/`) at API-M 4.0.0 are populated after migrating the API-M components.
+    !!! note
+
+         Make sure you have copied the tenant's userstores if you have configured them in WSO2 API Manager 2.6.0.
 
 ### Step 7 - Restart the WSO2 API-M 4.0.0 server
 
