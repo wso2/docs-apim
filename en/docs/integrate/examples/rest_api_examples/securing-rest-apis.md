@@ -61,7 +61,7 @@ Create the artifacts:
 3. [Create the rest API]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 
-[Configure an external user store]({{base_path}}/install-and-setup/setup/mi-setup/setup/user_stores/setting_up_a_userstore).
+[Configure an external user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore).
 
 Set up the back-end service:
 
