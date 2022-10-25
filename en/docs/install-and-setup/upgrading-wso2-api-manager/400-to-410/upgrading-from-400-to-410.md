@@ -266,7 +266,7 @@ You have to follow the below instructions to upgrade the API Manager components.
         | Application Validators                    |                                          |                                      |
         | ----------------------------------------- | ---------------------------------------- | ------------------------------------ |
         | **CLI Tag**                               | **Pre-validator**                        | **Purpose**                          |
-        | `appThirdPartyKMValidation`               | Third Party Key Manager Usage Validator  | If third party key managers were used with the old API-M, they may need to be reconfigured for the new API-M verison. This prevalidation checks the usage of the built-in key manager and warns otherwise. |
+        | `appThirdPartyKMValidation`               | Third Party Key Manager Usage Validator  | If third-party Key Managers were used with the old API-M, they may need to be reconfigured for the new API-M version. This pre-validation checks the usage of the built-in Key Manager and warns if it is not used. |
 
     In this step, you can run data validation on all the existing validators or selected validators. If you only use the `-DrunPreMigration` command, all existing validations will 
     be enabled. If not, you can provide a specific validator, such as  `-DrunPreMigration=apiDefinitionValidation`, which only validates the API definitions.
