@@ -253,7 +253,20 @@ You have to follow the below instructions to upgrade the API Manager components.
 
 4. Prior to API-M migration, run the below command to execute the pre-migration step that will validate your old data.
 
-    - Available validators: `apiAvailabilityValidation`, `apiDefinitionValidation`
+    ??? info "Pre-validators"
+        
+        | API Validators                            |                                          |                                      |
+        | ----------------------------------------- | ---------------------------------------- | ------------------------------------ |
+        | **CLI Tag**                               | **Pre-validator**                        | **Purpose**                          |
+        | `apiDefinitionValidation`                 | API Definition Validator                 | Validates if the API definitions are up to standards so that issues are not encountered during migration. Validations are done to check if APIs have valid OpenAPI, WSDL, Streaming API, or GraphQL API definitions. |
+        | `apiAvailabilityValidation`               | API Availability Validator               | Validates the API availability in the database with respect to the API artifacts in the registry in order to verify there are no corrupted entries in the registry. |
+        | `apiResourceLevelAuthSchemeValidation`    | API Resource Level Auth Scheme Validator | Usage of resource level security with `Application` and `Application User` in 2.x versions, is not supported. This pre-validation checks and warns about such APIs with unsupported resource-level auth schemes. |
+        | `apiDeployedGatewayTypeValidation`        | API Deployed Gateway Type Validator      | If the deployed Gateway type of an API is given as `none`, deployment of that API will be skipped at migration. This pre-validation warns of such APIs having deployed Gateway type as `none`. |
+
+        | Application Validators                    |                                          |                                      |
+        | ----------------------------------------- | ---------------------------------------- | ------------------------------------ |
+        | **CLI Tag**                               | **Pre-validator**                        | **Purpose**                          |
+        | `appThirdPartyKMValidation`               | Third Party Key Manager Usage Validator  | If third-party Key Managers were used with the old API-M, they may need to be reconfigured for the new API-M version. This pre-validation checks the usage of the built-in Key Manager and warns if it is not used. |
 
     In this step, you can run data validation on all the existing validators or selected validators. If you only use the `-DrunPreMigration` command, all existing validations will 
     be enabled. If not, you can provide a specific validator, such as  `-DrunPreMigration=apiDefinitionValidation`, which only validates the API definitions.
