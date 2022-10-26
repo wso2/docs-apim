@@ -139,7 +139,7 @@ certificateFilePath = "/home/wso2/security/truststore/wso2carbon.pem"
 
         Whether to validate subscriptions. **If disabled**, a single API key may be used against any API in the same Choreo Connect instance since only the JWT signature would be validated procedure. When set to true, sunscription validation is done as given below depending on the Choreo Connect mode. 
 
-        - For [Choreo Connect with WSO2 API Manager as a Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/)   - Check against the subscriptions received from controlplane in order to validate the mapping between the invoked API and application info in the API key JWT claims.
+        - For [Choreo Connect with WSO2 API Manager as a Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/)   - Check against the subscriptions received from the Control Plane in order to validate the mapping between the invoked API and application info in the API key JWT claims.
 
         - For [Choreo Connect as a Standalone Gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/) -  Check the metadata of the invoked API against the API details included in the API key claims. 
 
