@@ -121,7 +121,7 @@ Follow these steps to configure WSO2 Choreo Connect with Azure Application Insig
 
 1. Start Choreo Connect.
 1. [Create and Deploy an API]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker-with-apim/).
-1. Invoke the newly create API. 
+1. Invoke the newly created API. 
 1. Now open "Azure Application Insights" Trasaction search window and select `Dependency` for `Event types` filter  
     ![Azure Trace Filter]({{base_path}}/assets/img/deploy/mgw/trace-azure-filter.png)
 
