@@ -22,6 +22,11 @@ With these new features, we have removed the API level mediation policies and if
 
 Previous mediation related resources from the Publisher and Admin REST API have been removed and you can achieve the same functionality via the operation-policies resource in the Publisher REST API.
 
+Mediation policies that you have attached to API types other than REST, i.e., SOAP, GraphQL, etc., will no longer be manageable after you have migrated to 4.1.0. With the API Policies feature, the policy support was only provided for REST APIs and extending the same for other API types is still in the roadmap, and we hope to send a WUM update to 4.1.0 to add this support.
+
+!!! note "For API types excluding REST APIs"
+    For APIs like SOAP, GraphQL, etc., even though the functionality is still intact (runtime is not affected), the design time is affected as you can no longer manage policies using the UI, or the file system. To further elaborate on this, if you had policies attached to an API and you've migrated to 4.1.0, those policies are still attached to the said API, but they are immutable.
+
 APICTL Project structure has been changed and Sequences directory has been replaced with a new Policies directory. This policies directory contains the policies applied to the API at the operation level. Each policy has a specification file (yaml or json) which has all the meta information about the policy and a policy definition file (j2 file for regular gateway and gotmpl file for choreo connect) which contains the logic behind the policy. Policy allocation and policy order of each operation is recorded in the api.yaml file and if the policy is parameterized, values of each parameterized attribute are defined in this section.
 
 For more information see, [OPA policy support]({{base_path}}/design/api-security/opa-validation/overview/#attaching-opa-policy)
