@@ -87,7 +87,7 @@ Follow the steps mentioned on [generating the API Key documentation]({{base_path
 
 ### Step 4 - Invoke the API using the API Key
 
-Use the following cURL command to invoke the API with API Key. When using API Manger, you can directly use the curl command that appears in the Developer portal test console.
+Use the following cURL command to invoke the API with API Key. When using API Manager, you can directly use the cURL command that appears in the Developer Portal test console.
 
 ``` bash tab="Format"
 curl -k -X GET "<API_URL>" -H  "accept: application/json" -H  "<Header name>: <API Key>"
