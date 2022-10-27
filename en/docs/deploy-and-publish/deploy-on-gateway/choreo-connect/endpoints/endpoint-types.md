@@ -32,7 +32,7 @@ The endpoint type and the URL components are processed and validated based on th
 
 !!! tip
 
-    Choreo Connect also has an Endpoint type named **Mock Implementation**, in which the Gateway itself behaves as an backend returning sample payloads. Refer to [Mock Implementation]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-with-mock-impl/) to learn more.
+    Choreo Connect also has an Endpoint type named **Mock Implementation**, in which the Gateway itself behaves as a backend returning sample payloads. Refer to [Mock Implementation]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-with-mock-impl/) to learn more.
 
 ## See also
 - [Passing End User Attributes to the Backend - Backend JWT]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/passing-enduser-attributes-to-the-backend-via-choreo-connect/)
