@@ -74,7 +74,7 @@ Use your subscription details to log in to the Updates Portal via [https://updat
     | Docker Compose    | `docker-compose.yaml`    |
     | Kubernetes        | `adapter-deployment.yaml` and `choreo-connect-deployment.yaml` |
 
-    Following is an example on updating Choreo Connect 1.1.0 to update level 9.
+    Following is an example on updating Choreo Connect {{choreo_connect.version}} to update level 9.
 
     | Component | Image |
     |-----------|-------|   
