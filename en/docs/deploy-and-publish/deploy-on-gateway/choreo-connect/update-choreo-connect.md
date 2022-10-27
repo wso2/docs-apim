@@ -64,3 +64,35 @@ Use your subscription details to log in to the Updates Portal via [https://updat
 
 !!! Info
     For more information on this, refer to the official documentation for [Updates Portal](https://updates.docs.wso2.com/en/latest/updates/updates-portal/).
+
+## Steps to Update
+
+1. Update the `image` value for all three components of Choreo Connect in the following files.    
+
+    | Deployment Option | Files to update |
+    |-------------------|-----------------|
+    | Docker Compose    | `docker-compose.yaml`    |
+    | Kubernetes        | `adapter-deployment.yaml` and `choreo-connect-deployment.yaml` |
+
+    Following is an example on updating Choreo Connect 1.1.0 to update level 9.
+
+    | Component | Image |
+    |-----------|-------|   
+    | Adapter | `docker.wso2.com/choreo-connect-adapter:1.1.0.9` |
+    | Enforcer | ` docker.wso2.com/choreo-connect-enforcer:1.1.0.9` |
+    | Router | `docker.wso2.com/choreo-connect-enforcer:1.1.0.9` |
+
+
+2. Login to `docker.wso2.com`.
+
+    ```bash
+    docker login docker.wso2.com
+    ```
+
+3. Start Choreo Connect with Docker Compose or apply the K8s artifacts. 
+
+## See also
+
+- [Deployment Options]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-deploy-overview/)
+- [Production Deployment Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/production-deployment-guideline/)
+- [Frequently Asked Questions (FAQs)]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/faq/)
