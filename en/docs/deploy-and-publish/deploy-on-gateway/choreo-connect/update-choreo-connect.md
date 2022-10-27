@@ -78,9 +78,9 @@ Use your subscription details to log in to the Updates Portal via [https://updat
 
     | Component | Image |
     |-----------|-------|   
-    | Adapter | `docker.wso2.com/choreo-connect-adapter:1.1.0.9` |
-    | Enforcer | ` docker.wso2.com/choreo-connect-enforcer:1.1.0.9` |
-    | Router | `docker.wso2.com/choreo-connect-enforcer:1.1.0.9` |
+    | Adapter | `docker.wso2.com/choreo-connect-adapter:{{choreo_connect.version}}.9` |
+    | Enforcer | ` docker.wso2.com/choreo-connect-enforcer:{{choreo_connect.version}}.9` |
+    | Router | `docker.wso2.com/choreo-connect-enforcer:{{choreo_connect.version}}.9` |
 
 
 2. Login to `docker.wso2.com`.
