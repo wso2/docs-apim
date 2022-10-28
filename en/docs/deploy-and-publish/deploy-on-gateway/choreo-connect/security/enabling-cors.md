@@ -27,11 +27,10 @@ If you are following the [Deploy API via API-M]({{base_path}}/deploy-and-publish
 
 ### Enable CORS configurations globally
 
-You can enable CORS for Choreo Connect by configuring in the `config.toml` file, which is located in the `CHOREO-CONNECT_HOME/docker-compose/choreo-connect/conf/` directory.
-
 Follow the instructions below to enable CORS globally. Once this is enabled, it will apply this configurations through all endpoints and APIs deployed in Choreo Connect.
 
-1. Open the `CHOREO-CONNECT_HOME/docker-compose/choreo-connect/conf/config.toml` file.
+1. {!includes/deploy/cc-configuration-file.md!}
+
 2. Locate the following configuration set and make the `enabled` attribute to `true` with the required CORS attributes there.
 
      ``` yml
@@ -45,7 +44,7 @@ Follow the instructions below to enable CORS globally. Once this is enabled, it 
      ```
 
 !!! info 
-    Global CORS configuration is enabled by default. Access control can be done by changing the parameters mentioned above in the `config.toml` file.
+    Global CORS configuration is enabled by default. Access control can be done by changing the parameters mentioned above.
 
 !!! note 
     If CORS for a certain API is disabled from API Level Configurations, the default global Configurations will apply.

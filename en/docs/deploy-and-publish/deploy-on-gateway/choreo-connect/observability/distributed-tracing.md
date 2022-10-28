@@ -40,7 +40,10 @@ When using **Jaeger** for tracing, the format is same as for **Zipkin** to publi
     ```
     COLLECTOR_ZIPKIN_HOST_PORT=9411
     ```
-1. Add the following configuration to the `config.toml` file.  
+
+1. {!includes/deploy/cc-configuration-file.md!}
+
+1. Add the following configuration.  
     ```toml
     [tracing]
       enabled = true
@@ -52,7 +55,8 @@ When using **Jaeger** for tracing, the format is same as for **Zipkin** to publi
         instrumentationName = "CHOREO-CONNECT"
         maximumTracesPerSecond = "2"
         maxPathLength = "256"
-    ```  
+    ``` 
+
 1. Start Choreo Connect.
 1. [Create and Deploy an API]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker-with-apim/).
 1. Invoke the newly created API and open Jaeger UI to view the traces. Navigate to <http://localhost:16686> if you have updated the Docker Compose file with an instance of Jaeger as mentioned at the beginning.
@@ -65,7 +69,10 @@ You will be able to browse through the request traces and expand each trace to v
 
 Follow these steps to configure WSO2 Choreo Connect with Zipkin.
 
-1. Add the following configuration to the `config.toml` file.  
+1. {!includes/deploy/cc-configuration-file.md!}
+
+1. Add the following configuration.
+
     ```toml
     [tracing]
       enabled = true
@@ -77,7 +84,8 @@ Follow these steps to configure WSO2 Choreo Connect with Zipkin.
         instrumentationName = "CHOREO-CONNECT"
         maximumTracesPerSecond = "2"
         maxPathLength = "256"
-    ```  
+    ``` 
+
 1. Start Choreo Connect.
 1. [Create and Deploy an API]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker-with-apim/).
 1. Invoke the newly create API and open Zipkin UI to view the traces. Navigate to <http://localhost:9411> if you have updated the Docker Compose file with an instance of Zipkin as mentioned at the beginning.
@@ -97,7 +105,9 @@ Follow these steps to configure WSO2 Choreo Connect with Azure Application Insig
     ```
     InstrumentationKey=ab71943f-xxxx-xxxx-xxxx-fb2eb69ae11d;IngestionEndpoint=https://region.applicationinsights.azure.com/
     ```
-1. Add the following configuration to the `config.toml` file.
+1. {!includes/deploy/cc-configuration-file.md!}
+
+1. Add the following configuration.
 
     ```toml tab="Configuration"
     [tracing]

@@ -13,14 +13,7 @@ Configure Analytics for Choreo Connect using one of the following methods:
 
 ## Configuring Choreo Portal Analytics
 
-Follow the instructions below to configure Choreo Portal Analytics for Choreo Connect:
-
-<div class="admonition Note">
-<p class="admonition-title">Note</p>
-<p>Before you begin, ensure to go through and get familiar with the following.<br/>
-    <ul><li><a href="{{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configuration-overview/">Main configurations</a>.</li>
-    <li><a href="{{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/analytics-configurations/">Configurations for Analytics</a></li></ul></p>
-</div>
+Follow the instructions below to configure Choreo Portal Analytics for Choreo Connect.
 
 ### Step 1 - Set up Analytics
 
@@ -42,10 +35,11 @@ Follow the instructions below to configure analytics with Choreo:
         analytics_authToken=<your-on-prem-key>
     ```
 
-5. Enable analytics.
-   
-     1. Open the `config.toml` file, which is located in the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf` directory.
-     2. Locate the [Analytics]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/analytics-configurations/) section and enable analytics by using the following configurations.
+5. Enable analytics before starting Choreo Connect. First of all, navigate to the configuration file location. {!includes/deploy/cc-configuration-file.md!}
+
+    1. Locate the [Analytics]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/analytics-configurations/) section.
+    
+    1. Enable analytics by using the following configurations. 
 
           ``` toml
           [analytics]
@@ -119,8 +113,9 @@ Follow the instructions below to compile the reporter implementation as a JAR fi
 
 #### Step 1.2 - Configure the config.toml file
 
-1. Open the `choreo-connect-1.x.x/docker-compose/choreo-connect(-with-apim)/conf/config.toml` file.
-2. Update the analytics section based on the following configurations.
+1. {!includes/deploy/cc-configuration-file.md!}
+    
+2. Change the analytics section based on the following configurations.
 
     ``` toml
     [analytics]
@@ -130,10 +125,8 @@ Follow the instructions below to compile the reporter implementation as a JAR fi
         [analytics.enforcer.configProperties]
             "publisher.reporter.class" = "org.wso2.am.analytics.publisher.sample.reporter.CustomReporter"
     ```
-   
-!!! note "If you want to use a custom reporter class"
-     
-     Set the value of the `publisher.reporter.class` property to the class name of the new reporter implementation in the `config.toml` file.
+
+    If you want to use a custom reporter class, set the value of the `publisher.reporter.class` property to the class name of the new reporter implementation.
 
 #### Step 1.3 - Enable logs
 
@@ -237,7 +230,7 @@ Update the `choreo-connect-1.x.x/docker-compose/choreo-connect(-with-apim)/conf/
 
 ### Step 3 - Publish an API
 
-Publish an API to the Choreo Connect by either using `APIM` or `APICTL`. 
+Publish an API to Choreo Connect either via API Manager or apictl. 
 
 ### Step 4 - Invoke requests
 
