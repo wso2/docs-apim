@@ -19,7 +19,48 @@ In the API Manager, access logs of applications get recorded or written into the
     useLogger = true
     ```
 
-3. Restart the server.
+ 3. Open <APIM_HOME>/repository/conf/log4j2.properties file:
+ 
+ Add HTTP_ACCESS to the existing "appenders"
+```Sample
+appenders = CARBON_CONSOLE, CARBON_LOGFILE, AUDIT_LOGFILE, ATOMIKOS_LOGFILE, CARBON_TRACE_LOGFILE, DELETE_EVENT_LOGFILE, TRANSACTION_LOGFILE, osgi, HTTP_ACCESS
+```
+
+ Add HTTP_ACCESS to existing "loggers"
+```Sample
+loggers = AUDIT_LOG, trace-messages, org-apache-coyote, com-hazelcast, Owasp-CsrfGuard, org-apache-axis2-wsdl-codegen-writer-PrettyPrinter, org-apache-axis2-clustering, org-apache-catalina, org-apache-tomcat, org-wso2-carbon-apacheds, org-apache-directory-server-ldap, org-apache-directory-server-core-event, com-atomikos, org-quartz, org-apache-jackrabbit-webdav, org-apache-juddi, org-apache-commons-digester-Digester, org-apache-jasper-compiler-TldLocationsCache, org-apache-qpid, org-apache-qpid-server-Main, qpid-message, qpid-message-broker-listening, org-apache-tiles, org-apache-commons-httpclient, org-apache-solr, me-prettyprint-cassandra-hector-TimingLogger, org-apache-axis-enterprise, org-apache-directory-shared-ldap, org-apache-directory-server-ldap-handlers, org-apache-directory-shared-ldap-entry-DefaultServerAttribute, org-apache-directory-server-core-DefaultDirectoryService, org-apache-directory-shared-ldap-ldif-LdifReader, org-apache-directory-server-ldap-LdapProtocolHandler, org-apache-directory-server-core, org-apache-directory-server-ldap-LdapSession, DataNucleus, Datastore, Datastore-Schema, JPOX-Datastore, JPOX-Plugin, JPOX-MetaData, JPOX-Query, JPOX-General, JPOX-Enhancer, org-apache-hadoop-hive, hive, ExecMapper, ExecReducer, net-sf-ehcache, axis2Deployment, equinox, tomcat2, StAXDialectDetector, org-apache-directory-api, org-apache-directory-api-ldap-model-entry, TRANSACTION_LOGGER, DELETE_EVENT_LOGGER, org-springframework, org-opensaml-xml-security-credential-criteria, org-wso2-carbon-user-core, org-wso2-carbon-identity, org-wso2-carbon-identity-sso-saml, HTTP_ACCESS
+```
+
+Add logger configurations for HTTP_ACCESS log
+```
+logger.HTTP_ACCESS.name = HTTP_ACCESS
+logger.HTTP_ACCESS.level = INFO
+logger.HTTP_ACCESS.appenderRef.HTTP_ACCESS.ref = HTTP_ACCESS
+logger.HTTP_ACCESS.additivity = false
+```
+
+Add appender configurations for HTTP_ACCESS log
+```
+appender.HTTP_ACCESS.type = RollingFile
+appender.HTTP_ACCESS.name = HTTP_ACCESS
+appender.HTTP_ACCESS.fileName =${sys:carbon.home}/repository/logs/wso2carbon.log
+appender.HTTP_ACCESS.filePattern =${sys:carbon.home}/repository/logs/wso2carbon-%d{MM-dd-yyyy}.log
+appender.HTTP_ACCESS.layout.type = PatternLayout
+appender.HTTP_ACCESS.layout.pattern = [%X{Correlation-ID}] %mm%n
+appender.HTTP_ACCESS.policies.type = Policies
+appender.HTTP_ACCESS.policies.time.type = TimeBasedTriggeringPolicy
+appender.HTTP_ACCESS.policies.time.interval = 1
+appender.HTTP_ACCESS.policies.time.modulate = true
+appender.HTTP_ACCESS.policies.size.type = SizeBasedTriggeringPolicy
+appender.HTTP_ACCESS.policies.size.size=10MB
+appender.HTTP_ACCESS.strategy.type = DefaultRolloverStrategy
+appender.HTTP_ACCESS.strategy.max = 20
+appender.HTTP_ACCESS.filter.threshold.type = ThresholdFilter
+appender.HTTP_ACCESS.filter.threshold.level = INFO
+```
+ 
+4. Restart the server.
+
 
 Following is a sample of access log entries which can be monitored via `<API-M_HOME>/repository/logs/http_access_.log` file by default.
 

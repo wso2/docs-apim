@@ -14110,10 +14110,12 @@ useLogger = true</code></pre>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>
                                         </div>
-                                        
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true,false</code></span>
+                                        </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Allows logs to get written into the `&lt;APIM_HOME&gt;repository/logs/wso2carbon.log` or any other log file and show up on the console.</p>
+                                        <p>Set this to true to allow logs to get written into the `&lt;APIM_HOME&gt;repository/logs/wso2carbon.log` or any other log file and show up on the console.</p>
                                     </div>
                                 </div>
                             </div>
