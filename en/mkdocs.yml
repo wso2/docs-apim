@@ -196,6 +196,7 @@ nav:
                     - Overview: design/rate-limiting/graphql-api/overview-query-limits-for-graphql.md
                     - Query Depth Limit: design/rate-limiting/graphql-api/query-depth-limitation.md
                     - Query Complexity Limit: design/rate-limiting/graphql-api/query-complexity-limitation.md
+                - Importing and Exporting Throttle Policies: design/rate-limiting/throttle-policy-import-export.md
                 - Advanced Topics:
                     - Custom Rate Limiting: design/rate-limiting/advanced-topics/custom-throttling.md
                     - Configure Rate Limiting for an API Gateway Cluster: design/rate-limiting/advanced-topics/configuring-rate-limiting-api-gateway-cluster.md
