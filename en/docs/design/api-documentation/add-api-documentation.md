@@ -11,11 +11,11 @@ The documentation types supported in the API Publisher are as follows:
 
 Follow the instructions below to add documentation to an API:
 
-1.  Sign in to the WSO2 API Publisher.
+1. Sign in to the WSO2 API Publisher.
      
      `https://<hostname>:9443/publisher`
 
-2.  Click on the API (e.g., `PizzaShackAPI 1.0.0` ) for which you want to add the documentation.
+2. Click on the API (e.g., `PizzaShackAPI 1.0.0` ) for which you want to add the documentation.
    
     [![Select API in API Publisher]({{base_path}}/assets/img/learn/select-api.png){: style="width:30%"}]({{base_path}}/assets/img/learn/select-api.png)
 
@@ -188,19 +188,22 @@ Follow the instructions below to add documentation to an API:
      
      [![APIs documentation tab with a list of the added documentation]({{base_path}}/assets/img/learn/add-docs-all.png)]({{base_path}}/assets/img/learn/add-docs-all.png)
 
-4.  Sign in to the WSO2 Developer Portal and click on the `PizzaShackAPI` version 1.0.0 API.
+4. Sign in to the WSO2 Developer Portal and click on the `PizzaShackAPI` version 1.0.0 API.
     
      `https://<hostname>:9443/devportal`
     
      [![API in Developer Portal]({{base_path}}/assets/img/learn/view-docs-devportal.png){: style="width:70%"}]({{base_path}}/assets/img/learn/view-docs-devportal.png)
 
-5.  Click **Documentation**.
+5. Click **Documents**.
  
      The documents that you added, which are listed by type, appears.
 
-6. Click the links to view the documentation content. 
+6. Use the dropdown `Select Documents` to select the document that you want to view.
 
      As a subscriber, you can read the documentation and learn about the API.
+
+     !!! note
+     For rest APIs, generated document will be listed as `Default`
 
      [![View API related documentation]({{base_path}}/assets/img/learn/view-docs-api.png)]({{base_path}}/assets/img/learn/view-docs-api.png)
 

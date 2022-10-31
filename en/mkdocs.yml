@@ -110,6 +110,7 @@ nav:
             - Enable Notifications: design/api-versioning/enabling-notifications.md
         - API Documentation:
             - Add API Documentation: design/api-documentation/add-api-documentation.md
+            - View Generated Documentation : design/api-documentation/view-generated-documentation.md
         - API Collaboration:
             - Comment on an API via the Publisher: design/api-collaborations/comment-on-an-api-via-the-publisher.md
             - Enable Social Media Interaction: design/api-collaborations/enable-social-media-interaction.md
