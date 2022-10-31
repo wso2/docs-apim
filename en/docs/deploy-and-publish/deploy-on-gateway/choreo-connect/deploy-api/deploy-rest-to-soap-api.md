@@ -1,6 +1,6 @@
 # REST API from a SOAP Endpoint
 
-When it comes to web services, they are designed to provide rich functionlity to end users by supporting interoperable interactions over a network. Web services are mainly categorized into two types called SOAP and RESTful services. However, due to various reasons like flexibility, scalability, complexity, performance, etc. RESTful services became better for modern clients. Due to this reason exposing a SOAP endpoint as a RESTfull service is helpful as it provides more flexibilities when integrating web services with various end user applications.
+When it comes to web services, they are designed to provide rich functionality to end users by supporting interoperable interactions over a network. Web services are mainly categorized into two types called SOAP and RESTful services. However, due to various reasons like flexibility, scalability, complexity, performance, etc. RESTful services became better for modern clients. Due to this reason exposing a SOAP endpoint as a RESTfull service is helpful as it provides more flexibilities when integrating web services with various end user applications.
 
 This guide will explain you on how to perform the SOAP to REST transformation using [WSO2 Micro Integrator]({{base_path}}/integrate/integration-overview/) and how to deploy the converted API in Choreo Connect gateway to provision the [key features]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features/) that the Choreo Connect is supporting by using an example.
 

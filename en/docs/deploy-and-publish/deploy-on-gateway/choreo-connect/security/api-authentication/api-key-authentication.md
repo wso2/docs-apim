@@ -11,11 +11,11 @@ Select one of the methods given below to enable API Key Authentication for an AP
 
 ## Update the OpenAPI definition of the API
 
-When deploying via WSO2 API Manager, as you enable API authentication for an API, it will overrides any already existing the API Key Authentication defined in the OpenAPI definition. Therefore, making changes via the API Manager Publisher UI is sufficient. Use the following steps to enable API Key authentication when deploying an API using the apictl, in other words, during standalone mode.
+When deploying via WSO2 API Manager, the already existing API Key security schemes defined in the OpenAPI definition will be overridden as you configure API security from the Publisher Portal. Therefore, making changes via the API Manager Publisher UI is sufficient. Use the following steps to enable API Key authentication when deploying an API using apictl, in other words, during standalone mode.
 
 ### Step 1  - Define the API Key security scheme
 
-Security schemes must be defined on the OpenAPI definition under `securitySchemes`. One or more API Key security schemes can be used simultaneously, similar to a logical OR operator. Define the API Key security scheme as follows:
+Security schemes must be defined in the OpenAPI definition under `securitySchemes`. One or more API Key security schemes can be used simultaneously, similar to a logical OR operator. Define the API Key security scheme as follows:
 
 | Field Name | Description   |
 | -----------| --------------|
@@ -23,7 +23,7 @@ Security schemes must be defined on the OpenAPI definition under `securityScheme
 | `in`       | This can be either `header` or `query`. |
 | `type`     | Specify `apiKey` as the type. |
 
-The following example defines an API Key security scheme named `apiKeyAuth`, which sends `X-API-Key` as a request header. Here, `apiKeyAuth` is the name provided for the security scheme and `X-API-Key` is the name for the header.
+The following example defines an API Key security scheme named `apiKeyAuth`, which expects `X-API-Key` as a request header. Here, `apiKeyAuth` is the name provided for the security scheme and `X-API-Key` is the name for the header.
 
 !!! note
     The following example shows how to define API Key security schemes in [OAS3](https://swagger.io/docs/specification/authentication/api-keys/). If you are using an OAS2 API definition, go to [this Swagger document](https://swagger.io/docs/specification/2-0/authentication/api-keys/) to get more information on defining API Key security in OAS2.
@@ -133,8 +133,8 @@ certificateFilePath = "/home/wso2/security/truststore/wso2carbon.pem"
     ```
 
     - name - Name of the token service and must not be changed 
-    - certificateAlias - Alias name given in Enforcer truststore for the public certificate of the JWT issuer 
-    - certificateFilePath - Certificate Filepath within the Enforcer container 
+    - certificateAlias - Alias name to be used by the internal Enforcer truststore for the public certificate of the JWT issuer 
+    - certificateFilePath - Certificate file path within the Enforcer container 
     - validateSubscription 
 
         Whether to validate subscriptions. **If disabled**, a single API key may be used against any API in the same Choreo Connect instance since only the JWT signature would be validated procedure. When set to true, sunscription validation is done as given below depending on the Choreo Connect mode. 
