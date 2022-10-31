@@ -262,6 +262,7 @@ nav:
                 - Configurations:
                     - Configuration Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configuration-overview.md
                     - Configure Log4j2 Properties: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-log4j2.md
+                    - Router Log configurations: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-router.md
                     - Main Configurations:
                         - Adapter: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/adapter-configurations.md
                         - Enforcer: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/enforcer-configurations.md
