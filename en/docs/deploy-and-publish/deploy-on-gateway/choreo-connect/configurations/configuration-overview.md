@@ -2,16 +2,45 @@
 
 The following are the Choreo Connect related configuration files.
 
-| **File name**            | **Description**                                                                                              | **Directory (File path)**                                              |
-|--------------------------|--------------------------------------------------------------------------------------------------------------|----------------------------------------------------------- |
-| `config.toml`            | This file defines all the adapter, enforcer, router, security, control plane and analytics configurations.   | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf` |
-| `log_config.toml`        | This file defines the logging configurations for the Adapter and Router.                                              | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf` |
-| `log4j2.properties`      | This file defines the logging configurations for the Enforcer.                                                    | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf` |
+| **File** | **File Name Example** |
+|---------------|---------------------|
+| Configuration File | This file defines all the adapter, enforcer, router, security, control plane and analytics configurations. </br> E.g. `config.toml`    | 
+| Log Configuration File | This file defines the logging configurations for the Adapter and Router. </br> E.g. `log_config.toml` | 
+| Log4j2 Configuration File | This file defines the logging configurations for the Enforcer. </br> E.g. `log4j2.properties` | 
+
+
+Each of the above files can be found in the locations given below depending on the Choreo Connect deployment.
+
+??? info "**For Docker Compose**"
+
+    | **File** | **File Name** |
+    |----------|---------------|
+    | Configuration File   | `config.toml` |
+    | Log Configuration File  | `log_config.toml` |
+    | Log4j2 Configuration File  | `log4j2.properties` |
+
+    | **Mode** | **Directory (File path)** |
+    |----------|---------------------------|
+    | [Choreo Connect as a Standalone Gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/) | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf` |
+    | [Choreo Connect with WSO2 API Manager as a Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/) |  `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf` |
+
+??? info "**For Kubernetes**"
+
+    | **File**                |   **File Name**    |
+    |-------------------------|--------------------|
+    | Configuration File      | For [Choreo Connect as a Standalone Gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/), <ul><li> `config-toml-configmap.yaml`</li></ul>   For [Choreo Connect with WSO2 API Manager as a Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/), <ul><li> `config-toml-configmap-for-eventhub.yaml`</li></ul> |
+    | Log Configuration File  | `logconfig-toml-configmap.yaml` |
+    | Log4j2 Configuration File      | `log4j2-configmap.yaml` |
+
+    | **Mode** | **Directory (File path)** |
+    |----------|---------------------------|
+    | [Choreo Connect as a Standalone Gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/) | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect` |
+    | [Choreo Connect with WSO2 API Manager as a Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/) | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect-with-apim/choreo-connect` |
 
 
 ## Configurations Overview
 
-Only the Adapter component reads the `config.toml` file. Then the Enforcer and Router components fetches the relevant configurations via XDS caches. 
+Only the Adapter component reads the ***Configuration File***. Then the Enforcer and Router components fetches the relevant configurations via XDS caches. 
 
 !!! note
 
@@ -20,8 +49,8 @@ Only the Adapter component reads the `config.toml` file. Then the Enforcer and R
 
 ## Overriding configuration values with environment variables
 
-The configurations provided within `config.toml` can be overridden with environment variables. As 
-the `config.toml` file is processed within Adapter first, the environment variables should be assigned
+The configurations provided within the ***Configuration File*** can be overridden with environment variables. As 
+this file is processed within Adapter first, the environment variables should be assigned
 to the Adapter environment. The variables are case-insensitive.
 
 - To override a configuration value like the following, the user needs to declare the environment variable
