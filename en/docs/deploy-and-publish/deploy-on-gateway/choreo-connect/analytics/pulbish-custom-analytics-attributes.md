@@ -6,7 +6,7 @@ headers, response trailers relevant to the event, users can retrieve those value
 This guide will explain the steps required to do it.
 
 !!! attention "Update Level 14"
-    This feature is available only as an update. After the Update of level 1.0.0.14 (released on 28th October 2022) and further.
+    This feature is available only as an update. After the Update of level 1.0.0.14 (released on 31st October 2022) and further.
     For more information regarding Choreo Connect updates, refer to the documentation available in [here.]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/update-choreo-connect/)
 
 !!! note
