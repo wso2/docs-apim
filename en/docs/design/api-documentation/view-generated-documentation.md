@@ -1,6 +1,7 @@
 # View Generated Documentation for Rest APIs
 
-Follow the instructions below to view the generated documentation to a Rest API. Generated documentation feature does not support other API types:
+Follow the instructions below to view the generated documentation to a REST API.
+This feature does not support other API types.
 
 1.  Sign in to the WSO2 API Publisher.
      

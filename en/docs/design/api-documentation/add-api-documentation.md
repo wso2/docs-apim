@@ -198,12 +198,12 @@ Follow the instructions below to add documentation to an API:
  
      The documents that you added, which are listed by type, appears.
 
-6. Use the dropdown `Select Documents` to select the document that you want to view.
+6. Use the dropdown and select the document that you want to view.
 
      As a subscriber, you can read the documentation and learn about the API.
 
      !!! note
-     For rest APIs, generated document will be listed as `Default`
+     For REST APIs, generated document will be listed as `Default`
 
      [![View API related documentation]({{base_path}}/assets/img/learn/view-docs-api.png)]({{base_path}}/assets/img/learn/view-docs-api.png)
 
