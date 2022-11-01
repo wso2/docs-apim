@@ -5,8 +5,8 @@ In the following sections, you may find how to enable Router wire logs.
 
 ## Router Wire Logs
 
-!!! attention "Update Level 13"
-    This feature is available only as an update. After the Update of level 1.0.0.14 (released on 27th October 2022) and further.
+!!! attention "Update Level 14"
+    This feature is available only as an update. After the Update of level 1.0.0.14 (released on 31st October 2022) and further.
 
 By enabling wire logs in the Router component, you can inspect headers, body, and trailers of the request/response. This is helpful to see the changes applied to the request or response after request path and/or response path interceptors.
 
