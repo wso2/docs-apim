@@ -479,5 +479,118 @@ When API authentication fails due to expired/invalid cookies, the creatiocrm.ini
 
     ```
 
+### Account operations
+
+??? note "Account Create"
+    Creatio accountCreate operation is used in MI mediation to create a new Account with a unique ID in the Creatio. 
+
+    The message body for the account creation will be taken from the payload of the existing message context.
+
+    |Field|Type| |Description|Remarks|
+    |:----|:----|:----|:----|:----|
+    |Content-Type|String| |application/json| |
+    |BPMCSRF|String| |The CSRF Token from the Auth response|Ex: bHZfVOIO4.iSuXwMebGibes|
+    |Set-cookie|String| |Value of Username cookie from the Auth response|Ex: UserName=83|117|112|101|114|118|105|115|111|114; expires=Sat, 07-May-2022 08:46:12 GMT; path=/; secure; HttpOnly|
+    |Cookie|String| |Cookie Value from the Auth response| |
+
+
+    **Sample configuration**
+
+    ```xml
+
+    <creatiocrm.init>
+        <hostName>https://creatio-hostname</hostName>
+        <password>creatio-username</password>
+        <username>creatio-password</username>
+    </creatiocrm.init>
+    <creatiocrm.accountCreate/> 
+
+    ```
+
+    **Sample request**
+
+    ```json
+
+    {
+        "Name": "API 1",
+        "ProcessListeners": 0,
+        "Phone": "+1 206 480 3801",
+        "AdditionalPhone": "+1 206 480 4495",
+        "Fax": "",
+        "Web": "www.infocom-global.com",
+        "Address": "48 Pilgrim Street",
+        "Notes": ""
+    }
+
+    ```
+
+??? note "Get Account"
+    The accountGet operation is used to retrieve the account that already exists in the CreatioCRM with the unique ID.
+
+    If the given ID does not exist in the CreatioCRM, this will return a 404 HTTP status code.
+
+    |Field|Type| |Description|Remarks|
+    |:----|:----|:----|:----|:----|
+    |BPMCSRF|String| |The CSRF Token from the Auth response|Ex: bHZfVOIO4.iSuXwMebGibes|
+    |Set-cookie|String| |Value of Username cookie from the Auth response|Ex: UserName=83|117|112|101|114|118|105|115|111|114; expires=Sat, 07-May-2022 08:46:12 GMT; path=/; secure; HttpOnly|
+    |Cookie|String| |Cookie Value from the Auth response| |
+
+    **Sample configuration**
+
+    ```xml
+    <creatiocrm.init>
+        <hostName>https://creatio-hostname</hostName>
+        <password>creatio-username</password>
+        <username>creatio-password</username>
+    </creatiocrm.init>
+    <creatiocrm.accountGet>
+        <id>{$ctx:uri.var.id}</id>
+    </creatio.accountGet>
+
+    ```
+
+??? note "Update Account"
+    The accountUpdate operation is used to update the existing account details in the CreatioCRM. 
+
+    If the given ID does not exist in the CreatioCRM this will create new account with the given ID.
+
+    |Field|Type| |Description|Remarks|
+    |:----|:----|:----|:----|:----|
+    |BPMCSRF|String| |The CSRF Token from the Auth response|Ex: bHZfVOIO4.iSuXwMebGibes|
+    |Set-cookie|String| |Value of Username cookie from the Auth response|Ex: UserName=83|117|112|101|114|118|105|115|111|114; expires=Sat, 07-May-2022 08:46:12 GMT; path=/; secure; HttpOnly|
+    |Cookie|String| |Cookie Value from the Auth response| |
+
+    **Sample configuration**
+
+    ```xml
+    <creatiocrm.init>
+        <hostName>https://creatio-hostname</hostName>
+        <password>creatio-username</password>
+        <username>creatio-password</username>
+    </creatiocrm.init>
+    <creatiocrm.accountUpdate/>
+        <id>{$ctx:uri.var.id}</id>
+    </creatio.accountUpdate>
+
+    ```
+
+    **Sample request**
+
+    ```json
+
+    {
+        "Name": "API 1",
+        "ProcessListeners": 0,
+        "Phone": "+1 206 480 3801",
+        "AdditionalPhone": "+1 206 480 4495",
+        "Fax": "",
+        "Web": "www.infocom-global.com",
+        "Address": "48 Pilgrim Street",
+        "Notes": ""
+    }
+
+    ```
+
+
 
 
