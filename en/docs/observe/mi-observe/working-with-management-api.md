@@ -135,16 +135,16 @@ The management API has multiple resources to provide information regarding the d
     ```json
     {
      "userId":"user4",
-     "password":"pwd1",
+     "password":"pwd1pwd2",
      "isAdmin":"false",
      "domain":"wso2.com"
     }
     ```
 
 	!!! note
-		When adding users to the primary user store, the `domain` can be ignored or set as `primary`.
-
-		We cannot add admin users to the secondary user stores. 
+		- When adding users to the primary user store, the `domain` can be ignored or set as `primary`.
+		- We cannot add admin users to the secondary user stores. 
+		- The password should be at least 6 characters long.
 
     Execute the following request and receive the response:
 
