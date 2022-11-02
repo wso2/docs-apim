@@ -279,8 +279,8 @@ When API authentication fails due to expired/invalid cookies, the creatiocrm.ini
 
     |Field|Type| |Description|Remarks|
     |:----|:----|:----|:----|:----|
-    |BPMCSRF|String| |The CSRF Token from the Auth response|Ex: bHZfVOIO4.iSuXwMebGibes|
-    |Set-cookie|String| |Value of Username cookie from the Auth response|Ex: UserName=83|117|112|101|114|118|105|115|111|114; expires=Sat, 07-May-2022 08:46:12 GMT; path=/; secure; HttpOnly|
+    |BPMCSRF|String| |The CSRF Token from the Auth response|E.g., bHZfVOIO4.iSuXwMebGibes|
+    |Set-cookie|String| |Value of Username cookie from the Auth response|E.g., UserName=83|117|112|101|114|118|105|115|111|114; expires=Sat, 07-May-2022 08:46:12 GMT; path=/; secure; HttpOnly|
     |Cookie|String| |Cookie Value from the Auth response| |
 
 
@@ -316,6 +316,168 @@ When API authentication fails due to expired/invalid cookies, the creatiocrm.ini
 
     ```
     
+??? note "Delete Contact"
+    The contactDelete operation is used to delete a contact that already exists in the CreatioCRM with given unique ID.
+
+    If the given ID does not exist in the CreatioCRM this will return 404 HTTP status code 
+
+    |Field|Type| |Description|Remarks|
+    |:----|:----|:----|:----|:----|
+    |BPMCSRF|String| |The CSRF Token from the Auth response|E.g., bHZfVOIO4.iSuXwMebGibes|
+    |Set-cookie|String| |Value of Username cookie from the Auth response|E.g., UserName=83|117|112|101|114|118|105|115|111|114; expires=Sat, 07-May-2022 08:46:12 GMT; path=/; secure; HttpOnly|
+    |Cookie|String| |Cookie Value from the Auth response| |
+
+    **Sample configuration**
+
+    ```xml
+
+    <creatiocrm.init>
+        <hostName>https://creatio-hostname</hostName>
+        <password>creatio-username</password>
+        <username>creatio-password</username>
+    </creatiocrm.init>
+    <creatiocrm.contactDelete>
+        <id>{$ctx:id}</id>
+    </creatiocrm.contactDelete>
+
+    ```
+
+### Case operations
+
+??? note "Create Case"
+    Creatio caseCreate operation used in EI mediation to create a new case with a unique id in the CreatioCRM. 
+
+    The message body for the case creation will be taken from the payload of the existing message context.
+
+    |Field|Type| |Description|Remarks|
+    |:----|:----|:----|:----|:----|
+    |BPMCSRF|String| |The CSRF Token from the Auth response|Ex: bHZfVOIO4.iSuXwMebGibes|
+    |Set-cookie|String| |Value of Username cookie from the Auth response|Ex: UserName=83|117|112|101|114|118|105|115|111|114; expires=Sat, 07-May-2022 08:46:12 GMT; path=/; secure; HttpOnly|
+    |Cookie|String| |Cookie Value from the Auth response| |
+
+    **Sample configuration**
+
+    ```xml
+    <creatiocrm.init>
+        <hostName>https://creatio-hostname</hostName>
+        <password>creatio-username</password>
+        <username>creatio-password</username>
+    </creatiocrm.init>
+    <creatiocrm.caseCreate/>
+
+    ```
+
+    **Sample request**
+
+    ```json
+
+    {
+        "Number": "SR00000040",
+        "RegisteredOn": "2021-07-16T11:00:00Z",
+        "Subject": "Consultation on functionality",
+        "Symptoms": "Comparison of different DBMS in accordance with the customer's needs",
+        "Notes": "",
+        "AccountId": "ff7e089f-1fe9-4ca9-bc30-2d76ad39d178",
+        "ContactId": "00b34750-2feb-4545-b233-153502326f3c",
+        "SolutionRemains": 0.0
+    }
+
+    ```
+
+??? note "Get case"
+    The caseGet operation is used to retrieve the case already exist in the  reatioCRM with the unique id
+
+    If the given id does not exist in the CreatioCRM this will return 404 HTTP status code.
+
+    |Field|Type| |Description|Remarks|
+    |:----|:----|:----|:----|:----|
+    |BPMCSRF|String| |The CSRF Token from the Auth response|E.g., bHZfVOIO4.iSuXwMebGibes|
+    |Set-cookie|String| |Value of Username cookie from the Auth response|E.g., UserName=83|117|112|101|114|118|105|115|111|114; expires=Sat, 07-May-2022 08:46:12 GMT; path=/; secure; HttpOnly|
+    |Cookie|String| |Cookie Value from the Auth response| |
+
+    **Sample configuration**
+
+
+    ```xml
+    <creatiocrm.init>
+        <hostName>https://creatio-hostname</hostName>
+        <password>creatio-username</password>
+        <username>creatio-password</username>
+    </creatiocrm.init>
+    <creatiocrm.caseGet/>
+        <id>{$ctx:uri.var.id}</id>
+    </creatio.caseGet>
+
+    ```
+
+??? note "Update case"
+    The caseUpdate operation is used to update the existing case details in the CreatioCRM. 
+
+    If the given ID does not exist in the CreatioCRM this will create new contact with the given ID.
+
+    |Field|Type| |Description|Remarks|
+    |:----|:----|:----|:----|:----|
+    |BPMCSRF|String| |The CSRF Token from the Auth response|Ex: bHZfVOIO4.iSuXwMebGibes|
+    |Set-cookie|String| |Value of Username cookie from the Auth response|Ex: UserName=83|117|112|101|114|118|105|115|111|114; expires=Sat, 07-May-2022 08:46:12 GMT; path=/; secure; HttpOnly|
+    |Cookie|String| |Cookie Value from the Auth response| |
+
+
+    **Sample configuration**
+
+    ```xml
+
+    <creatiocrm.init>
+        <hostName>https://creatio-hostname</hostName>
+        <password>creatio-username</password>
+        <username>creatio-password</username>
+    </creatiocrm.init>
+    <creatiocrm.caseUpdate/>
+        <id>{$ctx:uri.var.id}</id>
+    </creatio.caseUpdate>
+    ```
+
+    **Sample request**
+
+    ```json
+
+    {
+        "Number": "SR00000040",
+        "RegisteredOn": "2021-07-16T11:00:00Z",
+        "Subject": "Consultation on functionality",
+        "Symptoms": "Comparison of different DBMS in accordance with the customer's needs",
+        "Notes": "",
+        "AccountId": "ff7e089f-1fe9-4ca9-bc30-2d76ad39d178",
+        "ContactId": "00b34750-2feb-4545-b233-153502326f3c",
+        "SolutionRemains": 0.0
+    }
+
+    ```
+
+??? note "Delete case"
+    The caseDelete operation is used to delete a case that already exists in the CreatioCRM with given unique ID.
+
+    If the given ID does not exists in the CreatioCRM this will return 404 HTTP status code.
+
+    |Field|Type| |Description|Remarks|
+    |:----|:----|:----|:----|:----|
+    |BPMCSRF|String| |The CSRF Token from the Auth response|E.g., bHZfVOIO4.iSuXwMebGibes|
+    |Set-cookie|String| |Value of Username cookie from the Auth response|E.g., UserName=83|117|112|101|114|118|105|115|111|114; expires=Sat, 07-May-2022 08:46:12 GMT; path=/; secure; HttpOnly|
+    |Cookie|String| |Cookie Value from the Auth response| |
+
+    **Sample configuration**
+
+    ```xml
+
+    <creatiocrm.init>
+        <hostName>https://creatio-hostname</hostName>
+        <password>creatio-username</password>
+        <username>creatio-password</username>
+    </creatiocrm.init>
+    <creatiocrm.caseDelete>
+        <id>{$ctx:uri.var.id}</id>
+    </creatio.caseDelete>
+
+    ```
 
 
 
