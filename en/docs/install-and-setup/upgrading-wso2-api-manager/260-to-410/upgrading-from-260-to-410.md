@@ -873,13 +873,13 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Mana
 
         CALL SKIP_INDEX_IF_EXISTS('IDX_RS', 'IDN_UMA_RESOURCE_SCOPE', 'SCOPE_NAME');
         
-        CREATE TABLE IF NOT EXISTS IDN_UMA_PERMISSION_TICKET (
-        ID              INTEGER AUTO_INCREMENT NOT NULL,
-        PT              VARCHAR(255)           NOT NULL,
-        TIME_CREATED    TIMESTAMP              NOT NULL,
-        EXPIRY_TIME     TIMESTAMP              NOT NULL,
-        TICKET_STATE    VARCHAR(25) DEFAULT 'ACTIVE',
-        TENANT_ID       INTEGER     DEFAULT -1234,
+        CREATE TABLE IF NOT EXISTS IDN_UMA_PERMISSION_TICKET ( 
+        ID             INTEGER AUTO_INCREMENT NOT NULL, 
+        PT             VARCHAR(255)           NOT NULL, 
+        TIME_CREATED   TIMESTAMP              NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        EXPIRY_TIME    TIMESTAMP              NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        TICKET_STATE   VARCHAR(25) DEFAULT 'ACTIVE', 
+        TENANT_ID      INTEGER     DEFAULT -1234,
         PRIMARY KEY (ID)
         );
         
