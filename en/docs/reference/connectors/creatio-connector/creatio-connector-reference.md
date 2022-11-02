@@ -272,6 +272,50 @@ When API authentication fails due to expired/invalid cookies, the creatiocrm.ini
 
     ```
     
+??? note "Update Contact"
+    The contactUpdate operation is  used to update an existing contact details in the CreatioCRM. 
+
+    If the given ID does not exist in the CreatioCRM, this will create a  new contact with the given ID. The message body for the contact update will be taken from the payload of existing message context.
+
+    |Field|Type| |Description|Remarks|
+    |:----|:----|:----|:----|:----|
+    |BPMCSRF|String| |The CSRF Token from the Auth response|Ex: bHZfVOIO4.iSuXwMebGibes|
+    |Set-cookie|String| |Value of Username cookie from the Auth response|Ex: UserName=83|117|112|101|114|118|105|115|111|114; expires=Sat, 07-May-2022 08:46:12 GMT; path=/; secure; HttpOnly|
+    |Cookie|String| |Cookie Value from the Auth response| |
+
+
+    **Sample configuration**
+
+    ```xml
+    <creatiocrm.init>
+        <hostName>https://creatio-hostname</hostName>
+        <password>creatio-username</password>
+        <username>creatio-password</username>
+    </creatiocrm.init>
+    <creatiocrm.contactUpdate>
+        <id>{$ctx:id}</id>
+    </creatiocrm.contactUpdate>
+
+    ```
+
+    **Sample request** 
+
+    ```json
+
+    {
+        "Name": "API Test",
+        "AccountId": "e6574af1-3e92-4099-958e-e798f52ee016",
+        "JobTitle": "Marketing manager",
+        "BirthDate": "0001-01-01T00:00:00Z",
+        "Phone": "",
+        "MobilePhone": "+1 213 566 34 22",
+        "Email": "test@gmail",
+        "Completeness": 30,
+        "Age": 19
+    }
+
+    ```
+    
 
 
 

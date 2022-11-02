@@ -335,11 +335,7 @@ curl --location --request PATCH 'http://mi-hostname:8290/creatioAPITest/contact/
 
 **Response**
 
-```json
-
-204 No Content
-
-```
+HTTP status - 204 No Content
 
 ### Delete contact
 
@@ -361,8 +357,4 @@ curl --location --request DELETE 'http://mi-hostname:8290/creatioAPITest/contact
 
 **Response**
 
-```json
-
-204 No Content
-
-```
+HTTP status - 204 No Content
