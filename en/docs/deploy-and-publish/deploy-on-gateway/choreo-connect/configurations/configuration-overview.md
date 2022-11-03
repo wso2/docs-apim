@@ -2,11 +2,11 @@
 
 The following are the Choreo Connect related configuration files.
 
-| **File** | **File Name Example** |
+| **File** | **Description** |
 |---------------|---------------------|
-| Configuration File | This file defines all the adapter, enforcer, router, security, control plane and analytics configurations. </br> E.g. `config.toml`    | 
-| Log Configuration File | This file defines the logging configurations for the Adapter and Router. </br> E.g. `log_config.toml` | 
-| Log4j2 Configuration File | This file defines the logging configurations for the Enforcer. </br> E.g. `log4j2.properties` | 
+| Configuration File </br> E.g. `config.toml` | This file defines all the adapter, enforcer, router, security, control plane and analytics configurations.     | 
+| Log Configuration File </br> E.g. `log_config.toml` | This file defines the logging configurations for the Adapter and Router.  | 
+| Log4j2 Configuration File </br> E.g. `log4j2.properties` | This file defines the logging configurations for the Enforcer.  | 
 
 
 Each of the above files can be found in the locations given below depending on the Choreo Connect deployment.
