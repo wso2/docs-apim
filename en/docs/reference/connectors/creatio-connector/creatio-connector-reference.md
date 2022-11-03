@@ -591,6 +591,33 @@ When API authentication fails due to expired/invalid cookies, the creatiocrm.ini
 
     ```
 
+??? note "Delete Account"
+    The accountDelete operation is used to delete an account that already exists in the CreatioCRM with a given unique ID.
+    
+    If the given ID does not exist in the CreatioCRM, this will return 404 HTTP status code.
+
+    |Field|Type| |Description|Remarks|
+    |:----|:----|:----|:----|:----|
+    |BPMCSRF|String| |The CSRF Token from the Auth response|E.g., bHZfVOIO4.iSuXwMebGibes|
+    |Set-cookie|String| |Value of Username cookie from the Auth response|E.g., UserName=83|117|112|101|114|118|105|115|111|114; expires=Sat, 07-May-2022 08:46:12 GMT; path=/; secure; HttpOnly|
+    |Cookie|String| |Cookie Value from the Auth response| |
+
+    **Sample configuration**
+
+    ```xml
+    <creatiocrm.init>
+        <hostName>https://creatio-hostname</hostName>
+        <password>creatio-username</password>
+        <username>creatio-password</username>
+    </creatiocrm.init>
+    <creatiocrm.accountDelete/>
+        <id>{$ctx:uri.var.id}</id>
+    </creatio.accountDelete>
+
+    ```
+
+
+
 
 
 
