@@ -265,7 +265,7 @@ nav:
                     - REST API from a SOAP Endpoint: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-to-soap-api.md
                     - WebSocket API: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-websocket-api-in-choreo-connect.md
                     - GraphQL API: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-graphql-api-in-choreo-connect.md
-                    - Expose via Custom Hostnames: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-with-custom-hostnames.md
+                    - Expose via Custom Hostnames - vHosts: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-with-custom-hostnames.md
                     - Immutable Gateway:
                         - Deploy as an Immutable Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-apis-as-immutable-gateway.md
                     - REST API with a Mock Implementation: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-with-mock-impl.md
