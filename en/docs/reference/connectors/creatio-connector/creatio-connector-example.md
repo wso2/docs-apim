@@ -4,16 +4,16 @@
 
 This example explains how to use the Creatio connector to connect with a CreatioCRM instance and perform the following operations.
 
-- Create Contact
-- Retrieve information of the created Contact
-- Update Contact
-- Delete Contact  
+- Create contact
+- Retrieve information of the created contact
+- Update contact
+- Delete contact  
 
 These operations will be available as resources of an API (creatioAPITest). 
 
 ## Configure the connector in WSO2 Integration Studio
 
-Connectors can be added to integration flows in WSO2 Integration Studio, which is the tooling component of WSO2 EI. Once added, the operations of the connector can be dragged onto your design canvas and added to your sequences.
+Connectors can be added to integration flows in WSO2 Integration Studio, which is the tooling component of WSO2 MI. Once added, the operations of the connector can be dragged onto your design canvas and added to your sequences.
 
 ### Import the connector
 
@@ -25,9 +25,9 @@ Now the connector is added to the palette.
 
 ### Configure the connection and the operations
 
-The following example has the synapse configurations for the contact creation, deletion, update, and retrieve operations. While implementing the integration logic using the ‘design view’ (design canvas) the synapse configurations will be available in the ‘source view’. 
+The following example has the Synapse configurations for the contact creation, deletion, update, and retrieve operations. While implementing the integration logic using the ‘design view’ (design canvas) the Synapse configurations will be available in the ‘source view’. 
 
-Alternatively, you can copy and paste the below synapse configuration in to the source view of the API and save it. 
+Alternatively, you can copy and paste the below Synapse configuration in to the source view of the API and save it. 
 
 !!! note 
     The `creatiocrm.init` operation should be configured with values applicable to the CreatioCRM instance you are using. 

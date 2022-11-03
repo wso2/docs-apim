@@ -8,7 +8,7 @@ To see the Creatio connector, navigate to the [connector store](https://store.ws
 
 ## Compatibility
 
-| Connector Version | Supported product versions |
+| Connector Version | Supported Product Versions |
 | ------------- |-------------|
 | 1.0.0    | EI 7.1.0, EI 7.0.x, EI 6.5.0, wso2mi-1.2.0, wso2mi-4.0.0, wso2mi-4.1.0 |
 
