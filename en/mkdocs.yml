@@ -1000,6 +1000,10 @@ nav:
                         - employeeSSOAccounts: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/employeessoaccounts.md
                         - employeeWorkAssignmentManagers: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/employeeworkassignmentmanagers.md
                         - userPayAdjustmentCodeGroups: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/userpayadjustmentcodegroups.md
+            - Creatio Connector:
+                - Creatio Connector Overview: reference/connectors/creatio-connector/creatio-connector-overview.md
+                - Creatio Connector Example: reference/connectors/creatio-connector/creatio-connector-example.md
+                - Creatio Connector Reference: reference/connectors/creatio-connector/creatio-connector-reference.md
             - DB Event Listener Inbound Endpoint:
                 - Database Event Listener Overview: reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-overview.md
                 - Database Event Listener Example: reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-example.md
