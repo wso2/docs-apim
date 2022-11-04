@@ -62,7 +62,7 @@ The following operations allow you to work with the Documentum Connector. Click 
 |Response Header Field|Type|Value|Description|
 |:----|:----|:----|:----|
 |BPMCSRF|String|The CSRF Token|E.g., bHZfVOIO4.iSuXwMebGibes|
-|Cookie|String|Cookie Value|E.g., UserName=83|117|112|101|114|118|105|115|111|114; BPMLOADER=1ndbm4mg3bujyg4syir5gzyw; .ASPXAUTH=DDEF5C8454B7F2DC87B8250B7BB286CCEDB46A5DA6B08BD447E62EC65949BE5C9D37380B095928EB181751D8E6BAB4D8081C3EF7BAF31561BCAF43572BE5E77C7223F411ED9EBED1A369B7835726C464F75FDE56E6D0F2D78BD56671A46561B179A5C93D7D8DB4F04EEB7BF689AA24FB9D348E6E5928318015D45D52CCA9E5B1A597FCE02170EF75235F9B1245042A87F7B0236BF9D39F10235FDEAE0D078C680E0E09362AF91BFCDEDBC0B8CDBBC2858F1652ADAA6CD367C0F9BBBF2F309A2B59E3EC2D310CB457EF17507AEFFE4E6E82F6C1F4994C130E49059408FCC2E3D97ADDF97CB111E9FC9A0E72CC7FD7F560032C56D420FDC898C86E90C406C5A7A27E1CDF65E09502EAD22FFD7DE69EB139E2A3FB13DC5A88ADD894DDD30615D3C5A83012C41CCFECA48C9D34C97EEB4D56FCE13375F78EBFC91A7695DA1335C9EA03AEC108F6EE71D6F8DCEC9E9E0107A4F8A666486D990D809E2F573077FB1736CC29027B0F3B0260DE572B3787046B04170B000B82F10AD8C18231A1BC199D6EC97B436B497F0BCC42C0DF71C2974FBAEC8243B2FB679C7283E27817840FFE19314F07596D95069EDE22741C95B732D426A2F0E08685787FE515AC5795FF684416D81F714B040134F4CD1562C65026D468ADA59AD64E460718A8F465BF780EA897593CCE5627626672BA6BD23D135947BBF7AF8D; BPMCSRF=bHZfVOIO4.iSuXwMebGibe|
+|Cookie (this is optional)|String|Cookie Value|E.g., UserName=83|117|112|101|114|118|105|115|111|114; BPMLOADER=1ndbm4mg3bujyg4syir5gzyw; .ASPXAUTH=DDEF5C8454B7F2DC87B8250B7BB286CCEDB46A5DA6B08BD447E62EC65949BE5C9D37380B095928EB181751D8E6BAB4D8081C3EF7BAF31561BCAF43572BE5E77C7223F411ED9EBED1A369B7835726C464F75FDE56E6D0F2D78BD56671A46561B179A5C93D7D8DB4F04EEB7BF689AA24FB9D348E6E5928318015D45D52CCA9E5B1A597FCE02170EF75235F9B1245042A87F7B0236BF9D39F10235FDEAE0D078C680E0E09362AF91BFCDEDBC0B8CDBBC2858F1652ADAA6CD367C0F9BBBF2F309A2B59E3EC2D310CB457EF17507AEFFE4E6E82F6C1F4994C130E49059408FCC2E3D97ADDF97CB111E9FC9A0E72CC7FD7F560032C56D420FDC898C86E90C406C5A7A27E1CDF65E09502EAD22FFD7DE69EB139E2A3FB13DC5A88ADD894DDD30615D3C5A83012C41CCFECA48C9D34C97EEB4D56FCE13375F78EBFC91A7695DA1335C9EA03AEC108F6EE71D6F8DCEC9E9E0107A4F8A666486D990D809E2F573077FB1736CC29027B0F3B0260DE572B3787046B04170B000B82F10AD8C18231A1BC199D6EC97B436B497F0BCC42C0DF71C2974FBAEC8243B2FB679C7283E27817840FFE19314F07596D95069EDE22741C95B732D426A2F0E08685787FE515AC5795FF684416D81F714B040134F4CD1562C65026D468ADA59AD64E460718A8F465BF780EA897593CCE5627626672BA6BD23D135947BBF7AF8D; BPMCSRF=bHZfVOIO4.iSuXwMebGibe|
 
 ### Creatio operations 
 
@@ -80,7 +80,7 @@ When API authentication fails due to expired/invalid cookies, the creatiocrm.ini
     |Content-Type|String|application/json|	|
     |BPMCSRF|String|The CSRF Token from the Auth response|E.g., bHZfVOIO4.iSuXwMebGibes|
     |Set-cookie|String|Value of Username cookie from the Auth response|E.g., UserName=83|117|112|101|114|118|105|115|111|114; expires=Sat, 07-May-2022 08:46:12 GMT; path=/; secure; HttpOnly|
-    |Cookie|String|Cookie Value from the Auth response|	|
+    |Cookie (this is optional)|String|Cookie Value from the Auth response|	|
 
     **Sample configuration**
 
@@ -185,7 +185,7 @@ When API authentication fails due to expired/invalid cookies, the creatiocrm.ini
     |:----|:----|:----|:----|:----|
     |BPMCSRF|String| |The CSRF Token from the Auth response|E.g., bHZfVOIO4.iSuXwMebGibes|
     |Set-cookie|String| |Value of Username cookie from the Auth response|E.g., UserName=83|117|112|101|114|118|105|115|111|114; expires=Sat, 07-May-2022 08:46:12 GMT; path=/; secure; HttpOnly|
-    |Cookie|String| |Cookie Value from the Auth response| |
+    |Cookie (this is optional)|String| |Cookie Value from the Auth response| |
 
     **Sample configuration**
 
@@ -281,7 +281,7 @@ When API authentication fails due to expired/invalid cookies, the creatiocrm.ini
     |:----|:----|:----|:----|:----|
     |BPMCSRF|String| |The CSRF Token from the Auth response|E.g., bHZfVOIO4.iSuXwMebGibes|
     |Set-cookie|String| |Value of Username cookie from the Auth response|E.g., UserName=83|117|112|101|114|118|105|115|111|114; expires=Sat, 07-May-2022 08:46:12 GMT; path=/; secure; HttpOnly|
-    |Cookie|String| |Cookie Value from the Auth response| |
+    |Cookie (this is optional)|String| |Cookie Value from the Auth response| |
 
 
     **Sample configuration**
@@ -325,7 +325,7 @@ When API authentication fails due to expired/invalid cookies, the creatiocrm.ini
     |:----|:----|:----|:----|:----|
     |BPMCSRF|String| |The CSRF Token from the Auth response|E.g., bHZfVOIO4.iSuXwMebGibes|
     |Set-cookie|String| |Value of Username cookie from the Auth response|E.g., UserName=83|117|112|101|114|118|105|115|111|114; expires=Sat, 07-May-2022 08:46:12 GMT; path=/; secure; HttpOnly|
-    |Cookie|String| |Cookie Value from the Auth response| |
+    |Cookie (this is optional)|String| |Cookie Value from the Auth response| |
 
     **Sample configuration**
 
@@ -353,7 +353,7 @@ When API authentication fails due to expired/invalid cookies, the creatiocrm.ini
     |:----|:----|:----|:----|:----|
     |BPMCSRF|String| |The CSRF Token from the Auth response|E.g., bHZfVOIO4.iSuXwMebGibes|
     |Set-cookie|String| |Value of Username cookie from the Auth response|E.g., UserName=83|117|112|101|114|118|105|115|111|114; expires=Sat, 07-May-2022 08:46:12 GMT; path=/; secure; HttpOnly|
-    |Cookie|String| |Cookie value from the Auth response| |
+    |Cookie (this is optional)|String| |Cookie value from the Auth response| |
 
     **Sample configuration**
 
@@ -393,7 +393,7 @@ When API authentication fails due to expired/invalid cookies, the creatiocrm.ini
     |:----|:----|:----|:----|:----|
     |BPMCSRF|String| |The CSRF Token from the Auth response|E.g., bHZfVOIO4.iSuXwMebGibes|
     |Set-cookie|String| |Value of Username cookie from the Auth response|E.g., UserName=83|117|112|101|114|118|105|115|111|114; expires=Sat, 07-May-2022 08:46:12 GMT; path=/; secure; HttpOnly|
-    |Cookie|String| |Cookie Value from the Auth response| |
+    |Cookie (this is optional)|String| |Cookie Value from the Auth response| |
 
     **Sample configuration**
 
@@ -419,7 +419,7 @@ When API authentication fails due to expired/invalid cookies, the creatiocrm.ini
     |:----|:----|:----|:----|:----|
     |BPMCSRF|String| |The CSRF Token from the Auth response|E.g., bHZfVOIO4.iSuXwMebGibes|
     |Set-cookie|String| |Value of Username cookie from the Auth response|E.g., UserName=83|117|112|101|114|118|105|115|111|114; expires=Sat, 07-May-2022 08:46:12 GMT; path=/; secure; HttpOnly|
-    |Cookie|String| |Cookie value from the Auth response| |
+    |Cookie (this is optional)|String| |Cookie value from the Auth response| |
 
 
     **Sample configuration**
@@ -462,7 +462,7 @@ When API authentication fails due to expired/invalid cookies, the creatiocrm.ini
     |:----|:----|:----|:----|:----|
     |BPMCSRF|String| |The CSRF Token from the Auth response|E.g., bHZfVOIO4.iSuXwMebGibes|
     |Set-cookie|String| |Value of Username cookie from the Auth response|E.g., UserName=83|117|112|101|114|118|105|115|111|114; expires=Sat, 07-May-2022 08:46:12 GMT; path=/; secure; HttpOnly|
-    |Cookie|String| |Cookie value from the Auth response| |
+    |Cookie (this is optional)|String| |Cookie value from the Auth response| |
 
     **Sample configuration**
 
@@ -491,7 +491,7 @@ When API authentication fails due to expired/invalid cookies, the creatiocrm.ini
     |Content-Type|String| |application/json| |
     |BPMCSRF|String| |The CSRF Token from the Auth response|Ex: bHZfVOIO4.iSuXwMebGibes|
     |Set-cookie|String| |Value of Username cookie from the Auth response|Ex: UserName=83|117|112|101|114|118|105|115|111|114; expires=Sat, 07-May-2022 08:46:12 GMT; path=/; secure; HttpOnly|
-    |Cookie|String| |Cookie Value from the Auth response| |
+    |Cookie (this is optional)|String| |Cookie Value from the Auth response| |
 
 
     **Sample configuration**
@@ -533,7 +533,7 @@ When API authentication fails due to expired/invalid cookies, the creatiocrm.ini
     |:----|:----|:----|:----|:----|
     |BPMCSRF|String| |The CSRF Token from the Auth response|Ex: bHZfVOIO4.iSuXwMebGibes|
     |Set-cookie|String| |Value of Username cookie from the Auth response|Ex: UserName=83|117|112|101|114|118|105|115|111|114; expires=Sat, 07-May-2022 08:46:12 GMT; path=/; secure; HttpOnly|
-    |Cookie|String| |Cookie Value from the Auth response| |
+    |Cookie (this is optional)|String| |Cookie Value from the Auth response| |
 
     **Sample configuration**
 
@@ -558,7 +558,7 @@ When API authentication fails due to expired/invalid cookies, the creatiocrm.ini
     |:----|:----|:----|:----|:----|
     |BPMCSRF|String| |The CSRF Token from the Auth response|E.g., bHZfVOIO4.iSuXwMebGibes|
     |Set-cookie|String| |Value of Username cookie from the Auth response|E.g., UserName=83|117|112|101|114|118|105|115|111|114; expires=Sat, 07-May-2022 08:46:12 GMT; path=/; secure; HttpOnly|
-    |Cookie|String| |Cookie value from the Auth response| |
+    |Cookie (this is optional)|String| |Cookie value from the Auth response| |
 
     **Sample configuration**
 
@@ -600,7 +600,7 @@ When API authentication fails due to expired/invalid cookies, the creatiocrm.ini
     |:----|:----|:----|:----|:----|
     |BPMCSRF|String| |The CSRF Token from the Auth response|E.g., bHZfVOIO4.iSuXwMebGibes|
     |Set-cookie|String| |Value of Username cookie from the Auth response|E.g., UserName=83|117|112|101|114|118|105|115|111|114; expires=Sat, 07-May-2022 08:46:12 GMT; path=/; secure; HttpOnly|
-    |Cookie|String| |Cookie value from the Auth response| |
+    |Cookie (this is optional)|String| |Cookie value from the Auth response| |
 
     **Sample configuration**
 
