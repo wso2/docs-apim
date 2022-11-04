@@ -62,7 +62,7 @@ the sample and start from [here]({{base_path}}/deploy-on-gateway/choreo-connect/
         mvn install:install-file -Dfile=<PATH_TO_FILE>/org.wso2.carbon.apimgt.gateway_<COMPENENT_VERSION>.jar -DgroupId=org.wso2.carbon.apimgt -DartifactId=org.wso2.carbon.apimgt.gateway -Dversion=<COMPENENT_VERSION> -Dpackaging=jar
         mvn install:install-file -Dfile=<PATH_TO_FILE>/org.wso2.carbon.apimgt.common.analytics_<COMPENENT_VERSION>.jar -DgroupId=org.wso2.carbon.apimgt -DartifactId=org.wso2.carbon.apimgt.common.analytics -Dversion=<COMPENENT_VERSION> -Dpackaging=jar
         ```
-        3. Point local m2 repository in project pom
+        3. Point to the local m2 repository in the project pom file.
         ```code
         <repository>
             <id> local-maven-repo </id>
