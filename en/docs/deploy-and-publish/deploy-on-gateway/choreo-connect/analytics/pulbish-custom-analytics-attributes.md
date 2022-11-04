@@ -106,7 +106,7 @@ to obtain the JAR. Similar to the above after obtaining the JAR mount it to the 
           logger.org-wso2-analytics-publisher.appenderRef.CARBON_TRACE_LOGFILE.ref = ENFORCER_ACCESS_LOG
           ```
 
-      2. Append the newly added logger as below.
+      2. Append the newly added logger as shown below.
       
          ```bash
              loggers = org-wso2-analytics-publisher, other_available_loggers...
