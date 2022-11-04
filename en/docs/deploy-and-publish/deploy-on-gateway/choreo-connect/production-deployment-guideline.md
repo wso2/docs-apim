@@ -317,30 +317,36 @@ docker build -t myimages/choreo-connect-router:{{choreo_connect.version}} -f Doc
 
 ### Mount files into the Dropins Directory (Optional)
 
-1. If you are using Choreo Connect as a Kubernetes Helm deployment, you can mount the dropins directory by following below instructions. 
-   
-      1. Create a configmap file to define the JAR that you are using with the Enforcer.
+**Option 1**
 
-        ```bash
-         kubectl create configmap configMapName1 --from-file=path/to/jar
-        ```
+If you are using Choreo Connect as a Kubernetes Helm deployment, you can mount the dropins directory by following below instructions. 
 
-      2. In the `values.yaml` file, update the `wso2.deployment.gatewayRuntime.enforcer.dropins` array with your configmap name(s).
+  1. Create a configmap file to define the JAR that you are using with the Enforcer.
 
-        ```bash tab='Example'
-         wso2:
-            deployment:
-                gatewayRuntime:
-                    enforcer:
-                        dropins:
-                            - configMapName1
-                            - configMapName2
-        ```
+    ```bash
+     kubectl create configmap configMapName1 --from-file=path/to/jar
+    ```
 
-2. If you are having a customised Enforcer Image (explained in the Production Deployment Guideline), follow the steps explained below considering the `values.yaml` file to mount the dropins folder. 
+  2. In the `values.yaml` file, update the `wso2.deployment.gatewayRuntime.enforcer.dropins` array with your configmap name(s).
 
-      1. Set `wso2.deployment.gatewayRuntime.enforcer.dropinsMountEmptyDir` value as `false`. . Otherwise, the droppings already in the Docker image will be replaced with a Kubernetes empty directory.
-      2. Set `wso2.deployment.gatewayRuntime.enforcer.imageName` and `wso2.deployment.gatewayRuntime.enforcer.imageTag` values to match with your docker image.
+    ```bash tab='Example'
+     wso2:
+        deployment:
+            gatewayRuntime:
+                enforcer:
+                    dropins:
+                        - configMapName1
+                        - configMapName2
+    ```
+
+**Option 2**
+
+Instead of mounting the JAR file to the dropins directory, you can burn JAR files to the Enforcer docker image. Details relevant to the building customize Enforcer image 
+explained in [here.]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/production-deployment-guideline/#create-custom-docker-image-optionally)
+After referring to the above explanation, follow the steps explained below considering the `values.yaml` file. 
+
+  1. Set `wso2.deployment.gatewayRuntime.enforcer.dropinsMountEmptyDir` value as `false`. Otherwise, the droppings already in the Docker image will be replaced with a Kubernetes empty directory.
+  2. Set `wso2.deployment.gatewayRuntime.enforcer.imageName` and `wso2.deployment.gatewayRuntime.enforcer.imageTag` values to match with your docker image.
 
 ## Mode 1: API Manager as Control Plane Configurations
 
