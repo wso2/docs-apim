@@ -71,8 +71,8 @@ Each of the above files can be found in the locations given below depending on t
     If you have advanced configurations that are not templated, you can have your own templated configuration file and set it in the Helm Chart as follows. Make sure to include the templates already provided within the default templated configuration files (E.g. `{{ .Values.wso2.choreoAnalytics.enabled | default "false" }}`), otherwise you may lose configurations set with the values.yaml file.
 
     ```    
-    --set-file wso2.deployment.adapter.configToml=<File Path For Templated Config Toml >    
-    --set-file wso2.deployment.adapter.logConfigToml=<File Path For Templated Log config Toml >    
+    --set-file wso2.deployment.adapter.configToml=<FILE_PATH_FOR_TEMPLATED_CONFIG_TOML>
+    --set-file wso2.deployment.adapter.logConfigToml=<FILE_PATH_FOR_TEMPLATED_LOG_CONFIG_TOML>
     ```    
 
 ## Configurations Overview
