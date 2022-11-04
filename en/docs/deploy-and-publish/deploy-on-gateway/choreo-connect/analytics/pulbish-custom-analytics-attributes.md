@@ -83,7 +83,7 @@ Therefore, by processing it you can obtain the required headers.
 
 ### Build the project JAR addition to the Enforcer
 
-- Build the project using
+- Build the project using the following command.
 
     ```bash
     mvn clean install
