@@ -322,11 +322,20 @@ docker build -t myimages/choreo-connect-router:{{choreo_connect.version}} -f Doc
       1. Create a configmap file to define the JAR that you are using with the Enforcer.
 
         ```bash
-         kubectl create configmap enforcer-jar-config --from-file=path/to/jar
+         kubectl create configmap configMapName1 --from-file=path/to/jar
         ```
 
       2. In the `values.yaml` file, update the `wso2.deployment.gatewayRuntime.enforcer.dropins` array with your configmap name(s).
 
+        ```bash tab='Example'
+         wso2:
+            deployment:
+                gatewayRuntime:
+                    enforcer:
+                        dropins:
+                            - configMapName1
+                            - configMapName2
+        ```
 
 2. If you are having a customised Enforcer Image (explained in the Production Deployment Guideline), follow the steps explained below considering the `values.yaml` file to mount the dropins folder. 
 
