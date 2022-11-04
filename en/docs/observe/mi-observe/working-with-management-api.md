@@ -135,7 +135,7 @@ The management API has multiple resources to provide information regarding the d
     ```json
     {
      "userId":"user4",
-     "password":"pwd1pwd2",
+     "password":"password1",
      "isAdmin":"false",
      "domain":"wso2.com"
     }
