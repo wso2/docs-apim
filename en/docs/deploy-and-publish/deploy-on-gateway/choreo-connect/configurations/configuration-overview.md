@@ -68,7 +68,7 @@ Each of the above files can be found in the locations given below depending on t
     | Log Configuration File  | `logconfig-toml-configmap.yaml` |
     | Log4j2 Configuration File  | `enforcer-log4j2-configmap.yaml` |
 
-    If you have advanced configurations that are not templated, you can have your own templated configuration file and set it in the Helm Chart as follows. Make sure to include the templates already provided within the default templated configuration files (E.g. `{{ .Values.wso2.choreoAnalytics.enabled | default "false" }}`), otherwise you may lose configurations set with the values.yaml file.
+    If you have advanced configurations that are not templated, you can have your own templated configuration file and set it in the Helm Chart as follows. Make sure to include the templates already provided within the default templated configuration files, otherwise you may lose configurations set with the values.yaml file.
 
     ```    
     --set-file wso2.deployment.adapter.configToml=<FILE_PATH_FOR_TEMPLATED_CONFIG_TOML>
