@@ -257,4 +257,8 @@ public class CustomJWTTransformer implements JWTTransformer {
 
 2. Add the output JAR in the `<CHOREO-CONNECT_HOME>/docker-compose/resources/enforcer/dropins` directory. 
 
+    !!!note
+         If Choreo is Connect deployed using the Kubernetes Helm artifacts, dropins folder mounting to the Enforcer is explained in [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/production-deployment-guideline/#mount-dropins-directory-to-a-choreo-connect-helm-deployment)
+
+
      If any third-party libraries are used when writing the JWT claim value transformer, these custom JARs too should also be placed in the same directory.
