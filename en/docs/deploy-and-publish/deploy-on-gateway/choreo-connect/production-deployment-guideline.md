@@ -315,7 +315,7 @@ docker build -t <IMAGE_NAME> -f <DOCKER_FILE_PATH> <CONTEXT>
 docker build -t myimages/choreo-connect-router:{{choreo_connect.version}} -f Dockerfile .
 ```
 
-### Mount Dropins Directory to a Choreo Connect Helm Deployment
+### Mount files into the Dropins Directory (Optional)
 
 1. If you are using Choreo Connect as a Kubernetes Helm deployment, you can mount the dropins directory by following below instructions. 
    
@@ -339,8 +339,8 @@ docker build -t myimages/choreo-connect-router:{{choreo_connect.version}} -f Doc
 
 2. If you are having a customised Enforcer Image (explained in the Production Deployment Guideline), follow the steps explained below considering the `values.yaml` file to mount the dropins folder. 
 
-      1. Define `wso2.deployment.gatewayRuntime.enforcer.dropinsMountEmptyDir` value as `false`.
-      2. Update `wso2.deployment.gatewayRuntime.enforcer.imageName` and `wso2.deployment.gatewayRuntime.enforcer.imageTag` values to match with your docker image.
+      1. Set `wso2.deployment.gatewayRuntime.enforcer.dropinsMountEmptyDir` value as `false`. . Otherwise, the droppings already in the Docker image will be replaced with a Kubernetes empty directory.
+      2. Set `wso2.deployment.gatewayRuntime.enforcer.imageName` and `wso2.deployment.gatewayRuntime.enforcer.imageTag` values to match with your docker image.
 
 ## Mode 1: API Manager as Control Plane Configurations
 
