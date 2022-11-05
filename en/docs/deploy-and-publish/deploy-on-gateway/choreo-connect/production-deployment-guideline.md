@@ -345,7 +345,7 @@ Instead of mounting the JAR file to the dropins directory, you can burn JAR file
 explained in [here.]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/production-deployment-guideline/#create-custom-docker-image-optionally)
 After referring to the above explanation, follow the steps explained below considering the `values.yaml` file. 
 
-  1. Set `wso2.deployment.gatewayRuntime.enforcer.dropinsMountEmptyDir` value as `false`. Otherwise, the droppings already in the Docker image will be replaced with a Kubernetes empty directory.
+  1. Set `wso2.deployment.gatewayRuntime.enforcer.dropinsMountEmptyDir` value as `false`. Otherwise, the dropins already in the Docker image will be replaced with a Kubernetes empty directory.
   2. Set `wso2.deployment.gatewayRuntime.enforcer.imageName` and `wso2.deployment.gatewayRuntime.enforcer.imageTag` values to match with your docker image.
 
 ## Mode 1: API Manager as Control Plane Configurations

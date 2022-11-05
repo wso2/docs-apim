@@ -113,7 +113,7 @@ the Authentication Filter.
 `docker-compose/resources/enforcer/dropins` directory.)
 
     !!! note 
-         If you use Choreo is Connect with Helm Charts, please refer to the documentation in [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/production-deployment-guideline/#mount-files-into-the-dropins-directory-optional) to add a JAR file into the Droppings directory.
+         If you use Choreo Connect with Helm Charts, please refer to the documentation in [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/production-deployment-guideline/#mount-files-into-the-dropins-directory-optional) to add a JAR file into the dropins directory.
 
 
 7. Deploy the Choreo Connect distribution and the filter would be engaged during runtime.
