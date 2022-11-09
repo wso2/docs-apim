@@ -20,7 +20,7 @@ Over the course of its lifetime, WSO2 API Manager has changed significantly and 
 
     With the 4.1.0 release, WSO2 API Manager has realigned its previous API-level mediation policies feature to a more sophisticated policy feature that provides support for not only mediation policies, but a vast number of different use cases. 
     
-    Instead of API-level policy allocation, the new feature supports policies at the operation level for the regular Gateway (Synapse-based) and at resource level for the Choreo Connect Gateway. With this support, previous mediation policy support via Admin REST APIs is no longer available. Instead Publisher REST API `operation-policies` support the same functionality. Publisher UI mediation policies, which were displayed under the runtime configuration, have been removed and it is moved to a separate tab called `policies`. Therefore, you will be able to see the mediation policies in previous API-M versions under the policies UI.
+    Instead of API-level policy allocation, the new feature supports policies at the operation level for the regular Gateway (Synapse-based) and at resource level for the Choreo Connect Gateway. With this support, previous mediation policy support via Admin REST APIs is no longer available. Instead, Publisher REST API `operation policies` support the same functionality. Publisher UI mediation policies, which were displayed under the runtime configuration, have been removed, and it is moved to a separate tab called `policies`. Therefore, you will be able to see the mediation policies in previous API-M versions under the policies UI.
 
     The major functionalities of the new policies feature are listed below.
 
