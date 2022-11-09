@@ -147,7 +147,7 @@ Over the course of its lifetime, WSO2 API Manager has changed significantly and 
 
 ??? note "API Manager 3.2.0"
 
-    - Out-of-the-box support for third-party Key Managers was introduced from 3.2.0 onwards. API-M 3.2 is pre-packed with an inbuilt resident Key Manager and has the inbuilt capability of configuring WSO2 Identity Server (WSO2 IS) as a third-party Key Manager using WSO2 IS Connector.
+    - Out-of-the-box support for third-party Key Managers was introduced from WSO2 API-M 3.2.0 onwards. WSO2 API-M 3.2.0 is pre-packed with an inbuilt resident Key Manager and has the inbuilt capability of configuring the WSO2 Identity Server (WSO2 IS) as a third-party Key Manager using WSO2 IS Connector.
     
       API-M is capable of supporting other authorization servers like Keycloak, Okta, Auth0, and PingFederate as a Key Manager.
 
