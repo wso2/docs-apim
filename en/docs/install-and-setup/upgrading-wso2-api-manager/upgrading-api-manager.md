@@ -232,7 +232,7 @@ Go through the guidelines given below before attempting to upgrade the productio
       
     !!! info "Migrating the customizations that are not available in the latest version"
         - Initially, update the dependency version of the dependant WSO2 components and re-build the customized component.
-        - As a practice, WSO2 does not make API changes in minor releases of the dependency JARs. However, if there are API changes, please update the custom code and re-build.
+        - As a practice, WSO2 does not make API changes in minor releases of the dependency JARs. However, if there are API changes, you need to update the custom code and re-build.
                         
 - List down the functional and non-functional use cases in your deployment and create test cases for them. 
 
