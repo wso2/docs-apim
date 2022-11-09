@@ -59,7 +59,7 @@ Over the course of its lifetime, WSO2 API Manager has changed significantly and 
         !!! Important "If you are using analytics"
             As the on-premise analytics data cannot be migrated to the Cloud, you need to maintain the old analytics server and keep the UI running for as long as you need that data (e.g., 3 months) after migrating to the new version of analytics in WSO2 API-M 4.0.0.
 
-    - From **API-M 4.0.0**, the server startup script is renamed as <code>api-manager.sh</code> (for Linux) and <code>api-manager.bat</code> (for Windows).
+    - From **WSO2 API-M 4.0.0**, the server startup script is renamed as <code>api-manager.sh</code> (for Linux/Mac OS) and <code>api-manager.bat</code> (for Windows).
 
     - From API-M 4.0.0 onwards, Synapse artifacts have been removed from the file system and are managed via the database. At server startup, the Synapse configs are loaded to the memory from the Traffic Manager.
 
