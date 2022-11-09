@@ -88,7 +88,7 @@ Over the course of its lifetime, WSO2 API Manager has changed significantly and 
         ??? Attention "If you have developed client applications to handle XML error responses"
             If you have developed client applications to handle XML error responses you have to change the client applications to handle the JSON responses.
             
-            For example, for a 404 error response, previously it was as follows.
+            For example, for a 404 error response, previously it was as follows:
     
             ```xml
             <am:fault xmlns:am="http://wso2.org/apimanager">
