@@ -247,7 +247,7 @@ Go through the guidelines given below before attempting to upgrade the productio
     
 - Before starting the upgrading process, make sure that you have read the whole documentation specific to the version upgrade and have a clear understanding of the upgrading process.
 
-- If you have expired certificates in client-trustore, follow [Renewing a CA-Signed Certificate in a Keystore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore/#renewing-a-ca-signed-certificate-in-a-keystore)
+- If you have expired certificates in client-truststore, follow the guidelines in [Renewing a CA-Signed Certificate in a Keystore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore/#renewing-a-ca-signed-certificate-in-a-keystore).
 
 - If you have many APIs, there could be a high load on the database during the migration. Hence, increase the database pool size during migration. Refer to [Tuning JDBC Pool Configurations]({{base_path}}/install-and-setup/setup/mi-setup/performance_tuning/jdbc_tuning/) for more details.
    
