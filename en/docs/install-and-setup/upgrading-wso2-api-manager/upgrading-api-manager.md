@@ -109,28 +109,6 @@ Over the course of its lifetime, WSO2 API Manager has changed significantly and 
             "description":"The requested resource is not available."
             }
             ```
-
-            For example, for a 404 error response, previously it was as follows.
-    
-            ```xml
-            <am:fault xmlns:am="http://wso2.org/apimanager">
-            <am:code>404</am:code>
-            <am:type>Status report</am:type>
-            <am:message>Not Found</am:message>
-            <am:description>The requested resource is not available.</am:description>
-            </am:fault>
-            ```
-    
-            In API-M 4.0.0 onwards the above resopnse is as follows.
-          
-            ```json
-            {
-            "code":"404",
-            "type":"Status report",
-            "message":"Not Found",
-            "description":"The requested resource is not available."
-            }
-            ```
     
             !!! important
                 **From WSO2 API_M 4.0.0 onwards**, the following fault sequences were changed to send JSON responses as mentioned above. If you have previously made any custom changes to any of the following sequences, you have to add those custom changes manually to the following changed files.
