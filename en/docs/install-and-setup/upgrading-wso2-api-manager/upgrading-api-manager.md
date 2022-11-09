@@ -249,7 +249,7 @@ Go through the guidelines given below before attempting to upgrade the productio
 
 - If you have expired certificates in client-truststore, follow the guidelines in [Renewing a CA-Signed Certificate in a Keystore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore/#renewing-a-ca-signed-certificate-in-a-keystore).
 
-- If you have many APIs, there could be a high load on the database during the migration. Hence, increase the database pool size during migration. Refer to [Tuning JDBC Pool Configurations]({{base_path}}/install-and-setup/setup/mi-setup/performance_tuning/jdbc_tuning/) for more details.
+- If you have many APIs, there could be a high load on the database during the migration. Hence, increase the database pool size during migration. For more information, see [Tuning JDBC Pool Configurations]({{base_path}}/install-and-setup/setup/mi-setup/performance_tuning/jdbc_tuning/).
    
 - Start the migration from the lowest environment (e.g., dev) and continue up to the highest before the production (e.g., pre-prod). Run the test cases in the migrated environments to confirm that your functional and non-functional requirements are met in the migrated environment.
 
