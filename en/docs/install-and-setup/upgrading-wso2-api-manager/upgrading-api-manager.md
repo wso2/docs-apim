@@ -156,7 +156,7 @@ Over the course of its lifetime, WSO2 API Manager has changed significantly and 
     - From WSO2 API-M 3.2.0 onwards, backend JWT generation happens at the Gateway. 
       If you have implemented a custom JWT generator extending the AbstractJWTGenerator, then that custom JAR file should be added to the **Gateway Node** not the Key Manager Node. 
 
-    - From 3.2.0 onwards, the previous Jaggery-based Admin Portal UI is replaced with a new ReactJS-based application.
+    - From WSO2 API-M 3.2.0 onwards, the previous Jaggery-based Admin Portal UI is replaced with a new ReactJS-based application.
 
     - Prior to 3.2.0, for simple approval and rejection tasks, having a separate BPS engine was mandatory. From API-M 3.2.0, this overhead is removed by introducing an Approval Workflow Executor with an inbuilt workflow to perform simple approvals and rejections without the BPS engine.
 
