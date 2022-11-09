@@ -205,7 +205,7 @@ This section contains a general set of guidelines that you can follow when upgra
 Go through the guidelines given below before attempting to upgrade the production environment.
 
 !!! important
-    If you require a zero downtime migration, you must contact WSO2 Support. We do not recommend proceeding with zero downtime migration without WSO2 Support. You can also get the migration resources from WSO2 Support in order to upgrade the product with minimal issues and difficulties. You can [contact WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa) for assistance.
+    If you require a zero downtime migration, you must contact WSO2 Support. WSO2 does not recommend proceeding with a zero downtime migration without WSO2 Support. You can also get the migration resources from WSO2 Support in order to upgrade the product with minimal issues and difficulties. You can [contact WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa) for assistance.
 
 - If you already have a [WSO2 subscription](https://wso2.com/subscription), reach out to our support team through your [support account](https://support.wso2.com/jira/secure/Dashboard.jspa).
 
