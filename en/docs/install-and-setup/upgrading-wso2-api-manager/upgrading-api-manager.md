@@ -77,7 +77,7 @@ Over the course of its lifetime, WSO2 API Manager has changed significantly and 
 
     - All the data is persisted in databases **from WSO2 API-M 4.0.0 onwards**. Therefore, it is recommended to execute the migration client in the Control Plane profile.
 
-    - From API-M 4.0.0, the kid claim has been removed from the backend JWT.
+    - From WSO2 API-M 4.0.0, the kid claim has been removed from the backend JWT.
   
         If there are customizations that require validating the kid value of the backend JWT, please customize the JWT generator to include the kid value.
 
