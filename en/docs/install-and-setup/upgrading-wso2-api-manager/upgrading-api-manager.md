@@ -224,7 +224,7 @@ Go through the guidelines given below before attempting to upgrade the productio
 
     !!! important
         Check on the [Tested DBMS]({{base_path}}/install-and-setup/setup/reference/product-compatibility/#tested-dbmss) for API-M 4.1.0. Only those versions will be supported in migration as well. 
-        Therefore, if you are currently on an older database version, please migrate your database to the supported version first before proceeding with the migration
+        Therefore, if you are currently on an older database version, you need to first migrate your database to the supported version before proceeding with the migration.
 
 - If you have customizations in your setup, check if they are supported out-of-the-box in the latest version.
     - If your customizations are already available in the latest version, you can remove the customization after migration. You can contact [WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa) for assistance.
