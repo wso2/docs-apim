@@ -194,7 +194,7 @@ Over the course of its lifetime, WSO2 API Manager has changed significantly and 
         supported_document_types = "pdf, txt, zip, json, yaml"
         ``` 
 
-    - From API-M 3.1.0 onwards, tag-wise grouping has been deprecated. Users are informed to use [API category based grouping](https://apim.docs.wso2.com/en/latest/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping/) instead.
+    - From WSO2 API-M 3.1.0 onwards, tag-wise grouping has been deprecated. You need to use [API category based grouping](https://apim.docs.wso2.com/en/latest/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping/) instead.
 
     - New user store managers with inbuilt unique ID support was introduced in WSO2 5.10.0 and named with the UniqueID prefix. User store managers that do not have UniqueID as part of the user store manager name are only available for backward compatibility purposes and can only be used if you are migrating from a previous version of WSO2 Identity Server.
   
