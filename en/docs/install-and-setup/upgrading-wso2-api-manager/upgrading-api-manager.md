@@ -182,7 +182,7 @@ Over the course of its lifetime, WSO2 API Manager has changed significantly and 
 
 ??? note "API Manager 3.1.0"
 
-    - API-M from 3.1.0 onwards supports only pdf, doc and txt type files as file typed API documents by default. If you wish to support other document types, please add the below config to `deployment.toml`.
+    - WSO2 API-M from 3.1.0 onwards supports only pdf, doc and txt type files as file-typed API documents by default. If you wish to support other document types, you need to add the following configuration in to the `deployment.toml` file.
 
         ```tab="Format"
         [apim.publisher]
