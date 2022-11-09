@@ -99,7 +99,7 @@ Over the course of its lifetime, WSO2 API Manager has changed significantly and 
             </am:fault>
             ```
     
-            In API-M 4.0.0 onwards the above resopnse is as follows.
+            In API-M 4.0.0 onwards the above response is as follows:
             
             ```json
             {
