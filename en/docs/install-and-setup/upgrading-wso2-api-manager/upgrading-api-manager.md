@@ -133,7 +133,7 @@ Over the course of its lifetime, WSO2 API Manager has changed significantly and 
             ```
     
             !!! important
-                **From WSO2 API_M 4.0.0 onwards**, the following fault sequences were changed to send JSON responses as mentioned above. If you have done any custom changes to any of the following sequences previously, you have to add those custom changes manually to these changed files.
+                **From WSO2 API_M 4.0.0 onwards**, the following fault sequences were changed to send JSON responses as mentioned above. If you have previously made any custom changes to any of the following sequences, you have to add those custom changes manually to the following changed files.
     
                 -   _auth_failure_handler_.xml
                 -   _backend_failure_handler_.xml
