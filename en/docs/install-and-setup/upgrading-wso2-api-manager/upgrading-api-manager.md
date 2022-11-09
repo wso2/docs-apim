@@ -214,7 +214,7 @@ Go through the guidelines given below before attempting to upgrade the productio
     !!! note
         Migrating the production environment requires additional hardware/VM resources because both the old environment and the new environment will be running until all the traffic is routed to the new environment.
 
-- Understand how the target version differs from the source version and its impact on your setup. For example, some of the product profiles that you use currently may not be available with the latest version. In that case, you may have to make architectural changes along with the upgrade. 
+- Understand how the target version differs from the source version and its impact on your setup. For example, some of the product profiles that you currently use may not be available with the latest version. In that case, you may have to make architectural changes along with the upgrade. 
 
 - Before starting the upgrading process, make sure that you have read the whole documentation specific to the version upgrade and have a clear understanding of the upgrading process.
 
