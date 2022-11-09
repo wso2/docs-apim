@@ -265,7 +265,7 @@ Go through the guidelines given below before attempting to upgrade the productio
 
 - When attempting to migrate a distributed setup, you need to do the data migration for the Control Plane profile only. 
 
-- Disable versioning in the registry configuration when migrating IS as a Key Manager from versions older than IS 5.9.0.
+- Disable versioning in the registry configuration when migrating IS as a Key Manager from versions older than WSO2 IS 5.9.0.
 
     If there are frequently updating registry properties, having the versioning enabled for registry resources in the registry can lead to unnecessary growth in the registry related tables in the database. To avoid this, versioning has been disabled by default in API Manager 4.1.0.
     
