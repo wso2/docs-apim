@@ -32,7 +32,7 @@ Over the course of its lifetime, WSO2 API Manager has changed significantly and 
 
     With these new features, WSO2 has removed the API level mediation policies. If you need to apply a policy with the same configurations across the API, you can do so by selecting the `Apply to all resources` option.
 
-    Previous mediation related resources from the Publisher and Admin REST API have been removed and you can achieve the same functionality via the operation-policies resource in the Publisher REST API.
+    Previous mediation related resources from the Publisher and Admin REST API have been removed. However, you can achieve the same functionality via the operation-policies resource in the Publisher REST API.
 
     Mediation policies that you have attached to API types other than REST, i.e., SOAP, GraphQL, etc., will no longer be manageable after you have migrated to 4.1.0. With the API Policies feature, the policy support was only provided for REST APIs and extending the same for other API types is still in the roadmap, and we hope to send an update to 4.1.0 to add this support.
 
