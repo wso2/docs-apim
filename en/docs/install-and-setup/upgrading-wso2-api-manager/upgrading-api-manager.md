@@ -79,7 +79,7 @@ Over the course of its lifetime, WSO2 API Manager has changed significantly and 
 
     - From WSO2 API-M 4.0.0, the kid claim has been removed from the backend JWT.
   
-        If there are customizations that require validating the kid value of the backend JWT, please customize the JWT generator to include the kid value.
+        If there are customizations that require validating the kid value of the backend JWT, you need to customize the JWT generator to include the kid value.
 
     - From API-M 4.0.0 onwards, Other '_overview' type documents override the API description. If you have created such documents in your lower environments, note that those documents will not be displayed in the document listing page. You can edit those documents the same way you edit the API description.
 
