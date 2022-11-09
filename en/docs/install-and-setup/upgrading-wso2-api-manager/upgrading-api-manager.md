@@ -243,7 +243,7 @@ Go through the guidelines given below before attempting to upgrade the productio
 
      For more information on the new configuration model introduced, see the [Configuration Catalog]({{base_path}}/reference/config-catalog).
         
-- Prepare a test setup of the upgrading version with customizations and necessary config changes, and 
+- Prepare a test setup of the upgrading version with customizations and the necessary configuration changes, and test your functional and non-functional requirements.
 test your functional and non-functional requirements.
     
 - Before start the upgrading process, Please make sure that you have read the whole documentation specific to the version upgrade and have a clear understanding of the upgrading process.
