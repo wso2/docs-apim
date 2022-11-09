@@ -44,7 +44,7 @@ Over the course of its lifetime, WSO2 API Manager has changed significantly and 
     For more information, see [OPA policy support]({{base_path}}/design/api-security/opa-validation/overview/#attaching-opa-policy).
 
     ##### GraphQL subscription
-    If the GraphQL subscription operations are available on your existing GraphQL APIs in 4.0.0,  API-M 4.1.0 is supported for subscription opertaion under websocket flow.
+    If the GraphQL subscription operations are available on your existing GraphQL APIs in WSO2 API-M 4.0.0,  WSO2 API-M 4.1.0 is supported for the subscription operation under the WebSocket flow.
 
     For more information see, [GraphQL subscription]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console/#invoke-a-graphql-subscription-operation).
 
