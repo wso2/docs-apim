@@ -245,7 +245,7 @@ Go through the guidelines given below before attempting to upgrade the productio
         
 - Prepare a test setup of the upgrading version with customizations and the necessary configuration changes, and test your functional and non-functional requirements.
     
-- Before start the upgrading process, Please make sure that you have read the whole documentation specific to the version upgrade and have a clear understanding of the upgrading process.
+- Before starting the upgrading process, make sure that you have read the whole documentation specific to the version upgrade and have a clear understanding of the upgrading process.
 
 - If you have expired certificates in client-trustore, follow [Renewing a CA-Signed Certificate in a Keystore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore/#renewing-a-ca-signed-certificate-in-a-keystore)
 
