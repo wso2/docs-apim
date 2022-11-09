@@ -153,7 +153,7 @@ Over the course of its lifetime, WSO2 API Manager has changed significantly and 
 
     - API Key Validation calls, which were sent over the network, will now be made against an in-memory store.
 
-    - From 3.2.0 onwards, backend JWT generation happens at the Gateway. 
+    - From WSO2 API-M 3.2.0 onwards, backend JWT generation happens at the Gateway. 
       If you have implemented a custom JWT generator extending the AbstractJWTGenerator, then that custom JAR file should be added to the **Gateway Node** not the Key Manager Node. 
 
     - From 3.2.0 onwards, the previous Jaggery-based Admin Portal UI is replaced with a new ReactJS-based application.
