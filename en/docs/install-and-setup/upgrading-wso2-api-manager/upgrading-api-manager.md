@@ -267,7 +267,7 @@ Go through the guidelines given below before attempting to upgrade the productio
 
 - Disable versioning in the registry configuration when migrating IS as a Key Manager from versions older than WSO2 IS 5.9.0.
 
-    If there are frequently updating registry properties, having the versioning enabled for registry resources in the registry can lead to unnecessary growth in the registry related tables in the database. To avoid this, versioning has been disabled by default in API Manager 4.1.0.
+    If there are frequently updating registry properties, having the versioning enabled for registry resources in the registry can lead to unnecessary growth in the registry-related tables in the database. To avoid this, versioning has been disabled by default in API Manager 4.1.0.
     
     Therefore, if registry versioning was enabled in older versions of WSO2 API-M, it is **required** to run registry version disabling scripts against **the database that is used by the registry**. For example, see step 5 under [Migrating the API Manager configurations]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/260-to-410/upgrading-from-260-to-410/#step-1-migrate-the-api-manager-configurations) for the associated scripts.
 
