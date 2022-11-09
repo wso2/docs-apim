@@ -63,7 +63,7 @@ Over the course of its lifetime, WSO2 API Manager has changed significantly and 
 
     - From WSO2 API-M 4.0.0 onwards, Synapse artifacts have been removed from the file system and are managed via the database. At server startup, the Synapse configurations are loaded to the memory from the Traffic Manager.
 
-    - Token and Revoke endpoints have been removed from the Gateway artifacts from API-M 4.0.0 onwards. Use endpoints in the Control Plane instead.
+    - Token and Revoke endpoints have been removed from the Gateway artifacts from WSO2 API-M 4.0.0 onwards. Use endpoints in the Control Plane instead.
 
         ```tab="3.2.0"
         https://localhost:8243/token
