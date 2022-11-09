@@ -30,7 +30,7 @@ Over the course of its lifetime, WSO2 API Manager has changed significantly and 
     4. Ability to apply multiple policies for a single operation and has an interactive UI to manage the policy execution order.
     5. Ability to parameterize the policies with dynamic values and reuse the same policy across different operations with different configurations.
 
-    With these new features, we have removed the API level mediation policies and if you need to apply a policy with the same configurations across the API, you can do so by selecting the `Apply to all resources` option.
+    With these new features, WSO2 has removed the API level mediation policies. If you need to apply a policy with the same configurations across the API, you can do so by selecting the `Apply to all resources` option.
 
     Previous mediation related resources from the Publisher and Admin REST API have been removed and you can achieve the same functionality via the operation-policies resource in the Publisher REST API.
 
