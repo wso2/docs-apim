@@ -26,7 +26,7 @@ Over the course of its lifetime, WSO2 API Manager has changed significantly and 
 
     1. A new UI to manage common policies which can be shared across all the APIs.
     2. An interactive UI in the API configurations to allocate the policies.
-    3. Increased granularity for the policy allocation which is spread until operation level.
+    3. Increased granularity for the policy allocation that is spread until the operation level.
     4. Ability to apply multiple policies for a single operation and has an interactive UI to manage the policy execution order.
     5. Ability to parameterize the policies with dynamic values and reuse the same policy across different operations with different configurations.
 
