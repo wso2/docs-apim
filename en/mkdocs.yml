@@ -1610,14 +1610,12 @@ nav:
                     - Format the Outputs of Get Commands: install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command.md
                     - Configure Git Integration: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md
         - Upgrade:
-            - What Has Changed: install-and-setup/upgrading-wso2-api-manager/what-has-changed.md
-            - Upgrading Guidelines: install-and-setup/upgrading-wso2-api-manager/upgrading-guidelines.md
-            - Upgrading WSO2 API Manager:
-                - 4.0.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/400-to-410/upgrading-from-400-to-410.md
-                - 3.2.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/320-to-410/upgrading-from-320-to-410.md
-                - 3.1.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/310-to-410/upgrading-from-310-to-410.md
-                - 3.0.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/300-to-410/upgrading-from-300-to-410.md
-                - 2.6.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/260-to-410/upgrading-from-260-to-410.md
+            - Upgrading API Manager: install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager.md
+                #- 4.0.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/400-to-410/upgrading-from-400-to-410.md
+                #- 3.2.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/320-to-410/upgrading-from-320-to-410.md
+                #- 3.1.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/310-to-410/upgrading-from-310-to-410.md
+                #- 3.0.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/300-to-410/upgrading-from-300-to-410.md
+                #- 2.6.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/260-to-410/upgrading-from-260-to-410.md
                 #- 2.5.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-410.md
                 #- 2.2.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-220-to-410.md
                 #- 2.1.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-210-to-410.md
@@ -1819,6 +1817,17 @@ plugins:
               'install-and-setup/install/installing-the-product/installing-the-binary/installing-as-a-linux-service.md': 'https://apim.docs.wso2.com/en/4.1.0/install-and-setup/install/installing-the-product/installing-api-m-as-a-linux-service/'
               'install-and-setup/install/installing-the-product/installing-the-binary/installing-as-a-windows-service.md': 'https://apim.docs.wso2.com/en/4.1.0/install-and-setup/install/installing-the-product/installing-api-m-as-a-windows-service/'
               'install-and-setup/install/running-the-product.md': 'https://apim.docs.wso2.com/en/4.1.0/install-and-setup/install/installing-the-product/running-the-api-m/'
+              'install-and-setup/upgrading-wso2-api-manager/400-to-410/upgrading-from-400-to-410.md': 'https://apim.docs.wso2.com/en/4.1.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-api-manager/320-to-410/upgrading-from-320-to-410.md': 'https://apim.docs.wso2.com/en/4.1.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-api-manager/310-to-410/upgrading-from-310-to-410.md': 'https://apim.docs.wso2.com/en/4.1.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-api-manager/300-to-410/upgrading-from-300-to-410.md': 'https://apim.docs.wso2.com/en/4.1.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-api-manager/260-to-410/upgrading-from-260-to-410.md': 'https://apim.docs.wso2.com/en/4.1.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-410.md': 'https://apim.docs.wso2.com/en/4.1.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-api-manager/upgrading-from-220-to-410.md': 'https://apim.docs.wso2.com/en/4.1.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-api-manager/upgrading-from-210-to-410.md': 'https://apim.docs.wso2.com/en/4.1.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-api-manager/upgrading-from-200-to-410.md': 'https://apim.docs.wso2.com/en/4.1.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-api-manager/upgrading-from-1100-to-410.md': 'https://apim.docs.wso2.com/en/4.1.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-api-manager/upgrading-from-191-to-410.md': 'https://apim.docs.wso2.com/en/4.1.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
               'design/create-api/create-a-streaming-api-from-an-asyncapi-definition.md': 'https://apim.docs.wso2.com/en/4.1.0/design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition/'
               'design/create-api/test-a-websub-api.md': 'https://apim.docs.wso2.com/en/4.1.0/design/create-api/create-streaming-api/test-a-websub-api/'
               'design/create-api/create-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.1.0/design/create-api/create-rest-api/create-a-rest-api/'
