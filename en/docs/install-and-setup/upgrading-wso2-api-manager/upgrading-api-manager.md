@@ -158,7 +158,7 @@ Over the course of its lifetime, WSO2 API Manager has changed significantly and 
 
     - From WSO2 API-M 3.2.0 onwards, the previous Jaggery-based Admin Portal UI is replaced with a new ReactJS-based application.
 
-    - Prior to 3.2.0, for simple approval and rejection tasks, having a separate BPS engine was mandatory. From API-M 3.2.0, this overhead is removed by introducing an Approval Workflow Executor with an inbuilt workflow to perform simple approvals and rejections without the BPS engine.
+    - Prior to WSO2 API-M 3.2.0, it was mandatory to have a separate BPS engine for simple approval and rejection tasks. From WSO2 API-M 3.2.0, this overhead is removed by introducing an Approval Workflow Executor with an inbuilt workflow to perform simple approvals and rejections without the BPS engine.
 
     - Support for tag-wise grouping is removed in API-M 3.2.0 and the users are recommended to use [API category based grouping](https://apim.docs.wso2.com/en/latest/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping/) instead.
 
