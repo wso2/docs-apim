@@ -198,7 +198,7 @@ Over the course of its lifetime, WSO2 API Manager has changed significantly and 
 
     - New user store managers with inbuilt unique ID support were introduced in WSO2 IS 5.10.0 and named with the UniqueID prefix. User store managers that do not have a UniqueID as part of the user store manager name are only available for backward compatibility purposes and can only be used if you are migrating from a previous version of WSO2 Identity Server.
   
-    Please check [Migration of user store managers with unique ID support](https://is.docs.wso2.com/en/5.11.0/setup/migrating-what-has-changed/#migration-of-user-store-managers-with-unique-id-support) for more information.
+    For more information, see the [Migration of user store managers with unique ID support](https://is.docs.wso2.com/en/5.11.0/setup/migrating-what-has-changed/#migration-of-user-store-managers-with-unique-id-support).
 
 ??? note "API Manager 3.0.0"
 
