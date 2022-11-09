@@ -61,7 +61,7 @@ Over the course of its lifetime, WSO2 API Manager has changed significantly and 
 
     - From **WSO2 API-M 4.0.0**, the server startup script is renamed as <code>api-manager.sh</code> (for Linux/Mac OS) and <code>api-manager.bat</code> (for Windows).
 
-    - From API-M 4.0.0 onwards, Synapse artifacts have been removed from the file system and are managed via the database. At server startup, the Synapse configs are loaded to the memory from the Traffic Manager.
+    - From WSO2 API-M 4.0.0 onwards, Synapse artifacts have been removed from the file system and are managed via the database. At server startup, the Synapse configurations are loaded to the memory from the Traffic Manager.
 
     - Token and Revoke endpoints have been removed from the Gateway artifacts from API-M 4.0.0 onwards. Use endpoints in the Control Plane instead.
 
