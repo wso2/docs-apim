@@ -187,7 +187,7 @@ Over the course of its lifetime, WSO2 API Manager has changed significantly and 
       For more information on the configurations in the new configuration model, see the [Configuration Catalog]({{base_path}}/reference/config-catalog).
       For more information on the mapping between WSO2 API Manager's old configuration files and the new `deployment.toml` file, see [Understanding the New Configuration Model]({{base_path}}/reference/understanding-the-new-configuration-model).
 
-    - From 3.0.0 onwards, previous Jaggery based UIs for Publisher and Developer portals are replaced with new ReactJS based applications.
+    - From 3.0.0 onwards, the previous Jaggery-based UIs for the Publisher and Developer Portals are replaced with new ReactJS-based applications.
 
         !!! note
             From API-M 3.0.0, Store Portal has been renamed as Developer Portal
