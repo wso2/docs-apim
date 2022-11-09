@@ -169,7 +169,7 @@ Over the course of its lifetime, WSO2 API Manager has changed significantly and 
         ??? Note "What will happen to migrated applications?"
             However, the applications that are migrated from older versions would still have the support to generate Opaque (Reference) access tokens.
 
-            Similar to previous versions, application developers get the OAuth2 bearer tokens, while generating tokens via the Developer Portal. The only difference is the format of the token as the JWT type token is self-contained.
+            Similar to previous versions, Application Developers get the OAuth2 bearer tokens, while generating tokens via the Developer Portal. The only difference is the format of the token as the JWT type token is self-contained.
       
             Opaque (Reference) tokens have become obsolete. All major IDPs have stopped or are in the process of retiring the support for Opaque (Reference) tokens. These tokens only work on systems where the resource server has access to or is co-located with the authorization server. As more and more systems become distributed and hybrid in nature, the use of reference tokens will eventually cease and also the organizations have full control of what information they include in the JWT. 
       
