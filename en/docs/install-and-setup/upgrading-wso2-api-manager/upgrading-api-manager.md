@@ -194,7 +194,7 @@ Over the course of its lifetime, WSO2 API Manager has changed significantly and 
 
     - From WSO2 API-M 3.0.0 onwards, WSO2 API Manager has been upgraded to **log4j2** (from log4j). You will notice that there is a `log4j2.properties` file in the `<API-M_4.0.0_HOME>/repository/conf/` directory instead of the `log4j.properties` file. Follow [Upgrading to Log4j2]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2) to migrate your existing `log4j.properties` file to the `log4j2.properties` file.
 
-    - In previous API-M versions there used to be 4 Resource Level Security Schemes named `None`, `Application`, `Application User` and `Any`. From 3.0.0 onwards this has been reduced to 2 levels `None` and `Application and Application User`. If fine-grained security is required it is recommended to use [OAuth Scopes](https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#fine-grained-access-control-with-oauth-scopes) instead.
+    - In previous API-M versions, there used to be 4 Resource Level Security Schemes named `None`, `Application`, `Application User` and `Any`. From WSO2 API-M 3.0.0 onwards, this has been reduced to 2 levels `None` and `Application and Application User`. If fine-grained security is required it is recommended to use [OAuth Scopes](https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#fine-grained-access-control-with-oauth-scopes) instead.
 
     - From 3.0.0 onwards, it is possible to enforce multiple authentication schemes for an API at same time.
 
