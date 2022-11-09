@@ -190,7 +190,7 @@ Over the course of its lifetime, WSO2 API Manager has changed significantly and 
     - From 3.0.0 onwards, the previous Jaggery-based UIs for the Publisher and Developer Portals are replaced with new ReactJS-based applications.
 
         !!! note
-            From API-M 3.0.0, Store Portal has been renamed as Developer Portal
+            From WSO2 API-M 3.0.0, the Store Portal has been renamed as the Developer Portal.
 
     - From 3.0.0 onwards, WSO2 API Manager has been upgraded to **log4j2** (from log4j). You will notice that there is a `log4j2.properties` file in the `<API-M_4.0.0_HOME>/repository/conf/` directory instead of the `log4j.properties` file. Follow [Upgrading to Log4j2]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2) to migrate your existing `log4j.properties` file to `log4j2.properties` file.
 
