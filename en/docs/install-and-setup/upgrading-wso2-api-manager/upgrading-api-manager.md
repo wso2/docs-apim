@@ -294,4 +294,4 @@ After you have completed the above instructions and are satisfied with the outco
 
 ## Upgrade process
 
-Create a [support ticket](https://support.wso2.com/jira/secure/Dashboard.jspa) with migration requirements and one of our support engineers get in touch with you.
+Create a [support ticket](https://support.wso2.com/jira/secure/Dashboard.jspa) with migration requirements, and one of our support engineers will get in touch with you.
