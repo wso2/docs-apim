@@ -269,13 +269,11 @@ Go through the guidelines given below before attempting to upgrade the productio
 
     If there are frequently updating registry properties, having the versioning enabled for registry resources in the registry can lead to unnecessary growth in the registry-related tables in the database. To avoid this, versioning has been disabled by default in API Manager 4.1.0.
     
-    Therefore, if registry versioning was enabled in older versions of WSO2 API-M, it is **required** to run registry version disabling scripts against **the database that is used by the registry**. For example, see step 5 under [Migrating the API Manager configurations]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/260-to-410/upgrading-from-260-to-410/#step-1-migrate-the-api-manager-configurations) for the associated scripts.
+    Therefore, if registry versioning was enabled in older versions of WSO2 API-M, it is **required** to run registry version disabling scripts against **the database that is used by the registry**.
 
 - If you are using PostgreSQL, during the migration, "uuid-ossp" extension is created in the database. In order to create this extension, the database user should have the 'Superuser' permission. If the user is not already a superuser, assign the permission before starting the migration.
 
 - When migrating a Kubernetes environment to a newer API Manager version, it is recommended to do the data migration in a separate VM, a local machine, or a single container. Once the data migration is complete, you can simply move the migrated databases into the containerized deployment in Kubernetes. 
-
-    To implement this kind of scenario you have to follow the first four steps in the migration documentation (for example [the first four steps when migrating API-M 3.2.0 to API-M 4.1.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/320-to-410/upgrading-from-320-to-410/) in a separate VM/container/local machine and then move the databases to a containerized setup before doing [step 5, which is to re-index the API-M artifacts]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/320-to-410/upgrading-from-320-to-410/#step-5-re-index-the-api-manager-artifacts). Make sure to use a new mount for the Solr and remove the older Solr mount from the deployment.
 
 After you have completed the above instructions and are satisfied with the outcome, proceed with the production migration process. After the migration is complete, verify the migration process using the following instructions.
     
