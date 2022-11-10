@@ -290,7 +290,7 @@ After you have completed the above instructions and are satisfied with the outco
 
 3. Download [WSO2 API Manager 4.1.0](http://wso2.com/api-management/) and extract it.
 
-4. [Update API-M 4.1.0]({{base_path}}/administer/updating-wso2-api-manager/) to the latest U2 update level.
+4. [Update WSO2 API-M 4.1.0]({{base_path}}/administer/updating-wso2-api-manager/) to the latest U2 update level.
 
 ## Upgrade process
 
