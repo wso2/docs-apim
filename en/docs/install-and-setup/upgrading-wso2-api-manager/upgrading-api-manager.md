@@ -2,7 +2,7 @@
 
 This document walks you through the process of upgrading WSO2 API Manager. 
 
-## Why migrate?
+## Why upgrade?
 
 There are multiple reasons why you would want to upgrade the WSO2 product to the latest version. These reasons include but are not limited to the following.  
 
@@ -12,7 +12,7 @@ There are multiple reasons why you would want to upgrade the WSO2 product to the
 
 ## What has changed
 
-Over the course of its lifetime, WSO2 API Manager has changed significantly and some of the features you were using in an older version may not work the same way. This section summarizes the key changes that have taken place in each version of WSO2 APi Manager.
+Over the course of its lifetime, WSO2 API Manager has changed significantly and some of the features you were using in an older version may not work the same way. This section summarizes the key changes that have taken place in each version of WSO2 API Manager.
 
 ??? note "API Manager 4.1.0"
 
@@ -198,33 +198,29 @@ Over the course of its lifetime, WSO2 API Manager has changed significantly and 
 
     - From 3.0.0 onwards, it is possible to enforce multiple authentication schemes for an API at the same time.
 
-## Upgrading guidelines
+## Upgrading process information
 
-This section contains a general set of guidelines that you can follow when upgrading WSO2 API Manager.
+This section contains information on the upgrading process that WSO2 API Manager follows. Go through the information available before reaching out to us.
 
-Go through the guidelines given below before attempting to upgrade the production environment.
+Regardless of the exact purpose for upgrading the product, the goal is generally to enhance performance and competitiveness. However, it is important to get it right.A less successful upgrading process can result in errors, missing data, breaks in existing functionality, and unwanted downtime. To make sure that the upgrade process is smooth and you have the best experience, WSO2 recommends that you reach out to WSO2 Support in order to upgrade WSO2 API Manager with minimal difficulty.
 
-!!! important
-    If you require a zero downtime migration, you must contact WSO2 Support. WSO2 does not recommend proceeding with a zero downtime migration without WSO2 Support. You can also get the migration resources from WSO2 Support in order to upgrade the product with minimal issues and difficulties. You can [contact WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa) for assistance.
+- Ideally you would want to upgrade your product with zero downtime. To achieve this, you must contact WSO2 Support. WSO2 does not recommend proceeding with a zero downtime upgrade without WSO2 Support. You can also get the migration resources from WSO2 Support in order to upgrade the product. You can [contact WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa) for assistance.
 
-- If you already have a [WSO2 subscription](https://wso2.com/subscription), reach out to our support team through your [support account](https://support.wso2.com/jira/secure/Dashboard.jspa).
+- If you already have a [WSO2 Subscription](https://wso2.com/subscription), reach out to our support team through your [support account](https://support.wso2.com/jira/secure/Dashboard.jspa).
 
 - Always migrate to the [latest version](https://wso2.com/api-management/) as the latest fixes and new features are available in the latest version. If you already have a [WSO2 subscription](https://wso2.com/subscription), you can use the Update Management Tool (UMT) to get any fixes or latest updates for this release. If you have a particular requirement to migrate to an intermediate version, contact [WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa).
 
     !!! note
         Migrating the production environment requires additional hardware/VM resources because both the old environment and the new environment will be running until all the traffic is routed to the new environment.
 
-- Understand how the target version differs from the source version and its impact on your setup. For example, some of the product profiles that you currently use may not be available with the latest version. In that case, you may have to make architectural changes along with the upgrade. 
-
-- Before starting the upgrading process, make sure that you have read the whole documentation specific to the version upgrade and have a clear understanding of the upgrading process.
+- Understand how the target version differs from the source version and its impact on your setup. For example, some of the product profiles that you currently use may not be available with the latest version. In that case, you may have to make architectural changes along with the upgrade. WSO2 Support will aid in this process.
 
 - Before you start the upgrade process, check the [compatibility matrix]({{base_path}}/install-and-setup/setup/reference/product-compatibility/) of the target version to get information on operating systems, JDKs and DBMSs that the target version has been tested with. If the operating system, JDK, or the DBMS that you use is not listed in the documentation, reach out to WSO2 Support and get further assistance.
 
 - Make sure to take backups of the existing databases used by the current WSO2 API Manager server. This backup is necessary in case the migration causes any issues in the existing database.
 
     !!! important
-        Check on the [Tested DBMS]({{base_path}}/install-and-setup/setup/reference/product-compatibility/#tested-dbmss) for API-M 4.1.0. Only those versions will be supported in migration as well. 
-        Therefore, if you are currently on an older database version, you need to first migrate your database to the supported version before proceeding with the migration.
+        Check on the [Tested DBMS]({{base_path}}/install-and-setup/setup/reference/product-compatibility/#tested-dbmss) for API-M 4.1.0. Only those versions will be supported in migration as well. Therefore, if you are currently on an older database version, you may need to first migrate your database to the supported version before proceeding with the migration. WSO2 Support will advice you further on any database related updates you need to do.
 
 - If you have customizations in your setup, check if they are supported out-of-the-box in the latest version.
     - If your customizations are already available in the latest version, you can remove the customization after migration. You can contact [WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa) for assistance.
@@ -234,62 +230,46 @@ Go through the guidelines given below before attempting to upgrade the productio
         - Initially, update the dependency version of the dependant WSO2 components and re-build the customized component.
         - As a practice, WSO2 does not make API changes in minor releases of the dependency JARs. However, if there are API changes, you need to update the custom code and re-build.
                         
-- List down the functional and non-functional use cases in your deployment and create test cases for them. 
+- List down the functional and non-functional use cases in your deployment. You may need to create test cases for them as part of the upgrade process.
 
     !!! Note
-        This step is crucial to verify that the migrated environment works as expected.     
+        This is useful to verify that the upgraded environment works as expected.     
 
-- Identify the configuration migrations required for the new setup. 
+- It is possible that there will be configuration migrations required for the new setup. For more information on the new configuration model introduced, see the [Configuration Catalog]({{base_path}}/reference/config-catalog).
 
-     For more information on the new configuration model introduced, see the [Configuration Catalog]({{base_path}}/reference/config-catalog).
-        
-- Prepare a test setup of the upgrading version with customizations and the necessary configuration changes, and test your functional and non-functional requirements.
-    
-- Before starting the upgrading process, make sure that you have read the whole documentation specific to the version upgrade and have a clear understanding of the upgrading process.
+- If you have expired certificates in client-truststore, you may have to renew them. For more information on how this is done, see [Renewing a CA-Signed Certificate in a Keystore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore/#renewing-a-ca-signed-certificate-in-a-keystore).
 
-- If you have expired certificates in client-truststore, follow the guidelines in [Renewing a CA-Signed Certificate in a Keystore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore/#renewing-a-ca-signed-certificate-in-a-keystore).
-
-- If you have many APIs, there could be a high load on the database during the migration. Hence, increase the database pool size during migration. For more information, see [Tuning JDBC Pool Configurations]({{base_path}}/install-and-setup/setup/mi-setup/performance_tuning/jdbc_tuning/).
+- If you have many APIs, there could be a high load on the database during the migration. Hence, you may have to increase the database pool size during migration. For more information, see [Tuning JDBC Pool Configurations]({{base_path}}/install-and-setup/setup/mi-setup/performance_tuning/jdbc_tuning/).
    
-- Start the migration from the lowest environment (e.g., dev) and continue up to the highest before the production (e.g., pre-prod). Run the test cases in the migrated environments to confirm that your functional and non-functional requirements are met in the migrated environment.
+- Typically, you would first upgrade the lowest environment (e.g., dev) and continue up to the highest before the production (e.g., pre-prod). You should run the test cases in the migrated environments to confirm that your functional and non-functional requirements are met in the migrated environment.
 
-- Before you carry out the production migration, run a pilot migration on your pre-prod environment. 
-
-    It will be ideal if the pre-prod environment is similar to the production environment.
-
-    -  If possible, restore a database dump of the production environment to the pre-prod environment and perform the pilot migration.
-
-    -  If the production database dump cannot be used, at least ensure that you have a sufficient amount of data in the database to mimic the production environment.
+- Before you carry out the production migration, it is best to run a pilot migration on your pre-prod environment. It will be ideal if the pre-prod environment is similar to the production environment. This would probably involve restoring a database dump of the production environment to the pre-prod environment and performing the pilot migration. If the production database dump cannot be used, at least ensure that you have a sufficient amount of data in the database to mimic the production environment.
     
-- When you follow the above instructions, you can get a rough estimate of the time for the final production update, and you can allocate time slots based on the above analysis. WSO2 recommends that you perform the migration while the system is under minimum traffic. 
+- When you follow the above instructions, you can get a rough estimate of the time for the final production update, and you can allocate time slots based on the above analysis. WSO2 recommends that you perform the upgrade when the system is under minimum traffic. 
 
 - When attempting to migrate a distributed setup, you need to do the data migration for the Control Plane profile only. 
 
-- Disable versioning in the registry configuration when migrating IS as a Key Manager from versions older than WSO2 IS 5.9.0.
+- You would normally disable versioning in the registry configuration when migrating IS as a Key Manager from versions older than WSO2 IS 5.9.0.
 
     If there are frequently updating registry properties, having the versioning enabled for registry resources in the registry can lead to unnecessary growth in the registry-related tables in the database. To avoid this, versioning has been disabled by default in API Manager 4.1.0.
     
-    Therefore, if registry versioning was enabled in older versions of WSO2 API-M, it is **required** to run registry version disabling scripts against **the database that is used by the registry**.
+    Therefore, if registry versioning was enabled in older versions of WSO2 API-M, it is **required** to run registry version disabling scripts against **the database that is used by the registry**. WSO2 Support will advice you further on how you can do this.
 
 - If you are using PostgreSQL, during the migration, "uuid-ossp" extension is created in the database. In order to create this extension, the database user should have the 'Superuser' permission. If the user is not already a superuser, assign the permission before starting the migration.
 
-- When migrating a Kubernetes environment to a newer API Manager version, it is recommended to do the data migration in a separate VM, a local machine, or a single container. Once the data migration is complete, you can simply move the migrated databases into the containerized deployment in Kubernetes. 
+- When migrating a Kubernetes environment to a newer WSO2 API Manager version, it is recommended to do the data migration in a separate VM, a local machine, or a single container. Once the data migration is complete, you can simply move the migrated databases into the containerized deployment in Kubernetes. 
 
-After you have completed the above instructions and are satisfied with the outcome, proceed with the production migration process. After the migration is complete, verify the migration process using the following instructions.
+- After the migration is complete, verify the migration process using the following instructions.
     
--  Monitor the system health (CPU, memory usage, etc.).
--  Monitor the WSO2 logs for errors.
+    -  Monitor the system health (CPU, memory usage, etc.).
+    -  Monitor the WSO2 logs for errors.
 
-## Prerequisites
+## Get started
 
-1. Review what has changed in this release.
+- Review what has changed in this release.
 
-2. Before you upgrade the product, follow the upgrading guidelines mentioned in this document to get an understanding of the migration process.
+- Before you upgrade the product, read through the upgrade process mentioned in this document to get an understanding of how it works.
 
-3. Download [WSO2 API Manager 4.1.0](http://wso2.com/api-management/) and extract it.
+- Download [WSO2 API Manager 4.1.0](http://wso2.com/api-management/) and extract it. Make sure that you [update WSO2 API-M 4.1.0]({{base_path}}/administer/updating-wso2-api-manager/) to the latest U2 update level.
 
-4. [Update WSO2 API-M 4.1.0]({{base_path}}/administer/updating-wso2-api-manager/) to the latest U2 update level.
-
-## Upgrading process
-
-Create a [support ticket](https://support.wso2.com/jira/secure/Dashboard.jspa) with migration requirements, and one of our support engineers will get in touch with you.
+- Create a [support ticket](https://support.wso2.com/jira/secure/Dashboard.jspa) with migration requirements, and one of our support engineers will get in touch with you.
