@@ -45,14 +45,6 @@ To make sure that the upgrade process is smooth and you have the best experience
 
 - It is possible that there will be configuration migrations required for the new setup. For more information on the new configuration model introduced, see the [Configuration Catalog]({{base_path}}/reference/config-catalog).
 
-- If you have expired certificates in client-truststore, you may have to renew them. For more information on how this is done, see [Renewing a CA-Signed Certificate in a Keystore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore/#renewing-a-ca-signed-certificate-in-a-keystore).
-
-- If you have many APIs, there could be a high load on the database during the migration. Hence, you may have to increase the database pool size during migration. For more information, see [Tuning JDBC Pool Configurations]({{base_path}}/install-and-setup/setup/mi-setup/performance_tuning/jdbc_tuning/).
- 
-- Typically, you would first upgrade the lowest environment (e.g., dev) and continue up to the highest before the production (e.g., pre-prod). You should run the test cases in the upgraded environments to confirm that your functional and non-functional requirements are met in the upgraded environment.
-
-- Before you carry out the production migration, it is best to run a pilot migration on your pre-prod environment. It will be ideal if the pre-prod environment is similar to the production environment. This would probably involve restoring a database dump of the production environment to the pre-prod environment and performing the pilot migration. If the production database dump cannot be used, at least ensure that you have a sufficient amount of data in the database to mimic the production environment.
-  
 - When you follow the above instructions, you can get a rough estimate of the time for the final production update, and you can allocate time slots based on the above analysis. WSO2 recommends that you perform the upgrade when the system is under minimum traffic.
 
 - After the migration is complete, verify the migration process using the following instructions.
