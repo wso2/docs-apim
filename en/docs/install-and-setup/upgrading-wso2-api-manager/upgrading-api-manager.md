@@ -292,6 +292,6 @@ After you have completed the above instructions and are satisfied with the outco
 
 4. [Update WSO2 API-M 4.1.0]({{base_path}}/administer/updating-wso2-api-manager/) to the latest U2 update level.
 
-## Upgrade process
+## Upgrading process
 
 Create a [support ticket](https://support.wso2.com/jira/secure/Dashboard.jspa) with migration requirements, and one of our support engineers will get in touch with you.
