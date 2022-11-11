@@ -18,6 +18,8 @@ For more details on the API-M 4.1.0 release, see the [About this Release page]({
 
 ## Get started
 
+To make sure that the upgrade process is smooth and you have the best experience, WSO2 recommends that you reach out to WSO2 Support in order to upgrade WSO2 API Manager with minimal difficulty.
+
 If you are ready to start the upgrading process, follow the instructions given below.
 
 - If you already have a WSO2 subscription, create a support ticket with your migration requirements and one of our support engineers will get in touch with you.
