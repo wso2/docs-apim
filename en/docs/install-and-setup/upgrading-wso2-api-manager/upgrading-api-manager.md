@@ -12,9 +12,9 @@ There are multiple reasons why you would want to upgrade the WSO2 product to the
 
 ## What has changed
 
-Over the course of its lifetime, WSO2 API Manager has changed significantly and some of the features you were using in an older version may not work the same way. This section summarizes the key changes that have taken place in each version of WSO2 API Manager.
+Over the course of its lifetime, WSO2 API Manager has changed significantly and some of the features you were using in an older version may not work the same way.
 
-For more details on the API-M 4.1.0 release, see the [About this Release page]({{base_path}}/get-started/about-this-release/).
+To learn what’s new in the <version> release, see the [About this Release page]({{base_path}}/get-started/about-this-release/).
 
 ## Get started
 
