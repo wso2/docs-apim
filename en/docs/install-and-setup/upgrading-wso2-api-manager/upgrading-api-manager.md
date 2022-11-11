@@ -22,7 +22,7 @@ If you are ready to start the upgrading process, follow the instructions given b
 
 - If you already have a WSO2 subscription, create a support ticket with your migration requirements and one of our support engineers will get in touch with you.
 
-    [Create a ticket](https://support.wso2.com/jira/secure/Dashboard.jspa)
+    [Create a ticket](https://support.wso2.com/support)
 
 - If you are not a WSO2 customer and still need migration assistance and resources, please contact us through the following link. One of our Account Managers will get in touch with you to help.
  
