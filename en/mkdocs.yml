@@ -1288,6 +1288,7 @@ nav:
                 - Customize the Developer Portal and Gateway URLs for Tenants: reference/customize-product/customizations/customize-the-api-store-and-gateway-urls-for-tenants.md
                 - Add a User Signup Workflow: reference/customize-product/customizations/adding-a-user-signup-workflow.md
                 - Add internationalization: reference/customize-product/customizations/adding-internationalization.md
+                - Define Custom Linter Rules: reference/customize-product/customizations/define-custom-linters.md
                 - Advanced UI Customization: reference/customize-product/customizations/advanced-ui-customization.md
             - Admin Services: reference/wso2-admin-services.md
             - Work with the Source Code: reference/working-with-the-source-code.md
@@ -1617,7 +1618,6 @@ nav:
                 - 4.0.0 to 4.1.0:
                     - What Has Changed: install-and-setup/upgrading-wso2-api-manager/400-to-410/what-has-changed.md
                     - Upgrade Process: install-and-setup/upgrading-wso2-api-manager/400-to-410/upgrading-from-400-to-410.md
-
                 - 3.2.0 to 4.1.0:
                     - What Has Changed: install-and-setup/upgrading-wso2-api-manager/320-to-410/what-has-changed.md
                     - Upgrade Process: install-and-setup/upgrading-wso2-api-manager/320-to-410/upgrading-from-320-to-410.md
