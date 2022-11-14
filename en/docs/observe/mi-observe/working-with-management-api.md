@@ -75,6 +75,23 @@ The management API has multiple resources to provide information regarding the d
     }
     ```
 
+	??? note "Search for a user by name"
+		You can also search for a user by name. To do that, use the following example cURL command.
+
+		```bash tab='Request'
+		curl -X GET "https://localhost:9164/management/users?searchKey=read-only" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+
+		```
+
+		```base tab='Response'
+		{
+			"count": 1,
+			"list": [{
+				"userId": "read-only-user"
+			}]
+		}
+		```
+
 -	**Resource**: `/users/{user_id}`
 
 	**Description**: Retrieves information related to a specified user stored in the [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore).
@@ -218,6 +235,25 @@ The management API has multiple resources to provide information regarding the d
     	]
     }
     ```
+
+	??? note "Search for a role by name"
+		You can also search for a role by name. To do that, use the following example cURL command.
+
+		```bash tab='Request'
+		curl -X GET "https://localhost:9164/management/roles?searchKey=admin" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+
+		```
+
+		```base tab='Response'
+		{
+			"count": 2,
+			"list": [{
+				"role": "admin"
+			}, {
+				"role": "super-admin"
+			}]
+		}
+		```
 
 -	**Resource**: `/roles/{role_name}`
 
@@ -476,6 +512,82 @@ The management API has multiple resources to provide information regarding the d
 	  ]
 	}
 	```
+
+	??? note "Search for a Carbon Application by name"
+		You can also search for a Carbon Application by name. To do that, use the following example cURL command.
+
+		```bash tab='Request'
+		curl -X GET "https://localhost:9164/management/applications?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+
+		```
+
+		```base tab='Response'
+		{
+			"count": 1,
+			"list": [{
+				"name": "helloartifactsPackComposite",
+				"version": "1.0.0-SNAPSHOT",
+				"artifacts": [{
+					"name": "HelloLocalEntry",
+					"type": "local-entry"
+				}, {
+					"name": "HelloLocalEntry",
+					"type": "local-entry"
+				}, {
+					"name": "CSV-connector",
+					"type": "lib"
+				}, {
+					"name": "HelloMessageStore",
+					"type": "message-store"
+				}, {
+					"name": "HelloMessageStore",
+					"type": "message-store"
+				}, {
+					"name": "AbcRestApi",
+					"type": "api"
+				}, {
+					"name": "HelloRestApi",
+					"type": "api"
+				}, {
+					"name": "AbcEndPoint",
+					"type": "endpoint"
+				}, {
+					"name": "HelloEndPoint",
+					"type": "endpoint"
+				}, {
+					"name": "AbcSequence",
+					"type": "sequence"
+				}, {
+					"name": "AbcMessageProcessor",
+					"type": "message-processors"
+				}, {
+					"name": "HelloMessageProcessor",
+					"type": "message-processors"
+				}, {
+					"name": "AbcTemplate",
+					"type": "template"
+				}, {
+					"name": "AbcDataService",
+					"type": "dataservice"
+				}, {
+					"name": "HelloDataService",
+					"type": "dataservice"
+				}, {
+					"name": "AbcProxyService",
+					"type": "proxy-service"
+				}, {
+					"name": "HelloProxyService",
+					"type": "proxy-service"
+				}, {
+					"name": "HttpListenerEP1",
+					"type": "inbound-endpoint"
+				}, {
+					"name": "AbcScheduledTask",
+					"type": "task"
+				}]
+			}]
+		}
+		```
 
 -	**Resource**: `/applications?carbonAppName={appname}`
 
@@ -1601,7 +1713,33 @@ The management API has multiple resources to provide information regarding the d
 	}
 
 	```	
-	
+
+	??? note "Search for a log configuration by name"
+		You can also search for a log configuration by name. To do that, use the following example cURL command.
+
+		```bash tab='Request'
+		curl -X GET "https://localhost:9164/management/logs?searchKey=carbon" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+
+		```
+
+		```base tab='Response'
+		{
+			"count": 3,
+			"list": [{
+				"Size": "36.1 KB",
+				"FileName": "wso2carbon.log"
+			}, {
+				"Size": "12.7 KB",
+				"FileName": "wso2carbon-09-08-2022.log"
+			}, {
+				"Size": "0 B",
+				"FileName": "wso2carbon-trace-messages.log"
+			}]
+		}
+
+		```
+
+
 ### ENABLE/DISABLE CORRELATION LOGGING DURING RUNTIME
 
 -	**Resource**: `/configs`
@@ -1811,7 +1949,7 @@ The management API has multiple resources to provide information regarding the d
   	```
 
 	??? note "Search for a Registry Resource by name"
-		You can also search for a Registry Resource by name. To do that, use the following example cURL command.
+		You can also search for a Registry Resource by name. To do that, use the following example cURL command. A nested search is possible here to find files inside directories.
 
 		```bash tab='Request'
 		curl -X GET "https://localhost:9164/management/registry-resources?path=registry/config&searchKey=test-text" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
