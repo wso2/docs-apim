@@ -215,7 +215,7 @@ export  policy  rate-limiting   -n Silver  -e prod   -- type subscription
 
 ### 3. Import Throttling Policy
 
-Import throttling policy operation allows users to import exported throttling policy files to a different environment and it also allows overwriting capability.
+Import throttling policy operation allows users to import exported throttling policy files to a different environment and it also has the capability to overwrite existing policies.
 
 ```
 POST /throttling/policies/import
