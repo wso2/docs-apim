@@ -9,6 +9,11 @@ The dashboard communicates with the management APIs of each Micro Integrator ins
 
 You can use the dashboard to perform the following administration tasks related to your Micro Integrator deployment:
 
+!!! tip
+    You can search for certain artifacts using the specific name of the artifact if there are many such items in the list.
+
+    ![search in monitoring dashboard]({{base_path}}/assets/img/integrate/monitoring-dashboard/search.png)    
+
 -   <b>View the MI servers in the deployment</b>
 
     View basic information of each server node.
