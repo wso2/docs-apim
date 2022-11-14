@@ -34,7 +34,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
     Jaggery is not currently in an active stage of development or upkeep. Therefore, it is essential to switch to a different language which is closer to server-side while still using the react component as the client-side handler.
 
 ??? note "Registry artifact view support for MI Management API/Dashboard"
-    A new page has been added to the MI-Dashboard to view the `<MI-HOME>/registry` directory and registry metadata, properties and content.
+    A new page has been added to the Micro Integrator dashboard to view the `<MI-HOME>/registry` directory and registry metadata, properties, and content.
 
     REST API resources have been added to the Micro Integrator as a **management API** to facilitate the functionalities of fetching existing registry data, adding new registry artifacts, modifying and deleting existing registries.
 
