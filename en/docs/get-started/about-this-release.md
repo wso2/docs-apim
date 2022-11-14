@@ -54,7 +54,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
     This feature generates API Documentation automatically using the API’s Open API Specification.
 
 ??? note "Support for managing Rate Limiting Policies with APICTL"
-    This new capability allows you to import and export throttle policies between environments. Throttling policies are imported to the target environment in a separate stage before importing either the API or the App. After importing throttling policies to the target environment, you may import the API/Application without encountering any throttling policy support problems.
+    This new capability allows you to import and export rate limiting policies between environments. Rate limiting policies are imported to the target environment in a separate stage before importing either the API or the App. After importing rate limiting policies to the target environment, you may import the API/Application without encountering any rate limiting policy support problems.
 
 ??? note "Introducing MI control plane, Search and Pagination"
     This feature introduces a new Micro Integrator Control plane and Implement Pagination and Search Functionality.
