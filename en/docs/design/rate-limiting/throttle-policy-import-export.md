@@ -26,7 +26,7 @@ Alongside those new operations, 3 new Admin APIs and 3 new APICTL commands are i
     Retrieve/Search Throttling Policies.
     ```
 
-2. Import Export Throttling Policies
+2. Import/Export Throttling Policies
 
     ```
     GET /throttling/policies/export
