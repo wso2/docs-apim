@@ -8,7 +8,7 @@ The high level workflow of revocation of One Time Tokens is illustrated below.
 
 [![Revoke one time tokens policy workflow]({{base_path}}/assets/img/design/api-policies/revocation-workflow.png){: style="width:90%"}]({{base_path}}/assets/img/design/api-policies/revocation-workflow.png)
 
-- You can attach the policy to the relevant resource which follows path 1.
+- You can attach the policy to the relevant resource that follows path 1.
 
 - The customer can generate a one-time token and access the resource through the following flow  
     ```
