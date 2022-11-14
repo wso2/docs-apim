@@ -154,7 +154,7 @@ Follow the steps below to add a certificate to an endpoint:
 
 ## Check Certificate Information
 
-You can check the information of the certificate, (i.e., Status and subject DN).
+You can check the information of the certificate, (i.e., other APIs that may use this certificate).
 
 Click on the info icon that corresponds to the respective certificate to view the certificate information.
 
@@ -170,3 +170,7 @@ Click on the delete icon that corresponds to the respective certificate to delet
 
 [![]({{base_path}}/assets/img/learn/certificate-delete-btn-select.jpg)]({{base_path}}/assets/img/learn/certificate-delete-btn-select.jpg)
 
+!!! info
+    1. Deleting certificates may result in undesirable behavior. Please proceed with caution.
+    2. Before you attempt to delete a certificate you must check the certificate usage as explained above. The certificate you try to delete may be used by other APIs and deleting it may affect their functionality.
+    3. If you are unsure about the consequences of your action, contact your administrator before deleting a certificate.
