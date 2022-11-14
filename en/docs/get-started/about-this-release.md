@@ -45,7 +45,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
     As an upgrade from the current version of APICTL (4.1.0), a command to export the shared operation policies in particular has been added.
 
 ??? note "Handling accidental deletions of shared backend certificates"
-    Backend certificates are currently shared amongst APIs based on endpoint. As a result, another person who creates an API with the same endpoint can view and remove a certificate that does not belong to the user. As a result, this new functionality is designed to limit the ability to delete backend certificates.
+    Backend certificates are currently shared amongst APIs based on the endpoint. As a result, another person who creates an API with the same endpoint can view and remove a certificate that does not belong to the user. This new functionality is designed to limit the ability to delete backend certificates.
 
 ??? note "API Linters for validating the API Specifications"
     This feature integrates an API Linter with the support of custom rules.
