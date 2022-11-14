@@ -41,7 +41,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 ??? note "Gateway Support for Single Usage Token"
     The JWT access tokens supplied by the gateway can be used to access the dedicated API resource as many times as the user requires. However, if the application developer wishes to limit this functionality by allowing just one chance to access the resource, One Time Token can be utilized. A One Time Token (JWT) is a JWT that will be revoked after a single use. This functionality is only accessible for JWT access tokens.
 
-??? note "Import/Export of Operation Policies with APICTL"
+??? note "Support for managing Common API Policies with APICTL"
     As an upgrade from the current version of APICTL (4.1.0), a command to export the shared operation policies in particular has been added.
 
 ??? note "Handling accidental deletions of shared backend certificates"
