@@ -53,7 +53,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 ??? note "Generate API Documentation Automatically from OAS"
     This feature generates API Documentation automatically using the API’s Open API Specification.
 
-??? note "Throttle policy export import support for API-M"
+??? note "Support for managing Rate Limiting Policies with APICTL"
     This new capability allows you to import and export throttle policies between environments. Throttling policies are imported to the target environment in a separate stage before importing either the API or the App. After importing throttling policies to the target environment, you may import the API/Application without encountering any throttling policy support problems.
 
 ??? note "Introducing MI control plane, Search and Pagination"
