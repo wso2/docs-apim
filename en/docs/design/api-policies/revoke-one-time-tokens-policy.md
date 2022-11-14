@@ -10,7 +10,7 @@ The high level workflow of revocation of One Time Tokens is illustrated below.
 
 - You can attach the policy to the relevant resource that follows path 1.
 
-- The customer can generate a one-time token and access the resource through the following flow  
+- You can generate a one-time token and access the resource through the following flow.
     ```
         2 → 3 →  4 → 5 → 7 → 8 → 9 → 11
     ```
