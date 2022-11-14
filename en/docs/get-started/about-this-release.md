@@ -56,7 +56,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 ??? note "Support for managing Rate Limiting Policies with APICTL"
     This new capability allows you to import and export rate limiting policies between environments. Rate limiting policies are imported to the target environment in a separate stage before importing either the API or the App. After importing rate limiting policies to the target environment, you may import the API/Application without encountering any rate limiting policy support problems.
 
-??? note "Introducing MI control plane, Search and Pagination"
+??? note "MI Dashboard Revamp and Pagination and Search capability for MI Management API"
     This feature introduces a new Micro Integrator Control plane and Implement Pagination and Search Functionality.
 
 
@@ -67,7 +67,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
 ## Fixed issues
 
-- [API Manager](https://github.com/wso2/product-apim/issues?q=is%3Aissue+is%3Aclosed+closed%3A2021-10-30..2022-03-05+)
+- [API Manager](https://github.com/wso2/api-manager/issues?q=is%3Aissue+milestone%3AAPIM-4.2.0-M1+is%3Aclosed)
 - [Micro Integrator](https://github.com/wso2/micro-integrator/issues?q=is%3Aissue+is%3Aclosed+closed%3A2021-05-01..2022-03-05+label%3A4.1.0+)
 - [Streaming Integrator](https://github.com/wso2/streaming-integrator/issues?q=is%3Aissue+is%3Aclosed+label%3A4.1.0+)
 - [API Controller](https://github.com/wso2/product-apim-tooling/milestone/17?closed=1)
@@ -78,7 +78,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
 ## Known issues
 
-- [API Manager](https://github.com/wso2/product-apim/issues?q=is%3Aopen+is%3Aissue+label%3A4.x.x)
+- [API Manager](https://github.com/wso2/api-manager/issues?q=is%3Aissue+is%3Aopen)
 - [Micro Integrator](https://github.com/wso2/micro-integrator/issues)
 - [Streaming Integrator](https://github.com/wso2/streaming-integrator/issues?q=is%3Aissue+is%3Aopen+label%3A4.1.0)
 - [API Controller](https://github.com/wso2/product-apim-tooling/issues?q=is%3Aopen+is%3Aissue)
