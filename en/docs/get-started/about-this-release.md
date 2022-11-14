@@ -16,7 +16,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
     You can now run our products with JDK 17.
 
 ??? note "OpenTelemetry Support"
-    OpenTelemetry combines OpenTracing and OpenCencus which is a single set of APIs and libraries that standardize how telemetry data such as traces, metrics and logs are collected, transmitted and managed. It offers a safe, vendor-neutral specification for instrumentation so that information about the selection can be communicated to various backends
+    OpenTelemetry combines OpenTracing and OpenCencus, which is a single set of APIs and libraries that standardize how telemetry data such as traces, metrics, and logs are collected, transmitted, and managed. It offers a safe, vendor-neutral specification for instrumentation so that information about the selection can be communicated to various backends.
 
 ??? note "ELK Support for MI"
     From WSO2 API Manager 4.2.0 onwards, Micro Integrator now enables publishing operational analytics for Elastic stack as a replacement for WSO2 EI Analytics.
