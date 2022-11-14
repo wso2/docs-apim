@@ -152,6 +152,24 @@ Follow the instructions below to create a REST API using the basic flow:
 
      [![REST API definition]({{base_path}}/assets/img/learn/api-definition-rest.png)]({{base_path}}/assets/img/learn/api-definition-rest.png)
 
+     !!! note "Observe Linter results"
+         You can observe results for the Linter rules you create by doing the following.
+         
+            1. Navigate to the APIM Publisher Portal.
+
+            2. Log in using your credentials.
+
+            3. On the sidebar, navigate to **Develop** -> **API Configuration**.
+
+            4. Click on **Edit** from the toolbar.
+                [![API configuration toolbar]({{base_path}}/assets/img/design/create-api/linter-observe/linter-observe1.png)]({{base_path}}/assets/img/design/create-api/linter-observe/linter-observe1.png)
+
+            5. Switch to the Linter view by clicking on the LINTER button on the top.
+
+            6. You will see the Linter error corresponding to the new rule you enforced.
+                [![Linter error]({{base_path}}/assets/img/design/create-api/linter-observe/linter-observe2.png)]({{base_path}}/assets/img/design/create-api/linter-observe/linter-observe2.png)
+
+
 Now, you have successfully created and configured a REST API. Next, [deploy the API]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/), [test the API]({{base_path}}/design/create-api/create-rest-api/test-a-rest-api/), and finally [publish the API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api).
 
 ## See Also
