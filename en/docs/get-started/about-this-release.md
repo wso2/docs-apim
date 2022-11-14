@@ -22,16 +22,16 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
     From WSO2 API Manager 4.2.0 onwards, Micro Integrator now enables publishing operational analytics for Elastic Stack as a replacement for WSO2 EI Analytics.
 
 ??? note "Configuring Self Sign up through Admin Portal"
-    WSO2 API Manager now offers you the ability to self-signup into the Developer Portal as well as the option to disable self-signup. You can also migrate the self-signup configurations from the registry through the **Advance Configuration** option or through editing the `tenant-conf.json` file.
+    WSO2 API Manager offers you the ability to self-signup into the Developer Portal. In this new release, the capability to disable self-signup is also added. You can also migrate the self-signup configurations from the registry through the **Advance Configuration** option or through editing the `tenant-conf.json` file.
 
 ??? note "Configuring API Lifecycle through Admin Portal"
-    APIs created in WSO2 API Manager have their own life cycle consisting of the following: a set of life cycle states, specific actions for each state transition, and a checklist of items before a state transition occurs. An API has a predefined life cycle consisting of six states by default. This feature allows you to customize and/or add new states, migrate API Lifecycle through the **Advance Configuration** option or through editing the `tenant-conf.json` file.
+    APIs created in WSO2 API Manager have their own life cycle consisting of the following: a set of life cycle states, specific actions for each state transition, and a checklist of items before a state transition occurs. An API has a predefined life cycle consisting of six states by default. This feature allows you to customize and/or add new states, configure the API Lifecycle through the **Advance Configuration** option or through editing the `tenant-conf.json` file.
 
 ??? note "Enable logs without server restart"
-    In this new version of WSO2 API Manager, you can enable or disable correlation logs as needed for troubleshooting at runtime, as a server restart is not required.
+    You can now enable or disable correlation logs as needed for troubleshooting at runtime, as a server restart is not required with the Micro Integrator.
 
 ??? note "Removal of Jaggery Apps from Portals"
-    Jaggery is not currently in an active stage of development or upkeep. Therefore, it is essential to switch to a different language which is closer to server-side while still using the react component as the client-side handler.
+    Jaggery is not currently in an active stage of development or upkeep. Therefore, it is essential to switch to a different language which is closer to server-side while still using the react component as the client-side handler. WSO2 API Manager now uses `JSP` as the server-side language in all its portals.
 
 ??? note "Registry artifact view support for MI Management API/Dashboard"
     A new page has been added to the Micro Integrator dashboard to view the `<MI-HOME>/registry` directory and registry metadata, properties, and content.
