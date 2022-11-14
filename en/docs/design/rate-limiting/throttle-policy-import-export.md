@@ -4,7 +4,7 @@ Throttling policies exist at different levels such as Application Level, Subscri
 
 When an API or an Application is imported from an environment that has custom-made throttling policies to another environment, if the API or the  Application has subscribed to a throttling policy that is not in the destination environment, an error is thrown indicating the throttling policy is not supported and the importation fails.
 
-Before importing either the API or App to the destination environment,  throttling policies are imported to the destination environment using a separate step. After throttling policies are imported to the destination environment we can import the API/Application to the destination environment without any throttling policy support errors.
+Before importing either the API or App to the destination environment, throttling policies are imported to the destination environment using a separate step. After throttling policies are imported to the destination environment we can import the API/Application to the destination environment without any throttling policy support errors.
 
 ## Operations
 
