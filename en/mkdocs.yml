@@ -132,6 +132,7 @@ nav:
                 - Overview: design/api-policies/choreo-connect-policies/cc-op-policy-overview.md
                 - Call Interceptor Service: design/api-policies/choreo-connect-policies/call-interceptor-service.md
                 - Create a Custom Policy: design/api-policies/choreo-connect-policies/create-custom-cc-policy.md
+            - Revoke One Time Tokens Policy: design/api-policies/revoke-one-time-tokens-policy.md
         - API Security:
             - Authentication:
                 - Overview: design/api-security/api-authentication/api-authentication-overview.md
