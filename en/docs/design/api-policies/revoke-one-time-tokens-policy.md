@@ -1,6 +1,6 @@
 # Revoke One Time Tokens Policy
 
-The [JWT access tokens]({{base_path}}/design/api-security/oauth2/access-token-types/jwt-tokens/) issued in the gateway can be used to access the dedicated API resource as many times as the user needs. However, if the application developer wants to restrict this ability by providing only one chance to access the resource then One Time Token can be used. One Time Token is a JWT that will be revoked after single usage. This feature is **only available for JWT access tokens**.
+The [JWT access tokens]({{base_path}}/design/api-security/oauth2/access-token-types/jwt-tokens/) issued in the Gateway can be used to access the dedicated API resource as many times as the user needs. However, if the application developer wants to restrict this ability by providing only one chance to access the resource then One Time Token can be used. One Time Token is a JWT that will be revoked after single usage. This feature is **only available for JWT access tokens**.
 
 ## Workflow
 
