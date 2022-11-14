@@ -75,6 +75,23 @@ The management API has multiple resources to provide information regarding the d
     }
     ```
 
+	??? note "Search for a user by name"
+		You can also search for a user by name. To do that, use the following example cURL command.
+
+		```bash tab='Request'
+		curl -X GET "https://localhost:9164/management/users?searchKey=read-only" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+
+		```
+
+		```base tab='Response'
+		{
+			"count": 1,
+			"list": [{
+				"userId": "read-only-user"
+			}]
+		}
+		```
+
 -	**Resource**: `/users/{user_id}`
 
 	**Description**: Retrieves information related to a specified user stored in the [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore).
@@ -218,6 +235,25 @@ The management API has multiple resources to provide information regarding the d
     	]
     }
     ```
+
+	??? note "Search for a role by name"
+		You can also search for a role by name. To do that, use the following example cURL command.
+
+		```bash tab='Request'
+		curl -X GET "https://localhost:9164/management/roles?searchKey=admin" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+
+		```
+
+		```base tab='Response'
+		{
+			"count": 2,
+			"list": [{
+				"role": "admin"
+			}, {
+				"role": "super-admin"
+			}]
+		}
+		```
 
 -	**Resource**: `/roles/{role_name}`
 
@@ -369,6 +405,26 @@ The management API has multiple resources to provide information regarding the d
 	}
 	```
 
+	??? note "Search for a proxy by name"
+		You can also search for a proxy by name. To do that, use the following example cURL command.
+
+		```bash tab='Request'
+		curl -X GET "https://localhost:9164/management/proxy-services?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+		```
+
+		```base tab='Response'
+		{
+			"count": 1,
+			"list": [{
+				"name": "HelloProxyService",
+				"wsdl1_1": "http://localhost:8285/services/HelloProxyService?wsdl",
+				"wsdl2_0": "http://localhost:8285/services/HelloProxyService?wsdl2"
+				}]
+		}
+		```
+
+
+
 -	**Resource**: `/proxy-services?proxyServiceName={proxyName}`
 
 	**Description**: Retrieves information related to a specified proxy.
@@ -457,6 +513,82 @@ The management API has multiple resources to provide information regarding the d
 	}
 	```
 
+	??? note "Search for a Carbon Application by name"
+		You can also search for a Carbon Application by name. To do that, use the following example cURL command.
+
+		```bash tab='Request'
+		curl -X GET "https://localhost:9164/management/applications?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+
+		```
+
+		```base tab='Response'
+		{
+			"count": 1,
+			"list": [{
+				"name": "helloartifactsPackComposite",
+				"version": "1.0.0-SNAPSHOT",
+				"artifacts": [{
+					"name": "HelloLocalEntry",
+					"type": "local-entry"
+				}, {
+					"name": "HelloLocalEntry",
+					"type": "local-entry"
+				}, {
+					"name": "CSV-connector",
+					"type": "lib"
+				}, {
+					"name": "HelloMessageStore",
+					"type": "message-store"
+				}, {
+					"name": "HelloMessageStore",
+					"type": "message-store"
+				}, {
+					"name": "AbcRestApi",
+					"type": "api"
+				}, {
+					"name": "HelloRestApi",
+					"type": "api"
+				}, {
+					"name": "AbcEndPoint",
+					"type": "endpoint"
+				}, {
+					"name": "HelloEndPoint",
+					"type": "endpoint"
+				}, {
+					"name": "AbcSequence",
+					"type": "sequence"
+				}, {
+					"name": "AbcMessageProcessor",
+					"type": "message-processors"
+				}, {
+					"name": "HelloMessageProcessor",
+					"type": "message-processors"
+				}, {
+					"name": "AbcTemplate",
+					"type": "template"
+				}, {
+					"name": "AbcDataService",
+					"type": "dataservice"
+				}, {
+					"name": "HelloDataService",
+					"type": "dataservice"
+				}, {
+					"name": "AbcProxyService",
+					"type": "proxy-service"
+				}, {
+					"name": "HelloProxyService",
+					"type": "proxy-service"
+				}, {
+					"name": "HttpListenerEP1",
+					"type": "inbound-endpoint"
+				}, {
+					"name": "AbcScheduledTask",
+					"type": "task"
+				}]
+			}]
+		}
+		```
+
 -	**Resource**: `/applications?carbonAppName={appname}`
 
 	**Description**: Retrieves information related to a specified carbon application.
@@ -510,6 +642,25 @@ The management API has multiple resources to provide information regarding the d
 	    ]
 	}
 	```
+
+	??? note "Search for an endpoint by name"
+		You can also search for an endpoint by name. To do that, use the following example cURL command.
+
+		```bash tab='Request'
+		curl -X GET "https://localhost:9164/management/endpoints?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+		```
+
+		```base tab='Response'
+		{
+			"count": 1,
+			"list": [{
+				"name": "HelloEndPoint",
+				"type": "http",
+				"isActive": true
+			}]
+		}
+
+		```	
 
 -	**Resource**: `/endpoints?endpointName={endpointname}`
 
@@ -583,6 +734,26 @@ The management API has multiple resources to provide information regarding the d
 	}
 	```
 
+	??? note "Search for an API by name"
+		You can also search for an API by name. To do that, use the following example cURL command.
+
+		```bash tab='Request'
+		curl -X GET "https://localhost:9164/management/apis?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+
+		```
+
+		```base tab='Response'
+		{
+			"count": 1,
+			"list": [{
+				"tracing": "disabled",
+				"name": "HelloRestApi",
+				"url": "http://localhost:8285/hellorest"
+			}]
+		}
+
+		```	
+
 -	**Resource**: `/apis?apiName={api}`
 
 	**Description**: Retrieves information related to a specified API.
@@ -646,6 +817,31 @@ The management API has multiple resources to provide information regarding the d
 	}
 	```
 
+	??? note "Search for a Sequence by name"
+		You can also search for a Sequence by name. To do that, use the following example cURL command.
+
+		```bash tab='Request'
+		curl -X GET "https://localhost:9164/management/sequences?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+
+		```
+
+		```base tab='Response'
+		{
+			"count": 2,
+			"list": [{
+				"tracing": "disabled",
+				"stats": "disabled",
+				"name": "Hello"
+			}, {
+				"tracing": "disabled",
+				"stats": "disabled",
+				"name": "helloworld"
+			}]
+
+		}
+
+		```
+
 -	**Resource**: `/sequences?sequenceName={sequence}`
 
 	**Description**: Retrieves information related to a specified sequence.
@@ -702,6 +898,30 @@ The management API has multiple resources to provide information regarding the d
 	}
 	```
 
+	??? note "Search for a Local Entry by name"
+		You can also search for a Local Entry by name. To do that, use the following example cURL command.
+
+		```bash tab='Request'
+		curl -X GET "https://localhost:9164/management/local-entries?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+
+		```
+
+		```base tab='Response'
+		{
+			"count": 2,
+			"list": [{
+				"name": "HelloLocalEntry",
+				"type": "Inline Text",
+				"value": "0.1"
+			}, {
+				"name": "helloSERVER"
+				"type": "Inline Text",
+				"value": "0.5"
+			}]
+		}
+
+		```
+
 -	**Resource**: `/local-entries?name={entryName}`
 
 	**Description**: Retrieves information related to a specified entry.
@@ -728,6 +948,24 @@ The management API has multiple resources to provide information regarding the d
 	    ]
 	}
 	```
+
+	??? note "Search for a Task by name"
+		You can also search for a Task by name. To do that, use the following example cURL command.
+
+		```bash tab='Request'
+		curl -X GET "https://localhost:9164/management/tasks?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+
+		```
+
+		```base tab='Response'
+		{
+			"count": 1,
+			"list": [{
+				"name": "HelloScheduledTask"
+			}]
+		}
+
+		```
 
 -	**Resource**: `/tasks?taskName={taskName}`
 
@@ -763,6 +1001,27 @@ The management API has multiple resources to provide information regarding the d
 	}
 	```
 
+	??? note "Search for a Message Store by name"
+		You can also search for a Message Store by name. To do that, use the following example cURL command.
+
+		```bash tab='Request'
+		curl -X GET "https://localhost:9164/management/message-stores?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+
+		```
+
+		```base tab='Response'
+		{
+			"count": 1,
+			"list": [{
+				"size": 0,
+				"name": "HelloMessageStore",
+				"type": "in-memory-message-store"
+			}]
+
+		}
+
+		```
+
 -	**Resource**: `/message-stores?name={messageStore}`
 
 	**Description**: Retrieves information related to a specified message store.
@@ -796,6 +1055,26 @@ The management API has multiple resources to provide information regarding the d
 	    ]
 	}
 	```
+
+	??? note "Search for a Message Processor by name"
+		You can also search for a Message Processor by name. To do that, use the following example cURL command.
+
+		```bash tab='Request'
+		curl -X GET "https://localhost:9164/management/message-processors?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+
+		```
+
+		```base tab='Response'
+		{
+			"count": 1,
+			"list": [{
+				"name": "HelloMessageProcessor",
+				"type": "Scheduled-message-forwarding-processor",
+				"status": "active"
+			}]
+		}
+
+		```
 
 -	**Resource**: `/message-processors?name={messageProcessors}`
 
@@ -843,6 +1122,27 @@ The management API has multiple resources to provide information regarding the d
 	    ]
 	}
 	```
+
+	??? note "Search for an Inbound Endpoint by name"
+		You can also search for an Inbound Endpoint by name. To do that, use the following example cURL command.
+
+		```bash tab='Request'
+		curl -X GET "https://localhost:9164/management/inbound-endpoints?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+
+		```
+
+		```base tab='Response'
+		{
+			"count": 1,
+		    "list": [
+    		{
+        		"protocol": "http",
+        		"name": "HelloHTTPIEP"
+    		}
+    		]
+		}
+
+		```
 
 -	**Resource**: `/inbound-endpoints?inboundEndpointName={inboundEndpoint}`
 
@@ -903,6 +1203,27 @@ The management API has multiple resources to provide information regarding the d
 	}
 	```
 
+	??? note "Search for a Connector by name"
+		You can also search for a Connector by name. To do that, use the following example cURL command.
+
+		```bash tab='Request'
+		curl -X GET "https://localhost:9164/management/connectors?searchKey=csv" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+
+		```
+
+		```base tab='Response'
+		{
+			"count": 1,
+			"list": [{
+				"package": "org.wso2.carbon.module.csv",
+				"name": "CSV",
+				"description": "WSO2 CSV Module",
+				"status": "enabled"
+			}]
+		}
+
+		```
+
 ### GET TEMPLATES
 
 -	**Resource**: `/templates`
@@ -929,6 +1250,31 @@ The management API has multiple resources to provide information regarding the d
 	    ]
 	}
 	```
+
+	??? note "Search for a Template by name"
+		You can also search for a Template by name. To do that, use the following example cURL command.
+
+		```bash tab='Request'
+		curl -X GET "https://localhost:9164/management/templates?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+
+		```
+
+		```base tab='Response'
+		{
+			"count": 1,
+			"list": [{
+				"Parameters": [{
+					"defaultValue": "",
+					"name": "message",
+					"mandatory": false
+				}],
+				"configuration": "<template xmlns=\"http://ws.apache.org/ns/synapse\" name=\"HelloTemplate\"><parameter name=\"message\" isMandatory=\"false\" defaultValue=\"\"/><sequence><log level=\"custom\"><property name=\"GREETING_MESSAGE\" expression=\"$func:message\"/><\/log><\/sequence><\/template>",
+				"name": "HelloTemplate",
+				"type": "sequence"
+			}]
+		}
+
+		```
 
 -	**Resource**: `/templates?type=TYPE`
 
@@ -1144,6 +1490,26 @@ The management API has multiple resources to provide information regarding the d
 	}
 	```
 
+	??? note "Search for a Data Service by name"
+		You can also search for a Data Service by name. To do that, use the following example cURL command.
+
+		```bash tab='Request'
+		curl -X GET "https://localhost:9164/management/data-services?searchKey=hello" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+
+		```
+
+		```base tab='Response'
+		{
+			"count": 2,
+			"list": [{
+				"name": "HelloDataService",
+				"wsdl1_1": "http://localhost:8285/services/HelloDataService?wsdl",
+				"wsdl2_0": "http://localhost:8285/services/HelloDataService?wsdl2"
+			}]
+		}
+
+		```
+
 -	**Resource**: `/data-services?dataServiceName={dataservice}`
 
 	**Description**: Retrieves information related to a specific data service.
@@ -1169,6 +1535,24 @@ The management API has multiple resources to provide information regarding the d
 	{"count":1,"list":[{"name":"MySQLConnection","type":"RDBMS"}]}
 	```
 
+	??? note "Search for a Data Source by name"
+		You can also search for a Data Source by name. To do that, use the following example cURL command.
+
+		```bash tab='Request'
+		curl -X GET "https://localhost:9164/management/data-sources?searchKey=carbon" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+
+		```
+
+		```base tab='Response'
+		{
+			"count": 1,
+			"list": [{
+				"name": "WSO2CarbonDB",
+				"type": "RDBMS"
+			}]
+		}
+
+		```
 
 -	**Resource**: `/data-sources?name={datasource}`
 
@@ -1212,6 +1596,25 @@ The management API has multiple resources to provide information regarding the d
     	}
 	```
 
+	??? note "Search for a Logger by name"
+		You can also search for a Logger by name. To do that, use the following example cURL command.
+
+		```bash tab='Request'
+		curl -X GET "https://localhost:9164/management/logging?searchKey=carbon" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+
+		```
+
+		```base tab='Response'
+		{
+			"count": 1,
+			"list": [{
+				"level": "WARN",
+				"componentName": "org.wso2.carbon.apacheds",
+				"loggerName": "org-wso2-carbon-apacheds"
+			}]
+		}
+
+		```
 
 ### UPDATE ROOT LOG LEVEL
 
@@ -1310,7 +1713,33 @@ The management API has multiple resources to provide information regarding the d
 	}
 
 	```	
-	
+
+	??? note "Search for a log files by name"
+		You can also search for a log file by name. To do that, use the following example cURL command.
+
+		```bash tab='Request'
+		curl -X GET "https://localhost:9164/management/logs?searchKey=carbon" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+
+		```
+
+		```base tab='Response'
+		{
+			"count": 3,
+			"list": [{
+				"Size": "36.1 KB",
+				"FileName": "wso2carbon.log"
+			}, {
+				"Size": "12.7 KB",
+				"FileName": "wso2carbon-09-08-2022.log"
+			}, {
+				"Size": "0 B",
+				"FileName": "wso2carbon-trace-messages.log"
+			}]
+		}
+
+		```
+
+
 ### ENABLE/DISABLE CORRELATION LOGGING DURING RUNTIME
 
 -	**Resource**: `/configs`
@@ -1518,6 +1947,34 @@ The management API has multiple resources to provide information regarding the d
     </address>
 	</endpoint>
   	```
+
+	??? note "Search for a Registry Resource by name"
+		You can also search for a Registry Resource by name. To do that, use the following example cURL command. A nested search is possible here to find files inside directories.
+
+		```bash tab='Request'
+		curl -X GET "https://localhost:9164/management/registry-resources?path=registry/config&searchKey=test-text" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
+
+		```
+
+		```base tab='Response'
+		{
+			"list": {
+				"name": "config",
+				"files": [{
+					"name": "testFolder",
+					"files": [{
+						"name": "test-text.txt",
+						"files": [],
+						"type": "testMediaType"
+					}],
+					"type": "directory"
+				}],
+				"type": "directory"
+			}
+		}
+
+		```
+
 
 ### ADD A REGISTRY RESOURCE
 
