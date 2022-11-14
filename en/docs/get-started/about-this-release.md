@@ -19,7 +19,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
     OpenTelemetry combines OpenTracing and OpenCencus, which is a single set of APIs and libraries that standardize how telemetry data such as traces, metrics, and logs are collected, transmitted, and managed. It offers a safe, vendor-neutral specification for instrumentation so that information about the selection can be communicated to various backends.
 
 ??? note "ELK Support for MI"
-    From WSO2 API Manager 4.2.0 onwards, Micro Integrator now enables publishing operational analytics for Elastic stack as a replacement for WSO2 EI Analytics.
+    From WSO2 API Manager 4.2.0 onwards, Micro Integrator now enables publishing operational analytics for Elastic Stack as a replacement for WSO2 EI Analytics.
 
 ??? note "Configuring Self Sign up through Admin Portal"
     WSO2 API Manager now offers you the ability to self-signup into the Developer Portal as well as the option to disable self-signup. You can also migrate the self-signup configurations from the registry through the **Advance Configuration** option or through editing the `tenant-conf.json` file.
