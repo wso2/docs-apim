@@ -1714,8 +1714,8 @@ The management API has multiple resources to provide information regarding the d
 
 	```	
 
-	??? note "Search for a log configuration by name"
-		You can also search for a log configuration by name. To do that, use the following example cURL command.
+	??? note "Search for a log files by name"
+		You can also search for a log file by name. To do that, use the following example cURL command.
 
 		```bash tab='Request'
 		curl -X GET "https://localhost:9164/management/logs?searchKey=carbon" -H "accept: application/json" -H "Authorization: Bearer $AccessToken" -k -i
