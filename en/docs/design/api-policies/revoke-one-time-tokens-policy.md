@@ -31,7 +31,7 @@ This feature is only supported for the [Regular Gateway and the Request flow]({{
 
 This step can be done by following the steps listed [here]({{base_path}}/design/api-policies/attach-policy/). The below diagram shows which policy to select. You can apply the policy to the whole API or a designated API resource depending on the use case. 
 
-The policy has one attribute called scope. If a JWT in your application has the same scope that is mentioned in the policy, it will be identified as an One Time Token. The default value of the scope is “OTT”. However this can be changed to any name the user prefers.
+The policy has one attribute called scope. If a JWT in your application has the same scope that is mentioned in the policy, it will be identified as a One Time Token. The default value of the scope is “OTT”. However, this can be changed to any name the user prefers.
 
 [![Attach policy]({{base_path}}/assets/img/design/api-policies/attach-policy.png){: style="width:90%"}]({{base_path}}/assets/img/design/api-policies/attach-policy.png)
 
