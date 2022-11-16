@@ -56,8 +56,8 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 ??? note "Support for managing Rate Limiting Policies with APICTL"
     This new capability allows you to import and export rate limiting policies between environments. Rate limiting policies are imported to the target environment in a separate stage before importing either the API or the App. After importing rate limiting policies to the target environment, you may import the API/Application without encountering any rate limiting policy support problems.
 
-??? note "MI Dashboard Revamp and Search capability for MI Management API"
-    This feature revamps the MI Dashboard and Implements Search Functionality for MI Management API.
+??? note "MI Dashboard Improvement and Search capability for MI Management API"
+    This feature improves the MI Dashboard and Implements Search Functionality for MI Management API.
 
 
 ## Compatible WSO2 product versions
