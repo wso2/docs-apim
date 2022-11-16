@@ -275,6 +275,7 @@ If the MI Dashboard is up and running properly, the following response will appe
 ```
 {"status":"ready"}
 ```
+
 <!--
 ### Proxy Services
 
