@@ -457,16 +457,15 @@ nav:
                 - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
                 - Supported Cipher Suites : install-and-setup/setup/reference/supported-cipher-suites.md
           - Upgrading WSO2 API Manager:
-                - Upgrading Process: install-and-setup/upgrading-wso2-api-manager/upgrading-process.md
-                - 3.1.0 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-310-to-320.md
-                - 3.0.0 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-320.md
-                - 2.6.0 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-320.md
-                - 2.5.0 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-320.md
-                - 2.2.0 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-220-to-320.md
-                - 2.1.0 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-210-to-320.md
-                - 2.0.0 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-200-to-320.md
-                - 1.10.0 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-1100-to-320.md
-                - 1.8.0/1.9.0/1.9.1 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-191-to-320.md
+                - Upgrading API Manager: install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager.md
+                #- Upgrading Process: install-and-setup/upgrading-wso2-api-manager/upgrading-process.md
+                #- 2.6.0 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-320.md
+                #- 2.5.0 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-320.md
+                #- 2.2.0 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-220-to-320.md
+                #- 2.1.0 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-210-to-320.md
+                #- 2.0.0 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-200-to-320.md
+                #- 1.10.0 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-1100-to-320.md
+                #- 1.8.0/1.9.0/1.9.1 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-191-to-320.md
                 - Upgrading to Log4j2: install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2.md
           - Upgrading WSO2 IS as KM:
                 - 3.1.0 to 3.2.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-5100-to-is-5100.md
@@ -720,6 +719,15 @@ plugins:
               'develop/product-apis/configuring-rest-api.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/advanced-configurations/'
               'learn/analytics/analyzing-apim-statistics-with-batch-analytics/introducing-the-wso2-api-manager-statistics-model.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/analytics/analytics-event-streams-and-aggregations/'
               'install-and-setup/setup/deployment-best-practices/performance-and-capacity-planning.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/deployment-best-practices/performance-test-results/'
+              'install-and-setup/upgrading-wso2-api-manager/upgrading-process.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-320.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-320.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-api-manager/upgrading-from-220-to-320.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-api-manager/upgrading-from-210-to-320.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-api-manager/upgrading-from-200-to-320.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-api-manager/upgrading-from-1100-to-320.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-api-manager/upgrading-from-191-to-320.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+
     # Extra
 extra_css:
     - assets/lib/highlightjs/default.min.css
