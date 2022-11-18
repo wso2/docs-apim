@@ -41,7 +41,7 @@ API Manager supports four (4) main types of endpoints as follows.
         - `amznAccessKey`: Access Key for endpoint
         - `amznSecretKey`: Access Secret for endpoint
 
-Let us discuss configuring each of the above endpoint type with examples, seperately, in the following sections.
+Let us discuss configuring each of the above endpoint type with examples, separately, in the following sections.
 
 ### HTTP/REST Endpoints
 

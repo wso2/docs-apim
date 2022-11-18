@@ -6,4 +6,4 @@ The user stores of can be configured to operate in either one of the following m
 
 **User store operates in read/write mode** - In Read/Write mode, the API Manager reads/writes into the user store.
 
-**User store operates in read only mode** - In Read Only mode, the API Manager does not modify any data in the user store. Instead we maintain roles and permissions in a seperate database and read users/roles from the configured read only user store.
+**User store operates in read only mode** - In Read Only mode, the API Manager does not modify any data in the user store. Instead we maintain roles and permissions in a separate database and read users/roles from the configured read only user store.

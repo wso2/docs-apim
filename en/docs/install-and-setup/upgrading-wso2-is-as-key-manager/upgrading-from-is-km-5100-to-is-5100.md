@@ -129,7 +129,7 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
         password = "wso2carbon"
         ```
 
-    -   If you have used a seperate user management database as the primary userstore in previous IS as KM setup, add the following to the `<IS_HOME>/repository/conf/deployment.toml` in IS 5.10.0.
+    -   If you have used a separate user management database as the primary userstore in previous IS as KM setup, add the following to the `<IS_HOME>/repository/conf/deployment.toml` in IS 5.10.0.
         ```
         [realm_manager]
         data_source = "WSO2USER_DB"

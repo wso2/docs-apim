@@ -6,7 +6,8 @@ The following information describes how to upgrade your API Manager server **fro
     Before you follow this section, see [Upgrading Process]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-process) for more information.
 
 !!! Attention
-    If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-520-to-5100) instead of the following steps.    
+    	
+If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, first you have to follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-520-to-5100) instead of below steps.  
 
 Follow the instructions below to upgrade your WSO2 API Manager server **from WSO2 API-M 2.0.0 to 3.2.0**.
 
@@ -17,6 +18,8 @@ Follow the instructions below to upgrade your WSO2 API Manager server **from WSO
     ```
 !!! note "If you are using Oracle"
     Please commit the changes after running the scripts given below.
+
+Follow the instructions below to upgrade your WSO2 API Manager server from WSO2 API-M 2.0.0 to 3.2.0.
     
 ### Preparing for Migration
 #### Disabling versioning in the registry configuration
@@ -26,8 +29,7 @@ If there are frequently updating registry properties, having the versioning enab
 Therefore, if registry versioning was enabled in WSO2 API-M 2.0.0 setup, it is **required** run the below scripts against **the database that is used by the registry**.
 
 !!! note
-    Alternatively, you can turn on the registry versioning in API Manager 3.2.0 and continue. However, this is
-    highly **NOT RECOMMENDED** and these configurations should only be changed once.
+    Alternatively, it is possible to turn on registry versioning in API Manager 3.2.0 and continue. However, this is highly **NOT RECOMMENDED** and these configurations should only be changed once.
 
 !!! info "Verifying registry versioning turned on in your current API-M and running the scripts"
     1. Open the `registry.xml` file in the `<OLD_API-M_HOME>/repository/conf` directory.
@@ -45,7 +47,7 @@ Therefore, if registry versioning was enabled in WSO2 API-M 2.0.0 setup, it is *
     !!! warning
         If the above configurations are already set as `false` you should not run the following scripts.
 
-    From API-M 3.0.0 onwards, by default, these configurations are set to `false` and now as these configurations are getting changed from the old setup to the new setup, you need to remove the versioning details from the database in order for the registry resources to work properly. As a result in order to remove the registry versioning details, you need to select the relevant DB type and run the script against the DB that the registry resides in. 
+    From API-M 3.0.0 onwards, by default, these configurations are set to `false` and now as these configurations are getting changed from the old setup to the new setup, you need to remove the versioning details from the database in order for the registry resources to work properly. As a result, in order to remove the registry versioning details, you need to select the relevant DB type and run the script against the DB that the registry resides in. 
 
     ??? info "DB Scripts"
         ```tab="DB2"
@@ -297,7 +299,7 @@ Follow the instructions below to move all the existing API Manager configuration
     -   API Manager databases
 
     !!! note
-        In API-M 3.2.0, a combined **SHARED_DB** has been introduced to keep both the use-related data (`WSO2UM_DB`) and the registry data (`WSO2REG_DB`). If you have used separate DBs for user management and registry in the previous version, you need to configure `WSO2REG_DB` and `WSO2UM_DB` databases separately in API-M 3.2.0 to avoid any issues.
+        In API-M 3.2.0, a combined **SHARED_DB** has been introduced to keep both the user-related data (`WSO2UM_DB`) and the registry data (`WSO2REG_DB`). If you have used separate DBs for user management and registry in the previous version, you need to configure `WSO2REG_DB` and `WSO2UM_DB` databases separately in API-M 3.2.0 to avoid any issues.
 
     **SHARED_DB** should point to the previous API-M version's `WSO2REG_DB`. The following example shows you how you can define the configurations related to a MySQL database.
 
@@ -326,7 +328,7 @@ Follow the instructions below to move all the existing API Manager configuration
     ```
 
     !!! note
-        If you have configured the `WSO2CONFIG_DB` in the previous API-M version, add a new entry to the `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` as follows:
+        If you have configured the `WSO2CONFIG_DB` in the previous API-M version, add a new entry to the `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file as follows:
 
         ```
         [database.config]
@@ -337,7 +339,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
     !!! attention "If you are using another DB type"
-        If you are using another DB type other than **MySQL**, or **Oracle**, when defining the DB related configurations in the `deployment.toml` file, you need to add the `driver` and `validationQuery` parameters additionally as mentioned below.
+        If you are using another DB type other than **MySQL** or **Oracle**, when defining the DB related configurations in the `deployment.toml` file, you need to add the `driver` and `validationQuery` parameters additionally as mentioned below.
 
         ```tab="MSSQL"
         [database.apim_db]
@@ -393,6 +395,7 @@ Follow the instructions below to move all the existing API Manager configuration
         In API-M 3.2.0, you do not need to configure the registry configurations as you did in the `<OLD_API-M_HOME>/repository/conf/registry.xml` file and the user database configurations as you did in in the `<OLD_API-M_HOME>/repository/conf/user-mgt.xml` file, as those configurations have been handled internally.
 
 6.  Move all your Synapse configurations to the API-M 3.2.0 pack.
+
     -   Move your Synapse super tenant configurations.
          
          Copy the contents in the `<OLD_API-M_HOME>/repository/deployment/server/synapse-configs/default` directory and replace the contents in the `<API-M_3.2.0_HOME>/repository/deployment/server/synapse-configs/default` directory with the copied contents.
@@ -401,15 +404,15 @@ Follow the instructions below to move all the existing API Manager configuration
          
          Copy the contents in the `<OLD_API-M_HOME>/repository/tenants` directory and replace the contents in the `<API-M_3.2.0_HOME>/repository/tenants` directory with the copied contents.
 
-    !!! warning
+    !!! Warning
         When moving the Synapse configurations, **do not replace** the following set of files as they contain some modifications in API-M 3.2.0.
 
-        -   /api/_RevokeAPI_.xml
-        -   /sequences/_cors_request_handler_.xml
-        -   /sequences/main.xml
-        -   /sequences/_throttle_out_handler.xml
-        -   /sequences/fault.xml
-        -   /proxy-services/WorkflowCallbackService.xml
+        -   `/api/_RevokeAPI_.xml`
+        -   `/sequences/_cors_request_handler_.xml`
+        -   `/sequences/main.xml`
+        -   `/sequences/_throttle_out_handler_.xml`
+        -   `/sequences/fault.xml`
+        -   `/proxy-services/WorkflowCallbackService.xml`
                 
     !!! attention 
         If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Gateway** node.
@@ -431,7 +434,7 @@ Follow the instructions below to move all the existing API Manager configuration
         Taking the `log4j.properties` file from your old WSO2 API-M Server and adding it to WSO2 API-M Server 3.2.0 will no longer work. Refer [Upgrading to Log4j2]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2) to see how to add a log appender or a logger to the log4j2.properties file.
 
     !!! note
-        Log4j2 has hot deployment support therefore the **Managing Logs** section has been removed from the Management Console. You can now use the `log4j2.properties` file to modify the required logging configurations without restarting the server.
+        Log4j2 has hot deployment support; therefore, the **Managing Logs** section has been removed from the Management Console. You can now use the `log4j2.properties` file to modify the required logging configurations without restarting the server.
 
 ### Step 2 - Upgrade API Manager to 3.2.0
 
@@ -2427,7 +2430,7 @@ Follow the instructions below to move all the existing API Manager configuration
         );
         ```
 
-5.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks`, and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_3.2.0_HOME>/repository/resources/security` directory.
+5.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_3.2.0_HOME>/repository/resources/security` directory.
 
     !!! Attention
         In API Manager 3.2.0, it is required to use a certificate with the RSA key size greater than 2048. If you have used a certificate that has a weak RSA key (key size less than 2048) in the previous version, you need to add the following configuration to the `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file to configure the internal and primary keystores. You should point the internal keystore to the keystore copied from API Manager 2.0.0 and the primary keystore can be pointed to a keystore with a certificate, which has a strong RSA key. 
@@ -2568,7 +2571,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     5.  Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<API-M_3.2.0_HOME>/repository/components/dropins` directory.
 
-    6. Update `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the previous user store.
+    6. Update the`<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the previous user store.
     
          ```
          [user_store]

@@ -56,7 +56,7 @@ By default, the primary keystore configured as above is used for internal data e
 
 ## Configuring the Secondary Keystore for TLS connections
 
-In order to configure a seperate keystore as the secondary keystore, add below configurations to `deployment.toml`.
+In order to configure a separate keystore as the secondary keystore, add below configurations to `deployment.toml`.
 
 ```toml
 [keystore.tls]
@@ -69,7 +69,7 @@ key_password =  "passwd12#"
 
 ## Configuring the Internal Keystore
 
-Configuring a seperate internal keystore facilitates you to keep the certificate used for those encryptions unchanged while the certificate used for signing are changed. For that, add below configurations to `deployment.toml`. 
+Configuring a separate internal keystore facilitates you to keep the certificate used for those encryptions unchanged while the certificate used for signing are changed. For that, add below configurations to `deployment.toml`. 
 
 ```toml
 [keystore.internal]
@@ -82,7 +82,7 @@ key_password =  "passwd12#"
 
 !!! warning
     Using a totally new keystore for internal data encryption in an existing deployment will make already encrypted data unusable. In such cases, an appropriate data migration effort is needed.
-    Hence, if you have already been using the same keystore for both primary and internal keystores for sometime and later decided to use a seperate internal keystore, use the current keystore for internal keystore and use the new keystore for primary keystore instead. This avoids unnecessary data migration.
+    Hence, if you have already been using the same keystore for both primary and internal keystores for sometime and later decided to use a separate internal keystore, use the current keystore for internal keystore and use the new keystore for primary keystore instead. This avoids unnecessary data migration.
 
 
     ```toml
