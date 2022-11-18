@@ -9,7 +9,7 @@ The following information describes how to upgrade your API Manager server **fro
     If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, first follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-5100-to-is-5100).    
 
 !!! note "If you are using PostgreSQL"
-    The DB user needs to have superuser role to run the migration client and the relevant scripts
+    The DB user needs to have the `superuser` role to run the migration client and the relevant scripts
     ```
     ALTER USER <user> WITH SUPERUSER;
     ```
@@ -250,7 +250,7 @@ But, if registry versioning was enabled by you in WSO2 API-M 3.1.0 setup, it is 
         ```
     
 !!! warning "Not recommended"
-    If you decide to proceed with registry resource versioning enabled, Add the following configuration to the `<NEW_API-M_HOME>/repository/conf/deployment.toml` file of new WSO2 API Manager. 
+    If you decide to proceed with the registry resource versioning enabled, add the following configuration to the `<NEW_API-M_HOME>/repository/conf/deployment.toml` file of new WSO2 API Manager. 
     
     ```
     [registry.static_configuration]
@@ -260,10 +260,16 @@ But, if registry versioning was enabled by you in WSO2 API-M 3.1.0 setup, it is 
     !!! note "NOTE"
         Changing these configuration should only be done before the initial API-M Server startup. If changes are done after the initial startup, the registry resource created previously will not be available.
 
--   [Step 1 - Migrate the API Manager configurations](#step-1-migrate-the-api-manager-configurations)
--   [Step 2 - Upgrade API Manager to 3.2.0](#step-2-upgrade-api-manager-to-320)
--   [Step 3 - Optionally, migrate the configurations for WSO2 API-M Analytics](#step-3-optionally-migrate-the-configurations-for-wso2-api-m-analytics)
--   [Step 4 - Restart the WSO2 API-M 3.2.0 server](#step-4-restart-the-wso2-api-m-320-server)
+- [Upgrading API Manager from 3.1.0 to 3.2.0](#upgrading-api-manager-from-310-to-320)
+    - [Preparing for Migration](#preparing-for-migration)
+      - [Disabling versioning in the registry configuration if it was enabled](#disabling-versioning-in-the-registry-configuration-if-it-was-enabled)
+    - [Step 1 - Migrate the API Manager configurations](#step-1---migrate-the-api-manager-configurations)
+    - [Step 2 - Upgrade API Manager to 3.2.0](#step-2---upgrade-api-manager-to-320)
+    - [Step 3 - Optionally, migrate the configurations for WSO2 API-M Analytics](#step-3---optionally-migrate-the-configurations-for-wso2-api-m-analytics)
+      - [Step 3.1 - Migrating the Analytics Database](#step-31---migrating-the-analytics-database)
+      - [Step 3.2 - Configure WSO2 API-M Analytics 3.2.0](#step-32---configure-wso2-api-m-analytics-320)
+      - [Step 3.3 - Configure WSO2 API-M 3.2.0 for Analytics](#step-33---configure-wso2-api-m-320-for-analytics)
+    - [Step 4 - Restart the WSO2 API-M 3.2.0 server](#step-4---restart-the-wso2-api-m-320-server)
 
 ### Step 1 - Migrate the API Manager configurations
 
@@ -277,13 +283,13 @@ Follow the instructions below to move all the existing API Manager configuration
     - For more information on the configurations in the new configuration model, see the [Configuration Catalog]({{base_path}}/reference/config-catalog).
     - For more information on the mapping between WSO2 API Manager's old configuration files and the new `deployment.toml` file, see [Understanding the New Configuration Model]({{base_path}}/reference/understanding-the-new-configuration-model).
 
-1.  Back up all databases in your API Manager instances along with the Synapse configurations of all the tenants and the super tenant.
+1.  Backup all databases in your API Manager instances along with the Synapse configurations of all the tenants and the super tenant.
 
     -   The Synapse configurations of the super tenant are in the `<OLD_API-M_HOME>/repository/deployment/server/synapse-configs/default` directory.
 
-    -   The Synapse configurations of tenants are in the `<OLD_API-M_HOME>/repository/tenants` directory.
+    -   The Synapse configurations of the tenants are in the `<OLD_API-M_HOME>/repository/tenants` directory.
 
-    -   If you use a **clustered/distributed API Manager setup** , back up the available configurations in the **API Gateway** node.
+    -   If you use a **clustered/distributed API Manager setup**, back up the available configurations in the **API Gateway** node.
 
 2.  Download [WSO2 API Manager 3.2.0](http://wso2.com/api-management/).
 
@@ -296,7 +302,7 @@ Follow the instructions below to move all the existing API Manager configuration
     !!! note
         If you have used separate DBs for user management and registry in the previous version, you need to configure WSO2REG_DB and WSO2UM_DB databases separately in API-M 3.2.0 to avoid any issues.
 
-    SHARED_DB should point to the previous API-M version's `WSO2REG_DB`. This example shows to configure MySQL database configurations.
+    SHARED_DB should point to the previous API-M version's `WSO2REG_DB`. The following example shows you how you can define the configurations related to a MySQL database.
 
     ```
     [database.apim_db]
@@ -312,7 +318,7 @@ Follow the instructions below to move all the existing API Manager configuration
     password = "password"
     ```
 
-    Optionally add a new entry as below to the `deployment.toml` if you have configured a seperate user management database in the previous API-M version.
+    Optionally, add a new entry as shown below into the `deployment.toml` file if you have configured a separate user management database in the previous API-M version.
 
     ```
     [database.user]
@@ -323,7 +329,7 @@ Follow the instructions below to move all the existing API Manager configuration
     ```
 
     !!! note
-        If you have configured WSO2CONFIG_DB in the previous API-M version, add a new entry to the `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` as below.
+        If you have configured the `WSO2CONFIG_DB` in the previous API-M version, add a new entry to the `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file as follows:
 
         ```
         [database.config]
@@ -376,7 +382,7 @@ Follow the instructions below to move all the existing API Manager configuration
         validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
         ```
 
-4.   If you have used separate DB for user management, you need to update `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the correct database for user management purposes.
+4.   If you have used separate DB for user management, you need to update the `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the correct database for user management purposes.
 
     ```
     [realm_manager]
@@ -386,7 +392,7 @@ Follow the instructions below to move all the existing API Manager configuration
 5.  Copy the relevant JDBC driver to the `<API-M_3.2.0_HOME>/repository/components/lib` folder.
 
 
-6.  Move all your Synapse configurations to API-M 3.2.0 pack.
+6.  Move all your Synapse configurations to the API-M 3.2.0 pack.
     -   Move your Synapse super tenant configurations.
         Copy the contents in the `<OLD_API-M_HOME>/repository/deployment/server/synapse-configs/default` directory and replace the contents in the `<API-M_3.2.0_HOME>/repository/deployment/server/synapse-configs/default` directory with the copied contents.
     -   Move all your tenant Synapse configurations.
@@ -395,17 +401,17 @@ Follow the instructions below to move all the existing API Manager configuration
     !!! warning
         When moving the Synapse configurations, **do not replace** the following set of files as they contain some modifications in API-M 3.2.0 version.
 
-        -   /proxy-services/WorkflowCallbackService.xml
+        -   `/proxy-services/WorkflowCallbackService.xml`
 
     !!! attention 
         If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Gateway** node.
 
-7.  Move all your Execution plans from `<API-M_3.1.0_HOME>/repository/deployment/server/executionplans` directory to `<API-M_3.2.0_HOME>/repository/deployment/server/executionplans` directory.
+7.  Move all your Execution plans from the `<API-M_3.1.0_HOME>/repository/deployment/server/executionplans` directory to the `<API-M_3.2.0_HOME>/repository/deployment/server/executionplans` directory.
 
     !!! note
         If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Traffic Manager** node.
 
-8.  If you manually added any custom OSGI bundles to the `<API-M_3.1.0_HOME>/repository/components/dropins` directory, copy those to the `<API-M_3.2.0_HOME>/repository/components/dropins` directory. 
+8.  If you manually added any custom OSGI bundles to the `<API-M_3.1.0_HOME>/repository/components/dropins` directory, copy them to the `<API-M_3.2.0_HOME>/repository/components/dropins` directory. 
 
 9.  If you manually added any JAR files to the `<API-M_3.1.0_HOME>/repository/components/lib` directory, copy those and paste them in the `<API-M_3.2.0_HOME>/repository/components/lib` directory.
 
@@ -1122,7 +1128,7 @@ Follow the instructions below to move all the existing API Manager configuration
 4.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_3.2.0_HOME>/repository/resources/security` directory.
 
     !!! note "If you have enabled Secure Vault"
-        If you have enabled secure vault in the previous API-M version, you need to add the property values again according to the new config modal and run the script as below. Please refer [Encrypting Passwords in Configuration files]({{base_path}}/install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords) for more details.
+        If you have enabled Secure Vault in the previous API-M version, you need to add the property values again according to the new config model and run the script as shown below. Please refer [Encrypting Passwords in Configuration files]({{base_path}}/install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords) for more details.
 
         ```tab="Linux"
         ./ciphertool.sh -Dconfigure
@@ -1162,17 +1168,17 @@ Follow the instructions below to move all the existing API Manager configuration
     1.  Run the [reg-index.sql]({{base_path}}/assets/attachments/install-and-setup/reg-index.sql) script against the `SHARED_DB` database.
 
         !!! note
-            Please note that depending on the number of records in the REG_LOG table, this script will take a considerable amount of time to finish. Do not stop the execution of script until it is completed.
+            Please note that depending on the number of records in the REG_LOG table, this script will take a considerable amount of time to finish. Do not stop the execution of the script until it is completed.
 
-    2.  Add the [tenantloader-1.0.jar]({{base_path}}/assets/attachments/install-and-setup/tenantloader-1.0.jar) to `<API-M_3.2.0_HOME>/repository/components/dropins` directory.
+    2.  Add the [tenantloader-1.0.jar]({{base_path}}/assets/attachments/install-and-setup/tenantloader-1.0.jar) to the `<API-M_3.2.0_HOME>/repository/components/dropins` directory.
 
         !!! attention
-            If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Store and Publisher** nodes.
+            If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Developer Portal and Publisher** nodes.
 
         !!! note
             You need to do this step, if you have **multiple tenants** only.
 
-    3.  Add the following configuration in to `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file.
+    3.  Add the following configuration into the `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file.
         
         ```
         [indexing]
@@ -1181,7 +1187,7 @@ Follow the instructions below to move all the existing API Manager configuration
         Note that you need to increase the value of `re_indexing` by one each time you need to re-index.
         
         !!! info 
-             If you use a clustered/distributed API Manager setup, do the above change in deployment.toml of Publisher and Devportal nodes
+             If you use a clustered/distributed API Manager setup, do the above change in the `deployment.toml` file of the Publisher and the Developer Portal nodes.
              
     4.  If the `<API-M_3.2.0_HOME>/solr` directory exists, take a backup and thereafter delete it.
 
@@ -1202,7 +1208,7 @@ The schema for table APIMALLALERT is changed in analytics version 3.2. So it is 
 prior to the migration so that it will be recreated at the server startup using the new script. 
 If you think that you require the already available data in the above table you can take a backup of it. But the above 
 table is just used to maintain a summary of all types of alerts in a single place. As 
-these alerts are persisted individually as well in tables specific for the type of the alert, you will not loose any
+these alerts are persisted individually as well in tables specific for the type of the alert, you will not lose any
 data related to alerts by dropping this table.
 
 ??? info "DB Scripts"
@@ -1223,16 +1229,16 @@ data related to alerts by dropping this table.
 
     2. Import the custom dashboard.
          
-         Copy the generated JSON file to the `<API-M_ANALYTICS_HOME>/wso2/dashboard/resources/dashboard` directory.
+         Copy the generated JSON file into the `<API-M_ANALYTICS_HOME>/wso2/dashboard/resources/dashboard` directory.
      
-The GraphQL operations stored in analytics database are persisted in a sorted way from 3.2 onwards due to a performance 
+The GraphQL operations stored in the analytics database are persisted in a sorted way from 3.2 onwards due to a performance 
 improvement. If you use GraphQL APIs please follow the instruction below to sort the already existing data on above
 columns
 
 1.  Configure the datasource used for WSO2 API Manager Analytics in the 
 `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file of WSO2 API Manager.
 
-    The following in an example of how the configurations should be defined when using MySQL.
+    The following is an example of how the configurations should be defined when using MySQL.
 
    
     -   The datasource points to the analytics datasource configured in the version 3.1
@@ -1254,7 +1260,7 @@ columns
         value to **true** in the `APIM_ANALYTICS_DB` 
 
     ??? attention "If you are using another DB type"
-        If you are using another DB type other than *MySQL** or **Oracle**, when defining the DB related configurations in the `deployment.toml` file for API Manager database, you need to add the `driver` and `validationQuery` parameters optionally. For example MSSQL database configuration is as follows for the API Manager database.
+        If you are using another DB type other than **MySQL** or **Oracle**, when defining the DB related configurations in the `deployment.toml` file for API Manager database, you need to add the `driver` and `validationQuery` parameters optionally. For example MSSQL database configuration is as follows for the API Manager database.
  
         ```
         [database.apim_db]
@@ -1270,7 +1276,7 @@ columns
 
 3.  Copy the relevant JDBC driver to the `<API-M_3.2.0_HOME>/repository/components/lib` folder.
 
-4.  Make sure that WSO2 API-M Analytics is disabled in the `<API-M_3.2.0_HOME>/repository/conf/ deployment.toml` file.
+4.  Make sure that WSO2 API-M Analytics is disabled in the `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file.
 
     ``` java
     [apim.analytics]
@@ -1302,7 +1308,7 @@ columns
 #### Step 3.2 - Configure WSO2 API-M Analytics 3.2.0
 
 !!! info
-    Sometimes due to case insensitivity of primary keys in aggregation tables, primary key violation errors are thrown when you try to insert a new record with the same value as an existing record. To overcome this, you need to add encoding and collation to database when the Analytics DB is created (i.e., before the tables are created). For more information on collation, see [MySQL](https://dev.mysql.com/doc/refman/5.7/en/charset-collation-names.html) or [MS SQL](https://docs.microsoft.com/en-us/sql/relational-databases/collations/collation-and-unicode-support?view=sql-server-ver15) based on the database that you are using. Sample commands are provided below.
+    Sometimes due to case insensitivity of primary keys in aggregation tables, primary key violation errors are thrown when you try to insert a new record with the same value as an existing record. To overcome this, you need to add encoding and collation to the database when the Analytics DB is created (i.e., before the tables are created). For more information on collation, see [MySQL](https://dev.mysql.com/doc/refman/5.7/en/charset-collation-names.html) or [MS SQL](https://docs.microsoft.com/en-us/sql/relational-databases/collations/collation-and-unicode-support?view=sql-server-ver15) based on the database that you are using. Sample commands are provided below.
 
     !!! example
 
@@ -1384,7 +1390,7 @@ Follow the instructions below to configure WSO2 API Manager Analytics for the WS
 
 4.  Copy the relevant JDBC driver OSGI bundle to the `<APIM_ANALYTICS_3.2.0_HOME>/lib` folder.
 
-    !!! info "To convert the jar files to OSGi bundles, follow the steps given below."
+    !!! info "To convert the JAR files to OSGi bundles, follow the steps given below."
         1. Download the non-OSGi jar for the required third party product, and save it in a preferred directory in your machine.
         2. Go to the `<API-M_ANALYTICS_HOME>/bin` directory. Run the command given below, to generate the converted file in the `<API-M_ANALYTICS_HOME>/lib` directory.
 
@@ -1392,7 +1398,7 @@ Follow the instructions below to configure WSO2 API Manager Analytics for the WS
         ./jartobundle.sh <PATH_TO_NON-OSGi_JAR> ../lib
         ```
 
-5.  Start the Worker and Dashboard profiles as below by navigating to `<API-M_ANALYTICS_3.2.0_HOME>/bin` location.
+5.  Start the Worker and Dashboard profiles as below by navigating to the `<API-M_ANALYTICS_3.2.0_HOME>/bin` directory.
     
     ```tab="Worker"
     sh worker.sh
@@ -1403,16 +1409,16 @@ Follow the instructions below to configure WSO2 API Manager Analytics for the WS
     ```
 
 !!! note
-    If you have developed any custom dashboards in API-M 3.0.0 Analytics using Stream Processor, you will be able to use the same in API-M Anaytics 3.1.0 as well. If you require any guidance regarding this, you can contact [WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa).
+    If you have developed any custom dashboards in API-M 3.1.0 Analytics using Stream Processor, you will be able to use the same in API-M Analytics 3.2.0 as well. If you require any guidance regarding this, you can contact [WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa).
 
 #### Step 3.3 - Configure WSO2 API-M 3.2.0 for Analytics
 
 Enable analytics in WSO2 API-M by setting the following configuration to true in the `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file.
 
-    ``` java
-    [apim.analytics]
-    enable = true
-    ```
+``` java
+[apim.analytics]
+enable = true
+```
 
 ### Step 4 - Restart the WSO2 API-M 3.2.0 server
 

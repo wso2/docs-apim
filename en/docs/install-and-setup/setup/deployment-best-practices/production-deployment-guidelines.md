@@ -353,7 +353,7 @@ hostname = "test.wso2.com"
 </div>
 </div>
 <strong>Solr based indexing</strong>
-<p>API Manager has a Solr based indexing mechanism and it is not recommended to share the Solr directory <code>&lt;PRODUCT_HOME&gt;/solr/data/</code> between the Developer Portal and Publisher servers. You need to have seperate Solr directories for each of the servers.</p>
+<p>API Manager has a Solr based indexing mechanism and it is not recommended to share the Solr directory <code>&lt;PRODUCT_HOME&gt;/solr/data/</code> between the Developer Portal and Publisher servers. You need to have separate Solr directories for each of the servers.</p>
 </div></td>
 </tr>
 <tr class="even">

@@ -58,7 +58,7 @@ Follow the steps below to add a certificate to an endpoint:
     password = "wso2carbon"
     ```
 
-- If you are using a seperate keystore and truststore pair (per custom ssl profile) for each endpoint domain, add the configuration for each **custom ssl profile** in  `<API-M_HOME>/repository/conf/deployment.toml` as follows.
+- If you are using a separate keystore and truststore pair (per custom ssl profile) for each endpoint domain, add the configuration for each **custom ssl profile** in  `<API-M_HOME>/repository/conf/deployment.toml` as follows.
 
     ``` tab="Format"
     [[keystore.ssl_profile.custom]]

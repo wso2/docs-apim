@@ -140,7 +140,7 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
             password = "wso2carbon"
             ```
 
-        -   If you have used a seperate user management database as the primary userstore in previous IS as KM setup, add the following to the `<IS_HOME>/repository/conf/deployment.toml` in IS 5.10.0.
+        -   If you have used a separate user management database as the primary userstore in previous IS as KM setup, add the following to the `<IS_HOME>/repository/conf/deployment.toml` in IS 5.10.0.
             ```
             [realm_manager]
             data_source = "WSO2USER_DB"
@@ -148,7 +148,7 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
         -   You **DO NOT NEED** to copy the API-M Key Manager specific configurations from `<OLD_IS_KM_HOME>/repository/conf/api-manager.xml` of previous IS as KM version to IS 5.10.0.
 
     !!! Important
-        Before executing the IS migration client according to [Step 11 of IS 5.10 migration guide](https://is.docs.wso2.com/en/5.10.0/setup/migrating-to-5100/), keep in mind to remove the following entries from `migration-config.yaml` in the migration-resources directory.
+        Before executing the IS migration client according to [Step 11 of IS 5.10 migration guide](https://is.docs.wso2.com/en/5.10.0/setup/migrating-to-5100/), keep in mind to remove the following entries from the `migration-config.yaml` file, which is in the `migration-resources` directory.
         ```        
         - version: "5.3.0"
             migratorConfigs:
@@ -179,7 +179,7 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
 
     !!! warning
     
-        Depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do **NOT** stop the server during the migration process and please wait until the migration process finish completely and server get started.
+        Depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do **NOT** stop the server during the migration process and please wait until the migration process finishes completely and the server starts.
 
 3. After you have successfully completed the migration, stop the server and remove the following files and folders.
 
@@ -187,7 +187,7 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
 
     -   Remove the migration-resources directory, which is in the `<IS_HOME>` directory.
 
-    -   If you ran WSO2 IS as a Windows Service when doing the IS migration , then you need to remove the following parameters in the command line arguments section (CMD_LINE_ARGS) of the `wso2server.bat` file.
+    -   If you ran WSO2 IS as a Windows Service when doing the IS migration,  then you need to remove the following parameters in the command line arguments section (CMD_LINE_ARGS) of the `wso2server.bat` file.
         ```
         -Dmigrate -Dcomponent=identity        
         ```

@@ -19,7 +19,7 @@ add the above mediation policy per API or globally.
 
 To handle error responses, follow the instructions below. 
 
-1.  To address the scenario where the API does not exist, open the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences/main.xml` file.
+1.  To address the scenario where the API does not exist, open the `<API-M_HOME>/repository/deployment/server/synapse-configs/default`/sequences/main.xml`` file.
 3.  Add the name of the header to be removed as a property, just before the beginning of `send` mediator, as shown below.
     
     !!! example
@@ -57,7 +57,7 @@ To handle error responses, follow the instructions below.
 !!! note
     The above method removes only the specified headers from the response. If you need to remove all the headers, follow the instructions below.
 
-    1.  Open the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences/main.xml` file.
+    1.  Open the `<API-M_HOME>/repository/deployment/server/synapse-configs/default`/sequences/main.xml`` file.
 
     2.  Add the `TRANSPORT_HEADERS` property, after the beginning of the `<out>` sequence opening tag, as shown in the example below.
 

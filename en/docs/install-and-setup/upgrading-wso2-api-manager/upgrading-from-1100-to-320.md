@@ -401,13 +401,13 @@ Follow the instructions below to move all the existing API Manager configuration
     !!! warning
         When moving the Synapse configurations, **do not replace** the following set of files as they contain some modifications in API-M 3.2.0.
 
-        -   /api/_RevokeAPI_.xml
-        -   /sequences/_cors_request_handler_.xml
-        -   /sequences/_resource_mismatch_handler_.xml
-        -   /sequences/main.xml
-        -   /sequences/_throttle_out_handler.xml
-        -   /sequences/fault.xml
-        -   /proxy-services/WorkflowCallbackService.xml
+        -   `/api/_RevokeAPI_.xml`
+        -   `/sequences/_cors_request_handler_.xml`
+        -   `/sequences/_resource_mismatch_handler_.xml`
+        -   `/sequences/main.xml`
+        -   `/sequences/_throttle_out_handler_.xml`
+        -   `/sequences/fault.xml`
+        -   `/proxy-services/WorkflowCallbackService.xml`
                 
     !!! attention 
         If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Gateway** node.
@@ -424,7 +424,7 @@ Follow the instructions below to move all the existing API Manager configuration
         Taking the `log4j.properties` file from your old WSO2 API-M Server and adding it to the WSO2 API-M 3.2.0 Server will no longer work. Refer to [Upgrading to Log4j2]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2) to see how to add a log appender or a logger to the `log4j2.properties` file.
 
     !!! note
-        Log4j2 has hot deployment support therefore the **Managing Logs** section has been removed from the Management Console. You can now use the `log4j2.properties` file to modify the required logging configurations without restarting the server.
+        Log4j2 has hot deployment support; therefore, the **Managing Logs** section has been removed from the Management Console. You can now use the `log4j2.properties` file to modify the required logging configurations without restarting the server.
 
 ### Step 2 - Upgrade API Manager to 3.2.0
 
@@ -3777,7 +3777,7 @@ Follow the instructions below to move all the existing API Manager configuration
         But, if you are not using WSO2 IS as a Key Manager, you have to follow the steps mentioned below in order to upgrade the identity components that have been shared with WSO2 API-M.
 
     ??? note "If you are using DB2"
-        Move indexes to the the TS32K Tablespace. The index tablespace in the `IDN_OAUTH2_ACCESS_TOKEN` and `IDN_OAUTH2_AUTHORIZATION_CODE` tables need to be moved to the existing TS32K tablespace in order to support the newly added table indexes.
+        Move indexes to the TS32K Tablespace. The index tablespace in the `IDN_OAUTH2_ACCESS_TOKEN` and `IDN_OAUTH2_AUTHORIZATION_CODE` tables need to be moved to the existing TS32K tablespace in order to support the newly added table indexes.
 
         SQLADM or DBADM authority is required in order to invoke the `ADMIN_MOVE_TABLE` stored procedure. You must also have the appropriate object creation authorities, including authorities to issue the SELECT statement on the source table and to issue the INSERT statement on the target table. 
 
