@@ -28,42 +28,43 @@
     -   **Command**
      
         ```go
-        apictl export policy api -n <Common API Policy name> -e <environment>  
+        apictl export policy api -n <Common API Policy name> -v <common API Policy version> -e <environment>  
         ``` 
         ```go
-        apictl export policy api --name <Common API Policy name> --environment <environment>  
+        apictl export policy api --name <Common API Policy name> --version <common API Policy version> --environment <environment>  
         ```
         ```go
-        apictl export policy api --name <Common API Policy name> --environment <environment> --format <Policy Definition file format>
+        apictl export policy api --name <Common API Policy name> --version <common API Policy version> --environment <environment> --format <Policy Definition file format>
         ```
 
         !!! info
             **Flags:**  
             
             -    Required :  
-                `--name` or `-n` : Name of the API Product to be exported      
+                `--name` or `-n` : Name of the API Product to be exported
+                `--version` or `-v` : Version of the common API Policy to be deleted       
                 `--environment` or `-e` : Environment from which the API Product should be exported  
             -   Optional :  
                 `--format` : File format of exported policy definition file (JSON or YAML). The default value is YAML.   
 
         !!! example
             ```go
-            apictl export policy api -n addHeader -e dev
+            apictl export policy api -n addHeader -v v1 -e dev
             ```          
             ```go
-            apictl export policy api -n addHeader -e dev --format JSON
+            apictl export policy api -n addHeader -e -v1 dev --format JSON
             ``` 
 
     -   **Response**
 
         ``` bash tab="Response Format"
         Successfully exported API Policy!
-        Find the exported API Policies at /Users/benura/.wso2apictl/exported/policies/api/<Environment Name>/<Policy Name>_<Polic Version>.zip
+        Find the exported API Policies at /Users/benura/.wso2apictl/exported/policies/api/<Environment Name>/<Policy Name>_<Policy Version>.zip
         ```
 
         ``` bash tab="Example Response"
         Successfully exported API Policy!
-        Find the exported API Policies at /Users/benura/.wso2apictl/exported/policies/api/<Environment Name>/testHeader_v1.zip
+        Find the exported API Policies at /Users/benura/.wso2apictl/exported/policies/api/dev/addHeader_v1.zip
         ```
 
 The exported ZIP file has the following structure:
