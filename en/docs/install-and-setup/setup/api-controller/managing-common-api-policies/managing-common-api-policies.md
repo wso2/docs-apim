@@ -42,7 +42,7 @@ Follow the instructions below to display a list of common API Policies in an env
                 -   Optional :
                     `--all`: All common API Policies available in the environment
                     `--limit` or `-l` : Maximum number of common API Policies to return (Default 25)
-                    `--format` : pretty-print common API Policies using templates
+                    `--format` : pretty-print common API Policies using Go templates
 
             !!!note
                 When executing the `apictl get policies api` command, using both the `--all` and `--limit` flags at once is not allowed.
