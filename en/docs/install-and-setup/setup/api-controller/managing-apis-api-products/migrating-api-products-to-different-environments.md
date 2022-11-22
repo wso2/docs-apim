@@ -255,7 +255,7 @@ mentioned gateway environments. If the **deployment environments are not provide
             
             -   Required :  
                 `--file` or `-f` : The file path of the API Product to import.  
-                `--environment` or `-e` : Environment to which the API Product should be exported.  
+                `--environment` or `-e` : Environment to which the API Product should be imported.  
             -   Optional :  
                 `--preserve-provider` : Preserve existing provider of API Product after importing. Default value is `true`.  
                 `--rotate-revision` : If the maximum revision limit reached, delete the oldest revision and create a new revision.  
