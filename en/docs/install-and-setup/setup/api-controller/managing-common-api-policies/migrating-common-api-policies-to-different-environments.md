@@ -126,7 +126,7 @@ You can use the common API Policy archive exported from the previous section (or
         apictl import policy api -f  <path to Common API Policy archived file> -e <environment> 
         ```
         ``` bash
-        apictl import api --file <path to Common API Policy archived file> --environment <environment>
+        apictl import policy api --file <path to Common API Policy archived file> --environment <environment>
         ```
 
         !!! info
@@ -141,13 +141,13 @@ You can use the common API Policy archive exported from the previous section (or
             apictl import policy api -f ~/addHeader_v1.zip -e production 
             ```
             ```bash
-            apictl import api --file ~/addHeader_v1.zip --environment production
+            apictl import policy api --file ~/addHeader_v1.zip --environment production
             ```   
             ```bash
             apictl import policy api -f ~/AddHeader -e production 
             ``` 
             ``` go
-            apictl import api --file ~/AddHeader --environment production 
+            apictl import policy api --file ~/AddHeader --environment production 
             ```
 
         !!! tip
