@@ -38,11 +38,11 @@ Follow the instructions below to display a list of common API Policies in an env
                 **Flags:**  
                 
                 -   Required :  
-                    `--environment` or `-e` : Environment to be searched  
-                -   Optional :
-                    `--all`: All common API Policies available in the environment
-                    `--limit` or `-l` : Maximum number of common API Policies to return (Default 25)
-                    `--format` : pretty-print environments using templates
+                    `--environment` or `-e` : Environment to be searched   
+                -   Optional :   
+                    `--all`: All common API Policies available in the environment   
+                    `--limit` or `-l` : Maximum number of common API Policies to return (Default 25)   
+                    `--format` : pretty-print common API Policies using Go templates   
 
             !!!note
                 When executing the `apictl get policies api` command, using both the `--all` and `--limit` flags at once is not allowed.
@@ -64,13 +64,16 @@ Follow the instructions below to display a list of common API Policies in an env
         -   **Response**
 
             ```bash
-            ID                                     NAME                       Display NAME               CATEGORY            APPLICABLE FLOWS     SUPPORTED GATEWAYS
-            e758ccd3-39ec-430c-8722-a44253a53ecd   ccCallInterceptorService   Call Interceptor Service   Mediation           [request response]   [ChoreoConnect]
-            55e8e47f-35ee-46b3-b097-5f347079c7c4   setToHeader                Set To Header              Mediation           [request]            [Synapse]
+            ID                                     NAME                       DISPLAY NAME                VERSION             CATEGORY            APPLICABLE FLOWS           SUPPORTED GATEWAYS        SUPPORTED API TYPES
+            0d254577-566d-4277-8104-8e764d10dbca   ccCallInterceptorService   Call Interceptor Service    v1                  Mediation           [request response]         [ChoreoConnect]           [HTTP]
+            4bfdb007-5cf4-461d-8360-d89e3c8765f2   setToHeader                Set To Header               v1                  Mediation           [request]                  [Synapse]                 [HTTP]
+            bcc2b759-f78b-4680-bf99-505f921c6e5e   addQueryParam              Add Query Param             v1                  Mediation           [request]                  [Synapse ChoreoConnect]   [HTTP]
+            3660df5e-2776-4128-bbf0-34e76436bfdd   CustomLogPolicy            Custom Log Policy           v1                  Mediation           [request]                  [Synapse]                 [HTTP SOAP]
+            3a61542f-4acf-41b7-9b63-c50dc37234d6   CustomLogPolicy            Custom Log Policy           v2                  Mediation           [request fault]            [Synapse ChoreoConnect]   [HTTP SOAP SOAPTOREST]
             ```
             
             !!! tip 
-                When using the `apictl get policies api -e dev` command, `--all` optional flag can be used to 
+                When using the `get policies api` command, `--all` optional flag can be used to 
                 get all available common API Policies.
 
             !!!note
@@ -90,10 +93,10 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
 
         -   **Command**
             ``` bash
-            apictl delete policy api -n <common API Policy-name> -e <environment>
+            apictl delete policy api -n <common API Policy name> -v <common API Policy version> -e <environment>
             ```
             ``` bash
-            apictl delete policy api --name <common API Policy-name> --environment <environment> 
+            apictl delete policy api --name <common API Policy name> --version <common API Policy version> --environment <environment> 
             ```
 
             !!! info
@@ -102,20 +105,18 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
                 -   Required :  
                     `--environment` or `-e` : Environment from which the common API Policy should be deleted  
                     `--name` or `-n` : Name of the common API Policy to be deleted  
-
-            !!!note
-                In apictl v4.1.0, --version flag support is not provided. Instead, internally it considers the default version which is `v1` when finding the policy.
+                    `--version` or `-v` : Version of the common API Policy to be deleted  
 
             !!! example
                 ```bash
-                apictl delete policy api -n addHeader -e dev
+                apictl delete policy api -n addHeader -v v1 -e dev
                 ```
                 ```bash
-                apictl delete policy api --name addHeader --environment production 
+                apictl delete policy api --name addHeader --version v1 --environment production 
                 ```
 
         -   **Response**
 
             ```bash
-            addHeader common API Policy deleted successfully!
+            addHeader common API Policy with the version v1 deleted successfully!
             ```

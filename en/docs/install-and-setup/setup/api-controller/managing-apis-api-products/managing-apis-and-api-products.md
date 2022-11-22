@@ -35,7 +35,7 @@ Follow the instructions below to display a list of APIs or API Products in an en
                 -   Optional :  
                     `--query` or `-q` : Search query pattern  
                     `--limit` or `-l` : Maximum number of APIs to return (Default 25)
-                    `--format` : pretty-print environments using templates
+                    `--format` : pretty-print APIs using Go templates
 
             !!! example
                 ```bash
@@ -101,6 +101,7 @@ Follow the instructions below to display a list of APIs or API Products in an en
                 -   Optional :  
                     `--query` or `-q` : Search query pattern  
                     `--limit` or `-l` : Maximum number of API Products to return
+                    `--format` : pretty-print API Products using Go templates
 
             !!! example
                 ```bash
@@ -157,7 +158,7 @@ Follow the instructions below to display a list of revisions created for an API 
                 -   Optional :  
                     `--provider` or `-r` : Provider of the API  
                     `--query` or `-q` : Search query pattern  
-                    `--format` : pretty-print environments using templates
+                    `--format` : pretty-print API revisions using Go templates
 
             !!! example
                 ```bash
@@ -203,7 +204,7 @@ Follow the instructions below to display a list of revisions created for an API 
                 -   Optional :  
                     `--provider` or `-r` : Provider of the API Product
                     `--query` or `-q` : Search query pattern  
-                    `--format` : pretty-print environments using templates
+                    `--format` : pretty-print API Product revisions using Go templates
 
             !!! example
                 ```bash

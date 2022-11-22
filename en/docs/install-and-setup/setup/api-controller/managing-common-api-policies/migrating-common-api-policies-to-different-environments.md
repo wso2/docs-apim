@@ -13,7 +13,7 @@
 !!! tip
     A user with `Internal/devops` role or `admin` role are allowed to import/export Common API Policies. To create a custom user who can import/export Common API Policies, refer [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations/#steps-to-create-a-custom-user-who-can-perform-api-controller-operations).
 
-### Export an Common API Policies
+### Export a Common API Policy
 
 1.  Log in to the WSO2 API-M in the exporting environment by following steps in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).  
     
@@ -28,42 +28,43 @@
     -   **Command**
      
         ```go
-        apictl export policy api -n <Common API Policy name> -e <environment>  
+        apictl export policy api -n <Common API Policy name> -v <common API Policy version> -e <environment>  
         ``` 
         ```go
-        apictl export policy api --name <Common API Policy name> --environment <environment>  
+        apictl export policy api --name <Common API Policy name> --version <common API Policy version> --environment <environment>  
         ```
         ```go
-        apictl export policy api --name <Common API Policy name> --environment <environment> --format <Policy Definition file format>
+        apictl export policy api --name <Common API Policy name> --version <common API Policy version> --environment <environment> --format <Policy Definition file format>
         ```
 
         !!! info
             **Flags:**  
             
             -    Required :  
-                `--name` or `-n` : Name of the API Product to be exported      
+                `--name` or `-n` : Name of the API Product to be exported
+                `--version` or `-v` : Version of the common API Policy to be exported       
                 `--environment` or `-e` : Environment from which the API Product should be exported  
             -   Optional :  
                 `--format` : File format of exported policy definition file (JSON or YAML). The default value is YAML.   
 
         !!! example
             ```go
-            apictl export policy api -n addHeader -e dev
+            apictl export policy api -n addHeader -v v1 -e dev
             ```          
             ```go
-            apictl export policy api -n addHeader -e dev --format JSON
+            apictl export policy api -n addHeader -v v1 -e dev --format JSON
             ``` 
 
     -   **Response**
 
         ``` bash tab="Response Format"
         Successfully exported API Policy!
-        Find the exported API Policies at /Users/benura/.wso2apictl/exported/policies/api/<Environment Name>/<Policy Name>_<Polic Version>.zip
+        Find the exported API Policies at /Users/benura/.wso2apictl/exported/policies/api/<Environment Name>/<Policy Name>_<Policy Version>.zip
         ```
 
         ``` bash tab="Example Response"
         Successfully exported API Policy!
-        Find the exported API Policies at /Users/benura/.wso2apictl/exported/policies/api/<Environment Name>/testHeader_v1.zip
+        Find the exported API Policies at /Users/benura/.wso2apictl/exported/policies/api/dev/addHeader_v1.zip
         ```
 
 The exported ZIP file has the following structure:
@@ -99,3 +100,61 @@ The structure of an exported Common API Policy ZIP file is explained below:
         </tr>
     </tbody>
 </table>
+
+### Import a Common API Policy
+
+You can use the common API Policy archive exported from the previous section (or you can extract it and use the extracted folder) and import it to the WSO2 API-M instance in the target environment. 
+
+1.  Log in to the WSO2 API-M in the importing environment by following steps in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).
+    
+    !!! tip
+        If you are already logged-in and your logged-in credentials and keys are already available in the `<USER_HOME>/.wso2apictl/keys.json` file, you can skip this step. 
+
+    !!! info
+        If you skip step 1 and if no keys exist for the environment in the `<USER_HOME>/.wso2apictl/keys.json` file, you will be prompt to log in to the environment when running the next command.
+
+2.  Run any of the following apictl commands to import a common API Policy.
+
+    -   **Command**
+        ``` bash
+        apictl import policy api -f <path to Common API Policy directory> -e <environment> 
+        ```
+        ``` bash
+        apictl import policy api --file <path to Common API Policy directory> --environment <environment>
+        ```
+        ``` bash
+        apictl import policy api -f  <path to Common API Policy archived file> -e <environment> 
+        ```
+        ``` bash
+        apictl import policy api --file <path to Common API Policy archived file> --environment <environment>
+        ```
+
+        !!! info
+            **Flags:**  
+            
+            -   Required :  
+                `--file` or `-f` : The file path of the common API Policy to import.  
+                `--environment` or `-e` : Environment to which the common API Policy should be imported.
+
+        !!! example
+            ```bash
+            apictl import policy api -f ~/addHeader_v1.zip -e production 
+            ```
+            ```bash
+            apictl import policy api --file ~/addHeader_v1.zip --environment production
+            ```   
+            ```bash
+            apictl import policy api -f ~/AddHeader -e production 
+            ``` 
+            ``` go
+            apictl import policy api --file ~/AddHeader --environment production 
+            ```
+
+        !!! tip
+            If your file path is `/Users/benura/.wso2apictl/exported/policies/api/dev/addHeader_v1.zip`, then you need to enter `dev/addHeader_v1.zip` as the value for `--file` or `-f` flag.
+       
+     -   **Response**
+        
+        ``` bash
+        Successfully Imported API Policy.
+        ```

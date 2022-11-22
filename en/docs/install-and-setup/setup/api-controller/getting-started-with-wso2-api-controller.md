@@ -335,7 +335,7 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
             **Flags:**  
             
             -    Optional :     
-                `--format` : pretty-print environments using templates 
+                `--format` : pretty-print environments using Go templates 
 
     -   **Response**
 
