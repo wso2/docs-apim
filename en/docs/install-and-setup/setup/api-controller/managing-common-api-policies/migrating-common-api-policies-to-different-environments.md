@@ -42,7 +42,7 @@
             
             -    Required :  
                 `--name` or `-n` : Name of the API Product to be exported
-                `--version` or `-v` : Version of the common API Policy to be deleted       
+                `--version` or `-v` : Version of the common API Policy to be exported       
                 `--environment` or `-e` : Environment from which the API Product should be exported  
             -   Optional :  
                 `--format` : File format of exported policy definition file (JSON or YAML). The default value is YAML.   
@@ -52,7 +52,7 @@
             apictl export policy api -n addHeader -v v1 -e dev
             ```          
             ```go
-            apictl export policy api -n addHeader -e -v1 dev --format JSON
+            apictl export policy api -n addHeader -v v1 -e dev --format JSON
             ``` 
 
     -   **Response**
