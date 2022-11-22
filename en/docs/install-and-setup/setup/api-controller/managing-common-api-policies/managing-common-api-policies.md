@@ -96,7 +96,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
             apictl delete policy api -n <common API Policy name> -v <common API Policy version> -e <environment>
             ```
             ``` bash
-            apictl delete policy api --name <common API Policy name> -v <common API Policy version> --version <common API Policy version> --environment <environment> 
+            apictl delete policy api --name <common API Policy name> --version <common API Policy version> --environment <environment> 
             ```
 
             !!! info
