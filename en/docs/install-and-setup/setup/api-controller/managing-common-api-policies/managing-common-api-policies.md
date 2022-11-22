@@ -38,11 +38,11 @@ Follow the instructions below to display a list of common API Policies in an env
                 **Flags:**  
                 
                 -   Required :  
-                    `--environment` or `-e` : Environment to be searched  
-                -   Optional :
-                    `--all`: All common API Policies available in the environment
-                    `--limit` or `-l` : Maximum number of common API Policies to return (Default 25)
-                    `--format` : pretty-print common API Policies using Go templates
+                    `--environment` or `-e` : Environment to be searched   
+                -   Optional :   
+                    `--all`: All common API Policies available in the environment   
+                    `--limit` or `-l` : Maximum number of common API Policies to return (Default 25)   
+                    `--format` : pretty-print common API Policies using Go templates   
 
             !!!note
                 When executing the `apictl get policies api` command, using both the `--all` and `--limit` flags at once is not allowed.
@@ -69,7 +69,7 @@ Follow the instructions below to display a list of common API Policies in an env
             4bfdb007-5cf4-461d-8360-d89e3c8765f2   setToHeader                Set To Header               v1                  Mediation           [request]                  [Synapse]                 [HTTP]
             bcc2b759-f78b-4680-bf99-505f921c6e5e   addQueryParam              Add Query Param             v1                  Mediation           [request]                  [Synapse ChoreoConnect]   [HTTP]
             3660df5e-2776-4128-bbf0-34e76436bfdd   CustomLogPolicy            Custom Log Policy           v1                  Mediation           [request]                  [Synapse]                 [HTTP SOAP]
-            3a61542f-4acf-41b7-9b63-c50dc37234d6   CustomLogPolicy            Custom Log Policy           v2                  Mediation           [request fault]         [Synapse ChoreoConnect]   [HTTP SOAP SOAPTOREST]
+            3a61542f-4acf-41b7-9b63-c50dc37234d6   CustomLogPolicy            Custom Log Policy           v2                  Mediation           [request fault]            [Synapse ChoreoConnect]   [HTTP SOAP SOAPTOREST]
             ```
             
             !!! tip 
