@@ -13,7 +13,7 @@
 !!! tip
     A user with `Internal/devops` role or `admin` role are allowed to import/export Common API Policies. To create a custom user who can import/export Common API Policies, refer [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations/#steps-to-create-a-custom-user-who-can-perform-api-controller-operations).
 
-### Export an Common API Policies
+### Export a Common API Policy
 
 1.  Log in to the WSO2 API-M in the exporting environment by following steps in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).  
     
@@ -100,3 +100,61 @@ The structure of an exported Common API Policy ZIP file is explained below:
         </tr>
     </tbody>
 </table>
+
+### Import a Common API Policy
+
+You can use the common API Policy archive exported from the previous section (or you can extract it and use the extracted folder) and import it to the WSO2 API-M instance in the target environment. 
+
+1.  Log in to the WSO2 API-M in the importing environment by following steps in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).
+    
+    !!! tip
+        If you are already logged-in and your logged-in credentials and keys are already available in the `<USER_HOME>/.wso2apictl/keys.json` file, you can skip this step. 
+
+    !!! info
+        If you skip step 1 and if no keys exist for the environment in the `<USER_HOME>/.wso2apictl/keys.json` file, you will be prompt to log in to the environment when running the next command.
+
+2.  Run any of the following apictl commands to import a common API Policy.
+
+    -   **Command**
+        ``` bash
+        apictl import policy api -f <path to Common API Policy directory> -e <environment> 
+        ```
+        ``` bash
+        apictl import policy api --file <path to Common API Policy directory> --environment <environment>
+        ```
+        ``` bash
+        apictl import policy api -f  <path to Common API Policy archived file> -e <environment> 
+        ```
+        ``` bash
+        apictl import api --file <path to Common API Policy archived file> --environment <environment>
+        ```
+
+        !!! info
+            **Flags:**  
+            
+            -   Required :  
+                `--file` or `-f` : The file path of the common API Policy to import.  
+                `--environment` or `-e` : Environment to which the common API Policy should be imported.
+
+        !!! example
+            ```bash
+            apictl import policy api -f ~/addHeader_v1.zip -e production 
+            ```
+            ```bash
+            apictl import api --file ~/addHeader_v1.zip --environment production
+            ```   
+            ```bash
+            apictl import policy api -f ~/AddHeader -e production 
+            ``` 
+            ``` go
+            apictl import api --file ~/AddHeader --environment production 
+            ```
+
+        !!! tip
+            If your file path is `/Users/benura/.wso2apictl/exported/policies/api/dev/addHeader_v1.zip`, then you need to enter `dev/addHeader_v1.zip` as the value for `--file` or `-f` flag.
+       
+     -   **Response**
+        
+        ``` bash
+        Successfully Imported API Policy.
+        ```
