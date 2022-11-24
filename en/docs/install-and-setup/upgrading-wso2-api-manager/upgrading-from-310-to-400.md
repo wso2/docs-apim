@@ -2223,7 +2223,7 @@ Follow the instruction below to upgrade the Identity component in WSO2 API Manag
 
 1. Download the identity component migration resources and unzip it in a local directory.
 
-    Navigate to the [latest release tag](https://github.com/wso2-extensions/apim-identity-migration-resources/tags) and download the `wso2is-migration-x.x.x.zip` under Assets.
+    Navigate to the [release tag - v1.0.160](https://github.com/wso2-extensions/apim-identity-migration-resources/releases/tag/v1.0.160) and download the `wso2is-migration-x.x.x.zip` under **Assets**.
          
     Let's refer to this directory that you downloaded and extracted as `<IS_MIGRATION_TOOL_HOME>`. 
 
