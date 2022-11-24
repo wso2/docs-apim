@@ -236,7 +236,7 @@ Follow the instructions below to set up and configure the databases for the WSO2
     'header.X-WSO2-KEY-MANAGER' = "WSO2-IS"
     ```
 
-6. Add the following configuration in the `<IS_HOME>/repository/conf/deployment.toml` file to change the default encryption type and, remove the `keystore.primary` configuration.
+6. Add the following configuration in the `<IS_HOME>/repository/conf/deployment.toml` file to change the default encryption type and remove the `keystore.primary` configuration.
     ```
     [keystore]
     userstore_password_encryption = "InternalKeyStore"
