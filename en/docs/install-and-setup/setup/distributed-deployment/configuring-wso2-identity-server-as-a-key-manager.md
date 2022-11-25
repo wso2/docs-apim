@@ -236,7 +236,18 @@ Follow the instructions below to set up and configure the databases for the WSO2
     'header.X-WSO2-KEY-MANAGER' = "WSO2-IS"
     ```
 
-6.  If you wish to encrypt the OAuth2 Keys (access tokens, client secrets, and authorization codes) follow the steps given in [Encrypting OAuth Keys](https://is.docs.wso2.com/en/5.10.0/learn/testing-oidc-encrypted-id-token-with-is/#enable-id-token-encryption), which is in the WSO2 Identity Server 5.10.0 documentation, and apply the relevant configurations in the `<IS_HOME>/repository/conf/deployment.toml` file to enable the feature.
+6. Add the following configuration in the `<IS_HOME>/repository/conf/deployment.toml` file to change the default encryption type and remove the `keystore.primary` configuration.
+    ```
+    [keystore]
+    userstore_password_encryption = "InternalKeyStore"
+    
+    [system.parameter]
+    "org.wso2.CipherTransformation" = "RSA/ECB/OAEPwithSHA1andMGF1Padding"
+    
+    [encryption]
+    internal_crypto_provider = "org.wso2.carbon.crypto.provider.KeyStoreBasedInternalCryptoProvider"
+    ```
+7. If you wish to encrypt the OAuth2 Keys (access tokens, client secrets, and authorization codes), follow the steps given in [Encrypting OAuth Keys](https://is.docs.wso2.com/en/5.10.0/learn/testing-oidc-encrypted-id-token-with-is/#enable-id-token-encryption), which is in the WSO2 Identity Server 5.10.0 documentation, and apply the relevant configurations in the `<IS_HOME>/repository/conf/deployment.toml` file to enable the feature.
 
 ## Step 5 - Configure WSO2 API-M with the WSO2 IS
 
