@@ -20,6 +20,8 @@ You need to write a custom Key Manager connector as explained below.
    
       - [Keycloak Connector](https://github.com/wso2-extensions/apim-keymanager-keycloak/)
 
+      - [Azure AD Connector](https://github.com/wso2-extensions/apim-km-azure-ad/)
+
 1. Create a Maven project.
 
       Let's download the sample project from [here]({{base_path}}/assets/attachments/administer/custom.auth.client.zip).
