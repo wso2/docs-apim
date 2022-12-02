@@ -445,15 +445,15 @@ The following instructions are optional if you do not have a custom URL configur
 
     - **For Developer Portal**
 
-         Open the `<API-M_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/site/public/theme/settings.json` file.
+         Open the `<API-M_HOME>/repository/deployment/server/webapps/devportal/site/public/theme/settings.json` file.
     
     - **For Publisher**
         
-         Open the file `<API-M_HOME>/repository/deployment/server/webapps/publisher/src/main/webapp/site/public/conf/settings.json` file.
+         Open the `<API-M_HOME>/repository/deployment/server/webapps/publisher/site/public/conf/settings.json` file.
     
     - **For Admin Portal**
         
-         Open the file `<API-M_HOME>/repository/deployment/server/webapps/admin/src/main/webapp/site/public/conf/settings.json` file.
+         Open the `<API-M_HOME>/repository/deployment/server/webapps/admin/site/public/conf/settings.json` file.
  
 
 2. Set `customUrl.enabled` to `true`
@@ -469,3 +469,6 @@ The following instructions are optional if you do not have a custom URL configur
 
     !!! Note
         New configurations do not have auto as a config value for the `customUrl.enable` property as it was in the 2.x versions.
+
+    !!! Note
+        For more information on Troubleshooting 'Registered callback does not match with the provided URL' error, see **[Troubleshooting 'Registered callback does not match with the provided URL' error]({{base_path}}/troubleshooting/troubleshooting-invalid-callback-error)**
