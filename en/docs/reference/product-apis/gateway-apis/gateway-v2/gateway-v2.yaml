@@ -3,11 +3,11 @@ swagger: '2.0'
 # Prolog
 ######################################################
 info:
-  version: "v2.1"
+  version: "v2.2"
   title: "WSO2 API Manager - Gateway"
   description: |
     This document specifies a **RESTful API** for WSO2 **API Manager** - Gateway.
-    Please see [full swagger definition](https://raw.githubusercontent.com/wso2/carbon-apimgt/v9.20.74/components/apimgt/org.wso2.carbon.apimgt.rest.api.gateway/src/main/resources/gateway-api.yaml) of the API which is written using [swagger 2.0](http://swagger.io/) specification.
+    Please see [full swagger definition](https://raw.githubusercontent.com/wso2/carbon-apimgt/master/components/apimgt/org.wso2.carbon.apimgt.rest.api.gateway/src/main/resources/gateway-api.yaml) of the API which is written using [swagger 2.0](http://swagger.io/) specification.
   contact:
     name: "WSO2"
     url: "https://wso2.com/api-manager/"
