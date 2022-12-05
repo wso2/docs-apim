@@ -52,9 +52,9 @@ The following steps show how to enable account locking. See [Account Locking by 
 
 2.  Click **Resident** under **Identity Providers** found in the **Main** tab.
 
-3.  Expand the **Login Policies** tab.
+3.  Expand the **Login Attempts Security** tab.
 
-4.  Expand the **Account Locking** tab and tick the **Account Lock Enabled** checkbox. Click **Update** to save changes.
+4.  Expand the **Account Lock** tab and tick the **Lock user accounts on maximum failed attempts** checkbox. Click **Update** to save changes.
 
     ![enable-account-lock]({{base_path}}/assets/img/administer/product-security/identity-management-for-the-api-dev-portal/account-lock-config.png)
 
