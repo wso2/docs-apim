@@ -9,8 +9,21 @@ Install and set up [Docker](https://www.docker.com) and allocate the following r
   - Minimum CPU : 4vCPU
   - Minimum Memory : 4GB
 
-!!! note
-    The Choreo Connect Docker Compose based deployment option explained here is **only for tryout purposes.** This method is **not recommended for production deployments**. For production deployments, you can use the Kubernetes based Choreo Connect deployment with [Helm artifacts]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane-helm-artifacts/) or [YAML artifacts]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane/).
+!!! important
+
+    **Production Deployments - Choreo Connect**
+
+    The Docker Compose based deployment option explained here is ***only for tryout purposes.*** This method is ***not recommended for production deployments***. For production deployments, you can use the following.
+
+    - Kubernetes based Choreo Connect deployment with [Helm artifacts]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane-helm-artifacts/) or [YAML artifacts]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane/)
+    - [Production Deployment Guideline]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/production-deployment-guideline/) for Choreo Connect 
+
+    **Production Deployments - API Manager**
+
+    The Docker Compose files referred in this guide are to deploy API Manager with ***basic configurations***. They are the docker-compose scripts ***provided with the Choreo Connect distribution*** and are only meant for tryout purposes. In order to deploy WSO2 API Manager in production grade, you can use the following. 
+
+    - Docker setup artifacts from the [API Manager page](https://wso2.com/api-management/)
+    - [Production Deployment Guideline]({{base_path}}/install-and-setup/setup/deployment-best-practices/production-deployment-guidelines/#common-guidelines-and-checklist) for API Manager
 
 ### Step 1 - Download and extract Choreo Connect distribution .zip file
 
@@ -26,8 +39,6 @@ Add the host entry to `/etc/hosts` file as shown below in order to access the AP
 
 Start Choreo Connect and API Manager on Docker Compose by executing the Docker Compose script inside the `CHOREO-CONNECT_HOME/docker-compose/choreo-connect-with-apim` folder.
 
-{!includes/deploy/cc-tryout-in-arm64-docker-note.md!}
-
 ``` java
 docker-compose up -d
 ```
@@ -38,8 +49,7 @@ Once the containers are up and running, you can monitor the status of the contai
 docker ps | grep choreo-connect-
 ```
 
-!!! info
-    Note that the Docker Compose script deploys WSO2 API Manager with basic configurations. In order to deploy WSO2 API Manager in production grade, use the Docker setup artifacts from [APIM page](https://wso2.com/api-management/). The Docker Compose scripts are provided only for the purpose of trying it out.
+{!includes/deploy/cc-tryout-in-arm64-docker-note.md!}
 
 ### Step 3 - Create and publish an API via API Manager
 
@@ -51,52 +61,80 @@ docker ps | grep choreo-connect-
 
     [![Publisher portal home page]({{base_path}}/assets/img/get_started/api-publisher-home.png)]({{base_path}}/assets/img/get_started/api-publisher-home.png)
 
-3. Create an API.
-
-     Let's use a mock REST service to create a REST API from scratch.
- 
-     A mock service with a JSON response `{"hello": "world"}` is provided by default when you use the service URL as `http://run.mocky.io/v2/5185415ba171ea3a00704eed`, which appears in the [https://designer.mocky.io/](https://designer.mocky.io/) mock service. Let's use the HTTP protocol instead of the HTTPS protocol for this guide.
-
-    !!! tip
-        Optionally, to test this service, copy the service URL [http://run.mocky.io/v2/5185415ba171ea3a00704eed](http://run.mocky.io/v2/5185415ba171ea3a00704eed) and navigate to it on a new browser. You should see the following JSON message.
-            
-         `{"hello": "world"}`
-
-4. Select **REST API** from the home screen and then click **Start From Scratch**.
+3. Select **REST API** from the home screen and then click **Start From Scratch**.
    
     [![Design a new REST API]({{base_path}}/assets/img/get_started/design-new-rest-api.png)]({{base_path}}/assets/img/get_started/design-new-rest-api.png)
 
-5. Enter the API details.
+4. Enter the following API details.
+
+    | **Field**    | **Value**                        |
+    |----------|-------------------------------------|
+    | Name     | HelloWorld                     |
+    | Context  | /hello                                 |
+    | Version  | 1.0.6                               |
+    | Endpoint | https://run.mocky.io/v2/5185415ba171ea3a00704eed |
+
+    !!! note
+        We are using a mock service from [https://designer.mocky.io/](https://designer.mocky.io/) as the endpoint to test the API. The above endpoint returns the json payload `{"hello": "world"}`.
      
-     [![Create an API]({{base_path}}/assets/img/get_started/api-create.png){: style="width:60%"}]({{base_path}}/assets/img/get_started/api-create.png)
+    [![Create an API]({{base_path}}/assets/img/get_started/api-create.png){: style="width:60%"}]({{base_path}}/assets/img/get_started/api-create.png)
 
 6. Click **Create & Publish**.
 
-     This will publish your first API on the Developer Portal as well as deploy it on Choreo Connect. You now have an OAuth 2.0 secured REST API that is ready to be consumed.
+    This will publish your first API on the Developer Portal as well as deploy it on Choreo Connect. You now have an OAuth 2.0 secured REST API that is ready to be consumed.
 
-### Step 4 - Subscribe to the API and generate a token
+    !!! tip   
+        If you are further updating the API, remember create a new revision from the **Deployments** tab and deploy the newly created revision to the Gateway, for the changes to be reflected in Choreo Connect.
 
-1. Navigate to the Developer Portal and and click an API (e.g., `HelloWorld`).
+### Step 4 - Invoke the API from Publisher
+
+1. Open **Try Out** from the left menu bar.
+
+<a href="{{base_path}}/assets/img/design/create-api/test-api/publisher-testconsole-leftpane.png"><img src="{{base_path}}/assets/img/design/create-api/test-api/publisher-testconsole-leftpane.png" width="20%" alt="Try out menu option in the left panel"></a>
+
+2. In the Try Out page, you will find an Internal Key that has already been generated for you. You can click the button **Generate Key** whenever you need a new token.
+
+    <a href="{{base_path}}/assets/img/design/create-api/test-api/publisher-testconsole-generatekey.png"><img src="{{base_path}}/assets/img/design/create-api/test-api/publisher-testconsole-generatekey.png" width="80%" alt="Generate key"></a>
+
+    !!! tip
+
+        When invoking the API, this Internal Key authentication token will be included in the header `Internal-Key`. To learn more, click [Internal Key]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/internal-key-authentication/). 
+
+3. Select one of the listed HTTP methods. Click **Try it out** and then click **Execute** to invoke the API.
+
+    <a href="{{base_path}}/assets/img/deploy/mgw/expanded-get-resource.png"><img src="{{base_path}}/assets/img/deploy/mgw/expanded-get-resource.png" width="80%" alt="Try it out"></a>
+
+    <a href="{{base_path}}/assets/img/deploy/mgw/try-api.png"><img src="{{base_path}}/assets/img/deploy/mgw/try-api.png" width="80%" alt="Execute"></a>
+
+**That's it!** You have successfully invoked an API deployed in Choreo Connect.
+
+You can follow the next few steps to get an idea about API Subscriptions, Application Rate limiting and Production Access Tokens.
+
+### Step 5 - Subscribe to the API and generate a token
+
+1. Navigate to the Developer Portal and select the newly created API.
 
     [https://apim:9443/devportal/](https://apim:9443/devportal/)
 
-2. Subscribe to the API (e.g., `HelloWorld` 1.0.0) using an application and an available Rate Limiting Policy.
+2. Navigate to the **Subscriptions** page. 
+
+3. Subscribe the API to the default application visible as **DefaultApplication** with an available Rate Limiting Policy.
 
     [![Subscribe to an API]({{base_path}}/assets/img/deploy/mgw/subscribe-to-api.png)]({{base_path}}/assets/img/deploy/mgw/subscribe-to-api.png)
 
-3. Click **Applications** and then click on the application that you used to subscribe to the API. Click **Production Keys** and click **Generate keys** to generate a production key.
+4. Navigate to the **Applications** tab. 
+
+5. Click on **DefaultApplication**, navigate to **Production Keys** page and click **Generate keys** to generate a production key.
 
     [![Generate production keys]({{base_path}}/assets/img/learn/generate-keys-production.png)]({{base_path}}/assets/img/learn/generate-keys-production.png)
 
-!!! tip
-    **Production and Sandbox Tokens**:
-    To generate keys for the Sandbox endpoint, go to the **Sandbox Keys** tab. For more information, see [Maintaining Separate Production and Sandbox Gateways]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways/#multiple-gateways-to-handle-production-and-sandbox-requests-separately).
+    !!! tip
+    
+        To generate keys for the Sandbox endpoint, go to the **Sandbox Keys** tab. For more information, see [Maintaining Separate Production and Sandbox Gateways]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways/#multiple-gateways-to-handle-production-and-sandbox-requests-separately).
 
-!!! tip
-    **JWT tokens**:
-    As the application is self-contained (JWT), **copy the generated access token** before proceeding to the next step.
+6. Copy the generated access token before proceeding to the next step.
 
-### Step 5 - Invoke the API via Choreo Connect
+### Step 6 - Invoke the API via Choreo Connect
 
 Follow the instructions below to invoke the previously created API with the generated token.
 
