@@ -116,7 +116,7 @@ Three WSO2 product instances can be run in 1 EC2 Extra-Large instance. Based on 
     <td>
       <ul>
         <li>
-          Minimum 0.5 core (1.0-1.2 GHz Opteron/Xeon processor).
+          Minimum 0.5 core (1.0-1.2 GHz Opteron/Xeon processor) - this is the minimum required to run WSO2 MI. However, when MI is deployed as a centralized server it is recommended to have at least 2 cores. This needs to be adjusted based on the integration scenarios you are running.
         </li>
         <li>
           1 GB RAM for JVM.
