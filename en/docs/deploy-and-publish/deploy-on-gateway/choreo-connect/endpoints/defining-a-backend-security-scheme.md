@@ -22,7 +22,7 @@ x-wso2-production-endpoints:
     password: admin #optional here, as you can provide credentials as environment variables
 ```
 
-## Set backend credentials before the Choreo Connect startup - Basic Auth
+## Set backend credentials using environment variables - Basic Auth
 
 When running the Choreo Connect, you can provide the username, password as Adapter environment variables in the following configurations files based on the deployment that you are using.
 
