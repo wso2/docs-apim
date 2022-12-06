@@ -206,7 +206,7 @@ Follow the instructions below to manage alert types via the Developer Portal:
 #### Create an abnormal requests per minute alert
 
 1.  Sign in to the API Developer Portal with the username and password of a user with the required permission.
-2.  Click on the **SETTINGS** menu, to open the Manage Alert Subscriptions page.
+2.  Click on the user name and choose **Configure Alerts** to open the Manage Alert Subscriptions page.
 ![Publisher alerts settings]({{base_path}}/assets/img/learn/alerts-settings-devportal.png)
 
 3.  Click on the **Configuration** option that corresponds to the Abnormal Requests per Minute option. <br />
