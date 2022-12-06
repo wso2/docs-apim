@@ -39,7 +39,11 @@ Follow the steps listed below to configure WSO2 Choreo Connect with Jaeger,
 
 1. Set the following environment variable to `jaeger` container/pod.
     `COLLECTOR_ZIPKIN_HOST_PORT=9411`
-1. Add the following configuration to the `config.toml` file.  
+1. {!includes/deploy/cc-configuration-file.md!}
+
+1. Add the following configuration.
+
+  
     ```toml
     [tracing]
       enabled = true
@@ -64,7 +68,11 @@ You will be able to browse through the request traces and expand each trace to v
 
 Follow these steps to configure WSO2 Choreo Connect with Zipkin,
 
-1. Add the following configuration to the `config.toml` file.  
+1. {!includes/deploy/cc-configuration-file.md!}
+
+1. Add the following configuration.
+
+  
     ```toml
     [tracing]
       enabled = true
@@ -93,7 +101,9 @@ Follow these steps to configure WSO2 Choreo Connect with Azure Application Insig
 1. First, you need to obtain the `ConnectionString` from the Azure portal.
     * Log in to azure portal.
     * Copy the `Connection String` from the overview page of `Application Insights` resource. E.g., `InstrumentationKey=ab71943f-xxxx-xxxx-xxxx-fb2eb69ae11d;IngestionEndpoint=https://region.applicationinsights.azure.com/`.
-1. Add the following configuration to the `config.toml` file.
+1. {!includes/deploy/cc-configuration-file.md!}
+
+1. Add the following configuration.
 
     ```toml tab="Configuration"
     [tracing]
