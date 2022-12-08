@@ -37,8 +37,7 @@ To use the Redis connector, add the <redis.init> element in your configuration b
         </tr>
         <tr>
             <td>redisConnectionPoolId</td>
-            <td>We are keeping separate pools for each artifact by using ARTIFACT_NAME as a unique name. If and only 
-if the user wants to add 2 or more connectors to a single artifact (say 2 connectors per one API) then the user has to differentiate the Redis connectors within that artifact with-param.</td>
+            <td>We are keeping separate pools for each artifact by using ARTIFACT_NAME as a unique name. If and only if the user wants to add 2 or more connectors to a single artifact (say 2 connectors per one API) then the user has to differentiate the Redis connectors within that artifact with-param.</td>
             <td>Optional</td>
         </tr>
     </table>
@@ -194,6 +193,59 @@ if the user wants to add 2 or more connectors to a single artifact (say 2 connec
         <clientName>WSO2EI</clientName>
         <cacheKey>{$ctx:cacheKey}</cacheKey>
         <useSsl>{$ctx:useSsl}</useSsl>
+    </redis.init>
+    ```
+
+??? note "redis.init - sentinel mode"
+    The redis.init operation initializes the connector to interact with Redis cluster.
+    Sentinel password configuration is available from version 2.5.0 
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>sentinelEnabled</td>
+            <td>A flag to enable the sentinel cluster mode (Default is false).</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>sentinels</td>
+            <td>Comma separated list of the sentinel nodes as Node1_hostname:Port,Node2_hostname:Port, etc. Example: 172.18.0.4:26379,172.18.0.5:26379</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>sentinelSoTimeout</td>
+            <td>The server TTL (Time to Live) in milliseconds.</td>
+            <td>Optional. The default is 2000ms. </td>
+        </tr>
+        <tr>
+            <td>sentinelConnectionTimeout</td>
+            <td>The connection TTL (Time to live) in milliseconds.</td>
+            <td>Optional. The default equals to the redisTimeout. </td>
+        </tr>
+        <tr>
+            <td>sentinelPassword</td>
+            <td>The password of the sentinel node (if configured only)</td>
+            <td>Optional</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+    ```xml
+    <redis.init>
+        <sentinelUser>{$ctx:sentinelUser}</sentinelUser>
+        <sentinelPassword>{$ctx:sentinelPassword}</sentinelPassword>
+        <masterName>{$ctx:masterName}</masterName>
+        <masterUser>{$ctx:masterName}</masterUser>
+        <masterPassword>{$ctx:masterPassword}</masterPassword>
+        <sentinelEnabled>true</sentinelEnabled>
+        <dbNumber>0</dbNumber>
+        <sentinels>172.18.0.4:26379,172.18.0.5:26379,172.18.0.6:26379</sentinels>
+        <sentinelClientName>{$ctx:sentinelClientName}</sentinelClientName>
+        <sentinelConnectionTimeout>{$ctx:sentinelConnectionTimeout}</sentinelConnectionTimeout>
+        <sentinelSoTimeout>{$ctx:sentinelSoTimeout}</sentinelSoTimeout>
     </redis.init>
     ```
 ---
