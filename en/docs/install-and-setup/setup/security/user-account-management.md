@@ -144,7 +144,7 @@ You can display a list of policy guidelines in the change password page that app
   
 1. Enable password changing guidelines in the `settings.json` file.  
 
-     1. Open the `<API-M_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/site/public/theme/settings.json` file.  
+     1. Open the `<API-M_HOME>/repository/deployment/server/webapps/devportal/site/public/theme/settings.json` file.  
      
      2. Edit the configuration as follows:  
    
