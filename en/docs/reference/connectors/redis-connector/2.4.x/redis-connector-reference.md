@@ -207,7 +207,7 @@ To use the Redis connector, add the <redis.init> element in your configuration b
         </tr>
         <tr>
             <td>sentinelEnabled</td>
-            <td>A flag to enable the sentinel cluster mode (Default is false).</td>
+            <td>A flag to enable the sentinel cluster mode (this is false by default).</td>
             <td>Yes</td>
         </tr>
         <tr>
