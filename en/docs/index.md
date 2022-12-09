@@ -51,7 +51,7 @@ These are the latest changes that have yet to be released.
                 <a id="pre-release-version-documentation-link">Documentation</a>
             </td>
             <td>
-                <a href="https://apim.docs.wso2.com/en/4.2.0" target="_blank">
+                <a href="https://github.com/wso2/docs-apim/tree/4.2.0" target="_blank">
                     <div class="md-source-code-icon">
                         <svg viewBox="0 0 24 24" width="24" height="24">
                           <use xlink:href="#__github" width="24" height="24"></use>
