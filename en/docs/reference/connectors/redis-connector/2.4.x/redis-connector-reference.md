@@ -212,7 +212,7 @@ To use the Redis connector, add the <redis.init> element in your configuration b
         </tr>
         <tr>
             <td>sentinels</td>
-            <td>Comma separated list of the sentinel nodes as Node1_hostname:Port,Node2_hostname:Port, etc. Example: 172.18.0.4:26379,172.18.0.5:26379</td>
+            <td>Comma separated list of the sentinel nodes in the following format: Node1_hostname:Port,Node2_hostname:Port, etc. For example: 172.18.0.4:26379,172.18.0.5:26379</td>
             <td>Yes</td>
         </tr>
         <tr>
