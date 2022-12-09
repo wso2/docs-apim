@@ -151,7 +151,7 @@ request.onload = function() {
         
           // Pre-release version update
           document.getElementById('pre-release-version-documentation-link')
-              .setAttribute('href', docSetUrl + 'next/');
+              .setAttribute('href', docSetUrl + '4.2.0/');
       }
       
   } else {
