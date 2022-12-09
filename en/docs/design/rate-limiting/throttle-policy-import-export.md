@@ -47,7 +47,7 @@ Get throttling policies operation allows users to list the available throttling 
 #### Request Samples
 
 ``` cURL
-curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "[https://127.0.0.1:9443/api/am/admin/v3/throttling/policies/search?query=type:app](https://127.0.0.1:9443/api/am/admin/v3/throttling/policies/search?query=type:app)"
+curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "[https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/search?query=type:app](https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/search?query=type:app)"
 ```
 
 !!! info "200 Response"
