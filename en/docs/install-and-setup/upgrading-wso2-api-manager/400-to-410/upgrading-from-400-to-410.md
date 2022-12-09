@@ -293,7 +293,28 @@ You have to follow the below instructions to upgrade the API Manager components.
     
     Check the server logs and verify if there are any errors logs. If you have encountered any errors in the API definitions, you have to correct them manually on an old version before the component migration. 
 
-5.  Start the API Manager server to migrate the API Manager components as follows.
+5.  Next you need to run the API-M migration client to do the data migration. 
+
+    !!! warning
+        If you are using **PostgreSQL** for registry database, add the following parameter `preparedStatementCacheQueries=0` to the JDBC URL in `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` as below before running the migration client.  This is needed because API-M migration client is running schema upgrades (i.e. DDL statements) to registry databases while APIM back-end is using the same REG tables in the databases.
+
+        ```
+        [database.shared_db]
+        type = "postgre"
+        url = "jdbc:mysql://localhost:3306/reg_db?preparedStatementCacheQueries=0""
+        ...
+        ```
+
+        If you are using a separate PostgreSQL database for the WSO2CONFIG_DB, add the same to the `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` as below.
+
+        ```
+        [database.config]
+        type = "postgre"
+        url = "jdbc:mysql://localhost:3306/config_db?preparedStatementCacheQueries=0""
+        ...
+        ```
+
+    Start the API Manager server to migrate the API Manager components as follows.
 
     ``` tab="Linux / Mac OS"
     sh api-manager.sh -Dmigrate -DmigrateFromVersion=4.0.0 -DmigratedVersion=4.1.0
@@ -308,6 +329,8 @@ You have to follow the below instructions to upgrade the API Manager components.
     -   Remove the `org.wso2.carbon.apimgt.migrate.client-4.1.0.x.jar` file, which is in the `<API-M_4.1.0_HOME>/repository/components/dropins` directory.
 
     -   Remove the `migration-resources` directory, which is in the `<API-M_4.1.0_HOME>` directory.
+
+    -   If you are using **PostgreSQL**, remove the `preparedStatementCacheQueries=0` parameter from the JDBC URL of `[database.shared_db]` and `[database.config]` in `<API-M_4.1.0_HOME>/repository/conf/deployment.toml`.      
 
     !!! note
 
