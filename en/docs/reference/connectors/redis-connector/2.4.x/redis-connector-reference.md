@@ -197,7 +197,7 @@ To use the Redis connector, add the <redis.init> element in your configuration b
     ```
 
 ??? note "redis.init - sentinel mode"
-    The redis.init operation initializes the connector to interact with Redis cluster.
+    The redis.init operation initializes the connector to interact with the Redis cluster.
     Sentinel password configuration is available from version 2.5.0 
     <table>
         <tr>
