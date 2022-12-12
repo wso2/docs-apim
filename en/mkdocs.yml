@@ -313,7 +313,9 @@ nav:
                 - Service Mesh Integration: deploy-and-publish/deploy-on-gateway/choreo-connect/service-mesh/istio.md
                 - Observability:
                     - Distributed Tracing: deploy-and-publish/deploy-on-gateway/choreo-connect/observability/distributed-tracing.md
-                - Analytics: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-analytics.md
+                - Analytics:
+                    - Configure Analytics with Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-analytics.md
+                    - Publish Custom Attributes with Analytics: deploy-and-publish/deploy-on-gateway/choreo-connect/analytics/pulbish-custom-analytics-attributes.md
                 - Data Compression: deploy-and-publish/deploy-on-gateway/choreo-connect/data-compression.md
                 - Configure Multiple Gateways with Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-multiple-gateways-with-choreo-connect.md
                 - File Upload via Multipart Requests: deploy-and-publish/deploy-on-gateway/choreo-connect/file-upload-via-multipart-requests.md
