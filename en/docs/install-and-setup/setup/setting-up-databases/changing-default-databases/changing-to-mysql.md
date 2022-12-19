@@ -39,7 +39,7 @@ Follow the  instructions below to set up a MySQL database:
         The user should have database creation privileges.
 
     ``` java
-    $ mysql -h <MYSQL_HOST_IP> -u <USER_NAME> -p
+    mysql -h <MYSQL_HOST_IP> -u <USER_NAME> -p
     ```
 
 1.  When prompted, specify the password that will be used to access the databases with the username you specified.
@@ -127,13 +127,13 @@ Follow the  instructions below to set up a MySQL database:
 1.  Execute the relevant script to create tables in the registry and user manager database (`WSO2_SHARED_DB`).
 
     ```sh
-    $ mysql -u sharedadmin -p -Dshared_db < '<API-M_HOME>/dbscripts/mysql.sql';
+    mysql -u sharedadmin -p -Dshared_db < '<API-M_HOME>/dbscripts/mysql.sql';
     ```
 
 2. Execute the relevant script to create tables in the apim database (`WSO2AM_DB`).
 
     ```sh
-    $ mysql -u apimadmin -p -Dapim_db < '<API-M_HOME>/dbscripts/apimgt/mysql.sql';
+    mysql -u apimadmin -p -Dapim_db < '<API-M_HOME>/dbscripts/apimgt/mysql.sql';
     ```
 
 !!! note
