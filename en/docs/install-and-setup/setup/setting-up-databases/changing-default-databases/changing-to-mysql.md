@@ -47,15 +47,21 @@ Follow the  instructions below to set up a MySQL database:
 1.  In the MySQL command prompt, create the database.
 
     ``` java
-    create database <DATABASE_NAME>;
+    CREATE DATABASE <DATABASE_NAME>;
     ```
+        
+    !!! warning
+        When creating the database related to apim_db with MySQL 8.0, add **character set latin1** to avoid the MySQL Linux ERROR 1071 (42000).
+        ```sh
+        CREATE DATABASE <APIM_DATABASE_NAME> character set latin1;
+        ```
 
     !!! info
         Character Sets and Collations in MySQL
     
         - For users of Microsoft Windows, when creating the database in MySQL, it is important to specify the character set as latin1. Failure to do this may result in an error (error code: 1709) when starting your cluster. This error occurs in certain versions of MySQL (5.6.x) and is related to the UTF-8 encoding. MySQL originally used the latin1 character set by default, which stored characters in a 2-byte sequence. However, in recent versions, MySQL defaults to UTF-8 to be friendlier to international users. Hence, you must use latin1 as the character set as indicated below in the database creation commands to avoid this problem. Note that this may result in issues with non-latin characters (like Hebrew, Japanese, etc.). The following is how your database creation command should look.
           ```sh
-          create database <DATABASE_NAME> character set latin1;
+          CREATE DATABASE <DATABASE_NAME> character set latin1;
           ```
 
         - If you are using MySQL to configure your datasource, we recommend that you use a case sensitive database collation. For more information, see the [MySQL Official Manual](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html). The default database collation, which is `latin1_swedish_ci`, is case insensitive. However, you need to maintain case sensitivity for database collation, because when the database or table has a case-insensitive collation in MySQL 5.6 or 5.7, if a user creates an API with letters using mixed case, deletes the API, and then creates another API with the same name, but in lower case letters, then the later created API loses its permission information because when deleting the API, it keeps the Registry collection left behind.
@@ -157,12 +163,12 @@ Follow the  instructions below to set up a MySQL database:
     -   To access the databases from remote instances, it is required to grant permission to the relevant username defined in the `<API-M_HOME>/repository/conf/deployment.toml` file under the `[database.shared_db]` or `[database.apim_db]` elements, by using the grant command as shown in the following sample commands.
 
     ```tab="Format"
-    grant all on <DATABASE_NAME>.* TO '<username>'@'%' identified by '<password>';
+    GRANT ALL ON <DATABASE_NAME>.* TO '<username>'@'%' IDENTIFIED BY '<password>';
     ```
 
     ``` tab="Example"
-    grant all on shared_db.* TO 'wso2user'@'%' identified by 'wso2123';
-    grant all on apim_db.* TO 'wso2user'@'%' identified by 'wso2123';
+    GRANT ALL ON shared_db.* TO 'wso2user'@'%' IDENTIFIED BY 'wso2123';
+    GRANT ALL ON apim_db.* TO 'wso2user'@'%' IDENTIFIED BY 'wso2123';
     ```
 
 !!! note
