@@ -49,6 +49,12 @@ Follow the  instructions below to set up a MySQL database:
     ``` java
     create database <DATABASE_NAME>;
     ```
+        
+    !!! warning
+        When creating the database related to apim_db with MySQL 8.0, add **character set latin1** to avoid the MySQL Linux ERROR 1071 (42000).
+        ```sh
+        CREATE DATABASE <APIM_DATABASE_NAME> character set latin1;
+        ```
 
     !!! info
         Character Sets and Collations in MySQL
