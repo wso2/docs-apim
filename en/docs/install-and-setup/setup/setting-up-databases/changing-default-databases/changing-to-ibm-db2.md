@@ -16,26 +16,26 @@ Follow the instructions below to set up a IBM DB2 database:
 
 1. Create the database using the following command:
    ```sh
-   $ db2 CREATE DATABASE <DATABASE_NAME>
+   db2 CREATE DATABASE <DATABASE_NAME>
    ```
 
 1. Before issuing an SQL statement, establish the connection to the database using the following command:
    ```sh
-   $ db2 CONNECT TO <DATABASE_NAME> user <USER_NAME> using <PASSWORD>
+   db2 CONNECT TO <DATABASE_NAME> user <USER_NAME> using <PASSWORD>
    ```
 
 1. Grant required permissions for users as follows:
    ```sh
-   $ db2 <AUTHORITY> ON DATABASE TO USER <USER_NAME>
+   db2 <AUTHORITY> ON DATABASE TO USER <USER_NAME>
    ```
    For example:
    ```sh
-   $ db2 GRANT DBADM, CREATETAB, BINDADD, CONNECT, CREATE_NOT_FENCED, IMPLICIT_SCHEMA, LOAD ON DATABASE TO USER sharedadmin
+   db2 GRANT DBADM, CREATETAB, BINDADD, CONNECT, CREATE_NOT_FENCED, IMPLICIT_SCHEMA, LOAD ON DATABASE TO USER sharedadmin
    ```
 
 1. Disconnect from the database using the following command:
    ```sh
-   $ db2 DISCONNECT CURRENT
+   db2 DISCONNECT CURRENT
    ```
 
 ### Setting up the drivers
@@ -50,14 +50,14 @@ Follow the instructions below to set up a IBM DB2 database:
 
 1. To create tables in the registry and user manager database (`WSO2_SHARED_DB`), execute the relevant script as shown below.
    ```sh
-   $ db2 CONNECT TO <DATABASE_NAME> user <USER_NAME> using <PASSWORD>
-   $ db2 -td/ -vmf '<API-M_HOME>/dbscripts/db2.sql';
+   db2 CONNECT TO <DATABASE_NAME> user <USER_NAME> using <PASSWORD>
+   db2 -td/ -vmf '<API-M_HOME>/dbscripts/db2.sql';
    ```
 
 1. To create tables in the apim database (`WSO2AM_DB`), execute the relevant script as shown below.
    ```sh
-   $ db2 CONNECT TO <DATABASE_NAME> user <USER_NAME> using <PASSWORD>
-   $ db2 -td/ -vmf '<API-M_HOME>/dbscripts/apimgt/db2.sql';
+   db2 CONNECT TO <DATABASE_NAME> user <USER_NAME> using <PASSWORD>
+   db2 -td/ -vmf '<API-M_HOME>/dbscripts/apimgt/db2.sql';
    ```
 
 ## Changing the database to IBM DB2
