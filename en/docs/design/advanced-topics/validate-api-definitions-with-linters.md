@@ -1,6 +1,6 @@
 # Validating API Definitions Against Custom Linter Rules
 
-By default, API Definitions are validated against default OpenAPI schema when importing and writing or editing them inside the publisher portal. Apart from the default OpenAPI validation,  the APIs created by the API publisher can be validated against a set of custom rules and it is useful in standardizing and keeping API definitions clean.
+By default, API Definitions are validated against the standard Open API specification when importing and writing or editing them via a built-in API Definition editor in the Publisher Portal. Apart from the default OpenAPI validation, the APIs created by the API publisher can be validated against a set of custom rules and it is useful in standardizing and keeping API definitions clean.
 
 For example, let’s say the API admin wants to allow only corporate email addresses `xxx@wso2.com` for the `$.info.contact.email` field inside an API definition. 
 
@@ -50,7 +50,7 @@ When you are following the [API creation steps]({{base_path}}/design/create-api/
 [![Linter results]({{base_path}}/assets/img/design/create-api/linter-observe/linters2.png)]({{base_path}}/assets/img/design/create-api/linter-observe/linters2.png)
 
 !!! Note 
-    Currently, the linter results feature is supported only when `OpenAPI URL` and `OpenAPI File` input types are used.
+    Currently, the linter results feature is supported for URL and File-based API definition imports.
 
 ### When importing an API from OpenAPI definition
 
