@@ -177,8 +177,8 @@ Follow these steps to set up the ESB Solution Project and the Connector Exporter
                   <property expression="json-eval($.containerName)" name="containerName" scope="default" type="STRING"/>
                   <property expression="json-eval($.fileName)" name="fileName" scope="default" type="STRING"/>
                   <msazurestorage.init>
-                      <accountName>pablodic22</accountName>
-                      <accountKey>xRQZgXO5YRC6cLTcdZM/JaxAUUzEt79l8mQUhV2chs+FTx8RUKJurHE0Fk1MRF0/EFUYXaXtJdBO+AStoit78Q==</accountKey>
+                      <accountName>eiconnectortest</accountName>
+                      <accountKey>bWt69gFpheoD6lwVsMgeV5io2/KxlXK1KUcod68PhzuV1xHxje0LBD4Bd+y+ESAOlH5BTAfvdDG5q4Hhg==</accountKey>
                   </msazurestorage.init>
                   <msazurestorage.listMetadata>
                       <containerName>{$ctx:containerName}</containerName>
