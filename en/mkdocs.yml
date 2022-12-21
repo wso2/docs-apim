@@ -198,7 +198,6 @@ nav:
                     - Overview: design/rate-limiting/graphql-api/overview-query-limits-for-graphql.md
                     - Query Depth Limit: design/rate-limiting/graphql-api/query-depth-limitation.md
                     - Query Complexity Limit: design/rate-limiting/graphql-api/query-complexity-limitation.md
-                - Importing and Exporting Throttle Policies: design/rate-limiting/throttle-policy-import-export.md
                 - Advanced Topics:
                     - Custom Rate Limiting: design/rate-limiting/advanced-topics/custom-throttling.md
                     - Configure Rate Limiting for an API Gateway Cluster: design/rate-limiting/advanced-topics/configuring-rate-limiting-api-gateway-cluster.md
@@ -1605,6 +1604,7 @@ nav:
                 - Manage Applications:
                     - Manage Applications: install-and-setup/setup/api-controller/managing-applications/managing-applications.md
                     - Migrate Apps to Different Environments: install-and-setup/setup/api-controller/managing-applications/migrating-applications-to-different-environments.md
+                - Manage Rate Limiting Policies: install-and-setup/setup/api-controller/throttle-policy-import-export.md
                 - Manage Common API Policies:
                     - Manage Common API Policies: install-and-setup/setup/api-controller/managing-common-api-policies/managing-common-api-policies.md
                     - Migrate Common API Policies to Different Environments: install-and-setup/setup/api-controller/managing-common-api-policies/migrating-common-api-policies-to-different-environments.md
