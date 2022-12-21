@@ -314,7 +314,7 @@ Invoke the API as shown below using the curl command. Curl Application can be do
 
    **Sample request**
 
-   `curl --location --request POST 'http://localhost:8280/resources/listmetadata' \
+   `curl --location --request POST 'http://localhost:8290/resources/listmetadata' \
    --header 'Content-Type: application/json' \
    --data-raw '{
    "containerName": "employeedetails",
