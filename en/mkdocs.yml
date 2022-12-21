@@ -1604,7 +1604,9 @@ nav:
                 - Manage Applications:
                     - Manage Applications: install-and-setup/setup/api-controller/managing-applications/managing-applications.md
                     - Migrate Apps to Different Environments: install-and-setup/setup/api-controller/managing-applications/migrating-applications-to-different-environments.md
-                - Manage Rate Limiting Policies: install-and-setup/setup/api-controller/throttle-policy-import-export.md
+                - Manage Rate Limiting Policies: 
+                    - Manage Rate Limiting Policies: install-and-setup/setup/api-controller/managing-rate-limiting-policies/throttle-policy-import-export.md
+                    - Migrate Rate Limiting Policies to Different Environments: install-and-setup/setup/api-controller/managing-rate-limiting-policies/migrating-rate-limiting-policies-to-different-environments.md
                 - Manage Common API Policies:
                     - Manage Common API Policies: install-and-setup/setup/api-controller/managing-common-api-policies/managing-common-api-policies.md
                     - Migrate Common API Policies to Different Environments: install-and-setup/setup/api-controller/managing-common-api-policies/migrating-common-api-policies-to-different-environments.md
