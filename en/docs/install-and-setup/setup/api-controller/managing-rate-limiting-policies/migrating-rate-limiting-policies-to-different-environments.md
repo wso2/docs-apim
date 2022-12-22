@@ -6,6 +6,14 @@ You may encounter an error when an API or an Application is imported from an env
 
 Before importing either the API or App to the destination environment, rate limiting policies are imported to the destination environment using a separate step. After rate limiting policies are imported to the destination environment, you can import the API/Application to the destination environment without any rate limiting policy support errors.
 
+!!! info
+    **Before you begin** 
+
+    -   Make sure apictl is initialized and setup, if not follow the steps in [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
+
+    -  Make sure to add an environment before you start working with the following apictl commands, because all API Products need to be imported or exported to/from a specific environment.      
+    For more information, visit [Add an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#add-an-environment).
+
 ## Export a rate limiting policy
 
 Export rate limiting policy allows the user to export a rate limiting policy by name. Since rate limiting policies can exist with the same name across different policy levels, policy levels can also be specified.
