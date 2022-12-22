@@ -49,15 +49,13 @@ the sample and start from [here]({{base_path}}/deploy-on-gateway/choreo-connect/
 
 !!! Info
 
-	- If you need above mentioned JARs, you can find them from [here](https://github.com/wso2/product-microgateway/tree/main/samples/analytics-custom-data-provider/jars).
-    - When working with above sample project, you have to follow the below steps to add the required artifacts to the local m2 repository and point it as a repository in pom file.
-        1. Find the `org.wso2.carbon.apimgt.gateway` and `org.wso2.carbon.apimgt.common.analytics` jars from [here](https://github.com/wso2/product-microgateway/tree/main/samples/analytics-custom-data-provider/jars).
-        2. Add the above jars to the local m2 manually.
+	- You need to add `org.wso2.carbon.apimgt.gateway_<COMPENENT_VERSION>.jar` and `org.wso2.carbon.apimgt.common.analytics_<COMPENENT_VERSION>.jar` to the local m2 mannually and provide path to the local m2 as mentioned below.
+        1. Add the above jars to the local m2 manually.
         ```code
         mvn install:install-file -Dfile=<PATH_TO_FILE>/org.wso2.carbon.apimgt.gateway_<COMPENENT_VERSION>.jar -DgroupId=org.wso2.carbon.apimgt -DartifactId=org.wso2.carbon.apimgt.gateway -Dversion=<COMPENENT_VERSION> -Dpackaging=jar
         mvn install:install-file -Dfile=<PATH_TO_FILE>/org.wso2.carbon.apimgt.common.analytics_<COMPENENT_VERSION>.jar -DgroupId=org.wso2.carbon.apimgt -DartifactId=org.wso2.carbon.apimgt.common.analytics -Dversion=<COMPENENT_VERSION> -Dpackaging=jar
         ```
-        3. Point local m2 repository in project pom
+        2. Point local m2 repository in project pom
         ```code
         <repository>
             <id> local-maven-repo </id>
