@@ -6,31 +6,6 @@ You may encounter an error when an API or an Application is imported from an env
 
 Before importing either the API or App to the destination environment, rate limiting policies are imported to the destination environment using a separate step. After rate limiting policies are imported to the destination environment, you can import the API/Application to the destination environment without any rate limiting policy support errors.
 
-
-## Import a rate limiting policy
-
-Import rate limiting policy operation allows users to import exported rate limiting policy files to a different environment and it also has the capability to overwrite existing policies.
-
-Run the following apictl command to import a rate limiting policy.
-
-    -   **Command**
-
-        ```bash
-        import policy rate-limiting  -f <file path>   -e <environment name>    -- update
-        ```
-
-        !!! example
-            ```bash
-            import  policy rate-limiting   -f ~/Application-Gold  -e prod   -- update
-
-            ```
-
-        !!! Info
-            **Flag**
-            
-            `--update` - Update an existing rate limiting policy or create a new rate limiting policy
-
-
 ## Export a rate limiting policy
 
 Export rate limiting policy allows the user to export a rate limiting policy by name. Since rate limiting policies can exist with the same name across different policy levels, policy levels can also be specified.
@@ -99,58 +74,27 @@ Run the following apictl command to export a rate limiting policy.
             ```
 
 
-This section covers the steps to import a rate limiting policy from one environment to another.
+## Import a rate limiting policy
 
-### Step 1 - Finding the required rate limiting policy name to be exported
+Import rate limiting policy operation allows users to import exported rate limiting policy files to a different environment and it also has the capability to overwrite existing policies.
 
-In order to export a specific rate limiting policy, the rate limiting policy name should be known. In a case where rate limiting policies exist with the same name in different policy levels, policy type should be known too. For this purpose, the **get policies rate-limiting** command should be used if the policy name/type is unknown.
+Run the following apictl command to import a rate limiting policy.
 
-#### Step 1.1 - Login to the environment
+    -   **Command**
 
-Login to the environment where the rate limiting policy will be exported from.
+        ```bash
+        apictl import policy rate-limiting  -f <file path>   -e <environment name>    -- update
+        ```
 
-```bash
-$ ./apictl login dev
+        !!! example
+            ```bash
+            apictl import  policy rate-limiting   -f ~/Application-Gold  -e prod   -- update
 
-```
+            ```
 
-#### Step 1.2 - List available rate limiting policies
+        !!! Info
+            **Flag**
+            
+            `--update` - Update an existing rate limiting policy or create a new rate limiting policy
 
-From the list of rate limiting policies we can use the required rate limiting policy name and the type in the export rate limiting policy command.
 
-```bash
-$ ./apictl get policies rate-limiting -e Env1
-```
-
-### Step 2 - Exporting the required rate limiting policy
-
-Using the rate limiting policy name acquired from the list rate limiting policy is exported as follows.
-
-```
-$ ./apictl export policy rate-limiting -e dev -n Gold -t sub
-```
-
-If the policy is exported successfully, the policy will be available in the exported location as follows.
-
-```
-Subscription-Gold.yaml
-```
-
-### Step 3 - Importing the rate limiting policy
-
-Using the exported rate limiting policy file, the rate limiting policy can be imported to the destination environment.
-
-#### Step 3.1 - Login to the environment where the rate limiting policy will be imported to
-
-```
-$ ./apictl login prod
-```
-
-#### Step 3.2 - Import the rate limiting policy to the destination environment
-
-Use the file path of the exported rate limiting policy file as the value for the flag `-f` as follows to import the rate limiting policy.
-
-```
-$ ./apictl import policy rate-limiting -e prod -f ~home/user/documents/Subscription-Gold.yaml
-Successfully imported Throttling Policy : Gold
-```

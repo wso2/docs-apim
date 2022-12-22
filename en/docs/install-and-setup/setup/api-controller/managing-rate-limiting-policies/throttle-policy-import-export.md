@@ -2,12 +2,12 @@
 
 WSO2 API Controller (apictl) allows the following actions on rate limiting Policies.
 
-1. Get rate limiting policies
-2. Delete rate limiting policies
-2. Export rate limiting policy
-3. Import rate limiting policy
+1. Get rate limiting policies in an environment.
+2. Delete rate limiting policies from an environment.
+3. Export rate limiting policies from an environment.
+4. Import rate limiting policies to an environment.
 
-## Get rate limiting policies
+## Get rate limiting policies in an environment
 
 Get rate limiting policies operation allows users to list the available rate limiting policies. It also allows the user to filter the rate limiting policies by rate limiting policy levels like Application, Subscription, Advanced, and Custom.
 
@@ -20,15 +20,15 @@ Follow the instructions below to display a list of rate limiting API Policies in
 
     - **Command**
         ```bash
-        apictl get policies rate-limiting -e <environment-name>  <query>
+        apictl get policies rate-limiting -e <environment-name> -q  <query>
         ```
 
         ``` bash
-        apictl get policies rate-limiting --environment <environment> <query>
+        apictl get policies rate-limiting --environment <environment> -q <query>
         ```
 
         ``` bash
-        apictl get policies rate-limiting --environment <environment> <query> --all 
+        apictl get policies rate-limiting --environment <environment> -q <query> --all 
         ```
 
         !!! Info
@@ -40,7 +40,7 @@ Follow the instructions below to display a list of rate limiting API Policies in
             apictl get policies  rate-limiting  -e prod  -q type:sub
             ```
 
-## Delete a rate limiting policy in an environment
+## Delete a rate limiting policies from an environment
 
 Follow the instructions below to delete a rate limiting policy in an environment using apictl:
 
