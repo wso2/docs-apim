@@ -1,4 +1,4 @@
-# Managing common API Policies
+# Managing Common API Policies
 
 WSO2 API Controller (apictl) allows the following actions on common API Policies.
 
