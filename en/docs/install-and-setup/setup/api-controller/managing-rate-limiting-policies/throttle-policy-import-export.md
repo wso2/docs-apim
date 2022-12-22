@@ -33,7 +33,10 @@ Follow the instructions below to display a list of rate limiting API Policies in
 
         !!! Info
             **Flags**
-            `-q (query)` - This only allows the user to filter out rate limiting policies by type
+            `-q, --query` - This allows the user to filter out rate limiting policies by type
+            `-e, --environment string` - Environment to be searched
+            `--format string` - Pretty-print throttle policies using Go Templates. Use `"{{ jsonPretty . }}"` to list all fields
+            `-h, --help` - Help for rate-limiting
 
         !!! example
             ```bash
@@ -51,27 +54,40 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
 
     -   **Command**
         ``` bash
-        apictl delete policy rate-limiting -n <common API Policy name> -v <common API Policy version> -e <environment>
+        apictl delete policy rate-limiting -n <rate limiting policy name> -v <rate limiting policy version> -e <environment>
         ```
         ``` bash
-        apictl delete policy rate-limiting --name <common API Policy name> --version <common API Policy version> --environment <environment> 
+        apictl delete policy rate-limiting --name <rate limiting name> --version <rate limiting policy version> --environment <environment> 
         ```
 
         !!! info
             **Flags:**  
                 
             -   Required :  
-                `--environment` or `-e` : Environment from which the common API Policy should be deleted  
-                `--name` or `-n` : Name of the rate limiting policy to be deleted  
-                `--version` or `-v` : Version of the common API Policy to be deleted  
+                `-e, --environment string` - Environment from which the Throttling Policy should be deleted
+                `-h, --help` - Help for rate-limiting
+                `-n, --name string` - Name of the Throttling Policy to be deleted
+                `-t, --type string` - Type of the Throttling Policies to be exported (sub,app,custom,advanced)  
 
             !!! example
                 ```bash
-                apictl delete policy api -n addHeader -v v1 -e dev
+                apictl delete policy rate-limiting -n Gold -e dev --type sub 
                 ```
+                
                 ```bash
-                apictl delete policy api --name addHeader --version v1 --environment production 
+                apictl delete policy rate-limiting -n AppPolicy -e prod --type app
                 ```
+
+                ```bash
+                apictl delete policy rate-limiting -n TestPolicy -e dev --type advanced 
+                ```
+                
+                ```bash
+                apictl delete policy rate-limiting -n CustomPolicy -e prod --type custom 
+                ```
+
+            !!! Note 
+                All the 2 flags (--name (-n) and --environment (-e)) are mandatory.
 
 
 ## Export/Import rate limiting policies

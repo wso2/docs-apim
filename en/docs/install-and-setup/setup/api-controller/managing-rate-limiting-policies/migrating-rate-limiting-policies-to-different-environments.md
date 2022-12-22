@@ -2,7 +2,8 @@
 
 Rate limiting policies exist at different levels such as Application Level, Subscriber Level, Advanced Policy Level, etc. These rate limiting policies can belong to different environments according to the product lifecycle and are related to different APIs or Applications. Of these rate limiting policies, some of them exist as default policies belonging to every environment, and rate limiting policies can be custom-made. You may need to import custom-made or default rate limiting policies from one environment to another.
 
-You may encounter an error when an API or an Application is imported from an environment that has custom-made rate limiting policies to another environment. This happens if the API or the Application has subscribed to a rate limiting policy that is not in the destination environment. Importation fails to indicate the rate limiting policy is not supported.
+!!! note
+    You may encounter an error when an API or an Application is imported from an environment that has custom-made rate limiting policies to another environment. This happens if the API or the Application has subscribed to a rate limiting policy that is not in the destination environment. Importation fails to indicate the rate limiting policy is not supported.
 
 Before importing either the API or App to the destination environment, rate limiting policies are imported to the destination environment using a separate step. After rate limiting policies are imported to the destination environment, you can import the API/Application to the destination environment without any rate limiting policy support errors.
 
