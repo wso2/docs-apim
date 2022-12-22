@@ -1,9 +1,9 @@
-# Managing common API Policies
+# Managing Common API Policies
 
 WSO2 API Controller (apictl) allows the following actions on common API Policies.
 
 1. Get common API Policies in an environment.
-2. Delete a common API Policy fromn an environment.
+2. Delete a common API Policy from an environment.
 3. Export a common API Policy from an environment.
 4. Import a common API Policy to an environment.
 
