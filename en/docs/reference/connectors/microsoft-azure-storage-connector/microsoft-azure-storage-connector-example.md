@@ -12,8 +12,9 @@ This example demonstrates how to use Microsoft Azure Storage connector to:
 4. Retrieve information about the uploaded employee details(blob).
 5. Remove uploaded employee details (blob).
 6. Remove created container.
+7. Retrieve the metadata from a specific file (blob). 
 
-All six operations are exposed via an API. The API with the context `/resources` has six resources  
+All seven operations are exposed via an API. The API with the context `/resources` has seven resources  
 
 * `/createcontainer` : Creates a new container in the Microsoft Azure Storage account with the specified container name for store employee details.
 * `/listcontainer` : Retrieve information about the created containers from the Microsoft Azure Storage account.
@@ -21,12 +22,13 @@ All six operations are exposed via an API. The API with the context `/resources`
 * `/listdetails` : Retrieve information about the added employee data (blobs).
 * `/deletedetails` : Remove added employee data from the specified text or binary employee data (blob).
 * `/deletecontainer` : Remove created container in the Microsoft Azure Storage account.
+* `/listmetadata` : Retrieve the metadata from a file (blob) stored in the Microsoft Azure Storage container.
 
 For more information about these operations, please refer to the [Microsoft Azure Storage connector reference guide]({{base_path}}/reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-reference/).
 
 > **Note**: Before invoking the API, you need to create a **Storage Account** in **Microsoft Azure Storage account**. See [Azure Storage Configuration]({{base_path}}/reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-configuration/) documentation for more information.
 
-The following diagram shows the overall solution. The user creates a container, stores some text or binary employee data (blob) into the container, and then receives it back. To invoke each operation, the user uses the same API. 
+The following diagram shows the overall solution. The user creates a container, stores some text or binary employee data (blob) into the container or the blob metadata, and then receives it back. To invoke each operation, the user uses the same API. 
 
 <img src="{{base_path}}/assets/img/integrate/connectors/ms-azure-storage-connector.png" title="Microsoft Azure Storage Connector" width="800" alt="Microsoft Azure Storage Connector"/>
 
@@ -40,137 +42,159 @@ Follow these steps to set up the ESB Solution Project and the Connector Exporter
 
 1. Right click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API.
 
-2. Specify the API name as `MSAzureStorage` and API context as `/resources`. You can go to the XML configuration of the API (source view) and copy the following configuration.
+   2. Specify the API name as `MSAzureStorage` and API context as `/resources`. You can go to the XML configuration of the API (source view) and copy the following configuration.
 
-   ```xml
-   <?xml version="1.0" encoding="UTF-8"?>
-   <api context="/resources" name="MSAzureStorage" xmlns="http://ws.apache.org/ns/synapse">
-       <resource methods="POST" url-mapping="/createcontainer">
-           <inSequence>
-               <property expression="json-eval($.accountName)" name="accountName" scope="default" type="STRING"/>
-               <property expression="json-eval($.accountKey)" name="accountKey" scope="default" type="STRING"/>
-               <property expression="json-eval($.containerName)" name="containerName" scope="default" type="STRING"/>
-               <msazurestorage.init>
-                   <accountName>eiconnectortest</accountName>
-                   <accountKey>bWt69gFpheoD6lwVsMgeV5io2/KxlXK1KUcod68PhzuV1xHxje0LBD4Bd+y+ESAOlH5BTAfvdDG5q4Hhg==</accountKey>
-               </msazurestorage.init>
-               <msazurestorage.createContainer>
-                   <containerName>{$ctx:containerName}</containerName>
-               </msazurestorage.createContainer>
-               <log level="full">
-                   <property name="Container created" value="Container created"/>
-               </log>
-               <respond/>
-           </inSequence>
-           <outSequence/>
-           <faultSequence/>
-       </resource>
-       <resource methods="POST" url-mapping="/listcontainer">
-           <inSequence>
-               <property expression="json-eval($.accountName)" name="accountName" scope="default" type="STRING"/>
-               <property expression="json-eval($.accountKey)" name="accountKey" scope="default" type="STRING"/>
-               <msazurestorage.init>
-                   <accountName>eiconnectortest</accountName>
-                   <accountKey>bWt69gFpheoD6lwVsMgeV5io2/KxlXK1KUcod68PhzuV1xHxje0LBD4Bd+y+ESAOlH5BTAfvdDG5q4Hhg==</accountKey>
-               </msazurestorage.init>
-               <msazurestorage.listContainers/>
-               <log level="full">
-                   <property name="List containers" value="List containers"/>
-               </log>
-               <respond/>
-           </inSequence>
-           <outSequence/>
-           <faultSequence/>
-       </resource>
-       <resource methods="POST" url-mapping="/adddetails">
-           <inSequence>
-               <property expression="json-eval($.accountName)" name="accountName" scope="default" type="STRING"/>
-               <property expression="json-eval($.accountKey)" name="accountKey" scope="default" type="STRING"/>
-               <property expression="json-eval($.containerName)" name="containerName" scope="default" type="STRING"/>
-               <property expression="json-eval($.fileName)" name="fileName" scope="default" type="STRING"/>
-               <property expression="json-eval($.filePath)" name="filePath" scope="default" type="STRING"/>
-               <msazurestorage.init>
-                   <accountName>eiconnectortest</accountName>
-                   <accountKey>bWt69gFpheoD6lwVsMgeV5io2/KxlXK1KUcod68PhzuV1xHxje0LBD4Bd+y+ESAOlH5BTAfvdDG5q4Hhg==</accountKey>
-               </msazurestorage.init>
-               <msazurestorage.uploadBlob>
-                   <containerName>{$ctx:containerName}</containerName>
-                   <filePath>{$ctx:filePath}</filePath>
-                   <fileName>{$ctx:fileName}</fileName>
-               </msazurestorage.uploadBlob>
-               <log level="full">
-                   <property name="Uploaded emplyee details" value="Uploaded emplyee details"/>
-               </log>
-               <respond/>
-           </inSequence>
-           <outSequence/>
-           <faultSequence/>
-       </resource>
-       <resource methods="POST" url-mapping="/listdetails">
-           <inSequence>
-               <property expression="json-eval($.accountName)" name="accountName" scope="default" type="STRING"/>
-               <property expression="json-eval($.accountKey)" name="accountKey" scope="default" type="STRING"/>
-               <property expression="json-eval($.containerName)" name="containerName" scope="default" type="STRING"/>
-               <msazurestorage.init>
-                   <accountName>eiconnectortest</accountName>
-                   <accountKey>bWt69gFpheoD6lwVsMgeV5io2/KxlXK1KUcod68PhzuV1xHxje0LBD4Bd+y+ESAOlH5BTAfvdDG5q4Hhg==</accountKey>
-               </msazurestorage.init>
-               <msazurestorage.listBlobs>
-                   <containerName>{$ctx:containerName}</containerName>
-               </msazurestorage.listBlobs>
-               <log level="full">
-                   <property name="List uploaded emplyee details" value="List uploaded emplyee details"/>
-               </log>
-               <respond/>
-           </inSequence>
-           <outSequence/>
-           <faultSequence/>
-       </resource>
-       <resource methods="POST" url-mapping="/deletedetails">
-           <inSequence>
-               <property expression="json-eval($.accountName)" name="accountName" scope="default" type="STRING"/>
-               <property expression="json-eval($.accountKey)" name="accountKey" scope="default" type="STRING"/>
-               <property expression="json-eval($.containerName)" name="containerName" scope="default" type="STRING"/>
-               <property expression="json-eval($.fileName)" name="fileName" scope="default" type="STRING"/>
-               <msazurestorage.init>
-                   <accountName>eiconnectortest</accountName>
-                   <accountKey>bWt69gFpheoD6lwVsMgeV5io2/KxlXK1KUcod68PhzuV1xHxje0LBD4Bd+y+ESAOlH5BTAfvdDG5q4Hhg==</accountKey>
-               </msazurestorage.init>
-               <msazurestorage.deleteBlob>
-                   <containerName>{$ctx:containerName}</containerName>
-                   <fileName>{$ctx:fileName}</fileName>
-               </msazurestorage.deleteBlob>
-               <log level="full">
-                   <property name="Delete selected employee details" value="Delete selected employee details"/>
-               </log>
-               <respond/>
-           </inSequence>
-           <outSequence/>
-           <faultSequence/>
-       </resource>
-       <resource methods="POST" url-mapping="/deletecontainer">
-           <inSequence>
-               <property expression="json-eval($.accountName)" name="accountName" scope="default" type="STRING"/>
-               <property expression="json-eval($.accountKey)" name="accountKey" scope="default" type="STRING"/>
-               <property expression="json-eval($.containerName)" name="containerName" scope="default" type="STRING"/>
-               <msazurestorage.init>
-                   <accountName>eiconnectortest</accountName>
-                   <accountKey>bWt69gFpheoD6lwVsMgeV5io2/KxlXK1KUcod68PhzuV1xHxje0LBD4Bd+y+ESAOlH5BTAfvdDG5q4Hhg==</accountKey>
-               </msazurestorage.init>
-               <msazurestorage.deleteContainer>
-                   <containerName>{$ctx:containerName}</containerName>
-               </msazurestorage.deleteContainer>
-               <log level="full">
-                   <property name="Delete selected container" value="Delete selected container"/>
-               </log>
-               <respond/>
-           </inSequence>
-           <outSequence/>
-           <faultSequence/>
-       </resource>
-   </api>
+      ```xml
+      <?xml version="1.0" encoding="UTF-8"?>
+      <api context="/resources" name="MSAzureStorage" xmlns="http://ws.apache.org/ns/synapse">
+          <resource methods="POST" url-mapping="/createcontainer">
+              <inSequence>
+                  <property expression="json-eval($.accountName)" name="accountName" scope="default" type="STRING"/>
+                  <property expression="json-eval($.accountKey)" name="accountKey" scope="default" type="STRING"/>
+                  <property expression="json-eval($.containerName)" name="containerName" scope="default" type="STRING"/>
+                  <msazurestorage.init>
+                      <accountName>eiconnectortest</accountName>
+                      <accountKey>bWt69gFpheoD6lwVsMgeV5io2/KxlXK1KUcod68PhzuV1xHxje0LBD4Bd+y+ESAOlH5BTAfvdDG5q4Hhg==</accountKey>
+                  </msazurestorage.init>
+                  <msazurestorage.createContainer>
+                      <containerName>{$ctx:containerName}</containerName>
+                  </msazurestorage.createContainer>
+                  <log level="full">
+                      <property name="Container created" value="Container created"/>
+                  </log>
+                  <respond/>
+              </inSequence>
+              <outSequence/>
+              <faultSequence/>
+          </resource>
+          <resource methods="POST" url-mapping="/listcontainer">
+              <inSequence>
+                  <property expression="json-eval($.accountName)" name="accountName" scope="default" type="STRING"/>
+                  <property expression="json-eval($.accountKey)" name="accountKey" scope="default" type="STRING"/>
+                  <msazurestorage.init>
+                      <accountName>eiconnectortest</accountName>
+                      <accountKey>bWt69gFpheoD6lwVsMgeV5io2/KxlXK1KUcod68PhzuV1xHxje0LBD4Bd+y+ESAOlH5BTAfvdDG5q4Hhg==</accountKey>
+                  </msazurestorage.init>
+                  <msazurestorage.listContainers/>
+                  <log level="full">
+                      <property name="List containers" value="List containers"/>
+                  </log>
+                  <respond/>
+              </inSequence>
+              <outSequence/>
+              <faultSequence/>
+          </resource>
+          <resource methods="POST" url-mapping="/adddetails">
+              <inSequence>
+                  <property expression="json-eval($.accountName)" name="accountName" scope="default" type="STRING"/>
+                  <property expression="json-eval($.accountKey)" name="accountKey" scope="default" type="STRING"/>
+                  <property expression="json-eval($.containerName)" name="containerName" scope="default" type="STRING"/>
+                  <property expression="json-eval($.fileName)" name="fileName" scope="default" type="STRING"/>
+                  <property expression="json-eval($.filePath)" name="filePath" scope="default" type="STRING"/>
+                  <msazurestorage.init>
+                      <accountName>eiconnectortest</accountName>
+                      <accountKey>bWt69gFpheoD6lwVsMgeV5io2/KxlXK1KUcod68PhzuV1xHxje0LBD4Bd+y+ESAOlH5BTAfvdDG5q4Hhg==</accountKey>
+                  </msazurestorage.init>
+                  <msazurestorage.uploadBlob>
+                      <containerName>{$ctx:containerName}</containerName>
+                      <filePath>{$ctx:filePath}</filePath>
+                      <fileName>{$ctx:fileName}</fileName>
+                  </msazurestorage.uploadBlob>
+                  <log level="full">
+                      <property name="Uploaded emplyee details" value="Uploaded emplyee details"/>
+                  </log>
+                  <respond/>
+              </inSequence>
+              <outSequence/>
+              <faultSequence/>
+          </resource>
+          <resource methods="POST" url-mapping="/listdetails">
+              <inSequence>
+                  <property expression="json-eval($.accountName)" name="accountName" scope="default" type="STRING"/>
+                  <property expression="json-eval($.accountKey)" name="accountKey" scope="default" type="STRING"/>
+                  <property expression="json-eval($.containerName)" name="containerName" scope="default" type="STRING"/>
+                  <msazurestorage.init>
+                      <accountName>eiconnectortest</accountName>
+                      <accountKey>bWt69gFpheoD6lwVsMgeV5io2/KxlXK1KUcod68PhzuV1xHxje0LBD4Bd+y+ESAOlH5BTAfvdDG5q4Hhg==</accountKey>
+                  </msazurestorage.init>
+                  <msazurestorage.listBlobs>
+                      <containerName>{$ctx:containerName}</containerName>
+                  </msazurestorage.listBlobs>
+                  <log level="full">
+                      <property name="List uploaded emplyee details" value="List uploaded emplyee details"/>
+                  </log>
+                  <respond/>
+              </inSequence>
+              <outSequence/>
+              <faultSequence/>
+          </resource>
+          <resource methods="POST" url-mapping="/deletedetails">
+              <inSequence>
+                  <property expression="json-eval($.accountName)" name="accountName" scope="default" type="STRING"/>
+                  <property expression="json-eval($.accountKey)" name="accountKey" scope="default" type="STRING"/>
+                  <property expression="json-eval($.containerName)" name="containerName" scope="default" type="STRING"/>
+                  <property expression="json-eval($.fileName)" name="fileName" scope="default" type="STRING"/>
+                  <msazurestorage.init>
+                      <accountName>eiconnectortest</accountName>
+                      <accountKey>bWt69gFpheoD6lwVsMgeV5io2/KxlXK1KUcod68PhzuV1xHxje0LBD4Bd+y+ESAOlH5BTAfvdDG5q4Hhg==</accountKey>
+                  </msazurestorage.init>
+                  <msazurestorage.deleteBlob>
+                      <containerName>{$ctx:containerName}</containerName>
+                      <fileName>{$ctx:fileName}</fileName>
+                  </msazurestorage.deleteBlob>
+                  <log level="full">
+                      <property name="Delete selected employee details" value="Delete selected employee details"/>
+                  </log>
+                  <respond/>
+              </inSequence>
+              <outSequence/>
+              <faultSequence/>
+          </resource>
+          <resource methods="POST" url-mapping="/deletecontainer">
+              <inSequence>
+                  <property expression="json-eval($.accountName)" name="accountName" scope="default" type="STRING"/>
+                  <property expression="json-eval($.accountKey)" name="accountKey" scope="default" type="STRING"/>
+                  <property expression="json-eval($.containerName)" name="containerName" scope="default" type="STRING"/>
+                  <msazurestorage.init>
+                      <accountName>eiconnectortest</accountName>
+                      <accountKey>bWt69gFpheoD6lwVsMgeV5io2/KxlXK1KUcod68PhzuV1xHxje0LBD4Bd+y+ESAOlH5BTAfvdDG5q4Hhg==</accountKey>
+                  </msazurestorage.init>
+                  <msazurestorage.deleteContainer>
+                      <containerName>{$ctx:containerName}</containerName>
+                  </msazurestorage.deleteContainer>
+                  <log level="full">
+                      <property name="Delete selected container" value="Delete selected container"/>
+                  </log>
+                  <respond/>
+              </inSequence>
+              <outSequence/>
+              <faultSequence/>
+          </resource>
+          <resource methods="POST" url-mapping="/listmetadata">
+              <inSequence>
+                  <property expression="json-eval($.accountName)" name="accountName" scope="default" type="STRING"/>
+                  <property expression="json-eval($.accountKey)" name="accountKey" scope="default" type="STRING"/>
+                  <property expression="json-eval($.containerName)" name="containerName" scope="default" type="STRING"/>
+                  <property expression="json-eval($.fileName)" name="fileName" scope="default" type="STRING"/>
+                  <msazurestorage.init>
+                      <accountName>eiconnectortest</accountName>
+                      <accountKey>bWt69gFpheoD6lwVsMgeV5io2/KxlXK1KUcod68PhzuV1xHxje0LBD4Bd+y+ESAOlH5BTAfvdDG5q4Hhg==</accountKey>
+                  </msazurestorage.init>
+                  <msazurestorage.listMetadata>
+                      <containerName>{$ctx:containerName}</containerName>
+                      <fileName>{$ctx:fileName}</fileName>
+                  </msazurestorage.listMetadata>
+                  <log level="full">
+                      <property name="list  Metadata" value="list Metadata"/>
+                  </log>
+                  <respond/>
+              </inSequence>
+              <outSequence/>
+              <faultSequence/>
+          </resource>
+      </api>
    
-   ```
+      ```
 **Note**: Please modify the following properties of the configuration as applicable.
 
 * As `accountKey` use the access key obtained from setting up the Microsoft Azure Storage account.
@@ -285,6 +309,29 @@ Invoke the API as shown below using the curl command. Curl Application can be do
      `{
           "success": true
       }`
+
+7. Retrieve blob metadata.
+
+   **Sample request**
+
+   `curl --location --request POST 'http://localhost:8290/resources/listmetadata' \
+   --header 'Content-Type: application/json' \
+   --data-raw '{
+   "containerName": "employeedetails",
+   "fileName":"sample.pdf"
+   }'`
+
+   **Expected Response**
+
+   `{
+      "result": {
+          "metadata": {
+              "metadataParameter1": "value1",
+              "metadataParameter2": "value2"
+                       }
+                }
+   }`
+
 
 ## What's next
 
