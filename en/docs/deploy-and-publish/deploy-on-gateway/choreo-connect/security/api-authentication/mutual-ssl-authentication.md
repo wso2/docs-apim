@@ -13,6 +13,38 @@ Certificate-based authentication on the Choreo Connect is authenticating a reque
          mTLSAPIsEnabled = true
      ```
 
+    !!! important
+        Make sure to **close** the **HTTP** port when using this feature, and leave only the **HTTPS** port open. This would prevent any attempts to bypass the mTLS authentication. You may close the port by following one of the steps given below.
+
+        <table>
+          <tr>
+            <th>Deployment</th>
+            <th>Configuration</th>
+          </tr>
+          <tr>
+            <td>Docker Compose</td>
+            <td>Set `router.listenerPort` to `0` in the `config.toml` file.</td>
+          </tr>
+          <tr>
+            <td>Kubernetes</td>
+            <td>Set `router.listenerPort` to `0` in the `config-toml-configmap` file.</td>
+          </tr>
+          <tr>
+            <td>Kubernetes with Helm Charts</td>
+            <td>
+            Remove the following section from the `templates/router-service.yaml` file.
+            ```yaml
+            - name: "http-router"
+              port: 9090
+              targetPort: 9090
+              protocol: TCP
+            ```
+            Or else, set `router.listenerPort` to `0` in a new `config-toml-configmap.yaml` file and use this file during deployment with the flag `--set-file wso2.deployment.adapter.configToml=<FILE_PATH_FOR_TEMPLATED_CONFIG_TOML>`. Make sure that the other values are also set correctly in the new Configuration file.
+            </td>
+          </tr>
+        </table>
+          
+
 {!includes/design/create-mtls-api.md!}
 
 !!! Important
