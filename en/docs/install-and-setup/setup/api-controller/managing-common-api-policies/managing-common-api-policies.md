@@ -3,9 +3,9 @@
 Following actions on common API Policies are allowed by apictl.
 
 1. List common API Policies in an environment.
-2. Export a common API Policy from an environment.
+2. Export a common API Policy in an environment.
 3. Import a common API Policy to an environment.
-4. Delete a common API Policy fromn an environment.
+4. Delete a common API Policy in an environment.
 
 ## Add common API Policies in an environment
 
