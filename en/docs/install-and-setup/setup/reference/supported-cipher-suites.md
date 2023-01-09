@@ -1,10 +1,8 @@
 # Supported Cipher Suites
 
-Given below are the cipher suites that are functional in Tomcat (Tomcat version 9 with the JSSE provider 11) for the TLSv1.2 protocols. 
+For a list of cipher suites that are secure and are functional in Tomcat (Tomcat version 9 with the JSSE provider 11) for the TLSv1.2 protocols, see the list of ciphers provided in the [secure configuration generator](https://ssl-config.mozilla.org/#server=tomcat&version=9.0.30&config=intermediate&guideline=5.6), which is provided by the Mozilla Foundation.
 
-For instructions on how to enable the required ciphers and to disable the weak ciphers in API Manager, see [Configuring Transport-Level Security]({{base_path}}/install-and-setup/setup/security/configuring-transport-level-security).
-
-For a list of cipher suites that are secure and are supported by Tomcat 9 and Oracle JDK 11 and above, see the list of ciphers provided in the [secure configuration generator](https://ssl-config.mozilla.org/#server=tomcat&version=9.0.30&config=intermediate&guideline=5.6), which is provided by the Mozilla Foundation.
+For instructions on how to enable the required ciphers and to disable the weak ciphers in API Manager, see [Configuring Transport-Level Security]({{base_path}}/administer/product-security/configuring-transport-level-security/).
 
 !!! Attention 
 
