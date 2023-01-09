@@ -25,7 +25,7 @@ An Endpoint is a specific destination for a message such as an address, WSDL, a 
 <td>The endpoints where the incoming requests are directed to in a round-robin manner. They automatically handle fail-over as well.</td>
 </tr>
 <tr><td>Dynamic Endpoint</td>
-<td>Using a dynamic endpoint, the requests can be dynamically routed to an address based on a specific condition (e.g., request parameters, payload etc.). When using this endpoint type, a mediation sequence should be applied to the message <b>IN Flow</b> of the API. For more information, see <a href="{{base_path}}/design/api-policies/gateway-policies/adding-dynamic-endpoints/">Adding Dynamic Endpoints</a>.</td>
+<td>Using a dynamic endpoint, the requests can be dynamically routed to an address based on a specific condition (e.g., request parameters, payload etc.). When using this endpoint type, a mediation sequence should be applied to the message <b>IN Flow</b> of the API. For more information, see <a href="{{base_path}}/design/api-policies/regular-gateway-policies/adding-dynamic-endpoints/">Adding Dynamic Endpoints</a>.</td>
 </tr>
 <tr><td>Mock Implementation</td>
 <td>
