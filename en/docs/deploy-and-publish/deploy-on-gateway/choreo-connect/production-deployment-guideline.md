@@ -319,7 +319,7 @@ docker build -t myimages/choreo-connect-router:{{choreo_connect.version}} -f Doc
 
 **Option 1**
 
-If you are using Choreo Connect as a Kubernetes Helm deployment, you can mount the dropins directory by following below instructions. 
+If you are using Choreo Connect as a Kubernetes Helm deployment, you can mount the dropins directory by following the instructions below. 
 
   1. Create a configmap file to define the JAR that you are using with the Enforcer.
 
