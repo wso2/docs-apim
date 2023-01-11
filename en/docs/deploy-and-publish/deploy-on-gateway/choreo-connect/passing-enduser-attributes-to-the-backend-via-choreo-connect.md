@@ -70,7 +70,11 @@ When generating the backend JWT, it retrieves the claims from the invoked JWT. I
 
 2. Build your class and add the JAR file in the `<CHOREO-CONNECT_HOME>/resources/enforcer/dropins` directory.
 
-3. Enable and configure the JWT implementation.
+    !!! note 
+         If you use Choreo Connect with Helm Charts, please refer to the documentation in [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/production-deployment-guideline/#mount-files-into-the-dropins-directory-optional) to add a JAR file into the dropins directory.
+
+   
+4. Enable and configure the JWT implementation.
 
      - For more information, see [JWT generation configuration details](#backend-jwt-generator-configuration-details).
 
@@ -81,7 +85,7 @@ When generating the backend JWT, it retrieves the claims from the invoked JWT. I
            gatewayGeneratorImpl = "org.wso2.carbon.test.CustomGatewayJWTGenerator"
         ```
 
-4. Start the server.
+5. Start the server.
 
      For more information, see the [Quick Start Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/).
     
