@@ -216,12 +216,12 @@ Follow the instructions below to set up and configure the databases for the WSO2
     custom_webapps = ["/keymanager-operations/"]
     ```
 
-5. Configure the event listener endpoint to publish controller events to the Traffic Manager.
+5. Configure the event listener endpoint to publish controller events to the Control Plane.
 
     ``` tab="Format"
 
     [event_listener.properties]
-    notification_endpoint = "https://<traffic-manager-host>:<traffic-manager-https-port>/internal/data/v1/notify"
+    notification_endpoint = "https://<control-plane-host>:<control-plane-https-port>/internal/data/v1/notify"
     username = "${admin.username}"
     password = "${admin.password}"
     'header.X-WSO2-KEY-MANAGER' = "WSO2-IS"
@@ -230,7 +230,7 @@ Follow the instructions below to set up and configure the databases for the WSO2
     ``` tab="Example"
 
     [event_listener.properties]
-    notification_endpoint = "https://<tm.wso2.com>:9443/internal/data/v1/notify"
+    notification_endpoint = "https://<cp.wso2.com>:9443/internal/data/v1/notify"
     username = "${admin.username}"
     password = "${admin.password}"
     'header.X-WSO2-KEY-MANAGER' = "WSO2-IS"
