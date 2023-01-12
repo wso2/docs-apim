@@ -1563,6 +1563,7 @@ nav:
                     - Format the Outputs of Get Commands: install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command.md
                     - Configure Git Integration: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md
         - Upgrade:
+            - Upgrading API Manager: install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager.md
             #- What has Changed: install-and-setup/upgrading-wso2-api-manager/what-has-changed.md
             #- Upgrading Process: install-and-setup/upgrading-wso2-api-manager/upgrading-process.md
             #- Upgrading WSO2 API Manager:
