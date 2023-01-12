@@ -447,26 +447,7 @@ nav:
           - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
           - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
           - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md
-      - Upgrading WSO2 API Manager:
-          - Upgrading Process: install-and-setup/upgrading-wso2-api-manager/upgrading-process.md
-          - 3.0.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-310.md
-          - 2.6.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-310.md
-          - 2.5.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-310.md
-          - 2.2.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-220-to-310.md
-          - 2.1.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-210-to-310.md
-          - 2.0.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-200-to-310.md
-          - 1.10.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-1100-to-310.md
-          - 1.8.0/1.9.0/1.9.1 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-191-to-310.md
-          - Upgrading to Log4j2: install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2.md
-      - Upgrading WSO2 IS as KM:
-          - 3.0.0 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-590-to-5100.md
-          - 2.6.0 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-570-to-5100.md
-          - 2.5.0 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-560-to-5100.md
-          - 2.2.0 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-550-to-5100.md
-          - 2.1.0 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-530-to-5100.md
-          - 2.0.0 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-520-to-5100.md
-          - 1.10.0 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-5100.md
-          - 1.8.0/1.9.0/1.9.1 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-500-to-5100.md
+      - Upgrading WSO2 API Manager: install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager.md
   - Administer:
       - Updating WSO2 API Manager: administer/updating-wso2-api-manager.md
       - Managing Users and Roles:
@@ -691,6 +672,24 @@ plugins:
         'develop/product-apis/devportal-apis/devportal-v1/guide.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/getting-started/guide-devportal-v1/'
         'develop/product-apis/devportal-apis/devportal-v0.16/guide.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/getting-started/guide-devportal-v0.16/'
         'troubleshooting/removing-unused-tokens-from-the-database.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/setting-up-databases/managing-data-growth-and-improving-performance/'
+        'install-and-setup/upgrading-wso2-api-manager/upgrading-process.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+        'install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-310.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+        'install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-310.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+        'install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-310.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+        'install-and-setup/upgrading-wso2-api-manager/upgrading-from-220-to-310.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+        'install-and-setup/upgrading-wso2-api-manager/upgrading-from-210-to-310.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+        'install-and-setup/upgrading-wso2-api-manager/upgrading-from-200-to-310.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+        'install-and-setup/upgrading-wso2-api-manager/upgrading-from-1100-to-310.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+        'install-and-setup/upgrading-wso2-api-manager/upgrading-from-191-to-310.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+        'install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+        'install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-590-to-5100.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+        'install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-570-to-5100.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+        'install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-560-to-5100.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+        'install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-550-to-5100.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+        'install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-530-to-5100.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+        'install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-520-to-5100.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+        'install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-5100.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+        'install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-500-to-5100.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
 
     # Extra
 extra_css:
