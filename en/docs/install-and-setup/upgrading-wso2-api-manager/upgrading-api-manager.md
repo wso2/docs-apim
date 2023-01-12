@@ -1,4 +1,4 @@
-# Upgrading WSO2 API Manager
+# Upgrade WSO2 API Manager
 
 This document walks you through the process of upgrading WSO2 API Manager. 
 
