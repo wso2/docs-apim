@@ -717,6 +717,7 @@ plugins:
               'install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-520-to-5100.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
               'install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-5100.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
               'install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-500-to-5100.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
 
     # Extra
 extra_css:
