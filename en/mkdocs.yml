@@ -456,8 +456,7 @@ nav:
                 - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
                 - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
                 - Supported Cipher Suites : install-and-setup/setup/reference/supported-cipher-suites.md
-          - Upgrading WSO2 API Manager:
-                - Upgrading API Manager: install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager.md
+          - Upgrading API Manager: install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager.md
     - Administer:
           - Updating WSO2 API Manager: administer/updating-wso2-api-manager.md
           - Managing Users and Roles:
