@@ -66,7 +66,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
             apictl set correlation-logging -i <component-name> --enable <true-or-false> -e <environment>
             ```
             ``` bash
-             apictl set correlation-logging --component-name <component-name> --enable <true-or-false> --denied-threads <denied-threads> --environment <environment>
+            apictl set correlation-logging --component-name <component-name> --enable <true-or-false> --denied-threads <denied-threads> --environment <environment>
             ```
 
             !!! info
