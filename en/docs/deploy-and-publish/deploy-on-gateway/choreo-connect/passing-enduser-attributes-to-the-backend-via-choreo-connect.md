@@ -164,26 +164,21 @@ The relevant elements in the JWT generation configuration are described below. I
 <td><code>org.wso2.carbon.apimgt.impl.token.ExtendedDefaultClaimsRetriever</code></td>
 </tr>
 <tr class="odd">
-<td><pre><code>enforcer.jwtGenerator.useKidProperty</code></pre></td>
-<td><p>Whether to use kid or x5t to identify the JWT</p></td>
-<td><code>false</code></td>
-</tr>
-<tr class="even">
 <td><pre><code>enforcer.jwtGenerator.jwksRateLimitQuota</code></pre></td>
 <td><p>How many requests to the JWKS endpoint can be served in the time window</p></td>
 <td><code>1000</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><pre><code>enforcer.jwtGenerator.jwksRateLimitTimeWindow</code></pre></td>
 <td><p>Time window for the rate limit to reset</p></td>
 <td><code>false</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><pre><code>enforcer.jwtGenerator.jwksRateLimitQuota</code></pre></td>
 <td><p>How many requests to the JWKS endpoint can be served in the time window</p></td>
 <td><code>1000</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><pre><code>enforcer.jwtGenerator.keypair</code></pre></td>
 <td><p>An object containing the paths to public certificate and private key of an RSA keypair and specifying whether to use it for signing or not</p></td>
 <td><code>{
@@ -287,7 +282,7 @@ The public keys can be recieved from this endpoint with a <code>GET</code> or <c
 </tbody>
 </table>
 
-## Code Example
+## Code Example in Ballerina
 
 ```bal
 import ballerina/http;
