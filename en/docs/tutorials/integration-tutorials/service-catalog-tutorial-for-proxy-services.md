@@ -2,7 +2,7 @@
 
 Managed APIs refer to the APIs that are managed using WSO2 API Manager, namely REST APIs, GraphQL APIs, SOAP APIs, and Streaming APIs. This guide explains how to create a Proxy Service (SOAP backend) for the integration solution, generate relevant metadata for the corresponding Proxy service, publish the WSDL definition in the WSO2 API Manager Service Catalog and then creating a **SOAP Pass-Through API**.
 
-Also, this demonstrates how the integration components and API management components of WSO2 API Manager 4.1.0 work together to enable API-led integration.
+Also, this demonstrates how the integration components and API management components of WSO2 API Manager work together to enable API-led integration.
 
 ## Let's get started!
 
@@ -241,7 +241,7 @@ Package the artifacts in your composite exporter module to be able to deploy the
 
 Let's start the API Manager runtime before starting the Micro Integrator.
 
-1.  Download and set up [WSO2 API Manager 4.1.0](https://wso2.com/api-management/).
+1.  Download and set up [WSO2 API Manager](https://wso2.com/api-management/).
 2.  Start the server.
 
 ### Step 6: Build and run the service
