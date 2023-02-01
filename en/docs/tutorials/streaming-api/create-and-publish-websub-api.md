@@ -251,7 +251,7 @@ A public URL should be forwarded to `localhost:9021`, so that your local server 
                 Replace `[encoded_hub_callback]` and `accesstoken` with the values you have obtained.
 
                ``` bash
-               curl -X POST 'http://localhost:8280/repo-watcher/1.0.0?hub.callback=[encoded_hub_callback]&hub.mode=subscribe&hub.secret=newValue&hub.lease_seconds=50000000&hub.topic=/issues' -H "Authorization: Bearer [accesstoken]"
+               curl -X POST 'http://localhost:8280/repo-watcher/1.0.0' -H 'Content-Type: application/x-www-form-urlencoded' -d 'hub.topic=%2Fissues' -d 'hub.callback=[encoded_hub_callback]' -d 'hub.mode=subscribe' -d 'hub.secret=newValue' -d 'hub.lease_seconds=50000000' -H 'Authorization: Bearer [accesstoken]'
                ```
      
            2. Click **Subscriptions** to go to the Subscriptions page of your application in the Developer Portal. 
@@ -267,8 +267,6 @@ A public URL should be forwarded to `localhost:9021`, so that your local server 
            5. Go back to the webpage at [https://webhook.site.org](https://webhook.site), where you created the callback URL. 
      
                 A new request which denotes the issue creation would have appeared.
-
-               [![Received Event]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-received-event.png)]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-received-event.png)
      
      2. Unsubscribe from the **/issues** topic.
 
