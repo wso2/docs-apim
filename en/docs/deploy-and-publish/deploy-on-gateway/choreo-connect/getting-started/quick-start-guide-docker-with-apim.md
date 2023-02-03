@@ -23,7 +23,7 @@ Install and set up [Docker](https://www.docker.com) and allocate the following r
     The Docker Compose files referred in this guide are to deploy API Manager with ***basic configurations***. They are the docker-compose scripts ***provided with the Choreo Connect distribution*** and are only meant for tryout purposes. In order to deploy WSO2 API Manager in production grade, you can use the following. 
 
     - Docker setup artifacts from the [API Manager page](https://wso2.com/api-management/)
-    - [Production Deployment Guideline]({{base_path}}/install-and-setup/setup/deployment-best-practices/production-deployment-guidelines/#common-guidelines-and-checklist) for API Manager
+    - [Production Deployment Guideline]({{base_path}}/install-and-setup/setup/deployment-best-practices/production-deployment-guidelines/#common-guidelines-and-checklist) for API Manager.
 
 ### Step 1 - Download and extract Choreo Connect distribution .zip file
 
