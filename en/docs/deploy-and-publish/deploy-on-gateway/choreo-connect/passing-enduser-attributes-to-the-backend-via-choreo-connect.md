@@ -179,7 +179,7 @@ The relevant elements in the JWT generation configuration are described below. I
 </tr>
 <tr class="even">
 <td><pre><code>enforcer.jwtGenerator.keypair</code></pre></td>
-<td><p>An object containing the paths to public certificate and private key of an RSA keypair and specifying whether to use it for signing or not</p></td>
+<td><p>An object containing the paths to public certificate and private key of an RSA keypair and specifying whether to use it for signing or not.</p></td>
 <td><code>{
             privateKeyPath = "/home/wso2/security/keystore/mg.key"
             publicCertificatePath = "/home/wso2/security/truststore/mg.pem"
