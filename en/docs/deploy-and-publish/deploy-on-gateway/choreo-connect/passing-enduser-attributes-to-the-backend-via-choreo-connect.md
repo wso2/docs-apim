@@ -264,7 +264,7 @@ The public keys can be recieved from this endpoint with a <code>GET</code> or <c
 </tr>
 <tr class="even">
 <td><pre><code>kid</code></pre></td>
-<td>This is an id parameter used to match a specific key(s)</td>
+<td>This is an ID parameter used to match a specific key(s).</td>
 </tr>
 <tr class="odd">
 <td><pre><code>alg</code></pre></td>
