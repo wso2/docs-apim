@@ -75,7 +75,7 @@ docker ps | grep choreo-connect-
     | Endpoint | https://run.mocky.io/v2/5185415ba171ea3a00704eed |
 
     !!! note
-        We are using a mock service from [https://designer.mocky.io/](https://designer.mocky.io/) as the endpoint to test the API. The above endpoint returns the json payload `{"hello": "world"}`.
+        Let's use a mock service from [https://designer.mocky.io/](https://designer.mocky.io/) as the endpoint to test the API. The above endpoint returns the JSON payload `{"hello": "world"}`.
      
     [![Create an API]({{base_path}}/assets/img/get_started/api-create.png){: style="width:60%"}]({{base_path}}/assets/img/get_started/api-create.png)
 
