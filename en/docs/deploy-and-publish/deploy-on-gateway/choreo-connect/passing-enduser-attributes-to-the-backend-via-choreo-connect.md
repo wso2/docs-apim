@@ -272,7 +272,7 @@ The public keys can be recieved from this endpoint with a <code>GET</code> or <c
 </tr>
 <tr class="even">
 <td><pre><code>n</code></pre></td>
-<td>The modulus value of the public key</td>
+<td>The modulus value of the public key.</td>
 </tr>
 <tr class="odd">
 <td><pre><code>keys</code></pre></td>
