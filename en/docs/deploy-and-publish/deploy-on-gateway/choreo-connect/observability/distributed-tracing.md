@@ -80,7 +80,7 @@ Follow these steps to configure WSO2 Choreo Connect with Zipkin.
     ```  
 1. Start Choreo Connect.
 1. [Create and Deploy an API]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker-with-apim/).
-1. Invoke the newly create API and open Zipkin UI to view the traces. Navigate to <http://localhost:9411> if you have updated the Docker Compose file with an instance of Zipkin as mentioned at the beginning.
+1. Invoke the newly created API and open Zipkin UI to view the traces. Navigate to <http://localhost:9411> if you have updated the Docker Compose file with an instance of Zipkin as mentioned at the beginning.
 1. Filter traces by `serviceName=choreo_connect` query.
 
 You will be able to see all traces. A detailed view of the traces will appear as shown below.
