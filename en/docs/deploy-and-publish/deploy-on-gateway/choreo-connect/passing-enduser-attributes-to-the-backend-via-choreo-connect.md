@@ -169,7 +169,7 @@ The relevant elements in the JWT generation configuration are described below. I
 </tr>
 <tr class="even">
 <td><pre><code>enforcer.jwtGenerator.jwksRateLimitTimeWindow</code></pre></td>
-<td><p>Time window for the rate limit to reset</p></td>
+<td><p>Time window for the rate limit to reset.</p></td>
 <td><code>false</code></td>
 </tr>
 <tr class="odd">
