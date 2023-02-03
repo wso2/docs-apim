@@ -84,7 +84,7 @@ docker ps | grep choreo-connect-
     This will publish your first API on the Developer Portal as well as deploy it on Choreo Connect. You now have an OAuth 2.0 secured REST API that is ready to be consumed.
 
     !!! tip   
-        If you are further updating the API, remember create a new revision from the **Deployments** tab and deploy the newly created revision to the Gateway, for the changes to be reflected in Choreo Connect.
+        If you are further updating the API, remember to create a new revision using the **Deployments** tab and deploy the newly created revision to the Gateway, for the changes to be reflected in Choreo Connect.
 
 ### Step 4 - Invoke the API from Publisher
 
