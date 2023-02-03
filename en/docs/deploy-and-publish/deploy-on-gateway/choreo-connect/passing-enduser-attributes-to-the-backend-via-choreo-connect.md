@@ -252,7 +252,7 @@ The public keys can be recieved from this endpoint with a <code>GET</code> or <c
 <tbody>
 <tr class="odd">
 <td><pre><code>kty</code></pre></td>
-<td>Key type identifies the cryptographic family this key belongs to</td>
+<td>Key type identifies the cryptographic family this key belongs to.</td>
 </tr>
 <tr class="even">
 <td><pre><code>e</code></pre></td>
