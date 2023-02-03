@@ -43,7 +43,7 @@ components:
 
 ### Step 2 - Apply the API Key Authentication security scheme
 
-A security scheme can be applied at a resource level or to the whole API by using the **`security`** keyword as applicable. A resource-level security scheme will override an API-level security scheme. In the example given below, the `ApiKeyAuth` security scheme that has already been defined is referred from the resource `/pet/{petId}` GET operation. For more information, refer to the [Swagger documentation on API Keys](https://swagger.io/docs/specification/authentication/api-keys/).
+A security scheme can be applied at a resource level or to the whole API by using the **`security`** keyword as applicable. A resource-level security scheme will override an API-level security scheme. In the example given below, the `ApiKeyAuth` security scheme that has already been defined is referred from the resource `/pet/{petId}` GET operation. For more information, go to [Swagger documentation on API Keys](https://swagger.io/docs/specification/authentication/api-keys/).
 
 #### Operation-specific security
 
