@@ -198,7 +198,7 @@ The relevant elements in the JWT generation configuration are described below. I
 </tr>
 <tr class="even">
 <td><pre><code>enforcer.jwtGenerator.keypair.useForSigning</code></pre></td>
-<td><p>Whether to use key for signing</p></td>
+<td><p>Whether to use key for signing.</p></td>
 <td><code>false</code></td>
 </tr>
 </tbody>
