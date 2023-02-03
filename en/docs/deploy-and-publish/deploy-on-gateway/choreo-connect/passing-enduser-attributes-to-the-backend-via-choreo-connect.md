@@ -164,7 +164,7 @@ The relevant elements in the JWT generation configuration are described below. I
 </tr>
 <tr class="odd">
 <td><pre><code>enforcer.jwtGenerator.jwksRateLimitQuota</code></pre></td>
-<td><p>How many requests to the JWKS endpoint can be served in the time window</p></td>
+<td><p>How many requests to the JWKS endpoint can be served in the time window.</p></td>
 <td><code>1000</code></td>
 </tr>
 <tr class="even">
