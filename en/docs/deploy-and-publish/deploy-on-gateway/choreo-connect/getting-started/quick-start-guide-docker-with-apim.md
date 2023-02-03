@@ -98,7 +98,7 @@ docker ps | grep choreo-connect-
 
     !!! tip
 
-        When invoking the API, this Internal Key authentication token will be included in the header `Internal-Key`. To learn more, click [Internal Key]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/internal-key-authentication/). 
+        When invoking the API, this [Internal Key]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/internal-key-authentication/) authentication token will be included in the header `Internal-Key`. 
 
 3. Select one of the listed HTTP methods. Click **Try it out** and then click **Execute** to invoke the API.
 
