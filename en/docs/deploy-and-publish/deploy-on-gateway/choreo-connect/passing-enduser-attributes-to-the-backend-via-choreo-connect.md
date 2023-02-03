@@ -276,7 +276,7 @@ The public keys can be recieved from this endpoint with a <code>GET</code> or <c
 </tr>
 <tr class="odd">
 <td><pre><code>keys</code></pre></td>
-<td>An array of the public keys available from the gateway</td>
+<td>An array of the public keys available from the gateway.</td>
 </tr>
 </tbody>
 </table>
