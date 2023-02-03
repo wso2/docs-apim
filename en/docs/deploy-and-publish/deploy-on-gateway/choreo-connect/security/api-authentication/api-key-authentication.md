@@ -108,7 +108,7 @@ Choreo Connect API Key Authentication supports API key restriction for IP addres
 
 ## Configurations related to API Key
 
-Following is the default config referred for API Key authentication. The token service name "APIM Publisher" refers to the Control Plane and holds the configurations for API key, and not to be confused with the access token issuer which is the "Resident Key Manager" as defined in the config. Therefore, even if both of the token types (API keys and access tokens) are produced by the same token issuer which is the Resident Key Manager, subscription validation can be enabled independently.
+The following is the default config referred for API Key authentication. The token service name "APIM Publisher" refers to the Control Plane and holds the configurations for API key, and should not be confused with the access token issuer which is the "Resident Key Manager" as defined in the config. Therefore, even if both of the token types (API keys and access tokens) are produced by the same token issuer which is the Resident Key Manager, subscription validation can be enabled independently.
 
 ```
 [[enforcer.security.tokenService]]
