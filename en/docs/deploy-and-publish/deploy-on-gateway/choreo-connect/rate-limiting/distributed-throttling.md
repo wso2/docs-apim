@@ -86,6 +86,24 @@ Follow the instructions below to enable Distributed Rate Limiting:
            secureMinIdleTimeInPool = 5000
     ```
 
+!!! tip 
+    When using multiple traffic manager nodes for high availability, you can use a configuration as given below.
+
+    ```
+    [enforcer.throttling]
+      enableGlobalEventPublishing = true
+      jmsConnectionProviderURL = "amqp://admin:$env{tm_admin_pwd}@carbon/carbon?failover='roundrobin'%26cyclecount='2'%26brokerlist='tcp://<Traffic-Manager-1-host>:5672?retries='5'%26connectdelay='50';tcp://<Traffic-Manager-2-host>:5672?retries='5'%26connectdelay='50''"
+      [enforcer.throttling.publisher]
+        username = "admin"
+        password = "$env{tm_admin_pwd}"
+        [[enforcer.throttling.publisher.URLGroup]]
+          receiverURLs = ["tcp://<Traffic-Manager-1-host>:9611"]
+          authURLs = ["ssl://<Traffic-Manager-1-host>:9711"]
+        [[enforcer.throttling.publisher.URLGroup]]
+          receiverURLs = ["tcp://<Traffic-Manager-2-host>:9611"]
+          authURLs = ["ssl://<Traffic-Manager-2-host>:9711"]
+    ```
+
 ### Conditional Rate Limiting
 
 There can be situations where certain APIs require more granular level of Rate Limiting. Assume you want to provide limited access to a certain IP range or a type of client application (identified by User-Agent header). For these scenarios, a simple throttle policy with API/resource level limits is not sufficient. To address complex throttling requirements as above, Choreo Connect is capable of throttling requests based on several conditions. The following types of conditions are supported.
@@ -138,3 +156,7 @@ Conditional Rate Limiting is done via the Advanced Rate Limiting policies in API
 
      For more information, see [Deploy an API via API Manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-in-choreo-connect/).
 
+## See also
+
+- [Rate limiting with API-M as the Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/cc-rate-limiting)
+- [Adding New Rate Limiting Policies]({{base_path}}/design/rate-limiting/adding-new-throttling-policies/#adding-a-new-advanced-throttling-policy)
