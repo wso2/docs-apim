@@ -317,7 +317,7 @@ service / on new http:Listener(8080) {
 }
 ```
 
-In this example we create a hello route on port 8080 and secure it with JWT. this hello function returns the JWT claims or the error that occured during validation. 
+In this example we create a hello route on port 8080 and secure it with JWT. This hello function returns the JWT claims or the error that occurred during validation. 
 
 ## See Also
 
