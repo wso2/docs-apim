@@ -1,11 +1,13 @@
 # Choreo Connect Adapter Configuration Catalog
 
-This document describes all the configuration parameters that are used in WSO2 Choreo Connect Adapter.
+This document describes all the configuration parameters that are used in Choreo Connect Adapter.
 
 ## Instructions for use
 
-Select the configuration sections, parameters, and values that are required for your use and add them to the `config.toml`
-file located in `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/`.
+1. {!includes/deploy/cc-configuration-file.md!}
+
+2. Select the configuration sections, parameters, and values that are required for your use and add them as required. You can click ***view sample*** in each of the sections in this page to get the toml format.
+
 See the example .toml file given below.
 
 ```toml
