@@ -208,7 +208,7 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
     
         Also select **groups** as the **Role Claim URI**.
 
-    [![]({{base_path}}/assets/img/setup-and-install/claim-mapping-for-sso.png)]({{base_path}}/assets/img/setup-and-install/claim-mapping-for-sso.png)
+    [![Claim mapping for sso]({{base_path}}/assets/img/setup-and-install/claim-mapping-for-sso.png)]({{base_path}}/assets/img/setup-and-install/claim-mapping-for-sso.png)
 
 ### Step - 2 Configure the Service Provider
 
