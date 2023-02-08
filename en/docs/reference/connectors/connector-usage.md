@@ -6,6 +6,10 @@ This document provides a set of guidelines on how to use connectors throughout t
 
 Connectors can be added and used as part of the integration logic of your integration solution. This helps you configure inbound and outbound connections to third-party applications or to systems that support popular B2B protocols.
 
+### New connector versions
+
+From time to time there are new connector versions released. These new versions may have new operations and changes to existing operations. When moving to a new connector version from an older version, it is recommended to reconfigure your connector from scratch.
+
 ### Importing connectors 
 
 All the connectors are hosted in the [Integration Connector Store](https://store.wso2.com/store/assets/esbconnector/list). You can download the connector from the store as a .zip file. 
