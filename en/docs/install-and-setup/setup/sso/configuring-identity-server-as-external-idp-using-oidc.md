@@ -97,7 +97,7 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
         </tbody>
     </table>
 
-### Step 3 - Update OpenID OIDC scope
+### Step 3 - Update the OpenID OIDC scope
 
 1. Navigate to the **OIDC Scopes** section under **Main** → **Manage** and list available scopes.
 
