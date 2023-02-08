@@ -102,7 +102,7 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
 1. Navigate to the **OIDC Scopes** section under **Main** → **Manage** and list available scopes.
 
 2. Click **Add Claims** for `openid` scope, click **Add OIDC Claim**, select `groups` claim from the dropdown and click on **Add**.
-   [![add-groups-claim-to-oidc-scope]({{base_path}}/assets/img/setup-and-install/update-oidc-scope.png)]({{base_path}}/assets/img/setup-and-install/update-oidc-scope.png)
+   [![Add groups claim to the OIDC scope]({{base_path}}/assets/img/setup-and-install/update-oidc-scope.png)]({{base_path}}/assets/img/setup-and-install/update-oidc-scope.png)
 
 ## Configure the API Manager
 
