@@ -39,7 +39,7 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
 
 3.  Edit the created Service Provider:
 
-    1.  Expand the **Claim Configuration** section. Add **http://wso2.org/claims/groups** as mandatory claim. Also add **http://wso2.org/claims/username** claim as the **Subject Claim URI**.
+    1.  Expand the **Claim Configuration** section. Add the **http://wso2.org/claims/groups** as mandatory claim. In addition, add the **http://wso2.org/claims/username** claim as the **Subject Claim URI**.
 
         [![]({{base_path}}/assets/img/setup-and-install/claim-configuration-in-service-provider.png)]({{base_path}}/assets/img/setup-and-install/claim-configuration-in-service-provider.png)
 
