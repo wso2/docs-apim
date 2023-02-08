@@ -39,7 +39,7 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
 
 3.  Edit the created Service Provider:
 
-    1.  Expand the **Claim Configuration** section. Add **http://wso2.org/claims/role** as mandatory claim.
+    1.  Expand the **Claim Configuration** section. Add **http://wso2.org/claims/groups** as mandatory claim. Also add **http://wso2.org/claims/username** claim as the **Subject Claim URI**.
 
         [![]({{base_path}}/assets/img/setup-and-install/claim-configuration-in-service-provider.png)]({{base_path}}/assets/img/setup-and-install/claim-configuration-in-service-provider.png)
 
@@ -96,6 +96,13 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
             </tr>
         </tbody>
     </table>
+
+### Step - 3 Update openid OIDC scope
+
+1. Navigate to **OIDC Scopes** section under Main → Manage and list available scopes.
+
+2. Click **Add Claims** for `openid` scope, click **Add OIDC Claim**, select `groups` claim from the dropdown and click on **Add**.
+   [![add-groups-claim-to-oidc-scope]({{base_path}}/assets/img/setup-and-install/update-oidc-scope.png)]({{base_path}}/assets/img/setup-and-install/update-oidc-scope.png)
 
 ## Configure the API Manager
 
@@ -182,6 +189,26 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
 
         !!! Tip
             Instead of using the default internal roles, you can also create new roles in API Manager and map it to the provisioned users. 
+
+    4. Add the following claim mapping under **Claim Configuration** section:
+        <table>
+        <thead>
+            <tr>
+                <th>Identity Provider Claim URI</th>
+                <th>Local Claim URI</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>groups</td>
+                <td>http://wso2.org/claims/role</td>
+            </tr>
+        </tbody>
+        </table>
+    
+        Also select **groups** as the **Role Claim URI**.
+
+    [![]({{base_path}}/assets/img/setup-and-install/claim-mapping-for-sso.png)]({{base_path}}/assets/img/setup-and-install/claim-mapping-for-sso.png)
 
 ### Step - 2 Configure the Service Provider
 
