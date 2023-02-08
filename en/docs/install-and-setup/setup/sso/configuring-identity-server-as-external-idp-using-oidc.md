@@ -190,7 +190,7 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
         !!! Tip
             Instead of using the default internal roles, you can also create new roles in API Manager and map it to the provisioned users. 
 
-    4. Add the following claim mapping under **Claim Configuration** section:
+    4. Add the following claim mapping under the **Claim Configuration** section.
         <table>
         <thead>
             <tr>
