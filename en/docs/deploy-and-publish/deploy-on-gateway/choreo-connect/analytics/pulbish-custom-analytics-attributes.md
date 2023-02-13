@@ -50,7 +50,7 @@ the sample and start from [here]({{base_path}}/deploy-on-gateway/choreo-connect/
 !!! Info
 
 	- You need to add `org.wso2.carbon.apimgt.gateway_<COMPENENT_VERSION>.jar` and `org.wso2.carbon.apimgt.common.analytics_<COMPENENT_VERSION>.jar` to the local m2 mannually and provide path to the local m2 as mentioned below.
-        1. Add the above jars to the local m2 manually.
+        1. Add the above .jar files to the local m2 manually.
         ```code
         mvn install:install-file -Dfile=<PATH_TO_FILE>/org.wso2.carbon.apimgt.gateway_<COMPENENT_VERSION>.jar -DgroupId=org.wso2.carbon.apimgt -DartifactId=org.wso2.carbon.apimgt.gateway -Dversion=<COMPENENT_VERSION> -Dpackaging=jar
         mvn install:install-file -Dfile=<PATH_TO_FILE>/org.wso2.carbon.apimgt.common.analytics_<COMPENENT_VERSION>.jar -DgroupId=org.wso2.carbon.apimgt -DartifactId=org.wso2.carbon.apimgt.common.analytics -Dversion=<COMPENENT_VERSION> -Dpackaging=jar
