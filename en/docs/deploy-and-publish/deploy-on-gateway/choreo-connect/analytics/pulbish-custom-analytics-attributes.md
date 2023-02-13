@@ -99,7 +99,7 @@ Therefore, by processing it you can obtain the required headers.
             logger.org-wso2-analytics-publisher.appenderRef.CARBON_TRACE_LOGFILE.ref = ENFORCER_ACCESS_LOG
             ```
 
-        2. Append the newly added logger as below.
+        2. Append the newly added logger as indicated below.
 
            ```bash
                loggers = org-wso2-analytics-publisher, other_available_loggers...
