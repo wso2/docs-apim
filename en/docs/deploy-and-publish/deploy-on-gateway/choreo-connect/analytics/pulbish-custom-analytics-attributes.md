@@ -2,7 +2,7 @@
 
 Choreo Connect provides default set of attributes with the analytics data when an API invocation happens. In addition to that, users
 can add custom analytics data with an analytics event due to this feature. If there are specific request headers, response
-headers, response trailers relevant to the event, users can retrieve those values and use with Chore Connect analytics.
+headers, and response trailers relevant to the event, users can retrieve those values and use them with Choreo Connect analytics.
 This guide will explain the steps required to do it.
 
 !!! note
