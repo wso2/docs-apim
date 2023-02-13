@@ -12,7 +12,7 @@ This guide will explain the steps required to do it.
 
 You need to create a new `Java Maven` project to obtain this JAR.
 
-There is an existing sample project in [here](https://github.com/wso2/product-microgateway/tree/main/samples/analytics-custom-data-provider).
+There is an existing sample project available [here](https://github.com/wso2/product-microgateway/tree/main/samples/analytics-custom-data-provider).
 If you wish to use that sample instead of developing the sample from scratch, then you can ignore the steps of creating
 the sample and start from [here]({{base_path}}/deploy-on-gateway/choreo-connect/analytics/pulbish-custom-analytics-attributes/#build-the-project-jar-addition-to-the-enforcer).
 
