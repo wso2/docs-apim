@@ -91,7 +91,7 @@ Therefore, by processing it you can obtain the required headers.
    to obtain the JAR. Similar to the above after obtaining the JAR mount it to the `enforcer/dropins` folder.
 
     1. Configure the `log4j2.properties` file with the following configurations.
-        1. Add a new logger to the Enforcer by adding the following configuration
+        1. Add a new logger to the Enforcer by adding the following configuration.
 
             ```bash
             logger.org-wso2-analytics-publisher.name = org.wso2.am.analytics.publisher
