@@ -86,7 +86,7 @@ Therefore, by processing it you can obtain the required headers.
 
 ## Creating The Custom Reporter JAR to log analytics data
 
-1. In order to log the custom attributes for the event occurrences, you need to add Custom Reporter JAR to the dropins folder.
+1. In order to log the custom attributes for the event occurrences, you need to add the Custom Reporter JAR to the `dropins` folder.
    You can follow the `Step 1.1` explained [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configure-analytics/#step-11-compile-the-reporter-implementation})
    to obtain the JAR. Similar to the above after obtaining the JAR mount it to the `enforcer/dropins` folder.
 
