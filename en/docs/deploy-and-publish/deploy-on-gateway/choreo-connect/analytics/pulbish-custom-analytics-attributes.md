@@ -6,7 +6,7 @@ headers, and response trailers relevant to the event, users can retrieve those v
 This guide will explain the steps required to do it.
 
 !!! note
-    **Request headers** (headers sent to the upstream), **Response headers** (headers coming from the upstream) and **Response trailers** can only use with this feature.
+    Only **Request headers** (headers sent to the upstream), **Response headers** (headers coming from the upstream), and **Response trailers** can be used with this feature.
 
 ## Creating The Custom Analytics Data Provider JAR
 
