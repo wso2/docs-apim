@@ -6,7 +6,7 @@
 
 Before passing end user attributes, you need to enable and configure the JWT implementation, as mentioned below in Choreo Connect.
 
-1. Navigate to the `CHOREO-CONNECT_HOME/docker-compose/choreo-connect/conf/config.toml` file.
+1. {!includes/deploy/cc-configuration-file.md!}
 
 2. Enable and configure the backend JWT implementation.
 
