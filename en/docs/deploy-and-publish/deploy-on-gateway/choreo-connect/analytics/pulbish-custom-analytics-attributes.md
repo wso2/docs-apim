@@ -62,7 +62,7 @@ the sample and start from [here]({{base_path}}/deploy-on-gateway/choreo-connect/
             <url> file://home/user/.m2/repository </url>
         </repository>
         ```
-        Follow the same URL pattern when providing the repo url.
+        Follow the same URL pattern when providing the repository URL.
 
 ### Implementing the required class
 
