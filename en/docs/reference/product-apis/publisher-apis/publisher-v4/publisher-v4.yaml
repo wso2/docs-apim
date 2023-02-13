@@ -94,8 +94,8 @@ info:
     * All of the OAuth2 secured endpoints have been configured with an Authorization Bearer header with a parameterized access token. Before invoking any REST API resource make sure you run the `Register DCR Application` and `Generate Access Token` requests to fetch an access token with all required scopes.
     * Make sure you have an API Manager instance up and running.
     * Update the `basepath` parameter to match the hostname and port of the APIM instance.
-
-    [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/17491134-edb4ef7a-1ac7-420b-8651-2d9fd5585f6c)
+    
+    [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/25611032-8753756c-7f03-4f5b-8738-603f426a54a)
   contact:
     name: WSO2
     url: https://wso2.com/api-manager/
@@ -8198,7 +8198,7 @@ paths:
       x-code-samples:
         - lang: Curl
           source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/publisher/v4/api-products/change-lifecycle?apiId=890a4f4d-09eb-4877-a323-57f6ce2ed79b&action=Publish"'
+          "https://127.0.0.1:9443/api/am/publisher/v4/api-products/change-lifecycle?apiProductId=890a4f4d-09eb-4877-a323-57f6ce2ed79b&action=Publish"'
       operationId: changeAPIProductLifecycle
 
   /api-products/{apiProductId}/lifecycle-history:
