@@ -131,7 +131,7 @@ Similarly, add the Identity Server as an identity provider configurations in `ht
 
 6.  Click and expand the **Role Configuration** section.
     1. Click **Add role Mapping**.
-    2. Create a table entry with the following data
+    2. Create a table entry with the following data.
         * Identity Provider Role: `Internal/creator`
     3. In the text box next to `Identity Provider OutBound Provisioning Roles:` label, type: `provision`
 
