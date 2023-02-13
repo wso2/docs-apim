@@ -234,7 +234,7 @@ nav:
                 - Deploy an API:
                     - REST API: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-in-choreo-connect.md
                     - WebSocket API: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-websocket-api-in-choreo-connect.md
-                    - Expose via Custom Hostnames: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-with-custom-hostnames.md
+                    - Expose via Custom Hostnames - vHosts: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-with-custom-hostnames.md
                     - Immutable Gateway:
                         - Deploy as an Immutable Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-apis-as-immutable-gateway.md
                 - Security:
@@ -313,7 +313,9 @@ nav:
                 - Service Mesh Integration: deploy-and-publish/deploy-on-gateway/choreo-connect/service-mesh/istio.md
                 - Observability:
                     - Distributed Tracing: deploy-and-publish/deploy-on-gateway/choreo-connect/observability/distributed-tracing.md
-                - Analytics: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-analytics.md
+                - Analytics:
+                    - Configure Analytics with Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-analytics.md
+                    - Publish Custom Attributes with Analytics: deploy-and-publish/deploy-on-gateway/choreo-connect/analytics/pulbish-custom-analytics-attributes.md
                 - Data Compression: deploy-and-publish/deploy-on-gateway/choreo-connect/data-compression.md
                 - Configure Multiple Gateways with Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-multiple-gateways-with-choreo-connect.md
                 - File Upload via Multipart Requests: deploy-and-publish/deploy-on-gateway/choreo-connect/file-upload-via-multipart-requests.md
@@ -1561,44 +1563,48 @@ nav:
                     - Format the Outputs of Get Commands: install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command.md
                     - Configure Git Integration: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md
         - Upgrade:
-            - What has Changed: install-and-setup/upgrading-wso2-api-manager/what-has-changed.md
-            - Upgrading Process: install-and-setup/upgrading-wso2-api-manager/upgrading-process.md
-            - Upgrading WSO2 API Manager:
-                - 3.2.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-320-to-400.md
-                - 3.1.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-310-to-400.md
-                - 3.0.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-400.md
-                - 2.6.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-400.md
-                - 2.5.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-400.md
-                - 2.2.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-220-to-400.md
-                - 2.1.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-210-to-400.md
-                - 2.0.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-200-to-400.md
-                - 1.10.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-1100-to-400.md
-                - 1.8.0/1.9.0/1.9.1 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-191-to-400.md
-                - Advanced Upgrade Options:
-                    - Configure a Distributed API-M Deployment with Key Manager Separation: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-km-separated.md
-                    - Upgrading to Log4j2: install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2.md
-            - Upgrading WSO2 IS as KM:
-                - 3.2.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-5100-to-is-5110.md
-                - 3.1.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-5100-to-is-5110.md
-                - 3.0.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-590-to-is-5110.md
-                - 2.6.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-570-to-is-5110.md
-                - 2.5.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-560-to-is-5110.md
-                - 2.2.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-550-to-is-5110.md
-                - 2.1.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-530-to-is-5110.md
-                - 2.0.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-520-to-is-5110.md
-                - 1.10.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-is-5110.md
-                - 1.8.0/1.9.0/1.9.1 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-500-to-is-5110.md
-            -  Upgrading from WSO2 EI:
-                - EI 7.1.x to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-7.1.x.md
-                - EI 7.0.x to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-7.0.x.md
-                - EI 6.6.x to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.6.x.md
-                - EI 6.5.x to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.5.x.md
-                - EI 6.4.x to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.4.x.md
-                - EI 6.3.x to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.3.x.md
-                - EI 6.2.x to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.2.x.md
-                - EI 6.1.1 to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.1.1.md
-                - EI 6.1.0 to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.1.0.md
-            -  Upgrading from WSO2 ESB: install-and-setup/upgrading-from-wso2-ei/upgrading-from-esb-5.x.x.md
+            - Upgrading API Manager: install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager.md
+            - Advanced Upgrade Options:
+                - Configure a Distributed API-M Deployment with Key Manager Separation: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-km-separated.md
+                #- Upgrading to Log4j2: install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2.md
+            #- What has Changed: install-and-setup/upgrading-wso2-api-manager/what-has-changed.md
+            #- Upgrading Process: install-and-setup/upgrading-wso2-api-manager/upgrading-process.md
+            #- Upgrading WSO2 API Manager:
+                #- 3.2.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-320-to-400.md
+                #- 3.1.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-310-to-400.md
+                #- 3.0.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-400.md
+                #- 2.6.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-400.md
+                #- 2.5.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-400.md
+                #- 2.2.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-220-to-400.md
+                #- 2.1.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-210-to-400.md
+                #- 2.0.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-200-to-400.md
+                #- 1.10.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-1100-to-400.md
+                #- 1.8.0/1.9.0/1.9.1 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-191-to-400.md
+                #- Advanced Upgrade Options:
+                    #- Configure a Distributed API-M Deployment with Key Manager Separation: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-km-separated.md
+                    #- Upgrading to Log4j2: install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2.md
+            #- Upgrading WSO2 IS as KM:
+                #- 3.2.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-5100-to-is-5110.md
+                #- 3.1.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-5100-to-is-5110.md
+                #- 3.0.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-590-to-is-5110.md
+                #- 2.6.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-570-to-is-5110.md
+                #- 2.5.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-560-to-is-5110.md
+                #- 2.2.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-550-to-is-5110.md
+                #- 2.1.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-530-to-is-5110.md
+                #- 2.0.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-520-to-is-5110.md
+                #- 1.10.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-is-5110.md
+                #- 1.8.0/1.9.0/1.9.1 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-500-to-is-5110.md
+            #-  Upgrading from WSO2 EI:
+                #- EI 7.1.x to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-7.1.x.md
+                #- EI 7.0.x to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-7.0.x.md
+                #- EI 6.6.x to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.6.x.md
+                #- EI 6.5.x to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.5.x.md
+                #- EI 6.4.x to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.4.x.md
+                #- EI 6.3.x to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.3.x.md
+                #- EI 6.2.x to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.2.x.md
+                #- EI 6.1.1 to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.1.1.md
+                #- EI 6.1.0 to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.1.0.md
+            #-  Upgrading from WSO2 ESB: install-and-setup/upgrading-from-wso2-ei/upgrading-from-esb-5.x.x.md
         - Reference:
             - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
             - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
@@ -2156,6 +2162,38 @@ plugins:
               'deploy-and-publish/deploy-on-gateway/choreo-connect/security/importing-certificates-to-the-choreo-connect-truststore.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/component-certificates/'
               'deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/transport-security.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/backend-certificates/'
               'develop/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping/'
+              'install-and-setup/upgrading-wso2-api-manager/what-has-changed.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-api-manager/upgrading-process.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-api-manager/upgrading-from-320-to-400.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-api-manager/upgrading-from-310-to-400.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-400.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-400.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-400.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-api-manager/upgrading-from-220-to-400.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-api-manager/upgrading-from-210-to-400.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-api-manager/upgrading-from-200-to-400.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-api-manager/upgrading-from-1100-to-400.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-api-manager/upgrading-from-191-to-400.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-5100-to-is-5110.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-5100-to-is-5110.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-590-to-is-5110.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-570-to-is-5110.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-560-to-is-5110.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-550-to-is-5110.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-530-to-is-5110.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-520-to-is-5110.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-is-5110.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-500-to-is-5110.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
+              'install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-7.1.x.md':
+              'install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-7.0.x.md':
+              'install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.6.x.md':
+              'install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.5.x.md':
+              'install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.4.x.md':
+              'install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.3.x.md':
+              'install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.2.x.md':
+              'install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.1.1.md':
+              'install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.1.0.md':
+              'install-and-setup/upgrading-from-wso2-ei/upgrading-from-esb-5.x.x.md':
 
     # Extra
 extra_css:

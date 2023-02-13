@@ -2,18 +2,85 @@
 
 The following are the Choreo Connect related configuration files.
 
-| **File name**            | **Description**                                                                                              | **Directory (File path)**                                              |
-|--------------------------|--------------------------------------------------------------------------------------------------------------|----------------------------------------------------------- |
-| `config.toml`            | This file defines all the adapter, enforcer, router, security, control plane and analytics configurations.   | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf` |
-| `log_config.toml`        | This file defines the logging configurations for control plane.                                              | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf` |
-| `log4j2.properties`      | This file governs how logging is performed by the server.                                                    | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf` |
+| **File** | **Description** |
+|---------------|---------------------|
+| Configuration File </br> E.g. `config.toml` | This file defines all the adapter, enforcer, router, security, control plane and analytics configurations.     | 
+| Log Configuration File </br> E.g. `log_config.toml` | This file defines the logging configurations for the Adapter and Router.  | 
+| Log4j2 Configuration File </br> E.g. `log4j2.properties` | This file defines the logging configurations for the Enforcer.  |
+
+Each of the above files can be found in the locations given below depending on the Choreo Connect deployment.
+
+??? info "**For Docker Compose**"
+
+    | **File** | **File Name** |
+    |----------|---------------|
+    | Configuration File   | `config.toml` |
+    | Log Configuration File  | `log_config.toml` |
+    | Log4j2 Configuration File  | `log4j2.properties` |
+
+    | **Mode** | **Directory (File path)** |
+    |----------|---------------------------|
+    | [Choreo Connect as a Standalone Gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/) | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf` |
+    | [Choreo Connect with WSO2 API Manager as a Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/) |  `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf` |
+
+??? info "**For Kubernetes**"
+
+    | **File**                |   **File Name**    |
+    |-------------------------|--------------------|
+    | Configuration File      | For [Choreo Connect as a Standalone Gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/), <ul><li> `config-toml-configmap.yaml`</li></ul>   For [Choreo Connect with WSO2 API Manager as a Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/), <ul><li> `config-toml-configmap-for-eventhub.yaml`</li></ul> |
+    | Log Configuration File  | `logconfig-toml-configmap.yaml` |
+    | Log4j2 Configuration File      | `log4j2-configmap.yaml` |
+
+    | **Mode** | **Directory (File path)** |
+    |----------|---------------------------|
+    | [Choreo Connect as a Standalone Gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/) | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect` |
+    | [Choreo Connect with WSO2 API Manager as a Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/) | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect-with-apim/choreo-connect` |
+
+??? info "**For Kubernetes with Helm Charts**"
+
+    You may update the configurations in the following ways, when deploying with Helm Charts and the resources from the [Choreo Connect Helm Chart Git repository](https://github.com/wso2/kubernetes-microgateway/tree/1.0.x/helm/choreo-connect). 
+
+    - By updating [values.yaml](https://github.com/wso2/kubernetes-microgateway/blob/1.0.x/helm/choreo-connect/values.yaml). [Click here for the steps.]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane-helm-artifacts/#step-2-update-the-deployment-configurations)
+    - By using --set with the Helm command. [Click here for an example.]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane-helm-artifacts/#step-2-install-chart)
+
+    You can find the [complete list of parameters here](https://github.com/wso2/kubernetes-microgateway/blob/1.0.x/helm/choreo-connect/README.md#configuration).
+
+    These configuration parameters are based on the [templates available in here](https://github.com/wso2/kubernetes-microgateway/tree/1.0.x/helm/choreo-connect/templates). The `values.yaml` file and the templates are common to both of the modes, [Choreo Connect as a Standalone Gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/) and [Choreo Connect with WSO2 API Manager as a Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/). The mode itself can be updated as given below.
+
+    ```
+    wso2:
+      deployment:
+        mode: "APIM_AS_CP"
+    ```
+
+    ```
+    wso2:
+      deployment:
+        mode: "STANDALONE"
+    ```
+
+    You may find the template file for the main Choreo Connect configuration and logging in the following names.
+
+    | **File** | **File Name** |
+    |----------|---------------|
+    | Configuration File   | `config-toml-configmap.yaml` |
+    | Log Configuration File  | `logconfig-toml-configmap.yaml` |
+    | Log4j2 Configuration File  | `enforcer-log4j2-configmap.yaml` |
+
+
+    If you have advanced configurations that are not templated, you can have your own templated configuration file and set it in the Helm Chart as follows. Make sure to include the templates already provided within the default templated configuration files, otherwise you may lose configurations set with the values.yaml file.
+
+    ```    
+    --set-file wso2.deployment.adapter.configToml=<FILE_PATH_FOR_TEMPLATED_CONFIG_TOML>
+    --set-file wso2.deployment.adapter.logConfigToml=<FILE_PATH_FOR_TEMPLATED_LOG_CONFIG_TOML>
+    ``` 
 
 !!! Warning
     Note that WSO2 API Manager 3.0.0, 3.1.0, 3.2.0, and 4.0.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
 
 ## Configurations Overview
 
-Only the Adapter component reads the `config.toml` file. Then the Enforcer and Router components fetches the relevant configurations via XDS caches.
+Only the Adapter component reads the ***Configuration File***. Then the Enforcer and Router components fetches the relevant configurations via XDS caches.
 
 !!! note
 
@@ -22,8 +89,7 @@ Only the Adapter component reads the `config.toml` file. Then the Enforcer and R
 
 ## Overriding configuration values with environment variables
 
-The configurations provided within `config.toml` can be overridden with environment variables. As 
-the `config.toml` file is processed within Adapter first, the environment variables should be assigned
+The configurations provided within the ***Configuration File*** can be overridden with environment variables. As this file is processed within Adapter first, the environment variables should be assigned
 to the adapter environment. The variables are case-insensitive.
 
 - To override a configuration value like the following, the user needs to declare the environment variable
