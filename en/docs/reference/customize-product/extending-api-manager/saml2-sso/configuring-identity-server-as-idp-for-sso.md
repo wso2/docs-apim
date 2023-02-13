@@ -66,8 +66,8 @@ The topics below explain the configurations.
 
     1. Select `Use Local Claim Dialect` checkbox.
     2. Click on `Add Claim URI` button next to `Requested Claims:` lebel and 
-        * For `Local Claim` select `http://wso2.org/claims/groups` from the dropdown.
-        * Tick `Mandatory Claim` checkbox.
+        * For **Local Claim** select `http://wso2.org/claims/groups` from the dropdown.
+        * Tick **Mandatory Claim** checkbox.
     3. From the dropdown next to `Subject Claim URI:` label, select `http://wso2.org/claims/username`
    
 
@@ -124,13 +124,13 @@ Similarly, add the Identity Server as an identity provider configurations in `ht
 
 5.  Click and expand the **Claim Configuration** section, and click and expand **Basic Claim Configuration**.
     1. Tick `Define Custom Claim Dialect` radio box.
-    2. Click `Add Claim Mapping` and add the following data
-        * Identity Provider Claim URI: http://wso2.org/claims/groups
-        * Local Claim URI: http://wso2.org/claims/roles
-    3. In the dropdown next to `Role Claim URI:` label select `http://wso2.org/claims/groups`
+    2. Click `Add Claim Mapping` and add the following data.
+        * Identity Provider Claim URI: `http://wso2.org/claims/groups`
+        * Local Claim URI: `http://wso2.org/claims/roles`
+    3. In the dropdown next to the **Role Claim URI** label, select `http://wso2.org/claims/groups`
 
 6.  Click and expand the **Role Configuration** section.
-    1. Click `Add role Mapping` button.
+    1. Click **Add role Mapping**.
     2. Add the following row 
         * Identity Provider Role: `Internal/creator`
     3. In the text box next to `Identity Provider OutBound Provisioning Roles:` label, type: `provision`
@@ -190,7 +190,7 @@ Similarly, add the Identity Server as an identity provider configurations in `ht
     !!! note
         Note that the Publisher, Developer Portal, and Admin Portal service providers will be listed under **Service Providers** after you have logged in to each of the portals at least once.
          
-3. Click and expand **Local and Outbound Authentication Configuration**, select Identity Provider as the **Federated Authentication** and tick `Assert identity using mapped local subject identifier`
+3. Click and expand **Local and Outbound Authentication Configuration**, select Identity Provider as the **Federated Authentication** and tick **Assert identity using mapped local subject identifier**.
 
      [![app-federate]({{base_path}}/assets/img/learn/extensions/saml2-sso/app-federate.png)]({{base_path}}/assets/img/learn/extensions/saml2-sso/app-federate.png)
   
