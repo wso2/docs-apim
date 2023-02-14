@@ -60,9 +60,18 @@ The topics below explain the configurations.
   
         -   Because the servers in a multi-tenanted environment interact with all tenants, all nodes should share the same user store. Therefore, make sure you have a shared registry (JDBC mount, WSO2 Governance Registry, etc.) instance across all nodes.
 
-     You are navigated to the detailed configuration page. 
+     You are navigated to the detailed configuration page.
 
-5. Click and expand the **Inbound Authentication Configuration** section, click and expand **SAML2 Web SSO Configuration**, and click **Configure**.
+5. Click and expand the **Claim Configuration** section.
+
+    1. Select `Use Local Claim Dialect` checkbox.
+    2. Click on `Add Claim URI` button next to `Requested Claims:` lebel and 
+        * For **Local Claim** select `http://wso2.org/claims/groups` from the dropdown.
+        * Tick **Mandatory Claim** checkbox.
+    3. From the dropdown next to `Subject Claim URI:` label, select `http://wso2.org/claims/username`
+   
+
+6. Click and expand the **Inbound Authentication Configuration** section, click and expand **SAML2 Web SSO Configuration**, and click **Configure**.
      ![inbound-authentication-config]({{base_path}}/assets/img/learn/extensions/saml2-sso/inbound-authentication-config.png)
   
     !!! note
@@ -72,7 +81,7 @@ The topics below explain the configurations.
 
          ![enable-tenant-domain]({{base_path}}/assets/img/learn/extensions/saml2-sso/enable-tenant-domain.png)
 
-6.  Provide the configurations to register the API Publisher as the SSO service provider. 
+7.  Provide the configurations to register the API Publisher as the SSO service provider. 
 
      These sample values may change depending on your configuration.
 
@@ -84,14 +93,17 @@ The topics below explain the configurations.
            -   **Enable Response Signing**
            -   **Enable Signature Validation in Authentication Requests and Logout Request**
            -   **Enable Single Logout**
+           -   **Enable Attribute Profile**
+           -   **Include Attributes in the Response Always**
     
-7.  Click **Register**.
+8.  Click **Register**.
 
      **Example**
     
      [![sample Service Provider]({{base_path}}/assets/img/learn/extensions/saml2-sso/sample-sp.png)]({{base_path}}/assets/img/learn/extensions/saml2-sso/sample-sp.png)
 
-8. Upload the public certificate of the API Manager by selecting **Select SP Certificate Type**.
+9.  Upload the public certificate of the API Manager by selecting **Select SP Certificate Type**.
+10. Create a role: `testRole`, create an user with name `testUser` and assign the role `testRole` to the created user. This user will be used to sign in to the APIM apps. 
 
 ## Configuring WSO2 Identity Server as a SAML 2.0 SSO Identity Provider
 
@@ -110,7 +122,22 @@ Similarly, add the Identity Server as an identity provider configurations in `ht
     
 4. Upload the public certificate of Identity Server under **Identity Provider Public Certificate**.
 
-5. Configure **Federated authenticators** > **SAML2 Web SSO Configurations**
+5.  Click and expand the **Claim Configuration** section, and click and expand **Basic Claim Configuration**.
+    1. Tick `Define Custom Claim Dialect` radio box.
+    2. Click `Add Claim Mapping` and add the following data.
+        * Identity Provider Claim URI: `http://wso2.org/claims/groups`
+        * Local Claim URI: `http://wso2.org/claims/roles`
+    3. In the dropdown next to the **Role Claim URI** label, select `http://wso2.org/claims/groups`
+
+6.  Click and expand the **Role Configuration** section.
+    1. Click **Add role Mapping**.
+    2. Create a table entry with the following data.
+        * Identity Provider Role: `testRole`
+        * Local Role: `Internal/creator`
+    3. In the text box next to `Identity Provider OutBound Provisioning Roles:` label, type: `provision`
+
+
+7. Configure **Federated authenticators** > **SAML2 Web SSO Configurations**
 
     [![federate Auth]({{base_path}}/assets/img/learn/extensions/saml2-sso/federated-auth.png)]({{base_path}}/assets/img/learn/extensions/saml2-sso/federated-auth.png)
     
@@ -133,13 +160,13 @@ Similarly, add the Identity Server as an identity provider configurations in `ht
 
     [![sample IDP]({{base_path}}/assets/img/learn/extensions/saml2-sso/sample-idp.png)]({{base_path}}/assets/img/learn/extensions/saml2-sso/sample-idp.png)
 
-6. Enable JIT Provisioning users since the userstore is not shared between IS and APIM.
+8. Enable JIT Provisioning users since the userstore is not shared between IS and APIM.
     The users who will be JIT provisioned should be assigned the relevant role (Internal/creator, Internal/publisher, Internal/subscriber) for them to be able to successfully login to Publisher and Devportal.
 
     [![JIT Provisioning]({{base_path}}/assets/img/learn/extensions/saml2-sso/enable-jit-provisioning.png)]({{base_path}}/assets/img/learn/extensions/saml2-sso/enable-jit-provisioning.png)
 
     
-7.  Click on **Register**.  
+9.  Click on **Register**.  
 
 
    **Example**
@@ -164,7 +191,7 @@ Similarly, add the Identity Server as an identity provider configurations in `ht
     !!! note
         Note that the Publisher, Developer Portal, and Admin Portal service providers will be listed under **Service Providers** after you have logged in to each of the portals at least once.
          
-3. Click and expand **Local and Outbound Authentication Configuration**, and select Identity Provider as the **Federated Authentication**.
+3. Click and expand **Local and Outbound Authentication Configuration**, select Identity Provider as the **Federated Authentication** and tick **Assert identity using mapped local subject identifier**.
 
      [![app-federate]({{base_path}}/assets/img/learn/extensions/saml2-sso/app-federate.png)]({{base_path}}/assets/img/learn/extensions/saml2-sso/app-federate.png)
   
