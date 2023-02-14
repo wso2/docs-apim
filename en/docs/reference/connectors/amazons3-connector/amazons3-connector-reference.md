@@ -38,7 +38,7 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
         </tr>
         <tr>
             <td>host</td>
-            <td>The AWS API endpoint hostname to connect with</td>
+            <td>The AWS API endpoint hostname to which you need to connect.</td>
             <td>Optional</td>
         </tr>
     </table>
