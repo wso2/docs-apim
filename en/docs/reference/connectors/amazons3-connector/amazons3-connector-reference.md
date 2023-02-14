@@ -36,6 +36,11 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
             <td>Region which is used select a regional endpoint to make requests, e.g.: us-east-1.</td>
             <td>Yes</td>
         </tr>
+        <tr>
+            <td>host</td>
+            <td>The AWS API endpoint hostname to which you need to connect.</td>
+            <td>Optional</td>
+        </tr>
     </table>
 
     > **Note**: You can either pass credentials within init configuration or set the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY as environment variables. The AWS SDK uses provider chains to look for AWS credentials in system/user environment variables.
