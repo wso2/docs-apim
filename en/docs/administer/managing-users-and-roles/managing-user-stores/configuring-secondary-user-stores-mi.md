@@ -19,7 +19,7 @@ To enable the user-core feature, change the following entry to false in micro-in
 
 ## Adding a new secondary user store
 
-1. [Download]({{base_path}}/assets/attachments/migration/micro-integrator/secondary-userstore-templates.zip) the template files provided and change the urls and credentials accordingly.
+1. [Download]({{base_path}}/assets/attachments/secondary-userstore-templates.zip) the template files provided and change the urls and credentials accordingly.
 2. Create a directory named **userstores** in `<MI_HOME>/repository/deployment/server` location.
 3. Add the modified template files to the above directory.
 4. Rename the file with the domain name you choose for the secondary user store.
