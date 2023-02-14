@@ -17,7 +17,7 @@ WSO2 API Manager uses <a href="https://stripe.com">Stripe</a> as its sample impl
       </div> 
 </html>
 
-Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin/releases/download/v1.3.3/org.wso2.apim.monetization.impl-1.3.3.jar) to monetize an API in the following example scenario.
+Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin/releases/download/v1.4.0/org.wso2.apim.monetization.impl-1.4.0.jar) to monetize an API in the following example scenario.
 
 ### Before you begin
 
@@ -99,7 +99,10 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
 
     2. Build the implementation of the respective monetization interface and add the JAR into the `<API-M_HOME>/repository/components/lib` directory.
         
-        In this example scenario, you need to add the [org.wso2.apim.monetization.impl-1.3.3.jar](https://github.com/wso2-extensions/wso2-am-stripe-plugin/releases/download/v1.3.3/org.wso2.apim.monetization.impl-1.3.3.jar) JAR into the latter mentioned `lib` folder. Note that this JAR has been derived by building the [wso2-am-stripe-plugin repository](https://github.com/wso2-extensions/wso2-am-stripe-plugin). 
+        In this example scenario, you need to add [org.wso2.apim.monetization.impl-1.4.0.jar](https://github.com/wso2-extensions/wso2-am-stripe-plugin/releases/download/v1.4.0/org.wso2.apim.monetization.impl-1.4.0.jar) and [jakarta.json-api-2.1.1.jar](https://repo1.maven.org/maven2/jakarta/json/jakarta.json-api/2.1.1/jakarta.json-api-2.1.1.jar) into the latter mentioned `lib` folder because `org.wso2.apim.monetization.impl` is dependent on `jakarta.json-api`. 
+        
+        !!! note
+            You can find the source code of `org.wso2.apim.monetization.impl` in the [wso2-extensions/wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin) repository.
 
     3.  Define the monetization implementation in WSO2 API Manager.
      
