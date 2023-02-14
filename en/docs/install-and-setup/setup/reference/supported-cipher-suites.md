@@ -19,4 +19,3 @@ For instructions on how to enable the required ciphers and to disable the weak c
     -   Cipher-suites that do not provide Perfect Forward Secrecy/ Forward Secrecy (PFS/FS).
 
     -   Never use even more INSECURE or older ciphers based on RC2, MD4, EXP, EXP1024, AH, ADH, aNULL, eNULL, SEED nor IDEA.
-

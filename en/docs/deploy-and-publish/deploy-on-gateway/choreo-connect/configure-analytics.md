@@ -119,6 +119,9 @@ The Enforcer component in Choreo Connect can log analytics-related data to be us
      
     1. Compile the new custom reporter implementation as a JAR file.</br>
     2. Mount it to the `/home/wso2/lib/dropins` directory within the Enforcer by adding the JAR file to the choreo-connect-1.x.x/docker-compose/resources/enforcer/dropins directory.</br>
+
+        !!! note 
+            If you use Choreo Connect with Helm Charts, please refer to the documentation [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/production-deployment-guideline/#mount-files-into-the-dropins-directory-optional) to add a JAR file into the dropins directory.
     3. Set the value of the `publisher.reporter.class` property to the class name of the new reporter implementation in the `config.toml` file as follows:
     	
         ```toml

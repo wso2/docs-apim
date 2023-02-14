@@ -1,11 +1,16 @@
-# Managing Common API Policies
+# Managing common API Policies
 
-WSO2 API Controller (apictl) allows the following actions on common API Policies.
+Following actions on common API Policies are allowed by apictl.
 
-1. Get common API Policies in an environment.
-2. Delete a common API Policy from an environment.
-3. Export a common API Policy from an environment.
-4. Import a common API Policy to an environment.
+1. List common API Policies in an environment.
+2. Export a common API Policy in an environment.
+3. Import a common API Policy to an environment.
+4. Delete a common API Policy in an environment.
+
+## Add common API Policies in an environment
+
+You can add common API Policies via the Publisher Portal. For more information, see [Create API Policy via Publisher Portal]({{base_path}}/design/api-policies/create_policy).
+However, **WSO2 API Controller (apictl)** allows you to create API Policies without using the Publisher Portal. For more information on adding common API Policies, see [Importing common API Policies Via Dev First Approach]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/importing-common-api-policies-via-dev-first-approach).
 
 ## Get common API Policies in an environment
 
@@ -115,7 +120,3 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
             ```bash
             addHeader common API Policy with the version v1 deleted successfully!
             ```
-
-## Export/Import common API Policies
-
-For more details on exporting and importing common API Policies, see the document on [migrating common API policies]({{base_path}}/install-and-setup/setup/api-controller/managing-common-api-policies/migrating-common-api-policies-to-different-environments/).

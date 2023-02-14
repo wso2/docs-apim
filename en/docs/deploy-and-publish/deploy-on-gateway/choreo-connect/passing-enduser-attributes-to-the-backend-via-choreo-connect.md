@@ -70,7 +70,11 @@ When generating the backend JWT, it retrieves the claims from the invoked JWT. I
 
 2. Build your class and add the JAR file in the `<CHOREO-CONNECT_HOME>/resources/enforcer/dropins` directory.
 
-3. Enable and configure the JWT implementation.
+    !!! note 
+         If you use Choreo Connect with Helm Charts, please refer to the documentation in [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/production-deployment-guideline/#mount-files-into-the-dropins-directory-optional) to add a JAR file into the dropins directory.
+
+   
+4. Enable and configure the JWT implementation.
 
      - For more information, see [JWT generation configuration details](#backend-jwt-generator-configuration-details).
 
@@ -81,7 +85,7 @@ When generating the backend JWT, it retrieves the claims from the invoked JWT. I
            gatewayGeneratorImpl = "org.wso2.carbon.test.CustomGatewayJWTGenerator"
         ```
 
-4. Start the server.
+5. Start the server.
 
      For more information, see the [Quick Start Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/).
     
@@ -100,13 +104,8 @@ The following is a sample configuration.
    enableUserClaims = false
    gatewayGeneratorImpl = "org.wso2.carbon.test.CustomGatewayJWTGenerator"
    claimsExtractorImpl = "org.wso2.carbon.apimgt.impl.token.ExtendedDefaultClaimsRetriever"
-   useKidProperty = false
-   jwksRatelimitQuota = 1000
-   jwksRatelimitTimeWindowInSeconds = 10
-   [[enforcer.jwtGenerator.keypair]]
-        privateKeyPath = "/home/wso2/security/keystore/mg.key"
-        publicCertificatePath = "/home/wso2/security/truststore/mg.pem"
-        useForSigning = true
+   publicCertificatePath = "/home/wso2/security/truststore/mg.pem"
+   privateKeyPath = "/home/wso2/security/keystore/mg.key"
 ```
 
 The relevant elements in the JWT generation configuration are described below. If you do not configure these elements, they take their default values.
@@ -165,12 +164,12 @@ The relevant elements in the JWT generation configuration are described below. I
 </tr>
 <tr class="odd">
 <td><pre><code>enforcer.jwtGenerator.jwksRateLimitQuota</code></pre></td>
-<td><p>How many requests to the JWKS endpoint can be served in the time window</p></td>
+<td><p>How many requests to the JWKS endpoint can be served in the time window.</p></td>
 <td><code>1000</code></td>
 </tr>
 <tr class="even">
 <td><pre><code>enforcer.jwtGenerator.jwksRateLimitTimeWindow</code></pre></td>
-<td><p>Time window for the rate limit to reset</p></td>
+<td><p>Time window for the rate limit to reset.</p></td>
 <td><code>false</code></td>
 </tr>
 <tr class="odd">
@@ -180,7 +179,7 @@ The relevant elements in the JWT generation configuration are described below. I
 </tr>
 <tr class="even">
 <td><pre><code>enforcer.jwtGenerator.keypair</code></pre></td>
-<td><p>An object containing the paths to public certificate and private key of an RSA keypair and specifying whether to use it for signing or not</p></td>
+<td><p>An object containing the paths to public certificate and private key of an RSA keypair and specifying whether to use it for signing or not.</p></td>
 <td><code>{
             privateKeyPath = "/home/wso2/security/keystore/mg.key"
             publicCertificatePath = "/home/wso2/security/truststore/mg.pem"
@@ -199,7 +198,7 @@ The relevant elements in the JWT generation configuration are described below. I
 </tr>
 <tr class="even">
 <td><pre><code>enforcer.jwtGenerator.keypair.useForSigning</code></pre></td>
-<td><p>Whether to use key for signing</p></td>
+<td><p>Whether to use key for signing.</p></td>
 <td><code>false</code></td>
 </tr>
 </tbody>
@@ -253,7 +252,7 @@ The public keys can be recieved from this endpoint with a <code>GET</code> or <c
 <tbody>
 <tr class="odd">
 <td><pre><code>kty</code></pre></td>
-<td>Key type identifies the cryptographic family this key belongs to</td>
+<td>Key type identifies the cryptographic family this key belongs to.</td>
 </tr>
 <tr class="even">
 <td><pre><code>e</code></pre></td>
@@ -265,7 +264,7 @@ The public keys can be recieved from this endpoint with a <code>GET</code> or <c
 </tr>
 <tr class="even">
 <td><pre><code>kid</code></pre></td>
-<td>This is an id parameter used to match a specific key(s)</td>
+<td>This is an ID parameter used to match a specific key(s).</td>
 </tr>
 <tr class="odd">
 <td><pre><code>alg</code></pre></td>
@@ -273,11 +272,11 @@ The public keys can be recieved from this endpoint with a <code>GET</code> or <c
 </tr>
 <tr class="even">
 <td><pre><code>n</code></pre></td>
-<td>The modulus value of the public key</td>
+<td>The modulus value of the public key.</td>
 </tr>
 <tr class="odd">
 <td><pre><code>keys</code></pre></td>
-<td>An array of the public keys available from the gateway</td>
+<td>An array of the public keys available from the gateway.</td>
 </tr>
 </tbody>
 </table>
@@ -318,7 +317,7 @@ service / on new http:Listener(8080) {
 }
 ```
 
-In this example we create a hello route on port 8080 and secure it with JWT. this hello function returns the JWT claims or the error that occured during validation. 
+In this example we create a hello route on port 8080 and secure it with JWT. This hello function returns the JWT claims or the error that occurred during validation. 
 
 ## See Also
 

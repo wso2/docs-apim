@@ -12,7 +12,7 @@ ecosystem. It uses the Integration custom resource (integration_cr.yaml file) th
 project (exported from WSO2 Integration Studio) and deploys the integration in your Kubernetes environment.
 
 !!! Note
-    If you are using native Kubernetes for complex or custom scenarios, note that the WSO2 Kubernetes API Operator does not support such improvements. You need to use native Kubernetes and Helm charts instead for those cases."
+    If you are using native Kubernetes for complex or custom scenarios, note that the WSO2 Kubernetes API Operator does not support such improvements. You need to use native Kubernetes and Helm charts instead for those cases.
 
 [![With and without K8s API Operator]({{base_path}}/assets/img/learn/kubernetes-operators/with-and-without-k8s-api-operator.png)]({{base_path}}/assets/img/learn/kubernetes-operators/with-and-without-k8s-api-operator.png)
 
