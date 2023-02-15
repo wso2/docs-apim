@@ -264,7 +264,7 @@ If you need to change the way that JWT is generated in the Gateway, such as by a
 Uncomment this configuration and configure custom Claim Retriever to add
 custom claims into JWT when invocation token in opaque mode.
 </td>
-<td><code>org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetriever</code></td>
+<td><code>org.wso2.carbon.apimgt.impl.token.ExtendedDefaultClaimsRetriever"</code></td>
 </tr>
 <tr class="odd">
 <td><pre><code>apim.jwt.claim_dialect</code></pre></td>
