@@ -60,10 +60,10 @@ In this guide, let's use two separate instances of WSO2 API Manager, and let's p
 
     ``` xml
     <ExternalAPIStores>
-        <StoreURL>http://localhost:9443/devportal</StoreURL>
+        <StoreURL>https://localhost:9443/devportal</StoreURL>
             <ExternalAPIStore id="DeveloperPortal2" type="wso2" className="org.wso2.carbon.apimgt.impl.publishers.WSO2APIPublisher">
                 <DisplayName>DeveloperPortal2</DisplayName>
-                <Endpoint>http://localhost:9444/devportal</Endpoint>
+                <Endpoint>https://localhost:9444/devportal</Endpoint>
                 <Username>admin</Username>
                 <Password>admin</Password>
             </ExternalAPIStore>
@@ -72,7 +72,7 @@ In this guide, let's use two separate instances of WSO2 API Manager, and let's p
 
     In this example,
 
-    - `http://localhost:9444/devportal` is the API Developer Portal of the second WSO2 API Manager instance.
+    - `https://localhost:9444/devportal` is the API Developer Portal of the second WSO2 API Manager instance.
     -   You publish to its super tenant's Developer Portal (admin/admin).
     -   For this tutorial, change the `DisplayName` to `DeveloperPortal2` , so that it is clear that we are referring to the second WSO2 API-M instance, which we are using as the external Developer Portal.
     -   The port is 9444 as you incremented it by 1 in step 2.
@@ -91,25 +91,25 @@ In this guide, let's use two separate instances of WSO2 API Manager, and let's p
             <!--Configuration to set the Developer Portal URL of the current running APIM deployment. 
             APIs published to external developer portals will be redirected to this URL-->
             
-                <StoreURL>http://<ip_address>:<port>/devportal</StoreURL>
+                <StoreURL>https://<ip_address>:<port>/devportal</StoreURL>
 
                 <ExternalAPIStore id="SLStore" type="wso2" className="org.wso2.carbon.apimgt.impl.publishers.WSO2APIPublisher">
                     <DisplayName>SL-Store</DisplayName>
-                    <Endpoint>http://<ip_address>:<port>/devportal</Endpoint>
+                    <Endpoint>https://<ip_address>:<port>/devportal</Endpoint>
                     <Username>admin</Username>
                     <Password>admin</Password>
                 </ExternalAPIStore>
                 
                 <ExternalAPIStore id="USStore" type="wso2" className="org.wso2.carbon.apimgt.impl.publishers.WSO2APIPublisher">
                     <DisplayName>US-Store</DisplayName>
-                    <Endpoint>http://<ip_address>:<port>/devportal/apis?tenant={tenant_domain}</Endpoint>
+                    <Endpoint>https://<ip_address>:<port>/devportal/apis?tenant={tenant_domain}</Endpoint>
                     <Username>{tenantadmin_username}@{tenant_domain}</Username>
                     <Password>{tenantadmin_password}</Password>
                 </ExternalAPIStore>
 
                 <ExternalAPIStore id="UKStore" type="wso2" className="org.wso2.carbon.apimgt.impl.publishers.WSO2APIPublisher">
                     <DisplayName>UKStore</DisplayName>
-                    <Endpoint>http://<ip_address>:<port>/devportal/apis?tenant={tenant_domain}</Endpoint>
+                    <Endpoint>https://<ip_address>:<port>/devportal/apis?tenant={tenant_domain}</Endpoint>
                     <Username>{tenantadmin_username}@{tenant_domain}</Username>
                     <Password>{tenantadmin_password}</Password>
                 </ExternalAPIStore>
@@ -123,11 +123,11 @@ In this guide, let's use two separate instances of WSO2 API Manager, and let's p
         	<!--Configuration to set the developer portal URL of the current running APIM deployment.
         	APIs published to external developer portals will be redirected to this URL-->
         	
-        	<StoreURL>http://<ip_address>:<port>/devportal/apis?tenant={tenant_domain_of_first_deployment}</StoreURL>
+        	<StoreURL>https://<ip_address>:<port>/devportal/apis?tenant={tenant_domain_of_first_deployment}</StoreURL>
         
                 <ExternalAPIStore id="DeveloperPortal2" type="wso2" className="org.wso2.carbon.apimgt.impl.publishers.WSO2APIPublisher">
                     <DisplayName>DeveloperPortal2</DisplayName>
-                    <Endpoint>http://<ip_address>:<port>/devportal/apis?tenant={tenant_domain_of_second_deployment}</Endpoint>
+                    <Endpoint>https://<ip_address>:<port>/devportal/apis?tenant={tenant_domain_of_second_deployment}</Endpoint>
                     <Username>{tenantadmin_username}@{tenant_domain_of_second_deployment}</Username>
                     <Password>{tenantadmin_password}</Password>
                 </ExternalAPIStore>
@@ -217,8 +217,8 @@ In this guide, let's use two separate instances of WSO2 API Manager, and let's p
 
      [![Publish to external Developer Portal]({{base_path}}/assets/img/learn/publish-to-external-devportal.png)]({{base_path}}/assets/img/learn/publish-to-external-devportal.png)
 
-12. Sign in to the external API Developer Portal (in this case, `http://localhost:9444/devportal`) and click on the API that you just published.
+12. Sign in to the external API Developer Portal (in this case, `https://localhost:9444/devportal`) and click on the API that you just published.
 
-    A link appears as **Visit Publisher Developer Portal** which directs you to the original publisher’s Developer Portal (in this case, `http://localhost:9443/devportal`) through which you can subscribe to the API.
+    A link appears as **Visit Publisher Developer Portal** which directs you to the original publisher’s Developer Portal (in this case, `https://localhost:9443/devportal`) through which you can subscribe to the API.
 
 You have successfully added multiple external Developer Portals to your registry and published your APIs to them.
