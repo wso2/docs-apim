@@ -83,9 +83,9 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
 
 #### Installing Elasticsearch
 
-1. [Install Elasticsearch](https://www.elastic.co/guide/en/elastic-stack-get-started/current/get-started-elastic-stack.html#install-elasticsearch) according to your operating system.
+1. [Install Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html) according to your operating system.
 
-2. Make sure Elasticsearch is [up and running](https://www.elastic.co/guide/en/elastic-stack-get-started/current/get-started-elastic-stack.html#_make_sure_that_elasticsearch_is_up_and_running).
+2. Make sure Elasticsearch is [up and running](https://www.elastic.co/guide/en/elasticsearch/reference/current/configuring-stack-security.html).
 
 !!! info
     As recommended by ELK, a minimum 3 node cluster is required for a production environment.
@@ -149,9 +149,9 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
 
 #### Installing Kibana
 
-1. [Install Kibana](https://www.elastic.co/guide/en/elastic-stack-get-started/current/get-started-elastic-stack.html#install-kibana) according to your operating system.
+1. [Install Kibana](https://www.elastic.co/guide/en/kibana/current/install.html) according to your operating system.
 
-2. [Launch](https://www.elastic.co/guide/en/elastic-stack-get-started/current/get-started-elastic-stack.html#_access_the_kibana_web_interface) the Kibana web interface.
+2. [Launch](https://www.elastic.co/guide/en/kibana/current/access.html) the Kibana web interface.
 
 3. Log in to the Kibana dashboards.
 
