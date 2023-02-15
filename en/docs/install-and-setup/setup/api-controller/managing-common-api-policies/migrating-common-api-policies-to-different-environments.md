@@ -27,14 +27,14 @@
 
     -   **Command**
      
-        ```go
-        apictl export policy api -n <Common API Policy name> -v <common API Policy version> -e <environment>  
+        ```bash
+        apictl export policy api -n <Common API Policy name> -e <environment>  
         ``` 
-        ```go
-        apictl export policy api --name <Common API Policy name> --version <common API Policy version> --environment <environment>  
+        ```bash
+        apictl export policy api --name <Common API Policy name> --environment <environment>  
         ```
-        ```go
-        apictl export policy api --name <Common API Policy name> --version <common API Policy version> --environment <environment> --format <Policy Definition file format>
+        ```bash
+        apictl export policy api --name <Common API Policy name> --environment <environment> --format <Policy Definition file format>
         ```
 
         !!! info
@@ -48,11 +48,11 @@
                 `--format` : File format of exported policy definition file (JSON or YAML). The default value is YAML.   
 
         !!! example
-            ```go
-            apictl export policy api -n addHeader -v v1 -e dev
+            ```bash
+            apictl export policy api -n addHeader -e dev
             ```          
-            ```go
-            apictl export policy api -n addHeader -v v1 -e dev --format JSON
+            ```bash
+            apictl export policy api -n addHeader -e dev --format JSON
             ``` 
 
     -   **Response**
