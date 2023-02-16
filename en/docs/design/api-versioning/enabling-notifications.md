@@ -22,9 +22,8 @@ Follow the instructions below to enable notifications for new API versions:
     |------------------------|---------------------------------------------------------------------------------------------------------------------------|
     | from_address           | The email address you use to send emails.                                                                                  |
     | username               | The email address used to authenticate the mail server. This can be the same email address as the `from_address`. |
-    | password               | Password used to authenticate the mail server.                                                                            |
-    | signature              | Signature of the sender account.
-                                                                                |
+    | password               | App Password used to authenticate the mail server.  Follow the instructions [here](https://support.google.com/accounts/answer/185833?hl=en) to create this. |
+    | signature              | Signature of the sender account.|
     
     For more information, see [Enable Notifications]({{base_path}}/reference/config-catalog/#enable-notifications).    
 
