@@ -2218,8 +2218,8 @@ extra:
         version: 1.0.0
         envoy_version: v1.20.0 # for GA release
         helm_chart:
-            version: 1.0.0-7
-            git_tag: v1.0.0.7
+            version: 1.0.0-8
+            git_tag: v1.0.0.8
     site_version: 4.0.0
     base_path: https://apim.docs.wso2.com/en/4.0.0
     #base_path: http://localhost:8000
