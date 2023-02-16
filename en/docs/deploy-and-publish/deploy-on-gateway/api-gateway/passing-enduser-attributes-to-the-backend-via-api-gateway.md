@@ -157,7 +157,7 @@ Follow the instructions below to change the existing functionality of retrieving
 
 2. Build your class and JAR file in the `<API-M_HOME>/repository/components/lib` directory where the node works as the Key Manager node.
 
-3. Set the `apim.jwt.claims_extractor_impl` to you class name.
+3. Set the `org.wso2.carbon.apimgt.impl.token.ExtendedDefaultClaimsRetriever` to you class name.
 ```toml
 [apim.jwt]
 ....
@@ -249,7 +249,7 @@ If you need to change the way that JWT is generated in the Gateway, such as by a
 <td>false</td>
 </tr>
 <tr class="even">
-<td><pre><code>apim.jwt.claims_extractor_impl</code></pre></td>
+<td><pre><code>org.wso2.carbon.apimgt.impl.token.ExtendedDefaultClaimsRetriever</code></pre></td>
 <td>
 Uncomment this configuration and configure custom Claim Retriever to add
 custom claims into JWT when invocation token in opaque mode.
@@ -259,7 +259,7 @@ custom claims into JWT when invocation token in opaque mode.
 <tr class="even">
 <td><pre><code>apim.jwt.claim_dialect</code></pre></td>
 <td><div class="content-wrapper">
-<p>The dialect URI under which the user's claims are be looked for. Only works with the default value of the <code>apim.jwt.claims_extractor_impl</code> element defined above.</p>
+<p>The dialect URI under which the user's claims are be looked for. Only works with the default value of the <code>org.wso2.carbon.apimgt.impl.token.ExtendedDefaultClaimsRetriever</code> element defined above.</p>
 <p>The JWT access token contains all claims that are defined in the <code>apim.jwt.claim_dialect</code> element. The default value of this element is <code>http://wso2.org/claims</code>. To get the list of a specific user's claims that need to be included in the JWT, simply uncomment this element after enabling the JWT. It will include all claims in <code>http://wso2.org/claims</code> to the JWT access token.</p>
 </div></td>
 <td>http://wso2.org/claims</td>
