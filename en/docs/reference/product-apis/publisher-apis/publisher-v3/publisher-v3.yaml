@@ -9438,13 +9438,10 @@ components:
           type: string
           readOnly: true
           example: ""
-        inlineContent:
-          type: string
-          example: This is doc content. This can have many lines.
         otherTypeName:
           type: string
           readOnly: true
-          example: ""
+          example: null
         visibility:
           type: string
           example: API_LEVEL
@@ -9455,16 +9452,18 @@ components:
         createdTime:
           type: string
           readOnly: true
+          example: null
         createdBy:
           type: string
-          example: admin
+          example: null
         lastUpdatedTime:
           type: string
           readOnly: true
+          example: null
         lastUpdatedBy:
           type: string
           readOnly: true
-          example: admin
+          example: null
     GraphQLSchema:
       title: GraphQL Schema
       required:
