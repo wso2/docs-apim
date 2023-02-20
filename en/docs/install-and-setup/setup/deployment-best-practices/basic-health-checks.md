@@ -40,16 +40,21 @@ balancer prior to routing traffic to a particular server node.
 
 ### Health Check API
 
-The health check API has two behaviors depending on whether the deployment is mutable or immutable. If the deployment 
-is mutable (which is mostly the configuration in centralized deployments), the probe gives a **ready** status when the 
-server starts successfully. If the deployment is immutable, the probe gives a **ready** status only if all the CApps 
-are deployed successfully during server startup. If there are faulty CApps, the probe returns the list of faulty CApps. The health check API serves at:
+The health check API gives a **ready** status only if all the CApps are deployed successfully during server startup. If there are faulty CApps, the probe returns the list of faulty CApps. The health check API serves at:
 
 `http://localhost:9201/healthz`
+
+### Liveness Check API
+
+The liveness check API gives a **ready** status when the server starts successfully.
+The health check API serves at:
+
+`http://localhost:9201/liveness`
 
 !!! Note
     If you are running the server instance with a different port offset other than the default (which is 10), the heath
     check API serves at 9191 + offset.  
+    
 
 ### Readiness Probe
 
