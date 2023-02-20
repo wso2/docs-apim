@@ -430,6 +430,12 @@ When you use the [transport.vfs.FileURI](#vfs-transport-file_url) parameter, you
             Whether to send files synchronously to the file host. When this parameter is set to <code>true</code>, files will be sent one after another to the file host. This synchronous write can be configured on a per host basis. The default setting is <code>false</code>.
          </td>
       </tr>
+      <tr>
+         <td>transport.vfs.StrictHostKeyChecking</td>
+         <td>
+            Whether the Host key should be checked. When this parameter is set to <code>yes</code>, VFS transport will always verify the public key (fingerprint) of the SSH/SFTP server. The default setting is <code>no</code>. <b>Note</b>: This option is available from U2 level 4.1.0.36 onwards.
+         </td>
+      </tr>
    </tbody>
 </table>
 
