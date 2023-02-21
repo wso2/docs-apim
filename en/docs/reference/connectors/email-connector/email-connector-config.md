@@ -112,8 +112,8 @@ The following operations allow you to work with the Email Connector. Click an op
         </tr>
         <tr>
             <td>enableOAuth2</td>
-            <td>Whether to enable OAuth2 Authentication. Possible values are <code>true</code> or <code>false.</code></td>
-            <td>Default is set to false.</td>
+            <td>Whether to enable OAuth2 Authentication. Possible values are <code>true</code> or <code>false</code>.</td>
+            <td>Default is set to <code>false</code>.</td>
         </tr>
         <tr>
             <td>grantType</td>
