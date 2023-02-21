@@ -110,6 +110,41 @@ The following operations allow you to work with the Email Connector. Click an op
             <td>The behavior of the pool when the pool is exhausted. (WHEN_EXHAUSTED_FAIL/WHEN_EXHAUSTED_BLOCK/WHEN_EXHAUSTED_GROW) Default is WHEN_EXHAUSTED_FAIL.</td>
             <td>Optional</td>
         </tr>
+        <tr>
+            <td>enableOAuth2</td>
+            <td>Whether to enable OAuth2 Authentication. Possible values are true or false.</td>
+            <td>Default is set to false.</td>
+        </tr>
+        <tr>
+            <td>grantType</td>
+            <td>Grant type. E.g., <code>AUTHORIZATION_CODE, CLIENT_CREDENTIALS</code></td>
+            <td>Required if <code>enableOAuth2Authentication</code> is true</td>
+        </tr>
+        <tr>
+            <td>clientId</td>
+            <td>Value of the Client ID you obtained when you register your application</td>
+            <td>Required if <code>enableOAuth2Authentication</code> is true</td>
+        </tr>
+        <tr>
+            <td>clientSecret</td>
+            <td>Value of the Client Secret you obtained when you register your application</td>
+            <td>Required if <code>enableOAuth2Authentication</code> is true</td>
+        </tr>
+        <tr>
+            <td>tokenUrl</td>
+            <td>The token endpoint URL to generate access token.</td>
+            <td>Required if <code>enableOAuth2Authentication</code> is true</td>
+        </tr>
+        <tr>
+            <td>scope</td>
+            <td>Scope of the connection.</td>
+            <td>Required if the grantType is <code>CLIENT_CREDENTIALS</code></td>
+        </tr>
+        <tr>
+            <td>refreshToken</td>
+            <td>The generated refresh token.</td>
+            <td>Required if the grantType is <code>AUTHORIZATION_CODE</code></td>
+        </tr>
     </table>
 
     **Sample configuration**
