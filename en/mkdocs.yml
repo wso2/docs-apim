@@ -2184,16 +2184,6 @@ plugins:
               'install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-520-to-is-5110.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
               'install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-is-5110.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
               'install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-500-to-is-5110.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/'
-              'install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-7.1.x.md':
-              'install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-7.0.x.md':
-              'install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.6.x.md':
-              'install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.5.x.md':
-              'install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.4.x.md':
-              'install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.3.x.md':
-              'install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.2.x.md':
-              'install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.1.1.md':
-              'install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.1.0.md':
-              'install-and-setup/upgrading-from-wso2-ei/upgrading-from-esb-5.x.x.md':
 
     # Extra
 extra_css:
