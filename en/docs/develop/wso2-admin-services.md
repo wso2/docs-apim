@@ -80,7 +80,7 @@ Follow the instructions below to invoke a service:
 
 The wsdl2java tool, which is shipped with WSO2 products by default, hides all the complexity and presents you with a proxy to the back-end service. The stub generation happens during the project build process within the Maven POM files. It uses the Apache Maven AntRun plugin to execute the wsdl2java tool.
 
-You can also use the Java client program given [here](https://svn.wso2.org/repos/wso2/people/asela/user-mgt/remote-user-api/4.2.X/) to invoke admin services. All dependency JAR files required to run the Java client are available in the `<API-M_HOME>/lib` directory.
+You can also use the Java client program given [here]({{base_path}}/assets/attachments/develop/remote-user-api.zip) to invoke admin services. All dependency JAR files required to run the Java client are available in the `<API-M_HOME>/lib` directory.
 
 
 ### Authenticating the user
