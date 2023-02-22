@@ -836,7 +836,7 @@ nav:
             - Publish Custom Analytics Events Data: api-analytics/samples/publishing-custom-analytics-data.md
             - Architecture: api-analytics/api-analytics-architecture.md
         - MI Analytics:
-            - ELK-Based Analytics:
+            - ELK Based Analytics:
                 - Setup: mi-analytics/mi-elk-installation-guide.md
                 - Access the Dashboard: mi-analytics/mi-elk-dashboards.md
             - EI Analytics:

@@ -23,7 +23,7 @@ filebeat.inputs:
   id: my-filestream-id
   enabled: true
   paths:
-    - /Users/sulochana/Documents/WSO2/bin/wso2mi-4.1.0/repository/logs/synapse-analytics.log
+    - <MI_HOME>/repository/logs/synapse-analytics.log
 
 # ============================== Filebeat modules ==============================
 
@@ -196,8 +196,8 @@ processors:
     # Secret token for the APM Server(s).
     #secret_token:
 
-
 # ================================= Migration ==================================
 
 # This allows to enable 6.7 migration aliases
 #migration.6_to_7.enabled: true
+
