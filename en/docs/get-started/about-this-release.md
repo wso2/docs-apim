@@ -62,7 +62,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
 ## Compatible WSO2 product versions
 
-- WSO2 API Manager 4.2.0 is compatible with WSO2 Identity Server 6.0.0.
+- WSO2 API Manager 4.2.0 is compatible with WSO2 Identity Server 6.0.0 and 6.1.0.
 - WSO2 API Manager 4.2.0 is compatible with Choreo Connect {{choreo_connect.version}}.
 
 ## Fixed issues
