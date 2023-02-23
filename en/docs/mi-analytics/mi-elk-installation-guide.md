@@ -60,7 +60,7 @@ In this stage, we download and install the components required from Elastic stac
 
 3. Log in to the Kibana dashboards.
 
-4. [Create a user](https://www.elastic.co/guide/en/kibana/8.3/tutorial-secure-access-to-kibana.html#_users) with manage_index_templates, monitor cluster privileges and create_index, create, write index privileges to wso2-mi-analytics-* indices pattern. The credentials of this user need to be included in the Logstash configuration.
+4. [Create a user](https://www.elastic.co/guide/en/kibana/8.3/tutorial-secure-access-to-kibana.html#_users) with <b>cluster privileges :manage_index_templates, monitor </b> and <b>index privileges: create_index, create, write </b> to wso2-mi-analytics-* indices pattern.The credentials of this user need to be included in the Logstash configuration.
 
 ### Installing Logstash
 
