@@ -4,7 +4,7 @@ The following sections explain how to manage Developer Portal, Publisher, and th
 
 ## Enable password recovery
 
-The password recovery feature does not work out-of-the-box because an email server needs to be configured to be able to send the password recovery email. 
+The password recovery feature does not work out-of-the-box because an email server needs to be configured to be able to send the password recovery email. Note that you need to create an **App password** specifically to be able to use this feature. The steps to do this are given in the table below.
 
 Follow the steps below to enable the password recovery feature for the Developer Portal, Publisher, and the Admin Portal:
 
@@ -32,7 +32,7 @@ Follow the steps below to enable the password recovery feature for the Developer
     |------------------------|---------------------------------------------------------------------------------------------------------------------------|
     | from_address           | The email address you use to send emails.                                                                                  |
     | username               | The email address used to authenticate the mail server. This can be the same email address as the `from_address`. |
-    | password               | Password used to authenticate the mail server.
+    | password               | App password used to authenticate the mail server. Follow the instructions [here](https://support.google.com/accounts/answer/185833?hl=en) to create this.
     | signature              | Signature of the sender account. |
 
 4. Re-start the server.
