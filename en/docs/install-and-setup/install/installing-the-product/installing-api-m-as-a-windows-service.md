@@ -9,10 +9,10 @@
 ### Prerequisites
 
 -   Install JDK and set up the `JAVA_HOME` environment variable.
--   Download and install a service wrapper library to use for running WSO2 API Manager as a Windows service. WSO2 recommends Yet Another Java Service Wrapper ( YAJSW ) versions [11.03](https://sourceforge.net/projects/yajsw/files/yajsw/yajsw-stable11.03/yajsw-stable-11.03.zip/download) or [12.14](https://sourceforge.net/projects/yajsw/files/yajsw/yajsw-stable-12.14/), and several WSO2 products provide a default `wrapper.conf` file in their `<PRODUCT_HOME>/bin/yajsw/` directory. The instructions below describe how to set up this file.
+-   Download and install a service wrapper library to use for running WSO2 API Manager as a Windows service. WSO2 recommends Yet Another Java Service Wrapper ( YAJSW ) version [13.05](https://sourceforge.net/projects/yajsw/files/yajsw/yajsw-stable-13.05/yajsw-stable-13.05.zip/download) and several WSO2 products provide a default `wrapper.conf` file in their `<PRODUCT_HOME>/bin/yajsw/` directory. The instructions below describe how to set up this file.
 
 !!! important
-    Please note that JDK 11 might not be compatible with YAJSW 11.03. Use JDK 8 for YAJSW 11.03 and JDK 11 for YAJSW 12.14.
+    Please note that for both JDK 11 and JDK 17 use YAJSW 13.05.
 
 ### Setting up the YAJSW wrapper configuration file
 
@@ -131,32 +131,31 @@ The configuration file used for wrapping Java Applications by YAJSW is `wrapper.
     wrapper.java.additional.1 = -Xbootclasspath/a:${carbon_home}/lib/xboot/*.jar
     wrapper.java.additional.2 = -Xms256m
     wrapper.java.additional.3 = -Xmx1024m
-    wrapper.java.additional.4 = -XX:MaxPermSize=256m
-    wrapper.java.additional.5 = -XX:+HeapDumpOnOutOfMemoryError
-    wrapper.java.additional.6 = -XX:HeapDumpPath=${carbon_home}/repository/logs/heap-dump.hprof
-    wrapper.java.additional.7 = -Dcom.sun.management.jmxremote
-    wrapper.java.additional.8 = -Dcarbon.registry.root=\/
-    wrapper.java.additional.9 = -Dcarbon.home=${carbon_home}
-    wrapper.java.additional.10 = -Dwso2.server.standalone=true
-    wrapper.java.additional.11 = -Djava.command=${java_home}/bin/java
-    wrapper.java.additional.12 = -Djava.io.tmpdir=${carbon_home}/tmp
-    wrapper.java.additional.13 = -Dcatalina.base=${carbon_home}/lib/tomcat
-    wrapper.java.additional.14 = -Djava.util.logging.config.file=${carbon_home}/repository/conf/etc/logging-bridge.properties
-    wrapper.java.additional.15 = -Dcarbon.config.dir.path=${carbon_home}/repository/conf
-    wrapper.java.additional.16 = -Dcarbon.logs.path=${carbon_home}/repository/logs
-    wrapper.java.additional.17 = -Dcomponents.repo=${carbon_home}/repository/components/plugins
-    wrapper.java.additional.18 = -Dconf.location=${carbon_home}/repository/conf
-    wrapper.java.additional.19 = -Dcom.atomikos.icatch.file=${carbon_home}/lib/transactions.properties
-    wrapper.java.additional.20 = -Dcom.atomikos.icatch.hide_init_file_path=true
-    wrapper.java.additional.21 = -Dorg.apache.jasper.runtime.BodyContentImpl.LIMIT_BUFFER=true
-    wrapper.java.additional.22 = -Dcom.sun.jndi.ldap.connect.pool.authentication=simple
-    wrapper.java.additional.23 = -Dcom.sun.jndi.ldap.connect.pool.timeout=3000
-    wrapper.java.additional.24 = -Dorg.terracotta.quartz.skipUpdateCheck=true
-    wrapper.java.additional.25 = -Dorg.apache.jasper.compiler.Parser.STRICT_QUOTE_ESCAPING=false
-    wrapper.java.additional.26 = -Dfile.encoding=UTF8
-    wrapper.java.additional.27 = -DworkerNode=false
-    wrapper.java.additional.28 = -Dhttpclient.hostnameVerifier=DefaultAndLocalhost
-    wrapper.java.additional.29 = -Dcarbon.new.config.dir.path=${carbon_home}/repository/resources/conf
+    wrapper.java.additional.4 = -XX:+HeapDumpOnOutOfMemoryError
+    wrapper.java.additional.5 = -XX:HeapDumpPath=${carbon_home}/repository/logs/heap-dump.hprof
+    wrapper.java.additional.6 = -Dcom.sun.management.jmxremote
+    wrapper.java.additional.7 = -Dcarbon.registry.root=\/
+    wrapper.java.additional.8 = -Dcarbon.home=${carbon_home}
+    wrapper.java.additional.9 = -Dwso2.server.standalone=true
+    wrapper.java.additional.10 = -Djava.command=${java_home}/bin/java
+    wrapper.java.additional.11 = -Djava.io.tmpdir=${carbon_home}/tmp
+    wrapper.java.additional.12 = -Dcatalina.base=${carbon_home}/lib/tomcat
+    wrapper.java.additional.13 = -Djava.util.logging.config.file=${carbon_home}/repository/conf/etc/logging-bridge.properties
+    wrapper.java.additional.14 = -Dcarbon.config.dir.path=${carbon_home}/repository/conf
+    wrapper.java.additional.15 = -Dcarbon.logs.path=${carbon_home}/repository/logs
+    wrapper.java.additional.16 = -Dcomponents.repo=${carbon_home}/repository/components/plugins
+    wrapper.java.additional.17 = -Dconf.location=${carbon_home}/repository/conf
+    wrapper.java.additional.18 = -Dcom.atomikos.icatch.file=${carbon_home}/lib/transactions.properties
+    wrapper.java.additional.19 = -Dcom.atomikos.icatch.hide_init_file_path=true
+    wrapper.java.additional.20 = -Dorg.apache.jasper.runtime.BodyContentImpl.LIMIT_BUFFER=true
+    wrapper.java.additional.21 = -Dcom.sun.jndi.ldap.connect.pool.authentication=simple
+    wrapper.java.additional.22 = -Dcom.sun.jndi.ldap.connect.pool.timeout=3000
+    wrapper.java.additional.23 = -Dorg.terracotta.quartz.skipUpdateCheck=true
+    wrapper.java.additional.24 = -Dorg.apache.jasper.compiler.Parser.STRICT_QUOTE_ESCAPING=false
+    wrapper.java.additional.25 = -Dfile.encoding=UTF8
+    wrapper.java.additional.26 = -DworkerNode=false
+    wrapper.java.additional.27 = -Dhttpclient.hostnameVerifier=DefaultAndLocalhost
+    wrapper.java.additional.28 = -Dcarbon.new.config.dir.path=${carbon_home}/repository/resources/conf
 ```
 
 ### Setting up carbon\_home
@@ -167,7 +166,7 @@ Extract WSO2 API Manager that you want to run as a Windows service, and then set
 
 You will now verify that YAJSW is configured correctly for running the WSO2 API Manager as a Windows service.
 
-1.  Open a Windows command prompt and go to the `<YAJSW_HOME>/bat/` directory. For example:
+1.  Open a Windows command prompt with administrative privileges and go to the `<YAJSW_HOME>/bat/` directory. For example:
 
     ``` java
     cd C:\Documents and Settings\yajsw_home\bat
@@ -189,7 +188,7 @@ If the configurations are set properly for YAJSW, you will see console output si
 
 ### Working with the WSO2CARBON service
 
-To install the Carbon-based product WSO2 API Manager as a Windows service, execute the following command in the `<YAJSW_HOME>/bat/` directory:
+To install the Carbon-based product WSO2 API Manager as a Windows service, execute the following command in a console with administrative privileges, in the `<YAJSW_HOME>/bat/` directory:
 
 ``` java
 installService.bat
