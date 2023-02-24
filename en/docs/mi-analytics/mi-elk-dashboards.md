@@ -6,6 +6,11 @@
 
 Gives you an idea about overall analytics.
 
+<a href="{{base_path}}/assets/attachments/mi-elk/mi-overall-1.png"><img src="{{base_path}}/assets/attachments/mi-elk/mi-overall-1.png" width="70%" alt="Mi Overall 01"></a>
+
+<a href="{{base_path}}/assets/attachments/mi-elk/mi-overall-2.png"><img src="{{base_path}}/assets/attachments/mi-elk/mi-overall-2.png" width="70%" alt="Mi Overall 02"></a>
+
+
 |Total Requests|Total number of requests handled by the Micro Integrator|
 |:----|:----|
 |Fault Response Rate|Fault response percentage|
@@ -25,6 +30,8 @@ Gives you an idea about overall analytics.
 
 Gives you an idea about API analytics. 
 
+<a href="{{base_path}}/assets/attachments/mi-elk/mi-api-img.png"><img src="{{base_path}}/assets/attachments/mi-elk/mi-api-img.png" width="70%" alt="Mi API"></a>
+
 |Total Requests|Total number of requests handled by the APIs|
 |:----|:----|
 |Fault Response Rate|Fault response percentage|
@@ -42,6 +49,8 @@ Gives you an idea about API analytics.
 ### Endpoints Dashboard (wso2-mi-endpoints)
 
 Gives you an idea about Endpoints analytics. 
+
+<a href="{{base_path}}/assets/attachments/mi-elk/endpoint-mi.png"><img src="{{base_path}}/assets/attachments/mi-elk/endpoint-mi.png" width="70%" alt="Mi Endpoints"></a>
 
 |Total Requests|Total number of requests handled by the Endpoints|
 |:----|:----|
@@ -61,6 +70,8 @@ Gives you an idea about Endpoints analytics.
 
 Gives you an idea about Inbound Endpoints analytics.
 
+<a href="{{base_path}}/assets/attachments/mi-elk/inbound-mi.png"><img src="{{base_path}}/assets/attachments/mi-elk/inbound-mi.png" width="70%" alt="Mi Inbound Endpoints"></a>
+
 |Total Requests|Total number of requests handled by the Inbound Endpoints|
 |:----|:----|
 |Fault Response Rate|Fault response percentage|
@@ -78,6 +89,8 @@ Gives you an idea about Inbound Endpoints analytics.
 
 Gives you an idea about Sequences analytics.
 
+<a href="{{base_path}}/assets/attachments/mi-elk/sequence.png"><img src="{{base_path}}/assets/attachments/mi-elk/sequence.png" width="70%" alt="Mi Sequences"></a>
+
 |Total Requests|Total number of requests handled by the Sequences|
 |:----|:----|
 |Fault Response Rate|Fault response percentage|
@@ -94,6 +107,8 @@ Gives you an idea about Sequences analytics.
 ### Proxy Services Dashboard (wso2-mi-proxy-services)
 
 Gives you an idea about Proxy Services analytics.
+
+<a href="{{base_path}}/assets/attachments/mi-elk/mi-proxy.png"><img src="{{base_path}}/assets/attachments/mi-elk/mi-proxy.png" width="70%" alt="Mi Proxy Services"></a>
 
 |Total Requests|Total number of requests handled by the Proxy Services|
 |:----|:----|
