@@ -10,7 +10,6 @@ Gives you an idea about overall analytics.
 
 <a href="{{base_path}}/assets/attachments/mi-elk/mi-overall-2.png"><img src="{{base_path}}/assets/attachments/mi-elk/mi-overall-2.png" width="70%" alt="Mi Overall 02"></a>
 
-
 |Total Requests|Total number of requests handled by the Micro Integrator|
 |:----|:----|
 |Fault Response Rate|Fault response percentage|
