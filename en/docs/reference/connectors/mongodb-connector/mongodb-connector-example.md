@@ -157,7 +157,9 @@ Add the configuration below to **remove** the iterative `org.mongodb.driver.clus
 
     2.  Then, add `org-mongodb-driver-cluster` to the list of `loggers`.
 
-!!! Prerequisite 1. Download the Mongo java driver from [here](https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.11.2/mongo-java-driver-3.11.2-javadoc.jar).
+!!! Prerequisite 
+
+    1. Download the Mongo java driver from [here](https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.11.2/mongo-java-driver-3.11.2-javadoc.jar).
 
     2. Add the driver to the `<PRODUCT_HOME>/dropins` folder.
 
