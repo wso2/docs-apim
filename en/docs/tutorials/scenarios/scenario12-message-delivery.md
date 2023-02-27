@@ -6,7 +6,7 @@ This is a tutorial that is part of a series and can be used as a standalone tuto
 
 ## User Story
 
-Railco wants to partner up with a Catering service to provide food to their first class passengers. For each registration they want to send an entry to the Catering service system. However, they have noticed that the Catering service system becomes unavailable from time to time. To make sure that the entries reach the Catering system, they are planning to implement a Guaranteed Message Delivery system.
+Railco wants to partner up with a Catering service to provide food for their first class passengers. For each registration they want to send an entry to the Catering service system. However, they have noticed that the Catering service system becomes unavailable from time to time. To make sure that the entries reach the Catering system, they are planning to implement a Guaranteed Message Delivery system.
 
 Store and forward messaging pattern is used to ensure guaranteed delivery of messages. Messages never get lost since they are stored in the message store and available for future reference.
 
