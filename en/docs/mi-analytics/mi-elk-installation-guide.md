@@ -170,6 +170,7 @@ You can have more control over the analytics data with the following additional 
 ``` toml
 [analytics]
 enabled = true
+publisher = "log"
 id = "wso2mi_server_1234"
 prefix = "SYNAPSE_ANALYTICS_DATA"
 api_analytics.enabled = true
