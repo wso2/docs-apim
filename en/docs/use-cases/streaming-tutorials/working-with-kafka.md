@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The Streaming Integrator can consume from a Kafka topic as well as to publish to a Kafka topic in a streaming manner.
+The Streaming Integrator can consume from a Kafka topic as well as publish to a Kafka topic in a streaming manner.
 
 This tutorial takes you through consuming from a Kafka topic, processing the messages, and finally, publishing output to a Kafka topic.
 
