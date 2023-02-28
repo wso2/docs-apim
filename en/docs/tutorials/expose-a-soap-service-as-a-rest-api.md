@@ -11,7 +11,7 @@ This tutorial will explain the steps to design, publish and invoke a SOAP servic
     
     [![Create SOAP API]({{base_path}}/assets/img/learn/create-soap-api.jpg)]({{base_path}}/assets/img/learn/create-soap-api.jpg)
 
-2.  Select **Pass Through** option and thereafter, select one of the following options:
+2.  Select **Import WSDL** option and thereafter, select one of the following options:
 
      * WSDL URL - If you select this option, you need to provide an endpoint URL.
 
