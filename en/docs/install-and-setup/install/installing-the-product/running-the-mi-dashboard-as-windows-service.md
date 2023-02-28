@@ -33,7 +33,7 @@ YASJW uses the configurations defined in the `<YAJSW_HOME>/conf/wrapper.conf` fi
 
 ## Installing the service
 
-Navigate to the `<YAJSW_HOME>/bat/` directory in the Windows command prompt, and execute the following command:
+Navigate to the `<YAJSW_HOME>/bat/` directory in the Windows command prompt with administrative privileges, and execute the following command:
 
 ```bash
 installService.bat
@@ -41,7 +41,7 @@ installService.bat
 
 ## Starting the service
 
-Navigate to the `<YAJSW_HOME>/bat/` directory in the Windows command prompt, and execute the following command:
+Navigate to the `<YAJSW_HOME>/bat/` directory in the Windows command prompt with administrative privileges, and execute the following command:
 
 ```bash
 startService.bat
@@ -49,7 +49,7 @@ startService.bat
 
 ## Stopping the service
 
-Navigate to the `<YAJSW_HOME>/bat/` directory in the Windows command prompt and execute the following command:
+Navigate to the `<YAJSW_HOME>/bat/` directory in the Windows command prompt with administrative privileges, and execute the following command:
 
 ```bash
 stopService.bat
@@ -57,7 +57,7 @@ stopService.bat
 
 ## Uninstalling the service
 
-To uninstall the service, navigate to the `<YAJSW_HOME>/bat/` directory in the Windows command prompt and execute the following command:
+To uninstall the service, navigate to the `<YAJSW_HOME>/bat/` directory in the Windows command prompt with administrative privileges, and execute the following command:
 
 ```bash
 uninstallServiceService.bat
