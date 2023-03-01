@@ -82,6 +82,10 @@ See the instructions on [configuring the API Gateway]({{base_path}}/api-analytic
 
 Let's configure the API-M nodes in the deployment.
 
+!!! note
+    Note that if you have a large number of APIs, to improve the performance when loading the APIs, the `/solr` directory should be mounted in your chosen shared file system for content synchronization between the nodes.
+
+
 ### Configure the Gateway nodes
 
 Configure the Gateway to communicate with the Control Plane and the Traffic Manager nodes.
