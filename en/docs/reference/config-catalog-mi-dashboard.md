@@ -447,20 +447,6 @@ value = "C123d"
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>client_secret</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                        </p>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Specify the client secret generated from the Identity Provider.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
                                   <span class="param-name-wrap"> <code>idp_url</code> </span>
                                 </div>
                                 <div class="param-info">
