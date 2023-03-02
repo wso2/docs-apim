@@ -67,19 +67,21 @@ The tutorial demonstrates a simple WebSub/WebHook API that monitors your GitHub 
      
       1. Expand the **Subscription Configuration** section in the **Topics** page.
 
-           [![WebSub API Runtime Configurations]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-runtime-configurations.png)]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-runtime-configurations.png)
+           [![WebSub API Runtime Configurations]({{base_path}}/assets/img/tutorials/streaming-api/enable-secret-generation.png)]({{base_path}}/assets/img/tutorials/streaming-api/enable-secret-generation.png)
 
-      2. Select **SHA1** as the **Signing Algorithm**.
+      2. Click **Enable** to enable secret generation.
+
+      3. Select **SHA1** as the **Signing Algorithm**.
      
-      3. Click **Generate** to generate a secret.
+      4. Click **Generate** to generate a secret.
 
            <a href="{{base_path}}/assets/img/tutorials/streaming-api/websub-api-generate-secret.png"><img src="{{base_path}}/assets/img/tutorials/streaming-api/websub-api-generate-secret.png" width="80%" alt="WebSub API Generate Secret"></a>
 
-      4. Copy the generated secret. 
+      5. Copy the generated secret. 
       
            Let's refer to the generated secret as `[generated_secret]`.
 
-      5. Click **Save**.
+      6. Click **Save**.
 
 7. Attach business plans to the WebSub/WebHook API.
 
