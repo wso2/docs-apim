@@ -112,6 +112,18 @@ Now, you have created and configured the GraphQL API successfully.
 
 <a name="5.2"></a>
 
+    !!! info "Troubleshooting"
+        If you **cannot invoke the API's HTTPS endpoint** (this causes the **SSLPeerUnverified exception**), it could be because the security certificate issued by the server is not trusted by your browser. 
+        
+        To resolve this issue, access the HTTPS endpoint directly from your browser and accept the security certificate.
+        
+        If the API Manager has a **certificate signed by a Certificate Authority (CA)**, the HTTPS endpoints should work out-of-the-box.
+
+     Note the successful response for the API invocation. 
+
+     [![Response of GraphQL Query]({{base_path}}/assets/img/learn/graphql-response-query.png)]({{base_path}}/assets/img/learn/graphql-response-query.png)
+     
+
 #### Step 5.2 - Optionally, try out a Subscription operation
 
 <html>
