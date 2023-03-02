@@ -245,7 +245,7 @@ When registering a third-party Identity Provider as a Key Manager in the Admin P
           <tr class="odd">
           <td>Userinfo Endpoint</td>
           <td>The endpoint that allows clients to verify the identity of the end-user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end-user. <br/>e.g., <code>https://dev-599740.okta.com/oauth2/userInfo</code></td>
-          <td>Mandatory</td>
+          <td>Mandatory <br/>(Unable to obtain from well-known URL)</td>
           </tr>
           <tr class="even">
           <td>Authorize Endpoint</td>
@@ -255,7 +255,7 @@ When registering a third-party Identity Provider as a Key Manager in the Admin P
           <tr class="odd">
           <td>Scope Management Endpoint </td>
           <td>The endpoint is used to manage the scopes. <br/>e.g., <code>https://dev-599740.okta.com/oauth2/scope</code></td>
-          <td>Mandatory</td>
+          <td>Mandatory <br/>(Unable to obtain from well-known URL)</td>
           </tr>
           </table>
 
