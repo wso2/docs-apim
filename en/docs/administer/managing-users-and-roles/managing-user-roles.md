@@ -55,18 +55,18 @@ Follow the instructions below to create the `creator`, `publisher`, and `subscri
     As a limitation, when you delete a user and create another with the same username, applications of the previous user will be visible on the Developer Portal applications listing page.
     However the new user will not be able to access the details of the application as the service provider is already deleted.
 
-## Adding Role Mappings
+## Adding Scope Assignments
 
-You can use role mapping to map the above created roles to the existing default internal roles of API-M. This enables users with new roles to use REST API scopes of API-M Portals easily.
+You can use scope assignments to map the above created roles to the existing default internal roles of API-M or assign custom scopes to them. This enables users with new roles to use REST API scopes of API-M Portals easily.
 
 1. Sign in to the Admin Portal (`https://<APIM_Host>:<APIM_Port>/admin`) if you have not done so already.
 
-2. Navigate to **Settings > Role Permissions** in Admin Portal and click on **Add Role Permission**.
-    [![View Role Permission]({{base_path}}/assets/img/administer/view-role-permissions.png)]({{base_path}}/assets/img/administer/view-role-permissions.png)
+2. Navigate to **Settings > Scope Assignments** in Admin Portal and click on **Add scope mappings**.
+    [![View Scope Assignments]({{base_path}}/assets/img/administer/view-scope-assignments.png)]({{base_path}}/assets/img/administer/view-scope-assignments.png)
 
 3. Provide the name of the newly created role.
 
-    [![Add Role Name]({{base_path}}/assets/img/administer/add-role-permissions.png)]({{base_path}}/assets/img/administer/add-role-permissions.png)
+    [![Add Role Name]({{base_path}}/assets/img/administer/add-new-role-name.png)]({{base_path}}/assets/img/administer/add-new-role-name.png)
 
 4. The newly created role can be mapped to an existing internal or admin role if required.
 
@@ -75,6 +75,7 @@ You can use role mapping to map the above created roles to the existing default 
 5. Select the required existing scopes for the newly created role and save the changes.
 
     [![Scope mapping]({{base_path}}/assets/img/administer/add-scope-to-role-mapping.png)]({{base_path}}/assets/img/administer/add-scope-to-role-mapping.png)
+    
 This will update all the scope mappings in the `tenant-conf.json` file with the `Internal/creator` role as an allowed role. As a result, the new creator role will also be allowed for all scopes that are allowed for the `Internal/creator` role.
 
 !!! info 
