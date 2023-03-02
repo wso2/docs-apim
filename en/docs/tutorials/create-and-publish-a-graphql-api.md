@@ -167,4 +167,17 @@ Now, you have created and configured the GraphQL API successfully.
 
     [![Response Event of GraphQL Subscription]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/try-out-sub-event.png)]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/try-out-sub-event.png)
 
+!!! info "Troubleshooting"
+        If you **cannot invoke the API's WSS endpoint during handshake** (this causes the **SSLPeerUnverified exception**), it could be because the security certificate issued by the server is not trusted by your browser. 
+        
+        This will result in the following error being printed in the backend.
+
+        ```
+        ERROR - InboundWebsocketSourceHandler Endpoint not found for port : 8099 tenant domain : null
+        ```       
+        
+        To resolve this issue, access the corresponding HTTPS endpoint of the WSS endpoint directly from your browser and accept the security certificate. (e.g., `https://localhost:8099/swapi/1.0.0`) 
+        
+        If the API Manager has a **certificate signed by a Certificate Authority (CA)**, the WSS endpoints should work out-of-the-box.
+
 You have successfully created and published your first GraphQL API, subscribed to it, obtained an access token for testing, and tested query and subscription operations of your API with the access token.
