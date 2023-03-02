@@ -246,9 +246,7 @@ A public URL should be forwarded to `localhost:9021`, so that your local server 
 
      1. Subscribe to the **/issues** topic.
 
-          1. Subscribe the callback URL with the **/issues** topic by executing the following cURL command. 
-     
-                Replace `[encoded_hub_callback]` and `accesstoken` with the values you have obtained.
+          1. Subscribe the callback URL with the **/issues** topic by executing the following cURL command. Replace `[encoded_hub_callback]` and `accesstoken` with the values you have obtained.
 
                ``` bash
                curl -X POST 'http://localhost:8280/repo-watcher/1.0.0?hub.callback=[encoded_hub_callback]&hub.mode=subscribe&hub.secret=newValue&hub.lease_seconds=50000000&hub.topic=/issues' -H "Authorization: Bearer [accesstoken]"
@@ -256,17 +254,11 @@ A public URL should be forwarded to `localhost:9021`, so that your local server 
      
            2. Click **Subscriptions** to go to the Subscriptions page of your application in the Developer Portal. 
      
-           3. Click the WebSub API's subscription entry.
-           
-                This will list down the subscription that you just made.
+           3. Click the WebSub API's subscription entry. This will list down the subscription that you just made.
      
-           4. Go to your GitHub repo and create a new issue. 
-               
-                This will trigger the GitHub WebHook you have created.
+           4. Go to your GitHub repo and create a new issue. This will trigger the GitHub WebHook you have created.
      
-           5. Go back to the webpage at [https://webhook.site.org](https://webhook.site), where you created the callback URL. 
-     
-                A new request which denotes the issue creation would have appeared.
+           5. Go back to the webpage at [https://webhook.site.org](https://webhook.site), where you created the callback URL. A new request which denotes the issue creation would have appeared.
 
                [![Received Event]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-received-event.png)]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-received-event.png)
      
