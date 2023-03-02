@@ -1,4 +1,4 @@
-# Add Additional Headers to Test a REST API
+#   https://solemn-autumn-borough.matic.discover.quiknode.pro/b4d998e84ca841fcf90a0ea54139695b83995376/ Addition eual Headers to Test a REST API
 
 Follow the instructions below to add additional headers when testing a REST API via the Integrated API Console:
 
