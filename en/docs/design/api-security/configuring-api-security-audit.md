@@ -77,17 +77,11 @@ You need to add the API Token and Collection ID properties inside the configurat
 !!! tip
     For more information on creating a tenant, see [Managing Tenants]({{base_path}}/administer/product-administration/multitenancy/introduction-to-multitenancy/).
 
-1.  Navigate to the Management Console [https://localhost:9443/carbon](https://localhost:9443/carbon) and sign in with your tenant credentials.
+1.  Navigate to the Admin Console [https://localhost:9443/admin](https://localhost:9443/admin) and sign in with your tenant credentials.
 
-2.  Go to **Main > Resources**. Click **Browse**.
+2.  Go to **Settings > Advanced**.
 
-     [![Browse option]({{base_path}}/assets/img/learn/browse-option.png)]({{base_path}}/assets/img/learn/browse-option.png)
-
-3.  Enter `/_system/config/apimgt/applicationdata/tenant-conf.json` as the location and click **Go** to access the `tenant-conf.json` file stored in the WSO2 Registry.
-
-4.  Click **Edit as text** to edit the JSON file.
-
-5.  Add the following configuration to the JSON file and save it.
+3.  Add the following configuration to the JSON file and save it.
 
     ``` bash tab="Format"
         SecurityAuditConfig: {
@@ -105,9 +99,9 @@ You need to add the API Token and Collection ID properties inside the configurat
         }
     ```
 
-     [![tenant conf properties]({{base_path}}/assets/img/learn/tenant-conf-properties.png)]({{base_path}}/assets/img/learn/tenant-conf-properties.png)
+     [![advanced conf properties]({{base_path}}/assets/img/learn/advanced-config.png)]({{base_path}}/assets/img/learn/advanced-config.png)
 
-6.  Restart the WSO2 API Manager server.
+4.  Restart the WSO2 API Manager server.
 
     !!! note
         If you define a value for the **overrideGlobal** property, it will override the **global** property value, which is under the [security_audit] section in the `<API-M_HOME>/repository/conf/deployment.toml` file.  
