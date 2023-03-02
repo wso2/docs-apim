@@ -10,7 +10,7 @@
 
     In order to generate an access token with NTLM, you must have an NTLM token.
 
-3.  Generate an NTLM token by running the sample provided in the `<APIM_HOME>/samples/NTLMGrantClientWithHandshake` directory. See the **`Readme.txt`** in the same folder for instructions.
+3.  Generate an NTLM token by running the sample provided in the [`NTLMGrantClientWithHandshake`](https://github.com/wso2/product-apim/tree/v2.6.0/modules/samples/NTLMGrantClientWithHandshake) directory. See the **`Readme.txt`** in the same folder for instructions.
 
 4.  Invoke the token API in the following manner to get an access token.
     The value of the **`windows_token`** in the following command is the NTLM token that you generated in the previous step.
