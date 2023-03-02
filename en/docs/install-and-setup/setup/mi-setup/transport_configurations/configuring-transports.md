@@ -103,9 +103,9 @@ listener.parameter.PreferredCiphers = "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,T
 ```
 
 !!! Note
-    To check the above configuration changes related to SSL. Download [TestSSLServer.jar](https://docs.wso2.com/download/attachments/53125465/TestSSLServer.jar?version=1&modificationDate=1471859455000&api=v2) and test with the following command.
+    To check the above configuration changes related to SSL. Download [testsslserver.jar](https://docs.wso2.com/download/attachments/53125465/testsslserver.jar?version=1&modificationDate=1471859455000&api=v2) and test with the following command.
 
-    $ java -jar TestSSLServer.jar localhost 8253
+    $ java -jar testsslserver.jar localhost 8253
 
 ## Configuring the VFS transport
 

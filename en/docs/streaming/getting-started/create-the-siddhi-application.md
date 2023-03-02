@@ -148,4 +148,4 @@ Before deploying the `SweetFactoryApp` Siddhi application to the Streaming Integ
    
 
 !!! tip "What's Next?"
-    Now you can deploy the `SweetFactoryApp` Siddhi application you created. To do this, proceed to [Step 3: Deploy the Siddhi Application](deploy-siddhi-application.md).
+    Now you can deploy the `SweetFactoryApp` Siddhi application you created. To do this, proceed to [Step 3: Deploy the Siddhi Application]({{base_path}}/streaming/getting-started/deploy-siddhi-application/).

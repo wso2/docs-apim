@@ -1,24 +1,37 @@
 # API Key Authentication
 
-API Key Authentication in WSO2 Choreo Connect is a simple authentication scheme that accepts a valid self-contained JWT token issued for accessing APIs. Since self-contained tokens can have all authorization information, the token processing time is fast and more efficient. Common practice is to have a short expiration time for self-contained access tokens.
+API Key Authentication in Choreo Connect is a simple authentication scheme that accepts a valid self-contained JWT token issued for accessing APIs. Since self-contained tokens can have all authorization information, the token processing time is fast and more efficient. The common practice is to have a short expiration time for self-contained access tokens.
 
-Follow the instructions below to use API Key Authentication with WSO2 Choreo Connect:
+Select one of the methods given below to enable API Key Authentication for an API depending on the Choreo Connect **mode** you are using.
 
-- If you are using API Manager to deploy the API, follow [API Key Authentication with WSO2 API Manager]({{base_path}}/design/api-security/api-authentication/secure-apis-using-api-keys).
-- If you are using APICTL to deploy the API, follow [API Key Authentication using OpenAPI security schemes](#api-key-authentication-using-openapi-security-schemes).
+|**Mode**         | **Method**    |
+|--------------|-----------|
+|[Choreo Connect with WSO2 API Manager as a Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/)   | [Secure APIs with API Keys via API-M]({{base_path}}/design/api-security/api-authentication/secure-apis-using-api-keys)  |
+|[Choreo Connect as a Standalone Gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/)  |[Update the OpenAPI definition of the API](#update-the-openapi-definition-of-the-api) |
 
-## API Key Authentication using OpenAPI security schemes
+!!! tip
+    Following is the config added to Choreo Connect by default for API Key Authentication. To change the default settings, add this to config.toml and update as required.
 
-Follow the instructions below to enable API Key Authentication using OpenAPI security schemes.
+    ```
+    [[enforcer.security.tokenService]]
+    # Provide unique name for the JWT issuer
+    name = "APIM APIkey"
+    validateSubscription = true
+    # Alias name given in Enforcer truststore for the public certificate of the JWT issuer
+    certificateAlias = "apikey_certificate_alias"
+    # Certificate Filepath within Enforcer
+    certificateFilePath = "/home/wso2/security/truststore/wso2carbon.pem"
+    ```
 
-!!! info
-    When you enable API authentication for an API and deploy via WSO2 API Manager, it will override the API Key Authentication defined in the OpenAPI definition.
-    Therefore, the following steps work for Choreo Connect when the API is not deployed via WSO2 API Manager. 
-    So use the following steps when you want to enable API Key authentication when deploying an API using the APICTL.
+    More information can be found in [Configure an External Key Manager](http://localhost:8000/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/configuring-an-external-key-manager/).
+
+## Update the OpenAPI definition of the API
+
+When deploying via WSO2 API Manager, the already existing API Key security schemes defined in the OpenAPI definition will be overridden as you configure API security from the Publisher Portal. Therefore, making changes via the API Manager Publisher UI is sufficient. Use the following steps to enable API Key authentication when deploying an API using apictl, in other words, during standalone mode.
 
 ### Step 1  - Define the API Key security scheme
 
-Security schemes must be defined on the OpenAPI definition under `securitySchemes`. One or more API Key security schemes can be used simultaneously, similar to a logical OR operator. Define the API Key security scheme as follows:
+Security schemes must be defined in the OpenAPI definition under `securitySchemes`. One or more API Key security schemes can be used simultaneously, similar to a logical OR operator. Define the API Key security scheme as follows:
 
 | Field Name | Description   |
 | -----------| --------------|
@@ -26,7 +39,7 @@ Security schemes must be defined on the OpenAPI definition under `securityScheme
 | `in`       | This can be either `header` or `query`. |
 | `type`     | Specify `apiKey` as the type. |
 
-The following example defines an API Key security scheme named `apiKeyAuth`, which sends `X-API-Key` as a request header. Here, `apiKeyAuth` is the name provided for the security scheme and `X-API-Key` is the name for the header.
+The following example defines an API Key security scheme named `apiKeyAuth`, which expects `X-API-Key` as a request header. Here, `apiKeyAuth` is the name provided for the security scheme and `X-API-Key` is the name for the header.
 
 !!! note
     The following example shows how to define API Key security schemes in [OAS3](https://swagger.io/docs/specification/authentication/api-keys/). If you are using an OAS2 API definition, go to [this Swagger document](https://swagger.io/docs/specification/2-0/authentication/api-keys/) to get more information on defining API Key security in OAS2.
@@ -90,7 +103,7 @@ Currently, only API Keys issued by WSO2 API Manager are allowed.
 Hence, you need a valid API Key issued for the particular API Name and the version from WSO2 API Manager.
 Follow the steps mentioned on [generating the API Key documentation]({{base_path}}/design/api-security/api-authentication/secure-apis-using-api-keys/#using-api-keys-to-secure-an-api) to generate an API Key from API Manager.
 
-### Step 3 - Invoke the API using the API Key
+### Step 4 - Invoke the API using the API Key
 
 Use one of the following options to invoke APIs using an API key based on the method that you used to define API Key Authentication in [step 1](#step-1-define-api-key-authentication-for-the-api).
 
@@ -107,13 +120,70 @@ Use one of the following options to invoke APIs using an API key based on the me
       ```
 
       ``` bash tab="Response"
-      {"id":1,"category":{"id":0},"name":"teste","photoUrls":[],"tags":[],"status":"teste"}
+      {"id":1,"category":{"id":0},"name":"tested","photoUrls":[],"tags":[],"status":"tested"}
       ```
 
 ## Additional Information
 
-### API key restriction for IP address and HTTP referrer
-
 Choreo Connect API Key Authentication supports API key restriction for IP address and HTTP referrer. 
 
 {!includes/design/additional-api-key.md!}
+
+## Configurations related to API Key
+
+You may use the following to reconfigure API Authentication related configs.
+
+```
+[[enforcer.security.tokenService]]
+name = "APIM APIkey"
+validateSubscription = true
+certificateAlias = "apikey_certificate_alias"
+certificateFilePath = "/home/wso2/security/truststore/wso2carbon.pem"
+```
+
+<table>
+  <tr>
+    <th>Parameter</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td>Name of the token service and must not be changed</td>
+  </tr>
+  <tr>
+    <td>certificateAlias</td>
+    <td>Alias name to be used by the internal Enforcer truststore for the public certificate of the JWT issuer</td>
+  </tr>
+  <tr>
+    <td>certificateFilePath</td>
+    <td>Certificate file path within the Enforcer container</td>
+  </tr>
+  <tr>
+    <td>validateSubscription</td>
+    <td>
+    Whether to validate subscriptions. **If disabled**, a single API key may be used against any API in the same Choreo Connect instance since only the JWT signature would be validated procedure. When set to true, subscription validation is done as given below depending on the Choreo Connect mode. </br></br>
+
+    - For <a href="{{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/">Choreo Connect with WSO2 API Manager as a Control Plane</a> - Check against the subscriptions received from the Control Plane in order to validate the mapping between the invoked API and application info in the API key JWT claims. </br></br>
+
+    - For <a href="{{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/">Choreo Connect as a Standalone Gateway</a> -  Check the metadata of the invoked API against the API details included in the API key claims. 
+
+    </td>
+  </tr>
+</table>
+
+During the absence of the above config section, the following will be referred if present to support backward compatibility.
+
+```
+[[enforcer.security.tokenService]]
+name = "APIM Publisher"
+issuer = "https://localhost:9443/publisher"
+validateSubscription = true
+certificateAlias = ""
+certificateFilePath = "/home/wso2/security/truststore/wso2carbon.pem"
+```
+
+## See also
+
+- [OAuth 2.0 Authentication]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/oauth2-access-tokens/)
+- [Configuring an External Key Manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/configuring-an-external-key-manager/)
+- [Subscription Validation]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authorization/subscription-validation)

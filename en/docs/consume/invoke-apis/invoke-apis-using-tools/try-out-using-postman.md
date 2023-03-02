@@ -1,14 +1,11 @@
-# Test an API Using Postman
+# Test a REST API Using Postman
 
-You can download a Postman collection for either an **OpenAPI** or a **GraphQL Schema** using WSO2 API Manager, and test the API using Postman.
+You can download a Postman collection for an **OpenAPI** using WSO2 API Manager, and test the REST API using Postman.
 
 !!! note "Try out using the Integrated API Console"
-    If required, instead of using Postman you can try out your APIs using the WSO2 API Manager integrated consoles that correspond to your API as mentioned below.
-
-    - REST API - [Integrated API Console]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console/)
-    - GraphQL API - [Integrated GraphQL Console]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console)
-
-For example, let's download an OpenAPI as a Postman collection and try it out using Postman.
+    If required, instead of using Postman you can try out your REST APIs using the [Integrated API Console]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console/) in WSO2 API Manager.
+    
+Let's download an OpenAPI as a Postman collection and try it out using Postman.
 
 ## Step 1 - Download a Postman collection for the API
 

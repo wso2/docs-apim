@@ -222,13 +222,13 @@ API Products, and Applications across WSO2 API-M environments and to perform CI/
 
 ### Before you begin...
 
-1. [Make sure that you run WSO2 API Manager (WSO2 API-M) 4.0.0]({{base_path}}/get-started/api-manager-quick-start-guide/#before-you-begin).
+1. [Make sure that you run WSO2 API Manager (WSO2 API-M) 4.1.0]({{base_path}}/get-started/api-manager-quick-start-guide/#before-you-begin).
 
 2. Download the apictl.
 
      1. Navigate to the [API Manager Tooling page](https://wso2.com/api-management/tooling/).
 
-     2. Download the apictl version 4.0.0 (or the latest of the 4.x family) based your operating system from the **API Controller Tooling** section.
+     2. Download the apictl version 4.1.0 (or the latest of the 4.1.x family) based your operating system from the **API Controller Tooling** section.
  
      3. Extract the ZIP to a preferred location.
 
@@ -272,7 +272,7 @@ API Products, and Applications across WSO2 API-M environments and to perform CI/
      Let's use the command below to create an API named `PetstoreAPI`. This creates a folder named `PetstoreAPI` in your current directory.
 
        ```bash
-       ./apictl init PetstoreAPI --oas https://apim.docs.wso2.com/en/4.0.0/assets/attachments/get_started/petstore.json
+       ./apictl init PetstoreAPI --oas https://apim.docs.wso2.com/en/4.1.0/assets/attachments/get_started/petstore.json
        ```
 
      On successfully executing this command, you should see the following message.

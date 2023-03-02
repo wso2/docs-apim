@@ -21,7 +21,7 @@ Interface, the classloading happens in the enforcer. See the following sections 
    <dependency>
        <groupId>org.wso2.choreo.connect</groupId>
        <artifactId>org.wso2.choreo.connect.enforcer.commons</artifactId>
-       <version>1.1.0</version>
+       <version>{{choreo_connect.version}}</version>
    </dependency>
    ```
 
@@ -111,6 +111,10 @@ the Authentication Filter.
 
 6. Mount the JAR file containing the Custom Filter to the `/home/wso2/lib/dropins`. (If you are using the docker-compose file within the distribution, then add the JAR file to
 `docker-compose/resources/enforcer/dropins` directory.)
+
+    !!! note 
+         If you use Choreo Connect with Helm Charts, please refer to the documentation in [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/production-deployment-guideline/#mount-files-into-the-dropins-directory-optional) to add a JAR file into the dropins directory.
+
 
 7. Deploy the Choreo Connect distribution and the filter would be engaged during runtime.
 

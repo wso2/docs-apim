@@ -111,7 +111,7 @@ Follow the steps below to clone the API-M documentation GitHub repository and to
 1. Run the following command to start the server and view the site on your local server.
 
     ```shell
-    $ mkdocs serve
+    $ python3 -m mkdocs serve
     ```
 
     > **NOTE:**
@@ -125,7 +125,7 @@ Follow the steps below to clone the API-M documentation GitHub repository and to
     >     ```
     > 3. Run the following command to start the server and to make the server load only the changed items and display the changes faster. 
     >
-    >    `mkdocs serve --dirtyreload`
+    >    `python3 -m mkdocs serve --dirtyreload`
   
 2. Open the following URL on a new browser window to view the API-M documentation site locally.
 

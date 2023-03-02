@@ -156,4 +156,29 @@ This will restrict simultaneous open incoming connections to 2. To disable throt
 !!! info
     Connection throttling is never exact. For example, setting this property to 2 will result in roughly two simultaneous open connections at any given time.
 
+!!! Note "The following configurations should be added to the deployment.toml file in order to apply the changes"
+    HTTP Transport Receiver Parameters
+    ```
+    [transport.passthru_http.listener.parameters]
+    port=7003
+    ```
+    
+    HTTP Transport Sender Parameters
+    ```
+    [transport.passthru_http.sender.parameters]
+    non-blocking=false
+    ```
+    
+    HTTPS Transport Receiver Parameters
+    ```
+    [transport.passthru_https.listener.parameters]
+    port=7003
+    ```
+
+    HTTPS Transport Sender Parameters
+    ```
+    [transport.passthru_https.sender.parameters]
+    non-blocking=false
+    ```
+
 

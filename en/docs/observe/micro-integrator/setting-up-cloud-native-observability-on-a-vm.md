@@ -1,7 +1,3 @@
----
-title: Setting up Cloud Native Observability on a VM - WSO2 API Manager 4.0.0
----
-
 # Setting up Cloud Native Observability on a VM
 
 Follow the instructions given below to set up a cloud native observability solution for your Micro Integrator (MI) deployment in a VM environment. 

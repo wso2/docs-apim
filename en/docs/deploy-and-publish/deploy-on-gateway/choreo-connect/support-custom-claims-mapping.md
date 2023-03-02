@@ -17,7 +17,7 @@ The following instructions are based on the [above example](#example). Let's cha
 
 If the key of the remote claim is different from the custom claim, you can configure claim mapping as follows:
 
-1. Navigate to the `<CHOREO-CONNECT_HOME>/docker-compose/<choreo-connect-with-apim OR choreo-connect>/conf/config.toml` file.
+1. {!includes/deploy/cc-configuration-file.md!}
 
 2. Add the following configuration under the `enforcer.jwtTokenConfig` tag.
 
@@ -256,5 +256,8 @@ public class CustomJWTTransformer implements JWTTransformer {
 1. Build the JWT transformer project after the JWT claim value transformer is written.
 
 2. Add the output JAR in the `<CHOREO-CONNECT_HOME>/docker-compose/resources/enforcer/dropins` directory. 
+
+    !!!note
+         If you use Choreo Connect with Helm Charts, please refer to the documentation in [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/production-deployment-guideline/#mount-files-into-the-dropins-directory-optional) to add a JAR file into the dropins directory.
 
      If any third-party libraries are used when writing the JWT claim value transformer, these custom JARs too should also be placed in the same directory.

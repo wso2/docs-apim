@@ -6,7 +6,7 @@ responding to the client. Here, an interceptor is a separate microservice that h
 both request and response transformations.
 
 If you are an API developer, you can write a custom request/response interceptor microservice in any programming
-language of your choice by following [the Interceptor OpenAPI Definition](https://raw.githubusercontent.com/wso2/product-microgateway/v1.0.0/resources/interceptor-service-open-api.yaml).
+language of your choice by following [the Interceptor OpenAPI Definition](https://raw.githubusercontent.com/wso2/product-microgateway/main/resources/interceptor-service-open-api-v1.yaml).
 Next, for the interceptor to be engaged with Choreo Connect, define the corresponding interceptors using the following
 OpenAPI extensions in the OpenAPI definition.
 

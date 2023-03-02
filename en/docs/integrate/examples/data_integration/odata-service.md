@@ -84,3 +84,20 @@ Open a command prompt execute the following CURL commands using CRUD operations:
     ```bash
     curl -X GET -H 'Accept: application/xml' http://localhost:8290/odata/odata_service/Datasource/ACCOUNT
     ```
+    
+!!! info "Supported functionality"
+
+    - Navigation (e.g. GET /EMPLOYEES(1001)/DEPARTMENTS)
+        - One to One
+        - One to Many
+    - Count
+        - Append count to the result set (e.g. GET /EMPLOYEES?$count=true)
+        - Get only the count (e.g. GET /EMPLOYEES/$count)
+    - Top (e.g. GET /EMPLOYEES?$top=10)
+    - Skip (e.g. GET /EMPLOYEES?$skip=5)
+    - Select (e.g. GET /EMPLOYEES?$select=emp_no,last_name)
+    - Sort
+        - Ascending (e.g. GET /EMPLOYEES?$orderby=last_name asc)
+        - Descending (e.g. GET /EMPLOYEES?$orderby=last_name desc)
+    - Filter (e.g. GET /EMPLOYEES?$filter=dept_no eq 'd001' and emp_no eq 10001)
+    - Pagination (e.g. GET /EMPLOYEES?$skiptoken=5)

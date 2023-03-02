@@ -60,19 +60,19 @@ Assign newly created users the required grants/permissions to log in and create 
 Install [mssql-cli command-line query tool for SQL Server](https://docs.microsoft.com/en-us/sql/tools/mssql-cli?view=sql-server-ver15).
 
 ```sh
-$ pip install mssql-cli
+pip install mssql-cli
 ```
 
 1.  To create tables in the registry and user manager database (`WSO2_SHARED_DB`), execute the relevant script as shown below.
 
     ```sh
-    $ mssql-cli -U sharedadmin -P sharedadmin -d shared_db -i <API-M_HOME>/dbscripts/mssql.sql;
+    mssql-cli -U sharedadmin -P sharedadmin -d shared_db -i <API-M_HOME>/dbscripts/mssql.sql;
     ```
 
 1.  To create tables in the apim database (`WSO2AM_DB`), execute the relevant script as shown below.
 
     ```sh
-    $ mssql-cli -U sharedadmin -P sharedadmin -d apim_db -i <API-M_HOME>/dbscripts/apimgt/mssql.sql;
+    mssql-cli -U sharedadmin -P sharedadmin -d apim_db -i <API-M_HOME>/dbscripts/apimgt/mssql.sql;
     ```
 
 !!! note

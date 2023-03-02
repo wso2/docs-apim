@@ -310,7 +310,7 @@ To authenticate the repository with SSH key, the SSH private key file path shoul
     ```
 
     ```dockerfile tab='Example'
-      FROM wso2/choreo-connect-adapter:1.1.0
+      FROM wso2/choreo-connect-adapter:{{choreo_connect.version}}
 
       USER root
 
@@ -338,7 +338,7 @@ To authenticate the repository with SSH key, the SSH private key file path shoul
 
 ### Step 3 - Start Choreo Connect
 
-Start Choreo Connect on Docker by executing the Docker Compose script inside the `<CHOREO-CONNECT_HOME>` directory.
+Start Choreo Connect on Docker Compose by executing the Docker Compose script inside the `<CHOREO-CONNECT_HOME>` directory.
 
 {!includes/deploy/cc-tryout-in-arm64-docker-note.md!}
 

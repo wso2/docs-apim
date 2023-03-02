@@ -50,6 +50,7 @@ See the example .toml file given below.
   clusterTimeoutInSeconds = 20
   enforcerResponseTimeoutInSeconds = 20
   systemHost = "localhost"
+  useRemoteAddress = false
 </code></pre>
                     </div>
                 </div>
@@ -194,6 +195,25 @@ See the example .toml file given below.
                                     </div>
                                     <div class="param-description">
                                         <p>The timeout for response coming from enforcer to route per API request.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>useRemoteAddress</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>If configured as true, the Router appends the immediate downstream IP address to the x-forward-for header.</p>
                                     </div>
                                 </div>
                             </div>
@@ -1033,6 +1053,88 @@ allowCredentials = false
     </section>
 </div>
 
+
+
+## Downstream TLS
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="10" type="checkbox" id="_tab_10">
+                <label class="tab-selector" for="_tab_10"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[router.downstream.tls]
+  # the default client ca-certificates
+  trustedCertPath = "/etc/ssl/certs/ca-certificates.crt"
+  mTLSAPIsEnabled = false
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[router.downstream.tls]</code>
+                            
+                            <p>
+                                The configurations for SSL configuration related to the downstream in Choreo Connect.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>trustedCertPath</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>/etc/ssl/certs/ca-certificates.crt</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Path to trusted ca-certificates</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>mTLSAPIsEnabled</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable mTLS APIs in Choreo Connect.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
 ## Request Payload Passing To Enforcer
 
 
@@ -1040,16 +1142,16 @@ allowCredentials = false
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
-            <input name="8" type="checkbox" id="_tab_8">
-                <label class="tab-selector" for="_tab_8"><i class="icon fa fa-code"></i></label>
+            
+            <input name="11" type="checkbox" id="_tab_11">
+                <label class="tab-selector" for="_tab_11"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[router.payloadPassingToEnforcer]
   passRequestPayload = true
   maxRequestBytes = 10240
   allowPartialMessage = false
-  packAsBytes = false
+  packAsBytes = true
 </code></pre>
                     </div>
                 </div>
@@ -1076,7 +1178,9 @@ allowCredentials = false
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>
                                         </div>
-                                        
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
                                     </div>
                                     <div class="param-description">
                                         <p>Enable/Disable request payload passing to the Enforcer.</p>
@@ -1090,6 +1194,7 @@ allowCredentials = false
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>10240</code></span>
@@ -1108,6 +1213,7 @@ allowCredentials = false
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>
@@ -1115,7 +1221,7 @@ allowCredentials = false
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>If enabled, the request payload will be buffered until the <code>maxRequestBytes</code> is reached.</p>
+                                        <p>If enabled, the request payload will be buffered until the maxRequestBytes is reached.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1126,6 +1232,7 @@ allowCredentials = false
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>
@@ -1134,6 +1241,387 @@ allowCredentials = false
                                     </div>
                                     <div class="param-description">
                                         <p>If enabled, the request payload will be passed as raw bytes to the Enforcer. Disabling this will provide a UTF-8 string request payload to the Enforcer.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## Filters used in the Router
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="12" type="checkbox" id="_tab_12">
+                <label class="tab-selector" for="_tab_12"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[router.filters]
+  [router.filters.compression]
+    enabled = true
+    library = "gzip"
+  [router.filters.compression.requestDirection]
+    enabled = false
+    minimumContentLength = 30
+    contentType = ["text/html","application/json"]
+  [router.filters.compression.responseDirection]
+    enabled = true
+    minimumContentLength = 30
+    contentType = ["text/html","application/json"]
+    enableForEtagHeader = true
+  [router.filters.compression.libraryProperties]
+    memoryLevel = 3
+    windowBits = 12
+    compressionLevel = 9
+    compressionStrategy = "defaultStrategy"
+    chunkSize = 4096</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[router.filters]</code>
+                            
+                            <p>
+                                Configurations for the filters used in the Choreo Connect Router
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code></code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string">  </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="config-wrap">
+                            <code>[router.filters.compression]</code>
+                            <span class="badge-required">Required</span>
+                            <p>
+                                The configurations related to the Choreo Connect Router's compression filter
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enabled</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable/Disable compression filter in Choreo Connect Router.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>library</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>gzip</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Defines compression library used with the compression filter.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="config-wrap">
+                            <code>[router.filters.compression.requestDirection]</code>
+                            <span class="badge-required">Required</span>
+                            <p>
+                                The configurations for the Choreo Connect router's request flow HTTP payload data compression
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enabled</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable/Disable data compression for the Choreo Connect request flow.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>minimumContentLength</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>30</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>Unsigned integer value less than or equal to 4294967295</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Minimum request payload size to consider before applying the data compression</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>contentType</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> list of strings </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>[&quot;application/javascript&quot;, &quot;application/json&quot;, &quot;application/xhtml+xml&quot;, &quot;image/svg+xml&quot;, &quot;text/css&quot;, &quot;text/html&quot;, &quot;text/plain&quot;, &quot;text/xml&quot;]</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>[application/javascript, application/json, application/xhtml+xml, image/svg+xml, text/css, text/html, text/plain, text/xml]</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Content type to consider for data compression</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="config-wrap">
+                            <code>[router.filters.compression.responseDirection]</code>
+                            <span class="badge-required">Required</span>
+                            <p>
+                                The configurations for the Choreo Connect router's response flow HTTP payload data compression
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enabled</code> </span>
+                                  <span class="badge-required">Required</span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>true</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable/Disable data compression for the Choreo Connect response flow.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>minimumContentLength</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>30</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>Unsigned integer value less than  or equal to 4294967295</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Minimum response payload size to consider before applying the data compression</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>contentType</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> list of strings </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>[&quot;application/javascript&quot;, &quot;application/json&quot;, &quot;application/xhtml+xml&quot;, &quot;image/svg+xml&quot;, &quot;text/css&quot;, &quot;text/html&quot;, &quot;text/plain&quot;, &quot;text/xml&quot;]</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>[application/javascript, application/json, application/xhtml+xml, image/svg+xml, text/css, text/html, text/plain, text/xml]</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Content type to consider for the data compression</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="config-wrap">
+                            <code>[router.filters.compression.libraryProperties]</code>
+                            
+                            <p>
+                                The configurations for the Choreo Connect router's compression library
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>memoryLevel</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>3</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>Value between 1 to 9</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Amount of internal memory used by the gzip zlib library</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>windowBits</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>12</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>Value between 9 to 15</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Represents the base two logarithmic of the compressor’s window size</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>compressionLevel</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>9</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>Value between 9 to 15</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Denotes zlib library&#39;s compression level. Level 9 provides the highest compression.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>compressionStrategy</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>defaultStrategy</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>gzipFiltered, gzipHuffmanOnly, gzipRLE, gzipFixed</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Denotes zlib library&#39;s compression strategy. Value can change based on the content type shared with the request. For most of the cases default strategy is the best choice.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>chunkSize</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>4096</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>Unsigned integer value less than or equal to 4294967295</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Denotes zlib library&#39;s next output buffer size in bytes</p>
                                     </div>
                                 </div>
                             </div>

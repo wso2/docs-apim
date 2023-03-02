@@ -56,6 +56,13 @@
               "required": false,
               "default": "20",
               "description": "The timeout for response coming from enforcer to route per API request."
+            },
+            {
+              "name": "useRemoteAddress",
+              "type": "boolean",
+              "required": false,
+              "default": false,
+              "description": "If configured true, router appends the immediate downstream IP address to the x-forward-for header."
             }
           ]
         }
@@ -350,6 +357,34 @@
       "exampleFile": "upstream_tls.toml"
     },
     {
+      "title": "Downstream TLS",
+      "options": [
+        {
+          "name": "router.downstream.tls",
+          "required": false,
+          "description": "The configurations for SSL configuration related to the downstream in Choreo Connect.",
+          "params": [
+            {
+              "name": "trustedCertPath",
+              "type": "string",
+              "required": true,
+              "default": "/etc/ssl/certs/ca-certificates.crt",
+              "description": "Path to trusted ca-certificates"
+            },
+            {
+              "name": "mTLSAPIsEnabled",
+              "type": "boolean",
+              "required": true,
+              "default": "false",
+              "possible": "true, false",
+              "description": "Enable mTLS APIs in Choreo Connect."
+            }
+          ]
+        }
+      ],
+      "exampleFile": "downstream_tls.toml"
+    },
+    {
       "title": "Request Payload Passing To Enforcer",
       "options": [
         {
@@ -390,6 +425,153 @@
         }
       ],
       "exampleFile": "request_payload_passing.toml"
+    },
+    {
+      "title": "Filters used in the Router",
+      "options": [
+        {
+          "name": "router.filters",
+          "required": false,
+          "description": "Configurations for the filters used in the Choreo Connect Router",
+          "params": [
+            {
+            }
+          ]
+        },
+        {
+          "name": "router.filters.compression",
+          "required": true,
+          "description": "The configurations related to the Choreo Connect Router's compression filter",
+          "params": [
+            {
+              "name": "enabled",
+              "type": "boolean",
+              "required": true,
+              "default": "false",
+              "possible": "true, false",
+              "description": "Enable/Disable compression filter in Choreo Connect Router."
+            },
+            {
+              "name": "library",
+              "type": "string",
+              "required": true,
+              "default": "gzip",
+              "description": "Defines compression library used with the compression filter."
+            }
+          ]
+        },
+        {
+          "name": "router.filters.compression.requestDirection",
+          "required": true,
+          "description": "The configurations for the Choreo Connect router's request flow HTTP payload data compression",
+          "params": [
+            {
+              "name": "enabled",
+              "type": "boolean",
+              "required": true,
+              "default": "false",
+              "possible": "true, false",
+              "description": "Enable/Disable data compression for the Choreo Connect request flow."
+            },
+            {
+              "name": "minimumContentLength",
+              "type": "integer",
+              "required": false,
+              "default": 30,
+              "possible": "Unsigned integer value less than or equal to 4294967295",
+              "description": "Minimum request payload size to consider before applying the data compression"
+            },
+            {
+              "name": "contentType",
+              "type": "list of strings",
+              "required": false,
+              "default": "[\"application/javascript\", \"application/json\", \"application/xhtml+xml\", \"image/svg+xml\", \"text/css\", \"text/html\", \"text/plain\", \"text/xml\"]",
+              "possible": "[application/javascript, application/json, application/xhtml+xml, image/svg+xml, text/css, text/html, text/plain, text/xml]",
+              "description": "Content type to consider for data compression"
+            }
+          ]
+        },
+        {
+          "name": "router.filters.compression.responseDirection",
+          "required": true,
+          "description": "The configurations for the Choreo Connect router's response flow HTTP payload data compression",
+          "params": [
+            {
+              "name": "enabled",
+              "type": "boolean",
+              "required": true,
+              "default": "true",
+              "possible": "true, false",
+              "description": "Enable/Disable data compression for the Choreo Connect response flow."
+            },
+            {
+              "name": "minimumContentLength",
+              "type": "integer",
+              "required": false,
+              "default": 30,
+              "possible": "Unsigned integer value less than  or equal to 4294967295",
+              "description": "Minimum response payload size to consider before applying the data compression"
+            },
+            {
+              "name": "contentType",
+              "type": "list of strings",
+              "required": false,
+              "default": "[\"application/javascript\", \"application/json\", \"application/xhtml+xml\", \"image/svg+xml\", \"text/css\", \"text/html\", \"text/plain\", \"text/xml\"]",
+              "possible": "[application/javascript, application/json, application/xhtml+xml, image/svg+xml, text/css, text/html, text/plain, text/xml]",
+              "description": "Content type to consider for the data compression"
+            }
+          ]
+        },
+        {
+          "name": "router.filters.compression.libraryProperties",
+          "required": false,
+          "description": "The configurations for the Choreo Connect router's compression library",
+          "params": [
+            {
+              "name": "memoryLevel",
+              "type": "integer",
+              "required": false,
+              "default": 3,
+              "possible": "Value between 1 to 9",
+              "description": "Amount of internal memory used by the gzip zlib library"
+            },
+            {
+              "name": "windowBits",
+              "type": "integer",
+              "required": false,
+              "default": 12,
+              "possible": "Value between 9 to 15",
+              "description": "Represents the base two logarithmic of the compressor’s window size"
+            },
+            {
+              "name": "compressionLevel",
+              "type": "integer",
+              "required": false,
+              "default": 9,
+              "possible": "Value between 9 to 15",
+              "description": "Denotes zlib library's compression level. Level 9 provides the highest compression."
+            },
+            {
+              "name": "compressionStrategy",
+              "type": "string",
+              "required": false,
+              "default": "defaultStrategy",
+              "possible": "gzipFiltered, gzipHuffmanOnly, gzipRLE, gzipFixed",
+              "description": "Denotes zlib library's compression strategy. Value can change based on the content type shared with the request. For most of the cases default strategy is the best choice."
+            },
+            {
+              "name": "chunkSize",
+              "type": "integer",
+              "required": false,
+              "default": 4096,
+              "possible": "Unsigned integer value less than or equal to 4294967295",
+              "description": "Denotes zlib library's next output buffer size in bytes"
+            }
+          ]
+        }
+
+      ],
+      "exampleFile": "router_filters.toml"
     }
   ]
 }

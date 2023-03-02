@@ -6,7 +6,7 @@ Follow the instructions below to create a REST API using an OpenAPI definition f
 
 ## Create an API using the basic flow
 
-1. Sign in to the WSO2 API Publisher.
+1. Sign in to the Publisher Portal of WSO2 API Manager.
 
      `https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher`).
 
@@ -28,9 +28,10 @@ Follow the instructions below to create a REST API using an OpenAPI definition f
     <html><div class="admonition note">
     <p class="admonition-title">Note</p>
     <p>
-    You need to upload an archive if you have remote references in your API definition. If it is a single Swagger file without remote references, it can be imported directly, without zipping. 
-    When uploading an OpenAPI archive, the master Swagger file should be named as **swagger.yaml**/**swagger.json**. 
-    If not, the validation will fail at the point of API creation. Referenced files can be named independently.
+    <ul><li>You need to upload an archive if you have remote references in your API definition. - <a href="{{base_path}}/assets/attachments/design/sample-archive.zip">Sample OpenAPI archive</a></li><li>If it is a single Swagger file without remote references, it can be imported directly, without zipping.</li><li> 
+    When uploading an OpenAPI archive, the master Swagger file should be named as <b>swagger.yaml</b>/<b>swagger.json</b>. 
+    </br>If not, the validation will fail at the point of API creation.</li> <li>Referenced files can be named independently.</li>
+    <li>When archiving the Swagger files, make sure that it does not have any hidden folders (e.g., <code>__MACOSX</code>).</li></ul>
     </p>
     </div>
     </html>
@@ -62,6 +63,9 @@ Follow the instructions below to create a REST API using an OpenAPI definition f
         If you want to work with a Swagger 2.0 definition, use `http://petstore.swagger.io/v2/swagger.json` as the OpenAPI URL.
 
      [![Create a REST API using swagger definition]({{base_path}}/assets/img/learn/create-rest-api-using-swagger-def-form1.png){: style="width:70%"}]({{base_path}}/assets/img/learn/create-rest-api-using-swagger-def-form1.png)
+
+    !!! tip
+        You can see the Linter results associated with the API here.
 
 5.  Edit the information as given below and click **Create**.
     
@@ -106,6 +110,25 @@ You will notice that all the API resources are created automatically when the Op
     
      [![]({{base_path}}/assets/img/learn/edit-api-definition-pet-store.png)]({{base_path}}/assets/img/learn/edit-api-definition-pet-store.png)
 
+     ??? note "Importing an API definition"
+         You can also import an API definition.
+         
+            1. Click on **Import Definition** from the toolbar
+
+            2. Select one of the following options:
+                - OpenAPI URL
+                - OpenAPI Archive/File
+
+            3. To try this out, select OpenAPI URL and enter `https://petstore3.swagger.io/api/v3/openapi.json` as the URL.
+
+                [![]({{base_path}}/assets/img/learn/import-api-definition.png)]({{base_path}}/assets/img/learn/import-api-definition.png)
+
+                !!! tip
+                    The Linter results can be viewed here.
+
+            4. If there are any errors present, they can be solved in the built-in editor by clicking on the **Edit and Import** button.
+
+            5. Then click on the **Import Content** on the editor to import the API definition.
 
 2. Remove the `petstore_auth` tag related configuration that appears under the `security` tag from the `/pet` POST resource given below. 
 

@@ -287,10 +287,7 @@
     ├── Docs
     ├── Endpoint-certificates
     ├── Image
-    └── Sequences
-        ├── fault-sequence
-        ├── in-sequence
-        └── out-sequence
+    └── Policies
     ```
 
     <table>
@@ -318,12 +315,8 @@
                 <td>The Swagger file that is generated when the API is created.</td>
             </tr>
         <tr class="odd">
-            <td><pre><code>Sequences
-        ├── fault-sequence
-        ├── in-sequence
-        └── out-sequence</code></pre>
-            </td>
-            <td>To add custom sequences, save them in XML format and add them to the corresponding folder. For example, to add a custom in-sequence, save the custom sequence as <code>       SampleSequence.xml</code> and add it to the <code>Sequences/in-sequence/Custom</code>directory.</td>
+            <td>Policies</td>
+            <td>Contains the operation policies attached to the operations of the API. To learn more about adding a custom operation policy with dynamic data, see [Add dynamic data to Operation Policies in an API project]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects/#add-dynamic-data-to-operation-policies-in-an-api-project).</td>
         </tr>
         <tr class="even">
         <td>Client-certificates</td>

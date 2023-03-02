@@ -22,7 +22,7 @@ You can use the `string.Length` operation to retrieve the length of a string.
 <tbody>
   <tr>
     <td>Input String</td>
-    <td>string</td>
+    <td>inputString</td>
     <td></td>
     <td>The string for which you need to identify the length. The string can contain any characters. It will also consider whitespace characters when calculating the length.</td>
   </tr>
@@ -44,10 +44,10 @@ The following is a sample request, Synapse configuration, and response for the g
 ```
 
 ```xml tab="Synapse Configuration"
-<Utility.string.Length>
-    <string>{json-eval($.string)}</string>
+<utility.string.Length>
+    <inpuString>{json-eval($.string)}</inputString>
     <target>length</target>
-</Utility.string.Length>  
+</utility.string.Length>  
 ```
 
 ``` tab="Request"
@@ -72,7 +72,7 @@ You can use the `string.LowerCase` operation to change the case of the string to
 <tbody>
   <tr>
     <td>Input String</td>
-    <td>string</td>
+    <td>inputString</td>
     <td></td>
     <td>The string that needs to be transformed to lowercase.</td>
   </tr>
@@ -94,10 +94,10 @@ The following is a sample request, Synapse configuration, and response for the g
 ```
 
 ```xml tab="Synapse Configuration"
-<Utility.string.LowerCase>
-  <string>json-eval($.string)</string>
+<utility.string.LowerCase>
+  <inputString>json-eval($.string)</inputString>
   <target>lowercase</target>
-</Utility.string.LowerCase>
+</utility.string.LowerCase>
 ```
 
 ``` tab="Request"
@@ -122,7 +122,7 @@ You can use the `string.UpperCase` operation to change the case of the string to
 <tbody>
   <tr>
     <td>Input String</td>
-    <td>string</td>
+    <td>inputString</td>
     <td></td>
     <td>The string that needs to be transformed to uppercase.</td>
   </tr>
@@ -144,10 +144,10 @@ The following is a sample request, Synapse configuration, and response for the g
 ```
 
 ```xml tab="Synapse Configuration"
-<Utility.string.UpperCase>
-  <string>json-eval($.string)</string>
+<utility.string.UpperCase>
+  <inputString>json-eval($.string)</inputString>
   <target>uppercase</target>
-</Utility.string.UpperCase>
+</utility.string.UpperCase>
 ```
 
 ``` tab="Request"
@@ -172,7 +172,7 @@ You can use the `string.RegexMatcher` operation to check whether the given strin
 <tbody>
   <tr>
     <td>Input String</td>
-    <td>string</td>
+    <td>inputString</td>
     <td></td>
     <td>The string that needs to be checked with the regular expression.</td>
   </tr>
@@ -200,11 +200,11 @@ The following is a sample request, Synapse configuration, and response for the g
 ```
 
 ```xml tab="Synapse Configuration"
-<Utility.string.RegexMatcher>
+<utility.string.RegexMatcher>
   <regex>u.*m.*e</regex>
-  <string>json-eval($.string)</string>
+  <inputString>json-eval($.string)</inputString>
   <target>isMatching</target>
-</Utility.string.RegexMatcher>
+</utility.string.RegexMatcher>
 ```
 
 ``` tab="Request"
@@ -241,9 +241,9 @@ You can use the `string.UUID` operation to generate a random UUID.
 The following is a sample configuration and response.
 
 ```xml tab="Synapse Configuration"
-<Utility.string.UUID>
+<utility.string.UUID>
   <target>uuid</target>
-</Utility.string.UUID>
+</utility.string.UUID>
 ```
 
 ``` tab="Request"
@@ -286,10 +286,10 @@ You can use the `date.GetDate` operation to get the current date and time in a p
 The following is a sample Synapse configuration and response.
 
 ```xml tab="Synapse Configuration"
-<Utility.date.GetDate>
+<utility.date.GetDate>
   <format>yy/MM/dd HH:mm:ss</format>
   <target>date</target>
-</Utility.date.GetDate>
+</utility.date.GetDate>
 ```
 
 ``` tab="Request"
@@ -338,11 +338,11 @@ You can use the `math.GetRandomInt` operation to get a random integer in a given
 The following is a sample Synapse configuration and response.
 
 ```xml tab="Synapse Configuration"
-<Utility.math.GetRandomInt>
+<utility.math.GetRandomInt>
   <lowerBound>100</lowerBound>
   <upperBound>1000</upperBound>
   <target>random</target>
-</Utility.math.GetRandomInt>
+</utility.math.GetRandomInt>
 ```
 
 ``` tab="Request"
@@ -407,12 +407,12 @@ The following is a sample request, Synapse configuration, and response for the g
 ```
 
 ```xml tab="Synapse Configuration"
-<Utility.signature.Generate>
+<utility.signature.Generate>
   <payload>Body</payload>
   <secret>123</secret>
   <algorithm>HMACSHA1</algorithm>
   <target>signature</target>
-</Utility.signature.Generate>
+</utility.signature.Generate>
 ```
 
 ``` tab="Request"
@@ -483,13 +483,13 @@ The following is a sample request, Synapse configuration, and response for the g
 ```
 
 ```xml tab="Synapse Configuration"
-<Utility.signature.Verify>
+<utility.signature.Verify>
   <payload>Body</payload>
   <signature>32423411140bdebed0b017e738797be452481dbb</signature>
   <secret>123</secret>
   <algorithm>HMACSHA1</algorithm>
   <target>verify</target>
-</Utility.signature.Verify>
+</utility.signature.Verify>
 ```
 
 ``` tab="Request"

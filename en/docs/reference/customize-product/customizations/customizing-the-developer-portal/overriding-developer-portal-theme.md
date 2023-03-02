@@ -2,7 +2,7 @@
 
 There are mainly two ways to customize and override the developer portal theme. 
 
-1. Theming using `userTheme.js`
+1. Theming using `userTheme.json`
 2. Overriding React components
 
 In this section, we will cover the first method which is the simplest way to change the appearance of Developer portal.
@@ -10,16 +10,16 @@ In this section, we will cover the first method which is the simplest way to cha
 For the second method, please refer [Advanced Customization]({{base_path}}/develop/customizations/advanced-ui-customization/) section.
 ## Global Theming
 
-You can find the default theme in the following location `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/source/src/app/data/defaultTheme.js`. 
+You can find the default theme in the following location `<API-M_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/source/src/app/data/defaultTheme.js`. 
 
 The `defaultTheme.js` file has all the parameters defining the look and feel of the Developer Portal. 
-Using the above file as reference, you can add new properties to `userTheme.js` configurations and override the default parameters defined in the above default theme.
-The `userTheme.js` file is located in following path in the API Manager server directory.
-`<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/userTheme.js`. Changes done in this file are reflected directly in the Developer Portal ( It's not required to restart the server or rebuild the source code). 
+Using the above file as reference, you can add new properties to `userTheme.json` configurations and override the default parameters defined in the above default theme.
+The `userTheme.json` file is located in following path in the API Manager server directory.
+`<API-M_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/site/public/theme/userTheme.json`. Changes done in this file are reflected directly in the Developer Portal ( It's not required to restart the server or rebuild the source code). 
 
 !!!Note
     API Manager Devportal is themed using React Material Design. The theme configuration is an external JSON file that resides outside the React codebase. While an administrator who has access to the file system can override the default theme configuration, a tenant admin can override both of them via the defaultTheme.json file.
-    You can refer to `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/source/src/defaultTheme.js` for available parameters. Note that you need to only put the parameters that you override to the `userTheme.js` file.
+    You can refer to `<API-M_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/source/src/defaultTheme.js` for available parameters. Note that you need to only put the parameters that you override to the `userTheme.json` file.
     The parameters you can override via the theme are listed at the bottom. Additionally, the default theme parameters available with React Material Design library can be overridden via this file.
 
 Example:
@@ -52,17 +52,17 @@ Enable landing page. **defaultTheme.json** (Tenant theming).
 
 The following documents describe some of the most commonly used customizations, that you can do by changing the `defaultTheme.js`
 
-  - [Enabling or Disabling API Detail Tabs](enabling-or-disabling-api-detail-tabs.md)
-  - [Override API Overview Page per API](override-api-overview-page-per-api.md)
-  - [Enable or Disable Rating](enable-or-disable-rating.md)
-  - [Enable or Disable Home Page](enable-or-disable-home-page.md)
-  - [Enable or Disable Tag Cloud](enable-or-disable-tag-cloud.md)
-  - [Enable or Disable Footer](enable-or-disable-footer.md)
-  - [Enable or Disable Banner](enable-or-disable-banner.md)
-  - [Styling API Details Left Menu](styling-api-details-left-menu.md)
-  - [Styling API Details Info Section](styling-api-details-info-section.md)
-  - [Styling the Logo and Header](styling-the-logo-and-header.md)
-  - [Customize API Listing Default View](customize-api-listing/change-default-view.md)
+  - [Enabling or Disabling API Detail Tabs]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs/)
+  - [Override API Overview Page per API]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/override-api-overview-page-per-api/)
+  - [Enable or Disable Rating]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-rating/)
+  - [Enable or Disable Home Page]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-home-page/)
+  - [Enable or Disable Tag Cloud]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-tag-cloud/)
+  - [Enable or Disable Footer]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-footer/)
+  - [Enable or Disable Banner]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-banner/)
+  - [Styling API Details Left Menu]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/styling-api-details-left-menu/)
+  - [Styling API Details Info Section]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/styling-api-details-info-section/)
+  - [Styling the Logo and Header]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/styling-the-logo-and-header/)
+  - [Customize API Listing Default View]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view/)
 
 ## Tenant Theming 
 
@@ -125,7 +125,7 @@ The following documents describe some of the most commonly used customizations, 
         }
     ```
     
-    The default theme configuration can be found at `<APIM_HOME>/repository/deployment/server/jaggeryapps/devportal/source/src/defaultTheme.js`. 
+    The default theme configuration can be found at `<APIM_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/source/src/defaultTheme.js`. 
     In the shared defaultTheme.json we have overriden the `custom.appBar` configurations only.
     
     ```

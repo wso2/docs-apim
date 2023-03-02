@@ -1,250 +1,276 @@
----
-title: Publishing Analytics Events to External Systems - API Manager Documentation 4.0.0
----
-
 # Publishing Analytics Events to External Systems
 
-## Introduction
+WSO2 API Manager allows publishing its analytics data to external systems in the same way it publishes the data to the cloud. For this purpose you need to create a custom event publisher. This guide will explain and walk through the steps required to implement, deploy, and configure a custom event publisher.
 
-Instead of publishing analytics events to the cloud, It is also possible to log the same events and publish them to external systems. This guide will explain the steps required to do it. For demonstration purposes, we have selected ELK as the external system.
+For demonstration purposes, let’s assume ELK as the external system.
 
-This section will cover the steps required to create a sample, configure the created sample with WSO2 API-M or Choreo Connect, and then publish it to an external System (ELK).
+## Step 1 - Create an Event Publisher
 
-## Creating the Sample
+Follow the instructions below to create the custom event publisher.
 
-You have to create a new `Java/Maven project`. 
+!!! Note
+    If you are not interested in creating the custom event publisher from scratch, you can use the already created [sample event publisher](https://github.com/wso2/samples-apim/tree/master/analytics-event-publisher) instead and resume the guide from here.
 
-With the use of `WSO2 Analytics Publisher` extension which is available at `WSO2 nexus` repository it is possible to create the sample. Created sample can be used to log and publish analytics events to external systems.
+### Step 1.1 - Set up a Maven project
 
-There is an already [created sample](https://github.com/wso2/samples-apim/tree/master/analytics-event-publisher) and if you wish to use that sample instead of developing the sample from scratch, then you can ignore the steps of creating the sample and start from [here]({{base_path}}/api-analytics/samples/publishing-analytics-events-to-external-systems/#build-the-project).
+1. Create a new Maven-based Java project.
 
-This section will cover how to configure the `pom.xml`, class implementations and building the created sample.
+2. Add the required dependency.
+     
+     The Maven-based Java project uses the [WSO2 Analytics Publisher](https://maven.wso2.org/nexus/content/repositories/releases/org/wso2/am/analytics/publisher/) library, which is available in the WSO2 Nexus repository. Therefore, you need to add this library as a dependency.
 
-### Configuring pom.xml
+     1. Navigate and open the `<PROJECT_DIR>/pom.xml` file.
+     
+     2. Define the `wso2-nexus` repository in the `pom.xml` file.
 
-Add wso2-nexus repository to `pom.xml`,
+         ```
+          <repository>
+              <id>wso2-nexus</id>
+              <name>WSO2 internal Repository</name>
+              <url>https://maven.wso2.org/nexus/content/groups/wso2-public/</url>
+              <releases>
+                  <enabled>true</enabled>
+                  <updatePolicy>daily</updatePolicy>
+                  <checksumPolicy>ignore</checksumPolicy>
+              </releases>
+          </repository>
+         ```
 
-    <repository>
-        <id>wso2-nexus</id>
-        <name>WSO2 internal Repository</name>
-        <url>https://maven.wso2.org/nexus/content/groups/wso2-public/</url>
-        <releases>
-            <enabled>true</enabled>
-            <updatePolicy>daily</updatePolicy>
-            <checksumPolicy>ignore</checksumPolicy>
-        </releases>
-    </repository>
+     3.  Add the dependency in the `pom.xml` file.
 
-Add dependency,
+        ```
+          <dependency>
+              <groupId>org.wso2.am.analytics.publisher</groupId>
+              <artifactId>org.wso2.am.analytics.publisher.client</artifactId>
+              <version>1.0.1</version>
+          </dependency>
+        ```
 
-    <dependency>
-        <groupId>org.wso2.am.analytics.publisher</groupId>
-        <artifactId>org.wso2.am.analytics.publisher.client</artifactId>
-        <version>1.0.1</version>
-    </dependency>
+### Step 1.2 - Implement the required classes
 
-### Implementing Required Classes
+You need to implement two interfaces from the above dependency, (i.e., `CounterMetric` and `MetricReporter`) in order to implement the rest of the functionality.
 
-#### CounterMetric Implementation Class
+- **org.wso2.am.analytics.publisher.reporter.CounterMetric**
 
-Accumulated analytics data can be logged with the use of a class of type `CounterMetric`. Therefore, it is required to implement a class from the `CounterMetric` interface. By overriding the `incrementCount` method it is possible to log analytics data.
+     You can use the `CounterMetric` class type to log accumulated analytics data. You can override its `incrementCount()` method to log the required analytics data.
 
-In order to achieve this behavior, create a class implementing the `CounterMetric` Interface of `org.wso2.am.analytics.publisher.reporter` and override its methods.
+- **org.wso2.am.analytics.publisher.reporter.MetricReporter**
 
-Implementation of this class should look something similar to [this](https://github.com/wso2/samples-apim/blob/master/analytics-event-publisher/src/main/java/org.wso2.am.analytics.publisher.sample.reporter/LogCounterMetric.java).
+     You can use the `MetricReporter` class type to publish analytics data to an external party. You can override its `createCounterMetric()` method to return an instance of the `CounterMetric` implementation which is mentioned above. This allows logging accumulated analytics data.
 
-#### MetricReporter Implementation Class
+---
 
-Analytics data can be published to outside only through a class of type `MetricReporter`.
-Therefore, it is required to implement a class from `MetricReporter` Interface.
-By overriding the `createCounterMetric` Method of `MetricReporter` interface it is possible to return an instance of `CounterMetercImplClass` created with the above step. This gives the opportunity to log analytics data accumulated.
+1. Create a new class implementing the `org.wso2.am.analytics.publisher.reporter.CounterMetric` interface and override its methods. 
+     
+     You can find a sample implementation [here](https://github.com/wso2/samples-apim/blob/master/analytics-event-publisher/src/main/java/org.wso2.am.analytics.publisher.sample.reporter/LogCounterMetric.java).
 
-In order to achieve this behavior, create a class implementing the `MetricReporter` Interface of `org.wso2.am.analytics.publisher.reporter` and override its methods.
+2. Create a new class implementing the `org.wso2.am.analytics.publisher.reporter.MetricReporter` interface and override its methods. 
 
-Implementation of this class should look something similar to [this](https://github.com/wso2/samples-apim/blob/master/analytics-event-publisher/src/main/java/org.wso2.am.analytics.publisher.sample.reporter/CustomReporter.java).
+     You can find a sample implementation [here](https://github.com/wso2/samples-apim/blob/master/analytics-event-publisher/src/main/java/org.wso2.am.analytics.publisher.sample.reporter/CustomReporter.java).
 
-#### Build the Project
+### Step 1.3 - Build the project
 
-Build the project using,
+1. Navigate to the project root directory.
+2. Build the project by executing the following command.
 
-    mvn clean install
+     ```
+     mvn clean install
+     ```
 
-## Configuring the Sample
+## Step 2 - Deploy the Event Publisher
 
-This section will cover the steps required to configure WSO2 API Gateway and Choreo Connect for the sample created above. The steps covered are adding the .jar file, configuring the deployment.toml file, and enabling the logs.
+After the project is implemented and built, you need to deploy and configure the resulting library within WSO2 API Manager. This section will guide you through the steps required to deploy and configure the above-created library in WSO2 API Manager Gateway and/or Choreo Connect.
 
-```text tab="API-M Gateway"
-i) Adding the .jar file.
+Follow the instructions below to configure WSO2 API Gateway and Choreo Connect for the sample created above:
 
-    Place the created .jar file inside the `wso2am-4.0.0/repository/components/lib` file.
+??? info "API Manager Gateway"
+    
+    Follow the instructions below to configure WSO2 API Gateway for the sample created above:
+    1. Copy the JAR file to the `<API-M_HOME>/repository/components/lib` directory.
+    2. Open the `<API-M_HOME>/repository/conf/deployment.toml` file in a text editor and modify the `apim.analytics` section as follows:
+       
+         ```
+         [apim.analytics]
+         enable = true
+         properties."publisher.reporter.class" = "<FullyQualifiedClassNameOfMetricReporterImplClass>"
+         logger.reporter.level = "INFO"
+         ```
 
-ii) Configuring the deployment.toml file.
+    3. Open the `<API-M_HOME>/repository/conf/log4j2.properties` file in a text editor and do the following modifications.
 
-    Edit `apim.analytics` configurations in the `deployment.toml` located inside `wso2am-4.0.0/repository/conf` with the following configuration.
+         1. Add `reporter` to the loggers list.
 
-        [apim.analytics]
-        enable = true
-        properties."publisher.reporter.class" = "<FullyQualifiedClassNameOfMetricReporterImplClass>"
-        logger.reporter.level = "INFO"
+             ```
+             loggers = reporter, ...(list of other available loggers)
+             ```
 
-iii) Enabling Logs
+         2. Add the following configurations after the loggers.
 
-    To enable logging for a reporter, edit `log4j2.properties` file located inside `wso2am-4.0.0/repository/conf` 
+             ```
+             logger.reporter.name = <PackageName>
+             logger.reporter.level = INFO
+             ```
 
-    a) Add reporter to the loggers list,
+??? info "Choreo Connect"
+    Follow the instructions below to configure Choreo Connect for the sample created above:
+    1. Copy the JAR file to the `choreo-connect-1.0.0/docker-compose/resources/enforcer/dropins` directory.
+    2. Open the `choreo-connect-1.0.0/docker-compose/choreo-connect-with-apim/conf/config.toml` file in a text editor and modify the `analytics` section as follows:
 
-        loggers = reporter, ...(list of other available loggers)
+         ```
+          [analytics]
+              enabled = true
+              [analytics.enforcer]
+              [analytics.enforcer.configProperties]
+                  authURL = "$env{analytics_authURL}"
+                  authToken = "$env{analytics_authToken}"
+                  "publisher.reporter.class" = "org.wso2.am.analytics.publisher.sample.reporter.CustomReporter"
+        ```
 
-    b) Add the following configurations after the loggers:
+    3. Open the `choreo-connect-1.0.0/docker-compose/choreo-connect-with-apim/conf/log4j2.properties` file in a text editor and do the following modifications.
 
-        logger.reporter.name = <PackageName>
-        logger.reporter.level = INFO
+         1. Add an appender to the appenders list.
 
-```
+             ```
+             appenders = ENFORCER_ANALYTICS, ...(list of other available appenders)
+             ```
 
-```text tab="Choreo Connect"
-i) Adding the .jar file.
+         2. Add the following configurations after the appenders.
 
-    Place the created .jar file inside the `choreo-connect-1.0.0/docker-compose/resources/enforcer/dropins` directory.
+             ```
+              appender.ENFORCER_ANALYTICS.type = RollingFile
+              appender.ENFORCER_ANALYTICS.name = ENFORCER_ANALYTICS
+              appender.ENFORCER_ANALYTICS.fileName = logs/enforcer_analytics.log
+              appender.ENFORCER_ANALYTICS.filePattern = /logs/enforcer_analytics-%d{MM-dd-yyyy}.log
+              appender.ENFORCER_ANALYTICS.layout.type = PatternLayout
+              appender.ENFORCER_ANALYTICS.layout.pattern = [%d] - %m%ex%n
+              appender.ENFORCER_ANALYTICS.policies.type = Policies
+              appender.ENFORCER_ANALYTICS.policies.time.type = TimeBasedTriggeringPolicy
+              appender.ENFORCER_ANALYTICS.policies.time.interval = 1
+              appender.ENFORCER_ANALYTICS.policies.time.modulate = true
+              appender.ENFORCER_ANALYTICS.policies.size.type = SizeBasedTriggeringPolicy
+              appender.ENFORCER_ANALYTICS.policies.size.size=10MB
+              appender.ENFORCER_ANALYTICS.strategy.type = DefaultRolloverStrategy
+              appender.ENFORCER_ANALYTICS.strategy.max = 20
+              appender.ENFORCER_ANALYTICS.filter.threshold.type = ThresholdFilter
+              appender.ENFORCER_ANALYTICS.filter.threshold.level = DEBUG
+             ```
 
-ii) Configuring config.toml
+         3. Add `reporter` to the loggers list.
 
-    Edit `analytics` configurations in the `config.toml` located inside `choreo-connect-1.0.0/docker-compose/choreo-connect-with-apim/conf` with the following configuration.
+              ```
+              loggers = reporter, ...(list of other available loggers)
+              ```
 
-    [analytics]
-        enabled = true
-        [analytics.enforcer]
-        [analytics.enforcer.configProperties]
-            authURL = "$env{analytics_authURL}"
-            authToken = "$env{analytics_authToken}"
-            "publisher.reporter.class" = "org.wso2.am.analytics.publisher.sample.reporter.CustomReporter"
+         4. Add the following configurations after the loggers.
 
-iii) Enabling Logs
+              ```
+              logger.reporter.name = org.wso2.am.analytics.publisher.sample.reporter
+              logger.reporter.level = INFO
+              logger.reporter.additivity = false
+              logger.reporter.appenderRef.rolling.ref = ENFORCER_ANALYTICS
+              ```
 
-    To enable logging for a reporter, edit `log4j2.properties` file located inside `choreo-connect-1.0.0/docker-compose/choreo-connect-with-apim/conf` 
 
-    a) Add an appender to the appenders list,
+## Step 3 - Visualize analytics data
 
-        appenders = ENFORCER_ANALYTICS, ...(list of other available appenders)
+After publishing the analytics data, the next step is to visualize them in a manner in which the end-user can get more information out of it. WSO2 API Manager logs are structured in a way that allows us to easily plug them into a visualization tool to visualize them. 
 
-    b) Add the following configurations after the appenders,
+This section will guide you through the steps required to visualize the published data in a data visualization platform. For this guide, ELK is used as the data visualization platform.
 
-        appender.ENFORCER_ANALYTICS.type = RollingFile
-        appender.ENFORCER_ANALYTICS.name = ENFORCER_ANALYTICS
-        appender.ENFORCER_ANALYTICS.fileName = logs/enforcer_analytics.log
-        appender.ENFORCER_ANALYTICS.filePattern = /logs/enforcer_analytics-%d{MM-dd-yyyy}.log
-        appender.ENFORCER_ANALYTICS.layout.type = PatternLayout
-        appender.ENFORCER_ANALYTICS.layout.pattern = [%d] - %m%ex%n
-        appender.ENFORCER_ANALYTICS.policies.type = Policies
-        appender.ENFORCER_ANALYTICS.policies.time.type = TimeBasedTriggeringPolicy
-        appender.ENFORCER_ANALYTICS.policies.time.interval = 1
-        appender.ENFORCER_ANALYTICS.policies.time.modulate = true
-        appender.ENFORCER_ANALYTICS.policies.size.type = SizeBasedTriggeringPolicy
-        appender.ENFORCER_ANALYTICS.policies.size.size=10MB
-        appender.ENFORCER_ANALYTICS.strategy.type = DefaultRolloverStrategy
-        appender.ENFORCER_ANALYTICS.strategy.max = 20
-        appender.ENFORCER_ANALYTICS.filter.threshold.type = ThresholdFilter
-        appender.ENFORCER_ANALYTICS.filter.threshold.level = DEBUG
+### Step 3.1 - Set up ELK
 
-    c) Add reporter to the loggers list,
+#### Step 3.1.1 - Install the Elasticsearch
 
-        loggers = reporter, ...(list of other available loggers)
+1. [Install Elasticsearch](https://www.elastic.co/guide/en/elastic-stack-get-started/7.13/get-started-elastic-stack.html#install-elasticsearch) based on your operating system.
 
-    d) Add the following configurations after the loggers:
+2. Make sure Elasticsearch is [up and running](https://www.elastic.co/guide/en/elastic-stack-get-started/7.13/get-started-elastic-stack.html#_make_sure_elasticsearch_is_up_and_running).
 
-        logger.reporter.name = org.wso2.am.analytics.publisher.sample.reporter
-        logger.reporter.level = INFO
-        logger.reporter.additivity = false
-        logger.reporter.appenderRef.rolling.ref = ENFORCER_ANALYTICS
+#### Step 3.1.2 - Install Kibana
 
-```
+1. [Install Kibana](https://www.elastic.co/guide/en/elastic-stack-get-started/7.13/get-started-elastic-stack.html#install-kibana) based on your operating system.
 
-## Visualizing Logs
+2. [Launch](https://www.elastic.co/guide/en/elastic-stack-get-started/7.13/get-started-elastic-stack.html#_launch_the_kibana_web_interface) the Kibana web interface.
 
-WSO2 API-M logs are structured in a way that we can easily plug them into a log visualization tool in order to visualize them. As a result, this gives the capability to monitor analytics traffic for a particular API. For this purpose, ELK is selected.
+#### Step 3.1.3 - Install Filebeat
 
-### Configuring ELK
+1. [Install Filebeat](https://www.elastic.co/guide/en/beats/filebeat/7.13/filebeat-installation-configuration.html#installation) based on your operating system.
 
-#### Installing Elasticsearch
+2. [Connect](https://www.elastic.co/guide/en/beats/filebeat/7.13/filebeat-installation-configuration.html#set-connection) to Elastic Stack.
 
-[Install Elasticsearch](https://www.elastic.co/guide/en/elastic-stack-get-started/7.13/get-started-elastic-stack.html#install-elasticsearch) according to your operating system.
+#### Step 3.1.4 - Collect Log Data
 
-Make sure Elasticsearch is [up and running](https://www.elastic.co/guide/en/elastic-stack-get-started/7.13/get-started-elastic-stack.html#_make_sure_elasticsearch_is_up_and_running).
+1. Add the following configurations to feed WSO2 API-M logs in to Filebeat.
 
-#### Installing Kibana
+    ??? info "API-M Gateway"
+         
+         Open the `<FILEBEAT_HOME>/config/filebeat.yml` file in a text editor and modify it as follows. 
+         
+         Replace `<API-M_HOME>` with the location of your API Manager root directory.
 
-[Install Kibana](https://www.elastic.co/guide/en/elastic-stack-get-started/7.13/get-started-elastic-stack.html#install-kibana) according to your operating system.
+        ```
+          filebeat.inputs:
+          - type: log
+          enabled: true
+          paths:
+              - /<API-M_HOME>/repository/logs/wso2carbon.log
+        ```
 
-[Launch](https://www.elastic.co/guide/en/elastic-stack-get-started/7.13/get-started-elastic-stack.html#_launch_the_kibana_web_interface) the Kibana web interface.
+    ??? info "Choreo Connect"
+         Modify the Filebeat configuration file as follows:
+         
+         The log data is available in `enforcer_analytics.log`.
 
-#### Installing Filebeat
+         ```
+         filebeat.inputs:
+         - type: log
+         enabled: true
+         paths:
+             - /home/wso2/logs/enforcer_analytics.log
+         ```
 
-[Install Filebeat](https://www.elastic.co/guide/en/beats/filebeat/7.13/filebeat-installation-configuration.html#installation) according to your operating system.
+2. [Set up assets]((https://www.elastic.co/guide/en/beats/filebeat/7.13/filebeat-installation-configuration.html#setup-assets)). 
+         
+    !!! tip
+        In case of a failure with the above command, run the following command to set up assets.
 
-[Connect](https://www.elastic.co/guide/en/beats/filebeat/7.13/filebeat-installation-configuration.html#set-connection) to Elastic Stack.
+        ```
+        filebeat -e
+        ```
 
-#### Collecting Log Data
+3. [Start](https://www.elastic.co/guide/en/beats/filebeat/7.13/filebeat-installation-configuration.html#start) Filebeat.
 
-Add bellow configurations to feed WSO2 API-M logs in to Filebeat,
+### Step 3.2 - View analytics data on Kibana
 
-```text tab="API-M Gateway"
-Replace `<API-M HOME>` with the location of your `API-M Home` directory.
+Filebeat comes with pre-built Kibana dashboards and UIs for visualizing log data. 
 
-    filebeat.inputs:
-    - type: log
-    enabled: true
-    paths:
-        - /<API-M HOME>/repository/logs/wso2carbon.log
-```
+#### Step 3.2.1 - Configure the visualization
 
-```text tab="Choreo Connect"
-Log data is available in `enforcer_analytics.log`
+     [Launch Kibana and discover](https://www.elastic.co/guide/en/beats/filebeat/7.13/filebeat-installation-configuration.html#view-data) log data.
 
-    filebeat.inputs:
-    - type: log
-    enabled: true
-    paths:
-        - /home/wso2/logs/enforcer_analytics.log
-```
+     Once you have followed and completed the above steps successfully, you will be able to visualize log data as follows.
 
-[Set up](https://www.elastic.co/guide/en/beats/filebeat/7.13/filebeat-installation-configuration.html#setup-assets) assets
+     [![Logs listed in kibana]({{base_path}}/assets/img/analytics/samples/logs-listed-in-kibana.png)]({{base_path}}/assets/img/analytics/samples/logs-listed-in-kibana.png)
 
-In case of a failure with the above command, use below to set up assets,
+#### Step 3.2.2 - Filter total analytics traffic
 
-    filebeat -e
+The total analytics traffic can be visualized by applying a filter as follows:
 
-[Start](https://www.elastic.co/guide/en/beats/filebeat/7.13/filebeat-installation-configuration.html#start) Filebeat
-
-### View Data on Kibana
-
-Filebeat comes with pre-built Kibana dashboards and UIs for visualizing log data.
-
-[Launch Kibana and discover](https://www.elastic.co/guide/en/beats/filebeat/7.13/filebeat-installation-configuration.html#view-data) log data.
-
-Once you have followed and completed the above steps successfully, you will be able to visualize log data as shown below,
-
-[![Logs listed in kibana]({{base_path}}/assets/img/analytics/samples/logs-listed-in-kibana.png)]({{base_path}}/assets/img/analytics/samples/logs-listed-in-kibana.png)
-
-#### Filtering Total Analytics Traffic
-
-It is possible to view the analytics traffic by applying a filter as shown below,
-
-Replace `<MetricReporterImplClass>` with the class name given to the MetricReporter implementation class that you have created with your sample.
+Replace `<MetricReporterImplClass>` with the class name given to the `MetricReporter` implementation class that you have created with your sample.
 
 [![Total analytics traffic filter]({{base_path}}/assets/img/analytics/samples/total-analytics-traffic-filter.png)]({{base_path}}/assets/img/analytics/samples/total-analytics-traffic-filter.png)
 
-Once this filter is applied you will be able to visualize analytics traffic as shown below,
+After applying this filter you will be able to visualize analytics traffic as shown below.
 
-[![Filtered total Analytics traffic]({{base_path}}/assets/img/analytics/samples/total-analytics-traffic.png)]({{base_path}}/assets/img/analytics/samples/total-analytics-traffic.png)
+[![Filtered total analytics traffic]({{base_path}}/assets/img/analytics/samples/total-analytics-traffic.png)]({{base_path}}/assets/img/analytics/samples/total-analytics-traffic.png)
 
-#### Filtering Analytics Traffic for a Specific API
+#### Step 3.2.3 - Optionally, filter analytics traffic for a specific API
 
-It is possible to view the analytics traffic for a specific API by applying a filter on top of the above filter as shown below,
+The analytics traffic for a specific API can be visualized by applying a filter on top of the above filter as follows:
 
 Replace `<API_Name>` with the name of the API in which you want to visualize traffic.
 
 [![Analytics traffic for a specific API filter]({{base_path}}/assets/img/analytics/samples/analytics-traffic-for-a-specific-api-filter.png)]({{base_path}}/assets/img/analytics/samples/analytics-traffic-for-a-specific-api-filter.png)
 
-Once this filter is applied you will be able to visualize analytics traffic for a specific API as shown below. And you can notice that both the filters are applied on logs.
+After applying this filter you will be able to visualize the analytics traffic for a specific API as shown below. In the logs you will notice that both the filters are applied.
 
-[![Filtered Analytics traffic for a specific API]({{base_path}}/assets/img/analytics/samples/analytics-traffic-for-a-specific-api.png)]({{base_path}}/assets/img/analytics/samples/analytics-traffic-for-a-specific-api.png)
+[![Filtered analytics traffic for a specific API]({{base_path}}/assets/img/analytics/samples/analytics-traffic-for-a-specific-api.png)]({{base_path}}/assets/img/analytics/samples/analytics-traffic-for-a-specific-api.png)

@@ -1510,6 +1510,22 @@
                             "description": "The port through which the target proxy (specified by the 'sender.proxy_port' parameter) accepts HTTP traffic."
                         },
                         {
+                            "name": "sender.proxy_username",
+                            "type": "string",
+                            "required": false,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The username for authenticating the HTTP proxy server."
+                        },
+                        {
+                            "name": "sender.proxy_password",
+                            "type": "string",
+                            "required": false,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The password for authenticating the HTTP proxy server."
+                        },
+                        {
                             "name": "sender.secured_proxy_host",
                             "type": "string",
                             "required": false,
@@ -1524,6 +1540,22 @@
                             "default": "-",
                             "possible": "-",
                             "description": "The port through which the target proxy (specified by the 'sender.secured_proxy_port' parameter) accepts HTTPS traffic."
+                        },
+                        {
+                            "name": "sender.secured_proxy_username",
+                            "type": "string",
+                            "required": false,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The username for authenticating the HTTPS proxy server."
+                        },
+                        {
+                            "name": "sender.secured_proxy_password",
+                            "type": "string",
+                            "required": false,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The password for authenticating the HTTPS proxy server."
                         },
                         {
                             "name": "sender.non_proxy_hosts",
@@ -1780,20 +1812,20 @@
                             "description": "The port through which the target proxy (specified by the 'sender.proxy_host' parameter) accepts HTTP traffic (in blocking mode)."
                         },
                         {
-                            "name": "sender.secured_proxy_host",
+                            "name": "sender.proxy_username",
                             "type": "string",
                             "required": false,
                             "default": "-",
                             "possible": "-",
-                            "description": "If the outgoing messages should be sent through an HTTPS proxy server (in blocking mode), use this parameter to specify the target proxy."
+                            "description": "The username for authenticating the proxy server."
                         },
                         {
-                            "name": "sender.secured_proxy_port",
-                            "type": "integer",
+                            "name": "sender.proxy_password",
+                            "type": "string",
                             "required": false,
                             "default": "-",
                             "possible": "-",
-                            "description": "The port through which the target proxy (specified by the 'sender.secured_proxy_host' parameter) accepts HTTPS traffic (in blocking mode)."
+                            "description": "The password for authenticating the proxy server."
                         }
                     ]
                 }

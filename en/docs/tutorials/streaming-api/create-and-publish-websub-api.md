@@ -249,7 +249,7 @@ A public URL should be forwarded to `localhost:9021`, so that your local server 
           1. Subscribe the callback URL with the **/issues** topic by executing the following cURL command. Replace `[encoded_hub_callback]` and `accesstoken` with the values you have obtained.
 
                ``` bash
-               curl -X POST 'http://localhost:8280/repo-watcher/1.0.0?hub.callback=[encoded_hub_callback]&hub.mode=subscribe&hub.secret=newValue&hub.lease_seconds=50000000&hub.topic=/issues' -H "Authorization: Bearer [accesstoken]"
+               curl -X POST 'http://localhost:8280/repo-watcher/1.0.0' -H 'Content-Type: application/x-www-form-urlencoded' -d 'hub.topic=%2Fissues' -d 'hub.callback=[encoded_hub_callback]' -d 'hub.mode=subscribe' -d 'hub.secret=newValue' -d 'hub.lease_seconds=50000000' -H 'Authorization: Bearer [accesstoken]'
                ```
      
            2. Click **Subscriptions** to go to the Subscriptions page of your application in the Developer Portal. 
@@ -273,3 +273,6 @@ A public URL should be forwarded to `localhost:9021`, so that your local server 
           ```
 
 You have successfully created and published your first WebSub/WebHook API, subscribed to it, obtained an access token for testing, created a subscription to a WebHook, and tested your API with the access token.
+
+!!! note
+    WSO2 API Manager also supports subscription requests with `application/x-www-form-urlencoded` content type, which adheres to the standards specified by [W3C](https://www.w3.org/TR/websub/). This allows you to pass the hub parameters in the request body by passing them as form data. API Manager also supports optional subscriber verification of intent for this type of requests. This can be enabled by adding the property `enableSubscriberVerification` with the value set to `true` at the Publisher Portal. The default value is set to `false`. In later versions, this can be directly enabled by changing the WebSub Configurations in the API Configurations panel.

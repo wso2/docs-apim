@@ -32,11 +32,11 @@ Following are the integration artifacts that we can used to implement this scena
         </in>
         <out>
             <log level="custom">
-                <property name="First_Value" expression="//ns:getQuoteResponse/ax21:open/child::text()"
+                <property name="First_Value" expression="//ns:getQuoteResponse/ns:return/ax21:open/child::text()"
                           xmlns:ax21="http://services.samples/xsd" xmlns:ns="http://services.samples"/>
-                <property name="For_the_organization" expression="//ns:getQuoteResponse/ax21:name/child::text()"
+                <property name="For_the_organization" expression="//ns:getQuoteResponse/ns:return/ax21:name/child::text()"
                           xmlns:ax21="http://services.samples/xsd" xmlns:ns="http://services.samples"/>
-                <property name="Last_Value" expression="//ns:getQuoteResponse/ax21:last/child::text()"
+                <property name="Last_Value" expression="//ns:getQuoteResponse/ns:return/ax21:last/child::text()"
                           xmlns:ax21="http://services.samples/xsd" xmlns:ns="http://services.samples"/>
             </log>
             <drop/>

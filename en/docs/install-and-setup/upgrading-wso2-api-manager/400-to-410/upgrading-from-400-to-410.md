@@ -160,7 +160,7 @@ Follow the instructions below to move all the existing API Manager configuration
         
         You do not need to add this configuration as it should already be in the `<IS_KM_HOME>/repository/conf/deployment.toml` file.
 
-5. If you have enabled any other feature related configurations at `<API-M_4.1.0_HOME>/repository/conf/deployment.toml`, make sure to add them in to `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file.
+5. If you have enabled any other feature related configurations at `<API-M_4.0.0_HOME>/repository/conf/deployment.toml`, make sure to add them in to `<API-M_4.1.0_HOME>/repository/conf/deployment.toml` file.
 
 ### Step 2: Migrate the API Manager resources
 

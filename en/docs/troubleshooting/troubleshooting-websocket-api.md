@@ -6,7 +6,7 @@ Add the following entries in the `<API-M_HOME>/repository/conf/log4j2.properties
 
 ```
 logger.InboundWebsocketSourceHandler.name = org.wso2.carbon.inbound.endpoint.protocol.websocket.InboundWebsocketSourceHandler
-logger.InboundWebsocketSourceHandle.level = DEBUG
+logger.InboundWebsocketSourceHandler.level = DEBUG
 
 logger.InboundWebsocketResponseSender.name = org.wso2.carbon.inbound.endpoint.protocol.websocket.InboundWebsocketResponseSender
 logger.InboundWebsocketResponseSender.level = DEBUG

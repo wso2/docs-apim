@@ -1,7 +1,3 @@
----
-title: Setting up Cloud Native Observability on Kubernetes - WSO2 API Manager 4.0.0
----
-
 # Setting up Cloud Native Observability on Kubernetes
 
 Follow the instructions given below to set up a cloud native observability solution in a Kubernetes environment. 

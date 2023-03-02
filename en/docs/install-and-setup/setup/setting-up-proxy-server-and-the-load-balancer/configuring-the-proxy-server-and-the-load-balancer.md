@@ -445,26 +445,30 @@ The following instructions are optional if you do not have a custom URL configur
 
     - **For Developer Portal**
 
-         Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/settings.js` file.
+         Open the `<API-M_HOME>/repository/deployment/server/webapps/devportal/site/public/theme/settings.json` file.
     
     - **For Publisher**
         
-         Open the file `<API-M_HOME>/repository/deployment/server/jaggeryapps/publisher/site/public/conf/settings.js` file.
+         Open the `<API-M_HOME>/repository/deployment/server/webapps/publisher/site/public/conf/settings.json` file.
     
     - **For Admin Portal**
         
-         Open the file `<API-M_HOME>/repository/deployment/server/jaggeryapps/admin/site/public/conf/settings.js` file.
+         Open the `<API-M_HOME>/repository/deployment/server/webapps/admin/site/public/conf/settings.json` file.
  
 
 2. Set `customUrl.enabled` to `true`
   
     ```json
-        
-    customUrl: { // Dynamically set the redirect origin according to the forwardedHeader host|proxyPort combination
-        enabled: true,
-        forwardedHeader: 'X-Forwarded-Host',
+    ...    
+    "customUrl": {
+        "enabled": true,
+        "forwardedHeader": "X-Forwarded-Host",
     },
+    ...
     ```
 
     !!! Note
         New configurations do not have auto as a config value for the `customUrl.enable` property as it was in the 2.x versions.
+
+    !!! Note
+        For more information on troubleshooting 'Registered callback does not match with the provided URL' error, see **[Troubleshooting 'Registered callback does not match with the provided URL' error]({{base_path}}/troubleshooting/troubleshooting-invalid-callback-error)**

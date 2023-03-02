@@ -1,7 +1,3 @@
----
-title: Monitoring API Logs - WSO2 API Manager 4.0.0
----
-
 # Monitoring API Logs
 
 WSO2 API-M enables a simple way to observe requests and responses going through the WSO2 API Gateway by introducing this light weight feature called API Logs. Since Correlation Logs cause lower performance on the API gateway, API Logs can be used to collect HTTP call logs without a considerable performance hit. There are 4 log levels where each log level has a set of properties.

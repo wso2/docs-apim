@@ -17,7 +17,7 @@ WSO2 API Manager uses <a href="https://stripe.com">Stripe</a> as its sample impl
       </div> 
 </html>
 
-Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin/releases/download/v1.3.1/org.wso2.apim.monetization.impl-1.3.1.jar) to monetize an API in the following example scenario.
+Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin/releases/download/v1.4.0/org.wso2.apim.monetization.impl-1.4.0.jar) to monetize an API in the following example scenario.
 
 ### Before you begin
 
@@ -99,7 +99,10 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
 
     2. Build the implementation of the respective monetization interface and add the JAR into the `<API-M_HOME>/repository/components/lib` directory.
         
-        In this example scenario, you need to add the [org.wso2.apim.monetization.impl-1.3.1.jar](https://github.com/wso2-extensions/wso2-am-stripe-plugin/releases/download/v1.3.1/org.wso2.apim.monetization.impl-1.3.1.jar) JAR into the latter mentioned `lib` folder. Note that this JAR has been derived by building the [wso2-am-stripe-plugin repository](https://github.com/wso2-extensions/wso2-am-stripe-plugin). 
+        In this example scenario, you need to add [org.wso2.apim.monetization.impl-1.4.0.jar](https://github.com/wso2-extensions/wso2-am-stripe-plugin/releases/download/v1.4.0/org.wso2.apim.monetization.impl-1.4.0.jar) and [jakarta.json-api-2.1.1.jar](https://repo1.maven.org/maven2/jakarta/json/jakarta.json-api/2.1.1/jakarta.json-api-2.1.1.jar) into the latter mentioned `lib` folder because `org.wso2.apim.monetization.impl` is dependent on `jakarta.json-api`. 
+        
+        !!! note
+            You can find the source code of `org.wso2.apim.monetization.impl` in the [wso2-extensions/wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin) repository.
 
     3.  Define the monetization implementation in WSO2 API Manager.
      
@@ -688,7 +691,7 @@ You can use the admin REST API, which is available in WSO2 API Manager, to publi
 
 1.  Obtain the consumer key and secret key pair by calling the dynamic client registration endpoint.  
      
-     For more information, see [Admin REST API v2.0]({{base_path}}/reference/product-apis/admin-apis/admin-v2/admin-v2/).
+     For more information, see [Admin REST API v4.0]({{base_path}}/reference/product-apis/admin-apis/admin-v4/admin-v4/).
 
     ``` java
     curl -X POST -H "Authorization: Basic <base64encoded-admin-account-credentials>" -H "Content-Type: application/json" -d @payload.json https://localhost:9443/client-registration/v0.17/register
@@ -707,7 +710,7 @@ You can use the admin REST API, which is available in WSO2 API Manager, to publi
 2.  Obtain a token with the monetization usage scope (`scope=apim:monetization_usage_publish`).
 
     ``` java
-    curl -X POST https://localhost:8243/token -H 'Authorization: Basic <base64encoded-registeration-credentials>' -d 'grant_type=password&username=admin&password=admin&scope=apim:monetization_usage_publish'
+    curl -X POST https://localhost:9443/oauth2/token -H 'Authorization: Basic <base64encoded-registeration-credentials>' -d 'grant_type=password&username=admin&password=admin&scope=apim:monetization_usage_publish'
     ```
       
     -   `<base64encoded-registeration-credentials>` - base64 encoded client credentials received as the response in the client registration step (in `<client-id>:<client-secret>` format). WSO2 does not recommend the use of online base64 encoders for this purpose.

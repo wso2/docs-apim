@@ -110,6 +110,120 @@ paths:
 
 In the above example `/pet/findByStatus` resource has a separate endpoint configuration compared to the `/pet/{petId}` resource. Therefore, the inbound traffic for the `/pet/findByStatus` resource are routed based on its specific endpoint object, whereas the requests coming to the `/pet/{petId}` resource are routed to the API Level endpoint.
 
+### Production and Sandbox Endpoints
+
+Choreo Connect supports Production and Sandbox endpoints at both the API level and resource level. You can define two completely different endpoints with different host addresses, ports, and basepaths as the production and sandbox endpoints for a particular API/resource.
+
+``` yaml tab="Format"
+.
+.
+info:
+.
+.
+x-wso2-basePath: <base_path>
+x-wso2-production-endpoints:
+    urls: 
+    - <API_level_endpoint>
+x-wso2-sandbox-endpoints:
+    urls:
+    - <API_level_endpoint>
+security:
+- petstore_auth : []
+```
+
+``` yaml tab="Example"
+.
+.
+info:
+  version: 1.0.5
+  title: PizzaShackAPI
+x-wso2-basePath: /v2
+x-wso2-production-endpoints:
+    urls: 
+    - https://localhost:2380/v2/prod
+x-wso2-sandbox-endpoints:
+    urls:
+    - https://localhost:2381/v2/sand
+security:
+- petstore_auth : []
+
+```
+
+!!! info
+
+        - If a resource level production endpoint is provided but no resource level sandbox endpoint is provided, Choreo Connect will use the API level sandbox endpoint as the resource level sandbox endpoint for that particular resource.
+
+        In the following example, `https://localhost:2380/v1` will be used as the production level endpoint and `https://localhost:2381/v2/sand` will be used as the sandbox level endpoint for the resource `/pet/findByStatus`.
+
+        ``` yaml tab="Example"
+        .
+        .
+        info:
+        .
+        .
+        x-wso2-basePath: 
+        x-wso2-production-endpoints:
+            urls: 
+            - https://localhost:2380/v2/prod
+        x-wso2-sandbox-endpoints:
+            urls:
+            - https://localhost:2381/v2/sand
+        paths:
+            /pet/findByStatus:
+                x-wso2-production-endpoints:
+                    urls:
+                    -  https://localhost:2380/v1
+                get:
+                    tags:
+                    - pets
+                    summary: Finds Pets by status
+                    description: Multiple status values can be provided with comma separated strings
+                    operationId: findPetsByStatus
+                    parameters:
+                    - name: status
+                    in: query
+                    description: Status values that need to be considered for filter
+                .
+                .
+        ```
+
+        - If a resource level sandbox endpoint is provided but no resource level production endpoint is provided, Choreo Connect will use the API level production endpoint as the resource level production endpoint for that particular resource.
+
+        In the following example, `https://localhost:2380/v1` will be used as the sandbox level endpoint and `https://localhost:2381/v2/prod` will be used as the production level endpoint for the resource `/pet/findByStatus`.
+
+        ``` yaml tab="Example"
+        .
+        .
+        info:
+        .
+        .
+        x-wso2-basePath: 
+        x-wso2-production-endpoints:
+            urls: 
+            - https://localhost:2380/v2/prod
+        x-wso2-sandbox-endpoints:
+            urls:
+            - https://localhost:2381/v2/sand
+        paths:
+            /pet/findByStatus:
+                x-wso2-sandbox-endpoints:
+                    urls:
+                    -  https://localhost:2380/v1
+                get:
+                    tags:
+                    - pets
+                    summary: Finds Pets by status
+                    description: Multiple status values can be provided with comma separated strings
+                    operationId: findPetsByStatus
+                    parameters:
+                    - name: status
+                    in: query
+                    description: Status values that need to be considered for filter
+                .
+                .
+        ```
+
+
 ### Endpoint Objects
 
 An endpoint can either belong to a production environment or sandbox environment. Therefore, an endpoint is listed under the extension ` x-wso2-production-endpoints` or `x-wso2-sandbox-endpoints` accordingly.

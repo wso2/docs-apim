@@ -4,7 +4,7 @@ The following sections explain how to manage Developer Portal, Publisher, and th
 
 ## Enable password recovery
 
-The password recovery feature does not work out-of-the-box because an email server needs to be configured to be able to send the password recovery email. 
+The password recovery feature does not work out-of-the-box because an email server needs to be configured to be able to send the password recovery email. Note that you need to create an **App password** specifically to be able to use this feature. The steps to do this are given in the table below.
 
 Follow the steps below to enable the password recovery feature for the Developer Portal, Publisher, and the Admin Portal:
 
@@ -32,7 +32,7 @@ Follow the steps below to enable the password recovery feature for the Developer
     |------------------------|---------------------------------------------------------------------------------------------------------------------------|
     | from_address           | The email address you use to send emails.                                                                                  |
     | username               | The email address used to authenticate the mail server. This can be the same email address as the `from_address`. |
-    | password               | Password used to authenticate the mail server.
+    | password               | App password used to authenticate the mail server. Follow the instructions [here](https://support.google.com/accounts/answer/185833?hl=en) to create this.
     | signature              | Signature of the sender account. |
 
 4. Re-start the server.
@@ -52,9 +52,9 @@ The following steps show how to enable account locking. See [Account Locking by 
 
 2.  Click **Resident** under **Identity Providers** found in the **Main** tab.
 
-3.  Expand the **Login Policies** tab.
+3.  Expand the **Login Attempts Security** tab.
 
-4.  Expand the **Account Locking** tab and tick the **Account Lock Enabled** checkbox. Click **Update** to save changes.
+4.  Expand the **Account Lock** tab and tick the **Lock user accounts on maximum failed attempts** checkbox. Click **Update** to save changes.
 
     ![enable-account-lock]({{base_path}}/assets/img/administer/product-security/identity-management-for-the-api-dev-portal/account-lock-config.png)
 
@@ -142,35 +142,37 @@ You can display a list of policy guidelines in the change password page that app
   
 <img src="{{base_path}}/assets/img/learn/change-devportal-password-policy-guideline-display.png" alt="Displaying Developer Portal password policy guidelines" width="700"/>
   
-1. Enable password changing guidelines in the `settings.js` file.  
+1. Enable password changing guidelines in the `settings.json` file.  
 
-     1. Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/settings.js` file.  
+     1. Open the `<API-M_HOME>/repository/deployment/server/webapps/devportal/site/public/theme/settings.json` file.  
      
      2. Edit the configuration as follows:  
    
-        ```javascript
-         const Settings = {
+        ```json
+         {
             ...
-            passwordChange: {
-                guidelinesEnabled: true,
+            "passwordChange": {
+                "guidelinesEnabled": true,
                 ...
             },
-         };
+            ...
+         }
         ```
 
 2. List your custom guidelines under `policyList`.
 
-    ```javascript
-     const Settings = {
+    ```json
+     {
         ...
-        passwordChange: {
-            guidelinesEnabled: true,
-            policyList: [
-                'Policy 1',
-                'Policy 2',
-                'Policy 3',
-            ],
+        "passwordChange": {
+            "guidelinesEnabled": true,
+            "policyList": [
+                "Policy 1",
+                "Policy 2",
+                "Policy 3"
+            ]
         },
+        ...
      };
     ```
 

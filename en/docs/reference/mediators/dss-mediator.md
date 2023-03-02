@@ -512,7 +512,7 @@ In this example, an inline single request is configured and sent to the `DSSCall
                 <target type="property" name="responseValue"/>
             </dataServiceCall>
    <log level="custom">
-      <property name="reponseValue" expression="$ctx:responseProperty"/>
+      <property name="responseValue" expression="$ctx:responseValue"/>
    </log>
             <respond/>
         </inSequence>

@@ -1,7 +1,3 @@
----
-title: API Analytics Architecture - WSO2 API Manager 4.0.0
----
-
 # API Analytics Architecture
 
 The following diagram illustrates the basic architecture of the Analytics solution.

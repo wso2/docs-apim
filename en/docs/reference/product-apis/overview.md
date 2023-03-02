@@ -1,23 +1,22 @@
 # RESTful APIs
 
-The following topics list the APIs exposed from the API Publisher, Developer Portal, Admin Portal and Gateway, which you can use to create and manage APIs. You can consume APIs directly through their UIs or, an external REST client like cURL.
+The following topics list the APIs exposed from the API Publisher, Developer Portal, Admin Portal, Gateway, Service Catalog and Devops which you can use to create and manage APIs. You can consume APIs directly through their UIs or, an external REST client like cURL.
 
-There are two versions of REST APIs available for the Admin Portal.
 <br>
 <table>
   <tr>
-    <td nowrap="true"><a href="{{base_path}}/reference/product-apis/publisher-apis/publisher-v2/publisher-v2/">WSO2 Publisher API v2</a></td>
-    <td rowspan="3" style="vertical-align: middle;background-color: white"><b>WSO2 recommends that you use the v2 REST APIs</b> as it is up to date and has support for the latest WSO2 API Manager 4.0.0 features with regard to the Publisher, Developer Portal, and Admin Portal.
+    <td nowrap="true"><a href="{{base_path}}/reference/product-apis/publisher-apis/publisher-v4/publisher-v4/">WSO2 Publisher API v4</a></td>
+    <td rowspan="3" style="vertical-align: middle;background-color: white"><b>WSO2 recommends that you use the latest REST APIs</b> as it is up to date and has support for the latest WSO2 API Manager 4.2.0 features.
     </td>
   </tr>
   <tr>
-    <td nowrap="true"><a href="{{base_path}}/reference/product-apis/devportal-apis/devportal-v2/devportal-v2/">WSO2 Developer Portal API v2</a></td>
+    <td nowrap="true"><a href="{{base_path}}/reference/product-apis/devportal-apis/devportal-v3/devportal-v3/">WSO2 Developer Portal API v3</a></td>
   </tr>
    <tr>
-    <td nowrap="true"><a href="{{base_path}}/reference/product-apis/admin-apis/admin-v2/admin-v2/">WSO2 Admin Portal API v2</a></td>
+    <td nowrap="true"><a href="{{base_path}}/reference/product-apis/admin-apis/admin-v4/admin-v4/">WSO2 Admin Portal API v4</a></td>
   </tr>
   <tr>
-    <td nowrap="true"><a href="{{base_path}}/reference/product-apis/gateway-apis/gateway-v1/gateway-v1/">WSO2 Gateway API v1</a></td>
+    <td nowrap="true"><a href="{{base_path}}/reference/product-apis/gateway-apis/gateway-v2/gateway-v2/">WSO2 Gateway API v2</a></td>
     <td rowspan="3" style="vertical-align: middle;background-color: white"></td>
   </tr>
   <tr>
@@ -35,7 +34,7 @@ Following Postman collection provides quick start guide for WSO2 API Manager RES
  * Create, publish, subscribe and invoke a sample REST API
  * Create, subscribe and invoke a sample API Product 
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/17491134-303bed00-62b0-477f-a31d-a1de31201e4c)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/25611032-aa201bbc-7bdf-4e2c-afeb-d5494ef50f91)
 
 ??? info "Expand to copy the Postman collection"
     <script src="https://gist.github.com/chamilaadhi/7d37fd33bc6b152af02ab40c02056ba0.js"></script>

@@ -35,9 +35,9 @@ The following topics are specific to connector version 3.1.0 and later version:
 !!! Tip
     Apache Avro Message type is supported from connector version 3.1.0 onwards.
 
-* **[Kafka Connector Avro Message Producer Example](kafka-connector-avro-producer-example.md)**: This example demonstrates how to send Apache Avro messages to a Kafka broker via Kafka topics.  
+* **[Kafka Connector Avro Message Producer Example]({{base_path}}/reference/connectors/kafka-connector/kafka-connector-avro-producer-example/)**: This example demonstrates how to send Apache Avro messages to a Kafka broker via Kafka topics.  
 
-* **[Kafka Connector Reference](kafka-connector-config.md)**: This documentation provides a reference guide for the Kafka Connector.
+* **[Kafka Connector Reference]({{base_path}}/reference/connectors/kafka-connector/kafka-connector-config/)**: This documentation provides a reference guide for the Kafka Connector.
 
 The following topic is specific to connector version 3.0.0 and earlier versions:
 

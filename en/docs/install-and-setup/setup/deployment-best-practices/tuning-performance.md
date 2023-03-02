@@ -93,18 +93,6 @@ The following diagram shows the communication/network paths that occur when an A
 
 !!! info
     The Gateway to Key Manager network call to validate the token only happens with the OAuth token. This network call does not happen for JSON Web Tokens (JWTs). JWT access tokens are the default token type for applications. As JWTs are self-contained access tokens, the Key Manager is not needed to validate the token, and the token is validated from the Gateway.
-    
--   **Key validation**
-
-    Key validation occurs via a Servlet HTTP call and the connection timeout can be configured by changing the following configuration details in the `<API-M_HOME>/repository/conf/deployment.toml` file. All timeout values are in milliseconds.
-
-    ```toml
-    [transport.client.http.properties]
-    SO_TIMEOUT = 60000
-    CONNECTION_TIMEOUT = 60000
-    ```
-
-    If the Key Manager caching is enabled, the calls between the API Gateway and Key Manager are cached. As a result, the Key Manager is not invoked for each API call.
 
 -   **Client call API Gateway + API Gateway call Backend**
 
@@ -134,6 +122,9 @@ Some general API-M-level recommendations are listed below:
 <td>API Gateway nodes</td>
 <td><div class="content-wrapper">
 <p>Increase memory allocated by modifying the <code>/bin/api-manager.sh</code>  file with the following setting:</p>
+<table>
+<tr class="odd">
+<td>
 <ul>
 <li><code> -Xms2048m -Xmx2048m -XX:MaxPermSize=1024m </code></li>
 </ul>
@@ -150,10 +141,41 @@ Some general API-M-level recommendations are listed below:
 <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false;"  style="brush: java; gutter: false;"><code>
 [transport.client]
 default_max_connection_per_host = 1000
-max_total_connections = 30000
+max_total_connections = 30000 
 </code>
 </pre>
-</div> 
+</div>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<p>
+For the default JWT tokens (from APIM 3.2.0 onwards, the default token type is JWT), the key validation takes place within GW node itself, as the JWT token is self-contained. So no key validation call is made for JWT tokens.
+But if the token used is a reference token (if the deployment is migrated from older version which used reference tokens), the key validation http calls will be made to the Key manager component for token introspection. A dedicated http client is used for this purpose.
+</p>
+<div class="admonition note">
+     <p class="admonition-title">Note</p>
+     <p>
+     Because of this architecture, the axis2 based client, which is used in older APIM versions is not used further on. So previous axis2 based configs are not applicable for key validation in APIM 3.2.0 onwards.
+     </p>
+</div>
+<p>The configurations related to this http client are as below with the default recommended values.</p>
+<div class="code panel pdl" style="border-width: 1px;">
+<div class="codeContent panelContent pdl">
+<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false;" style="brush: java; gutter: false;">
+<code>[apim.http_client]
+max_total = 100
+default_max_per_route = 50
+</code>
+</pre>
+</div>
+</div>
+<p><b>max_total:</b> The maximum number of connections that will be created for the key validation calls. If there is a considerable latency, the connections in use at a given time will take a long time to be released and added back to the connection pool. As a result, connections may not be available for some requests. In such situations, it is recommended to increase the value for this parameter.</p>
+<p><b>default_max_per_route:</b> The maximum number of connections that will be created per host server by the client. Will have to increase this too, when required as similarly for the config <b>max_total</b>. </p>
+</td>
+</tr>
+</table>
+
 </td>
 </tr>
 <tr class="even">

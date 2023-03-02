@@ -13,7 +13,7 @@ The APIs created in the API Publisher are visible to any user who signs in to th
 
 2.  [Create a new API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/). 
 
-3. Click **Design Configurations**. 
+3.  Go to **Portal Configurations** from the left menu and click **Basic Info**.
 
 4. Select **Restricted by roles** as the value for **Publisher Access Control**.
 

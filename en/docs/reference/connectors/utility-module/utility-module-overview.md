@@ -10,13 +10,15 @@ The Utility Module allows you to do the following.
 
 Access the Utility Module by navigating to the [Connector Store](https://store.wso2.com/store/assets/esbconnector/list) and search for `Utility`.
 
-<a href="{{base_path}}/assets/img/integrate/connectors/utility-store.png"><img src="http://localhost:8000/assets/img/integrate/connectors/utility-store.png" title="Utility Module" width="200" alt="Utility Module logo in Connector Store"/></a>
+<img src="{{base_path}}/assets/img/integrate/connectors/utility-store.png"><img src="http://localhost:8000/assets/img/integrate/connectors/utility-store.png" title="Utility Module" width="200" alt="Utility Module logo in Connector Store"/></img>
 
 ## Compatibility
 
 | **Connector version** | **Supported Product Versions** |
 | ------------- |------------- |
-|  [1.0.0](https://github.com/wso2-extensions/mediation-utility-module)        |  API-M 4.0.0</br>EI 7.1.0</br>EI 7.0.x</br>EI 6.6.0</br>EI 6.5.0</br>EI 6.4.0 |
+|  [1.0.1](https://github.com/wso2-extensions/mediation-utility-module)        |  MI 4.1.0</br>MI 4.0.0 |
+|  [1.0.0](https://github.com/wso2-extensions/mediation-utility-module)        |  MI 4.1.0</br>MI 4.0.0 |
+
 
 For older versions, see the details in the Connector Store.
 

@@ -1,7 +1,3 @@
----
-title: Enabling Logs for a Component - WSO2 API Manager 4.0.0
----
-
 # Enabling Logs for a Component
 
 Follow the instructions given below to enable logs for a specific component in the Micro Integrator.

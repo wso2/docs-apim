@@ -56,7 +56,7 @@ When you create multiple tenants in an API Manager deployment, the API developer
          enable=true
         ```
         
-        1.  Start SOAP UI client, and import the WSDL `https://localhost:9443/services/RemoteTenantManagerService?wsdl`. This assumes that you are running the SOAP UI client from the same machine as the API Manager instance.
+        1.  Start SOAP UI client, and import the WSDL `https://localhost:9443/services/TenantMgtAdminService?wsdl`. This assumes that you are running the SOAP UI client from the same machine as the API Manager instance.
 
         2.  Note that there are several operations shown in the SOAP UI after importing the wsdl file:</br>
             [![]({{base_path}}/assets/img/administer/tenant-admin-service-wsdl-list.png)]({{base_path}}/assets/img/administer/tenant-admin-service-wsdl-list.png)

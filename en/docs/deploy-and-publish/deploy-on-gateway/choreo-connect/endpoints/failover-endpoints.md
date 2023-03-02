@@ -33,9 +33,13 @@ After creating an API in the API Publisher, select the API you want to provide t
     
 2.  Click **Save & Deploy**.
 
+!!! warning
+    The endpoint URLs that you provide as failover endpoints should have the same base path as in the `x-wso2-production-endpoints`.
+    If you define some other base path, it will not result in the expected behaviour.
+
 ### Step 2 - Invoke API Endpoint Via The Choreo Connect
 
-After obtaining a valid JWT token, you can invoke the API as described in [the Choreo Connect Quick Start Guide with Docker]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/#step-6-invoke-the-api-via-choreo-connect). 
+After obtaining a valid JWT token, you can invoke the API as described in [the Choreo Connect Quick Start Guide with Docker Compose]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/#step-6-invoke-the-api-via-choreo-connect). 
 
 An example is given below:
 
@@ -111,7 +115,11 @@ paths:
           description: OK
 ...
 ```
+!!! warning
+    The endpoint URLs that you provide as failover endpoints should have the same base path as in the `x-wso2-production-endpoints`.
+    If you define some other base path, it will not result in the expected behaviour.
+    
 
 ### Step 2 - Deploy the API project and invoke the API with failover endpoints
 
-After defining an API in the OpenAPI definition file, deploy it in Choreo Connect as described in the [Choreo Connect Deployed on Docker with WSO2 API Controller Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-docker/#step-1-download-and-setup-choreo-connect-distribution-zip-and-apictl-command-line-tool).
+After defining an API in the OpenAPI definition file, deploy it in Choreo Connect as described in the [Choreo Connect Deployed on Docker Compose with WSO2 API Controller Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-docker/#step-1-download-and-setup-choreo-connect-distribution-zip-and-apictl-command-line-tool).

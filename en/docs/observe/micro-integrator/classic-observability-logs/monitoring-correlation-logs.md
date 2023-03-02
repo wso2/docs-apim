@@ -1,7 +1,3 @@
----
-title: Monitoring Correlation Logs - WSO2 API Manager 4.0.0
----
-
 # Monitoring Correlation Logs
 
 Product observability enables rapid debugging of product issues. The Micro Integrator enables observability using Correlation logs. Correlation logs allow you to monitor individual HTTP requests from the point that a message is received by the Micro Integrator until the corresponding response message is sent back to the original message sender. That is, the complete round trip of an HTTP message (client → Micro Integrator → back-end → Micro Integrator → client) can be tracked and analyzed using a log
@@ -10,6 +6,8 @@ file.
 When Correlation logs are enabled for the Micro Integrator server, a separate log file named `correlation.log` is created in the `<MI_HOME>/repository/logs/` directory. Every HTTP message that flows through the ESB and between the Micro Integrator and external clients undergoes several state changes. A new log entry is created in the `correlation.log` file corresponding to the state changes in the round trip of a single HTTP request. A Correlation ID assigned to the incoming HTTP request is assigned to all the log entries corresponding to the request. Therefore, you can use this Correlation ID to easily locate the logs relevant to the round trip of a specific HTTP request and, thereby, analyze the behavior of the message flow.
  
 ## Enabling Correlation logs
+
+### At the server start-up
 
 You can enable Correlation logging by passing a system property.
 
@@ -26,6 +24,15 @@ You can enable Correlation logging by passing a system property.
 
 
 Now when you start the Micro Integrator, the `correlation.log` file is created in the `<MI_HOME>/repository/logs/` directory.
+
+### During the runtime 
+
+- You can enable correlation logging by invoking the configs resource of the Management API. For more information, see 
+[enable/disable correlation logs using the Management API]({{base_path}}/observe/mi-observe/working-with-management-api/#enabledisable-correlation-logging-during-runtime).
+
+- Alternatively, you can enable correlation logging using the MI dashboard. 
+
+- You cannot disable the correlation logs during runtime if the correlation logs are enabled using the system property. 
 
 ## Sending an HTTP request with a Correlation ID
 

@@ -1,7 +1,3 @@
----
-title: SNMP Monitoring - WSO2 API Manager 4.0.0
----
-
 # SNMP Monitoring
 
 Simple Network Management Protocol (SNMP) is an Internet-standard protocol for managing devices on IP networks. Follow the instructions given below to configure SNMP in the Micro Integrator, which exposes various MBeans via SNMP.

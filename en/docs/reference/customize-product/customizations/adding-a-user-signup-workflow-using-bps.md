@@ -100,7 +100,7 @@ This section explains how to attach a custom workflow to the user signup operati
 !!! note
     Follow this sub section, only if you will be using the **Business Process Server(BPS)** for the business process tasks. If not please refer the sub section for [Configuring the Enterprise Integrator](#configuring-the-enterprise-integrator).
 
-1.  Download [WSO2 Business Process Server](http://wso2.com/products/business-process-server/) .
+1.  Download [WSO2 Business Process Server](https://wso2.com/api-manager/) .
 
 2.  Set an offset of 2 to the default BPS port in the `<BPS_HOME>/repository/conf/carbon.xml` file. This prevents port conflicts that occur when you start more than one WSO2 product on the same server. For more information, see [Changing the Default Ports with Offset]({{base_path}}/reference/guides/changing-the-default-ports-with-offset).
 
@@ -169,7 +169,7 @@ This section explains how to attach a custom workflow to the user signup operati
 
 #### Configuring the API Manager
 
-1.  Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/admin/site/conf/site.json` file and configure **workFlowServerURL** under **workflows** to point to the EI/BPS server (e.g. `"workFlowServerURL": "https://localhost:9445/services/"` )
+1.  Open the `<API-M_HOME>/repository/deployment/server/webapps/admin/src/main/webapp/site/conf/site.json` file and configure **workFlowServerURL** under **workflows** to point to the EI/BPS server (e.g. `"workFlowServerURL": "https://localhost:9445/services/"` )
 
 !!! note
     When enabling the workflow, make sure to **import the certificate** of API Manager into the client-truststore of the EI/BPS server and also import the certificate of EI/BPS into the client-truststore of API Manager.

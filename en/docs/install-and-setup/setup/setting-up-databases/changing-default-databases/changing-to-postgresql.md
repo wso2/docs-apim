@@ -17,7 +17,7 @@ Follow the  instructions below to set up the PostgreSQL database and users.
 1. Login to PostgreSQL using a client (e.g. `psql`). Enter the following command in a command prompt, where `USER_NAME` is the username that you will use to access the databases and `POSTGRE_HOST_IP` is the IP of the host of PostgreSQL server.
   
    ```sh
-   $ psql -h <POSTGRE_HOST_IP> -U <USER_NAME> -W
+   psql -h <POSTGRE_HOST_IP> -U <USER_NAME> -W
    ```
    
 1. When prompted, specify the password that will be used to access the databases with the username you specified.
@@ -46,7 +46,7 @@ Follow the  instructions below to set up the PostgreSQL database and users.
 
 1. Unzip the WSO2 API Manager pack. Let's refer to it as `<API-M_HOME>`.
 
-1. Download the [PostgreSQL JDBC driver](http://jdbc.postgresql.org/download.html).
+1. Download the [PostgreSQL JDBC driver](https://jdbc.postgresql.org/download/).
 
 1. Copy it to the `<API-M_HOME>/repository/components/lib/` directory.
 
@@ -57,7 +57,7 @@ Follow the  instructions below to set up the PostgreSQL database and users.
     For example, take `shared_db` as the database.
 
     ```sh
-    $ psql -U <USER_NAME> -d shared_db -f <API-M_HOME>/dbscripts/postgresql.sql -W
+    psql -U <USER_NAME> -d shared_db -f <API-M_HOME>/dbscripts/postgresql.sql -W
     ```
 
 2.  To create tables in the apim database (`WSO2AM_DB`), execute the relevant script as shown below. 
@@ -65,7 +65,7 @@ Follow the  instructions below to set up the PostgreSQL database and users.
     For example, take `apim_db` as the database
 
     ```sh
-    $ psql -U <USER_NAME> -d apim_db -f <API-M_HOME>/dbscripts/apimgt/postgresql.sql  -W
+    psql -U <USER_NAME> -d apim_db -f <API-M_HOME>/dbscripts/apimgt/postgresql.sql  -W
     ```
 
 !!! note

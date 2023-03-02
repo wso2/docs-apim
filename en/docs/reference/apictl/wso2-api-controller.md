@@ -363,6 +363,14 @@ Displays a list containing all the APIs, all the API Products, applications of a
                 Display log level of the API or APIs.
             </td>
         </tr>
+        <tr>
+            <th>
+                <code>correlation-logging</code>
+            </th>
+            <td>
+               Display a list of correlation logging components available.
+            </td>
+        </tr>
     </table>
 
 -   Argument
@@ -872,6 +880,12 @@ Use `api-logging` option to set the log level of the API.
 
 ```bash
 apictl set api-logging [flag] [argument]
+```
+
+Use `correlation-logging` option to set the correlation configs for a correlation logging component.
+
+```bash
+apictl set correlation-logging [flag] [argument]
 ```
 
 ### apictl k8s

@@ -108,7 +108,7 @@ Example usecase:
 
 ## Step 2 - Configure WSO2 API Manager
 
-Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/admin/site/conf/site.json` file and configure `workFlowServerURL` under `workflows` to point to the BPS server.
+Open the `<API-M_HOME>/repository/deployment/server/webapps/admin/src/main/webapp/site/conf/site.json` file and configure `workFlowServerURL` under `workflows` to point to the BPS server.
 
 **Example**
 ``` java

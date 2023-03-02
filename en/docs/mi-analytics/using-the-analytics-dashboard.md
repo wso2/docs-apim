@@ -1,7 +1,3 @@
----
-title: Access the MI Analytics Portal - WSO2 API Manager 4.0.0
----
-
 # Access the MI Analytics Portal
 
 Let's use **MI Analytics** to view and monitor **statistics** and **message tracing**.

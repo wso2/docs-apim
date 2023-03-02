@@ -9,6 +9,11 @@ The dashboard communicates with the management APIs of each Micro Integrator ins
 
 You can use the dashboard to perform the following administration tasks related to your Micro Integrator deployment:
 
+!!! tip
+    You can search for certain artifacts using the specific name of the artifact if there are many such items in the list.
+
+    ![search in monitoring dashboard]({{base_path}}/assets/img/integrate/monitoring-dashboard/search.png)    
+
 -   <b>View the MI servers in the deployment</b>
 
     View basic information of each server node.
@@ -29,6 +34,10 @@ You can use the dashboard to perform the following administration tasks related 
     You can activate/deactivate the following artifacts from the dashboard: <i>Proxy Services</i>, <i>Endpoints</i>, and <i>Message Processors</i>.
 
     You can enable/disable tracing for the following artifacts: <i>Proxy Services</i>, <i>Endpoints</i>, <i>APIs</i> <i>Sequences</i> and <i>Inbound Endpoints</i>.
+
+-   <b>View registry resources</b>
+
+    You can view content, properties, and metadata of each registry resource.
 
 -   <b>View logs</b>
 
@@ -251,6 +260,21 @@ Follow the steps given below.
 Now you can view details of artifacts, update artifacts, and perform various other administration tasks. Select the required option from the left-hand navigator.
 
 <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-list.png"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-list.png" width="300"></a>
+
+## Monitoring health of MI Dashboard
+
+
+The MI Monitoring Dashboard provides a health check endpoint that can be used to monitor the status of the Dashboard. The following API format can be used to invoke the health API.
+
+```
+https://localhost:9743/dashboard/api/healthz
+```
+
+If the MI Dashboard is up and running properly, the following response will appear.
+
+```
+{"status":"ready"}
+```
 
 <!--
 ### Proxy Services

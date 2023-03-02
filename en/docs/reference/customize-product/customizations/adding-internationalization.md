@@ -5,49 +5,47 @@ The API Manager includes two Web interfaces, namely the API Publisher and Develo
 ## Changing the browser language
 
 !!! note
-    - The web applications are shipped with the following default and additional languages for demonstration and testing purposes. 
-
-        <table>
-                        <tr>
+    - The web applications are shipped with the following default and additional languages for demonstration and testing purposes.
+    <table>
+    <tr>
         <th rowspan="2" align="center">
-        <b>Web Application</b>
+            <b>Web Application</b>
         </th>
         <th colspan="2" align="center">
-        <b>Supported Languages</b>
+            <b>Supported Languages</b>
         </th>
-    
-        </tr>
-                <tr>
+    </tr>
+    <tr>
         <th>
-        <b>Default</br>language</b>
+            <b>Default</br>language</b>
         </th>
         <th>
-        <b>Additional</br>languages</b>
+            <b>Additional</br>languages</b>
         </th>
-        </tr>
-        <tr>
+    </tr>
+    <tr>
         <td>
-        <b>Developer Portal</b>
+            <b>Developer Portal</b>
         </td>
         <td>
-        English
+            English
         </td>
         <td>
-        Spanish</br>Arabic</br>Sinhala
+            Spanish</br>Arabic</br>Sinhala
         </td>
-        </tr>
-                <tr>
+    </tr>
+    <tr>
         <td>
-        API Publisher
-        </td>
-        <td>
-        English
+            API Publisher
         </td>
         <td>
-        Sinhala
+            English
         </td>
-        </tr>
-        </table>
+        <td>
+            Sinhala
+        </td>
+    </tr>
+    </table>
     
      - If the language that you set in the browser settings is not a supported language of the API Publisher and/or the Developer Portal web application, "English" is set as the language by default in the web applications. 
     
@@ -82,13 +80,13 @@ For example, let's assume that you are using Google Chrome, and let's change the
     Publisher 
     </td>
     <td>
-    <code>&lt;APIM_HOME&gt;/repository/deployment/server/jaggeryapps/publisher/site/public/locales</code>
+    <code>&lt;APIM_HOME&gt;/repository/deployment/server/webapps/publisher/src/main/webapp/site/public/locales</code>
     </td>
     </tr>
     <tr>
     <td>
     Developer Portal
-    <td> <code>&lt;APIM_HOME&gt;/repository/deployment/server/jaggeryapps/devportal/site/public/locales</code>
+    <td> <code>&lt;APIM_HOME&gt;/repository/deployment/server/webapps/devportal/src/main/webapp/site/public/locales</code>
     </td>
     </tr>
     </table>
@@ -106,7 +104,7 @@ Let's add support for the French language to the Developer Portal.
 
 2. Make a copy of the `en.json` file and rename it based on the locale code.
     
-     Rename the copy of the `<APIM_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/locales/en.json` file to `fr.json`.
+     Rename the copy of the `<APIM_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/site/public/locales/en.json` file to `fr.json`.
 
     !!! info
         If you are setting the browser locale to a specific regional language, for example, French (Switzerland), the language with the regional code is `fr-ch`. In this scenario too the two letter locale code is `fr`, because WSO2 API Manager does not support regional language switching.
@@ -159,32 +157,32 @@ WSO2 API Manager has the capability of direction change for the **Developer Port
 
 Follow the instructions below to change the direction of the UI:
 
-1. Add the specific configuration in the `defaultTheme.js` file.
+1. Add the specific configuration in the `userTheme.json` file.
     
      Add the following configuration to change the page direction to RTL (Right To Left).  
 
      !!! note
          If you have already done customizations to the default theme, make sure to merge the following with the existing changes carefully.
 
-    ```js
-    const Configurations = {
-    direction: 'rtl',
-    };
+    ```json
+     {
+      "direction": "rtl",
+    } 
     ```
 
 2. Reload the Developer Portal to view the changes. 
 
 !!! info
-    If you have done the theme changes for the instance via the `<APIM_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js` file the above configuration is valid. However, if it is the tenant theme file (`defaultTheme.json`) the variable assignment is not required and the `defaultTheme.json` file has to be a valid JSON file. For example, the valid configuration that should go into the `defaultTheme.json` file to change the page direction to RTL (Right To Left) is as follows:
+    If you have done the theme changes for the instance via the `<APIM_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/site/public/theme/userTheme.json` file the above configuration is valid. However, if it is the tenant theme file (`userTheme.json`) the variable assignment is not required and the `userTheme.json` file has to be a valid JSON file. For example, the valid configuration that should go into the `userTheme.json` file to change the page direction to RTL (Right To Left) is as follows:
 
-    ```js
-    {
-    "direction": "rtl",
-    }
+    ```json
+        {
+        "direction": "rtl",
+        }
     ```
 
     !!! tip
-        Learn more about [Tenant theming]({{base_path}}/consume/customizations/customizing-the-developer-portal/overriding-developer-portal-theme/#uploading-via-the-admin-portal-tenants-only).
+    Learn more about [Tenant theming]({{base_path}}/consume/customizations/customizing-the-developer-portal/overriding-developer-portal-theme/#uploading-via-the-admin-portal-tenants-only).
 
 
 ## Enabling the language switch
@@ -201,7 +199,7 @@ WSO2 API Manager has the capability of language switching for the **Developer Po
 
 Follow the instructions below to enable the language switch:
 
-1. Open the `<APIM_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js` file.
+1. Open the `<APIM_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/site/public/theme/userTheme.json` file.
 
 2. Add the following configuration to the file to enable the language switch.
 
@@ -209,13 +207,25 @@ Follow the instructions below to enable the language switch:
         If you have already done customizations to the default theme, make sure to merge the following with the existing changes carefully.
 
     ```js
-    const Configurations = {
-    custom: {
-        languageSwitch: {
-            active: true,
+    {
+        "custom": {
+            "languageSwitch": {
+                "active": true,
+                "languages": [
+                {
+                        "key": "en",
+                        "image": "/site/public/images/flags/en.png",
+                        "imageWidth": 24,
+                        "text": "English",
+                        "direction": "ltr"
+                    }
+                ],
+                "showFlag": true,
+                "showText": true,
+                "minWidth": 60
+            }
         }
     }
-    };
     ```
 
 3. Optionally, add a language.
@@ -288,36 +298,36 @@ Follow the instructions below to enable the language switch:
 The following are the languages available by default.
 
 ```js
-languages: [
-    {
-        key: 'en',
-        image: '/site/public/images/flags/en.png',
-        imageWidth: 24, // in pixles
-        text: 'English',
-        direction: 'ltr',
-    },
-    {
-        key: 'es',
-        image: '/site/public/images/flags/sp.png',
-        imageWidth: 24, // in pixles
-        text: 'Spanish',
-        direction: 'ltr',
-    },
-    {
-        key: 'ar',
-        image: '/site/public/images/flags/ar.png',
-        imageWidth: 24, // in pixles
-        text: 'Arabic',
-        direction: 'rtl',
-    },
-    {
-        key: 'si',
-        image: '/site/public/images/flags/si.png',
-        imageWidth: 24, // in pixles
-        text: 'Sinhala',
-        direction: 'ltr',
-    }
-]
+"languages": [
+                {
+                    "key": "en",
+                    "image": "/site/public/images/flags/en.png",
+                    "imageWidth": 24, // in pixles
+                    "text": "English",
+                    "direction": "ltr"
+                },
+                {
+                    "key": "es",
+                    "image": "/site/public/images/flags/sp.png",
+                    "imageWidth": 24, // in pixles
+                    "text": "Spanish",
+                    "direction": "ltr"
+                },
+                {
+                    "key": "ar",
+                    "image": "/site/public/images/flags/ar.png",
+                    "imageWidth": 24, // in pixles
+                    "text": "Arabic",
+                    "direction": "ltr"
+                },
+                {
+                    "key": "si",
+                    "image": "/site/public/images/flags/si.png",
+                    "imageWidth": 24, // in pixles
+                    "text": "Sinhala",
+                    "direction": "ltr"
+                }
+            ],
 ```
 
 ## Complete configuration related to localization
@@ -325,46 +335,45 @@ languages: [
 The following is the complete configuration related to localization.
 
 ```js
-const DefaultConfigurations = {
-    direction: 'ltr',
-    custom: {
-        languageSwitch: {
-            active: false,
-            languages: [
+{
+    "custom": {
+        "languageSwitch": {
+            "active": true,
+            "languages": [
                 {
-                    key: 'en',
-                    image: '/site/public/images/flags/en.png',
-                    imageWidth: 24, // in pixles
-                    text: 'English',
-                    direction: 'ltr',
+                    "key": "en",
+                    "image": "/site/public/images/flags/en.png",
+                    "imageWidth": 24, // in pixles
+                    "text": "English",
+                    "direction": "ltr"
                 },
                 {
-                    key: 'es',
-                    image: '/site/public/images/flags/sp.png',
-                    imageWidth: 24, // in pixles
-                    text: 'Spanish',
-                    direction: 'ltr',
+                    "key": "es",
+                    "image": "/site/public/images/flags/sp.png",
+                    "imageWidth": 24, // in pixles
+                    "text": "Spanish",
+                    "direction": "ltr"
                 },
                 {
-                    key: 'ar',
-                    image: '/site/public/images/flags/ar.png',
-                    imageWidth: 24, // in pixles
-                    text: 'Arabic',
-                    direction: 'rtl',
+                    "key": "ar",
+                    "image": "/site/public/images/flags/ar.png",
+                    "imageWidth": 24, // in pixles
+                    "text": "Arabic",
+                    "direction": "ltr"
                 },
                 {
-                    key: 'si',
-                    image: '/site/public/images/flags/si.png',
-                    imageWidth: 24, // in pixles
-                    text: 'Sinhala',
-                    direction: 'ltr',
+                    "key": "si",
+                    "image": "/site/public/images/flags/si.png",
+                    "imageWidth": 24, // in pixles
+                    "text": "Sinhala",
+                    "direction": "ltr"
                 }
             ],
-            showFlag: true,
-            showText: true,
-            minWidth: 60, // Width of the language switcher in pixles
+            "showFlag": true,
+            "showText": true,
+            "minWidth": 60 // Width of the language switcher in pixles
         }
-    }
+     }
 }
 ```
 

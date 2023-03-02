@@ -6,7 +6,7 @@
 
 Before passing end user attributes, you need to enable and configure the JWT implementation, as mentioned below in Choreo Connect.
 
-1. Navigate to the `CHOREO-CONNECT_HOME/docker-compose/choreo-connect/conf/config.toml` file.
+1. {!includes/deploy/cc-configuration-file.md!}
 
 2. Enable and configure the backend JWT implementation.
 
@@ -70,7 +70,11 @@ When generating the backend JWT, it retrieves the claims from the invoked JWT. I
 
 2. Build your class and add the JAR file in the `<CHOREO-CONNECT_HOME>/resources/enforcer/dropins` directory.
 
-3. Enable and configure the JWT implementation.
+    !!! note 
+         If you use Choreo Connect with Helm Charts, please refer to the documentation in [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/production-deployment-guideline/#mount-files-into-the-dropins-directory-optional) to add a JAR file into the dropins directory.
+
+   
+4. Enable and configure the JWT implementation.
 
      - For more information, see [JWT generation configuration details](#backend-jwt-generator-configuration-details).
 
@@ -81,7 +85,7 @@ When generating the backend JWT, it retrieves the claims from the invoked JWT. I
            gatewayGeneratorImpl = "org.wso2.carbon.test.CustomGatewayJWTGenerator"
         ```
 
-4. Start the server.
+5. Start the server.
 
      For more information, see the [Quick Start Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/).
     
@@ -159,17 +163,161 @@ The relevant elements in the JWT generation configuration are described below. I
 <td><code>org.wso2.carbon.apimgt.impl.token.ExtendedDefaultClaimsRetriever</code></td>
 </tr>
 <tr class="odd">
-<td><pre><code>enforcer.jwtGenerator.publicCertificatePath</code></pre></td>
+<td><pre><code>enforcer.jwtGenerator.jwksRateLimitQuota</code></pre></td>
+<td><p>How many requests to the JWKS endpoint can be served in the time window.</p></td>
+<td><code>1000</code></td>
+</tr>
+<tr class="even">
+<td><pre><code>enforcer.jwtGenerator.jwksRateLimitTimeWindow</code></pre></td>
+<td><p>Time window for the rate limit to reset.</p></td>
+<td><code>false</code></td>
+</tr>
+<tr class="odd">
+<td><pre><code>enforcer.jwtGenerator.jwksRateLimitQuota</code></pre></td>
+<td><p>How many requests to the JWKS endpoint can be served in the time window</p></td>
+<td><code>1000</code></td>
+</tr>
+<tr class="even">
+<td><pre><code>enforcer.jwtGenerator.keypair</code></pre></td>
+<td><p>An object containing the paths to public certificate and private key of an RSA keypair and specifying whether to use it for signing or not.</p></td>
+<td><code>{
+            privateKeyPath = "/home/wso2/security/keystore/mg.key"
+            publicCertificatePath = "/home/wso2/security/truststore/mg.pem"
+            useForSigning = true
+}</code></td>
+</tr>
+<tr class="even">
+<td><pre><code>enforcer.jwtGenerator.keypair.publicCertificatePath</code></pre></td>
 <td><p>Path of the public certificate</p></td>
 <td><code>/home/wso2/security/truststore/mg.pem</code></td>
 </tr>
-<tr class="even">
-<td><pre><code>enforcer.jwtGenerator.privateKeyPath</code></pre></td>
+<tr class="odd">
+<td><pre><code>enforcer.jwtGenerator.keypair.privateKeyPath</code></pre></td>
 <td><p>Path of the private key</p></td>
 <td><code>/home/wso2/security/keystore/mg.key</code></td>
 </tr>
+<tr class="even">
+<td><pre><code>enforcer.jwtGenerator.keypair.useForSigning</code></pre></td>
+<td><p>Whether to use key for signing.</p></td>
+<td><code>false</code></td>
+</tr>
 </tbody>
 </table>
+
+## JWKS endpoint for backend JWTs
+
+Backend JWTs can be signed with RSA to ensure their validity when being sent between 2 parties. To verify the JWT on the backend we need the public certificate of the private key used to sign the JWT at the Gateway. The JWKS endpoint is a way to get this public certificate.
+
+### Usage
+
+The JWKS endpoint is:
+
+``` java tab="Format"
+"https://<hostname>:<port>/.wellknown/jwks"
+```
+
+
+``` java tab="Example"
+"https://localhost:9095/.wellknown/jwks"
+```
+
+The public keys can be recieved from this endpoint with a <code>GET</code> or <code>POST</code> request.
+
+
+### Sample JWKS response
+
+```json
+{
+	"keys": [
+		{
+			"kty": "RSA",
+			"e": "AQAB",
+			"use": "sig",
+			"kid": "ZjcwNmI2ZDJmNWQ0M2I5YzZiYzJmyNg",
+			"alg": "RS256",
+			"n": "8vjeHzRhvpfMystncPnLBWy_t5F3eCxbcLbdugWnzfnIgaV6TWnqPBUagJBKpzRZs4A9Qja_ZrSVJjYsbARzCS_qiWp0Cdwkqn6ZCXpmbpfjYnKORq8N8M-zWaSZYbNvWJ5oSO4kH-LKWzODaFebwTJBpsR1vChHH95doxFuUjiZaisVaQgUJ6drRdlDtImp9r9EAX36YROuYFPouD-dQ1sdJOa11P_yMs-glfQ"
+		}
+	]
+}
+```
+
+## JWKS Parameters
+
+<table>
+<thead>
+<tr class="header">
+<th><b>Parameter</b></th>
+<th><b>Description</b></th>
+</tr>
+<tbody>
+<tr class="odd">
+<td><pre><code>kty</code></pre></td>
+<td>Key type identifies the cryptographic family this key belongs to.</td>
+</tr>
+<tr class="even">
+<td><pre><code>e</code></pre></td>
+<td>The exponent value of the public key.</td>
+</tr>
+<tr class="odd">
+<td><pre><code>use</code></pre></td>
+<td>This defines the use of the key, whether it is used for signing or encryption.</td>
+</tr>
+<tr class="even">
+<td><pre><code>kid</code></pre></td>
+<td>This is an ID parameter used to match a specific key(s).</td>
+</tr>
+<tr class="odd">
+<td><pre><code>alg</code></pre></td>
+<td>This defines the specific algorithm intended for use with the key.</td>
+</tr>
+<tr class="even">
+<td><pre><code>n</code></pre></td>
+<td>The modulus value of the public key.</td>
+</tr>
+<tr class="odd">
+<td><pre><code>keys</code></pre></td>
+<td>An array of the public keys available from the gateway.</td>
+</tr>
+</tbody>
+</table>
+
+## Code Example in Ballerina
+
+```bal
+import ballerina/http;
+import ballerina/jwt;
+
+service / on new http:Listener(8080) {
+
+    resource function get hello(http:Request request) returns string|error {
+        
+        // JWT Validator config configured with the Issuer and the Signature config which points at the JWKS URL
+        jwt:ValidatorConfig validatorConfig = {
+        issuer: "wso2.org/products/am",
+        clockSkew: 60,
+        signatureConfig: {
+            jwksConfig: {url: "https://gateway.e1-us-east-azure.preview-dv.choreoapis.dev/.wellknown/jwks", cacheConfig: {}}
+        }
+        };
+        var jwt = request.getHeader("x-jwt-assertion");
+
+        if !(jwt is string) {
+            return error("JWT header not available");
+            
+        }
+        // Validating the JWT based on its signature and expiration time
+        jwt:Payload|jwt:Error result = check jwt:validate(jwt, validatorConfig);
+
+        if result is jwt:Error {
+            return error("Failed to authenticate " + result.message());
+        }
+        
+        return result.toBalString();
+    }
+}
+```
+
+In this example we create a hello route on port 8080 and secure it with JWT. This hello function returns the JWT claims or the error that occurred during validation. 
 
 ## See Also
 

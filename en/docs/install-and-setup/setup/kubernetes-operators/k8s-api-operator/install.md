@@ -18,7 +18,7 @@ Follow the steps given below to install the operator in standalone mode.
 1. Install the API Operator: 
 
     ```shell
-    kubectl apply -f https://github.com/wso2/k8s-api-operator/releases/download/v2.0.2/api-operator-configs.yaml
+    kubectl apply -f https://github.com/wso2/k8s-api-operator/releases/download/2.0.2/api-operator-configs.yaml
     ```
 
 2. Verify the installation:
