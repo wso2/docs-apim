@@ -45,9 +45,9 @@ You can add an API category using any of the following methods:
 
 2. Click on an API.
 
-3. Click **Design Configurations**. 
+3. Click **Portal Configurations > Basic Info**. 
 
-     <img src="{{base_path}}/assets/img/develop/api_categories_dropdown.png" width="250" alt="Add API category">
+     <img src="{{base_path}}/assets/img/develop/api-portal-config-basic-info.png" width="235" alt="Add API category">
 
 4. Select the API category.
 
