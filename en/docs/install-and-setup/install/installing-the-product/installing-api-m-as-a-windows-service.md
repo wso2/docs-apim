@@ -12,7 +12,7 @@
 -   Download and install a service wrapper library to use for running WSO2 API Manager as a Windows service. WSO2 recommends Yet Another Java Service Wrapper ( YAJSW ) version [13.05](https://sourceforge.net/projects/yajsw/files/yajsw/yajsw-stable-13.05/yajsw-stable-13.05.zip/download) and several WSO2 products provide a default `wrapper.conf` file in their `<PRODUCT_HOME>/bin/yajsw/` directory. The instructions below describe how to set up this file.
 
 !!! important
-    Use YAJSW 13.05 for both JDK 11 and JDK 17 X.
+    Use YAJSW 13.05 for both JDK 11 and JDK 17.
 
 ### Setting up the YAJSW wrapper configuration file
 
