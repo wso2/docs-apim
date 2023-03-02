@@ -8,7 +8,7 @@ This is a tutorial that is part of a series and can be used as a standalone tuto
 
 From time to time GoGo transit provides notifications to the Train companies. (For e.g., platform unavailability, revised fees, etc.). GoGo transit is planning to provide this information as WebHooks so that the Train companies can subscribe to these notifications without continuously polling.
 
-WebHooks only allow one-way communication, from a caller web app to caller web app. The client who intends to receive the events from the server/web app/publisher has to register its URL against the interesting events in the publisher. When an event occurs, if a client is registered for that event, the publisher will make an HTTP POST request to the registered URL of the client to notify the event.
+WebHooks only allow one-way communication, from a caller web app to callee web app. The client who intends to receive the events from the server/web app/publisher has to register its URL against the interested events in the publisher. When an event occurs, if a client is registered for that event, the publisher will make an HTTP POST request to the registered URL of the client to notify the event.
 
 <img src="{{base_path}}/assets/img/tutorials/scenario-tutorials/scenario10.png" alt="Webhook notifications" title="Webhook notifications" width="60%" />
 
