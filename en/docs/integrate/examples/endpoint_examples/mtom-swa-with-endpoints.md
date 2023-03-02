@@ -86,9 +86,7 @@ Create the artifacts:
         identified by the Micro Integrator. 
 
 !!! Note
-    From MI 4.2.0 onwards we will have two different configs for axis2 and axis2 blocking client. The above configurations will be used to configure axis2 
-    client. To enable SwA and MTOM configurations for axis2 blocking client you
-    need to add the following configuration as well.
+    From MI 4.2.0 onwards, there are two different configs for the axis2 and the axis2 blocking client. The above configurations will be used to configure the axis2  client. To enable SwA and MTOM configurations for the axis2 blocking client, you need to add the following configuration as well.
 
     ```toml
     [server]
