@@ -19,6 +19,13 @@ WSO2 API Manager uses <a href="https://stripe.com">Stripe</a> as its sample impl
 
 Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin/releases/download/v1.4.0/org.wso2.apim.monetization.impl-1.4.0.jar) to monetize an API in the following example scenario.
 
+<html>
+      <div class="admonition note">
+      <p class="admonition-title">Note</p>
+      <p>This scenario can be tried out using test data by turning on the toggle button in the top right-hand side corner.</p>
+      </div> 
+</html>
+
 ### Before you begin
 
 #### (A) - Configure the billing engine
@@ -47,8 +54,7 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
 
          Use the details of the Tenant Admin and verify the account. Let's name this account as Tenant Admin. <a name="tenantSK"></a>
 
-     2. [Obtain the keys](https://stripe.com/docs/keys#api-keys).  
-
+     2.  Click on **Developers** > **API keys** > **Reveal test key** to obtain the keys. For more information refer to [Obtain the keys](https://stripe.com/docs/keys#api-keys).
         [![Obtain keys]({{base_path}}/assets/img/learn/monetization_obtain_keys.png)]({{base_path}}/assets/img/learn/monetization_obtain_keys.png)
         
  2.  Create an account for the API Publisher.  
@@ -61,26 +67,36 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
 
  3.  Enable Connect and create a [connected account](https://stripe.com/docs/connect/quickstart#create-account) in Stripe.  
 
-    1. Sign in to the Tenant Admin's Stripe account.
-    2. Click **Connected accounts** > **Get Started** > **Build a platform or marketplace** > **Continue** to create a platform account.
-
-        [![Create a platform account]({{base_path}}/assets/img/learn/monetization_create_connected_account.png)]({{base_path}}/assets/img/learn/monetization_create_connected_account.png)
-
-    3. In the prompted screen click **+ Create** and select the Account type as Standard and select the Country. If you haven't enabled OAuth for standard accounts, the **Continue** button will be disabled. Click **enable OAuth for Standard Accounts** in the pop-up that appears on **Continue** button.
-
-        [![Enable oauth]({{base_path}}/assets/img/learn/monetization_enable_oauth.png){: style="width:60%"}]({{base_path}}/assets/img/learn/monetization_enable_oauth.png)
-    
-    4. Enable **OAuth for Standard Accounts** under **OAuth Settings** in the prompted screen. Then, go back to the previous step and create a connected account. This will provide a one-time-use Standard onboarding link which would take the following format. The Tenant Admin can share this with the API Publisher.
-    
-         ```
-         https://connect.stripe.com/oauth/authorize?redirect_uri=https://connect.stripe.com/hosted/oauth&client_id=<client-id>& state=<state>&response_type=code&scope=read_write&stripe_user[country]=<country>
-        ```
- 
-         The API Publisher has to access the given link and provide the details of the API Publisher account. Provide **Two-step authentication** details as well. Alternatively, you can use **skip this account form** to work in the developer mode.
-
-         [![Work in developer mode]({{base_path}}/assets/img/learn/developer-mode.png)]({{base_path}}/assets/img/learn/developer-mode.png)
+      1. Sign in to the Tenant Admin's Stripe account.
      
-    5. Once you follow either of the options in the previous step, the onboarding process will be completed. After few seconds, API Publisher account will be listed under Connected accounts in Tenant Admin account. The connected account ID (Connect ID) for the API Publisher's account will appear when clicking on the connected account. Copy the **Connect ID** value as it is required when enabling monetization for an API from the APIM Publisher portal.
+         1. Click on **Settings** and then select **Settings** in **Connect** section.
+            [![Select 'Settings']({{base_path}}/assets/img/learn/monetization_connect_settings.png)]({{base_path}}/assets/img/learn/monetization_connect_settings.png)
+
+         2. Edit **Appearance** section in **Branding** section and click on **Save Branding Changes**.
+            [![Save Branding Changes]({{base_path}}/assets/img/learn/monetization_save_branding_changes.png)]({{base_path}}/assets/img/learn/monetization_save_branding_changes.png)
+         
+      2. Enable OAuth for Standard Accounts by scrolling further.
+            [![Enable Oauth for Standard Accounts]({{base_path}}/assets/img/learn/monetization_enable_oauth_for_standard_accounts.png)]({{base_path}}/assets/img/learn/monetization_enable_oauth_for_standard_accounts.png)
+      
+      3. Click `Connect` and then click on `Create`.
+         [![Click 'Connect' and Create]({{base_path}}/assets/img/learn/monetization_click_connect_and_create.png)]({{base_path}}/assets/img/learn/monetization_click_connect_and_create.png)
+
+      4. In the prompted screen select the Account type as Standard and select the Country. If you haven't enabled OAuth for standard accounts, the **Continue** button will be disabled. Click **enable OAuth for Standard Accounts** in the pop-up that appears on **Continue** button.
+      
+        [![Select Type and Country]({{base_path}}/assets/img/learn/monetization_select_type_and_country.png){: style="width:60%"}]({{base_path}}/assets/img/learn/monetization_select_type_and_country.png)
+      
+      5. Copy the URL which appears in the next popup.
+     
+         [![Copy URL]({{base_path}}/assets/img/learn/monetization_copy_url.png){: style="width:60%"}]({{base_path}}/assets/img/learn/monetization_copy_url.png)
+
+      6. Enter the URL which was copied in previous step in the browser to onboard the application and click on `Skip this form` if you are on test mode.
+     
+         [![Onboard Application]({{base_path}}/assets/img/learn/monetization_onboard_application.png){: style="width:60%"}]({{base_path}}/assets/img/learn/monetization_onboard_application.png)
+
+      7. Refresh [the page](https://dashboard.stripe.com/test/connect/accounts/overview) to see the newly created account.
+
+         [![View Created Account]({{base_path}}/assets/img/learn/monetization_created_account.png){: style="width:60%"}]({{base_path}}/assets/img/learn/monetization_created_account.png)
+
 
 #### (B) - Configure WSO2 API Manager
 
@@ -513,7 +529,7 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
 
      These configurations are required only if you intend to create dynamic plans (usage-based plans) where consumers are charged based on the usage of the API. In such situations, you need analytics to record and retrieve the usage of the monetized APIs. 
     
-    1. Enable analytics.
+    1. Enable analytics. Refer [this guide](https://apim.docs.wso2.com/en/latest/api-analytics/getting-started-guide/#step-2-register-your-environment) for more info.
     
         ``` java tab="Format"
          [apim.analytics]
@@ -549,7 +565,13 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
          choreo_insight_app_consumer_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
          choreo_insight_app_consumer_secret = "xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
          ```
-   
+
+       4. Optionally, configure WSO2 API Manager to work with Choreo Analytics.
+           1. Enable analytics by referring to this [guide](https://apim.docs.wso2.com/en/latest/api-analytics/getting-started-guide/#step-2-register-your-environment).
+          
+        !!! note
+            analytics_access_token was generated in the **step a**.
+
 5.  Configure the Tenant Admin on WSO2 API Manager.
 
     1.  Start the WSO2 API Manager server.
@@ -621,15 +643,8 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
       <p>When using Stripe as a billing engine it only allows you to create monetization plans for commercial business plans. Therefore, make sure to create a subscription policy that has a paid business plan.</p>
       </div> 
      </html>
-
-
-     <html>
-     <head>
-     </head>
-     <body>
-     <img src="{{base_path}}/assets/img/learn/subscription-commercial-tier.png" alt="Subscription to a paid business plan" title="Paid business plan" width="400" />
-     </body>
-     </html>
+    
+    [![Create Subscription Policy]({{base_path}}/assets/img/learn/monetization_create_subscription_policy.png){: style="width:60%"}]({{base_path}}/assets/img/learn/monetization_create_subscription_policy.png)
 
      After you save the policy, a plan gets created in the Stripe account of the Tenant Admin.  
 
@@ -639,20 +654,28 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
 
 ### Step 2 - Enable monetization
 
-1.  Sign in to the API Publisher Portal.  
+1. Sign in to the API Publisher Portal.  
     `https://<hostname>:9443/publisher`
 
-2.  Click on the API that you wish to monetize.  
-    ![Enable monetization]({{base_path}}/assets/img/learn/enable-monetization.png)
+2. Click on the API that you wish to monetize.  
 
-3.  Click **Monetization** to navigate to the Monetization configurations.
+3. Click on `Subscriptions` and select the policy created in **step 1** and click save.
+   [![Select Subscription]({{base_path}}/assets/img/learn/monetization_select_subscription_policy.png){: style="width:60%"}]({{base_path}}/assets/img/learn/monetization_create_subscription_policy.png)
 
-4.  Enter the connect ID as the connected account key and click
-    **Save**.  
+4. Click **Monetization** to navigate to the Monetization configurations.
+   ![Enable monetization]({{base_path}}/assets/img/learn/enable-monetization.png)
+
+5. Enter the connect ID as the connected account key and click
+    **Save**. You could find the `Connect ID` when you click on the created account. Simply click on **Copy ID** there to copy it.
+   [![Copy Connect ID]({{base_path}}/assets/img/learn/monetization_copy_id.png){: style="width:60%"}]({{base_path}}/assets/img/learn/monetization_copy_id.png)
 
     When using Stripe as the billing engine, you need to enter the [connect ID](#connectID), which is the ID that indicates the link between the Tenant Admin and the API Publisher Stripe accounts.
         
     The plans get created in Stripe based on the business plan attached to the API.
+6. Additionally, if you refresh the page **Policy** section has to be shown as below.
+
+      [![Updated Policy Section]({{base_path}}/assets/img/learn/monetization_updated_policy_section.png){: style="width:60%"}]({{base_path}}/assets/img/learn/monetization_updated_policy_section.png)
+
 
 ### Step 3 - Subscribe to a monetized API
 
@@ -718,7 +741,7 @@ You can use the admin REST API, which is available in WSO2 API Manager, to publi
 3.  Publish usage data to the Stripe billing engine.
 
     ``` java
-    curl -k -H "Authorization: Bearer <monetization-usage-publish-token>" -X POST -H "Content-Type: application/json" https://localhost:9443/api/am/admin/v1/monetization/publish-usage
+    curl -k -H "Authorization: Bearer <monetization-usage-publish-token>" -X POST -H "Content-Type: application/json" https://localhost:9443/api/am/admin/v3/monetization/publish-usage
     ```
 
     -   `<monetization-usage-publish-token>` - Token obtained using client credentials with `monetization_usage_publish` scope in the previous step.
@@ -738,7 +761,7 @@ You can use the admin REST API, which is available in WSO2 API Manager, to publi
     When you call the Admin API to publish usage data, a separate job in a separate thread is created to publish usage data to the billing engine. The status of the above job can be monitored as follows.
   
     ``` java
-    curl -k -H "Authorization: Bearer <monetization-usage-publish-token>" -X GET -H "Content-Type: application/json" https://localhost:9443/api/am/admin/v1/monetization/publish-usage/status
+    curl -k -H "Authorization: Bearer <monetization-usage-publish-token>" -X GET -H "Content-Type: application/json" https://localhost:9443/api/am/admin/v3/monetization/publish-usage/status
     ```
     -   `<monetization-usage-publish-token>` - The same token that you got with the monetization usage scope in previous steps.
 
