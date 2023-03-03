@@ -116,7 +116,7 @@ For more information, see [OpenTelemetry Configurations]({{base_path}}/reference
 	```toml tab="Example"
     [apim.open_telemetry]
 	remote_tracer.enable = true
-	remote_tracer.type = "otlp"
+	remote_tracer.name = "otlp"
     remote_tracer.url = "https://otlp.nr-data.net:4317/v1/traces"
 
     [[apim.open_telemetry.remote_tracer.properties]]
