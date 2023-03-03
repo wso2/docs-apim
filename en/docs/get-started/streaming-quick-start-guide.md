@@ -6,9 +6,12 @@ Let's get started with WSO2 Streaming Integrator(SI) by running a simple streami
 
 1. Install [Oracle Java SE Development Kit (JDK)](http://java.sun.com/javase/downloads/index.jsp) version 11 and set the `JAVA_HOME` environment variable.
 
-     For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/).
+     For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-si/).
 
 2. Download the [Streaming Integrator and Streaming Integrator Tooling distributions](https://wso2.com/integration/streaming-integrator/) and extract them to a location of your choice. 
+
+    !!! Tip
+          You can download Streaming Integrator Tooling from the Tooling link in the OTHER RESOURCES section of the above download page.
    
      Hereafter, the extracted location is referred to as `<SI_HOME>` and `<SIT_HOME>` respectively.
 
@@ -42,13 +45,7 @@ Let's create a simple Siddhi application that reads data from a XML file, does a
 
 1. Download `sampledata.xml` file from [here]({{base_path}}/assets/attachments/quick-start-guide/sampledata.xml) and save it in a location of your choice.
 
-    !!! info
-        In this example, the file is located in the `/Users/foo` directory.
-
 2. Navigate to `http://localhost:9390/editor`.
-
-    !!! Tip
-        Use `admin` as the username and password.
         
 3. Click on **New**, and copy and paste the content given below.
     
@@ -83,18 +80,18 @@ Let's create a simple Siddhi application that reads data from a XML file, does a
     
 4. Save this file as `ManageProductionStats.siddhi`.
 
-5. Click on **Deploy** and then **Deploy To Server** to deploy the Siddhi Application in Streaming Integrator.
+5. To deploy the Siddhi application in the Streaming Integrator, click **Deploy** and then click **Deploy to Server**.
 
-6. Add the Streaming Integrator server details by clicking on **Add New Server**.
+6. Add the Streaming Integrator server details under `Add New Server` section and then click **Add**.
 
-     Specify the Streaming Integrator host `localhost` and port `9443`.
+     For this example, specify the Streaming Integrator host as `localhost` and port as `9443`.
     
-7. Select the `ManageProductionStats` and the `Server` and **Deploy**.
+7. Select the `ManageProductionStats` and the `Server` and then click **Deploy**.
  
      The following message appears to indicate that the Siddhi application was deployed successfully in the Streaming Integrator console.
 
     ```
-    INFO {org.wso2.carbon.streaming.integrator.core.internal.StreamProcessorService} - Siddhi App ManageProductionStats1 deployed successfully
+    INFO {org.wso2.carbon.streaming.integrator.core.internal.StreamProcessorService} - Siddhi App ManageProductionStats deployed successfully
     ```
 
  You can now test the **SweetProductionApplication** service that you just generated.
@@ -103,14 +100,14 @@ Let's create a simple Siddhi application that reads data from a XML file, does a
 
 Follow the instructions below to test the `ManageProductionStats` Siddhi application that you created above.
 
-1. Copy the `sampledata.xml` file in the `/Users/foo/files` directory. 
+1. Copy the `sampledata.xml` file downloaded in step 3.1 to the `/Users/foo/files` directory. 
 
 2. Observe the SI console output.
 
      You can see the following message in the SI console log.
 
      ```jvm
-     INFO {io.siddhi.core.stream.output.sink.LogSink} - ManageProductionStats1 : ProductionAlertStream : [Event{timestamp=1630491334294, data=[Almond cookie, 170.0], isExpired=false}, Event{timestamp=1630491334294, data=[Baked alaska, 100.0], isExpired=false}, Event{timestamp=1630491334294, data=[Toffee, 100.0], isExpired=false}] 
+     INFO {io.siddhi.core.stream.output.sink.LogSink} - ManageProductionStats : ProductionAlertStream : [Event{timestamp=1630491334294, data=[Almond cookie, 170.0], isExpired=false}, Event{timestamp=1630491334294, data=[Baked alaska, 100.0], isExpired=false}, Event{timestamp=1630491334294, data=[Toffee, 100.0], isExpired=false}] 
      ```
 
  **Congratulations!**
@@ -119,7 +116,7 @@ Follow the instructions below to test the `ManageProductionStats` Siddhi applica
       
 ## Exposing an Streaming Service as a Managed API
 
-The `ManageProductionStats` Siddhi Application you deployed in the Micro Integrator is a **streaming service** for the API Manager. Now, let's look at how you can expose the streaming service to the API Management layer and generate a managed API by using the service.
+The `ManageProductionStats` Siddhi Application you deployed in the Streaming Integrator is a **streaming service** for the API Manager. Now, let's look at how you can expose the streaming service to the API Management layer and generate a managed API by using the service.
 
 ### Step 1 - Expose as a service 
 
@@ -130,16 +127,19 @@ Start the API Manager runtime:
 1. Extract the API Manager ZIP file.
 
 2. Start WSO2 API Manager.
+     
+    !!! Note
+          If you are running both APIM and SI in the same JVM, start APIM with a port offset.
 
      Open a terminal, navigate to the `<API-M_HOME>/bin` directory and execute the relevant command. 
 
   
      ```bash tab="On MacOS/Linux"
-     ./api-manager.sh
+     ./api-manager.sh -DportOffset=1
      ```
   
      ```bash tab="On Windows"
-     api-manager.bat
+     api-manager.bat -DportOffset=1
      ```
 
 #### Step 1.2 - Start WSO2 Streaming Integrator 
@@ -148,7 +148,7 @@ Update and start the Streaming Integrator runtime:
 
 1. Stop the Streaming Integrator.
 
-2. Add the following configuration to the `<SI_HOME>/conf/server/deployment.toml` file of the Streaming Integrator.
+2. Add the following configuration to the `<SI_HOME>/conf/server/deployment.yaml` file of the Streaming Integrator.
 
     !!! Tip
         - The default username and password for connecting to the API Gateway is `admin:admin`.
@@ -208,6 +208,13 @@ Follow the instructions below to generate an AsyncAPI Definition via the Streami
 5. Click **Code View** to view the Siddhi application with the AsyncAPI definition that was generated and save it so that it can be deployed on SI server.
 
 #### Step 1.4 - Publish the AsyncAPI definition
+
+!!! Note
+     **Before you begin:**
+
+     - You need to import the public certificate of the API Manager to the truststore of the Streaming Integrator. For information on importing the certificates, see the [Importing certificates to the truststore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-3-importing-certificates-to-the-truststore) guide.
+
+     - For testing purposes, you skip the above and simply copy the keystore and the truststore of APIM to SI and SI Tooling.
 
 You need to deploy your Streaming backend, which contains the AsyncAPI definition, to the Streaming Integrator server in order to export the AsyncAPI definition that you generated to the services in WSO2 API Manager.
 
@@ -297,6 +304,13 @@ Access the streaming service via the **API Publisher** as follows:
 7. Click **Try Out** on the left menu and click on the **SUB** topic.
   
      You can see the sample command to access the API.
+
+    !!! Tip
+        - If wscat is not already install, use the following command to install it,
+          ```jvm
+          npm install -g wscat
+          ```
+        - Change the below mentioned default port `9099` according to the port offset of APIM.
   
      ```jvm
      wscat -c 'ws://localhost:9099/sweets/1.0.0/' -H 'Authorization: Bearer <access token>'
