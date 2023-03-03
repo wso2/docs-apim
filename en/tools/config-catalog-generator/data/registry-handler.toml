@@ -1,0 +1,120 @@
+#### Sample deployment.toml entry
+##### Registry handler 1 #####
+[[registry_handler]]
+class="org.wso2.carbon.registry.extensions.handlers.WSDLMediaTypeHandler"
+filter_class="org.wso2.carbon.registry.core.jdbc.handlers.filters.MediaTypeMatcher"
+
+[registry_handler.properties]
+disableSymlinkCreation = "true"
+myprop1= "true"
+
+### parent property 1: schemaLocationConfiguration
+[[registry_handler.nested_property]]
+enable = true
+name = "schemaLocationConfiguration"
+type = "xml"
+
+# nested property 1
+[[registry_handler.nested_property.schemaLocationConfiguration]]
+tag = 'location'
+value = "/trunk/schemas/1"
+key = "mykey"
+
+# nested property 2
+[[registry_handler.nested_property.schemaLocationConfiguration]]
+tag = 'location'
+value = "/trunk/schemas/2"
+key = "mykey2"
+
+# nested property 3
+[[registry_handler.nested_property.schemaLocationConfiguration]]
+tag = 'newlocation'
+value = "/trunk/schemas/3"
+key = "mykey3"
+
+## parent property 2: wsdlLocationConfiguration
+[[registry_handler.nested_property]]
+enable = true
+name = "wsdlLocationConfiguration"
+type = "xml"
+
+# nested property 1
+[[registry_handler.nested_property.wsdlLocationConfiguration]]
+tag = 'location'
+value = "/trunk/wsdls/"
+
+## parent property 3: policyLocationConfiguration
+[[registry_handler.nested_property]]
+enable = true
+name = "policyLocationConfiguration"
+type = "xml"
+
+# nested property 1
+[[registry_handler.nested_property.policyLocationConfiguration]]
+tag = 'location'
+value = "/trunk/policies/"
+
+[registry_handler.filter_properties]
+mediaType = "application/vnd.wso2-service+xml"
+
+##### Registry handler 2 #####
+[[registry_handler]]
+class="org.wso2.carbon.registry.extensions.handlers.ZipWSDLMediaTypeHandle"
+filter_class="org.wso2.carbon.registry.core.jdbc.handlers.filters.MediaTypeMatcher2"
+
+[registry_handler.properties]
+wsdlMediaType = "application/wsdl+xml"
+schemaMediaType = "application/xsd+xml"
+threadPoolSize = 50
+disableSymlinkCreation = true
+numberOfRetry = 3
+
+## parent property 1: schemaLocationConfiguration
+[[registry_handler.nested_property]]
+enable = true
+name = "schemaLocationConfiguration"
+type = "xml"
+
+# nested property 1
+[[registry_handler.nested_property.schemaLocationConfiguration]]
+tag = 'location'
+value = "/trunk/schemas/1"
+key = "mykey"
+
+[registry_handler.filter_properties]
+mediaType = "application/vnd.wso2-service+xml"
+
+
+#### Sample registry.xml entry generated will be as follows
+&lt;!--Config for custom registry handlers.--&gt;
+&lt;handler class=&quot;org.wso2.carbon.registry.extensions.handlers.WSDLMediaTypeHandler&quot;&gt;
+    &lt;property name=&quot;myprop1&quot;&gt;true&lt;/property&gt;
+    &lt;property name=&quot;disableSymlinkCreation&quot;&gt;true&lt;/property&gt;
+    &lt;property name=&quot;schemaLocationConfiguration&quot; type=&quot;xml&quot;&gt;
+            &lt;location key=&quot;mykey&quot;&gt;/trunk/schemas/1&lt;/location&gt;
+            &lt;location key=&quot;mykey2&quot;&gt;/trunk/schemas/2&lt;/location&gt;
+            &lt;newlocation key=&quot;mykey3&quot;&gt;/trunk/schemas/3&lt;/newlocation&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;wsdlLocationConfiguration&quot; type=&quot;xml&quot;&gt;
+            &lt;location&gt;/trunk/wsdls/&lt;/location&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;policyLocationConfiguration&quot; type=&quot;xml&quot;&gt;
+            &lt;location&gt;/trunk/policies/&lt;/location&gt;
+    &lt;/property&gt;
+    &lt;filter class=&quot;org.wso2.carbon.registry.core.jdbc.handlers.filters.MediaTypeMatcher&quot;&gt;
+        &lt;property name=&quot;mediaType&quot;&gt;application/vnd.wso2-service+xml&lt;/property&gt;
+    &lt;/filter&gt;
+&lt;/handler&gt;
+&lt;handler class=&quot;org.wso2.carbon.registry.extensions.handlers.ZipWSDLMediaTypeHandle&quot;&gt;
+    &lt;property name=&quot;schemaMediaType&quot;&gt;application/xsd+xml&lt;/property&gt;
+    &lt;property name=&quot;threadPoolSize&quot;&gt;50&lt;/property&gt;
+    &lt;property name=&quot;numberOfRetry&quot;&gt;3&lt;/property&gt;
+    &lt;property name=&quot;wsdlMediaType&quot;&gt;application/wsdl+xml&lt;/property&gt;
+    &lt;property name=&quot;disableSymlinkCreation&quot;&gt;true&lt;/property&gt;
+    &lt;property name=&quot;schemaLocationConfiguration&quot; type=&quot;xml&quot;&gt;
+            &lt;location key=&quot;mykey&quot;&gt;/trunk/schemas/1&lt;/location&gt;
+    &lt;/property&gt;
+    &lt;filter class=&quot;org.wso2.carbon.registry.core.jdbc.handlers.filters.MediaTypeMatcher2&quot;&gt;
+        &lt;property name=&quot;mediaType&quot;&gt;application/vnd.wso2-service+xml&lt;/property&gt;
+    &lt;/filter&gt;
+&lt;/handler&gt;

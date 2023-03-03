@@ -5254,6 +5254,111 @@
                 }
             ],
             "exampleFile": "http_access_log.toml"
+        },
+        {
+            "title": "Registry Handler properties",
+            "options": [
+                {
+                    "name": "[registry_handler]",
+                    "required": false,
+                    "description": "Registry Handler configurations.",
+                    "params": [
+                        {
+                            "name": "class",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "The class name of the Handler. Provided in the class attribute in the Handler."
+                        },
+                        {
+                            "name": "filter_class",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "The class name of the filter which is associated with the Handler (Ex: org.wso2.carbon.registry.core.jdbc.handlers.filters.MediaTypeMatcher, org.wso2.carbon.registry.core.jdbc.handlers.filters.URLMatcher)."
+                        }              
+                    ]
+                },
+                {
+                    "name": "registry_handler.properties",
+                    "required": false,
+                    "description": "Registry Handler custom properties which do not have nested elements. Properties are listed as key, value pairs. These custom properties will be used in Handler processing logic.",
+                    "params": [        
+                    ]
+                },
+                {
+                    "name": "[registry_handler.nested_property]",
+                    "required": false,
+                    "description": "Registry Handler custom property which has nested elements under it.",
+                    "params": [
+                        {
+                            "name": "enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true, false",
+                            "description": "Enables nested properties."
+                        },
+                        {
+                            "name": "name",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "The name of the custom parent property."
+                        },
+                        {
+                            "name": "type",
+                            "type": "string",
+                            "required": false,
+                            "default": "xml",
+                            "possible": "xml, null",
+                            "description": "The type of the custom parent property."
+                        }              
+                    ]
+                },
+                {
+                    "name": "[registry_handler.nested_property.<parent_property_name>]",
+                    "required": false,
+                    "description": "Nested element which is under a custom Registry Handler property.",
+                    "params": [
+                        {
+                            "name": "tag",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "XML element name of the nested property."
+                        },
+                        {
+                            "name": "value",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "Value of the nested property element."
+                        },
+                        {
+                            "name": "key",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Value of the additional key attribute of the XML element generated for the nested property."
+                        }              
+                    ]
+                },
+                {
+                    "name": "registry_handler.filter_properties",
+                    "required": false,
+                    "description": "Define registry handler filter element configurations.",
+                    "params": [           
+                    ]
+                }
+            ],
+            "exampleFile": "registry-handler.toml"
         }
     ]
 }
