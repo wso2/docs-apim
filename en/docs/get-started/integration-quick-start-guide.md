@@ -281,7 +281,7 @@ The REST API you deployed in the Micro Integrator is an **integration service** 
 
     1. Stop the Micro Integrator.
 
-    2. Add the following configuration to the `<MI_HOME>/conf/deployment.toml` file of the Micro Integrator.
+    2. Uncomment the following configuration from the `<MI_HOME>/conf/deployment.toml` file of the Micro Integrator.
 
         !!! Tip
             The default username and password for connecting to the API gateway is `admin:admin`.
@@ -332,7 +332,7 @@ The REST API you deployed in the Micro Integrator is an **integration service** 
 
     <a href="{{base_path}}/assets/img/integrate/quick-start-guide/new-healthcareapi-view.png"><img src="{{base_path}}/assets/img/integrate/quick-start-guide/new-healthcareapi-view.png" alt="apis list"></a>
 
-4.  Navigate to **Develop -> API Configurations -> Endpoints** from the left menu. You will see that **HTTP/REST Endpoint** is already selected and the production endpoint is already provided .
+4.  Navigate to **Develop -> API Configurations -> Endpoints** from the left menu. You will see that **Service Endpoint** is already selected and the production endpoint is already provided.
 
      Select the `Sandbox Endpoint`, add the endpoint `http://localhost:8290/healthcare`, and **Save**.
      
@@ -368,7 +368,7 @@ The REST API you deployed in the Micro Integrator is an **integration service** 
 
     <a href="{{base_path}}/assets/img/integrate/quick-start-guide/devportal-get-test-key.png"><img src="{{base_path}}/assets/img/integrate/quick-start-guide/devportal-get-test-key.png" size="800"></a>
 
-6. Click **GET** resource `/doctor​/{doctorType}`. Click on **Try It Out** at   the right side. Use  `Ophthalmologist` as the doctorType. And then click on **Execute**.
+6. Click **GET** resource `/doctor​/{doctorType}`. Click on **Try It Out**. Enter `Ophthalmologist` in the doctorType field and click **Execute**.
 
     <a href="{{base_path}}/assets/img/integrate/quick-start-guide/devportal-invoke.png"><img src="{{base_path}}/assets/img/integrate/quick-start-guide/devportal-invoke.png" size="800"></a>
 
