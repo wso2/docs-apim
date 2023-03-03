@@ -5274,7 +5274,7 @@
                         {
                             "name": "filter_class",
                             "type": "string",
-                            "required": false,
+                            "required": true,
                             "default": "",
                             "possible": "",
                             "description": "The class name of the filter which is associated with the Handler (Ex: org.wso2.carbon.registry.core.jdbc.handlers.filters.MediaTypeMatcher, org.wso2.carbon.registry.core.jdbc.handlers.filters.URLMatcher)."
@@ -5297,8 +5297,8 @@
                             "name": "enable",
                             "type": "boolean",
                             "required": false,
-                            "default": "",
-                            "possible": "",
+                            "default": "false",
+                            "possible": "true, false",
                             "description": "Enables nested properties."
                         },
                         {

@@ -14301,7 +14301,7 @@ mediaType = "application/vnd.wso2-service+xml"
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code></code></span>
@@ -14341,9 +14341,11 @@ mediaType = "application/vnd.wso2-service+xml"
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code></code></span>
+                                            <span class="param-default-value">Default: <code>false</code></span>
                                         </div>
-                                        
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
                                     </div>
                                     <div class="param-description">
                                         <p>Enables nested properties.</p>
