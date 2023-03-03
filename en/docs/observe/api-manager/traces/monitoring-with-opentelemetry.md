@@ -113,6 +113,20 @@ For more information, see [OpenTelemetry Configurations]({{base_path}}/reference
     value = "<key-value-of-the-header>"
 	```
 
+	```toml tab="Example"
+    [apim.open_telemetry]
+	remote_tracer.enable = true
+	remote_tracer.type = "otlp"
+    remote_tracer.url = "https://otlp.nr-data.net:4317/v1/traces"
+
+    [[apim.open_telemetry.remote_tracer.properties]]
+    name = "api-key"
+    value = "<key-value-of-the-header>"
+    ```
+
+    !!! note 
+        Above example illustrates the OpenTelemetry configurations for NewRelic APM.
+
 For Elastic APM the URL can be taken from, `Edit Elastic APM integration -> Settings -> General -> Server configuration -> Url` after creating an account in Elastic and the `name` will be `"Authorization"` and the `value` can be either `"Bearer <Secret-token>"` or `"ApiKey <Elastic-apm-key>"`.
 
 !!! note 
