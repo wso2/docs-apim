@@ -7,7 +7,7 @@ In previous versions of API Manager, third-party APIs were available when import
 
 ## Creating a Third-party API
 
-#### Method 1 - REST APIs
+#### Method 1 - APIs already supported by API Manager
 
 1. A regular API can be converted to a third-party API from the **Basic Info** section in the API Publisher portal.
 
@@ -16,7 +16,7 @@ In previous versions of API Manager, third-party APIs were available when import
 
     [![Convert to third-party API]({{base_path}}/assets/img/develop/convert-to-third-party.png)]({{base_path}}/assets/img/develop/convert-to-third-party.png)
 
-#### Method 2 - REST APIs
+#### Method 2 - Streaming and Async APIs
 
 1. In addition to the streaming APIs supported in API Manager (WebSocket, SSE, and WebSub) the **Other** option provided when importing API definitions can be used to import a third-party API.
 
