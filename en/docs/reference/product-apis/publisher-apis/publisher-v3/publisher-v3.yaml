@@ -8695,7 +8695,7 @@ components:
 
             `Endpoint Security Payload Sample`
 
-              {
+              
                 "endpoint_security": {
                 "sandbox": {
                     "password": "1234",
@@ -8723,11 +8723,10 @@ components:
                     "uniqueIdentifier": null,
                     "username": "TESTPROD"
                 }
-              }
 
             `Advanced Configurations`
 
-              {
+              
                 "config": {
                 "retryDelay": "10",
                 "actionDuration": "30000",
@@ -8742,7 +8741,7 @@ components:
                 "factor": "2",
                 "suspendMaxDuration": "100",
                 "actionSelect": "fault"
-              }
+              
           example:
             endpoint_type: http
             sandbox_endpoints:
