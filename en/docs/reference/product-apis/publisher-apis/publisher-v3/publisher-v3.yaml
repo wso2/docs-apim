@@ -8741,6 +8741,7 @@ components:
                 "factor": "2",
                 "suspendMaxDuration": "100",
                 "actionSelect": "fault"
+                }
               
           example:
             endpoint_type: http
