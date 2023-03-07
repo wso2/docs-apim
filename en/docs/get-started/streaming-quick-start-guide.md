@@ -48,6 +48,9 @@ Let's create a simple Siddhi application that reads data from a XML file, does a
 2. Navigate to `http://localhost:9390/editor`.
         
 3. Click on **New**, and copy and paste the content given below.
+
+    !!! Note
+        The Siddhi application given below listens to the `/Users/foo/files` directory. You will be copying files to this directory in the upcoming steps. Create this directory if you haven't done it, or use another directory by specifying it in the `dir.uri = 'file:/Users/foo/files'` parameter in the Siddhi application.
     
     !!! tip
         Here, a sample Siddhi application is provided to minimize the time spent following this guide. However, WSO2 recommends that you use the Streaming Integration Tooling that offers features such as syntax checking, event simulation for testing purposes, reformatting code, the option to design applications in a graphical interface or by writing code, and many more. For more information on designing Siddhi applications, see [Streaming Integrator Tooling Overview]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview).
@@ -100,7 +103,7 @@ Let's create a simple Siddhi application that reads data from a XML file, does a
 
 Follow the instructions below to test the `ManageProductionStats` Siddhi application that you created above.
 
-1. Copy the `sampledata.xml` file downloaded in step 3.1 to the `/Users/foo/files` directory. 
+1. Copy the `sampledata.xml` file downloaded in step 3.1 to the `/Users/foo/files` directory (or the directory that was specified in step 3.3).
 
 2. Observe the SI console output.
 
@@ -214,7 +217,8 @@ Follow the instructions below to generate an AsyncAPI Definition via the Streami
 
      - You need to import the public certificate of the API Manager to the truststore of the Streaming Integrator. For information on importing the certificates, see the [Importing certificates to the truststore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-3-importing-certificates-to-the-truststore) guide.
 
-     - For testing purposes, you skip the above and simply copy the keystore and the truststore of APIM to SI and SI Tooling.
+     - For testing purposes, you can skip the above and simply copy the keystore and the truststore of WSO2 APIM (`wso2carbon.jks` and `client-truststore.jks` files located in the `<WSO2_APIM_HOME>/repository/resources/security/` directory) to the `resources/security` directory of **both** SI and SI Tooling.
+     - Restart SI and SI Tooling.
 
 You need to deploy your Streaming backend, which contains the AsyncAPI definition, to the Streaming Integrator server in order to export the AsyncAPI definition that you generated to the services in WSO2 API Manager.
 
@@ -306,7 +310,7 @@ Access the streaming service via the **API Publisher** as follows:
      You can see the sample command to access the API.
 
     !!! Tip
-        - If wscat is not already install, use the following command to install it,
+        - If `wscat` is not already installed, use the following command to install it:
           ```jvm
           npm install -g wscat
           ```
