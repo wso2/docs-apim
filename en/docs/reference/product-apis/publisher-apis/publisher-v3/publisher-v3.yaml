@@ -8692,6 +8692,57 @@ components:
                 "endpoint_type": "Registry",
                 "endpoint_id": "{registry-name:entry-name:version}",
               }
+
+            `Endpoint Security Payload Sample`
+
+              {
+                "endpoint_security": {
+                "sandbox": {
+                    "password": "1234",
+                    "tokenUrl": null,
+                    "clientId": null,
+                    "clientSecret": null,
+                    "customParameters": null,
+                    "additionalProperties": {},
+                    "type": "BASIC",
+                    "grantType": null,
+                    "enabled": true,
+                    "uniqueIdentifier": null,
+                    "username": "TEST"
+                },
+                "production": {
+                    "password": "1234",
+                    "tokenUrl": null,
+                    "clientId": null,
+                    "clientSecret": null,
+                    "customParameters": null,
+                    "additionalProperties": {},
+                    "type": "BASIC",
+                    "grantType": null,
+                    "enabled": true,
+                    "uniqueIdentifier": null,
+                    "username": "TESTPROD"
+                }
+              }
+
+            `Advanced Configurations`
+
+              {
+                "config": {
+                "retryDelay": "10",
+                "actionDuration": "30000",
+                "retryTimeOut": "2",
+                "suspendDuration": "10",
+                "suspendErrorCode": [
+                    "101001"
+                ],
+                "retryErroCode": [
+                    "101001"
+                ],
+                "factor": "2",
+                "suspendMaxDuration": "100",
+                "actionSelect": "fault"
+              }
           example:
             endpoint_type: http
             sandbox_endpoints:
