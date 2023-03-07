@@ -4,74 +4,69 @@ This tutorial explains how to map your backend URLs to the pattern that you want
 
 !!! note
 
-    -  The URL pattern of the APIs in the Publisher is `http://<hostname>:8280/<context>/<version>/<API resource>` .
-    -  You can define variables as part of the URI template of your API's resources. For example, in the URI template /business/{businessId}/address/ , `businessId` is a variable.
-    -  The variables in the resources are read during mediation runtime using property values with the `uri.var.` prefix. 
-    For example, this HTTP endpoint gets the businessId that you specify in the resource `http://localhost:8280/businesses/{uri.var.businessId}/details` .
-    -  The URI template of the API's resource is automatically appended to the end of the HTTP endpoint at runtime. You can use the following mediator setting to remove the URL postfix from the backend endpoint:   
-    `<property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>` .
+    -  The URL pattern of the APIs in the Publisher is `http://<gateway-hostname>:<gateway-port>/<context>/<version>/<API resource>` .
+    -  You can define variables as part of the URI template of your API's resources. For example, in the URI template `/business/{id}/details/` , `id` is a variable.
 
-We do the following mapping in this tutorial:
+Let's do the following API resource to backend mapping in this tutorial as an example.
 
-[![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/url-mapping.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/url-mapping.png)
+```
+<gateway-url>/business/{id}/details  --->  <backend-url>/api/business/{id}/info
+```
 
-!!! info
-    **Before you begin...** 
-    
-    Note that a mock backend implementation is set up in this tutorial for the purpose of demonstrating the API invocation. 
-    If you have a local API Manager setup, save [this file]({{base_path}}/assets/attachments/learn/api-gateway/message-mediation/Response_API.xml) in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/api` folder to set up the mock backend.
+1.  Log in to the API Publisher, **Create** a new API with the following information.
 
-1.  Log in to the API Publisher, design a new API with the following information, click **Create**.
+    | Field         |               |   Sample value                           |
+    |---------------|---------------|------------------------------------------|
+    | Name          |               |   TestAPI                                |
+    | Context       |               |   /test                                  |
+    | Version       |               |   1.0.0                                  |
+    | Endpoint      |               |   https://httpbin.org/anything           |
 
-    | Field         |               |   Sample value                                                  |
-    |---------------|---------------|-----------------------------------------------------------------|
-    | Name          |               |   TestAPI                                                       |
-    | Context       |               |   /test                                                         |
-    | Version       |               |   1.0.0                                                         |
-    | Business Plan |               |   Gold                                                          |
-    | Endpoint      |               |   http://localhost:8280/businesses/{uri.var.businessId}/details |
-    | Resources     |  URL pattern  |   /business/{businessId}/address/                               |
-    |               |  Request types|   GET                                                           |    
+    !!! info
+        
+        - [httpbin.org](https://httpbin.org) is a simple HTTP Request & Response Service.
+        - [httpbin.org/anything](https://httpbin.org/anything) returns the request back.
+        - We use [httpbin.org/anything](https://httpbin.org/anything) as the backend endpoint to inspect the requests we make.
 
-3.  Go to **Lifecycle** tab and Click `Publish` to publish the API.
+2. Go to **Resources** tab under the API Configurations and add a resource with the following parameters.
 
-    As the API's resource is appended to its endpoint by Synapse at runtime, let's write a custom sequence to remove this appended resource.
+    | Field         |   Value                                                  |
+    |---------------|----------------------------------------------------------|
+    | HTTP Verb     |   `/business/{id}/details`                      |
+    | URL pattern   |   GET                                                    |
+
+3. Delete the auto generated wildcard `/*` resources. Otherwise all the requests will go to them.
+
+4. Then **Save and deploy**. Final API will look as follows.
+
+    [![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/test-api.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/test-api.png)
 
 4.  Copy the the following to a text editor and save the file in XML format.  
     (e.g., `TestSequence.xml` ).
 
-    !!! example
-        ``` java
-        <sequence xmlns="http://ws.apache.org/ns/synapse" name="TestSequence">
-            <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
-        </sequence>
-        ```
-
-5.  Go to API Publisher, click on the API to go to the **Runtime Configurations** tab.
-
-6.  Enable the **Message Mediation**  switch and engage the `In` sequence that you created earlier.  
-
-    [![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/upload-test-seq.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/upload-test-seq.png)
-
+    ``` java
+        <property name="NEW_URL" value="/business/id/info" />
+        <rewrite inProperty="NEW_URL" outProperty="NEW_URL">
+            <rewriterule>
+                <action type="replace" regex="id" xpath="get-property('uri.var.id')" fragment="path" />
+            </rewriterule>
+        </rewrite>
+        <property name="REST_URL_POSTFIX" expression="get-property('NEW_URL')" scope="axis2" />
+    ```
+    
     !!! info
-        `TestSequence.xml` removes the URL postfix from the backend endpoint, since the URI template of the API's resource is automatically appended to the end of the URL at runtime. Therefore the **request** URL is modified by adding this sequence to the **In Flow**.
+        
+        - This sequence does the required mapping at synapse runtime.
+        - The sequence is self explanetory and you can customize it for your own requirements.
 
+5.  Go to **Policies** tab and create a custom policy with any name using the above sequence. ( We use **Custom Policy** as the name here )
 
-7.  Save the API.
+6.  Add the **Custom Policy** to the **Request Flow** of **/business/{id}/details** resource. Then **Save and deploy**.
 
-8.  Log in to the API Developer Portal and subscribe to the API and generate an access token to invoke the API.
+    Now parameter mapping should work as intended and let's test this out.
  
-9.  Click the **Try Out** tab of your API and click on **Try it out** on the `/business/{businessId}/address` resource.  
+9.  Click the **Try Out** tab of and try **/business/{id}/details**.
 
     [![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/test-api-try-out.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/test-api-try-out.png)
-
-19. Note below the `businessId` is added in the UI as a parameter. Give a `businessId` and click **Execute** to invoke 
-the API.  
-
-    [![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/test-api-tryout-execute.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/test-api-tryout-execute.png)
-
-20. Note the response that you get. According to the mock backend used in this tutorial, you get the response `Received Request`.  
-
-    [![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/test-api-resource.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/test-api-resource.png)
 
 In this tutorial, you mapped the URL pattern of the APIs in the Publisher with the endpoint URL pattern of a sample backend.
