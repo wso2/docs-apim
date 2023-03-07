@@ -7,7 +7,7 @@ In previous versions of API Manager, third-party APIs were available when import
 
 ## Creating a Third-party API
 
-#### Method 1 - API typess already supported by API Manager
+#### Method 1 - API types already supported by API Manager
 
 A regular API can be converted to a third-party API from the **Basic Info** section in the API Publisher portal.
 
