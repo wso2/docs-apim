@@ -206,7 +206,7 @@ Follow the instructions below to set up and configure the databases for the WSO2
     scopes = "internal_application_mgt_update"
 
     [[resource.access_control]]
-    context = "(.)/keymanager-operations/dcr/register(.)"
+    context = "(.*)/keymanager-operations/dcr/register(.*)"
     secure = true
     http_method = "POST"
     permissions = "/permission/admin/manage/identity/applicationmgt/update"
