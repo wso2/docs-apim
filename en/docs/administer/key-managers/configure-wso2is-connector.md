@@ -66,7 +66,7 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
     scopes = "internal_application_mgt_update"
     
     [[resource.access_control]]
-    context = "(.)/keymanager-operations/dcr/register(.)"
+    context = "(.*)/keymanager-operations/dcr/register(.*)"
     secure = true
     http_method = "POST"
     permissions = "/permission/admin/manage/identity/applicationmgt/update"
