@@ -213,7 +213,6 @@ file in the `<PRODUCT_HOME>/repository/conf/tomcat` directory. According to th
     
     [transport.https.sslHostConfig.properties]
     protocols = "+TLSv1,+TLSv1.1,+TLSv1.2"
-    sslProtocol = "TLS"
     certificateVerification = false
     ````
  
