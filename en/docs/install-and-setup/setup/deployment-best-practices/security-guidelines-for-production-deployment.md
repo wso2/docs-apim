@@ -78,7 +78,7 @@ For information on how to create and configure your own keys and keystores, see 
 <td><p>Configure strong HTTP(S) security</p></td>
 <td><p>To have strong transport-level security, use  disable SSL protocol versions and enable only TLS protocol 
 versions TLS 1, TLS 1.1 and TLS 1.2. This can be done by replacing <code>sslProtocol = "TLS"</code> property, with 
-<code>sslEnabledProtocols="TLSv1,TLSv1.1,TLSv1.2"</code> under <code>[transport.https.sslHostConfig
+<code>sslEnabledProtocols="TLSv1.2"</code> under <code>[transport.https.sslHostConfig
 .properties]</code> in the <code>deployment.toml</code> file. In addition, configure strong ciphers for 
 <code>ThriftAuthenticationService</code>, Tomcat transport and PassThrough transport in the <code>deployment.toml</code> file. See the
  following links for instructions:</p>

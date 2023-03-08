@@ -212,8 +212,7 @@ file in the `<PRODUCT_HOME>/repository/conf/tomcat` directory. According to th
     URIEncoding = "UTF-8"
     
     [transport.https.sslHostConfig.properties]
-    protocols = "+TLSv1,+TLSv1.1,+TLSv1.2"
-    sslProtocol = "TLS"
+    protocols = "TLSv1.2"
     certificateVerification = false
     ````
  
