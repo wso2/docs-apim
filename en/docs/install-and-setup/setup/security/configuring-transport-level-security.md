@@ -19,7 +19,7 @@ To prevent these types of security attacks, it is encouraged to disable the weak
 
     ``` toml
     [transport.https.sslHostConfig.properties]
-    protocols="TLSv1.1"
+    protocols="TLSv1.2"
     ```
      See the list of [supported cipher suites](https://docs.wso2.com/display/ADMIN44x/Supported+Cipher+Suites) .
 
@@ -28,7 +28,7 @@ To prevent these types of security attacks, it is encouraged to disable the weak
 
     ``` java
     java -jar TestSSLServer.jar localhost 9443
-    Supported versions: TLSv1.1
+    Supported versions: TLSv1.2
     ```
 
 !!! note
