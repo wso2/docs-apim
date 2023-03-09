@@ -141,7 +141,7 @@ If you are using JDK 1.7.\* or 1.8.\*, add the parameter given below:
 
 ```
 [transport.passthru_https.listener.parameters]
-HttpsProtocols = "TLSv1,TLSv1.1,TLSv1.2"
+HttpsProtocols = "TLSv1.2,TLSv1.3"
 ```
 
 ### How can I extend the default API Manager server by installing new features?

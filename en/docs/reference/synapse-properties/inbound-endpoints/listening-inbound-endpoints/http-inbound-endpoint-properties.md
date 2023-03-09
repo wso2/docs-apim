@@ -33,7 +33,7 @@ The HTTP inbound protocol is used to separate endpoint listeners for each HTTP i
                 </TrustStore>
             </p:parameter>
             <p:parameter name="SSLVerifyClient">require</p:parameter>
-            <p:parameter name="HttpsProtocols">TLSv1,TLSv1.1,TLSv1.2</p:parameter>
+            <p:parameter name="HttpsProtocols">TLSv1.2,TLSv1.3</p:parameter>
             <p:parameter name="SSLProtocol">SSLV3</p:parameter>
             <p:parameter name="CertificateRevocationVerifier">
                 <CertificateRevocationVerifier enable="true">
