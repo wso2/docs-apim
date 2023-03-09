@@ -23,64 +23,64 @@ In order to export a specific rate limiting policy, the rate limiting policy nam
 
 Run the following apictl command to export a rate limiting policy.
 
-    -   **Command**
+-   **Command**
+
+    ```bash
+    apictl export policy rate-limiting  -e <environment name> -n <policy name>    -- type <policy type>  -- format
+    ```
+
+    !!! Info
+        **Flags**
+
+        `-- type` - Here the type is optional and when the type is not given, the first rate limiting policy found with the name is exported. If the user wants to specify a certain policy, then the type can be used.
+
+        | Parameter     | Description                                      |
+        |-------------- |------------------------------------------------- |
+        | advanced      | to export  advanced rate limiting policies          |
+        | custom        | to export only custom rate limiting policies        |
+        | subscription  | to export only subscription rate limiting policies  |
+        | application   | to export only application rate limiting policies   |
+
+        `-- format` - File format of exported file(json or yaml) (default "YAML")
+
+    !!! example
 
         ```bash
-        apictl export policy rate-limiting  -e <environment name> -n <policy name>    -- type <policy type>  -- format
+        apictl export  policy  rate-limiting   -n Silver  -e prod   -- type subscription
         ```
 
-        !!! Info
-            **Flags**
+    !!! info "Exported File"
 
-            `-- type` - Here the type is optional and when the type is not given, the first rate limiting policy found with the name is exported. If the user wants to specify a certain policy, then the type can be used.
-
-            | Parameter     | Description                                      |
-            |-------------- |------------------------------------------------- |
-            | advanced      | to export  advanced rate limiting policies          |
-            | custom        | to export only custom rate limiting policies        |
-            | subscription  | to export only subscription rate limiting policies  |
-            | application   | to export only application rate limiting policies   |
-
-            `-- format` - File format of exported file(json or yaml) (default "YAML")
-
-        !!! example
-
-            ```bash
-            apictl export  policy  rate-limiting   -n Silver  -e prod   -- type subscription
-            ```
-
-        !!! info "Exported File"
-
-            ```
-            type: throttling policy
-            subtype: subscription policy
-            version: v4.1.0
-            data:
-            policyId: 15797f4c-3742-4909-920c-13f164fd2b1c
-            policyName: Silver
-            displayName: Silver
-            description: Allows 2000 requests per minute
-            isDeployed: true
-            type: SubscriptionThrottlePolicy
-            graphQLMaxComplexity: 0
-            graphQLMaxDepth: 0
-            defaultLimit:
-                type: REQUESTCOUNTLIMIT
-                requestCount:
-                timeUnit: min
-                unitTime: 1
-                requestCount: 2000
-                bandwidth: null
-                eventCount: null
-            monetization: null
-            rateLimitCount: 0
-            rateLimitTimeUnit: null
-            subscriberCount: 0
-            customAttributes: []
-            stopOnQuotaReach: true
-            billingPlan: FREE
-            permissions: null
-            ```
+        ```
+        type: throttling policy
+        subtype: subscription policy
+        version: v4.1.0
+        data:
+        policyId: 15797f4c-3742-4909-920c-13f164fd2b1c
+        policyName: Silver
+        displayName: Silver
+        description: Allows 2000 requests per minute
+        isDeployed: true
+        type: SubscriptionThrottlePolicy
+        graphQLMaxComplexity: 0
+        graphQLMaxDepth: 0
+        defaultLimit:
+            type: REQUESTCOUNTLIMIT
+            requestCount:
+            timeUnit: min
+            unitTime: 1
+            requestCount: 2000
+            bandwidth: null
+            eventCount: null
+        monetization: null
+        rateLimitCount: 0
+        rateLimitTimeUnit: null
+        subscriberCount: 0
+        customAttributes: []
+        stopOnQuotaReach: true
+        billingPlan: FREE
+        permissions: null
+        ```
 
 
 ## Import a rate limiting policy
@@ -89,21 +89,21 @@ Import rate limiting policy operation allows users to import exported rate limit
 
 Run the following apictl command to import a rate limiting policy.
 
-    -   **Command**
+-   **Command**
 
+    ```bash
+    apictl import policy rate-limiting  -f <file path>   -e <environment name>    -- update
+    ```
+
+    !!! example
         ```bash
-        apictl import policy rate-limiting  -f <file path>   -e <environment name>    -- update
+        apictl import  policy rate-limiting   -f ~/Application-Gold  -e prod   -- update
+
         ```
 
-        !!! example
-            ```bash
-            apictl import  policy rate-limiting   -f ~/Application-Gold  -e prod   -- update
-
-            ```
-
-        !!! Info
-            **Flag**
-            
-            `--update` - Update an existing rate limiting policy or create a new rate limiting policy
+    !!! Info
+        **Flag**
+        
+        `--update` - Update an existing rate limiting policy or create a new rate limiting policy
 
 
