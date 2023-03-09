@@ -87,8 +87,8 @@ Micro Integrator supports both SSL and TLS protocols. But since the SSL protocol
 To configure the enabled protocols, update the following property in the deployment.toml file:
 ```toml
 [transport.http]
-listener.secured_protocols = "TLSv1,TLSv1.1,TLSv1.2"
-sender.secured_protocols = "TLSv1,TLSv1.1,TLSv1.2"
+listener.secured_protocols = "TLSv1.2,TLSv1.3"
+sender.secured_protocols = "TLSv1.2,TLSv1.3"
 ```
 ### Disabling weak ciphers
 

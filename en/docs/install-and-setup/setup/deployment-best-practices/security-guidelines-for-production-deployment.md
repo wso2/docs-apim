@@ -84,7 +84,7 @@ See <a href="{{base_path}}/administer/managing-users-and-roles/managing-user-sto
 <td>
   <p>To have strong transport-level security, disable SSL protocol versions and enable only TLS protocol 
 versions: TLS 1, TLS 1.1, and TLS 1.2. This can be done by replacing the <code>sslProtocol = "TLS"</code> property with 
-<code>sslEnabledProtocols="TLSv1,TLSv1.1,TLSv1.2"</code> under <code>[transport.https.sslHostConfig
+<code>sslEnabledProtocols="TLSv1.2,TLSv1.3"</code> under <code>[transport.https.sslHostConfig
 .properties]</code> in the <code>deployment.toml</code> file. In addition, configure strong ciphers for 
 <code>ThriftAuthenticationService</code>, Tomcat transport, and PassThrough transport in the <code>deployment.toml</code> file. See the
  following links for instructions:</p>
