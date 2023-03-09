@@ -635,7 +635,7 @@ The following operations allow you to work with the Email Connector. Click an op
     ```
 
 ??? note "inlineImages"
-    The `inlineImages` parameter, is a JSONArray that enables the insertion of inline image details. This parameter can be used to specify the image properties, such as the image URL, size, and alignment, among others. By including inline images in the JSONArray, developers can create more visually appealing and engaging content within their application.
+    The `inlineImages` parameter, is a JSONArray that enables the insertion of inline image details. This parameter can be used to specify the image properties, such as the image URL, size, and alignment, among others. By including inline images in the JSONArray, developers can create more visually appealing and engaging content within their application. Note that this feature is available from Email connector version 1.1.1 onwards.
 
     There are 2 methods you can follow to add images, as listed below.
 
