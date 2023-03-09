@@ -599,6 +599,54 @@ The following operations allow you to work with the Email Connector. Click an op
     }
     ```
 
+??? note "inlineImages"
+    The `inlineImages` parameter, is a JSONArray that enables the insertion of inline image details. This parameter can be used to specify the image properties, such as the image URL, size, and alignment, among others. By including inline images in the JSONArray, developers can create more visually appealing and engaging content within their application. Note that this feature is available from Email connector version 1.1.1 onwards.
+
+    There are 2 methods you can follow to add images, as listed below.
+
+    **1. Providing file path** 
+    ```
+    {
+        "from": "abc@wso2.com",
+        "to": "xyz@wso2.com",
+        "subject": "Sample email subject",
+        "content": "<H1>Image1</H1><img src=\"cid:image1\" alt=\"this is image of image1\"><br/><H1>Image2</H1><img src=\"cid:image2\" alt=\"this is image of image2\">",
+        "inlineImages": [
+            {
+                "contentID": "image1",
+                "filePath": "/Users/user/Documents/images/image1.jpeg"
+            },
+            {
+                "contentID": "image2",
+                "filePath": "/Users/user/Documents/images/image2.jpeg"
+            }
+        ],
+        "contentType": "text/html"
+    }   
+    ```
+
+    **2. Base64Content**
+    ```
+    {
+        "from": "abc@wso2com",
+        "to": "xyz@wso2.com",
+        "subject": "Sample email subject",
+        "content": "<H1>Image1</H1><img src=\"cid:image1\" alt=\"this is image of a image1\"><br/><H1>Image2</H1><img src=\"cid:image2\" alt=\"this is a image2\">",
+        "inlineImages": [
+            {
+                "contentID": "image1",
+                "fileName": "image1.jpeg",
+                "base64Content": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAY......"
+            },
+            {
+                "contentID": "image2",
+                "fileName": "image2.jpeg",
+                "base64Content": "/9j/4AAQSkZJRgABAQEBLAEsAAD/4QBbRXhp...."
+            }
+        ],
+        "contentType": "text/html"
+    }
+    ```
 
 
 ### Sample configuration in a scenario
