@@ -817,26 +817,16 @@ nav:
                        - Calculate Aggregations Over Time': use-cases/examples/streaming-examples/aggregate-over-time.md
     - Analytics:
         - API Analytics:
-            - Getting Started Guide: api-analytics/getting-started-guide.md
-            - Role-based Access Control : api-analytics/role-based-access-control.md
-            - Configurations:
+            - Choreo Based Analytics: 
+                - Architecture: api-analytics/api-analytics-architecture.md
+                - Getting Started Guide: api-analytics/getting-started-guide.md
+                - Role-based Access Control : api-analytics/role-based-access-control.md
                 - Alerts: api-analytics/configure-alerts.md
-                - Gateways:
-                    - API Gateway: api-analytics/gateways/configure-synapse-gateway.md
-                    #- Choreo Connect: api-analytics/gateways/configure-choreo-connect.md
-            - On-prem Analytics: 
+            - Other Analytics Solutions: 
                 - ELK Based Analytics Installation Guide: api-analytics/on-prem/elk-installation-guide.md
                 - Datadog Analytics Installation Guide : api-analytics/on-prem/datadog-installation-guide.md
-            - View API Analytics:
-                - Introduction: api-analytics/viewing/introduction-to-api-analytics-dashboard.md
-                #- Usecases:
-                    #TODO- Identifying Faulty APIs: api-analytics/viewing/usecases/finding-faulty-apis.md
-                #- Quality of Service: api-analytics/qos.md
-                #- Analytics API Guide: api-analytics/analytics-api-guide.md
-                #- Troubleshooting Analytics: add this infor in the main troubleshooting page GW> Analytics
             - Publish Analytics Events to External Systems: api-analytics/samples/publishing-analytics-events-to-external-systems.md
             - Publish Custom Analytics Events Data: api-analytics/samples/publishing-custom-analytics-data.md
-            - Architecture: api-analytics/api-analytics-architecture.md
         - MI Analytics:
             - ELK Based Analytics:
                 - Setup: mi-analytics/mi-elk-installation-guide.md
