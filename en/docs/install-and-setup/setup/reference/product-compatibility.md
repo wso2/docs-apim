@@ -77,11 +77,11 @@ The following is a list of other WSO2 products that have been tested with WSO2 A
 <tbody>
 <tr class="even">
 <td>API-M 4.0.0 GA</td>
-<td>GA or update for WSO2 IS-5.10.0</td>
+<td>GA or update for WSO2 IS-5.11.0</td>
 </tr>
 <tr class="even">
 <td>API-M-4.0.0 update</td>
-<td>GA or updated for WSO2 IS-5.10.0</td>
+<td>GA or updated for WSO2 IS-5.11.0</td>
 </tr>
 </tbody>
 </table>
