@@ -406,6 +406,7 @@ nav:
             - Advanced Topics:
                 - Add an API Subscription Workflow: consume/manage-subscription/advanced-topics/adding-an-api-subscription-workflow.md
                 - Add an API Subscription Tier Update Workflow: consume/manage-subscription/advanced-topics/adding-an-api-subscription-tier-update-workflow.md
+                - Add an API Subscription Deletion Workflow: consume/manage-subscription/advanced-topics/adding-an-api-subscription-deletion-workflow.md
         - Test APIs:
             - Integrated API Console:
                 - Test a REST API: consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console.md
