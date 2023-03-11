@@ -209,7 +209,8 @@ nav:
             - Enable CORS for APIs: design/advanced-topics/enabling-cors-for-apis.md
             - Add an API State Change Workflow: design/advanced-topics/adding-an-api-state-change-workflow.md
             - Block Subscription to an API: design/advanced-topics/block-subscription-to-an-api.md
-            - Validate API Definitions with Linters: design/advamced-topics/validate-api-definitions-with-linters.md
+            # document not available
+            # - Validate API Definitions with Linters: design/advamced-topics/validate-api-definitions-with-linters.md
     - Deploy and Publish APIs:
         - Deploy on Gateway:
             - Deploy APIs in the API Gateway vs Choreo Connect: deploy-and-publish/deploy-on-gateway/deploying-apis-in-api-gateway-vs-choreo-connect.md
@@ -497,7 +498,8 @@ nav:
                 - Use a Remote Micro Integrator: integrate/develop/using-remote-micro-integrator.md
                 - Hot Deploying Artifacts: integrate/develop/hot-deployment.md
                 - Create a Unit Test Suite: integrate/develop/creating-unit-test-suite.md
-                - Use the HTTP REST Client: integrate/develop/using-http_rest_client.md
+                # document not available
+                # - Use the HTTP REST Client: integrate/develop/using-http_rest_client.md
                 - Generate Docker Images: integrate/develop/generate-docker-image.md
             - Debug Integrations:
                 - Mediation Debugging: integrate/develop/debugging-mediation.md
@@ -818,10 +820,10 @@ nav:
     - Analytics:
         - API Analytics:
             - Choreo Based Analytics: 
-                - Architecture: api-analytics/api-analytics-architecture.md
-                - Getting Started Guide: api-analytics/getting-started-guide.md
-                - Role-based Access Control : api-analytics/role-based-access-control.md
-                - Alerts: api-analytics/configure-alerts.md
+                - Architecture: api-analytics/choreo-analytics/api-analytics-architecture.md
+                - Getting Started Guide: api-analytics/choreo-analytics/getting-started-guide.md
+                - Role-based Access Control : api-analytics/choreo-analytics/role-based-access-control.md
+                - Alerts: api-analytics/choreo-analytics/configure-alerts.md
             - Other Analytics Solutions: 
                 - ELK Based Analytics Installation Guide: api-analytics/on-prem/elk-installation-guide.md
                 - Datadog Analytics Installation Guide : api-analytics/on-prem/datadog-installation-guide.md

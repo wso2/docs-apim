@@ -326,6 +326,19 @@ The Traffic page shows information related to the traffic that goes through your
 
 <a href="{{base_path}}/assets/img/analytics/cloud/traffic2.png"><img src="{{base_path}}/assets/img/analytics/cloud/traffic2.png" width="70%" alt=""></a>
 
+##### API Analytics
+
+The API Analytics Dashboard provides business insights on APIs enabling users to take proactive actions to improve profitability and the quality of the service provided. This dashboard focuses on API developers who wish to see the analytics related to their APIs. This dashboard includes graphs to represent,  Overall API Usage,  Top 10 API and Application creators, API Usage by version, application, resource path and backend.
+
+<a href="{{base_path}}/assets/img/analytics/cloud/api-analytics-1.png"><img src="{{base_path}}/assets/img/analytics/cloud/api-analytics-1.png" width="70%" alt=""></a>
+
+<a href="{{base_path}}/assets/img/analytics/cloud/api-analytics-2.png"><img src="{{base_path}}/assets/img/analytics/cloud/api-analytics-2.png" width="70%" alt=""></a>
+
+##### User Analytics
+
+User Analytics dashboard provides insights of API Users, most API Users, No of success and fault requests by users for each API and application
+
+<a href="{{base_path}}/assets/img/analytics/cloud/user-analytics.png"><img src="{{base_path}}/assets/img/analytics/cloud/user-analytics.png" width="70%" alt=""></a>
 
 ##### Errors
 
