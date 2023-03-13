@@ -144,14 +144,14 @@ Follow the instructions below to set up and configure the databases for the WSO2
 
 ## Step 4 - Configure WSO2 IS with WSO2 API-M
 
-1. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-extensions-1.6.7.zip).
+1. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-extensions-1.6.8.zip).
 
-2. Extract the distribution and copy the following JAR files, which are in the `<wso2is-extensions-1.6.7>/dropins` directory, to the `<IS_HOME>/repository/components/dropins` directory.
+2. Extract the distribution and copy the following JAR files, which are in the `<wso2is-extensions-1.6.8>/dropins` directory, to the `<IS_HOME>/repository/components/dropins` directory.
 
-     - `wso2is.key.manager.core-1.2.10.jar`
-     - `wso2is.notification.event.handlers_1.2.10.jar`
+     - `wso2is.key.manager.core_1.6.8.jar`
+     - `wso2is.notification.event.handlers_1.6.8.jar`
 
-3. Add the `keymanager-operations.war`, which is in the `<wso2is-extensions-1.6.7>/webapps` directory, to the `<IS_HOME>/repository/deployment/server/webapps` directory.
+3. Add the `keymanager-operations.war`, which is in the `<wso2is-extensions-1.6.8>/webapps` directory, to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
 4.  Configure the Traffic Manager endpoints.
 
@@ -249,6 +249,8 @@ Follow the instructions below to set up and configure the databases for the WSO2
     internal_crypto_provider = "org.wso2.carbon.crypto.provider.KeyStoreBasedInternalCryptoProvider"
     ```
 7. If you wish to encrypt the OAuth2 Keys (access tokens, client secrets, and authorization codes), follow the steps given in [Encrypting OAuth Keys](https://is.docs.wso2.com/en/5.10.0/learn/testing-oidc-encrypted-id-token-with-is/#enable-id-token-encryption), which is in the WSO2 Identity Server 5.10.0 documentation, and apply the relevant configurations in the `<IS_HOME>/repository/conf/deployment.toml` file to enable the feature.
+
+8. If you are setting up the deployment in a local environment (non production) and wish to use the existing keystore and truststore (with self signed certificate) shipped by default with the product distributions, replace the keystore in `<IS_HOME>/repository/resources/security/wso2carbon.jks` and trustore in `<IS_HOME>/repository/resources/security/client-truststore.jks` with the ``<APIM_HOME>/repository/resources/security/wso2carbon.jks` and  `<APIM_HOME>/repository/resources/security/client-truststore.jks` respectively. Make sure to follow this step before starting either of the servers for the first time.
 
 ## Step 5 - Configure WSO2 API-M with the WSO2 IS
 
