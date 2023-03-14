@@ -80,7 +80,7 @@ The diagram below depicts the relationship between the API's visibility and subs
 
 
 !!! info
-     When using cross-tenant subscriptions, if you are generating access tokens with passowrd grant or code grant add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file
+     When using cross-tenant subscriptions, if you are generating access tokens with the **Password grant** or **Code grant**, add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file
      ```
      [oauth.access_token]
      generate_with_sp_tenant_domain = "true"
