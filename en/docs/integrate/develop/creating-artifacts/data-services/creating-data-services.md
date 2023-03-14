@@ -343,14 +343,8 @@ datasource and automatically creates the SELECT, INSERT, UPDATE, and DELETE oper
 	
     <a href="{{base_path}}/assets/img/integrate/tutorials/data_services/generate_dataservice_select_datasource.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/generate_dataservice_select_datasource.png" width="700"></a>
 
-4. 	Select the driver to connect to the datasource. There are two ways to select a driver:
+4. 	Select the driver to connect to the datasource. You need to browse and upload a driver from your file system.
 
-	-	You can use an existing driver from the Integration Studio. You can select the driver version from the drop down.
-
-    <a href="{{base_path}}/assets/img/integrate/tutorials/data_services/select_existing_driver.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/select_existing_driver.png" width="700"></a>
-
-	-	You can browse and upload a driver from your file system.
-	
     <a href="{{base_path}}/assets/img/integrate/tutorials/data_services/select_driver_file_system.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/select_driver_file_system.png" width="700"></a>
 
     Then click **Fetch Table** to list down all avaialble tables in the selected datasource.
