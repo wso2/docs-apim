@@ -112,3 +112,25 @@ WSO2 API-M 3.1.0 is based on WSO2 Carbon 4.6.0 and is expected to be compatible 
 
 -   [WSO2 API Manager 3.1.0 - Known Issues in the product-apim GitHub repository](https://github.com/wso2/product-apim/issues?q=is%3Aopen+is%3Aissue+label%3A3.1.0)
 -   [WSO2 API Manager 3.1.0 - Known Issues in the analytics-apim GitHub repository](https://github.com/wso2/analytics-apim/issues)
+
+## What has changed
+
+- API-M from 3.1.0 onwards supports only pdf, doc and txt type files as file typed API documents by default. If you wish to support other document types, please add the below config to `deployment.toml`.
+
+    **Format**
+    ```toml
+    [apim.publisher]
+    supported_document_types = "<DOCUMENT TYPES LIST>"
+    ``` 
+
+    **Example**
+    ```toml
+    [apim.publisher]
+    supported_document_types = "pdf, txt, zip, json, yaml"
+    ``` 
+
+- From API-M 3.1.0 onwards, tag-wise grouping has been deprecated. Users are informed to use [API category based grouping](https://apim.docs.wso2.com/en/latest/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping/) instead.
+
+- New user store managers with inbuilt unique ID support was introduced in WSO2 5.10.0 and named with the UniqueID prefix. User store managers that do not have UniqueID as part of the user store manager name are only available for backward compatibility purposes and can only be used if you are migrating from a previous version of WSO2 Identity Server.
+
+  Contact the WSO2 Support Team to obtain information on Migration of user store managers with unique ID support for more information.
