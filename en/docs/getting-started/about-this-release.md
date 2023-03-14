@@ -215,3 +215,39 @@ WSO2 API-M 3.2.0 is based on WSO2 Carbon 4.6.0 and is expected to be compatible 
 
 -   [WSO2 API Manager 3.2.0 - Known Issues in the product-apim GitHub repository](https://github.com/wso2/product-apim/issues)
 -   [WSO2 API Manager 3.2.0 - Known Issues in the analytics-apim GitHub repository](https://github.com/wso2/analytics-apim/issues)
+
+## What has changed
+
+- Out-of-the-box support for Third Party Key Managers was introduced from 3.2.0 onwards
+API-M 3.2 is prepacked with an inbuilt resident Key Manager and has the inbuilt capability of configuring WSO2 Identity Server (WSO2 IS) as a third-party Key Manager using WSO2 IS Connector.
+API-M is capable of supporting other authorization servers like Keycloak, Okta, Auth0, PingFederate as a Key Manager.
+
+- API Key Validation calls which were sent over the network will now be made against an in-memory store.
+
+- From 3.2.0 onwards, backend JWT generation happens at the gateway. 
+If you have implemented a custom JWT generator extending the AbstractJWTGenerator, then that custom jar should be added to **Gateway Node** not the Key Manager Node. 
+
+- From 3.2.0 onwards, previous Jaggery based Admin portal UI is replaced with a new ReactJS based application.
+
+- Prior to 3.2.0, for simple approval and rejection tasks, having a separate BPS engine was mandatory. From API-M 3.2.0 this overhead is removed by introducing an Approval Workflow Executor with an inbuilt workflow to perform simple approvals and rejections without the BPS engine.
+
+- Support for tag-wise grouping is removed in API-M 3.2.0 and the users are recommended to use [API category based grouping](https://apim.docs.wso2.com/en/latest/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping/) instead.
+
+- From API-M 3.2.0 onwards, support for implicit grant type has been removed.
+
+- Out-of-the-box support to generate an Opaque (Reference) access token via the Developer Portal has been removed from WSO2 API Manager version 3.2.0 onwards. Hence, now the Application Developers can create new applications that only generate JWT type access tokens.
+
+!!! note "**What will happen to migrated applications?**"
+
+     However, the applications that are migrated from older versions would still have the support to generate Opaque (Reference) access tokens.
+
+     Similar to previous versions, application developers get the OAuth2 bearer tokens, while generating tokens via the Developer Portal. The only difference is the format of the token as the JWT type token is self-contained.
+     
+     Opaque (Reference) tokens have become obsolete. All major IDPs have stopped or are in the process of retiring the support for Opaque (Reference) tokens. These tokens only work on systems where the resource server has access to or is co-located with the authorization server. As more and more systems become distributed and hybrid in nature, the use of reference tokens will eventually cease and also the organizations have full control of what information they include in the JWT. 
+     
+     Additionally, the use of JWT tokens decouples the Gateway component completely from the Key Manager component allowing for more freedom for innovation.
+     
+     When migrating from previous versions of WSO2 API Manager, if you are still willing to continue the use of Opaque (Reference) tokens, you will need to maintain a Gateway to Key Manager mapping where when the Gateways are scaled, the Key Manager should also be scaled. 
+     
+     The profiles supported in WSO2 API Manager 4.0.0 onwards for a distributed setup are only the Gateway Profile, Control Plane Profile, and the Traffic Manager Profile where the Key Manager component is embedded within the Control Plane. However, if your requirement is to continue using Opaque (Reference) tokens, you will need to maintain a separate Key Manager node or a Cluster to be able to scale it with the Gateway nodes. For instructions on how to configure a separate Key Manager profile along with the Control Plane, Gateway and Traffic Manager profiles, see [Deploying WSO2 API Manager in a Distributed Setup with Key Manager Separated](https://apim.docs.wso2.com/en/4.1.0/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-km-separated).
+
