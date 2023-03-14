@@ -180,23 +180,26 @@ public class CustomAPIAuthenticationHandler extends AbstractHandler {
 Make sure to update the pom file for the above project you created (or downloaded) with below dependency.
 
 ```
-  <dependencies>
-        <dependency>
-            <groupId>org.apache.synapse</groupId>
-            <artifactId>synapse-core</artifactId>
-            <version>2.1.7-wso2v183</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.synapse</groupId>
-            <artifactId>synapse-commons</artifactId>
-            <version>2.1.7-wso2v183</version>
-        </dependency>
-        <dependency>
-            <groupId>org.wso2.carbon.apimgt</groupId>
-            <artifactId>org.wso2.carbon.apimgt.gateway</artifactId>
-            <version>6.7.206</version>
-        </dependency>
-    </dependencies>
+<dependencies>
+	<dependency>
+		<groupId>org.apache.synapse</groupId>
+		<artifactId>synapse-core</artifactId>
+		<version>4.0.0-wso2v20</version>
+		<scope>provided</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.synapse</groupId>
+		<artifactId>synapse-commons</artifactId>
+		<version>4.0.0-wso2v20</version>
+		<scope>provided</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.wso2.carbon.apimgt</groupId>
+		<artifactId>org.wso2.carbon.apimgt.gateway</artifactId>
+		<version>9.28.112</version>
+		<scope>provided</scope>
+	</dependency>
+</dependencies>
 ```
 ## Engaging the custom handler
 
