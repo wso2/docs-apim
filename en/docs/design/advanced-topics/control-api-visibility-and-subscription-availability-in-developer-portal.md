@@ -84,7 +84,7 @@ Listed below are the known limitations of the cross tenant subscription feature.
 -   User-to-role based API features are not applicable for cross tenant subscriptions.
 
 !!! info
-     When using cross-tenant subscriptions, if you are generating access tokens with passowrd grant or code grant add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file
+     When using cross-tenant subscriptions, if you are generating access tokens with the **Password grant** or **Code grant**, add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file
      ```
      [oauth.access_token]
      generate_with_sp_tenant_domain = "true"
