@@ -92,22 +92,22 @@ These features are unsupported and removed from WSO2 API Manager 4.2.0 onwards.
 
 ## Fixed issues
 
-- [API Manager](https://github.com/wso2/api-manager/issues?q=is%3Aissue+milestone%3AAPIM-4.2.0-M1+is%3Aclosed)
-- [Micro Integrator](https://github.com/wso2/micro-integrator/issues?q=is%3Aissue+is%3Aclosed+closed%3A2021-05-01..2022-03-05+label%3A4.1.0+)
-- [Streaming Integrator](https://github.com/wso2/streaming-integrator/issues?q=is%3Aissue+is%3Aclosed+label%3A4.1.0+)
-- [API Controller](https://github.com/wso2/product-apim-tooling/milestone/17?closed=1)
-- [Integration Studio](https://github.com/wso2/integration-studio/milestone/14?closed=1)
-- [Micro Integrator Dashboard](https://github.com/wso2/product-mi-tooling/milestone/1?closed=1)
-- [Streaming Integrator Tooling](https://github.com/wso2/streaming-integrator/milestone/17?closed=1)
-- [Choreo Connect](https://github.com/wso2/product-microgateway/issues?q=is%3Aissue+is%3Aclosed+closed%3A2022-01-01..2022-04-04+)
+- [API Manager](https://github.com/wso2/api-manager/issues?q=is%3Aissue+is%3Aclosed+label%3AComponent%2FAPIM+closed%3A2022-04-05..2023-03-11)
+- [Micro Integrator](https://github.com/wso2/api-manager/issues?q=is%3Aissue+is%3Aclosed+label%3AComponent%2FMI+closed%3A2022-04-05..2023-03-03)
+- [Streaming Integrator](https://github.com/wso2/api-manager/issues?q=is%3Aissue+is%3Aclosed+label%3AComponent%2FSI+closed%3A2022-04-05..2023-03-03+)
+- [API Controller](https://github.com/wso2/api-manager/issues?q=is%3Aissue+is%3Aclosed+label%3AComponent%2FAPICTL+label%3AType%2FBug++closed%3A2022-04-05..2023-03-11)
+- [Integration Studio](https://github.com/wso2/api-manager/issues?q=is%3Aissue+is%3Aclosed+label%3AComponent%2FIntegrationStudio+closed%3A2022-04-05..2023-03-03+)
+- [Micro Integrator Dashboard](https://github.com/wso2/api-manager/issues?q=is%3Aissue+is%3Aclosed+label%3AComponent%2FMIDashboard+closed%3A2022-04-05..2023-03-03+)
+- [Streaming Integrator Tooling](https://github.com/wso2/api-manager/issues?q=is%3Aissue+is%3Aclosed+label%3AComponent%2FSITooling+closed%3A2022-04-05..2023-03-03+)
+- [Choreo Connect](https://github.com/wso2/product-microgateway/issues?q=is%3Aissue+is%3Aclosed+closed%3A2022-04-12..2023-03-11)
 
 ## Known issues
 
-- [API Manager](https://github.com/wso2/api-manager/issues?q=is%3Aissue+is%3Aopen)
-- [Micro Integrator](https://github.com/wso2/micro-integrator/issues)
-- [Streaming Integrator](https://github.com/wso2/streaming-integrator/issues?q=is%3Aissue+is%3Aopen+label%3A4.1.0)
-- [API Controller](https://github.com/wso2/product-apim-tooling/issues?q=is%3Aopen+is%3Aissue)
-- [Integration Studio](https://github.com/wso2/integration-studio/issues)
-- [Micro Integrator Dashboard](https://github.com/wso2/product-mi-tooling/issues?q=is%3Aopen+is%3Aissue)
-- [Streaming Integrator Tooling](https://github.com/wso2/streaming-integrator-tooling/issues?q=is%3Aopen+is%3Aissue)
-- [Choreo Connect](https://github.com/wso2/product-microgateway/issues)
+- [API Manager](https://github.com/wso2/api-manager/issues?q=is%3Aissue+label%3AComponent%2FAPIM+is%3Aopen)
+- [Micro Integrator](https://github.com/wso2/api-manager/issues?q=is%3Aissue+label%3AComponent%2FMI+is%3Aopen)
+- [Streaming Integrator](https://github.com/wso2/api-manager/issues?q=is%3Aissue+label%3AComponent%2FSI+is%3Aopen)
+- [API Controller](https://github.com/wso2/api-manager/issues?q=is%3Aissue+label%3AComponent%2FAPICTL+is%3Aopen)
+- [Integration Studio](https://github.com/wso2/api-manager/issues?q=is%3Aissue+label%3AComponent%2FIntegrationStudio+is%3Aopen)
+- [Micro Integrator Dashboard](https://github.com/wso2/api-manager/issues?q=is%3Aissue+label%3AComponent%2FMIDashboard+is%3Aopen)
+- [Streaming Integrator Tooling](https://github.com/wso2/api-manager/issues?q=is%3Aissue+label%3AComponent%2FSITooling+is%3Aopen)
+- [Choreo Connect](https://github.com/wso2/product-microgateway/issues?q=is%3Aopen+is%3Aissue)
