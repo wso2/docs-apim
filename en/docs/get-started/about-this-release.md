@@ -59,6 +59,31 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 ??? note "MI Dashboard Improvement and Search capability for MI Management API"
     This feature improves the MI Dashboard and Implements Search Functionality for MI Management API.
 
+## Deprecated features and functionalities
+
+These features are deprecated and will be removed from subsequent versions of WSO2 API Manager.
+
+- **Synchronous Data Retrieval Mode in Gateway Runtime Artifact Synchronization**
+
+     Synchronous Data Retrieval Mode in Gateway Runtime Artifact Synchronization was configurable by setting the value of `data_retrieval_mode` to `sync` (`data_retrieval_mode = "sync"`). 
+     
+     ```
+     [apim.sync_runtime_artifacts.gateway]
+     data_retrieval_mode = "sync"
+     ```
+     Support for this mode is now deprecated from WSO2 API Manager 4.2.0 onwards hence recommended to use the `async` mode only.
+
+## Removed features and functionalities
+
+These features are unsupported and removed from WSO2 API Manager 4.2.0 onwards.
+
+- **Support for Jaggery apps from API Manager**
+
+     In previous releases, webapps of API-Manager were dependant on the deprecated [Jaggery.js](https://github.com/wso2/jaggery) Javascript framework. From this version onwards all the webapps will be using jsp as the server side language. So the capability to deploy Jaggery apps in the API Manager is removed from this release onwards.
+     
+- **JDK 8 support**
+
+     JDK 8 support is removed from  WSO2 API Manager 4.2.0 onwards. 
 
 ## Compatible WSO2 product versions
 
