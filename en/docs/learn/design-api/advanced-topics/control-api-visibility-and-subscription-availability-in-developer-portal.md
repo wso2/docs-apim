@@ -79,6 +79,13 @@ The diagram below depicts the relationship between the API's visibility and subs
      The experience of cross tenant subscriptions is different to what it was in previous versions. For example, if a tenant named "A" visits the Developer Portal of a tenant named "B", the tenant "A" user will need to generate keys again with the key manager of tenant "B". Therefore, a given application created in the Developer Portal by tenant "A" can have different consumer keys for a given key manager type as they generate keys in different tenants.
 
 
+!!! info
+     When using cross-tenant subscriptions, if you are generating access tokens with the **Password grant** or **Code grant**, add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file
+     ```
+     [oauth.access_token]
+     generate_with_sp_tenant_domain = "true"
+     ```
+
 ### Control subscription availability using the API Publisher
 
 !!! note
