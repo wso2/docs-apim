@@ -11,7 +11,7 @@ Once a mediator project is finalized, you can export it as a deployable artifact
 
 ### Creating a Mediator Project
 
-Create this project directory to start creating custom mediator artifacts. You can use these customer mediators when you define the mediation flow in your ESB config project.
+Create this project directory to start creating custom mediator artifacts. You can use these custom mediators when you define the mediation flow in your ESB config project.
 
 1. Open <b>WSO2 Integration Studio</b> and click <b>Miscellaneous → Create Mediator Project</b> in the <b>Getting Started</b> view as shown below.
    ![new mediator project]({{base_path}}/assets/img/integrate/create_project/new_mediator_project.png)
