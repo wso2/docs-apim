@@ -209,7 +209,8 @@ nav:
             - Enable CORS for APIs: design/advanced-topics/enabling-cors-for-apis.md
             - Add an API State Change Workflow: design/advanced-topics/adding-an-api-state-change-workflow.md
             - Block Subscription to an API: design/advanced-topics/block-subscription-to-an-api.md
-            - Validate API Definitions with Linters: design/advamced-topics/validate-api-definitions-with-linters.md
+            # document not available
+            # - Validate API Definitions with Linters: design/advamced-topics/validate-api-definitions-with-linters.md
     - Deploy and Publish APIs:
         - Deploy on Gateway:
             - Deploy APIs in the API Gateway vs Choreo Connect: deploy-and-publish/deploy-on-gateway/deploying-apis-in-api-gateway-vs-choreo-connect.md
@@ -497,7 +498,8 @@ nav:
                 - Use a Remote Micro Integrator: integrate/develop/using-remote-micro-integrator.md
                 - Hot Deploying Artifacts: integrate/develop/hot-deployment.md
                 - Create a Unit Test Suite: integrate/develop/creating-unit-test-suite.md
-                - Use the HTTP REST Client: integrate/develop/using-http_rest_client.md
+                # document not available
+                # - Use the HTTP REST Client: integrate/develop/using-http_rest_client.md
                 - Generate Docker Images: integrate/develop/generate-docker-image.md
             - Debug Integrations:
                 - Mediation Debugging: integrate/develop/debugging-mediation.md
@@ -817,26 +819,16 @@ nav:
                        - Calculate Aggregations Over Time': use-cases/examples/streaming-examples/aggregate-over-time.md
     - Analytics:
         - API Analytics:
-            - Getting Started Guide: api-analytics/getting-started-guide.md
-            - Role-based Access Control : api-analytics/role-based-access-control.md
-            - Configurations:
-                - Alerts: api-analytics/configure-alerts.md
-                - Gateways:
-                    - API Gateway: api-analytics/gateways/configure-synapse-gateway.md
-                    #- Choreo Connect: api-analytics/gateways/configure-choreo-connect.md
-            - On-prem Analytics: 
+            - Choreo Based Analytics: 
+                - Architecture: api-analytics/choreo-analytics/api-analytics-architecture.md
+                - Getting Started Guide: api-analytics/choreo-analytics/getting-started-guide.md
+                - Role-based Access Control : api-analytics/choreo-analytics/role-based-access-control.md
+                - Alerts: api-analytics/choreo-analytics/configure-alerts.md
+            - Other Analytics Solutions: 
                 - ELK Based Analytics Installation Guide: api-analytics/on-prem/elk-installation-guide.md
                 - Datadog Analytics Installation Guide : api-analytics/on-prem/datadog-installation-guide.md
-            - View API Analytics:
-                - Introduction: api-analytics/viewing/introduction-to-api-analytics-dashboard.md
-                #- Usecases:
-                    #TODO- Identifying Faulty APIs: api-analytics/viewing/usecases/finding-faulty-apis.md
-                #- Quality of Service: api-analytics/qos.md
-                #- Analytics API Guide: api-analytics/analytics-api-guide.md
-                #- Troubleshooting Analytics: add this infor in the main troubleshooting page GW> Analytics
             - Publish Analytics Events to External Systems: api-analytics/samples/publishing-analytics-events-to-external-systems.md
             - Publish Custom Analytics Events Data: api-analytics/samples/publishing-custom-analytics-data.md
-            - Architecture: api-analytics/api-analytics-architecture.md
         - MI Analytics:
             - ELK Based Analytics:
                 - Setup: mi-analytics/mi-elk-installation-guide.md
