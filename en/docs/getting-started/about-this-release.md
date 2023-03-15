@@ -93,3 +93,23 @@ WSO2 API-M 3.0.0 is based on WSO2 Carbon 4.5.1 and is expected to be compatible 
 -   [WSO2 API Manager 3.0.0 - Known Issues in the product-apim GitHub repository](https://github.com/wso2/product-apim/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3A3.0.0+)
 -   [WSO2 API Manager 3.0.0 - Known Issues in the carbon-apim GitHub repository](https://github.com/wso2/product-apim/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3A3.0.0+)
 -   [WSO2 API Manager 3.0.0 - Known Issues in the analytics-apim GitHub repository](https://github.com/wso2/analytics-apim/issues?q=is%3Aopen+is%3Aissue)
+
+## What has changed
+
+- If you have used OIDC or SAML2 for SSO in the portal login in an older APIM version, you have to re-configure them as per the [documentation to configure WSO2 IS as an external IDP using OIDC](https://apim.docs.wso2.com/en/4.1.0/install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-oidc/).
+
+- Until WSO2 API Manager 2.6.0, users had to update multiple configuration files to configure the product. This overhead is removed with the new configuration model because now users only have to update a single file (deployment.toml).
+
+  For more information on the configurations in the new configuration model, see the [Configuration Catalog](https://apim.docs.wso2.com/en/4.1.0/reference/config-catalog).
+  For more information on the mapping between WSO2 API Manager's old configuration files and the new `deployment.toml` file, see [Understanding the New Configuration Model](https://apim.docs.wso2.com/en/4.1.0/reference/understanding-the-new-configuration-model).
+
+- From 3.0.0 onwards, previous Jaggery based UIs for Publisher and Developer portals are replaced with new ReactJS based applications.
+
+!!! note
+     From API-M 3.0.0, Store Portal has been renamed as Developer Portal
+
+- From 3.0.0 onwards, WSO2 API Manager has been upgraded to **log4j2** (from log4j). You will notice that there is a `log4j2.properties` file in the `<API-M_4.0.0_HOME>/repository/conf/` directory instead of the `log4j.properties` file. Contact the WSO2 Support Team to obtain instructions to upgrade to Log4j2 to migrate your existing `log4j.properties` file to `log4j2.properties` file.
+
+- In previous API-M versions there used to be 4 Resource Level Security Schemes named `None`, `Application`, `Application User` and `Any`. From 3.0.0 onwards this has been reduced to 2 levels `None` and `Application and Application User`. If fine-grained security is required it is recommended to use [OAuth Scopes](https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#fine-grained-access-control-with-oauth-scopes) instead.
+
+- From 3.0.0 onwards, it is possible to enforce multiple authentication schemes for an API at same time.
