@@ -1,4 +1,4 @@
-# DataDog As the On-prem Analytics Solution For API Manager
+# DataDog Based Analytics Solution For API Manager
 
 <a href="{{base_path}}/assets/img/analytics/datadog/architecture.png"><img src="{{base_path}}/assets/img/analytics/datadog/architecture.png" width="70%" alt="Deployment diagram"></a>
 

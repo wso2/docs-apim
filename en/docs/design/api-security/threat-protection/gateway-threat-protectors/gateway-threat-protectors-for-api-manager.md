@@ -41,14 +41,5 @@ You can use a combination of the threat protectors given above to validate the m
 
 ### Add a custom sequence
 
-You can add custom sequences depending on the threats that you need to address. To add a custom sequence, do the following.
-
-1.  Create an xml file with your custom sequence, or edit and save the sequence given above.
-2.  Go to **Runtime Configurations** Tab of the relevant API.
-3.  Click **Message Mediation** under **Request**.
-      
-      <a href="{{base_path}}/assets/img/learn/request-message-mediation.png"><img src="{{base_path}}/assets/img/learn/request-message-mediation.png" width="70%"></a>
-
-4.  Select and upload your custom sequence.
-   
-      <a href="{{base_path}}/assets/img/learn/add-custom-mediation-policy.png"><img src="{{base_path}}/assets/img/learn/add-custom-mediation-policy.png" width="70%"></a>
+You can add custom sequences depending on the threats that you need to address. You can create a policy using the custom sequence and attach it to the API. 
+Please refer [API Policies]({{base_path}}/design/api-policies/overview/) for more information on how to attach a policy to an API
