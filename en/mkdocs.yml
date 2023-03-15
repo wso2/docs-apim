@@ -357,7 +357,7 @@ nav:
                     - Distributed Tracing: deploy-and-publish/deploy-on-gateway/choreo-connect/observability/distributed-tracing.md
                 - Analytics:
                       - Configure Analytics with Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-analytics.md
-                      - Publish Custom Attributes with Analytics: deploy-and-publish/deploy-on-gateway/choreo-connect/analytics/pulbish-custom-analytics-attributes.md
+                      - Publish Custom Attributes with Analytics: deploy-and-publish/deploy-on-gateway/choreo-connect/analytics/publish-custom-analytics-attributes.md
                 - Git Integration: deploy-and-publish/deploy-on-gateway/choreo-connect/git-integration.md
                 - Data Compression: deploy-and-publish/deploy-on-gateway/choreo-connect/data-compression.md
                 - Configure Multiple Gateways with Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-multiple-gateways-with-choreo-connect.md

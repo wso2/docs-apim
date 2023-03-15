@@ -6,7 +6,7 @@ headers, and response trailers relevant to the event, users can retrieve those v
 This guide will explain the steps required to do it.
 
 !!! note
-    Only **Request headers** (headers sent to the upstream), **Response headers** (headers coming from the upstream), and **Response trailers** can be used with this feature.
+    This feature is only available with **ELK based Analytics**. Only **Request headers** (headers sent to the upstream), **Response headers** (headers coming from the upstream), and **Response trailers** can be used with this feature.
 
 ## Creating The Custom Analytics Data Provider JAR
 
@@ -14,7 +14,7 @@ You need to create a new `Java Maven` project to obtain this JAR.
 
 There is an existing sample project available [here](https://github.com/wso2/product-microgateway/tree/main/samples/analytics-custom-data-provider).
 If you wish to use that sample instead of developing the sample from scratch, you can ignore the steps of creating
-the sample and start from [here]({{base_path}}/deploy-on-gateway/choreo-connect/analytics/pulbish-custom-analytics-attributes/#build-the-project-jar-addition-to-the-enforcer).
+the sample and start from [here]({{base_path}}/deploy-on-gateway/choreo-connect/analytics/publish-custom-analytics-attributes/#build-the-project-jar-addition-to-the-enforcer).
 
 ### Configuring the pom.xml file
 
@@ -37,11 +37,6 @@ the sample and start from [here]({{base_path}}/deploy-on-gateway/choreo-connect/
     ```xml
     <dependency>
         <groupId>org.wso2.carbon.apimgt</groupId>
-        <artifactId>org.wso2.carbon.apimgt.gateway</artifactId>
-        <version>${carbon.apimgt.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>org.wso2.carbon.apimgt</groupId>
         <artifactId>org.wso2.carbon.apimgt.common.analytics</artifactId>
         <version>${carbon.apimgt.version}</version>
     </dependency>
@@ -49,10 +44,9 @@ the sample and start from [here]({{base_path}}/deploy-on-gateway/choreo-connect/
 
 !!! Info
 
-	- You need to add `org.wso2.carbon.apimgt.gateway_<COMPENENT_VERSION>.jar` and `org.wso2.carbon.apimgt.common.analytics_<COMPENENT_VERSION>.jar` to the local m2 mannually and provide path to the local m2 as mentioned below.
+	- You need to add `org.wso2.carbon.apimgt.common.analytics_<COMPENENT_VERSION>.jar` to the local m2 mannually and provide path to the local m2 as mentioned below.
         1. Add the above .jar files to the local m2 manually.
         ```code
-        mvn install:install-file -Dfile=<PATH_TO_FILE>/org.wso2.carbon.apimgt.gateway_<COMPENENT_VERSION>.jar -DgroupId=org.wso2.carbon.apimgt -DartifactId=org.wso2.carbon.apimgt.gateway -Dversion=<COMPENENT_VERSION> -Dpackaging=jar
         mvn install:install-file -Dfile=<PATH_TO_FILE>/org.wso2.carbon.apimgt.common.analytics_<COMPENENT_VERSION>.jar -DgroupId=org.wso2.carbon.apimgt -DartifactId=org.wso2.carbon.apimgt.common.analytics -Dversion=<COMPENENT_VERSION> -Dpackaging=jar
         ```
         2. Point local m2 repository in project pom
@@ -102,8 +96,24 @@ Therefore, by processing it you can obtain the required headers.
         2. Append the newly added logger as indicated below.
 
            ```bash
-               loggers = org-wso2-analytics-publisher, other_available_loggers...
+           loggers = org-wso2-analytics-publisher, other_available_loggers...
            ```
+
+    2. Update the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect(-with-apim)/conf/config.toml` file with the following configurations.
+
+        ```
+        [analytics]
+            enabled = true
+            type = "ELK"
+        [analytics.adapter.customProperties]
+            enabled = true
+            requestHeaders = ["request_headers_to_pass_from_router_to_enforcer"]
+            responseHeaders = ["response_headers_to_pass_from_router_to_enforcer"]
+            responseTrailers = ["response_trailers_to_pass_from_router_to_enforcer"]
+        [analytics.enforcer]
+            [analytics.enforcer.configProperties]
+            "publisher.custom.data.provider.class" = "fully qualified class name of the customDataProvider"
+        ```
 
 ## Obtaining Custom Attributes with Analytics
 
