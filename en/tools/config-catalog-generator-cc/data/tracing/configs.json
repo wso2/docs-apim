@@ -83,6 +83,13 @@
               "required": false,
               "default": "256",
               "description": "Maximum length of the request path to extract and include in the HttpUrl tag."
+            },
+            {
+              "name": "connectionTimeout",
+              "type": "string",
+              "required": false,
+              "default": "20",
+              "description": "Connection timeout for the OTLP service"
             }
           ]
         }
