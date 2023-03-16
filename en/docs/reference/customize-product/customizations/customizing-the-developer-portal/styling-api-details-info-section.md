@@ -8,7 +8,7 @@ The `defaultTheme.js` file has all the parameters defining the look and feel of 
 
 Edit the attributes in `themes.light.custom.infoBar` by following the below steps to change the styling of "API Details Info" section and the "Application Details Info" section.
 
-1. Open the `<API-M_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/site/public/theme/defaultTheme.js` file in a text editor and update the `themes.light.custom.infoBar` attributes.
+1. Open the `<API-M_HOME>/repository/deployment/server/webapps/devportal/site/public/theme/userTheme.json` file in a text editor and update the attributes.
 
 2. Refresh the Developer Portal to view the changes.
 
@@ -17,39 +17,39 @@ Edit the attributes in `themes.light.custom.infoBar` by following the below step
 The JSON sample code that is given below defines the default look and feel.
 
 ```js
-const Configurations = {
-    custom: {
-        infoBar: {
-            height: 70,
-            background: '#ffffff',
-            showThumbnail: true,
-            starColor: '#f6bf21',
-            sliderBackground: '#ffffff',
-            iconOddColor: '#347eff',
-            iconEvenColor: '#89b4ff',
-            listGridSelectedColor: '#347eff',
-            tagChipBackground: '#7dd7f5',
-        },
-    },
-};
+{
+    "custom": {
+        "infoBar": {
+            "height": 70,
+            "background": "#ffffff",
+            "showThumbnail": true,
+            "starColor": "#f6bf21",
+            "sliderBackground": "#ffffff",
+            "iconOddColor": "#347eff",
+            "iconEvenColor": "#89b4ff",
+            "listGridSelectedColor": "#347eff",
+            "tagChipBackground": "#7dd7f5"
+        }
+    }
+}
 ```
 
 #### Example: Change the colors of UI elements
 
 ```js
-const Configurations = {
-    custom: {
-        infoBar: {
-            height: 70,
-            background: '#000',
-            showThumbnail: false,
-            starColor: '#ff1a1a',
-            sliderBackground: '#000',
-            iconOddColor: '#00e600',
-            iconEvenColor: '#b3ffb3',
-        },
-    },
-};
+{
+    "custom": {
+        "infoBar": {
+            "height": 70,
+            "background": "#000",
+            "showThumbnail": false,
+            "starColor": "#ff1a1a",
+            "sliderBackground": "#000",
+            "iconOddColor": "#00e600",
+            "iconEvenColor": "#b3ffb3"
+        }
+    }
+}
 
 ```
 
