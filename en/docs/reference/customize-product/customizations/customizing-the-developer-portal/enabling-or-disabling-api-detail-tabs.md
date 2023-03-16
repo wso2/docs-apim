@@ -1,24 +1,26 @@
 # Enable or Disable API Detail Tabs
 
-When you go to the API details page, all the linked tabs (credentials, comments, tryout, SDKs, documents) are displayed. You can enable or disable them by configuring the `defaultTheme.js` file.
+When you go to the API details page, all the linked tabs (credentials, comments, tryout, SDKs, documents) are displayed. You can enable or disable them by configuring the `userTheme.json` file.
 
 The `defaultTheme.js` file has all the parameters defining the look and feel of the developer portal. To learn more about `defaultTheme.js` refer [here]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/overriding-developer-portal-theme/#global-theming).
 
-1. Open `<API-M_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/site/public/theme/defaultTheme.js` file in a text editor and set the `themes.light.custom.apiDetailPages` attributes accordingly as shown in the below example.
+By using `defaultTheme.js` as a reference , you could customize these link tabs by modifying `userTheme.json` file. For that
+
+1. Open `<API-M_HOME>/repository/deployment/server/webapps/devportal/site/public/theme/userTheme.json` file in a text editor and set the  attributes accordingly as shown in the below example.
 
     ```js
-    const Configurations = {
-        custom: {
-            apiDetailPages: {
-                showCredentials: false,
-                showComments: true,
-                showTryout: true,
-                showDocuments: true,
-                showSdks: true,
-                onlyShowSdks: [],
-            },
-        },
-    };
+    {
+        "custom": {
+            "apiDetailPages": {
+                "showCredentials": false,
+                "showComments": true,
+                "showTryout": true,
+                "showDocuments": false,
+                "showSdks": false,
+                "onlyShowSdks": []
+            }
+        }
+    }
     ```
 
     | Property Name | type | Perpose |
