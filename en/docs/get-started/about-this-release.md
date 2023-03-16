@@ -85,6 +85,10 @@ These features are unsupported and removed from WSO2 API Manager 4.2.0 onwards.
 
      JDK 8 support is removed from  WSO2 API Manager 4.2.0 onwards. 
 
+- **Publisher and Devportal profiles**
+
+     The `api-publisher` and `api-devportal` profiles had been deprecated in previous releases. The support for those profiles is removed completely from API Maanger 4.2.0 onwards. So the `control-pane` profile needs to be used for the task done through those removed profiles.
+
 ## Compatible WSO2 product versions
 
 - WSO2 API Manager 4.2.0 is compatible with WSO2 Identity Server 6.0.0 and 6.1.0.
