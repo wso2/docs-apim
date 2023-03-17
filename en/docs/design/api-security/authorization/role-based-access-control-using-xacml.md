@@ -113,7 +113,7 @@ Based on the requirement, a single API is exposed to add or retrieve order info
 
     ![]({{base_path}}/assets/img/learn/test-service-by-try-option.png)
 
-    You need to enter your username as the **Subject Name** . Refer [Evaluating a XACML Policy](https://is.docs.wso2.com/en/5.10.0/administer/evaluating-a-xacml-policy/) for more information on how to use the TryIt tool for XACML Policy evaluation. For example, try `api_user` as the **Subject Name** and `GET` as the **Action Name**. If the policy is configured correctly, you should get a successfull message. Try `POST' as the **Action Name** and you would get a deny message.
+    You need to enter your username as the **Subject Name** . Refer [Evaluating a XACML Policy](https://is.docs.wso2.com/en/5.10.0/administer/evaluating-a-xacml-policy/) for more information on how to use the TryIt tool for XACML Policy evaluation. For example, try `api_user` as the **Subject Name** and `GET` as the **Action Name**. If the policy is configured correctly, you should get a successful message. Try `POST' as the **Action Name** and you would get a deny message.
 
 
     ![]({{base_path}}/assets/attachments/103334839/103334831.png)
