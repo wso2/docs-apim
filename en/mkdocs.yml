@@ -1043,6 +1043,8 @@ nav:
                 - Salesforce Bulk Configuration: reference/connectors/salesforcebulk-connector/salesforcebulk-connector-configuration.md
                 - Salesforce Bulk API Example: reference/connectors/salesforcebulk-connector/salesforcebulk-connector-example.md
                 - Salesforce Bulk API Reference: reference/connectors/salesforcebulk-connector/salesforcebulk-reference.md
+                - Salesforce Bulk API V2 Example: reference/connectors/salesforcebulk-connector/salesforcebulk-v2-connector-example.md
+                - Salesforce Bulk API V2 Reference: reference/connectors/salesforcebulk-connector/salesforcebulk-v2-reference.md
                 - Salesforce SOAP Connector Configuration: reference/connectors/salesforce-connectors/sf-soap-connector-config.md
                 - Salesforce SOAP Connector Example: reference/connectors/salesforce-connectors/sf-soap-connector-example.md
                 - Salesforce SOAP Connector Reference: reference/connectors/salesforce-soap-connector/salesforce-soap-reference.md
