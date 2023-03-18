@@ -80,12 +80,17 @@ The Router uses the Envoy Proxy as the core component that does the traffic rout
 1.  Change the Router Docker image with the built ***Router Debug Image*** and mount a directory to `/var/log/envoy` to collect head profile data.
 
     ```text tab="Docker Compose"
+    Create directory named "profile-data".
+    
+    mkdir profile-data
+    chmod 777 profile-data
+    
     Update 'docker-compose.yaml' file as follows and start docker-compose setup.
 
     router:
       image: <DOCKER_REGISTRY>/<DEBUG_IMAGE_NAME>:<TAG> # change image name
       volumes:
-        - ./data:/var/log/envoy # append this volume
+        - ./profile-data:/var/log/envoy # append this volume
     ```
 
     ```text tab="K8s YAML"
@@ -122,20 +127,27 @@ The Router uses the Envoy Proxy as the core component that does the traffic rout
     ```bash tab="Kubernetes (for both YAML and Helm)"
     kubectl port-forward -n <NAMESPACE> svc/<K8S_ROUTER_SERVICE_NAME> 9000:9000
     ```
+    
+3.  Start/Deploy Choreo Connect.
 
-3.  Start heap profiling. Execute the following command.
+4.  Start heap profiling. Execute the following command.
     ```bash
     curl -X POST -s "http://localhost:9000/heapprofiler?enable=y"
     ```
 
-4.  End heap profiling. Execute the following command.
+5.  End heap profiling. Execute the following command.
     ```bash
     curl -X POST -s "http://localhost:9000/heapprofiler?enable=n"
     ```
 
-5.  Execute following commands to copy profile data and envoy binary to the directory `./profile-data` in you local machine.
+6.  Execute following commands to copy profile data and envoy binary to the directory `./profile-data` in you local machine.
 
-    ```bash
+    ```bash tab="Docker Compose"
+    mkdir profile-data/lib
+    docker compose cp router:/usr/local/bin/envoy profile-data/lib/envoy
+    ```
+
+    ```bash tab="Kubernetes (for both YAML and Helm)"
     export POD_NAME=<K8S_CHOREO_CONNECT_GATEWAY_RUNTIME_POD_NAME>
     export NAMESPACE=<NAMESPACE>
 
@@ -143,7 +155,7 @@ The Router uses the Envoy Proxy as the core component that does the traffic rout
     kubectl cp -n $NAMESPACE $POD_NAME:/usr/local/bin/envoy profile-data/lib/envoy -c choreo-connect-router
     ```
 
-6.  Analyze the heap profile in the browser by running the following command.
+7.  Analyze the heap profile in the browser by running the following command.
     ```bash
     pprof -http=localhost:8000 profile-data/lib/envoy profile-data/envoy.prof.*
     ```
