@@ -22,7 +22,7 @@ Let's start Choreo Connect with a WSO2 API Manager instance which will be acting
 
     The Docker Compose files referred in this guide are to deploy API Manager with ***basic configurations***. They are the docker-compose scripts ***provided with the Choreo Connect distribution*** and are only meant for tryout purposes. In order to deploy WSO2 API Manager in production grade, you can use the following. 
     
-    - Docker setup artifacts from the [API Manager page](https://wso2.com/api-management/)
+    - Docker setup artifacts from the [API Manager page](https://wso2.com/api-manager/)
     - [Production Deployment Guideline]({{base_path}}/install-and-setup/setup/deployment-best-practices/production-deployment-guidelines/#common-guidelines-and-checklist) for API Manager
 
 ### Step 1 - Download and extract the Choreo Connect distribution .zip file
@@ -30,7 +30,12 @@ Let's start Choreo Connect with a WSO2 API Manager instance which will be acting
 1. Download the latest Choreo Connect distribution from [https://wso2.com/choreo/choreo-connect/](https://wso2.com/choreo/choreo-connect/). 
 2. Extract the Choreo Connect distribution .zip file. The extracted folder will be called as `CHOREO-CONNECT_HOME` hereafter.
 
-### Step 2 - Start Choreo Connect and API Manager
+### Step 2 - Download WSO2 API Manager 4.2.0 .zip file
+
+1. Download WSO2 API Manager 4.2.0 distribution .zip file from [https://wso2.com/api-manager/](https://wso2.com/api-manager/). 
+2. Place the .zip file in `CHOREO-CONNECT_HOME`/docker-compose/choreo-connect-with-apim/ dockerfiles/apim/.
+
+### Step 3 - Start Choreo Connect and API Manager
 
 1. Add the host entry to `/etc/hosts` file as shown below in order to access the API Manager Publisher and Developer Portal.
 
@@ -50,9 +55,7 @@ Let's start Choreo Connect with a WSO2 API Manager instance which will be acting
     docker ps | grep choreo-connect-
     ```
 
-    {!includes/deploy/cc-tryout-in-arm64-docker-note.md!}
-
-### Step 3 - Create and publish an API via API Manager
+### Step 4 - Create and publish an API via API Manager
 
 1. Navigate to the Publisher Portal.
 
@@ -88,7 +91,7 @@ Let's start Choreo Connect with a WSO2 API Manager instance which will be acting
     !!! tip   
         If you are further updating the API, remember create a new revision from the **Deployments** tab and deploy the newly created revision to the Gateway, for the changes to be reflected in Choreo Connect.
 
-### Step 4 - Invoke the API from Publisher
+### Step 5 - Invoke the API from Publisher
 
 1. Open **Try Out** from the left menu bar.
 
@@ -112,7 +115,7 @@ Let's start Choreo Connect with a WSO2 API Manager instance which will be acting
 
 You can follow the next few steps to get an idea about API Subscriptions, Application Rate limiting and Production Access Tokens. 
 
-### Step 5 - Subscribe to the API and generate a token
+### Step 6 - Subscribe to the API and generate a token
 
 1. Navigate to the Developer Portal and select the newly created API.
 
@@ -135,7 +138,7 @@ You can follow the next few steps to get an idea about API Subscriptions, Applic
 
 6. Copy the generated access token before proceeding to the next step.
 
-### Step 6 - Invoke the API from Developer Portal
+### Step 7 - Invoke the API from Developer Portal
 
 Follow the instructions below to invoke the previously created API with the generated token.
 
