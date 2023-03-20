@@ -95,7 +95,7 @@ Salesforce Bulk API uses the OAuth protocol to allow application users to secure
         </tr>
         <tr>
             <th>Column Delimeter</th>
-            <th>The column delimiter used for CSV job data. The default value is COMMA. Valid values are: BACKQUOTE—backquote character (`), CARET—caret character (^), COMMA—comma character (,) which is the default delimiter, PIPE—pipe character (|), SEMICOLON—semicolon character (;), TAB—tab character</th>
+            <th>The column delimiter used for CSV job data. The default value is COMMA. Valid values are: BACKQUOTE—backquote character (``), CARET—caret character (^), COMMA—comma character (,) which is the default delimiter, PIPE—pipe character (|), SEMICOLON—semicolon character (;), TAB—tab character</th>
             <th>Yes</th>
         </tr>
         <tr>
