@@ -103,7 +103,7 @@ These features are unsupported and removed from WSO2 API Manager 4.2.0 onwards.
 - [Integration Studio](https://github.com/wso2/api-manager/issues?q=is%3Aissue+is%3Aclosed+label%3AComponent%2FIntegrationStudio+closed%3A2022-04-05..2023-03-03+)
 - [Micro Integrator Dashboard](https://github.com/wso2/api-manager/issues?q=is%3Aissue+is%3Aclosed+label%3AComponent%2FMIDashboard+closed%3A2022-04-05..2023-03-03+)
 - [Streaming Integrator Tooling](https://github.com/wso2/api-manager/issues?q=is%3Aissue+is%3Aclosed+label%3AComponent%2FSITooling+closed%3A2022-04-05..2023-03-03+)
-- [Choreo Connect](https://github.com/wso2/product-microgateway/issues?q=is%3Aissue+is%3Aclosed+closed%3A2022-04-12..2023-03-11)
+- [Choreo Connect](https://github.com/wso2/product-microgateway/issues?q=is%3Aissue+is%3Aclosed+project%3Awso2%2Fproduct-microgateway%2F16+)
 
 ## Known issues
 
