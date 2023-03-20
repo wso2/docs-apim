@@ -1,19 +1,20 @@
 # Salesforce Bulk v2.0 Connector Example
 
-The Salesforce Bulk v2.0 Connector allows you to access the [Salesforce Bulk v2.0 REST API](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/asynch_api_intro.htm) from an integration sequence. SalesforceBulk is a RESTful API that allows you to quickly load large sets of your organization's data into Salesforce or delete large sets of your organization's data from Salesforce. You can use SalesforceBulk to query, insert, update, upsert or delete a large number of records asynchronously, by submitting the records in batches. Salesforce can process these batches in the background.
+The **Salesforce Bulk v2.0 Connector** provides seamless integration with the [Salesforce Bulk v2.0 REST API](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/asynch_api_intro.htm), enabling easy and efficient handling of large volumes of data. The SalesforceBulk API operates on a RESTful architecture, offering a fast and reliable method to load or delete vast amounts of data from your organization's Salesforce account. With SalesforceBulk, you can perform asynchronous operations like querying, inserting, updating, upserting, or deleting a considerable number of records by submitting them in batches. These batches can be processed by Salesforce in the background, ensuring minimal disruption to your workflow.
+
 
 ## What you'll build
 
-This example demonstrates how to use Salesforce Bulk v2.0 connector to
+The following example demonstrates how to use the Salesforce Bulk v2.0 Connector for performing various operations on your Salesforce data:
 
-1. Insert account records to the salesforce
-2. Get created bulk job information 
-3. Get successfully processed records to a file
-4. Delete the bulk job
-5. Create a query job to get account details
-6. Get the successful results of the created query job to a file
+1. Insert account records to the salesforce.
+2. Get the created bulk job information. 
+3. Get the successfully processed records to a file.
+4. Delete the bulk job.
+5. Create a query job to get account details.
+6. Get the successful results of the created query job to a file.
 
-We will be using the following resources to achieve our requirements.
+You can use the following resources to achieve your requirements.
 
 * `/createJobAndUploadData` : 
   1. Create a new bulk ingest job for insert operation
