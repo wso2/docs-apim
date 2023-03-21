@@ -28,7 +28,7 @@ The following is a list of Choreo Connect's important features.
     - Subscription validation with WSO2 API Manager
     - Subscription validation with self-contained tokens
     - Scope validation for JWT OAuth2 bearer tokens
-    - Backend JWT generation (Passing end user details to the backend services)
+    - Backend JWT generation (Passing end user details to the backend services, JWKS endpoint to validate backend JWT)
     - Support for API keys
     - Open Policy Agent(OPA) support
     - Mutual SSL authentication for APIs
@@ -56,7 +56,7 @@ The following is a list of Choreo Connect's important features.
 
 - API Insights and Observability
     - Publish analytics to the Choreo Cloud
-    - Open Tracing support: Jaeger, Zipkin, and Azure App Insights 
+    - Open Tracing support: Jaeger, Zipkin, Azure App Insights and OpenTelemetry 
 
 - Troubleshooting 
     - Enforcer REST API for troubleshooting purposes
@@ -69,6 +69,8 @@ The following is a list of Choreo Connect's important features.
     - Custom filter support at Enforcer
     - Deploy/undeploy APIs using the command line tool (APICTL)
     - Git Integration for Choreo Connect
+    - HTTP2 support
+    - Data compression: Gzip
 
 ## Unsupported Features
 
