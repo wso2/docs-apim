@@ -22,12 +22,12 @@ Let's deploy an API on Choreo Connect, which running on Kubernetes, with WSO2 AP
 
 1. Download WSO2 API Manager 4.2.0 distribution .zip file from [https://wso2.com/api-manager/](https://wso2.com/api-manager/). 
 
-2. Place the .zip file in `CHOREO-CONNECT_HOME`/docker-compose/choreo-connect-with-apim/ dockerfiles/apim/.
+2. Place the .zip file in `CHOREO-CONNECT_HOME`/docker-compose/choreo-connect-with-apim/dockerfiles/apim/.
 
 3. Build the Docker image of WSO2 API Manager 4.2.0 using the following command.
 
     ```bash
-    docker-compose -f CHOREO-CONNECT_HOME/docker-compose/choreo-connect-with-apim/docker-compose.yaml  build apim 
+    docker-compose -f CHOREO-CONNECT_HOME/docker-compose/choreo-connect-with-apim/docker-compose.yaml build apim 
     ```
 
 !!! note 

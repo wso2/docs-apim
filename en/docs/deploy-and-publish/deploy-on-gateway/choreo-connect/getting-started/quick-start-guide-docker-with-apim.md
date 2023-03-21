@@ -33,7 +33,7 @@ Let's start Choreo Connect with a WSO2 API Manager instance which will be acting
 ### Step 2 - Download WSO2 API Manager 4.2.0 .zip file
 
 1. Download WSO2 API Manager 4.2.0 distribution .zip file from [https://wso2.com/api-manager/](https://wso2.com/api-manager/). 
-2. Place the .zip file in `CHOREO-CONNECT_HOME`/docker-compose/choreo-connect-with-apim/ dockerfiles/apim/.
+2. Place the .zip file in `CHOREO-CONNECT_HOME`/docker-compose/choreo-connect-with-apim/dockerfiles/apim/.
 
 ### Step 3 - Start Choreo Connect and API Manager
 
