@@ -39,7 +39,7 @@ template: templates/versions.html
 This is the current stable version of the project.
 
 ---
-
+<!--
 ### Pre-release versions
 These are the latest changes that have yet to be released.
 
@@ -48,7 +48,7 @@ These are the latest changes that have yet to be released.
         <tr>
             <th>4.2.0</th>
             <td>
-                <!--<a id="pre-release-version-documentation-link">Documentation</a>-->
+                <!--<a id="pre-release-version-documentation-link">Documentation</a>
                 <a href="https://apim.docs.wso2.com/en/4.2.0/" target="_blank">Documentation</a>
             </td>
             <td>
@@ -63,7 +63,7 @@ These are the latest changes that have yet to be released.
         </tr>
     </tbody>
 </table>
-
+-->
 ---
 
 ### Past Versions
