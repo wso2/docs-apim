@@ -4,7 +4,7 @@ This example demonstrates how the Micro Integrator receives a messages over the 
 
 ## Synapse configuration
 
-Following are the integration artifacts (proxy service) that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
+Following are the integration artifacts (proxy service) that we can use to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
 ```xml
 <proxy xmlns="http://ws.apache.org/ns/synapse" name="JMStoHTTPStockQuoteProxy" transports="jms">
