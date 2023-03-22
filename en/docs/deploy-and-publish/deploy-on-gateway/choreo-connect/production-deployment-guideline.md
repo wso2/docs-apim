@@ -180,8 +180,10 @@ The following is a sample how to define the truststore. If you have created a se
         truststore:
           - secretName: <SECRET_NAME_1>
             subPath: <KEY_OF_THE_SECRET_CONTAINS_THE_CERT>
+            mountAs: <FILE_NAME_OF_THE_MOUNTED_CERT>
           - secretName: <SECRET_NAME_2>
             subPath: <KEY_OF_THE_SECRET_CONTAINS_THE_CERT>
+            mountAs: <FILE_NAME_OF_THE_MOUNTED_CERT>
 ```
 
 ```yaml tab='Adapter Truststore'
@@ -192,6 +194,7 @@ wso2:
         truststore:
           - secretName: "abc-certs"
             subPath: "tls.crt"
+            mountAs: "tls.crt"
 ```
 
 ```yaml tab='Enforcer Truststore'
@@ -203,8 +206,49 @@ wso2:
           truststore:
             - secretName: "controlplane-cert"
               subPath: "wso2carbon.pem"
+              mountAs: "wso2carbon.pem"
             - secretName: "abc-certs"
               subPath: "tls.crt"
+              mountAs: "tls.crt"
+```
+
+!!! note
+    You can use `mountAs` to have your own file name inside the container. For example, you can mount the cert `tls.crt` in the secret `abc-certs` as `abc-tls-cert.crt`. Refer to the following example values.yaml.
+
+    ```yaml
+    wso2:
+      deployment:
+        adapter:
+          security:
+            truststore:
+              - secretName: "abc-certs"
+                subPath: "tls.crt"
+                mountAs: "abc-tls-cert.crt"
+    ```
+
+    If `mountAs` is not defined, the Helm chart will rename the file as `<secretName>-<subPath replace '.' with '-' >.pem`.
+
+You can verify the cert is successfully mounted to the container by executing the following command.
+
+```sh tab='Format'
+NAMESPACE=<NAMESPACE>
+kubectl exec -n "$NAMESPACE" \
+    "$(kubectl get pod -n $NAMESPACE -l app.kubernetes.io/component=<COMPONENT_NAME> -o jsonpath='{.items[0].metadata.name}')" \
+    -c <CONTAINER_NAME> -- ls -alh /home/wso2/security/truststore/
+```
+
+```yaml tab='Adapter Truststore'
+NAMESPACE=<NAMESPACE>
+kubectl exec -n "$NAMESPACE" \
+    "$(kubectl get pod -n $NAMESPACE -l app.kubernetes.io/component=choreo-connect-adapter -o jsonpath='{.items[0].metadata.name}')" \
+    -c choreo-connect-adapter -- ls -alh /home/wso2/security/truststore/
+```
+
+```yaml tab='Enforcer Truststore'
+NAMESPACE=<NAMESPACE>
+kubectl exec -n "$NAMESPACE" \
+    "$(kubectl get pod -n $NAMESPACE -l app.kubernetes.io/component=choreo-connect-gateway-runtime -o jsonpath='{.items[0].metadata.name}')" \
+    -c choreo-connect-enforcer -- ls -alh /home/wso2/security/truststore/
 ```
 
 ### Change Default Passwords
