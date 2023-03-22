@@ -10,7 +10,7 @@ Follow the instructions below to start WSO2 APIM-M.
      
      For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/).
 
-2. [Download version 4.0.0 of WSO2 API-M](https://wso2.com/api-management/).
+2. [Download version 4.2.0 of WSO2 API-M](https://wso2.com/api-management/).
 
 3. Start WSO2 API-M by navigating to the `<API-M_HOME>/bin` directory using the command-line and execute the following command.
 
