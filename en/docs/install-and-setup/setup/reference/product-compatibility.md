@@ -23,11 +23,11 @@ The **WSO2 API-M** runtime has been tested with the following JDKs:
 
 |**JDKS**            |**Versions**|
 |--------------------|-----------|
-|CorrettoJDK         | 8, 11     |
-|AdoptOpenJDK        | 8, 11     |
-|OpenJDK             | 8, 11     |
-|Oracle JDK          | 8, 11     |
-|Temurin OpenJDK     | 8 and 11  |
+|CorrettoJDK         | 11, 17    |
+|AdoptOpenJDK        | 11, 17    |
+|OpenJDK             | 11, 17    |
+|Oracle JDK          | 11, 17    |
+|Temurin OpenJDK     | 11, 17    |
 
 #### Tested DBMSs
 
