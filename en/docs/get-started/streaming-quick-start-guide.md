@@ -41,7 +41,7 @@ To start the sample, navigate to the `<SIT_HOME>/bin` directory from the CLI, an
 
 ### Step 3 - Create and deploy a sample Siddhi application
 
-Let's create a simple Siddhi application that reads data from a XML file, does a simple transformation to the data, and then writes the results to the WebSocket receiver running.
+Let's create a simple Siddhi application that reads data from an XML file, does a simple transformation to the data, and then writes the results to the WebSocket receiver running.
 
 1. Download `sampledata.xml` file from [here]({{base_path}}/assets/attachments/quick-start-guide/sampledata.xml) and save it in a location of your choice.
 
@@ -117,7 +117,7 @@ Follow the instructions below to test the `ManageProductionStats` Siddhi applica
 
  Now, you have created your first Streaming service. Optionally, you can follow the steps given below to expose the service as a Managed API in API Manager.
       
-## Exposing an Streaming Service as a Managed API
+## Exposing a Streaming Service as a Managed API
 
 The `ManageProductionStats` Siddhi Application you deployed in the Streaming Integrator is a **streaming service** for the API Manager. Now, let's look at how you can expose the streaming service to the API Management layer and generate a managed API by using the service.
 
