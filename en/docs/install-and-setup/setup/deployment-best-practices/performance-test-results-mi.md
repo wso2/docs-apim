@@ -31,6 +31,13 @@ Two key performance metrics were used to measure the performance of each test.
     might differ. Similarly, when worker pool thread counts are changed, the performance of the
     Micro Integrator changes significantly. Therefore, to get accurate results, it is necessary to be specific about the exact configurations and scenarios used for the performance tests.
 
+!!! Note
+    To get consistent results, the following measures were taken.
+
+    - HTTP Access logs for Passthrough transport were disabled.
+    - Passthrough transport metric counters were disabled.
+
+
 ## Deployment used for the test
 
 Given below are the details of the deployment that was used for the performance test that is recorded in this documentation.
@@ -93,41 +100,14 @@ All scripts used to run the performance tests and analyze results are in the fol
 
 ## Results
 Given below is a summary of the performance result for each of the scenarios used for the tests.
-The complete results can be found [here](https://github.com/wso2/micro-integrator/blob/6785a17e617b91fd1e3127e96e51ae45879c1c3b/performance/benchmarks/summary.md).
+The complete results can be found [here](https://github.com/wso2/micro-integrator/blob/efbfa066975d1d3df47177ef93617bbff844d8d2/performance/benchmarks/summary.md).
 
 #### Throughput (requests/sec) vs. concurrent users
-The following results compare the throughput against the number of concurrent users in each scenario.
+The following results compare the throughput against the number of concurrent users for different message sizes.
 
-##### Direct Proxy
-
-<a href="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/direct-proxy-tp.png"><img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/direct-proxy-tp.png" alt="Direct Proxy Throughput" title="Direct Proxy Throughput" width="70%" /></a>
-
-##### Direct API
-
-<a href="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/direct-api-tp.png"> <img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/direct-api-tp.png" alt="Direct API Throughput" title="Direct API Throughput" width="70%" /></a>
-
-##### CBR Transport Header Proxy
-
-<img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/cbr-transport-header-proxy-tp.png" alt="CBR Transport Header Proxy Throughput" title="CBR Transport Header Proxy Throughput" width="70%" />
-
-##### XSLT Proxy
-
-<img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/xslt-proxy-tp.png" alt="XSLT Proxy Throughput" title="XSLT Proxy Throughput" width="70%" />
+<a href="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/catplot-throughput-2G-0ms.png"><img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/catplot-throughput-2G-0ms.png" alt="Throughput" title="Throughput" width="90%" /></a>
 
 #### Average response time (ms) vs. concurrent users
-The following results compare the average response time of the Micro Integrator server against the number of users in each scenario.
-##### Direct Proxy
+The following results compare the average response time of the Micro Integrator server against the number of users for different message sizes.
 
-<img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/direct-proxy-rt.png" alt="Direct Proxy Response Time" title="Direct Proxy Response Time" width="70%" />
-
-##### Direct API
-
-<img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/direct-api-rt.png" alt="Direct API Response Time" title="Direct API Response Time" width="70%" />
-
-##### CBR Transport Header Proxy
-
-<img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/cbr-transport-header-proxy-rt.png" alt="CBR Transport Header Proxy Response Time" title="CBR Transport Header Proxy Response Time" width="70%" />
-
-##### XSLT Proxy
-
-<img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/xslt-proxy-rt.png" alt="XSLT Proxy Response Time" title="XSLT Proxy Response Time" width="70%" />
+<a href="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/catplot-average-response-time-2G-0ms.png"><img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/catplot-average-response-time-2G-0ms.png" alt="Response Time" title="Response time" width="90%" /></a>
