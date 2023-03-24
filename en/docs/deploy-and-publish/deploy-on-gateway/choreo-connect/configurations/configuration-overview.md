@@ -39,14 +39,14 @@ Each of the above files can be found in the locations given below depending on t
 
 ??? info "**For Kubernetes with Helm Charts**"
 
-    You may update the configurations in the following ways, when deploying with Helm Charts and the resources from the [Choreo Connect Helm Chart Git repository](https://github.com/wso2/kubernetes-microgateway/tree/1.1.x/helm/choreo-connect). 
+    You may update the configurations in the following ways, when deploying with Helm Charts and the resources from the [Choreo Connect Helm Chart Git repository](https://github.com/wso2/kubernetes-microgateway/tree/{{choreo_connect.helm_chart.git_tag}}/helm/choreo-connect). 
 
-    - By updating [values.yaml](https://github.com/wso2/kubernetes-microgateway/blob/1.1.x/helm/choreo-connect/values.yaml). [Click here for the steps.](https://apim.docs.wso2.com/en/latest/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane-helm-artifacts/#step-2-update-the-deployment-configurations)
+    - By updating [values.yaml](https://github.com/wso2/kubernetes-microgateway/blob/{{choreo_connect.helm_chart.git_tag}}/helm/choreo-connect/values.yaml). [Click here for the steps.](https://apim.docs.wso2.com/en/latest/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane-helm-artifacts/#step-2-update-the-deployment-configurations)
     - By using --set with the Helm command. [Click here for an example.](https://apim.docs.wso2.com/en/latest/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane-helm-artifacts/#step-2-install-chart)
 
     You can find the [complete list of parameters here](https://github.com/wso2/kubernetes-microgateway/blob/master/helm/choreo-connect/README.md#configuration).
 
-    These configuration parameters are based on the [templates available in here](https://github.com/wso2/kubernetes-microgateway/tree/1.1.x/helm/choreo-connect/templates). The `values.yaml` file and the templates are common to both of the modes, [Choreo Connect as a Standalone Gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/) and [Choreo Connect with WSO2 API Manager as a Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/). The mode itself can be updated as given below.
+    These configuration parameters are based on the [templates available in here](https://github.com/wso2/kubernetes-microgateway/tree/{{choreo_connect.helm_chart.git_tag}}/helm/choreo-connect/templates). The `values.yaml` file and the templates are common to both of the modes, [Choreo Connect as a Standalone Gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/) and [Choreo Connect with WSO2 API Manager as a Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/). The mode itself can be updated as given below.
 
     ```
     wso2:
