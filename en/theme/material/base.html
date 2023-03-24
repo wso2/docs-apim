@@ -20,7 +20,6 @@
       {% if page and page.meta and page.meta.redirect %}
         <script>var anchor=window.location.hash.substr(1);location.href="{{ page.meta.redirect }}"+(anchor?"#"+anchor:"")</script>
         <meta http-equiv="refresh" content="0; url={{ page.meta.redirect }}">
-        <meta name="robots" content="noindex">
         <link rel="canonical" href="{{ page.meta.redirect }}">
       {% elif page.canonical_url %}
         <link rel="canonical" href="{{ page.canonical_url }}">
