@@ -1,6 +1,6 @@
 # Choreo Connect Supported Features
 
-Choreo Connect's most recent version (v1.0.0) does not support all of WSO2 API Manager's (WSO2 API-M) functionalities. In contrast to the default API Gateway, Choreo Connect (the API Microgateway) only offers a fraction of WSO2 API Manager product functionalities. 
+Choreo Connect's most recent version (v{{choreo_connect.version}}) does not support all of WSO2 API Manager's (WSO2 API-M) functionalities. In contrast to the default API Gateway, Choreo Connect (the API Microgateway) only offers a fraction of WSO2 API Manager product functionalities. 
 
 ## Supported Features
 

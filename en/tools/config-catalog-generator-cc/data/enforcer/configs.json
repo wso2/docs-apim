@@ -462,6 +462,12 @@
               "description": "Provide unique name for the JWT issuer"
             },
             {
+              "name": "issuer",
+              "type": "string",
+              "required": true,
+              "description": "Issuer of the token. The issuer to validate a token is picked based on the iss value in the JWT"
+            },
+            {
               "name": "certificateAlias",
               "type": "string",
               "required": false,

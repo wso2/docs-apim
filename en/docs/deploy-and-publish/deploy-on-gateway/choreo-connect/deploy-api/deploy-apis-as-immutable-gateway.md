@@ -5,6 +5,7 @@ To do this, the apictl projects need to be mounted to the `docker-compose/resour
 (default location) of the Adapter. 
 At the startup of the adapter, it picks the projects and deploys them. After startup, APIs should be added using apictl.
 
+For deploying APIs as an immutable Gateway using Helm chart, please refer [Deploy APIs as Immutable Gateway in Production Deployment]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/production-deployment-guideline/#deploy-apis-as-immutable-gateway).
 
 ## Step 1 - Download apictl and set the path variable 
 

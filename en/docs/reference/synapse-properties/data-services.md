@@ -10,7 +10,7 @@ Your organization's data can be stored in various data storage systems, which ar
 
 ### RESTful data services
 
-You can enable RESTful access to your data by defining RESTful resources for the relevant data in your data service. REST resources in the Micro Integrator support both JSON and XML media types out of the box. Therefore, a resource can receive requests and send responses in either medium. You can secure your resources with HTTP(S) Basic Auth via [WSO2 Identity Server](http://wso2.com/products/identity-server/).
+You can enable RESTful access to your data by defining RESTful resources for the relevant data in your data service. REST resources in the Micro Integrator support both JSON and XML media types out of the box. Therefore, a resource can receive requests and send responses in either medium. You can secure your resources with HTTP(S) Basic Auth via [WSO2 Identity Server](https://wso2.com/identity-server/).
 
 ### OData Services
 

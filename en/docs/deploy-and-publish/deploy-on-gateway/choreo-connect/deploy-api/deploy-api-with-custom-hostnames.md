@@ -143,7 +143,7 @@ data:
 
 ### Step 2 - Deploy the API
 
-Follow the all steps except **Deploy API** in the [Deploy an API via apictl documentation]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-in-choreo-connect/#choreo-connect-as-a-standalone-gateway).
+Follow the all steps up to **Deploy API** in the [Deploy an API via apictl documentation]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-in-choreo-connect/#choreo-connect-as-a-standalone-gateway).
 
 Let's invoke the API.
 

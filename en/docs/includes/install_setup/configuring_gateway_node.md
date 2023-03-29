@@ -85,7 +85,7 @@
             apis = ["api1.xml","api2.xml"]
             endpoints = ["endpoint1.xml"]
             sequences = ["post_with_nobody.xml"]
-            local-entries = ["file.xml"]
+            local_entries = ["file.xml"]
             ```
 
     3.  Open the `deployment.toml` files of each Gateway node and add the cluster hostname. 

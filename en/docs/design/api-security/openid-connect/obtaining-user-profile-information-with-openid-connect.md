@@ -60,11 +60,11 @@ Follow the instructions below to obtain user profile information with OpenID con
 You can obtain user information as a payload by invoking the userinfo endpoint with the access token obtained in step 1. The format of the curl command and a sample is given below
 
 ``` bash tab="Format"
-curl -k -v -H "Authorization: Bearer <ACCESS_TOKEN>" https://<GATEWAY_HOSTNAME>:<PORT>/userinfo
+curl -k -v -H "Authorization: Bearer <ACCESS_TOKEN>" https://<GATEWAY_HOSTNAME>:<PORT>/oauth2/userinfo
 ```
 
 ``` bash tab="Example"
-curl -k -v -H "Authorization: Bearer 83705add-d77e-3cc8-9b6a-53d210ed3fed" https://apim.wso2.com:8243/userinfo
+curl -k -v -H "Authorization: Bearer 83705add-d77e-3cc8-9b6a-53d210ed3fed" https://apim.wso2.com:8243/oauth2/userinfo
 ```
 
 The response will be a JSON payload as shown below:

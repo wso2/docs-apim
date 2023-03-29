@@ -29,4 +29,4 @@ Once an API is deployed to Choreo Connect via the WSO2 API Manager Publisher Por
 - [Event Hub]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/event-hub)
 - [Rate Limiting in Choreo Connect]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/cc-rate-limiting)
 - [Revoked Tokens in Choreo Connect]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/revoked-tokens)
-- [Working with third party Key Managers in Choreo Connect]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/third-party-key-managers})
+- [Working with third party Key Managers in Choreo Connect]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/third-party-key-managers/)

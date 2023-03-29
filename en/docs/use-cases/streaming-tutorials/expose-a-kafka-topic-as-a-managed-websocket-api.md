@@ -39,6 +39,18 @@ Follow the instructions below to expose a third-party Service Provider stream as
                    - You are enabling the AsyncAPI generation functionality by setting the `enabled` parameter to `true`. 
                     
                    - You are specifying `9448` as the port because you configured a port offset of 5 in the previous step. The default port of the API Manager is `9443`.
+
+    4. Configure authentication between API-M and SI.
+       
+         Copy the keyStore and client trustStore related keys from WSO2 API-M to WSO2 SI. 
+
+        1. Copy the following flies.
+                 
+             - `<API-M_HOME>/repository/resources/security/client-truststore.jks`
+
+             - `<API-M_HOME>/repository/resources/security/wso2carbon.jks`
+          
+        2. Add the copied files in to the `<SI_HOME>/resources/security/` directory.
         
 ??? note " 2. Configure the API Manager port"
 

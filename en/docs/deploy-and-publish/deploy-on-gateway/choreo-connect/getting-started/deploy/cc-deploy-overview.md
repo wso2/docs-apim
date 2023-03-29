@@ -5,7 +5,7 @@ Choreo Connect is a specialized form of WSO2 API Gateway, and is a lightweight G
 <table>
     <tr>
         <td width="50%">
-            <p>Choreo Connect deployed on Docker</p>
+            <p>Choreo Connect deployed on Docker Compose</p>
         </td>
         <td width="50%">
             <ul>
@@ -57,19 +57,19 @@ Try out the following Choreo Connect deployment guides based on your Choreo Conn
 <table>
     <tr>
         <td width="40%">
-            <img src="{{base_path}}/assets/img/deploy/mgw/docker-logo.png" width="80%" alt="Choreo Connect on Docker">
+            <img src="{{base_path}}/assets/img/deploy/mgw/docker-logo.png" width="80%" alt="Choreo Connect on Docker Compose">
         </td>
         <td width="60%">
             <ul>
                 <li>
                     <a
                         href="{{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-apim-as-control-plane/">
-                        Choreo Connect on Docker With WSO2 API Manager as a Control Plane</a>
+                        Choreo Connect on Docker Compose With WSO2 API Manager as a Control Plane</a>
                 </li>
                 <li>
                     <a
                         href="{{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-docker/">WSO2
-                        Choreo Connect as a standalone gateway deployed on Docker</a>
+                        Choreo Connect as a standalone gateway deployed on Docker Compose</a>
                 </li>
             </ul>
         </td>

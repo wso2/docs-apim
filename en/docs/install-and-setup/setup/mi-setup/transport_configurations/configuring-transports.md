@@ -87,8 +87,8 @@ Micro Integrator supports both SSL and TLS protocols. But since the SSL protocol
 To configure the enabled protocols, update the following property in the deployment.toml file:
 ```toml
 [transport.http]
-listener.secured_protocols = "TLSv1,TLSv1.1,TLSv1.2"
-sender.secured_protocols = "TLSv1,TLSv1.1,TLSv1.2"
+listener.secured_protocols = "TLSv1.2,TLSv1.3"
+sender.secured_protocols = "TLSv1.2,TLSv1.3"
 ```
 ### Disabling weak ciphers
 
@@ -103,9 +103,9 @@ listener.parameter.PreferredCiphers = "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,T
 ```
 
 !!! Note
-    To check the above configuration changes related to SSL. Download [TestSSLServer.jar](https://docs.wso2.com/download/attachments/53125465/TestSSLServer.jar?version=1&modificationDate=1471859455000&api=v2) and test with the following command.
+    To check the above configuration changes related to SSL. Download [testsslserver.jar]({{base_path}}/assets/attachments/admin/testsslserver.jar) and test with the following command.
 
-    $ java -jar TestSSLServer.jar localhost 8253
+    $ java -jar testsslserver.jar localhost 8253
 
 ## Configuring the VFS transport
 

@@ -12,7 +12,7 @@ Follow the instructions below to configure WSO2 Identity Server (WSO2 IS) as the
 
 ## Step 1 - Download and install WSO2 IS
 
-Download and install the [latest WSO2 Identity Server](https://wso2.com/identity-and-access-management/#). If you downloaded the archive, extract it. `<IS_HOME>` refers to the root folder of the extracted WSO2 Identity Server.
+Download and install [WSO2 Identity Server version 5.11.0](https://wso2.com/identity-and-access-management/previous-releases/). If you downloaded the archive, extract it. `<IS_HOME>` refers to the root folder of the extracted WSO2 Identity Server.
 
 It is assumed that you have already downloaded WSO2 API Manager.
 `<APIM_HOME>` refers to the root folder of the unzipped WSO2 API-M pack.
@@ -147,8 +147,8 @@ Follow the instructions below to set up and configure the databases for the WSO2
 
 2. Extract the distribution and copy the following JAR files, which are in the `<wso2is-extensions-1.2.10>/dropins` directory, to the `<IS_HOME>/repository/components/dropins` directory.
 
-     - `wso2is.key.manager.core-1.2.10.jar`
-     - `wso2is.notification.event.handlers_1.2.10.6.jar`
+     - `wso2is.key.manager.core-1.4.2`
+     - `wso2is.notification.event.handlers-1.4.2`
 
 3. Add the `keymanager-operations.war`, which is in the `<wso2is-extensions-1.2.10>/webapps` directory, to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
@@ -206,7 +206,7 @@ Follow the instructions below to set up and configure the databases for the WSO2
     scopes = "internal_application_mgt_update"
 
     [[resource.access_control]]
-    context = "(.)/keymanager-operations/dcr/register(.)"
+    context = "(.*)/keymanager-operations/dcr/register(.*)"
     secure = true
     http_method = "POST"
     permissions = "/permission/admin/manage/identity/applicationmgt/update"
@@ -216,12 +216,12 @@ Follow the instructions below to set up and configure the databases for the WSO2
     custom_webapps = ["/keymanager-operations/"]
     ```
 
-5. Configure the event listener endpoint to publish controller events to the Traffic Manager.
+5. Configure the event listener endpoint to publish controller events to the Control Plane.
 
     ``` tab="Format"
 
     [event_listener.properties]
-    notification_endpoint = "https://<traffic-manager-host>:<traffic-manager-https-port>/internal/data/v1/notify"
+    notification_endpoint = "https://<control-plane-host>:<control-plane-https-port>/internal/data/v1/notify"
     username = "${admin.username}"
     password = "${admin.password}"
     'header.X-WSO2-KEY-MANAGER' = "WSO2-IS"
@@ -230,7 +230,7 @@ Follow the instructions below to set up and configure the databases for the WSO2
     ``` tab="Example"
 
     [event_listener.properties]
-    notification_endpoint = "https://<tm.wso2.com>:9443/internal/data/v1/notify"
+    notification_endpoint = "https://<cp.wso2.com>:9443/internal/data/v1/notify"
     username = "${admin.username}"
     password = "${admin.password}"
     'header.X-WSO2-KEY-MANAGER' = "WSO2-IS"

@@ -24,17 +24,17 @@ To prevent these types of security attacks, it is encouraged to disable the weak
      See the list of [supported cipher suites](https://docs.wso2.com/display/ADMIN44x/Supported+Cipher+Suites) .
 
 4.  Start the server.
-5.  To verify that the configurations are all set correctly, download and run the [TestSSLServer.jar]({{base_path}}/assets/attachments/administer/TestSSLServer.jar).
+5.  To verify that the configurations are all set correctly, download and run the [testsslserver.jar]({{base_path}}/assets/attachments/administer/testsslserver.jar).
 
     !!! note
-        Note the following when you run `TestSSLServer.jar` :
+        Note the following when you run `testsslserver.jar` :
 
         -   The "Supported cipher suites" section in the output does not contain any EXPORT ciphers.
 
-        -   When you use the supported cipher suites listed [here](https://docs.wso2.com/display/ADMIN44x/Supported+Cipher+Suites) , the BEAST attack status will be shown as vulnerable. Note that this is a client-side vulnerability caused by the TLSv1 protocol. You can make the BEAST status protected by removing TLSv1, which will make clients with TLSv1 unusable. Therefore, it is recommended tofixed this from the client side.
+        -   When you use the supported cipher suites listed [here]({{base_path}}/install-and-setup/setup/reference/supported-cipher-suites/) , the BEAST attack status will be shown as vulnerable. Note that this is a client-side vulnerability caused by the TLSv1 protocol. You can make the BEAST status protected by removing TLSv1, which will make clients with TLSv1 unusable. Therefore, it is recommended tofixed this from the client side.
 
         ``` java
-        $ java -jar TestSSLServer.jar localhost 9443
+        $ java -jar testsslserver.jar localhost 9443
         ```
 
 !!! info
@@ -68,7 +68,7 @@ To prevent these types of security attacks, it is encouraged to disable the weak
 
     ``` tab="Example"
     [transport.passthru_https.listener.parameters]
-    HttpsProtocols = "TLSv1,TLSv1.1,TLSv1.2,TLSv1.3"
+    HttpsProtocols = "TLSv1.2,TLSv1.3"
     ```
 
 ## Changing the server name in HTTP response headers

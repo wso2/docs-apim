@@ -6,8 +6,7 @@ title: Set up MI Analytics - WSO2 API Manager 4.0.0
 
 !!! note
 
-    - This solution is recommended only for users who are using WSO2 EI 7.0.0 and want to migrate in to a newer version while retaining the already existing analytics data.
-    - From WSO2 EI 7.1.0 onwards, users are recommended to use WSO2's improved cloud-native observability solution.
+    - The same analytics solution that was provided for EI-7.x can be used for MI-4.1.0 as well.
 
 ## How it works
 

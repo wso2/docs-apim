@@ -35,17 +35,17 @@ The Adapter, within Choreo Connect, can receive the APIs via the following metho
 
 Communication between internal components of Choreo Connect (Adapter, Enforcer, Router, and API-M Control Plane) are secured via Mutual SSL.
 
-Each component has its private-public key pair and truststore. In the case of the Adapter, it is configured in the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf/config.toml` file as indicated below.
+Each component has its private-public key pair and truststore. In the case of the Adapter, it is configured in the Choreo Connect configuration file as indicated below.
 
-??? note "Click here to see the file path of the configuration file for all Choreo Connect deployments."
+??? abstract "Click here to see the configuration file location for your Choreo Connect deployment."
     Navigate to the correct folder path and open the `config.toml` or `config-toml-configmap.yaml` file based on your Choreo Connect deployment.
 
-    | **Deployment** | **File name** | **Directory** |
-    |------------|-----------|-----------|
-    | Docker with WSO2 API Controller | `config.toml` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/` |
-    | Docker with WSO2 API Manager as the Control Plane | `config.toml` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf/` |
-    | Kubernetes with WSO2 API Controller | `config-toml-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect/` |
-    | Kubernetes with WSO2 API Manager as the Control Plane | `config-toml-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect-with-apim/config-toml-configmap.yaml` |
+    | **Deployment** | **Mode**| **File name** | **Directory** |
+    |----------------|---------|---------------|---------------|
+    | Docker Compose |[Choreo Connect as a Standalone Gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/)| `config.toml` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/` |
+    | Docker Compose |[Choreo Connect with WSO2 API Manager as a Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/) | `config.toml` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf/` |
+    | Kubernetes |[Choreo Connect as a Standalone Gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/)| `config-toml-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect/` |
+    | Kubernetes |[Choreo Connect with WSO2 API Manager as a Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/)| `config-toml-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect-with-apim/` |
 
 ```toml
 [adapter.keystore] 
@@ -75,3 +75,9 @@ The request flow within Choreo Connect is depicted in the following diagram.
 [![Choreo Connect Request Flow]({{base_path}}/assets/img/deploy/mgw/choreo-connect-request-flow.png)]({{base_path}}/assets/img/deploy/mgw/choreo-connect-request-flow.png)
 
 When a client makes an API request, it is sent to the Router. The Router then forwards the request to the Enforcer. The Enforcer performs validations such as JWT access token validation, rate limiting, and other other validations. Once the API request has been validated, the Router forwards it to the backend service. The Router will respond to the client when the backend service responds. In addition, the Router sends stats about APIs to the Enforcer, and the Enforcer sends final analytics data to the Analytics Server.
+
+## See also
+
+- [Supported Features]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features/)
+- [Quick Start Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/)
+- [Deployment Options]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-deploy-overview/)

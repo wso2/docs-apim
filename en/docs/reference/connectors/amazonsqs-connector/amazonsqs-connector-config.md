@@ -43,7 +43,7 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
         </tr>
         <tr>
             <td>version</td>
-            <td>The version of the API, which is "2009-02-01".</td>
+            <td>The version of the API, which is "2012-11-05".</td>
             <td>Yes</td>
         </tr>
         <tr>

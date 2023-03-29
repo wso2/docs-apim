@@ -123,7 +123,7 @@ To enable the `SweetFactoryApp` Siddhi application to publish statistics to Prom
         @App:statistics(reporter = 'prometheus')
     ```
 !!! tip 
-    You can update the Siddhi application in Streaming Integrator Tooling and deploy it again in the Streaming Integrator server as you did in [Step 5: Update the Siddhi Application](update-the-siddhi-application.md).
+    You can update the Siddhi application in Streaming Integrator Tooling and deploy it again in the Streaming Integrator server as you did in [Step 5: Update the Siddhi Application]({{base_path}}/streaming/getting-started/update-the-siddhi-application/).
     
 ## Viewing statistics
 
@@ -131,7 +131,7 @@ To generate some statistics and view them, follow the procedure below.
 
 1. Start WSO2 Streaming Integrator.
 
-2. To generate statistics, insert as many events as you want into the `SweetProductionTable` MySQL table that you created for this scenario in [Step 1: Download Streaming Integrator and Dependencies](download-install-and-start-si.md). Also, manually add as many rows as you want in the `/Users/foo/productioninserts.csv` file.
+2. To generate statistics, insert as many events as you want into the `SweetProductionTable` MySQL table that you created for this scenario in [Step 1: Download Streaming Integrator and Dependencies]({{base_path}}/streaming/getting-started/download-install-and-start-si/). Also, manually add as many rows as you want in the `/Users/foo/productioninserts.csv` file.
 
 3. Access Grafana via the `localhost:3000` URL.
 

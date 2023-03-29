@@ -48,23 +48,39 @@ When you create multiple tenants in an API Manager deployment, the API developer
     -   You can also browse the other tenant developer portals listed in the public developer portal. But, within other tenant developer portals, you can only subscribe to the APIs to which your tenant domain is permitted to subscribe to. At the time an API is created, the API creator can specify which tenants are allowed to subscribe to the API. For information, see [API Subscriptions]({{base_path}}/consume/manage-subscription/subscribe-to-an-api).
 
     !!! info
-        A tenant can be deleted through the `RemoteTenantManager` Admin Service. Admin service operations can be invoked using a SOAP client such as SOAP UI. Follow the steps below to do the configurations using SOAP UI.
+        A tenant can be deleted through the `TenantMgtAdminService`. Admin service operations can be invoked using a SOAP client such as SOAP UI. Follow the below steps to configure the `TenantMgtAdminService` using SOAP UI.
 
-        1. Open the `<API-M_HOME>/repository/conf/deployment.toml` file and add the following configuration.
-        ``` java
+        1. By default tenant deletion is disabled. To enable the functionality, add the below configurations to the `<APIM-HOME>/repository/conf/deployment.toml` file
+
+        ``` toml
+         [tenant_mgt]
+         tenant_deletion=true
+        ```
+        
+        2. Open the <API-M_HOME>/repository/conf/deployment.toml file and add the following configuration to enable the Admin Services.
+
+        ``` toml
          [admin_service.wsdl]
          enable=true
         ```
-        
-        1.  Start SOAP UI client, and import the WSDL `https://localhost:9443/services/RemoteTenantManagerService?wsdl`. This assumes that you are running the SOAP UI client from the same machine as the API Manager instance.
 
-        2.  Note that there are several operations shown in the SOAP UI after importing the wsdl file:</br>
-            [![]({{base_path}}/assets/img/administer/tenant-admin-service-wsdl-list.png)]({{base_path}}/assets/img/administer/tenant-admin-service-wsdl-list.png)
+        3. After configuring these changes, Restart the Server.
             
-        3.  Click on each operation to open the request view. For an example, for `activateTenant` operation, you can see the following request view:
-            [![]({{base_path}}/assets/img/administer/tenant-admin-service-wsdl-service.png)]({{base_path}}/assets/img/administer/tenant-admin-service-wsdl-service.png)
+        4. To delete the tenant, you must use TenantMgtAdminService (`https://localhost:9443/services/TenantMgtAdminService?wsdl`). The following would be the sample SOAP payload.
 
-        4.  A tenant can be activated by passing the corresponding tenant ID to the tenant activation operation of the `RemoteTenantManager` Admin service. You can perform the other operations via SOAP UI as well. Note that you need to set the admin user credentials from the SOAP UI to invoke tenant admin operations.
+        ``` xml
+        <?xml version="1.0" encoding="UTF-8"?>
+        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.tenant.carbon.wso2.org" xmlns:xsd="http://beans.common.stratos.carbon.wso2.org/xsd">
+        <soapenv:Header />
+        <soapenv:Body>
+            <ser:deleteTenant>
+                <ser:tenantDomain>abc.com</ser:tenantDomain>
+            </ser:deleteTenant>
+        </soapenv:Body>
+        </soapenv:Envelope>
+        ```
+
+
 
 !!! warning
     If you perform operations such as tenant deletion, even though the tenant details are removed, any data stored in registry, file system, other databases, etc. will not be removed. Such data will need to be removed manually.

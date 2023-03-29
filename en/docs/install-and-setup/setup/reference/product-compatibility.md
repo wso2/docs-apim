@@ -14,10 +14,9 @@ As WSO2 API Manager is a Java application, you can generally run it on most oper
 |--------------------|------------|
 |Windows             | 2016       |
 |Windows Server      | 2019       |
-|Ubuntu              |18.04       |
+|Ubuntu              | 18.04, 20.04 |
 |Red Hat Enterprise Linux   |7.0  |
 |CentOS              |7.4, 7.5    |
-|Red Hat Enterprise Linux   |7.0  |
 
 #### Tested JDKs
 
@@ -28,8 +27,8 @@ The **WSO2 API-M** runtime has been tested with the following JDKs:
 |CorrettoJDK         | 8, 11     |
 |AdoptOpenJDK        | 8, 11     |
 |OpenJDK             | 8, 11     |
-|CentOS              | 7.4, 7.5  |
 |Oracle JDK          | 8, 11     |
+|Temurin OpenJDK     | 8 and 11  |
 
 #### Tested DBMSs
 
@@ -78,11 +77,11 @@ The following is a list of other WSO2 products that have been tested with WSO2 A
 <tbody>
 <tr class="even">
 <td>API-M 4.0.0 GA</td>
-<td>GA or update for WSO2 IS-5.10.0</td>
+<td>GA or update for WSO2 IS-5.11.0</td>
 </tr>
 <tr class="even">
 <td>API-M-4.0.0 update</td>
-<td>GA or updated for WSO2 IS-5.10.0</td>
+<td>GA or updated for WSO2 IS-5.11.0</td>
 </tr>
 </tbody>
 </table>

@@ -651,6 +651,8 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 
 The Choreo Connect is a lightweight gateway for APIs. It is used for message security, transport security, routing, and other common API Management related quality of services. It can collect information required for usage metering and throttling capabilities. The Choreo Connect natively supports scaling in highly decentralized environments including microservice architecture.
 
+WSO2 API Manager 4.0.0 is compatible with Choreo Connect {{choreo_connect.version}}.
+
 #### New features
 
 Please see the [supported features]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features/)
@@ -667,7 +669,6 @@ K8s API Operator v2.0.0 is compatible with API Manager v4.0.0.
 
 ### New features
 
-- Deploy APIs to Choreo Connect (API Microgateway)
 - Deploy APIs to API Manager
 - Deploy Integrations with Micro Integrator
 
@@ -675,7 +676,7 @@ K8s API Operator v2.0.0 is compatible with API Manager v4.0.0.
 
 ## **Compatible WSO2 product versions**
 
-WSO2 API Manager 4.0.0 is based on WSO2 Carbon 4.6.1 and is expected to be compatible with any of the WSO2 products that are based on any Carbon 4.6.x version. If you encounter any compatibility issues, please [contact team WSO2](http://wso2.com/support/). For more information on the products in each Carbon platform release, see the [Release Matrix](http://wso2.com/products/carbon/release-matrix/).
+WSO2 API Manager 4.0.0 is based on WSO2 Carbon 4.6.1 and is expected to be compatible with any of the WSO2 products that are based on any Carbon 4.6.x version. If you encounter any compatibility issues, please [contact team WSO2](https://wso2.com/subscription/). For more information on the products in each Carbon platform release, see the [Release Matrix](https://wso2.com/products/carbon/release-matrix/).
 
 <hr style="border:8px solid gray"> </hr>
 
@@ -733,3 +734,102 @@ WSO2 API Manager 4.0.0 is based on WSO2 Carbon 4.6.1 and is expected to be compa
 - Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/k8s-api-operator/issues?q=is%3Aissue+milestone%3Av2.0.0+is%3Aclosed).
 
 - Known Issues - All the open issues pertaining to WSO2 API Manager 4.0.0 are reported [here](https://github.com/wso2/k8s-api-operator/issues?q=is%3Aopen+is%3Aissue+label%3A2.0.0).
+
+## What has changed
+
+WSO2 API Manager Server 4.0.0 brings a range of new features and major improvements. The following aspects have changed in 4.0.0 compared to the previous WSO2 API-M versions. This page provides details about those behavioral changes.
+
+- Prior to WSO2 API Manager 4.0.0, the distributed deployment consisted of five main product profiles, namely Publisher, Developer Portal, Gateway, Key Manager, and Traffic Manager. However, the new architecture in API-M 4.0.0 only has three profiles, namely **Gateway**, **Traffic Manager**, and **Control Plane**.
+
+- From API-M 4.0.0 onwards, API Manager offers analytics as a cloud service.
+
+    !!! note "**If you are using Analytics**"
+        As the on-premise analytics data cannot be migrated to the Cloud, you need to maintain the old analytics server and keep the UI running for as long as you need that data (e.g. 3 months) after migrating to the new version of analytics in WSO2 API-M 4.0.0.
+
+- From **API-M 4.0.0**,  server startup script has renamed as <code>api-manager.sh</code> (for Linux) and <code>api-manager.bat</code> (for Windows)
+
+- From API-M 4.0.0 onwards, synapse artifacts have been removed from the file system and are managed via database. At server startup the synapse configs are loaded to the memory from the Traffic Manager.
+
+- Token and Revoke endpoints have been removed from the Gateway artifacts from API-M 4.0.0 onwards. Use endpoints in the Control Plane instead.
+
+    **3.2.0**
+    ```
+    https://localhost:8243/token
+    https://localhost:8243/revoke
+    ```
+
+    **4.0.0**
+    ```
+    https://localhost:9443/oauth2/token
+    https://localhost:9443/oauth2/revoke
+    ```
+
+- All the data is persisted in databases **from WSO2 API-M 4.0.0 onwards**. Therefore, it is recommended to execute the migration client in the Control Plane profile.
+
+- From API-M 4.0.0, the kid claim has been removed from the backend JWT.
+  If there are customizations that require validating the kid value of the backend JWT, please customize the JWT generator to include kid value.
+
+- From API-M 4.0.0 onwards Other '_overview' type documents override the API description, if you had created such documents in your lower environments, please note that those documents will not be displayed in document listing page. You can edit those documents the same way you edit the API description.
+
+- Token and Revoke endpoints has been removed from the gateway artifacts from API-M 4.0.0 onwards. Use endpoints in the control plane instead.
+
+- From **WSO2 API_M 4.0.0 onwards** error responses in API calls has changed from XML to JSON format.
+
+!!! note "**If you have developed client applications to handle XML error responses**"
+
+    If you have developed client applications to handle XML error responses you have to change the client applications to handle the JSON responses. As an example for a 404 error response previously it was as follows
+
+    ```xml
+        <am:fault xmlns:am="http://wso2.org/apimanager">
+        <am:code>404</am:code>
+        <am:type>Status report</am:type>
+        <am:message>Not Found</am:message>
+        <am:description>The requested resource is not available.</am:description>
+        </am:fault>
+    ```
+
+    In API-M 4.0.0 onwards the above resopnse will changed as follows.
+        
+    ```json  
+    {
+    "code":"404",
+    "type":"Status report",
+    "message":"Not Found",
+    "description":"The requested resource is not available."
+    }
+    ```
+
+    As an example for a 404 error response previously it was as follows
+
+    ```xml
+        <am:fault xmlns:am="http://wso2.org/apimanager">
+        <am:code>404</am:code>
+        <am:type>Status report</am:type>
+        <am:message>Not Found</am:message>
+        <am:description>The requested resource is not available.</am:description>
+        </am:fault>
+    ```
+
+    In API-M 4.0.0 onwards the above resopnse will changed as follows.
+        
+    ```json
+    {
+    "code":"404",
+    "type":"Status report",
+    "message":"Not Found",
+    "description":"The requested resource is not available."
+    }
+    ```
+
+    !!! Important
+        **From WSO2 API_M 4.0.0 onwards**, the following fault sequences were changed to send JSON responses as mentioned above. If you have done any custom changes to any of the following sequences previously, you have to add those custom changes manually to these changed files.
+
+        -   _auth_failure_handler_.xml
+        -   _backend_failure_handler_.xml
+        -   _block_api_handler_.xml
+        -   _graphql_failure_handler_.xml
+        -   _threat_fault_.xml
+        -   _throttle_out_handler_.xml
+        -   _token_fault_.xml
+        -   fault.xml
+        -   main.xml 

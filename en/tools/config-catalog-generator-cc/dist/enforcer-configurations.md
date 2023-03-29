@@ -1345,6 +1345,25 @@ enabled = true</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
+                                  <span class="param-name-wrap"> <code>issuer</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Issuer of the token. The issuer to validate a token is picked based on the iss value in the JWT</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
                                   <span class="param-name-wrap"> <code>certificateAlias</code> </span>
                                 </div>
                                 <div class="param-info">
@@ -1682,7 +1701,7 @@ enabled = true</code></pre>
 
 
 
-## Binary Throttle publishing url group configurations
+## Binary Throttle publishing URL group configurations
 
 
 <div class="mb-config-catalog">
