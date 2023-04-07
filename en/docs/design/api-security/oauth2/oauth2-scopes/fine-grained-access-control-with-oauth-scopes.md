@@ -86,11 +86,6 @@ A shared scope has to be applied to a resource, in order to restrict the access 
 
 ## Local Scopes 
 
-!!! warning
-     
-    This feature is **DEPRECATED** from **WSO2 API-M 3.2 onwards** and, it is recommended to use 
-    [Shared Scopes]({{base_path}}/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#shared-scopes).
-
 In WSO2 API-M, API developers can also create OAuth scopes during the API creation time and attach them locally to the API. These scopes are local and unique to the relevant API. 
 
 ### Creating a Local Scope
