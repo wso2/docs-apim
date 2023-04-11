@@ -24,12 +24,18 @@ The configuration file used for wrapping Java Applications by YAJSW is `wrapper.
 
 !!! note
     
-    Manual Configurations
+    **Manual Configurations in `wrapper.conf` file**
 
-    Add the following class path to the `wrapper.conf` file manually to avoid errors in the WSO2 API Manager Management Console:
+    Add the following class path manually to avoid errors in the WSO2 API Manager Management Console:
 
     ``` bash
     wrapper.java.classpath.4 = ${carbon_home}/repository/components/plugins/commons-lang_2.6.0.wso2v1.jar 
+    ```
+    Add the below lines to prevent wso2carbon log file getting overridden at each service startup.
+    
+    ``` bash
+    wrapper.java.additional.30 = -Djava.util.logging.config.file=${carbon_home}/repository/conf/etc/logging-bridge.properties
+    wrapper.java.additional.31 = -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
     ```
 
 !!! tip
@@ -157,6 +163,8 @@ The configuration file used for wrapping Java Applications by YAJSW is `wrapper.
     wrapper.java.additional.27 = -DworkerNode=false
     wrapper.java.additional.28 = -Dhttpclient.hostnameVerifier=DefaultAndLocalhost
     wrapper.java.additional.29 = -Dcarbon.new.config.dir.path=${carbon_home}/repository/resources/conf
+    wrapper.java.additional.30 = -Djava.util.logging.config.file=${carbon_home}/repository/conf/etc/logging-bridge.properties
+    wrapper.java.additional.31 = -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
 ```
 
 ### Setting up carbon\_home
