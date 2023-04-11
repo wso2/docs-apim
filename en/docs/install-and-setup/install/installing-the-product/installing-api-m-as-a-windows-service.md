@@ -24,9 +24,9 @@ The configuration file used for wrapping Java Applications by YAJSW is `wrapper.
 
 !!! note
     
-    **Manual Configurations in `wrapper.conf` file**
-    
-    Add the following class path manually to avoid errors in the WSO2 API Manager Management Console:
+    Manual Configurations
+
+    Add the following class path to the `wrapper.conf` file manually to avoid errors in the WSO2 API Manager Management Console:
 
     ``` bash
     wrapper.java.classpath.4 = ${carbon_home}/repository/components/plugins/commons-lang_2.6.0.wso2v1.jar 
