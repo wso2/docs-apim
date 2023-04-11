@@ -31,7 +31,7 @@ The configuration file used for wrapping Java Applications by YAJSW is `wrapper.
     ``` bash
     wrapper.java.classpath.4 = ${carbon_home}/repository/components/plugins/commons-lang_2.6.0.wso2v1.jar 
     ```
-    Add the below lines to prevent wso2carbon log file getting overridden at each service startup.
+    Add the below line to prevent wso2carbon log file getting overridden at each service startup.
     
     ``` bash
     wrapper.java.additional.30 = -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
