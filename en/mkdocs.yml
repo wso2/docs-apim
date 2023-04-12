@@ -1091,6 +1091,8 @@ nav:
                 - Redis Overview: reference/connectors/redis-connector/redis-connector-overview.md
                 - Set up the Environment: reference/connectors/redis-connector/redis-connector-configuration.md
                 - Redis Example: reference/connectors/redis-connector/redis-connector-example.md
+                - 2.7.x:
+                      - Redis Connector Reference: reference/connectors/redis-connector/2.7.x/redis-connector-reference.md
                 - 2.4.x:
                       - Redis Connector Reference: reference/connectors/redis-connector/2.4.x/redis-connector-reference.md
                 - 2.2.x:
