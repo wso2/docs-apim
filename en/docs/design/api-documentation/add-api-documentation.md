@@ -225,10 +225,10 @@ To enable other visibility levels to the documentation, go to the  `<API-M_HOME>
 enable_api_doc_visibility = "true"
 ```
 Document visibility levels can be one of the following options:
-- **Same as API visibility:** visible to the same user roles who can see the API. For example, if the API's visibility is public, its documentation is visible to all users.
-- **Visible to My Domain:** visible to all registered users in the API's tenant domain.
-- **Publishers Only:** visible only to the users who have permission to log in to the API Publisher web interface and
- create and/or publish APIs to the Developer Portal.
+
+- **Same as API visibility:** Visible to the same user roles who can see the API. For example, if the API's visibility is public, its documentation is visible to all users.
+- **Owner Only:** Visible to all registered users in the API's tenant domain.
+- **Private:** Visible only to the users who have permission to log in to the API Publisher web interface and create and/or publish APIs to the Developer Portal in the same tenant domain.
 
 #### Control API document visibility using the API Publisher
 
