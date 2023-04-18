@@ -13,8 +13,10 @@ ELK based WSO2 API Manager On-Premise Analytics deployment architecture has 4 ma
 3. Elasticsearch
 4. Kibana
 
-This section will cover the steps required to configure the WSO2 API-M and then publish it to an external ELK cluster.
+This section will cover the steps required to configure the WSO2 API-M and then publish it to an external ELK cluster. 
 
+!!! note
+    The solution is developed on ELK 8.1.0 and will only be supported in Kibana versions 8.0.0 and higher.
 
 ### Step 1 - Configuring API Manager
 
@@ -83,9 +85,9 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
 
 #### Installing Elasticsearch
 
-1. [Install Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html) according to your operating system.
+1. [Install Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/8.1/install-elasticsearch.html) according to your operating system.
 
-2. Make sure Elasticsearch is [up and running](https://www.elastic.co/guide/en/elasticsearch/reference/current/configuring-stack-security.html).
+2. Make sure Elasticsearch is [up and running](https://www.elastic.co/guide/en/elasticsearch/reference/8.1/configuring-stack-security.html).
 
 !!! info
     As recommended by ELK, a minimum 3 node cluster is required for a production environment.
@@ -93,7 +95,7 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
 
 #### Installing Filebeat
 
-1. [Install Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation-configuration.html#installation) according to your operating system.
+1. [Install Filebeat](https://www.elastic.co/guide/en/beats/filebeat/8.1/filebeat-installation-configuration.html#installation) according to your operating system.
 
 2. Configure **Filebeats** to read the log file in the `repository/logs` folder. 
 
@@ -111,7 +113,7 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
 
 #### Installing Logstash
 
-1. [Install Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html) according to your operating system.
+1. [Install Logstash](https://www.elastic.co/guide/en/logstash/8.1/installing-logstash.html) according to your operating system.
 
     ``` java
     input {
@@ -149,9 +151,9 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
 
 #### Installing Kibana
 
-1. [Install Kibana](https://www.elastic.co/guide/en/kibana/current/install.html) according to your operating system.
+1. [Install Kibana](https://www.elastic.co/guide/en/kibana/8.1/install.html#_install_kibana_yourself) according to your operating system.
 
-2. [Launch](https://www.elastic.co/guide/en/kibana/current/access.html) the Kibana web interface.
+2. [Launch](https://www.elastic.co/guide/en/kibana/8.1/access.html#log-on-to-the-web-application) the Kibana web interface.
 
 3. Log in to the Kibana dashboards.
 
@@ -162,8 +164,9 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
     apim_event_response
     ```
 
-5. Download the artifact file [here]({{base_path}}/assets/img/analytics/cloud/export.ndjson).
-
+5. Download the artifact file from below.<br />
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Artifacts v1 - [here]({{base_path}}/assets/img/analytics/cloud/old_export.ndjson)<br />
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Artifacts v2 - [here]({{base_path}}/assets/img/analytics/cloud/export.ndjson)
 6. Navigate to **Stack Management** > **Saved Object** and click on **Import**. Add the downloaded artifact file as an import object, and import
 
 !!! info
@@ -172,7 +175,7 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
 
 ### Step 3 - Configure Security in ELK
 
-Elastic search supports several [authentication modes](https://www.elastic.co/guide/en/kibana/current/kibana-authentication.html#basic-authentication) ranging from basic authentication to Single sign-on with several identity providers.
+Elastic search supports several [authentication modes](https://www.elastic.co/guide/en/kibana/8.1/kibana-authentication.html#basic-authentication) ranging from basic authentication to Single sign-on with several identity providers.
 
 In this section, we mainly focus on configuring single-sign-on with WSO2 API Manager via OpenID Connect. If you are looking for other supported authentication providers, refer the [ElasticSearch documentation](https://www.elastic.co/guide/en/kibana/current/kibana-authentication.html#basic-authentication).
 
@@ -227,7 +230,7 @@ To enable SSO with WSO2 API Manager, a service provider needs to be created. Fol
 
 ##### Configure OIDC realm in Elastic Search
 
-To configure single sign-on to the Elastic Stack using OpenID connect, follow the steps given [here](https://www.elastic.co/guide/en/elasticsearch/reference/7.16/oidc-guide.html).
+To configure single sign-on to the Elastic Stack using OpenID connect, follow the steps given [here](https://www.elastic.co/guide/en/elasticsearch/reference/8.1/oidc-guide.html).
 
 A sample OpenID connect realm is as follows.
 
