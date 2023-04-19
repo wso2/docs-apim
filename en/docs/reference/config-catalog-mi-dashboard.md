@@ -372,6 +372,7 @@ password="wso2carbon"</code></pre>
 
 !!! note
 	-	Upgrade Micro Integrator Dashboard to version 4.0.1 or above to enable this feature.
+	-	This feature was tested with WSO2 IS 5.10.0 and Shibboleth 4.1.2. There may be compatibility issues when using other vendors.
 
 <div class="mb-config-catalog">
     <section>
