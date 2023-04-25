@@ -171,6 +171,37 @@ The management API has multiple resources to provide information regarding the d
     }
   	```
 
+### UPDATE USERS
+
+-	**Resource**: `/users`
+
+	**Description**: Update the password of a user from the [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore). Note that only super admin user can remove other users with admin access. Any user with admin access can update the own password and the passwords of non-admin users.
+
+	**Example**:
+
+	First create the following JSON file with user details as shown below. Here we are changing the password of user1.
+
+    ```json
+    {
+     "newPassword": "user111",
+     "confirmPassword": "user111",
+     "oldPassword": "user1"
+    }
+    ```
+
+    The following request update the password of the `user1` from the user store:
+
+  	```bash tab='Request'
+  	curl -X PATCH -d @user "https://localhost:9164/management/users/user1" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%" -k
+  	```
+
+  	```bash tab='Response'
+    {
+	  "userId":"user1",
+      "status":"Password updated"
+    }
+  	```
+
 ### GET PROXY SERVICES
 
 -	**Resource**: `/proxy-services`
