@@ -1,4 +1,4 @@
-# Advanced Configurations
+# **Advanced Configurations**
 
 This section covers how to change and configure several features related to the advanced tenant configurations.
 

@@ -1371,6 +1371,7 @@ nav:
             - Configure ForgeRock as a Key Manager: administer/key-managers/configure-forgerock-connector.md
             - Configure a Custom Key Manager: administer/key-managers/configure-custom-connector.md
         - Advanced Configurations: administer/advanced-configurations.md
+        - Manage Role based access control for the Admin portal: administer/role-based-access-control.md
     - Install and Setup:
         - Install and Setup Overview: install-and-setup/install-and-setup-overview.md
         - Install:
