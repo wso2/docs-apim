@@ -27,8 +27,6 @@ The multi-tenant architecture of WSO2 products allows you to deploy Web applica
 
 -   **Tenant isolation:** Each tenant has its own domain, which the other tenants cannot access.
 -   **Data isolation:** Each tenant can manage its data securely in an isolated manner.
--   **Execution isolation:** Each tenant can carry out business processes and workflows independent of the other tenants. No action of a tenant is triggered or inhibited by another tenant.
--   **Performance Isolation:** No tenant has an impact on the performance of another tenant.
 
 A tenant is an isolated domain. The users within this domain can manage their own data and perform their own transactions without being affected by actions carried out in other domains.
 
@@ -53,11 +51,8 @@ WSO2 Carbon provides a number of Admin services which have special privileges to
 
 ### Resource sharing
 
-WSO2 Carbon supports the following methods for sharing resources among tenants:
+WSO2 Carbon supports the following method for sharing resources among tenants:
 
--   **Private Jet mode** : This method allows the load of a tenant ID to be deployed in a single tenant mode. A single tenant is allocated an entire service cluster. The purpose of this approach is to allow special privileges (such as priority processing and improved performance) to a tenant.
--   **Separation at hardware level** : This method allows different tenants to share a common set of resources, but each tenant has to run its own operating system. This approach helps to achieve a high level of isolation, but it also incurs a high overhead cost.
--   **Separation at JVM level** : This method allows tenants to share the same operating system. This is done by enabling each tenant to run a separate JVM instance in the operating system.
 -   **Native multitenancy** : This method involves allowing all the tenants to share a single JVM instance. This method minimizes the overhead cost.
 
 ### Tenant loading policy
