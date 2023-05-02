@@ -24,10 +24,10 @@ The configuration file used for wrapping Java Applications by YAJSW is `wrapper.
 
 !!! note
     
-    Manual Configurations
-
-    Add the following class path to the `wrapper.conf` file manually to avoid errors in the WSO2 API Manager Management Console:
-
+    **Manual Configurations in `wrapper.conf` file**
+    
+    Add the following class path manually to avoid errors in the WSO2 API Manager Management Console:
+    
     ``` bash
     wrapper.java.classpath.4 = ${carbon_home}/repository/components/plugins/commons-lang_2.6.0.wso2v1.jar 
     ```
@@ -37,6 +37,7 @@ The configuration file used for wrapping Java Applications by YAJSW is `wrapper.
     ``` bash
     wrapper.java.additional.29 = -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
     ```
+    
     
 !!! tip
     You may encounter the following issue when starting Windows Services when the file "java" or a "dll" used by Java cannot be found by YAJSW. 
