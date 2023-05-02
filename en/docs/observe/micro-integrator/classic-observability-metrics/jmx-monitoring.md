@@ -1,5 +1,5 @@
 ---
-title: JMX Monitoring - WSO2 API Manager 4.1.0
+title: JMX Monitoring - WSO2 API Manager 4.2.0
 ---
 
 # JMX Monitoring

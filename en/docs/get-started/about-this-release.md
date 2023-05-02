@@ -2,7 +2,7 @@
 
 WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premise, and hybrid architectures to drive your digital transformation strategy. It comes with a cloud-native, standards-based messaging engine, and an integration framework for integrating APIs, services, data, SaaS, proprietary, and legacy systems and it can also serve streaming-based integrations. The product comes with command-line and developer tools that enable easy design, development, and testing.
 
-**WSO2 API Manager 4.2.0 Beta** is the latest **WSO2 API Manager release** and is the successor of **WSO2 API Manager 4.1.0**.
+**WSO2 API Manager 4.2.0** is the latest **WSO2 API Manager release** and is the successor of **WSO2 API Manager 4.1.0**.
 
 For more information on WSO2 API Manager, see the [overview]({{base_path}}/getting-started/overview/).
 
@@ -17,6 +17,9 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
 ??? note "OpenTelemetry Support"
     OpenTelemetry combines OpenTracing and OpenCencus, which is a single set of APIs and libraries that standardize how telemetry data such as traces, metrics, and logs are collected, transmitted, and managed. It offers a safe, vendor-neutral specification for instrumentation so that information about the selection can be communicated to various backends.
+
+??? note "Datadog integration with WSO2 API Manager"
+    DataDog is a widely-used SaaS-based data analytics platform, and this new feature allows users to benefit from its advanced analytics capabilities. With this support for DataDog, users of the API Manager can now choose the analytics provider that best suits their needs, making it easier to manage and monitor APIs. Currently, API Manager supports Choreo analytics and ELK analytics for data analysis. With this integration, you can now use DataDog as an analytics provider for the API Manager.
 
 ??? note "ELK Support for MI"
     From WSO2 API Manager 4.2.0 onwards, Micro Integrator now enables publishing operational analytics for Elastic Stack as a replacement for WSO2 EI Analytics.
@@ -42,7 +45,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
     The JWT access tokens supplied by the Gateway can be used to access the dedicated API resource as many times as the user requires. However, if the application developer wishes to limit this functionality by allowing just one chance to access the resource, One Time Token can be utilized. A One Time Token (JWT) is a JWT that will be revoked after a single use. This functionality is only accessible for JWT access tokens.
 
 ??? note "Support for managing Common API Policies with APICTL"
-    As an upgrade from the current version of APICTL (4.1.0), a command to export the shared operation policies in particular has been added.
+    As an upgrade from the current version of APICTL (4.2.0), a command to export the shared operation policies in particular has been added.
 
 ??? note "Handling accidental deletions of shared backend certificates"
     Backend certificates are currently shared amongst APIs based on the endpoint. As a result, another person who creates an API with the same endpoint can view and remove a certificate that does not belong to the user. This new functionality is designed to limit the ability to delete backend certificates.
