@@ -25,7 +25,7 @@ This section will cover the steps required to configure the WSO2 API-M and then 
 The Choreo based analytics will be enabled by default. Specify the `type` as `elk` to enable ELK analytics as shown below.
 Open the `wso2am-4.x.x/repository/conf` directory. Edit `apim.analytics` configurations in the `deployment.toml` file with the following configuration.
 
-```
+```toml
 [apim.analytics]
 enable = true
 type = "elk"
@@ -38,13 +38,13 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
 
 1. Add  APIM_METRICS_APPENDER to the appenders  list:
 
-    ```
+    ```properties
     appenders = APIM_METRICS_APPENDER, .... (list of other available appenders)
     ```
 
 2. Add the following configuration after the appenders:
 
-    ```
+    ```properties
     appender.APIM_METRICS_APPENDER.type = RollingFile
     appender.APIM_METRICS_APPENDER.name = APIM_METRICS_APPENDER
     appender.APIM_METRICS_APPENDER.fileName = ${sys:carbon.home}/repository/logs/apim_metrics.log
@@ -63,13 +63,13 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
 
 3. Add a reporter to the loggers list:
 
-    ```
+    ```properties
     loggers = reporter, ...(list of other available loggers)
     ```
 
 4. Add the following configurations after the loggers:
 
-    ```
+    ```properties
     logger.reporter.name = org.wso2.am.analytics.publisher.reporter.elk
     logger.reporter.level = INFO
     logger.reporter.additivity = false
