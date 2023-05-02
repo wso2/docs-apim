@@ -59,6 +59,7 @@ The parameters available for configuring the Aggregate mediator are as follows.
 <td><div class="content-wrapper">
 <p>This is an XPath expression which provides the basis on which response messages should be selected for aggregation. This is done by specifying a set of elements for which the messages selected should have matching values. A specific aggregation condition is set via the <strong>Aggregation Expression</strong> field.</p>
     <p>You can click <strong>NameSpaces</strong> to add namespaces if you are providing an expression. Then the <strong>Namespace Editor</strong> panel would appear where you can provide any number of namespace prefixes and URLs used in the XPath expression.</p>
+    <p>If a correlation expression is present, the data from all requests will be aggregated and filtered based on the correlation expression. Once the completion condition is met, the specified action will be performed on the aggregated data.</p>
 </div></td>
 </tr>
 <tr class="odd">
