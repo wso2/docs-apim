@@ -48,7 +48,7 @@ Follow the steps given below to connect the Micro Integrator Dashboard to your I
 	[sso]
 	enable = true
 	client_id = "8e4uDF4ewc2aEa"
-	idp_url = "https://localhost:9443"
+	base_url = "https://localhost:9443"
 	jwt_issuer = "https://localhost:9443/oauth2/token"
 	resource_server_URLs = ["https://localhost:9743"]
 	sign_in_redirect_URL = "https://localhost:9743/sso"
@@ -79,7 +79,7 @@ Follow the steps given below to connect the Micro Integrator Dashboard to your I
 		</tr>
 		<tr>
 			<td>
-				<code>idp_url</code>
+				<code>base_url</code>
 			</td>
 			<td>
 				The URL of the Identity Provider.
