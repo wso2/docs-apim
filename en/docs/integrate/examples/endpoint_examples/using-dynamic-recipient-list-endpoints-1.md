@@ -1,4 +1,5 @@
 # Routing Messages to a Dynamic List of Recipients
+
 This example demonstrates message routing to a set of dynamic endpoints.
 
 ## Synapse configuration
