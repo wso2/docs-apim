@@ -454,7 +454,7 @@ nav:
                 - Install WSO2 Integration Studio: integrate/develop/installing-wso2-integration-studio.md
                 - Work with WSO2 Integration Studio: integrate/develop/working-with-wso2-integration-studio.md
                 - Troubleshooting WSO2 Integration Studio: integrate/develop/troubleshooting-wso2-integration-studio.md
-            - Develop Your First Integation: integrate/develop/integration-development-kickstart.md
+            - Develop Your First Integration: integrate/develop/integration-development-kickstart.md
             - Publish Integrations to the API Manager: integrate/develop/working-with-service-catalog.md
             - Create Projects:
                 - Create an Integration Project: integrate/develop/create-integration-project.md
