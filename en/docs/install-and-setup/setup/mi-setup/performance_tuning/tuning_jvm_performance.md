@@ -3,8 +3,8 @@
 You can tune the Java Virtual Machine (JVM) settings to make a production system more efficient.
 
 You can configure the JVM parameters in the
-`MI_HOME/bin/micro-integrator.bat        ` file (on Windows) or the
-`MI_HOME/bin/micro-integrator.sh        ` file (on
+`<MI_HOME>/bin/micro-integrator.bat        ` file (on Windows) or the
+`<MI_HOME>/bin/micro-integrator.sh        ` file (on
 Linux/Solaris). Following are the most important JVM parameters you need
 to configure:
 
@@ -42,8 +42,8 @@ due to a memory overhead. This is a security risk.
 To avoid this issue, you can define a maximum level of entity
 substitutions that the XML parser allows in the system. You do this
 using the <b>entity expansion limit</b> as follows in the
-`MI_HOME/bin/micro-integrator.bat        ` file (for Windows) or
-the `MI_HOME/bin/micro-integrator.sh        ` file (for
+`<MI_HOME>/bin/micro-integrator.bat        ` file (for Windows) or
+the `<MI_HOME>/bin/micro-integrator.sh        ` file (for
 Linux/Solaris). The default entity expansion limit is 64000.
 
 ```

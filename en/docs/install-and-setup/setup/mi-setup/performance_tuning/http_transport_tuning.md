@@ -4,7 +4,7 @@ See the following topics to tune the HTTP PassThrough transport:
 
 ## Tuning non-blocking invocations
 
-You can improve performance of your non-blocking invocations by configuring the following parameters related to the HTTP Pass Through transport in the deployment.toml file (stored in the `MI_HOME/conf` directory):
+You can improve performance of your non-blocking invocations by configuring the following parameters related to the HTTP Pass Through transport in the deployment.toml file (stored in the `<MI_HOME>/conf` directory):
 
 ```toml
 [transport.http]
@@ -32,7 +32,7 @@ have to wait until a connection is available. Therefore if the backend
 service is slow, many requests have to wait until a connection is
 available from the `MultiThreadedHttpConnectionManager`. This can lead to a significant degrade in the performance of WSO2 Micro Integrator.
 
-In order to overcome this issue, setting the `defaultMaxConnectionsPerHost` parameter to `100` in the deployment.toml file (stored in the `MI_HOME/conf` directory).
+In order to overcome this issue, setting the `defaultMaxConnectionsPerHost` parameter to `100` in the deployment.toml file (stored in the `<MI_HOME>/conf` directory).
 
 ```toml
 [transport.blocking.http]

@@ -13,7 +13,7 @@ In the quick start guide, we just executed the already-built integration scenari
 Here, we are going to build the integration scenario from scratch. Let’s recall the 
 business scenario:
 
-![Integration Scenario]({{base_path}}/assets/img/integrate/developing-first-integration/dev-first-integration-0.png)
+[![Integration Scenario]({{base_path}}/assets/img/integrate/developing-first-integration/dev-first-integration-0.png)]({{base_path}}/assets/img/integrate/developing-first-integration/dev-first-integration-0.png)
 
 The scenario is about a basic healthcare system where WSO2 Micro Integrator is used as the integration middleware. Most healthcare centers use a system to help patients book doctor appointments. To check the availability of doctors, patients will typically use every online system that is dedicated to a particular healthcare center or personally visit the healthcare centers. 
 
@@ -52,13 +52,13 @@ Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/int
 Let's create an integration project with the required modules (to store artifacts) in WSO2 Integration Studio.
 
 1.  Open WSO2 Integration Studio and click **New Integration Project** in the **Getting Started** view as shown below.
-    <img src="{{base_path}}/assets/img/integrate/new-project/new-integration-project.png" title="New Integration Project" width="700" alt="New Integration Project"/>
+    <img src="{{base_path}}/assets/img/integrate/new-project/new-integration-project.png" title="New Integration Project" alt="New Integration Project"/>
 
-3.  In the **New Integration Project** dialog box that opens, enter `Healthcare` as the project name. This is a <b>maven multi module</b> project.
+2.  In the **New Integration Project** dialog box that opens, enter `Healthcare` as the project name. This is a <b>maven multi module</b> project.
 
     Be sure to leave the <b>Create ESB Configs</b> and <b>Create Composite Exporter</b> check boxes selected as shown below.
 
-    <img src="{{base_path}}/assets/img/integrate/developing-first-integration/2-dev-get-started-integration-proj.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/developing-first-integration/2-dev-get-started-integration-proj.png" width="60%">
 
 3. Click **Finish**. 
 

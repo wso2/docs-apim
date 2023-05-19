@@ -2,7 +2,7 @@
 
 Listed below are the key concepts of WSO2 Micro Integrator.
 
-![Key Concepts]({{base_path}}/assets/img/integrate/key-concepts/key-concepts.png)
+<img src="{{base_path}}/assets/img/integrate/key-concepts/key-concepts.png" title="Key Concepts" width="80%" alt="Key Concepts"/>
 
 ## Message entry points
 
