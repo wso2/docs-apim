@@ -25,10 +25,10 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
     From WSO2 API Manager 4.2.0 onwards, Micro Integrator now enables publishing operational analytics for Elastic Stack as a replacement for WSO2 EI Analytics.
 
 ??? note "Configuring Self Sign up through Admin Portal"
-    WSO2 API Manager offers you the ability to self-signup into the Developer Portal. In this new release, the capability to disable self-signup is also added. You can also migrate the self-signup configurations from the registry through the **Advance Configuration** option or through editing the `tenant-conf.json` file.
+    WSO2 API Manager offers you the ability to self-signup into the Developer Portal. In this new release, the capability to disable self-signup is also added. You can also migrate the self-signup configurations from the registry via the **Advance Configuration** option or by editing the `tenant-conf.json` file.
 
 ??? note "Configuring API Lifecycle through Admin Portal"
-    APIs created in WSO2 API Manager have their own life cycle consisting of the following: a set of life cycle states, specific actions for each state transition, and a checklist of items before a state transition occurs. An API has a predefined life cycle consisting of six states by default. This feature allows you to customize and/or add new states, configure the API Lifecycle through the **Advance Configuration** option or through editing the `tenant-conf.json` file.
+    APIs created in WSO2 API Manager have their own life cycle consisting of the following: a set of life cycle states, specific actions for each state transition, and a checklist of items before a state transition occurs. An API has a predefined life cycle consisting of six states by default. This feature allows you to customize and/or add new states, configure the API Lifecycle via the **Advance Configuration** option or by editing the `tenant-conf.json` file.
 
 ??? note "Enable logs without server restart"
     You can now enable or disable correlation logs as needed for troubleshooting at runtime, as a server restart is not required with the Micro Integrator.
@@ -74,7 +74,7 @@ These features are deprecated and will be removed from subsequent versions of WS
      [apim.sync_runtime_artifacts.gateway]
      data_retrieval_mode = "sync"
      ```
-     Support for this mode is now deprecated from WSO2 API Manager 4.2.0 onwards hence recommended to use the `async` mode only.
+     The support for this mode is now deprecated from WSO2 API Manager 4.2.0 onwards. Therefore, it is recommended to use the `async` mode only.
 
 ## Removed features and functionalities
 
@@ -82,7 +82,7 @@ These features are unsupported and removed from WSO2 API Manager 4.2.0 onwards.
 
 - **Support for Jaggery apps from API Manager**
 
-     In previous releases, webapps of API-Manager were dependant on the deprecated [Jaggery.js](https://github.com/wso2/jaggery) Javascript framework. From this version onwards all the webapps will be using jsp as the server side language. So the capability to deploy Jaggery apps in the API Manager is removed from this release onwards.
+     In previous releases, webapps of API-Manager were dependant on the deprecated [Jaggery.js](https://github.com/wso2/jaggery) Javascript framework. From this version onwards all the webapps will be using JSP as the server-side language. Therefore, the capability to deploy Jaggery apps in WSO2 API Manager is removed from this release onwards.
      
 - **JDK 8 support**
 
@@ -90,7 +90,7 @@ These features are unsupported and removed from WSO2 API Manager 4.2.0 onwards.
 
 - **Publisher and Devportal profiles**
 
-    Deprecated in previous releases, the `api-publisher` and `api-devportal` profiles are no longer supported in API Manager 4.2.0 and beyond. To perform tasks previously handled by these profiles, use the `control-pane` profile instead.
+    The `api-publisher` and `api-devportal` profiles, which were deprecated in previous releases, are no longer supported in API Manager 4.2.0 and beyond. To perform tasks previously handled by these profiles, use the `control-pane` profile instead.
 
 ## Compatible WSO2 product versions
 
@@ -130,12 +130,12 @@ WSO2 API Manager Server 4.2.0 brings a range of new features and major improveme
 - Prior to WSO2 API Manager 4.2.0, the tenant configurations listed below were persisted only in the registry and only accessible via the Carbon Console. With the 4.2.0 release, these configurations are migrated to the `tenant-conf.json` file, and support is enabled to manage these through the Admin Portal (Advanced Configuration Section).
     - Self Sign Up Config
 
-        Self-signup is enabled out-of-the-box not only for the super tenant but also for the other tenants. Now the ‘Internal/subscriber’ role is taken from the `Advanced Configurations → DefaultRoles → SubscriberRole` when creating a tenant. Also, the sign-up-config.xml file is removed along with the connection with the registry. For more information see [Disabling or Enabling Self Signup]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup/).
+        Self-signup is enabled out-of-the-box not only for the super tenant but also for the other tenants. Now the 'Internal/subscriber' role is taken from the `Advanced Configurations → DefaultRoles → SubscriberRole` when creating a tenant. In addition, the `sign-up-config.xml` file is removed along with the connection with the registry. For more information, see [Disabling or Enabling Self Signup]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup/).
 
     - Life Cycle Config
 
-        XML configuration is converted to JSON format. Now the life cycle changes can be managed via Advanced Configurations → LifeCycle through Admin Portal. The APILifeCycle.xml file is removed along with the connection with the registry. For more information see [Customize API Life Cycle]({{base_path}}/design/lifecycle-management/customize-api-life-cycle/).
+        XML configuration is converted to JSON format. Now the life cycle changes can be managed via `Advanced Configurations → LifeCycle` via the Admin Portal. The `APILifeCycle.xml` file is removed along with the connection with the registry. For more information, see [Customize API Life Cycle]({{base_path}}/design/lifecycle-management/customize-api-life-cycle/).
 
 - From WSO2 API Manager 4.2.0 onwards, correlation logs can be enabled without restarting the server. Newly added CorrelationConfigManager will handle the configuration updates from the DevOps API. This configuration information is persisted in the database. For more information, see [Monitoring Correlation Logs]({{base_path}}/observe/api-manager/monitoring-correlation-logs/).
-- In the WSO2 API Manager 4.2.0 and ahead, the schema name in the challenge string for basic auth will be changed from "Basic Auth" to "Basic" according to IANA standards. For more information, see [HTTP Authentication Scheme Registry](https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml)
-- Prior to API Manager 4.2.0, only a single registry handler property with nested elements can be added. From API Manager 4.2.0 onwards multiple registry handler properties with nested elements can be added. To support that, the approach to configure nested properties is changed in 4.2.0. So if you are using registry handlers with nested properties, see [API-M Config Catalog - Registry Handler Properties]({{base_path}}/reference/config-catalog/#registry-handler-properties) and change the configuration accordingly.
+- In the WSO2 API Manager 4.2.0 onwards, the schema name in the challenge string for basic auth will be changed from "Basic Auth" to "Basic" according to IANA standards. For more information, see [HTTP Authentication Scheme Registry](https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml).
+- Prior to API Manager 4.2.0, only a single registry handler property with nested elements can be added. From API Manager 4.2.0 onwards multiple registry handler properties with nested elements can be added. To support that, the approach to configure nested properties is changed in 4.2.0. Therefore, if you are using registry handlers with nested properties, see [API-M Config Catalog - Registry Handler Properties]({{base_path}}/reference/config-catalog/#registry-handler-properties) and change the configuration accordingly.
