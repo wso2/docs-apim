@@ -27,7 +27,7 @@ Mutual SSL treats as a transport level authentication scheme and it's separate o
 Additionally, the user will required to specify either one of Mutual SSL or OAuth2/Basic Auth/API Key mandatory as without 
 anyone of mandatory will skip the authentication.
  
-Note : If OAuth2/Basic Auth is set as mandatory, the request is need to be authenticated using only one of them. If OAuth2 failed only, the Basic Authentication will be applied.
+Note : If OAuth2/Basic Auth is set as mandatory, the request needs to be authenticated using only one of them. If OAuth2 failed only, the Basic Authentication will be applied.
 
 
 ## Invoking an API using Basic Authentication
