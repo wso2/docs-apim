@@ -67,7 +67,7 @@ In this cleaning method, all the remaining token data, session data, and Registr
    - Registry cleanup 
 
 !!! note
-    Make sure you disable the option for regular cleaning before enabling Deep Cleaning.
+    Make sure you disable regular cleaning before enabling deep cleaning.
 
 ### Enabling deep cleaning (token, session, and Registry cleanup)
 
