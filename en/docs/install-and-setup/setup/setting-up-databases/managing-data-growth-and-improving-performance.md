@@ -11,6 +11,9 @@ WSO2 API Manager provides two methods to do the cleanup.
    
 While the regular cleanup is good for regular housekeeping, **a hybrid approach is recommended for a production environment** that removes all unused token, session, and Registry data. While the regular cleanup will slow down unused token growth, deep cleaning  will take care of the leftover unused data and prevent the tables from continuously growing, impacting performance.   
 
+!!! warn
+    Deep cleaning is more effective than regular cleaning for servers with low traffic. It removes unused tokens, sessions, and registry data, which can improve performance in the production servers. However, during peak windows, regular cleaning may be less effective due to potential query slowdowns. Choose the appropriate cleanup method based on the server's traffic level.
+
 ## Regular Cleaning
 This cleanup is done within the product. It cleans up unused token related data during the runtime. This is an event-based cleaning process that involves the cleaning of specific entries based on specific user actions. For example, when an access token is revoked, the token will be picked from the `IDN_OAUTH2_ACCESS_TOKEN` table and moved into the `IDN_OAUTH2_ACCESS_TOKEN_AUDIT` table to be audited. In addition to revoked tokens,  inactive and expired tokens also accumulate in this table. This table is not used by WSO2 API-M. These tokens are kept in the database for logging and audit purposes, but they can have a negative impact on the server's performance over time. Therefore, it is recommended to clean them.
 
@@ -62,7 +65,9 @@ In this cleaning method, all the remaining token data, session data, and Registr
    - Token cleanup
    - Session cleanup 
    - Registry cleanup 
-    
+
+!!! note
+    Make sure you disable regular cleaning before enabling deep cleaning.
 
 ### Enabling deep cleaning (token, session, and Registry cleanup)
 
