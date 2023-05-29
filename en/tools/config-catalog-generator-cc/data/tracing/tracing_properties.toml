@@ -5,3 +5,4 @@
   instrumentationName = "CHOREO-CONNECT"
   maximumTracesPerSecond = "2"
   maxPathLength = "256"
+  connectionTimeout = "20"

@@ -37,6 +37,7 @@ Follow the steps given below before you start.
 	-	Upgrade Micro Integrator to version 4.0.0.5 or above to use File based User Store for Authorization.
 	-       By default, the Micro Inetgrator user store is used to authenticate users. The following instructions are applicable only if you want to enable Single Sign-On.
 	-	See the documentation of your preferred Identity provider for instructions on setting up OpenID Connect.
+	-	This feature was tested with WSO2 IS 5.10.0 and Shibboleth 4.1.2. There may be compatibility issues when using other vendors.
 
 Follow the steps given below to connect the Micro Integrator Dashboard to your Identity provider.
 
@@ -47,7 +48,7 @@ Follow the steps given below to connect the Micro Integrator Dashboard to your I
 	[sso]
 	enable = true
 	client_id = "8e4uDF4ewc2aEa"
-	idp_url = "https://localhost:9443"
+	base_url = "https://localhost:9443"
 	jwt_issuer = "https://localhost:9443/oauth2/token"
 	resource_server_URLs = ["https://localhost:9743"]
 	sign_in_redirect_URL = "https://localhost:9743/sso"
@@ -78,7 +79,7 @@ Follow the steps given below to connect the Micro Integrator Dashboard to your I
 		</tr>
 		<tr>
 			<td>
-				<code>idp_url</code>
+				<code>base_url</code>
 			</td>
 			<td>
 				The URL of the Identity Provider.

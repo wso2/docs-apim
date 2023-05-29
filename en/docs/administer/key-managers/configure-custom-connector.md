@@ -200,7 +200,7 @@ When registering a third-party Identity Provider as a Key Manager in the Admin P
 
           **Key Manager Endpoints** - Configure the endpoints associated with the external Key Manager that you are connecting to.
 
-          <a href="{{base_path}}/assets/img/administer/custom-keymanager/external-keymanager-form3.png"><img src="{{base_path}}/assets/img/administer/custom-keymanager/external-keymanager-form3.png" width="70%" alt="Configure the Key Manager form"></a>
+          <a href="{{base_path}}/assets/img/administer/custom-keymanager/external-keymanager-form3.png"><img src="{{base_path}}/assets/img/administer/custom-keymanager/external-keymanager-form3.png" width="90%" alt="Configure the Key Manager form"></a>
 
           <table>
           <tr class="header">
@@ -209,12 +209,6 @@ When registering a third-party Identity Provider as a Key Manager in the Admin P
           <th> </th>
           </tr>
           <tr class="odd">
-          <td>Allowed Token Audience</td>
-          <td>This is the intended audience of the access token. When you create a service provider in the external identity provider, you need to specify a scope value and this value will map to the allowed audience value you provide here.
-          </td>
-          <td>Optional</td>
-          </tr>
-          <tr class="even">
           <td>Well-known-url</td>
           <td><p>The well-known URL of the Authorization Server (Key Manager).
           <br/>
@@ -223,45 +217,45 @@ When registering a third-party Identity Provider as a Key Manager in the Admin P
           </td>
           <td>Optional</td>
           </tr>
-          <tr class="odd">
+          <tr class="even">
           <td>Issuer</td>
           <td>The issuer that consumes or validates access tokens. <br/>e.g., <code>https://dev-599740.okta.com/oauth2/default</code></td>
-          <td>Optional</td>
+          <td>Optional if the well-known URL is provided.</td>
           </tr>
-          <tr class="even">
+          <tr class="odd">
           <td>Client Registration Endpoint </td>
           <td><p>The endpoint that verifies the identity and obtains profile information of the end-user based on the authentication performed by an authorization server.</p></td>
           <td>Optional if the well-known URL is provided.</td>
           </tr>
-          <tr class="odd">
+          <tr class="even">
           <td>Introspection Endpoint</td>
           <td>The endpoint that allows authorized protected resources to query the authorization server to determine the set of metadata for a given token that was presented to them by an OAuth client.</td>
           <td>Optional if the well-known URL is provided.</td>
           </tr>
-          <tr class="even">
+          <tr class="odd">
           <td>Token Endpoint</td>
           <td>The endpoint that issues the access tokens.</td>
           <td>Optional if the well-known URL is provided.</td>
           </tr>
-          <tr class="odd">
+          <tr class="even">
           <td>Revoke Endpoint</td>
           <td>The endpoint that revokes the access tokens.</td>
           <td>Optional if the well-known URL is provided.</td>
           </tr>
-          <tr class="even">
-          <td>Userinfo Endpoint</td>
-          <td>The endpoint that allows clients to verify the identity of the end-user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end-user.</td>
-          <td>Optional</td>
-          </tr>
           <tr class="odd">
+          <td>Userinfo Endpoint</td>
+          <td>The endpoint that allows clients to verify the identity of the end-user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end-user. <br/>e.g., <code>https://dev-599740.okta.com/oauth2/userInfo</code></td>
+          <td>Mandatory <br/>(Unable to obtain from well-known URL)</td>
+          </tr>
+          <tr class="even">
           <td>Authorize Endpoint</td>
           <td>The endpoint is used to obtain an authorization grant from the resource owner via the user-agent redirection.</td>
           <td>Optional</td>
           </tr>
-          <tr class="even">
+          <tr class="odd">
           <td>Scope Management Endpoint </td>
-          <td>The endpoint is used to manage the scopes.</td>
-          <td>Optional</td>
+          <td>The endpoint is used to manage the scopes. <br/>e.g., <code>https://dev-599740.okta.com/oauth2/scope</code></td>
+          <td>Mandatory <br/>(Unable to obtain from well-known URL)</td>
           </tr>
           </table>
 

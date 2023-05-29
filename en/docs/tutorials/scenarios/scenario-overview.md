@@ -14,7 +14,7 @@ Docker and Docker compose need to be installed. Please refer [https://docs.docke
 
 - WSO2 Experience : Intermediate
 - Technologies used : 
-    - WSO2 API Manager 4.1.0
+    - WSO2 API Manager 4.1.0 or higher
     - WSO2 Micro Integrator
     - WSO2 Streaming Integrator
     - Sample backends and clients written in Spring boot and hosted in Tomcat

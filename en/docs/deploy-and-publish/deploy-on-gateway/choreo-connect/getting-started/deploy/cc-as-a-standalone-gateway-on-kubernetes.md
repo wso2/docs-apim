@@ -20,8 +20,6 @@ Let's deploy an API in Choreo Connect running on Kubernetes as a Standalone Gate
 
 2.  Apply the Kubernetes configurations for Choreo Connect using the kubectl tool.
 
-     {!includes/deploy/cc-tryout-in-arm64-k8s-note.md!}
-
      ```bash
      kubectl apply -f <CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect
      ```

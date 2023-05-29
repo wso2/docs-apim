@@ -117,11 +117,13 @@ driver="com.mysql.jdbc.Driver"
 pool_options.maxActive=50
 pool_options.maxWait = 60000
 pool_options.testOnBorrow = true
+
 [transaction_counter]
 enable = true
 data_source = "WSO2_TRANSACTION_DB"
 update_interval = 2
 ```
+
     !!! info
         If you are using MySQL version - 8.0.x, you should add the driver name in the configuration as:
         ``` java

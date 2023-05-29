@@ -67,19 +67,21 @@ The tutorial demonstrates a simple WebSub/WebHook API that monitors your GitHub 
      
       1. Expand the **Subscription Configuration** section in the **Topics** page.
 
-           [![WebSub API Runtime Configurations]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-runtime-configurations.png)]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-runtime-configurations.png)
+           [![WebSub API Runtime Configurations]({{base_path}}/assets/img/tutorials/streaming-api/enable-secret-generation.png)]({{base_path}}/assets/img/tutorials/streaming-api/enable-secret-generation.png)
 
-      2. Select **SHA1** as the **Signing Algorithm**.
+      2. Click **Enable** to enable secret generation.
+
+      3. Select **SHA1** as the **Signing Algorithm**.
      
-      3. Click **Generate** to generate a secret.
+      4. Click **Generate** to generate a secret.
 
            <a href="{{base_path}}/assets/img/tutorials/streaming-api/websub-api-generate-secret.png"><img src="{{base_path}}/assets/img/tutorials/streaming-api/websub-api-generate-secret.png" width="80%" alt="WebSub API Generate Secret"></a>
 
-      4. Copy the generated secret. 
+      5. Copy the generated secret. 
       
            Let's refer to the generated secret as `[generated_secret]`.
 
-      5. Click **Save**.
+      6. Click **Save**.
 
 7. Attach business plans to the WebSub/WebHook API.
 
@@ -246,9 +248,7 @@ A public URL should be forwarded to `localhost:9021`, so that your local server 
 
      1. Subscribe to the **/issues** topic.
 
-          1. Subscribe the callback URL with the **/issues** topic by executing the following cURL command. 
-     
-                Replace `[encoded_hub_callback]` and `accesstoken` with the values you have obtained.
+          1. Subscribe the callback URL with the **/issues** topic by executing the following cURL command. Replace `[encoded_hub_callback]` and `accesstoken` with the values you have obtained.
 
                ``` bash
                curl -X POST 'http://localhost:8280/repo-watcher/1.0.0' -H 'Content-Type: application/x-www-form-urlencoded' -d 'hub.topic=%2Fissues' -d 'hub.callback=[encoded_hub_callback]' -d 'hub.mode=subscribe' -d 'hub.secret=newValue' -d 'hub.lease_seconds=50000000' -H 'Authorization: Bearer [accesstoken]'
@@ -256,17 +256,13 @@ A public URL should be forwarded to `localhost:9021`, so that your local server 
      
            2. Click **Subscriptions** to go to the Subscriptions page of your application in the Developer Portal. 
      
-           3. Click the WebSub API's subscription entry.
-           
-                This will list down the subscription that you just made.
+           3. Click the WebSub API's subscription entry. This will list down the subscription that you just made.
      
-           4. Go to your GitHub repo and create a new issue. 
-               
-                This will trigger the GitHub WebHook you have created.
+           4. Go to your GitHub repo and create a new issue. This will trigger the GitHub WebHook you have created.
      
-           5. Go back to the webpage at [https://webhook.site.org](https://webhook.site), where you created the callback URL. 
-     
-                A new request which denotes the issue creation would have appeared.
+           5. Go back to the webpage at [https://webhook.site.org](https://webhook.site), where you created the callback URL. A new request which denotes the issue creation would have appeared.
+
+               [![Received Event]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-received-event.png)]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-received-event.png)
      
      2. Unsubscribe from the **/issues** topic.
 

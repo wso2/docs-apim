@@ -8,7 +8,7 @@ Before you start configuring the SMPP connector, you also need WSO2 MI, and we r
 
 To configure the SMPP connector, copy the following client libraries from the given locations to the `<PRODUCT_HOME>/repository/components/lib` directory.
 
-* [jsmpp-2.1.0-RELEASE.jar](https://mvnrepository.com/artifact/com.googlecode.jsmpp/jsmpp/2.1.0-RELEASE)
+* [jsmpp-3.0.0.jar](https://repo1.maven.org/maven2/org/jsmpp/jsmpp/3.0.0/jsmpp-3.0.0.jar)
 
 ## Configure the SMSC (Short Message Service Center) simulator
 

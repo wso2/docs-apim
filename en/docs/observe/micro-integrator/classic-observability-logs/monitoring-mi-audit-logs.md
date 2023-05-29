@@ -1,5 +1,5 @@
 ---
-title: Monitoring Audit Logs - WSO2 API Manager 4.1.0
+title: Monitoring Audit Logs - WSO2 API Manager 4.2.0
 ---
 
 # Monitoring Audit Logs in Micro Integrator

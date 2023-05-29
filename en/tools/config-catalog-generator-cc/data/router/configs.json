@@ -62,7 +62,7 @@
               "type": "boolean",
               "required": false,
               "default": false,
-              "description": "If configured true, router appends the immediate downstream IP address to the x-forward-for header."
+              "description": "If configured as true, the Router appends the immediate downstream IP address to the x-forward-for header."
             }
           ]
         }

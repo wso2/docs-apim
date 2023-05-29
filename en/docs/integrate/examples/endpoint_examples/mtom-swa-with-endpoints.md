@@ -85,6 +85,16 @@ Create the artifacts:
       When this is enabled, incoming SwA messages are automatically
         identified by the Micro Integrator. 
 
+!!! Note
+    From MI 4.2.0 onwards, there are two different configs for the axis2 and the axis2 blocking client. The above configurations will be used to configure the axis2  client. To enable SwA and MTOM configurations for the axis2 blocking client, you need to add the following configuration as well.
+
+    ```toml
+    [server]
+    enable_mtom = true
+    enable_swa = true
+    ```
+
+
 3. [Create an integration project]({{base_path}}/integrate/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
 4. Create the [main sequence]({{base_path}}/integrate/develop/creating-artifacts/creating-reusable-sequences) with the configurations given above.
 5. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.

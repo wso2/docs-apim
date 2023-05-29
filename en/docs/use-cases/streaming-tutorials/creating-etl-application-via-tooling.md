@@ -53,6 +53,12 @@ In this tutorial, let's create the same Siddhi application created in [Performin
         ```
         GRANT SELECT, RELOAD, SHOW DATABASES, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'wso2si' IDENTIFIED BY 'wso2';
         ```
+
+        For MySQL 8 or later use the below commands
+        ```
+        CREATE USER 'wso2si' IDENTIFIED BY 'wso2';
+        GRANT SELECT, RELOAD, SHOW DATABASES, REPLICATION SLAVE, REPLICATION CLIENT ON * . * TO 'wso2si';
+        ```
        
     3. Switch to the `production` database and create a new table, by executing the following queries
     

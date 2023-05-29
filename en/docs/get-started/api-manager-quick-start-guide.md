@@ -4,11 +4,13 @@ This section is a step-by-step guide to create, publish, and invoke an API using
 
 ### Before you begin...
 
-1. Install [Oracle Java SE Development Kit (JDK)](http://java.sun.com/javase/downloads/index.jsp) version 11 and set the `JAVA_HOME` environment variable.
+Follow the instructions below to start WSO2 APIM-M.
+
+1. Install [Oracle Java SE Development Kit (JDK)](http://java.sun.com/javase/downloads/index.jsp) version 17 and set the `JAVA_HOME` environment variable.
      
      For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/).
 
-2. [Download version 4.0.0 of WSO2 API-M](https://wso2.com/api-management/).
+2. [Download version 4.2.0 of WSO2 API-M](https://wso2.com/api-management/).
 
 3. Start WSO2 API-M by navigating to the `<API-M_HOME>/bin` directory using the command-line and execute the following command.
 
@@ -41,7 +43,7 @@ Follow the instructions below to create and publish an API via the Publisher Por
                                                  
      [![Publisher portal home page]({{base_path}}/assets/img/get_started/api-publisher-home.png)]({{base_path}}/assets/img/get_started/api-publisher-home.png)
 
-3. Create an API.
+3. Create a mock REST service.
 
      Let's use a mock REST service to create a REST API from scratch.
  
@@ -222,13 +224,15 @@ API Products, and Applications across WSO2 API-M environments and to perform CI/
 
 ### Before you begin...
 
-1. [Make sure that you run WSO2 API Manager (WSO2 API-M) 4.1.0]({{base_path}}/get-started/api-manager-quick-start-guide/#before-you-begin).
+Follow the instructions below to setup WSO2 API Controller.
+
+1. [Make sure that you run WSO2 API Manager (WSO2 API-M) 4.2.0]({{base_path}}/get-started/api-manager-quick-start-guide/#before-you-begin).
 
 2. Download the apictl.
 
      1. Navigate to the [API Manager Tooling page](https://wso2.com/api-management/tooling/).
 
-     2. Download the apictl version 4.1.0 (or the latest of the 4.1.x family) based your operating system from the **API Controller Tooling** section.
+     2. Download the apictl version 4.2.0 (or the latest of the 4.1.x family) based on your operating system from the **API Controller Tooling** section.
  
      3. Extract the ZIP to a preferred location.
 
@@ -267,12 +271,14 @@ API Products, and Applications across WSO2 API-M environments and to perform CI/
 
 ### Step 1 - Create an API
 
+Follow the instructions below to create an API via WSO2 API Controller.
+
 1. Initialize an API project by providing a name for the project.
 
      Let's use the command below to create an API named `PetstoreAPI`. This creates a folder named `PetstoreAPI` in your current directory.
 
        ```bash
-       ./apictl init PetstoreAPI --oas https://apim.docs.wso2.com/en/4.1.0/assets/attachments/get_started/petstore.json
+       ./apictl init PetstoreAPI --oas https://apim.docs.wso2.com/en/4.2.0/assets/attachments/get_started/petstore.json
        ```
 
      On successfully executing this command, you should see the following message.
@@ -320,6 +326,8 @@ API Products, and Applications across WSO2 API-M environments and to perform CI/
 
 ### Step 2 - Publish the API
 
+Follow the instructions below to publish an API via WSO2 API Controller.
+
 1. Push the API to WSO2 API-M.
 
      Navigate back to the `apictl` directory and execute the following command:
@@ -346,6 +354,8 @@ API Products, and Applications across WSO2 API-M environments and to perform CI/
          [![API in the Developer Portal]({{base_path}}/assets/img/get_started/qsg-devportal.png)]({{base_path}}/assets/img/get_started/qsg-devportal.png)
 
 ### Step 3 - Invoke the API
+
+Follow the instructions below to invoke an API via WSO2 API Controller.
 
 <a name="step3.1"></a>
 

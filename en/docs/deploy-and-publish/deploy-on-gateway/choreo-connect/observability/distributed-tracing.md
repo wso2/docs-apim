@@ -177,8 +177,11 @@ You will be able to see all traces. Detailed trace view will look like below.
         port = "4317"
         # library Name to be tagged in traces (`otel.library.name`).
         instrumentationName = "CHOREO-CONNECT"
-        # Maximum number of sampled traces per second string
+        # maximum number of sampled traces per second string
         maximumTracesPerSecond = "2"
+        # connection timeout for the otlp service
+        connectionTimeout = "20"
+        endpoint = "/api/v2/spans"
     ```
 
 1. Start Choreo Connect.
@@ -208,8 +211,10 @@ You will be able to browse through the request traces and expand each trace to v
         authHeaderValue = "<INGEST_LICENSE_KEY>"
         # library Name to be tagged in traces (`otel.library.name`).
         instrumentationName = "CHOREO-CONNECT"
-        # Maximum number of sampled traces per second string
+        # maximum number of sampled traces per second string
         maximumTracesPerSecond = "2"
+        # connection timeout for the otlp service
+        connectionTimeout = "20"
     ```
 
     ```toml tab="Example"
@@ -227,8 +232,10 @@ You will be able to browse through the request traces and expand each trace to v
         authHeaderValue = "e8f478ae6d3c97f845e16b6cfba0ea5e95e3NRAL"
         # library Name to be tagged in traces (`otel.library.name`).
         instrumentationName = "CHOREO-CONNECT"
-        # Maximum number of sampled traces per second string
+        # maximum number of sampled traces per second string
         maximumTracesPerSecond = "2"
+        # connection timeout for the otlp service
+        connectionTimeout = "20"
     ```
 
 1. Start Choreo Connect.

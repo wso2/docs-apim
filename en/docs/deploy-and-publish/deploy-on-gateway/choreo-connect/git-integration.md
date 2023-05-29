@@ -340,8 +340,6 @@ To authenticate the repository with SSH key, the SSH private key file path shoul
 
 Start Choreo Connect on Docker Compose by executing the Docker Compose script inside the `<CHOREO-CONNECT_HOME>` directory.
 
-{!includes/deploy/cc-tryout-in-arm64-docker-note.md!}
-
 1. Navigate to `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/` directory.
 
 2. Execute the following command.

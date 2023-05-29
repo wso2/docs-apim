@@ -99,7 +99,7 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
 
     2. Build the implementation of the respective monetization interface and add the JAR into the `<API-M_HOME>/repository/components/lib` directory.
         
-        In this example scenario, you need to add [org.wso2.apim.monetization.impl-1.4.0.jar](https://github.com/wso2-extensions/wso2-am-stripe-plugin/releases/download/v1.4.0/org.wso2.apim.monetization.impl-1.4.0.jar) and [jakarta.json-api-2.1.1.jar](https://repo1.maven.org/maven2/jakarta/json/jakarta.json-api/2.1.1/jakarta.json-api-2.1.1.jar) into the latter mentioned `lib` folder because `org.wso2.apim.monetization.impl` is dependent on `jakarta.json-api`. 
+        In this example scenario, you need to add [org.wso2.apim.monetization.impl-1.4.1.jar](https://github.com/wso2-extensions/wso2-am-stripe-plugin/releases/download/v1.4.1/org.wso2.apim.monetization.impl-1.4.1.jar) and [jakarta.json-api-2.1.1.jar](https://repo1.maven.org/maven2/jakarta/json/jakarta.json-api/2.1.1/jakarta.json-api-2.1.1.jar) into the latter mentioned `lib` folder because `org.wso2.apim.monetization.impl` is dependent on `jakarta.json-api`. 
         
         !!! note
             You can find the source code of `org.wso2.apim.monetization.impl` in the [wso2-extensions/wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin) repository.
@@ -512,6 +512,9 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
 4. Optionally, configure WSO2 API Manager to work with Choreo Analytics.
 
      These configurations are required only if you intend to create dynamic plans (usage-based plans) where consumers are charged based on the usage of the API. In such situations, you need analytics to record and retrieve the usage of the monetized APIs. 
+
+    !!! note
+        For instructions on configuring API Manager with ELK Analytics, see [Monetization Support via Elasticsearch](/design/api-monetization/monetizing-an-api/#monetization-support-via-elasticsearch)
     
     1. Enable analytics.
     
@@ -822,3 +825,29 @@ Follow the instructions below to disable monetization for an API:
 6.  Click **Save**.  
     
      The products and plans are removed in the Stripe billing engine based on the business plan attached to the API.
+
+
+## Monetization Support via Elasticsearch
+
+The Monetization Support via Elasticsearch feature allows you to enable stripe monetization with Elasticsearch and utilize ELK-based analytics in WSO2 API Manager. This feature can be enabled by following the configuration changes described below.
+
+Note that the following is a sample configuration that uses ELK 8.0.0 and Elasticsearch.  You can follow the sample and build your own monetization implementation with your preferred analytics platform and the billing engine.
+
+#### Configuration Changes
+
+To enable ELK-based analytics in WSO2 API Manager and configure the Elasticsearch host, port, and authentication details, add the following configuration changes to the `deployment.toml` file:
+
+```
+[apim.analytics]
+enable = true
+type = "ELK"
+
+[apim.monetization]
+monetization_impl = "org.wso2.apim.monetization.impl.StripeMonetizationImpl"
+analytics_host = <hostname-of-elk-node>
+analytics_port = <port-of-elk-node>
+analytics_username = <elastic-username>
+analytics_password = <elastic-password>
+```
+
+Note that you will need to replace `<hostname-of-elk-node>`, `<port-of-elk-node>`, `<elastic-username>`, and `<elastic-password>` with the appropriate values for your Elasticsearch instance.
