@@ -157,11 +157,15 @@ Add the configuration below to **remove** the iterative `org.mongodb.driver.clus
 
     2.  Then, add `org-mongodb-driver-cluster` to the list of `loggers`.
 
-!!! Prerequisite 1. Download the Mongo java driver from [here](https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.11.2/mongo-java-driver-3.11.2-javadoc.jar).
+!!! Prerequisite 
 
-    2. Add the driver to the `<PRODUCT_HOME>/dropins` folder.
+    1. If you are using MongoDB connector v2.0.0 or above Download the following jars and add it to `<PRODUCT_HOME>/dropins` folder.
+        - [mongodb-driver-sync](https://repo1.maven.org/maven2/org/mongodb/mongodb-driver-sync/4.9.1/mongodb-driver-sync-4.9.1.jar)
+        - [bson](https://repo1.maven.org/maven2/org/mongodb/bson/4.9.1/bson-4.9.1.jar)
+        - [mongodb-driver-core](https://repo1.maven.org/maven2/org/mongodb/mongodb-driver-core/4.9.1/mongodb-driver-core-4.9.1.jar)
+       If you are using A lower version of MongoDB connector download the [mongo-java-driver](https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.11.2/mongo-java-driver-3.11.2-javadoc.jar) driver and add it to `<PRODUCT_HOME>/dropins` folder.
 
-    3. Restart the server.
+    2. Restart the server.
 
 ## Testing
 
