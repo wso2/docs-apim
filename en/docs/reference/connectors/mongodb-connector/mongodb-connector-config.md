@@ -1752,7 +1752,7 @@ No
     ```
 
 ??? note "aggregate"
-Process data in collections and return computed results. See the related [aggregate documentation](https://www.mongodb.com/docs/manual/reference/method/db.collection.aggregate/#db.collection.aggregate) for more information.
+Process data in collections and return computed results. For more information, see the documentation for [aggregate](https://www.mongodb.com/docs/manual/reference/method/db.collection.aggregate/#db.collection.aggregate).
 <table>
 <tr>
 <th>Parameter Name</th>
