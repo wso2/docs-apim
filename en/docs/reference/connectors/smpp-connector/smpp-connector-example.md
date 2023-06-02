@@ -39,13 +39,17 @@ First create an API, which will be where we configure the integration logic. Rig
 
 Create a resource to send an SMS to the Short Message Service Center.
 
-1. Initialize the connector.
-    
-    1. Navigate into the **Palette** pane and select the graphical operations icons listed under **SMPP Connector** section. Then drag and drop the `init` operation into the Design pane.
-        
-        <img src="{{base_path}}/assets/img/integrate/connectors/smpp-drag-and-drop-init.png" title="Drag and drop init operation" width="500" alt="Drag and drop init operation"/>   
-    
-    2. Add the property values into the `init` operation as shown below. Replace the `host`, `port`, `systemId`, `password` with your values.
+1. Set up the sendSMS operation.
+
+    1. Navigate into the **Palette** pane and select the graphical operations icons listed under **SMPP Connector** section. Then drag and drop the `sendSMS` operation into the Design pane.
+           
+        <img src="{{base_path}}/assets/img/integrate/connectors/smpp-drag-and-drop-sendsms.png" title="Drag and drop send operation" width="500" alt="Drag and drop send operation"/>    
+
+    2. Go to property values of `sendSMS` and click the `+` sign to create a new SMSC Connection. Replace the `host`, `port`, `systemId`, `password` with your values. You can reuse the SMSC connection among other operators.
+        <br/>
+
+        <img src="{{base_path}}/assets/img/integrate/connectors/smpp-api-connection.png" title="Create SMPP connection" width="500" alt="Create SMPP connection"/>
+        <br/>
         
         - **host** : IP address of the SMSC. 
         - **port** : Port to access the SMSC.
@@ -55,23 +59,16 @@ Create a resource to send an SMS to the Short Message Service Center.
         - **addressTon [Optional]** : Indicates Type of Number of the ESME address.  
         - **addressNpi [Optional]** : Numbering Plan Indicator for ESME address.  
     
-        <img src="{{base_path}}/assets/img/integrate/connectors/smpp-api-init-operation.png" title="Add values to the init operation" width="800" alt="Add values to the init operation"/>
 
-2. Set up the sendSMS operation.
+        <img src="{{base_path}}/assets/img/integrate/connectors/smpp-api-init-operation.png" title="Add values to the init operation" width="400" height="400" alt="Add values to the init operation"/>
 
-    1. Navigate into the **Palette** pane and select the graphical operations icons listed under **SMPP Connector** section. Then drag and drop the `sendSMS` operation into the Design pane.
-           
-        <img src="{{base_path}}/assets/img/integrate/connectors/smpp-drag-and-drop-sendSMS.png" title="Drag and drop send operation" width="500" alt="Drag and drop send operation"/>    
-
-    2. In this operation we are going to send a SMS messages peer to peer using SMPP protocol. It provides a flexible data communications interface for transfer of short message data between a Message Centers, such as a Short Message Service Centre (SMSC), GSM Unstructured Supplementary Services Data (USSD) Server or other type of Message Center and a SMS application system, such as a WAP Proxy Server, EMail Gateway or other Messaging Gateway. Please find the `send` operation parameters listed here.
+    3. In this operation we are going to send a SMS messages peer to peer using SMPP protocol. It provides a flexible data communications interface for transfer of short message data between a Message Centers, such as a Short Message Service Centre (SMSC), GSM Unstructured Supplementary Services Data (USSD) Server or other type of Message Center and a SMS application system, such as a WAP Proxy Server, EMail Gateway or other Messaging Gateway. Please find the mandatory `send` operation parameters listed here.
                
         - **sourceAddress** : Source address of the SMS message. 
         - **destinationAddress** : Destination address of the SMS message. 
         - **message** : Content of the SMS message.
         
         While invoking the API, the above three parameters values come as a user input.
-        
-        <img src="{{base_path}}/assets/img/integrate/connectors/smpp-drag-and-drop-sendSMS-parameters.png" title="Drag and drop send operation" width="500" alt="Drag and drop send operation"/> 
     
     3. To get the input values in to the API we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator). Navigate into the **Palette** pane and select the graphical mediators icons listed under **Mediators** section. Then drag and drop the `Property` mediators into the Design pane as shown bellow.
     
@@ -95,28 +92,28 @@ Create a resource to send an SMS to the Short Message Service Center.
      
         <img src="{{base_path}}/assets/img/integrate/connectors/smpp-api-property-mediator-property2-value2.png" title="Add values to capture message" width="600" alt="Add values to capture message"/>  
       
-    6. Add the property mediator to capture the `distinationAddress` values. The message contains content of the SMS message.                  
+    6. Add the property mediator to capture the `destinationAddress` values. The message contains content of the SMS message.                  
        
-        - **name** : distinationAddress
-        - **expression** : json-eval($.distinationAddress)
+        - **name** : destinationAddress
+        - **expression** : json-eval($.destinationAddress)
          
-        <img src="{{base_path}}/assets/img/integrate/connectors/smpp-api-property-mediator-property3-value3.png" title="Add values to capture distinationAddress" width="600" alt="Add values to capture distinationAddress"/>  
+        <img src="{{base_path}}/assets/img/integrate/connectors/smpp-api-property-mediator-property3-value3.png" title="Add values to capture destinationAddress" width="600" alt="Add values to capture destinationAddress"/>  
         
-3. Get a response from the user.
+2. Get a response from the user.
     
     When you are invoking the created API, the request of the message is going through the `/send` resource. Finally, it is passed to the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/). The Respond Mediator stops the processing on the current message and sends the message back to the client as a response.            
     
     1. Drag and drop **respond mediator** to the **Design view**. 
     
-         <img src="{{base_path}}/assets/img/integrate/connectors/smpp-drag-and-drop-respond-mediator.png" title="Add Respond mediator" width="800" alt="Add Respond mediator"/> 
+    <img src="{{base_path}}/assets/img/integrate/connectors/smpp-drag-and-drop-respond-mediator.png" title="Add Respond mediator" width="600" alt="Add Respond mediator"/> 
 
     2. Once you have setup the sequences and API, you can see the `salesforcerest` API as shown below.
     
-         <img src="{{base_path}}/assets/img/integrate/connectors/smpp-api-design-view.png" title="API Design view" width="600" alt="API Design view"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/smpp-api-design-view.png" title="API Design view" width="600" alt="API Design view"/>
         
     > **Note**: The properties should be added to the pallet before creating the operation.
        
-4.  Now you can switch into the Source view and check the XML configuration files of the created API and sequences. 
+3.  Now you can switch into the Source view and check the XML configuration files of the created API and sequences. 
     
     ??? note "SmppTestApi.xml"
         ```
@@ -124,21 +121,12 @@ Create a resource to send an SMS to the Short Message Service Center.
         <api context="/send" name="SmppTestApi" xmlns="http://ws.apache.org/ns/synapse">
             <resource methods="POST">
                 <inSequence>
-                    <property expression="json-eval($.distinationAddress)" name="distinationAddress" scope="default" type="STRING"/>
+                    <property expression="json-eval($.destinationAddress)" name="destinationAddress" scope="default" type="STRING"/>
                     <property expression="json-eval($.message)" name="message" scope="default" type="STRING"/>
                     <property expression="json-eval($.sourceAddress)" name="sourceAddress" scope="default" type="STRING"/>
-                    <SMPP.init>
-                        <host>localhost</host>
-                        <port>10003</port>
-                        <systemId>kasun</systemId>
-                        <password>kasun</password>
-                        <systemType>SMS1009</systemType>
-                        <addressTon>INTERNATIONAL</addressTon>
-                        <addressNpi>ISDN</addressNpi>
-                    </SMPP.init>
-                    <SMPP.sendSMS>
+                    <SMPP.sendSMS configKey="SMSC_CONFIG_1">
                         <sourceAddress>{$ctx:sourceAddress}</sourceAddress>
-                        <distinationAddress>{$ctx:distinationAddress}</distinationAddress>
+                        <destinationAddress>{$ctx:distinationAddress}</destinationAddress>
                         <message>{$ctx:message}</message>
                     </SMPP.sendSMS>
                     <log level="full">
@@ -151,6 +139,25 @@ Create a resource to send an SMS to the Short Message Service Center.
             </resource>
         </api>
         ``` 
+
+    ??? note "SMSC_CONFIG_1.xml"
+        ```
+        <?xml version="1.0" encoding="UTF-8"?>
+        <localEntry key="SMSC_CONFIG_1" xmlns="http://ws.apache.org/ns/synapse">
+            <SMPP.init>
+                <systemId>kasun</systemId>
+                <connectionType>init</connectionType>
+                <addressTon>INTERNATIONAL</addressTon>
+                <password>kasun</password>
+                <port>10003</port>
+                <host>localhost</host>
+                <systemType>SMS1009</systemType>
+                <name>SMSC_CONFIG_1</name>
+                <addressNpi>ISDN</addressNpi>
+            </SMPP.init>
+        </localEntry>
+        ``` 
+
 ## Get the project
 
 You can download the ZIP file and extract the contents to get the project code.

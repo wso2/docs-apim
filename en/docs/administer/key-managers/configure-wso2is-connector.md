@@ -6,7 +6,7 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
 
 ## Step 1 - Configure WSO2 IS
 
-1. Download and install the [WSO2 Identity Server 5.11.0](https://wso2.com/identity-server/).
+1. Download and install the [WSO2 Identity Server 6.0.0 or 6.1.0](https://wso2.com/identity-server/).
      
       If you downloaded the archive, extract it.
      `<IS_HOME>` refers to the root folder of the extracted WSO2 IS.
@@ -66,7 +66,7 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
     scopes = "internal_application_mgt_update"
     
     [[resource.access_control]]
-    context = "(.)/keymanager-operations/dcr/register(.)"
+    context = "(.*)/keymanager-operations/dcr/register(.*)"
     secure = true
     http_method = "POST"
     permissions = "/permission/admin/manage/identity/applicationmgt/update"
@@ -83,17 +83,17 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
     custom_webapps = ["/keymanager-operations/"]
     ```
 
-3. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-extensions-1.4.2.zip).
+3. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-extensions-1.6.8.zip).
 
 4. Extract the distribution and copy the following JAR files to the `<IS_HOME>/repository/components/dropins` directory.
 
-     - `wso2is.key.manager.core-1.2.10.jar`
-     - `wso2is.notification.event.handlers_1.2.10.jar`
+     - `wso2is.key.manager.core-1.6.8.jar`
+     - `wso2is.notification.event.handlers-1.6.8.jar`
 
 5. Add `keymanager-operations.war` to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
 6. Start WSO2 Identity Server with a port offset.
-   portOffset is required only if you are running both API-m and ID in the same JVM.
+   portOffset is required only if you are running both API-M and IS in the same JVM.
 
       `sh wso2server.sh -DportOffset=1`
 

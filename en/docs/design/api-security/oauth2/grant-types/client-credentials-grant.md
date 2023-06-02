@@ -86,18 +86,6 @@ curl -k -d "grant_type=client_credentials&scope=test" -H "Authorization: Basic <
 curl -k -d "grant_type=client_credentials&scope=test" -H "Authorization: Basic cEJ6dUlaaEdwaGZRbWRjVVgwbG5lRmlpdXh3YTo0U0pnV19qTU56aGpIU284OGJuZVhtTnFNMjRh" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
 ```
 
-#### Set a custom validity time for the access token
-
-You can set a validity period for access tokens through a cURL command. Pass the <code>validity_period</code> parameter as shown in the example below.
-
-``` java tab="Format"
-curl -X POST -k -H "Authorization: Basic <Base64(clientId:clientSecret)>" -d "grant_type=client_credentials&validity_period=<custom_validity_time_in_seconds>" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token -v
-```
-
-``` java tab="Example"
-curl -X POST -k -H "Authorization: Basic cEJ6dUlaaEdwaGZRbWRjVVgwbG5lRmlpdXh3YTo0U0pnV19qTU56aGpIU284OGJuZVhtTnFNMjRh" -d "grant_type=client_credentials&validity_period=3200" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token -v
-```
-
 ## Additional information
 
 ### Disabling the Client Credentials grant type

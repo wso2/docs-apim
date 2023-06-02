@@ -124,6 +124,7 @@ See the example .toml file given below.
   instrumentationName = "CHOREO-CONNECT"
   maximumTracesPerSecond = "2"
   maxPathLength = "256"
+  connectionTimeout = "20"
 </code></pre>
                     </div>
                 </div>
@@ -268,6 +269,25 @@ See the example .toml file given below.
                                     </div>
                                     <div class="param-description">
                                         <p>Maximum length of the request path to extract and include in the HttpUrl tag.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>connectionTimeout</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>20</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Connection timeout for the OTLP service</p>
                                     </div>
                                 </div>
                             </div>

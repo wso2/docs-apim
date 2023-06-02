@@ -237,7 +237,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Message broker connection URLs of the control plane with retry count and connect delay (in seconds). The array of endpoints acts as fail-over endpoints.</p>
+                                        <p>Message Broker connection URLs of the Control Plane with retry count and connect delay (in seconds). The array of endpoints acts as fail-over endpoints.</p>
                                     </div>
                                 </div>
                             </div>

@@ -12,7 +12,7 @@ Follow the instructions below to configure WSO2 Identity Server (WSO2 IS) as the
 
 ## Step 1 - Download and install WSO2 IS
 
-Download and install [WSO2 Identity Server Version 6.0.0](https://wso2.com/identity-and-access-management/previous-releases/). If you 
+Download and install [WSO2 Identity Server 6.0.0 or 6.1.0](https://wso2.com/identity-server/). If you 
 downloaded the archive, extract it. `<IS_HOME>` refers to the root folder of the extracted WSO2 Identity Server.
 
 It is assumed that you have already downloaded WSO2 API Manager.
@@ -144,14 +144,14 @@ Follow the instructions below to set up and configure the databases for the WSO2
 
 ## Step 4 - Configure WSO2 IS with WSO2 API-M
 
-1. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-extensions-1.6.7.zip).
+1. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-extensions-1.6.8.zip).
 
-2. Extract the distribution and copy the following JAR files, which are in the `<wso2is-extensions-1.6.7>/dropins` directory, to the `<IS_HOME>/repository/components/dropins` directory.
+2. Extract the distribution and copy the following JAR files, which are in the `<wso2is-extensions-1.6.8>/dropins` directory, to the `<IS_HOME>/repository/components/dropins` directory.
 
-     - `wso2is.key.manager.core-1.2.10.jar`
-     - `wso2is.notification.event.handlers_1.2.10.jar`
+     - `wso2is.key.manager.core-1.6.8.jar`
+     - `wso2is.notification.event.handlers-1.6.8.jar`
 
-3. Add the `keymanager-operations.war`, which is in the `<wso2is-extensions-1.6.7>/webapps` directory, to the `<IS_HOME>/repository/deployment/server/webapps` directory.
+3. Add the `keymanager-operations.war`, which is in the `<wso2is-extensions-1.6.8>/webapps` directory, to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
 4.  Configure the Traffic Manager endpoints.
 
@@ -250,18 +250,28 @@ Follow the instructions below to set up and configure the databases for the WSO2
     ```
 7. If you wish to encrypt the OAuth2 Keys (access tokens, client secrets, and authorization codes), follow the steps given in [Encrypting OAuth Keys](https://is.docs.wso2.com/en/5.10.0/learn/testing-oidc-encrypted-id-token-with-is/#enable-id-token-encryption), which is in the WSO2 Identity Server 5.10.0 documentation, and apply the relevant configurations in the `<IS_HOME>/repository/conf/deployment.toml` file to enable the feature.
 
+8. If you are using the existing keystore and truststore (with self signed certificate) shipped by default with the product distributions, replace the keystore in `<IS_HOME>/repository/resources/security/wso2carbon.jks` and trustore in `<IS_HOME>/repository/resources/security/client-truststore.jks` with the ``<APIM_HOME>/repository/resources/security/wso2carbon.jks` and  `<APIM_HOME>/repository/resources/security/client-truststore.jks` respectively. Make sure to follow this step before starting either of the servers for the first time. (Please note that in a production environment, it is not recommended to use the default keystores. Instead, it is recommended to [create new keystores]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/) with new keys and certificates.)
+
 ## Step 5 - Configure WSO2 API-M with the WSO2 IS
 
-By default, WSO2 API Manager and WSO2 Identity Server comes with a JDBC User Store as the primary userstore. However, if you wish to use any other type of user store (e.g., LDAP, Active Directory, etc.) in WSO2 IS, that particular user store has to be configured in the API Manager nodes as well. For more information, see [Configuring the Primary User Store]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store/) and apply the relevant configs to plug in a new user store.
-
-1. Add below configuration in `<APIM_HOME>/repository/conf/deployment.toml`
-
-```java
-   [apim.key_manager]
-   service_url = "https://localhost:9444/services/"
-   type = "WSO2-IS"
-
-```
+1. By default, WSO2 API Manager and WSO2 Identity Server come with a JDBC User Store as the primary userstore. If you wish to use any other type of user store (e.g., LDAP, Active Directory, etc.) in WSO2 IS, it has to be configured in the API Manager nodes. For more information, see [Configuring the Primary User Store]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store/) and apply the relevant configs to plug in a new user store.
+  
+    Add below configuration in `<APIM_HOME>/repository/conf/deployment.toml`
+  
+    ```java
+       [apim.key_manager]
+       service_url = "https://localhost:9444/services/"
+       type = "WSO2-IS"
+     
+    ```
+   
+2. The token exchange grant type is enabled by default in WSO2 API-M 4.1.0 onwards. But the corresponding grant type is currently not supported by the WSO2 Identity Server. You need to modify the `[oauth.grant_type.token_exchange]` config in the `<APIM_HOME>/repository/conf/deployment.toml` file as follows.
+    ```
+    [oauth.grant_type.token_exchange]
+    enable = false
+    allow_refresh_tokens = true
+    iat_validity_period = "1h"
+    ```
 ## Step 6 - Optionally, configure High Availability (HA) for the Identity Server
 
 !!! warning

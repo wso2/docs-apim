@@ -83,6 +83,9 @@ database</strong></p>
 </tbody>
 </table>
 
+!!! Warning "Gateway Profile - `shared_db` configuration"
+    Note that the registry data source **should not** be completely removed from the gateway node, although the `shared_db` is not required for certain use cases. During server initialization, the user core and registry modules rely on the registry and user store pointing to the default H2 shared db or the H2-based carbon DB. Therefore, ensure that at least the registry and user store configurations are appropriately set.
+
 ## API-M Components
 
 Listed below are the five components in the API-M server. When you run the recommended API-M profiles, the components (from the below list) that are required for operating the functionalities related to each profile are used.

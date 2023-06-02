@@ -15,7 +15,7 @@
   "dependencies": {},
   "devDependencies": {
     "fs-extra": "^7.0.1",
-    "nunjucks": "^3.2.2",
+    "nunjucks": "^3.2.4",
     "rimraf": "^2.6.3"
   },
   "scripts": {

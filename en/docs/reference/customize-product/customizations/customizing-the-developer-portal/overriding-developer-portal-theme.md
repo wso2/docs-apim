@@ -24,16 +24,16 @@ The `userTheme.json` file is located in following path in the API Manager server
 
 Example:
 
-Enable landing page. **defaultTheme.js**.
+Enable landing page. **userTheme.json**.
 
 ```sh
-const Configurations = {
-    custom: {
-        landingPage: {
-            active: true,
-        },
-    },
-};
+{
+  "custom": {
+    "landingPage": {
+      "active": true
+    }
+  }
+}
 ```
 
 Example:
@@ -50,7 +50,7 @@ Enable landing page. **defaultTheme.json** (Tenant theming).
 }
 ```
 
-The following documents describe some of the most commonly used customizations, that you can do by changing the `defaultTheme.js`
+The following documents describe some of the most commonly used customizations, that you can do by changing the `userTheme.json`
 
   - [Enabling or Disabling API Detail Tabs]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs/)
   - [Override API Overview Page per API]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/override-api-overview-page-per-api/)

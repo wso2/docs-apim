@@ -25,7 +25,7 @@ The Docker images related to Choreo Connect updates reside in [WSO2 private Dock
                 <code>choreo-connect-router:{WSO2_PRODUCT_VERSION}.{UPDATE_LEVEL}</code>
             </td>
             <td>
-                <code>choreo-connect-router:1.1.0.3</code>
+                <code>choreo-connect-router:{{choreo_connect.version}}.1</code>
             </td>
         </tr>
         <tr>
@@ -36,7 +36,7 @@ The Docker images related to Choreo Connect updates reside in [WSO2 private Dock
                 <code>choreo-connect-enforcer:{WSO2_PRODUCT_VERSION}.{UPDATE_LEVEL}</code>
             </td>
             <td>
-                <code>choreo-connect-enforcer:1.1.0.3</code>
+                <code>choreo-connect-enforcer:{{choreo_connect.version}}.1</code>
             </td>
         </tr>
         <tr>
@@ -47,7 +47,7 @@ The Docker images related to Choreo Connect updates reside in [WSO2 private Dock
                 <code>choreo-connect-adapter:{WSO2_PRODUCT_VERSION}.{UPDATE_LEVEL}</code>
             </td>
             <td>
-                <code>choreo-connect-adapter:1.1.0.3</code>
+                <code>choreo-connect-adapter:{{choreo_connect.version}}.1</code>
             </td>
         </tr>  
     </tbody>
@@ -57,7 +57,7 @@ An example for complete image tag looks like follows.
 
 ```
 enforcer:
-    image: docker.wso2.com/choreo-connect-enforcer:1.1.0.3
+    image: docker.wso2.com/choreo-connect-enforcer:{{choreo_connect.version}}.1
 ```
 
 !!! Info

@@ -1274,18 +1274,19 @@ allowCredentials = false
   [router.filters.compression.requestDirection]
     enabled = false
     minimumContentLength = 30
-    contentType = ["text/html","application/json"]
+    contentType = ["application/javascript", "application/json", "application/xhtml+xml", "image/svg+xml", "text/css", "text/html", "text/plain", "text/xml"]
   [router.filters.compression.responseDirection]
     enabled = true
     minimumContentLength = 30
-    contentType = ["text/html","application/json"]
+    contentType = ["application/javascript", "application/json", "application/xhtml+xml", "image/svg+xml", "text/css", "text/html", "text/plain", "text/xml"]
     enableForEtagHeader = true
   [router.filters.compression.libraryProperties]
     memoryLevel = 3
     windowBits = 12
     compressionLevel = 9
     compressionStrategy = "defaultStrategy"
-    chunkSize = 4096</code></pre>
+    chunkSize = 4096
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -1299,6 +1300,24 @@ allowCredentials = false
                         </div>
                         <div class="params-wrap">
                             <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code></code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string">  </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p></p>
+                                    </div>
+                                </div>
                             </div>
                         </div><div class="config-wrap">
                             <code>[router.filters.compression]</code>

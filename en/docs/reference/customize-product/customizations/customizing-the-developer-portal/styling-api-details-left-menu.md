@@ -8,47 +8,47 @@ The `defaultTheme.js` file has all the parameters defining the look and feel of 
 
 You can change the `themes.light.custom.leftMenu` attributes to change the left menu styling. Note that, these changes will effect the same way to application details left menu as well.
 
-1. Open the `<API-M_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/site/public/theme/defaultTheme.js` file in a text editor and update the `themes.light.custom.leftMenu` attributes.
+1. Open the Open `<API-M_HOME>/repository/deployment/server/webapps/devportal/site/public/theme/userTheme.json` file in a text editor and update the attributes.
 
 2. Refresh the Developer Portal to view the changes.
 
 ### The following attributes are available for the leftMenu
 
 ```js
- const Configurations = {
-    custom: {
-        leftMenu: {
-            position: 'vertical-left',
-            style: 'icon left',
-            iconSize: 24,
-            leftMenuTextStyle: 'uppercase',
-            width: 180,
-            background: '#012534',
-            backgroundImage: '/site/public/images/leftMenuBack.png',
-            leftMenuActive: '#00597f',
-            leftMenuActiveSubmenu: '#0d1723',
-            activeBackground: '#191e46',
-            rootIconVisible: true,
-            rootIconSize: 42,
-            rootIconTextVisible: false,
-            rootBackground: '#000',
-        },
-    },
-};
+{
+    "custom": {
+        "leftMenu": {
+            "position": "vertical-left",
+            "style": "icon left",
+            "iconSize": 24,
+            "leftMenuTextStyle": "uppercase",
+            "width": 180,
+            "background": "#012534",
+            "backgroundImage": "/site/public/images/leftMenuBack.png",
+            "leftMenuActive": "#00597f",
+            "leftMenuActiveSubmenu": "#0d1723",
+            "activeBackground": "#191e46",
+            "rootIconVisible": true,
+            "rootIconSize": 42,
+            "rootIconTextVisible": false,
+            "rootBackground": "#000"
+        }
+    }
+}
 ```
 
 The above JSON defines the default look and feel.
 
 We can change the menu to take different positions. For an example, the following configuration sets the menu as a toolbar by just changing the values of the above JSON as follows.
 ```js
-const Configurations = {
-    custom: {
-        leftMenu: {
-            position: 'horizontal',
-            rootIconVisible: false,
-        },
-    },
-};
+{
+    "custom": {
+        "leftMenu": {
+            "position": "horizontal",
+            "rootIconVisible": true
+        }
+    }
+}
 ```
 
  ![styling api details left menu]({{base_path}}/assets/img/learn/styling-api-details-left-menu2.png) 
@@ -57,14 +57,14 @@ const Configurations = {
 The following will set the menu to the right hand side and will disable the icons.
 
 ```js
-const Configurations = {
-    custom: {
-        leftMenu: {
-            position: 'vertical-right',
-            style: 'no icon',
-        },
-    },
-};
+{
+    "custom": {
+        "leftMenu": {
+            "position": "vertical-right",
+            "style": "no icon"
+        }
+    }
+}
 ```
 
  ![styling api details left menu3.png]({{base_path}}/assets/img/learn/styling-api-details-left-menu3.png) 

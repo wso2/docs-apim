@@ -14113,13 +14113,360 @@ useLogger = true</code></pre>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>true,false</code></span>
                                         </div>
-                                        
                                     </div>
                                     <div class="param-description">
                                         <p>Set this to true to allow logs to get written into the `&lt;APIM_HOME&gt;repository/logs/wso2carbon.log` or any other log file and show up on the console.</p>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## Registry Handler properties
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="94" type="checkbox" id="_tab_94">
+                <label class="tab-selector" for="_tab_94"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">#### Sample deployment.toml entry
+##### Registry handler 1 #####
+[[registry_handler]]
+class="org.wso2.carbon.registry.extensions.handlers.WSDLMediaTypeHandler"
+filter_class="org.wso2.carbon.registry.core.jdbc.handlers.filters.MediaTypeMatcher"
+
+[registry_handler.properties]
+disableSymlinkCreation = "true"
+myprop1= "true"
+
+### parent property 1: schemaLocationConfiguration
+[[registry_handler.nested_property]]
+enable = true
+name = "schemaLocationConfiguration"
+type = "xml"
+
+# nested property 1
+[[registry_handler.nested_property.schemaLocationConfiguration]]
+tag = 'location'
+value = "/trunk/schemas/1"
+key = "mykey"
+
+# nested property 2
+[[registry_handler.nested_property.schemaLocationConfiguration]]
+tag = 'location'
+value = "/trunk/schemas/2"
+key = "mykey2"
+
+# nested property 3
+[[registry_handler.nested_property.schemaLocationConfiguration]]
+tag = 'newlocation'
+value = "/trunk/schemas/3"
+key = "mykey3"
+
+## parent property 2: wsdlLocationConfiguration
+[[registry_handler.nested_property]]
+enable = true
+name = "wsdlLocationConfiguration"
+type = "xml"
+
+# nested property 1
+[[registry_handler.nested_property.wsdlLocationConfiguration]]
+tag = 'location'
+value = "/trunk/wsdls/"
+
+## parent property 3: policyLocationConfiguration
+[[registry_handler.nested_property]]
+enable = true
+name = "policyLocationConfiguration"
+type = "xml"
+
+# nested property 1
+[[registry_handler.nested_property.policyLocationConfiguration]]
+tag = 'location'
+value = "/trunk/policies/"
+
+[registry_handler.filter_properties]
+mediaType = "application/vnd.wso2-service+xml"
+
+##### Registry handler 2 #####
+[[registry_handler]]
+class="org.wso2.carbon.registry.extensions.handlers.ZipWSDLMediaTypeHandle"
+filter_class="org.wso2.carbon.registry.core.jdbc.handlers.filters.MediaTypeMatcher2"
+
+[registry_handler.properties]
+wsdlMediaType = "application/wsdl+xml"
+schemaMediaType = "application/xsd+xml"
+threadPoolSize = 50
+disableSymlinkCreation = true
+numberOfRetry = 3
+
+## parent property 1: schemaLocationConfiguration
+[[registry_handler.nested_property]]
+enable = true
+name = "schemaLocationConfiguration"
+type = "xml"
+
+# nested property 1
+[[registry_handler.nested_property.schemaLocationConfiguration]]
+tag = 'location'
+value = "/trunk/schemas/1"
+key = "mykey"
+
+[registry_handler.filter_properties]
+mediaType = "application/vnd.wso2-service+xml"
+
+
+#### Sample registry.xml entry generated will be as follows
+&lt;!--Config for custom registry handlers.--&gt;
+&lt;handler class=&quot;org.wso2.carbon.registry.extensions.handlers.WSDLMediaTypeHandler&quot;&gt;
+    &lt;property name=&quot;myprop1&quot;&gt;true&lt;/property&gt;
+    &lt;property name=&quot;disableSymlinkCreation&quot;&gt;true&lt;/property&gt;
+    &lt;property name=&quot;schemaLocationConfiguration&quot; type=&quot;xml&quot;&gt;
+            &lt;location key=&quot;mykey&quot;&gt;/trunk/schemas/1&lt;/location&gt;
+            &lt;location key=&quot;mykey2&quot;&gt;/trunk/schemas/2&lt;/location&gt;
+            &lt;newlocation key=&quot;mykey3&quot;&gt;/trunk/schemas/3&lt;/newlocation&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;wsdlLocationConfiguration&quot; type=&quot;xml&quot;&gt;
+            &lt;location&gt;/trunk/wsdls/&lt;/location&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;policyLocationConfiguration&quot; type=&quot;xml&quot;&gt;
+            &lt;location&gt;/trunk/policies/&lt;/location&gt;
+    &lt;/property&gt;
+    &lt;filter class=&quot;org.wso2.carbon.registry.core.jdbc.handlers.filters.MediaTypeMatcher&quot;&gt;
+        &lt;property name=&quot;mediaType&quot;&gt;application/vnd.wso2-service+xml&lt;/property&gt;
+    &lt;/filter&gt;
+&lt;/handler&gt;
+&lt;handler class=&quot;org.wso2.carbon.registry.extensions.handlers.ZipWSDLMediaTypeHandle&quot;&gt;
+    &lt;property name=&quot;schemaMediaType&quot;&gt;application/xsd+xml&lt;/property&gt;
+    &lt;property name=&quot;threadPoolSize&quot;&gt;50&lt;/property&gt;
+    &lt;property name=&quot;numberOfRetry&quot;&gt;3&lt;/property&gt;
+    &lt;property name=&quot;wsdlMediaType&quot;&gt;application/wsdl+xml&lt;/property&gt;
+    &lt;property name=&quot;disableSymlinkCreation&quot;&gt;true&lt;/property&gt;
+    &lt;property name=&quot;schemaLocationConfiguration&quot; type=&quot;xml&quot;&gt;
+            &lt;location key=&quot;mykey&quot;&gt;/trunk/schemas/1&lt;/location&gt;
+    &lt;/property&gt;
+    &lt;filter class=&quot;org.wso2.carbon.registry.core.jdbc.handlers.filters.MediaTypeMatcher2&quot;&gt;
+        &lt;property name=&quot;mediaType&quot;&gt;application/vnd.wso2-service+xml&lt;/property&gt;
+    &lt;/filter&gt;
+&lt;/handler&gt;
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[[registry_handler]]</code>
+                            
+                            <p>
+                                Registry Handler configurations.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>class</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The class name of the Handler. Provided in the class attribute in the Handler.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>filter_class</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The class name of the filter which is associated with the Handler (Ex: org.wso2.carbon.registry.core.jdbc.handlers.filters.MediaTypeMatcher, org.wso2.carbon.registry.core.jdbc.handlers.filters.URLMatcher).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="config-wrap">
+                            <code>[registry_handler.properties]</code>
+                            
+                            <p>
+                                Registry Handler custom properties which do not have nested elements. Properties are listed as key, value pairs. These custom properties will be used in Handler processing logic.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            
+                        </div><div class="config-wrap">
+                            <code>[[registry_handler.nested_property]]</code>
+                            
+                            <p>
+                                Registry Handler custom property which has nested elements under it.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enable</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enables nested properties.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>name</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The name of the custom parent property.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>type</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>xml</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>xml, null</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The type of the custom parent property.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="config-wrap">
+                            <code>[[registry_handler.nested_property.&lt;parent_property_name&gt;]]</code>
+                            
+                            <p>
+                                Nested element which is under a custom Registry Handler property.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>tag</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>XML element name of the nested property.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>value</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Value of the nested property element.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>key</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Value of the additional key attribute of the XML element generated for the nested property.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="config-wrap">
+                            <code>[registry_handler.filter_properties]</code>
+                            
+                            <p>
+                                Define registry handler filter element configurations.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            
                         </div>
                     </div>
                 </div>

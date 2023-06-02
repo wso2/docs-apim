@@ -21,6 +21,12 @@ This sample demonstrates how to capture change data from MySQL using Siddhi. The
         `create database production;`<br/>
     6. Create a user named `wso2sp` with `wso2` as the password, and with `SELECT`, `RELOAD`, `SHOW DATABASES`, `REPLICATION SLAVE`, `REPLICATION CLIENT` privileges. To do this, issue the following command.<br/>
         `GRANT SELECT, RELOAD, SHOW DATABASES, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'wso2sp' IDENTIFIED BY 'wso2';`<br/>
+
+        For MySQL 8 or later use the below commands
+        ```
+        CREATE USER 'wso2sp' IDENTIFIED BY 'wso2';
+        GRANT SELECT, RELOAD, SHOW DATABASES, REPLICATION SLAVE, REPLICATION CLIENT ON * . * TO 'wso2sp';
+        ```
     7. Change the database by issuing the following command.<br/>
         `use production;`<br/>
     8. Create a table named `SweetProductionTable`.<br/>
