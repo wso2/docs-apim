@@ -208,6 +208,10 @@ environments:
           policies: 
               - <subscription_policy_1_name>
               - <subscription_policy_2_name>
+          additionalProperties:
+              - name: <additional_property_name>
+                value: <additional_property_value>
+                display: <whether_additional_property_is_enabled_for_display_in_devportal>
 ```
 
 The following code snippet contains sample configuration of the parameters file of an API.
@@ -240,6 +244,13 @@ The following code snippet contains sample configuration of the parameters file 
         policies:
             - Gold
             - Silver 
+        additionalProperties:
+            - name: property1
+              value: http://property.name1
+              display: true
+            - name: property2
+              value: http://property.name2
+              display: false
     - name: test
       configs:
         endpoints:
@@ -382,6 +393,10 @@ environments:
                       policies: 
                           - <subscription_policy_1_name_for_api_1>
                           - <subscription_policy_2_name_for_api_1>
+                      additionalProperties:
+                          - name: <additional_property_name>
+                            value: <additional_property_value>
+                            display: <whether_additional_property_is_enabled_for_display_in_devportal>
               <api_2_name>-<api_2_version>:
                       endpoints:
                           production:
@@ -450,6 +465,10 @@ environments:
                       policies: 
                           - <subscription_policy_1_name_for_api_2>
                           - <subscription_policy_2_name_for_api_2>
+                      additionalProperties:
+                          - name: <additional_property_name>
+                            value: <additional_property_value>
+                            display: <whether_additional_property_is_enabled_for_display_in_devportal>
           deploymentEnvironments:
               - displayOnDevportal: <boolean>
 	            deploymentEnvironment: <environment_name>
@@ -461,6 +480,10 @@ environments:
           policies: 
               - <subscription_policy_1_name>
               - <subscription_policy_2_name>
+          additionalProperties:
+              - name: <additional_property_name>
+                value: <additional_property_value>
+                display: <whether_additional_property_is_enabled_for_display_in_devportal>
 ```
 
 The following code snippet contains sample configuration of the parameters file of an API Product.
@@ -504,6 +527,13 @@ The following code snippet contains sample configuration of the parameters file 
                   policies:
                       - Gold
                       - Silver
+                  additionalProperties:
+                      - name: property1
+                        value: http://property.name1
+                        display: true
+                      - name: property2
+                        value: http://property.name2
+                        display: false
               PetstoreAPI-1.0.5:
                   endpoints:
                       production:
@@ -528,6 +558,13 @@ The following code snippet contains sample configuration of the parameters file 
                   policies:
                       - Gold
                       - Silver
+                  additionalProperties:
+                      - name: property1
+                        value: http://property.name1
+                        display: true
+                      - name: property2
+                        value: http://property.name2
+                        display: false
           deploymentEnvironments:
               - displayOnDevportal: true
                 deploymentEnvironment: Label1
@@ -538,6 +575,13 @@ The following code snippet contains sample configuration of the parameters file 
           policies:
               - Gold
               - Silver 
+          additionalProperties:
+              - name: property1
+                value: http://property.name1
+                display: true
+              - name: property2
+                value: http://property.name2
+                display: false
           mutualSslCerts:
               - tierName: Unlimited
                 alias: Prod1
