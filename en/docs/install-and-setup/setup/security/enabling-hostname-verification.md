@@ -18,7 +18,7 @@ The hostname verification is **disabled** by default. This is done using the `o
 
 !!! note "Strict hostname verification"
 
-    When applying the strict hostname verification, you need to change the configuration in the `site/public/conf/settings.js` file of the Publisher and Admin Portal and the `site/public/theme/setting.js` file of the Developer Portal.
+    When applying the strict hostname verification, you need to change the configuration in the `<APIM_HOME>/repository/deployment/server/webapps/publisher/site/public/conf/settings.json` file of the Publisher and Admin Portal and the `<APIM_HOME>/repository/deployment/server/webapps/devportal/site/public/theme/settings.json` file of the Developer Portal.
 
 
     ```javascript
