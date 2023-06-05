@@ -67,6 +67,45 @@ You can restrict access to the management console of the API-M runtime by bindin
 
 The above example deployment.toml configuration illustrates how access to the management page (/carbon/admin/login.jsp) is granted only to one IP address.
 
+## Bypass Client Credentials by making PKCE Mandatory
+
+You can bypass `Client Secret` in Devportal and Publisher web portals in APIM. But in order to do so, you need to do below 2 things.
+
+- You have to bypass Client Secret  for the web portal
+- You have to make PKCE mandatory for the web portal
+
+### Follow the below steps
+
+1. First, go to the Management Console (carbon/admin) and log in as the admin.
+
+2. From the left side, select `Service Providers` and `List`.
+
+    <html>
+        <div class="admonition note">
+            <p class="admonition-title">Note</p>
+            <p>When you are attempting to log in to Devportal or Publisher, a service provider will be created for that portal. You will be able to view those service providers from the above `list`. For example, apim_devportal for Devportal.</p>
+        </div>
+    </html>
+
+3. Edit the service provider you need to change (Devportal or Publisher) and select `Inbound Authentication Configuration`.
+
+4. From that select `OAuth/OpenID Connect Configuration`. You will be able to view OAuth Client Key and Secret.
+
+5. Then select `Edit`. This will redirect you to a `Update application settings` form.
+
+6. Then select `PKCE Mandatory` and `Allow authentication without the client secret` from that form.
+
+    <html>
+        <div class="admonition note">
+            <p class="admonition-title">Note</p>
+            <p>Please make sure to select both of them since it's not recommended to bypass Client Secret without making PKCE mandatory so it will not work.</p>
+        </div>
+    </html>
+
+7. Click `Update`.
+
+After these above steps, the respective web portal will no longer use Client Secret for authentication.
+
 ## What's Next?
 
 [Start the API-M runtime]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m) and access the web portals.
