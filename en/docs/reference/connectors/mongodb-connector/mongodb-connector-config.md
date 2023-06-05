@@ -1750,3 +1750,88 @@ No
         }
     }
     ```
+
+??? note "aggregate"
+Process data in collections and return computed results. For more information, see the documentation for [aggregate](https://www.mongodb.com/docs/manual/reference/method/db.collection.aggregate/#db.collection.aggregate).
+<table>
+<tr>
+<th>Parameter Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default Value</th>
+<th>Required</th>
+</tr>
+<tr>
+<td>
+Collection
+</td>
+<td>
+String
+</td>
+<td>
+The name of the MongoDB collection.
+</td>
+<td> -
+</td>
+<td>
+Yes
+</td>
+</tr>
+<tr>
+<td>
+Stages
+</td>
+<td>
+JSON Array
+</td>
+<td>
+The stages of the aggregation/aggregation pipeline. Each stage is a document with a corresponding operator name, such as $match or $group.
+</td>
+<td>
+-
+</td>
+<td>
+Yes
+</td>
+</tr>
+</table>
+
+    **Sample Configuration**
+
+    ```xml
+    <mongodb.aggregate configKey="connectionURI">
+        <collection>{json-eval($.collection)}</collection>
+        <stages>{json-eval($.stages)}</stages>
+    </mongodb.aggregate>
+    ```
+
+    **Sample Request**
+
+    ```json
+    {
+        "collection": "TestCollection",
+        "stages": {
+            {
+                "$match": {
+                    "category": "Bakery"
+                }
+            },
+            {
+                "$group": {
+                    "_id": "$star",
+                    "totalStarCount": {
+                        "$sum": {
+                            "$multiply": [
+                                "$star",
+                                "$count"
+                            ]
+                        }
+                    },
+                    "averageStar": {
+                        "$avg": "$star"
+                    }
+                }
+            }
+        }
+    }
+    ```
