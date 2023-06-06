@@ -1035,7 +1035,7 @@ allowCredentials = false
 
 
 
-## Filters used in the Router
+## Downstream TLS
 
 
 <div class="mb-config-catalog">
@@ -1047,6 +1047,86 @@ allowCredentials = false
                 <label class="tab-selector" for="_tab_10"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
+<pre><code class="toml">[router.downstream.tls]
+# the default client ca-certificates
+trustedCertPath = "/etc/ssl/certs/ca-certificates.crt"
+mTLSAPIsEnabled = false
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[router.downstream.tls]</code>
+                            
+                            <p>
+                                The configurations for SSL configuration related to the downstream in Choreo Connect.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>trustedCertPath</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>/etc/ssl/certs/ca-certificates.crt</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Path to trusted ca-certificates</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>mTLSAPIsEnabled</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable mTLS APIs in Choreo Connect.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## Filters used in the Router
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="11" type="checkbox" id="_tab_11">
+                <label class="tab-selector" for="_tab_11"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
 <pre><code class="toml">[router.filters]
   [router.filters.compression]
     enabled = true
@@ -1054,11 +1134,11 @@ allowCredentials = false
   [router.filters.compression.requestDirection]
     enabled = false
     minimumContentLength = 30
-    contentType = ["text/html","application/json"]
+    contentType = ["application/javascript", "application/json", "application/xhtml+xml", "image/svg+xml", "text/css", "text/html", "text/plain", "text/xml"]
   [router.filters.compression.responseDirection]
     enabled = true
     minimumContentLength = 30
-    contentType = ["text/html","application/json"]
+    contentType = ["application/javascript", "application/json", "application/xhtml+xml", "image/svg+xml", "text/css", "text/html", "text/plain", "text/xml"]
     enableForEtagHeader = true
   [router.filters.compression.libraryProperties]
     memoryLevel = 3
