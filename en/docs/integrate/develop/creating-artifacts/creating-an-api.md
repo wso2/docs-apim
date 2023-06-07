@@ -261,7 +261,9 @@ Follow the instructions given below to create a new [REST API]({{base_path}}/ref
                 </td>
             </tr>
         </table>
-        After entering the above values in the <b>Import API from API Manager</b> option wizard, click <b>List APIs</b>. The list of APIs that are in WSO2 API Manager appear. Thereafter, select one of the APIs from the API list.
+
+        !!! Note
+            - Since having "." (dot) in XML element names is not a best practice, you may need to manually change the generated soap payload to include the "." (dot)
     
 4.  Click **Finish**. 
     -   The REST API is created inside the `src/main/synapse-config/api` folder of your **Config** project.
