@@ -1339,7 +1339,7 @@ enableOutboundCertificateHeader = false
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Header name which client certificate coming from the downstream client</p>
+                                        <p>The header name from which the client certificate is coming is from the downstream client</p>
                                     </div>
                                 </div>
                             </div><div class="param">

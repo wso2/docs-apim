@@ -296,7 +296,7 @@
         {
           "name": "router.upstream.tls",
           "required": false,
-          "description": "The configurations for SSL configuration related to the backend connection in Choreo Connect.",
+          "description": "The configurations for SSL related to the downstream in Choreo Connect.",
           "params": [
             {
               "name": "minimumProtocolVersion",

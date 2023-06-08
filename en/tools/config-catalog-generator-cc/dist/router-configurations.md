@@ -898,7 +898,7 @@ allowCredentials = false
                             <code>[router.upstream.tls]</code>
                             
                             <p>
-                                The configurations for SSL configuration related to the backend connection in Choreo Connect.
+                                The configurations for SSL related to the downstream in Choreo Connect.
                             </p>
                         </div>
                         <div class="params-wrap">

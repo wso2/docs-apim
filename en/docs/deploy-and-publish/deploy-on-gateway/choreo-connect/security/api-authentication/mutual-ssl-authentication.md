@@ -71,7 +71,7 @@ Certificate-based authentication on the Choreo Connect is authenticating a reque
       curl -k --location -X GET 'https://localhost:9095/test/1.0/foo' -H 'accept: applicaition/json' -H 'Authorization: Bearer  0ee9aa70-d631-3401-b152-521b431036ca' --key privateKey.key --cert example.pem
      ```
 
-!!!Note
+!!! Note
     `enableClientValidation` configuration should be `true` for sending the client certificates directly to the Choroe Connect. No need to add this configuration to the `config.toml` file since this is the default configuration. If you have added this and changed this to `false`, then the client certificates should be sent within a header.
     ```
      [enforcer.security.mutualSSL]
