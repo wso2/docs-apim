@@ -64,6 +64,9 @@ and when using Ruby, REXML documents.
 !!! Info
     The Script mediator is a [content-aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
 
+!!! Important "Limitations and Alternatives to Script Mediator"
+    While the Script mediator offers enhanced extensibility in the Synapse configuration, it is important to consider its potential limitations. We highly recommend utilizing the Script mediator only when absolutely necessary. In cases where extension requirements can be fulfilled using alternatives such as the Class mediator, we advise opting for the latter due to several reasons. Notably, the use of a Script mediator in moderately complex to sophisticated mediation flows may introduce significant performance overhead compared to a Java-based Class mediator. Therefore, we suggest prioritizing Class mediators as extensions to the mediation flow over Script mediators. However, for simpler tasks, the Script mediator can still serve as a versatile option.
+
 ## Prerequisites
 
 -   If you are using **nashornJS** as the JavaScript language, and also if you have JSON operations defined in the Script mediator, you need to have JDK version `8u112` or a later version in your environment.
