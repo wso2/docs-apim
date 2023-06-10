@@ -448,6 +448,47 @@
       "exampleFile": "auth_header.toml"
     },
     {
+      "title": "Mutual SSL",
+      "options": [
+        {
+          "name": "enforcer.security.mutualSSL",
+          "required": false,
+          "description": "Configurations related to Mutual SSL",
+          "params": [
+            {
+              "name": "certificateHeader",
+              "type": "string",
+              "required": true,
+              "default": "X-WSO2-CLIENT-CERTIFICATE",
+              "description": "The header name from which the client certificate is coming is from the downstream client"
+            },
+            {
+              "name": "enableClientValidation",
+              "type": "boolean",
+              "required": true,
+              "default": "true",
+              "description": "Select between directly sending client certificate and sending client certificate within a header"
+            },
+            {
+              "name": "clientCertificateEncode",
+              "type": "boolean",
+              "required": true,
+              "default": "false",
+              "description": "Enable/Disable client certificate decode process in Choreo Connect when the certificate is passed in a header."
+            },
+            {
+              "name": "enableOutboundAuthHeader",
+              "type": "boolean",
+              "required": true,
+              "default": "false",
+              "description": "Remove client certificate header from backend request."
+            }
+          ]
+        }
+      ],
+      "exampleFile": "mutual_ssl.toml"
+    },
+    {
       "title": "Token Service",
       "options": [
         {

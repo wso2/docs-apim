@@ -296,7 +296,7 @@
         {
           "name": "router.upstream.tls",
           "required": false,
-          "description": "The configurations for SSL configuration related to the backend connection in Choreo Connect.",
+          "description": "The configurations for SSL related to the downstream in Choreo Connect.",
           "params": [
             {
               "name": "minimumProtocolVersion",
@@ -348,6 +348,34 @@
         }
       ],
       "exampleFile": "upstream_tls.toml"
+    },
+    {
+      "title": "Downstream TLS",
+      "options": [
+        {
+          "name": "router.downstream.tls",
+          "required": false,
+          "description": "The configurations for SSL configuration related to the downstream in Choreo Connect.",
+          "params": [
+            {
+              "name": "trustedCertPath",
+              "type": "string",
+              "required": true,
+              "default": "/etc/ssl/certs/ca-certificates.crt",
+              "description": "Path to trusted ca-certificates"
+            },
+            {
+              "name": "mTLSAPIsEnabled",
+              "type": "boolean",
+              "required": true,
+              "default": "false",
+              "possible": "true, false",
+              "description": "Enable mTLS APIs in Choreo Connect."
+            }
+          ]
+        }
+      ],
+      "exampleFile": "downstream_tls.toml"
     },
     {
       "title": "Filters used in the Router",
