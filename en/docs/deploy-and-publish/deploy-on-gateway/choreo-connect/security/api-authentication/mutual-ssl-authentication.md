@@ -3,7 +3,7 @@
 Certificate-based authentication on the Choreo Connect is authenticating a request based on a digital certificate, before granting access to the backend. By way of certificate-based authentication, the Choreo Connect supports mutual SSL. In mutual SSL, both parties the client and the server identifies themselves in order to create a successful SSL connection. Mutual SSL allows a client to make a request without a username and password, provided that the server is aware of the client's certificate.
 
 !!! attention "Update Level 20"
-    This feature is available only as an update, after Update level 1.0.0.20 (released on 14 June 2023) and further. For more information regarding Choreo Connect updates, see [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/update-choreo-connect/).
+    This feature is available only as an update, after Update level 1.0.0.20 (released on 10 June 2023) and further. For more information regarding Choreo Connect updates, see [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/update-choreo-connect/).
 
 ### Prerequisites
 
