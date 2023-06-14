@@ -69,8 +69,8 @@ The above example deployment.toml configuration illustrates how access to the ma
 
 ## Bypass Client Credentials by making PKCE Mandatory
 
-!!! attention "Update Level 14"
-    This feature is available only as an update. After the Update of level 1.0.0.14 (released on 31st October 2022) and further.
+!!! attention "Update Level 210"
+    This feature is available only as an update. After the Update of level 4.0.0.210 (released on 14th June 2023) and further.
 
 You can bypass the `Client Secret` in the Devportal and the Publisher web portals in WSO2 API Manager.  Follow the steps below:
 
