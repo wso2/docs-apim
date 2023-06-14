@@ -35,36 +35,36 @@
         "notes": "3.0.0/getting-started/about-this-release"
     },
     "2.6.0": {
-        "doc": "https://docs.wso2.com/display/AM260/",
-        "notes": "https://docs.wso2.com/display/AM260/About+this+Release"
+        "doc": "https://wso2docs.atlassian.net/wiki/spaces/AM260/overview",
+        "notes": "https://wso2docs.atlassian.net/wiki/spaces/AM260/pages/30902402/About+this+Release"
     },
     "2.5.0": {
-        "doc": "https://docs.wso2.com/display/AM250/",
-        "notes": "https://docs.wso2.com/display/AM250/About+this+Release"
+        "doc": "https://wso2docs.atlassian.net/wiki/spaces/AM250/overview",
+        "notes": "https://wso2docs.atlassian.net/wiki/spaces/AM250/pages/28345969/About+this+Release"
     },
     "2.2.0": {
-        "doc": "https://docs.wso2.com/display/AM220/",
-        "notes": "https://docs.wso2.com/display/AM220/About+this+Release"
+        "doc": "https://wso2docs.atlassian.net/wiki/spaces/AM220/overview",
+        "notes": "https://wso2docs.atlassian.net/wiki/spaces/AM220/pages/37652086/About+this+Release"
     },
     "2.1.0": {
-        "doc": "https://docs.wso2.com/display/AM210/",
-        "notes": "https://docs.wso2.com/display/AM210/About+this+Release"
+        "doc": "https://wso2docs.atlassian.net/wiki/spaces/AM210/overview",
+        "notes": "https://wso2docs.atlassian.net/wiki/spaces/AM210/pages/32735278/About+this+Release"
     },
     "2.0.0": {
-        "doc": "https://docs.wso2.com/display/AM200/",
-        "notes": "https://docs.wso2.com/display/AM200/About+this+Release"
+        "doc": "https://wso2docs.atlassian.net/wiki/spaces/AM200/overview",
+        "notes": "https://wso2docs.atlassian.net/wiki/spaces/AM200/pages/39518234/About+this+Release"
     },
     "1.10.0": {
-        "doc": "https://docs.wso2.com/display/AM110/",
-        "notes": "https://docs.wso2.com/display/AM110/About+API+Manager"
+        "doc": "https://wso2docs.atlassian.net/wiki/spaces/AM1100/overview",
+        "notes": "https://wso2docs.atlassian.net/wiki/spaces/AM1100/pages/51151021/About+this+Release"
     },
     "1.9.1": {
-    "doc": "https://docs.wso2.com/display/AM191/",
-    "notes": "https://docs.wso2.com/display/AM191/About+this+Release"
+        "doc": "https://wso2docs.atlassian.net/wiki/spaces/AM191/overview",
+        "notes": "https://wso2docs.atlassian.net/wiki/spaces/AM191/pages/15007762/About+this+Release"
     },
     "1.9.0": {
-        "doc": "https://docs.wso2.com/display/AM190/",
-        "notes": "https://docs.wso2.com/display/AM190/About+this+Release"
+        "doc": "https://wso2docs.atlassian.net/wiki/spaces/AM190/overview",
+        "notes": "https://wso2docs.atlassian.net/wiki/spaces/AM190/pages/8159257/About+this+Release"
     }
   }
 }
