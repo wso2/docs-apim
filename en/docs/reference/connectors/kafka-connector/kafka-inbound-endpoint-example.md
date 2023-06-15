@@ -142,6 +142,12 @@ You can setup WSO2 Micro Integrator inbound endpoint with Kafka Avro messaging f
    </parameters>
 </inboundEndpoint>
 ```
+
+Add following configs when the Confluent Schema Registry is secured with basic auth,
+```
+<parameter name="basic.auth.credentials.source">source_of_basic_auth_credentials</parameter>
+<parameter name="basic.auth.user.info">username:password</parameter>
+```
 Make sure to start Kafka Schema Registry before starting up the Micro Integrator.
 
 ## What's next
