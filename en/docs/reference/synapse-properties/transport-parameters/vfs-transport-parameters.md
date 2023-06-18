@@ -313,6 +313,12 @@ See [Creating a Proxy Service]({{base_path}}/integrate/develop/creating-artifact
             Set to <code>true</code> if you need to build the content inside the file before injecting the file to the mediation engine. If there is a build error, the file will not be injected to the mediation engine. By default, this setting is <code>false</code>.
          </td>
       </tr>
+      <tr>
+         <td>transport.vfs.UpdateLastModified</td>
+         <td>
+            When this parameter is set to <code>true</code>, the newly created file will have the same last-modified timestamp as the original file. The default setting is <code>true</code>.
+         </td>
+      </tr>
    </tbody>
 </table>
 
@@ -434,6 +440,12 @@ When you use the [transport.vfs.FileURI](#vfs-transport-file_url) parameter, you
          <td>transport.vfs.StrictHostKeyChecking</td>
          <td>
             Whether the Host key should be checked. When this parameter is set to <code>yes</code>, VFS transport will always verify the public key (fingerprint) of the SSH/SFTP server. The default setting is <code>no</code>. <b>Note</b>: This option is available from U2 level 4.1.0.36 onwards.
+         </td>
+      </tr>
+      <tr>
+         <td>transport.vfs.UpdateLastModified</td>
+         <td>
+            When this parameter is set to <code>true</code>, the newly created file will have the same last-modified timestamp as the original file. The default setting is <code>true</code>.
          </td>
       </tr>
    </tbody>
