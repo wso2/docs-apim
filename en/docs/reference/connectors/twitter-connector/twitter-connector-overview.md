@@ -7,7 +7,7 @@ The Twitter Connector allows you to work with Twitter, a social networking site 
 
 To see the Twitter Connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "twitter".
 
-<img src="{{base_path}}/assets/img/integrate/connectors/twitter-connector-store.png" title="Twitter Connector Store" width="200" alt="Twitter Connector Store"/>
+<center><img src="{{base_path}}/assets/img/integrate/connectors/twitter-connector-store.png" title="Twitter Connector Store" width="200" alt="Twitter Connector Store"/></center>
 
 ## Compatibility
 
