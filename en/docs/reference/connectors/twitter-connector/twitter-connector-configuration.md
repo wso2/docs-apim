@@ -1,12 +1,12 @@
 # Setting up the Twitter Connector in Integration Runtime
 
-Before you start configuring the Twitter connector, you also need to configure the integration runtime. 
+Before you start configuring the Twitter connector, you need to configure the integration runtime. 
 
 ## Adding message builders
 
-Please consider the root of the Micro Integrator/ Enterprise Integrator as `<PRODUCT_HOME>`.
+Consider the root of the Micro Integrator/ Enterprise Integrator as `<PRODUCT_HOME>`.
 
-If you are using the **Micro Integrator 4.2.0**, you need to add the following message builder to **`<PRODUCT_HOME>`/conf/deployment.toml** file. You can further refer to the [Working with Message Builders and Formatters](https://ei.docs.wso2.com/en/latest/micro-integrator/setup/message_builders_formatters/message-builders-and-formatters/) and [Product Configurations]({{base_path}}/reference/config-catalog-mi/) documentation.
+If you are using the **Micro Integrator 4.2.0**, you need to add the following message builder to **`<PRODUCT_HOME>`/conf/deployment.toml** file. For more information, refer the [Working with Message Builders and Formatters](https://ei.docs.wso2.com/en/latest/micro-integrator/setup/message_builders_formatters/message-builders-and-formatters/) and [Product Configurations]({{base_path}}/reference/config-catalog-mi/) documentation.
 
 ```toml
 [[custom_message_builders]]
