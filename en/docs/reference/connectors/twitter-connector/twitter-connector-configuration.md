@@ -14,7 +14,7 @@ class="org.wso2.micro.integrator.core.json.JsonStreamBuilder"
 content_type = "application/problem+json"
 ```
 
-If you are using **EI 6**, you can enable this property by doing the following Axis2 configurations in the **`<PRODUCT_HOME>`/repository/conf/axis2/axis2.xml** and **`<PRODUCT_HOME>`/repository/conf/axis2/axis2_blocking_client.xml** files.
+If you are using **EI 6.x** version, you can enable this property by doing the following Axis2 configurations in the **`<PRODUCT_HOME>`/repository/conf/axis2/axis2.xml** and **`<PRODUCT_HOME>`/repository/conf/axis2/axis2_blocking_client.xml** files.
 
 **messageBuilders**
 
