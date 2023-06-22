@@ -31,5 +31,4 @@ For the Twitter connector 3.0.x version, **OAuth 2.0 Authorization Code Flow wit
     The Twitter access token is valid for 2 hours. The refresh token is valid until a new access token is created from the refresh token.
 
 !!! warning
-    The OAuth 1.0 authentication mechanism also provides an access token that is not the correct access token for the Twitter connector. A correct access token looks like this:
-    `YTJxTmFUdUM4ZnlpZlYtWnNqN3JFR3VRMmhSaFFZOGZQa3I1eFVpcmQ3RjhjOjE2ODYzMDIzNTAxMTA6MTowOmF0OjE`
+    By default the Twitter App provides an access token for OAuth 1.0a flow which is not used in the Twitter connector. You need to create a new access token for OAuth 2.0 flow. 
