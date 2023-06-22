@@ -32,3 +32,4 @@ For the Twitter connector 3.0.x version, **OAuth 2.0 Authorization Code Flow wit
 
 !!! warning
     By default the Twitter App provides an access token for OAuth 1.0a flow which is not used in the Twitter connector. You need to create a new access token for OAuth 2.0 flow. 
+    
