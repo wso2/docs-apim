@@ -1133,6 +1133,12 @@ nav:
                 - SMPP Reference: reference/connectors/smpp-connector/smpp-connector-config.md
                 - SMPP Inbound Endpoint Example: reference/connectors/smpp-connector/smpp-inbound-endpoint-example.md
                 - SMPP Inbound Endpoint Reference: reference/connectors/smpp-connector/smpp-inbound-endpoint-config.md
+            - Twitter Connector:
+                - Twitter Overview: reference/connectors/twitter-connector/twitter-connector-overview.md
+                - Generate Credentials: reference/connectors/twitter-connector/twitter-connector-credentials.md
+                - Set up Integration Runtime: reference/connectors/twitter-connector/twitter-connector-configuration.md
+                - Twitter Example: reference/connectors/twitter-connector/twitter-connector-example.md
+                - Twitter Reference: reference/connectors/twitter-connector/twitter-connector-reference.md
             - Utility Module:
                 - Utility Module Overview: reference/connectors/utility-module/utility-module-overview.md
                 - Utility Module Reference: reference/connectors/utility-module/utility-module-config.md
