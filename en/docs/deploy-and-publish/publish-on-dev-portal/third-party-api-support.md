@@ -13,8 +13,7 @@ A regular API can be converted to a third-party API from the **Basic Info** sect
 
     !!! note
         An API cannot be converted to a third-party API when there are active deployments.
-
-    [![Convert to third-party API]({{base_path}}/assets/img/develop/convert-to-third-party.png)]({{base_path}}/assets/img/develop/convert-to-third-party.png)
+        [![Convert to third-party API]({{base_path}}/assets/img/develop/convert-to-third-party.png)]({{base_path}}/assets/img/develop/convert-to-third-party.png)
 
 #### Method 2 - Streaming APIs
 
@@ -22,8 +21,7 @@ In addition to the streaming APIs supported in API Manager (WebSocket, SSE, and 
 
     !!! note
         The APIs created using the ‘Other’ option cannot be converted to a regular API. It can be only used as a third-party API.
-
-    [![Create AsyncAPIs using the Other option]({{base_path}}/assets/img/develop/async-api.png)]({{base_path}}/assets/img/develop/async-api.png)
+        [![Create AsyncAPIs using the Other option]({{base_path}}/assets/img/develop/async-api.png)]({{base_path}}/assets/img/develop/async-api.png)
 
 
 Listed below are the fields available when adding third-party API details to the API Manager.
