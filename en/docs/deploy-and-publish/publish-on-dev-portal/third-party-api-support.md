@@ -11,16 +11,17 @@ In previous versions of API Manager, third-party APIs were available when import
 
 A regular API can be converted to a third-party API from the **Basic Info** section in the API Publisher portal.
 
-    !!! note
-        An API cannot be converted to a third-party API when there are active deployments.
+!!! note
+    An API cannot be converted to a third-party API when there are active deployments.
         [![Convert to third-party API]({{base_path}}/assets/img/develop/convert-to-third-party.png)]({{base_path}}/assets/img/develop/convert-to-third-party.png)
+
 
 #### Method 2 - Streaming APIs
 
 In addition to the streaming APIs supported in API Manager (WebSocket, SSE, and WebSub) the **Other** option provided when importing API definitions can be used to import a third-party API.
 
-    !!! note
-        The APIs created using the ‘Other’ option cannot be converted to a regular API. It can be only used as a third-party API.
+!!! note
+    The APIs created using the ‘Other’ option cannot be converted to a regular API. It can be only used as a third-party API.
         [![Create AsyncAPIs using the Other option]({{base_path}}/assets/img/develop/async-api.png)]({{base_path}}/assets/img/develop/async-api.png)
 
 
