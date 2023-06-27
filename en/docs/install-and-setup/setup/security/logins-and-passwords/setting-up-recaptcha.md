@@ -21,14 +21,14 @@ Follow the steps provided below to configure this.
 
 ### Configuring reCaptcha API keys
 
-1. Go to <https://www.google.com/recaptcha/admin>.
+1. Go to <https://www.google.com/recaptcha/admin> and switch to create a classic key.
 
 2. You will see the window shown below. Fill in the fields to register
    your API Manager domain and click **Register**. The following
     are sample values:
     -   **Label:** WSO2 API Manager
-    -   Select the reCAPTCHA V2 or Invisible reCAPTCHA option.
-    -   **Domains:** is.apim.com  
+    -   **reCAPTCHA type:** reCAPTCHA V2 and Invisible reCAPTCHA badge
+    -   **Domains:** is.apim.com (Note: add "localhost" to list of domains when testing locally) 
 
     ![configuring-recaptcha-api-keys]({{base_path}}/assets/img/learn/api-security/recaptcha/configuring-recaptcha-api-keys.png) 
    
