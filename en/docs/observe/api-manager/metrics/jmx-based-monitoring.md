@@ -156,27 +156,6 @@ The **ServerAdmin** MBean has the following operations:
 
 [![Operations]({{base_path}}/assets/img/administer/operations.png)]({{base_path}}/assets/img/administer/operations.png)
 
-### Using the ServiceAdmin MBean
-
-This MBean is used for administering services deployed in your product. Its attributes are as follows:
-
-| Attribute                    | Description                                                          |
-|------------------------------|----------------------------------------------------------------------|
-| **NumberOfActiveServices**   | The number of services that can currently serve requests.           |
-| **NumberOfInactiveServices** | The number of services that have been disabled by an administrator. |
-| **NumberOfFaultyServices**   | The number of services that are faulty.                             |
-
-[![Number of active services]({{base_path}}/assets/img/administer/number-of-active-services.png)]({{base_path}}/assets/img/administer/number-of-active-services.png)
-
-The operations available in the ServiceAdmin MBean:
-
-| Operation                                          | Description                                                                                      |
-|----------------------------------------------------|--------------------------------------------------------------------------------------------------|
-| **startService** (p1:string) | The p1 parameter is the service name. You can activate a service using this operation.           |
-| **stopService** (p1:string)  | The p1 parameter is the service name. You can deactivate/disable a service using this operation. |
-
-![Operation invocation]({{base_path}}/assets/img/administer/operation-invocation.png)]({{base_path}}/assets/img/administer/operation-invocation.png)
-
 ### Using the StatisticsAdmin MBean
 
 This MBean is used for monitoring system and server statistics. Its attributes are as follows:
