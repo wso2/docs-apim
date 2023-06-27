@@ -18,7 +18,7 @@ The Salesforce connector allows you to work with records in Salesforce. You can 
 
 The **Salesforce REST Connector** uses the [Salesforce REST API](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_what_is_rest_api.htm) to interact with Salesforce. This connector is more useful when sending JSON requests. The Salesforce REST Connector allows you to work with records in Salesforce, a web-based service that allows organizations to manage Customer Relationship Management (CRM) data. You can use the Salesforce connector to create, query, retrieve, update, and delete records in your organization's Salesforce data.
 
-* **[Salesforce Access Token Generation]({{base_path}}/reference/connectors/salesforce-connectors/sf-access-token-generation/)**: This section includes how to obtain the OAuth2 tokens from Salesforce REST API.
+* **[Salesforce Access Token Generation]({{base_path}}/includes/reference/connectors/salesforce-connectors/sf-access-token-generation/)**: This section includes how to obtain the OAuth2 tokens from Salesforce REST API.
 
 * **[Salesforce Rest API Connector Example]({{base_path}}/reference/connectors/salesforce-connectors/sf-rest-connector-example/)**: This example explains how to use the Salesforce client to connect with the Salesforce instance and perform the **create** and **retrieve** operations.
 
