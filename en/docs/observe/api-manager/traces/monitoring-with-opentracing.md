@@ -112,7 +112,7 @@ For more information, see [OpenTracer Configurations]({{base_path}}/reference/co
 
 ## Using the Custom Tracer Implementation
 
-You can use any tracing server with a custom tracer implementation in WSO2 API Manager to publish your tracing data. As an example, let's use the Elastic APM (Application Performance Monitoring), which is a tracing server, and let's implement a custom tracer in WSO2 API Manager for it using the instructions given below:
+You can use any tracing server with a custom tracer implementation in WSO2 API Manager to publish your tracing data. A custom tracer in WSO2 API Manager can be implemented by following the instructions given below:
 
 1. Implement the `org.wso2.carbon.apimgt.tracing.OpenTracer` interface and add your implementation. The getTracer method should contain the generation of the `Tracer` instance. Also, the getName method should return the tracer name to be configured in the `deployment.toml` file. This tracer needs to be loaded as an osgi service using a module activator.
 
