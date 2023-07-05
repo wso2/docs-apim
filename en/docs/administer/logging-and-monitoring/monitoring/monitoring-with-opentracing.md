@@ -124,9 +124,9 @@ For more information, see [Open Tracer Configurations]({{base_path}}/reference/c
 
 ## Use Custom Tracer Implementation
 
-In order to demonstrate this functionality, let's take a scenario with the implementation of Elastic APM (Application Performance Monitoring).
+In order to demonstrate this functionality, let's take the following scenario.
 
-1. Implement the `org.wso2.carbon.apimgt.tracing.OpenTracer` interface and add your implementation. The getTracer method should contain the generation of the `Tracer` instance. Also, the getName method should return the tracer name to be configured in the `deployment.toml` file. In this specific scenario we are naming this tracer `elastic`. This tracer needs to be loaded as an osgi service using a module activator. The sample project for the elastic APM tracer can be downloaded from [here]({{base_path}}/assets/attachments/administer/custom.tracing.client.zip).
+1. Implement the `org.wso2.carbon.apimgt.tracing.OpenTracer` interface and add your implementation. The getTracer method should contain the generation of the `Tracer` instance. Also, the getName method should return the tracer name to be configured in the `deployment.toml` file. This tracer needs to be loaded as an osgi service using a module activator.
 
 2. Build the maven project and add the jar file to the dropins directory. (API-M_HOME/repository/components/dropins)
 
@@ -144,13 +144,8 @@ In order to demonstrate this functionality, let's take a scenario with the imple
     remote_tracer.name = "elastic"
     ```
 
-4. Add the elastic opentracer jar file to the lib directory (API-M_HOME/repository/components/lib). It can be downloaded from [here](https://mvnrepository.com/artifact/co.elastic.apm/apm-opentracing). 
-
-    !!! tip
-        Elastic opentracing also requires the addition of a java agent. This can be added by altering the startup script. Make sure to check the documentation for the tracer you are using so that such requirements can be satisfied. 
+4. Add the dependencies (jar files) required by your specific tracer into the `lib` directory (API-M_HOME/repository/components/lib). 
 
 5. Start the server.
 
-     After you invoke the APIs tracing data will be published to elastic APM
-
-    [![Distributed tracing elastic]({{base_path}}/assets/img/administer/elastic-tracer.png)]({{base_path}}/assets/img/administer/elastic-tracer.png)
+     After you invoke the APIs tracing data will be published to the configured tracing server.
