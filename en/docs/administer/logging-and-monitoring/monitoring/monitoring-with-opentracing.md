@@ -144,7 +144,7 @@ In order to demonstrate this functionality, let's take the following scenario.
     remote_tracer.name = "elastic"
     ```
 
-4. Add the dependencies (jar files) required by your specific tracer into the `lib` directory (API-M_HOME/repository/components/lib). It can be downloaded from [here](https://mvnrepository.com/artifact/co.elastic.apm/apm-opentracing). 
+4. Add the dependencies (jar files) required by your specific tracer into the `lib` directory (API-M_HOME/repository/components/lib). 
 
 5. Start the server.
 
