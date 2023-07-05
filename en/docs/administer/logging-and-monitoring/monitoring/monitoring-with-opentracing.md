@@ -149,5 +149,3 @@ In order to demonstrate this functionality, let's take the following scenario.
 5. Start the server.
 
      After you invoke the APIs tracing data will be published to the configured tracing server.
-
-    [![Distributed tracing elastic]({{base_path}}/assets/img/administer/elastic-tracer.png)]({{base_path}}/assets/img/administer/elastic-tracer.png)
