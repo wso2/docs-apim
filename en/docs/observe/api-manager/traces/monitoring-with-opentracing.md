@@ -132,7 +132,7 @@ You can use any tracing server with a custom tracer implementation in WSO2 API M
     remote_tracer.name = "elastic"
     ```
 
-4. Add the dependencies (jar files) required by your specific tracer in to the `lib` directory (`<API-M_HOME>/repository/components/lib`). You can download it from [here](https://mvnrepository.com/artifact/co.elastic.apm/apm-opentracing). 
+4. Add the dependencies (jar files) required by your specific tracer in to the `lib` directory (`<API-M_HOME>/repository/components/lib`). 
 
 5. Start the server.
 
