@@ -2126,6 +2126,7 @@ plugins:
               'observe/mi-observe/using-the-analytics-dashboard.md': 'https://apim.docs.wso2.com/en/4.2.0/mi-analytics/using-the-analytics-dashboard/'
               'install-and-setup/setup/mi-setup/observability/setting-up-classic-observability-deployment.md': 'https://apim.docs.wso2.com/en/4.2.0/mi-analytics/setting-up-mi-analytics/'
               'get-started/architecture.md': 'https://apim.docs.wso2.com/en/4.2.0/get-started/apim-architecture/'
+              'api-analytics/getting-started-guide.md': 'https://apim.docs.wso2.com/en/4.2.0/api-analytics/choreo-analytics/getting-started-guide/'
               'api-analytics/architecture.md': 'https://apim.docs.wso2.com/en/4.2.0/api-analytics/api-analytics-architecture/'
               'api-analytics/viewing/analytics-pages-alerts.md': 'https://apim.docs.wso2.com/en/4.2.0/api-analytics/viewing/view-api-analytics-on-alerts/'
               'api-analytics/viewing/analytics-pages-introduction.md': 'https://apim.docs.wso2.com/en/4.2.0/api-analytics/viewing/introduction-to-api-analytics-dashboard/'
