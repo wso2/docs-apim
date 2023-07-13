@@ -246,6 +246,14 @@ been removed from Hotspot JVM.</p>
 <p>For more information regarding admin user accounts, see <a href="{{base_path}}/reference/config-catalog/#super-admin-configurations">Super admin configurations</a>.</p>
 </td>
 </tr>
+</tr>
+<tr class="odd">
+<td><p>Configure client authentication</p>
+<p><br />
+</p></td>
+<td><p>Client authentication is used to identify the application or client making a request to the WSO2 Identity Server REST APIs. By default, web applications provided with WSO2 Identity Server use a set of default credentials for authentication. However, it is recommended to change these default credentials to enhance security. For more details see, <a href="{{base_path}}/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/#configure-client-authentication">Configure client authentication</a></p>
+</td>
+</tr>
 </tbody>
 </table>
 
@@ -379,3 +387,50 @@ This section provides a list of security guidelines for configuring the network
 </tr>
 </tbody>
 </table>
+
+
+## Configure client authentication
+
+Client authentication is used to identify the application or the client that is making the request. 
+The web applications provided out of the box use a set of default credentials to authenticate with WSO2 Identity Server REST APIs that are marked as **secure** under the `ResourceAccessControl` tag of the `<IS_HOME>/repository/conf/identity/identity.xml` file. 
+
+Follow the steps below to change the default credentials.
+
+1.  Shut the server down in case you have already started it. 
+
+2.  Add the following configuration changes to the `<IS_HOME>/repository/conf/deployment.toml` file.
+    
+    -   Add the `app_password` property and enter a preferred password as the value.
+      
+        ``` toml
+        [identity.auth_framework.endpoint] 
+        app_password="<value of preferred password>"
+        ```  
+        
+    -   Add the `hash` property and enter the SHA-256 hash value of the `app_password` as the property value.
+
+        ``` toml
+        [account_recovery.endpoint.auth]
+        hash="<SHA-256 hash of the newly added app_password property value>"
+        ``` 
+        
+    - If the `authenticationendpoint` web app is hosted externally, follow the instructions given below.
+
+        a.  Open the `EndpointConfig.properties` file found in the root of the `authenticationendpoint` folder. 
+
+        b.   Change the `app.password` property value to the value added as `app_password` in the `deployment.toml` file. 
+
+        c.   Do the same changes to the `EndpointConfig.properties` file located in the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/WEB-INF/classes` directory.
+
+    - If the `accountrecoveryendpoint` web app is hosted externally, follow the instructions given below. 
+
+        a.   Open the `RecoveryEndpointConfig.properties` file found in the root of the `accountrecoveryendpoint` folder. 
+
+        b.   Change the `app.password` property value to the value added as `app_password` in the `deployment.toml` file. 
+
+        c.   Do the same changes to the `RecoveryEndpointConfig.properties` file located in the `<IS_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint/WEB-INF/classes` directory.
+    
+3.  Once these changes are configured, restart the server.
+    
+    - Linux/Unix : sh wso2server.sh
+    - Windows : wso2server.bat
