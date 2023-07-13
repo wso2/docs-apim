@@ -255,7 +255,7 @@ been removed from Hotspot JVM.</p>
 <td><p>Configure client authentication</p>
 <p><br />
 </p></td>
-<td><p>Client authentication is used to identify the application or client making a request to the WSO2 Identity Server REST APIs. By default, web applications provided with WSO2 Identity Server use a set of default credentials for authentication. However, it is recommended to change these default credentials to enhance security. For more details see, <a href="{{base_path}}/install-and-setup/deploying-wso2-api-manager/security-guidelines-for-production-deployment/#configure-client-authentication">Configure client authentication</a></p>
+<td><p>Client authentication is used to identify the application or client making a request to the WSO2 API Manager REST APIs. By default, web applications provided with WSO2 API Manager use a set of default credentials for authentication. However, it is recommended to change these default credentials to enhance security. For more details see, <a href="{{base_path}}/install-and-setup/deploying-wso2-api-manager/security-guidelines-for-production-deployment/#configure-client-authentication">Configure client authentication</a></p>
 </td>
 </tr>
 </tbody>
@@ -314,7 +314,7 @@ This section provides the list of OS-level security guidelines for your producti
 <td>Session Data Cleanup</td>
 <td>
 <div style="background-color:#ffffff; padding: 10px;">
-<p><strong>Note     :</strong> This security guideline is specific only to WSO2 Identity Server.</p>
+<p><strong>Note     :</strong> This security guideline is specific only to WSO2 API Manager.</p>
 
 <p>In a production environment, there is a possibility for a deadlock/database lock to occur when running a session 
 data cleanup task in high load scenarios. To mitigate this, configure the following property to clean data in chunks.
@@ -323,7 +323,7 @@ data cleanup task in high load scenarios. To mitigate this, configure the follow
 <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>[session_data]
 cleanup.clean_expired_session_data_in_chunks_of = 8192</code></pre>
 <p>For more information on configuring sessions in production, see <a href="https://is.docs.wso2.com/en/5.10
-.0/learn/authentication-session-persistence/">Authentication Session Persistence</a> in the WSO2 Identity Server 
+.0/learn/authentication-session-persistence/">Authentication Session Persistence</a> in the WSO2 API Manager 
 documentation.</p></div></td>
 </tr>
 <tr class="odd">
@@ -398,13 +398,13 @@ monitoring options for WSO2 API Manager.
 ## Configure client authentication
 
 Client authentication is used to identify the application or the client that is making the request. 
-The web applications provided out of the box use a set of default credentials to authenticate with WSO2 Identity Server REST APIs that are marked as **secure** under the `ResourceAccessControl` tag of the `<IS_HOME>/repository/conf/identity/identity.xml` file. 
+The web applications provided out of the box use a set of default credentials to authenticate with WSO2 API Manager REST APIs that are marked as **secure** under the `ResourceAccessControl` tag of the `<APIM_HOME>/repository/conf/identity/identity.xml` file. 
 
 Follow the steps below to change the default credentials.
 
 1.  Shut the server down in case you have already started it. 
 
-2.  Add the following configuration changes to the `<IS_HOME>/repository/conf/deployment.toml` file.
+2.  Add the following configuration changes to the `<APIM_HOME>/repository/conf/deployment.toml` file.
     
     -   Add the `app_password` property and enter a preferred password as the value.
       
@@ -426,7 +426,7 @@ Follow the steps below to change the default credentials.
 
         b.   Change the `app.password` property value to the value added as `app_password` in the `deployment.toml` file. 
 
-        c.   Do the same changes to the `EndpointConfig.properties` file located in the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/WEB-INF/classes` directory.
+        c.   Do the same changes to the `EndpointConfig.properties` file located in the `<APIM_HOME>/repository/deployment/server/webapps/authenticationendpoint/WEB-INF/classes` directory.
 
     - If the `accountrecoveryendpoint` web app is hosted externally, follow the instructions given below. 
 
@@ -434,7 +434,7 @@ Follow the steps below to change the default credentials.
 
         b.   Change the `app.password` property value to the value added as `app_password` in the `deployment.toml` file. 
 
-        c.   Do the same changes to the `RecoveryEndpointConfig.properties` file located in the `<IS_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint/WEB-INF/classes` directory.
+        c.   Do the same changes to the `RecoveryEndpointConfig.properties` file located in the `<APIM_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint/WEB-INF/classes` directory.
     
 3.  Once these changes are configured, restart the server.
     
