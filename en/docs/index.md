@@ -1,21 +1,57 @@
 ---
 template: templates/single-column.html
 ---
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<div>
-   <div class="md-main md-content leftContent">
-    <p> From creating and publishing an API, to securing, rate limiting & viewing analytics of APIs, the WSO2 API Manager addresses all aspects of API Management. 
-        
+<style>
+    @font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://wso2.cachefly.net/wso2/sites/all/fonts/docs/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2) format('woff2');
+    }
 
-The WSO2 API Manager is a high performant, <b>100% open source </b> API Management solution designed to help you manage APIs. It is licensed under the Apache Software License Version 2.0 which makes it <b> free to use. </b>
+    .material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    }
+</style>
 
-Get a head start with our 5-minute quick start or dive straight into our learning material to discover the full potential of the product.
-</p> 
-   </div>
-   <div class="md-main md-content rightImage">
-   [ ![](assets/attachments/wso2-apim-overview.png) ](assets/attachments/wso2-apim-overview.png)
-</a>
-   </div>
+<div class="homePage">
+    <div class="section01">
+        <div class="leftContent">
+            <h2>Learn to build and manage your APIs with ease  </h2>
+            <p>
+                WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premise, and hybrid architectures to drive your digital transformation strategy. 
+            </p>
+            <p>
+                It allows API developers to design, publish, and manage the lifecycle of APIs and API product 
+                managers to create API products from one or more APIs.
+            </p>
+            </br>
+            <h2>Download</h2>
+            <a href="https://wso2.com/api-manager/#">
+                <img src="{{base_path}}/assets/img/get_started/download-apim.png" title="Download WSO2 API Manager" width="35%" alt="Download WSO2 API Manager"/>
+            </a>
+        </div>
+        <div class="md-main .md-content " style="float:right; width: 55%; align:right;  flex-shrink: 0;min-width: 40%; max-height: 100%; max-width:50%; margin-left:10px; margin-top:20px">
+        <iframe width="800" height="300" src="https://www.youtube.com/embed/nr1cFyxVdDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="md-main md-content rightImage">
+        <a href='{{base_path}}/assets/attachments/wso2-apim-overview.png'>
+            <img src='{{base_path}}/assets/attachments/wso2-apim-overview.png' alt="WSO2 API Manager Overview" />
+        </a>
+    </div>
 </div>
 <div>
    <div class="content"> 
