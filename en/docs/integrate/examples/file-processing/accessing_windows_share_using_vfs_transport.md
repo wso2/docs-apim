@@ -95,6 +95,9 @@ When the sample is executed, the VFS transport listener picks the file from the 
 
 ## Using SMB2 for VFS transport
 
+!!! important "SMB3 Support in VFS Transport"
+    Starting from version API-M 4.1.0, the VFS (Virtual File System) transport in MI now supports both SMB2 and SMB3 protocols for Windows share URI configurations. This enhancement allows for improved performance, security, and compatibility with modern SMB implementations.
+
 Windows share URI format for SMB v2/3 use cases is shown below.
 
 ```
