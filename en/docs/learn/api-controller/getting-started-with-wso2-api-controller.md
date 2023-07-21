@@ -6,11 +6,11 @@ WSO2 API Controller(CTL) is a command-line tool for managing API Manager environ
 
 1.  Download **API Controller** based on your preferred platform (i.e., Mac, Windows, Linux).
 
-    - [For MacOS]({{base_path}}/assets/attachments/learn/api-controller/apictl-3.2.6-macosx-x64.tar.gz)
-    - [For Linux 32-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-3.2.6-linux-i586.tar.gz)
-    - [For Linux 64-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-3.2.6-linux-x64.tar.gz)
-    - [For Windows 32-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-3.2.6-windows-i586.zip)
-    - [For Windows 64-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-3.2.6-windows-x64.zip)
+    - [For MacOS](https://github.com/wso2/product-apim-tooling/releases/download/v3.2.7/apictl-3.2.7-macosx-x64.tar.gz)
+    - [For Linux 32-bit](https://github.com/wso2/product-apim-tooling/releases/download/v3.2.7/apictl-3.2.7-linux-i586.tar.gz)
+    - [For Linux 64-bit](https://github.com/wso2/product-apim-tooling/releases/download/v3.2.7/apictl-3.2.7-linux-x64.tar.gz)
+    - [For Windows 32-bit](https://github.com/wso2/product-apim-tooling/releases/download/v3.2.7/apictl-3.2.7-windows-i586.zip)
+    - [For Windows 64-bit](https://github.com/wso2/product-apim-tooling/releases/download/v3.2.7/apictl-3.2.7-windows-x64.zip)
 
 2.  Extract the downloaded archive of the CTL Tool to the desired location.
 3.  Navigate to the working directory where the executable CTL Tool resides.
