@@ -263,6 +263,8 @@ Follow the instructions given below to create a new [REST API]({{base_path}}/ref
         </table>
 
         !!! Note
+            - Current SOAP to REST Generation has the limitations mentioned at https://github.com/wso2/soap-to-rest/blob/main/limitations.md
+            - All the generated REST Services are not production ready and users need to review them manually using Integration Studio IDE and edit them if needed
             - Since having "." (dot) in XML element names is not a best practice, you may need to manually change the generated soap payload to include the "." (dot)
     
 4.  Click **Finish**. 
