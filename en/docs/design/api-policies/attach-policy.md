@@ -30,7 +30,7 @@ Follow the instructions below to attach one or more default policies that are sh
 4. Pick out the desired operation and flow to which you want to attach policies. Once that is decided, you can expand that API operation. At this point you will notice that by default the UI will open up the first API operation on initial page visit (for PizzaShack API, `/order POST` is expanded by default).
 
     !!!note
-        You can utilize the **API Level Policy Support** feature from update level x onwards for WSO2 API Manager 4.2.0. If the feature is enabled, both API level policies and Operation level policies can be attached to any given API, where API level policies are given precedence over Operation level policies. If you wish to enable this support, you have to complete the below mentioned steps and restart the server.
+        You can utilize the **API Level Policy Support** feature from update level 90 onwards for WSO2 API Manager 4.1.0. If the feature is enabled, both API level policies and Operation level policies can be attached to any given API, where API level policies are given precedence over Operation level policies. If you wish to enable this support, you have to complete the below mentioned steps and restart the server.
 
         1. Open the `<API-M_HOME>/repository/conf/deployment.toml` file and add the following configuration:
 
