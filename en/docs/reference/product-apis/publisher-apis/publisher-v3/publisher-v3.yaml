@@ -8793,7 +8793,8 @@ components:
             API categories
           items:
             type: string
-            example: ""
+            example: "department-1"
+          readOnly: true
           x-otherScopes:
             - apim:api_publish
         keyManagers:
