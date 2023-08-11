@@ -9,6 +9,9 @@ When an API is invoked specifying an API key as the authentication method, the A
 - Signature validation
 - Subscription validation
 
+!!! info
+     API keys, generated within the WSO2 API Manager developer portal without direct key manager communication, cannot be directly forwarded to the backend through the API Gateway for API requests. To grant backends access to user, application specific attributes during API calls, enable backend JWT generation. For detailed instructions on how to enable and utilize backend JWT generation for passing end-user attributes to the backend via the API Gateway, refer to [Passing End-User Attributes to the Backend via API Gateway]({{basepath}}/learn/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt/).
+
 ## Prerequisites for API keys
 
 - The API key should be a valid JWT signed using the primary KeyStore private key of the Developer Portal. 
