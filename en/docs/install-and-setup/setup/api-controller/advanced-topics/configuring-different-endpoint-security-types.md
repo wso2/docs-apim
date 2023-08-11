@@ -76,3 +76,26 @@ The following is an example parameters file of an API for this scenario.
 It is mandatory to specify the fields `type`, `tokenUrl`, `clientId`, `clientSecret` and `grantType` for the OAuth 2.0 endpoint security.
 
 The `grantType` can be either Client Credentials (`client_credentials`) or Resource Owner Password (`password`). If you specify the grant type as `password`, it is mandatory to provide the `username` and `password.`
+
+!!! note "Configuring `customParameters`"
+    When setting up `customParameters`,  if you find that there are no specific custom parameters to configure, you have the option to use double braces to indicate the absence of any configurations.
+    ```
+    environments:
+    - name: prod1
+    configs:
+        endpoints:
+            production:
+                url: 'xxxxxxxxxxxx'
+        security:
+            production:
+                enabled: true
+                type: 'oauth'
+                tokenUrl: 'xxxxxxxxxxxxxxx'
+                clientId: 'xxxxxxxxxxxxxxx'
+                clientSecret: 'xxxxxxxxxxxxxxx'
+                grantType: 'client_credentials'
+                customParameters: {}
+        deploymentEnvironments:
+            - displayOnDevportal: true
+            deploymentEnvironment: Default
+    ```
