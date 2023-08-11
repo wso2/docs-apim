@@ -90,6 +90,9 @@ Follow the steps below to obtain the access credentials from Microsoft Azure Sto
 
 Before you start configuring the Microsoft Azure Storage Connector, you also need the WSO2 integration runtime and we refer to that location as `<PRODUCT_HOME>`.
 
+!!! Note
+    If you are using the older connector **1.x.x** add only the [azure-storage-6.1.0.jar](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0) jar to `<PRODUCT_HOME>/lib` directory and skip the following.
+
 In order to use the Microsoft Azure Storage connector, you need to download the following jars and move them to the `<PRODUCT_HOME>/lib` directory.  
 
  - [azure-storage-blob-12.23.0.jar](https://mvnrepository.com/artifact/com.azure/azure-storage-blob/12.23.0)
@@ -110,4 +113,14 @@ In order to use the Microsoft Azure Storage connector, you need to download the 
  - [woodstox-core-6.4.0.jar](https://mvnrepository.com/artifact/com.fasterxml.woodstox/woodstox-core/6.4.0)
 
 !!! Note
-    If you are using the older connector 1.x.x add only the [azure-storage-6.1.0.jar](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0) jar to `<PRODUCT_HOME>/lib` directory.
+      By default `INFO` logs are enabled for the Microsoft Azure SDKs, therefore you may need to update the `log4j2.properties` of the WSO2 integration runtime (MI) accordingly to set the log level. The following configuration will disable the logs printed by the SDK. Eventhough the SDK logs are disabled, MI will print them in case of an error.
+
+      1. Add the following loggers.
+
+            logger.Azure.name = com.azure
+            logger.Azure.level = OFF
+
+            logger.Microsoft.name = com.microsoft
+            logger.Microsoft.level = OFF
+
+      2. Append `Azure` and `Microsoft` to the loggers list.
