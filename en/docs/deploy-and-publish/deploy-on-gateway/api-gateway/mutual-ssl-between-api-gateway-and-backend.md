@@ -91,6 +91,9 @@ HostnameVerifier = "AllowAll"
 
 Now both the backend service and API Manager are configured to use default key stores and API Manager is configured to load dynamic SSL profiles. Restart API Manager.
 
+!!! important
+     When defining SSL profiles, make sure to specify the port under the `<server>` tag. Omitting the port could lead to the default values (443/80) not being set. To avoid this, always include the port when configuring SSL profiles. For custom SSL profiles, it's recommended to use the hostname as the server. If you need to use an IP address, map it to a hostname in the Host file and provide that hostname as the server. This ensures proper and secure SSL profile configuration.
+
 !!! note
      It is recommended to configure the hostname as the server when configuring custom SSL profiles. If an IP address is required to be configured as the server, the IP address needs to be mapped to a hostname in the Host file, and the hostname can be provided as the server.
 
