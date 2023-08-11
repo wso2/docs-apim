@@ -77,6 +77,12 @@ stat.tracer.collect_payloads=true
 stat.tracer.collect_mediation_properties=true
 ```
 
+```toml
+[analytics]
+enabled = true
+publisher = "databridge"
+```
+
 ### Step 2.2 - Enable data publishing to MI Analytics
 
 Follow the instructions below to configure the Micro Integrator to publish data to MI Analytics. Analytics publishing can be configured in the `[monitoring]` section of the `<MI_HOME>/conf/deployment.toml` file as shown below.
