@@ -55,7 +55,21 @@ Follow the steps below to obtain the access credentials from Microsoft Azure Sto
       
    10. Select **Create**.
 
-## Obtaining the access credentials   
+## Obtaining the Client credentials
+
+!!! Note
+    If you are planning to use Access key for authentication, skip this and check [Obtaining the access credentials]({{base_path}}/reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-configuration/#obtaining-the-access-key)
+   
+   1. Create an Azure Active Directory application and service principal. For more information refer [Create an Azure Active Directory application](https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal).
+
+   2. Assign an Azure role for access to blob data. For more information refer [Assign an Azure role](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) and [Assign an Azure role for access to blob data](https://learn.microsoft.com/en-us/azure/storage/blobs/assign-azure-role-data-access?tabs=portal).
+
+   3. Obtain the Client ID, client Secret and Tenant ID. For more information refer [Create a new application secret](https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#option-3-create-a-new-application-secret) and [Active Directory tenant ID](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/how-to-find-tenant).
+
+## Obtaining the Access Key
+
+!!! Note
+    If you are planning to use Client credentials for authentication, skip this and check [Obtaining the Client credentials]({{base_path}}/reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-configuration/#obtaining-the-client-credentials)
    
    1. Navigate to the created **storage account** and click it. 
       
@@ -74,8 +88,26 @@ Follow the steps below to obtain the access credentials from Microsoft Azure Sto
   
 ## Setting up the Microsoft Azure Storage Connector
 
-Before you start configuring the Microsoft Azure Storage Connector, you also need the WSO2 integration runtime and we refer to that location as <PRODUCT_HOME>.
+Before you start configuring the Microsoft Azure Storage Connector, you also need the WSO2 integration runtime and we refer to that location as `<PRODUCT_HOME>`.
 
-In order to use the Microsoft Azure Storage connector, you need to download the following .jar file and move it to the `<PRODUCT_HOME>/lib directory`.  
+In order to use the Microsoft Azure Storage connector, you need to download the following jars and move them to the `<PRODUCT_HOME>/lib` directory.  
 
-* [azure-storage-6.1.0.jar](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0)       
+ - [azure-storage-blob-12.23.0.jar](https://mvnrepository.com/artifact/com.azure/azure-storage-blob/12.23.0)
+ - [azure-identity-1.9.2.jar](https://mvnrepository.com/artifact/com.azure/azure-identity/1.9.2)
+ - [azure-storage-common-12.22.0.jar](https://mvnrepository.com/artifact/com.azure/azure-storage-common/12.22.0)
+ - [azure-json-1.0.1.jar](https://mvnrepository.com/artifact/com.azure/azure-json/1.0.1)
+ - [azure-core-http-netty-1.13.5.jar](https://mvnrepository.com/artifact/com.azure/azure-core-http-netty/1.13.5)
+ - [msal4j-1.13.8.jar](https://mvnrepository.com/artifact/com.microsoft.azure/msal4j/1.13.8)
+ - [content-type-2.2.jar](https://mvnrepository.com/artifact/com.nimbusds/content-type/2.2)
+ - [netty-resolver-dns-4.1.95.Final.jar](https://mvnrepository.com/artifact/io.netty/netty-resolver-dns/4.1.95.Final)
+ - [reactive-streams-1.0.4.jar](https://mvnrepository.com/artifact/org.reactivestreams/reactive-streams/1.0.4)
+ - [reactor-netty-http-1.1.9.jar](https://mvnrepository.com/artifact/io.projectreactor.netty/reactor-netty-http/1.1.9)
+ - [jackson-dataformat-xml-2.13.5.jar](https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-xml/2.13.5)
+ - [oauth2-oidc-sdk-10.7.1.jar](https://mvnrepository.com/artifact/com.nimbusds/oauth2-oidc-sdk)
+ - [reactor-core-3.4.30.jar](https://mvnrepository.com/artifact/io.projectreactor/reactor-core/3.4.30)
+ - [stax2-api-4.2.1.jar](https://mvnrepository.com/artifact/org.codehaus.woodstox/stax2-api/4.2.1)
+ - [reactor-netty-core-1.1.9.jar](https://mvnrepository.com/artifact/io.projectreactor.netty/reactor-netty-core/1.1.9)
+ - [woodstox-core-6.4.0.jar](https://mvnrepository.com/artifact/com.fasterxml.woodstox/woodstox-core/6.4.0)
+
+!!! Note
+    If you are using the older connector 1.x.x add only the [azure-storage-6.1.0.jar](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0) jar to `<PRODUCT_HOME>/lib` directory.
