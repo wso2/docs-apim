@@ -43,7 +43,7 @@ A common policy is a globally maintained policy and you can easily utilize this 
         </tr>
     </table>
 
-4. Next, we move on to the **Gateway Specific Details** section. This is where we upload the policy file that contains the business logic of the policy. The sample policy that we are creating here will be for the `Regular Gateway (Synapse Gateway)`, and hence, the policy should be a `.j2` or `.xml` file. Use the table provided below to fill this section of the form.
+4. Next, we move on to the **Gateway Specific Details** section. This is where we upload the policy file that contains the business logic of the policy. The sample policy that we are creating here will be for the `Regular Gateway (Synapse Gateway)`, and hence, the policy should be a `.j2` file. Use the table provided below to fill this section of the form.
 
     <table>
         <tr>
