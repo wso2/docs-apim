@@ -410,6 +410,3 @@ Invoke the API as shown below using the curl command. Curl Application can be do
      2) "7791"
      127.0.0.1:6379>
      ```     
-## What's next
-
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
