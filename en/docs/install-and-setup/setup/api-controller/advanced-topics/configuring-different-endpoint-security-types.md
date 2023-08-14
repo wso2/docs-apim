@@ -78,7 +78,7 @@ It is mandatory to specify the fields `type`, `tokenUrl`, `clientId`, `clientSec
 The `grantType` can be either Client Credentials (`client_credentials`) or Resource Owner Password (`password`). If you specify the grant type as `password`, it is mandatory to provide the `username` and `password.`
 
 !!! note "Configuring `customParameters`"
-    When setting up `customParameters`,  if you find that there are no specific custom parameters to configure, you have the option to use double braces to indicate the absence of any configurations.
+    When setting up `customParameters`,  if you find that there are no specific custom parameters to configure, you have must use double braces to indicate the absence of any configurations.
     ```
     environments:
     - name: prod1
