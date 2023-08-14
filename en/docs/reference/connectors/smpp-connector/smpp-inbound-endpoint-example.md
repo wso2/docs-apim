@@ -137,6 +137,3 @@ You can download the ZIP file and extract the contents to get the project code.
      [2020-05-18 10:56:05,495]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - MessageId = 0, SourceAddress = null, DataCoding = 0, ScheduleDeliveryTime = null, SequenceNumber = 7, ServiceType = null
      [2020-05-18 10:56:05,506]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - To: , MessageID: urn:uuid:F767BC9689D3D2221B1589779565430, Direction: request, Envelope: <?xml version='1.0' encoding='utf-8'?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Body><text xmlns="http://ws.apache.org/commons/ns/payload">Hi! This is the first test SMS message.</text></soapenv:Body></soapenv:Envelope>
      ```
-## What's next
-   
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).

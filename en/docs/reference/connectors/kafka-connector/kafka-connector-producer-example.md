@@ -102,5 +102,4 @@ This demonstrates how the Kafka connector publishes messages to the Kafka broker
    
 ## What's next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers/).
 * To customize this example for your own scenario, see [Kafka Connector Configuration]({{base_path}}/reference/connectors/kafka-connector/kafka-connector-config/) documentation.

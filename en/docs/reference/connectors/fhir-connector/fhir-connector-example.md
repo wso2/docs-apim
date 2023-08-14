@@ -423,7 +423,3 @@ curl -v POST -d
 ```    
 
 This demonstrates how the WSO2 FHIR connector works.
-   
-## What's next
-
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
