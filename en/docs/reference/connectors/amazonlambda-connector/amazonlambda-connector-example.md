@@ -239,5 +239,4 @@ Follow these steps to deploy the exported CApp in the integration runtime.
  
 ## What's next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
 * To customize this example for your own scenario, see [Amazon Lambda Connector Configuration]({{base_path}}/reference/connectors/amazonlambda-connector/amazonlambda-connector-config/) documentation.
