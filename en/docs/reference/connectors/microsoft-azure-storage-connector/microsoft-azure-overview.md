@@ -10,12 +10,19 @@ To see the available Microsoft Azure Storage connector, navigate to the [connect
 
 | Connector version | Supported product versions |
 | ------------- |------------- |
-|  2.x (latest)        |  APIM 4.2.0, APIM 4.1.0, APIM 4.0.0 |
-|  1.0.0        |  APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.1.0 |
+|  2.x (latest)        |  MI 4.2.0, MI 4.1.0, MI 4.0.0 |
+|  1.0.0        |  MI 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.1.0 |
 
 For older versions, see the details in the connector store.
 
 ## Microsoft Azure Storage Connector documentation (latest - 2.x version)
+
+!!! tip "What's New in 2.x?"
+    - Use Azure Blob Storage SDK v12.23.0.
+
+    - New UI model in the Integration Studio.
+
+    - Support Client credentials authentication.
 
 * **[Setting up the Microsoft Azure Storage Environment]({{base_path}}/reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-configuration/)**: This involves setting up a Microsoft Azure Storage account and obtaining access credentials.
 
