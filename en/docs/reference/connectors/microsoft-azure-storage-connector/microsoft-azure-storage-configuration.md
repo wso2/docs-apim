@@ -113,6 +113,9 @@ In order to use the Microsoft Azure Storage connector, you need to download the 
  - [woodstox-core-6.4.0.jar](https://mvnrepository.com/artifact/com.fasterxml.woodstox/woodstox-core/6.4.0)
 
 !!! Note
+    If you are using MI 4.0.0, in addition to the above you need to add [netty-codec-http2-4.1.95.Final.jar](https://mvnrepository.com/artifact/io.netty/netty-codec-http2/4.1.95.Final) and [netty-handler-proxy-4.1.95.Final.jar](https://mvnrepository.com/artifact/io.netty/netty-handler-proxy/4.1.95.Final) to `<PRODUCT_HOME>/lib` directory.
+
+!!! Note
       By default `INFO` logs are enabled for the Microsoft Azure SDKs, therefore you may need to update the `log4j2.properties` of the WSO2 integration runtime (MI) accordingly to set the log level. The following configuration will disable the logs printed by the SDK. Eventhough the SDK logs are disabled, MI will print them in case of an error.
 
       1. Add the following loggers.
