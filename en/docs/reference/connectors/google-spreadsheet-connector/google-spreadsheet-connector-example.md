@@ -390,5 +390,4 @@ The spreadsheet should be edited within the above specified cell range.
 
 ## What's Next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
 * To customize this example for your own scenario, see [Google Spreadsheet Connector Configuration]({{base_path}}/reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-config/) documentation for all operation details of the connector.

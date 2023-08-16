@@ -103,7 +103,3 @@ You will see following message in the server log file (found at <MI_HOME>/reposi
 ```bash
 [2020-05-22 12:28:03,799]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - To: , MessageID: urn:uuid:CB783799949CD049281590130683750, Direction: request, Payload: {"Message":"Test Amazon SQS Service"}
 ```
-
-## What's next
-   
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).

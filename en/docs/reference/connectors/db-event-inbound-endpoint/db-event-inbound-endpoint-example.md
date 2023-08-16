@@ -139,5 +139,5 @@ Now the integration runtime will start listening to the data changes of `CDC_CUS
 > **Note**: You can do any type of advanced integration using the rich mediator catalog, not just logging. 
 
 ## What's Next
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
+
 * To customize this example for your own scenario, see [DB Event Inbound Endpoint Configuration]({{base_path}}/reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-config/) documentation for all configuration options of the endpoint.
