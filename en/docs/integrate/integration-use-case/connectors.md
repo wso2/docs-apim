@@ -47,7 +47,7 @@ The following are documented connectors available from the [connector store](htt
             <td>The WSO2 Google Spreadsheet Connector allows you to access the <a href="https://developers.google.com/sheets/api/guides/concepts">Google Spreadsheet API Version v4</a>.</td>
         </tr>
         <tr>
-            <td><a href="{{base_path}}/reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-connector-example/">Microsoft Azure Storage</a></td>
+            <td><a href="{{base_path}}/reference/connectors/microsoft-azure-storage-connector/2.x/microsoft-azure-storage-connector-example/">Microsoft Azure Storage</a></td>
             <td>The Microsoft Azure Storage Connector allows you to access the Azure Storage services using Microsoft Azure Storage Java SDK.</td>
         </tr>
         <tr>
