@@ -78,9 +78,29 @@ The response will be a JSON payload as shown below:
 }
 ```
 
+!!! Info "Securing JWT Validation in User Info and Token Introspection Endpoints"
+    In order to enhance the security of your deployment and mitigate potential vulnerabilities like the **"Broken JWT (None Algorithm attack),"** it is crucial to enable JWT validation in both the user info and token introspection endpoints. This procedure ensures that JWT tokens are effectively identified and validated, bolstering the security of your API Manager deployment.
+
+    Note that from API Manager 4.0.0, this feature is enabled by default. However, if you are using APIM 3.2.0, you need to manually enable this feature following the steps outlined above.
+
+    To enable the server to identify JWT tokens and perform validation in the user info endpoint and token introspection endpoints, follow these steps:
+
+    1. Open the configuration file for OAuth settings.
+    2. Locate the section labeled `[oauth]`.
+    3. Add the following configuration property to enable JWT token validation during introspection:
+        ```
+        enable_jwt_token_validation_during_introspection = true
+        ```
+    Once this feature is enabled, the server will validate the token using the available JWT token validator. By default, the Default JWT token validator is utilized. However, please be aware of the following considerations:
+        - If your server issues custom JWT tokens that don't conform to the available JWT token validator's requirements (e.g., lacking mandatory claims), enabling this feature might disrupt the existing flow.
+        - For instance, the default JWT token validator expects the "jti" claim to be present in the token. If your custom token issuer omits this claim, enabling this feature might result in introspection breaking.
+        - To avoid such scenarios, ensure a compatible JWT token validator is deployed in your system before enabling this feature. Evaluate your JWT token issuance and validation setup before enabling this feature to prevent any disruptions in token introspection.
+
+
 ## Invoking the openid-configuration endpoint
 
-You need to invoke the openid-configuration endpoint as follows to obtain the openid-configuration information as a payload. The format of the cURL command and a sample is given below.
+You need to invoke the openid-configuration endpoint as follows to obtain the openid-configuration information as a payload. 
+The format of the cURL command and a sample is given below.
 
 ``` bash tab="Format"
 curl -v -k https://<GATEWAY_HOSTNAME>:<PORT>/oidcdiscovery/.well-known/openid-configuration
