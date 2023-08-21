@@ -1141,6 +1141,10 @@ nav:
                 - Set up Integration Runtime: reference/connectors/twitter-connector/twitter-connector-configuration.md
                 - Twitter Example: reference/connectors/twitter-connector/twitter-connector-example.md
                 - Twitter Reference: reference/connectors/twitter-connector/twitter-connector-reference.md
+            - Snowflake Connector:
+                  - Snowflake Connector Overview: reference/connectors/snowflake-connector/snowflake-connector-overview.md
+                  - Snowflake Connector Example: reference/connectors/snowflake-connector/snowflake-connector-example.md
+                  - Snowflake Connector Reference: reference/connectors/snowflake-connector/snowflake-connector-reference.md
             - Utility Module:
                 - Utility Module Overview: reference/connectors/utility-module/utility-module-overview.md
                 - Utility Module Reference: reference/connectors/utility-module/utility-module-config.md
