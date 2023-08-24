@@ -20,8 +20,8 @@ All operations are exposed via an API. The API with the context `/snowflakeconne
 
 ## Before you begin
 
-Before you begin, you must have a valid Snowflake account. 
-To use the Snowflake database, you must have a valid Snowflake account. To create a snowflake account, please visit the official Snowflake website and complete the registration process. Once registered you will obtain username and password which you can login to Snowflake account, and the account identifier which is the unique identifier for your Snowflake account within your business entity and the Snowflake network.
+Before you begin, you must have a valid Snowflake account.
+To use the Snowflake database, you must have a valid Snowflake account. To create a snowflake account, please visit the official Snowflake website and complete the registration process. Once registered you will obtain a username and password with which you can log in to your Snowflake account, and the account identifier which is the unique identifier for your Snowflake account within your business entity and the Snowflake network.
 
 1. Create a database named `HOTEL_DB` in Snowflake.
 2. Select the `PUBLIC` schema and create a table named `RESERVATIONS` with the following columns.
@@ -54,13 +54,13 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 ### Add integration logic
 
-First create a REST API called `SnowflakeConnectorApi` in your project
+First, create a REST API called `SnowflakeConnectorApi` in your project.
 
 | Name | Context |
 | ---------------- | ---------------- |
 | SnowflakeConnectorApi  | /snowflakeconnector  |
 
-Create the following resources in 'SnowflakeConnectorApi' REST API
+Create the following resources in the 'SnowflakeConnectorApi' REST API.
 
 | uri-template                |
 |-----------------------------| 
@@ -69,39 +69,39 @@ Create the following resources in 'SnowflakeConnectorApi' REST API
 | /insertReservationBatch     |
 | /deleteReservation          |
 
-Let's add the operations to the resources in `SnowflakeConnectorApi` API
+Let's add the operations to the resources in the `SnowflakeConnectorApi` API.
 
 #### - /insertReservation
 
-Users can utilize this resource to insert a single record into the snowflake database. The user will be sending the reservation payload in the request body.
+Users can utilize this resource to insert a single record into the Snowflake database. The user will be sending the reservation payload in the request body.
 
 1. In the API insequence drag and drop the [Property Mediator]({{base_path}}/reference/mediators/property-mediator/) to extract the payload from the request body. Let's store the payload in a property named `payload`.
     ```xml
       <property expression="json-eval($)" name="payload" scope="default" type="STRING"/>
    ```
 
-   2. Drag and drop `execute` operation from **SnowflakeConnector** section.
-      1. Double click the operation. It will show you the properties section.
-      2. In the General Section of the properties, click on the `+` button next to `Snowflake Connection`
-         <img src="{{base_path}}/assets/img/integrate/connectors/snowflake_connector/snowflake-connection-config.png" title="Connection Config function" width="800" alt="Snowflake Connection Config"/>
-         1. In the `Connection Configurations` section give a name for `Snowflake Connection`
-         2. Provide your Snowflake Account Identifier in the `Account Identifier` text box.
-         3. Provide your Snowflake username in the `Username` text box.
-         4. Provide your Snowflake password in the `Password` text box.
-         5. Click finish.
-      3. In the `Execute Query` text box, enter the following query.
-         ```sql
-         INSERT INTO HOTEL_DB.PUBLIC.RESERVATIONS (NICNUMBER, FIRSTNAME, LASTNAME, CHECKIN, CHECKOUT, ADULTS, CHILDREN, ROOMTYPE, SPECIALREQUESTS) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-         ```
-      4. For the `Payload` text box, enter `$ctx:payload` as an expression.
-         <img src="{{base_path}}/assets/img/integrate/connectors/snowflake_connector/snowflake-execute-config.png" title="Execute Config" width="800" alt="Snowflake Execute Config"/>
+2. Drag and drop the `execute` operation from the **SnowflakeConnector** section.
+   1. Double click the operation. It will show you the properties section.
+   2. In the **General** Section of the properties, click on the `+` button next to `Snowflake Connection`.
+      <img src="{{base_path}}/assets/img/integrate/connectors/snowflake_connector/snowflake-connection-config.png" title="Connection Config function" width="800" alt="Snowflake Connection Config"/>
+      1. In the `Connection Configurations` section give a name for `Snowflake Connection`
+      2. Provide your Snowflake Account Identifier in the `Account Identifier` text box.
+      3. Provide your Snowflake username in the `Username` text box.
+      4. Provide your Snowflake password in the `Password` text box.
+      5. Click finish.
+   3. In the `Execute Query` text box, enter the following query.
+      ```sql
+      INSERT INTO HOTEL_DB.PUBLIC.RESERVATIONS (NICNUMBER, FIRSTNAME, LASTNAME, CHECKIN, CHECKOUT, ADULTS, CHILDREN, ROOMTYPE, SPECIALREQUESTS) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+      ```
+   4. For the `Payload` text box, enter `$ctx:payload` as an expression.
+      <img src="{{base_path}}/assets/img/integrate/connectors/snowflake_connector/snowflake-execute-config.png" title="Execute Config" width="800" alt="Snowflake Execute Config"/>
 
-         ```xml
-         <snowflake.execute configKey="SNOWFLAKE_CONNECTION">
-           <executeQuery>INSERT INTO HOTEL_DB.PUBLIC.RESERVATIONS (NICNUMBER, FIRSTNAME, LASTNAME, CHECKIN, CHECKOUT, ADULTS, CHILDREN, ROOMTYPE, SPECIALREQUESTS) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)</executeQuery>
-           <payload>{$ctx:payload}</payload>
-         </snowflake.execute>
-         ```
+      ```xml
+      <snowflake.execute configKey="SNOWFLAKE_CONNECTION">
+        <executeQuery>INSERT INTO HOTEL_DB.PUBLIC.RESERVATIONS (NICNUMBER, FIRSTNAME, LASTNAME, CHECKIN, CHECKOUT, ADULTS, CHILDREN, ROOMTYPE, SPECIALREQUESTS) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)</executeQuery>
+        <payload>{$ctx:payload}</payload>
+      </snowflake.execute>
+      ```
 3. Drag and drop the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send back the response.
    
 #### - /getReservationInfo
@@ -161,7 +161,7 @@ Using this resource users can delete a record in table `Reservations` of `HOTEL_
     ```xml
       <property expression="fn:concat('DELETE FROM HOTEL_DB.PUBLIC.RESERVATIONS WHERE NICNUMBER=',get-property('uri.var.NICNUMBER'))" name="deleteQuery" scope="default" type="STRING"/>
     ```
-2. Drag and drop `execute` operation from **SnowflakeConnector** section.
+2. Drag and drop the `execute` operation from the **SnowflakeConnector** section.
    1. Double-click the operation to view its properties section.
    2. In the 'General' section of the properties, select the Snowflake connection configuration you created.
    3. In the `Execute Query` text box, enter `$ctx:deleteQuery` as an expression.
