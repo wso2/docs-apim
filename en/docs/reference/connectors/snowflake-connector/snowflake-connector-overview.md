@@ -1,6 +1,6 @@
 # Snowflake Connector Overview
 
-The Snowflake Connector enables you to utilize a complete range of Snowflake operations using WSO2 MI. It provides functionalities to execute a set of standard Snowflake DDL, DML and query commands.
+The Snowflake Connector enables you to utilize a complete range of Snowflake operations using WSO2 MI. It provides functionalities to execute a set of standard Snowflake DDL, DML, and query commands.
 
 To see the available Snowflake connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "Snowflake".
 

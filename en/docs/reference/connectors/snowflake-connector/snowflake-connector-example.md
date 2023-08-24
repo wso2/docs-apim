@@ -84,11 +84,11 @@ Users can utilize this resource to insert a single record into the Snowflake dat
    1. Double click the operation. It will show you the properties section.
    2. In the **General** Section of the properties, click on the `+` button next to `Snowflake Connection`.
       <img src="{{base_path}}/assets/img/integrate/connectors/snowflake_connector/snowflake-connection-config.png" title="Connection Config function" width="800" alt="Snowflake Connection Config"/>
-      1. In the `Connection Configurations` section give a name for `Snowflake Connection`
+      1. In the **Connection Configurations** section give a name for `Snowflake Connection`.
       2. Provide your Snowflake Account Identifier in the `Account Identifier` text box.
       3. Provide your Snowflake username in the `Username` text box.
       4. Provide your Snowflake password in the `Password` text box.
-      5. Click finish.
+      5. Click **Finish**.
    3. In the `Execute Query` text box, enter the following query.
       ```sql
       INSERT INTO HOTEL_DB.PUBLIC.RESERVATIONS (NICNUMBER, FIRSTNAME, LASTNAME, CHECKIN, CHECKOUT, ADULTS, CHILDREN, ROOMTYPE, SPECIALREQUESTS) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
@@ -108,7 +108,7 @@ Users can utilize this resource to insert a single record into the Snowflake dat
 
 Using this resource users retrieve all records from table `Reservations` of `HOTEL_DB`.
 
-1. Drag and drop `query` operation from **SnowflakeConnector** section.
+1. Drag and drop the `query` operation from the **SnowflakeConnector** section.
    1. Double-click the operation to view its properties section.
    2. In the 'General' section of the properties, select the Snowflake connection configuration you created.
    3. In the `Sql Query` text box, enter the following query.
@@ -122,7 +122,7 @@ Using this resource users retrieve all records from table `Reservations` of `HOT
       </snowflake.query>
       ```
       
-2. Drag and drop the [Property Mediator]({{base_path}}/reference/mediators/property-mediator/) and set the Property name as 'messageType' and the value as application/json. This is added so that the response will be in json.
+2. Drag and drop the [Property Mediator]({{base_path}}/reference/mediators/property-mediator/) and set the Property name as `messageType` and the value as `application/json`. This is added so that the response will be in JSON.
    ```xml
     <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
    ```
@@ -136,7 +136,7 @@ Using this resource users can insert multiple records into table `Reservations` 
     ```xml
       <property expression="json-eval($)" name="payload" scope="default" type="STRING"/>
     ```
-2. Drag and drop `batchExecute` operation from **SnowflakeConnector** section.
+2. Drag and drop the `batchExecute` operation from the **SnowflakeConnector** section.
    1. Double-click the operation to view its properties section.
    2. In the 'General' section of the properties, select the Snowflake connection configuration you created.
    3. In the `Execute Query` text box, enter the following query.
@@ -155,7 +155,7 @@ Using this resource users can insert multiple records into table `Reservations` 
 
 #### - /deleteReservation
 
-Using this resource users can delete a record in table `Reservations` of `HOTEL_DB`. The user will provide the NICNUMBER as a path parameter
+Using this resource users can delete a record in table `Reservations` of `HOTEL_DB`. The user will provide the NICNUMBER as a path parameter.
 
 1. In the API insequence drag and drop the [Property Mediator]({{base_path}}/reference/mediators/property-mediator/) to construct the delete query. Let's store the query in a property named `deleteQuery`.
     ```xml
@@ -170,7 +170,7 @@ Using this resource users can delete a record in table `Reservations` of `HOTEL_
         <executeQuery>{$ctx:deleteQuery}</executeQuery>
       </snowflake.execute>
       ```
-3. Drag and drop the [Property Mediator]({{base_path}}/reference/mediators/property-mediator/) and set the Property name as 'messageType' and the value as application/json. This is added so that the response will be in json.
+3. Drag and drop the [Property Mediator]({{base_path}}/reference/mediators/property-mediator/) and set the Property name as `messageType` and the value as `application/json`. This is added so that the response will be in JSON.
    ```xml
     <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
    ```
@@ -241,7 +241,7 @@ You can download the ZIP file and extract the contents to get the project code.
 </a>
 
 !!! tip
-You may need to update the values of Snowflake connection configs before deploying and running this project.
+You may need to update the values of Snowflake connection configurations before deploying and running this project.
 
 ## Deployment
 
@@ -254,7 +254,7 @@ Follow these steps to deploy the exported CApp in the integration runtime.
 Let's test the API. Deploy the carbon application and start the Micro Integrator.
 
 1. Insert Reservation Resource
-    1. Create a file called payload.json with the following payload.
+    1. Create a file called `payload.json` with the following payload.
         ```json
         {
             "NICNUMBER": "9876543210",
@@ -283,7 +283,7 @@ Let's test the API. Deploy the carbon application and start the Micro Integrator
        ```
 
 2. Insert Reservation Batch Resource
-   1. Create a file called payload.json with the following payload.
+   1. Create a file called `payload.json` with the following payload.
       ```json
       [
         {

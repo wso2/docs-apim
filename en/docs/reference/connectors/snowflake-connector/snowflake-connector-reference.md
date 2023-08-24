@@ -38,7 +38,7 @@ The following operations allow you to work with the Snowflake Connector. Click a
 ## Operations
 
 ??? note "snowflake.query"
-    The `snowflake.query` operation query the given sql statement.
+    The `snowflake.query` operation queries the given SQL statement.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -58,7 +58,7 @@ The following operations allow you to work with the Snowflake Connector. Click a
       </table>
 
 ??? note "snowflake.execute"
-    The `snowflake.execute` operation execute the given sql statement. This operation can be used to perform DDL and DML Operations.
+    The `snowflake.execute` operation execute the given SQL statement. This operation can be used to perform DDL and DML Operations.
     <table>
         <tr>
             <th>Parameter Name</th>
