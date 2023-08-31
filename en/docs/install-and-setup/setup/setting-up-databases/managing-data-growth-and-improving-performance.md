@@ -11,7 +11,7 @@ WSO2 API Manager provides two methods to do the cleanup.
    
 Regular cleanup is good for regular housekeeping which will slow down unused token growth. However, during peak windows, regular cleaning may be less effective due to potential query slowdowns.  
 
-!!! warn
+!!! warning
     The deep cleaning removes unused tokens, sessions, and registry data, and prevent the tables from continuously growing, which can improve performance in the production servers. Choose the appropriate cleanup method based on the server's traffic level.
 
 ## Regular Cleaning
