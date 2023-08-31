@@ -108,7 +108,7 @@ There are multiple developer-friendly tools that can be used to help you work wi
 
 #### Integration Studio
 
-The WSO2 API Manager and the Micro Integrator are coupled with [WSO2 Integration Studio]({{base_path}}/integrate/develop/WSO2-Integration-Studio); a comprehensive graphical integration flow designer for building integrations using a simple drag-and-drop functionality.
+The WSO2 API Manager and the Micro Integrator are coupled with [WSO2 Integration Studio]({{base_path}}/integrate/develop/wso2-integration-studio); a comprehensive graphical integration flow designer for building integrations using a simple drag-and-drop functionality.
 
 <img src="{{base_path}}/assets/img/integrate/intro/integration-studio.png" alt="Integration Studio" name="Integration Studio">
 
