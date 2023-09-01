@@ -200,7 +200,7 @@ nav:
                     - Query Complexity Limit: design/rate-limiting/graphql-api/query-complexity-limitation.md
                 - Advanced Topics:
                     - Custom Rate Limiting: design/rate-limiting/advanced-topics/custom-throttling.md
-                    - Distributed Burst Control, Backend Rate Limiting for API Gateway Cluster: design/rate-limiting/advanced-topics/configuring-rate-limiting-api-gateway-cluster.md
+                    - Configure Rate Limiting for an API Gateway Cluster: design/rate-limiting/advanced-topics/configuring-rate-limiting-api-gateway-cluster.md
         - API Monetization:
             - Monetize an API: design/api-monetization/monetizing-an-api.md
         - Advanced Topics:
