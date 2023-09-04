@@ -10,36 +10,40 @@ WSO2 API-M has partnered with [42Crunch](https://42crunch.com/), the only enterp
 
 Follow the instructions below to obtain the API token and collection ID from 42Crunch:
 
-1.  Navigate to the [42Crunch platform](https://platform.42crunch.com) and register or sign in.
+1. Navigate to the [42Crunch platform](https://platform.42crunch.com) and register or sign in.
 
-2.  Click **Settings**.
+2. Click **Settings**.
 
      [![API token settings menu]({{base_path}}/assets/img/learn/api-token-settings-menu.png)]({{base_path}}/assets/img/learn/api-token-settings-menu.png)
 
-3.  Click **API Tokens** and click **Create New Token**.
+3. Click **API Tokens** and click **Create New Token**.
 
      [![API token create button]({{base_path}}/assets/img/learn/api-token-create-button.png)]({{base_path}}/assets/img/learn/api-token-create-button.png)
 
-4.  Enter a name for the token and select **API Contract Security Audit** as the token access right. 
+4. Upgrade the account to access the **API token** type
+
+     [![API token create modal]({{base_path}}/assets/img/learn/api-token-create-modal.png)]({{base_path}}/assets/img/learn/api-token-create-modal.png)
+
+6. Enter a name for the token and select **API Contract Security Audit** as the token access right. 
 
      When working with API Audit, you only need to select the **API Contract Security Audit** permission.
 
      [![API token dialog box]({{base_path}}/assets/img/learn/api-token-dialog-box.png)]({{base_path}}/assets/img/learn/api-token-dialog-box.png)
 
-5.  Click **Generate Token**.
+7. Click **Generate Token**.
 
     !!! note 
         The generated API Token can be viewed only once. Make sure to copy it and save it in a safe place for future reference.
 
      [![API token copy generated]({{base_path}}/assets/img/learn/api-token-copy-generated.png)]({{base_path}}/assets/img/learn/api-token-copy-generated.png)
 
-6.  Click either **API Collections** in the left navigation bar or click **+ New Collection** at the bottom of the left navigation to create a collection.
+8. Click either **API Collections** in the left navigation bar or click **+ New Collection** at the bottom of the left navigation to create a collection.
 
      A Collection in this context is a folder hosted on 42Crunch containing all the APIs that are to be audited.
 
      [![create new collection]({{base_path}}/assets/img/learn/collection-create-new.png)]({{base_path}}/assets/img/learn/collection-create-new.png)
 
-7.  Copy the Collection ID from the URL of the browser as highlighted below and save it in a safe place for reference.
+9. Copy the Collection ID from the URL of the browser as highlighted below and save it in a safe place for reference.
 
      [![copy collection id]({{base_path}}/assets/img/learn/collection-copy-id.png)]({{base_path}}/assets/img/learn/collection-copy-id.png)
 
