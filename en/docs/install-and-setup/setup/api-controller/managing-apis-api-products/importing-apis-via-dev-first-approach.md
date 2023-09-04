@@ -424,6 +424,13 @@ After editing the mandatory fields in the API Project, you can import the API to
             `--update` : Update an existing API or create a new API in the importing environment.    
             `--params` : Provide a API Manager environment params file. For more information, see [Configuring Environment Specific Parameters]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters).    
             `--skip-cleanup` : Leave all temporary files created in apictl during import process. The default value is `false`.    
+    
+    !!! note
+    **Importing versions of an API**
+
+        -   When importing versions of an API, you are not allowed to change the API provider. 
+        -   If the preserve-provider value was set to `true` when importing the initial API, the value should be set to `true` when importing all its' versions.
+        -   If the preserve-provider value was set to `false` when importing the initial API, the value should be set to `false` when importing all its' versions.
 
     !!! example
         ```bash
