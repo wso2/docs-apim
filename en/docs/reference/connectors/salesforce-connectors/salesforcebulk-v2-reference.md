@@ -47,6 +47,8 @@ Salesforce Bulk API uses the OAuth protocol to allow application users to secure
         </tr>
       </table>
 
+    > **Note:** It is recommended to use the OAuth client credentials (`Client ID` and `Client Secret`) along with the `Refresh Token` instead of `Access Token`. 
+
 
 ## Bulk API 2.0 Ingest
 
@@ -95,12 +97,26 @@ Salesforce Bulk API uses the OAuth protocol to allow application users to secure
         </tr>
         <tr>
             <td>Column Delimeter</td>
-            <td>The column delimiter used for CSV job data. The default value is COMMA. Valid values are: BACKQUOTE—backquote character (``), CARET—caret character (^), COMMA—comma character (,) which is the default delimiter, PIPE—pipe character (|), SEMICOLON—semicolon character (;), TAB—tab character</td>
+            <td>The column delimiter used for CSV job data. The default value is COMMA. Valid values are: 
+              <ul>
+                <li>BACKQUOTE—backquote character (``)</li> 
+                <li>CARET—caret character (^)</li>
+                <li>COMMA—comma character (,) which is the default delimiter</li>
+                <li>PIPE—pipe character (|)</li>
+                <li>SEMICOLON—semicolon character (;)</li>
+                <li>TAB—tab character</li>
+              </ul>
+            </td>
             <td>Yes</td>
         </tr>
         <tr>
             <td>Line Ending</td>
-            <td>The line ending used for CSV job data, marking the end of a data row. The default is LF. Valid values are: LF—linefeed character,  CRLF—carriage return character followed by a linefeed character</td>
+            <td>The line ending used for CSV job data, marking the end of a data row. The default is LF. Valid values are: 
+              <ul>
+                <li>LF—linefeed character</li>
+                <li>CRLF—carriage return character followed by a linefeed character</li>
+              </ul>    
+            </td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -176,9 +192,13 @@ Salesforce Bulk API uses the OAuth protocol to allow application users to secure
       <tr>
         <td>Job Type</td>
         <td>Gets information only about jobs matching the specified job type. Possible values are: 
-        * Classic—Bulk API jobs. This includes both query jobs and ingest jobs.
-        * V2Query—Bulk API 2.0 query jobs.
-        * V2Ingest—Bulk API 2.0 ingest (upload and upsert) jobs.</td>
+          <ul>
+            <li>Classic—Bulk API jobs. This includes both query jobs and ingest jobs.</li>
+            <li>BigObjectIngest.</li>
+            <li>V2Ingest—Bulk API 2.0 ingest (upload and upsert) jobs.</li>
+            <li>All-Gets information about all job types.</li>
+          </ul>       
+        </td>
         <td>No</td>
       </tr>
       <tr>
@@ -208,13 +228,18 @@ Salesforce Bulk API uses the OAuth protocol to allow application users to secure
         </tr>
         <tr>
             <td>Output Type</td>
-            <td>Users can use this parameter to select whether the operation should send the response through the response body or store it in a file. The possible values are BODY and FILE. If BODY is selected, the Salesforce response will be returned to the user in the response body. If FILE is selected, the Salesforce response will be stored in the file specified in the 'File Path' parameter.</td>
-            <td></td>
+            <td>The response content type</td>
+            <td>Yes</td>
         </tr>
-        <tr>
+         <tr>
+            <td>Add Results To</td>
+            <td>Store the result in FILE or BODY</td>
+            <td>Yes</td>
+        </tr>
+         <tr>
             <td>File Path</td>
-            <td>This parameter specifies the path of the file where the Salesforce response should be stored.</td>
-            <td>Required only when 'Output Type' == FILE</td>
+            <td>The file path to store results</td>
+            <td>If selected `FILE` in `Add Results To` </td>
         </tr>
       </table>
 
@@ -261,15 +286,21 @@ Salesforce Bulk API uses the OAuth protocol to allow application users to secure
         <td>Yes</td>
       </tr>
       <tr>
-        <td>Output Type</td>
-        <td>Users can use this parameter to select whether the operation should send the response through the response body or store it in a file. The possible values are BODY and FILE. If BODY is selected, the Salesforce response will be returned to the user in the response body. If FILE is selected, the Salesforce response will be stored in the file specified in the 'File Path' parameter.</td>
-        <td>Yes</td>
+          <td>Output Type</td>
+          <td>The response content type</td>
+          <td>Yes</td>
       </tr>
       <tr>
-        <td>File Path</td>
-        <td>This parameter specifies the path of the file where the Salesforce response should be stored.</td>
-        <td>Required only when 'Output Type' == FILE</td>
+          <td>Add Results To</td>
+          <td>Store the result in FILE or BODY</td>
+          <td>Yes</td>
       </tr>
+      <tr>
+          <td>File Path</td>
+          <td>The file path to store results</td>
+          <td>If selected `FILE` in `Add Results To` </td>
+      </tr>
+      </table>
     </table>
 
 
@@ -293,13 +324,18 @@ Salesforce Bulk API uses the OAuth protocol to allow application users to secure
       </tr>
       <tr>
         <td>Output Type</td>
-        <td>Users can use this parameter to select whether the operation should send the response through the response body or store it in a file. The possible values are BODY and FILE. If BODY is selected, the Salesforce response will be returned to the user in the response body. If FILE is selected, the Salesforce response will be stored in the file specified in the 'File Path' parameter.</td>
+        <td>The response content type</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Add Results To</td>
+        <td>Store the result in FILE or BODY</td>
         <td>Yes</td>
       </tr>
       <tr>
         <td>File Path</td>
-        <td>This parameter specifies the path of the file where the Salesforce response should be stored.</td>
-        <td>Required only when 'Output Type' == FILE</td>
+        <td>The file path to store results</td>
+        <td>If selected `FILE` in `Add Results To` </td>
       </tr>
     </table>
 
@@ -324,25 +360,54 @@ Salesforce Bulk API uses the OAuth protocol to allow application users to secure
         <td>Yes</td>
       </tr>
       <tr>
-        <td>Input Type</td>
-        <td>The users can use this parameter to select whether the operation should use CSV from the parameter or retrieve it from a file. The possible values are `INLINE` and `FILE`. If `INLINE` is selected, the operation will upload the value of the inputData. If `FILE` is selected, the operation will upload the content of the file specified in the 'File Path' parameter.</td>
-        <td>Yes</td>
-      </tr>
-      <tr>
         <td>Input Data</td>
         <td>The CSV content that needs to be uploaded.</td>
-        <td>Required only when 'Input Type' == FILE</td>
-      </tr>
-      <tr>
-        <td>File Path</td>
-        <td>This parameter specifies the path of the file from which the content is to be uploaded.</td>
-        <td>Required only when 'Input Type' == FILE</td>
+        <td>Required</td>
       </tr>
     </table>
 
 
 
 ## Bulk API 2.0 Query
+
+??? note "salesforce_bulkapi_v2.createQueryJob"
+    The `salesforce_bulkapi_v2.createQueryJob` operation creates a bulk query job in Salesforce using Salesforce Bulk API v2. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/query_create_job.htm) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>Salesforce configuration</td>
+            <td>The Salesforce configuration to store OAuth related data.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>Operation</td>
+            <td>The type of query. Possible values are: QUERY, QUERY_ALL</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>Column Delimiter</td>
+            <td>The column delimiter used for CSV job data. The default value is COMMA. Valid values are: 
+              <ul>
+                <li>BACKQUOTE—backquote character (``)</li> 
+                <li>CARET—caret character (^)</li>
+                <li>COMMA—comma character (,) which is the default delimiter</li>
+                <li>PIPE—pipe character (|)</li>
+                <li>SEMICOLON—semicolon character (;)</li>
+                <li>TAB—tab character</li>
+              </ul>
+            </td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>Line Ending</td>
+            <td>The line ending used for CSV job data, marking the end of a data row. The default is LF. Valid values are: LF—linefeed character,  CRLF—carriage return character followed by a linefeed character</td>
+            <td>Yes</td>
+        </tr>
+    </table>
 
 ??? note "salesforce_bulkapi_v2.abortQueryJob"
     The `salesforce_bulkapi_v2.abortQueryJob` operation aborts a bulk query job in Salesforce using Salesforce Bulk API v2. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/query_abort_job.htm) for more information.
@@ -362,7 +427,7 @@ Salesforce Bulk API uses the OAuth protocol to allow application users to secure
             <td>Bulk Query job ID</td>
             <td>Yes</td>
         </tr>
-      </table>
+    </table>
 
 ??? note "salesforce_bulkapi_v2.deleteQueryJob"
     The `salesforce_bulkapi_v2.deleteQueryJob` operation deletes a bulk query job in Salesforce using Salesforce Bulk API v2. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/query_delete_job.htm) for more information.
@@ -382,11 +447,30 @@ Salesforce Bulk API uses the OAuth protocol to allow application users to secure
             <td>Bulk Query job ID</td>
             <td>Yes</td>
         </tr>
-      </table>
+    </table>
 
+??? note "salesforce_bulkapi_v2.getQueryJobInfo"
+    The `salesforce_bulkapi_v2.getQueryJobInfo` operation retrieve bulk query job information from Salesforce using Salesforce Bulk API v2. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/query_get_one_job.htm) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>Salesforce configuration</td>
+            <td>The Salesforce configuration to store OAuth related data.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>Job ID</td>
+            <td>Query job ID</td>
+            <td>Yes</th>
+        </tr>
+    </table>
 
 ??? note "salesforce_bulkapi_v2.getAllQueryJobInfo"
-    The `salesforce_bulkapi_v2.getQueryJobInfo` operation retrieve all the bulk query job information from Salesforce using Salesforce Bulk API v2. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/query_get_all_jobs.htm) for more information.
+    The `salesforce_bulkapi_v2.getAllQueryJobInfo` operation retrieve all the bulk query job information from Salesforce using Salesforce Bulk API v2. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/query_get_all_jobs.htm) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -406,9 +490,13 @@ Salesforce Bulk API uses the OAuth protocol to allow application users to secure
         <tr>
           <td>Job Type</td>
           <td>Gets information only about jobs matching the specified job type. Possible values are: 
-          * Classic—Bulk API jobs. This includes both query jobs and ingest jobs.
-          * V2Query—Bulk API 2.0 query jobs.
-          * V2Ingest—Bulk API 2.0 ingest (upload and upsert) jobs.</td>
+            <ul>
+              <li>Classic—Bulk API jobs. This includes both query jobs and ingest jobs.</li>
+              <li>V2Query—Bulk API 2.0 query jobs.</li>
+              <li>V2Ingest—Bulk API 2.0 ingest (upload and upsert) jobs.</li>
+              <li>All-Gets information about all job types.</li>
+            </ul>
+          </td>
           <td>No</td>
         </tr>
         <tr>
@@ -416,7 +504,7 @@ Salesforce Bulk API uses the OAuth protocol to allow application users to secure
           <td>Gets information about jobs starting with that locator value.</td>
           <td>No</td>
         </tr>
-      </table>
+    </table>
 
 ??? note "salesforce_bulkapi_v2.getQueryJobResults"
     The salesforce_bulkapi_v2.getQueryJobResults operation retrieves the results of a specified bulk query job from Salesforce using the Salesforce Bulk API v2. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/query_get_job_results.htm) for more information.
@@ -437,13 +525,28 @@ Salesforce Bulk API uses the OAuth protocol to allow application users to secure
         <td>Yes</td>
       </tr>
       <tr>
+        <td>Locator</td>
+        <td>A string that identifies a specific set of query results. Providing a value for this parameter returns only that set of results.</td>
+        <td>Optional</td>
+      </tr>
+      <tr>
+        <td>Max Records</td>
+        <td>The maximum number of records to retrieve per set of results for the query.</td>
+        <td>Optional</td>
+      </tr>
+      <tr>
         <td>Output Type</td>
-        <td>Users can use this parameter to select whether the operation should send the response through the response body or store it in a file. The possible values are BODY and FILE. If BODY is selected, the Salesforce response will be returned to the user in the response body. If FILE is selected, the Salesforce response will be stored in the file specified in the 'File Path' parameter.</td>
-        <td></td>
+        <td>The response content type</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Add Results To</td>
+        <td>Store the result in FILE or BODY</td>
+        <td>Yes</td>
       </tr>
       <tr>
         <td>File Path</td>
-        <td>This parameter specifies the path of the file where the Salesforce response should be stored.</td>
-        <td>Required only when 'Output Type' == FILE</td>
+        <td>The file path to store results</td>
+        <td>If selected `FILE` in `Add Results To` </td>
       </tr>
     </table>
