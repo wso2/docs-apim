@@ -1560,6 +1560,7 @@ nav:
                     - Configure Environment Specific Parameters: install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters.md
                     - Use Dynamic Data in apictl Projects: install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects.md
                     - Configure Different Endpoint Types: install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-types.md
+                    - Configure Different Endpoint Security Types: install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-security-types.md
                     - Format the Outputs of Get Commands: install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command.md
                     - Configure Git Integration: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md
         - Upgrade:
