@@ -15,24 +15,24 @@
         "notes": "4.2.0/get-started/about-this-release"
     },
     "4.1.0":{
-        "doc": "4.1.0",
-        "notes": "4.1.0/get-started/about-this-release"
+        "doc": "https://apim.docs.wso2.com/en/4.1.0",
+        "notes": "https://apim.docs.wso2.com/en/4.1.0/get-started/about-this-release"
     },
     "4.0.0":{
-        "doc": "4.0.0",
-        "notes": "4.0.0/get-started/about-this-release"
+        "doc": "https://apim.docs.wso2.com/en/4.0.0",
+        "notes": "https://apim.docs.wso2.com/en/4.0.0/get-started/about-this-release"
     },   
     "3.2.0":{
-        "doc": "3.2.0",
-        "notes": "3.2.0/getting-started/about-this-release"
+        "doc": "https://apim.docs.wso2.com/en/3.2.0",
+        "notes": "https://apim.docs.wso2.com/en/3.2.0/getting-started/about-this-release"
     },  
     "3.1.0":{
-        "doc": "3.1.0",
-        "notes": "3.1.0/getting-started/about-this-release"
+        "doc": "https://apim.docs.wso2.com/en/3.1.0",
+        "notes": "https://apim.docs.wso2.com/en/3.1.0/getting-started/about-this-release"
     },	    
     "3.0.0": {
-        "doc": "3.0.0",
-        "notes": "3.0.0/getting-started/about-this-release"
+        "doc": "https://apim.docs.wso2.com/en/3.0.0",
+        "notes": "https://apim.docs.wso2.com/en/3.0.0/getting-started/about-this-release"
     },
     "2.6.0": {
         "doc": "https://wso2docs.atlassian.net/wiki/spaces/AM260/overview",
