@@ -65,7 +65,21 @@ Connectors can be added to integration flows in [WSO2 Integration Studio](https:
 
 Follow these steps to set up the Integration Project and the Connector Exporter Project. 
 
-{!includes/reference/connectors/importing-connector-to-integration-studio.md!} 
+1. Open WSO2 Integration Studio and create an **Integration Project**.
+   <a href="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/new-project/new-integration-project.png"><img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/new-project/new-integration-project.png" title="Creating a new Integration Project" width="800" alt="Creating a new Integration Project" /></a>
+
+2. Right-click the project that you created and click on **Add or Remove Connector** -> **Add Connector**. You will get directed to the WSO2 Connector Store.
+
+3. Search for the "Salesforce Bulk API V2.0" connector and download it to the workspace.
+   <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk_v2/Salesforce_bulk_v2_connector.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk_v2/Salesforce_bulk_v2_connector.png" title="Search Connector in the Connector Store" width="40%" alt="Search Connector in the Connector Store" /></a>
+
+4. Click **Finish**, and your Integration Project is ready. The downloaded connector is displayed on the side palette with its operations.
+
+5. You can drag and drop the operations to the design canvas and build your integration logic.
+   <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk_v2/Salesforce_bulk_v2_connectorWindow.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk_v2/Salesforce_bulk_v2_connectorWindow.png" title="Drag connector operations" alt="Drag connector operations" /></a>
+
+6. Right click on the created Integration Project and select **New** -> **Rest API** to create the REST API.
+
 
 ### Add integration logic
 
@@ -150,6 +164,8 @@ Lets add the operations to the resources in `Salesforce` API
 
   6. Drag and drop 'Respond' mediator.
 
+  <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk_v2/Salesforce_bulk_v2_createJobAndUploadData.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk_v2/Salesforce_bulk_v2_createJobAndUploadData.png" width="800"/></a>
+
 #### - /createJobAndUploadFile
 
   Users can utilize this resource to send CSV content for upload via a CSV file. The API will utilize an `File Connector` to store the CSV content in a `csvContent` property. The 'UploadJobData' operation will then upload the `csvContent`. After uploading the content, the `CloseJob` operation will be used to change the job status to `UploadComplete`.
@@ -195,6 +211,8 @@ Lets add the operations to the resources in `Salesforce` API
 
   6. Drag and drop 'Respond' mediator.
 
+<a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk_v2/Salesforce_bulk_v2_createJobAndUploadFile.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk_v2/Salesforce_bulk_v2_createJobAndUploadFile.png" width="800" /></a>
+
 #### - /getJobInfo
   
   Using this resource, users can get the job information.
@@ -216,6 +234,8 @@ Lets add the operations to the resources in `Salesforce` API
         ``` 
 
   3. Drag and drop 'Respond' mediator.
+
+  <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk_v2/Salesforce_bulk_v2_getJobInfo.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk_v2/Salesforce_bulk_v2_getJobInfo.png" width="600" /></a>
 
 #### - /getSuccessfulResults
   
@@ -241,6 +261,8 @@ Lets add the operations to the resources in `Salesforce` API
         ``` 
 
   3. Drag and drop 'Respond' mediator.
+
+  <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk_v2/Salesforce_bulk_v2_getSuccessfulResults.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk_v2/Salesforce_bulk_v2_getSuccessfulResults.png" width="600" /></a>
 
 #### - /getUnprocessedResults
   
@@ -272,6 +294,8 @@ Lets add the operations to the resources in `Salesforce` API
 
   4. Drag and drop 'Respond' mediator.
 
+  <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk_v2/Salesforce_bulk_v2_getUnprocessedResults.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk_v2/Salesforce_bulk_v2_getUnprocessedResults.png" width="700" /></a>
+
 #### - /deleteJob
 
   Using this resource, users can delete a perticular bulk job
@@ -293,6 +317,8 @@ Lets add the operations to the resources in `Salesforce` API
         ``` 
 
   3. Drag and drop 'Respond' mediator.
+
+  <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk_v2/Salesforce_bulk_v2_deleteJob.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk_v2/Salesforce_bulk_v2_deleteJob.png" width="600" /></a>
 
 #### - /createQuery
 
@@ -318,6 +344,8 @@ Lets add the operations to the resources in `Salesforce` API
 
   2. Drag and drop 'Respond' mediator.
 
+  <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk_v2/Salesforce_bulk_v2_createQueryJob.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk_v2/Salesforce_bulk_v2_createQueryJob.png" width="500" /></a>
+
 #### - /getQueryJobInfo
   
   Using this resource, users can get the query job information.
@@ -339,6 +367,8 @@ Lets add the operations to the resources in `Salesforce` API
         ``` 
 
   3. Drag and drop 'Respond' mediator.
+
+  <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk_v2/Salesforce_bulk_v2_getQueryJobInfo.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk_v2/Salesforce_bulk_v2_getQueryJobInfo.png" width="600" /></a>
 
 #### - /getSuccessfulQueryResults
 
@@ -364,6 +394,8 @@ Lets add the operations to the resources in `Salesforce` API
         > **Note:** The includeResultTo 'FILE' feature is `deprecated`. 
 
   3. Drag and drop 'Respond' mediator.
+
+  <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk_v2/Salesforce_bulk_v2_getQueryJobResults.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk_v2/Salesforce_bulk_v2_getQueryJobResults.png" width="600" /></a>
 
 
 ??? info "The resources are now ready to be tested. The API source should resemble the following. Expand to see."
