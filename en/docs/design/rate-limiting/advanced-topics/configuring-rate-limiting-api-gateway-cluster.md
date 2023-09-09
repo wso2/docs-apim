@@ -65,7 +65,7 @@ For more information, see [Running the API Manager Runtime]({{base_path}}/instal
 ## 2. Async-Sync Hybrid Mode
 
 !!! Note 
-    This mode is available from WSO2 U2 Update level 4.2.0.29 onwards.
+    This mode is available from WSO2 U2 Update level 4.2.0.30 onwards.
 
 In this mode, throttling related parameters (counters and timestamps) are synced in-between gateway nodes and the Redis 
 server both asynchronous and synchronous mode. Within a time window, up until an evenly allocated local quota of 
