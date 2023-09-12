@@ -25,12 +25,12 @@ Follow the steps below to filter a data service according to a specific user rol
 ## Extend role-based filtering via a custom authorization provider
 
 In the Micro Integrator, you can filter content to specific user roles by taking roles from
-the [user store]({{base_path}}/install-and-setup/setup/mi-setup/setup/user_stores/setting_up_a_userstore) connected to the server. However, this extension provides
+the [user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/) connected to the server. However, this extension provides
 the flexibility for you to develop data services by plugging in a
 mechanism to provide those role details from any preferred external
-source (e.g., third party identity provider, JWT token etc.). Hence, in
-data integration scenarios where data needs to be filtered based on the
-user who requests those data, follow the steps given below to plug in a custom
+source (e.g., third party identity provider, JWT token etc.). Hence, in
+data integration scenarios where data needs to be filtered based on the
+user who requests those data, follow the steps given below to plug in a custom
 authorization provider.
 
 1.  Create a Java project and create a Java class (e.g.
