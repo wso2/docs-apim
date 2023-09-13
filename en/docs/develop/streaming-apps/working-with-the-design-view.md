@@ -24,13 +24,13 @@ To open the design view of the Streaming Integrator Tooling:
 To add a Siddhi component to the Siddhi application that you are creating/editing in the design view, click on the 
 relevant icon in the left pane, and then drag and drop it to the grid as demonstrated in the example below.
 
-![Dragging and dropping Siddhi components]({{base_path}}/assets/img/streaming/working-with-the design-view/drag-and-drop-siddhi-component.gif)
+![Dragging and dropping Siddhi components](../../../../assets/img/streaming/working-with-the design-view/Drag-And-Drop-Siddhi-Component.gif)
 
 Once you add a Siddhi component, you can configure it as required. To
 configure a Siddhi component, click the settings icon on the component.
 This opens a form with parameters related to the relevant component.
 
-![Configure Siddhi component settings]({{base_path}}/assets/img/streaming/working-with-the design-view/configure-siddhi-component-in-design-view.png)
+![Configure Siddhi component settings](../../../../assets/img/streaming/working-with-the design-view/Configure-Siddhi-Component-In-Design-View.png)
 
 The following is the complete list of Siddhi components that you can add
 to the grid of the design view when you create a Siddhi application.
