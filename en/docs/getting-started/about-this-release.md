@@ -31,10 +31,6 @@ The **WSO2 API Manager 3.1.0** is the **latest** **WSO2 API Manager release*
 
      API categories are similar to Tag wise grouping. However, admins need to define API categories that Publishers can use when creating APIs. Furthermore, unlike Tag wise grouping API categories do not use a naming convention. Therefore, with the introduction of this feature, WSO2 has deprecated the Tag wise grouping feature.
 
-- **[AI-based recommendations for the Developer Portal]({{base_path}}/learn/consume-api/discover-apis/api-recommendations)**
-
-     The AI-based recommendations for the Developer Portal use a specialized recommendation engine to process recommendation related events and produce recommendations. 
-
 - [**API Mocking**]({{base_path}}/learn/design-api/mock-api/create-a-mock-api-with-an-inline-script)
 
      Ability to create a prototype API using a mock payload that is generated for inline scripts.
