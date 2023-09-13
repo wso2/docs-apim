@@ -341,7 +341,6 @@ nav:
         - Consume APIs - Overview: consume/consume-api-overview.md
         - Discover APIs:
             - Search: consume/discover-apis/search.md
-            - AI-based Recommendations for the Developer Portal: consume/discover-apis/api-recommendations.md
         - Manage Applications:
             - Create Application: consume/manage-application/create-application.md
             - Generate Keys:
