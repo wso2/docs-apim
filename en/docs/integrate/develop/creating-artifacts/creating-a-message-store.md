@@ -69,4 +69,4 @@ Open the new message store artifact from the project explorer. You can use the *
 
 ## Tutorials
 
--	See the tutorial on [using message stores and processors]({{base_path}}/integrate/tutorials/storing-and-forwarding-messages)
+-	See the tutorial on [using message stores and processors]({{base_path}}/tutorials/integration-tutorials/storing-and-forwarding-messages)
