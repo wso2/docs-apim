@@ -17,7 +17,6 @@ The process of consuming an API from WSO2 API Manager involves the following ste
 When APIs are created and published through the **Publisher**, they become available through the **Developer Portal**. By default, the AI technologies of the Developer Portal recommends APIs based on the developer’s interests. Developers can also use the search option to find APIs of interest.
 
 -   <a href="{{base_path}}/consume/discover-apis/search">Searching for APIs</a>
--   <a href="{{base_path}}/consume/discover-apis/api-recommendations">AI-based API recommendations</a>
 
 ### Subscribe to APIs
 
