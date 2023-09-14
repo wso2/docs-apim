@@ -181,39 +181,26 @@ proxyPort = 443
     2. base_path has a suffix of "/apim" which is the proxy_context_path
     3. proxy_context_path is set to "/apim"
 
-### Step 4: Update the API Manager configuration - web.xml.j2
-
-Open the following file.
-`repository/resources/conf/templates/repository/conf/tomcat/carbon/WEB-INF/web.xml.j2`
-
-Add the configuration below with the same level as other `<context-param>` nodes.
-```xml
-<context-param>
-      <param-name>contextPath</param-name>
-      <param-value>apim</param-value>
-</context-param>
-```
-
-### Step 5: Update the API Manager web app configurations
+### Step 4: Update the API Manager web app configurations
 
 Add the following configuration to each web application.
 
-**devportal/site/public/theme/settings.js**
-```js
-context: '/apim/devportal', 
-proxy_context_path: '/apim',
+**devportal/site/public/theme/settings.json**
+```json
+"context": "/apim/devportal", 
+"proxy_context_path": "/apim",
 ```
 
-**publisher/site/public/conf/settings.js**
-```js
-context: '/apim/publisher', 
-proxy_context_path: '/apim',
+**publisher/site/public/conf/settings.json**
+```json
+"context": "/apim/publisher", 
+"proxy_context_path": "/apim",
 ```
 
-**admin/site/public/conf/settings.js**
-```js
-context: '/apim/admin', 
-proxy_context_path: '/apim',
+**admin/site/public/conf/settings.json**
+```json
+"context": "/apim/admin", 
+"proxy_context_path": "/apim",
 ```
 
 Now start/restart the API Manager server
