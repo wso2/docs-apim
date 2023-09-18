@@ -408,7 +408,7 @@ When you use the [transport.vfs.FileURI](#vfs-transport-file_url) parameter, you
       </tr>
       <tr>
          <td>vfs.ssl.keystore</td>
-         <td>Private key store to use for mutual SSL. Your keystore must be signed by a certificate authority. For more information, see <a href="index">http://docs.oracle.com/cd/E19509-01/820-3503/ggfen/index.html</a>. Possible value: String (Path of keystore).</td>
+         <td>Private key store to use for mutual SSL. Your keystore must be signed by a certificate authority. For more information, [see Oracle page](http://docs.oracle.com/cd/E19509-01/820-3503/ggfen/index.html). Possible value: String (Path of keystore).</td>
       </tr>
       <tr>
          <td>vfs.ssl.kspassword</td>

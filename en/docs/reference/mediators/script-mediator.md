@@ -115,9 +115,7 @@ Click on the relevant tab to view the syntax for a script mediator using an Inli
   The following syntax applies when you create a Script mediator with the script program statements stored in a separate file, referenced via the Local or Remote Registry entry.
 
     !!! Info
-        If you are creating the Registry Resource via Tooling, you need not specify the content/media type, because it gets automatically applied when you select the **JavaScript File Template** as shown below.
-
-        ![select the JavaScript File Template]({{base_path}}/assets/img/integrate/mediators/119131139/119131140.png)
+        If you are creating the Registry Resource via Tooling, you need not specify the content/media type, because it gets automatically applied when you select the **JavaScript File Template**.
 
         ``` 
         <script key="string" language="js" [function="script-function-name"]>
