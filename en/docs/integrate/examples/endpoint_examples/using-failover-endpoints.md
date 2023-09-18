@@ -60,7 +60,7 @@ property (i.e., `         10        ` milliseconds in the above example).
 
 For all the other errors, it will be marked as
 `         Suspended        ` . For more information about these states
-and properties, see [Endpoint Error Handling]({{base_path}}/integrate/examples/endpoint_examples/endpoint_error_handling).
+and properties, see [Endpoint Error Handling]({{base_path}}/integrate/examples/endpoint_examples/endpoint-error-handling/).
 
 !!! Info
     The retry count is per endpoint, not per message. The retry happens in parallel. Since messages come to this endpoint via many threads, the same message may not be retried three times. Another message may fail and can reduce the retry count.

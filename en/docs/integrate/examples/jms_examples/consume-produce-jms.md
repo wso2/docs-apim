@@ -75,7 +75,7 @@ The Synapse artifacts used are explained below.
 </table>
 
 !!! Info
-    To refer details on JMS transport parameters, you can follow [JMS transport parameters]({{base_path}}/ireference/synapse-properties/transport-parameters/jms-transport-parameters) used in the Micro Integrator.
+    To refer details on JMS transport parameters, you can follow [JMS transport parameters]({{base_path}}/reference/synapse-properties/transport-parameters/jms-transport-parameters/) used in the Micro Integrator.
 
 !!! Note
     Be sure to replace the ' `& ` ' character in the endpoint URL with '`&amp;`' to avoid the following exception:
@@ -94,7 +94,7 @@ Create the artifacts:
 
 Set up the broker:
 
-1.  [Configure a broker]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transport#configuring-the-jms-transport) with your Micro Integrator instance. Let's use Active MQ for this example.
+1.  [Configure a broker]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-jms-transport) with your Micro Integrator instance. Let's use Active MQ for this example.
 2.  Start the broker.
 3.  Start the Micro Integrator (after starting the broker).
 
