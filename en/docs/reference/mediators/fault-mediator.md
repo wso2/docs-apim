@@ -4,7 +4,7 @@ The **Fault Mediator** (also called the **Makefault Mediator**) transforms the c
 mediator does not send the converted message. The [Send Mediator]({{base_path}}/reference/mediators/send-mediator) needs to be invoked to send a fault message
 created via the Fault mediator. The fault message's `         To        ` header is set to the `         Fault-To        ` of the original message (if such a header exists in the original message). You can create the fault message as a SOAP 1.1, SOAP 1.2, or plain-old XML (POX) fault.
 
-For more information on faults and errors, see [Error Handling]({{base_path}}/reference/error_handling).
+For more information on faults and errors, see [Error Handling]({{base_path}}/troubleshooting/error-handling).
 
 ## Syntax
 

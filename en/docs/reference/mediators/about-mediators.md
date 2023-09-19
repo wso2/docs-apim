@@ -52,7 +52,7 @@ WSO2 Micro Integrator includes a comprehensive library of mediators that provide
 
 **Transform Mediators**
 
-[XSLT]({{base_path}}/reference/mediators/xslt-mediator) | [FastXSLT]({{base_path}}/reference/mediators/fastxslt-mediator) | [URLRewrite]({{base_path}}/reference/mediators/urlrewrite-mediator) | [XQuery]({{base_path}}/reference/mediators/xquery-mediator) | [Header]({{base_path}}/reference/mediators/header-mediator) | [Fault]({{base_path}}/reference/mediators/fault-mediator) | [PayloadFactory]({{base_path}}/reference/mediators/payloadfactory-mediator) | [JSONTransform](json-transform-mediator) |
+[XSLT]({{base_path}}/reference/mediators/xslt-mediator) | [FastXSLT]({{base_path}}/reference/mediators/fastxslt-mediator) | [URLRewrite]({{base_path}}/reference/mediators/urlrewrite-mediator) | [XQuery]({{base_path}}/reference/mediators/xquery-mediator) | [Header]({{base_path}}/reference/mediators/header-mediator) | [Fault]({{base_path}}/reference/mediators/fault-mediator) | [PayloadFactory]({{base_path}}/reference/mediators/payloadfactory-mediator) | [JSONTransform]({{base_path}}/reference/mediators/json-transform-mediator) |
 
 **Advanced Mediators**
 

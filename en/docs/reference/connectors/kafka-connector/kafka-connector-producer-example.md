@@ -16,7 +16,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 ## Set up Kafka
 
-Before you begin, set up Kafka by following the instructions in [Setting up Kafka]({{base_path}}/reference/connectors/ksfka-connector/setting-up-kafka/).
+Before you begin, set up Kafka by following the instructions in [Setting up Kafka]({{base_path}}/reference/connectors/kafka-connector/setting-up-kafka/).
 
 ## Configure the connector in WSO2 Integration Studio
 
