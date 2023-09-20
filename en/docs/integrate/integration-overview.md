@@ -384,9 +384,9 @@ Learn how to implement various integration use cases, deploy them in the Micro I
     <tr>
         <td><b>Message Routing</b> 
             <ul>
-                <li><a href="{{base_path}}/integrate/examples/routing-examples/routing_based_on_headers">Routing Based on Message Headers</a></li>
-                <li><a href="{{base_path}}/integrate/examples/routing-examples/routing_based_on_payloads">Routing Based on Message Payload</a></li>
-                <li><a href="{{base_path}}/integrate/examples/routing-examples/splitting_aggregating_messages">Splitting Messages and Aggregating Responses</a></li>
+                <li><a href="{{base_path}}/integrate/examples/routing_examples/routing_based_on_headers">Routing Based on Message Headers</a></li>
+                <li><a href="{{base_path}}/integrate/examples/routing_examples/routing_based_on_payloads">Routing Based on Message Payload</a></li>
+                <li><a href="{{base_path}}/integrate/examples/routing_examples/splitting_aggregating_messages">Splitting Messages and Aggregating Responses</a></li>
             </ul>
         </td>
     </tr>

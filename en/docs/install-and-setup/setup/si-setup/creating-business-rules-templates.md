@@ -451,7 +451,7 @@ WSO2 SI allows you to make edits to a business rules template that you have alre
 
     ![Choose File]({{base_path}}/assets/img/streaming/working-with-business-rules/choose-file.png)
 
-4. Edit the template as required. You can update it in the Design View or the Source View as you prefer. For more information, see [Creating a Business Rule Template](creating-a-business-rule-template).
+4. Edit the template as required. You can update it in the Design View or the Source View as you prefer. For more information, see [Creating a Business Rule Template]({{base_path}}/install-and-setup/setup/si-setup/creating-business-rules-templates/#creating-business-rules).
 
 5. Save your edits by clicking the **Save** icon in the top panel.
 
