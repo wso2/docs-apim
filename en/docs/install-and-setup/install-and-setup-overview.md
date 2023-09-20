@@ -920,7 +920,7 @@ To install and run the Streaming Integrator, see the following topics.
     </tr>
     <tr>
         <th>
-            <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-si-as-a-windows-service">Running the Streaming Integrator as a Windows Service</a>
+            <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-si-as-windows-service">Running the Streaming Integrator as a Windows Service</a>
         </th>
         <td>
             Explains how to install and run the Streaming Integrator as a Windows service.

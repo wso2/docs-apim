@@ -32,7 +32,7 @@ These integration services can be created using WSO2 Integration Studio and a va
 
 #### API Analytics
 
-- For information on the architecture, see [API Analytics Architecture]({{base_path}}/api-analytics/api-analytics-architecture/)
+- For information on the architecture, see [API Analytics Architecture]({{base_path}}/api-analytics/choreo-analytics/api-analytics-architecture)
 
 - For information on working with Analytics, see the [API Analytics Getting Started Guide]({{base_path}}/api-analytics/getting-started-guide/).
 
@@ -70,7 +70,7 @@ Micro Integrator is an event-driven, standards-based messaging engine that can w
 
 #### Streaming Integrator
 
-The [Streaming Integrator]({{base_path}}/steaming/streaming-overview/) component of WSO2 API Manager is a streaming data processing server that integrates streaming data and takes action based on streaming data. The streaming integration capabilities of WSO2 API Manager are delivered via this runtime. This is a cloud-native, lightweight component that understands, captures, analyzes, processes, and acts upon streaming data and events in real-time. It utilizes the SQL-like query language ‘Siddhi’ to implement the solution.
+The [Streaming Integrator]({{base_path}}/streaming/streaming-overview) component of WSO2 API Manager is a streaming data processing server that integrates streaming data and takes action based on streaming data. The streaming integration capabilities of WSO2 API Manager are delivered via this runtime. This is a cloud-native, lightweight component that understands, captures, analyzes, processes, and acts upon streaming data and events in real-time. It utilizes the SQL-like query language ‘Siddhi’ to implement the solution.
 
 <img src="{{base_path}}/assets/img/integrate/intro/streaming-integrator.png" alt="Streaming Integrator" name="Streaming Integrator" width="600">
 
