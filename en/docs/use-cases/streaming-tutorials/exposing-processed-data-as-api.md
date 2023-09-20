@@ -11,7 +11,7 @@ Siddhi query API provides APIs related to:
 - Health check
 - Siddhi store operations
 
-For a comprehensive reference on the Siddhi query API, see [Streaming Integration REST API Guide](https://ei.docs.wso2.com/en/next/streaming-integrator/ref/si-rest-api-guide/).
+For a comprehensive reference on the Siddhi query API, see [Streaming Integration REST API Guide](https://ei.docs.wso2.com/en/latest/streaming-integrator/ref/rest-api-guide-overview/).
 
 This tutorial demonstrates how you can use the Siddhi query API to perform essential operations in WSO2 Streaming Integrator using simple examples.
 
