@@ -1011,6 +1011,8 @@ nav:
                         - employeeSSOAccounts: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/employeessoaccounts.md
                         - employeeWorkAssignmentManagers: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/employeeworkassignmentmanagers.md
                         - userPayAdjustmentCodeGroups: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/userpayadjustmentcodegroups.md
+            - CSV Module:
+                - 'CSV Module': 'reference/connectors/csv-module/csv-module-config.md'
             - DB Event Listener Inbound Endpoint:
                 - Database Event Listener Overview: reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-overview.md
                 - Database Event Listener Example: reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-example.md
