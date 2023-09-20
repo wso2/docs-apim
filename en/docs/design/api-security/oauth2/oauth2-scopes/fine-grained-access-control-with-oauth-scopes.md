@@ -237,7 +237,7 @@ When a scope is attached to an API resource, access to it gets restricted based 
 
 !!! info
 
-     If you first create a local scope and then create a shared scope with same scope name before attaching the local scope to any API resource, the local scope will removed from local scope UI. However, it will not be reflected in the API Definition, unless you save the API. This is an identified limitation in supporting both local and shared scopes. Hence, we recommend you to use Shared Scopes only from 3.2 onwards. Local scopes are deprecated and will be removed in future release.
+     If you first create a local scope and then create a shared scope with same scope name before attaching the local scope to any API resource, the local scope will removed from local scope UI. However, it will not be reflected in the API Definition, unless you save the API. This is an identified limitation in supporting both local and shared scopes.
 
 
 
