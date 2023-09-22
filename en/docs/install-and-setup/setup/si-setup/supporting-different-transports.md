@@ -101,7 +101,7 @@ To configure the **Apache ActiveMQ** message broker, follow the steps below:
 
 To configure the **MQTT** message broker, follow the steps below:
 
-1. Download the `org.eclipse.paho.client.mqttv3-1.1.1.jar` file from [here](https://www.eclipse.org/paho/downloads.php).
+1. Download the `org.eclipse.paho.client.mqttv3-1.1.1.jar` file from [here](https://eclipse.dev/paho/index.php?page=downloads.php).
 
 2. Place the file you downloaded in the `<SI_TOOLING_HOME>/lib` directory.
 

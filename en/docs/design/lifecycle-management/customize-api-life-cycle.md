@@ -9,7 +9,7 @@ Follow the steps below to add a new state to the default life cycle.
 2.  Click **Lifecycle** tab to view the current state and states available by default.
     ![Published life cycle state]({{base_path}}/assets/img/learn/default-lifecycle.png)
 
-3.  Open the API Manager Management Console: <https://localhost:9443/admin>
+3.  Open the API Manager Management Console: `https://localhost:9443/admin`
 
 4.  Click on the Advanced tab.
 

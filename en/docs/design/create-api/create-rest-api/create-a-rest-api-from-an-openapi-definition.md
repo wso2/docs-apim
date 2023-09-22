@@ -108,9 +108,9 @@ You will notice that all the API resources are created automatically when the Op
 
      This is required to invoke the API in the Developer Portal using the OpenAPI UI.
     
-     [![]({{base_path}}/assets/img/learn/edit-api-definition-pet-store.png)]({{base_path}}/assets/img/learn/edit-api-definition-pet-store.png)
+     [![]({{base_path}}/assets/img/learn/edit-api-definition-pet-store.png)]({{base_path}}/assets/img/learn/edit-api-definition-pet-store.png)<br>
 
-     ??? note "Importing an API definition"
+         note "Importing an API definition" 
          You can also import an API definition.
          
             1. Click on **Import Definition** from the toolbar
@@ -175,7 +175,7 @@ You will notice that all the API resources are created automatically when the Op
      | Field               | Sample value                                          |
      |---------------------|-------------------------------------------------------|
      | Endpoint type       | HTTP/REST Endpoint                                    |
-     | Production endpoint | [https://petstore3.swagger.io/api/v3](https://petstore3.swagger.io/api/v3)                       |
+     | Production endpoint | `https://petstore3.swagger.io/api/v3`                       |
      | Sandbox endpoint    | Let's only work with the production endpoint for this sample. Therefore, deselect the sandbox endpoint option. |
 
      <html>

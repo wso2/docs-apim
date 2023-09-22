@@ -63,7 +63,7 @@ Create the databases and then create the DB tables by pointing to the relevant s
 
 ## Setting up the drivers
 
-1.  Download the [PostgreSQL JDBC4 driver](http://jdbc.postgresql.org/download.html).
+1.  Download the [PostgreSQL JDBC4 driver](https://jdbc.postgresql.org/download/).
 2.  Copy the driver to the `MI_HOME/lib` directory.    
 
 ## Connecting the database to the server

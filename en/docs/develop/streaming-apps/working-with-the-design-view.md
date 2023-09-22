@@ -535,7 +535,7 @@ to the grid of the design view when you create a Siddhi application.
          <td>
             <div class="content-wrapper">
                <p><br /></p>
-               <img src="{{base_path}}/assets/img/streaming/working-with-the design-view/Trigger_Configuration_Form.png"/>
+               <img src="{{base_path}}/assets/img/streaming/working-with-the design-view/trigger-configuration-form.png"/>
                <p>The details entered in the above orm creates a trigger definition as follows:</p>
                <div class="code panel pdl" style="border-width: 1px;">
                   <div class="codeContent panelContent pdl">
