@@ -192,15 +192,44 @@ Follow the steps below to configure the traffic manager endpoints.
     traffic_manager_urls=["tcp://tm2.wso2.com:9611"]
     traffic_manager_auth_urls=["ssl://tm2.wso2.com:9711"]    
     ```
-    
-#### Step-5.2 Configure WSO2 IS to pass end-user attributes to the backend (JWT)
+
+#### Step-5.2 Remove the existing mutual TLS authenticator configuration
+
+Follow the steps below to remove the `mutual_tls_authenticator` configuration provided in the deployment.toml file in IS-KM.
+
+ 1. Open the `<IS_KM_HOME>/repository/conf/deployment.toml` file in the WSO2 IS as KM node.
+ 2. Remove or comment out the complete event listener configuration as follows.
+
+``` toml
+# [[event_listener]]
+# id = "mutual_tls_authenticator"
+# type = "org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
+# name = "org.wso2.carbon.identity.oauth2.token.handler.clientauth.mutualtls.MutualTLSClientAuthenticator"
+# order = "158"
+# enable = false
+```
+
+
+#### Step-5.3 Configure WSO2 IS to prevent authentication failures when retrieving resources
+
+Follow the steps below to enable resource access control in IS-KM.
+
+ 1. Open the `<IS_KM_HOME>/repository/conf/deployment.toml` file in the WSO2 IS as KM node.
+ 2. Add the following configuration to the file.
+
+``` toml
+[resource_access_control]
+default_access_allow= true
+```
+
+#### Step-5.4 Configure WSO2 IS to pass end-user attributes to the backend (JWT)
   
 Follow the steps below to configure [JSON Web Token (JWT)](http://openid.net/specs/draft-jones-json-web-token-07.html#anchor3) to pass the end-user attributes to the backend.
  
  1. Open the `<IS_KM_HOME>/repository/conf/deployment.toml` file in the WSO2 IS as KM node.
  2. Follow the document [Passing Enduser Attributes to the Backend Using JWT]({{base_path}}/learn/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt).
 
-#### Step 5.3 Encrypting OAuth2 Keys (access tokens, client secrets, and authorization codes)
+#### Step 5.5 Encrypting OAuth2 Keys (access tokens, client secrets, and authorization codes)
 
 Follow the steps below to encrypt OAuth2 Keys (access tokens, client secrets, and authorization codes).
 
