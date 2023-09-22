@@ -37,7 +37,7 @@ Follow the instructions below to create and publish an API via the Publisher Por
 
 1. Navigate to the Publisher Portal.
    
-     [https://localhost:9443/publisher](https://localhost:9443/publisher)
+     `https://localhost:9443/publisher`
      
 2. Sign in with **`admin/admin`** as the credentials.
                                                  
@@ -108,7 +108,7 @@ Follow the instructions below to subscribe to the API and generate the keys via 
 
 1. Navigate to the Developer Portal.
 
-     [https://localhost:9443/devportal](https://localhost:9443/devportal)
+     `https://localhost:9443/devportal`
     
      The published `HelloWorld` API is listed in the Developer Portal as shown below.
 
@@ -195,7 +195,7 @@ Follow the instructions below to invoke the previously created API with the gene
 
     [![Paste the access token]({{base_path}}/assets/img/get_started/test-api.png)]({{base_path}}/assets/img/get_started/test-api.png)
 
-3. **If this is the first time you are using the API test console** from your browser,  open a new tab and navigate to the [https://localhost:8243/](https://localhost:8243/) URL.
+3. **If this is the first time you are using the API test console** from your browser,  open a new tab and navigate to the `https://localhost:8243/` URL.
 
      This will prompt your browser to accept the certificate used by the API Gateway. This is required because by default the API Gateway uses a self-signed certificate that is not trusted by web browsers.
     
@@ -349,7 +349,7 @@ Follow the instructions below to publish an API via WSO2 API Controller.
 
          [![API in the Publisher]({{base_path}}/assets/img/get_started/qsg-publisher.png)]({{base_path}}/assets/img/get_started/qsg-publisher.png)
 
-     - Developer Portals - [https://localhost:9443/devportal](https://localhost:9443/devportal)
+     - Developer Portals - `https://localhost:9443/devportal`
 
          [![API in the Developer Portal]({{base_path}}/assets/img/get_started/qsg-devportal.png)]({{base_path}}/assets/img/get_started/qsg-devportal.png)
 
