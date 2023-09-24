@@ -353,11 +353,11 @@ Follow the steps below to create the task and schedule it.
     ```xml
     <task class="org.apache.synapse.startup.tasks.MessageInjector" group="synapse.simple.quartz" name="PrintStockQuoteScheduledTask" xmlns="http://ws.apache.org/ns/synapse">
                 <trigger count="1" interval="5" />
-                <property name="to" value="http://localhost:9000/soap/SimpleStockQuoteService" xmlns:task="http://www.wso2.org/products/wso2commons/tasks" />
+                <property name="to" value=`http://localhost:9000/soap/SimpleStockQuoteService`>
                 <property name="stockFile" value="/Users/praneesha/Desktop/stockfile.txt" xmlns:task="http://www.wso2.org/products/wso2commons/tasks" />
                 <property name="synapseEnvironment" value="" xmlns:task="http://www.wso2.org/products/wso2commons/tasks" />
     </task>
-    ```
+    ``` 
     The task properties will change according to the custom implementation. Therefore, you need to enter values for your custom properties. This sets the below properties.
 
     <table>

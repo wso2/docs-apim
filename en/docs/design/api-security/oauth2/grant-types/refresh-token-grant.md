@@ -70,7 +70,7 @@ The above REST response grants you a renewed access token along with a refresh t
 
 ### Revoking a refresh token
 
-After issuing an access token and refresh token, a user or an admin can revoke it in case of theft or a security violation. You can do this by calling the Revoke API using a utility like cURL. The Revoke API's endpoint URL is <https://localhost:9443/oauth2/revoke>.
+After issuing an access token and refresh token, a user or an admin can revoke it in case of theft or a security violation. You can do this by calling the Revoke API using a utility like cURL. The Revoke API's endpoint URL is `https://localhost:9443/oauth2/revoke`.
 
 #### Option 1
 
