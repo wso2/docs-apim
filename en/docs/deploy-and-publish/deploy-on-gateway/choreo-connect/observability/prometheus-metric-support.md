@@ -4,7 +4,7 @@ With the integration of Prometheus metrics, monitoring the performance and healt
 
 ## Configure Prometheus Metrics
 
-#### Adapter
+### Adapter
  
 1. Add the following configuration. Replace `ADAPTER_METRIC_PORT` with the desired port value to expose metrics to the Prometheus server.
 
@@ -18,7 +18,7 @@ With the integration of Prometheus metrics, monitoring the performance and healt
 1. Expose the `ADAPTER_METRIC_PORT` to Prometheus and metrics will be available at `:ADAPTER_METRIC_PORT/metrics`.
 
 
-#### Enforcer
+### Enforcer
 1. Create and mount `prometheus-jmx-config.yml` file with following content to enforcer `/home/wso2/conf/prometheus-jmx-config.yml`. For more configuration options click [here](https://github.com/prometheus/jmx_exporter/blob/main/README.md).
 
     ``` tab="Prometheus JMX Config"
