@@ -112,7 +112,7 @@ These will be generated inside a folder with the Project Name.
 
 8. We need to share the host .ssh configurations with the Docker container as in above. The host machine needs to have ssh access to copy the CApps files to the remote instance where the Micro Integrator instances are running. 
 
-9. After installing Jenkins, the jobs can be accessed via [http://localhost:8080/](http://localhost:8081/)
+9. After installing Jenkins, the jobs can be accessed via `http://localhost:8080/`
 
 #### Setting up Synapse Unit testing server
 

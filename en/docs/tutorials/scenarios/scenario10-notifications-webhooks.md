@@ -12,7 +12,7 @@ WebHooks only allow one-way communication, from a caller web app to caller web a
 
 <img src="{{base_path}}/assets/img/tutorials/scenario-tutorials/scenario10.png" alt="Webhook notifications" title="Webhook notifications" width="60%" />
 
-You can view the WebHook API created in WSO2 API Manager by going to the publisher (Super tenant - admin). [https://localhost:9443/publisher/apis](https://localhost:9443/publisher/apis) 
+You can view the WebHook API created in WSO2 API Manager by going to the publisher (Super tenant - admin). `https://localhost:9443/publisher/apis`
 
 You can publish notifications under different topics.
 
@@ -22,7 +22,7 @@ You can publish notifications under different topics.
 
 To subscribe to the API, you need to go to the Developer Portal.
 
-1. Go to [https://localhost:9443/devportal/](https://localhost:9443/devportal/) Developer Portal and select **Carbon.super** tenant domain. This will redirect you to the super tenant Developer Portal.
+1. Go to `https://localhost:9443/devportal/` Developer Portal and select **Carbon.super** tenant domain. This will redirect you to the super tenant Developer Portal.
 2. Sign in with a Super tenant, Developer Portal user. Use user as `peter` and password as `user123`.
 3. Click on NotificationAPI and click subscribe using a policy and generate the access token.
 
@@ -33,7 +33,7 @@ To receive notifications, you need to register a service that will be called for
 1. You can use [https://webhook.site/](https://webhook.site/) for this purpose. You can use the WebHook site unique URL to subscribe yourself to the **general** topic. 
 2. Go to the **Try out** tab and enter the following details under **general** topic.
 
-    <img src="{{base_path}}/assets/img/tutorials/scenarios/notification_subscribe_devportal.png" alt="Subscribing to Topic" title="Subscribing to Topic" width="60%" />
+    <img src="{{base_path}}/assets/img/tutorials/scenarios/notification_subscribe_devportal.png" alt="Subscribing to Topic" title="Subscribing to Topic" width="60%" /><br>
 3. Click on **Generate Curl**, copy the Curl command, and run it on your terminal. This will subscribe your client (WebHook site) to the API Manager. You can verify that the subscription was successful by checking the event that was received on the WebHook site.
 
 ## Step 3: Send notifications
