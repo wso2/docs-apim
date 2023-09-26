@@ -51,7 +51,7 @@ mappings for your queries.
 When defining the result of a data service, in order to declare that a
 binary value is expected, add a suitable entry in Output Mappings. The
 **Schema Type** of the Output Mapping should be selected as "
-[xs:base64Binary](http://xsbase64Binary) ."
+`http://xsbase64Binary` ."
 
 When using code-generated clients, the encoding/decoding of Base64 data
 need not be explicitly done by the user since the existence of binary

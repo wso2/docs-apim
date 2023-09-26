@@ -94,7 +94,7 @@ When a request comes to the default login page, you can see several parameters b
 
 -   **sessionDataKey** : This is an identifier used by the Identity Server to maintain state information related to this particular request by the service provider.
 
--   **relyingParty** : This is the value we gave for the "Issuer" field when we registered the SAML2 SSO service provider (e.g., [travelocity.com](http://travelocity.com) ). This value is used to display different login pages to different service providers.
+-   **relyingParty** : This is the value we gave for the "Issuer" field when we registered the SAML2 SSO service provider (e.g., `http://travelocity.com` ). This value is used to display different login pages to different service providers.
 
 When customizing the pages, ensure that the following is applied.
 

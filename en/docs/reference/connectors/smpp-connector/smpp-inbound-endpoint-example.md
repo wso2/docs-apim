@@ -114,7 +114,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 1. Navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for `SMPP Connector`. Click on `SMPP Inbound Endpoint` and download the .jar file by clicking on `Download Inbound Endpoint`. Copy this .jar file into **<PRODUCT-HOME>/lib** folder. 
 
-2. Download  [jsmpp-2.1.0-RELEASE.jar](http://central.maven.org/maven2/com/googlecode/jsmpp/jsmpp/2.1.0-RELEASE/) and [asyncretry-jdk7-0.0.6.jar](https://mvnrepository.com/artifact/com.nurkiewicz.asyncretry/asyncretry-jdk7/0.0.6) copy inside **<PRODUCT-HOME>/lib** folder.
+2. Download  [jsmpp-2.1.0-RELEASE.jar](https://mvnrepository.com/artifact/com.googlecode.jsmpp/jsmpp/2.1.0-RELEASE/) and [asyncretry-jdk7-0.0.6.jar](https://mvnrepository.com/artifact/com.nurkiewicz.asyncretry/asyncretry-jdk7/0.0.6) copy inside **<PRODUCT-HOME>/lib** folder.
    
 3. Copy the exported carbon application to the **<PRODUCT-HOME>/repository/deployment/server/carbonapps** folder. 
 
