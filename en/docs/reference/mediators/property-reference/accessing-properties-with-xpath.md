@@ -1,4 +1,4 @@
-http://localhost:8280/soapEnvelopeTest)# Accessing Properties with XPath
+# Accessing Properties with XPath
 
 The WSO2 Micro Integrator supports standard XPath functions and variables through its underlying XPath engine. It supports XPath 1.0 by default where as the support for XPath 2.0 can be introduced by adding the following property in <MI_HOME>/conf/deployment.toml.
 
