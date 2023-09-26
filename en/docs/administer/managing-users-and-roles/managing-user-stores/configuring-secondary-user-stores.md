@@ -60,7 +60,7 @@ There are two approaches to configure a secondary user store. It can be configur
 
 5. Enter values for the properties, using the descriptions in the Descriptions column for guidance. 
 
-     The properties vary based on the user store manager class that you selected, and there may be additional properties under "Optional" or "Advanced" sections at the bottom of the screen. For information on the properties that are used when defining user stores, see [Properties of User Stores](https://docs.wso2.com/display/ADMIN44x/Working+with+Properties+of+User+Stores).
+     The properties vary based on the user store manager class that you selected, and there may be additional properties under "Optional" or "Advanced" sections at the bottom of the screen. For information on the properties that are used when defining user stores, see [Properties of User Stores](https://wso2docs.atlassian.net/wiki/spaces/ADMIN44x/pages/6684783/Working+with+Properties+of+User+Stores).
 
     [![Secondary user store definition]({{base_path}}/assets/img/administer/secondary-user-store-definition.png)]({{base_path}}/assets/img/administer/secondary-user-store-definition.png)
 
