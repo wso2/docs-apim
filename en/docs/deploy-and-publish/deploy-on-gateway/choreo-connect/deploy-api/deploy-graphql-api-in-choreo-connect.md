@@ -114,7 +114,7 @@ You can create a GraphQL API in WSO2 API-M Publisher Portal by following the ste
              <p>Endpoint</p>
           </td>
           <td>
-             <a href="http://hostName:8080/graphql" target="_blank">http://hostName:8080/graphql</a>
+             <code>`http://hostName:8080/graphql`</code>
           </td>
           </tr>
           </table>

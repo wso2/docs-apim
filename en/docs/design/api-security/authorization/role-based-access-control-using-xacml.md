@@ -129,7 +129,7 @@ Based on the requirement, a single API is exposed to add or retrieve order info
     ```
 
     !!! note
-        The **Entitlement Mediator** intercepts requests and evaluates the actions performed by a user against an [eXtensible Access Control Markup Language (XACML)](http://en.wikipedia.org/wiki/XACML) policy. Here, WSO2 Identity Server is used as the XACML Policy Decision Point (PDP) where the policy is set, and WSO2 API Manager serves as the XACML Policy Enforcement Point (PEP) where the policy is enforced. Refer [Entitlement Mediator](https://docs.wso2.com/display/ESB500/Entitlement+Mediator) for more information on parameters and usage of this mediator.
+        The **Entitlement Mediator** intercepts requests and evaluates the actions performed by a user against an [eXtensible Access Control Markup Language (XACML)](http://en.wikipedia.org/wiki/XACML) policy. Here, WSO2 Identity Server is used as the XACML Policy Decision Point (PDP) where the policy is set, and WSO2 API Manager serves as the XACML Policy Enforcement Point (PEP) where the policy is enforced. Refer [Entitlement Mediator](https://wso2docs.atlassian.net/wiki/spaces/ESB500/pages/51413335/Entitlement+Mediator) for more information on parameters and usage of this mediator.
 
     !!! info
         The attributes in the &lt;entitlementService&gt; element above should be modified according to the services' endpoint configuration as follows.

@@ -31,7 +31,7 @@ particular transaction.
 For an example that demonstrates how the [transaction
 mediator]({{base_path}}/reference/mediators/transaction-mediator/) can
 be used to manage distributed transactions , see [Transaction Mediator
-Example](https://docs.wso2.com/display/EI650/Transaction+Mediator+Example).
+Example](https://wso2docs.atlassian.net/wiki/spaces/EI650/pages/35554191/Transaction+Mediator+Example).
 
 ### Java Message Service (JMS) transactions
 
@@ -42,7 +42,7 @@ WSO2 Micro Integrator (WSO2 MI) also supports JMS transactions.
 !!! Note
     In WSO2 MI, JMS transactions only work with either the Callout mediator or the Call mediator in blocking mode.
 
-The [JMS transport](https://docs.wso2.com/display/EI650/JMS+Transport)
+The [JMS transport](https://wso2docs.atlassian.net/wiki/spaces/EI650/pages/35553935/JMS+Transport)
 shipped with WSO2 MI supports both local and distributed JMS
 transactions. You can use local transactions to group messages
 received in a JMS queue. Local transactions are not supported for

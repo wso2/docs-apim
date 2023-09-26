@@ -208,7 +208,7 @@ Your CApp can be deployed to your QA Micro Integrator.
 5.  The resulting CAR file can be deployed directly to the QA ESB
     server. For details, see [Running the ESB profile via WSO2
     Integration
-    Studio](https://docs.wso2.com/display/EI650/Running+the+Product#RunningtheProduct-RunningtheESBprofileviaWSO2IntegrationStudio)
+    Studio](https://wso2docs.atlassian.net/wiki/spaces/EI650/pages/35553729/Running+the+Product)
     .
 
 !!! Note
