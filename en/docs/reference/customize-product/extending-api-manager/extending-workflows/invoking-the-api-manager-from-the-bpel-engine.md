@@ -1,4 +1,4 @@
-https://localhost:8243/services/WorkflowCallbackService# Invoking the API Manager from the BPEL Engine
+# Invoking the API Manager from the BPEL Engine
 
 Once the workflow configurations are finalized at the BPEL, the call-back URL of the APIM, which is originally configured in the `<APIM_HOME>/repository/conf/api-manager.xml` file and sent to the BPEL engine in the outflow will be called to progress the workflow. In APIM, the endpoint is available in both SOAP and REST variants as follows:
 
