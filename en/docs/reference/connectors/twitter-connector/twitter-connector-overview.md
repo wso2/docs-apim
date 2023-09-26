@@ -3,7 +3,7 @@
 The Twitter Connector allows you to work with Twitter, a social networking site where users broadcast short posts known as Tweets. You can use the Twitter connector to work with Tweets, users, lists, and direct messages. The connector uses the [Twitter API v2](https://developer.twitter.com/en/docs/twitter-api) to interact with Twitter.
 
 !!! info
-    If your Twitter application is using **Twitter API v1.1**, you have to use the [Twitter v2.0.7 Connector](https://docs.wso2.com/display/ESBCONNECTORS/Twitter+Connector+and+Inbound) to interact with Twitter.
+    If your Twitter application is using **Twitter API v1.1**, you have to use the [Twitter v2.0.7 Connector](https://wso2docs.atlassian.net/wiki/spaces/ESBCONNECTORS/pages/50860507/Twitter+Connector+and+Inbound) to interact with Twitter.
 
 To see the Twitter Connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "twitter".
 
