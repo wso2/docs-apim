@@ -26,7 +26,7 @@ If you want to add a new field to the Developer Portal sign-up page that will be
 
 Let's add a field named **City** by following the instructions below:
 
-1.  Start the WSO2 API Manager server, and go to the WSO2 API-M Management Console ( <https://localhost:9443/carbon/> )
+1.  Start the WSO2 API Manager server, and go to the WSO2 API-M Management Console ( `https://localhost:9443/carbon/` )
 2.  Navigate to the **Main** menu and click **Add** which is under the **Claims** tab.
 3.  Click **Add Local Claim** .
     ![Add New Claim]({{base_path}}/assets/img/learn/add-new-claim.png)
@@ -59,7 +59,7 @@ You can modify the fields of the user sign-up page by editing the existing claim
 
 Let's make the field named **City** a mandatory field and also change the display order of the field by following the instructions below:
 
-1.  Start the WSO2 API Manager server and navigate to WSO2 API-M Management Console (<https://localhost:9443/carbon/>).
+1.  Start the WSO2 API Manager server and navigate to WSO2 API-M Management Console (`https://localhost:9443/carbon/`).
 2.  Navigate to the **Main** menu and click **List** which is under the **Claims** tab.
 3.  Click <http://wso2.org/claims> in the list of claims that appear.
     ![List claims]({{base_path}}/assets/img/learn/list-claims-city.png)
@@ -80,7 +80,7 @@ WSO2 API-M allows you to specify different consent purposes for collecting Perso
 
 Follow the steps below to add consent purposes.
 
-1.  Start the WSO2 API Manager server and navigate to WSO2 API-M Management Console (<https://localhost:9443/carbon/>).
+1.  Start the WSO2 API Manager server and navigate to WSO2 API-M Management Console (`https://localhost:9443/carbon/`).
 2.  Navigate to the **Main** tab. Select **Consent Purposes** , which is under the **Manage** tab, and click **Add**.
 3.  Fill in the details of the PII categories as shown below.
     ![Add consent purpose](../../../assets/img/learn/add-consent-purpose.png)

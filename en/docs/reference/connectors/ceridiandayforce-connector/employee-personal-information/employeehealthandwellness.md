@@ -66,7 +66,7 @@ Given below is a sample response for this operation.
 
 **Related Dayforce documentation**
 
-[https://developers.dayforce.com/Build/API-Explorer/Employee-Personal-Information/Employee-Health-and-Wellness/GET-Employee-Health-and-Wellness.aspx](hhttps://developers.dayforce.com/Build/API-Explorer/Employee-Personal-Information/Employee-Health-and-Wellness/GET-Employee-Health-and-Wellness.aspx)
+[https://developers.dayforce.com/Build/API-Explorer/Employee-Personal-Information/Employee-Health-and-Wellness/GET-Employee-Health-and-Wellness.aspx](https://developers.dayforce.com/Build/API-Explorer/Employee-Personal-Information/Employee-Health-and-Wellness/GET-Employee-Health-and-Wellness.aspx)
 
 ### Sample configuration
 

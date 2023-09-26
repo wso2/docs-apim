@@ -621,7 +621,7 @@ Prefix used to get a SOAP 1.1 or 1.2 envelope level element. For example, to get
     </api>
     ```
 
-2.  Send a post request to the API you created (i.e., <http://localhost:8280/soapEnvelopeTest)>, with the following json payload using a rest client.
+2.  Send a post request to the API you created (i.e., `http://localhost:8280/soapEnvelopeTest`), with the following json payload using a rest client.
 
     ``` xml
     {"content":{ "paramA": "ValueA", "paramB": "valueB" }}
