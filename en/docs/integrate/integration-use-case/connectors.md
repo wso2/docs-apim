@@ -5,7 +5,7 @@ Connectors are a means of interacting with various SaaS applications on the clou
 The following are documented connectors available from the [connector store](https://store.wso2.com/store/assets/esbconnector/list). Click the link of the connector to view the documentation for each connector.
 
 !!! Info
-    For details on connectors not mentioned in this documentation, you can find more information in [WSO2 ESB Connectors documentation](https://docs.wso2.com/display/ESBCONNECTORS/WSO2+ESB+Connectors+Documentation) or in the [GitHub repository of the connector](https://github.com/wso2-extensions) you are looking for.
+    For details on connectors not mentioned in this documentation, you can find more information in [WSO2 ESB Connectors documentation](https://wso2docs.atlassian.net/wiki/spaces/ESBCONNECTORS/overview) or in the [GitHub repository of the connector](https://github.com/wso2-extensions) you are looking for.
 
 ## SaaS Connectors
 

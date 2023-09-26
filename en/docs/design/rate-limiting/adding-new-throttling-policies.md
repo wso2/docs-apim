@@ -88,8 +88,8 @@ You can add advanced rate limiting policies to both APIs and resources.
 
     <ul>
         <li> "iss" - The issuer of the JWT</li>
-        <li>" <http://wso2.org/claims/apicontext> " - Context of the API </li>
-        <li>" <http://wso2.org/claims/version> " - API version </li>
+        <li>" `http://wso2.org/claims/apicontext` - Context of the API </li>
+        <li>" `http://wso2.org/claims/version` - API version </li>
    </ul>
  
     

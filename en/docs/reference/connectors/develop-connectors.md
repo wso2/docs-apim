@@ -187,7 +187,7 @@ The following is a sample available in the component.xml file.
 
 ### Operation
 
-An operation of an integration connector is implemented using a [synapse template](https://docs.wso2.com/display/EI611/Sequence+Template) as mentioned before.
+An operation of an integration connector is implemented using a [synapse template](https://wso2docs.atlassian.net/wiki/spaces/EI611/pages/10650004/Sequence+Template) as mentioned before.
 A typical template configuration for an operation would look like below.
 
 ```xml

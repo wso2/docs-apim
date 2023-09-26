@@ -59,7 +59,7 @@ Let's start Choreo Connect with a WSO2 API Manager instance which will be acting
 
 1. Navigate to the Publisher Portal.
 
-    [https://apim:9444/publisher/](https://apim:9444/publisher/)
+    `https://apim:9444/publisher/`
 
 2. Sign in with **`admin/admin`** as the credentials.
 
@@ -119,7 +119,7 @@ You can follow the next few steps to get an idea about API Subscriptions, Applic
 
 1. Navigate to the Developer Portal and select the newly created API.
 
-    [https://apim:9444/devportal/](https://apim:9444/devportal/)
+    `https://apim:9444/devportal/`
 
 2. Navigate to the **Subscriptions** page. 
 
