@@ -133,7 +133,6 @@ You need to add the API Token and Collection ID properties inside the configurat
 
      For more information on the details provided in the report, see [Audit report sections](#auditreports)
 
-<a href="auditreports"></a>
 
 ## Audit report sections
 
