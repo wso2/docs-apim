@@ -37,7 +37,8 @@ Follow the instructions below to manage the API lifecycle appropriately:
 
 4. Click on the lifecycle state change buttons to change the lifecycle state.
 
-     [![]({{base_path}}/assets/img/learn/lifecycle-transition-grid.png")]({{base_path}}/assets/img/learn/lifecycle-transition-grid.png")
+    <a href="{{base_path}}/assets/img/learn/lifecycle-transition-grid.png" ><img src="{{base_path}}/assets/img/learn/lifecycle-transition-grid.png" alt="Lifecycle transition" title="Lifecycle transition" width="70%" /></a>
+
     
 
 

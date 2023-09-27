@@ -221,7 +221,7 @@ The following tables explain the default data sources configured in the Streamin
             <td>Database Access Requirement
                 <br />
             </td>
-            <td>The RDBMS provider publishes records from RDBMS tables into generated widgets. It can also be configured to purge records in tables. In order to carry out these actions, this provider requires access to read and delete records in user defined tables of the database. For more information about the RDBMS data provider, see <a href="https://docs.wso2.com/display/SP440/Generating+Widgets">Generating Widgets</a>.</td>
+            <td>The RDBMS provider publishes records from RDBMS tables into generated widgets. It can also be configured to purge records in tables. In order to carry out these actions, this provider requires access to read and delete records in user defined tables of the database. For more information about the RDBMS data provider, see <a href="https://wso2docs.atlassian.net/wiki/spaces/SP440/pages/16056627/Generating+Widgets">Generating Widgets</a>.</td>
         </tr>
         <tr class="even">
             <td>Required/Optional</td>

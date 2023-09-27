@@ -59,7 +59,7 @@ to the grid of the design view when you create a Siddhi application.
                <p><strong>Stream Name</strong> <strong>:</strong> A unique name for the stream. This should be specified in title caps, and without spaces (e.g., <code>ProductionDataStream</code> ).</p>
                <p><strong>Attributes</strong> : Attributes of streams are specified as name and type pairs in the <strong>Attributes</strong> table.</p>
                <p>If you want to generate the the stream from a file or a database, click <strong>Generate Stream</strong>. However, note that you need to create the relevant file or set up the database and the tables beforehand.</p>
-               <p><img src="{{base_path}}/assets/img/streaming/working-with-the design-view/generate-stream.png"/></p>
+               <p><img src="/assets/img/streaming/working-with-the design-view/Generate-Stream.png"/></p>
                <p>The <strong>Generate Stream</strong> form opens as follows</p>
                <p><img src="{{base_path}}/assets/img/streaming/working-with-the design-view/generate-stream-form.png"/></p>
                <p>To generate the stream from a file:

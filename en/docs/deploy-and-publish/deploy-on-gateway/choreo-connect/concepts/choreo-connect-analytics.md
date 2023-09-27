@@ -9,7 +9,7 @@ Choreo Connect supports publishing Analytics as Real-Time events to Choreo Analy
 
 Following diagram shows the process flow of a success request in Choreo Connect with Analytics enabled.
 
-[![Choreo Connect Analytics Architecture]({{base_path}}/assets/img/deploy/mgw/choreo-connect-analytics-architecture.png)]({{base_path}}/assets/img/deploy/mgw/choreo-connect-analytics-architecture)
+[![Choreo Connect Analytics Architecture]({{base_path}}/assets/img/deploy/mgw/choreo-connect-analytics-architecture.png)]({{base_path}}/assets/img/deploy/mgw/choreo-connect-analytics-architecture.png)
 
 There are two main components related to internal gRPC request for sending `StreamAccessLogsMessage` from `router` to `enforcer`. The latter mentioned two components, which are used to collect analytics data, are explained in the following sections.
 
