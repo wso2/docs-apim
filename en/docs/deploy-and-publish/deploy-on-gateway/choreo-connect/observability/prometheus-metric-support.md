@@ -1,6 +1,9 @@
 # Prometheus Metric Support
 
-With the integration of Prometheus metrics, monitoring the performance and health of Choreo Connect router, adapter, and enforcer components has never been easier. This enhanced observability empowers users to proactively identify and address issues for smoother operations. This feature is available starting from Choreo Connect version 1.2.0.2.
+With the integration of Prometheus metrics, monitoring the performance and health of Choreo Connect router, adapter, and enforcer components has never been easier. This enhanced observability empowers users to proactively identify and address issues for smoother operations.
+
+!!! attention "Update Level 2"
+    This feature is available only as an update, after Update level 1.2.0.2 (released on 13 September 2023) and further. For more information regarding Choreo Connect updates, see [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/update-choreo-connect/).
 
 ## Configure Prometheus Metrics
 
