@@ -118,7 +118,7 @@ Based on the requirement, a single API is exposed to add or retrieve order info
 
     ![]({{base_path}}/assets/attachments/103334839/103334831.png)
 
-11. Download the [entitlement-1.0-SNAPSHOT.jar](https://docs.wso2.com/download/attachments/57743363/entitlement-1.0-SNAPSHOT.jar?version=1&modificationDate=1515491619000&api=v2) and add it to the `<API-M_HOME>/repository/components/lib` directory. This JAR file contains the `APIEntitlementCallbackHandler` class which passes the username, HTTP verb and the resource path to the XACML entitlement server. If you want to view the source code of the JAR, go [here](https://github.com/nadeesha5814/XACML-APIManager) .
+11. Download the [entitlement-1.0-SNAPSHOT.jar](https://github.com/nadeesha5814/XACML-APIManager/blob/master/target/entitlement-1.0-SNAPSHOT.jar) and add it to the `<API-M_HOME>/repository/components/lib` directory. This JAR file contains the `APIEntitlementCallbackHandler` class which passes the username, HTTP verb and the resource path to the XACML entitlement server. If you want to view the source code of the JAR, go [here](https://github.com/nadeesha5814/XACML-APIManager) .
 
 12. Restart the server once the JAR file is added.
 

@@ -2,7 +2,7 @@
 
 Create a Kubernetes Exporter if you want to deploy your integration solutions in a Kubernetes environment. 
 
-The Kubernetes Exporter allows you to package multiple [integration modules]({{base_path}}/integrate/develop/create-integration-project) into a single Docker image. Also, a file named **integration_cr.yaml** is generated, which can be used to carry out Kubernetes deployments based on the [API K8s Operator]({{base_path}}/setup/deployment/kubernetes_deployment/#ei-kubernetes-k8s-operator).
+The Kubernetes Exporter allows you to package multiple [integration modules]({{base_path}}/integrate/develop/create-integration-project) into a single Docker image. Also, a file named **integration_cr.yaml** is generated, which can be used to carry out Kubernetes deployments based on the [API K8s Operator]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments/).
 
 ## Creating the Kubernetes project
 

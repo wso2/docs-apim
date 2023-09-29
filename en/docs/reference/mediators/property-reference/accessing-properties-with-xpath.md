@@ -492,8 +492,7 @@ In this example, the property definition, \<property name="stockprop"
 expression="$trp:Content-Type"/\> is equivalent to \<property
 name="stockprop"
 expression="get-property('transport','Content-Type')"/\>. Similarly, you
-can use $trp prefix with [HTTP Transport
-Properties](_HTTP_Transport_Properties_) .
+can use $trp prefix with [HTTP Transport Properties]({{base_path}}/reference/mediators/property-reference/http-transport-properties) .
 
 ### $url
 
@@ -534,7 +533,7 @@ The prefix used to get the URI element of a request URL.
 
 The prefix used to refer to a particular parameter value passed
 externally by an invoker such as the [Call Template
-Mediator](_Call_Template_Mediator_) .
+Mediator]({{base_path}}/reference/mediators/call-template-mediator/) .
 
 **Example of $func usage:**
 
