@@ -20,7 +20,7 @@ For older versions, see the details in the connector store.
 
 ## Redis Connector documentation
 
-* **[Setting up the Redis Environment]({{base_path}}/reference/connectors/redis-connector/redis-connector-configuration/)**: This involves setting up the Redis server and a backend to test the flow.
+* **[Setting up the Redis Environment]({{base_path}}/reference/connectors/redis-connector/2.4.x/redis-connector-reference/)**: This involves setting up the Redis server and a backend to test the flow.
 
 * **[Redis Connector Example]({{base_path}}/reference/connectors/redis-connector/redis-connector-example/)**: This example demonstrates how to work with the Redis Connector and access the Redis server using Redis commands. 
 
