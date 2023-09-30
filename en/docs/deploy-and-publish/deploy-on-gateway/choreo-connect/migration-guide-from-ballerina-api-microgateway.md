@@ -51,7 +51,7 @@ The API Microgateway is intended to function as an immutable API gateway, where 
 ### Choreo Connect v1.0.0
 Choreo Connect is designed to be a mutable API gateway that publishes API modifications in real time. If necessary, it additionally supports the Immutable API gateway, which loads the API projects only during Adapter startup if they are located in `/home/wso2/artifacts/apis`. The workflow can be created in the following manner.
 
-1. Commit the API projects to the source version control (eg: Github)
+1. Commit the API projects to the source version control (eg: GitHub)
 2. This triggers the CI pipeline such as Jenkins.
 3. It creates the Adapter Docker image placing the API projects in  `/home/wso2/artifacts/` apis location.
 4. Once the Docker image creation is done, it rolls out the Adapter deployment.
@@ -96,7 +96,7 @@ x-wso2-production-endpoints:
 ```
 
 - **`retryConfig`** given under prod or sandbox endpoint only has `count` and `statusCode`. 
-- Envoy uses a fully jittered exponential back-off algorithm for retries. Therefore the interval between the retries is always a random number. More information available in [here](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/router_filter#x-envoy-max-retries).
+- Envoy uses a fully jittered exponential back-off algorithm for retries. Therefore, the interval between the retries is always a random number. More information available in [here](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/router_filter#x-envoy-max-retries).
 - A param called **`backOffFactor`** does not exist in the envoy’s retry interval equation, therefore is not expected in the config. 
 - **`intervalInMillis`** can only be configured via envoy route configs (not configurable via header) which is common to both prod and sandbox. Thus, we have made **`intervalInMillis`** configurable via a parameter **`BaseIntervalInMillis`** in the `config.toml` which is the base interval for the Envoy's exponential retry back off algorithm.
 - An upper bound can be set for the retry count taken from all API definitions. It can be set via **`MaxRetryCount`** set in `config.toml`. When the configured retry count in the API definition is larger than the `MaxRetryCount`, `MaxRetryCount` will be assigned as the count.
@@ -118,7 +118,7 @@ Step by step guide includes in [here]({{base_path}}/deploy-and-publish/deploy-on
 
 ### Choreo Connect with WSO2 API Manager 4.0.0
 
-Choreo Connect v1.0.0 is only compatible with WSO2 API Manager 4.0.0. Hence you need to upgrade to 4.0.0.
+Choreo Connect v1.0.0 is only compatible with WSO2 API Manager 4.0.0. Hence, you need to upgrade to 4.0.0.
 
 1. Upgrade WSO2 API Manager version to 4.0.0. 
 
