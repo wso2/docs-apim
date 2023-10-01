@@ -135,7 +135,7 @@ The following are the two options that are available to retrieve the analytics l
 - <a href="#logtoconsole">Log to console</a>
 - <a href="#logtofile">Log to file</a>
 
-Update the `choreo-connect-1.x.x/docker-compose/choreo-connect(-with-apim)/conf/log4j2.properties` file based on the selected analytics logs retrival method as follows in order to configure the Filebeat agent.
+Update the `choreo-connect-1.x.x/docker-compose/choreo-connect(-with-apim)/conf/log4j2.properties` file based on the selected analytics logs retrieval method as follows in order to configure the Filebeat agent.
 
 <a name="logtoconsole">
 <b>Log to console</b>
