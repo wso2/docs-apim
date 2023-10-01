@@ -104,7 +104,7 @@ You can write a [custom filter]({{base_path}}/deploy-and-publish/deploy-on-gatew
 
 #### Can I perform API request/response transformations?
 
-Yes, use a separate [interceptor service]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/interceptor-microservice/). Also API policies can be used to perform simple transformations like adding/removing headers, rewriting paths, adding query params, changing HTTP methods, etc.
+Yes, use a separate [interceptor service]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/interceptor-microservice/). Also, API policies can be used to perform simple transformations like adding/removing headers, rewriting paths, adding query params, changing HTTP methods, etc.
 
 ## Security
 
