@@ -130,10 +130,10 @@ The following table describes the above configuration.
 <td><code>enabled</code></td>
 <td>Set this to <code>true</code> to enable Git integration for API Artifacts.</td>
 <tr><td><code>pollInterval</code></td>
-<td>The time interval (in seconds) in which the the Adapter should fetch updates from the repository.</td>
+<td>The time interval (in seconds) in which the Adapter should fetch updates from the repository.</td>
 </tr>
 <tr><td><code>retryInterval</code></td>                   
-<td>The time interval (in seconds) in which the the Adapter should retry fetching artifacts from the repository at startup (in case of failure).
+<td>The time interval (in seconds) in which the Adapter should retry fetching artifacts from the repository at startup (in case of failure).
 </td>
 </tr>
 <tr><td><code>maxRetryCount</code> </td>                      
@@ -360,7 +360,7 @@ After the containers are up and running, you can monitor the status of the conta
 
 After the APIs are exposed via WSO2 Choreo Connect, you can invoke an API with a valid token (JWT) or by using a test key.
 
-Let's use WSO2 Choreo Connect's test key endpoint to obtain an test key in order to access the API. For more information, see [Generate a Test JWT]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt).
+Let's use WSO2 Choreo Connect's test key endpoint to obtain a test key in order to access the API. For more information, see [Generate a Test JWT]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt).
 
 ``` tab="Sample Token"
 TOKEN=$(curl -X POST "https://localhost:9095/testkey" -d "scope=read:pets" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -v)
