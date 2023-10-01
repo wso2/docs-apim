@@ -440,7 +440,7 @@ Please follow the document about [Deploying Choreo Connect on Kubernetes With WS
 ### Deploy APIs as Immutable Gateway
 
 The API Controller `apictl` can be used to deploy APIs in the standalone mode. Those APIs deployed with `apictl` will be lost if the Adapter container restarts for any reason.
-Hence, in a production deployment with the Standalone deployment option, it is recommand to create a custom docker image of Adapter by including the `apictl projects`.
+Hence, in a production deployment with the Standalone deployment option, it is recommend to create a custom docker image of Adapter by including the `apictl projects`.
 
 #### Step 1: Create Projects
 
@@ -551,7 +551,7 @@ Follow the document on [Deploying Choreo Connect as a Standalone Gateway on Kube
 
 ### Applying config changes into a running instance of Choreo Connect 
 
-When you have to deploy a config change to the Choreo Connect running on production environment, we recommand you to complete the following steps in order.
+When you have to deploy a config change to the Choreo Connect running on production environment, we recommend you to complete the following steps in order.
 
 !!! Attention
     You must follow this, if the config change is related to the **Enforcer** as the `enforcer` fetches configs from the Adapter only at the startup.
