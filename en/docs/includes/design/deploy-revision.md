@@ -16,7 +16,7 @@ Follow the instructions below to deploy a new revision for an API:
       [![Deploy new revision option](https://apim.docs.wso2.com/en/4.1.0/assets/img/design/revision/deploy-new-revision.png)](https://apim.docs.wso2.com/en/4.1.0/assets/img/design/revision/deploy-new-revision.png)
 
     !!! note
-        **Information icon** will appear only if you have added a product revision description. When you hover over the information icon, you can view the description.
+        The **Information icon** will appear only if you have added a product revision description. You can view the description when you hover over the information icon.
 
 3. Click **Deploy New Revision**.
 
