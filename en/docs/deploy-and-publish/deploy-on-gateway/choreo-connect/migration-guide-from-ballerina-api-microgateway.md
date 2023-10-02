@@ -122,7 +122,7 @@ Choreo Connect v4.2.0 is only compatible with WSO2 API Manager 4.2.0. Hence you 
 
 1. Upgrade WSO2 API Manager version to 4.2.0. 
 
-    A detailed explanation regarding the above includes in  [here]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/320-to-410/upgrading-from-320-to-410/).
+    A detailed explanation regarding the above includes in  [here]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/ ).
 
 2. Connect Choreo Connect microgateway to API Manager 4.2.0 as a gateway.
 

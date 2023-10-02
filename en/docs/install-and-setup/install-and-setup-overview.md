@@ -579,7 +579,7 @@ To set up and configure the Micro Integrator runtime, see the topics given below
                 <a href="{{base_path}}/install-and-setup/setup/mi-setup/security/securing_management_api">Securing the Management API</a>
             </li>
             <li>
-                <a href="{{base_path}}/install-and-setup/setup/mi-setup/customizing_error_pages">Customizing Error Messages</a>
+                <a href="{{base_path}}/troubleshooting/error-handling/#custom-error-message">Customizing Error Messages</a>
             </li>                                                           
         </ul>
     </td>

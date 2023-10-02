@@ -11,16 +11,13 @@ To obtain the Access Token, Client Id, Client Secret and Refresh Token, we need 
 
 4. Click **Configure consent screen** in the next screen.
 
-  <img src="{{base_path}}/assets/img/integrate/connectors/consent-screen.png" title="Consent Screen" width="800" alt="Consent Screen" />
-
+  <img src="{{base_path}}/assets/img/integrate/connectors/consent-screen.jpg" title="Consent Screen" width="800" alt="Consent Screen" /><br>
 5. Provide the Application Name as `SpreadsheetConnector` in the Consent Screen.
 
-  <img src="{{base_path}}/assets/img/integrate/connectors/consent-screen2.png" title="Consent Screen" width="800" alt="Consent Screen" />
-
+  <img src="{{base_path}}/assets/img/integrate/connectors/consent-screen2.jpg" title="Consent Screen" width="800" alt="Consent Screen" /><br>
 6. Click Create credentials and click OAuth client ID.
 
-  <img src="{{base_path}}/assets/img/integrate/connectors/create-credentials.png" title="Create Credentials" width="800" alt="Create Credentials" />
-
+  <img src="{{base_path}}/assets/img/integrate/connectors/create-credentials.png" title="Create Credentials" width="800" alt="Create Credentials" /><br>
 7. Enter the following details in the Create OAuth client ID screen and click Create.
 
   | Type                        | Name                                             | 
@@ -29,12 +26,12 @@ To obtain the Access Token, Client Id, Client Secret and Refresh Token, we need 
   | Name                        | SpreadsheetConnector                                   |
   | Authorized redirect URIs    | https://developers.google.com/oauthplayground    |
 
-  
+<br>  
 8. A Client ID and a Client Secret are provided. Keep them saved.
   <img src="{{base_path}}/assets/img/integrate/connectors/credentials.png" title="Credentials" width="800" alt="Credentials" />
-
+<br>
 9. Click Library on the side menu, search for **Google Sheets API** and click on it.
-
+<br>
 10. Click **Enable** to enable the Google Sheets API.
   <img src="{{base_path}}/assets/img/integrate/connectors/sheetsapi.png" title="Enable Google Sheets API" width="800" alt="Enable Google Sheets API" />
 

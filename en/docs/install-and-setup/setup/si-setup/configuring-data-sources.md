@@ -344,7 +344,7 @@ The following tables explain the default data sources configured in the Streamin
     <tbody>
         <tr class="odd">
             <td>Database Access Requirement</td>
-            <td>To display information relating to the status of your Streaming Integrator deployment, the Status Dashboard needs to retrieve carbon metrics data, registered Streaming Integrator server details and authentication details within the cluster from the database. For more information, see <a href="https://docs.wso2.com/display/SP440/Monitoring+Stream+Processor">Monitoring Stream Processor</a> .</td>
+            <td>To display information relating to the status of your Streaming Integrator deployment, the Status Dashboard needs to retrieve carbon metrics data, registered Streaming Integrator server details and authentication details within the cluster from the database. For more information, see <a href="https://wso2docs.atlassian.net/wiki/spaces/SP440/overview">Monitoring Stream Processor</a> .</td>
         </tr>
         <tr class="even">
             <td>Required/Optional</td>
