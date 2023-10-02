@@ -1,4 +1,4 @@
-the next screen# Get Credentials for Google Spreadsheet
+# Get Credentials for Google Spreadsheet
 
 To obtain the Access Token, Client Id, Client Secret and Refresh Token, we need to follow the below steps. 
 
