@@ -73,23 +73,62 @@ With the integration of Prometheus metrics, monitoring the performance and healt
 2. Substitute `ROUTER_ADMIN_PORT`,`ENFORCER_METRIC_PORT` and `ADAPTER_METRIC_PORT` with their respective values. 
 3. Replace `HOST` with the appropriate host address or addresses.
 
-
-    ```toml tab="Prometheus Scrape Config"
+    ```toml tab="On Docker"
     scrape_configs:
-        - .....
-        - job_name: 'router'
-            metrics_path: /stats/prometheus
-            static_configs:
-            - targets: ['HOST:ROUTER_ADMIN_PORT']
-        
-        - job_name: 'enforcer'
-            static_configs:
-            - targets: ['HOST:ENFORCER_METRIC_PORT']
+    - .....
+    - job_name: 'router'
+        metrics_path: /stats/prometheus
+        static_configs:
+        - targets: ['HOST:ROUTER_ADMIN_PORT']
+    
+    - job_name: 'enforcer'
+        static_configs:
+        - targets: ['HOST:ENFORCER_METRIC_PORT']
 
-        - job_name: 'adapter'
-            static_configs:
-            - targets: ['HOST:ADAPTER_METRIC_PORT']
+    - job_name: 'adapter'
+        static_configs:
+        - targets: ['HOST:ADAPTER_METRIC_PORT']
     ```
+    
+    ```tab="On K8s"
+    scrape_configs:
+    - job_name: 'adapter'
+        # Use Kubernetes service discovery to find pods
+        kubernetes_sd_configs:
+        - role: pod
+
+        # Define relabeling configurations for this job
+        relabel_configs:
+        # Keep pods with container names matching 'choreo-connect-adapter'
+        - source_labels: [__meta_kubernetes_pod_container_name]
+            action: keep
+            regex: choreo-connect-adapter
+
+        # Keep pods with container ports matching 'ADAPTER_METRIC_PORT'
+        - source_labels: [__meta_kubernetes_pod_container_port_number]
+            regex: '<ADAPTER_METRIC_PORT>' # Replace
+            action: keep
+
+        # Set the target label 'job' to 'adapter', several pods can be under 'adapter' job
+        - target_label: job
+            replacement: adapter
+
+        # Set the target label '__metrics_path__' to path on which metrics are exposed
+        - target_label: __metrics_path__
+            replacement: /metrics
+
+        # Extract instance information from container ID and port number, different pods of adapter will have different instance names
+        - source_labels: [__meta_kubernetes_pod_container_id, __meta_kubernetes_pod_container_port_number]
+            regex: '.*://(.+?)/(.+)'
+            replacement: '$1/$2'
+            target_label: instance
+     - ...
+    ```
+
+    !!! note
+        Configure the prometheus server with proper level of permission on K8s/Docker.
+
+
 
 ## Using Choreo Connect Grafana Dashboards
 
