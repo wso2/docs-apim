@@ -248,6 +248,14 @@ been removed from Hotspot JVM.</p>
 </tr>
 </tr>
 <tr class="odd">
+<td><p>Defining callback URL regular expression</p>
+<p><br />
+</p></td>
+<td><p>For password recovery, you can define a regular expression to validate the callback URL. The default configuration allows any callback URL. Note that if you are using the recovery option, it is highly recommended to define the regular expression that validates and only allows access to specific callback URLs.</p><p>See the <a href="https://is.docs.wso2.com/en/5.10.0/administer/product-level-security-guidelines/#callback-url-regular-expressions">Callback URL Regular Expressions</a> documentation for details.</p>
+</td>
+</tr>
+</tr>
+<tr class="odd">
 <td><p>Configure client authentication</p>
 <p><br />
 </p></td>
