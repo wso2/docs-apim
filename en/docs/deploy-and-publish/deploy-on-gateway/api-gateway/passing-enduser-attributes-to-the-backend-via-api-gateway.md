@@ -20,11 +20,11 @@ Backend JWTs can be signed with RSA to ensure their validity when being sent bet
 
 The JWKS endpoint can be accessed via the following URL depending on the tenant.
 
-```java tab="Super Tenant"
+```url tab="Super Tenant"
 https://<hostname>:8243/jwks
 ```
 
-```java tab="Tenant"
+```url tab="Tenant"
 https://<hostname>:8243/t/<tenant domain>/jwks
 ```
 
