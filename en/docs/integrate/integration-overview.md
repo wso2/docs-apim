@@ -384,9 +384,9 @@ Learn how to implement various integration use cases, deploy them in the Micro I
     <tr>
         <td><b>Message Routing</b> 
             <ul>
-                <li><a href="{{base_path}}/integrate/examples/routing-examples/routing_based_on_headers">Routing Based on Message Headers</a></li>
-                <li><a href="{{base_path}}/integrate/examples/routing-examples/routing_based_on_payloads">Routing Based on Message Payload</a></li>
-                <li><a href="{{base_path}}/integrate/examples/routing-examples/splitting_aggregating_messages">Splitting Messages and Aggregating Responses</a></li>
+                <li><a href="{{base_path}}/integrate/examples/routing_examples/routing_based_on_headers">Routing Based on Message Headers</a></li>
+                <li><a href="{{base_path}}/integrate/examples/routing_examples/routing_based_on_payloads">Routing Based on Message Payload</a></li>
+                <li><a href="{{base_path}}/integrate/examples/routing_examples/routing_based_on_payloads">Splitting Messages and Aggregating Responses</a></li>
             </ul>
         </td>
     </tr>
@@ -493,9 +493,9 @@ Learn how to implement various integration use cases, deploy them in the Micro I
                         <li><a href="{{base_path}}/integrate/examples/rest_api_examples/publishing-a-swagger-api">Publishing a Custom Swagger Document</a></li>
                         <li>Handling Special Cases
                             <ul>
-                                <li><a href="{{base_path}}/integrate/examples/rest_api_examples/using-get-with-a-body">Using GET with a Message Body</a></li>
-                                <li><a href="{{base_path}}/integrate/examples/rest_api_examples/using-post-with-no-body">Using POST with Empty Message Body</a></li>
-                                <li><a href="{{base_path}}/integrate/examples/rest_api_examples/using-post-with-query-param">Using POST with Query Parameters</a></li>
+                                <li><a href="{{base_path}}/integrate/examples/routing_examples/routing_based_on_headers/">Using GET with a Message Body</a></li>
+                                <li><a href="{{base_path}}/integrate/examples/routing_examples/routing_based_on_payloads/">Using POST with Empty Message Body</a></li>
+                                <li><a href="{{base_path}}/integrate/examples/rest_api_examples/special-cases/#using-post-with-query-parameters">Using POST with Query Parameters</a></li>
                             </ul>
                         </li>
                     </ul>
