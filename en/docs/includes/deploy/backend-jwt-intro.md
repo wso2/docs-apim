@@ -41,7 +41,7 @@ The above JSON Web Token (JWT) contains the following information.
 **JWT Header :** 
 
 - `"typ"` - Declares that the encoded object is a JWT access token
-- `"alg"` - Specifies the encryption algorithm used to secure the token
+- `"alg"` - This defines the specific algorithm intended for use with the key
 - `"x5t"` - Thumbprint of the x.509 cert (SHA-1 thumbprint)
 - `"kid"` - Key ID parameter is a unique identifier used to match a specific key
 
