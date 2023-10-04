@@ -131,7 +131,7 @@ You need to add the API Token and Collection ID properties inside the configurat
 
      [![sample audit report]({{base_path}}/assets/img/learn/sample-audit-report.png)]({{base_path}}/assets/img/learn/sample-audit-report.png)
 
-     For more information on the details provided in the report, see [Audit report sections]({{base_path}}design/api-security/configuring-api-security-audit/#audit-report-sections)<a href="auditreports"></a>
+     For more information on the details provided in the report, see [Audit report sections]({{base_path}}/design/api-security/configuring-api-security-audit/#audit-report-sections)<a href="auditreports"></a>
 
 ## Audit report sections
 

@@ -123,7 +123,7 @@ You can create a GraphQL API in WSO2 API-M Publisher Portal by following the ste
           </tr>
           </table>
 
-       [![Add GraphQL API details]({{base_path}}/assets/img/learn/create-graphql-api-details.png){: style="width:75%"}](../../assets/img/learn/create-graphql-api-details.png)
+       [![Add GraphQL API details]({{base_path}}/assets/img/learn/create-graphql-api-details.png)]({{base_path}}/assets/img/learn/create-graphql-api-details.png)
 
 5. Click `Create` button.
 
