@@ -22,7 +22,6 @@ The following is an example of a backend JWT:
     "typ": "JWT",
     "alg": "RS256",
     "x5t": "ODE3Y2ZhMTBjMDM4ZTBmMjAyYzliYTI2YjRhYTZlOGIyZmUxNWE3YQ==",
-    "kid": "Q049bG9jYWxob3N0LCBPVT1XU08yLCBPPVdTTzIsIEw9TW91bnRhaW4gVmlldywgU1Q9Q0EsIEM9VVMjMTY3NzA4OTI4Mw"
 }
 {
     "iss":"wso2.org/products/am",
@@ -41,9 +40,8 @@ The above JSON Web Token (JWT) contains the following information.
 **JWT Header :** 
 
 - `"typ"` - Declares that the encoded object is a JWT access token
-- `"alg"` - Specifies the encryption algorithm used to secure the token
+- `"alg"` - This defines the specific algorithm intended for use with the key
 - `"x5t"` - Thumbprint of the x.509 cert (SHA-1 thumbprint)
-- `"kid"` - Key ID parameter is a unique identifier used to match a specific key
 
 **JWT Claims set :**
 

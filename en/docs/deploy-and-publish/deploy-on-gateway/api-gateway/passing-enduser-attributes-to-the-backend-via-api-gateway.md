@@ -54,6 +54,14 @@ The above JWKS response contains an array of public keys available from the gate
 - `"alg"` - This defines the specific algorithm intended for use with the key.
 - `"n"` - The modulus value of the public key.
 
+Use the following config under `<API-M_HOME>/repository/conf/deployment.toml` to add the kid claim to the backend JWT.
+
+``` toml
+[apim.jwt]
+...
+use_kid_property = true
+```
+
 In order to validate the backend JWT using JWKS, you will need to invoke the JWKS endpoint and retrieve the kid property. Also, you need the extract the kid property from the Header of the decoded JWT. Thus extracted kid values are expected to be identical.
 
 ## Expiry time of the JWT
@@ -356,7 +364,7 @@ apim.jwt.binding_federated_user_claims</code></pre></td>
 <tr class="odd">
 <td><pre><code>apim.jwt.use_kid_property</code></pre></td>
 <td><p>Specifies whether the backend JWT header should include the kid claim</p></td>
-<td><code>true</code></td>
+<td><code>false</code></td>
 </tr>
 </tbody>
 </table>
