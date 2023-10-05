@@ -18,6 +18,9 @@ encoding = "base64url"
 
 Backend JWTs can be signed with RSA to ensure their validity when being sent between 2 parties. To verify the JWT on the backend, we need the public certificate of the private key used to sign the JWT at the Gateway. The JWKS endpoint is a way to get this public certificate.
 
+!!! attention "Update Level 78"
+    Note that the **JWKS Support** is only available from update level 78 onwards for WSO2 API Manager 4.1.0 (wso2am.4.1.0.78 was released on 24th of May, 2023).
+
 The JWKS endpoint can be accessed via the following URL depending on the tenant.
 
 ```url tab="Super Tenant"
