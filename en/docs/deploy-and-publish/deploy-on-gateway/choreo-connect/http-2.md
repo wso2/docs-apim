@@ -6,7 +6,7 @@ There are few cases to consider as discussed below.
 
 ### HTTP/2 clear text connection with h2c upgrade call
 
-The HTTP/2 client can request the server to upgrade to HTTP/2 by using a HTTP/1.1 call with some special headers as you can see in the below snippet called `Connection`, `Upgrade` (h2c means HTTP/2 with clear text), and `HTTP2-Settings` headers in the request. If the server is able to upgrade, it sends a response again with HTTP/1.1 call with `connection: upgrade` and `upgrade: h2c` headers and again responds to the initial actual request using HTTP/2.
+The HTTP/2 client can request the server to upgrade to HTTP/2 by using an HTTP/1.1 call with some special headers as you can see in the below snippet called `Connection`, `Upgrade` (h2c means HTTP/2 with clear text), and `HTTP2-Settings` headers in the request. If the server is able to upgrade, it sends a response again with HTTP/1.1 call with `connection: upgrade` and `upgrade: h2c` headers and again responds to the initial actual request using HTTP/2.
 
 ```yaml
 $ curl --http2 http://localhost:2350/hello -v
@@ -115,11 +115,11 @@ Clients can initiate HTTP connections with Choreo Connect Router using HTTP/1.1 
 [router]
   listenerCodecType = "HTTP2"
 ```
-You can set this confuration to `AUTO`, `HTTP1`, or `HTTP2`.
+You can set this configuration to `AUTO`, `HTTP1`, or `HTTP2`.
 
 ## Upstream configuration
 
-Currently the upstream connections by default works with HTTP/1.1 version. To use HTTP/2 communications with endpoints, you need to set the following Swagger extension configuration for the API you deploy to the Gateway.
+Currently, the upstream connections by default works with HTTP/1.1 version. To use HTTP/2 communications with endpoints, you need to set the following Swagger extension configuration for the API you deploy to the Gateway.
 
 ```yaml
 x-wso2-http2-backend-enabled: true
@@ -158,7 +158,7 @@ x-wso2-http2-backend-enabled: true
 ```
 
 
-#### The client does not support HTTP/2 but the backend suppports HTTP 2.0
+#### The client does not support HTTP/2 but the backend supports HTTP 2.0
 
 [![Choreo h1 h2 connection]({{base_path}}/assets/img/deploy/http2/choreo-h1-h2-connection.png)]({{base_path}}/assets/img/deploy/http2/choreo-h1-h2-connection.png)
 
