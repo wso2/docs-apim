@@ -12,19 +12,19 @@ To open the design view of the Streaming Integrator Tooling:
 2.  Click **New** and open a new Siddhi file, or click **Open** and open an existing Siddhi file.
 
 3.  Click **Design View** to open the Design View.  
-    ![Design View button]({{base_path}}/assets/img/streaming/working-with-the design-view/open-design-view.png)  
+    ![Design View button](/assets/img/streaming/working-with-the design-view/open-design-view.png)  
     The design view opens as shown in the example below. It consists of
     a grid to which you can drag and drop the Siddhi components
     represented by icons displayed in the left panel to design a Siddhi
     application.  
-    ![Design View]({{base_path}}/assets/img/streaming/working-with-the design-view/design-view.png)
+    ![Design View](/assets/img/streaming/working-with-the design-view/design-view.png)
 
 ## Adding Siddhi components
 
 To add a Siddhi component to the Siddhi application that you are creating/editing in the design view, click on the 
 relevant icon in the left pane, and then drag and drop it to the grid as demonstrated in the example below.
 
-![Dragging and dropping Siddhi components]({{base_path}}/assets/img/streaming/working-with-the design-view/drag-and-drop-siddhi-component.gif)
+![Dragging and dropping Siddhi components](/assets/img/streaming/working-with-the design-view/Drag-And-Drop-Siddhi-Component.gif)
 
 Once you add a Siddhi component, you can configure it as required. To
 configure a Siddhi component, click the settings icon on the component.
@@ -535,7 +535,7 @@ to the grid of the design view when you create a Siddhi application.
          <td>
             <div class="content-wrapper">
                <p><br /></p>
-               <img src="{{base_path}}/assets/img/streaming/working-with-the design-view/Trigger_Configuration_Form.png"/>
+               <img src="{{base_path}}/assets/img/streaming/working-with-the design-view/trigger-configuration-form.png"/>
                <p>The details entered in the above orm creates a trigger definition as follows:</p>
                <div class="code panel pdl" style="border-width: 1px;">
                   <div class="codeContent panelContent pdl">
@@ -1312,9 +1312,9 @@ connections between Siddhi components. A connection is defined by
 drawing an arrow from one component to another by dragging the cursor as
 demonstrated below.
 
-![Connecting Siddhi components]({{base_path}}/assets/img/streaming/working-with-the design-view/connect-siddhi-components.gif)
+![Connecting Siddhi components](/assets/img/streaming/working-with-the design-view/Connect-Siddhi-Components.gif)              ]
 
-## Saving and running Siddhi applications
+    ## Saving and running Siddhi applications
 
 To save a Siddhi application that you created in the design view, you need to switch to the source view. You also need to switch to the source view to run a Siddhi application. For more information, see [Streaming Integrator Tooling Overview]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview).
 
