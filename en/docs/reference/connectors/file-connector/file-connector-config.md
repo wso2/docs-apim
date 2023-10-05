@@ -1084,7 +1084,7 @@ The following operations allow you to work with the File Connector version 4. Cl
 ??? note "move"
     Moves the file or folder specified by the source path to the target directory. The source can be a file or a folder. If it is a folder, the moving is recursive.
     
-    The move operation can only move a file/folder within the same server. For example, you can move a file/folder from one local location to another local location, or from one remote location to another remote location on the same server. You cannot use the move operation to move a file/folder between different servers. If you want to move a file/folder from a local location to a remote location or vice versa, use the <b>copy</b> operation followed by <b>delete</b> operation.
+    The move operation can only move a file/folder within the same server. For example, you can move a file/folder from one local location to another local location, or from one remote location to another remote location on the same server. You cannot use the move operation to move a file/folder between different servers.
 
     <table>
         <tr>
