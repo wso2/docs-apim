@@ -6,7 +6,7 @@ After issuing an access token or an API Key, a user or admin can revoke it due t
     Revoking the access token can only be done by enabling the Control Plane Event hub. This is when running [Choreo Connect with WSO2 API Manager as a Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/). For standalone mode, the only workaround would be to undeploy the API and redeploy with a different name or the version, while keeping the context (basepath) unchanged.
 
 !!! info
-    When you revoke an access token using APIM, an event will be sent to Choreo Connect via the Control Plane Event hub and Choreo Connect will reject the token then onwards. You can follow the [Quick Start Guide]({{base_path}}https://apim.docs.wso2.com/en/latest/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/) to have an initial setup of Choreo Connect with Control Plane enabled.
+    When you revoke an access token using APIM, an event will be sent to Choreo Connect via the Control Plane Event hub and Choreo Connect will reject the token then onwards. You can follow the [Quick Start Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/) to have an initial setup of Choreo Connect with Control Plane enabled.
 
 Follow the steps given below to revoke an access token or an API key
 

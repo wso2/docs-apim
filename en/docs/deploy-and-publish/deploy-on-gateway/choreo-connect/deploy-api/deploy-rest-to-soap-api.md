@@ -62,7 +62,7 @@ For more information refer to [Creating an Integration Project]({{base_path}}/in
 ### Step 3 - Configure Micro Integrator to Update APIM Service Catalog
 
 !!! Note
-    This step is required only if you are trying [Choreo Connect with WSO2 APIM]({base_path}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-to-soap-api/#via-wso2-api-manager-publisher-portal) mode and create the API through [Service Catalog]({{base_path}}/reference/product-apis/service-catalog-apis/service-catalog-v1/service-catalog-v1/).
+    This step is required only if you are trying [Choreo Connect with WSO2 APIM]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-to-soap-api/#via-wso2-api-manager-publisher-portal) mode and create the API through [Service Catalog]({{base_path}}/reference/product-apis/service-catalog-apis/service-catalog-v1/service-catalog-v1/).
 
 You can use the following steps to configure the **Micro Integrator** to update the APIM service catalog for the developped integrations.
 
@@ -252,7 +252,7 @@ TOKEN=$(curl -X POST "https://localhost:9095/testkey" -H "Authorization: Basic Y
 ```
 
 !!! Info
-    Refer [Enforcer Test Key Authentication]({{base_path}}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt/) to learn more on test key generation.
+    Refer [Enforcer Test Key Authentication]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt) to learn more on test key generation.
 
 Execute the following `cURL` command to invoke the API using the access token.
 

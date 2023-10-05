@@ -1,12 +1,12 @@
 # Passing End User Attributes to the Backend
 
-{!./includes/deploy/backend-jwt-intro.md!}
+   {!./includes/deploy/backend-jwt-intro.md!}
 
 ## Enabling the default backend JWT generator
 
 Before passing end user attributes, you need to enable and configure the JWT implementation, as mentioned below in Choreo Connect.
 
-1. {!includes/deploy/cc-configuration-file.md!}
+1. {!./includes/deploy/cc-configuration-file.md!}
 
 2. Enable and configure the backend JWT implementation.
 
@@ -23,7 +23,7 @@ Before passing end user attributes, you need to enable and configure the JWT imp
 
 ## Enabling a customized backend JWT generator
 
-{!./includes/deploy/backend-jwt-note.md!}
+   {!./includes/deploy/backend-jwt-note.md!}
 
 When generating the backend JWT, it retrieves the claims from the invoked JWT. If you need to change the way that JWT is generated in Choreo Connect, such as by adding additional claims or by completely changing the JWT, follow the instructions below to implement the customized Gateway JWT generation:
 
