@@ -1310,7 +1310,7 @@ In order to define how the Siddhi components in a Siddhi application
 interact with each other to process events, you need to define
 connections between Siddhi components. A connection is defined by
 drawing an arrow from one component to another by dragging the cursor as
-running Siddhi applications
+demonstrated below.
 
 ![Connecting Siddhi components](/assets/img/streaming/working-with-the design-view/Connect-Siddhi-Components.gif)
 
