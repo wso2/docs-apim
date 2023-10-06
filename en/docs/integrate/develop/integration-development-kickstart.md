@@ -378,7 +378,7 @@ There are several ways to deploy and run the integration scenario.
 
 The embedded Micro Integrator starts with the deployed artifacts. You will see the server startup log in the <b>Console</b> tab, and the endpoints of the deployed services in the <b>Runtime Services</b> tab as shown below.
 
-<img src="{{base_path}}/assets/img/integrate/developing-first-integration/19-dev-get-started-embedded-server-startup.png">
+<img src="{{base_path}}/assets/img/integrate/developing-first-integration/19-dev-get-started-embedded-server-startup.jpg">
   
 ### Option 2: Using a local Micro Integrator instance
 

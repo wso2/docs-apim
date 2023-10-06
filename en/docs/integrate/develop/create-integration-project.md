@@ -8,7 +8,7 @@ An integration project is the recommended way of creating an “Integration Solu
 
 To create an integration project:
 
-1. [Download](https://wso2.com/integration/integration-studio/) and [install WSO2 Integration Studio]({{base_path}}/integrate/develop/instaling-wso2-integration-studio).
+1. [Download](https://wso2.com/integration/integration-studio/) and [install WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
 
 2. Open WSO2 Integration Studio and click **New Integration Project** in the **Getting Started** view as shown below.
     <img src="{{base_path}}/assets/img/integrate/new-project/new-integration-project.png" title="New Integration Project" width="700" alt="New Integration Project"/>
@@ -83,7 +83,7 @@ The following table lists out the available projects that can be associated with
     </tr>
     <tr>
         <td>Kubernetes Exporter</td>
-        <td>A Kubernetes Exporter allows you to deploy your integration solutions in a Kubernetes environment. This module allows you to package multiple integration projects and modules into a single Docker image. Also, a file named integration_cr.yaml is generated, which can be used to carry out Kubernetes deployments based on the <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/kubernetes_deployment/#ei-kubernetes-k8s-operator">k8s-ei-operator</a>. For more information on Kubernetes-specific project creation information, see <a href="develop/create-kubernetes-project">Create Kubernetes Project</a>.</td>
+        <td>A Kubernetes Exporter allows you to deploy your integration solutions in a Kubernetes environment. This module allows you to package multiple integration projects and modules into a single Docker image. Also, a file named integration_cr.yaml is generated, which can be used to carry out Kubernetes deployments based on the <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/kubernetes_deployment/#ei-kubernetes-k8s-operator">k8s-ei-operator</a>. For more information on Kubernetes-specific project creation information, see <a href="/integrate/develop/create-kubernetes-project">Create Kubernetes Project</a>.</td>
     </tr>
 </table>
 
