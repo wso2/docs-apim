@@ -39,7 +39,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 3. Provide the API name as `SpreadsheetAPI` and the API context as `/insert`.
 
 4. First we will create the `/insert` resource. Right click on the API Resource and go to **Properties** view. We use a URL template called `/insert` as we have two API resources inside single API. The method will be `Post`. 
-    <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.png" title="Adding the API resource." width="800" alt="Adding the API resource."/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/filecon-3.png" title="Adding the API resource." width="800" alt="Adding the API resource."/>
 
 5. In this operation we are going to receive input from the user, which are `properties`, `sheets`, `range` and `values`. 
     - properties - It can provide the spreadsheet properties such as title of the spreadsheet. 

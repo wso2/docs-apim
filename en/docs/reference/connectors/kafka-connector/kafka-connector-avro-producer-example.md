@@ -10,7 +10,7 @@ API has the `/publishMessages` context. It publishes messages via the topic to t
 
 ## Set up Kafka
 
-Before you begin, set up Kafka by following the instructions in [Setting up Kafka](setting-up-kafka.md).
+Before you begin, set up Kafka by following the instructions in [Setting up Kafka]({{base_path}}/reference/connectors/kafka-connector/setting-up-kafka/).
 
 ## Configure the connector in WSO2 Integration Studio
 
