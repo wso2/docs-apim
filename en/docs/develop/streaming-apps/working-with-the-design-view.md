@@ -1310,11 +1310,11 @@ In order to define how the Siddhi components in a Siddhi application
 interact with each other to process events, you need to define
 connections between Siddhi components. A connection is defined by
 drawing an arrow from one component to another by dragging the cursor as
-demonstrated below.
+running Siddhi applications
 
-![Connecting Siddhi components](/assets/img/streaming/working-with-the design-view/Connect-Siddhi-Components.gif)              ]
+![Connecting Siddhi components](/assets/img/streaming/working-with-the design-view/Connect-Siddhi-Components.gif)
 
-    ## Saving and running Siddhi applications
+## Saving and running Siddhi applications
 
 To save a Siddhi application that you created in the design view, you need to switch to the source view. You also need to switch to the source view to run a Siddhi application. For more information, see [Streaming Integrator Tooling Overview]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview).
 
