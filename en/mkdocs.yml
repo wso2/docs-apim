@@ -1,4 +1,3 @@
-
 # Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
 #
 # WSO2 Inc. licenses this file to you under the Apache License,
@@ -34,15 +33,38 @@ copyright: WSO2 API Manager - Documentation
 theme:
     name: material
     custom_dir: theme/material
-    palette:
-        primary: deep-orange
-        accent: deep-orange
     logo: images/logo.svg
     favicon: images/favicon.png
-    highlightjs: true
-    feature:
-        tabs: true
+    features:
+        - content.code.copy
+        - navigation.tabs
+        - navigation.tabs.sticky
+        - content.action.edit
+        - content.action.view
+        - navigation.top
+        - toc.follow
     language: 'en'
+    palette:
+
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
 #Breaks build if there's a warning
 strict: false
 # Navigation
@@ -369,6 +391,7 @@ nav:
                       - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/performance-tests/performance-test-results-overview-cc.md
                       - Router with One CPU: deploy-and-publish/deploy-on-gateway/choreo-connect/performance-tests/router-with-one-cpu-for-rest-api.md
                       - Router with Two CPU: deploy-and-publish/deploy-on-gateway/choreo-connect/performance-tests/router-with-two-cpu-for-rest-api.md
+                - Migrate from Ballerina API Microgateway to Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/migration-guide-from-ballerina-api-microgateway.md
                 - Migrate from Ballerina API Microgateway to Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/migration-guide-from-ballerina-api-microgateway.md
                 - Troubleshooting:
                     - Enable Debug Logs: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/adding-debug-logs.md
@@ -1714,10 +1737,18 @@ nav:
 
 # Extensions
 markdown_extensions:
+    # - pymdownx.highlight:
+    #     anchor_linenums: true
+    #     line_spans: __span
+    #     pygments_lang_class: true
+    - pymdownx.snippets
+    - pymdownx.superfences
+    - pymdownx.tabbed:
+        alternate_style: true 
     - markdown.extensions.admonition
-    - markdown.extensions.codehilite:
-          linenums: true
-          use_pygments: false
+    # - markdown.extensions.codehilite:
+    #       linenums: true
+    #       use_pygments: false
     - markdown.extensions.def_list
     - markdown.extensions.footnotes
     - markdown.extensions.meta
@@ -1737,7 +1768,6 @@ markdown_extensions:
     - pymdownx.keys
     - pymdownx.mark
     - pymdownx.smartsymbols
-    - pymdownx.superfences
     - pymdownx.tasklist:
           custom_checkbox: true
     - pymdownx.tilde
@@ -2208,14 +2238,15 @@ plugins:
     # Extra
 extra_css:
     - assets/lib/highlightjs/default.min.css
+    - assets/css/orange-palette.css
     - assets/css/theme.css
     - assets/lib/json-formatter/json-formatter.css
 extra_javascript:
     - assets/lib/json-formatter/json-formatter.umd.js
     - assets/lib/highlightjs/highlight.min.js
     - assets/js/theme.js
-    - assets/lib/backtotop/js/util.js
-    - assets/lib/backtotop/js/main.js
+    # - assets/lib/backtotop/js/util.js
+    # - assets/lib/backtotop/js/main.js
 extra:
     social:
         - type: github

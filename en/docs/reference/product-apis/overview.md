@@ -6,7 +6,7 @@ The following topics list the APIs exposed from the API Publisher, Developer Por
 <table>
   <tr>
     <td nowrap="true"><a href="{{base_path}}/reference/product-apis/publisher-apis/publisher-v4/publisher-v4/">WSO2 Publisher API v4</a></td>
-    <td rowspan="3" style="vertical-align: middle;background-color: white"><b>WSO2 recommends that you use the latest REST APIs</b> as it is up to date and has support for the latest WSO2 API Manager 4.2.0 features.
+    <td rowspan="3" class="md-typeset__td"><b>WSO2 recommends that you use the latest REST APIs</b> as it is up to date and has support for the latest WSO2 API Manager 4.2.0 features.
     </td>
   </tr>
   <tr>
@@ -17,7 +17,7 @@ The following topics list the APIs exposed from the API Publisher, Developer Por
   </tr>
   <tr>
     <td nowrap="true"><a href="{{base_path}}/reference/product-apis/gateway-apis/gateway-v2/gateway-v2/">WSO2 Gateway API v2</a></td>
-    <td rowspan="3" style="vertical-align: middle;background-color: white"></td>
+    <td rowspan="3" class="md-typeset__td"></td>
   </tr>
   <tr>
     <td nowrap="true"><a href="{{base_path}}/reference/product-apis/service-catalog-apis/service-catalog-v1/service-catalog-v1/">WSO2 Service Catalog API v1</a></td>
