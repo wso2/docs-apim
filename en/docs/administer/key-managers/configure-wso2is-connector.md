@@ -268,61 +268,77 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
       <td>Optional</td>
       </tr>
       <tr class="odd">
-      <td colspan="3"><b>Advanced Configurations</b></td>
+      <td><b>Permissions</b></td>
+      <td></td>
+      <td></td>
       </tr>
       <tr class="even">
+      <td>Key Manager Permission</td>
+      <td>Permission type for role-based Key Manager restriction.</br>
+      e.g., <code>PUBLIC</code>, <code>ALLOW</code>, <code>DENY</code></td>
+      <td>Optional</td>
+      </tr>
+      <tr class="odd">
+      <td>Roles</td>
+      <td>Roles to Whitelist or Blacklist</td>
+      <td>Optional</td>
+      </tr>
+      <tr class="even">
+      <td colspan="3"><b>Advanced Configurations</b></td>
+      </tr>
+      <tr class="odd">
       <td>Token Generation</td>
       <td>This enables token generation via the authorization server.</td>
       <td>Mandatory</td>
       </tr>
-      <tr class="odd">
+      <tr class="even">
       <td>Out Of Band Provisioning</td>
       <td>This enables the provisioning of Auth clients that have been created without the use of the Developer Portal, such as previously created Auth clients.</td>
       <td>Mandatory</td>
       </tr>
-      <tr class="even">
+      <tr class="odd">
       <td>Oauth App Creation</td>
       <td>This enables the creation of Auth clients.</td>
       <td>Mandatory</td>
       </tr>
-      <tr class="odd">
+      <tr class="even">
       <td><b>Token Validation Method</b></td>
       <td>The method used to validate the JWT signature.</td>
       <td>Optional</td>
       </tr>
-      <tr class="even">
+      <tr class="odd">
       <td>Self Validate JWT</td>
       <td>The kid value is used to validate the JWT token signature. If the kid value is not present, `gateway_certificate_alias` will be used.</td>
       <td>Optional</td>
       </tr>
-      <tr class="odd">
+      <tr class="even">
       <td>Use introspect</td>
       <td>The JWKS endpoint is used to validate the JWT token signature.</td>
       <td>Optional</td>
       </tr>
-      <tr class="even">
+      <tr class="odd">
       <td><b>Token Handling Options</b></td>
       <td>This provides a way to validate the token for this particular authorization server.
       This is mandatory if the Token Validation Method is <b>introspect</b></td>
       <td></td>
       </tr>
-      <tr class="odd">
+      <tr class="even">
       <td>REFERENCE</td>
       <td>The tokens that match a specific regular expression (regEx) are validated.
       e.g., <code>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}</code></td>
       <td>Optional</td>
       </tr>
-      <tr class="even">
+      <tr class="odd">
       <td>JWT</td>
       <td>The tokens that match a specific JWT are validated.</td>
       <td>Optional</td>
       </tr>
-      <tr class="odd">
+      <tr class="even">
       <td>CUSTOM</td>
       <td>The token that match a custom pattern are validated.</td>
       <td>Optional</td>
       </tr>
-      <tr class="even">
+      <tr class="odd">
       <td><b>Claim Mappings</b></td>
       <td>Local and remote claim mapping.</td>
       <td>Optional</td>

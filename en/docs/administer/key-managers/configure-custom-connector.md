@@ -361,6 +361,29 @@ When registering a third-party Identity Provider as a Key Manager in the Admin P
 
           ---
 
+          **Permissions** - 
+          
+          <table>
+          <tr class="even">
+          <td><b>Configuration</b></td>
+          <td><b>Description</b></td>
+          <td></td>
+          </tr>
+          <tr class="odd">
+          <td>Key Manager Permission</td>
+          <td>Permission type for role-based Key Manager restriction.</br>
+          e.g., <code>PUBLIC</code>, <code>ALLOW</code>, <code>DENY</code></td>
+          <td>Optional</td>
+          </tr>
+          <tr class="even">
+          <td>Roles</td>
+          <td>Roles to Whitelist or Blacklist</td>
+          <td>Optional</td>
+          </tr>
+          </table>
+          
+          ---
+
           **Advanced Configurations** - 
 
           <a href="{{base_path}}/assets/img/administer/custom-keymanager/external-keymanager-form8.png"><img src="{{base_path}}/assets/img/administer/custom-keymanager/external-keymanager-form8.png" width="70%" alt="Configure the Key Manager form"></a>
