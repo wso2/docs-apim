@@ -25,12 +25,9 @@ Follow the steps below to import the Salesforce certificate into the EI client k
      [![salesforcesoap-certificste-and-key-management]({{base_path}}/assets/img/integrate/connectors/salesforcesoap-certificste-and-key-management.png)]({{base_path}}/assets/img/integrate/connectors/salesforcesoap-certificste-and-key-management.png)
 
 3. Export the certificate to the file system.
-<<<<<<< HEAD
-4. Import the certificate to the EI client keystore using either the following [command](../{{base_path}}/install-and-setup/setup/mi-setup/setup/security/importing_ssl_certificate/) or the EI Management Console.
-=======
 
-4. Import the certificate to the EI client keystore using either the following [command]({{base_path}}/install-and-setup/setup/mi-setup/setup/security/importing_ssl_certificate) or the EI Management Console.
->>>>>>> c2692680c... fixes https://github.com/wso2/docs-apim/issues/5273
+4. Import the certificate to the EI client keystore using either the following [command](/install-and-setup/setup/mi-setup/security/importing_ssl_certificate/) or the EI Management Console.
+
 
     ```
     keytool -importcert -file <certificate file> -keystore <EI>/repository/resources/security/client-truststore.jks -alias "Salesforce"

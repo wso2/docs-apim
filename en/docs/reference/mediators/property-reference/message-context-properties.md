@@ -1,12 +1,12 @@
 # Synapse Message Context Properties
 
 !!! Info
-	The following are message context properties that can be used with the [Property mediator]({{base_path}}/reference/mediators/property-Mediator) and the [Property Group mediator]({{base_path}}/reference/mediators/property-Group-Mediator).
+	The following are message context properties that can be used with the [Property mediator]({{base_path}}/reference/mediators/property-mediator) and the [Property Group mediator]({{base_path}}/reference/mediators/property-Group-Mediator).
 
 The Synapse message context properties allow you to get information
 about the message, such as the date/time it was sent, the message
 format, and the message operation. You can use the
-`         get-property()        ` function in the [Property mediator]({{base_path}}/references/mediators/property-Mediator) with the scope set to
+`         get-property()        ` function in the [Property mediator]({{base_path}}/reference/mediators/property-mediator) with the scope set to
 `         Synapse        ` to retrieve these properties.
 
 ## SYSTEM_DATE

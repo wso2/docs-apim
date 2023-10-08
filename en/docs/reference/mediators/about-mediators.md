@@ -1,4 +1,4 @@
-# About Mediators
+    # About Mediators
 
 Mediators are individual processing units that perform a specific function on messages that pass through the Micro Integrator. The mediator takes the message received by the proxy service or REST API, carries out some predefined actions on it (such as transforming, enriching, filtering), and outputs the modified message. 
 
@@ -52,7 +52,7 @@ WSO2 Micro Integrator includes a comprehensive library of mediators that provide
 
 **Transform Mediators**
 
-[XSLT]({{base_path}}/reference/mediators/xslt-mediator) | [FastXSLT]({{base_path}}/reference/mediators/fastxslt-mediator) | [URLRewrite]({{base_path}}/reference/mediators/urlrewrite-mediator) | [XQuery]({{base_path}}/reference/mediators/xquery-mediator) | [Header]({{base_path}}/reference/mediators/header-mediator) | [Fault]({{base_path}}/reference/mediators/fault-mediator) | [PayloadFactory]({{base_path}}/reference/mediators/payloadfactory-mediator) | [JSONTransform](json-transform-mediator) |
+[XSLT]({{base_path}}/reference/mediators/xslt-mediator) | [FastXSLT]({{base_path}}/reference/mediators/fastxslt-mediator) | [URLRewrite]({{base_path}}/reference/mediators/urlrewrite-mediator) | [XQuery]({{base_path}}/reference/mediators/xquery-mediator) | [Header]({{base_path}}/reference/mediators/header-mediator) | [Fault]({{base_path}}/reference/mediators/fault-mediator) | [PayloadFactory]({{base_path}}/reference/mediators/payloadfactory-mediator) | [JSONTransform]({{base_path}}/reference/mediators/json-transform-mediator) |
 
 **Advanced Mediators**
 
@@ -60,4 +60,4 @@ WSO2 Micro Integrator includes a comprehensive library of mediators that provide
 
 **Extension Mediators**
 
-[Class]({{base_path}}/reference/mediators/class-mediator) | [Script]({{base_path}}/reference/mediators/script-mgiediator) |
+[Class]({{base_path}}/reference/mediators/class-mediator) | [Script]({{base_path}}/reference/mediators/script-mediator) |

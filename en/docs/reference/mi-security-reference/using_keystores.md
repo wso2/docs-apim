@@ -1,4 +1,4 @@
-# Using Keystores
+    # Using Keystores
 
 WSO2 products use asymmetric encryption by default for the
 authentication and protection of data. Asymmetric encryption uses
@@ -11,7 +11,7 @@ A keystore is a repository (protected by a password) that holds the keys
 and certificates of a trust chain. There may be multiple trust chains
 (i.e., multiple keys with corresponding certificates) in one keystore.
 You use these artifacts for security purposes such as protecting
-sensitive information and establishing trust between your server and
+sensitive informationImport new SSL certificates to keystores and establishing trust between your server and
 outside parties that connect to the server. The usage of keys and
 certificates contained in a keystore are explained below.
 
@@ -91,6 +91,6 @@ certificates. These certificates can be either of the following:
 
 * [Configure keystores for the Micro Integrator]({{base_path}}/install-and-setup/setup/mi-setup/security/configuring_keystores)
 * [Create new keystores]({{base_path}}/install-and-setup/setup/mi-setup/security/creating_keystores)
-* [Import new SSL certificates to keystores]({{base_path}}/install-and-setup/setup/mi-setup/setup/security/importing_ssl_certificate)
+* [Import new SSL certificates to keystores]({{base_path}}/install-and-setup/setup/mi-setup/security/importing_ssl_certificate)
 * [Renewing existing SSL certificates in keystores]({{base_path}}/install-and-setup/setup/mi-setup/security/renewing_ca_signed_certificate_in_keystore)
 * [Product deployment guidelines]({{base_path}}/install-and-setup/setup/mi-setup/deployment/deployment_checklist)

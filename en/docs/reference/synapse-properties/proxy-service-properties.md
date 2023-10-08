@@ -184,7 +184,7 @@ The following properties are required when [creating a transformer proxy service
     - [VFS properties]({{base_path}}/reference/synapse-properties/transport-parameters/vfs-transport-parameters)
     - [Fix properties]({{base_path}}/reference/synapse-properties/transport-parameters/fix-transport-parameters)
 
-- You can also configure the following service-level property to expose an [Inbound Endpoint]({{base_path}}/concepts/message-entry-points/#inbound-endpoints) through a proxy service:
+- You can also configure the following service-level property to expose an [Inbound Endpoint]({{base_path}}/reference/synapse-properties/inbound-endpoints/about-inbound-endpoints) through a proxy service:
   <table>
      <tr>
         <th>Service Parameter</th>
