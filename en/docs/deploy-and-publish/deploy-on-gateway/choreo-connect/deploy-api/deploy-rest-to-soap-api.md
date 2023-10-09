@@ -51,7 +51,7 @@ For more information refer to [Creating an Integration Project]({{base_path}}/in
 
 1. In the left hand side project explorer panel, expand the created project `PhoneVerification`.
 2. Right click on `PhoneVerfificationConfigs` and select **New->REST API**.
-3. Select the **Import API Artifact** option and provide file having [this synapse configuration](https://raw.githubusercontent.com/wso2/product-microgateway/rest-to-soap-cc/samples/rest-to-soap-conversion/PhoneVerification/PhoneVerificationConfigs/src/main/synapse-config/api/PhoneVerify.xml).
+3. Select the **Import API Artifact** option and provide file having [this synapse configuration](https://github.com/wso2/product-microgateway/blob/main/samples/rest-to-soap-conversion/PhoneVerification/PhoneVerificationConfigs/src/main/synapse-config/api/PhoneVerify.xml).
 
 !!! Note
     If you want to design your API from scratch, select **Create New API Artifact** option in the above step and create it using Integration Studio. For more information on this refer documentation on [Creating a REST API]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api/).
