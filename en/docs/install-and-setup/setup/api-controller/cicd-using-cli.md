@@ -90,7 +90,7 @@ For this example, let us use the [Swagger Petstore - OpenAPI 3.0](https://petsto
       Sandbox: https://dev.sandbox.wso2.com
       ```
 
-     [![]({{base_path}}/assets/img/learn/api-controller/prod-dev-endpoints-petstore-api.png)]({{base_path}}/assets/img/learn/api-controller/endpoints-petstore-api.png)
+     [![]({{base_path}}/assets/img/learn/api-controller/endpoints-petstore-api.png)]({{base_path}}/assets/img/learn/api-controller/endpoints-petstore-api.png)
 
   6. Go to the **Portal Configurations** > **Subscriptions**, select business plain and save the API. 
 
