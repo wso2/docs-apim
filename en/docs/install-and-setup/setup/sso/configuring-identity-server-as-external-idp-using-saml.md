@@ -115,7 +115,7 @@ WSO2 Identity Server acts as an identity service provider of systems enabled wit
 
     4.  Upload the public certificate of the API Manager by selecting **Select SP Certificate Type**.
 
-        [![upload-certificate-in-SP-for-saml2-sso.png]({{base_path}}/assets/img/setup-and-install/upload-certificate-in-SP-for-saml2-sso.png)]({{base_path}}/assets/img/setup-and-install/upload-certificate-in-SP-for-saml2-sso.png)
+        [![upload-certificate-in-SP-for-saml2-sso.png](/assets/img/setup-and-install/upload-certificate-in-SP-for-saml2-sso.png)](/assets/img/setup-and-install/upload-certificate-in-SP-for-saml2-sso.png)
 
 ### Step - 2 Create users and roles
 
