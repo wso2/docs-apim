@@ -20,7 +20,7 @@ For a list of all default ports available, see [Default Ports of WSO2 Products](
 
 ### What are the technologies used underneath WSO2 API Manager?
 
-The API Manager is built on top of [WSO2 Carbon](https://wso2.com/products/carbon/), an OSGi based components framework for SOA. For more details, see [API Manager components]({{base_path}}/getting-started/key-concepts/).
+The API Manager is built on top of [WSO2 Carbon](https://wso2.com/library/articles/2012/03/carbon-context-its-usages-wso2-products/), an OSGi based components framework for SOA. For more details, see [API Manager components]({{base_path}}/getting-started/key-concepts/).
 
 ### Can I get involved in API-M development activities?
 
@@ -52,11 +52,11 @@ Yes, you can configure the API Manager with multiple user stores. For more detai
 
 ### Can I extend the management console UI to add custom UIs?
 
-Yes, you can extend the management console (default URL is <https://localhost:9443/carbon>) easily by writing a custom UI component and simply deploying the OSGi bundle.
+Yes, you can extend the management console (default URL is `https://localhost:9443/carbon`) easily by writing a custom UI component and simply deploying the OSGi bundle.
 
 ### I don't want some of the features that come with WSO2 API Manager. Can I remove them?
 
-Yes, you can do this using the **Features** menu under the **Configure** menu of the management console (default URL is <https://localhost:9443/carbon>).
+Yes, you can do this using the **Features** menu under the **Configure** menu of the management console (default URL is `https://localhost:9443/carbon`).
 
 ### How can I change the memory allocation for the API Manager?
 
