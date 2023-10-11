@@ -237,7 +237,7 @@ To design the Siddhi application with ETL functionality via the Streaming Integr
     
     1. In the **Add New Server** section, enter the host, port, user name and the password of your Streaming Integrator server as shown below.
     
-        ![Adding a New Server]({{base_path}}/assets/img/streaming/-etl-application-via-tooling/add-a-new-server.png)
+        ![Adding a New Server]({{base_path}}/assets/img/streaming/create-etl-application-via-tooling/add-a-new-server.png)
         
         Then click **Add**.
         

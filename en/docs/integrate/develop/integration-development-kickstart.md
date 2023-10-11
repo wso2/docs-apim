@@ -1,4 +1,4 @@
-The embedded Micro Integrator starts with the deployed artifacts.# Developing Your First Integration Solution
+# Developing Your First Integration Solution
 
 Integration developers need efficient tools to build and test all the integration use cases required by the enterprise before pushing them into a production environment. The following topics will guide you through the process of building and running an example 
 integration use case using WSO2 Integration Studio. 
