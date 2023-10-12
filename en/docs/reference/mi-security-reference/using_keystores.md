@@ -1,4 +1,4 @@
-    # Using Keystores
+# Using Keystores
 
 WSO2 products use asymmetric encryption by default for the
 authentication and protection of data. Asymmetric encryption uses
