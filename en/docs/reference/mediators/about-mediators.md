@@ -21,13 +21,13 @@ Mediators are classified as follows based on whether or not they access the mess
   <tr>
     <td><b>Content-Aware</b> mediators</td>
     <td>
-      These mediators always access the message content when mediating messages (e.g., <a href="..{{base_path}}/reference/mediators/enrich-Mediator">Enrich</a> mediator).
+      These mediators always access the message content when mediating messages (e.g., <a href="{{base_path}}/reference/mediators/enrich-mediator">Enrich</a> mediator).
     </td>
   </tr>
   <tr>
     <td><b>Content-Unaware</b> mediators</td>
     <td>
-      These mediators never access the message content when mediating messages (e.g., <a href="..{{base_path}}/reference/mediators/send-Mediator">Send</a> mediator).
+      These mediators never access the message content when mediating messages (e.g., <a href="{{base_path}}/reference/mediators/send-mediator">Send</a> mediator).
     </td>
   </tr>
   <tr>

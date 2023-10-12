@@ -309,13 +309,13 @@ Follow the steps given below.
 
 The JWKS endpoint of the API Manager has the external facing hostname by default, and it is not always routable via Choreo Connect Enforcer. As a result, you can alter the JWKS endpoint in the API Manager to use the API Manager's internal service name in Kubernetes.
 
-1. Log into Admin portal - [https://am.wso2.com/admin/](https://am.wso2.com/admin/)
+1. Log into Admin portal - `https://am.wso2.com/admin/`
 2. Navigate to `Key Managers` section and select the `Resident Key Manager`.
 3. Change the JWKS URL in the `Certificates` section to `https://wso2am-single-node-am-service.apim:9443/oauth2/jwks`.
 
 ## Deploy Sample API from API Manager
 
-- Publisher Portal:  [https://am.wso2.com/publisher/](https://am.wso2.com/publisher/)
-- Developer Portal:  [https://am.wso2.com/devportal/](https://am.wso2.com/devportal/)
+- Publisher Portal:  `https://am.wso2.com/publisher/`
+- Developer Portal:  `https://am.wso2.com/devportal/`
 
 Follow the instructions in [create and publish an API via API Manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/#step-3-create-and-publish-an-api-from-api-manager) using the above URLs to access each of the portals.

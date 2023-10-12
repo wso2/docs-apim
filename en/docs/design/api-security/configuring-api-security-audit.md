@@ -81,7 +81,7 @@ You need to add the API Token and Collection ID properties inside the configurat
 !!! tip
     For more information on creating a tenant, see [Managing Tenants]({{base_path}}/administer/multitenancy/introduction-to-multitenancy/).
 
-1.  Navigate to the Admin Console [https://localhost:9443/admin](https://localhost:9443/admin) and sign in with your tenant credentials.
+1.  Navigate to the Admin Console `https://localhost:9443/admin` and sign in with your tenant credentials.
 
 2.  Go to **Settings > Advanced**.
 
