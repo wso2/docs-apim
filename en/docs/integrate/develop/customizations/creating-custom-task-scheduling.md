@@ -1,4 +1,4 @@
-http://localhost:9000/soap/SimpleStockQuoteService# Customizing Task Scheduling
+# Customizing Task Scheduling
 
 When you create a task using the default task implementation, the task can inject messages to a proxy service, or to a sequence. If you have a specific task-handling requirement, you can write your own task-handling implementation by creating a custom Java Class that implements the `org.apache.synapse.startup.Task` interface.
 
