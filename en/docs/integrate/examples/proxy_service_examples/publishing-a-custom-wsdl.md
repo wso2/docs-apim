@@ -4,7 +4,7 @@ generated. You can access this WSDL by suffixing the service URL
 with ?wsdl. See the example given below, where the proxy service name is
 'sample_service' and IP is localhost:
 
-[http://localhost:8290/services/sample_service?wsdl](http://localhost:8290/services/Logging?wsdl)
+<code> http://localhost:8290/services/sample_service?wsdl </code>
 
 However, this default WSDL only shows the `mediate`
 operation. This can be a limitation because your proxy service may be

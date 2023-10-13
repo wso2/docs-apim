@@ -33,7 +33,7 @@ You can integrate WSO2 Identity Server with WSO2 API Manager and use your social
 7.  Go to **Set Up the Facebook SDK for JavaScript** and click **Next** until the steps are complete.
 8.  Click **Settings** and select **Basic**. You can find your `App ID` and the `App Secret` as shown in the image below.
 
-    ![Facebook App Id]({{base_path}}/assets/img/learn/appId-facebook.png)
+    ![Facebook App Id](../../../assets/img/learn/appId-facebook.png)
 
 9.  Select a **Category** for you application.
 
@@ -135,7 +135,7 @@ For more information, see [Permissions Reference - Facebook Login.](https://deve
 To federate logging in to the Publisher and Developer Portal with Facebook, you need to configure the service provider with the Facebook Identity Provider.
 
 !!! note
-        You have to allow the usage of email addresses as usernames, to use email addresses. For instructions, see [Setting up an e-mail login](/administer/product-security/General/logins-and-passwords/maintaining-logins-and-passwords/#setting-up-an-e-mail-login).
+        You have to allow the usage of email addresses as usernames, to use email addresses. For instructions, see [Setting up an e-mail login](/install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords/#setup-an-e-mail-login).
 
 
 1.  Go to the **Management Console** of WSO2 Identity Server (`https://localhost:9444/carbon`) and click on **Service Providers**.

@@ -100,8 +100,11 @@ Let's use the Star Wars sample backend server as the backend for the GraphQL API
          <p>Endpoint</p>
       </td>
       <td>
-         <a href="http://localhost:8080/graphql" target="_blank">http://localhost:8080/graphql</a>
-                <div class="admonition note">
+         <code>
+            http://localhost:8080/graphql
+         </code>
+   
+   <div class="admonition note">
       <p class="admonition-title">Note</p>
       <p>
       <ul>

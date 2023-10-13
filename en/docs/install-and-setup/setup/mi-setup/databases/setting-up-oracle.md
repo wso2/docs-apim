@@ -5,7 +5,7 @@ Follow the steps given below to set up the required Oracle databases for your Mi
 !!! Tip
     WSO2 Micro Integrator requires databases for the following scenarios:
 
-    -	<a href='{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei#cluster-coordination'>cluster coordination</a>
+    -	<a href='{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei#cluster-coordination'>monitor transaction counts</a>
     -	<a href='{{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore'>using an RDBMS user store</a>
     -	<a href='{{base_path}}/install-and-setup/setup/mi-setup/deployment/deployment_checklist#monitoring-transaction-counts'>monitoring transaction counts</a>.
 
@@ -31,7 +31,7 @@ You can run the scripts on one database instance or set up separate instances fo
 	</tr>
 	<tr>
 		<td>oracle_transaction_count.sql</td>
-		<td>This script creates the database tables that are required for storing the transaction counts. This is only required if you want to <a href='{{base_path}}/install-and-setup/setup/mi-setup/deployment/deployment_checklist/#monitoring-transaction-counts'>monitor transaction counts</a> in your deployment.</td>
+		<td>This script creates the database tables that are required for storing the transaction counts. This is only required if you want to <a href='{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei#cluster-coordination'>monitor transaction counts</a> in your deployment.</td>
 	</tr>
 </table>
 
@@ -89,7 +89,7 @@ Follow the steps below to set up an Oracle database.
     directory.
 
 !!! Tip
-    If you get a "`timezone region not found"` error when using the `ojdbc6.jar` file with the Micro Integrator, set the Java property as follows: `export JAVA_OPTS="-Duser.timezone='+05:30'"` the value of this property should be the GMT difference of the country. If it is necessary to set this property permanently, define it inside the `micro-integrator.sh        ` as a new `JAVA_OPT` property.
+    If you get a "`timezone region not found"` error when using the `ojdbc6.jar` file with the Micro Integrator, set the Java property as follows: `export JAVA_OPTS="-Duser.timezone='+05:30'"` the value of this property should be the GMT difference of the country. If it is necessary to set this property permanently, define it inside the `micro-integrator.` as a new `JAVA_OPT` property.
 
 ## Connecting the database to the server
 
