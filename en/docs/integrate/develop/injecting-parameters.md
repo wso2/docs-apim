@@ -140,9 +140,6 @@ In the following example, the endpoint URL is configured as a dynamic value.
 
 ### Data service parameters
 
-!!! Tip
-    Note that you cannot inject parameters to data service using a file. You can only use environment variables.
-
 Listed below are the data service parameters that can be dynamically injected.
 
 -   `Driver`
@@ -154,7 +151,7 @@ Listed below are the data service parameters that can be dynamically injected.
 
 In the following example, parameters are configured as dynamic values in the data service.
 
-```xml tab='Inline Datasource'
+```xml tab='Inline Datasource (Using Environment Variables)'
 <data name="DataServiceSample" serviceGroup="" serviceNamespace="">
     <description/>
     <config id="SourceSample">
@@ -172,7 +169,7 @@ In the following example, parameters are configured as dynamic values in the dat
 </data>
 ```
 
-```xml tab='External Datasource'
+```xml tab='External Datasource (Using Environment Variables)'
 <datasource>
     <name>MySQLConnection</name>
     <description>MySQL Connection</description>
@@ -185,6 +182,104 @@ In the following example, parameters are configured as dynamic values in the dat
         </configuration>
     </definition>
 </datasource>
+```
+
+```xml tab='Inline Datasource (Using a File)'
+<data name="DataServiceSample" serviceGroup="" serviceNamespace="">
+    <description/>
+    <config id="SourceSample">
+        <property name="org.wso2.ws.dataservice.user">$FILE:uname</property>
+        <property name="org.wso2.ws.dataservice.password">$FILE:pass</property>
+        <property name="org.wso2.ws.dataservice.protocol">$FILE:url1</property>
+        <property name="org.wso2.ws.dataservice.driver">$FILE:driver1</property>
+    </config>
+    <query>
+    --------------------
+    </query>
+    <operation>
+    --------------------
+    </operation>
+</data>
+```
+
+```xml tab='External Datasource (Using a File)'
+<datasource>
+    <name>MySQLConnection</name>
+    <description>MySQL Connection</description>
+    <definition type="RDBMS">
+        <configuration>
+            <driverClassName>$FILE:driver1</driverClassName>
+            <url>$FILE:url1</url>
+            <username>$FILE:uname</username>
+            <password>$FILE:pass</password>
+        </configuration>
+    </definition>
+</datasource>
+```
+
+### DB Report and DB Lookup mediator parameters
+
+Listed below are the DB Report and DB Lookup mediator parameters that can be dynamically injected.
+
+-   `Driver`
+-   `URL`
+-   `Username`
+-   `Password`
+  
+#### Example
+
+In the following example, parameters are configured as dynamic values in the DB Report and DB Lookup mediators.
+
+```xml tab='DB Report (Using Environment Variables)'
+<dbreport>
+    <connection>
+        <pool>
+           <driver>$SYSTEM:driver1</driver>
+           <url>$SYSTEM:url1</url>
+           <user>$SYSTEM:uname</user>
+           <password>$SYSTEM:pass</password>
+        </pool>
+    </connection>
+</dbreport>
+```
+
+```xml tab='DB Lookup (Using Environment Variables)'
+<dblookup>
+    <connection>
+        <pool>
+           <driver>$SYSTEM:driver1</driver>
+           <url>$SYSTEM:url1</url>
+           <user>$SYSTEM:uname</user>
+           <password>$SYSTEM:pass</password>
+        </pool>
+    </connection>
+</dblookup>
+```
+
+```xml tab='DB Report (Using a File)'
+<dbreport>
+    <connection>
+        <pool>
+           <driver>$FILE:driver1</driver>
+           <url>$FILE:url1</url>
+           <user>$FILE:uname</user>
+           <password>$FILE:pass</password>
+        </pool>
+    </connection>
+</dbreport>
+```
+
+```xml tab='DB Lookup (Using a File)'
+<dblookup>
+    <connection>
+        <pool>
+           <driver>$FILE:driver1</driver>
+           <url>$FILE:url1</url>
+           <user>$FILE:uname</user>
+           <password>$FILE:pass</password>
+        </pool>
+    </connection>
+</dblookup>
 ```
 
 ### Scheduled Task parameters
