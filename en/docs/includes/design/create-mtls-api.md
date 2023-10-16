@@ -6,10 +6,13 @@
 
     [![Enable mutual SSL](https://apim.docs.wso2.com/en/4.0.0/assets/img/learn/enable-mutual-ssl.png)](https://apim.docs.wso2.com/en/4.0.0/assets/img/learn/enable-mutual-ssl.png)
 
+    !!! note
+        HTTP transport will be disabled for an API if it has Mutual SSL enabled.
+
 4.  Click **Add Certificate** to upload a new client certificate.
 
     !!! note
-    This feature currently supports only the `.crt` format for certificates.
+        This feature currently supports only the `.crt` format for certificates.
 
         If you need to use a certificate in any other format, you can convert it using a standard tool before uploading it.
 
