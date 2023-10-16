@@ -21,7 +21,7 @@ You can integrate WSO2 Identity Server with WSO2 API Manager and use your social
 
     ![Setup facebook login product]({{base_path}}/assets/img/learn/web-facebook-login-app.png)
 
-6.  Add the `serverURL` of WSO2 Identity Server (which is configured with `offset` = 1) <https://localhost:9444/> and click **Save** and **Continue** .
+6.  Add the `serverURL` of WSO2 Identity Server (which is configured with `offset` = 1) `https://localhost:9444/` and click **Save** and **Continue** .
 
     !!! info
         If you have changed the hostname of identity server use that instead of `localhost`.
@@ -68,7 +68,7 @@ Let's see how to configure WSO2 Identity Server to work with Facebook for user a
 
     | Identity provider Name | Alias                                 |
     |------------------------|---------------------------------------|
-    | facebook               | <https://localhost:9444/oauth2/token> |
+    | facebook               | `https://localhost:9444/oauth2/token` |
 
     !!! note
         To authenticate the user with **Facebook** which is an external system, we have to configure the federated authenticator. For more details, see [Federated Authetication](https://is.docs.wso2.com/en/5.10.0/get-started/quick-start-guide/#federated-authentication).
