@@ -21,7 +21,7 @@ Once the workflow configurations are finalized at the BPEL, the call-back URL of
 </tr>
 <tr class="even">
 <td>REST</td>
-<td>https://localhost:9443/api/am/admin/v2/workflows/update-workflow-statu</td>
+<td>https://localhost:9443/api/am/admin/v2/workflows/update-workflow-status</td>
 </tr>
 </tbody>
 </table>
