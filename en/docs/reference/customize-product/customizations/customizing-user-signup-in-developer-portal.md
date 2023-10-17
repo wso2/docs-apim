@@ -26,7 +26,7 @@ If you want to add a new field to the Developer Portal sign-up page that will be
 
 Let's add a field named **City** by following the instructions below:
 
-1.  Start the WSO2 API Manager server, and go to the WSO2 API-M Management Console ( <https://localhost:9443/carbon/> )
+1.  Start the WSO2 API Manager server, and go to the WSO2 API-M Management Console (`https://localhost:9443/carbon/`)
 2.  Navigate to the **Main** menu and click **Add** which is under the **Claims** tab.
 3.  Click **Add Local Claim** .
     ![Add New Claim]({{base_path}}/assets/img/learn/add-new-claim.png)

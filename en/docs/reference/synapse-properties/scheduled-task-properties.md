@@ -1,4 +1,3 @@
-# Scheduled Tasks
 ## Introduction
 
 WSO2 Micro Integrator can be configured to execute tasks periodically. According to the default task scheduling implementation in WSO2 Micro Integrator, a task can be configured to inject messages, either to a defined endpoint, to a proxy service, or a specific sequence. If required, you can use a custom task scheduling implementation.
@@ -153,7 +152,7 @@ Listed below are the optional task implementation properties you can use when [c
          <td>to</td>
          <td>
             <div class="content-wrapper">
-               <p>If the task should send the message directly to the endpoint through the <strong>main</strong> sequence, the endpoint address should be specified. For example, if the address of the endpoint is <a href="http://localhost:9000/services/SimpleStockQuoteService">http://localhost:9000/services/SimpleStockQuoteService</a> , the Synapse configuration of the scheduled task will be as follows:</p>
+               <p>If the task should send the message directly to the endpoint through the <strong>main</strong> sequence, the endpoint address should be specified. For example, if the address of the endpoint is `http://localhost:9000/services/SimpleStockQuoteService`, the Synapse configuration of the scheduled task will be as follows:</p>
                <div class="code panel pdl" style="border-width: 1px;">
                   <div class="codeContent panelContent pdl">
                      <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">

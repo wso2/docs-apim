@@ -11,7 +11,7 @@ To use the ServiceNow connector, add the <servicenow.init> element in your confi
 The ServiceNow API requires all requests to be authenticated as a user. User has to create a own instance with his user credentials. When u create a account in ServiceNow Developer page then you are enable to create your own instance. For more information, see [the ServiceNow Developer page](https://developer.servicenow.com/app.do#!/home).
 
 ??? note "servicenow.init"
-    The servicenow.init operation initializes the connector to interact with the ServiceNow API. For more information, see [the API documentation](http://wiki.servicenow.com/index.php?title=REST_API#gsc.tab=0).
+    The servicenow.init operation initializes the connector to interact with the ServiceNow API. For more information, see [the API documentation](https://developer.servicenow.com/dev.do#!/reference/api/utah/rest/).
     <table>
         <tr>
             <th>Parameter Name</th>
