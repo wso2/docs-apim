@@ -8,10 +8,10 @@ URL.
 
 In the following hypothetical scenario, devportal, publisher, admin, and carbon console apps are hosted in the knnect.lk domain as follows.
 
-1. https://knnect.lk/apim/devportal/
-2. https://knnect.lk/apim/publisher/
-3. https://knnect.lk/apim/admin/
-4. https://knnect.lk/apim/carbon/
+1. `https://knnect.lk/apim/devportal/`
+2. `https://knnect.lk/apim/publisher/`
+3. `https://knnect.lk/apim/admin/`
+4. `https://knnect.lk/apim/carbon/` 
 
 !!! note
     Once you have configured your products with a proxy server, it will no longer be possible to access the product behind the proxy.
@@ -19,8 +19,8 @@ In the following hypothetical scenario, devportal, publisher, admin, and carbon 
 In the above example, "apim" is the "proxy context paths" of API Manager.
 
  When a client sends a request to the proxy entry URL path, e.g.
-<https://knnect.lk/apim> , the request is directed to the
-back-end service URL ([https://<server-ip>:9443/carbon](https://<server-ip>:9443/carbon)) 
+`https://knnect.lk/apim` , the request is directed to the
+back-end service URL `https://<server-ip>:9443/carbon` 
 where the original service lies. Eventually, the client has to be
 served via the requested proxy entry URL path. The mapping between the
 proxy URL path and the back-end service URL path is resolved by the
