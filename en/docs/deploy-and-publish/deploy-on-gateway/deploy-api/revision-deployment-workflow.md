@@ -1,10 +1,10 @@
 # Revision Deployment Workflow
 
-This section let's see how to add a simple approval workflow to control the deployment of revisions in WSO2 API Manager. With revisions deployment workflow enabled a gateway can have a deployed revision and a pending revision. The developer has the ability to send a revision deployment request to a desired gateway.
+In this section let's see how to add a simple approval workflow to control the deployment of revisions in WSO2 API Manager. When the revisions deployment workflow is activated, a gateway can simultaneously have both a deployed revision and a pending revision. In this setup, developers have the capability to submit a revision deployment request to their chosen gateway.
 
 ## Engaging the Approval Workflow Executor in API Manager
 
-1. Enable the API state change workflow for the **Approval Workflow Executor**.
+1. Enable the API revision deployment workflow for the **Approval Workflow Executor**.
 
     1. Sign in to the API-M management console(`https://<Server Host>:9443/carbon`).
 
@@ -36,7 +36,7 @@ This section let's see how to add a simple approval workflow to control the depl
 
     2. Select a revision and click the deploy button.
 
-    A pending revision chip will be displayed in the next revision column because the workflow is enabled for deploy a revision.
+    A pending revision chip will be displayed in the next revision column because the workflow is enabled for deploying a revision.
 
     ![Deployment Pending]({{base_path}}/assets/img/deploy/pending-revision.png)
 
@@ -48,7 +48,7 @@ This section let's see how to add a simple approval workflow to control the depl
 
        [![Delete pending task]({{base_path}}/assets/img/deploy/delete-revision-deployment-request.png)]({{base_path}}/assets/img/deploy/delete-revision-deployment-request.png)
 
-3. Approve or reject the API state change pending request.
+3. Approve or reject the API revision deployment pending request.
 
     1. Sign in to the Admin Portal(`https://<Server Host>:9443/admin`)
 
@@ -68,11 +68,11 @@ This section let's see how to add a simple approval workflow to control the depl
 
        Notice that the API revision deployment is updated.
 
-        - If the request was approved, the revision will be deployed to the selected gateway.
-        - If the request was rejected, the deployment to the gateway will not happen.
+        - If the request is approved, the revision will be deployed to the selected gateway.
+        - If the request is rejected, the deployment to the gateway will not happen.
 
        [![API revision deployment updated list]({{base_path}}/assets/img/deploy/revision deployment-updated-status.png)]({{base_path}}/assets/img/deploy/revision deployment-updated-status.png)
 
    !!! info
-   You can send another pending request while there is a deployment is done to certain gateway. This will not undeploy the current revision until the new request is approved. As mentioned above you can cancel the second pending request or undeploy the current revision as you like.
+   You can send a new pending request even while a deployment to a specific gateway is in progress. The current revision will not be undeployed until the new request is approved. As mentioned earlier, you have the option to either cancel the second pending request or undeploy the current revision at your discretion.
    [![API gateway with a deployed and a pending revision]({{base_path}}/assets/img/deploy/deployed-and-pending-revisions.png)]({{base_path}}/assets/img/deploy/deployed-and-pending-revisions.png)
