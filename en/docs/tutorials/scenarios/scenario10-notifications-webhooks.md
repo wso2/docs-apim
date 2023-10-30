@@ -12,7 +12,7 @@ WebHooks only allow one-way communication, from a caller web app to callee web a
 
 <img src="{{base_path}}/assets/img/tutorials/scenario-tutorials/scenario10.png" alt="Webhook notifications" title="Webhook notifications" width="60%" />
 
-You can view the WebHook API created in WSO2 API Manager by going to the publisher (Super tenant - admin). [https://localhost:9443/publisher/apis](https://localhost:9443/publisher/apis) 
+You can view the WebHook API created in WSO2 API Manager by going to the publisher (Super tenant - admin). `https://localhost:9443/publisher/apis`
 
 You can publish notifications under different topics.
 
