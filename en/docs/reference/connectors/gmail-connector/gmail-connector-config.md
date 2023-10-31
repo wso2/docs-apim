@@ -853,12 +853,12 @@ To use the Gmail connector, add the `<gmail.init>` element in your configuration
         </tr>
         <tr>
             <td>fileName</td>
-            <td>A comma-seperated list of file names of the attachments you want to include with the message.</td>
+            <td>A comma-separated list of file names of the attachments you want to include with the message.</td>
             <td>Yes</td>
         </tr>
         <tr>
             <td>filePath</td>
-            <td>A comma-seperated list of file paths of the attachments you want to include with the message.</td>
+            <td>A comma-separated list of file paths of the attachments you want to include with the message.</td>
             <td>Yes</td>
         </tr>
         <tr>
