@@ -97,7 +97,6 @@ The streaming tutorials walk you through the main capabilities and features of t
         <td>
             <ul>
                 <li><a href="{{base_path}}/use-cases/streaming-tutorials/expose-a-kafka-topic-as-a-managed-websocket-api">Exposing a Kafka Stream as a Managed WebSocket API</a></li>
-                <li><a href="{{base_path}}/use-cases/streaming-tutorials/performing-real-time-etl-with-mysql">Performing Real-time Change Data Capture with MySQL</a></li>            
                 <li><a href="{{base_path}}/use-cases/streaming-tutorials/performing-real-time-etl-with-mysql">Performing Real-time Change Data Capture with MySQL</a></li>
                 <li><a href="{{base_path}}/use-cases/streaming-tutorials/performing-real-time-etl-with-files">Performing Real-time ETL with Files</a></li>
                 <li><a href="{{base_path}}/use-cases/streaming-tutorials/creating-etl-application-via-tooling">Creating an ETL Application via SI Tooling</a></li>
