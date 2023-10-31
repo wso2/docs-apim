@@ -14,6 +14,48 @@ Use the following format to encode the JWT using Base64URL encoding, by adding t
 encoding = "base64url"
 ```
 
+## Validating backend JWT using JWKS endpoint
+
+Backend JWTs can be signed with RSA to ensure their validity when being sent between 2 parties. To verify the JWT on the backend, we need the public certificate of the private key used to sign the JWT at the Gateway. The JWKS endpoint is a way to get this public certificate.
+
+The JWKS endpoint can be accessed via the following URL depending on the tenant.
+
+```url tab="Super Tenant"
+https://<hostname>:8243/jwks
+```
+
+```url tab="Tenant"
+https://<hostname>:8243/t/<tenant domain>/jwks
+```
+
+Refer to the following sample JWKS response.
+
+```
+{
+    "keys": [
+        {
+            "kty": "RSA",
+            "e": "AQAB",
+            "use": "sig",
+            "kid": "Q049bG9jYWxob3N0LCBPVT1XU08yLCBPPVdTTzIsIEw9TW91bnRhaW4gVmlldywgU1Q9Q0EsIEM9VVMjMTY3NzA4OTI4Mw",
+            "alg": "RS256",
+            "n": "zNqjfB4ypY0QkM4QnrtcFlRmFjdJYTzeTEzZj3PaJtNmcOCxVNwomUwbkISogv4O4J0lDVAyq6aapDNY9JzxsoLehosqyuKar3IGSJhm8IM8N7uVfT0mLQ-rho3zXE7_FahS-rwIp-OUPqJvRH8enc2mpfghG8cvBx4qq6VzMS3B72CfNAPyEeFJwi4R4ZgXzslbr_oGMJBHSQDhVEoA8ukQzUsLafbt3sFMDVy0t5KNSazRBLcHSPlx5B0W4JSWf_vv1A_c1v9AJSksxrSsRqRjoaHgp3AzhZw7LDsowfxqHZ5bF0Thxq4OXEOsk_rSPIHvRilk7OP-epTXwZpw4Q"
+        }
+    ]
+}
+```
+
+The above JWKS response contains an array of public keys available from the gateway, where each key is described using the following parameters:
+
+- `"kty"` - Key type identifies the cryptographic family this key belongs to.
+- `"e"` - The exponent value of the public key.
+- `"use"` - This defines the use of the key, whether it is used for signing or encryption.
+- `"kid"` - This is an ID parameter used to match a specific key(s).
+- `"alg"` - This defines the specific algorithm intended for use with the key.
+- `"n"` - The modulus value of the public key.
+
+In order to validate the backend JWT using JWKS, you will need to invoke the JWKS endpoint and retrieve the kid property. Also, you need the extract the kid property from the Header of the decoded JWT. Thus extracted kid values are expected to be identical.
+
 ## Expiry time of the JWT
 
 The JWT expiry time depends directly on whether caching is enabled in the Gateway Manager or Key Manager. The WSO2 API-M Gateway caching is enabled by default. However, if required, you can enable or disable the caching for the Gateway Manager or the Key Manager using the `apim.cache.gateway_token.enable` or `apim.cache.km_token.enable` elements respectively in the `<API-M_HOME>/repository/conf/deployment.toml` file. If caching is enabled for the Gateway Manager or the Key Manager, the JWT expiry time will be the same as the default cache expiry time.
@@ -310,6 +352,11 @@ custom claims into JWT when invocation token in opaque mode.
 apim.jwt.binding_federated_user_claims</code></pre></td>
 <td><p>This disables the binding federated user claims to the backend JWT generator.</p></td>
 <td><code>false</code></td>
+</tr>
+<tr class="odd">
+<td><pre><code>apim.jwt.use_kid_property</code></pre></td>
+<td><p>Specifies whether the backend JWT header should include the kid claim</p></td>
+<td><code>true</code></td>
 </tr>
 </tbody>
 </table>
