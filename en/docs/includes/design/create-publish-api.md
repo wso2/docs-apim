@@ -7,7 +7,7 @@
 
 3. Click **Develop -> API Configurations -> Runtime** and select **Application Level Security**.
 
-4. Select **API Key** and click **Save and Deploy**.
+4. Select **API Key** and click **Save and Deploy**. `APIKey` is used as the default header. This value can be changed using the `APIKey Header` field.
 
      [![Configure API key authentication](https://apim.docs.wso2.com/en/4.1.0/assets/img/learn/api-key-option.png)](https://apim.docs.wso2.com/en/4.1.0/assets/img/learn/api-key-option.png)
      
