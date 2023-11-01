@@ -842,47 +842,47 @@ The Micro integrator of WSO2 Enterprise Integrator is the predecessor of the Mic
 <table>
     <tr>
         <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-7.1.x">Upgrading from WSO2 EI 7.1.x to WSO2 API-M 4.0.0</a>
+            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/#get-started">Upgrading from WSO2 EI 7.1.x to WSO2 API-M 4.0.0</a>
         </td>
     </tr>
     <tr>
         <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-7.0.x">Upgrading from WSO2 EI 7.0.x to WSO2 API-M 4.0.0</a>
+            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/#get-started">Upgrading from WSO2 EI 7.0.x to WSO2 API-M 4.0.0</a>
         </td>
     </tr>
     <tr>
         <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.6.x">Upgrading from WSO2 EI 6.6.x to WSO2 API-M 4.0.0</a>
+            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/#get-started">Upgrading from WSO2 EI 6.6.x to WSO2 API-M 4.0.0</a>
         </td>
     </tr>
     <tr>
         <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.5.x">Migrating from WSO2 EI 6.5.x to WSO2 API-M 4.0.0</a>
+            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/#get-started">Migrating from WSO2 EI 6.5.x to WSO2 API-M 4.0.0</a>
         </td>
     </tr>
     <tr>
         <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.4.x">Migrating from WSO2 EI 6.4.x to WSO2 API-M 4.0.0</a>
+            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/#get-started">Migrating from WSO2 EI 6.4.x to WSO2 API-M 4.0.0</a>
         </td>
     </tr>
     <tr>
         <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.3.x">Migrating from WSO2 EI 6.3.x to WSO2 API-M 4.0.0</a>
+            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/#get-started">Migrating from WSO2 EI 6.3.x to WSO2 API-M 4.0.0</a>
         </td>
     </tr>
     <tr>
         <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.2.x">Migrating from WSO2 EI 6.2.x to WSO2 API-M 4.0.0</a>
+            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/#get-started">Migrating from WSO2 EI 6.2.x to WSO2 API-M 4.0.0</a>
         </td>
     </tr>
     <tr>
         <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.1.1">Migrating from WSO2 EI 6.1.1 to WSO2 API-M 4.0.0</a>
+            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/#get-started">Migrating from WSO2 EI 6.1.1 to WSO2 API-M 4.0.0</a>
         </td>
     </tr>
     <tr>
         <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.1.0">Migrating from WSO2 EI 6.1.0 to WSO2 API-M 4.0.0</a>
+            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/#get-started">Migrating from WSO2 EI 6.1.0 to WSO2 API-M 4.0.0</a>
         </td>
     </tr>
 </table>
