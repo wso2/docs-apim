@@ -179,7 +179,7 @@ class="org.wso2.carbon.business.messaging.hl7.message.HL7MessageFormatter"
 
 ## Configuring the FIX transport
 
-This transport implementation is a module developed under the Apache Synapse project and it supports JMX. This transport is mainly used in conjunction with proxy services. FIX transport does not support any global parameters. All the FIX configuration parameters should be specified at service level. QuickFix 4J configuration parameters can be found <a href="http://www.quickfixengine.org/quickfix/doc/html/configuration.html">here</a>.
+This transport implementation is a module developed under the Apache Synapse project and it supports JMX. This transport is mainly used in conjunction with proxy services. FIX transport does not support any global parameters. All the FIX configuration parameters should be specified at service level. QuickFix 4J configuration parameters can be found <a href="https://quickfixengine.org/j/">here</a>.
 
 To enable the FIX transport listener and sender, set the following parameters to `true` in the deployment.toml file (stored in the `MI_HOME/conf` directory).
 

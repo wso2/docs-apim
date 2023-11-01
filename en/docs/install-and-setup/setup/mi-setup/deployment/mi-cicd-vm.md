@@ -107,7 +107,7 @@ There are two kinds of jobs in Jenkins that we need to maintain. One for the Int
     !!! Info
         We need to share the host .ssh configurations with the Docker container as in above. The host machine needs to have ssh access to copy the CApps files to the remote instance where the Micro Integrator instances are running.
      
-9. After installing Jenkins, the jobs can be accessed via [http://localhost:8080/](http://localhost:8081/)
+9. After installing Jenkins, the jobs can be accessed via `http://localhost:8080/`
 
 
 ##### Setting up Nexus Server
@@ -134,7 +134,7 @@ There are two kinds of jobs in Jenkins that we need to maintain. One for the Int
 
     `docker run -d -p 8081:8081 <image-name>:<image-tag>`
 
-7. After installing nexus, the repository browser can be accessed via [http://localhost:8081/](http://localhost:8081/) . 
+7. After installing nexus, the repository browser can be accessed via `http://localhost:8081/` . 
 
 ##### Setting up Synapse Unit testing server
 
