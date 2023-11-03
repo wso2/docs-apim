@@ -847,7 +847,7 @@ The Micro integrator of WSO2 Enterprise Integrator is the predecessor of the Mic
     </tr>
     <tr>
         <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/#get-started">Upgrading from WSO2 EI 7.0.x to WSO2 API-M 4.0.0</a>
+             <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/#get-started">Upgrading from WSO2 EI 7.0.x to WSO2 API-M 4.0.0</a>
         </td>
     </tr>
     <tr>
