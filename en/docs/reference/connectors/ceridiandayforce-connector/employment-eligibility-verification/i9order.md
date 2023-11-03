@@ -57,7 +57,7 @@ Dayforce returns HTTP Code 200
 
 **Related Dayforce documentation**
 
-[https://developers.dayforce.com/Build/API-Explorer/Reporting-(1)/GET-Report-Metadata-for-a-list-of-reports.aspx](https://developers.dayforce.com/Build/API-Explorer/Reporting-(1)/GET-Report-Metadata-for-a-list-of-reports.aspx)
+[https://developers.dayforce.com/Build/API-Explorer/Reporting-(1)/GET-Report-Metadata-for-a-list-of-reports.aspx](https://developers.dayforce.com)
 (sic)
 
 ### Sample configuration
