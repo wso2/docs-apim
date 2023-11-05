@@ -241,7 +241,9 @@ Both of the above can be configured either in a _Block Listing_ approach (select
 | `limit_java_class_access_in_scripts.enable`    | Enable limiting access to Java classes.                                                                                                                                                                                                        | `true`/`false`                               |
 | `limit_java_class_access_in_scripts.class_prefixes` | Prefixes of Java class names, as comma separated values. Java Classes used in the script - having names beginning with these values will be selectively allowed/blocked, based on the provided `limit_java_class_access_in_scripts.list_type`. | `java.util,java.lang`                        |
 | `limit_java_class_access_in_scripts.list_type` | Type of the list, provided under `limit_java_class_access_in_scripts.class_prefixes`. Possible values are:<br/> - `ALLOW_LIST`: Selectively allow<br/> - `BLOCK_LIST`: Selectively block                                                       | `ALLOW_LIST`/`BLOCK_LIST` |
+
 Prefixes of Java class names should be provided in `limit_java_class_access_in_scripts.class_prefixes`, as comma separated values. Each class that is used in the script will be compared against these prefixes.
+
 ```toml
 [synapse_properties]
 'limit_java_class_access_in_scripts.enable'=true
@@ -267,7 +269,9 @@ com.sun.phobos.script.util.ExtendedScriptException: org.mozilla.javascript.EcmaE
 | `limit_java_native_object_access_in_scripts.enable`    | Enable limiting access to Java methods/native objects.                                                                                                                                                                                        | `true`/`false`            |
 | `limit_java_native_object_access_in_scripts.object_names` | Names of Java methods/native objects, as comma separated values. Java Methods/native objects used in the script having these names will be selectively allowed/blocked, based on the provided `limit_java_class_access_in_scripts.list_type`. | `getClassLoader,getClass`         |
 | `limit_java_native_object_access_in_scripts.list_type` | Type of the list, provided under `limit_java_class_access_in_scripts.class_prefixes`. Possible values are:<br/> - `ALLOW_LIST`: Selectively allow<br/> - `BLOCK_LIST`: Selectively block                                                      | `ALLOW_LIST`/`BLOCK_LIST` |
+
 Java Method/Native Object names should be provided in `limit_java_native_object_access_in_scripts.object_names`, as comma separated values. Each Java method that is used in the script will be compared against these values.
+
 ```toml
 [synapse_properties]
 'limit_java_native_object_access_in_scripts.enable'=true
