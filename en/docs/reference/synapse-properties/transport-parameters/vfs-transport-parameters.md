@@ -304,7 +304,7 @@ See [Creating a Proxy Service]({{base_path}}/integrate/develop/creating-artifact
 
 !!! Note
 
-    If you require cluster coordination for file polling, please use File Inbound Endpoint.
+    If you require cluster coordination for file polling, please use the File Inbound Endpoint.
 
 
 The following service-level parameters are required for Inbound Endpoints.
