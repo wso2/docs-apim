@@ -39,7 +39,6 @@ To test the sample Siddhi application, simulate single events for it via the Str
 
 3. Enter attribute values as follows.
 
-    ![Attribute Values]({{base_path}}/assets/img/streaming/execution-geo-sample/attribute-values.png).
 
     | **Attribute**         | **Value**                     |
     |-----------------------|-------------------------------|
