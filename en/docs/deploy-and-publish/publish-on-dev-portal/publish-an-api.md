@@ -12,6 +12,21 @@ Follow the steps below to publish an API using WSO2 API Manager.
 
      <img src="{{base_path}}/assets/img/learn/select-created-api.png" alt="Select API" title="Select API" width="35%" />
 
+    !!! note
+         - Note that enhancing the API's visibility, as illustrated below, allows you to provide additional business-related information and indicate the monetization status on the API tile.
+         - You can set the below pre defined configs to be true in the **settings.json** file for Publisher Portal & Dev Portal.
+         ```
+         "tileDisplayInfo": {
+             "showMonetizedState": true,
+             "showBusinessDetails": true,
+             "showTechnicalDetails": true
+         }
+         ```
+          <img src="{{base_path}}/assets/img/learn/select-created-api-with-business-info.png" alt="Select API" title="Select API" width="35%" />
+         - If you have added a **Business Owner Email** or **Technical Owner Email**, they will be displayed in the API tile when you hover over the **Business Owner** or **Technical Owner** details.
+         - If you are setting the **showMonetizedState** config to be true, monetization icon will be displayed in the API tile as below once you enabled the monetization for the API. In order to enable monetization for the API, you need to publish the API.  
+         <img src="{{base_path}}/assets/img/learn/select-created-api-with-monetization.png" alt="Select API" title="Select API" width="35%" />
+        
 3.  Click **Lifecycle**.
 
      [![Lifecycle tab]({{base_path}}/assets/img/learn/lifecycle-tab.png)]({{base_path}}/assets/img/learn/lifecycle-tab.png)
