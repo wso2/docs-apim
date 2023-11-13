@@ -89,7 +89,6 @@ for (var i = 0; i < dropdowns.length; i++) {
     };
 };
 
-
 /*
  * Get the domain name using the URL
  */
@@ -103,6 +102,34 @@ function getDomainFromUrl(urlString) {
     domain = domain.split('/')[0];
 
     return domain;
+}
+
+/*
+* Prompt and get user input when the desired page is not exists.
+*/
+function getUserInput(version) {
+    var message;
+    // Get the Heading of the page (1st H1 tag)
+    var h1;
+    if (document.getElementsByTagName('h1').length) {
+        h1 = document.getElementsByTagName('h1')[0].innerHTML;
+        h1 = h1.split('<a')[0]
+    }
+
+    // If H1 exists construct the prompt message using title else construct generic message
+    if(h1) {
+        message = 'The page titled "'+h1+'" does not exist. Would you like to visit the homepage for version '+version+' instead?';
+    } else {
+        message = 'The page you\'re trying to access does not exist. Would you prefer to visit the homepage for version '+version+' instead?';
+    }
+
+    // Prompt the JS confirm message to get user input
+    if (confirm(message) == true) {
+        // redirect to home page if user clicks the `Yes` then apply the scenario 2.
+        window.location.href = url;
+    } else {
+        // if user clicks the `No` then do nothing;
+    }
 }
 
 /*
@@ -137,31 +164,16 @@ function redirectToPage(url, version) {
         xhr.onload = function () {
             // If the page exists on the targeted version
             if (xhr.status === 200) {
-                // Redirect to relevant page
-                window.location.href = urlToCheck;
+                if(xhr.responseText.includes("Page not found")) {
+                    getUserInput(version);
+                    //this string contained stream
+                } else {
+                    // Redirect to relevant page
+                    window.location.href = urlToCheck;
+                }
             } else {
                 // Redirect to home page if the page is not exists
-                var message;
-                // Get the Heading of the page (1st H1 tag)
-                var h1;
-                if (document.getElementsByTagName('h1').length) {
-                    h1 = document.getElementsByTagName('h1')[0].innerHTML;
-                }
-
-                // If H1 exists construct the prompt message using title else construct generic message
-                if(h1) {
-                    message = 'The page titled "'+h1+'" does not exist. Would you like to visit the homepage for version '+version+' instead?';
-                } else {
-                    message = 'The page you\'re trying to access does not exist. Would you prefer to visit the homepage for version '+version+' instead?';
-                }
-
-                // Prompt the JS confirm message to get user input
-                if (confirm(message) == true) {
-                    // redirect to home page if user clicks the `Yes` then apply the scenario 2.
-                    window.location.href = url;
-                } else {
-                    // if user clicks the `No` then do nothing;
-                }
+                getUserInput(version);
             }
         };
 
