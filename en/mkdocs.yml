@@ -480,6 +480,7 @@ nav:
                 - Create a Datasource: integrate/develop/creating-artifacts/data-services/creating-datasources.md
                 - Create a Data Service: integrate/develop/creating-artifacts/data-services/creating-data-services.md
                 - Create a Data Service Input Validator: integrate/develop/creating-artifacts/data-services/creating-input-validators.md
+                - Creating Articats in Non-Server Mode: integrate/develop/creating-artifacts/creating-artifacts-in-non-server-mode.md
                 - Adding Connectors: integrate/develop/creating-artifacts/adding-connectors.md
                 - Generate Service Catalog Metadata Artifacts: integrate/develop/generate-service-catalog-metadata.md
             - Create Custom Artifacts:
