@@ -239,7 +239,7 @@ All configurations related to this tool can be found inside the `<SI_HOME>/wso2/
 
 - **Log file name regex**: The regex patterns defined in all the files in the `<SI_HOME>/wso2/tools/identity-anonymization-tool/conf/log-config` directory are considered.
 
-For information on changing these configurations, see [Configuring the config.json file](https://docs.wso2.com/display/ADMIN44x/Removing+References+to+Deleted+User+Identities+in+WSO2+Products#RemovingReferencestoDeletedUserIdentitiesinWSO2Products-Configuringtheconfig.jsonfile) in the Product Administration Guide.
+For information on changing these configurations, see [Configuring the config.json file](https://wso2docs.atlassian.net/wiki/spaces/ADMIN44x/pages/6687734/Removing+References+to+Deleted+User+Identities+in+WSO2+Products#RemovingReferencestoDeletedUserIdentitiesinWSO2Products-MasterConfigConfiguringthemasterconfigurationfile) in the Product Administration Guide.
 
 ### Running the Forget-me tool in the standalone mode
 
