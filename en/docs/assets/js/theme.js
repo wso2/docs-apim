@@ -89,6 +89,93 @@ for (var i = 0; i < dropdowns.length; i++) {
     };
 };
 
+/*
+ * Get the domain name using the URL
+ */
+function getDomainFromUrl(urlString) {
+    let domain = urlString;
+
+    // Remove protocol (e.g., 'http://', 'https://')
+    domain = domain.replace(/^(https?:\/\/)?(www\d?\.)?/i, '');
+
+    // Remove path, query parameters, and hash fragment
+    domain = domain.split('/')[0];
+
+    return domain;
+}
+
+/*
+* Redirect to the page based on the following scenarios
+* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* 1. Redirect to the exact page if the page exists on the desired version
+* 2. Redirect to the home page of the desired version if the page is not exists based on user's confirmation.
+* 3. If the document site is for the older version then open it on a new tab.
+*/
+function redirectToPage(url, version) {
+    // Get the current page domain name
+    var orginDomain = getDomainFromUrl(window.location.origin);
+    // Get the target page domain name
+    var redirectDomain = getDomainFromUrl(url);
+    // check whether the both current and target domain are equal then apply the scenario 1 or 2.
+    if (orginDomain == redirectDomain) {
+
+        // Get the URL path of the current URL (without the domain)
+        var path = window.location.href.substring(window.location.origin.length);
+        // remove the `en/` from the path
+        path = "/" + path.replace(/^.+?[/]/, '');
+        // remove the `{version}/` from the path
+        path = "/" + path.replace(/^.+?[/]/, ''); // Uncomment on live site
+        // Constructs the targeted URL of the page of the new version
+        var urlToCheck = url + path;
+        //var urlToCheck = "http://127.0.0.1:8000/updates/update-commands";
+
+        const xhr = new XMLHttpRequest();
+        // Ping the newly constructed URL and get the status
+        xhr.open('GET', urlToCheck, true);
+
+        xhr.onload = function () {
+            // If the page exists on the targeted version
+            if (xhr.status === 200) {
+                // Redirect to relevant page
+                window.location.href = urlToCheck;
+            } else {
+                // Redirect to home page if the page is not exists
+                var message;
+                // Get the Heading of the page (1st H1 tag)
+                var h1;
+                if (document.getElementsByTagName('h1').length) {
+                    h1 = document.getElementsByTagName('h1')[0].innerHTML;
+                }
+
+                // If H1 exists construct the prompt message using title else construct generic message
+                if(h1) {
+                    message = 'The page titled "'+h1+'" does not exist. Would you like to visit the homepage for version '+version+' instead?';
+                } else {
+                    message = 'The page you\'re trying to access does not exist. Would you prefer to visit the homepage for version '+version+' instead?';
+                }
+
+                // Prompt the JS confirm message to get user input
+                if (confirm(message) == true) {
+                    // redirect to home page if user clicks the `Yes` then apply the scenario 2.
+                    window.location.href = url;
+                } else {
+                    // if user clicks the `No` then do nothing;
+                }
+            }
+        };
+
+        xhr.onerror = function () {
+            console.error(`Error checking URL ${urlToCheck}: ${xhr.statusText}`);
+        };
+
+        // Send the request
+        xhr.send();
+    } else {
+        // Open in new window when the domain different applies the scenario 3
+        window.open(url, '_blank');
+    }
+}
+
 /* 
  * Reading versions
  */
@@ -103,7 +190,7 @@ var docSetUrl = window.location.origin + '/' + docSetLang;
 var request = new XMLHttpRequest();
 
 request.open('GET', docSetUrl +
-             'versions/assets/versions.json', true);
+             'staging-versions/assets/versions.json', true);
 
 request.onload = function() {
   if (request.status >= 200 && request.status < 400) {
@@ -133,9 +220,7 @@ request.onload = function() {
                   }
 
                   liElem.className = 'md-tabs__item mb-tabs__dropdown';
-                  liElem.innerHTML =  '<a href="' + url + '" target="' + 
-                      target + '">' + key + '</a>';
-
+                  liElem.innerHTML =  '<a onclick="redirectToPage(\'' + url + '\',\''+key+'\')" href="javascript:void(0);">' + key + '</a>';
                   dropdown.insertBefore(liElem, dropdown.firstChild);
               }
           });

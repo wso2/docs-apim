@@ -2212,6 +2212,6 @@ extra:
             version: 1.0.0-8
             git_tag: v1.0.0.8
     site_version: 4.0.0
-    base_path: https://apim.docs.wso2.com/en/4.0.0
+    base_path: https://apim.docs.wso2.com/en/staging-4.0.0
     #base_path: http://localhost:8000
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.20.0
