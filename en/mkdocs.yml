@@ -1399,6 +1399,7 @@ nav:
                 - Install MI: install-and-setup/install/installing-the-product/installing-mi.md
                 - Run the MI Runtime: install-and-setup/install/installing-the-product/running-the-mi.md
                 - Run the MI as a Windows Service: install-and-setup/install/installing-the-product/installing-mi-as-a-windows-service.md
+                - Run the MI in Automation Mode: install-and-setup/install/running-the-mi-in-automation-mode.md
             - Install the MI Dashboard:
                 - Install the MI Dashboard: install-and-setup/install/installing-the-product/installing-mi-dashboard.md
                 - Run the MI Dashboard: install-and-setup/install/installing-the-product/running-the-mi-dashboard.md
