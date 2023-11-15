@@ -272,7 +272,7 @@ You can save the LDAP configuration as a [local entry]({{base_path}}/integrate/d
         </tr>
         <tr>
             <td>allowEmptySearchResult</td>
-            <td>Boolean value to allow empty Search Result or throw Exception. If this property is not defined, an exception will be thrown and fault sequence is executed if the search result is empty.</td>
+            <td>Boolean value to allow an empty search result or throw an exception. If this property is not defined, an exception will be thrown and a fault sequence is executed if the search result is empty.</td>
             <td>No</td>
         </tr>
     </table>
