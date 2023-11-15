@@ -107,7 +107,7 @@ function getDomainFromUrl(urlString) {
 /*
 * Prompt and get user input when the desired page is not exists.
 */
-function getUserInput(version) {
+function getUserInput(version,url) {
     var message;
     // Get the Heading of the page (1st H1 tag)
     var h1;
@@ -165,7 +165,7 @@ function redirectToPage(url, version) {
             // If the page exists on the targeted version
             if (xhr.status === 200) {
                 if(xhr.responseText.includes("Page not found")) {
-                    getUserInput(version);
+                    getUserInput(version,url);
                     //this string contained stream
                 } else {
                     // Redirect to relevant page
@@ -173,7 +173,7 @@ function redirectToPage(url, version) {
                 }
             } else {
                 // Redirect to home page if the page is not exists
-                getUserInput(version);
+                getUserInput(version,url);
             }
         };
 

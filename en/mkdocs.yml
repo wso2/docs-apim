@@ -2218,7 +2218,7 @@ extra_css:
 extra_javascript:
     - assets/lib/json-formatter/json-formatter.umd.js
     - assets/lib/highlightjs/highlight.min.js
-    - assets/js/theme.js?1234
+    - assets/js/theme.js?12345
     - assets/lib/backtotop/js/util.js
     - assets/lib/backtotop/js/main.js
 extra:
