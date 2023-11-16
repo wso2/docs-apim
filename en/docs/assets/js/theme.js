@@ -45,11 +45,11 @@
                 jsonTreeInput.style.display = 'none';
             } catch (e) {
                 console.error(e);
-            } 
+            }
         }
-        
+
     }
-    
+
 })();
 
 /*
@@ -62,8 +62,8 @@ function indexInParent(node) {
     var children = node.parentNode.childNodes;
     var num = 0;
     for (var i=0; i < children.length; i++) {
-         if (children[i]==node) return num;
-         if (children[i].nodeType==1) num++;
+        if (children[i]==node) return num;
+        if (children[i].nodeType==1) num++;
     }
     return -1;
 }
@@ -106,7 +106,7 @@ function getDomainFromUrl(urlString) {
 /*
 * Prompt and get user input when the desired page is not exists.
 */
-function getUserInput(version) {
+function getUserInput(version,url) {
     var message;
     // Get the Heading of the page (1st H1 tag)
     var h1;
@@ -164,7 +164,7 @@ function redirectToPage(url, version) {
             // If the page exists on the targeted version
             if (xhr.status === 200) {
                 if(xhr.responseText.includes("Page not found")) {
-                    getUserInput(version);
+                    getUserInput(version,url);
                     //this string contained stream
                 } else {
                     // Redirect to relevant page
@@ -172,7 +172,7 @@ function redirectToPage(url, version) {
                 }
             } else {
                 // Redirect to home page if the page is not exists
-                getUserInput(version);
+                getUserInput(version,url);
             }
         };
 
@@ -188,13 +188,13 @@ function redirectToPage(url, version) {
     }
 }
 
-/* 
+/*
  * Reading versions
  */
 var pageHeader = document.getElementById('page-header');
 var docSetLang = pageHeader.getAttribute('data-lang');
 
-(window.location.pathname.split('/')[1] !== docSetLang) ? 
+(window.location.pathname.split('/')[1] !== docSetLang) ?
     docSetLang = '' :
     docSetLang = docSetLang + '/';
 
@@ -202,94 +202,94 @@ var docSetUrl = window.location.origin + '/' + docSetLang;
 var request = new XMLHttpRequest();
 
 request.open('GET', docSetUrl +
-             'staging-versions/assets/versions.json', true);
+    'staging-versions/assets/versions.json', true);
 
 request.onload = function() {
-  if (request.status >= 200 && request.status < 400) {
+    if (request.status >= 200 && request.status < 400) {
 
-      var data = JSON.parse(request.responseText);
-      var dropdown =  document.getElementById('version-select-dropdown');
-      var checkVersionsPage = document.getElementById('current-version-stable');
-      
-      /* 
-       * Appending versions to the version selector dropdown 
-       */
-      if (dropdown){
-          data.list.sort().forEach(function(key, index){
-              var versionData = data.all[key];
-              
-              if(versionData) {
-                  var liElem = document.createElement('li');
-                  var docLinkType = data.all[key].doc.split(':')[0];
-                  var target = '_self';
-                  var url = data.all[key].doc;
+        var data = JSON.parse(request.responseText);
+        var dropdown =  document.getElementById('version-select-dropdown');
+        var checkVersionsPage = document.getElementById('current-version-stable');
 
-                  if ((docLinkType == 'https') || (docLinkType == 'http')) {
-                      target = '_blank'
-                  }
-                  else {
-                      url = docSetUrl + url;
-                  }
+        /*
+         * Appending versions to the version selector dropdown
+         */
+        if (dropdown){
+            data.list.sort().forEach(function(key, index){
+                var versionData = data.all[key];
 
-                  liElem.className = 'md-tabs__item mb-tabs__dropdown';
-                  liElem.innerHTML =  '<a onclick="redirectToPage(\'' + url + '\',\''+key+'\')" href="javascript:void(0);">' + key + '</a>';
-                  dropdown.insertBefore(liElem, dropdown.firstChild);
-              }
-          });
+                if(versionData) {
+                    var liElem = document.createElement('li');
+                    var docLinkType = data.all[key].doc.split(':')[0];
+                    var target = '_self';
+                    var url = data.all[key].doc;
 
-          document.getElementById('show-all-versions-link')
-              .setAttribute('href', docSetUrl + 'versions');
-      }
-      
-      /* 
-       * Appending versions to the version tables in versions page
-       */
-      if (checkVersionsPage){
-          var previousVersions = [];
+                    if ((docLinkType == 'https') || (docLinkType == 'http')) {
+                        target = '_blank'
+                    }
+                    else {
+                        url = docSetUrl + url;
+                    }
 
-          Object.keys(data.all).forEach(function(key, index){
-              if ((key !== data.current) && (key !== data['pre-release'])) {
-                  var docLinkType = data.all[key].doc.split(':')[0];
-                  var target = '_self';
+                    liElem.className = 'md-tabs__item mb-tabs__dropdown';
+                    liElem.innerHTML =  '<a onclick="redirectToPage(\'' + url + '\',\''+key+'\')" href="javascript:void(0);">' + key + '</a>';
+                    dropdown.insertBefore(liElem, dropdown.firstChild);
+                }
+            });
 
-                  if ((docLinkType == 'https') || (docLinkType == 'http')) {
-                      target = '_blank'
-                  }
+            document.getElementById('show-all-versions-link')
+                .setAttribute('href', docSetUrl + 'versions');
+        }
 
-                  previousVersions.push('<tr>' +
-                    '<th>' + key + '</th>' +
+        /*
+         * Appending versions to the version tables in versions page
+         */
+        if (checkVersionsPage){
+            var previousVersions = [];
+
+            Object.keys(data.all).forEach(function(key, index){
+                if ((key !== data.current) && (key !== data['pre-release'])) {
+                    var docLinkType = data.all[key].doc.split(':')[0];
+                    var target = '_self';
+
+                    if ((docLinkType == 'https') || (docLinkType == 'http')) {
+                        target = '_blank'
+                    }
+
+                    previousVersions.push('<tr>' +
+                        '<th>' + key + '</th>' +
                         '<td>' +
-                            '<a href="' + data.all[key].doc + '" target="' + 
-                                target + '">Documentation</a>' +
+                        '<a href="' + data.all[key].doc + '" target="' +
+                        target + '">Documentation</a>' +
                         '</td>' +
                         '<td>' +
-                            '<a href="' + data.all[key].notes + '" target="' + 
-                                target + '">Release Notes</a>' +
+                        '<a href="' + data.all[key].notes + '" target="' +
+                        target + '">Release Notes</a>' +
                         '</td>' +
-                    '</tr>');
-              }
-          });
+                        '</tr>');
+                }
+            });
 
-          // Past releases update
-          document.getElementById('previous-versions').innerHTML = 
-                  previousVersions.join(' ');
+            // Past releases update
+            document.getElementById('previous-versions').innerHTML =
+                previousVersions.join(' ');
 
-          // Current released version update
-          document.getElementById('current-version-number').innerHTML = 
-                  data.current;
-          document.getElementById('current-version-documentation-link')
-                  .setAttribute('href', docSetUrl + data.all[data.current].doc);
-          document.getElementById('current-version-release-notes-link')
-                  .setAttribute('href', docSetUrl + data.all[data.current].notes);
-        
-          // Pre-release version update
-          document.getElementById('pre-release-version-documentation-link')
-              .setAttribute('href', docSetUrl + 'next/');
-      }
-      
-  } else {
-      console.error("We reached our target server, but it returned an error");
-  }
+            // Current released version update
+            document.getElementById('current-version-number').innerHTML =
+                data.current;
+            document.getElementById('current-version-documentation-link')
+                .setAttribute('href', docSetUrl + data.all[data.current].doc);
+            document.getElementById('current-version-release-notes-link')
+                .setAttribute('href', docSetUrl + data.all[data.current].notes);
+
+            // Pre-release version update
+            document.getElementById('pre-release-version-documentation-link')
+                .setAttribute('href', docSetUrl + 'next/');
+        }
+
+    } else {
+        console.error("We reached our target server, but it returned an error");
+    }
 };
 
 request.onerror = function() {
@@ -298,8 +298,8 @@ request.onerror = function() {
 
 request.send();
 
-/* 
- * Initialize highlightjs 
+/*
+ * Initialize highlightjs
  */
 hljs.initHighlightingOnLoad();
 
