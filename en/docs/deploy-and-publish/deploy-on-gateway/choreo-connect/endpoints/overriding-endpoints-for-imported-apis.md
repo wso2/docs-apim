@@ -21,7 +21,16 @@ You can define endpoint details as the Adapter environment variables at docker-c
             - api_cc429c240db698dd2522038f8f85602bfcd33ed3_sand_endpoint_0="http://wso2.sand.com"
     ```
     
-    - `<API-ID>` - `api_SHA1(<apiName>:<apiVersion>)` ID generated for the imported API. Sample name would be `api_cc429c240db698dd2522038f8f85602bfcd33ed3`.
+    - `<API-ID>` - `api_SHA1(<apiName>:<apiVersion>)` ID generated for the imported API. For the above examples, sample API-ID would be `api_cc429c240db698dd2522038f8f85602bfcd33ed3`. The ID hash can be generated as follows.
+
+        ``` java tab="Format"
+        echo -n "<apiName>:<apiVersion>" | openssl sha1
+        ```
+
+        ``` java tab="Example"
+        echo -n "Petstore:1.0.0" | openssl sha1
+        ```
+
     - `<endpoint-type>` - Use one of the following values based on the type of endpoint.
         - `prod` - Use this for a production endpoint.
         - `sand` - Use this for a sandbox endpoint.
