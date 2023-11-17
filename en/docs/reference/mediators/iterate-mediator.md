@@ -160,7 +160,7 @@ follows:
 
 ## Examples
 
-In these examples, the **Iterate** mediator splits the messages into parts and processes them asynchronously. Also see [Splitting Messages into Parts and Processing in Parallel (Iterate/Aggregate)](https://docs.wso2.com/pages/viewpage.action?pageId=119129658).
+In these examples, the **Iterate** mediator splits the messages into parts and processes them asynchronously. Also see [Splitting Messages into Parts and Processing in Parallel (Iterate/Aggregate)](https://wso2docs.atlassian.net/wiki/spaces/EI660/pages/6521935/Splitting+Messages+into+Parts+and+Processing+in+Parallel+Iterate+Aggregate).
 
 ``` java tab='Using an XPath expression'
     <iterate expression="//m0:getQuote/m0:request" preservePayload="true"

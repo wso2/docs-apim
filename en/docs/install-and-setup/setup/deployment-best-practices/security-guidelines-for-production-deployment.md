@@ -263,6 +263,46 @@ been removed from Hotspot JVM.</p>
 <td><p>Client authentication is used to identify the application or client making a request to the WSO2 API Manager  REST APIs. By default, web applications provided with WSO2 API Manager use a set of default credentials for authentication. However, it is recommended to change these default credentials to enhance security. For more details see, <a href="{{base_path}}/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/#configure-client-authentication">Configure client authentication</a></p>
 </td>
 </tr>
+<tr class="even">
+<td><p>Restrict Access to Java classes and Java Methods/Native Objects in Scripts</p>
+<p><br />
+</p></td>
+<td>
+<p>JS scripts can be used inside script mediators (eg: in Mock Endpoints) to access Java classes, methods and native objects. By default, all the classes are visible to these scripts. However, it is recommended to restrict access to these.
+<br/>
+<br/>
+<b>Limiting Access to Java Classes</b>
+<br/>
+Access to Java Classes can be restricted by providing the following configurations in <code>deployment.toml</code>.
+
+<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
+<code>
+[synapse_properties]
+'limit_java_class_access_in_scripts.enable'=true # or false
+'limit_java_class_access_in_scripts.list_type' = "ALLOW_LIST" # or BLOCK_LIST
+'limit_java_class_access_in_scripts.class_prefixes' = "java.util"
+</code>
+</pre>
+Only the Java classes having names starting with any of the values given under <code>limit_java_class_access_in_scripts.class_prefixes</code> will be allowed, when <code>limit_java_class_access_in_scripts.list_type</code> is <code>ALLOW_LIST</code> (all other classes will not be allowed).  
+Likewise, when <code>limit_java_class_access_in_scripts.list_type</code> is <code>BLOCK_LIST</code>, classes with matching names will be selectively blocked.
+<br/>
+<br/>
+<b>Limiting Access to Java Methods/Native Objects</b>
+<br/>
+Access to Java Methods/Native Objects can be restricted by providing the following configurations in <code>deployment.toml</code>.
+
+<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
+<code>
+[synapse_properties]
+'limit_java_native_object_access_in_scripts.enable'=true # or false
+'limit_java_native_object_access_in_scripts.list_type' = "BLOCK_LIST" # Or "ALLOW_LIST"
+'limit_java_native_object_access_in_scripts.object_names' = "getClassLoader"
+</code>
+</pre>
+Java methods/native objects having names equal to any of the values given under <code>limit_java_native_object_access_in_scripts.object_names</code>, will be selectively blocked when <code>limit_java_native_object_access_in_scripts.list_type</code> is <code>BLOCK_LIST</code> (all other classes will be allowed).  
+Likewise, when <code>limit_java_native_object_access_in_scripts.list_type</code> is <code>ALLOW_LIST</code>, classes with matching names will be selectively allowed.
+</td>
+</tr>
 </tbody>
 </table>
 
@@ -491,6 +531,47 @@ Given below are the security guidelines for the Micro Integrator runtime.
          <td>
             <p>The recommended JDK version is JDK 11. See the <a href="{{base_path}}/install-and-setup/install/installation-prerequisites/">installation pre-requisites</a> for more information.</p>
             <p><strong>Tip</strong>: To run the JVM with 2 GB (-Xmx2048m), you should ideally have about 4GB of memory on the physical machine.</p>
+         </td>
+      </tr>
+      <tr class="odd">
+         <td>
+            <p>Restrict Access to Java classes and Java Methods/Native Objects in Scripts</p>
+            <p><br /></p>
+         </td>
+         <td>
+            <p>JS scripts can be used inside script mediators to access Java classes, methods and native objects. By default, all the classes are visible to these scripts. However, it is recommended to restrict access to these.
+               <br/>
+               <br/>
+               <b>Limiting Access to Java Classes</b>
+               <br/>
+               Access to Java Classes can be restricted by providing the following synapse properties.
+            <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
+            <code>
+            limit_java_class_access_in_scripts.enable=true # or false
+            limit_java_class_access_in_scripts.list_type = "ALLOW_LIST" # or BLOCK_LIST
+            limit_java_class_access_in_scripts.class_prefixes = "java.util"
+            </code>
+            </pre>
+            Only the Java classes having names starting with any of the values given under <code>limit_java_class_access_in_scripts.class_prefixes</code> will be allowed, when <code>limit_java_class_access_in_scripts.list_type</code> is <code>ALLOW_LIST</code> (all other classes will not be allowed).  
+            Likewise, when <code>limit_java_class_access_in_scripts.list_type</code> is <code>BLOCK_LIST</code>, classes with matching names will be selectively blocked.
+            <br/>
+            <br/>
+            <b>Limiting Access to Java Methods/Native Objects</b>
+            <br/>
+            Access to Java Methods/Native Objects can be restricted by providing the following synapse properties.
+            <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
+            <code>
+            limit_java_native_object_access_in_scripts.enable=true # or false
+            limit_java_native_object_access_in_scripts.list_type = "BLOCK_LIST" # Or "ALLOW_LIST"
+            limit_java_native_object_access_in_scripts.object_names = "getClassLoader"
+            </code>
+            </pre>
+            Java methods/native objects having names equal to any of the values given under <code>
+            limit_java_native_object_access_in_scripts.object_names</code>, will be selectively blocked when <code>
+            limit_java_native_object_access_in_scripts.list_type</code> is <code>BLOCK_LIST</code> (all other classes will be
+            allowed).  
+            Likewise, when <code>limit_java_native_object_access_in_scripts.list_type</code> is <code>ALLOW_LIST</code>, classes
+            with matching names will be selectively allowed.
          </td>
       </tr>
    </tbody>

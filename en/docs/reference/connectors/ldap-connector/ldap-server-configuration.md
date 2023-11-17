@@ -270,6 +270,11 @@ You can save the LDAP configuration as a [local entry]({{base_path}}/integrate/d
             <td>This allows you to set a limit on the number of search results. If this property is not defined the maximum no of search results will be returned.</td>
             <td>Yes</td>
         </tr>
+        <tr>
+            <td>allowEmptySearchResult</td>
+            <td>Boolean value to allow an empty search result or throw an exception. If this property is not defined, an exception will be thrown and a fault sequence is executed if the search result is empty.</td>
+            <td>No</td>
+        </tr>
     </table>
 
     **Sample configuration**
