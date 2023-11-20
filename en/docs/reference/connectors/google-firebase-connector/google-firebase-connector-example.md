@@ -5,7 +5,6 @@
 Please refer to the links below for more use cases. 
 
 * [Android Topic Messaging](https://firebase.google.com/docs/cloud-messaging/android/topic-messaging)
-* [Android Firebase Push Notifications with Topic Message Subscription](https://inducesmile.com/android/android-firebase-push-notification-with-topic-message-subscription/)
 * [Android Firebase Push Notifications video](https://www.youtube.com/watch?v=aG2JC8c9EK0)
 
 
@@ -273,5 +272,5 @@ If you have registered some devices to your application, the notification will a
 
 ## What's Next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/setup/installation/run_in_containers).
+* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/integrate/develop/deploy-artifacts/).
 * Please read the [Google Firebase Connector reference guide]({{base_path}}/reference/connectors/google-firebase-connector/google-firebase-configuration/) to learn more about the operations you can perform with the connector.

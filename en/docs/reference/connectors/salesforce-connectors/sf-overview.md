@@ -58,7 +58,7 @@ The Salesforce Wave Analytics Connector allows you to work with records in Sales
 
 ### Salesforce Desk Connector
 
-The Salesforce Desk connector allows you to access the [Salesforce Desk REST API](http://dev.desk.com/API/using-the-api/#general) from an integration sequence. Salesforce Desk is a customer service application that helps small businesses to provide exceptional, multi-channel customer service. 
+The Salesforce Desk connector allows you to access the Salesforce Desk REST API from an integration sequence. Salesforce Desk is a customer service application that helps small businesses to provide exceptional, multi-channel customer service. 
 
 * **[Salesforce Desk Connector documentation](https://docs.wso2.com/display/ESBCONNECTORS/Salesforce+Desk+Connector)**: Includes an overview of the connector and links to associated documentation.
 
