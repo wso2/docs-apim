@@ -37,6 +37,7 @@
     "3.3.0": {
         "doc": "https://apim.docs.wso2.com/en/staging-3.3.0",
         "notes": "https://apim.docs.wso2.com/en/staging-3.3.0/getting-started/about-this-release"
+    },
     "2.6.0": {
         "doc": "https://wso2docs.atlassian.net/wiki/spaces/AM260/overview",
         "notes": "https://wso2docs.atlassian.net/wiki/spaces/AM260/pages/30902402/About+this+Release"
