@@ -215,11 +215,6 @@ See the example .toml file given below.
                                     </div>
                                     <div class="param-description">
                                         <p>If configured as true, the Router appends the immediate downstream IP address to the x-forward-for header.</p>
-
-                                        <div class="admonition attention">
-                                        <p class="admonition-title">Update Level 5</p>
-                                        <p>This feature is available only as an update, after Update level 1.1.0.5 (released on 15 Aug 2022) and further. For more information regarding Choreo Connect updates, see <a href="https://apim.docs.wso2.com/en/4.1.0/deploy-and-publish/deploy-on-gateway/choreo-connect/update-choreo-connect/">here</a>.</p>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
