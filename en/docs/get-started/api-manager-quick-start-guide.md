@@ -345,7 +345,7 @@ Follow the instructions below to publish an API via WSO2 API Controller.
 
 2. Browse the Publisher and the Developer Portals to view the API details.
 
-     - Publisher - [https://localhost:9443/publisher](https://localhost:9443/publisher)
+     - Publisher - `https://localhost:9443/publisher`
 
          [![API in the Publisher]({{base_path}}/assets/img/get_started/qsg-publisher.png)]({{base_path}}/assets/img/get_started/qsg-publisher.png)
 
