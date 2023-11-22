@@ -67,7 +67,7 @@ var docSetUrl = window.location.origin + '/' + docSetLang;
 var request = new XMLHttpRequest();
 
 request.open('GET', docSetUrl +
-             'staging-versions/assets/versions.json', true);
+             'versions/assets/versions.json', true);
 
 request.onload = function() {
   if (request.status >= 200 && request.status < 400) {
