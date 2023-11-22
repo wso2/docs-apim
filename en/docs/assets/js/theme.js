@@ -203,6 +203,7 @@ var docSetLang = pageHeader.getAttribute('data-lang');
 var docSetUrl = window.location.origin + '/' + docSetLang;
 var request = new XMLHttpRequest();
 
+
 request.open('GET', docSetUrl +
              'versions/assets/versions.json', true);
 
