@@ -54,6 +54,7 @@
 
 /*
  * Initialize custom dropdown component
+ *
  */
 var dropdowns = document.getElementsByClassName('md-tabs__dropdown-link');
 var dropdownItems = document.getElementsByClassName('mb-tabs__dropdown-item');
