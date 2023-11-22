@@ -3,7 +3,7 @@
 When there are many users who use production deployment setups, accessing API Manager by multiple devices is more important. According to the architecture, if we logged out from one device and revoke the access token, then all the calls made with that token thereafter will get authentication failures. In this case Applications should be smart enough to detect that authentication failure and should request  for a new access token.
 
 !!! note
-    This will be a guide for you if you create client applications having API Manager underlying. Note that, you need to use [Password Grant](https://docs.wso2.com/display/AM260/Password+Grant) type in this scenario.
+    This will be a guide for you if you create client applications having API Manager underlying. Note that, you need to use [Password Grant](https://wso2docs.atlassian.net/wiki/spaces/AM260/pages/30901383/Password+Grant) type in this scenario.
 
 
 -   [Issue in having multiple access tokens](#AccessingAPIManagerbyMultipleDevicesSimultaneously-Issueinhavingmultipleaccesstokens)

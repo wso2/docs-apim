@@ -32,7 +32,7 @@ The default URL of WSO2 API Manager Developer Portal (`https://<HostName>:9443/d
         ![]({{base_path}}/assets/img/develop/customizations/browse-registry.png)
 
         !!! note
-            In [API Cloud](https://docs.wso2.com/display/APICloud/Customize+Cloud+URLs), this directory structure is created automatically when specifying the custom URL through the UI.
+            In [API Cloud](https://cloud.docs.wso2.com/en/latest/customize/customize-cloud-domains/), this directory structure is created automatically when specifying the custom URL through the UI.
 
 4.  Navigate to `/_system/governance/customurl/api-cloud/<tenant-domain>/urlMapping` in the registry. Click **Add Resource** under **Entries** and select **Create Text Content** as the resource type.
 

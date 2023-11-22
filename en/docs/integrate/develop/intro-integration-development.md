@@ -127,9 +127,6 @@ To start developing integration solutions, you need to first <a href="{{base_pat
                     <li>
                         <a href="{{base_path}}/integrate/develop/creating-artifacts/registry/creating-local-registry-entries/">Local Entry</a>
                     </li>
-                    <li>
-                        <a href="{{base_path}}/integrate/develop/creating-artifacts/creating-smooks-artifacts/">Smooks</a>
-                    </li>
                 </ul>
             </td>
         <tr>
