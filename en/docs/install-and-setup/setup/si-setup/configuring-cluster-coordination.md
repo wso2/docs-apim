@@ -2,8 +2,8 @@
 
 Multiple WSO2 SI nodes can be configured to work together by configuring
 a cluster coordination strategy that is used in various deployments such
-as the <a target="_blank" href="minimum-ha-deployment">Minimum High Available(HA) Deployment</a>
-and <a target="_blank" href="scalable-ha-deployment">Scalable High Available(HA) Deployment</a>
+as the <a target="_blank" href="{{base_path}}/install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster/">Minimum High Available(HA) Deployment</a>
+and <a target="_blank" href="{{base_path}}/install-and-setup/setup/si-deployment/deploying-si-as-a-scalable-cluster/">Scalable High Available(HA) Deployment</a>
 . At present, cluster coordination is supported via an RDBMS instance
 using and RDBMS coordination strategy. Support for cluster coordination
 via a Zookeeper instance will be supported in the near future.
