@@ -47,7 +47,7 @@ Dynamic SSL profiles for the Multi-HTTPS **transport sender**:
     ```
 
     !!! Note
-        Note that the `xmlns:svns="http://org.wso2.securevault/configuration` namespace has to be added in the SSL profile configuration to work with secure vault.
+        Note that the `xmlns:svns="http://org.wso2.securevault/configuration"` namespace has to be added in the SSL profile configuration to work with secure vault.
 
     The SSL profile will be applied to each request that is sent to the
     destination server specified within the
