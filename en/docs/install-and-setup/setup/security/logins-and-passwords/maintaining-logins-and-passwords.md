@@ -60,7 +60,7 @@ Follow the instructions below to change the default admin password:
     Therefore, if you need to change the admin password stored in the user store, you cannot simply change the credentials as above.
     To change the super admin password, you must use the **Change Password** option from the management console.
 
-    To change the password from Management Console (<https://localhost:9443/carbon>), follow the steps in [Changing a Password](https://docs.wso2.com/display/ADMIN44x/Changing+a+Password) corresponding to API Manager.
+    To change the password from Management Console (<https://localhost:9443/carbon>), follow the steps in [Changing a Password](https://wso2docs.atlassian.net/wiki/spaces/ADMIN44x/pages/6684791/Changing+a+Password) corresponding to API Manager.
 
 ## Recover a password
 
