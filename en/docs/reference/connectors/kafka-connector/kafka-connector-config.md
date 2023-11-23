@@ -285,6 +285,11 @@ To use the Kafka connector, add the `<kafkaTransport.init>` element in your conf
             <td>Optional</td>
         </tr>
         <tr>
+            <td>saslMechanism</td>
+            <td>The mechanism used for SASL.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
             <td>sslEnabledProtocols</td>
             <td>The list of protocols enabled for SSL connections.</td>
             <td>Optional</td>
