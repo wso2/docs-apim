@@ -148,7 +148,7 @@ To generate some statistics and view them, follow the procedure below.
     
 5. Under **Overview Statistics**, click **SweetFactoryApp**. The **overview-statistics / WSO2 Streaming Integrator App Statistics** dashboard opens.
 
-    ![app-statistics]({{base_path}}/assets/img/streaming/quick-start-guide-101/app-staistics.png)
+    
     
 6. Scroll down to the **Sources** section. The following is displayed.
 
@@ -156,9 +156,8 @@ To generate some statistics and view them, follow the procedure below.
     
     The two entries displayed above represent the `file` source and the `cdc` source used in the `SweetFactoryApp` Siddhi application.
     
-7. Scroll down further to the **Destinations** section. The `file` sink in the `SweetFactoryApp` Siddhi application is displayed as shown below.
+7. Scroll down further to the **Destinations** section. The `file` sink in the `SweetFactoryApp` Siddhi application.
 
-    ![destination-statistics]({{base_path}}/assets/img/streaming/quick-start-guide-101/destination.png)
     
 8. Under **Sources**, click on the link to the `productioninserts.csv` file. The **WSO2 Streaming Integrator - File Statistics** dashboard opens. The contents of the `productioninserts.csv` file is the output of one query and the input of another. Therefore, it is a source as well as a destination, statistics are displayed for it under **Source** and **Sink** as shown below.
 

@@ -203,7 +203,7 @@ Follow the instructions below to build and install IBM WebSphere MQ client JAR f
         If you are using IBM MQ docker container, you can find these libraries in inside the `/opt/mqm/java/lib` directory. You can use `docker cp` command to copy jar files from the docker container.
    
     !!! Note
-        If you are using IBM MQ 8 with Mutual SSL enabled, you need to download the [wmq-client-8.0.0.zip]({{base_path}}/assets/img/integrate/broker-configs/IBM-websphere-mq/119130333.zip)
+        If you are using IBM MQ 8 with Mutual SSL enabled, you need to download the [wmq-client-8.0.0.zip](/assets/img/integrate/broker-configs/wmq-client-8.0.0.zip)
         file and follow the instructions in the readme.txt file.
 
     -   `             com.ibm.mq.allclient.jar            `

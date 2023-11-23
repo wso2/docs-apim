@@ -28,18 +28,16 @@ To test the sample Siddhi application, simulate single events for it via the Str
 
 2. To simulate events for the `geocodeStream` stream of the `execution-geo-sample`  Siddhi application, enter information in the **Single Simulation** tab of the event simulation panel as follows.
 
-    ![Select Siddhi Application and Stream]({{base_path}}/assets/img/streaming/execution-geo-sample/siddhi-app-and-stream.png)
 
     | **Field**                   | **Value**                              |
     |-----------------------------|----------------------------------------|
     | **Siddhi App Name**         | `execution-geo-sample`                 |
     | **StreamName**              | `geocodeStream`                        |
 
-    As a result, attributes specific to the `geocodeStream` are displayed as marked in the above image.
+    
 
 3. Enter attribute values as follows.
 
-    ![Attribute Values]({{base_path}}/assets/img/streaming/execution-geo-sample/attribute-values.png).
 
     | **Attribute**         | **Value**                     |
     |-----------------------|-------------------------------|
