@@ -22,7 +22,7 @@ The **Salesforce REST Connector** uses the [Salesforce REST API](https://develop
 
 * **[Salesforce Rest API Connector Example]({{base_path}}/reference/connectors/salesforce-connectors/sf-rest-connector-example/)**: This example explains how to use the Salesforce client to connect with the Salesforce instance and perform the **create** and **retrieve** operations.
 
-* **[Salesforce Rest API Connector Reference]({{base_path}}/reference/connectors/salesforce-connectors/sf-rest-connector-config/)**: This documentation provides a reference guide for the Salesforce REST API operations.
+* **[Salesforce Rest API Connector Reference]({{base_path}}/reference/connectors/salesforce-connectors/sf-rest-connector-config-v2/)**: This documentation provides a reference guide for the Salesforce REST API operations.
   
 The following table lists out compatibility information for Salesforce REST Connector.
 
