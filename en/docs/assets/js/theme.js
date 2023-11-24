@@ -120,23 +120,30 @@ request.onload = function() {
               var versionData = data.all[key];
               
               if(versionData) {
-                var liElem = document.createElement('li');
+                  var liElem = document.createElement('li');
+                  var docLinkType = data.all[key].doc.split(':')[0];
+                  var target = '_self';
+                  var url = data.all[key].doc;
 
-                var currentPath= window.location.pathname;
-                  // Find the index of '/en/'
-                var pathWithoutVersion = currentPath.substring(currentPath.indexOf("/")+1,currentPath.length);
-                var pathWithoutEn = currentPath.substring(4,currentPath.length);
-                var pathWithoutVersion = pathWithoutEn.substring(pathWithoutEn.indexOf("/")+1, pathWithoutEn.length)
+                  if ((docLinkType == 'https') || (docLinkType == 'http')) {
+                      target = '_blank'
+                  }
+                  else {
 
-                url = docSetUrl + url+ pathWithoutVersion;
-              
+                    var currentPath= window.location.pathname;
+                      // Find the index of '/en/'
+                    var pathWithoutEn = currentPath.substring(4,currentPath.length);
+                    var pathWithoutVersion = pathWithoutEn.substring(pathWithoutEn.indexOf("/"), pathWithoutEn.length)
 
-               liElem.className = 'md-tabs__item mb-tabs__dropdown';
-               liElem.innerHTML =  '<a href="' + url + '" target="' + 
-                  target + '">' + key + '</a>';
+                    url = docSetUrl + key+ pathWithoutVersion;
+                  
 
-               dropdown.insertBefore(liElem, dropdown.firstChild);
-              
+                  liElem.className = 'md-tabs__item mb-tabs__dropdown';
+                  liElem.innerHTML =  '<a href="' + url + '" target="' + 
+                      target + '">' + key + '</a>';
+
+                  dropdown.insertBefore(liElem, dropdown.firstChild);
+              }
             }
         });
 
@@ -144,21 +151,6 @@ request.onload = function() {
               .setAttribute('href', docSetUrl + 'versions');
       }
       
-        /*
-        * Redirect to the page based on the following scenarios
-        * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        * 1. Redirect to the exact page if the page exists on the desired version
-        * 2. Redirect to the home page of the desired version if the page is not exists based on user's confirmation.
-        * 3. If the document site is for the older version then open it on a new tab.
-        */
-        function redirectToPage(url, version) {
-            var href = window.location.href;
-            var selectedVersion =  document.getElementById('version-select-dropdown').value;
-
-            var modifiedUrl = href.replace(selectedVersion, version);
-            window.location.href=modifiedUrl
-        }
-
 
 
       /* 
