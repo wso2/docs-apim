@@ -154,7 +154,8 @@ request.onload = function() {
 
                   dropdown.insertBefore(liElem, dropdown.firstChild);
               }
-          });
+            }
+        });
 
           document.getElementById('show-all-versions-link')
               .setAttribute('href', docSetUrl + 'versions');
