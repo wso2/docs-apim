@@ -135,7 +135,7 @@ request.onload = function() {
                   liElem.className = 'md-tabs__item mb-tabs__dropdown';
                   liElem.innerHTML =  '<a href="' + url + '" target="' + 
                       target + '">' + key + '</a>';
-                  liElem.innerHTML =  '<a onclick="redirectToPage(\'' + url + '\',\''+key+'\')" />';
+                  liElem.innerHTML =  '<a onclick="redirectToPage(\'' + url + '\',\''+key+'\')">' + key + '</a>';
 
 
                   dropdown.insertBefore(liElem, dropdown.firstChild);
