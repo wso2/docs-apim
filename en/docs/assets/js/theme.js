@@ -122,13 +122,7 @@ request.onload = function() {
               if(versionData) {
                   var liElem = document.createElement('li');
                   var docLinkType = data.all[key].doc.split(':')[0];
-                  var target = '_self';
-                  var url = data.all[key].doc;
-
-                  if ((docLinkType == 'https') || (docLinkType == 'http')) {
-                      target = '_blank'
-                  }
-                  else {
+                
 
                     var currentPath= window.location.pathname;
                       // Find the index of '/en/'
@@ -143,7 +137,7 @@ request.onload = function() {
                       target + '">' + key + '</a>';
 
                   dropdown.insertBefore(liElem, dropdown.firstChild);
-              }
+              
             }
         });
 
