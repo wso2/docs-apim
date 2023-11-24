@@ -131,7 +131,7 @@ request.onload = function() {
                   else {
                     var currentPath= window.location.pathname;
                       // Find the index of '/en/'
-                    var pathWithoutVersion = currentPath.substring(4,currentPath.length)
+                    var pathWithoutVersion = currentPath.substring(currentPath.indexOf("/")+1,currentPath.length);
                     url = docSetUrl + url+ pathWithoutVersion;
                   
 
