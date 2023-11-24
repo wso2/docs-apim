@@ -135,6 +135,8 @@ request.onload = function() {
                   liElem.className = 'md-tabs__item mb-tabs__dropdown';
                   liElem.innerHTML =  '<a href="' + url + '" target="' + 
                       target + '">' + key + '</a>';
+                  liElem.innerHTML =  '<a onclick="redirectToPage(\'' + url + '\',\''+key+'\')" />';
+
 
                   dropdown.insertBefore(liElem, dropdown.firstChild);
               }
@@ -144,6 +146,23 @@ request.onload = function() {
               .setAttribute('href', docSetUrl + 'versions');
       }
       
+        /*
+        * Redirect to the page based on the following scenarios
+        * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        * 1. Redirect to the exact page if the page exists on the desired version
+        * 2. Redirect to the home page of the desired version if the page is not exists based on user's confirmation.
+        * 3. If the document site is for the older version then open it on a new tab.
+        */
+        function redirectToPage(url, version) {
+            var href = window.location.href;
+            var selectedVersion =  document.getElementById('version-select-dropdown').value;
+
+            var modifiedUrl = href.replace(selectedVersion, version);
+            window.location.href=modifiedUrl
+        }
+
+
+
       /* 
        * Appending versions to the version tables in versions page
        */
