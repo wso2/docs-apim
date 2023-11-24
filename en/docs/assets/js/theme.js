@@ -129,9 +129,13 @@ request.onload = function() {
                       target = '_blank'
                   }
                   else {
+
                     var currentPath= window.location.pathname;
                       // Find the index of '/en/'
                     var pathWithoutVersion = currentPath.substring(currentPath.indexOf("/")+1,currentPath.length);
+                    var pathWithoutEn = currentPath.substring(4,currentPath.length);
+                    var pathWithoutVersion = pathWithoutEn.substring(pathWithoutEn.indexOf("/")+1, pathWithoutEn.length)
+
                     url = docSetUrl + url+ pathWithoutVersion;
                   
 
