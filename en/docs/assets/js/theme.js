@@ -131,22 +131,9 @@ request.onload = function() {
                   else {
                     var currentPath= window.location.pathname;
                       // Find the index of '/en/'
-                    var indexOfen = path.indexOf('/en/');
-
-                    if (enIndex !== -1) {
-                        // Extract the part after '/en/'
-                        var afterEn = path.substring(enIndex + '/en/'.length);
-
-                        // Find the index of the next '/'
-                        var nextSlashIndex = afterEn.indexOf('/');
-
-                        // Extract the desired part between '/en/' and the next '/'
-                        var version = nextSlashIndex !== -1 ? afterEn.substring(0, nextSlashIndex+1) : afterEn;
-
-                        currentPath.replace(version, url);
-
-                        url = docSetUrl + currentPath;
-                  }
+                    var pathWithoutVersion = currentPath.substring(4,currentPath.length)
+                    url = docSetUrl + url+ pathWithoutVersion;
+                  
 
                   liElem.className = 'md-tabs__item mb-tabs__dropdown';
                   liElem.innerHTML =  '<a href="' + url + '" target="' + 
