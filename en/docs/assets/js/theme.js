@@ -129,14 +129,28 @@ request.onload = function() {
                       target = '_blank'
                   }
                   else {
-                      url = docSetUrl + url;
+                    var currentPath= window.location.pathname;
+                      // Find the index of '/en/'
+                    var indexOfen = path.indexOf('/en/');
+
+                    if (enIndex !== -1) {
+                        // Extract the part after '/en/'
+                        var afterEn = path.substring(enIndex + '/en/'.length);
+
+                        // Find the index of the next '/'
+                        var nextSlashIndex = afterEn.indexOf('/');
+
+                        // Extract the desired part between '/en/' and the next '/'
+                        var version = nextSlashIndex !== -1 ? afterEn.substring(0, nextSlashIndex+1) : afterEn;
+
+                        currentPath.replace(version, url);
+
+                        url = docSetUrl + currentPath;
                   }
 
                   liElem.className = 'md-tabs__item mb-tabs__dropdown';
                   liElem.innerHTML =  '<a href="' + url + '" target="' + 
                       target + '">' + key + '</a>';
-                  liElem.innerHTML =  '<a onclick="redirectToPage(\'' + url + '\',\''+key+'\')">' + key + '</a>';
-
 
                   dropdown.insertBefore(liElem, dropdown.firstChild);
               }
@@ -146,6 +160,20 @@ request.onload = function() {
               .setAttribute('href', docSetUrl + 'versions');
       }
       
+        /*
+        * Redirect to the page based on the following scenarios
+        * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        * 1. Redirect to the exact page if the page exists on the desired version
+        * 2. Redirect to the home page of the desired version if the page is not exists based on user's confirmation.
+        * 3. If the document site is for the older version then open it on a new tab.
+        */
+        function redirectToPage(url, version) {
+            var href = window.location.href;
+            var selectedVersion =  document.getElementById('version-select-dropdown').value;
+
+            var modifiedUrl = href.replace(selectedVersion, version);
+            window.location.href=modifiedUrl
+        }
 
 
 
@@ -267,21 +295,6 @@ for (var i = 0; i < observeeList.length; i++) {
         e.target.parentNode.classList.add('active');
     }
 }
-
-  /*
-        * Redirect to the page based on the following scenarios
-        * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        * 1. Redirect to the exact page if the page exists on the desired version
-        * 2. Redirect to the home page of the desired version if the page is not exists based on user's confirmation.
-        * 3. If the document site is for the older version then open it on a new tab.
-        */
-        function redirectToPage(url, version) {
-            var href = window.location.href;
-            var selectedVersion =  document.getElementById('version-select-dropdown').value;
-
-            var modifiedUrl = href.replace(selectedVersion, version);
-            window.location.href=modifiedUrl
-        }
 
 function scrollerPosition(mutation) {
     var blurList = document.querySelectorAll(".md-sidebar__inner > .md-nav--secondary > ul li > .md-nav__link[data-md-state='blur']");
