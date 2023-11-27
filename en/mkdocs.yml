@@ -2218,7 +2218,7 @@ extra_css:
 extra_javascript:
     - assets/lib/json-formatter/json-formatter.umd.js
     - assets/lib/highlightjs/highlight.min.js
-    - assets/js/theme.js?12345
+    - assets/js/theme.js
     - assets/lib/backtotop/js/util.js
     - assets/lib/backtotop/js/main.js
 extra:
@@ -2237,5 +2237,5 @@ extra:
             git_tag: v1.1.0.7
     site_version: 4.1.0
     #base_path: http://localhost:8000
-    base_path: https://apim.docs.wso2.com/en/staging-4.1.0
+    base_path: https://apim.docs.wso2.com/en/4.1.0
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.20.0

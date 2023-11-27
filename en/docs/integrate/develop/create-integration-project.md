@@ -56,7 +56,7 @@ The following table lists out the available projects that can be associated with
     </tr>
     <tr>
         <td>Composite Exporter</td>
-        <td>This project allows you to package all the artifacts (stored as sub-projects under the same integration project) into one <a href="packaging-artifacts/">composite application (C-APP)</a>. This C-APP can then be deployed in the Micro Integrator server.
+        <td>This project allows you to package all the artifacts (stored as sub-projects under the same integration project) into one <a href="{{base_path}}/integrate/develop/packaging-artifacts">composite application (C-APP)</a>. This C-APP can then be deployed in the Micro Integrator server.
         </br>
         <img src="{{base_path}}/assets/img/integrate/new-project/composite-application.png" title="Composite Application" width="250" alt="Composite Application"/>
         </td>

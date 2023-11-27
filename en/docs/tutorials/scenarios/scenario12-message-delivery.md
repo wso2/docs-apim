@@ -64,17 +64,16 @@ After some time, the Micro Integrator will again try to send the message to the 
 
 ## Step 2: Ensuring successful delivery
 
-To make the delivery successful, you can provide a working endpoint and restart the Micro Integrator. This will send the above message to that backend. 
+To make the delivery successful, you can provide a working endpoint and restart the Micro Integrator. This will send the above message to that backend.
+To test this flow you can do the following:
 
-To test this flow you can do the following. 
-
-1. Create a new endpoint in [https://hookbin.com/](https://hookbin.com/) and provide the endpoint in the docker-compose.yml file under `CATERING_SERVICE_EP`. 
-
+1. Create a new endpoint in `https://requestbin.com` and provide the endpoint in the docker-compose.yml file under CATERING_SERVICE_EP.
+   
 2. Restart Micro-Integrator runtime using the following command: `docker-compose up -d --build mi-runtime`
-
-Now if you check the Micro-Integrator logs, you can see that invocation has succeeded. 
-
-`_Response = CateringServiceEP Reply Sequence Invoked, Payload: {"success":true}_`
+   
+    Now if you check the Micro-Integrator logs, you can see that invocation has succeeded.
+   
+    `_Response = CateringServiceEP Reply Sequence Invoked, Payload: {"success":true}_`
 
 You can refresh the hookbin site and see that the message has been captured now.
 
