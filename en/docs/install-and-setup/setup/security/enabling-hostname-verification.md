@@ -42,5 +42,5 @@ WebSocket hostname verification is **disabled** by default. In order to enable h
 
 ```toml
 [transport.wss.sender.parameters]
-ws.client.enable.hostname.verification = true
+"ws.client.enable.hostname.verification" = true
 ```
