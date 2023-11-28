@@ -661,40 +661,6 @@ Given below are the security guidelines for the Streaming Integrator runtime.
       </tr>
       <tr class="odd">
          <td>
-            <p>Configure strong HTTP(S) security</p> TODO CHECK -------------------------------------------------------------------------------
-         </td>
-         <td>
-            <p>To have strong transport-level security, use TLS 1.2 and disable SSL, TLS 1.0 and 1.1. The TLS protocol and strong ciphers are configured for the passthrough transport in the <code>deployment.toml</code> file. See the following links for instructions:</p>
-            <p><a href="{{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-transport-level-security">Configuring Transport-Level Security</a></p>
-            <p>Note the following:</p>
-            <ul>
-               <li>When deciding on the TLS protocol and the ciphers, consider the compatibility with existing client applications. Imposing maximum security might cause functional problems with client applications.</li>
-               <li>Apply ciphers with 256 bit key length if you have applied unlimited strength policy. Note that unlimited strength policy is recommended.</li>
-               <li>
-                  Also, consider the following factors when deciding on the ciphers:
-                  <ul>
-                     <li>DES/3DES are deprecated and should not be used.</li>
-                     <li>MD5 should not be used due to known collision attacks.</li>
-                     <li>RC4 should not be used due to crypto-analytical attacks.</li>
-                     <li>DSS is limited to a small 1024 bit key size.</li>
-                     <li>Cipher-suites that do not provide Perfect Forward Secrecy/ Forward Secrecy (PFS/FS).</li>
-                     <li>GCM based ciphers are recommended over CBC ciphers.</li>
-                  </ul>
-               </li>
-            </ul>
-         </td>
-      </tr>
-      <tr class="even">
-         <td>
-            <p>Remove weak ciphers for PassThrough transport</p> TODO: CHECK -------------------------------------------------------------
-         </td>
-         <td>
-            <p>Remove any weak ciphers from the PassThrough transport and ensure that the server does not accept connections using those weak ciphers. The PassThrough transport is configured using the <code>deployement.toml</code> file.
-            <p>See <a href="{{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#disabling-weak-ciphers">Disabling Weak Ciphers</a> for instructions.</p>
-         </td>
-      </tr>
-      <tr class="odd">
-         <td>
             <p>Increase Ephemeral Diffie-Hellman Key size</p>
          </td>
          <td>
