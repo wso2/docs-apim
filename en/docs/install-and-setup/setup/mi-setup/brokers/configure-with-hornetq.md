@@ -207,7 +207,7 @@ Follow the instructions below to configure WSO2 Micro Integrator JMS transport w
 
 Install JBoss EAP server and create a message queue within the server.
 
-1.  Download JBoss EAP Server 7.0.0 from [JBoss EAP Downloads](http://developers.redhat.com/products/eap/download/) and run the JBoss EAP installer as described [here](https://access.redhat.com/documentation/en/red-hat-jboss-enterprise-application-platform/version-7.0/installation-guide/#running_the_jboss_eap_installer).
+1.  Download JBoss EAP Server 7.0.0 from [JBoss EAP Downloads](http://developers.redhat.com/products/eap/download/) and run the JBoss EAP installer as described [here](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0).
 2.  Execute one of the following commands in command prompt to create a new application user.  
     -   On Windows:
         `<EAP_HOME>\bin\add-user.bat -a -u 'SampleUser' -p 'SamplePwd1!' -g 'guest'`

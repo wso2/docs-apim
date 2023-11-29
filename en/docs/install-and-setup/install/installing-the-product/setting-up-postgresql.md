@@ -27,7 +27,7 @@ psql -h <host> -U <user> -d sample -f <MI_DASHBOARD_HOME>/dbscripts/postgresql/p
 
 ## Setting up the drivers
 
-1.  Download the [PostgreSQL JDBC4 driver](http://jdbc.postgresql.org/download.html).
+1.  Download the [PostgreSQL JDBC4 driver](https://jdbc.postgresql.org/download/).
 2.  Copy the driver to the `MI_DASHBOARD_HOME/lib` directory.    
 
 ## Connecting the database to the server
