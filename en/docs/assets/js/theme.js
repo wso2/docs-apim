@@ -122,15 +122,14 @@ request.onload = function() {
               if(versionData) {
                   var liElem = document.createElement('li');
                   var docLinkType = data.all[key].doc.split(':')[0];
-                  var target = '_self';
-                  var url = data.all[key].doc;
+                
 
-                  if ((docLinkType == 'https') || (docLinkType == 'http')) {
-                      target = '_blank'
-                  }
-                  else {
-                      url = docSetUrl + url;
-                  }
+                    var currentPath= window.location.pathname;
+                      // Find the index of '/en/'
+                    var pathWithoutEn = currentPath.substring(4,currentPath.length);
+                    var pathWithoutVersion = pathWithoutEn.substring(pathWithoutEn.indexOf("/"), pathWithoutEn.length)
+
+                    url = docSetUrl + key+ pathWithoutVersion;
 
                   liElem.className = 'md-tabs__item mb-tabs__dropdown';
                   liElem.innerHTML =  '<a href="' + url + '" target="' + 
