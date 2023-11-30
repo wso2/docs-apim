@@ -106,43 +106,45 @@ request.open('GET', docSetUrl +
     'versions/assets/versions.json', true);
 
 request.onload = function() {
-    if (request.status >= 200 && request.status < 400) {
+  
+  if (request.status >= 200 && request.status < 400) {
 
-        var data = JSON.parse(request.responseText);
-        var dropdown =  document.getElementById('version-select-dropdown');
-        var checkVersionsPage = document.getElementById('current-version-stable');
+      var data = JSON.parse(request.responseText);
+      var dropdown =  document.getElementById('version-select-dropdown');
+      var checkVersionsPage = document.getElementById('current-version-stable');
+      
+      /* 
+       * Appending versions to the version selector dropdown 
+       */
+      if (dropdown){
+          data.list.sort().forEach(function(key, index){
+              var versionData = data.all[key];
+              
+              if(versionData) {
+                  var liElem = document.createElement('li');
+                  var docLinkType = data.all[key].doc.split(':')[0];
+                
 
-        /*
-         * Appending versions to the version selector dropdown
-         */
-        if (dropdown){
-            data.list.sort().forEach(function(key, index){
-                var versionData = data.all[key];
+                    var currentPath= window.location.pathname;
+                      // Find the index of '/en/'
+                    var pathWithoutEn = currentPath.substring(4,currentPath.length);
+                    var pathWithoutVersion = pathWithoutEn.substring(pathWithoutEn.indexOf("/"), pathWithoutEn.length)
 
-                if(versionData) {
-                    var liElem = document.createElement('li');
-                    var docLinkType = data.all[key].doc.split(':')[0];
-                    var target = '_self';
-                    var url = data.all[key].doc;
+                    url = docSetUrl + key+ pathWithoutVersion;
+                  
 
-                    if ((docLinkType == 'https') || (docLinkType == 'http')) {
-                        target = '_blank'
-                    }
-                    else {
-                        url = docSetUrl + url;
-                    }
+                  liElem.className = 'md-tabs__item mb-tabs__dropdown';
+                  liElem.innerHTML =  '<a href="'+ url+'">' + key + '</a>';
 
-                    liElem.className = 'md-tabs__item mb-tabs__dropdown';
-                    liElem.innerHTML =  '<a href="' + url + '" target="' +
-                        target + '">' + key + '</a>';
+                  dropdown.insertBefore(liElem, dropdown.firstChild);
+              
+            }
+        });
 
-                    dropdown.insertBefore(liElem, dropdown.firstChild);
-                }
-            });
-
-            document.getElementById('show-all-versions-link')
-                .setAttribute('href', docSetUrl + 'versions');
-        }
+          document.getElementById('show-all-versions-link')
+              .setAttribute('href', docSetUrl + 'versions');
+      }
+      
 
         /*
          * Appending versions to the version tables in versions page
