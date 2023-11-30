@@ -45,11 +45,11 @@
                 jsonTreeInput.style.display = 'none';
             } catch (e) {
                 console.error(e);
-            } 
+            }
         }
-        
+
     }
-    
+
 })();
 
 /*
@@ -62,8 +62,8 @@ function indexInParent(node) {
     var children = node.parentNode.childNodes;
     var num = 0;
     for (var i=0; i < children.length; i++) {
-         if (children[i]==node) return num;
-         if (children[i].nodeType==1) num++;
+        if (children[i]==node) return num;
+        if (children[i].nodeType==1) num++;
     }
     return -1;
 }
@@ -89,13 +89,13 @@ for (var i = 0; i < dropdowns.length; i++) {
     };
 };
 
-/* 
+/*
  * Reading versions
  */
 var pageHeader = document.getElementById('page-header');
 var docSetLang = pageHeader.getAttribute('data-lang');
 
-(window.location.pathname.split('/')[1] !== docSetLang) ? 
+(window.location.pathname.split('/')[1] !== docSetLang) ?
     docSetLang = '' :
     docSetLang = docSetLang + '/';
 
@@ -103,9 +103,10 @@ var docSetUrl = window.location.origin + '/' + docSetLang;
 var request = new XMLHttpRequest();
 
 request.open('GET', docSetUrl +
-             'versions/assets/versions.json', true);
+    'versions/assets/versions.json', true);
 
 request.onload = function() {
+  
   if (request.status >= 200 && request.status < 400) {
 
       var data = JSON.parse(request.responseText);
@@ -145,56 +146,55 @@ request.onload = function() {
       }
       
 
+        /*
+         * Appending versions to the version tables in versions page
+         */
+        if (checkVersionsPage){
+            var previousVersions = [];
 
-      /* 
-       * Appending versions to the version tables in versions page
-       */
-      if (checkVersionsPage){
-          var previousVersions = [];
+            Object.keys(data.all).forEach(function(key, index){
+                if ((key !== data.current) && (key !== data['pre-release'])) {
+                    var docLinkType = data.all[key].doc.split(':')[0];
+                    var target = '_self';
 
-          Object.keys(data.all).forEach(function(key, index){
-              if ((key !== data.current) && (key !== data['pre-release'])) {
-                  var docLinkType = data.all[key].doc.split(':')[0];
-                  var target = '_self';
+                    if ((docLinkType == 'https') || (docLinkType == 'http')) {
+                        target = '_blank'
+                    }
 
-                  if ((docLinkType == 'https') || (docLinkType == 'http')) {
-                      target = '_blank'
-                  }
-
-                  previousVersions.push('<tr>' +
-                    '<th>' + key + '</th>' +
+                    previousVersions.push('<tr>' +
+                        '<th>' + key + '</th>' +
                         '<td>' +
-                            '<a href="' + data.all[key].doc + '" target="' + 
-                                target + '">Documentation</a>' +
+                        '<a href="' + data.all[key].doc + '" target="' +
+                        target + '">Documentation</a>' +
                         '</td>' +
                         '<td>' +
-                            '<a href="' + data.all[key].notes + '" target="' + 
-                                target + '">Release Notes</a>' +
+                        '<a href="' + data.all[key].notes + '" target="' +
+                        target + '">Release Notes</a>' +
                         '</td>' +
-                    '</tr>');
-              }
-          });
+                        '</tr>');
+                }
+            });
 
-          // Past releases update
-          document.getElementById('previous-versions').innerHTML = 
-                  previousVersions.join(' ');
+            // Past releases update
+            document.getElementById('previous-versions').innerHTML =
+                previousVersions.join(' ');
 
-          // Current released version update
-          document.getElementById('current-version-number').innerHTML = 
-                  data.current;
-          document.getElementById('current-version-documentation-link')
-                  .setAttribute('href', docSetUrl + data.all[data.current].doc);
-          document.getElementById('current-version-release-notes-link')
-                  .setAttribute('href', docSetUrl + data.all[data.current].notes);
-        
-          // Pre-release version update
-          document.getElementById('pre-release-version-documentation-link')
-              .setAttribute('href', docSetUrl + 'next/');
-      }
-      
-  } else {
-      console.error("We reached our target server, but it returned an error");
-  }
+            // Current released version update
+            document.getElementById('current-version-number').innerHTML =
+                data.current;
+            document.getElementById('current-version-documentation-link')
+                .setAttribute('href', docSetUrl + data.all[data.current].doc);
+            document.getElementById('current-version-release-notes-link')
+                .setAttribute('href', docSetUrl + data.all[data.current].notes);
+
+            // Pre-release version update
+            document.getElementById('pre-release-version-documentation-link')
+                .setAttribute('href', docSetUrl + 'next/');
+        }
+
+    } else {
+        console.error("We reached our target server, but it returned an error");
+    }
 };
 
 request.onerror = function() {

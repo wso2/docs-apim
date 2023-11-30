@@ -1112,8 +1112,12 @@ nav:
                 - Salesforce Overview: reference/connectors/salesforce-connectors/sf-overview.md
                 - Salesforce Access Token Generation: includes/reference/connectors/salesforce-connectors/sf-access-token-generation.md
                 - Set up the PushTopic in Salesforce: reference/connectors/salesforce-connectors/sf-inbound-endpoint-configuration.md
-                - Salesforce REST API Example: reference/connectors/salesforce-connectors/sf-rest-connector-example.md
-                - Salesforce REST API Reference: reference/connectors/salesforce-connectors/sf-rest-connector-config.md
+                - Salesforce REST Connector:
+                    - Salesforce REST Connector Example: reference/connectors/salesforce-connectors/sf-rest-connector-example.md
+                    - 2.0.x:
+                        - Salesforce REST Connector Reference: reference/connectors/salesforce-connectors/sf-rest-connector-config-v2.md
+                    - 1.x.x:
+                        - Salesforce REST Connector Reference: reference/connectors/salesforce-connectors/sf-rest-connector-config.md
                 - Salesforce Inbound Endpoint Example: reference/connectors/salesforce-connectors/sf-inbound-endpoint-example.md
                 - Salesforce Inbound Endpoint Reference: reference/connectors/salesforce-connectors/sf-inbound-endpoint-reference-configuration.md
                 - Salesforce Bulk Configuration: reference/connectors/salesforcebulk-connector/salesforcebulk-connector-configuration.md
@@ -1401,6 +1405,7 @@ nav:
                 - Install MI: install-and-setup/install/installing-the-product/installing-mi.md
                 - Run the MI Runtime: install-and-setup/install/installing-the-product/running-the-mi.md
                 - Run the MI as a Windows Service: install-and-setup/install/installing-the-product/installing-mi-as-a-windows-service.md
+                - Run the MI in Automation Mode: install-and-setup/install/running-the-mi-in-automation-mode.md
             - Install the MI Dashboard:
                 - Install the MI Dashboard: install-and-setup/install/installing-the-product/installing-mi-dashboard.md
                 - Run the MI Dashboard: install-and-setup/install/installing-the-product/running-the-mi-dashboard.md
