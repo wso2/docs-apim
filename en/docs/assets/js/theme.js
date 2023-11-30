@@ -132,8 +132,7 @@ request.onload = function() {
                    url = docSetUrl + key+ pathWithoutVersion;
 
                   liElem.className = 'md-tabs__item mb-tabs__dropdown';
-                  liElem.innerHTML =  '<a href="' + url + '" target="' + 
-                      target + '">' + key + '</a>';
+                  liElem.innerHTML =  '<a href="'+ url+'">' + key + '</a>';
 
                   dropdown.insertBefore(liElem, dropdown.firstChild);
               }
