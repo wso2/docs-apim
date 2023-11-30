@@ -251,7 +251,7 @@ been removed from Hotspot JVM.</p>
 <td><p>Defining callback URL regular expression</p>
 <p><br />
 </p></td>
-<td><p>For password recovery, you can define a regular expression to validate the callback URL. The default configuration allows any callback URL. Note that if you are using the recovery option, it is highly recommended to define the regular expression that validates and only allows access to specific callback URLs.</p>
+<td><p>For password recovery, you can define a regular expression to validate the callback URL. The default configuration allows any callback URL. Note that if you are using the recovery option, it is highly recommended to define the regular expression that validates and only allows access to specific callback URLs.</p><p>See the <a href="https://is.docs.wso2.com/en/5.11.0/administer/product-level-security-guidelines/#callback-url-regular-expressions">Callback URL Regular Expressions</a> documentation for details.</p>
 </td>
 </tr>
 </tr>
@@ -489,6 +489,198 @@ Given below are the security guidelines for the Micro Integrator runtime.
          </td>
          <td>
             <p>The recommended JDK version is JDK 11. See the <a href="{{base_path}}/install-and-setup/install/installation-prerequisites/">installation pre-requisites</a> for more information.</p>
+            <p><strong>Tip</strong>: To run the JVM with 2 GB (-Xmx2048m), you should ideally have about 4GB of memory on the physical machine.</p>
+         </td>
+      </tr>
+   </tbody>
+</table>
+
+### Streaming Integrator runtime security
+
+Given below are the security guidelines for the Streaming Integrator runtime.
+
+<table>
+   <thead>
+      <tr class="header">
+         <th>Guideline</th>
+         <th>Details</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr class="odd">
+         <td><p>Apply security updates</p></td>
+        <td><p>Apply all the security patches relevant to your product version. Use WSO2 Updates to get the latest security patches.</p>
+        <ul>
+        <li>See <a href="https://updates.docs.wso2.com/en/latest/updates/overview/">WSO2 Updates</a> for details.</li>
+        </ul>
+        <p><strong>Note the following:</strong></p>
+        <ul>
+        <li>WSO2 releases security patch notifications monthly via the Support Portal. However, WSO2 issues patches immediately to customers if there are highly 
+        critical issues.</li>
+        <li>WSO2 does not issue patches publicly for older product versions. Community users are encouraged to use the 
+        latest product version to receive all the security issues resolved until that particular product release.</li>
+        <li><a href="https://docker.wso2.com/tags.php?repo=wso2mi">WSO2 Docker repository</a> releases docker images with security fixes. Users with a <a href="https://wso2.com/subscription">subscription</a> can fetch these docker images.</li>
+        </ul>
+        </td>
+      </tr>
+      <tr class="even">
+         <td>
+            <p>Change default keystores</p>
+         </td>
+         <td>
+            <p>Change the default key stores and create new keys for all the cryptographic operations. WSO2 products, by default, come with a self-signed SSL key. Since these keys are public, it is recommended to configure your own keys for security purposes. Consider the following guidelines when creating the keystores:</p>
+            <ul>
+               <li>
+                  <p>Select a key size of at least 2048 bits.</p>
+               </li>
+               <li>
+                  <p>Use an SHA256 certificate.</p>
+               </li>
+               <li>
+                  <p>Make sure that WSO2 default certificates do not exist in any of the keystores in your production environment. For example, be sure to delete the default public certificate in the default trust store that is shipped with the product.</p>
+               </li>
+            </ul>
+            See <a href="{{base_path}}/install-and-setup/setup/mi-setup/security/creating_keystores/">Creating New Keystores</a> for information on how to create and configure your own keys.
+            </p>
+         </td>
+      </tr>
+      <tr class="odd">
+         <td>Encrypt passwords in configuration files</td>
+         <td>
+            <p>WSO2 products use a tool called <strong>Secure Vault</strong> to encrypt the plain-text passwords in configuration files.</p>
+            <p>See <a href="{{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text/">Securing Passwords in Configuration Files</a> for instructions.</p>
+         </td>
+      </tr>
+      <tr class="even">
+         <td>
+            <p>Change default ports</p>
+            <p><br /></p>
+         </td>
+         <td>
+            <p>For information on all the default ports used by WSO2 API Manager, see <a href="{{base_path}}/install-and-setup/setup/reference/default-product-ports/">Default Product Ports</a>.</p>
+            <p>For information on changing a default port, see <a href="{{base_path}}/install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset">Changing the Default Ports with Offset</a>.</p>
+        </td>
+      </tr>
+      <tr class="odd">
+         <td>
+            <p>Always communicate over TLS</p>
+         </td>
+         <td>
+            <p>All connections from your server to external databases, or other services, should be over TLS, to ensure adequate network-level protection. Therefore, be sure to use external systems (user stores, databases) that are TLS-enabled.</p>
+         </td>
+      </tr>
+      <tr class="even">
+         <td>
+            <p>Connect to data stores using a less privileged user</p>
+         </td>
+         <td>
+            <p>When connecting the server to external databases, be sure to go through a user who does not have permission to change the data store's schema. Be sure not to use the root user of the data store because all permissions are generally granted to the root user.</p>
+         </td>
+      </tr>
+      <tr class="odd">
+         <td>
+            <p>Increase Ephemeral Diffie-Hellman Key size</p>
+         </td>
+         <td>
+            <p>Before starting the server, open the product startup script ( <code>           server.sh             </code> in Linux and <code>              server.bat             </code> in Windows) and enter the following with the other Java properties:</p>
+            <div class="code panel pdl" style="border-width: 1px;">
+               <div class="codeContent panelContent pdl">
+                  <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
+                     <pre class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1"></a>-Djdk.<span class="fu">tls</span>.<span class="fu">ephemeralDHKeySize</span>=<span class="dv">2048</span> \</span></code></pre>
+                  </div>
+               </div>
+            </div>
+         </td>
+      </tr>
+      <tr class="even">
+         <td>
+            <p>Disable client-initiated renegotiation</p>
+            <p><br /></p>
+         </td>
+         <td>
+            <p>Before starting the server, open the product startup script ( <code>              server.sh             </code> in Linux and <code>              server.bat             </code> in Windows) and enter the following with the other Java properties:</p>
+            <div class="code panel pdl" style="border-width: 1px;">
+               <div class="codeContent panelContent pdl">
+                  <div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
+                     <pre class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1"></a>-Djdk.<span class="fu">tls</span>.<span class="fu">rejectClientInitiatedRenegotiation</span>=<span class="kw">true</span> \</span></code></pre>
+                  </div>
+               </div>
+            </div>
+         </td>
+      </tr>
+      <tr class="odd">
+         <td>
+            <p>Enable HostName Verification</p>
+            <p><br /></p>
+         </td>
+         <td>
+            <p>Make sure that hostname verification is enabled in the product startup script ( <code>              server.sh             </code> in Linux and <code>              server.bat             </code> in Windows) with the <strong>Strict</strong> mode. That is, you need to enable the following parameter:</p>
+            <div class="code panel pdl" style="border-width: 1px;">
+               <div class="codeContent panelContent pdl">
+                  <div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
+                     <pre class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1"></a>-Dhttpclient.<span class="fu">hostnameVerifier</span>=Strict \</span></code></pre>
+                  </div>
+               </div>
+            </div>
+         </td>
+      </tr>
+      <tr class="even">
+         <td>
+            <p>Verify super admin credentials</p>
+            <p><br /></p>
+         </td>
+         <td>
+            <p>The username and the password of administrator is configured as follows in the <code>deployment.yaml</code> file. When you go into production, be sure to manually check and ensure that unwanted admin records are removed. </p>
+            <div class="code panel pdl" style="border-width: 1px;">
+                <div class="codeContent panelContent pdl">
+                    <div class="sourceCode" id="cb6" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
+                        <pre class="sourceCode java"><pre class="sourceCode java">
+                            <span id="cb6-1"><a href="#cb6-1"></a>auth.configs:</span>
+                            <span id="cb6-1"><a href="#cb6-1"></a>  type: 'local'        # Type of the IdP client used</span>
+                            <span id="cb6-1"><a href="#cb6-1"></a>  userManager:</span>
+                            <span id="cb6-1"><a href="#cb6-1"></a>    adminRole: admin   # Admin role which is granted all permissions</span>
+                            <span id="cb6-1"><a href="#cb6-1"></a>    userStore:         # User store</span>
+                            <span id="cb6-1"><a href="#cb6-1"></a>      users:</span>
+                            <span id="cb6-1"><a href="#cb6-1"></a>       -</span>
+                            <span id="cb6-1"><a href="#cb6-1"></a>         user:</span>
+                            <span id="cb6-1"><a href="#cb6-1"></a>           username: admin</span>
+                            <span id="cb6-1"><a href="#cb6-1"></a>           password: YWRtaW4=</span>
+                            <span id="cb6-1"><a href="#cb6-1"></a>           roles: 1</span>
+                            <span id="cb6-1"><a href="#cb6-1"></a>      roles:</span>
+                            <span id="cb6-1"><a href="#cb6-1"></a>       -</span>
+                            <span id="cb6-1"><a href="#cb6-1"></a>         role:</span>
+                            <span id="cb6-1"><a href="#cb6-1"></a>           id: 1</span>
+                            <span id="cb6-1"><a href="#cb6-1"></a>           displayName: admin</span>
+                        </pre>
+                    </div>
+                </div>
+            </div>
+         </td>
+      </tr>
+      <tr class="odd">
+         <td>
+            <p>Enable log rotation and monitoring</p>
+            <p><br /></p>
+         </td>
+         <td>
+            <p>Ensure that you have a relevant log rotation scheme to manage logs. Log4J properties for Streaming Integrator can be configured in the <code>              &lt;SI_HOME&gt;/conf/server/log4j2.xml             </code> file. To roll the <strong>wso2carbon.log</strong> based on size, <a href="{{base_path}}/administer/logging-and-monitoring/logging/managing-log-growth/">this</a> guide can be used.</p>
+         </td>
+      </tr>
+      <tr class="even">
+         <td>
+            <p>Prevent Log Forging</p>
+         </td>
+         <td>
+            <p>Log forging can be prevented by appending a UUID to the log message.</p>
+         </td>
+      </tr>
+      <tr class="odd">
+         <td>
+            <p>Set appropriate JVM parameters</p>
+            <p><br /></p>
+         </td>
+         <td>
+            <p>The recommended JDK version is JDK 8 or 11. See the <a href="{{base_path}}/install-and-setup/install/installation-prerequisites/">installation pre-requisites</a> for more information.</p>
             <p><strong>Tip</strong>: To run the JVM with 2 GB (-Xmx2048m), you should ideally have about 4GB of memory on the physical machine.</p>
          </td>
       </tr>
