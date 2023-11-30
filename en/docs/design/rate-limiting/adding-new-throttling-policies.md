@@ -2,6 +2,7 @@
 
 WSO2 API Manager admins can add new rate limiting policies and define extra properties to the rate limiting policies. To get started, click on the level of rate limiting that you want to add a new policy to:
 
+- [Adding New Rate Limiting Policies](#adding-new-rate-limiting-policies)
   - [Adding a new advanced rate limiting policy](#adding-a-new-advanced-rate-limiting-policy)
   - [Adding a new application-level rate limiting tier](#adding-a-new-application-level-rate-limiting-tier)
   - [Adding a new subscription-level rate limiting tier](#adding-a-new-subscription-level-rate-limiting-tier)
@@ -143,6 +144,12 @@ You have added a new application-level rate limiting policy.
     <p><b> Unauthenticated tier</b></p>
      <p>
     When you are adding a new Subscription level rate limiting tier, you will see the existing list of subscription tiers in the **Subscription Tier List**. In this list, you will find a tier named **Unauthenticated**, which has a request quota of 500. This is the subscription tier, which is automatically applied when the authentication type of your resources is **'None'.** That is when you can invoke APIs without tokens. And this tier is not visible in the rate limiting tier list of the application. </p>
+    </div>
+
+    <div class="admonition info">
+    <p class="admonition-title">Note</p>
+    <p><b> Custom attributes</b></p>
+     <p>If you need to add a custom attribute to the unlimited tier, it is required to create a seperate unlimited policy and add the custom attribute. It is not recommended to modify the existing unlimited tier.</p>
     </div>
 
 4.  Fill in the details required by this form and click **Save** once you are done.
