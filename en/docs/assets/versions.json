@@ -4,7 +4,10 @@
   "list": [
     "4.2.0",
     "4.1.0",
-    "4.0.0"
+    "4.0.0",
+    "3.2.0",
+    "3.1.0",
+    "3.0.0"
    ],
   "all": {
     "4.2.0":{
@@ -18,6 +21,18 @@
     "4.0.0":{
         "doc": "https://apim-docs-stg.wso2.com/en/4.0.0",
         "notes": "https://apim-docs-stg.wso2.com/en/4.0.0/get-started/about-this-release"
+    },   
+    "3.2.0":{
+        "doc": "https://apim.docs.wso2.com/en/3.2.0",
+        "notes": "https://apim.docs.wso2.com/en/3.2.0/getting-started/about-this-release"
+    },  
+    "3.1.0":{
+        "doc": "https://apim.docs.wso2.com/en/3.1.0",
+        "notes": "https://apim.docs.wso2.com/en/3.1.0/getting-started/about-this-release"
+    },	    
+    "3.0.0": {
+        "doc": "https://apim.docs.wso2.com/en/3.0.0",
+        "notes": "https://apim.docs.wso2.com/en/3.0.0/getting-started/about-this-release"
     }
   }
 }
