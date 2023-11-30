@@ -416,7 +416,7 @@ If you are running the embedded Micro Integrator, click <b>Open Monitoring Dashb
 
 You will be directed to the sign-in screen of the Dashboard from your default browser as shown below. Sign in using `admin` as the user name and password.
 
-<img src="{{base_path}}/assets/img/integrate/developing-first-integration/21-dev-get-started-dashboard-login.png">
+<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/login.png">
 
 Once you sign in, click the required artifact type to view details.
 

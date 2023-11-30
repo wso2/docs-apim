@@ -1,6 +1,6 @@
 # Step 7: Monitor Statistics
 
-This step shows how you can monitor the CDC and file statistics of the WSO2 Streaming Integrator deployment you started and the `SweetFactoryApp` Siddhi application you created and deployed in the previous steps. For this purpose, you are using the some of the pre-configured dashboards provided by WSO2 Streaming Integrator. You can host these dashboards in Grafana and view statistics related to ETL activities carried out by the Streaming Integrator. For more information about these dashboards, see [Monitoring ETL Statistics with Grafana]({{base_path}}/observe/si-observe/viewing-etl-flow-dashboards)
+This step shows how you can monitor the CDC and file statistics of the WSO2 Streaming Integrator deployment you started and the `SweetFactoryApp` Siddhi application you created and deployed in the previous steps. For this purpose, you are using the some of the pre-configured dashboards provided by WSO2 Streaming Integrator. You can host these dashboards in Grafana and view statistics related to ETL activities carried out by the Streaming Integrator. For more information about these dashboards, see [Monitoring ETL Statistics with Grafana]({{base_path}}/observe/streaming-integrator/viewing-etl-flows)
 
 ## Configuring WSO2 SI to visualize statistics
 
@@ -148,7 +148,7 @@ To generate some statistics and view them, follow the procedure below.
     
 5. Under **Overview Statistics**, click **SweetFactoryApp**. The **overview-statistics / WSO2 Streaming Integrator App Statistics** dashboard opens.
 
-    ![app-statistics]({{base_path}}/assets/img/streaming/quick-start-guide-101/app-staistics.png)
+  
     
 6. Scroll down to the **Sources** section. The following is displayed.
 
@@ -158,7 +158,6 @@ To generate some statistics and view them, follow the procedure below.
     
 7. Scroll down further to the **Destinations** section. The `file` sink in the `SweetFactoryApp` Siddhi application is displayed as shown below.
 
-    ![destination-statistics]({{base_path}}/assets/img/streaming/quick-start-guide-101/destination.png)
     
 8. Under **Sources**, click on the link to the `productioninserts.csv` file. The **WSO2 Streaming Integrator - File Statistics** dashboard opens. The contents of the `productioninserts.csv` file is the output of one query and the input of another. Therefore, it is a source as well as a destination, statistics are displayed for it under **Source** and **Sink** as shown below.
 

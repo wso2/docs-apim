@@ -203,7 +203,7 @@ This logger generates logs for APIs deployed in the Micro Integrator. It refers 
     logger.API_LOG.name=API_LOGGER.TestAPI
     ```
 
-    See the instructions on [monitoring per-API logs](/install-and-setup/setup/mi-setup/observability/logs/enabling-logs-for-api).
+    See the instructions on [monitoring per-API logs]({{base_path}}/integrate/develop/monitoring-api-level-logs/).
 
 ```xml tab='API_LOGGER'
 logger.API_LOGGER.name= API_LOGGER
