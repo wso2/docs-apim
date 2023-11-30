@@ -112,7 +112,7 @@ See the [complete list of parameters]({{base_path}}/reference/config-catalog-mi/
 !!! note "Before you begin"
 	[Disable the file-based user store](#disabling-the-file-based-user-store).
 
-If you are already using a JDBC user store (database) with another WSO2 product ([WSO2 API Manager](https://wso2.com/api-management/), [WSO2 Identity Server](https://wso2.com/identity-and-access-management/), or an instance of [WSO2 Enterprise Integrator 6.x.x](https://wso2.com/enterprise-integrator/6.6.0)), you can connect the same database to the Micro Integrator of EI 7.1. Alternatively, you can create a new RDBMS user store and connect it to the Micro Integrator.
+If you are already using a JDBC user store (database) with another WSO2 product ([WSO2 API Manager](https://wso2.com/api-management/), [WSO2 Identity Server](https://wso2.com/identity-and-access-management/), or an instance of [WSO2 Enterprise Integrator 6.x.x](https://wso2docs.atlassian.net/wiki/spaces/EI660/overview)), you can connect the same database to the Micro Integrator of EI 7.1. Alternatively, you can create a new RDBMS user store and connect it to the Micro Integrator.
 
 1.	To set up a new RDBMS, select the preferred RDBMS type and follow the instructions. 
 
