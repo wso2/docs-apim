@@ -1,4 +1,4 @@
-             # Kafka Inbound Endpoint Reference
+# Kafka Inbound Endpoint Reference
 
 ## Mandatory parameters for Kafka Inbound Endpoint
 
