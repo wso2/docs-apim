@@ -90,3 +90,58 @@ Follow the instructions below to generate REST APIs in WSO2 API Manager for an e
 
     The incoming JSON message parameters are stored using properties. A payload factory mediator is used to generate the SOAP payload required for the backend.
 
+!!! Warning "Limitations"
+    Note that this feature has the following known limitations.
+
+    <details>
+        <summary>Unsupported / partially supported component types</summary>
+
+    - **<xs:choice\>**
+    - **<xs:annotation\>**
+    - **<xs:attribute\>** (Attribute type is always string. Default or fixed values are not supported. Attributes cannot be defined as optional or required)
+    - **<xs:restriction\>** (Only the base type is considered. No other elements added)
+    - **<xs:complexType\>** (Deeply nested complex types do not generate the correct mapping)
+    - **<xs:complexContent\>** (Has limitations with nested extensions)
+    - **<xs:simpleContent\>** (Has limitations with nested extensions)
+    - **<xs:all\>** (maxOccurs is not taken into consideration)
+    - **<xs:group\>**
+    - **<xs:attributeGroup\>**
+    - **<xs:any\>**
+    - **<xs:anyAttribute\>**
+    - **<xs:enumaration\>**
+    - **<xs:alternative\>**
+    - **<xs:assert\>**
+    - **<xs:key\>**
+    - **<xs:keyref\>**
+    - **<xs:list\>** (Item types are not defined)
+    - **<xs:unique\>**
+    - **<xs:appinfo\>**
+    - **<xs:documentation\>**
+    - **<xs:union\>**
+    - **minOccurs** (This attribute is ignored)
+    - **maxOccurs** (Only considers the unbounded case for arrays)
+    - **substitutionGroup** (This attribute is ignored)
+    - **Mixed Content** (This is ignored)
+
+    </details>
+
+    <details>
+        <summary>Supported primitive or derived datatypes</summary>
+
+    - string
+    - time (treated as a string)
+    - boolean
+    - int
+    - nonNegativeInteger
+    - integer
+    - positiveInteger
+    - double
+    - float
+    - long
+    - date
+    - dateTime
+    - decimal
+    - anyType
+    - base64Binary (treated as a string with byte format)
+    
+    </details>
