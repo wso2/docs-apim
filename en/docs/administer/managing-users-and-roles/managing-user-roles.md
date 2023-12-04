@@ -189,13 +189,25 @@ The following steps guide you through updating the role names after you have use
 
 1.  Make the configuration changes indicated in [the above section]({{base_path}}/administer/managing-users-and-roles/managing-user-roles/#update-before-the-first-startup-recommended).
 
-2.  Do the following user store level changes for existing users:
+2. Do the following user store level changes for existing users:
 
     If you are connected to the `JDBCUserStoreManager`, update the `UM_ROLE` table with the new role name that you defined in place of the `admin` role.
 
     !!! info
             The schema can be located by referring to the data source `[database.shared_db]` defined in the `deployment.toml` file. The data source definition can also be found in the same file.
 
-    -   If you are connected to the `ReadWriteLdapUserStoreManager`, populate the members of the previous `admin` role to the new role under **Groups**. For more information, see [Configuring User Stores]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/introduction-to-userstores).
+    -   If you are connected to the `ReadWriteLdapUserStoreManager`, populate the members of the previous `admin` role to the new role under **Groups**. For more information, see [Configuring User Stores]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/introduction-to-userstores)
 
-3.  Restart the server.
+3. Start the apim server with newly configured admin role.
+   
+4. Log into the management console (`https://<APIM_Host>:<APIM_Port>/carbon`) with the new admin credentials.
+   
+5. Navigate to **Main > Resources** and click on **Browse**.
+   
+6. Open `/_system/config/apimgt/applicationdata/tenant-conf.json` file.
+
+    [![tenant-configuration-file]({{base_path}}/assets/img/administer/tenant-configuration-file.png)]({{base_path}}/assets/img/administer/tenant-configuration-file.png)
+
+7. Update all the places where the "admin" key workd exists with your new admin role (i.e `administrator`).
+   
+8. Save the changes and restart the server.
