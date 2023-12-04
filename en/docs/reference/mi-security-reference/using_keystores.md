@@ -93,4 +93,4 @@ certificates. These certificates can be either of the following:
 * [Create new keystores]({{base_path}}/install-and-setup/setup/mi-setup/security/creating_keystores)
 * [Import new SSL certificates to keystores]({{base_path}}/install-and-setup/setup/mi-setup/security/importing_ssl_certificate)
 * [Renewing existing SSL certificates in keystores]({{base_path}}/install-and-setup/setup/mi-setup/security/renewing_ca_signed_certificate_in_keystore)
-* [Product deployment guidelines]({{base_path}}/install-and-setup/setup/mi-setup/deployment/deployment_checklist)
+* [Product deployment guidelines]({{base_path}}/install-and-setup/setup/deployment-best-practices/production-deployment-guidelines/)

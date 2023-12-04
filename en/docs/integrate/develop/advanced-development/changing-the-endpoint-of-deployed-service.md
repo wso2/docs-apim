@@ -7,12 +7,10 @@ environments (i.e., Dev and QA). The endpoint URLs for the services
 hosted in the Dev and QA environments respectively are as follows:
 
 -   Dev environment:
-    [http://localhost:8280/services/echo](https://www.google.com/url?q=http://localhost:8280/services/echo&sa=D&source=hangouts&ust=1533987796246000&usg=AFQjCNHGkW_-21LrrGTq7bZTCOqRn_23uw)
-
+    `http://localhost:8280/services/echo`
 -   QA environment:
-    [http://localhost:8281/services/echo](https://www.google.com/url?q=http://localhost:8280/services/echo&sa=D&source=hangouts&ust=1533987796246000&usg=AFQjCNHGkW_-21LrrGTq7bZTCOqRn_23uw)
-
-
+    `http://localhost:8281/services/echo`
+    
 ## Creating the Endpoints
 
 You need to create two Endpoint artifacts to represent the Dev and QA environments respectively. Follow the steps given below.

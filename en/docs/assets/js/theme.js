@@ -89,7 +89,6 @@ for (var i = 0; i < dropdowns.length; i++) {
     };
 };
 
-/* 
  * Reading versions
  */
 var pageHeader = document.getElementById('page-header');
@@ -103,6 +102,47 @@ var docSetUrl = window.location.origin + '/' + docSetLang;
 var request = new XMLHttpRequest();
 
 request.open('GET', docSetUrl +
+    'versions/assets/versions.json', true);
+
+request.onload = function() {
+    if (request.status >= 200 && request.status < 400) {
+
+        var data = JSON.parse(request.responseText);
+        var dropdown =  document.getElementById('version-select-dropdown');
+        var checkVersionsPage = document.getElementById('current-version-stable');
+
+        /*
+         * Appending versions to the version selector dropdown
+         */
+        if (dropdown){
+            data.list.sort().forEach(function(key, index){
+                var versionData = data.all[key];
+
+                if(versionData) {
+                    var liElem = document.createElement('li');
+                    var docLinkType = data.all[key].doc.split(':')[0];
+                    var target = '_self';
+                    var url = data.all[key].doc;
+
+                    if ((docLinkType == 'https') || (docLinkType == 'http')) {
+                        target = '_blank'
+                    }
+                    else {
+                        url = docSetUrl + url;
+                    }
+
+                    liElem.className = 'md-tabs__item mb-tabs__dropdown';
+                    liElem.innerHTML =  '<a href="' + url + '" target="' +
+                        target + '">' + key + '</a>';
+
+                    dropdown.insertBefore(liElem, dropdown.firstChild);
+                }
+            });
+
+            document.getElementById('show-all-versions-link')
+                .setAttribute('href', docSetUrl + 'versions');
+        }
+
              'versions/assets/versions.json', true);
 
 request.onload = function() {
@@ -144,7 +184,6 @@ request.onload = function() {
               .setAttribute('href', docSetUrl + 'versions');
       }
       
-
 
       /* 
        * Appending versions to the version tables in versions page

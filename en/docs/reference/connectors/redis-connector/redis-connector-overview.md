@@ -24,7 +24,7 @@ For older versions, see the details in the connector store.
 
 * **[Redis Connector Example]({{base_path}}/reference/connectors/redis-connector/redis-connector-example/)**: This example demonstrates how to work with the Redis Connector and access the Redis server using Redis commands. 
 
-* **[Redis Connector Reference]({{base_path}}/reference/connectors/redis-connector/redis-connector-reference/)**: This documentation provides a reference guide for the Redis Connector.
+* **[Redis Connector Reference]({{base_path}}/reference/connectors/redis-connector/2.2.x/redis-connector-reference/)**: This documentation provides a reference guide for the Redis Connector.
 
 ## How to contribute
 

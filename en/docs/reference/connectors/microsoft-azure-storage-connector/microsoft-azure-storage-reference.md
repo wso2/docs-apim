@@ -180,7 +180,7 @@ To use the Microsoft Azure Storage connector, add the <msazurestorage.init> elem
 ### Containers
 
 ??? note "createContainer"
-    The createContainer operation creates a container in the storage. See the [related API documentation](https://docs.microsoft.com/en-us/azure/storage/containers/storage-java-how-to-use-container-storage) for more information.
+    The createContainer operation creates a container in the storage. See the [related API documentation](https://learn.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>
