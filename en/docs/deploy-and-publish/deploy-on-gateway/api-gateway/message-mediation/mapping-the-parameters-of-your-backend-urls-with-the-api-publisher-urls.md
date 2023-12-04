@@ -19,7 +19,7 @@ We do the following mapping in this tutorial:
     **Before you begin...** 
     
     Note that a mock backend implementation is set up in this tutorial for the purpose of demonstrating the API invocation. 
-    If you have a local API Manager setup, save [this file]({{base_path}}/assets/attachments/learn/api-gateway/message-mediation/Response_API.xml) in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/api` folder to set up the mock backend.
+    If you have a local API Manager setup, save [this file](../../../../assets/attachments/learn/APIGateway/MessageMediation/Response_API.xml) in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/api` folder to set up the mock backend.
 
 1.  Log in to the API Publisher, design a new API with the following information, click **Create**.
 
