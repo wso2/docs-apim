@@ -6,7 +6,7 @@ Open the Choreo Connect configuration file according to the deployment type you 
 
         | **Deployment** | **Mode**| **File name** | **Directory** |
         |----------------|---------|---------------|---------------|
-        | Docker Compose |[Choreo Connect as a Standalone Gateway](/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/)| `config.toml` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/` |
-        | Docker Compose |[Choreo Connect with WSO2 API Manager as a Control Plane](/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/) | `config.toml` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf/` |
-        | Kubernetes |[Choreo Connect as a Standalone Gateway](/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/)| `config-toml-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect/` |
-        | Kubernetes |[Choreo Connect with WSO2 API Manager as a Control Plane](/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/)| `config-toml-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect-with-apim/` |
+        | Docker Compose |[Choreo Connect as a Standalone Gateway](https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/)| `config.toml` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/` |
+        | Docker Compose |[Choreo Connect with WSO2 API Manager as a Control Plane](https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/) | `config.toml` | `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf/` |
+        | Kubernetes |[Choreo Connect as a Standalone Gateway](https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/)| `config-toml-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect/` |
+        | Kubernetes |[Choreo Connect with WSO2 API Manager as a Control Plane](https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/)| `config-toml-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect-with-apim/` |

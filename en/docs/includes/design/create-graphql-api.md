@@ -153,7 +153,7 @@ Let's use the Star Wars sample backend server as the backend for the GraphQL API
                    <div class="admonition note">
                    <p class="admonition-title">Note</p>
                    <p> 
-                   <ul><li>The role that you enter <b>should be a valid role that already exists in WSO2 API Manager</b>. Make sure to assign the role to the user. </li><li>For more information, see <a href="{{base_path}}/administer/managing-users-and-roles/managing-users/">Adding Users</a> and <a href="{{base_path}}/administer/managing-users-and-roles/managing-user-roles/">Adding User Roles</a>.</li></ul>
+                   <ul><li>The role that you enter <b>should be a valid role that already exists in WSO2 API Manager</b>. Make sure to assign the role to the user. </li><li>For more information, see <a href="https://apim.docs.wso2.com/en/latest/administer/managing-users-and-roles/managing-users">Adding Users</a> and <a href="https://apim.docs.wso2.com/en/latest/administer/managing-users-and-roles/managing-user-roles">Adding User Roles</a>.</li></ul>
                    </p>
                    </div>
                   

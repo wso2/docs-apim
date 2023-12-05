@@ -111,7 +111,7 @@ To invoke the API through WSO2 API Manager, you can follow the steps below.
     If you want to invoke the using a test key API without publishing, you may follow the methods below.
         
     1. Via WSO2 API Manager Publisher Portal - [Test a REST API]({{base_path}}/design/create-api/create-rest-api/test-a-rest-api/)
-    2. Generating a Enforcer test key - [Enforcer Test Key Authentication]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt/)
+    2. Generating a Enforcer test key - [Enforcer Test Key Authentication](https://apim.docs.wso2.com/en/latest/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt/)
 
 !!! tip
     In the above documentation, we explained the testing of SOAP APIs using `cURL` commands and WSO2 API Manager UI. If you want to test your SOAP API using a SOAP client like SOAP UI, you can read on [Test an API Using a SOAP Client]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client/).
