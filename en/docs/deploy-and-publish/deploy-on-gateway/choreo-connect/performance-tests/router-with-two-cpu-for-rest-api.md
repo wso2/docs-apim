@@ -71,6 +71,6 @@ Backend delay is assigned as zero milliseconds when obtaining test results. The 
 
 Below graphs show 90th, 95th, and 99th Response Time percentiles for 0ms backend delay. This is useful to measure the percentage of requests that exceeded the response time value for a given percentile. A percentile can also tell the percentage of requests completed below the particular response time value.
 
-<a href="{{base_path}}/assets/img/deploy/mgw/performance-test/percentile-100-2cpu.png"><img src="{{base_path}}/assets/img/deploy/mgw/performance-test/percentiles-100-2cpu.png" width="90%" ></a>
+<a href="{{base_path}}/assets/img/deploy/mgw/performance-test/percentiles-100-2cpu.png"><img src="{{base_path}}/assets/img/deploy/mgw/performance-test/percentiles-100-2cpu.png" width="90%" ></a>
 
 Test scenario results in CSV format are available [here](https://raw.githubusercontent.com/wso2/product-microgateway/main/performance/benchmarks/cpus-2/summary.csv)

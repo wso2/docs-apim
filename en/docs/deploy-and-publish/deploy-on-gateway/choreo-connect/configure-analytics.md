@@ -92,9 +92,7 @@ Follow the instructions below to generate some traffic in order to be able to vi
 
 ##  Configuring ELK Analytics
 
-Follow the instructions below to configure ELK Analytics for Choreo Connect:
-
-[![Choreo ELK Analytics Data Flow]({{base_path}}/assets/img/deploy/choreo-elk-analytics-data-flow.png)]({{base_path}}/assets/img/deploy choreo-elk-analytics-data-flow.png)
+Follow the instructions below to [configure ELK Analytics for Choreo Connect]({{base_path}}/assets/img/deploy/choreo-elk-analytics-data-flow.png)
 
 The Enforcer component in Choreo Connect can log analytics-related data to be used by Filebeat in ELK Stack. Data flow for the ELK Analytics can be depicted as given above.
 
