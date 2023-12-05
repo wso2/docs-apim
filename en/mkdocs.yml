@@ -341,7 +341,6 @@ nav:
         - Consume APIs - Overview: consume/consume-api-overview.md
         - Discover APIs:
             - Search: consume/discover-apis/search.md
-            - AI-based Recommendations for the Developer Portal: consume/discover-apis/api-recommendations.md
         - Manage Applications:
             - Create Application: consume/manage-application/create-application.md
             - Generate Keys:
@@ -1026,6 +1025,7 @@ nav:
                     - Kafka Example: reference/connectors/kafka-connector/kafka-connector-producer-example.md
                     - Kafka Connector Reference: reference/connectors/kafka-connector/3.0.x/kafka-connector-config.md
                 - Kafka Inbound Endpoint Example: reference/connectors/kafka-connector/kafka-inbound-endpoint-example.md
+                - Kafka Inbound Endpoint Reference: reference/connectors/kafka-connector/kafka-inbound-endpoint-config.md
             - LDAP Connector:
                 - LDAP Overview: reference/connectors/ldap-connector/ldap-connector-overview.md
                 - Set up an LDAP Server: reference/connectors/ldap-connector/setting-up-ldap.md
@@ -2212,6 +2212,6 @@ extra:
             version: 1.0.0-8
             git_tag: v1.0.0.8
     site_version: 4.0.0
-    base_path: https://apim.docs.wso2.com/en/4.0.0
+    base_path: https://apim.docs.wso2.com/en/staging-4.0.0
     #base_path: http://localhost:8000
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.20.0

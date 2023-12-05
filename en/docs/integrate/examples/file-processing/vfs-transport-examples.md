@@ -42,6 +42,9 @@ Following are the integration artifacts (proxy service) that we can used to impl
     </proxy>
 ```
 
+!!!note
+    The VFS transport sender operation is a one-way operation, so it is necessary to use the `OUT_ONLY` property as mentioned above, before the `send` mediator.
+    
 To configure a VFS endpoint, use the `vfs:file` prefix in the URI. For example:
 
 ```xml
