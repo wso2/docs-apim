@@ -51,4 +51,4 @@ Update the task properties to specify the incoming message that should trigger t
 
 ## Tutorials
 
--   See the tutorial on [periodically executing an integration process]({{base_path}}/integrate/tutorials/using-scheduled-tasks) using a scheduled task
+-   See the tutorial on [periodically executing an integration process]({{base_path}}/tutorials/integration-tutorials/using-scheduled-tasks) using a scheduled task
