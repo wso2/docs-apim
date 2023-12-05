@@ -523,7 +523,7 @@ to the grid of the design view when you create a Siddhi application.
                      <ul>
                         <li><strong>start</strong> : Select this to trigger events when the Streaming Integrator server has started.</li>
                         <li><strong>every</strong> : Select this to specify a time interval at which events should be triggered.</li>
-                        <li><strong>cron-expression</strong> : Select this to enter a cron expression based on which the events can be triggered. For more information about cron expressions, see the <a href="http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html</a>.</li>
+                        <li><strong>cron-expression</strong> : Select this to enter a cron expression based on which the events can be triggered. For more information about cron expressions, see the <a href="http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html"</a>.</li>
                      </ul>
                   </li>
                </ul>

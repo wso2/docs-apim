@@ -60,7 +60,7 @@ Follow the steps below to configure a parameterized endpoint as the API endpoint
                 }
             }
         ```
-        2. Add the created JAR file into the `<API-M_HOME>/repository/components/lib` folder of each Gateway. You can download a sample JAR file [here](/assets/attachments/deploy-and-publish/env-resolver-1.0.0.jar).<br/><br/>
+        2. Add the created JAR file into the `<API-M_HOME>/repository/components/lib` folder of each Gateway. You can download a sample JAR file [here]({{base_path}}/assets/attachments/deploy-and-publish/env-resolver-1.0.0.jar).<br/><br/>
         3. Add the following sequence to the `<API-M_HOME>/repository/deployment/server/synapse-configs/sequences` folder of each Gateway.
 
         ``` java

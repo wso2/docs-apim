@@ -58,7 +58,7 @@ Then, add the configurations for the specific type of tracing in order to enable
     url = "http://localhost:14250"
     ```
 
-2. Start the server. Once that is done, [Download Jaeger](https://www.jaegertracing.io/download/) and start it as mentioned in its [Quick Start Guide](https://www.jaegertracing.io/docs/1.15/#quick-start). Then the traces can be viewed from the [Jaeger UI](http://localhost:16686).
+2. Start the server. Once that is done, [Download Jaeger](https://www.jaegertracing.io/download/) and start it as mentioned in its [Quick Start Guide](https://www.jaegertracing.io/docs/1.15/#quick-start). Then the traces can be viewed from the Jaeger UI `http://localhost:16686`.
 
     [![Distributed tracing jaeger]({{base_path}}/assets/img/administer/opentelemetry-jaeger-mi.png)]({{base_path}}/assets/img/administer/opentelemetry-jaeger-mi.png)
 

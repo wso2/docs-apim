@@ -190,4 +190,4 @@ spec:
 
    `docker run -d -p 8080:8080 -v /var/run/docker.sock:/var/run/docker.sock -v ~/.kube:/root/.kube <image-name>:<image-tag>`
 
-8. After installing Jenkins, the jobs can be accessed via [http://localhost:8080/](http://localhost:8081/)
+8. After installing Jenkins, the jobs can be accessed via `http://localhost:8080/`
