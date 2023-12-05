@@ -47,11 +47,11 @@ Let's use the Star Wars sample backend server as the backend for the GraphQL API
        <div class="admonition note">
        <p class="admonition-title">Note</p>
        <ul><li>
-       <p>You need to define the SDL Schema based on the [GraphQL schema design best practices](https://leapgraph.com/graphql-schema-design-best-practices).</p></li>
+       <p>You need to define the SDL Schema based on the [GraphQL schema design best practices](https://graphql.org/learn/best-practices/).</p></li>
        <li>The file extension can be either `.graphql`, `.txt`, or `.json`. </li><li> The file name can be any name, which is based on your preference.</li></ul>
        </div>
 
-      [![Import a GraphQL schema by adding a file](../../assets/img/learn/import-graphql-schema-via-file.png){: style="width:80%"}](../../assets/img/learn/import-graphql-schema-via-file.png)
+        [![Import a GraphQL schema by adding a file](../../assets/img/learn/import-graphql-schema-via-file.png){: style="width:80%"}](../../assets/img/learn/import-graphql-schema-via-file.png)
 
 4. Enter the GraphQL API related details and click **Create**.
     
