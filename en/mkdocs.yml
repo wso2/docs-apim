@@ -409,6 +409,7 @@ nav:
             - Advanced Topics:
                 - Add Custom Attributes to Applications: consume/manage-application/advanced-topics/add-custom-attributes-to-applications.md
                 - Change the Owner of an Application: consume/manage-application/advanced-topics/changing-the-owner-of-an-application.md
+                - Change the Provider of an Api: consume/manage-application/advanced-topics/changing-the-provider-of-an-api.md
                 - Add an Application Creation Workflow: consume/manage-application/advanced-topics/adding-an-application-creation-workflow.md
                 - Add an Application Key Generation Workflow: consume/manage-application/advanced-topics/adding-an-application-key-generation-workflow.md
         - Manage Subscriptions:
