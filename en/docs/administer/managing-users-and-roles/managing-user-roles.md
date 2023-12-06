@@ -208,6 +208,6 @@ The following steps guide you through updating the role names after you have use
 
     [![tenant-configuration-file]({{base_path}}/assets/img/administer/tenant-configuration-file.png)]({{base_path}}/assets/img/administer/tenant-configuration-file.png)
 
-7. Update all the places where the "admin" key workd exists with your new admin role (i.e `administrator`).
+7. Update all the places where the "admin" key word exists with your new admin role (i.e `administrator`).
    
 8. Save the changes and restart the server.
