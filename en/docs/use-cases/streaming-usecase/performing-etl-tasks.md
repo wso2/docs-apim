@@ -246,7 +246,7 @@ In real world business scenarios, many businesses carry out about thousands of o
     
 According to the latest performance statistics of the Streaming Integrator, it can process 29,000 transactions per second when performing ETL tasks. For more information about performance statistics, see the following:
     
-- [Performance Analysis Results - Performing ETL Tasks]({{base_path}}/ref/performance-analysis-results/#performing-etl-tasks)
+- [Performance Analysis Results - Performing ETL Tasks]({{base_path}}/install-and-setup/setup/si-setup/performance-analysis-results)
 - [Streaming ETL with WSO2 Streaming Integrator article](https://wso2.com/articles/streaming-etl-with-wso2-streaming-integrator/)
 
 

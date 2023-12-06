@@ -10,7 +10,7 @@ The Amazon SQS queue will receive messages from a third party system, while the 
 
 Following diagram shows the overall solution we are going to build. The Simple Queue Service will receive messages from the outside, while the AmazonSQS inbound endpoint will consume messages based on the updates.
 
-<img src="{{base_path}}/assets/img/integrate/connectors/amazon-sqs-inboundep-example.png" title="AmazonSQS Inbound Endpoint" width="800" alt="AmazonSQS Inbound Endpoint"/>
+<img src="../../../../assets/img/integrate/connectors/amazon-sqs-inboundep-example.png" title="AmazonSQS Inbound Endpoint" width="800" alt="AmazonSQS Inbound Endpoint"/>
 
 ## Configure inbound endpoint using WSO2 Integration Studio
 
