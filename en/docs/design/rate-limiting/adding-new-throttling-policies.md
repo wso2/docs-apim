@@ -150,7 +150,7 @@ You have added a new application-level rate limiting policy.
           It is not recommended to modify the default Unlimited subscription tier. If required, you can create a separate subscription tier to represent the existing Unlimited tier and do the modifications accordingly.
           
 
-1.  Fill in the details required by this form and click **Save** once you are done.
+4.  Fill in the details required by this form and click **Save** once you are done.
 
      [![Add subscription policy page]({{base_path}}/assets/img/design/rate-limiting/save-new-subscription-policy.png)]({{base_path}}/assets/img/design/rate-limiting/save-new-subscription-policy.png)
 
