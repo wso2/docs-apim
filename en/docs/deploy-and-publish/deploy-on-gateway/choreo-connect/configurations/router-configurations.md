@@ -52,6 +52,7 @@ See the example .toml file given below.
   enforcerResponseTimeoutInSeconds = 20
   systemHost = "localhost"
   useRemoteAddress = false
+  perConnectionBufferLimitBytes = 1048576
 </code></pre>
                     </div>
                 </div>
@@ -215,6 +216,28 @@ See the example .toml file given below.
                                     </div>
                                     <div class="param-description">
                                         <p>If configured as true, the Router appends the immediate downstream IP address to the x-forward-for header.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>perConnectionBufferLimitBytes</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>1048576</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The buffer limit per connection in Bytes. Default value is 1 MiB</p>
+                                    </div>
+                                    <div class="admonition attention">
+                                        <p class="admonition-title">Update Level 4</p>
+                                        <p>This feature is available only as an update, after Update level 1.2.0.4 (released on 21 Nov 2023) and further. For more information regarding Choreo Connect updates, see <a href="https://apim.docs.wso2.com/en/latest/deploy-and-publish/deploy-on-gateway/choreo-connect/update-choreo-connect/">here</a>.</p>
                                     </div>
                                 </div>
                             </div>

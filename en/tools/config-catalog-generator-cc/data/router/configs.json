@@ -63,6 +63,13 @@
               "required": false,
               "default": false,
               "description": "If configured as true, the Router appends the immediate downstream IP address to the x-forward-for header."
+            },
+            {
+              "name": "perConnectionBufferLimitBytes",
+              "type": "integer",
+              "required": false,
+              "default": "1048576",
+              "description": "The buffered payload limit per connection in Bytes. Default value is 1 MiB"
             }
           ]
         }
