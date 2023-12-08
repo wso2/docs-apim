@@ -142,6 +142,11 @@ paths:
             Eg.
             "provider:wso2" will match an API if the provider of the API is exactly "wso2".
 
+            If you are searching an API using its name, ensure to enclose the name in double quotes.
+
+            Eg. 
+            name:"pizzashack" will match the API with the exact name "pizzashack".
+
             Additionally you can use wildcards.
 
             Eg.
