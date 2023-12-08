@@ -24,7 +24,8 @@ Follow the instructions below to change the default admin password:
         For example, the ampersand character (&) must not appear in the literal form in XML files. It can cause a Java Null Pointer exception. You must wrap it with [CDATA](https://www.w3schools.com/xml/dom_cdatasection.asp) as shown below or remove the character:  
 
     -   When you are creating the admin password do not include **£** character since it causes a buffer overflow exception. 
-
+        The letter **£** has two values (-62 and -93) as its byte representation. Therefore, limit of ByteBuffer is getting exceeded.
+  
     -   The above credentials are applied to the `jndi.properties` file.
         -   **It is not possible to use the `@` `{` `}` symbols in the username or password**.
         -   **It is also not possible to use the percentage (%) sign in the password**. When building the connection URL, the URL with credentials is parsed.
