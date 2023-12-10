@@ -395,7 +395,7 @@ You can now start updating the API resource with the mediation flow.
                     <li>
                       Now, click the <strong>f</strong> button to open the <b>Expression Selector</b> dialog box.
                     </li>
-                    <li>Enter <code>json-eval($.cardNo)</code> as the expression value.</li>
+                    <li>Enter <code>json-eval($.patient.cardNo)</code> as the expression value.</li>
                 </ol>
                     <b>Note</b>:
                     This is the JSONPath expression that will extract the card number from the request payload.
