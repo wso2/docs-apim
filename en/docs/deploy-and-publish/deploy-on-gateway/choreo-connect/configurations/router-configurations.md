@@ -29,7 +29,11 @@ See the example .toml file given below.
 ```
 
 
+
+
+
 ## Router
+
 
 <div class="mb-config-catalog">
     <section>
@@ -1100,6 +1104,67 @@ mTLSAPIsEnabled = false
                                     </div>
                                     <div class="param-description">
                                         <p>Enable mTLS APIs in Choreo Connect.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>minimumProtocolVersion</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>TLS1_1</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>TLSv1_0, TLSv1_1, TLSv1_2, TLSv1_3</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Minimum TLS protocol version.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>maximumProtocolVersion</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>TLS1_2</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>TLSv1_0, TLSv1_1, TLSv1_2, TLSv1_3</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Maximum TLS protocol version.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>ciphers</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>ECDHE-ECDSA-AES128-GCM-SHA256, ECDHE-RSA-AES128-GCM-SHA256, ECDHE-ECDSA-AES128-SHA, ECDHE-RSA-AES128-SHA, AES128-GCM-SHA256, AES128-SHA, ECDHE-ECDSA-AES256-GCM-SHA384, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-ECDSA-AES256-SHA, ECDHE-RSA-AES256-SHA, AES256-GCM-SHA384, AES256-SHA</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>If specified, the TLS listener will only support the specified ciphers when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3)</p>
                                     </div>
                                 </div>
                             </div>
