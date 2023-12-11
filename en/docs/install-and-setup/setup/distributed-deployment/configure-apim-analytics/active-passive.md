@@ -76,7 +76,7 @@ This is used to identify each node within a cluster.
         enabled: true
         intervalInMin: 1
         revisionsToKeep: 2
-        persistenceStore: io.siddhi.distribution.core.persistence.DBPersistenceStore
+        persistenceStore: org.wso2.carbon.streaming.integrator.core.persistence.DBPersistenceStore
         config:
           datasource: PERSISTENCE_DB   # A datasource with this name should be defined in wso2.datasources namespace
           table: PERSISTENCE_TABLE
