@@ -89,13 +89,13 @@ Follow the instructions below to point WSO2 API Manager to a remote Redis Server
 If you are using an unauthenticated Redis server, you should add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
 ``` bash tab="Format"
-[redis_config]
+[apim.redis_config]
 host = {redis-server-hostname}
 port = {redis-server-port}
 ```
 
 ``` bash tab="Example"
-[redis_config]
+[apim.redis_config]
 host = "localhost"
 port = 8080
 ```
@@ -105,7 +105,7 @@ port = 8080
 If you are using an authenticated Redis server, you should add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
 ``` bash tab="Format"
-[redis_config]
+[apim.redis_config]
 host = {redis-server-hostname}
 port = {redis-server-port}
 user = {redis-server-username}
@@ -116,7 +116,7 @@ ssl = {redis-server-is-ssl-enabled}
 ```
 
 ``` bash tab="Example"
-[redis_config]
+[apim.redis_config]
 host = "localhost"
 port = 8080
 user = "admin"
