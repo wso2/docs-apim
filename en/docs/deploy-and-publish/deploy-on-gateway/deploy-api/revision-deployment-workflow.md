@@ -1,6 +1,6 @@
 # Revision Deployment Workflow
 
-In this section let's see how to add a simple approval workflow to control the deployment of revisions in WSO2 API Manager. When the revisions deployment workflow is activated, a gateway can simultaneously have both a deployed revision and a pending revision. In this setup, developers have the capability to submit a revision deployment request to their chosen gateway.
+In this section let's see how to add a simple approval workflow to control the deployment of revisions in WSO2 API Manager. When the revisions deployment workflow is activated, a gateway can simultaneously have both a deployed revision and a pending revision. In this setup, developers can submit a revision deployment request to their chosen gateway.
 
 ## Engaging the Approval Workflow Executor in API Manager
 
@@ -30,7 +30,7 @@ In this section let's see how to add a simple approval workflow to control the d
 
        You have now engaged the revision deployment approval Workflow.
 
-2.  Trigger an deploy a revision request.
+2.  Invoke 'Deploy a Revision' request.
 
     1. Sign in to the API Publisher (`https://<Server-Host>:9443/publisher`) and click the relevant API and go to deployments tab.
 
@@ -54,7 +54,7 @@ In this section let's see how to add a simple approval workflow to control the d
 
     2. Click **Tasks** --> **API Revision Deployment**.
 
-       The list of API revision deployment tasks awaiting for approval appears.
+       The list of API revision deployment tasks awaiting approval appears.
 
     3. Click on **Approve** or **Reject** to approve or reject the pending API revision deployment request(s).
 
