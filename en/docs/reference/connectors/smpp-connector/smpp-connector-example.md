@@ -59,9 +59,9 @@ Create a resource to send an SMS to the Short Message Service Center.
 
 2. Set up the sendSMS operation.
 
-    1. Navigate into the **Palette** pane and select the graphical operations icons listed under **SMPP Connector** section. Then drag and drop the `sendSMS` operation into the Design pane.
+        1. Navigate into the **Palette** pane and select the graphical operations icons listed under **SMPP Connector** section. Then drag and drop the `sendSMS` operation into the Design pane.
            
-        <img src="{{base_path}}/assets/img/integrate/connectors/smpp-drag-and-drop-sendSMS.png" title="Drag and drop send operation" width="500" alt="Drag and drop send operation"/>    
+        <img src="{{base_path}}/assets/img/integrate/connectors/smpp-drag-and-drop-sendsms.png" title="Drag and drop send operation" width="500" alt="Drag and drop send operation"/>    
 
     2. In this operation we are going to send a SMS messages peer to peer using SMPP protocol. It provides a flexible data communications interface for transfer of short message data between a Message Centers, such as a Short Message Service Centre (SMSC), GSM Unstructured Supplementary Services Data (USSD) Server or other type of Message Center and a SMS application system, such as a WAP Proxy Server, EMail Gateway or other Messaging Gateway. Please find the `send` operation parameters listed here.
                
@@ -71,11 +71,11 @@ Create a resource to send an SMS to the Short Message Service Center.
         
         While invoking the API, the above three parameters values come as a user input.
         
-        <img src="{{base_path}}/assets/img/integrate/connectors/smpp-drag-and-drop-sendSMS-parameters.png" title="Drag and drop send operation" width="500" alt="Drag and drop send operation"/> 
+        <img src="../../../../assets/img/integrate/connectors/smpp-drag-and-drop-sendSMS-parameters.png" title="Drag and drop send operation" width="500" alt="Drag and drop send operation"/> 
     
     3. To get the input values in to the API we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator). Navigate into the **Palette** pane and select the graphical mediators icons listed under **Mediators** section. Then drag and drop the `Property` mediators into the Design pane as shown bellow.
     
-        <img src="{{base_path}}/assets/img/integrate/connectors/smpp-api-drag-and-drop-property-mediator.png" title="Add property mediators" width="800" alt="Add property mediators"/>
+        <img src="../../../../assets/img/integrate/connectors/smpp-drag-and-drop-sendsms-parameters.png" title="Add property mediators" width="800" alt="Add property mediators"/>
 
         The parameters available for configuring the Property mediator are as follows:
     

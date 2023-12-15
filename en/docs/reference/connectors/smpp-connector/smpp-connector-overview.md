@@ -28,9 +28,9 @@ The SMPP Connector allows you to send an SMS from an integration sequence. It us
 
 The SMPP inbound endpoint allows you to consume messages from SMSC from an integration sequence. The WSO2 SMPP inbound endpoint acts as a message consumer. It creates a connection with the SMSC, then listens over a port to consume only SMS messages from the SMSC and injects the messages to the integration sequence. It will receive alert notifications or will notify when a data short message accepted.
 
-* **[SMPP Inbound Endpoint Example]({{base_path}}/reference/smpp-connector/smpp-inbound-endpoint-example/)**: This scenario demonstrates how the SMPP inbound endpoint works as an message consumer. 
+* **[SMPP Inbound Endpoint Example]({{base_path}}/reference/connectors/smpp-connector/smpp-connector-example)**: This scenario demonstrates how the SMPP inbound endpoint works as an message consumer. 
 
-* **[SMPP Inbound Endpoint Reference]({{base_path}}/reference/smpp-connector/smpp-inbound-endpoint-config/)**: This documentation provides a reference guide for SMPP Inbound Endpoint.
+* **[SMPP Inbound Endpoint Reference]({{base_path}}/reference/connectors/smpp-connector/smpp-connector-config)**: This documentation provides a reference guide for SMPP Inbound Endpoint.
 
 ## How to contribute
 
