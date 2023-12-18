@@ -257,15 +257,15 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
       </tr>
       <tr class="odd">
       <td>PEM</td>
-      <td>Either copy and paste the certificate in PEM format or upload the PEM file.</td>
-      <td>Optional</td>
+      <td>Either copy and paste the certificate in PEM format or upload the PEM file. Note that the PEM content should be in X.509 public key infrastructure (PKI) standard.</td>
+      <td>Optional (Mandatory if JWKS is not provided)</td>
       </tr>
       <tr class="even">
       <td>JWKS</td>
       <td>The JSON Web Key Set (JWKS) endpoint is a read-only endpoint. This URL returns the Identity Server's public key set in JSON web key set format.
       This contains the signing key(s) the Relying Party (RP) uses to validate signatures from the Identity Server. </br>
       e.g., <code>https://localhost:9444/oauth2/jwks</code></td>
-      <td>Optional</td>
+      <td>Optional (Mandatory if PEM is not provided)</td>
       </tr>
       <tr class="odd">
       <td colspan="3"><b>Advanced Configurations</b></td>
