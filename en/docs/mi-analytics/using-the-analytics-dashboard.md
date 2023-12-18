@@ -1,5 +1,9 @@
 # Access the MI Analytics Portal
 
+!!! note
+
+    - The MI Analytics feature has been deprecated. This solution is recommended only for users who are using WSO2 EI 7.0.0 and want to migrate in to a newer version while retaining the already existing analytics data.
+    
 Let's use **MI Analytics** to view and monitor **statistics** and **message tracing**.
 
 You can monitor the following statistics and more through the MI Analytics Portal:
