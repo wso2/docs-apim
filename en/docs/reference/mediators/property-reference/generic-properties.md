@@ -477,11 +477,10 @@ Generic properties allow you to configure messages as they're processed by the 
 </tr>
 <tr class="odd">
 <td><p><strong>Description</strong></p></td>
-<td><p>If this property is set to <code>              true             </code> , the result of file content processing carried out by the <a href="{{base_path}}/reference/mediators/smooks-Mediator">Smooks Mediator</a> will not be loaded into the message context. This is useful in situations where you want to avoid large memory growth/out of heap space issue that may occur when large files processed by the Smooks mediator are</p></td>
-</tr>
+<td><p>If this property is set to <code>              true             </code> , the result of file content processing carried out by the <a href="{{base_path}}/reference/mediators/smooks-Mediator">Smooks Mediator</a> will not be loaded into the message context. This is useful in situations where you want to avoid large memory growth/out of heap space issue that may occur when large files processed by the Smooks mediator are reprocessed.</p></td></tr>
 <tr class="even">
 <td><p><strong>Example</strong></p></td>
-<td><div class="content-wrapper">x
+<td><div class="content-wrapper">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1"></a>&lt;property name=<span class="st">&quot;DISABLE_SMOOKS_RESULT_PAYLOAD&quot;</span>   value=<span class="st">&quot;true&quot;</span> scope=<span class="st">&quot;default&quot;</span>     type=<span class="st">&quot;STRING&quot;</span>/&gt;</span></code></pre></div>
