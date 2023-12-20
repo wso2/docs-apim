@@ -242,7 +242,7 @@ The SOAP 1.1 or 1.2 body element. For example, the expression **$body//getQuote*
 
 **Example of $body usage**:
 
-1.  Deploy the following proxy service using instructions in [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service).  
+1.  Deploy the following proxy service using instructions in [Creating a Proxy Service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service).  
       
     Note the property, `<property xmlns:m0="http://services.samples" name="stockprop" expression="$body//m0:getQuote"/>` in the configuration. It is used to log the first `<m0:getQuote>` element of the request SOAP body.
 
@@ -435,7 +435,7 @@ name="stockerrorprop" expression="$ctx:ERROR\_MESSAGE"/\> is equivalent
 to \<property name="stockerrorprop"
 expression="get-property('ERROR\_MESSAGE')"/\>.  
   
-Similarly, you can use $ctx prefix with [Generic Properties]({{base_path}}/reference/property-reference/generic-properties).
+Similarly, you can use $ctx prefix with [Generic Properties]({{base_path}}/reference/mediators/property-reference/generic-properties).
 
 ### $trp
 
@@ -491,7 +491,7 @@ expression="$trp:Content-Type"/\> is equivalent to \<property
 name="stockprop"
 expression="get-property('transport','Content-Type')"/\>. Similarly, you
 can use $trp prefix with [HTTP Transport
-Properties](_HTTP_Transport_Properties_) .
+Properties]({{base_path}}/reference/mediators/property-reference/http-transport-properties/) .
 
 ### $url
 
@@ -499,7 +499,7 @@ The prefix used to get the URI element of a request URL.
 
 **Example of $url usage:**
 
-1.  Create a REST API with the following configuration using instructions given in page [Working with APIs]({{base_path}}/develop/creating-artifacts/creating-an-api).
+1.  Create a REST API with the following configuration using instructions given in page [Working with APIs]({{base_path}}/reference/mediators/property-reference/generic-Properties).
 
     ``` xml
     <api xmlns="http://ws.apache.org/ns/synapse" name="Editing" context="/editing">
@@ -536,7 +536,7 @@ Mediator]({{base_path}}/reference/mediators/call-template-mediator).
 
 **Example of $func usage:**
 
-1.  Add a sequence template with the following configuration. See [Adding a New Sequence Template]({{base_path}}/develop/creating-artifacts/creating-reusable-sequences) for detailed instructions.
+1.  Add a sequence template with the following configuration. See [Adding a New Sequence Template]({{base_path}}/integrate/develop/creating-artifacts/creating-reusable-sequences) for detailed instructions.
 
     ``` xml
     <template xmlns="http://ws.apache.org/ns/synapse" name="HelloWordLogger">
@@ -593,7 +593,7 @@ Prefix used to get a SOAP 1.1 or 1.2 envelope level element. For example, to get
 
 **Example of $env usage:**
 
-1.  Create an API with the following configuration. For information on how to create an API, see [Working with APIs]({{base_path}}/develop/creating-artifacts/creating-an-api).
+1.  Create an API with the following configuration. For information on how to create an API, see [Working with APIs]({{base_path}}/reference/mediators/property-reference/generic-Properties).
 
     ``` xml
     <api context="/soapEnvelopeTest" name="SoapEnvelopeTest">

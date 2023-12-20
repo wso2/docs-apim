@@ -128,7 +128,7 @@ Follow the steps below to enable statistics and tracing for the **REST API** ar
 1.  Select `HealthcareAPI` in the canvas of WSO2 Integration Studio to open the **Properties** tab.
 2.  Select **Statistics Enabled** and (if required) **Trace Enabled** as shown below.
 
-    <img src="{{base_path}}/assets/img/integrate/mi-analytics/restapi-properties.png" alt="rest api properties" width=" 500">
+    <img src="{{base_path}}/assets/img/integrate/mi-analytics/restapi-properties.png" alt="rest api properties" width="500">
 
 #### Endpoint artifacts
 
