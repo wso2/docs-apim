@@ -33,7 +33,7 @@ To customize the default workflow extension, you override the **`execute()`** an
        public WorkflowResponse execute(WorkflowDTO workflowDTO) throws WorkflowException {
            super.execute(workflowDTO);
     ```
-4.  In the **`execute()`** method define the `CallbackUrl`, `RedirectUrl`, `workflowRefId`, and `RedirectConfirmationMsg`. The CallbackUrl should ideally be an open endpoint accepting workflowRefId as a parameter. Once the endpoint is invoked, it should in-turn invoke the [Admin REST APIs callback method]({{base_path}}/reference/product-apis/admin-apis/admin-v2/admin-v2/#tag/Workflows/paths/~1workflows~1update-workflow-status/post)
+4.  In the **`execute()`** method define the `CallbackUrl`, `RedirectUrl`, `workflowRefId`, and `RedirectConfirmationMsg`. The CallbackUrl should ideally be an open endpoint accepting workflowRefId as a parameter. Once the endpoint is invoked, it should in-turn invoke the [Admin REST APIs callback method]({{base_path}}/reference/product-apis/admin-apis/admin-v2/admin-v2/#tag/Workflows/paths/~1workflows~1update-workflow-status/post) Note that the Admin REST API resources require authentication before invocation.
 
         @Override
         public WorkflowResponse execute(WorkflowDTO workflowDTO) throws WorkflowException {
