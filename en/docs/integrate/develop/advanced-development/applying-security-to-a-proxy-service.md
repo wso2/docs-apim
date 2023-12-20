@@ -117,7 +117,7 @@ Either define the user roles inline or retrieve the user roles from the server.
 
 ## Step 4 - Build and run the artifacts
 
-[Deploy the artifacts]({{base_path}}/integrate/develop/deploy-and-run).
+[Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts/).
 
 ## Step 5 - Testing the service
 

@@ -26,9 +26,9 @@ Follow the steps below to generate user credentials.
   
     <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-select-web-application.png" title="Select web application" width="600" alt="Select web application"/> 
 
-5. Add [https://www.google.com](https://www.google.com) as the redirect URI (you can add any URI that you need as redirect URI) under **Authorized redirect URIs**, and then click **Create**. This displays the **client ID** and **client secret**.
+    5. Add [https://www.google.com](https://www.google.com) as the redirect URI (you can add any URI that you need as redirect URI) under **Authorized redirect URIs**, and then click **Create**. This displays the **client ID** and **client secret**.
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/biguery-authorization-redirect-URI.png" title="Authorization-redirect-URI" width="600" alt="Authorization-redirect-URI"/> 
+    <img src="../../../../assets/img/integrate/connectors/biguery-authorization-redirect-URI.png" title="Authorization-redirect-URI" width="600" alt="Authorization-redirect-URI"/> 
    
 6. Make a note of the **client ID** and **client secret** that is displayed, and then **click OK**.   
    

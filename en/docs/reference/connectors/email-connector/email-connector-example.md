@@ -105,13 +105,13 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
     
     - Subject Regex: json-eval($.subjectRegex)
     
-14. We will next iterate the response received and obtain the email content of each email using the `getEmailBody` operation. In order to do this, drag and drop the [Foreach Mediator]({{base_path}}/reference/mediators/foreach-mediator) as shown below and enter `//emails/email` as the Foreach Expression in the properties window.
+14. We will next iterate the response received and obtain the email content of each email using the `getEmailBody` operation. In order to do this, drag and drop the [Foreach Mediator]({{base_path}}/reference/mediators/foreach-mediator) as shown below and enter `//emails/email` as the Foreach Expression in the properties window.<br>
     <img src="{{base_path}}/assets/img/integrate/connectors/email-conn-9.png" title="Adding foreach mediator." width="800" alt="Adding foreach mediator."/>
 
-15. Inside the [Foreach Mediator]({{base_path}}/reference/mediators/foreach-mediator), drag and drop the `getEmailBody` operation as shown below and provide the `//email/index/text()` expression as the Email Index.
+15. Inside the [Foreach Mediator]({{base_path}}/reference/mediators/foreach-mediator), drag and drop the `getEmailBody` operation as shown below and provide the `//email/index/text()` expression as the Email Index.<br>
     <img src="{{base_path}}/assets/img/integrate/connectors/email-conn-10.png" title="Adding getEmailBody operation." width="800" alt="Adding getEmailBody operation."/>
 
-    > **NOTE**: Further, you can use `getAttachment` operation to retrieve attachment content if there are any. Refer [Reference Documentation]({{base_path}}/reference/connectors/email-connector-config) to learn more.
+    > **NOTE**: Further, you can use `getAttachment` operation to retrieve attachment content if there are any. Refer [Reference Documentation]({{base_path}}/reference/connectors/email-connector/email-connector-config) to learn more.
 
 16. Next, we will use a [Payload Factory Mediator]({{base_path}}/reference/mediators/payloadfactory-mediator), to add the email content to the same response we received from `list` operation and configure the Payload mediator as shown below.
     <img src="{{base_path}}/assets/img/integrate/connectors/email-conn-11.png" title="Adding payload factory mediator." width="800" alt="Adding payload facotry mediator."/>

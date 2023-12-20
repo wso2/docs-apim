@@ -32,7 +32,7 @@ For more information about these operations, please refer to the [Amazon DynamoD
 
 The following diagram shows the overall solution. The user creates a table, stores some employee details (items) into the table, and then receives it back. To invoke each operation, the user uses the same API. 
 
-<img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-connector-example.jpg" title="Amazon DynamoDB connector example" width="800" alt="Amazon DynamoDB connector example"/>
+<img src="../../../../assets/img/integrate/connectors/amazon-dynamoDB-connector-example.jpg" title="Amazon DynamoDB connector example" width="800" alt="Amazon DynamoDB connector example"/>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
@@ -940,4 +940,4 @@ Invoke the API as shown below using the curl command. Curl Application can be do
    ```
 ## What's next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/install/installing-the-product/run_in_containers).
+* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/integrate/develop/deploy-artifacts/).

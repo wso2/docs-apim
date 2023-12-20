@@ -127,9 +127,6 @@ To start developing integration solutions, you need to first <a href="{{base_pat
                     <li>
                         <a href="{{base_path}}/integrate/develop/creating-artifacts/registry/creating-local-registry-entries/">Local Entry</a>
                     </li>
-                    <li>
-                        <a href="{{base_path}}/integrate/develop/creating-artifacts/creating-smooks-artifacts/">Smooks</a>
-                    </li>
                 </ul>
             </td>
         <tr>
@@ -311,7 +308,7 @@ It is recommended to use a <b>CICD pipeline</b> to deploy your tested integratio
             <b>Kubernetes Environment</b>
         </td>
         <td>
-            If you have a <b>Kubernetes deployment</b>, see the instructions on how to use the <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/k8s-pipeline/overview">Kubernetes CICD pipeline</a>.
+            If you have a <b>Kubernetes deployment</b>, see the instructions on how to use the <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/mi-cicd-k8s/">Kubernetes CICD pipeline</a>.
         </td>
     </tr>
 </table>

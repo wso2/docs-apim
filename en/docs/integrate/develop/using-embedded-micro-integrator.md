@@ -32,7 +32,7 @@ When you [deploy the artifacts and start](#deploy-and-run-artifacts-in-the-embed
 
 If you have closed the tab and you want to open it again, go to <b>Window -> Show View -> Other</b> and select <b>Runtime Services</b>.
 
-<img src="{{base_path}}/assets/img/integrate/testing-integrations/show-deployed-endpoints.jpg" width="300">
+<img src="{{base_path}}/assets/img/integrate/testing-integrations/show-deployed-endpoints.png" width="700">
 
 ## Update (embedded) server configurations and libraries
 

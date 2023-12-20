@@ -108,7 +108,7 @@ To try out the example given above, follow the steps below:
     
 ### Publishing data on demand via store queries
 
-To understand how to publish data on demand, see [Correlating Data]({{base_path}}/correlating-data)
+To understand how to publish data on demand, see [Correlating Data]({{base_path}}/use-cases/streaming-usecase/correlating-data)
 
 ### Supported databases
 

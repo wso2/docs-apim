@@ -33,7 +33,7 @@ You can integrate WSO2 Identity Server with WSO2 API Manager and use your social
 7.  Go to **Set Up the Facebook SDK for JavaScript** and click **Next** until the steps are complete.
 8.  Click **Settings** and select **Basic**. You can find your `App ID` and the `App Secret` as shown in the image below.
 
-    ![Facebook App Id]({{base_path}}/assets/img/learn/appId-facebook.png)
+    ![Facebook App Id](../../../../assets/img/learn/appId-facebook.png)
 
 9.  Select a **Category** for you application.
 
