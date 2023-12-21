@@ -103,7 +103,7 @@ listener.parameter.PreferredCiphers = "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,T
 ```
 
 !!! Note
-    To check the above configuration changes related to SSL. Download [testsslserver.jar]({{base_path}}/assets/attachments/admin/testsslserver.jar) and test with the following command.
+    To check the above configuration changes related to SSL. Download [testsslserver.jar](/assets/attachments/admin/TestSSLServer.jar) and test with the following command.
 
     $ java -jar testsslserver.jar localhost 8253
 
