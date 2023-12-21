@@ -29,7 +29,7 @@ Most healthcare centers have a system that is used to make doctor appointments. 
 
 
 !!! Tip
-    You may export` <mi-qsg-home>/HealthcareIntegrationProject` to Integration Studio to view the project structure.
+    You may export `<mi-qsg-home>/HealthcareIntegrationProject` to Integration Studio to view the project structure.
 
 In the above scenario, the following takes place:
 
