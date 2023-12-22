@@ -391,7 +391,7 @@ application as follows:
 
 2. In the **Siddhi Apps to Deploy** section, select the check box for the **StoreRdbmsError.siddhi** application. In the **Servers** section, select the check box for the server you added. Then click **Deploy**.
 
-    ![Select StoreRdbmsError Siddhi Application and Server]({{base_path}}/assets/img/streaming/handling-requests-with-errors/select-store-rdbms-error-app-and-server.png)
+    ![Select StoreRdbmsError Siddhi Application and Server](../../../../assets/img/streaming/handling-requests-with-errors/select-store-rdbms-error-app-and-server.png)
 
     The following log is displayed in the Streaming Integrator console.
     
@@ -445,7 +445,7 @@ To manage the error in the Error Store Explorer, follow the procedure below:
     The erroneous event is displayed as a editable table as shown below. Change the value of batchID from `1` to `2` and 
     click **Replay**.
 
-    ![Replay Error]({{base_path}}/assets/img/streaming/handling-requests-with-errors/replay-error-StoreRdbmsError.png)
+    ![Replay Error](../../../../assets/img/streaming/handling-requests-with-errors/replay-error-StoreRdbmsError.png)
 
     As a result, the **Error Entry** dialog box closes, and the **Error Store Explorer** dialog box is displayed with 
     no errors.
