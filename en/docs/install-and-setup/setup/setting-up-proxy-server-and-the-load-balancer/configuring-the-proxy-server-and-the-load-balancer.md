@@ -106,7 +106,7 @@ Carry out the following steps to configure the load balancer to front multiple 
         nginx -V
         ```
 
-    2.  Update the `ngnix.conf` file with the required NGINX configuration given below. If not, you can create a file with the `.conf` suffix and copy it to the `<NGINX_HOME>/conf.d` directory.
+    2.  Update the `nginx.conf` file with the required NGINX configuration given below. If not, you can create a file with the `.conf` suffix and copy it to the `<NGINX_HOME>/conf.d` directory.
 
 !!! note
     -   All ports are default ports assuming no port offsets are used.
