@@ -31,6 +31,9 @@ Follow the instructions below to create a new version of an existing API:
      You are redirected to the API **Overview** page. 
 
 !!! note
+    For API Product versioning create an API Product following [Create an API Product]({{base_path}}/design/create-api-product/create-api-product). Then follow the above steps as similar to API versioning.
+
+!!! note
     For more details on the default version, see [Backward Compatibility]({{base_path}}/design/api-versioning/backward-compatibility/) section.
 
 !!! note

@@ -28,14 +28,14 @@
     -   **Command**
      
         ```go
-        apictl export api-product -n <API Product-name> --rev <revision-number> -r <provider> -e <environment>  
+        apictl export api-product -n <API Product-name> -v <version> --rev <revision-number> -r <provider> -e <environment>  
         ``` 
         ```go
-        apictl export api-product --name <API Product-name> --provider <provider> --environment <environment>  
+        apictl export api-product --name <API Product-name> --version <version> --provider <provider> --environment <environment>  
         ```
 
         ```go
-        apictl export api-product -n <API Product-name> --rev <revision-number> -r <provider> -e <environment> --preserve-status=<preserve-status> --format <export-format>  
+        apictl export api-product -n <API Product-name> -v <version> --rev <revision-number> -r <provider> -e <environment> --preserve-status=<preserve-status> --format <export-format>  
         ``` 
 
         !!! info
@@ -43,6 +43,7 @@
             
             -    Required :  
                 `--name` or `-n` : Name of the API Product to be exported      
+                `--version` or `-v` : Version of the API to be exported  
                 `--environment` or `-e` : Environment from which the API Product should be exported  
             -    Optional :   
                 `--rev` : Revision Number of the API Product. If not provided, working copy of the API Product will be exported.     
@@ -53,10 +54,10 @@
             
         !!! example
             ```go
-            apictl export api-product -n LeasingAPIProduct -e dev 
+            apictl export api-product -n LeasingAPIProduct -v 1.0.0 -e dev 
             ```
             ```go
-            apictl export api-product -n CreditAPIProduct --rev 2 -r admin -e production --preserve-status=true --format JSON 
+            apictl export api-product -n CreditAPIProduct -v 1.0.0 --rev 2 -r admin -e production --preserve-status=true --format JSON 
             ```            
 
     -   **Response**
@@ -121,7 +122,7 @@ The structure of an exported API Product ZIP file is explained below:
         </tr>
         <tr class="even">
             <td><code>api_product_meta.yaml</code></td>
-            <td>The meta-information file of the source artifact (This includes the name and the version of the API Product. Since currently we do not have the version support for API Products, the version will be always 1.0.0).</td>
+            <td>The meta-information file of the source artifact (This includes the name and the version of the API Product.).</td>
         </tr>
         <tr class="odd">
             <td><code>deployment_environments.yaml</code></td>
