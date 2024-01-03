@@ -38,6 +38,11 @@ Here we introduce a new rule `wso2-email-rule` to check whether the email addres
 
 5. Click **Save** on the bottom of the page.
 
+Alternatively:
+
+1. Go the the product home folder
+2. Navigate to <APIM_HOME>/repository/resources
+3. Open the tenant-conf.json file and add the "LinterCustomRules" JSON object along with the necessary rules there.
 
 ## Step 2: Observe API linter validation results
 
