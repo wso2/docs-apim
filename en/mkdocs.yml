@@ -233,6 +233,7 @@ nav:
                     #- Add a Non-Blocking Send Operation: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-a-non-blocking-send-operation.md
                     #- Add a Class Mediator:  deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-a-class-mediator.md
                     #- Configure message builders and formatters: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/configuring-message-builders-formatters.md
+                - Gateway Policies: deploy-and-publish/deploy-on-gateway/api-gateway/gateway-policies.md
                 - Response Caching: deploy-and-publish/deploy-on-gateway/api-gateway/response-caching.md
                 - Threat Protectors:
                     - Regular Expression Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
@@ -1848,6 +1849,7 @@ plugins:
               'learn/api-gateway/message-mediation/adding-a-non-blocking-send-operation.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-a-non-blocking-send-operation/'
               'learn/api-gateway/message-mediation/adding-a-class-mediator.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-a-class-mediator/'
               'learn/api-gateway/message-mediation/configuring-message-builders-formatters.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/configuring-message-builders-formatters/'
+              'learn/api-gateway/gateway-policies.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/api-gateway/gateway-policies/'
               'learn/api-gateway/response-caching.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/api-gateway/response-caching/'
               'learn/api-gateway/message-tracing.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-tracing/'
               'learn/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway/'
