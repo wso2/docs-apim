@@ -37,7 +37,7 @@ The following is the list of tested JDKs.
 <li>CentOS 7.4, 7.5</li>
 <li>Red Hat Enterprise Linux 8.3, 8.7, 9.3</li>
 <li>SUSE Linux 12</li>
-<li>Rocky Hat Enterprise Linux 9.3</li>
+<li>Rocky Linux 9.3</li>
 <li>Windows Server 2016</li>
 <li>Windows Server 2019</li>
 </ul>
