@@ -6,7 +6,7 @@ In WSO2 API Manager, managing Global Level Policies within the gateway infrastru
     Policies added globally using the older approach: creating XML files following the naming pattern `WSO2AM--Ext--<DIRECTION>` and saving them in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences` directory, will not be overridden by the global policies added through the UI. Policies applied via manual file addition will take precedence over the policies deployed through the UI.
 
 !!! warning
-    A specific gateway with active global policy deployments will apply to all the APIs deployed on that gateway. Similarly, this applies to tenants within multi tenanted setup. Global policies will be applied to all APIs belonging to a specific gateway corresponding to the logged-in tenant during the deployment of the global policy.
+    The active global policy deployment on a specific gateway will apply to all the APIs deployed on that gateway. Similarly, this applies to tenants within multi tenanted setup. Global policies will be applied to all APIs belonging to a specific gateway corresponding to the logged-in tenant during the deployment of the global policy.
 
 ## Step 1 - Create a gateway policy
 
