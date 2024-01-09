@@ -230,11 +230,11 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
                         --admin https://apim.com:9444 \
                         --publisher https://apim.com:9444 \
                         --devportal https://apps.com:9444 \
-                        --token https://gw.com:8244/token                        
+                        --token https://apim.com:9444/oauth2/token                        
             ```
 
             ``` bash tab="Mac/Windows"
-            apictl add env production --registration https://idp.com:9444  --admin https://apim.com:9444 --publisher https://apim.com:9444 --devportal https://apps.com:9444 --token https://gw.com:8244/token
+            apictl add env production --registration https://idp.com:9444  --admin https://apim.com:9444 --publisher https://apim.com:9444 --devportal https://apps.com:9444 --token https://apim.com:9444/oauth2/token
             ```  
 
     -   Adding a WSO2 API-M to an environment using some of the `--registration`, `--publisher`, `--devportal`, `--admin` flags along with `--apim` flag
@@ -245,11 +245,11 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
             apictl add env production \
                         --registration https://idp.com:9444 \
                         --apim https://apim.com:9444 \
-                        --token https://gw.com:8244/token
+                        --token https://apim.com:9444/oauth2/token
             ```
 
             ``` bash tab="Mac/Windows"
-            apictl add env production --registration https://idp.com:9444 --apim https://apim.com:9444 --token https://gw.com:8244/token
+            apictl add env production --registration https://idp.com:9444 --apim https://apim.com:9444 --token https://apim.com:9444/oauth2/token
             ```  
 
     -   Adding a WSO2 MI to an environment using `--mi` flag
@@ -348,8 +348,8 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
 
         ```bash tab="Example Response"
         NAME         API MANAGER ENDPOINT     REGISTRATION ENDPOINT    TOKEN ENDPOINT                  PUBLISHER ENDPOINT       DEVPORTAL ENDPOINT       ADMIN ENDPOINT             MI MANAGEMENT ENDPOINT
-        dev          https://localhost:9443   https://localhost:9443   https://localhost:8243/token    https://localhost:9443   https://localhost:9443   https://localhost:9443
-        production   https://localhost:9444   https://localhost:9444   https://localhost:8244/token    https://localhost:9444   https://localhost:9444   https://localhost:9444     https://localhost:9164
+        dev          https://localhost:9443   https://localhost:9443   https://localhost:9443/oauth2/token    https://localhost:9443   https://localhost:9443   https://localhost:9443
+        production   https://localhost:9444   https://localhost:9444   https://localhost:9443/oauth2/token    https://localhost:9444   https://localhost:9444   https://localhost:9444     https://localhost:9164
         dev-mi                                                                                                                                                                      https://localhost:9164
 
         ```

@@ -9,7 +9,7 @@ WSO2 API Manager overcomes the latter mentioned problem by using a mechanism tha
 Use the following sample cURL command format to request a token with a `device_` scope.
 
 ```
-curl -k -d"grant_type=password&username=<username>&password=<password>&scope=device_ipad"-H"Authorization :Basic base64encode(consumer-key:consumer-secret), Content-Type: application/x-www-form-urlencoded"https://localhost:8243/token
+curl -k -d"grant_type=password&username=<username>&password=<password>&scope=device_ipad"-H"Authorization :Basic base64encode(consumer-key:consumer-secret), Content-Type: application/x-www-form-urlencoded"https://localhost:9443/oauth2/token
 ```
 
 Each token request that is made with a different scope, results in a different access token being issued. For example if you received a token named `abc` as a result of the scope `device_ipad`, you will not receive `abc` when you request for the token with the scope `device_iphone`. 
