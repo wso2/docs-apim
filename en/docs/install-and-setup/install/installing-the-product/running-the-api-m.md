@@ -59,7 +59,7 @@ Note that the server is running on `localhost` by default. You can use these URL
 !!! Info  
     To change the default hostname/port and to secure the API-M portals, see the following topics:
 
-    - [Changing the API-M hostname]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m)
+    - [Changing the API-M hostname]({{base_path}}/install-and-setup/setup/deployment-best-practices/changing-the-hostname/#changing-the-api-m-hostname)
     - [Changing the default API-M ports]({{base_path}}/install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset/#changing-the-default-api-m-ports)
     - [Securing API-M Web Portals]({{base_path}}/install-and-setup/setup/security/securing-api-m-web-portals)
 
