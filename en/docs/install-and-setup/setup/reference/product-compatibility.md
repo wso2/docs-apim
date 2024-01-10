@@ -108,7 +108,7 @@ The **Micro Integrator** runtime is tested with the following databases:
 |--------------|-----------|
 |MySQL         | 5.7, 8    |
 |Oracle        | 12c release 2, 19c  |
-|Microsoft SQL Server| 2017|
+|Microsoft SQL Server| 2017, 2019, 2022 |
 |PostgreSQL            |10 |
 
 ## Streaming Integrator compatibility
