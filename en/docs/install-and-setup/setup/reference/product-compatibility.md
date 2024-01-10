@@ -48,7 +48,7 @@ The **WSO2 API-M** runtime is tested with the following databases:
 </tr>
 <tr>
 <td>Microsoft SQL Server</td>
-<td>2017</td>
+<td>2017, 2019, 2022</td>
 </tr>
 <tr>
 <td>PostgreSQL</td>
