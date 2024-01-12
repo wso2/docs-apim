@@ -50,3 +50,11 @@ The hostname verification is **disabled** by default. This is done using the `o
     -   **AllowAll:** This option turns off hostname verification for the server. Note that this is not recommended in a production setup and should only be used for demonstrations and testing.
 
 
+### Configuring hostname verification for WebSockets
+
+WebSocket hostname verification is **enabled** by default. In order to disable hostname verification for WebSockets the following configuration needs to be added to the `deployment.toml` file in `<PRODUCT_HOME>/repository/conf` .
+
+```toml
+[transport.wss.sender.parameters]
+"ws.client.enable.hostname.verification" = false
+```

@@ -10,7 +10,7 @@ Follow the instructions below to set a maximum backend throughput for a given AP
 
 2.  Click on the API for which you want to set the maximum backend throughput.
     
-    [![Select API]({{base_path}}/assets/img/learn/select-api.png){: style="width:30%"}]({{base_path}}/assets/img/learn/select-api.png)
+    [![Select API]({{base_path}}/assets/img/learn/select-api-with-business-info.png){: style="width:30%"}]({{base_path}}/assets/img/learn/select-api-with-business-info.png)
     
 3.  Navigate to **API Configurations** and click **Runtime**.
 

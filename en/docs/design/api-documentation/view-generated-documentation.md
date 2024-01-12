@@ -9,7 +9,7 @@ This feature does not support other API types.
 
 2.  Click on the API (e.g., `PizzaShackAPI 1.0.0` ) for which you want to view the documentation.
    
-    [![Select API in API Publisher]({{base_path}}/assets/img/learn/select-api.png){: style="width:30%"}]({{base_path}}/assets/img/learn/select-api.png)
+    [![Select API in API Publisher]({{base_path}}/assets/img/learn/select-api-with-business-info.png){: style="width:30%"}]({{base_path}}/assets/img/learn/select-api-with-business-info.png)
 
 3. View the generated documentation.
 

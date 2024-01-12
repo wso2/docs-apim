@@ -35,7 +35,7 @@ Listed below are the fields available when adding third-party API details to the
 You can see an indicator added to the API thumbnail in the API Publisher Portal to distinguish whether an API is from a third-party, as shown below.
 
 
-<a href="{{base_path}}/assets/img/develop/third-party-tag.png"><img src="{{base_path}}/assets/img/develop/third-party-tag.png" width="20%"></a>
+<a href="{{base_path}}/assets/img/develop/third-party-tag-with-business-info.png"><img src="{{base_path}}/assets/img/develop/third-party-tag-with-business-info.png" width="20%"></a>
 
 You can use the new default property `thirdParty` to search for APIs that are from a third-party.
 

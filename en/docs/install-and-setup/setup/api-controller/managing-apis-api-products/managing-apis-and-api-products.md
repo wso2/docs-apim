@@ -117,9 +117,9 @@ Follow the instructions below to display a list of APIs or API Products in an en
         -   **Response**
 
             ```go
-            ID                                     NAME                CONTEXT              STATUS              PROVIDER
-            b39e08d7-caa9-40d0-a430-b8e840dd7c31   LeasingAPIProduct   /leasingapiproduct   PUBLISHED           admin
-            ab422af2-b19e-4e6a-a34b-8f45c50db0d5   CreditAPIProduct    /creditapiproduct    PUBLISHED           Alice
+            ID                                     NAME                  VERSION        CONTEXT              STATUS              PROVIDER
+            b39e08d7-caa9-40d0-a430-b8e840dd7c31   LeasingAPIProduct     1.0.0          /leasingapiproduct   PUBLISHED           admin
+            ab422af2-b19e-4e6a-a34b-8f45c50db0d5   CreditAPIProduct      2.1.0          /creditapiproduct    PUBLISHED           Alice
             ```
 
             !!!note
@@ -186,20 +186,21 @@ Follow the instructions below to display a list of revisions created for an API 
 
         -   **Command**
             ``` bash
-            apictl get api-product-revisions -n <API-Product-name> -e <environment> 
+            apictl get api-product-revisions -n <API-Product-name> -v <version> -e <environment> 
             ```
             ``` bash
-            apictl get api-product-revisions --name <API-Product-name> --environment <environment>
+            apictl get api-product-revisions --name <API-Product-name> --version <version> --environment <environment>
             ```
             ``` bash
-            apictl get api-product-revisions --name <API-Product-name> --provider <provider> --environment <environment> --query <deployment-search-query>
+            apictl get api-product-revisions --name <API-Product-name> --version <version> --provider <provider> --environment <environment> --query <deployment-search-query>
             ```
 
             !!! info
                 **Flags:**  
                 
                 -   Required :  
-                    `--name` or `-n` : Name of the API Product to get the revisions   
+                    `--name` or `-n` : Name of the API Product to get the revisions 
+                    `--version` or `-v` : Version of the API Product to get the revisions    
                     `--environment` or `-e` : Environment to be searched  
                 -   Optional :  
                     `--provider` or `-r` : Provider of the API Product
@@ -208,13 +209,13 @@ Follow the instructions below to display a list of revisions created for an API 
 
             !!! example
                 ```bash
-                apictl get api-product-revisions -n ShopProduct -e dev 
+                apictl get api-product-revisions -n ShopProduct -v 1.0.0 -e dev 
                 ```
                 ```bash
-                apictl get api-product-revisions --name MediaProduct --environment production
+                apictl get api-product-revisions --name MediaProduct --version 1.0.0 --environment production
                 ```    
                 ```go
-                apictl get api-product-revisions -n PizzaProduct -q deployed:true -e dev 
+                apictl get api-product-revisions -n PizzaProduct -v 1.0.0 -q deployed:true -e dev 
                 ```  
 
         -   **Response**
@@ -287,13 +288,13 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
 
         -   **Command**
             ``` bash
-            apictl delete api-product -n <API Product name> -e <environment> 
+            apictl delete api-product -n <API Product name> -v <API Product version> -e <environment> 
             ```
             ``` bash
-            apictl delete api-product --name <API Product name> --environment <environment> 
+            apictl delete api-product --name <API Product name> --version <API Product version> --environment <environment> 
             ```
             ``` bash
-            apictl delete api-product --name <API Product name> --environment <environment> --provider <API Product provider> 
+            apictl delete api-product --name <API Product name> --version <API Product version> --environment <environment> --provider <API Product provider> 
             ```
 
             !!! info
@@ -302,18 +303,19 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
                 -   Required :  
                     `--environment` or `-e` : Environment from which the API Product should be deleted  
                     `--name` or `-n` : Name of the API Product to be deleted   
+                    `--version` or `-v` : Version of the API Product to be deleted  
                 -   Optional :  
                     `--provider` or `-r` : Provider of the API Product to be deleted  
 
             !!! example
                 ```bash
-                apictl delete api-product -n LeasingAPIProduct -e dev 
+                apictl delete api-product -n LeasingAPIProduct -v 1.0.0 -e dev 
                 ```
                 ```bash
-                apictl delete api-product --name LeasingAPIProduct -environment production 
+                apictl delete api-product --name LeasingAPIProduct --version 1.0.0 -environment production 
                 ```    
                 ```go
-                apictl delete api-product --name LeasingAPIProduct --environment production --provider Alice 
+                apictl delete api-product --name LeasingAPIProduct --version 1.0.0 --environment production --provider Alice 
                 ```  
 
         -   **Response**
@@ -349,9 +351,9 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
                 
                 -   Required :  
                     `--environment` or `-e` : The environment that the command is executed on  
-                    `--name` or `-n` : The name of the respective API
-                    `--version` or `-v` : The version of the respective API
-                    `--action` or `-a` : The action to be taken to change the status of the API
+                    `--name` or `-n` : The name of the respective API   
+                    `--version` or `-v` : The version of the respective API   
+                    `--action` or `-a` : The action to be taken to change the status of the API   
                 -   Optional :  
                     `--provider` or `-r` : The provider of the respective API  
 
@@ -376,13 +378,13 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
 
         -   **Command**
             ``` bash
-            apictl change-status api-product -a <Action> -n <API name> -e <environment> 
+            apictl change-status api-product -a <Action> -n <API Product name> -v <API Product version> -e <environment> 
             ```
             ``` bash
-            apictl change-status api-product --action <Action> --name <API name> --environment <environment> 
+            apictl change-status api-product --action <Action> --name <API name> --version <API Product version> --environment <environment> 
             ```
             ``` bash
-            apictl change-status api-product --action <Action> --name <API name> --environment <environment> --provider <API provider> 
+            apictl change-status api-product --action <Action> --name <API name> --version <API Product version> --environment <environment> --provider <API provider> 
             ```
 
             !!! info
@@ -390,20 +392,21 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
                 
                 -   Required :  
                     `--environment` or `-e` : The environment that the command is executed on  
-                    `--name` or `-n` : The name of the respective API Product
+                    `--name` or `-n` : The name of the respective API Product   
+                    `--version` or `-v` : The version of the respective API Product   
                     `--action` or `-a` : The action to be taken to change the status of the API Product
                 -   Optional :  
                     `--provider` or `-r` : The provider of the respective API Product 
 
             !!! example
                 ```bash
-                apictl change-status api-product -a Publish -n PizzaShackAPIProduct -e dev 
+                apictl change-status api-product -a Publish -n PizzaShackAPIProduct -v 1.0.0 -e dev 
                 ```
                 ```bash
-                apictl change-status api-product --action "Publish" --name PizzaShackAPIProduct --environment production 
+                apictl change-status api-product --action "Publish" --name PizzaShackAPIProduct --version 1.0.0 --environment production 
                 ```    
                 ```go
-                apictl change-status api-product --action "Demote to Created" --name PizzaShackAPIProduct --environment production --provider Alice 
+                apictl change-status api-product --action "Demote to Created" --name PizzaShackAPIProduct --version 1.0.0 --environment production --provider Alice 
                 ```  
 
         -   **Response**
@@ -471,13 +474,13 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
     
         -   **Command**
                 ``` bash
-                apictl undeploy api-product -n <API Product name> --rev <Revision number> -e <environment>
+                apictl undeploy api-product -n <API Product name> -v <API Product version> --rev <Revision number> -e <environment>
                 ```
                 ``` bash
-                apictl undeploy api-product -n <API Product name> --rev <Revision number> -g <gateway environment> -e <environment> 
+                apictl undeploy api-product -n <API Product name> -v <API Product version> --rev <Revision number> -g <gateway environment> -e <environment> 
                 ```
                 ``` bash
-                apictl undeploy api-product --name <API Product name> --rev <Revision number> --environment <environment> --provider <API Product provider>   
+                apictl undeploy api-product --name <API Product name> --version <API Product version> --rev <Revision number> --environment <environment> --provider <API Product provider>   
                 ```
     
             !!! info
@@ -486,6 +489,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
                 -   Required :  
                     `--environment` or `-e` : The environment that the command is executed on   
                     `--name` or `-n` : The name of the respective API Product    
+                    `--version` or `-v` : The version of the respective API Product  
                     `--rev`  : Revision number of the respective API Product   
                 -   Optional :  
                     `--provider` or `-r` : The provider of the respective API Product    
@@ -493,13 +497,13 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
            
             !!! example
                 ```bash
-                apictl undeploy api-product -n LeasingAPIProduct --rev 1 -e dev 
+                apictl undeploy api-product -n LeasingAPIProduct -v 1.0.0 --rev 1 -e dev 
                 ```
                 ```bash
-                apictl undeploy api-product -n PizzaProduct --rev 2 -g Label1 -g Label2 -g Label3 -e production 
+                apictl undeploy api-product -n PizzaProduct -v 1.0.0  --rev 2 -g Label1 -g Label2 -g Label3 -e production 
                 ```    
                 ```go
-                apictl undeploy api-product --name ShopProduct --provider Alice --rev 3 --gateway-env Label1 --gateway-env Default  -environment production 
+                apictl undeploy api-product --name ShopProduct --version 1.0.0 --provider Alice --rev 3 --gateway-env Label1 --gateway-env Default  -environment production 
                 ```  
          
             -   **Response**

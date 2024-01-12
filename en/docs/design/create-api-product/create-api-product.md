@@ -75,6 +75,15 @@ the attached OpenAPI definition (a.k.a Swagger definition) files]({{base_path}}/
      </td>
      <td>
      customer-leasing
+     <p>You can define the API Product's version as a parameter of its context by adding the <code>{version}</code> into the context. For example, <code>{version}/customer-leasing</code>. The API Manager assigns the actual version of the API Product to the <code>{version}</code> parameter internally. For example, <code>https://localhost:8243/1.0.0/customer-leasing</code>. Note that the version appears before the context, allowing you to group your API Products based on the versions.</p>
+     </td>
+     </tr>
+     <tr>
+     <td>
+     Version
+     </td>
+     <td>
+     1.0.0
      </td>
      </tr>
      </table>
@@ -149,3 +158,5 @@ the attached OpenAPI definition (a.k.a Swagger definition) files]({{base_path}}/
 
      For more information on how to subscribe to an API, see [Subscribe to an API]({{base_path}}/consume/manage-subscription/subscribe-to-an-api/).
     
+!!! note
+    To learn about API Product versioning refer [Create a New API Version]({{base_path}}/design/api-versioning/create-a-new-api-version).

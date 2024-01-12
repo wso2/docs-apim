@@ -429,7 +429,7 @@ Run any of the following apictl commands to get keys for the API/API Product.
 
     !!! example
         ```bash
-        apictl get keys -n PizzaShackAPI -v 1.0.0 -e dev  -r admin -t https://localhost:8243/token
+        apictl get keys -n PizzaShackAPI -v 1.0.0 -e dev  -r admin -t https://localhost:9443/oauth2/token
         ```
     !!! info
         **Flags:**  
