@@ -45,8 +45,10 @@ Follow the steps given below to enable access logs for the PassThrough or NIO tr
 1.  Open `<API-M_HOME>/conf/log4j2.properties` file and add following configuration for `PassThroughAccess` logger.
 
     ```
-    logger.PassThroughAccess.name = org.apache.synapse.transport.http.access
-    logger.PassThroughAccess.level = INFO
+    logger.PassThroughAccess.name = org.apache.synapse.transport.nhttp.access
+    logger.PassThroughAccess.level = DEBUG
+    logger.PassThroughAccess.appenderRef.PassThroughAccess_LOGFILE.ref = PassThroughAccess_LOGFILE
+    logger.PassThroughAccess.additivity = false
     ```
 
 2.  Append `PassThroughAccess` logger name to `loggers` configuration, which is a comma-separated list of all active loggers.
@@ -54,11 +56,45 @@ Follow the steps given below to enable access logs for the PassThrough or NIO tr
     ```
     loggers = PassThroughAccess, AUDIT_LOG, SERVICE_LOGGER, trace-messages,
     ```
+
+3.  Add following configuration for `PassThroughAccess_LOGFILE` log file.
+
+    ```
+    appender.PassThroughAccess_LOGFILE.type = RollingFile
+    appender.PassThroughAccess_LOGFILE.name = PassThroughAccess_LOGFILE
+    appender.PassThroughAccess_LOGFILE.fileName =${sys:carbon.home}/repository/logs/http_gw.log
+    appender.PassThroughAccess_LOGFILE.filePattern =${sys:carbon.home}/repository/logs/http_gw-%d{yyyy-MM-dd}-%i.log
+    appender.PassThroughAccess_LOGFILE.layout.type = PatternLayout
+    appender.PassThroughAccess_LOGFILE.layout.pattern = %msg%n
+    appender.PassThroughAccess_LOGFILE.policies.type = Policies
+    appender.PassThroughAccess_LOGFILE.policies.time.type = TimeBasedTriggeringPolicy
+    appender.PassThroughAccess_LOGFILE.policies.time.interval = 1
+    appender.PassThroughAccess_LOGFILE.policies.time.modulate = true
+    appender.PassThroughAccess_LOGFILE.policies.size.type = SizeBasedTriggeringPolicy
+    appender.PassThroughAccess_LOGFILE.policies.size.size=100kB
+    appender.PassThroughAccess_LOGFILE.strategy.type = DefaultRolloverStrategy
+    appender.PassThroughAccess_LOGFILE.strategy.max = 20
+    appender.PassThroughAccess_LOGFILE.filter.threshold.type = ThresholdFilter
+    appender.PassThroughAccess_LOGFILE.filter.threshold.level = DEBUG
+    ```
+
+    !!!Note
+        In order to customize log pattern use, `access_log_pattern` configuration mentioned in step 5.
+
+4.  Append `PassThroughAccess_LOGFILE` appender name to `appenders` configuration.
+
+    ```
+    appenders = PassThroughAccess_LOGFILE, CARBON_CONSOLE, CARBON_LOGFILE,..
+    ```
     
-3.  Create a file named `access-log.properties` in `<API-M_HOME>/repository/conf/` location with the following configuration and customize it as required.
+5.  Create a file named `access-log.properties` in `<API-M_HOME>/repository/conf/` location with the following configuration and customize it as required.
 
     !!!Warning
         All the supported options are in the following file. Therefore, make sure to uncomment the required options to enable them as required.
+
+    !!!Note
+        If you are taking Passthrough access logs from log4j configurations as discussed above, use `access_log_enable` parameter to disable
+        writing logs to a custom log file.
         
     ```properties
     # Default access log pattern
@@ -75,6 +111,8 @@ Follow the steps given below to enable access logs for the PassThrough or NIO tr
     # file date format
     access_log_file_date_format=yyyy-MM-dd
     #access_log_directory=”/logs”
+    # enable or disable access logging to a custom file
+    access_log_enable=false
     ```
     
     You can customize the default format and the configurations of gateway access logs using the following properties that you can define in `access-log.properties`.
@@ -176,19 +214,27 @@ Follow the steps given below to enable access logs for the PassThrough or NIO tr
                 </div>
              </td>
           </tr>
+          <tr class="even">
+             <td>access_log_enable</td>
+             <td>
+                <div class="content-wrapper">
+                   <p>This is used to enable or disable logging passthrough access logs generated without log4j. The default value is set to `true`.</p>
+                </div>
+             </td>
+          </tr>
         </tbody>
     </table>                                                                                                                
     
-4.  Add the following configuration in the `<API-M_HOME>/repository/conf/deployment.toml` file. You need to add this configuration in order to make sure that the access logs related to the PassThrough and NIO transports are rotated on a daily basis. If this configuration is not set, all the access log details related to the PassThrough and NIO transports will get logged in a single file. The date will be appended to the access log when it is rotated.        
+6.  Add the following configuration in the `<API-M_HOME>/repository/conf/deployment.toml` file. You need to add this configuration in order to make sure that the access logs related to the PassThrough and NIO transports are rotated on a daily basis. If this configuration is not set, all the access log details related to the PassThrough and NIO transports will get logged in a single file. The date will be appended to the access log when it is rotated.        
     
     ```properties
     [n_http]
     "nhttp.is.log.rotatable" = "true"
     ```
     
-5.  Then [Restart the server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/).
+7.  Then [Restart the server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/).
 
-6.  Invoke an API in API Gateway. Then, navigate to `<API-M_HOME>/repository/logs/` directory, and you will see a newly created log file called `http_gw.log`, which contains API invocation related access logs.
+8.  Invoke an API in API Gateway. Then, navigate to `<API-M_HOME>/repository/logs/` directory, and you will see a newly created log file called `http_gw.log`, which contains API invocation related access logs.
 
 ### Supported log pattern formats for the PassThrough transport
 
