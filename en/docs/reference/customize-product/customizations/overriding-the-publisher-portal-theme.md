@@ -5,7 +5,7 @@ There are mainly 2 ways to customize and override the publisher portal theme.
 1. Theming using userThemes.js
 2. Overriding React components
 
-In this section, we will cover the first technique which is the easiest way to change the appearance of Developer portal.
+In this section, we will cover the first technique which is the easiest way to change the appearance of Publisher portal.
 
 For the second technique, please refer [Advanced Customization]({{base_path}}/develop/customizations/advanced-ui-customization/) section.
 
