@@ -20,15 +20,11 @@ These configurations apply globally to all caches. You can override these values
 
 ## API Gateway cache
 
-When caching is enabled at the Gateway and a request hits the Gateway, it first populates the cached entry for a given token. By default, the API Gateway cache is enabled. 
-
-If a cache entry does not exist in the cache, for **JWT tokens**, gateway self validate the JWT.
-
-If a cache entry does not exist in the cache, for **opaque tokens**, it calls the Key Manager server. This process is carried out using Web service calls. After the Key Manager server returns the validation information, it gets stored in the Gateway. 
+When caching is enabled at the Gateway and a request hits the Gateway, it first populates the cached entry for a given token. If a cache entry does not exist in the cache, for **JWT tokens**, gateway self validates the JWT and store it in the Gateway. If a cache entry does not exist in the cache, for **opaque tokens**, it calls the Key Manager server. This process is carried out using Web service calls. After the Key Manager server returns the validation information, it gets stored in the Gateway. 
 
 ### Clearing the API Gateway cache
 
-When a token is revoked at the Key Manager, a token revocation event is sent to the Traffic Manager. Gateways receive this token revocation controller event and clear the cache accordingly. Hence it is not recommended to disable the gateway token cache from `deployment.toml` file.
+When a token is revoked at the Key Manager, a token revocation event is sent to the Traffic Manager. Gateways receive this token revocation controller event and clear the cache accordingly.
 
 This feature is enabled by default and token revocation events are published by the `org.wso2.carbon.apimgt.notification.TokenRevocationNotifierImpl.java` class.
 
