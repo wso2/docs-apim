@@ -125,6 +125,18 @@ The default Rate Limiting levels are as follows:
 
 It is also possible to specify a bandwidth per unit time instead of a number of requests. This can be done through the Admin Portal of API Manager. For information on editing the values of the existing tiers, defining new tiers and specifying a bandwidth per unit time, see [Adding a new application-level rate limiting tier]({{base_path}}/design/rate-limiting/adding-new-throttling-policies/#adding-a-new-application-level-rate-limiting-tier).
 
+#### **Burst control**
+
+With burst control, you can define tiers with a combination of criteria, for example, a 1000 requests per day and 10 requests per second. Users are then throttled at two layers. Enforcing a rate limit protects the backend from sudden request bursts and controls the usage at application and API level.
+
+For instance, if there's an application level policy enforced over a long period, you may not want users to consume the entire quota of the application within a short time span. Sudden spikes in usage or attacks from users can also be handled via Rate Limiting. You can define a spike arrest policy when the application level tier is created. For more information on using Rate Limiting in application tiers, refer [Adding a new application-level Rate Limiting tier]({{base_path}}/design/rate-limiting/adding-new-throttling-policies/#adding-a-new-application-level-rate-limiting-tier).
+
+As an example, if we specify a quota policy as 20 requests per minute, it is possible to send all 20 requests in first few seconds in one minute so that we cannot limit it. By defining a spike arrest policy as 10 requests per second, it equally scatters the number of requests over the given one minute. Therefore, by doing Rate Limiting we can protect the backend from sudden spikes and DoS attacks through spike arrest policy.
+
+For each application level throttle key, a WS policy is created on demand. The request count is calculated and rate limiting occurs at the node level.
+
+{!includes/design/redis-counter-note.md!}
+
 <div class="admonition info">
 <p class="admonition-title">Note</p>
 <p> When creating an API by importing a Swagger or Open API definition, the user can define the throttle policies for both API level and resource level using the <b>“x-wso2-throttling-tier"</b> extension.</p>
