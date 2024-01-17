@@ -220,5 +220,33 @@ Carry out the following steps to configure NGINX as the load balancer to support
 !!! note
     When adding the `customUrl` parameter, make sure to add the valid context that the Developer Portal is accessed from.
 
+4. Add the server name provided for the devportal in the nginx configurations to the callback URL of apim:devportal service provider.
+    ```tab="Format"
+    regexp=(https://<devportal hostname>/services/auth/callback/login|https://localhost:9443/services/auth/callback/login|https://<devportal hostname>/services/auth/callback/logout|https://localhost:9443/services/auth/callback/logout)
+    ```
+
+    ```tab="Example"
+    regexp=(https://developer.wso2.com/services/auth/callback/login|https://localhost:9443/services/auth/callback/login|https://developer.wso2.com/services/auth/callback/logout|https://localhost:9443/services/auth/callback/logout)
+    ```
+!!! note
+    When adding the devportal URl to the callback URL regex, make sure to append it without removing the localhost:9443.
+
+5. Add the following idp configurations to the `deployment.toml` file to make devportal login when accessing from the publisher portal.
+
+    ```tab="Format"
+    [apim.idp]
+    server_url = "https://<APIM Hostname>"
+    authorize_endpoint = "https://<APIM Hostname>/oauth2/authorize"
+    oidc_logout_endpoint = "https://<APIM Hostname>/oidc/logout"
+    oidc_check_session_endpoint = "https://<APIM Hostname>/oidc/checksession"
+    ```
+
+    ```tab="Example"
+    [apim.idp]
+    server_url = "https://localhost:9443"
+    authorize_endpoint = "https://localhost:9443/oauth2/authorize"
+    oidc_logout_endpoint = "https://localhost:9443/oidc/logout"
+    oidc_check_session_endpoint = "https://localhost:9443/oidc/checksession"
+    ```
 
 Now you should be able to access the developer portal and the gateways using custom URLs defined.
