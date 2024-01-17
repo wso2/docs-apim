@@ -160,7 +160,7 @@ Follow the instructions given below to create a new [REST API]({{base_path}}/ref
 
     -   If you selected **Import API from API Manager** in the previous step, enter the following information:
 
-        <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/import-api-from-api-manager.png" width="500">
+        <img src="{{base_path}}/assets/img/tutorials/import-api-from-apim.png" width="500">
 
         <table>
             <tr>
@@ -261,7 +261,11 @@ Follow the instructions given below to create a new [REST API]({{base_path}}/ref
                 </td>
             </tr>
         </table>
-        After entering the above values in the <b>Import API from API Manager</b> option wizard, click <b>List APIs</b>. The list of APIs that are in WSO2 API Manager appear. Thereafter, select one of the APIs from the API list.
+
+        !!! Note
+            - Current SOAP to REST Generation has the limitations mentioned at https://github.com/wso2/soap-to-rest/blob/main/limitations.md
+            - All the generated REST Services are not production ready and users need to review them manually using Integration Studio IDE and edit if needed
+            - Since having "." (dot) in XML element names is not a best practice, you may need to manually change the generated soap payload to include the "." (dot)
     
 4.  Click **Finish**. 
     -   The REST API is created inside the `src/main/synapse-config/api` folder of your **Config** project.

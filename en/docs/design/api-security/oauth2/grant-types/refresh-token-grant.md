@@ -26,7 +26,7 @@ The diagram below illustrates the refresh token grant flow.
 
 To use this grant type, you need a refresh token, using which you can get a new access token and a refresh token. This can be done by issuing a REST call to the Token API through a REST client like cURL, with the following parameters:
 
--   The Token API URL is [https://localhost:9443/oauth2/token](https://localhost:9443/oauth2/login) , assuming that both the client and the Gateway are running on the same server.
+-   The Token API URL is `https://localhost:9443/oauth2/token`, assuming that both the client and the Gateway are running on the same server.
 -   payload 
 ```
     "grant_type=refresh_token&refresh_token=<refresh-token>"
@@ -70,7 +70,7 @@ The above REST response grants you a renewed access token along with a refresh t
 
 ### Revoking a refresh token
 
-After issuing an access token and refresh token, a user or an admin can revoke it in case of theft or a security violation. You can do this by calling the Revoke API using a utility like cURL. The Revoke API's endpoint URL is <https://localhost:9443/oauth2/revoke>.
+After issuing an access token and refresh token, a user or an admin can revoke it in case of theft or a security violation. You can do this by calling the Revoke API using a utility like cURL. The Revoke API's endpoint URL is `https://localhost:9443/oauth2/revoke`.
 
 #### Option 1
 

@@ -26,11 +26,11 @@ Let us check out the basic building blocks for creating a CI/CD pipeline with WS
 <a name="Step 1"></a>
 ### Step 1 - Prepare the environments
 
-1.  Download and install WSO2 API-M 4.1.0 in your environments.
+1.  Download and install WSO2 API-M 4.2.0 in your environments.
      
      For more information, see [Installation Prerequisites]({{base_path}}/install-and-setup/install/installation-prerequisites/).
 
-2.  Download and setup apictl 4.1.0 version. 
+2.  Download and setup apictl 4.2.3 version. 
 
      For more information, see [Download and initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 
@@ -429,7 +429,7 @@ Run any of the following apictl commands to get keys for the API/API Product.
 
     !!! example
         ```bash
-        apictl get keys -n PizzaShackAPI -v 1.0.0 -e dev  -r admin -t https://localhost:8243/token
+        apictl get keys -n PizzaShackAPI -v 1.0.0 -e dev  -r admin -t https://localhost:9443/oauth2/token
         ```
     !!! info
         **Flags:**  

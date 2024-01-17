@@ -125,7 +125,7 @@ Follow the instructions below to configure Kerberos Grant using the Identity Se
                 [![Register new OAuth app]({{base_path}}/assets/img/learn/register-new-oauth-app.png)]({{base_path}}/assets/img/learn/register-new-oauth-app.png)
             3.  Click **Add**. The following information is added to your
                 service provider.
-                [![OAuth SP clientid clientsecret]({{base_path}}/assets/img/learn/learnoauth-sp-clientid-clientsecret.png)]({{base_path}}/assets/img/learn/oauth-sp-clientid-clientsecret.png)
+                [![OAuth SP clientid clientsecret]({{base_path}}/assets/img/learn/oauth-sp-clientid-clientsecret.png)]({{base_path}}/assets/img/learn/oauth-sp-clientid-clientsecret.png)
 
                 -   **OAuth Client Key** - This is the client key of the
                     service provider, which will be checked for
@@ -164,7 +164,7 @@ Follow the instructions below to configure Kerberos Grant using the Identity Se
         -   **Identity Provider Name** :
             [example.com](http://example.com)
 
-        -   **Alias** : <https://192.168.53.12:9443/oauth/token>
+        -   **Alias** : `https://192.168.53.12:9443/oauth/token`
 
         [![add-new-idp]({{base_path}}/assets/img/learn/add-new-idp.png)]({{base_path}}/assets/img/learn/add-new-idp.png)
 

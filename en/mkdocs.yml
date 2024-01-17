@@ -19,7 +19,7 @@
 site_name: WSO2 API Manager Documentation 4.2.0
 site_description: Documentation for WSO2 API Manager
 site_author: WSO2
-site_url: https://apim.docs.wso2.com/en/4.2.0/
+site_url: https://apim.docs.wso2.com/en/latest/
 
 # Repository
 repo_name: wso2/docs-apim
@@ -200,7 +200,7 @@ nav:
                     - Query Complexity Limit: design/rate-limiting/graphql-api/query-complexity-limitation.md
                 - Advanced Topics:
                     - Custom Rate Limiting: design/rate-limiting/advanced-topics/custom-throttling.md
-                    - Configure Rate Limiting for an API Gateway Cluster: design/rate-limiting/advanced-topics/configuring-rate-limiting-api-gateway-cluster.md
+                    - Distributed Burst Control, Backend Rate Limiting for API Gateway Cluster: design/rate-limiting/advanced-topics/configuring-rate-limiting-api-gateway-cluster.md
         - API Monetization:
             - Monetize an API: design/api-monetization/monetizing-an-api.md
         - Advanced Topics:
@@ -209,7 +209,7 @@ nav:
             - Enable CORS for APIs: design/advanced-topics/enabling-cors-for-apis.md
             - Add an API State Change Workflow: design/advanced-topics/adding-an-api-state-change-workflow.md
             - Block Subscription to an API: design/advanced-topics/block-subscription-to-an-api.md
-            - Validate API Definitions with Linters: design/advamced-topics/validate-api-definitions-with-linters.md
+            - Validate API Definitions with Linters: design/advanced-topics/validate-api-definitions-with-linters.md
     - Deploy and Publish APIs:
         - Deploy on Gateway:
             - Deploy APIs in the API Gateway vs Choreo Connect: deploy-and-publish/deploy-on-gateway/deploying-apis-in-api-gateway-vs-choreo-connect.md
@@ -307,6 +307,7 @@ nav:
                         - Router: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/router-configurations.md
                         - Control Plane: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/control-plane-configurations.md
                         - Analytics: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/analytics-configurations.md
+                        - Tracing: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/tracing-configurations.md
                 - Deployment Options:
                     - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-deploy-overview.md
                     - Installation Prerequisites: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/installation-prerequisites.md
@@ -354,9 +355,10 @@ nav:
                 - Service Mesh Integration: deploy-and-publish/deploy-on-gateway/choreo-connect/service-mesh/istio.md
                 - Observability:
                     - Distributed Tracing: deploy-and-publish/deploy-on-gateway/choreo-connect/observability/distributed-tracing.md
+                    - Prometheus Metric Support: deploy-and-publish/deploy-on-gateway/choreo-connect/observability/prometheus-metric-support.md
                 - Analytics:
                       - Configure Analytics with Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-analytics.md
-                      - Publish Custom Attributes with Analytics: deploy-and-publish/deploy-on-gateway/choreo-connect/analytics/pulbish-custom-analytics-attributes.md
+                      - Publish Custom Attributes with Analytics: deploy-and-publish/deploy-on-gateway/choreo-connect/analytics/publish-custom-analytics-attributes.md
                 - Git Integration: deploy-and-publish/deploy-on-gateway/choreo-connect/git-integration.md
                 - Data Compression: deploy-and-publish/deploy-on-gateway/choreo-connect/data-compression.md
                 - Configure Multiple Gateways with Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-multiple-gateways-with-choreo-connect.md
@@ -364,6 +366,10 @@ nav:
                 - HTTP 2.0: deploy-and-publish/deploy-on-gateway/choreo-connect/http-2.md
                 - Token Caching: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-caching.md
                 - Production Deployment Guideline: deploy-and-publish/deploy-on-gateway/choreo-connect/production-deployment-guideline.md
+                - Performance Tests:
+                      - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/performance-tests/performance-test-results-overview-cc.md
+                      - Router with One CPU: deploy-and-publish/deploy-on-gateway/choreo-connect/performance-tests/router-with-one-cpu-for-rest-api.md
+                      - Router with Two CPU: deploy-and-publish/deploy-on-gateway/choreo-connect/performance-tests/router-with-two-cpu-for-rest-api.md
                 - Migrate from Ballerina API Microgateway to Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/migration-guide-from-ballerina-api-microgateway.md
                 - Troubleshooting:
                     - Enable Debug Logs: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/adding-debug-logs.md
@@ -382,7 +388,6 @@ nav:
         - Consume APIs - Overview: consume/consume-api-overview.md
         - Discover APIs:
             - Search: consume/discover-apis/search.md
-            - AI-based Recommendations for the Developer Portal: consume/discover-apis/api-recommendations.md
         - Manage Applications:
             - Create Application: consume/manage-application/create-application.md
             - Generate Keys:
@@ -497,7 +502,8 @@ nav:
                 - Use a Remote Micro Integrator: integrate/develop/using-remote-micro-integrator.md
                 - Hot Deploying Artifacts: integrate/develop/hot-deployment.md
                 - Create a Unit Test Suite: integrate/develop/creating-unit-test-suite.md
-                - Use the HTTP REST Client: integrate/develop/using-http_rest_client.md
+                # document not available
+                # - Use the HTTP REST Client: integrate/develop/using-http_rest_client.md
                 - Generate Docker Images: integrate/develop/generate-docker-image.md
             - Debug Integrations:
                 - Mediation Debugging: integrate/develop/debugging-mediation.md
@@ -817,26 +823,16 @@ nav:
                        - Calculate Aggregations Over Time': use-cases/examples/streaming-examples/aggregate-over-time.md
     - Analytics:
         - API Analytics:
-            - Getting Started Guide: api-analytics/getting-started-guide.md
-            - Role-based Access Control : api-analytics/role-based-access-control.md
-            - Configurations:
-                - Alerts: api-analytics/configure-alerts.md
-                - Gateways:
-                    - API Gateway: api-analytics/gateways/configure-synapse-gateway.md
-                    #- Choreo Connect: api-analytics/gateways/configure-choreo-connect.md
-            - On-prem Analytics: 
+            - Choreo Based Analytics: 
+                - Architecture: api-analytics/choreo-analytics/api-analytics-architecture.md
+                - Getting Started Guide: api-analytics/choreo-analytics/getting-started-guide.md
+                - Role-based Access Control : api-analytics/choreo-analytics/role-based-access-control.md
+                - Alerts: api-analytics/choreo-analytics/configure-alerts.md
+            - Other Analytics Solutions: 
                 - ELK Based Analytics Installation Guide: api-analytics/on-prem/elk-installation-guide.md
                 - Datadog Analytics Installation Guide : api-analytics/on-prem/datadog-installation-guide.md
-            - View API Analytics:
-                - Introduction: api-analytics/viewing/introduction-to-api-analytics-dashboard.md
-                #- Usecases:
-                    #TODO- Identifying Faulty APIs: api-analytics/viewing/usecases/finding-faulty-apis.md
-                #- Quality of Service: api-analytics/qos.md
-                #- Analytics API Guide: api-analytics/analytics-api-guide.md
-                #- Troubleshooting Analytics: add this infor in the main troubleshooting page GW> Analytics
             - Publish Analytics Events to External Systems: api-analytics/samples/publishing-analytics-events-to-external-systems.md
             - Publish Custom Analytics Events Data: api-analytics/samples/publishing-custom-analytics-data.md
-            - Architecture: api-analytics/api-analytics-architecture.md
         - MI Analytics:
             - ELK Based Analytics:
                 - Setup: mi-analytics/mi-elk-installation-guide.md
@@ -1015,6 +1011,8 @@ nav:
                         - employeeSSOAccounts: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/employeessoaccounts.md
                         - employeeWorkAssignmentManagers: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/employeeworkassignmentmanagers.md
                         - userPayAdjustmentCodeGroups: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/userpayadjustmentcodegroups.md
+            - CSV Module:
+                - 'CSV Module': 'reference/connectors/csv-module/csv-module-config.md'
             - DB Event Listener Inbound Endpoint:
                 - Database Event Listener Overview: reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-overview.md
                 - Database Event Listener Example: reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-example.md
@@ -1080,6 +1078,7 @@ nav:
                     - Kafka Example: reference/connectors/kafka-connector/kafka-connector-producer-example.md
                     - Kafka Connector Reference: reference/connectors/kafka-connector/3.0.x/kafka-connector-config.md
                 - Kafka Inbound Endpoint Example: reference/connectors/kafka-connector/kafka-inbound-endpoint-example.md
+                - Kafka Inbound Endpoint Reference: reference/connectors/kafka-connector/kafka-inbound-endpoint-config.md
             - LDAP Connector:
                 - LDAP Overview: reference/connectors/ldap-connector/ldap-connector-overview.md
                 - Set up an LDAP Server: reference/connectors/ldap-connector/setting-up-ldap.md
@@ -1088,8 +1087,12 @@ nav:
             - Microsoft Azure Storage Connector:
                 - Microsoft Azure Storage Overview: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-overview.md
                 - Set up Microsoft Azure Storage: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-configuration.md
-                - Microsoft Azure Storage Example: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-connector-example.md
-                - Microsoft Azure Storage Reference: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-reference.md
+                - 2.x:
+                    - Microsoft Azure Storage Example: reference/connectors/microsoft-azure-storage-connector/2.x/microsoft-azure-storage-connector-example.md
+                    - Microsoft Azure Storage Reference: reference/connectors/microsoft-azure-storage-connector/2.x/microsoft-azure-storage-reference.md
+                - 1.x:
+                    - Microsoft Azure Storage Example: reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-connector-example.md
+                    - Microsoft Azure Storage Reference: reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-reference.md
             - MongoDB Connector:
                 - MongoDB Connector Overview: reference/connectors/mongodb-connector/mongodb-connector-overview.md
                 - MongoDB Connector Example: reference/connectors/mongodb-connector/mongodb-connector-example.md
@@ -1110,13 +1113,19 @@ nav:
                 - Salesforce Overview: reference/connectors/salesforce-connectors/sf-overview.md
                 - Salesforce Access Token Generation: includes/reference/connectors/salesforce-connectors/sf-access-token-generation.md
                 - Set up the PushTopic in Salesforce: reference/connectors/salesforce-connectors/sf-inbound-endpoint-configuration.md
-                - Salesforce REST API Example: reference/connectors/salesforce-connectors/sf-rest-connector-example.md
-                - Salesforce REST API Reference: reference/connectors/salesforce-connectors/sf-rest-connector-config.md
+                - Salesforce REST Connector:
+                    - Salesforce REST Connector Example: reference/connectors/salesforce-connectors/sf-rest-connector-example.md
+                    - 2.0.x:
+                        - Salesforce REST Connector Reference: reference/connectors/salesforce-connectors/sf-rest-connector-config-v2.md
+                    - 1.x.x:
+                        - Salesforce REST Connector Reference: reference/connectors/salesforce-connectors/sf-rest-connector-config.md
                 - Salesforce Inbound Endpoint Example: reference/connectors/salesforce-connectors/sf-inbound-endpoint-example.md
                 - Salesforce Inbound Endpoint Reference: reference/connectors/salesforce-connectors/sf-inbound-endpoint-reference-configuration.md
                 - Salesforce Bulk Configuration: reference/connectors/salesforcebulk-connector/salesforcebulk-connector-configuration.md
                 - Salesforce Bulk API Example: reference/connectors/salesforcebulk-connector/salesforcebulk-connector-example.md
                 - Salesforce Bulk API Reference: reference/connectors/salesforcebulk-connector/salesforcebulk-reference.md
+                - Salesforce Bulk API V2 Example: reference/connectors/salesforce-connectors/salesforcebulk-v2-connector-example.md
+                - Salesforce Bulk API V2 Reference: reference/connectors/salesforce-connectors/salesforcebulk-v2-reference.md
                 - Salesforce SOAP Connector Configuration: reference/connectors/salesforce-connectors/sf-soap-connector-config.md
                 - Salesforce SOAP Connector Example: reference/connectors/salesforce-connectors/sf-soap-connector-example.md
                 - Salesforce SOAP Connector Reference: reference/connectors/salesforce-soap-connector/salesforce-soap-reference.md
@@ -1132,6 +1141,16 @@ nav:
                 - SMPP Reference: reference/connectors/smpp-connector/smpp-connector-config.md
                 - SMPP Inbound Endpoint Example: reference/connectors/smpp-connector/smpp-inbound-endpoint-example.md
                 - SMPP Inbound Endpoint Reference: reference/connectors/smpp-connector/smpp-inbound-endpoint-config.md
+            - Twitter Connector:
+                - Twitter Overview: reference/connectors/twitter-connector/twitter-connector-overview.md
+                - Generate Credentials: reference/connectors/twitter-connector/twitter-connector-credentials.md
+                - Set up Integration Runtime: reference/connectors/twitter-connector/twitter-connector-configuration.md
+                - Twitter Example: reference/connectors/twitter-connector/twitter-connector-example.md
+                - Twitter Reference: reference/connectors/twitter-connector/twitter-connector-reference.md
+            - Snowflake Connector:
+                  - Snowflake Connector Overview: reference/connectors/snowflake-connector/snowflake-connector-overview.md
+                  - Snowflake Connector Example: reference/connectors/snowflake-connector/snowflake-connector-example.md
+                  - Snowflake Connector Reference: reference/connectors/snowflake-connector/snowflake-connector-reference.md
             - Utility Module:
                 - Utility Module Overview: reference/connectors/utility-module/utility-module-overview.md
                 - Utility Module Reference: reference/connectors/utility-module/utility-module-config.md
@@ -1387,6 +1406,7 @@ nav:
                 - Install MI: install-and-setup/install/installing-the-product/installing-mi.md
                 - Run the MI Runtime: install-and-setup/install/installing-the-product/running-the-mi.md
                 - Run the MI as a Windows Service: install-and-setup/install/installing-the-product/installing-mi-as-a-windows-service.md
+                - Run the MI in Automation Mode: install-and-setup/install/running-the-mi-in-automation-mode.md
             - Install the MI Dashboard:
                 - Install the MI Dashboard: install-and-setup/install/installing-the-product/installing-mi-dashboard.md
                 - Run the MI Dashboard: install-and-setup/install/installing-the-product/running-the-mi-dashboard.md
@@ -1414,7 +1434,6 @@ nav:
                         - Change to MSSQL: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mssql.md
                         - Change to PostgreSQL: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-postgresql.md
                         - Change to Oracle: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-oracle.md
-                        - Change to MariaDB: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mariadb.md
                         - Change to IBM DB2: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-ibm-db2.md
                         - Change to Oracle RAC: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-oracle-rac.md
                     - Manage Data Growth and Improving Performance: install-and-setup/setup/setting-up-databases/managing-data-growth-and-improving-performance.md
@@ -1542,6 +1561,10 @@ nav:
                     - Configure a Distributed API-M Deployment: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
                     - Configure a Distributed API-M Deployment with Traffic Manager Separation: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-tm-separated.md
                     - Run the API-M Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
+                - Multi-DC Deployment:
+                    - Multi-DC Deployment Patterns Overview: install-and-setup/setup/multi-dc-deployment/multi-dc-deployment-patterns-overview.md
+                    - Configure Multi-DC Deployment - Pattern 1: install-and-setup/setup/multi-dc-deployment/configuring-multi-dc-deployment-pattern-1.md
+                    - Configure Multi-DC Deployment - Pattern 2: install-and-setup/setup/multi-dc-deployment/configuring-multi-dc-deployment-pattern-2.md
             - Deploy the Micro Integrator:
                 - Configure a Micro Integrator Cluster: install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei.md
                 - Deployment Synchronization: install-and-setup/setup/mi-setup/deployment/deployment_synchronization.md
@@ -1628,48 +1651,7 @@ nav:
                     - Configuring Different Endpoint Security Types: install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-security-types.md
                     - Format the Outputs of Get Commands: install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command.md
                     - Configure Git Integration: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md
-        - Upgrade:
-            - Upgrading WSO2 API Manager:
-                - Upgrading Guidelines: install-and-setup/upgrading-wso2-api-manager/upgrading-guidelines.md
-                - 4.0.0 to 4.1.0:
-                    - What Has Changed: install-and-setup/upgrading-wso2-api-manager/400-to-410/what-has-changed.md
-                    - Upgrade Process: install-and-setup/upgrading-wso2-api-manager/400-to-410/upgrading-from-400-to-410.md
-                - 3.2.0 to 4.1.0:
-                    - What Has Changed: install-and-setup/upgrading-wso2-api-manager/320-to-410/what-has-changed.md
-                    - Upgrade Process: install-and-setup/upgrading-wso2-api-manager/320-to-410/upgrading-from-320-to-410.md
-                - 3.1.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-310-to-410.md
-                - 3.0.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-410.md
-                - 2.6.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-410.md
-                - 2.5.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-410.md
-                - 2.2.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-220-to-410.md
-                - 2.1.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-210-to-410.md
-                - 2.0.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-200-to-410.md
-                - 1.10.0 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-1100-to-410.md
-                - 1.8.0/1.9.0/1.9.1 to 4.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-191-to-410.md
-                - Upgrade to Log4j2: install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2.md
-            - Upgrading WSO2 IS as KM:
-                - 3.2.0 to 4.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-5100-to-is-5110.md
-                - 3.1.0 to 4.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-5100-to-is-5110.md
-                - 3.0.0 to 4.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-590-to-is-5110.md
-                - 2.6.0 to 4.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-570-to-is-5110.md
-                - 2.5.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-560-to-is-5110.md
-                - 2.2.0 to 4.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-550-to-is-5110.md
-                - 2.1.0 to 4.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-530-to-is-5110.md
-                - 2.0.0 to 4.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-520-to-is-5110.md
-                - 1.10.0 to 4.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-is-5110.md
-                - 1.8.0/1.9.0/1.9.1 to 4.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-500-to-is-5110.md
-            -  Upgrading from WSO2 EI:
-                - EI 7.1.x to API-M 4.1.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-7.1.x.md
-                - EI 7.0.x to API-M 4.1.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-7.0.x.md
-                - EI 6.6.x to API-M 4.1.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.6.x.md
-                - EI 6.5.x to API-M 4.1.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.5.x.md
-                - EI 6.4.x to API-M 4.1.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.4.x.md
-                - EI 6.3.x to API-M 4.1.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.3.x.md
-                - EI 6.2.x to API-M 4.1.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.2.x.md
-                - EI 6.1.1 to API-M 4.1.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.1.1.md
-                - EI 6.1.0 to API-M 4.1.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.1.0.md
-                - API-M 4.0.0 to API-M 4.1.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-apim-4.0.x.md
-            -  Upgrading from WSO2 ESB: install-and-setup/upgrading-from-wso2-ei/upgrading-from-esb-5.x.x.md
+        - Upgrade: install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager.md
         - Reference:
             - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
             - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
@@ -2162,6 +2144,7 @@ plugins:
               'observe/mi-observe/using-the-analytics-dashboard.md': 'https://apim.docs.wso2.com/en/4.2.0/mi-analytics/using-the-analytics-dashboard/'
               'install-and-setup/setup/mi-setup/observability/setting-up-classic-observability-deployment.md': 'https://apim.docs.wso2.com/en/4.2.0/mi-analytics/setting-up-mi-analytics/'
               'get-started/architecture.md': 'https://apim.docs.wso2.com/en/4.2.0/get-started/apim-architecture/'
+              'api-analytics/getting-started-guide.md': 'https://apim.docs.wso2.com/en/4.2.0/api-analytics/choreo-analytics/getting-started-guide/'
               'api-analytics/architecture.md': 'https://apim.docs.wso2.com/en/4.2.0/api-analytics/api-analytics-architecture/'
               'api-analytics/viewing/analytics-pages-alerts.md': 'https://apim.docs.wso2.com/en/4.2.0/api-analytics/viewing/view-api-analytics-on-alerts/'
               'api-analytics/viewing/analytics-pages-introduction.md': 'https://apim.docs.wso2.com/en/4.2.0/api-analytics/viewing/introduction-to-api-analytics-dashboard/'
@@ -2256,12 +2239,12 @@ extra:
         - type: linkedin
           link: https://www.linkedin.com/company/wso2
     choreo_connect: # not applied in "includes" section, update "includes" separately
-        version: 1.1.0
-        envoy_version: v1.20.2 # for GA release
+        version: 1.2.0
+        envoy_version: v1.24.1 # for GA release
         helm_chart:
-            version: 1.1.0-5
-            git_tag: v1.1.0.5
+            version: 1.2.0-1
+            git_tag: v1.2.0.1
     site_version: 4.2.0
     #base_path: http://localhost:8000
-    base_path: https://apim.docs.wso2.com/en/4.2.0
-    envoy_path: https://www.envoyproxy.io/docs/envoy/v1.20.0
+    base_path: https://apim.docs.wso2.com/en/latest
+    envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1

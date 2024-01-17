@@ -1,7 +1,7 @@
 # Iterate Mediator
 
 The **Iterate Mediator** implements the [Splitter enterprise integration
-pattern](http://docs.wso2.org/wiki/display/IntegrationPatterns/Splitter)
+pattern](https://wso2docs.atlassian.net/wiki/spaces/EIP/pages/48791727/Splitter)
 and splits the message into a number of different messages derived from
 the parent message. The Iterate mediator is similar to the [Clone mediator]({{base_path}}/reference/mediators/clone-Mediator). The difference between the two mediators
 is, the Iterate mediator splits a message into different parts, whereas the Clone mediator makes multiple identical copies of the message.
@@ -160,7 +160,7 @@ follows:
 
 ## Examples
 
-In these examples, the **Iterate** mediator splits the messages into parts and processes them asynchronously. Also see [Splitting Messages into Parts and Processing in Parallel (Iterate/Aggregate)](https://docs.wso2.com/pages/viewpage.action?pageId=119129658).
+In these examples, the **Iterate** mediator splits the messages into parts and processes them asynchronously. Also see [Splitting Messages into Parts and Processing in Parallel (Iterate/Aggregate)](https://wso2docs.atlassian.net/wiki/spaces/EI660/pages/6521935/Splitting+Messages+into+Parts+and+Processing+in+Parallel+Iterate+Aggregate).
 
 ``` java tab='Using an XPath expression'
     <iterate expression="//m0:getQuote/m0:request" preservePayload="true"

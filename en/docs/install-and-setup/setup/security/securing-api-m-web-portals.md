@@ -67,6 +67,46 @@ You can restrict access to the management console of the API-M runtime by bindin
 
 The above example deployment.toml configuration illustrates how access to the management page (/carbon/admin/login.jsp) is granted only to one IP address.
 
+## Bypass Client Credentials by making PKCE Mandatory
+
+!!! attention "Update Level 12"
+    This feature is available only as an update. After the Update of level 4.2.0.12 (released on 22nd June 2023) and further.
+
+You can bypass the `Client Secret` in the Devportal and the Publisher web portals in WSO2 API Manager.  Follow the steps below:
+
+- Bypass Client Secret for the web portal
+- Make PKCE mandatory for the web portal
+
+1. First, go to the Management Console (carbon/admin) and log in as the admin.
+
+2. On the left side, select `Service Providers` and `List`.
+
+    <html>
+        <div class="admonition note">
+            <p class="admonition-title">Note</p>
+            <p>When you attempt to log in to Devportal or Publisher, a service provider will be created for that portal. You can view those service providers in the above `list`. For example, apim_devportal for Devportal.</p>
+        </div>
+    </html>
+
+3. Edit the service provider you need to change (Devportal or Publisher) and select `Inbound Authentication Configuration`.
+
+4. Select `OAuth/OpenID Connect Configuration`. You will be able to view OAuth Client Key and Secret.
+
+5. Then, select `Edit`. This will redirect you to the `Update application settings` form.
+
+6. Select `PKCE Mandatory` and `Allow authentication without the client secret` from the form.
+
+    <html>
+        <div class="admonition note">
+            <p class="admonition-title">Note</p>
+            <p>Make sure to select both options. It's not recommended to bypass Client Secret without making PKCE mandatory, otherwise it will not work.</p>
+        </div>
+    </html>
+
+7. Click `Update`.
+
+After completing the steps above, the respective web portal will no longer use the Client Secret for authentication.
+
 ## What's Next?
 
 [Start the API-M runtime]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m) and access the web portals.

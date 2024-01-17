@@ -49,7 +49,7 @@ Follow the instructions below to set up and configure.
         parameter.connection_factory_type = "topic"
         ```
 4.  Remove any existing Apache ActiveMQ client JAR files from the `MI_HOME/dropins/` and `MI_HOME/lib/` directories.  
-5.  Download the [artemis-jms-client-all-2.6.1.jar](https://docs.wso2.com/download/attachments/119130330/artemis-jms-client-all-2.6.1.jar?version=1&modificationDate=1558091414000&api=v2) file and copy it to the `MI_HOME/lib/` directory.  
+5.  Download the [artemis-jms-client-all-2.6.1.jar](https://mvnrepository.com/artifact/org.apache.activemq/artemis-jms-client-all/2.6.1) file and copy it to the `MI_HOME/lib/` directory.  
 6.  Remove the below line from the `MI_HOME/conf/etc/launch.ini` file.  
 
     ```text

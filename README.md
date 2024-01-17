@@ -1,14 +1,10 @@
-# WSO2 API Manager Documentation
+# WSO2 API Manager Documentation - Staging
 
 [![slack](https://img.shields.io/badge/slack-wso2--apim-blueviolet)](https://join.slack.com/t/wso2-apim/shared_invite/enQtNzEzMzk5Njc5MzM0LTgwODI3NmQ1MjI0ZDQyMGNmZGI4ZjdkZmI1ZWZmMjNkY2E0NmY3ZmExYjkxYThjNzNkOTU2NWJmYzM4YzZiOWU?)
 [![StackOverflow](https://img.shields.io/badge/stackoverflow-wso2am-orange)](https://stackoverflow.com/tags/wso2-am/)
 [![Jenkins Build](https://img.shields.io/jenkins/build?jobUrl=https%3A%2F%2Fwso2.org%2Fjenkins%2Fview%2Fdocs%2Fjob%2Fdocs%2Fjob%2Fdocs-apim%2F)](https://wso2.org/jenkins/view/docs/job/docs/job/docs-apim)
 
 ---
-
-This is the documentation for the upcoming release of WSO2 API Manager (WSO2 API-M). Please note that this documentation is work in progress.
-
-To see the **latest released documentation** for the WSO2 API Manager, go to: [https://apim.docs.wso2.com/en/latest/](https://apim.docs.wso2.com/en/latest/)
 
 ## Contributing to WSO2 API-M documentation
 

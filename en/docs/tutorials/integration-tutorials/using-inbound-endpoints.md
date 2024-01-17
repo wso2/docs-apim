@@ -11,7 +11,7 @@ In this sample scenario, you will use an **Inbound Endpoint** to expose an alrea
 Set up WSO2 Integration Studio as follows:
 
 1.  Download the relevant [WSO2 Integration Studio](https://wso2.com/api-management/tooling/) based on your operating system.
-2.  Set up the project from the [Sending a Simple Message to a Service](sending-a-simple-message-to-a-service) tutorial:
+2.  Set up the project from the [Sending a Simple Message to a Service]({{base_path}}/tutorials/integration-tutorials/sending-a-simple-message-to-a-service) tutorial:
 
     !!! Note
         This tutorial is a continuation of the [Sending a Simple Message to a Service]({{base_path}}/tutorials/integration-tutorials/sending-a-simple-message-to-a-service/) tutorial.

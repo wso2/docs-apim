@@ -141,6 +141,42 @@ sh <PRODUCT_HOME>/bin/api-manager.sh --optimize -Dprofile=gateway-worker
 <PRODUCT_HOME>/bin/api-manager.bat --optimize -Dprofile=gateway-worker
 ```  
 
+??? info "Click here to see the sample output when you optimize the server for Gateway profile while starting in Gateway worker profile."
+    ``` java
+    [2023-02-23 16:46:52] INFO - Starting to optimize API Manager for the Gateway worker profile
+    [2023-02-23 16:46:52] INFO - Starting to optimize configs in deployment.toml
+    [2023-02-23 16:46:52] INFO - Renamed the existing ../repository/conf/deployment.toml file as deployment.toml.backup
+    [2023-02-23 16:46:52] INFO - Copied the existing ../repository/resources/conf/deployment-templates/gateway-worker.toml file as ../repository/conf/deployment.toml
+    [2023-02-23 16:46:52] INFO - Renamed the existing ../repository/resources/conf/templates/repository/conf/tomcat/carbon/WEB-INF/web.xml.j2 file as web.xml.j2.backup
+    [2023-02-23 16:46:53] INFO - Renamed the existing ../repository/resources/conf/templates/repository/conf/tomcat/carbon/WEB-INF/web_TM_GW.xml.j2 file as web.xml.j2
+    [2023-02-23 16:46:53] INFO - Removed the file ../repository/resources/conf/templates/repository/deployment/server/webapps/authenticationendpoint/WEB-INF/web.xml.j2
+    [2023-02-23 16:46:53] INFO - Removed the file ../repository/resources/conf/templates/repository/deployment/server/webapps/accountrecoveryendpoint/WEB-INF/web.xml.j2
+    [2023-02-23 16:46:53] INFO - Removed the api#identity#consent-mgt#v1.0.war file from ../repository/deployment/server/webapps
+    [2023-02-23 16:46:53] INFO - Removed the publisher file from ../repository/deployment/server/webapps
+    [2023-02-23 16:46:53] INFO - Removed the oauth2.war file from ../repository/deployment/server/webapps
+    [2023-02-23 16:46:53] INFO - Removed the api#am#devops#v0.war file from ../repository/deployment/server/webapps
+    [2023-02-23 16:46:53] INFO - Removed the admin file from ../repository/deployment/server/webapps
+    [2023-02-23 16:46:53] INFO - Removed the api#am#devportal.war file from ../repository/deployment/server/webapps
+    [2023-02-23 16:46:53] INFO - Removed the api#am#service-catalog#v1.war file from ../repository/deployment/server/webapps
+    [2023-02-23 16:46:53] INFO - Removed the api#identity#recovery#v0.9.war file from ../repository/deployment/server/webapps
+    [2023-02-23 16:46:53] INFO - Removed the api#identity#oauth2#v1.0.war file from ../repository/deployment/server/webapps
+    [2023-02-23 16:46:53] INFO - Removed the internal#data#v1.war file from ../repository/deployment/server/webapps
+    [2023-02-23 16:46:53] INFO - Removed the api#am#publisher.war file from ../repository/deployment/server/webapps
+    [2023-02-23 16:46:53] INFO - Removed the package.json file from ../repository/deployment/server/webapps
+    [2023-02-23 16:46:54] INFO - Removed the accountrecoveryendpoint file from ../repository/deployment/server/webapps
+    [2023-02-23 16:46:54] INFO - Removed the api#identity#user#v1.0.war file from ../repository/deployment/server/webapps
+    [2023-02-23 16:46:54] INFO - Removed the api#identity#oauth2#dcr#v1.1.war file from ../repository/deployment/server/webapps
+    [2023-02-23 16:46:54] INFO - Removed the am#sample#calculator#v1.war file from ../repository/deployment/server/webapps
+    [2023-02-23 16:46:54] INFO - Removed the client-registration#v0.17.war file from ../repository/deployment/server/webapps
+    [2023-02-23 16:46:54] INFO - Removed the api#am#admin.war file from ../repository/deployment/server/webapps
+    [2023-02-23 16:46:54] INFO - Removed the lerna.json file from ../repository/deployment/server/webapps
+    [2023-02-23 16:46:54] INFO - Removed the devportal file from ../repository/deployment/server/webapps
+    [2023-02-23 16:46:54] INFO - Removed the keymanager-operations.war file from ../repository/deployment/server/webapps
+    [2023-02-23 16:46:54] INFO - Removed the authenticationendpoint file from ../repository/deployment/server/webapps
+    Finished the optimizations
+    ```
+
+
 Passing the `--skipConfigOptimization` option allows you to preserve the configurations that you previously manually applied while optimizing the profile.
 
 ``` tab="Sample Format"

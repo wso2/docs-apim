@@ -10,7 +10,7 @@ Before you start configuring the  Amazon DynamoDB connector, you also need to co
 
 Specific message builders/formatters configuration needs to be enabled in the product as shown below before starting the integration service.
 
-If you are using the Micro Integrator of **EI7** or **APIM 4.0.0**, you need to enable this property by adding the following to the **<PRODUCT_HOME>/conf/deployment.toml** file. You can further refer to the [Working with Message Builders and Formatters]({{base_path}}/reference/config-catalog/#http-transport) and [Product Configurations]({{base_path}}/install-and-setup/message_builders_formatters/message-builders-and-formatters/) documentations.
+If you are using the Micro Integrator of **EI7** or **APIM 4.0.0**, you need to enable this property by adding the following to the **<PRODUCT_HOME>/conf/deployment.toml** file. You can further refer to the [Working with Message Builders and Formatters]({{base_path}}/reference/config-catalog/#http-transport) and [Product Configurations]({{base_path}}/install-and-setup/setup/mi-setup/message_builders_formatters/message-builders-and-formatters/) documentations.
 
 ```toml
 [[custom_message_formatters]]

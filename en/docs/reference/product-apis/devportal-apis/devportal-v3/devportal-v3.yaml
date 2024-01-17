@@ -87,6 +87,10 @@ info:
     "expires_in": 3600
     }
     ```
+
+    Note that in a distributed deployment or IS as KM separated environment to invoke RESTful APIs (product APIs), users must generate tokens through API-M Control Plane's token endpoint.
+    The tokens generated using third party key managers, are to manage end-user authentication when accessing APIs.
+    
     Now you have a valid access token, which you can use to invoke an API.
     Navigate through the API descriptions to find the required API, obtain an access token as described above and invoke the API with the authentication header.
     If you use a different authentication mechanism, this process may change.
@@ -97,7 +101,7 @@ info:
     * Make sure you have an API Manager instance up and running.
     * Update the `basepath` parameter to match the hostname and port of the APIM instance.
 
-    [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/17491134-b8760354-b3c3-4019-b60a-e813cba8d7c0)
+    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/25611032-b6a3878d-afa1-4cb8-b564-e69d73342f3f)
   contact:
     name: WSO2
     url: https://wso2.com/api-manager/
@@ -141,6 +145,11 @@ paths:
 
             Eg.
             "provider:wso2" will match an API if the provider of the API is exactly "wso2".
+
+            If you are searching an API using its name, ensure to enclose the name in double quotes.
+
+            Eg. 
+            name:"pizzashack" will match the API with the exact name "pizzashack".
 
             Additionally you can use wildcards.
 

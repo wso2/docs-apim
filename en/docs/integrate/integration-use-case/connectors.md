@@ -5,7 +5,7 @@ Connectors are a means of interacting with various SaaS applications on the clou
 The following are documented connectors available from the [connector store](https://store.wso2.com/store/assets/esbconnector/list). Click the link of the connector to view the documentation for each connector.
 
 !!! Info
-    For details on connectors not mentioned in this documentation, you can find more information in [WSO2 ESB Connectors documentation](https://docs.wso2.com/display/ESBCONNECTORS/WSO2+ESB+Connectors+Documentation) or in the [GitHub repository of the connector](https://github.com/wso2-extensions) you are looking for.
+    For details on connectors not mentioned in this documentation, you can find more information in [WSO2 ESB Connectors documentation](https://wso2docs.atlassian.net/wiki/spaces/ESBCONNECTORS/overview) or in the [GitHub repository of the connector](https://github.com/wso2-extensions) you are looking for.
 
 ## SaaS Connectors
 
@@ -31,7 +31,7 @@ The following are documented connectors available from the [connector store](htt
             <td>This connector enables you to perform CRUD operations for queues in Amazon SQS instance, update permissions, and work with messages through the <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/Welcome.html">Amazon SQS API</a>.</td>
         </tr>
         <tr>
-            <td><a href="{{base_path}}/reference/connectors/ceridiandayforce-connector/ceridiandayforce-overview/">Ceridian Dayforce</a></td>
+            <td><a href="{{base_path}}/reference/connectors/ceridiandayforce-connector/cerediandayforce-overview/">Ceridian Dayforce</a></td>
             <td>The Ceridian Dayforce connector allows you to  access the REST API of Ceridian Dayforce HCM.</td>
         </tr>
         <tr>
@@ -47,7 +47,7 @@ The following are documented connectors available from the [connector store](htt
             <td>The WSO2 Google Spreadsheet Connector allows you to access the <a href="https://developers.google.com/sheets/api/guides/concepts">Google Spreadsheet API Version v4</a>.</td>
         </tr>
         <tr>
-            <td><a href="{{base_path}}/reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-connector-example/">Microsoft Azure Storage</a></td>
+            <td><a href="{{base_path}}/reference/connectors/microsoft-azure-storage-connector/2.x/microsoft-azure-storage-connector-example/">Microsoft Azure Storage</a></td>
             <td>The Microsoft Azure Storage Connector allows you to access the Azure Storage services using Microsoft Azure Storage Java SDK.</td>
         </tr>
         <tr>

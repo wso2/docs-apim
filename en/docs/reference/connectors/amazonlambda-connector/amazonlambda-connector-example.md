@@ -146,7 +146,7 @@ You need to create an Execution Role by referring to the [Setting up the Amazon 
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/amazon-lambda-connector.zip">
+<a href="{{base_path}}/assets/attachments/connectors/amazon-lamda-connector.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
@@ -239,5 +239,4 @@ Follow these steps to deploy the exported CApp in the integration runtime.
  
 ## What's next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
 * To customize this example for your own scenario, see [Amazon Lambda Connector Configuration]({{base_path}}/reference/connectors/amazonlambda-connector/amazonlambda-connector-config/) documentation.

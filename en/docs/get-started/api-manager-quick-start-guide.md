@@ -6,11 +6,11 @@ This section is a step-by-step guide to create, publish, and invoke an API using
 
 Follow the instructions below to start WSO2 APIM-M.
 
-1. Install [Oracle Java SE Development Kit (JDK)](http://java.sun.com/javase/downloads/index.jsp) version 11 and set the `JAVA_HOME` environment variable.
+1. Install [Oracle Java SE Development Kit (JDK)](http://java.sun.com/javase/downloads/#java17) version 17 and set the `JAVA_HOME` environment variable.
      
      For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/).
 
-2. [Download version 4.0.0 of WSO2 API-M](https://wso2.com/api-management/).
+2. [Download version 4.2.0 of WSO2 API-M](https://wso2.com/api-management/).
 
 3. Start WSO2 API-M by navigating to the `<API-M_HOME>/bin` directory using the command-line and execute the following command.
 
@@ -37,7 +37,7 @@ Follow the instructions below to create and publish an API via the Publisher Por
 
 1. Navigate to the Publisher Portal.
    
-     [https://localhost:9443/publisher](https://localhost:9443/publisher)
+     `https://localhost:9443/publisher`
      
 2. Sign in with **`admin/admin`** as the credentials.
                                                  
@@ -108,7 +108,7 @@ Follow the instructions below to subscribe to the API and generate the keys via 
 
 1. Navigate to the Developer Portal.
 
-     [https://localhost:9443/devportal](https://localhost:9443/devportal)
+     `https://localhost:9443/devportal`
     
      The published `HelloWorld` API is listed in the Developer Portal as shown below.
 
@@ -195,7 +195,7 @@ Follow the instructions below to invoke the previously created API with the gene
 
     [![Paste the access token]({{base_path}}/assets/img/get_started/test-api.png)]({{base_path}}/assets/img/get_started/test-api.png)
 
-3. **If this is the first time you are using the API test console** from your browser,  open a new tab and navigate to the [https://localhost:8243/](https://localhost:8243/) URL.
+3. **If this is the first time you are using the API test console** from your browser,  open a new tab and navigate to the `https://localhost:8243/` URL.
 
      This will prompt your browser to accept the certificate used by the API Gateway. This is required because by default the API Gateway uses a self-signed certificate that is not trusted by web browsers.
     
@@ -226,13 +226,13 @@ API Products, and Applications across WSO2 API-M environments and to perform CI/
 
 Follow the instructions below to setup WSO2 API Controller.
 
-1. [Make sure that you run WSO2 API Manager (WSO2 API-M) 4.1.0]({{base_path}}/get-started/api-manager-quick-start-guide/#before-you-begin).
+1. [Make sure that you run WSO2 API Manager (WSO2 API-M) 4.2.0]({{base_path}}/get-started/api-manager-quick-start-guide/#before-you-begin).
 
 2. Download the apictl.
 
      1. Navigate to the [API Manager Tooling page](https://wso2.com/api-management/tooling/).
 
-     2. Download the apictl version 4.1.0 (or the latest of the 4.1.x family) based on your operating system from the **API Controller Tooling** section.
+     2. Download the apictl version 4.2.0 (or the latest of the 4.1.x family) based on your operating system from the **API Controller Tooling** section.
  
      3. Extract the ZIP to a preferred location.
 
@@ -278,7 +278,7 @@ Follow the instructions below to create an API via WSO2 API Controller.
      Let's use the command below to create an API named `PetstoreAPI`. This creates a folder named `PetstoreAPI` in your current directory.
 
        ```bash
-       ./apictl init PetstoreAPI --oas https://apim.docs.wso2.com/en/4.1.0/assets/attachments/get_started/petstore.json
+       ./apictl init PetstoreAPI --oas https://apim.docs.wso2.com/en/4.2.0/assets/attachments/get_started/petstore.json
        ```
 
      On successfully executing this command, you should see the following message.
@@ -345,11 +345,11 @@ Follow the instructions below to publish an API via WSO2 API Controller.
 
 2. Browse the Publisher and the Developer Portals to view the API details.
 
-     - Publisher - [https://localhost:9443/publisher](https://localhost:9443/publisher)
+     - Publisher - `https://localhost:9443/publisher`
 
          [![API in the Publisher]({{base_path}}/assets/img/get_started/qsg-publisher.png)]({{base_path}}/assets/img/get_started/qsg-publisher.png)
 
-     - Developer Portals - [https://localhost:9443/devportal](https://localhost:9443/devportal)
+     - Developer Portals - `https://localhost:9443/devportal`
 
          [![API in the Developer Portal]({{base_path}}/assets/img/get_started/qsg-devportal.png)]({{base_path}}/assets/img/get_started/qsg-devportal.png)
 

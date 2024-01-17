@@ -9,7 +9,7 @@ Follow the steps below to add a new state to the default life cycle.
 2.  Click **Lifecycle** tab to view the current state and states available by default.
     ![Published life cycle state]({{base_path}}/assets/img/learn/default-lifecycle.png)
 
-3.  Open the API Manager Management Console: <https://localhost:9443/admin>
+3.  Open the API Manager Management Console: `https://localhost:9443/admin`
 
 4.  Click on the Advanced tab.
 
@@ -177,6 +177,4 @@ Follow the steps below to add a new state to the default life cycle.
 
     !!! Tip "For Advanced Customization"
         If you want to add the custom lifecycle state to the existing lifecycle diagram, you have to customize the LifeCycleImage.jsx file located in  `<APIM-Home>/repository/deployment/server/webapps/publisher/src/main/webapp/source/src/app/components/Apis/Details/LifeCycle/` directory, as mentioned in the [Advanced Customization]({{base_path}}/reference/customize-product/customizations/advanced-ui-customization/) section.
-
-
-For more details on customizing the API lifecycle, see [Extending the API Life Cycle]({{base_path}}/design/lifecycle-management/extending-the-api-life-cycle/).
+    

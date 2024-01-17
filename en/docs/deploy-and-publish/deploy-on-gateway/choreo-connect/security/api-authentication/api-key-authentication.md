@@ -23,8 +23,7 @@ Select one of the methods given below to enable API Key Authentication for an AP
     certificateFilePath = "/home/wso2/security/truststore/wso2carbon.pem"
     ```
 
-    More information can be found in [Configure an External Key Manager](http://localhost:8000/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/configuring-an-external-key-manager/).
-
+    More information can be found in [Configure an External Key Manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/configuring-an-external-key-manager)
 ## Update the OpenAPI definition of the API
 
 When deploying via WSO2 API Manager, the already existing API Key security schemes defined in the OpenAPI definition will be overridden as you configure API security from the Publisher Portal. Therefore, making changes via the API Manager Publisher UI is sufficient. Use the following steps to enable API Key authentication when deploying an API using apictl, in other words, during standalone mode.

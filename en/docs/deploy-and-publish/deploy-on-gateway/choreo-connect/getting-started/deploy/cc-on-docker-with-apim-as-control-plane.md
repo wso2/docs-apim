@@ -8,7 +8,7 @@ Let's deploy an API on Choreo Connect, which running on Docker Compose, with WSO
 
     - Download the latest Choreo Connect release from [https://wso2.com/choreo/choreo-connect/](https://wso2.com/choreo/choreo-connect/) and extract it to a folder of your choice. The extracted folder will be referred to as `CHOREO-CONNECT_HOME` here onwards.
 
-    - This guide assumes that you have already started the WSO2 API Manager instance. If not, download the latest [release](https://github.com/wso2/product-apim/releases) and follow the steps [here](https://github.com/wso2/product-apim#installation--running).
+    - This guide assumes that you have already started the WSO2 API Manager instance. If not, download the latest [release](https://wso2.com/api-manager/) and follow the steps [here]({{base_path}}/get-started/api-manager-quick-start-guide/).
 
 ## Step 1 - Find the APIM IP Address
 
@@ -51,8 +51,6 @@ In the `[controlPlane]` section,
 ## Step 3 - Start Choreo Connect
 
 Now, let's start Choreo Connect. Navigate to `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect` and execute the following command.
-
-{!includes/deploy/cc-tryout-in-arm64-docker-note.md!}
 
 ``` bash
 docker-compose up -d

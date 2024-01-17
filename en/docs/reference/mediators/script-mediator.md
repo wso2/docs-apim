@@ -64,10 +64,16 @@ and when using Ruby, REXML documents.
 !!! Info
     The Script mediator is a [content-aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
 
+!!! Important "Limitations and Alternatives to Script Mediator"
+    While the Script mediator offers enhanced extensibility in the Synapse configuration, it is important to consider its potential limitations. We highly recommend utilizing the Script mediator only when absolutely necessary. In cases where extension requirements can be fulfilled using alternatives such as the Class mediator, we advise opting for the latter due to several reasons. Notably, the use of a Script mediator in moderately complex to sophisticated mediation flows may introduce significant performance overhead compared to a Java-based Class mediator. Therefore, we suggest prioritizing Class mediators as extensions to the mediation flow over Script mediators. However, for simpler tasks, the Script mediator can still serve as a versatile option.
+
 ## Prerequisites
 
 -   If you are using **nashornJS** as the JavaScript language, and also if you have JSON operations defined in the Script mediator, you need to have JDK version `8u112` or a later version in your environment.
     If your environment has an older JDK version, the Script mediator (that uses nashornJS and JSON operations) will not function properly because of this [JDK bug](https://bugs.openjdk.java.net/browse/JDK-8157160). That is, you will encounter server exceptions in the Micro Integrator.
+
+    !!! Note
+         If you are using JDK 15 or above, you need to manually copy the [nashorn-core](https://mvnrepository.com/artifact/org.openjdk.nashorn/nashorn-core/15.4) and [asm-util](https://mvnrepository.com/artifact/org.ow2.asm/asm-util/9.5) jars to the <code>&lt;MI_HOME&gt;/lib</code> directory since Nashorn was [removed](https://openjdk.org/jeps/372) from the JDK in Java 15.
 
 -   Listed below are the prerequisites for writing a Script mediator using
 JavaScript, Groovy, or Ruby.
@@ -109,9 +115,7 @@ Click on the relevant tab to view the syntax for a script mediator using an Inli
   The following syntax applies when you create a Script mediator with the script program statements stored in a separate file, referenced via the Local or Remote Registry entry.
 
     !!! Info
-        If you are creating the Registry Resource via Tooling, you need not specify the content/media type, because it gets automatically applied when you select the **JavaScript File Template** as shown below.
-
-        ![select the JavaScript File Template]({{base_path}}/assets/img/integrate/mediators/119131139/119131140.png)
+        If you are creating the Registry Resource via Tooling, you need not specify the content/media type, because it gets automatically applied when you select the **JavaScript File Template**.
 
         ``` 
         <script key="string" language="js" [function="script-function-name"]>
@@ -210,6 +214,69 @@ Click on the relevant tab to view the syntax for a script mediator using an Inli
          </td>
       </tr>
     </table>
+
+## Restricting Access to Java Classes and Methods
+
+Java Classes and Methods are visible to the script by default. For example, `var myArrayList = new java.util.ArrayList();` would instantiate a Java Arraylist, and `var hashmapConstructors = c.getClassLoader().loadClass("java.util.HashMap").getDeclaredConstructors();` would get a list of constructors of Java HashMap via reflection. Usage of classes or methods in such manner can be restricted by using the following synapse properties:
+- `limit_java_class_access_in_scripts` - Limits access to classes.
+- `limit_java_native_object_access_in_scripts` - Limits access to native objects/methods.
+
+Both of the above can be configured either in a _Block Listing_ approach (selectively blocking) or an _Allow Listing_ approach (selectively allowing).
+
+### Limiting Access to Java Classes
+
+| **Synapse Property**                                | **Description**                                                                                                                                                                                                                                | **Example Values**                           |
+|-----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------|
+| `limit_java_class_access_in_scripts.enable`         | Enable limiting access to Java classes.                                                                                                                                                                                                        | `true`/`false`                               |
+| `limit_java_class_access_in_scripts.class_prefixes` | Prefixes of Java class names, as comma separated values. Java Classes used in the script - having names beginning with these values will be selectively allowed/blocked, based on the provided `limit_java_class_access_in_scripts.list_type`. | `java.util,java.lang`                        |
+| `limit_java_class_access_in_scripts.list_type`      | Type of the list, provided under `limit_java_class_access_in_scripts.class_prefixes`. Possible values are:<br/> - `ALLOW_LIST`: Selectively allow<br/> - `BLOCK_LIST`: Selectively block                                                       | `ALLOW_LIST`/`BLOCK_LIST` |
+
+Prefixes of Java class names should be provided in `limit_java_class_access_in_scripts.class_prefixes`, as comma separated values. Each class that is used in the script will be compared against these prefixes.
+
+```properties
+limit_java_class_access_in_scripts.enable=true
+limit_java_class_access_in_scripts.list_type = "ALLOW_LIST"
+limit_java_class_access_in_scripts.class_prefixes = "java.util"
+```
+The above configuration uses an Allow Listing approach. This would only allow using the classes of which - the name starts with `java.util`, within the script. Usage of any other classes would result in an error as shown below:
+
+**Script Content:**
+```js
+print(java.lang.Math.pow(3, 2));
+```
+**Output during execution:**
+```
+ERROR - ScriptMediator {api:Mock:v1.0.0} The script engine returned an error executing the inlined js script function mediate
+com.sun.phobos.script.util.ExtendedScriptException: org.mozilla.javascript.EcmaError: TypeError: Cannot call property pow in object [JavaPackage java.lang.Math]. It is not a function, it is "object". (<Unknown Source>#3) in <Unknown Source> at line number 3
+```
+
+### Limiting Access to Java Methods/Native Objects
+
+| **Synapse Property**                                      | **Description**                                                                                                                                                                                                                               | **Example Values**        |
+|-----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
+| `limit_java_native_object_access_in_scripts.enable`       | Enable limiting access to Java methods/native objects.                                                                                                                                                                                        | `true`/`false`            |
+| `limit_java_native_object_access_in_scripts.object_names` | Names of Java methods/native objects, as comma separated values. Java Methods/native objects used in the script having these names will be selectively allowed/blocked, based on the provided `limit_java_class_access_in_scripts.list_type`. | `getClassLoader,getClass`         |
+| `limit_java_native_object_access_in_scripts.list_type`    | Type of the list, provided under `limit_java_class_access_in_scripts.class_prefixes`. Possible values are:<br/> - `ALLOW_LIST`: Selectively allow<br/> - `BLOCK_LIST`: Selectively block                                                      | `ALLOW_LIST`/`BLOCK_LIST` |
+
+Java Method/Native Object names should be provided in `limit_java_native_object_access_in_scripts.object_names`, as comma separated values. Each Java method that is used in the script will be compared against these values.
+
+```properties
+limit_java_native_object_access_in_scripts.enable=true
+limit_java_native_object_access_in_scripts.list_type = "BLOCK_LIST" # Or "ALLOW_LIST"
+limit_java_native_object_access_in_scripts.object_names = "getClassLoader" # Comma separated values
+```
+The above configuration uses a Block Listing approach. This would not allow the usage of `getClassLoader()` method within the script.
+
+**Script Content:**
+```js
+var hashmapConstructors = c.getClassLoader().loadClass("java.util.HashMap").getDeclaredConstructors()
+```
+
+**Output during execution:**
+```
+ERROR - ScriptMediator {api:Mock:v1.0.0} The script engine returned an error executing the inlined js script function mediate
+com.sun.phobos.script.util.ExtendedScriptException: org.mozilla.javascript.EcmaError: TypeError: Cannot find function getClassLoader in object class javax.script.SimpleScriptContext. (<Unknown Source>#21) in <Unknown Source> at line number 21
+```
 
 ## Examples
 

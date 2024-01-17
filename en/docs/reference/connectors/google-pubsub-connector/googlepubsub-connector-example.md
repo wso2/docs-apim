@@ -359,6 +359,3 @@ Invoke the API as shown below using the curl command. Curl Application can be do
   
     <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-viewmessages.png" title="pubsub-viewmessages" width="800" alt="pubsub-viewmessages"/>  
     
-## What's next
-
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).

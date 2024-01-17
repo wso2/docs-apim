@@ -94,7 +94,7 @@ Navigate to the `deployment_environments.yaml` file and define the virtual hosts
 
 ```yaml
 type: deployment_environments
-version: v4.1.0
+version: v4.2.0
 data:
  -
    displayOnDevportal: true
@@ -130,7 +130,7 @@ data:
     
     ```yaml
     type: deployment_environments
-    version: v4.1.0
+    version: v4.2.0
     data:
      -
        displayOnDevportal: true

@@ -5,7 +5,7 @@ This section describes how to configure WSO2 Micro Integrator to connect with Mi
 !!! Info
     The setup instruction here are only applicable for Windows environments since we invoke Microsoft C++ API for MSMQ via JNI invocations.
 
-The **msmq:** component is a transport for working with MSMQ. This component natively sends and receives directly allocated ByteBuffer instances allowing access to the JNI layer without memory copying. Using the **ByteBuffer** created with the **allocateDirect** method, the native code can directly access the memory. URI format is [msmq:msmqQueueName](http://msmqmsmqQueueName).
+The **msmq:** component is a transport for working with MSMQ. This component natively sends and receives directly allocated ByteBuffer instances allowing access to the JNI layer without memory copying. Using the **ByteBuffer** created with the **allocateDirect** method, the native code can directly access the memory. URI format is `msmq:msmqQueueName`.
 
 Follow the steps below to set up and configure WSO2 Micro Integrator with MSMQ.
 

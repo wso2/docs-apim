@@ -41,14 +41,14 @@ Create the artifacts:
 
 1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
 2. [Create an integration project]({{base_path}}/integrate/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-3. Create a [mediation sequence]({{base_path}}/integrate/develop/creating-artifacts/creating-reusable-sequences) and [inbound endpoint]({{base_path}}/integrate/develop/creating-an-inbound-endpoint) with configurations given in the above example.
+3. Create a [mediation sequence]({{base_path}}/integrate/develop/creating-artifacts/creating-reusable-sequences) and [inbound endpoint]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint) with configurations given in the above example.
 4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 
 [Configure the ActiveMQ broker]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-activemq).
 
 Invoke the inbound endpoint:
 
-1. Log on to the ActiveMQ console using the <http://localhost:8161/admin> URL.
+1. Log on to the ActiveMQ console using the `http://localhost:8161/admin` URL.
 2. Browse the queue `ordersQueue` listening via the above endpoint.
 3. Add a new message with the following content to the queue:
 

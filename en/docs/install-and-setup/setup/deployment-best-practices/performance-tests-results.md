@@ -5,11 +5,18 @@ The performance of WSO2 API Manager was measured using the following APIs, which
 - Echo API: This is a secured API, which directly invokes the back-end service.
 - Mediation API: This is also a secured API, which has a “sequence” as a mediation extension to modify the message.
 
-Tests were done using 100, 200, 300, 1000, and 2000 concurrent users. Concurrent Users mean that it consists of multiple users accessing the API Gateway at the same time. Different Message Sizes (Payloads) were used for the tests with different back-end service delays. The message sizes used are 50B, 1KiB, 10KiB, and 100KiB. The back-end delay was 0ms.
+Tests were done using 100, 200, 500, and 1000 concurrent users. Concurrent Users mean that it consists of multiple users accessing the API Gateway at the same time. Different Message Sizes (Payloads) were used for the tests with different back-end service delays. The message sizes used are 50B, 1KiB, 10KiB, and 100KiB. The back-end delay was 0ms.
 Two key performance metrics were used to measure the performance of each test. 
 
 - Throughput: This measures the number of API invocations that the API Manager Gateway server processed during a specific time interval (e.g., per second). 
 - Response Time: This measures end-to-end processing time for an operation (of invoking an API using HTTPS protocol). The complete distribution of response times was recorded.
+
+
+!!! Note 
+    To get consistent results, the following measures were taken. 
+
+    - HTTP Access logs for Passthrough transport were disabled.
+    - Passthrough transport metric counters were disabled.
 
 ## Deployment used for the test
 
@@ -67,7 +74,7 @@ Two key performance metrics were used to measure the performance of each test.
 - Token type: JWT
 - The operating system is Ubuntu 18.04
 - MySQL version in RDS instance is 5.7
-- Java version is JDK 11
+- Java version is Termurin JDK 17
 
 ### Performance test scripts
 
@@ -79,7 +86,7 @@ All scripts used to run the performance tests and analyze results are in the fol
 
 ## Results
 
-Considering the fact that an average WSO2 API Manager user uses ~1KiB messages, the performance test highlights for that scenario are represented in the charts below. The complete results can be found [here](https://github.com/wso2/performance-apim/blob/performance-test-344-2022-03-29_14-27-45/performance/benchmarks/summary.md).
+Considering the fact that an average WSO2 API Manager user uses ~1KiB messages, the performance test highlights for that scenario are represented in the charts below. The complete results can be found [here](https://github.com/wso2/performance-apim/blob/performance-test-397-2023-02-18_05-03-08/performance/benchmarks/summary.md).
 
 The following graph depicts the throughput changes based on the number of concurrent users.
 

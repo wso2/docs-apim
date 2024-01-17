@@ -90,4 +90,4 @@ When you are following the [API creation steps]({{base_path}}/design/create-api/
 
 6. You will see the linter error corresponding to the new rule you enforced.
 
-    [![Linter results]({{base_path}}/assets/img/design/create-api/linter-observe/linters6.png)]({{base_path}}/assets/img/design/create-api/linter-observe/linters6.png)
+    [![Linter results]({{base_path}}/assets/img/design/create-api/linter-observe/linters6.png)]({{base_path}}/assets/img/design/create-api/linter-observe/linters6.png) 

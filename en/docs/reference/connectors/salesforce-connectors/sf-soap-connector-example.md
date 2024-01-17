@@ -204,10 +204,6 @@ Now follow the steps below to add configurations to the resource.
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/salesforcesoap.zip">
-    <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
-</a>
-
 !!! tip
     You may need to update the value of the access token and make other such changes before deploying and running this project.
 
@@ -267,5 +263,4 @@ Invoke the API as shown below using the curl command. Curl Application can be do
 
 ## What's Next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
 * To customize this example for your own scenario, see [Salesforce SOAP Connector Configuration]({{base_path}}/reference/connectors/salesforce-connectors/sf-soap-connector-config/) documentation for all operation details of the connector.

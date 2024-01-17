@@ -74,7 +74,7 @@ Yes, you can define the number of replicas you want and scale the services accor
 
 `config.toml` file is used by the Adapter to read the configuration and the Adapter should be restarted to apply the new configuration. If the configuration changes should be applied to the Enforcer, the Enforcer should be restarted as it only reads data at the startup. The Router gets updates directly from the Adapter so a restart is not required.
 
-#### Is Choreo Connect 1.1.0 supported with API-M 4.0.0?
+#### Is Choreo Connect 1.2.0 supported with API-M 4.0.0/4.1.0/4.2.0?
 
 No, supported API Manager versions are listed below with the respective Choreo Connect versions.
 
@@ -82,6 +82,7 @@ No, supported API Manager versions are listed below with the respective Choreo C
 |-------------------|----------------------|
 | API Manager 4.0.0 | Choreo Connect 1.0.0 |
 | API Manager 4.1.0 | Choreo Connect 1.1.0 |
+| API Manager 4.2.0 | Choreo Connect 1.2.0 |
 
 #### Why do I keep getting gRPC xDS errors during the start up?
 

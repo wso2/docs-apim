@@ -103,7 +103,7 @@ listener.parameter.PreferredCiphers = "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,T
 ```
 
 !!! Note
-    To check the above configuration changes related to SSL. Download [testsslserver.jar](https://docs.wso2.com/download/attachments/53125465/testsslserver.jar?version=1&modificationDate=1471859455000&api=v2) and test with the following command.
+    To check the above configuration changes related to SSL. Download [testsslserver.jar](https://apim.docs.wso2.com/en/4.2.0/assets/attachments/admin/testsslserver-jar.zip) and test with the following command.
 
     $ java -jar testsslserver.jar localhost 8253
 
@@ -179,7 +179,7 @@ class="org.wso2.carbon.business.messaging.hl7.message.HL7MessageFormatter"
 
 ## Configuring the FIX transport
 
-This transport implementation is a module developed under the Apache Synapse project and it supports JMX. This transport is mainly used in conjunction with proxy services. FIX transport does not support any global parameters. All the FIX configuration parameters should be specified at service level. QuickFix 4J configuration parameters can be found <a href="http://www.quickfixengine.org/quickfix/doc/html/configuration.html">here</a>.
+This transport implementation is a module developed under the Apache Synapse project and it supports JMX. This transport is mainly used in conjunction with proxy services. FIX transport does not support any global parameters. All the FIX configuration parameters should be specified at service level. QuickFix 4J configuration parameters can be found <a href="https://www.quickfixj.org/">here</a>.
 
 To enable the FIX transport listener and sender, set the following parameters to `true` in the deployment.toml file (stored in the `MI_HOME/conf` directory).
 
@@ -358,8 +358,7 @@ The HL7 transport allows you to handle Health Level 7 International (HL7) messag
 
 ### Adding the transport
 
-HL7 is not shipped by default in the pack. To make the transport available, download the [HL7_ZIP](https://github
-.com/wso2-docs/WSO2_EI/raw/master/micro-integrator-resources/hl7/1.2.0/wso2mi-hl7-1.2.0.zip), extract it, and copy both
+HL7 is not shipped by default in the pack. To make the transport available, download the [HL7_ZIP](https://github.com/wso2-docs/WSO2_EI/raw/master/micro-integrator-resources/hl7/1.2.0/wso2mi-hl7-1.2.0.zip), extract it, and copy both
  the .jar files inside it to the `<MI_HOME>/dropins` folder.
 
 ### Enabling the transport

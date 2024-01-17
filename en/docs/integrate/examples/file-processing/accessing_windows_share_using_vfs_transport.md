@@ -1,5 +1,7 @@
 # Accessing a Windows Share using VFS
-This example demonstrates how the [VFS transport]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/configuring-the-vfs-transport) in WSO2 Micro Integrator can be used to access a windows share.
+
+This example demonstrates how the [VFS transport]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports) in WSO2 Micro Integrator can be used to access a windows share.
+
 
 ## Synapse configuration
 
@@ -95,10 +97,13 @@ When the sample is executed, the VFS transport listener picks the file from the 
 
 ## Using SMB2 for VFS transport
 
+!!! important "SMB3 Support in VFS Transport"
+    Starting from version API-M 4.1.0, the VFS (Virtual File System) transport in MI now supports both SMB2 and SMB3 protocols for Windows share URI configurations. This enhancement allows for improved performance, security, and compatibility with modern SMB implementations.
+
 Windows share URI format for SMB v2/3 use cases is shown below.
 
 ```
-smb2://[username]:[password]@[hostname]:[port]/[absolute-path
+smb2://[username]:[password]@[hostname]/[absolute-path]
 ```
 You can use the proxy given below to test the SMB2 functionality.
 

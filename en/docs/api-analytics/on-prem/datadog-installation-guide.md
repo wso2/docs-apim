@@ -1,4 +1,4 @@
-# DataDog As the On-prem Analytics Solution For API Manager
+# DataDog Based Analytics Solution For API Manager
 
 <a href="{{base_path}}/assets/img/analytics/datadog/architecture.png"><img src="{{base_path}}/assets/img/analytics/datadog/architecture.png" width="70%" alt="Deployment diagram"></a>
 
@@ -16,7 +16,7 @@ In the Datadog end a pipeline is created to pre-process the data. This pipeline 
 The Choreo based analytics will be enabled by default. Specify the `type` as `elk` to enable ELK analytics as shown below.
 Edit `apim.analytics` configurations in the `deployment.toml` file located inside the `wso2am-4.x.x/repository/conf` directory with the following configuration.
 
-```
+```toml
 [apim.analytics]
 enable = true
 type = "log"
@@ -26,14 +26,16 @@ type = "log"
 
 To enable logging for a reporter, edit the `log4j2.properties` file located inside the `wso2am-4.x.x/repository/conf` directory. 
 
-1. Add  APIM_METRICS_APPENDER to the appenders list:
 
-    ```
+1. Add APIM_METRICS_APPENDER to the appenders list:
+
+    ```properties
     appenders = APIM_METRICS_APPENDER, .... (list of other available appenders)
     ```
+   
 2. Add the following configuration after the appenders:
 
-    ```
+    ```properties
     appender.APIM_METRICS_APPENDER.type = RollingFile
     appender.APIM_METRICS_APPENDER.name = APIM_METRICS_APPENDER
     appender.APIM_METRICS_APPENDER.fileName = ${sys:carbon.home}/repository/logs/apim_metrics.log
@@ -49,21 +51,22 @@ To enable logging for a reporter, edit the `log4j2.properties` file located insi
     appender.APIM_METRICS_APPENDER.strategy.type = DefaultRolloverStrategy
     appender.APIM_METRICS_APPENDER.strategy.max = 10
     ```
-
+   
 3. Add a reporter to the loggers list:
 
-    ```
+    ```properties
     loggers = reporter, ...(list of other available loggers)
     ```
 
 4. Add the following configurations after the loggers:
 
-    ```
+    ```properties
     logger.reporter.name = org.wso2.am.analytics.publisher.reporter.elk
     logger.reporter.level = INFO
     logger.reporter.additivity = false
     logger.reporter.appenderRef.APIM_METRICS_APPENDER.ref = APIM_METRICS_APPENDER
     ```
+   
 !!! note
     The `apim_metrics.log` file be rolled each day or when the log size reaches the limit of 1000 MB by default. Note that only 10 revisions will be kept and older revisions will be deleted automatically. You can change these configurations by updating the configurations provided in step 2 of this section given above.
 

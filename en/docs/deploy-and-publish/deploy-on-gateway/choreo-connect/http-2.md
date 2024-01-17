@@ -115,7 +115,7 @@ Clients can initiate HTTP connections with Choreo Connect Router using HTTP/1.1 
 [router]
   listenerCodecType = "HTTP2"
 ```
-You can set this confuration to `AUTO`, `HTTP1`, or `HTTP2`.
+You can set this configuration to `AUTO`, `HTTP1`, or `HTTP2`.
 
 ## Upstream configuration
 
@@ -158,7 +158,7 @@ x-wso2-http2-backend-enabled: true
 ```
 
 
-#### The client does not support HTTP/2 but the backend suppports HTTP 2.0
+#### The client does not support HTTP/2 but the backend supports HTTP 2.0
 
 [![Choreo h1 h2 connection]({{base_path}}/assets/img/deploy/http2/choreo-h1-h2-connection.png)]({{base_path}}/assets/img/deploy/http2/choreo-h1-h2-connection.png)
 

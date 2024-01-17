@@ -154,7 +154,7 @@ To start developing integration solutions, you need to first <a href="{{base_pat
                         <a href="{{base_path}}/integrate/develop/customizations/creating-custom-mediators/">Custom Mediator</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/integrate/develop/customizations/creating-custom-Inbound-endpoint/">Custom Inbound Enpoint</a>
+                        <a href="{{base_path}}/integrate/develop/customizations/creating-custom-Inbound-endpoint/">Custom Inbound Endpoint</a>
                     </li>
                     <li>
                         <a href="{{base_path}}/integrate/develop/customizations/creating-new-connector/">Custom Connector</a>
@@ -311,7 +311,7 @@ It is recommended to use a <b>CICD pipeline</b> to deploy your tested integratio
             <b>Kubernetes Environment</b>
         </td>
         <td>
-            If you have a <b>Kubernetes deployment</b>, see the instructions on how to use the <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/k8s-pipeline/overview">Kubernetes CICD pipeline</a>.
+            If you have a <b>Kubernetes deployment</b>, see the instructions on how to use the <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/mi-cicd-k8s"> Kubernetes CICD pipeline</a>.
         </td>
     </tr>
 </table>

@@ -230,7 +230,7 @@ To authenticate the repository with SSH key, the SSH private key file path shoul
 
      - [Generating SSH keys - GitHub](https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
      - [Generating SSH keys - Bitbucket](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key)
-     - [Generating SSH keys - GitLab](https://docs.gitlab.com/ee/ssh)
+     - [Generating SSH keys - GitLab](https://docs.gitlab.com/ee/user/ssh.html)
 
     !!! Important
         Make sure to keep the passphrase of the SSH key empty.
@@ -339,8 +339,6 @@ To authenticate the repository with SSH key, the SSH private key file path shoul
 ### Step 3 - Start Choreo Connect
 
 Start Choreo Connect on Docker Compose by executing the Docker Compose script inside the `<CHOREO-CONNECT_HOME>` directory.
-
-{!includes/deploy/cc-tryout-in-arm64-docker-note.md!}
 
 1. Navigate to `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/` directory.
 

@@ -94,7 +94,7 @@ Follow the instructions below to generate some traffic in order to be able to vi
 
 Follow the instructions below to configure ELK Analytics for Choreo Connect:
 
-[![Choreo ELK Analytics Data Flow]({{base_path}}/assets/img/deploy/choreo-elk-analytics-data-flow.png)]({{base_path}}/assets/img/deploy choreo-elk-analytics-data-flow.png)
+[![Choreo ELK Analytics Data Flow]({{base_path}}/assets/img/deploy/choreo-elk-analytics-data-flow.png)]({{base_path}}/assets/img/deploy/choreo-elk-analytics-data-flow.png)
 
 The Enforcer component in Choreo Connect can log analytics-related data to be used by Filebeat in ELK Stack. Data flow for the ELK Analytics can be depicted as given above.
 
@@ -141,7 +141,7 @@ The following are the two options that are available to retrieve the analytics l
 - <a href="#logtoconsole">Log to console</a>
 - <a href="#logtofile">Log to file</a>
 
-Update the `choreo-connect-1.x.x/docker-compose/choreo-connect(-with-apim)/conf/log4j2.properties` file based on the selected analytics logs retrival method as follows in order to configure the Filebeat agent.
+Update the `choreo-connect-1.x.x/docker-compose/choreo-connect(-with-apim)/conf/log4j2.properties` file based on the selected analytics logs retrieval method as follows in order to configure the Filebeat agent.
 
 <a name="logtoconsole">
 <b>Log to console</b>

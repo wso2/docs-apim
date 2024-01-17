@@ -52,6 +52,7 @@ See the example .toml file given below.
   enforcerResponseTimeoutInSeconds = 20
   systemHost = "localhost"
   useRemoteAddress = false
+  perConnectionBufferLimitBytes = 1048576
 </code></pre>
                     </div>
                 </div>
@@ -215,6 +216,33 @@ See the example .toml file given below.
                                     </div>
                                     <div class="param-description">
                                         <p>If configured as true, the Router appends the immediate downstream IP address to the x-forward-for header.</p>
+
+                                        <div class="admonition attention">
+                                        <p class="admonition-title">Update Level 5</p>
+                                        <p>This feature is available only as an update, after Update level 1.1.0.5 (released on 15 Aug 2022) and further. For more information regarding Choreo Connect updates, see <a href="https://apim.docs.wso2.com/en/4.1.0/deploy-and-publish/deploy-on-gateway/choreo-connect/update-choreo-connect/">here</a>.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>perConnectionBufferLimitBytes</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>1048576</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The buffer limit per connection in Bytes. Default value is 1 MiB</p>
+                                    </div>
+                                    <div class="admonition attention">
+                                        <p class="admonition-title">Update Level 4</p>
+                                        <p>This feature is available only as an update, after Update level 1.2.0.4 (released on 21 Nov 2023) and further. For more information regarding Choreo Connect updates, see <a href="https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/choreo-connect/update-choreo-connect/">here</a>.</p>
                                     </div>
                                 </div>
                             </div>
@@ -1274,18 +1302,19 @@ allowCredentials = false
   [router.filters.compression.requestDirection]
     enabled = false
     minimumContentLength = 30
-    contentType = ["text/html","application/json"]
+    contentType = ["application/javascript", "application/json", "application/xhtml+xml", "image/svg+xml", "text/css", "text/html", "text/plain", "text/xml"]
   [router.filters.compression.responseDirection]
     enabled = true
     minimumContentLength = 30
-    contentType = ["text/html","application/json"]
+    contentType = ["application/javascript", "application/json", "application/xhtml+xml", "image/svg+xml", "text/css", "text/html", "text/plain", "text/xml"]
     enableForEtagHeader = true
   [router.filters.compression.libraryProperties]
     memoryLevel = 3
     windowBits = 12
     compressionLevel = 9
     compressionStrategy = "defaultStrategy"
-    chunkSize = 4096</code></pre>
+    chunkSize = 4096
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -1299,6 +1328,24 @@ allowCredentials = false
                         </div>
                         <div class="params-wrap">
                             <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code></code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string">  </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p></p>
+                                    </div>
+                                </div>
                             </div>
                         </div><div class="config-wrap">
                             <code>[router.filters.compression]</code>

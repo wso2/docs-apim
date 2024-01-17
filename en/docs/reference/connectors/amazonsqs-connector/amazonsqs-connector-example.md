@@ -164,7 +164,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/amazonsqs.zip">
+<a href="{{base_path}}/assets/attachments/connectors/amazonsqs-inbound-endpoint.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
@@ -216,7 +216,4 @@ You should get the following response with the 'sys_id' and keep it saved.
 </ns:getQuoteResponse>
 ```
 
-## What's Next
-
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
 

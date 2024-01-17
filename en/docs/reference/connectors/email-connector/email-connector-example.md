@@ -111,7 +111,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 15. Inside the [Foreach Mediator]({{base_path}}/reference/mediators/foreach-mediator/), drag and drop the `getEmailBody` operation as shown below and provide the `//email/index/text()` expression as the Email Index.
     <img src="{{base_path}}/assets/img/integrate/connectors/email-conn-10.png" title="Adding getEmailBody operation." width="800" alt="Adding getEmailBody operation."/>
 
-    > **NOTE**: Further, you can use `getAttachment` operation to retrieve attachment content if there are any. Refer [Reference Documentation](email-connector-config/) to learn more.
+    > **NOTE**: Further, you can use `getAttachment` operation to retrieve attachment content if there are any. Refer [Reference Documentation]({{base_path}}/reference/connectors/email-connector/email-connector-config/) to learn more.
 
 16. Next, we will use a [Payload Factory Mediator]({{base_path}}/reference/mediators/payloadfactory-mediator/), to add the email content to the same response we received from `list` operation and configure the Payload mediator as shown below.
     <img src="{{base_path}}/assets/img/integrate/connectors/email-conn-11.png" title="Adding payload factory mediator." width="800" alt="Adding payload facotry mediator."/>
@@ -269,5 +269,4 @@ You should get a response like below.
 
 ## What's Next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
 * To customize this example for your own scenario, see [Email Connector Configuration]({{base_path}}/reference/connectors/email-connector/email-connector-config/) documentation for all operation details of the connector.

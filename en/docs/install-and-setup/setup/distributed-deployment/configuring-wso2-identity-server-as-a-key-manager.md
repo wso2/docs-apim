@@ -12,7 +12,7 @@ Follow the instructions below to configure WSO2 Identity Server (WSO2 IS) as the
 
 ## Step 1 - Download and install WSO2 IS
 
-Download and install [WSO2 Identity Server Version 6.0.0](https://wso2.com/identity-and-access-management/previous-releases/). If you 
+Download and install [WSO2 Identity Server 6.0.0 or 6.1.0](https://wso2.com/identity-server/). If you 
 downloaded the archive, extract it. `<IS_HOME>` refers to the root folder of the extracted WSO2 Identity Server.
 
 It is assumed that you have already downloaded WSO2 API Manager.
@@ -148,8 +148,8 @@ Follow the instructions below to set up and configure the databases for the WSO2
 
 2. Extract the distribution and copy the following JAR files, which are in the `<wso2is-extensions-1.6.8>/dropins` directory, to the `<IS_HOME>/repository/components/dropins` directory.
 
-     - `wso2is.key.manager.core_1.6.8.jar`
-     - `wso2is.notification.event.handlers_1.6.8.jar`
+     - `wso2is.key.manager.core-1.6.8.jar`
+     - `wso2is.notification.event.handlers-1.6.8.jar`
 
 3. Add the `keymanager-operations.war`, which is in the `<wso2is-extensions-1.6.8>/webapps` directory, to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
@@ -250,7 +250,7 @@ Follow the instructions below to set up and configure the databases for the WSO2
     ```
 7. If you wish to encrypt the OAuth2 Keys (access tokens, client secrets, and authorization codes), follow the steps given in [Encrypting OAuth Keys](https://is.docs.wso2.com/en/5.10.0/learn/testing-oidc-encrypted-id-token-with-is/#enable-id-token-encryption), which is in the WSO2 Identity Server 5.10.0 documentation, and apply the relevant configurations in the `<IS_HOME>/repository/conf/deployment.toml` file to enable the feature.
 
-8. If you are setting up the deployment in a local environment (non production) and wish to use the existing keystore and truststore (with self signed certificate) shipped by default with the product distributions, replace the keystore in `<IS_HOME>/repository/resources/security/wso2carbon.jks` and trustore in `<IS_HOME>/repository/resources/security/client-truststore.jks` with the ``<APIM_HOME>/repository/resources/security/wso2carbon.jks` and  `<APIM_HOME>/repository/resources/security/client-truststore.jks` respectively. Make sure to follow this step before starting either of the servers for the first time.
+8. If you are using the existing keystore and truststore (with self signed certificate) shipped by default with the product distributions, replace the keystore in `<IS_HOME>/repository/resources/security/wso2carbon.jks` and trustore in `<IS_HOME>/repository/resources/security/client-truststore.jks` with the ``<APIM_HOME>/repository/resources/security/wso2carbon.jks` and  `<APIM_HOME>/repository/resources/security/client-truststore.jks` respectively. Make sure to follow this step before starting either of the servers for the first time. (Please note that in a production environment, it is not recommended to use the default keystores. Instead, it is recommended to [create new keystores]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/) with new keys and certificates.)
 
 ## Step 5 - Configure WSO2 API-M with the WSO2 IS
 
@@ -308,6 +308,10 @@ Start WSO2 Identity Server for the changes to take effect. For more information,
         The reason for this is that the default certificates that come with the WSO2 servers are created for `localhost`. Therefore, when WSO2 API Manager boots up, it makes an HTTP call to a webapp that is in the Key Manager (throttle data at `KM_URL/internal/data/v1/keyTemplates`). Thereafter, WSO2 API Manager decides the URL of the Key Manager based on the URL that is configured in the `deployment.toml`, which is `localhost`.
 
         To overcome this issue, you need to create self-signed certificates for WSO2 API-M and WSO2 IS hostnames. Then [import the public certificates]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-3-importing-certificates-to-the-truststore) of WSO2 API-M to the `trust-store.jks` of WSO2 IS and vice versa. This should resolve the SSL handshake failure.
+
+    !!! Note
+        In a IS as KM separated environment to invoke RESTful APIs (product APIs), users must generate tokens through API-M Control Plane's token endpoint.
+        The tokens generated using third party key managers, are to manage end-user authentication when accessing APIs.
 
 Follow the instructions below to configure the other WSO2 API-M components, namely the Publisher, Developer Portal, Traffic Manager, and Gateway:
 

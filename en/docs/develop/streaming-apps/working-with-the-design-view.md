@@ -24,13 +24,13 @@ To open the design view of the Streaming Integrator Tooling:
 To add a Siddhi component to the Siddhi application that you are creating/editing in the design view, click on the 
 relevant icon in the left pane, and then drag and drop it to the grid as demonstrated in the example below.
 
-![Dragging and dropping Siddhi components]({{base_path}}/assets/img/streaming/working-with-the design-view/drag-and-drop-siddhi-component.gif)
+![Dragging and dropping Siddhi components](../../../../assets/img/streaming/working-with-the design-view/Drag-And-Drop-Siddhi-Component.gif)
 
 Once you add a Siddhi component, you can configure it as required. To
 configure a Siddhi component, click the settings icon on the component.
 This opens a form with parameters related to the relevant component.
 
-![Configure Siddhi component settings]({{base_path}}/assets/img/streaming/working-with-the design-view/configure-siddhi-component-in-design-view.png)
+![Configure Siddhi component settings](../../../../assets/img/streaming/working-with-the design-view/Configure-Siddhi-Component-In-Design-View.png)
 
 The following is the complete list of Siddhi components that you can add
 to the grid of the design view when you create a Siddhi application.
@@ -59,7 +59,7 @@ to the grid of the design view when you create a Siddhi application.
                <p><strong>Stream Name</strong> <strong>:</strong> A unique name for the stream. This should be specified in title caps, and without spaces (e.g., <code>ProductionDataStream</code> ).</p>
                <p><strong>Attributes</strong> : Attributes of streams are specified as name and type pairs in the <strong>Attributes</strong> table.</p>
                <p>If you want to generate the the stream from a file or a database, click <strong>Generate Stream</strong>. However, note that you need to create the relevant file or set up the database and the tables beforehand.</p>
-               <p><img src="{{base_path}}/assets/img/streaming/working-with-the design-view/generate-stream.png"/></p>
+               <p><img src="/assets/img/streaming/working-with-the design-view/Generate-Stream.png"/></p>
                <p>The <strong>Generate Stream</strong> form opens as follows</p>
                <p><img src="{{base_path}}/assets/img/streaming/working-with-the design-view/generate-stream-form.png"/></p>
                <p>To generate the stream from a file:
@@ -311,8 +311,8 @@ to the grid of the design view when you create a Siddhi application.
             <p>To configure the table, click the settings icon on the table component you added to the grid.</p>
             <p><strong>Name</strong> <strong>:</strong> This field specifies unique name for the table. This should be specified in title caps, and without spaces (e.g., <code>              ProductionDataTable             </code> ).</p>
             <p><strong>Attributes</strong> : Attributes of tables are specified as name and type pairs in the <strong>Attributes</strong> table. To add a new attribute, click <strong>+Attribute</strong>.</p>
-            <p><strong>Store Type</strong> : This specifies the specific database type in which you want to stopre data or whether the data is to be stored in-memory. Once the store type is selected, select an option to indicate whether the datastore needs to be defined inline, whether you want to use a datasource defined in the <code>              &lt;SP_HOME&gt;/conf/worker/deployment.yaml             </code> file, or connected to a JNDI resource. For more information, see <a href="https://docs.wso2.com/display/SP440/Defining+Tables+for+Physical+Stores">Defining Tables for Physical Stores</a>. The other parameters configured under <strong>Store Type</strong> depend on the store type you select.</p>
-            <p><strong>Annotations</strong> : This section allows you to specify the table attributes you want to use as the primary key and indexes via the <code>              @primarykey             </code> and <code>              @index             </code> annotations. For more information, see <a href="https://docs.wso2.com/display/SP440/Defining+Data+Tables">Defining Data Tables</a>. If you want to add any other custom annotations to your table definition, click <strong>+Annotation</strong> to define them.</p>
+            <p><strong>Store Type</strong> : This specifies the specific database type in which you want to stopre data or whether the data is to be stored in-memory. Once the store type is selected, select an option to indicate whether the datastore needs to be defined inline, whether you want to use a datasource defined in the <code>              &lt;SP_HOME&gt;/conf/worker/deployment.yaml             </code> file, or connected to a JNDI resource. For more information, see <a href="https://wso2docs.atlassian.net/wiki/spaces/SP440/pages/16056704/Defining+Tables+for+Physical+Stores">Defining Tables for Physical Stores</a>. The other parameters configured under <strong>Store Type</strong> depend on the store type you select.</p>
+            <p><strong>Annotations</strong> : This section allows you to specify the table attributes you want to use as the primary key and indexes via the <code>              @primarykey             </code> and <code>              @index             </code> annotations. For more information, see <a href="https://wso2docs.atlassian.net/wiki/spaces/SP440/pages/16056703/Defining+Data+Tables">Defining Data Tables</a>. If you want to add any other custom annotations to your table definition, click <strong>+Annotation</strong> to define them.</p>
          </td>
       </tr>
       <tr class="even">
@@ -523,7 +523,7 @@ to the grid of the design view when you create a Siddhi application.
                      <ul>
                         <li><strong>start</strong> : Select this to trigger events when the Streaming Integrator server has started.</li>
                         <li><strong>every</strong> : Select this to specify a time interval at which events should be triggered.</li>
-                        <li><strong>cron-expression</strong> : Select this to enter a cron expression based on which the events can be triggered. For more information about cron expressions, see the <a href="http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html</a>.</li>
+                        <li><strong>cron-expression</strong> : Select this to enter a cron expression based on which the events can be triggered. For more information about cron expressions, see the <a href="http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html"</a>.</li>
                      </ul>
                   </li>
                </ul>
@@ -535,7 +535,7 @@ to the grid of the design view when you create a Siddhi application.
          <td>
             <div class="content-wrapper">
                <p><br /></p>
-               <img src="{{base_path}}/assets/img/streaming/working-with-the design-view/Trigger_Configuration_Form.png"/>
+               <img src="{{base_path}}/assets/img/streaming/working-with-the design-view/trigger-configuration-form.png"/>
                <p>The details entered in the above orm creates a trigger definition as follows:</p>
                <div class="code panel pdl" style="border-width: 1px;">
                   <div class="codeContent panelContent pdl">
@@ -594,7 +594,7 @@ to the grid of the design view when you create a Siddhi application.
             <div class="content-wrapper">
                <p>To configure the aggregation, <a href="#WorkingwiththeDesignView-Settings">click the settings icon</a> on the aggregation component you added to the grid, and update the following information.</p>
                <ul>
-                  <li><strong>Aggregation Meta Information</strong> : In this section, define a unique name for the aggregation in the <strong>Name</strong> field, and specify the stream from which the input information is taken to perform the aggregations. You can also select the optional annotations you want to use in the aggregation definition by selecting the relevant check boxes. For more information about configuring the annotations once you select them, see <a href="https://docs.wso2.com/display/SP440/Incremental+Analysis#IncrementalAnalysis-annotation">Incremental Analysis</a>.</li>
+                  <li><strong>Aggregation Meta Information</strong> : In this section, define a unique name for the aggregation in the <strong>Name</strong> field, and specify the stream from which the input information is taken to perform the aggregations. You can also select the optional annotations you want to use in the aggregation definition by selecting the relevant check boxes. For more information about configuring the annotations once you select them, see <a href="https://wso2docs.atlassian.net/wiki/spaces/SP440/pages/16056712/Incremental+Analysis">Incremental Analysis</a>.</li>
                   <li><strong>Projection</strong> : This section specifies the attributes to be included in the aggregation query. In the <strong>Select</strong> field, you can select <strong>All</strong> attributes to perform the aggregation for all the attributes of the stream specified under <strong>Input</strong> , or select <strong>User Defined Attributes</strong> to select specific attributes. If you select <strong>User Defined Attributes</strong> , you can add attributes to be selected to be inserted into the output stream. Here, you can enter the names of specific attributes in the input stream, or enter expressions to convert input stream attribute values as required to generate output events. You can also specify the attribute(s) by which you want to group the output.</li>
                   <li><strong>Aggregation Criteria</strong> : Here, you can specify the time values based on which the aggregates are calculated.</li>
                </ul>
@@ -971,7 +971,7 @@ to the grid of the design view when you create a Siddhi application.
             <div class="content-wrapper">
                <p>Once you connect two Siddhi components to the join query as sources and another Siddhi component as the target, you can configure the join query. To configure the join query, <a href="#WorkingwiththeDesignView-Settings">click the settings icon</a> on the join query component you added to the grid and update the following information.</p>
                <ul>
-                  <li><strong>Query Meta Information</strong> : In this section, enter a unique name for the query and any annotations that you want to include in the query. The <code>                @dist               </code> annotation is supported by default to use the query in a fully distributed deployment if required (for more information, see <a href="https://docs.wso2.com/display/SP440/Converting+to+a+Distributed+Streaming+Application">Converting to a Distributed Streaming Application</a> ). You can also add customized annotations.<br /></li>
+                  <li><strong>Query Meta Information</strong> : In this section, enter a unique name for the query and any annotations that you want to include in the query. The <code>                @dist               </code> annotation is supported by default to use the query in a fully distributed deployment if required (for more information, see <a href="https://wso2docs.atlassian.net/wiki/spaces/SP440/pages/16056710/Converting+to+a+Distributed+Streaming+Application">Converting to a Distributed Streaming Application</a> ). You can also add customized annotations.<br /></li>
                   <li><strong>Input</strong> : Here, you can specify the input sources, the references, the join type, join condition, and stream handlers for the left source and right source of the join. For a detailed explanation of the join concept, see <a href="https://siddhi-io.github.io/siddhi/documentation/siddhi-4.x/query-guide-4.x/#join-stream">Siddhi Query Guide - Joins</a>.</li>
                   <li><strong>Projection</strong> : This section specifies the attributes to be included in the output. In the <strong>Select</strong> field, you can select <strong>All Attributes</strong> to select all the attributes of the events, or select <strong>User Defined Attributes</strong> to select specific attributes from the input stream. If you select <strong>User Defined Attributes</strong> , you can add attributes to be selected to be inserted into the output stream. Here, you can enter the names of specific attributes in the input stream, or enter expressions to convert input stream attribute values as required to generate output events. You can also specify the attribute(s) by which you want to group the output.</li>
                   <li>
@@ -1312,7 +1312,7 @@ connections between Siddhi components. A connection is defined by
 drawing an arrow from one component to another by dragging the cursor as
 demonstrated below.
 
-![Connecting Siddhi components]({{base_path}}/assets/img/streaming/working-with-the design-view/connect-siddhi-components.gif)
+![Connecting Siddhi components](/assets/img/streaming/working-with-the design-view/Connect-Siddhi-Components.gif)
 
 ## Saving and running Siddhi applications
 

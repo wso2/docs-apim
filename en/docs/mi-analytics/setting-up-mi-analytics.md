@@ -2,8 +2,7 @@
 
 !!! note
 
-    - This solution is recommended only for users who are using WSO2 EI 7.0.0 and want to migrate in to a newer version while retaining the already existing analytics data.
-    - From WSO2 EI 7.1.0 onwards, users are recommended to use WSO2's improved cloud-native observability solution.
+    - The MI Analytics feature has been deprecated. This solution is recommended only for users who are using WSO2 EI 7.0.0 and want to migrate in to a newer version while retaining the already existing analytics data.
 
 ## How it works
 
@@ -78,6 +77,12 @@ stat.tracer.collect_payloads=true
 stat.tracer.collect_mediation_properties=true
 ```
 
+```toml
+[analytics]
+enabled = true
+publisher = "databridge"
+```
+
 ### Step 2.2 - Enable data publishing to MI Analytics
 
 Follow the instructions below to configure the Micro Integrator to publish data to MI Analytics. Analytics publishing can be configured in the `[monitoring]` section of the `<MI_HOME>/conf/deployment.toml` file as shown below.
@@ -116,7 +121,7 @@ Let's use the integration artifacts from the [service chaining]({{base_path}}/tu
     If you did not try the [service chaining]({{base_path}}/tutorials/integration-tutorials/exposing-several-services-as-a-single-service) tutorial yet:
 
     1.  Download the [pre-packaged project](https://github.com/wso2-docs/WSO2_EI/blob/master/Integration-Tutorial-Artifacts/Integration-Tutorial-Artifacts-EI7.1.0/service-orchestration-tutorial.zip) for the **service chaining** use case.
-    2.  [Open WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio) and [import the pre-packaged project]({{base_patgh}}/integrate/develop/importing-projects).
+    2.  [Open WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio) and [import the pre-packaged project]({{base_path}}/integrate/develop/importing-projects).
 
 #### REST API artifact
 

@@ -4,7 +4,7 @@ As microservices are increasingly being deployed on Kubernetes, the need to expo
 documented, easy to consume, managed APIs are becoming important to develop great applications.
 The API operator for Kubernetes makes APIs a first-class citizen in the Kubernetes ecosystem.
 Similar to deploying microservices, you can now use this operator to deploy APIs for individual microservices or
-compose several microservices into individual APIs. With this users will be able to expose their microservice
+compose several microservices into individual APIs. With this, users will be able to expose their microservice
 as managed API in Kubernetes environment without any additional work.
 
 The API operator for Kubernetes provides first-class support for Micro Integrator deployments in the Kubernetes

@@ -1,6 +1,6 @@
 # Configuring the Authorization Manager
 
-According to the default configuration in WSO2 products, the Users, Roles and Permissions are stored in the same repository (i.e., the default, embedded H2 database). However, you can change this configuration in such a way that the Users and Roles are stored in one repository (User Store) and the Permissions are stored in a separate repository. A user store can be a typical RDBMS, an LDAP or an external Active Directory. For information on how the repositories for storing information about users and roles are configured, see [Configuring User Stores](https://docs.wso2.com/display/ADMIN44x/Configuring+User+Stores) .
+According to the default configuration in WSO2 products, the Users, Roles and Permissions are stored in the same repository (i.e., the default, embedded H2 database). However, you can change this configuration in such a way that the Users and Roles are stored in one repository (User Store) and the Permissions are stored in a separate repository. A user store can be a typical RDBMS, an LDAP or an external Active Directory. For information on how the repositories for storing information about users and roles are configured, see [Configuring User Stores](https://wso2docs.atlassian.net/wiki/spaces/ADMIN44x/pages/6684776/Configuring+User+Stores) .
 
 The repository that stores Permissions should always be an RDBMS. The Authorization Manager configuration in the user-mgt.xml file (stored in the `<PRODUCT_HOME>/repository/conf/` directory) connects the system to this RDBMS.
 
@@ -18,7 +18,7 @@ By default, the embedded H2 database is used for storing permissions. You can ch
     -   If you are replacing the default H2 database with a new RDBMS, update the `master-datasource.xml` file (stored in the `<PRODUCT_HOME>/repository/conf/datasources/` directory) with the relevant information.
     -   Alternatively, create a new XML file with the datasource information of your new RDBMS and store it in the same `<PRODUCT_HOME>/repository/conf/datasources/` directory.
 
-For information on how you can set up a new RDBMS and configure it for your system, see [Setting Up the Physical Database](https://docs.wso2.com/display/ADMIN44x/Setting+up+the+Physical+Database) , and for information on the purpose of defining datasources and how they are configured for a product, see [Managing Datasources](https://docs.wso2.com/display/ADMIN44x/Managing+Datasources) .
+For information on how you can set up a new RDBMS and configure it for your system, see [Setting Up the Physical Database](https://wso2docs.atlassian.net/wiki/spaces/ADMIN44x/pages/6684794/Setting+up+the+Physical+Database) , and for information on the purpose of defining datasources and how they are configured for a product, see [Managing Datasources](https://wso2docs.atlassian.net/wiki/spaces/ADMIN44x/pages/6684807/Managing+Datasources) .
 
 ### Step 2: Updating the user realm configurations
 

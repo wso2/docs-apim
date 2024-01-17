@@ -695,7 +695,7 @@ There are two permission levels for a business rules application:
 This section covers how to configure Business Rules Manager permissions.
 
 !!!tip "Before you begin:"
-    Before configuring Business Rules Manager permissions, the user roles to be assigned permissions must be already defined in the user store with the required user IDs. For detailed instructions, see [User Management](https://docs.wso2.com/display/SP440/User+Management).
+    Before configuring Business Rules Manager permissions, the user roles to be assigned permissions must be already defined in the user store with the required user IDs. For detailed instructions, see [User Management](https://wso2docs.atlassian.net/wiki/spaces/SP4xx/pages/29130933/User+Guide).
 
 
 You need to define the roles related to the Business Rules Manager under the `wso2.business.rules.manager` component namespace in the `<SI_TOOLING_HOME>/conf/server/deployment.yaml` file.

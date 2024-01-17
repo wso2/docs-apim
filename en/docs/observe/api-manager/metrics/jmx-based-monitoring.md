@@ -156,27 +156,6 @@ The **ServerAdmin** MBean has the following operations:
 
 [![Operations]({{base_path}}/assets/img/administer/operations.png)]({{base_path}}/assets/img/administer/operations.png)
 
-### Using the ServiceAdmin MBean
-
-This MBean is used for administering services deployed in your product. Its attributes are as follows:
-
-| Attribute                    | Description                                                          |
-|------------------------------|----------------------------------------------------------------------|
-| **NumberOfActiveServices**   | The number of services that can currently serve requests.           |
-| **NumberOfInactiveServices** | The number of services that have been disabled by an administrator. |
-| **NumberOfFaultyServices**   | The number of services that are faulty.                             |
-
-[![Number of active services]({{base_path}}/assets/img/administer/number-of-active-services.png)]({{base_path}}/assets/img/administer/number-of-active-services.png)
-
-The operations available in the ServiceAdmin MBean:
-
-| Operation                                          | Description                                                                                      |
-|----------------------------------------------------|--------------------------------------------------------------------------------------------------|
-| **startService** (p1:string) | The p1 parameter is the service name. You can activate a service using this operation.           |
-| **stopService** (p1:string)  | The p1 parameter is the service name. You can deactivate/disable a service using this operation. |
-
-![Operation invocation]({{base_path}}/assets/img/administer/operation-invocation.png)]({{base_path}}/assets/img/administer/operation-invocation.png)
-
 ### Using the StatisticsAdmin MBean
 
 This MBean is used for monitoring system and server statistics. Its attributes are as follows:
@@ -202,12 +181,12 @@ Operations available in the **Statistics** MBean:
 | **getMaxServiceResponseTime** (p1:string)                                   | The p1 parameter is the service name. You can get the maximum response time of this service since deployment.                                                                                                       |
 | **getMinServiceResponseTime** (p1:string)                                   | The p1 parameter is the service name. You can get the minimum response time of this service since deployment.                                                                                                       |
 | **getAvgServiceResponseTime** (p1:string)                                   | The p1 parameter is the service name. You can get the average response time of this service since deployment.                                                                                                       |
-| **getOperationRequestCount** ( p1:string, [p2:string](http://p2string/) )    | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the total number of requests received by this operation since the time its service was deployed using this operation.    |
-| **getOperationResponseCount** ( p1:string, [p2:string](http://p2string/) )   | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the total number of responses sent by this operation since the time its service was deployed using this operation.       |
-| **getOperationFaultCount** ( p1:string, [p2:string](http://p2string/) )      | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the total number of fault responses sent by this operation since the time its service was deployed using this operation. |
-| **getMaxOperationResponseTime** ( p1:string, [p2:string](http://p2string/) ) | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the maximum response time of this operation since deployment.                                                             |
-| **getMinOperationResponseTime** ( p1:string, [p2:string](http://p2string/) ) | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the minimum response time of this operation since deployment.                                                             |
-| **getAvgOperationResponseTime** ( p1:string, [p2:string](http://p2string/) ) | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the average response time of this operation since deployment.                                                             |
+| **getOperationRequestCount** ( p1:string, `http://p2string/` )    | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the total number of requests received by this operation since the time its service was deployed using this operation.    |
+| **getOperationResponseCount** ( p1:string, `http://p2string/` )   | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the total number of responses sent by this operation since the time its service was deployed using this operation.       |
+| **getOperationFaultCount** ( p1:string, `http://p2string/` )      | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the total number of fault responses sent by this operation since the time its service was deployed using this operation. |
+| **getMaxOperationResponseTime** ( p1:string, [p2:string] `http://p2string/` ) | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the maximum response time of this operation since deployment.                                                             |
+| **getMinOperationResponseTime** ( p1:string, [p2:string] `http://p2string/` ) | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the minimum response time of this operation since deployment.                                                             |
+| **getAvgOperationResponseTime** ( p1:string, [p2:string] `http://p2string/` ) | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the average response time of this operation since deployment.                                                             |
 
 [![Statistics mbean]({{base_path}}/assets/img/administer/statistics-mbean.png)]({{base_path}}/assets/img/administer/statistics-mbean.png)
 

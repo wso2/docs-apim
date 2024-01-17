@@ -54,24 +54,38 @@ Execute the command that is relevant to your Helm version.
     --set wso2.deployment.am.resources.limits.cpu=1000m
     ```
 
+!!! Note "WSO2 API Manager Docker Image"
+    You can get or build a WSO2 API Manager Docker image using one of these options.
+
+    **Option 1: WSO2 API Manager Docker image from your WSO2 Subscription**
+
+    If you have an active [WSO2 Subscription](https://wso2.com/subscription/), set the following values when installing the chart.
+    ```bash
+    --set wso2.subscription.username=<SUBSCRIPTION_USERNAME> \
+    --set wso2.subscription.password=<SUBSCRIPTION_PASSWORD>
+    ```
+
+    **Option 2: Build your own WSO2 API Manager Docker image**
+
+    1. Download WSO2 API Manager 4.2.0 distribution .zip file from [https://wso2.com/api-manager/](https://wso2.com/api-manager/).
+    2. Create a Docker image using Dockerfiles avaible at [wso2/docker-apim](https://github.com/wso2/docker-apim).
+
 -   Using **Helm v2**
 
     ```bash
-    helm install --name apim-as-cp wso2/am-single-node --version 4.1.0-1 --namespace apim \
+    helm install --name apim-as-cp wso2/am-single-node --version 4.2.0-1 --namespace apim \
         --set wso2.deployment.am.ingress.gateway.hostname=gw.wso2.com \
         --set wso2.deployment.am.ingress.gateway.enabled=false \
-        --set wso2.deployment.am.imagePullPolicy=IfNotPresent \
-        --set-file wso2.deployment.am.config."deployment\.toml"=https://raw.githubusercontent.com/wso2/kubernetes-microgateway/{{choreo_connect.helm_chart.git_tag}}/resources/controlplane-deployment.toml
+        --set wso2.deployment.am.imagePullPolicy=IfNotPresent
     ```
 
 -   Using **Helm v3**
 
     ```bash
-    helm install apim-as-cp wso2/am-single-node --version 4.1.0-1 --namespace apim --create-namespace \
+    helm install apim-as-cp wso2/am-single-node --version 4.2.0-1 --namespace apim --create-namespace \
         --set wso2.deployment.am.ingress.gateway.hostname=gw.wso2.com \
         --set wso2.deployment.am.ingress.gateway.enabled=false \
-        --set wso2.deployment.am.imagePullPolicy=IfNotPresent \
-        --set-file wso2.deployment.am.config."deployment\.toml"=https://raw.githubusercontent.com/wso2/kubernetes-microgateway/{{choreo_connect.helm_chart.git_tag}}/resources/controlplane-deployment.toml
+        --set wso2.deployment.am.imagePullPolicy=IfNotPresent
     ```
 
 ## Option 1: Install Chart from WSO2 Helm Chart Repository
@@ -309,13 +323,13 @@ Follow the steps given below.
 
 The JWKS endpoint of the API Manager has the external facing hostname by default, and it is not always routable via Choreo Connect Enforcer. As a result, you can alter the JWKS endpoint in the API Manager to use the API Manager's internal service name in Kubernetes.
 
-1. Log into Admin portal - [https://am.wso2.com/admin/](https://am.wso2.com/admin/)
+1. Log into Admin portal - `https://am.wso2.com/admin/`
 2. Navigate to `Key Managers` section and select the `Resident Key Manager`.
 3. Change the JWKS URL in the `Certificates` section to `https://wso2am-single-node-am-service.apim:9443/oauth2/jwks`.
 
 ## Deploy Sample API from API Manager
 
-- Publisher Portal:  [https://am.wso2.com/publisher/](https://am.wso2.com/publisher/)
-- Developer Portal:  [https://am.wso2.com/devportal/](https://am.wso2.com/devportal/)
+- Publisher Portal:  `https://am.wso2.com/publisher/`
+- Developer Portal:  `https://am.wso2.com/devportal/`
 
 Follow the instructions in [create and publish an API via API Manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim/#step-3-create-and-publish-an-api-from-api-manager) using the above URLs to access each of the portals.

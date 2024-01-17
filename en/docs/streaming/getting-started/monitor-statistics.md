@@ -1,6 +1,6 @@
 # Step 7: Monitor Statistics
 
-This step shows how you can monitor the CDC and file statistics of the WSO2 Streaming Integrator deployment you started and the `SweetFactoryApp` Siddhi application you created and deployed in the previous steps. For this purpose, you are using the some of the pre-configured dashboards provided by WSO2 Streaming Integrator. You can host these dashboards in Grafana and view statistics related to ETL activities carried out by the Streaming Integrator. For more information about these dashboards, see [Monitoring ETL Statistics with Grafana]({{base_path}}/observe/si-observe/viewing-etl-flow-dashboards)
+This step shows how you can monitor the CDC and file statistics of the WSO2 Streaming Integrator deployment you started and the `SweetFactoryApp` Siddhi application you created and deployed in the previous steps. For this purpose, you are using the some of the pre-configured dashboards provided by WSO2 Streaming Integrator. You can host these dashboards in Grafana and view statistics related to ETL activities carried out by the Streaming Integrator. For more information about these dashboards, see [Monitoring ETL Statistics with Grafana]({{base_path}}/observe/streaming-integrator/viewing-etl-flows/)
 
 ## Configuring WSO2 SI to visualize statistics
 
@@ -148,7 +148,7 @@ To generate some statistics and view them, follow the procedure below.
     
 5. Under **Overview Statistics**, click **SweetFactoryApp**. The **overview-statistics / WSO2 Streaming Integrator App Statistics** dashboard opens.
 
-    ![app-statistics]({{base_path}}/assets/img/streaming/quick-start-guide-101/app-staistics.png)
+    
     
 6. Scroll down to the **Sources** section. The following is displayed.
 
@@ -156,9 +156,8 @@ To generate some statistics and view them, follow the procedure below.
     
     The two entries displayed above represent the `file` source and the `cdc` source used in the `SweetFactoryApp` Siddhi application.
     
-7. Scroll down further to the **Destinations** section. The `file` sink in the `SweetFactoryApp` Siddhi application is displayed as shown below.
+7. Scroll down further to the **Destinations** section. The `file` sink in the `SweetFactoryApp` Siddhi application.
 
-    ![destination-statistics]({{base_path}}/assets/img/streaming/quick-start-guide-101/destination.png)
     
 8. Under **Sources**, click on the link to the `productioninserts.csv` file. The **WSO2 Streaming Integrator - File Statistics** dashboard opens. The contents of the `productioninserts.csv` file is the output of one query and the input of another. Therefore, it is a source as well as a destination, statistics are displayed for it under **Source** and **Sink** as shown below.
 
@@ -187,8 +186,8 @@ To generate some statistics and view them, follow the procedure below.
     ![CDC Streaming Statistics]({{base_path}}/assets/img/streaming/quick-start-guide-101/cdc-streaming-statistics.png)
     
 !!! tip "What's Next?"
-    - To learn more about the key concepts of the Streaming Integrator component, see [Streaming Integrator Key Concepts]({{base_path}}/streaming/streaming-key-concepts.md).<br/>    
-    - For more hands-on experience with Streaming Integrator component, try the [Streaming Integrator Tutorials]({{base_path}}/use-cases/streaming-tutorials/tutorials-overview.md).<br/>    
+    - To learn more about the key concepts of the Streaming Integrator component, see [Streaming Integrator Key Concepts]({{base_path}}/streaming/streaming-key-concepts).<br/>    
+    - For more hands-on experience with Streaming Integrator component, try the [Streaming Integrator Tutorials]({{base_path}}/use-cases/streaming-tutorials/tutorials-overview).<br/>    
     - To learn about use cases specific to the Streaming Integrator component, see [Streaming Integrator Use Cases]({{base_path}}/use-cases/streaming-usecase/use-cases).<br/>
     -  Learn how to run WSO2 Streaming Integrator in containerized environments, try [Running SI with Docker and Kubernetes]({{base_path}}/use-cases/streaming-tutorials/running-si-with-docker-and-kubernetes)
 

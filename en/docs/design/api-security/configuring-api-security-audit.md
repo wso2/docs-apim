@@ -10,36 +10,40 @@ WSO2 API-M has partnered with [42Crunch](https://42crunch.com/), the only enterp
 
 Follow the instructions below to obtain the API token and collection ID from 42Crunch:
 
-1.  Navigate to the [42Crunch platform](https://platform.42crunch.com) and register or sign in.
+1. Navigate to the [42Crunch platform](https://platform.42crunch.com) and register or sign in.
 
-2.  Click **Settings**.
+2. Click **Settings**.
 
      [![API token settings menu]({{base_path}}/assets/img/learn/api-token-settings-menu.png)]({{base_path}}/assets/img/learn/api-token-settings-menu.png)
 
-3.  Click **API Tokens** and click **Create New Token**.
+3. Click **API Tokens** and click **Create New Token**.
 
      [![API token create button]({{base_path}}/assets/img/learn/api-token-create-button.png)]({{base_path}}/assets/img/learn/api-token-create-button.png)
 
-4.  Enter a name for the token and select **API Contract Security Audit** as the token access right. 
+4. Upgrade the account to access the **API token** type
+
+     [![API token create modal]({{base_path}}/assets/img/learn/api-token-create-modal.png)]({{base_path}}/assets/img/learn/api-token-create-modal.png)
+
+6. Enter a name for the token and select **API Contract Security Audit** as the token access right. 
 
      When working with API Audit, you only need to select the **API Contract Security Audit** permission.
 
      [![API token dialog box]({{base_path}}/assets/img/learn/api-token-dialog-box.png)]({{base_path}}/assets/img/learn/api-token-dialog-box.png)
 
-5.  Click **Generate Token**.
+7. Click **Generate Token**.
 
     !!! note 
         The generated API Token can be viewed only once. Make sure to copy it and save it in a safe place for future reference.
 
      [![API token copy generated]({{base_path}}/assets/img/learn/api-token-copy-generated.png)]({{base_path}}/assets/img/learn/api-token-copy-generated.png)
 
-6.  Click either **API Collections** in the left navigation bar or click **+ New Collection** at the bottom of the left navigation to create a collection.
+8. Click either **API Collections** in the left navigation bar or click **+ New Collection** at the bottom of the left navigation to create a collection.
 
      A Collection in this context is a folder hosted on 42Crunch containing all the APIs that are to be audited.
 
      [![create new collection]({{base_path}}/assets/img/learn/collection-create-new.png)]({{base_path}}/assets/img/learn/collection-create-new.png)
 
-7.  Copy the Collection ID from the URL of the browser as highlighted below and save it in a safe place for reference.
+9. Copy the Collection ID from the URL of the browser as highlighted below and save it in a safe place for reference.
 
      [![copy collection id]({{base_path}}/assets/img/learn/collection-copy-id.png)]({{base_path}}/assets/img/learn/collection-copy-id.png)
 
@@ -75,9 +79,9 @@ You need to add the API Token and Collection ID properties inside the configurat
 #### Enable Audit API for a single tenant
 
 !!! tip
-    For more information on creating a tenant, see [Managing Tenants]({{base_path}}/administer/product-administration/multitenancy/introduction-to-multitenancy/).
+    For more information on creating a tenant, see [Managing Tenants]({{base_path}}/administer/multitenancy/introduction-to-multitenancy/).
 
-1.  Navigate to the Admin Console [https://localhost:9443/admin](https://localhost:9443/admin) and sign in with your tenant credentials.
+1.  Navigate to the Admin Console `https://localhost:9443/admin` and sign in with your tenant credentials.
 
 2.  Go to **Settings > Advanced**.
 
@@ -111,7 +115,7 @@ You need to add the API Token and Collection ID properties inside the configurat
 
 1.  Navigate to the API Publisher.
 
-     [https://localhost:9443/publisher](https://localhost:9443/publisher)
+     `https://localhost:9443/publisher`
 
 2.  Click on the API that you need to audit.
 
@@ -129,7 +133,6 @@ You need to add the API Token and Collection ID properties inside the configurat
 
      For more information on the details provided in the report, see [Audit report sections](#auditreports)
 
-<a href="auditreports"></a>
 
 ## Audit report sections
 

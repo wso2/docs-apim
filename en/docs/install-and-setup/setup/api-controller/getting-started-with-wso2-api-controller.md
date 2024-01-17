@@ -6,11 +6,13 @@
 
 1.  Download **apictl** based on your preferred platform (i.e., Mac, Windows, Linux).
 
-    - [For MacOS]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.1.0-macosx-x64.tar.gz)
-    - [For Linux 32-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.1.0-linux-i586.tar.gz)
-    - [For Linux 64-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.1.0-linux-x64.tar.gz)
-    - [For Windows 32-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.1.0-windows-i586.zip)
-    - [For Windows 64-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-4.1.0-windows-x64.zip)
+    - [For Mac with Intel Chip](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.3/apictl-4.2.3-darwin-amd64.tar.gz)
+    - [For Mac with Apple Silicon](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.3/apictl-4.2.3-darwin-arm64.tar.gz)
+    - [For Linux 32-bit](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.3/apictl-4.2.3-linux-i586.tar.gz)
+    - [For Linux 64-bit with AMD processor](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.3/apictl-4.2.3-linux-amd64.tar.gz)
+    - [For Linux 64-bit with ARM processor](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.3/apictl-4.2.3-linux-arm64.tar.gz)
+    - [For Windows 32-bit](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.3/apictl-4.2.3-windows-i586.zip)
+    - [For Windows 64-bit](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.3/apictl-4.2.3-windows-x64.zip)
 
 2.  Extract the downloaded archive of the apictl to the desired location.
 3.  Navigate to the working directory where the executable apictl resides.
@@ -69,8 +71,8 @@ Run the following apictl command to check the version.
 -   **Response**
 
     ```bash
-    Version: 4.1.0
-    Build Date: 2022-04-05 05:22:20 UTC
+    Version: 4.2.3
+    Build Date: 2023-12-20 12:24:18 UTC
     ```
 
 !!!note
@@ -153,7 +155,7 @@ You can add environments by either manually editing the `<USER_HOME>/.wso2apictl
 apictl add env <environment-name>
 ```
 
-1.  Make sure that the WSO2 API Manager (WSO2 API-M) 4.1.0 version is started and that the 4.1.0 version of apictl is set up.     
+1.  Make sure that the WSO2 API Manager (WSO2 API-M) 4.2.0 version is started and that the 4.2.3 version of apictl is set up.     
 For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
 2.  Run the following apictl command to add an environment.
 
@@ -228,11 +230,11 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
                         --admin https://apim.com:9444 \
                         --publisher https://apim.com:9444 \
                         --devportal https://apps.com:9444 \
-                        --token https://gw.com:8244/token                        
+                        --token https://apim.com:9444/oauth2/token                        
             ```
 
             ``` bash tab="Mac/Windows"
-            apictl add env production --registration https://idp.com:9444  --admin https://apim.com:9444 --publisher https://apim.com:9444 --devportal https://apps.com:9444 --token https://gw.com:8244/token
+            apictl add env production --registration https://idp.com:9444  --admin https://apim.com:9444 --publisher https://apim.com:9444 --devportal https://apps.com:9444 --token https://apim.com:9444/oauth2/token
             ```  
 
     -   Adding a WSO2 API-M to an environment using some of the `--registration`, `--publisher`, `--devportal`, `--admin` flags along with `--apim` flag
@@ -243,11 +245,11 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
             apictl add env production \
                         --registration https://idp.com:9444 \
                         --apim https://apim.com:9444 \
-                        --token https://gw.com:8244/token
+                        --token https://apim.com:9444/oauth2/token
             ```
 
             ``` bash tab="Mac/Windows"
-            apictl add env production --registration https://idp.com:9444 --apim https://apim.com:9444 --token https://gw.com:8244/token
+            apictl add env production --registration https://idp.com:9444 --apim https://apim.com:9444 --token https://apim.com:9444/oauth2/token
             ```  
 
     -   Adding a WSO2 MI to an environment using `--mi` flag
@@ -292,7 +294,7 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
 
 ## Remove an environment
 
-1.  Make sure that the WSO2 API-M 4.1.0 version is started and that the 4.1.0 version of apictl is set up.  
+1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.3 version of apictl is set up.  
 For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
 2.  Run the following apictl command to remove an environment.
 
@@ -321,7 +323,7 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
 
 ## Get environments
 
-1.  Make sure that the WSO2 API-M 4.1.0 version is started and that the 4.1.0 version of apictl is set up.    
+1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.3 version of apictl is set up.    
 For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
 2.  Run the following apictl command to list the environments.  
 
@@ -346,8 +348,8 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
 
         ```bash tab="Example Response"
         NAME         API MANAGER ENDPOINT     REGISTRATION ENDPOINT    TOKEN ENDPOINT                  PUBLISHER ENDPOINT       DEVPORTAL ENDPOINT       ADMIN ENDPOINT             MI MANAGEMENT ENDPOINT
-        dev          https://localhost:9443   https://localhost:9443   https://localhost:8243/token    https://localhost:9443   https://localhost:9443   https://localhost:9443
-        production   https://localhost:9444   https://localhost:9444   https://localhost:8244/token    https://localhost:9444   https://localhost:9444   https://localhost:9444     https://localhost:9164
+        dev          https://localhost:9443   https://localhost:9443   https://localhost:9443/oauth2/token    https://localhost:9443   https://localhost:9443   https://localhost:9443
+        production   https://localhost:9444   https://localhost:9444   https://localhost:9443/oauth2/token    https://localhost:9444   https://localhost:9444   https://localhost:9444     https://localhost:9164
         dev-mi                                                                                                                                                                      https://localhost:9164
 
         ```
@@ -362,7 +364,7 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
 
 After adding an environment, you can log in to the WSO2 API-M instance in that environment using credentials.
 
-1.  Make sure that the WSO2 API-M 4.1.0 version is started and that the 4.1.0 version of apictl is set up.   
+1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.3 version of apictl is set up.   
 For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
 2.  Run any of the following apictl commands to log in to the environment.
 
@@ -422,7 +424,7 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
 
 ## Logout from an environment
 
-1.  Make sure that the WSO2 API-M 4.1.0 version is started and that the 4.1.0 version of apictl is set up.   
+1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.3 version of apictl is set up.   
 For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
 
 2.  Run the following command to log out from the current session of the WSO2 API-M environment.

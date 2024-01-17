@@ -4,8 +4,9 @@ This document describes all the configuration parameters that are used in WSO2 C
 
 ## Instructions for use
 
-Select the configuration sections, parameters, and values that are required for your use and add them to the `config.toml`
-file located in `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/`.
+1. {!includes/deploy/cc-configuration-file.md!}
+
+2. Select the configuration sections, parameters, and values that are required for your use and add them as required. You can click ***view sample*** in each of the sections in this page to get the toml format. 
 See the example .toml file given below.
 
 ```toml
@@ -51,6 +52,7 @@ See the example .toml file given below.
   enforcerResponseTimeoutInSeconds = 20
   systemHost = "localhost"
   useRemoteAddress = false
+  perConnectionBufferLimitBytes = 1048576
 </code></pre>
                     </div>
                 </div>
@@ -214,6 +216,25 @@ See the example .toml file given below.
                                     </div>
                                     <div class="param-description">
                                         <p>If configured as true, the Router appends the immediate downstream IP address to the x-forward-for header.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>perConnectionBufferLimitBytes</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>1048576</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The buffered payload limit per connection in Bytes. Default value is 1 MiB</p>
                                     </div>
                                 </div>
                             </div>
@@ -1273,18 +1294,19 @@ allowCredentials = false
   [router.filters.compression.requestDirection]
     enabled = false
     minimumContentLength = 30
-    contentType = ["text/html","application/json"]
+    contentType = ["application/javascript", "application/json", "application/xhtml+xml", "image/svg+xml", "text/css", "text/html", "text/plain", "text/xml"]
   [router.filters.compression.responseDirection]
     enabled = true
     minimumContentLength = 30
-    contentType = ["text/html","application/json"]
+    contentType = ["application/javascript", "application/json", "application/xhtml+xml", "image/svg+xml", "text/css", "text/html", "text/plain", "text/xml"]
     enableForEtagHeader = true
   [router.filters.compression.libraryProperties]
     memoryLevel = 3
     windowBits = 12
     compressionLevel = 9
     compressionStrategy = "defaultStrategy"
-    chunkSize = 4096</code></pre>
+    chunkSize = 4096
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -1449,13 +1471,12 @@ allowCredentials = false
                             <div class="param">
                                 <div class="param-name">
                                   <span class="param-name-wrap"> <code>enabled</code> </span>
-                                  <span class="badge-required">Required</span>
                                 </div>
                                 <div class="param-info">
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>true</code></span>

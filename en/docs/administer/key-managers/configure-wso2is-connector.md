@@ -6,7 +6,7 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
 
 ## Step 1 - Configure WSO2 IS
 
-1. Download and install the [WSO2 Identity Server 5.11.0](https://wso2.com/identity-server/).
+1. Download and install the [WSO2 Identity Server 6.0.0 or 6.1.0](https://wso2.com/identity-server/).
      
       If you downloaded the archive, extract it.
      `<IS_HOME>` refers to the root folder of the extracted WSO2 IS.
@@ -87,8 +87,8 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
 
 4. Extract the distribution and copy the following JAR files to the `<IS_HOME>/repository/components/dropins` directory.
 
-     - `wso2is.key.manager.core_1.6.8.jar`
-     - `wso2is.notification.event.handlers_1.6.8.jar`
+     - `wso2is.key.manager.core-1.6.8.jar`
+     - `wso2is.notification.event.handlers-1.6.8.jar`
 
 5. Add `keymanager-operations.war` to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 

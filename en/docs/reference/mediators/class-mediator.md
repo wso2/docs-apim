@@ -12,7 +12,7 @@ for not frequently re-used custom developments and very user-specific
 scenarios, for which, there is no built-in mediator that already
 provides the required functionality.
 
-Your class mediator might not be picked up and updated if you use an existing package when creating. For best results, use [WSO2 Integration Studio]({{base_path}}/develop/WSO2-Integration-Studio) for debugging Class mediators.
+Your class mediator might not be picked up and updated if you use an existing package when creating. For best results, use [WSO2 Integration Studio](/integrate/develop/installing-wso2-integration-studio) for debugging Class mediators.
 
 ## Syntax
 

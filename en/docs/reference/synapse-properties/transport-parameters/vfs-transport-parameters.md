@@ -220,10 +220,6 @@ See [Creating a Proxy Service]({{base_path}}/integrate/develop/creating-artifact
          <td>The interval in milliseconds between two file processes. Specify a positive integer, such as <code>10</code></td>
       </tr>
       <tr>
-         <td>transport.vfs.ClusterAware</td>
-         <td>Whether VFS coordination support is enabled in a clustered deployment or not. By default, this setting is set to <code>false</code>.</td>
-      </tr>
-      <tr>
          <td>transport.vfs.FileSizeLimit</td>
          <td>Only file sizes that are less than or equal to the defined limit are processed. Specify the file size in bytes. The default value is <code>-1</code>(unlimited file size).</td>
       </tr>
@@ -251,22 +247,6 @@ See [Creating a Proxy Service]({{base_path}}/integrate/develop/creating-artifact
             Whether hostnames should be resolved at the time of deployment or whether it is necessary to resolve hostnames dynamically at runtime. By default hostnames are resolved at the time of deployment. If you want to resolve hostnames at runtime, set this parameter to <code>true</code>.
             <b>Note</b>: Resolving hostnames at runtime is only possible for the Server Message Block (SMB) protocol. </br>
             By default, this setting is <code>false</code>.
-         </td>
-      </tr>
-      <tr>
-         <td>
-            transport.vfs.DistributedLock
-         </td>
-         <td>
-            This applies only in cluster deployments. Set to <code>true</code> if you need to avoid multiple servers trying to process the same file simultaneously.
-         </td>
-      </tr>
-      <tr>
-         <td>
-          transport.vfs.DistributedTimeout
-         </td>
-         <td>
-            The timeout period in seconds for the distributed lock. Specify a positive integer, such as <code>10</code>.
          </td>
       </tr>
       <tr>
@@ -313,8 +293,19 @@ See [Creating a Proxy Service]({{base_path}}/integrate/develop/creating-artifact
             Set to <code>true</code> if you need to build the content inside the file before injecting the file to the mediation engine. If there is a build error, the file will not be injected to the mediation engine. By default, this setting is <code>false</code>.
          </td>
       </tr>
+      <tr>
+         <td>transport.vfs.UpdateLastModified</td>
+         <td>
+            When this parameter is set to <code>true</code>, the newly created file will have the same last-modified timestamp as the original file. The default setting is <code>true</code>.
+         </td>
+      </tr>
    </tbody>
 </table>
+
+!!! Note
+
+    If you require cluster coordination for file polling, please use the File Inbound Endpoint.
+
 
 The following service-level parameters are required for Inbound Endpoints.
 
@@ -402,7 +393,7 @@ When you use the [transport.vfs.FileURI](#vfs-transport-file_url) parameter, you
       </tr>
       <tr>
          <td>vfs.ssl.keystore</td>
-         <td>Private key store to use for mutual SSL. Your keystore must be signed by a certificate authority. For more information, see <a href="index">http://docs.oracle.com/cd/E19509-01/820-3503/ggfen/index.html</a>. Possible value: String (Path of keystore).</td>
+         <td>Private key store to use for mutual SSL. Your keystore must be signed by a certificate authority. For more information, [see Oracle page](http://docs.oracle.com/cd/E19509-01/820-3503/ggfen/index.html). Possible value: String (Path of keystore).</td>
       </tr>
       <tr>
          <td>vfs.ssl.kspassword</td>
@@ -434,6 +425,12 @@ When you use the [transport.vfs.FileURI](#vfs-transport-file_url) parameter, you
          <td>transport.vfs.StrictHostKeyChecking</td>
          <td>
             Whether the Host key should be checked. When this parameter is set to <code>yes</code>, VFS transport will always verify the public key (fingerprint) of the SSH/SFTP server. The default setting is <code>no</code>.
+         </td>
+      </tr>
+      <tr>
+         <td>transport.vfs.UpdateLastModified</td>
+         <td>
+            When this parameter is set to <code>true</code>, the newly created file will have the same last-modified timestamp as the original file. The default setting is <code>true</code>.
          </td>
       </tr>
    </tbody>

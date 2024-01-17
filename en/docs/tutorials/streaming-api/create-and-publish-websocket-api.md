@@ -38,7 +38,7 @@ This will demonstrate a simple command line based chat room which has two channe
      <td>Chats</td>
      </tr>
      <tr>
-     <td>Context</td>
+     <td>Channel</td>
      <td>/chats</td>
      </tr>
      <tr>

@@ -44,7 +44,7 @@ Let's see what each handler does:
  the token is of type `Production` or `Sandbox` and sets `MessageContext` variables as appropriate.
  - **ThrottleHandler:** Throttles requests based on the throttling policy specified by the `policyKey` property. Throttling is applied both at the application level as well as subscription level.
  - **APIMgtGoogleAnalyticsTrackingHandler:** Publishes events to Google Analytics. This handler only comes into effect If Google analytics tracking is enabled. See Integrating with Google Analytics for more information.
- - **APIManagerExtensionHandler** : Triggers extension sequences. By default, the extension handler is listed at last in the handler chain, and therefore is executed last. You cannot change the order in which the handlers are executed, except the extension handler. To configure the API Gateway to execute extension handler first, log in to management console (<https://localhost:9443/carbon>) and in the main tab, expand the resources section and browse for `_system/config/apimgt/applicationdata/tenant-conf.json`. Edit the field `ExtensionHandlerPosition` and provide 
+ - **APIManagerExtensionHandler** : Triggers extension sequences. By default, the extension handler is listed at last in the handler chain, and therefore is executed last. You cannot change the order in which the handlers are executed, except the extension handler. To configure the API Gateway to execute extension handler first, log in to management console `https://localhost:9443/carbon` and in the main tab, expand the resources section and browse for `_system/config/apimgt/applicationdata/tenant-conf.json`. Edit the field `ExtensionHandlerPosition` and provide 
  the value `top`. This is useful when you want to execute your own extensions before our default handlers in situations like doing additional security checks such as signature verification on access tokens before executing the default security handler. See [Adding Mediation Extensions]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests).
 
 ### Using APILogMessageHandler
@@ -128,8 +128,7 @@ WSO2 API Manager provides the OAuth2 bearer token as its default authentication 
 is <a href="{{base_path}}/assets/attachments/learn/api-authentication-handler.java" download>here</a>. Similarly, you can extend the API Manager to 
 support any custom authentication mechanism by writing your own authentication handler class.
 
-Given below is an example implementation. Please find the complete project archive 
-[here](https://docs.wso2.com/download/attachments/57743326/org.wso2.carbon.test.authenticator.zip?version=1&modificationDate=1516171792000&api=v2). 
+Given below is an example implementation. Please find the complete project archive [here]({{base_path}}/assets/attachments/reference/org.wso2.carbon.test.authenticator.zip). 
 You can download, unzip and build the project using maven and Java 7 or 8.
 
 ``` java
@@ -180,23 +179,26 @@ public class CustomAPIAuthenticationHandler extends AbstractHandler {
 Make sure to update the pom file for the above project you created (or downloaded) with below dependency.
 
 ```
-  <dependencies>
-        <dependency>
-            <groupId>org.apache.synapse</groupId>
-            <artifactId>synapse-core</artifactId>
-            <version>2.1.7-wso2v183</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.synapse</groupId>
-            <artifactId>synapse-commons</artifactId>
-            <version>2.1.7-wso2v183</version>
-        </dependency>
-        <dependency>
-            <groupId>org.wso2.carbon.apimgt</groupId>
-            <artifactId>org.wso2.carbon.apimgt.gateway</artifactId>
-            <version>6.7.206</version>
-        </dependency>
-    </dependencies>
+<dependencies>
+	<dependency>
+		<groupId>org.apache.synapse</groupId>
+		<artifactId>synapse-core</artifactId>
+		<version>4.0.0-wso2v20</version>
+		<scope>provided</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.synapse</groupId>
+		<artifactId>synapse-commons</artifactId>
+		<version>4.0.0-wso2v20</version>
+		<scope>provided</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.wso2.carbon.apimgt</groupId>
+		<artifactId>org.wso2.carbon.apimgt.gateway</artifactId>
+		<version>9.28.112</version>
+		<scope>provided</scope>
+	</dependency>
+</dependencies>
 ```
 ## Engaging the custom handler
 

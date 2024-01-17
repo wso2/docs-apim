@@ -1,4 +1,27 @@
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+    @font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://wso2.cachefly.net/wso2/sites/all/fonts/docs/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2) format('woff2');
+    }
+
+    .material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    }
+</style>
 
 # Integration Overview
 
@@ -361,9 +384,9 @@ Learn how to implement various integration use cases, deploy them in the Micro I
     <tr>
         <td><b>Message Routing</b> 
             <ul>
-                <li><a href="{{base_path}}/integrate/examples/routing-examples/routing_based_on_headers">Routing Based on Message Headers</a></li>
-                <li><a href="{{base_path}}/integrate/examples/routing-examples/routing_based_on_payloads">Routing Based on Message Payload</a></li>
-                <li><a href="{{base_path}}/integrate/examples/routing-examples/splitting_aggregating_messages">Splitting Messages and Aggregating Responses</a></li>
+                <li><a href="{{base_path}}/integrate/examples/routing_examples/routing_based_on_headers">Routing Based on Message Headers</a></li>
+                <li><a href="{{base_path}}/integrate/examples/routing_examples/routing_based_on_payloads">Routing Based on Message Payload</a></li>
+                <li><a href="{{base_path}}/integrate/examples/routing_examples/splitting_aggregating_messages">Splitting Messages and Aggregating Responses</a></li>
             </ul>
         </td>
     </tr>
@@ -470,9 +493,9 @@ Learn how to implement various integration use cases, deploy them in the Micro I
                         <li><a href="{{base_path}}/integrate/examples/rest_api_examples/publishing-a-swagger-api">Publishing a Custom Swagger Document</a></li>
                         <li>Handling Special Cases
                             <ul>
-                                <li><a href="{{base_path}}/integrate/examples/rest_api_examples/using-get-with-a-body">Using GET with a Message Body</a></li>
-                                <li><a href="{{base_path}}/integrate/examples/rest_api_examples/using-post-with-no-body">Using POST with Empty Message Body</a></li>
-                                <li><a href="{{base_path}}/integrate/examples/rest_api_examples/using-post-with-query-param">Using POST with Query Parameters</a></li>
+                                <li><a href="{{base_path}}/integrate/examples/rest_api_examples/special-cases/#get-request-with-a-message-body">Using GET with a Message Body</a></li>
+                                <li><a href="{{base_path}}/integrate/examples/rest_api_examples/special-cases/#using-post-with-an-empty-body">Using POST with Empty Message Body</a></li>
+                                <li><a href="{{base_path}}/integrate/examples/rest_api_examples/special-cases/#using-post-with-query-parameters">Using POST with Query Parameters</a></li>
                             </ul>
                         </li>
                     </ul>

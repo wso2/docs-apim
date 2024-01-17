@@ -86,6 +86,10 @@ info:
     "expires_in": 3600
     }
     ```
+
+    Note that in a distributed deployment or IS as KM separated environment to invoke RESTful APIs (product APIs), users must generate tokens through API-M Control Plane's token endpoint.
+    The tokens generated using third party key managers, are to manage end-user authentication when accessing APIs.
+    
     Now you have a valid access token, which you can use to invoke an API.
     Navigate through the API descriptions to find the required API, obtain an access token as described above and invoke the API with the authentication header.
     If you use a different authentication mechanism, this process may change.
@@ -96,7 +100,7 @@ info:
     * Make sure you have an API Manager instance up and running.
     * Update the `basepath` parameter to match the hostname and port of the APIM instance.
 
-    [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/17491134-edb4ef7a-1ac7-420b-8651-2d9fd5585f6c)
+    [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/25611032-8753756c-7f03-4f5b-8738-603f426a54a2)
   contact:
     name: WSO2
     url: https://wso2.com/api-manager/
@@ -210,10 +214,11 @@ paths:
           description: Open api version
           schema:
             type: string
-            default: v3
+            default: v4
             enum:
               - v2
               - v3
+              - v4
       requestBody:
         description: API object that needs to be added
         content:
@@ -8854,10 +8859,10 @@ components:
               {
                 "endpoint_type": "http",
                 "sandbox_endpoints":       {
-                   "url": "https://localhost:9443/am/sample/pizzashack/v3/api/"
+                   "url": "https://localhost:9443/am/sample/pizzashack/v4/api/"
                 },
                 "production_endpoints":       {
-                   "url": "https://localhost:9443/am/sample/pizzashack/v3/api/"
+                   "url": "https://localhost:9443/am/sample/pizzashack/v4/api/"
                 }
               }
 
@@ -8869,22 +8874,22 @@ components:
                 "sessionManagement": "",
                 "sandbox_endpoints":       [
                             {
-                      "url": "https://localhost:9443/am/sample/pizzashack/v3/api/1"
+                      "url": "https://localhost:9443/am/sample/pizzashack/v4/api/1"
                    },
                             {
                       "endpoint_type": "http",
                       "template_not_supported": false,
-                      "url": "https://localhost:9443/am/sample/pizzashack/v3/api/2"
+                      "url": "https://localhost:9443/am/sample/pizzashack/v4/api/2"
                    }
                 ],
                 "production_endpoints":       [
                             {
-                      "url": "https://localhost:9443/am/sample/pizzashack/v3/api/3"
+                      "url": "https://localhost:9443/am/sample/pizzashack/v4/api/3"
                    },
                             {
                       "endpoint_type": "http",
                       "template_not_supported": false,
-                      "url": "https://localhost:9443/am/sample/pizzashack/v3/api/4"
+                      "url": "https://localhost:9443/am/sample/pizzashack/v4/api/4"
                    }
                 ],
                 "sessionTimeOut": "",
@@ -8898,21 +8903,21 @@ components:
                    {
                       "endpoint_type":"http",
                       "template_not_supported":false,
-                      "url":"https://localhost:9443/am/sample/pizzashack/v3/api/1"
+                      "url":"https://localhost:9443/am/sample/pizzashack/v4/api/1"
                    }
                 ],
                 "endpoint_type":"failover",
                 "sandbox_endpoints":{
-                   "url":"https://localhost:9443/am/sample/pizzashack/v3/api/2"
+                   "url":"https://localhost:9443/am/sample/pizzashack/v4/api/2"
                 },
                 "production_endpoints":{
-                   "url":"https://localhost:9443/am/sample/pizzashack/v3/api/3"
+                   "url":"https://localhost:9443/am/sample/pizzashack/v4/api/3"
                 },
                 "sandbox_failovers":[
                    {
                       "endpoint_type":"http",
                       "template_not_supported":false,
-                      "url":"https://localhost:9443/am/sample/pizzashack/v3/api/4"
+                      "url":"https://localhost:9443/am/sample/pizzashack/v4/api/4"
                    }
                 ]
               }
@@ -8952,9 +8957,9 @@ components:
           example:
             endpoint_type: http
             sandbox_endpoints:
-              url: https://localhost:9443/am/sample/pizzashack/v3/api/
+              url: https://localhost:9443/am/sample/pizzashack/v4/api/
             production_endpoints:
-              url: https://localhost:9443/am/sample/pizzashack/v3/api/
+              url: https://localhost:9443/am/sample/pizzashack/v4/api/
         endpointImplementationType:
           type: string
           example: INLINE
@@ -10824,7 +10829,7 @@ components:
           $ref: '#/components/schemas/CertificateValidity'
         version:
           type: string
-          example: V3
+          example: v4
         subject:
           type: string
           example: CN=wso2.com, OU=wso2, O=wso2, L=Colombo, ST=Western, C=LK
@@ -10991,7 +10996,7 @@ components:
                 contains host/servers specified in the OpenAPI file/URL
               items:
                 type: string
-                example: https://localhost:9443/am/sample/pizzashack/v3/api/
+                example: https://localhost:9443/am/sample/pizzashack/v4/api/
           description: |
             API definition information
         errors:
@@ -11675,8 +11680,8 @@ components:
       additionalProperties:
         type: string
       example:
-        productionEndpoint: https://localhost:9443/pizzashack/v3/api/
-        sandboxEndpoint: https://localhost:9443/pizzashack/v3/api/
+        productionEndpoint: https://localhost:9443/pizzashack/v4/api/
+        sandboxEndpoint: https://localhost:9443/pizzashack/v4/api/
     AsyncAPISpecificationValidationResponse:
       title: AsyncAPI Specification Validation Response
       required:
@@ -11719,7 +11724,7 @@ components:
                 contains host/servers specified in the AsyncAPI file/URL
               items:
                 type: string
-                example: "https://localhost:9443/am/sample/pizzashack/v3/api/"
+                example: "https://localhost:9443/am/sample/pizzashack/v4/api/"
             gatewayVendor:
               type: string
               example: wso2

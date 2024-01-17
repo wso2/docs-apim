@@ -75,7 +75,7 @@ In this example, **WSO2 Identity Server 5.7.0** is used as the IdP to get a SAML
 3.  Provide the following values to configure the IdP:
     -   Under **Basic Information**
         -   **Identity Provider Name** : Enter a unique name for the IdP.
-        -   **Identity Provider Public Certificate** : The certificate used to sign the SAML assertion. Export the public certificate of WSO2 IS and import it here. For more information, see [Exporting the public certificate](https://docs.wso2.com/display/IS570/Enabling+SSO+for+Management+Console+using+OpenSSO+as+the+IDP#EnablingSSOforManagementConsoleusingOpenSSOastheIDP-Exportthepubliccertificate) in the WSO2 Identity Server documentation.
+        -   **Identity Provider Public Certificate** : The certificate used to sign the SAML assertion. Export the public certificate of WSO2 IS and import it here. For more information, see [Exporting the public certificate](https://wso2docs.atlassian.net/wiki/spaces/IS570/pages/38176686/Enabling+SSO+for+Management+Console+using+OpenSSO+as+the+IDP) in the WSO2 Identity Server documentation.
 
             Alternatively, you can create a self-signed certificate and then export it as a `.cer` file using the following commands:
 

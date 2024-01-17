@@ -180,8 +180,10 @@ The following is a sample how to define the truststore. If you have created a se
         truststore:
           - secretName: <SECRET_NAME_1>
             subPath: <KEY_OF_THE_SECRET_CONTAINS_THE_CERT>
+            mountAs: <FILE_NAME_OF_THE_MOUNTED_CERT>
           - secretName: <SECRET_NAME_2>
             subPath: <KEY_OF_THE_SECRET_CONTAINS_THE_CERT>
+            mountAs: <FILE_NAME_OF_THE_MOUNTED_CERT>
 ```
 
 ```yaml tab='Adapter Truststore'
@@ -192,6 +194,7 @@ wso2:
         truststore:
           - secretName: "abc-certs"
             subPath: "tls.crt"
+            mountAs: "tls.crt"
 ```
 
 ```yaml tab='Enforcer Truststore'
@@ -203,8 +206,49 @@ wso2:
           truststore:
             - secretName: "controlplane-cert"
               subPath: "wso2carbon.pem"
+              mountAs: "wso2carbon.pem"
             - secretName: "abc-certs"
               subPath: "tls.crt"
+              mountAs: "tls.crt"
+```
+
+!!! note
+    You can use `mountAs` to have your own file name inside the container. For example, you can mount the cert `tls.crt` in the secret `abc-certs` as `abc-tls-cert.crt`. Refer to the following example values.yaml.
+
+    ```yaml
+    wso2:
+      deployment:
+        adapter:
+          security:
+            truststore:
+              - secretName: "abc-certs"
+                subPath: "tls.crt"
+                mountAs: "abc-tls-cert.crt"
+    ```
+
+    If `mountAs` is not defined, the Helm chart will rename the file as `<secretName>-<subPath replace '.' with '-' >.pem`.
+
+You can verify the cert is successfully mounted to the container by executing the following command.
+
+```sh tab='Format'
+NAMESPACE=<NAMESPACE>
+kubectl exec -n "$NAMESPACE" \
+    "$(kubectl get pod -n $NAMESPACE -l app.kubernetes.io/component=<COMPONENT_NAME> -o jsonpath='{.items[0].metadata.name}')" \
+    -c <CONTAINER_NAME> -- ls -alh /home/wso2/security/truststore/
+```
+
+```yaml tab='Adapter Truststore'
+NAMESPACE=<NAMESPACE>
+kubectl exec -n "$NAMESPACE" \
+    "$(kubectl get pod -n $NAMESPACE -l app.kubernetes.io/component=choreo-connect-adapter -o jsonpath='{.items[0].metadata.name}')" \
+    -c choreo-connect-adapter -- ls -alh /home/wso2/security/truststore/
+```
+
+```yaml tab='Enforcer Truststore'
+NAMESPACE=<NAMESPACE>
+kubectl exec -n "$NAMESPACE" \
+    "$(kubectl get pod -n $NAMESPACE -l app.kubernetes.io/component=choreo-connect-gateway-runtime -o jsonpath='{.items[0].metadata.name}')" \
+    -c choreo-connect-enforcer -- ls -alh /home/wso2/security/truststore/
 ```
 
 ### Change Default Passwords
@@ -396,7 +440,7 @@ Please follow the document about [Deploying Choreo Connect on Kubernetes With WS
 ### Deploy APIs as Immutable Gateway
 
 The API Controller `apictl` can be used to deploy APIs in the standalone mode. Those APIs deployed with `apictl` will be lost if the Adapter container restarts for any reason.
-Hence, in a production deployment with the Standalone deployment option, it is recommand to create a custom docker image of Adapter by including the `apictl projects`.
+Hence, in a production deployment with the Standalone deployment option, it is recommend to create a custom docker image of Adapter by including the `apictl projects`.
 
 #### Step 1: Create Projects
 
@@ -507,7 +551,7 @@ Follow the document on [Deploying Choreo Connect as a Standalone Gateway on Kube
 
 ### Applying config changes into a running instance of Choreo Connect 
 
-When you have to deploy a config change to the Choreo Connect running on production environment, we recommand you to complete the following steps in order.
+When you have to deploy a config change to the Choreo Connect running on production environment, we recommend you to complete the following steps in order.
 
 !!! Attention
     You must follow this, if the config change is related to the **Enforcer** as the `enforcer` fetches configs from the Adapter only at the startup.

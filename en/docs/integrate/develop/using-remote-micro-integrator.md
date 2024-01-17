@@ -34,11 +34,11 @@ However, when your solutions are ready to be moved to your production environmen
     !!! Note
     
 		-   If you selected an <b>Enterprise Integrator</b> server in the previous step, enter the port details required for an Enterprise Integrator.
-        -   If you are already running another server on these ports, give unused ports. See [Default ports](../../setup/changing_default_ports) of the Micro Integrator for more information.
+        -   If you are already running another server on these ports, give unused ports. See [Default ports]({{base_path}}/install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset/) of the Micro Integrator for more information.
 
 ## Deploy and run artifacts in a remote instance
 
-1.  To deploy the C-App project to your server, select the composite application from the list, click <b>Add</b> to move it to the configured list, and then click <b>Finish</b>.
+1.  To deploy the C-App project to your server, select the composite application from the list, click <b>Add</b> to move it to the configured list, and then click <b>Finish</b>.<br>
     <img src="{{base_path}}/assets/img/integrate/testing-integrations/new-server-add-capps.png" width="500">
 
 2.  On the <b>Servers</b> tab, note that the server is currently stopped. Click the <img src="{{base_path}}/assets/img/integrate/common/play-head-icon.jpg" width="20"> icon on the tool bar. If prompted to save changes to any of the artifact files you created earlier, click <b>Yes</b>.

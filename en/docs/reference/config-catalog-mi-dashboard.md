@@ -372,6 +372,7 @@ password="wso2carbon"</code></pre>
 
 !!! note
 	-	Upgrade Micro Integrator Dashboard to version 4.0.1 or above to enable this feature.
+	-	This feature was tested with WSO2 IS 5.10.0 and Shibboleth 4.1.2. There may be compatibility issues when using other vendors.
 
 <div class="mb-config-catalog">
     <section>
@@ -385,7 +386,7 @@ password="wso2carbon"</code></pre>
 <pre><code class="toml">[sso]
 enable = true
 client_id = "abcqet54mfD6t5d7"
-idp_url = "https://localhost/oauth2"
+base_url = "https://localhost/oauth2"
 jwt_issuer = "https://localhost/oauth2"
 resource_server_URLs = ["https://localhost:9743"]
 sign_in_redirect_URL = "https://localhost:9743/sso"
@@ -447,7 +448,7 @@ value = "C123d"
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>idp_url</code> </span>
+                                  <span class="param-name-wrap"> <code>base_url</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -469,13 +470,9 @@ value = "C123d"
                                         <p>
                                             <span class="param-type string"> string </span>
                                         </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>&quot;/oauth2/token/.well-known/openid-configuration&quot;</code></span>
-                                        </div>
-                                        
                                     </div>
                                     <div class="param-description">
-                                        <p>The resource path of the well known endpoint that is used to get the OpenID Connect metadata of your Identity Provider. The SSO plugin will append this value to the <code>idp_url</code> to get the URL of the well known endpoint.</p>
+                                        <p>The well known endpoint that is used to get the OpenID Connect metadata of your Identity Provider.</p>
                                     </div>
                                 </div>
                             </div>
@@ -528,7 +525,7 @@ value = "C123d"
                                         </p>                                        
                                     </div>
                                     <div class="param-description">
-                                        <p>The resource path of the jwks endpoint. The SSO plugin will append this value to the <code>idp_url</code> to get the URL of the jwks endpoint.</p>
+                                        <p>The Jwks endpoint URL.</p>
                                     </div>
                                 </div>
                             </div>
@@ -546,7 +543,7 @@ value = "C123d"
                                         </div>                               
                                     </div>
                                     <div class="param-description">
-                                        <p>The resource path of the authorization endpoint. The SSO plugin will append this value to the <code>idp_url</code> to get the URL of the jwks endpoint.</p>
+                                        <p>The authorization endpoint URL.</p>
                                     </div>
                                 </div>
                             </div>
@@ -564,7 +561,7 @@ value = "C123d"
                                         </div>                               
                                     </div>
                                     <div class="param-description">
-                                        <p>The resource path of the token endpoint. The SSO plugin will append this value to the <code>idp_url</code> to get the URL of the jwks endpoint.</p>
+                                        <p>The token endpoint URL.</p>
                                     </div>
                                 </div>
                             </div>
@@ -579,7 +576,7 @@ value = "C123d"
                                         </p>                           
                                     </div>
                                     <div class="param-description">
-                                        <p>The resource path of the user info endpoint. The SSO plugin will append this value to the <code>idp_url</code> to get the URL of the jwks endpoint.</p>
+                                        <p>The user info endpoint URL.</p>
                                     </div>
                                 </div>
                             </div>
@@ -597,7 +594,7 @@ value = "C123d"
                                         </div>                               
                                     </div>
                                     <div class="param-description">
-                                        <p>The resource path of the token revocation endpoint. The SSO plugin will append this value to the <code>idp_url</code> to get the URL of the jwks endpoint.</p>
+                                        <p>The token revocation endpoint URL.</p>
                                     </div>
                                 </div>
                             </div>
@@ -612,7 +609,7 @@ value = "C123d"
                                         </p>                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The resource path of the introspection endpoint. The SSO plugin will append this value to the <code>idp_url</code> to get the URL of the jwks endpoint.</p>
+                                        <p>The introspection endpoint URL.</p>
                                     </div>
                                 </div>
                             </div>
@@ -630,7 +627,7 @@ value = "C123d"
                                         </div>                               
                                     </div>
                                     <div class="param-description">
-                                        <p>The resource path of the logout endpoint. The SSO plugin will append this value to the <code>idp_url</code> to get the URL of the jwks endpoint.</p>
+                                        <p>The logout endpoint URL.</p>
                                     </div>
                                 </div>
                             </div>
@@ -787,6 +784,24 @@ value = "C123d"
                                     </div>
                                     <div class="param-description">
                                         <p>Use this paramater to specify the attribute you need to use as the user name in the dashboard.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>additional_trusted_audience</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type array"> array </span>
+                                        </p>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>[&quot;account&quot;, &quot;finance&quot;, &quot;additional trusted audience other than client id&quot;]</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The additional audience apart from the <code>client_id</code> configured in sso configs.</p>
                                     </div>
                                 </div>
                             </div>

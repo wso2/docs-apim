@@ -221,7 +221,7 @@ The JWKS endpoint is:
 "https://localhost:9095/.wellknown/jwks"
 ```
 
-The public keys can be recieved from this endpoint with a <code>GET</code> or <code>POST</code> request.
+The public keys can be received from this endpoint with a <code>GET</code> or <code>POST</code> request.
 
 
 ### Sample JWKS response
