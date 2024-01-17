@@ -20,7 +20,7 @@ These configurations apply globally to all caches. You can override these values
 
 ## API Gateway cache
 
-When caching is enabled at the Gateway and a request hits the Gateway, it first populates the cached entry for a given token. If a cache entry does not exist in the cache, for **JWT tokens**, gateway self validates the JWT and store it in the Gateway. If a cache entry does not exist in the cache, for **opaque tokens**, it calls the Key Manager server. This process is carried out using Web service calls. After the Key Manager server returns the validation information, it gets stored in the Gateway. 
+When caching is enabled at the Gateway and a request hits the Gateway, it first populates the cached entry for a given token. If a cache entry does not exist in the cache, for **JWT tokens**, gateway self validates the JWT and store it in the Gateway. If a cache entry does not exist in the cache, for **opaque tokens**, it calls the Key Manager server. This process is carried out using web service calls. After the Key Manager server returns the validation information, it gets stored in the Gateway. 
 
 ### Clearing the API Gateway cache
 
