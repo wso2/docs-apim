@@ -142,4 +142,4 @@ For more detailed information on the Choreo Insights dashboards and their usage,
 
 ## What's Next?
 
-Enterprises and companies who want to use the Choreo Insights collaboratively can utilize the organization concept in Choreo. For more information, see [Role-based Access Control for API Analytics]({{base_path}}/api-analytics/role-based-access-control).
+Enterprises and companies who want to use the Choreo Insights collaboratively can utilize the organization concept in Choreo. For more information, see [Role-based Access Control for API Analytics]({{base_path}}/api-analytics/choreo-analytics/role-based-access-control).
