@@ -264,16 +264,32 @@ Follow the instructions below to configure Okta as a third-party Key Manager:
           <td>Optional</td>
           </tr>
           <tr class="even">
-          <td><b>Advanced Configurations</b></td>
+          <td><b>Permissions</b></td>
           <td></td>
           <td></td>
           </tr>
           <tr class="odd">
+          <td>Key Manager Permission</td>
+          <td>Permission type for role-based Key Manager restriction.</br>
+          e.g., <code>PUBLIC</code>, <code>ALLOW</code>, <code>DENY</code></td>
+          <td>Optional</td>
+          </tr>
+          <tr class="even">
+          <td>Roles</td>
+          <td>Roles to Whitelist or Blacklist</td>
+          <td>Optional</td>
+          </tr>
+          <tr class="odd">
+          <td><b>Advanced Configurations</b></td>
+          <td></td>
+          <td></td>
+          </tr>
+          <tr class="even">
           <td>Token Generation</td>
           <td>This enables token generation via the authorization server.</td>
           <td>Optional</td>
           </tr>
-          <tr class="even">
+          <tr class="odd">
           <td>Out Of Band Provisioning</td>
           <td>This enables the provisioning of Auth clients that have been created without the use of the Developer Portal, such as previously created Auth clients.</td>
           <td>Optional</td>
