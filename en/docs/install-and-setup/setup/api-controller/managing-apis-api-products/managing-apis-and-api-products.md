@@ -123,7 +123,7 @@ Follow the instructions below to display a list of APIs or API Products in an en
             ```
 
             !!!note
-                API product versioning is only available after WSO2 API Manager U2 update level 55 and apictl version 4.2.4 onwards.
+                API product versioning is only available after WSO2 API Manager U2 update level 55 and apictl version 4.2.3 onwards.
 
             !!!note
                 `apictl list api-products` command has been deprecated from apictl 4.0.0 onwards. Instead use `apictl get api-products` as shown above.
@@ -222,7 +222,7 @@ Follow the instructions below to display a list of revisions created for an API 
                 ```  
 
             !!!note
-                API product versioning is only available after WSO2 API Manager U2 update level 55 and apictl version 4.2.4 onwards. If you are using a prior version do not use `--version`, `-v` flags. 
+                API product versioning is only available after WSO2 API Manager U2 update level 55 and apictl version 4.2.3 onwards. If you are using a prior version do not use `--version`, `-v` flags. 
 
 
         -   **Response**
@@ -326,7 +326,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
                 ```  
 
             !!!note
-                API product versioning is only available after WSO2 API Manager U2 update level 55 and apictl version 4.2.4 onwards. If you are using a prior version do not use `--version`, `-v` flags. 
+                API product versioning is only available after WSO2 API Manager U2 update level 55 and apictl version 4.2.3 onwards. If you are using a prior version do not use `--version`, `-v` flags. 
 
         -   **Response**
 
@@ -420,7 +420,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
                 ```  
 
             !!!note
-                API product versioning is only available after WSO2 API Manager U2 update level 55 and apictl version 4.2.4 onwards. If you are using a prior version do not use `--version`, `-v` flags. 
+                API product versioning is only available after WSO2 API Manager U2 update level 55 and apictl version 4.2.3 onwards. If you are using a prior version do not use `--version`, `-v` flags. 
 
         -   **Response**
 
@@ -520,7 +520,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
                 ```  
 
             !!!note
-                API product versioning is only available after WSO2 API Manager U2 update level 55 and apictl version 4.2.4 onwards. If you are using a prior version do not use `--version`, `-v` flags. 
+                API product versioning is only available after WSO2 API Manager U2 update level 55 and apictl version 4.2.3 onwards. If you are using a prior version do not use `--version`, `-v` flags. 
 
             -   **Response**
         

@@ -61,7 +61,7 @@
             ```            
 
             !!!note
-                API product versioning is only available after WSO2 API Manager U2 update level 55 and apictl version 4.2.4 onwards. If you are using a prior version do not use `--version`, `-v` flags. 
+                API product versioning is only available after WSO2 API Manager U2 update level 55 and apictl version 4.2.3 onwards. If you are using a prior version do not use `--version`, `-v` flags. 
                   
     -   **Response**
 
