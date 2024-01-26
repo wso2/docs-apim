@@ -634,6 +634,7 @@ html .md-footer-meta.md-typeset a {
 .md-header__version-select {
     overflow: visible;
     width: 3.5rem;
+    margin-left: 1.5rem;
 }
 
 .mb-tabs__dropdown .mb-tabs__dropdown-content {
@@ -705,4 +706,21 @@ html .md-footer-meta.md-typeset a {
     .md-nav {
         margin-top: 40px;
     }
+}
+
+.md-header__version-select .md-tabs__link.md-tabs__dropdown-link {
+    display: flex;
+    padding: .45rem;
+    margin-top: .35rem;
+    border-radius: .1rem;
+}
+
+.md-header__version-select .mb-tabs__dropdown .mb-tabs__dropdown-content,
+.md-header__distribution-select .mb-tabs__dropdown .mb-tabs__dropdown-content {
+    background: #e2e2e2;
+    opacity: 1;
+}
+
+.md-header__version-select .mb-tabs__dropdown .mb-tabs__dropdown-content {
+    top: .8rem;
 }
