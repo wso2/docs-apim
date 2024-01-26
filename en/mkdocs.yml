@@ -1775,7 +1775,6 @@ markdown_extensions:
     - pymdownx.tilde
     - pymdownx.snippets:
           base_path: docs
-    - fontawesome_markdown
     - attr_list
 plugins:
     - search
