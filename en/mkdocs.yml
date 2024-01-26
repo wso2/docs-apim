@@ -2250,11 +2250,11 @@ extra_javascript:
     - assets/js/theme.js
 extra:
     social:
-        - type: github
+        - icon: fontawesome/brands/github-alt
           link: https://github.com/wso2
-        - type: twitter
+        - icon: fontawesome/brands/twitter
           link: https://twitter.com/wso2
-        - type: linkedin
+        - icon: fontawesome/brands/linkedin-in
           link: https://www.linkedin.com/company/wso2
     choreo_connect: # not applied in "includes" section, update "includes" separately
         version: 1.2.0
