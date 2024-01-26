@@ -698,3 +698,11 @@ html .md-footer-meta.md-typeset a {
     padding-left: 3.5rem;
     padding-right: 2rem;
 }
+
+@media screen and (min-width: 1220px) and (max-width: 1306px) {
+
+    .md-content,
+    .md-nav {
+        margin-top: 40px;
+    }
+}
