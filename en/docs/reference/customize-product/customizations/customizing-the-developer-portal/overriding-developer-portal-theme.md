@@ -10,16 +10,16 @@ In this section, we will cover the first method which is the simplest way to cha
 For the second method, please refer [Advanced Customization]({{base_path}}/develop/customizations/advanced-ui-customization/) section.
 ## Global Theming
 
-You can find the default theme in the following location `<API-M_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/source/src/app/data/defaultTheme.js`. 
+You can find the default theme in the following location `<API-M_HOME>/repository/deployment/server/webapps/devportal/source/src/app/data/defaultTheme.js`.
 
 The `defaultTheme.js` file has all the parameters defining the look and feel of the Developer Portal. 
 Using the above file as reference, you can add new properties to `userTheme.json` configurations and override the default parameters defined in the above default theme.
 The `userTheme.json` file is located in following path in the API Manager server directory.
-`<API-M_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/site/public/theme/userTheme.json`. Changes done in this file are reflected directly in the Developer Portal ( It's not required to restart the server or rebuild the source code). 
+`<API-M_HOME>/repository/deployment/server/webapps/devportal/site/public/theme/userTheme.json`. Changes done in this file are reflected directly in the Developer Portal ( It's not required to restart the server or rebuild the source code).
 
 !!!Note
     API Manager Devportal is themed using React Material Design. The theme configuration is an external JSON file that resides outside the React codebase. While an administrator who has access to the file system can override the default theme configuration, a tenant admin can override both of them via the defaultTheme.json file.
-    You can refer to `<API-M_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/source/src/defaultTheme.js` for available parameters. Note that you need to only put the parameters that you override to the `userTheme.json` file.
+    You can refer to `<API-M_HOME>/repository/deployment/server/webapps/devportal/source/src/app/data/defaultTheme.js` for available parameters. Note that you need to only put the parameters that you override to the `userTheme.json` file.
     The parameters you can override via the theme are listed at the bottom. Additionally, the default theme parameters available with React Material Design library can be overridden via this file.
 
 Example:
@@ -125,7 +125,7 @@ The following documents describe some of the most commonly used customizations, 
         }
     ```
     
-    The default theme configuration can be found at `<APIM_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/source/src/defaultTheme.js`. 
+    The default theme configuration can be found at `<APIM_HOME>/repository/deployment/server/webapps/devportal/source/src/app/data/defaultTheme.js`. 
     In the shared defaultTheme.json we have overriden the `custom.appBar` configurations only.
     
     ```
