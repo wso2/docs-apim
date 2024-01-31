@@ -1764,7 +1764,8 @@ markdown_extensions:
     - pymdownx.critic
     - pymdownx.details
     - pymdownx.emoji:
-          emoji_generator: !!python/name:pymdownx.emoji.to_svg
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg
     - pymdownx.inlinehilite
     - pymdownx.keys
     - pymdownx.mark
@@ -1773,9 +1774,16 @@ markdown_extensions:
     - pymdownx.tasklist:
           custom_checkbox: true
     - pymdownx.tilde
+    - pymdownx.highlight:
+          use_pygments: true
+          line_spans: __codeline
+          anchor_linenums: true
+          pygments_lang_class: true
     - pymdownx.snippets:
           base_path: docs
     - attr_list
+    - pymdownx.tabbed:
+          alternate_style: true
 plugins:
     - search
     - markdownextradata: {}

@@ -1,5 +1,6 @@
 # Choreo Connect Control Plane Configuration Catalog
 
+:fontawesome-solid-code:
 This document describes all the configuration parameters that are used in WSO2 Choreo Connect Control Plane.
 
 ## Instructions for use
@@ -25,19 +26,20 @@ See the example .toml file given below.
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-            
             <input name="2" type="checkbox" id="_tab_2">
-                <label class="tab-selector" for="_tab_2"><i class="icon fa fa-code"></i></label>
+                <label class="tab-selector" for="_tab_2"><i class="fas fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[controlPlane]
+``` toml
+[controlPlane]
   enabled = false
   serviceURL = "https://docker.for.mac.localhost:9443/"
   username="admin"
   password="$env{cp_admin_pwd}"
   environmentLabels = ["Default"]
   retryInterval = 5
-  skipSSLVerification=true</code></pre>
+  skipSSLVerification=true
+```
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -206,9 +208,10 @@ See the example .toml file given below.
                 <label class="tab-selector" for="_tab_3"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[controlPlane.jmsConnectionParameters]
+``` toml
+[controlPlane.jmsConnectionParameters]
   eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@wso2am-pattern-1-am-1-service:5672?retries='10'&connectdelay='30'", "amqp://admin:$env{cp_admin_pwd}@wso2am-pattern-1-am-2-service:5672?retries='10'&connectdelay='30'"]
-</code></pre>
+```
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -260,11 +263,13 @@ See the example .toml file given below.
             <div class="superfences-tabs">
             
             <input name="4" type="checkbox" id="_tab_4">
-                <label class="tab-selector" for="_tab_4"><i class="icon fa fa-code"></i></label>
+                <label class="tab-selector" for="_tab_4"><i class="fas fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[controlPlane.httpClient] 
-  requestTimeOut = 30</code></pre>
+``` toml
+[controlPlane.httpClient]
+  requestTimeOut = 30
+```
                     </div>
                 </div>
                 <div class="doc-wrapper">

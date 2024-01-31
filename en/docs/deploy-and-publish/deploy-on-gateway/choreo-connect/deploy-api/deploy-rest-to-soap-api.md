@@ -70,11 +70,13 @@ You can use the following steps to configure the **Micro Integrator** to update 
     - Open the `PhoneVerify_metadata.yaml` file located in `PhoneVerification/PhoneVerificationConfigs/src/main/resources/metadata/PhoneVerify_metadata.yaml` using the project explorer.
     - Change the `serviceUrl` as follows.
 
-        ```url tab="Linux"
+        === "Linux"
+        ``` url 
         http://172.17.0.1:8290/phoneverify
         ```
 
-        ```url tab="MacOS/Windows"
+        === "MacOS/Windows"
+        ``` url 
         http://host.docker.internal:8290/phoneverify
         ```
 

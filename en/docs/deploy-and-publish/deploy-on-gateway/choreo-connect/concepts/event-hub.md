@@ -64,7 +64,7 @@ The following sample configuration illustrates how the `eventListeningEndpoints`
     reconnectInterval = 5000
     reconnectRetryCount = 60
 
-  [controlPlane.httpClient] 
+  [controlPlane.httpClient]
     requestTimeOut = 30
  ``` 
 

@@ -22,7 +22,7 @@
 {% elif "navigation.tabs" not in features %}
   {% set class = class ~ " md-header--shadow" %}
 {% endif %}
-<header class="{{ class }}" data-md-component="header" id="page-header" data-url="{{ url }}" data-lang="{{ config.theme.language }}">
+<header class="{{ class }}" data-md-component="header" id="page-header1" data-url="{{ url }}" data-lang="{{ config.theme.language }}">
   <nav class="md-header__inner md-grid" aria-label="{{ lang.t('header') }}">
     <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}" title="{{ config.site_name | e }}"
       class="md-header__button md-logo" aria-label="{{ config.site_name }}" data-md-component="logo">
