@@ -50,8 +50,8 @@ When you create multiple tenants in an API Manager deployment, the API developer
         1. By default tenant deletion is disabled. To enable the functionality, add the below configurations to the `<APIM-HOME>/repository/conf/deployment.toml` file
 
         ``` toml
-         [tenant_mgt]
-         tenant_deletion=true
+         [Tenant]
+         TenantDelete=true
         ```
         
         2. Open the <API-M_HOME>/repository/conf/deployment.toml file and add the following configuration to enable the Admin Services.
