@@ -1,4 +1,4 @@
-#   Copyright (c) 2023, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+#   Copyright (c) 2024, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
 #
 #   Licensed under the Apache License, Version 2.0 (the "License");
 #   you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ swagger: '2.0'
 # Prolog
 ######################################################
 info:
-  version: "v2.2"
+  version: "v2.3"
   title: "WSO2 API Manager - Gateway"
   description: |
     This document specifies a **RESTful API** for WSO2 **API Manager** - Gateway.

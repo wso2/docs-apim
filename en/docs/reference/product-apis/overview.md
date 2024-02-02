@@ -5,15 +5,15 @@ The following topics list the APIs exposed from the API Publisher, Developer Por
 <br>
 <table>
   <tr>
-    <td nowrap="true"><a href="{{base_path}}/reference/product-apis/publisher-apis/publisher-v4/publisher-v4/">WSO2 Publisher API v4</a></td>
+    <td nowrap="true"><a href="{{base_path}}/reference/product-apis/publisher-apis/publisher-v5/publisher-v5/">WSO2 Publisher API v5</a></td>
     <td rowspan="3" style="vertical-align: middle;background-color: white"><b>WSO2 recommends that you use the latest REST APIs</b> as it is up to date and has support for the latest WSO2 API Manager 4.2.0 features.
     </td>
   </tr>
   <tr>
-    <td nowrap="true"><a href="{{base_path}}/reference/product-apis/devportal-apis/devportal-v3/devportal-v3/">WSO2 Developer Portal API v3</a></td>
+    <td nowrap="true"><a href="{{base_path}}/reference/product-apis/devportal-apis/devportal-v4/devportal-v4/">WSO2 Developer Portal API v4</a></td>
   </tr>
    <tr>
-    <td nowrap="true"><a href="{{base_path}}/reference/product-apis/admin-apis/admin-v4/admin-v4/">WSO2 Admin Portal API v4</a></td>
+    <td nowrap="true"><a href="{{base_path}}/reference/product-apis/admin-apis/admin-v5/admin-v5/">WSO2 Admin Portal API v5</a></td>
   </tr>
   <tr>
     <td nowrap="true"><a href="{{base_path}}/reference/product-apis/gateway-apis/gateway-v2/gateway-v2/">WSO2 Gateway API v2</a></td>

@@ -1,4 +1,4 @@
-#   Copyright (c) 2022, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+#   Copyright (c) 2024, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
 #
 #   Licensed under the Apache License, Version 2.0 (the "License");
 #   you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@ info:
     This document specifies a **RESTful API** for WSO2 **API Manager** - DevOps.
   contact:
     name: WSO2
-    url: https://wso2.com/api-manager/
+    url: http://wso2.com/products/api-manager/
     email: architecture@wso2.com
   license:
     name: Apache 2.0
@@ -54,6 +54,8 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+
+
   "/tenant-logs/{tenantId}/apis/{apiId}":
     get:
       summary: |
@@ -80,8 +82,8 @@ paths:
               schema:
                 $ref: "#/components/schemas/Error"
       parameters:
-      - $ref: '#/components/parameters/tenantId'
-      - $ref: '#/components/parameters/apiId'
+        - $ref: '#/components/parameters/tenantId'
+        - $ref: '#/components/parameters/apiId'
     put:
       summary: |
         Set logging levels of the API with its api ID
@@ -184,9 +186,10 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
-                
+
 servers:
   - url: https://apis.wso2.com/api/am/devops/v0
+
 components:
   schemas:
     LoggingApiOutputList:
@@ -196,25 +199,6 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/LoggingApiOutput"
-    LoggingApiInput:
-      title: API Info object with log details
-      properties:
-        logLevel:
-          type: string
-          example: FULL
-    LoggingApiOutput:
-      title: API Info object with log details
-      properties:
-        context:
-          type: string
-          example: pizashack/v1.0.0
-        logLevel:
-          type: string
-          example: FULL
-        apiId:
-          type: string
-          example: 12d6e73c-778d-45ac-b57d-117c6c5092a4
-
     CorrelationComponentsList:
       title: correlation-components
       properties:
@@ -246,8 +230,26 @@ components:
           type: array
           items:
             type: string
-            example: "MessageDeliveryTaskThreadPool"
+            example: "MessageDeliveryTaskPool"
 
+    LoggingApiInput:
+      title: API Info object with log details
+      properties:
+        logLevel:
+          type: string
+          example: FULL
+    LoggingApiOutput:
+      title: API Info object with log details
+      properties:
+        context:
+          type: string
+          example: pizashack/v1.0.0
+        logLevel:
+          type: string
+          example: FULL
+        apiId:
+          type: string
+          example: 12d6e73c-778d-45ac-b57d-117c6c5092a4
     Error:
       title: Error object returned with 4XX HTTP Status
       required:
@@ -291,6 +293,7 @@ components:
           type: string
           description: |
             A detail description about the error message.
+
   parameters:
     tenantId:
       name: tenantId
