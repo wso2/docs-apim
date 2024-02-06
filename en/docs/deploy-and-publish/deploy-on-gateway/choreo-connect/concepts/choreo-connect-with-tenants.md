@@ -23,7 +23,7 @@ with the Control Plane. A single deployment of Choreo Connect will receive APIs,
     reconnectInterval = 5000
     reconnectRetryCount = 60
 
-  [controlPlane.httpClient] 
+  [controlPlane.httpClient]
     requestTimeOut = 30
  ``` 
 

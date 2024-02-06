@@ -14,6 +14,11 @@
     --md-text-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --md-code-font: 'Source Sans Pro', sans-serif;
 }
+
+body {
+    --md-code-font-family: 'Courier New', Courier, monospace;
+}
+
 /* colors for dark theme */
 [data-md-color-scheme="slate"] {
     --md-primary-fg-color-header-background: #23272f;
@@ -47,15 +52,13 @@
     --md-footer-text-color: #424242;
     --md-footer-copyright-bg-color: #BDBDBD;
     --md-typeset-table-bg-color: #e8e8e8;
+    --md-code-hl-keyword-color: #ff7043;
 }
 .md-tabs {
     background-color: var(--md-primary-fg-color-header);
     color: var(--md-primary-fg-color-header-text);
 }
-.md-tabs__link--active, .md-tabs__link:focus, .md-tabs__link:hover {
-    color: var(--md-primary-fg-color-header-text-active);
-    fill: var(--md-primary-fg-color-header-text-active);
-}
+
 .hljs-built_in, .hljs-keyword, .hljs-name, .hljs-selector-tag, .hljs-tag {
     color: var( --md-hjs-color);
 }

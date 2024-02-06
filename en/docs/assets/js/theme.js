@@ -92,7 +92,7 @@ for (var i = 0; i < dropdowns.length; i++) {
 /* 
  * Reading versions
  */
-var pageHeader = document.getElementById('page-header');
+var pageHeader = document.getElementsByClassName('md-header__inner');
 var docSetLang = pageHeader.getAttribute('data-lang');
 
 (window.location.pathname.split('/')[1] !== docSetLang) ? 
