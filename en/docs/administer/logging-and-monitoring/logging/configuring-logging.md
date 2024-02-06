@@ -73,7 +73,8 @@ Follow the instructions below to enable logs for a given service component that 
 1.  Open the `<API-M_HOME>/repository/conf/log4j2.properties` file.
 2.  Add a new logger specifying the component name that you need to enable logs and the [log level](#setting-the-log-levels) as shown below.
 
-     ``` tab="Format"
+=== "Format"
+     ```
      logger.<Logger_Name>.name = <Component_name>
      logger.<Logger_Name>.level = <Log_level>
      ```
