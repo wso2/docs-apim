@@ -2,86 +2,90 @@
 
     **Single Example for an Operation**
 
-    ```yaml tab='Format'
-    <resource path>:
-      <operation>:
-        responses:
-          <response code>:
-            description: <description>
-            headers:
-              <header>:
-                example: <header example value>
-            content:
-              <media type>:
-                example: <example>
-    ```
+    === "Format"
+        ```yaml
+        <resource path>:
+          <operation>:
+            responses:
+              <response code>:
+                description: <description>
+                headers:
+                  <header>:
+                    example: <header example value>
+                content:
+                  <media type>:
+                    example: <example>
+        ```
 
-    ```yaml tab='Example'
-    /pet/findByStatus:
-      get:
-        responses:
-          '200':
-            description: OK
-            headers:
-              x-wso2-example:
-                example: example header value
-            content:
-              application/json:
-                example:
-                  mock response: hello world
-    ```
+    === "Example"
+        ```yaml
+        /pet/findByStatus:
+          get:
+            responses:
+              '200':
+                description: OK
+                headers:
+                  x-wso2-example:
+                    example: example header value
+                content:
+                  application/json:
+                    example:
+                      mock response: hello world
+        ```
 
     **Multiple Examples for an Operation**
 
-    ```yaml tab='Format'
-    <resource path>:
-      <operation>:
-        responses:
-          <response code>:
-            description: <description>
-            headers:
-              <header>:
-                example: <header example value>
-            content:
-              <media type>:
-                examples: 
-                  <example reference>
-                    value: <example>
-    ```
+    === "Format"
+        ```yaml
+        <resource path>:
+          <operation>:
+            responses:
+              <response code>:
+                description: <description>
+                headers:
+                  <header>:
+                    example: <header example value>
+                content:
+                  <media type>:
+                    examples: 
+                      <example reference>
+                        value: <example>
+        ```
 
-    ```yaml tab='Example'
-    /pet/findByStatus:
-      get:
-        responses:
-          50X:
-            description: Service Unavailable
-            headers:
-              x-wso2-example:
-                example: example header value
-            content:
-              application/json:
-                examples:
-                  ref1:
-                    value:
-                      mock response: hello world
-                  ref2:
-                    value:
-                      mock response: Welcome
-          default:
-            description: default response
-            headers:
-              x-wso2-example:
-                example: default header value
-            content:
-              application/json:
-                examples:
-                  ref1:
-                    value:
-                      mock response: default hello world
-                  ref2:
-                    value:
-                      mock response: default Welcome
-    ```
+    === "Example"
+        ```yaml
+        /pet/findByStatus:
+          get:
+            responses:
+              50X:
+                description: Service Unavailable
+                headers:
+                  x-wso2-example:
+                    example: example header value
+                content:
+                  application/json:
+                    examples:
+                      ref1:
+                        value:
+                          mock response: hello world
+                      ref2:
+                        value:
+                          mock response: Welcome
+              default:
+                description: default response
+                headers:
+                  x-wso2-example:
+                    example: default header value
+                content:
+                  application/json:
+                    examples:
+                      ref1:
+                        value:
+                          mock response: default hello world
+                      ref2:
+                        value:
+                          mock response: default Welcome
+        ```
 
     | **Place Holder** | **Usage** |
     |-----------------|--------------------|
@@ -102,31 +106,35 @@
 
         Invoking `GET` for `/pet/findByStatus` will return the default example as given below.
 
-        ```bash tab='Request'
-        curl -X GET https://localhost:9095/v3/1.0.6/pet/findByStatus
-        ```
+        === "Request"
+            ```bash
+            curl -X GET https://localhost:9095/v3/1.0.6/pet/findByStatus
+            ```
 
-        ```bash tab='Response'
-        < HTTP/1.1 200 OK
-        < content-type: application/json
-        < x-wso2-example: "default header value"
-        < 
-        {"mock response":"default hello world"}
-        ```
+        === "Response"
+            ```bash
+            < HTTP/1.1 200 OK
+            < content-type: application/json
+            < x-wso2-example: "default header value"
+            < 
+            {"mock response":"default hello world"}
+            ```
 
         Invoking `GET` for `/pet/findByStatus` with the header `Prefer` will return the matched example for the particular code and the example reference.
 
-        ```bash tab='Request'
-        curl -H 'Prefer: code=503, example=ref2' -X GET https://localhost:9095/v3/1.0.6/pet/findByStatus
-        ```
+        === "Request"
+            ```bash
+            curl -H 'Prefer: code=503, example=ref2' -X GET https://localhost:9095/v3/1.0.6/pet/findByStatus
+            ```
 
-        ```bash tab='Response'
-        < HTTP/1.1 503 Service Unavailable
-        < content-type: application/json
-        < x-wso2-example: "example header value"
-        < 
-        {"mock response":"Welcome"}
-        ```
+        === "Response"
+            ```bash
+            < HTTP/1.1 503 Service Unavailable
+            < content-type: application/json
+            < x-wso2-example: "example header value"
+            < 
+            {"mock response":"Welcome"}
+            ```
 
     <!-- TODO(amali): add more examples-->
 

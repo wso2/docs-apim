@@ -36,7 +36,7 @@ Follow the instructions below to enable mock response generation based on the Op
 
     Add the following resource which includes an response example. For HTTP status specific examples and content type specific responses, have a look at [Mock Implementation with OpenAPI examples](#mock-implementation-with-openapi-examples).
 
-    ```
+    ```yaml
     /pet/{petId}:
       get:
         responses:

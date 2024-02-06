@@ -136,14 +136,15 @@ Start the API Manager runtime:
 
      Open a terminal, navigate to the `<API-M_HOME>/bin` directory and execute the relevant command. 
 
+    === "On MacOS/Linux"
+          ```bash
+          ./api-manager.sh -DportOffset=1
+          ```
   
-     ```bash tab="On MacOS/Linux"
-     ./api-manager.sh -DportOffset=1
-     ```
-  
-     ```bash tab="On Windows"
-     api-manager.bat -DportOffset=1
-     ```
+    === "On Windows"
+          ```bash
+          api-manager.bat -DportOffset=1
+          ```
 
 #### Step 1.2 - Start WSO2 Streaming Integrator 
 
@@ -238,13 +239,15 @@ Follow the instructions below to publish the AsyncAPI definition to the service 
 
      After the Siddhi application is successfully deployed, the following log messages appear in the Streaming Integrator and API Manager server logs to indicate that the AsyncAPI definition is successfully published in the Service Catalog.
 
-    ```bash tab="Streaming Integrator server logs"
-    Siddhi App ManageProductionStats deployed successfully
-    ```
+    === "Streaming Integrator server logs"
+          ```bash
+          Siddhi App ManageProductionStats deployed successfully
+          ```
 
-    ```bash tab="API Manager server logs"
-    CommonUtil Creation of folder is successful. Directory Name : SweetProdApp-1.0.0
-    ```
+    === "API Manager server logs"
+          ```bash
+          CommonUtil Creation of folder is successful. Directory Name : SweetProdApp-1.0.0
+          ```
 
 #### Step 1.5 - Access the streaming service
 
