@@ -1,6 +1,5 @@
 # Choreo Connect Control Plane Configuration Catalog
 
-:fontawesome-solid-code:
 This document describes all the configuration parameters that are used in WSO2 Choreo Connect Control Plane.
 
 ## Instructions for use
@@ -27,7 +26,7 @@ See the example .toml file given below.
         <div class="mb-config-options">
             <div class="superfences-tabs">
             <input name="2" type="checkbox" id="_tab_2">
-                <label class="tab-selector" for="_tab_2"><i class="fas fa-code"></i></label>
+                <label class="tab-selector" for="_tab_2"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 ``` toml
