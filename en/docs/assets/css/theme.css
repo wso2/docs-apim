@@ -1053,3 +1053,23 @@ html .md-typeset .superfences-tabs>label:hover {
     background-color: #fff;
 }
 
+.md-typeset img, .md-typeset svg, .md-typeset video {
+    height: revert-layer;
+}
+
+.md-typeset .superfences-content {
+    display: none;
+    -webkit-box-ordinal-group: 100;
+    order: 99;
+    width: 100%;
+    background-color: #fff;
+}
+
+.mb-config-catalog .superfences-content {
+    flex-direction: column;
+    order: 0;
+}
+
+.md-typeset .superfences-tabs>input:checked+label+.superfences-content {
+    display: block;
+}
