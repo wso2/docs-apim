@@ -226,6 +226,77 @@ The following table lists down the `mc.` methods that you can use to invoke func
 | Yes     | `getProperty(name)`                  | This gets a property from the current message context.                                                                                                         |
 | No      | `setProperty(key, value)`            | This is used to set a property in the current message context. The previously set property values are replaced by this method.                                 |
 
+## Restricting Access to Java Classes and Methods
+
+Java Classes and Methods are visible to the mock scripts by default.
+
+For example,
+
+- `var myArrayList = new java.util.ArrayList();` would instantiate a Java Arraylist.
+- `var hashmapConstructors = c.getClassLoader().loadClass("java.util.HashMap").getDeclaredConstructors();` would get a list of constructors of Java HashMap via reflection.
+
+Usage of classes or methods in such manner can be restricted by using the following configurations.
+
+### Limiting Access to Java Classes
+
+Set the `limit_java_class_access_in_scripts` configurations under `synapse_properties` in the `deployment.toml`, following either a `BLOCK_LIST` approach (selectively blocking) or an `ALLOW_LIST` approach (selectively allowing).
+
+| **Synapse Property**                                | **Description**                                                                                                                                                                                                                                | **Example Values**                           |
+|-----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------|
+| `limit_java_class_access_in_scripts.enable`         | Enable limiting access to Java classes.                                                                                                                                                                                                        | `true`<br/>`false`                               |
+| `limit_java_class_access_in_scripts.class_prefixes` | Prefixes of Java class names, as comma separated values. Java Classes used in the script, having names beginning with these values, will be selectively allowed/blocked, based on the provided `limit_java_class_access_in_scripts.list_type`. | `java.util`<br/>`java.lang`                        |
+| `limit_java_class_access_in_scripts.list_type`      | Type of the list. Possible values are:<br/> - `ALLOW_LIST`: Selectively allow<br/> - `BLOCK_LIST`: Selectively block                                                       | `ALLOW_LIST`<br/>`BLOCK_LIST` |
+
+Example Config:
+
+```toml
+[synapse_properties]
+'limit_java_class_access_in_scripts.enable' = true
+'limit_java_class_access_in_scripts.list_type' = "ALLOW_LIST"
+'limit_java_class_access_in_scripts.class_prefixes' = "java.util"
+```
+The above configuration uses an Allow Listing approach. This would only allow using the classes of which - the name starts with `java.util`, within the script. Usage of any other classes would result in an error as shown below:
+
+Script Content:
+```js
+print(java.lang.Math.pow(3, 2));
+```
+Output during API Execution
+```
+ERROR - ScriptMediator {api:Mock:v1.0.0} The script engine returned an error executing the inlined js script function mediate
+com.sun.phobos.script.util.ExtendedScriptException: org.mozilla.javascript.EcmaError: TypeError: Cannot call property pow in object [JavaPackage java.lang.Math]. It is not a function, it is "object". (<Unknown Source>#3) in <Unknown Source> at line number 3
+```
+
+### Limiting Access to Java Methods/Native Objects
+
+Set the `limit_java_native_object_access_in_scripts` configurations under `synapse_properties` in the `deployment.toml`, following either a `BLOCK_LIST` approach (selectively blocking) or an `ALLOW_LIST` approach (selectively allowing).
+
+| **Syanpse Property**                                | **Description**                                                                                                                                                                                                                               | **Example Values**        |
+|-----------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
+| `limit_java_native_object_access_in_scripts.enable` | Enable limiting access to Java methods/native objects.                                                                                                                                                                                        | `true`<br/>`false`            |
+| `limit_java_native_object_access_in_scripts.object_names`  | Names of Java methods/native objects, as comma separated values. Java Methods/native objects used in the script having these names will be selectively allowed/blocked, based on the provided `limitJavaNativeObjectAccessInScripts.listType`. | `getClassLoader`<br/>`getClass`         |
+| `limit_java_native_object_access_in_scripts.list_type`     | Type of the list. Possible values are:<br/> - `ALLOW_LIST`: Selectively allow<br/> - `BLOCK_LIST`: Selectively block                                                      | `ALLOW_LIST`<br/>`BLOCK_LIST` |
+
+Example Config:
+
+```toml
+[synapse_properties]
+'limit_java_native_object_access_in_scripts.enable' = true
+'limit_java_native_object_access_in_scripts.list_type' = "BLOCK_LIST" # Or "ALLOW_LIST"
+'limit_java_native_object_access_in_scripts.object_names' = "getClassLoader,loadClass" # Comma separated values
+```
+The above configuration uses a Block Listing approach. This would not allow the usage of `getClassLoader()` method within the script.
+
+**Script Content:**
+```js
+var hashmapConstructors = c.getClassLoader().loadClass("java.util.HashMap").getDeclaredConstructors()
+```
+
+**Output during API Execution:**
+```
+ERROR - ScriptMediator {api:Mock:v1.0.0} The script engine returned an error executing the inlined js script function mediate
+com.sun.phobos.script.util.ExtendedScriptException: org.mozilla.javascript.EcmaError: TypeError: Cannot find function getClassLoader in object class javax.script.SimpleScriptContext. (<Unknown Source>#21) in <Unknown Source> at line number 21
+```
 
 ## See Also
 
