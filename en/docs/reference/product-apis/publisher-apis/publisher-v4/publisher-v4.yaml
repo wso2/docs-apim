@@ -1,4 +1,4 @@
-#   Copyright (c) 2023, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+#   Copyright (c) 2024, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
 #
 #   Licensed under the Apache License, Version 2.0 (the "License");
 #   you may not use this file except in compliance with the License.
@@ -101,7 +101,7 @@ info:
     * Make sure you have an API Manager instance up and running.
     * Update the `basepath` parameter to match the hostname and port of the APIM instance.
 
-    [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/25611032-8753756c-7f03-4f5b-8738-603f426a54a2)
+    [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/17491134-edb4ef7a-1ac7-420b-8651-2d9fd5585f6c)
   contact:
     name: WSO2
     url: https://wso2.com/api-manager/
@@ -109,7 +109,7 @@ info:
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: v4
+  version: v4.1
 servers:
   - url: https://apis.wso2.com/api/am/publisher/v4
 security:
@@ -215,11 +215,10 @@ paths:
           description: Open api version
           schema:
             type: string
-            default: v4
+            default: v3
             enum:
               - v2
               - v3
-              - v4
       requestBody:
         description: API object that needs to be added
         content:
@@ -1813,6 +1812,40 @@ paths:
         - lang: Curl
           source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
             "https://127.0.0.1:9443/api/am/publisher/v4/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/restore-revision?revisionId=e0824883-3e86-403a-aec1-22bbc454eb7c"'
+
+  /apis/{apiId}/cancel-revision-workflow/{revisionId}/{envName}:
+    #--------------------------------------------------------
+    # Cancel a pending revision deployment workflow task given revision id and environment name
+    #--------------------------------------------------------
+    delete:
+      tags:
+        - API Revisions
+      summary: Delete Pending Revision Deployment Workflow Tasks
+      description: |
+        This operation can be used to remove pending revision deployment requests that are in pending state
+      parameters:
+        - $ref: '#/components/parameters/apiId'
+        - $ref: '#/components/parameters/revisionId'
+        - $ref: '#/components/parameters/envName'
+      responses:
+        200:
+          description: |
+            OK.
+            Revision deployment pending task removed successfully.
+          content: { }
+        404:
+          $ref: '#/components/responses/NotFound'
+        412:
+          $ref: '#/components/responses/PreconditionFailed'
+      security:
+        - OAuth2Security:
+            - apim:api_publish
+            - apim:api_manage
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          "https://127.0.0.1:9443/api/am/publisher/v4/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/cancel-revision-workflow/e0824883-3e86-403a-aec1-22bbc454eb7c/Default"'
+      operationId: deleteAPIRevisionDeploymentPendingTask
 
   /apis/import-service:
     post:
@@ -6597,7 +6630,8 @@ paths:
             - apim:api_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v4/api-products/copy-api-products?newVersion=2.0&defaultVersion=false&apiProductId=2fd14eb8-b828-4013-b448-0739d2e76bf7"'
+          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          "https://127.0.0.1:9443/api/am/publisher/v4/api-products/copy-api-products?newVersion=2.0&defaultVersion=false&apiproductId=2fd14eb8-b828-4013-b448-0739d2e76bf7"'
       operationId: createNewAPIProductVersion
 
   /api-products/export:
@@ -8185,6 +8219,275 @@ paths:
           source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
           "https://127.0.0.1:9443/api/am/publisher/v4/operation-policies/f56eb8b4-128c-45aa-ad35-9c87a546261a/content"'
 
+  ######################################################
+  # The Gateway Policies API
+  ######################################################
+  /gateway-policies:
+    post:
+      tags:
+        - Gateway Policies
+      summary: Engage gateway policies to the request, response, fault flows
+      description: |
+        This operation can be used to apply gateway policies to the request, response, fault flows.
+      operationId: addGatewayPoliciesToFlows
+      requestBody:
+        description: Policy details object that needs to be added.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GatewayPolicyMappings'
+        required: true
+      responses:
+        201:
+          description: |
+            OK.
+            Policy mapping created successfully.
+          headers:
+            Location:
+              description: |
+                The URL of the created gateway policy mapping.
+              schema:
+                type: string
+            Content-Type:
+              description: |
+                The content type of the body.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayPolicyMappingInfo'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        404:
+          $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - OAuth2Security:
+            - apim:gateway_policy_manage
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+              -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/publisher/v4/gateway-policies"'
+
+    get:
+      tags:
+        - Gateway Policies
+      summary: |
+        Get all gateway policies mapping information
+      description: |
+        This operation provides you a list of all gateway policies mapping information.
+      operationId: getAllGatewayPolicies
+      parameters:
+        - $ref: '#/components/parameters/policyLimit'
+        - $ref: '#/components/parameters/offset'
+        - name: query
+          in: query
+          description: |
+            **Search condition**.
+
+            You can search in attributes by using an **"gatewayLabel:"** modifier.
+
+            Eg.
+            The entry "gatewayLabel:gateway1" will result in a match with a Gateway Policy Mapping only if the policy mapping is deployed on "gateway1".
+
+            If query attribute is provided, this returns the Gateway policy Mapping available under the given limit.
+
+            Please note that you need to use encoded URL (URL encoding) if you are using a client which does not support URL encoding (such as curl)
+          schema:
+            type: string
+      responses:
+        200:
+          description: |
+            OK.
+            List of gateway policies is returned.
+          headers:
+            Content-Type:
+              description: The content type of the body.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayPolicyMappingDataList'
+        404:
+          $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - OAuth2Security:
+            - apim:gateway_policy_view
+            - apim:gateway_policy_manage
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+            "https://127.0.0.1:9443/api/am/publisher/v4/gateway-policies"'
+
+  /gateway-policies/{gatewayPolicyMappingId}:
+    get:
+      tags:
+        - Gateway Policies
+      summary: Retrieve information of a selected gateway policy mapping
+      description: |
+        This operation can be used to retrieve information of a selected gateway policy mapping.
+      operationId: getGatewayPolicyMappingContentByPolicyMappingId
+      parameters:
+        - $ref: '#/components/parameters/gatewayPolicyMappingId'
+      responses:
+        200:
+          description: |
+            OK.
+            Gateway policy mapping information returned.
+          headers:
+            Content-Type:
+              description: |
+                The content type of the body.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayPolicyMappings'
+        404:
+          $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - OAuth2Security:
+            - apim:gateway_policy_view
+            - apim:gateway_policy_manage
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          "https://127.0.0.1:9443/api/am/publisher/v4/gateway-policies/f56eb8b4-128c-45aa-ad35-9c87a546261a"'
+
+    delete:
+      tags:
+        - Gateway Policies
+      summary: Delete a gateway policy mapping
+      description: |
+        This operation can be used to delete an existing gateway policy mapping by providing the Id of the policy mapping.
+      operationId: deleteGatewayPolicyByPolicyId
+      parameters:
+        - $ref: '#/components/parameters/gatewayPolicyMappingId'
+      responses:
+        200:
+          description: |
+            OK.
+            Resource successfully deleted.
+          content: { }
+        403:
+          $ref: '#/components/responses/Forbidden'
+        404:
+          $ref: '#/components/responses/NotFound'
+        412:
+          $ref: '#/components/responses/PreconditionFailed'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - OAuth2Security:
+            - apim:gateway_policy_manage
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+            "https://127.0.0.1:9443/api/am/publisher/v4/gateway-policies/f56eb8b4-128c-45aa-ad35-9c87a546261a"'
+
+    put:
+      tags:
+        - Gateway Policies
+      summary: Update gateway policies added to the request, response, fault flows
+      description: |
+        This operation can be used to update already added gateway policies to the request, response, fault flows.
+      operationId: updateGatewayPoliciesToFlows
+      parameters:
+        - $ref: '#/components/parameters/gatewayPolicyMappingId'
+      requestBody:
+        description: Policy details object that needs to be updated.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GatewayPolicyMappings'
+        required: true
+      responses:
+        200:
+          description: |
+            OK.
+            Policy mapping updated successfully.
+          headers:
+            Content-Type:
+              description: |
+                The content type of the body.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayPolicyMappings'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        404:
+          $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - OAuth2Security:
+            - apim:gateway_policy_manage
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+              -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/publisher/v4/gateway-policies/f56eb8b4-128c-45aa-ad35-9c87a546261a"'
+
+  /gateway-policies/{gatewayPolicyMappingId}/deploy:
+    post:
+      tags:
+        - Gateway Policies
+      summary: Engage gateway policy mapping to the gateways
+      description: |
+        This operation can be used to engage gateway policy mapping to the gateway/s.
+      operationId: engageGlobalPolicy
+      parameters:
+        - $ref: '#/components/parameters/gatewayPolicyMappingId'
+      requestBody:
+        description: Policy details object that needs to be added.
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/GatewayPolicyDeployment'
+        required: true
+      responses:
+        200:
+          description: |
+            OK.
+            Gateway policy mapping engaged successfully.
+          headers:
+            Content-Type:
+              description: |
+                The content type of the body.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GatewayPolicyDeployment'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        404:
+          $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - OAuth2Security:
+            - apim:gateway_policy_manage
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+              -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/publisher/v4/gateway-policies/deploy"'
+
   /api-products/change-lifecycle:
     post:
       tags:
@@ -8553,6 +8856,21 @@ components:
         advertiseOnly:
           type: boolean
           example: true
+        monetizedInfo:
+          type: boolean
+          example: true
+        businessOwner:
+          type: string
+          example: Business Owner
+        businessOwnerEmail:
+          type: string
+          example: businessowner@abc.com
+        TechnicalOwner:
+          type: string
+          example: Technical Owner
+        TechnicalOwnerEmail:
+          type: string
+          example: technicalowner@abc.com
     APIMetadata:
       title: API Info object with basic minimal API details.
       type: object
@@ -8631,7 +8949,6 @@ components:
           readOnly: true
           example: 01234567-0123-0123-0123-012345678901
         name:
-          maxLength: 60
           minLength: 1
           pattern: '(^[^~!@#;:%^*()+={}|\\<>"'',&$\[\]\/]*$)'
           type: string
@@ -8652,7 +8969,7 @@ components:
           pattern: '^[^~!@#;:%^*()+={}|\\<>"'',&/$\[\]\s+\/]+$'
           example: 1.0.0
         provider:
-          maxLength: 50
+          maxLength: 200
           type: string
           description: |
             If the provider value is not given user invoking the api will be used as the provider.
@@ -8765,6 +9082,12 @@ components:
             Name of the Authorization header used for invoking the API. If it is not set, Authorization header name specified
             in tenant or system level will be used.
           example: Authorization
+        apiKeyHeader:
+          type: string
+          pattern: '(^[^~!@#;:%^*()+={}|\\<>"'',&$\s+]*$)'
+          description: |
+            Name of the API key header used for invoking the API. If it is not set, default value `apiKey` will be used.
+          example: apiKey
         securityScheme:
           type: array
           description: |
@@ -8814,6 +9137,8 @@ components:
               type: fault
           items:
             $ref: '#/components/schemas/MediationPolicy'
+        apiPolicies:
+          $ref: '#/components/schemas/APIOperationPolicies'
         subscriptionAvailability:
           type: string
           description: The subscription availability. Accepts one of the following.
@@ -8897,6 +9222,8 @@ components:
           example: APPROVED
         createdTime:
           type: string
+        lastUpdatedTimestamp:
+          type: string
         lastUpdatedTime:
           type: string
           x-otherScopes:
@@ -8913,10 +9240,10 @@ components:
               {
                 "endpoint_type": "http",
                 "sandbox_endpoints":       {
-                   "url": "https://localhost:9443/am/sample/pizzashack/v4/api/"
+                   "url": "https://localhost:9443/am/sample/pizzashack/v3/api/"
                 },
                 "production_endpoints":       {
-                   "url": "https://localhost:9443/am/sample/pizzashack/v4/api/"
+                   "url": "https://localhost:9443/am/sample/pizzashack/v3/api/"
                 }
               }
 
@@ -8928,22 +9255,22 @@ components:
                 "sessionManagement": "",
                 "sandbox_endpoints":       [
                             {
-                      "url": "https://localhost:9443/am/sample/pizzashack/v4/api/1"
+                      "url": "https://localhost:9443/am/sample/pizzashack/v3/api/1"
                    },
                             {
                       "endpoint_type": "http",
                       "template_not_supported": false,
-                      "url": "https://localhost:9443/am/sample/pizzashack/v4/api/2"
+                      "url": "https://localhost:9443/am/sample/pizzashack/v3/api/2"
                    }
                 ],
                 "production_endpoints":       [
                             {
-                      "url": "https://localhost:9443/am/sample/pizzashack/v4/api/3"
+                      "url": "https://localhost:9443/am/sample/pizzashack/v3/api/3"
                    },
                             {
                       "endpoint_type": "http",
                       "template_not_supported": false,
-                      "url": "https://localhost:9443/am/sample/pizzashack/v4/api/4"
+                      "url": "https://localhost:9443/am/sample/pizzashack/v3/api/4"
                    }
                 ],
                 "sessionTimeOut": "",
@@ -8957,21 +9284,21 @@ components:
                    {
                       "endpoint_type":"http",
                       "template_not_supported":false,
-                      "url":"https://localhost:9443/am/sample/pizzashack/v4/api/1"
+                      "url":"https://localhost:9443/am/sample/pizzashack/v3/api/1"
                    }
                 ],
                 "endpoint_type":"failover",
                 "sandbox_endpoints":{
-                   "url":"https://localhost:9443/am/sample/pizzashack/v4/api/2"
+                   "url":"https://localhost:9443/am/sample/pizzashack/v3/api/2"
                 },
                 "production_endpoints":{
-                   "url":"https://localhost:9443/am/sample/pizzashack/v4/api/3"
+                   "url":"https://localhost:9443/am/sample/pizzashack/v3/api/3"
                 },
                 "sandbox_failovers":[
                    {
                       "endpoint_type":"http",
                       "template_not_supported":false,
-                      "url":"https://localhost:9443/am/sample/pizzashack/v4/api/4"
+                      "url":"https://localhost:9443/am/sample/pizzashack/v3/api/4"
                    }
                 ]
               }
@@ -9011,9 +9338,9 @@ components:
           example:
             endpoint_type: http
             sandbox_endpoints:
-              url: https://localhost:9443/am/sample/pizzashack/v4/api/
+              url: https://localhost:9443/am/sample/pizzashack/v3/api/
             production_endpoints:
-              url: https://localhost:9443/am/sample/pizzashack/v4/api/
+              url: https://localhost:9443/am/sample/pizzashack/v3/api/
         endpointImplementationType:
           type: string
           example: INLINE
@@ -9191,6 +9518,14 @@ components:
           minLength: 1
           type: string
           example: Default
+        status:
+          type: string
+          example: CREATED
+          default: CREATED
+          enum:
+            - CREATED
+            - APPROVED
+            - REJECTED
         vhost:
           maxLength: 255
           minLength: 1
@@ -9295,6 +9630,21 @@ components:
         gatewayVendor:
           type: string
           example: wso2
+        monetizedInfo:
+          type: boolean
+          example: true
+        businessOwner:
+          type: string
+          example: Business Owner
+        businessOwnerEmail:
+          type: string
+          example: businessowner@abc.com
+        TechnicalOwner:
+          type: string
+          example: Technical Owner
+        TechnicalOwnerEmail:
+          type: string
+          example: technicalowner@abc.com
     APIProduct:
       title: API Product object
       required:
@@ -9446,6 +9796,11 @@ components:
             Name of the Authorization header used for invoking the API. If it is not set, Authorization header name specified
             in tenant or system level will be used.
           example: Authorization
+        apiKeyHeader:
+          type: string
+          description: |
+            Name of the API key header used for invoking the API. If it is not set, default value `apiKey` will be used.
+          example: ApiKey
         securityScheme:
           type: array
           description: |
@@ -9506,6 +9861,8 @@ components:
         createdTime:
           type: string
         lastUpdatedTime:
+          type: string
+        lastUpdatedTimestamp:
           type: string
         gatewayVendor:
           title: field to identify gateway vendor
@@ -10435,9 +10792,15 @@ components:
         wsPort:
           type: integer
           example: 9099
+        wsHost:
+          type: string
+          example: mg.wso2.com
         wssPort:
           type: integer
           example: 8099
+        wssHost:
+          type: string
+          example: mg.wso2.com
         websubHttpPort:
           type: integer
           example: 9021
@@ -10772,6 +11135,8 @@ components:
           example: ""
         amznResourceTimeout:
           type: integer
+        amznResourceContentEncode:
+          type: boolean
         payloadSchema:
           type: string
           example: ""
@@ -10895,7 +11260,7 @@ components:
           $ref: '#/components/schemas/CertificateValidity'
         version:
           type: string
-          example: v4
+          example: V3
         subject:
           type: string
           example: CN=wso2.com, OU=wso2, O=wso2, L=Colombo, ST=Western, C=LK
@@ -11062,7 +11427,7 @@ components:
                 contains host/servers specified in the OpenAPI file/URL
               items:
                 type: string
-                example: https://localhost:9443/am/sample/pizzashack/v4/api/
+                example: https://localhost:9443/am/sample/pizzashack/v3/api/
           description: |
             API definition information
         errors:
@@ -11265,6 +11630,24 @@ components:
             advertiseOnly:
               type: boolean
               example: true
+            hasThumbnail:
+              type: boolean
+              example: true
+            monetizedInfo:
+              type: boolean
+              example: true
+            businessOwner:
+              type: string
+              example: Business Owner
+            businessOwnerEmail:
+              type: string
+              example: businessowner@abc.com
+            TechnicalOwner:
+              type: string
+              example: Technical Owner
+            TechnicalOwnerEmail:
+              type: string
+              example: technicalowner@abc.com
     APIProductSearchResult:
       title: API Result
       allOf:
@@ -11296,6 +11679,24 @@ components:
             thumbnailUri:
               type: string
               example: /apis/01234567-0123-0123-0123-012345678901/thumbnail
+            hasThumbnail:
+              type: boolean
+              example: true
+            monetizedInfo:
+              type: boolean
+              example: true
+            businessOwner:
+              type: string
+              example: Business Owner
+            businessOwnerEmail:
+              type: string
+              example: businessowner@abc.com
+            TechnicalOwner:
+              type: string
+              example: Technical Owner
+            TechnicalOwnerEmail:
+              type: string
+              example: technicalowner@abc.com
     APIMonetizationInfo:
       title: API monetization object
       required:
@@ -11507,6 +11908,23 @@ components:
           type: string
           description: Authorization Header
           example: authorization
+        customProperties:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: |
+                  Custom property name
+                example: Department
+              description:
+                type: string
+                description: Description of custom property
+                example: Relevant Department
+              required:
+                type: boolean
+                example: false
     SecurityAuditAttribute:
       title: SecurityAuditAttributeDTO
       type: object
@@ -11746,8 +12164,8 @@ components:
       additionalProperties:
         type: string
       example:
-        productionEndpoint: https://localhost:9443/pizzashack/v4/api/
-        sandboxEndpoint: https://localhost:9443/pizzashack/v4/api/
+        productionEndpoint: https://localhost:9443/pizzashack/v3/api/
+        sandboxEndpoint: https://localhost:9443/pizzashack/v3/api/
     AsyncAPISpecificationValidationResponse:
       title: AsyncAPI Specification Validation Response
       required:
@@ -11790,7 +12208,7 @@ components:
                 contains host/servers specified in the AsyncAPI file/URL
               items:
                 type: string
-                example: "https://localhost:9443/am/sample/pizzashack/v4/api/"
+                example: "https://localhost:9443/am/sample/pizzashack/v3/api/"
             gatewayVendor:
               type: string
               example: wso2
@@ -11841,6 +12259,97 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/OperationPolicy'
+    GatewayPolicyMappings:
+      title: Gateway Policy Mappings
+      type: object
+      required:
+       - policyMapping
+       - displayName
+      properties:
+        id:
+          type: string
+          example: 121223q41-24141-124124124-12414
+        policyMapping:
+          $ref: '#/components/schemas/APIOperationPolicies'
+        description:
+          type: string
+          description: A brief description about the policy mapping
+          example: Set header value to the request with item type and response header set with served server name
+        displayName:
+          type: string
+          description: Meaningful name to identify the policy mapping
+          example: item_type_setter
+        appliedGatewayLabels:
+          type: array
+          items:
+            type: string
+            example: gatewayLabel_1
+    GatewayPolicyMappingDeploymentInfo:
+      title: Gateway Policy Mapping and Deployment Information
+      type: object
+      properties:
+        id:
+          type: string
+          example: 121223q41-24141-124124124-12414
+        description:
+          type: string
+          description: A brief description about the policy mapping
+          example: Set header value to the request with item type and response header set with served server name
+        displayName:
+          type: string
+          description: Meaningful name to identify the policy mapping
+          example: item_type_setter
+        appliedGatewayLabels:
+          type: array
+          items:
+            type: string
+            example: gatewayLabel_1
+    GatewayPolicyMappingInfo:
+      title: Gateway Policy Mapping Information
+      type: object
+      properties:
+        id:
+          type: string
+          example: 121223q41-24141-124124124-12414
+        description:
+          type: string
+          description: A brief description about the policy mapping
+          example: Set header value to the request with item type and response header set with served server name
+        displayName:
+          type: string
+          description: Meaningful name to identify the policy mapping
+          example: item_type_setter
+    GatewayPolicyDeployment:
+      title: Details to map, deploy, undeploy policy mappings to gateways
+      required:
+        - gatewayLabel
+        - gatewayDeployment
+      type: object
+      properties:
+        gatewayLabel:
+          type: string
+          example: gatewayLabel_1
+        gatewayDeployment:
+          type: boolean
+          example: true
+        mappingUUID:
+          type: string
+          example: 01234567-0123-0123-0123-012345678901
+    GatewayPolicyMappingDataList:
+      title: Gateway Policy Mapping List
+      type: object
+      properties:
+        count:
+          type: integer
+          description: |
+            Number of gateway policy mappings returned.
+          example: 1
+        list:
+          type: array
+          items:
+            $ref: '#/components/schemas/GatewayPolicyMappingDeploymentInfo'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     GatewayEnvironmentProtocolURI:
       title: Gateway Environment protocols and URIs
       required:
@@ -12239,6 +12748,14 @@ components:
       required: true
       schema:
         type: string
+    gatewayPolicyMappingId:
+      name: gatewayPolicyMappingId
+      in: path
+      description: |
+        Gateway policy mapping Id
+      required: true
+      schema:
+        type: string
 
     # API Revision Identifier
     # Specified as part of the path expression
@@ -12247,6 +12764,17 @@ components:
       in: path
       description: |
         Revision ID of an API
+      required: true
+      schema:
+        type: string
+
+    # API Revision Environment
+    # Specified as part of the path expression
+    envName:
+      name: envName
+      in: path
+      description: |
+        Environment name of an Revision
       required: true
       schema:
         type: string
@@ -12517,6 +13045,8 @@ components:
             apim:mediation_policy_manage: Update and delete mediation policies
             apim:common_operation_policy_view: View common operation policies
             apim:common_operation_policy_manage: Add, Update and Delete common operation policies
+            apim:gateway_policy_view: View gateway policies
+            apim:gateway_policy_manage: Add, Update and Delete gateway policies
             apim:client_certificates_view: View client certificates
             apim:client_certificates_add: Add client certificates
             apim:client_certificates_update: Update and delete client certificates

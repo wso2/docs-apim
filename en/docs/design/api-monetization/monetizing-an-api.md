@@ -694,7 +694,7 @@ You can use the admin REST API, which is available in WSO2 API Manager, to publi
 
 1.  Obtain the consumer key and secret key pair by calling the dynamic client registration endpoint.  
      
-     For more information, see [Admin REST API v4.0]({{base_path}}/reference/product-apis/admin-apis/admin-v4/admin-v4/).
+     For more information, see [Admin REST API v4.1]({{base_path}}/reference/product-apis/admin-apis/admin-v4/admin-v4/).
 
     ``` java
     curl -X POST -H "Authorization: Basic <base64encoded-admin-account-credentials>" -H "Content-Type: application/json" -d @payload.json https://localhost:9443/client-registration/v0.17/register
@@ -721,7 +721,7 @@ You can use the admin REST API, which is available in WSO2 API Manager, to publi
 3.  Publish usage data to the Stripe billing engine.
 
     ``` java
-    curl -k -H "Authorization: Bearer <monetization-usage-publish-token>" -X POST -H "Content-Type: application/json" https://localhost:9443/api/am/admin/v1/monetization/publish-usage
+    curl -k -H "Authorization: Bearer <monetization-usage-publish-token>" -X POST -H "Content-Type: application/json" https://localhost:9443/api/am/admin/v4/monetization/publish-usage
     ```
 
     -   `<monetization-usage-publish-token>` - Token obtained using client credentials with `monetization_usage_publish` scope in the previous step.
@@ -741,7 +741,7 @@ You can use the admin REST API, which is available in WSO2 API Manager, to publi
     When you call the Admin API to publish usage data, a separate job in a separate thread is created to publish usage data to the billing engine. The status of the above job can be monitored as follows.
   
     ``` java
-    curl -k -H "Authorization: Bearer <monetization-usage-publish-token>" -X GET -H "Content-Type: application/json" https://localhost:9443/api/am/admin/v1/monetization/publish-usage/status
+    curl -k -H "Authorization: Bearer <monetization-usage-publish-token>" -X GET -H "Content-Type: application/json" https://localhost:9443/api/am/admin/v4/monetization/publish-usage/status
     ```
     -   `<monetization-usage-publish-token>` - The same token that you got with the monetization usage scope in previous steps.
 

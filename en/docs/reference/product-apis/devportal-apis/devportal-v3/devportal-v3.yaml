@@ -1,4 +1,4 @@
-#   Copyright (c) 2023, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+#   Copyright (c) 2024, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
 #
 #   Licensed under the Apache License, Version 2.0 (the "License");
 #   you may not use this file except in compliance with the License.
@@ -101,7 +101,7 @@ info:
     * Make sure you have an API Manager instance up and running.
     * Update the `basepath` parameter to match the hostname and port of the APIM instance.
 
-    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/25611032-b6a3878d-afa1-4cb8-b564-e69d73342f3f)
+    [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/17491134-b8760354-b3c3-4019-b60a-e813cba8d7c0)
   contact:
     name: WSO2
     url: https://wso2.com/api-manager/
@@ -109,7 +109,7 @@ info:
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: v3
+  version: v3.1
 servers:
   - url: https://apis.wso2.com/api/am/devportal/v3
 ######################################################
@@ -3762,6 +3762,9 @@ components:
           description: |
             Custom(user defined) properties of API
           example: { }
+        monetizedInfo:
+          type: boolean
+          example: true
     APIInfoList:
       title: API Info List
       type: object
@@ -3854,6 +3857,11 @@ components:
             Name of the Authorization header used for invoking the API. If it is not set, Authorization header name specified
             in tenant or system level will be used.
           example: Authorization
+        apiKeyHeader:
+          type: string
+          description: |
+            Name of the API key header used for invoking the API. If it is not set, default value `apiKey` will be used.
+          example: ApiKey
         securityScheme:
           type: array
           description: |
@@ -5133,6 +5141,11 @@ components:
               type: string
               description: Average rating of the API
               example: "4.5"
+            monetizedInfo:
+              type: boolean
+              example: true
+            advertiseInfo:
+              $ref: '#/components/schemas/AdvertiseInfo'
     DocumentSearchResult:
       title: Document Result
       allOf:
