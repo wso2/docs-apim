@@ -9,12 +9,12 @@ Following are the integration artifacts (proxy service) that we can used to impl
 
 ```xml
 <proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="vfs">
-    <parameter name="transport.vfs.FileURI">smb://host/test/in</parameter> 
+    <parameter name="transport.vfs.FileURI">vfs:smb://host/test/in</parameter> 
     <parameter name="transport.vfs.ContentType">text/xml</parameter>
     <parameter name="transport.vfs.FileNamePattern">.*\.xml</parameter>
     <parameter name="transport.PollInterval">15</parameter>
-    <parameter name="transport.vfs.MoveAfterProcess">smb://host/test/original</parameter> 
-    <parameter name="transport.vfs.MoveAfterFailure">smb://host/test/failed</parameter>
+    <parameter name="transport.vfs.MoveAfterProcess">vfs:smb://host/test/original</parameter> 
+    <parameter name="transport.vfs.MoveAfterFailure">vfs:smb://host/test/failed</parameter>
     <parameter name="transport.vfs.ActionAfterProcess">MOVE</parameter>
     <parameter name="transport.vfs.ActionAfterFailure">MOVE</parameter>
 
@@ -128,12 +128,12 @@ You can use the proxy given below to test the SMB2 functionality.
       </inSequence>
    </target>
    <parameter name="transport.PollInterval">15</parameter>
-   <parameter name="transport.vfs.FileURI">smb2://username:password@/host/SMBFileShare/in</parameter>
+   <parameter name="transport.vfs.FileURI">vfs:smb2://username:password@host/SMBFileShare/in</parameter>
    <parameter name="transport.vfs.ContentType">text/plain</parameter>
    <parameter name="transport.vfs.ActionAfterProcess">MOVE</parameter>
-   <parameter name="transport.vfs.MoveAfterFailure">smb2://username:password@/host/SMBFileShare/fail</parameter>
+   <parameter name="transport.vfs.MoveAfterFailure">vfs:smb2://username:password@host/SMBFileShare/fail</parameter>
    <parameter name="transport.vfs.ActionAfterFailure">MOVE</parameter>
    <parameter name="transport.vfs.FileNamePattern">.*\.txt</parameter>
-   <parameter name="transport.vfs.MoveAfterProcess">smb2://username:password@/host/SMBFileShare/original</parameter>
+   <parameter name="transport.vfs.MoveAfterProcess">vfs:smb2://username:password@host/SMBFileShare/original</parameter>
 </proxy>
 ```
