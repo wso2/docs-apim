@@ -103,7 +103,7 @@ When the sample is executed, the VFS transport listener picks the file from the 
 Windows share URI format for SMB v2/3 use cases is shown below.
 
 ```
-smb2://[username]:[password]@[hostname]/[absolute-path]
+vfs:smb2://[username]:[password]@[hostname]:[port]/[absolute-path]
 ```
 You can use the proxy given below to test the SMB2 functionality.
 
@@ -122,7 +122,7 @@ You can use the proxy given below to test the SMB2 functionality.
          <property name="OUT_ONLY" value="true"/>
          <send>
             <endpoint>
-               <address uri="smb2://username:password@/host/SMBFileShare/out"/>
+               <address uri="vfs:smb2://username:password@host/SMBFileShare/out"/>
             </endpoint>
          </send>
       </inSequence>
