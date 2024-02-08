@@ -13,7 +13,7 @@ In this guide, you access the Admin Portal ( `https://:9443/admin` ) Web applic
             <send>
                 <endpoint>
                     <http method="POST"
-                          uri-template="https://<PUBLISHER_IP>:9443/api/am/admin/v0.16/workflows/update-workflow-status?workflowReferenceId={uri.var.workflowRef}"/>
+                          uri-template="https://<PUBLISHER_IP>:9443/api/am/admin/v4/workflows/update-workflow-status?workflowReferenceId={uri.var.workflowRef}"/>
                 </endpoint>
             </send>
     ```
