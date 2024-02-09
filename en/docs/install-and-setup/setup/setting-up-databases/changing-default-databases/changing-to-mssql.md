@@ -35,6 +35,17 @@ Follow the steps below to set up the Microsoft SQL database and users.
 1.  Click **New Database** from the **Database** menu and specify all the options to create a new database.
 1.  Click **New Login** from the **Logins** menu, and specify all the necessary options.
 
+### Eliminate concurrency issues in tables
+
+To utilize the Snapshot Isolation level by transactions, run the following command.
+```sh
+ALTER DATABASE <DATABASE_NAME>  SET ALLOW_SNAPSHOT_ISOLATION ON
+```
+To enable the use of snapshot isolation for the READ COMMITTED isolation level, run the following command.
+```sh
+ALTER DATABASE <DATABASE_NAME> SET READ_COMMITTED_SNAPSHOT ON WITH ROLLBACK IMMEDIATE
+```
+
 #### Grant permissions
 
 Assign newly created users the required grants/permissions to log in and create tables, to insert, index, select, update, and delete data in tables in the newly created database. These are the minimum set of SQL server permissions.
