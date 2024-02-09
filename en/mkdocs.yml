@@ -1475,6 +1475,7 @@ nav:
                     - Change the Default Transport: install-and-setup/setup/advance-configurations/changing-the-default-transport.md
                     - Configure Caching: install-and-setup/setup/advance-configurations/configuring-caching.md
                     - Customize the Management Console: install-and-setup/setup/advance-configurations/customizing-the-management-console.md
+                    - Configure the Crypto Provider: install-and-setup/setup/advance-configurations/configuring-the-crypto-provider.md
             - Set up Micro Integrator:
                 - Update WSO2 Micro Integrator: install-and-setup/setup/mi-setup/updating-mi.md
                 - Data Stores:
