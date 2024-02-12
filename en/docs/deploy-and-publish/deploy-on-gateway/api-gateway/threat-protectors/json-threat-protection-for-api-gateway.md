@@ -64,18 +64,20 @@ each property value set to 5 is given below.
 
 Note that this exceeds the JSON property count
 
-``` java tab="Request"
-The request message:
-curl -X POST "https://localhost:8243/jsonpolicy/1.0.0/addpayload" -H "accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer b227d70b-ca56-3439-8698-ffb90345e1b5" -d "{ \"glossary\": \"value\" \"GlossSee\": \"markup\" }"
-```
+=== "Request"
+    ``` java
+    The request message:
+    curl -X POST "https://localhost:8243/jsonpolicy/1.0.0/addpayload" -H "accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer b227d70b-ca56-3439-8698-ffb90345e1b5" -d "{ \"glossary\": \"value\" \"GlossSee\": \"markup\" }"
+    ```
 
-``` xml tab="Response"
-<am:fault xmlns:am="http://wso2.org/apimanager">
-    <am:code>400</am:code>
-    <am:message>Bad Request</am:message>
-    <am:description>Request is failed due to JSON schema validation failure:  Max Key Length Reached</am:description>
-</am:fault>
-```
+=== "Response"
+    ``` xml
+    <am:fault xmlns:am="http://wso2.org/apimanager">
+        <am:code>400</am:code>
+        <am:message>Bad Request</am:message>
+        <am:description>Request is failed due to JSON schema validation failure:  Max Key Length Reached</am:description>
+    </am:fault>
+    ```
 
 !!! warning
     **Performance impact**  

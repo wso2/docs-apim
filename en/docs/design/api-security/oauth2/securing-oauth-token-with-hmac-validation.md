@@ -18,7 +18,7 @@ If an attacker uses random tokens to send API requests, API Manager will try to 
 Add the following configuration to the `<APIM_HOME>/repository/conf/deployment.toml` in order to enable Keyed-Hash Message Authentication Code (HMAC) validation via the HMAC OAuth handler.
 
 
-```
+```toml
 [oauth.extensions]
 token_generator="com.sample.lahiru.wso2.hmac.oauth"
 ```

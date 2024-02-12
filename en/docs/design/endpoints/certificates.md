@@ -17,13 +17,13 @@ Follow the steps below to add a certificate to an endpoint:
 -  Modify default certificate loading time by adding the following configuration to `<API-M_HOME>/repository/conf/deployment.toml` file.
 
     === "Format"
-        ```
+        ```toml
         [transport.passthru_https.sender.ssl_profile]
         interval = "<time in milliseconds>"
         ```
       
     === "Example"
-        ```
+        ```toml
         [transport.passthru_https.sender.ssl_profile]
         interval = 600000
         ```

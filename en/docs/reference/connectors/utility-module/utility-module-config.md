@@ -39,20 +39,23 @@ You can use the `string.Length` operation to retrieve the length of a string.
 
 The following is a sample request, Synapse configuration, and response for the given request.
 
-``` tab="Request"
-{"string":"utility module"}
-```
+=== "Request"
+    ```
+    {"string":"utility module"}
+    ```
 
-```xml tab="Synapse Configuration"
-<utility.string.Length>
-    <inpuString>{json-eval($.string)}</inputString>
-    <target>length</target>
-</utility.string.Length>  
-```
+=== "Synapse Configuration"
+    ```xml
+    <utility.string.Length>
+        <inpuString>{json-eval($.string)}</inputString>
+        <target>length</target>
+    </utility.string.Length>  
+    ```
 
-``` tab="Request"
-length=14
-```
+=== "Response"
+    ```
+    length=14
+    ```
 
 ## string.LowerCase
 
@@ -89,20 +92,23 @@ You can use the `string.LowerCase` operation to change the case of the string to
 
 The following is a sample request, Synapse configuration, and response for the given request.
 
-``` tab="Request"
-{"string":"UTILITY MODULE"}
-```
+=== "Request"
+    ```
+    {"string":"UTILITY MODULE"}
+    ```
 
-```xml tab="Synapse Configuration"
-<utility.string.LowerCase>
-  <inputString>json-eval($.string)</inputString>
-  <target>lowercase</target>
-</utility.string.LowerCase>
-```
+=== "Synapse Configuration"
+    ```xml
+    <utility.string.LowerCase>
+      <inputString>json-eval($.string)</inputString>
+      <target>lowercase</target>
+    </utility.string.LowerCase>
+    ```
 
-``` tab="Request"
-lowercase="utility module"
-```
+=== "Response"
+    ```
+    lowercase="utility module"
+    ```
 
 ## string.UpperCase
 
@@ -139,20 +145,23 @@ You can use the `string.UpperCase` operation to change the case of the string to
 
 The following is a sample request, Synapse configuration, and response for the given request.
 
-``` tab="Request"
-{"string":"utility module"}
-```
+=== "Request"
+    ```
+    {"string":"utility module"}
+    ```
 
-```xml tab="Synapse Configuration"
-<utility.string.UpperCase>
-  <inputString>json-eval($.string)</inputString>
-  <target>uppercase</target>
-</utility.string.UpperCase>
-```
+=== "Synapse Configuration"
+    ```xml
+    <utility.string.UpperCase>
+      <inputString>json-eval($.string)</inputString>
+      <target>uppercase</target>
+    </utility.string.UpperCase>
+    ```
 
-``` tab="Request"
-uppercase="UTILITY MODULE"
-```
+=== "Response"
+    ```
+    uppercase="UTILITY MODULE"
+    ```
 
 ## string.RegexMatcher
 
@@ -195,21 +204,24 @@ You can use the `string.RegexMatcher` operation to check whether the given strin
 
 The following is a sample request, Synapse configuration, and response for the given request.
 
-``` tab="Request"
-{"string":"utility module"}
-```
+=== "Request"
+    ```
+    {"string":"utility module"}
+    ```
 
-```xml tab="Synapse Configuration"
-<utility.string.RegexMatcher>
-  <regex>u.*m.*e</regex>
-  <inputString>json-eval($.string)</inputString>
-  <target>isMatching</target>
-</utility.string.RegexMatcher>
-```
+=== "Synapse Configuration"
+    ```xml
+    <utility.string.RegexMatcher>
+      <regex>u.*m.*e</regex>
+      <inputString>json-eval($.string)</inputString>
+      <target>isMatching</target>
+    </utility.string.RegexMatcher>
+    ```
 
-``` tab="Request"
-isMatching="true"
-```
+=== "Response"
+    ```
+    isMatching="true"
+    ```
 
 ## string.UUID
 
@@ -240,15 +252,17 @@ You can use the `string.UUID` operation to generate a random UUID.
 
 The following is a sample configuration and response.
 
-```xml tab="Synapse Configuration"
-<utility.string.UUID>
-  <target>uuid</target>
-</utility.string.UUID>
-```
+=== "Synapse Configuration"
+    ```xml
+    <utility.string.UUID>
+      <target>uuid</target>
+    </utility.string.UUID>
+    ```
 
-``` tab="Request"
-uuid="07801d34-bbaf-43aa-8d70-98b4ead1b198"
-```
+=== "Response"
+    ```
+    uuid="07801d34-bbaf-43aa-8d70-98b4ead1b198"
+    ```
 
 ## date.GetDate
 
@@ -285,16 +299,18 @@ You can use the `date.GetDate` operation to get the current date and time in a p
 
 The following is a sample Synapse configuration and response.
 
-```xml tab="Synapse Configuration"
-<utility.date.GetDate>
-  <format>yy/MM/dd HH:mm:ss</format>
-  <target>date</target>
-</utility.date.GetDate>
-```
+=== "Synapse Configuration"
+    ```xml
+    <utility.date.GetDate>
+      <format>yy/MM/dd HH:mm:ss</format>
+      <target>date</target>
+    </utility.date.GetDate>
+    ```
 
-``` tab="Request"
-date="22/02/01 08:32:40"
-```
+=== "Response"
+    ```
+    date="22/02/01 08:32:40"
+    ```
 
 ## math.GetRandomInt
 
@@ -337,17 +353,19 @@ You can use the `math.GetRandomInt` operation to get a random integer in a given
 
 The following is a sample Synapse configuration and response.
 
-```xml tab="Synapse Configuration"
-<utility.math.GetRandomInt>
-  <lowerBound>100</lowerBound>
-  <upperBound>1000</upperBound>
-  <target>random</target>
-</utility.math.GetRandomInt>
-```
+=== "Synapse Configuration"
+    ```xml
+    <utility.math.GetRandomInt>
+      <lowerBound>100</lowerBound>
+      <upperBound>1000</upperBound>
+      <target>random</target>
+    </utility.math.GetRandomInt>
+    ```
 
-``` tab="Request"
-random=785
-```
+=== "Response"
+    ```
+    random=785
+    ```
 
 ## signature.Generate
 
@@ -402,22 +420,25 @@ You can use the `signature.Generate` operation to generate a HMAC signature for 
 
 The following is a sample request, Synapse configuration, and response for the given request.
 
-``` tab="Request"
-{"string":"utility module"}
-```
+=== "Request"
+    ```
+    {"string":"utility module"}
+    ```
 
-```xml tab="Synapse Configuration"
-<utility.signature.Generate>
-  <payload>Body</payload>
-  <secret>123</secret>
-  <algorithm>HMACSHA1</algorithm>
-  <target>signature</target>
-</utility.signature.Generate>
-```
+=== "Synapse Configuration"
+    ```xml
+    <utility.signature.Generate>
+      <payload>Body</payload>
+      <secret>123</secret>
+      <algorithm>HMACSHA1</algorithm>
+      <target>signature</target>
+    </utility.signature.Generate>
+    ```
 
-``` tab="Request"
-signature="32423411140bdebed0b017e738797be452481dbb"
-```
+=== "Response"
+    ```
+    signature="32423411140bdebed0b017e738797be452481dbb"
+    ```
 
 ## signature.Verify
 
@@ -478,20 +499,23 @@ You can use the `signature.Verify` operation to verify the payload using the HMA
 
 The following is a sample request, Synapse configuration, and response for the given request.
 
-``` tab="Request"
-{"string":"utility module"}
-```
+=== "Request"
+    ```
+    {"string":"utility module"}
+    ```
 
-```xml tab="Synapse Configuration"
-<utility.signature.Verify>
-  <payload>Body</payload>
-  <signature>32423411140bdebed0b017e738797be452481dbb</signature>
-  <secret>123</secret>
-  <algorithm>HMACSHA1</algorithm>
-  <target>verify</target>
-</utility.signature.Verify>
-```
+=== "Synapse Configuration"
+    ```xml
+    <utility.signature.Verify>
+      <payload>Body</payload>
+      <signature>32423411140bdebed0b017e738797be452481dbb</signature>
+      <secret>123</secret>
+      <algorithm>HMACSHA1</algorithm>
+      <target>verify</target>
+    </utility.signature.Verify>
+    ```
 
-``` tab="Request"
-verify="true"
-```
+=== "Response"
+    ```
+    verify="true"
+    ```

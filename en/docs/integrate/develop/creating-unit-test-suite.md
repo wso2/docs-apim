@@ -110,13 +110,15 @@ Run the Unit Test Suite(s) in the unit testing server of the embedded Micro Inte
         **Before you begin**
         Be sure that your remote Micro Integrator is started along with its Unit Testing server. Note that you need to pass the `-DsynapseTest` property with your product startup script as shown below. This property is required for starting the Unit Testing server.
 
-        ```bash tab='On MacOS/Linux/CentOS'
-        sh micro-integrator.sh -DsynapseTest
-        ```
+        === "On MacOS/Linux/CentOS"
+            ```bash
+            sh micro-integrator.sh -DsynapseTest
+            ```
 
-        ```bash tab='On Windows'
-        micro-integrator.bat -DsynapseTest 
-        ```
+        === "On Windows"
+            ```bash
+            micro-integrator.bat -DsynapseTest 
+            ```
         
         To change starting port of the unit testing server, you can use `-DsynapseTestPort=<PORT>` system property with above command. The default port is 9008. 
     

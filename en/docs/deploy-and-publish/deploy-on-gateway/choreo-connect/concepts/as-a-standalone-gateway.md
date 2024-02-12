@@ -49,7 +49,7 @@ The value for `x-wso2-basePath` will be used as the base path there onwards. The
 
     **OpenAPI servers object**
 
-    ``` yml
+    ``` yaml
     servers:
     - url: https://api.example.com/v1 
     ```

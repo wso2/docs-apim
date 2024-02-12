@@ -71,14 +71,14 @@ You can use the following steps to configure the **Micro Integrator** to update 
     - Change the `serviceUrl` as follows.
 
         === "Linux"
-        ``` url 
-        http://172.17.0.1:8290/phoneverify
-        ```
+            ``` url 
+            http://172.17.0.1:8290/phoneverify
+            ```
 
         === "MacOS/Windows"
-        ``` url 
-        http://host.docker.internal:8290/phoneverify
-        ```
+            ``` url 
+            http://host.docker.internal:8290/phoneverify
+            ```
 
         !!! Note
             `serviceUrl` is used to access service you created on Micro Integrator. When you create the API on API Manager, this `serviceUrl` will be used as the endpoint for your service.
@@ -108,13 +108,15 @@ This step will show you how to Update the swagger definition to change some impo
 1. Open the file in `PhoneVerification/PhoneVerificationConfigs/src/main/resources/metadata/PhoneVerify_swagger.yaml`.
 2. Change the URL under `servers` section as follows.
 
-    ```url tab="Linux"
-    http://172.17.0.1:8290/phoneverify
-    ```
+    === "Linux"
+        ```url
+        http://172.17.0.1:8290/phoneverify
+        ```
 
-    ```url tab="MacOS/Windows"
-    http://host.docker.internal:8290/phoneverify
-    ```
+    === "MacOS/Windows"
+        ```url
+        http://host.docker.internal:8290/phoneverify
+        ```
 
 ### Step 5 - Deploy the Artifacts in Micro Integrator
 

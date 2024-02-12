@@ -2,7 +2,7 @@ After the APIs are exposed via Choreo Connect, you can invoke an API with a vali
 
 Let's use the following command to generate a JWT to access the API, and set it to the variable `TOKEN`. 
 
-```
+```bash
 TOKEN=$(curl -X POST "https://localhost:9095/testkey" -d "scope=read:pets" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -v)
 
 ```

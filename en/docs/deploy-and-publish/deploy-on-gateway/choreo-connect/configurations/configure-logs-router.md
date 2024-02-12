@@ -6,19 +6,21 @@ As Choreo Connect uses an Envoy proxy as the Router component, it only supports 
 
 You can enable Router access logs by using the following configs. Router access logs related configurations are in the `log_config.toml` file, which is located in [these directories]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-overview/#log_config_toml) based on your Choreo Connect deployment method.
 
-```toml tab="Format"
-[accessLogs]
-enable = <true or false>
-logfile = <file_path> # This file will be created inside router container.
-format = <format_string>
-```
+=== "Format"
+    ```toml
+    [accessLogs]
+    enable = <true or false>
+    logfile = <file_path> # This file will be created inside router container.
+    format = <format_string>
+    ```
 
-```toml tab="Example"
-[accessLogs]
-enable = true
-logfile = "/tmp/envoy.access.log"
-format = "[%START_TIME%] '%REQ(:METHOD)% %REQ(X-ENVOY-ORIGINAL-PATH?:PATH)% %PROTOCOL%' %RESPONSE_CODE% %RESPONSE_FLAGS% %BYTES_RECEIVED% %BYTES_SENT% %DURATION% %RESP(X-ENVOY-UPSTREAM-SERVICE-TIME)% '%REQ(X-FORWARDED-FOR)%' '%REQ(USER-AGENT)%' '%REQ(X-REQUEST-ID)%' '%REQ(:AUTHORITY)%' '%UPSTREAM_HOST%'\n"
-```
+=== "Example"
+    ```toml
+    [accessLogs]
+    enable = true
+    logfile = "/tmp/envoy.access.log"
+    format = "[%START_TIME%] '%REQ(:METHOD)% %REQ(X-ENVOY-ORIGINAL-PATH?:PATH)% %PROTOCOL%' %RESPONSE_CODE% %RESPONSE_FLAGS% %BYTES_RECEIVED% %BYTES_SENT% %DURATION% %RESP(X-ENVOY-UPSTREAM-SERVICE-TIME)% '%REQ(X-FORWARDED-FOR)%' '%REQ(USER-AGENT)%' '%REQ(X-REQUEST-ID)%' '%REQ(:AUTHORITY)%' '%UPSTREAM_HOST%'\n"
+    ```
 
 Setting `enable` as `true` will let you enable the Router access logs and the file path can be set up using the `logfile`. Follow [format strings]({{envoy_path}}/configuration/observability/access_log/usage#format-strings) and [command operators]({{envoy_path}}/configuration/observability/access_log/usage#command-operators) for more information on the supported options for log format, `format` configuration.
 
@@ -26,17 +28,19 @@ Setting `enable` as `true` will let you enable the Router access logs and the fi
 
 To enable Router debug logs, provide the log level as trailing arguments for the envoy command as follows.
 
-```toml tab="Format"
--l <level>, 
---log-level <level>
---component-log-level <component>:<level>,<component>:<level>...
-```
+=== "Format"
+    ```toml
+    -l <level>, 
+    --log-level <level>
+    --component-log-level <component>:<level>,<component>:<level>...
+    ```
 
-```toml tab="Example"
--l trace, 
---log-level trace
---component-log-level upstream:debug,connection:trace
-```
+=== "Example"
+    ```toml
+    -l trace, 
+    --log-level trace
+    --component-log-level upstream:debug,connection:trace
+    ```
 
 You can do this by setting the `TRAILING_ARGS` environment variable in the Router. For example, Add the following line to the docker-compose.yaml in the directory `<CHOREO-CONNECT_HOME>/docker-compose/<choreo-connect>/`.
 
@@ -186,7 +190,7 @@ By enabling wire logs in the Router component, you can inspect headers, body, an
 
 To enable the wire logs, add the following configuration to the `log_config.toml` file in [these directories]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-overview/#log_config_toml) depending on your Choreo Connect deployment setup.
 
-```yaml
+```toml
 [wireLogs]
 enable = true
 include = ["Headers", "Body", "Trailers"]

@@ -96,7 +96,7 @@ Invoke the API using the commands given in the [Invoke the API](#invoke-the-api)
 
 Use the command given below to get the default response for the resource `/pet/findByStatus`.
 
-```
+```bash
 curl -X GET "https://localhost:9095/v3/1.0.6/pet/findByStatus" -H "Accept: application/json" -H "Authorization:Bearer $TOKEN" -k 
 ```
 
@@ -106,25 +106,25 @@ curl -X GET "https://localhost:9095/v3/1.0.6/pet/findByStatus" -H "Accept: appli
    
     **Default response** for `/pet/findByTag`
 
-    ```
+    ```bash
     curl -X GET "https://localhost:9095/v3/1.0.6/pet/findByTag" -H "Accept: application/json" -H "Authorization:Bearer $TOKEN" -k
     ```
 
     Response based on **example Reference 1** for `/pet/findByTag`
 
-    ```
+    ```bash
     curl -X GET "https://localhost:9095/v3/1.0.6/pet/findByTag" -H "Prefer: example=ref1" -H "Accept: application/json" -H "Authorization:Bearer $TOKEN" -k
     ```
 
     Response based on **example for response code 50X** for `/pet/findByTag`
 
-    ```
+    ```bash
     curl -v -X GET "https://localhost:9095/v3/1.0.6/pet/findByTag" -H "Prefer: code=503" -H "Accept: application/json" -H "Authorization:Bearer $TOKEN" -k
     ```
 
     Response based on **example reference 1** of **response codes 50X**  for `/pet/findByTag`
 
-    ```
+    ```bash
     curl -v -X GET "https://localhost:9095/v3/1.0.6/pet/findByTag" -H "Prefer: code=503, example=ref1" -H "Accept: application/json" -H "Authorization:Bearer $TOKEN" -k
     ```
 

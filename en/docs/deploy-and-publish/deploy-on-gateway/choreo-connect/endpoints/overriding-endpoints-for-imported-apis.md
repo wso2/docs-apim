@@ -9,17 +9,19 @@ You can define endpoint details as the Adapter environment variables at docker-c
 
 1. Set the production or sandbox endpoint(s) of an API.
 
-    ``` java tab="Format"   
-    <API-ID>_<endpoint-type>_endpoint_<endpoint-index>="<endpoint-URL>" 
-    ```
+    === "Format" 
+        ``` java  
+        <API-ID>_<endpoint-type>_endpoint_<endpoint-index>="<endpoint-URL>" 
+        ```
 
-    ``` java tab="Example"
-    services:
-        adapter:
-            environment:
-            - api_60f7111f-fdc5-4cc7-b497-1cea64c6a97f_prod_endpoint_0="http://wso2.prod.com"
-            - api_60f7111f-fdc5-4cc7-b497-1cea64c6a97f_sand_endpoint_0="http://wso2.sand.com"
-    ```
+    === "Example"
+        ``` java
+        services:
+            adapter:
+                environment:
+                - api_60f7111f-fdc5-4cc7-b497-1cea64c6a97f_prod_endpoint_0="http://wso2.prod.com"
+                - api_60f7111f-fdc5-4cc7-b497-1cea64c6a97f_sand_endpoint_0="http://wso2.sand.com"
+        ```
     
     - `<API-ID>` - `api_SHA1(<apiName>:<apiVersion>)` ID generated for the imported API. Sample name would be `api_30e623704c5c5479b7c0d9ab78e965df02c1610401e37cbd557e6353e3191c76`.
     - `<endpoint-type>` - Use one of the following values based on the type of endpoint.
@@ -31,18 +33,20 @@ You can define endpoint details as the Adapter environment variables at docker-c
         
 2. If the backend is protected by basic authentication, provide username and password as follows.
     
-    ``` java tab="Format"
-    <API-ID>_<endpoint-type>_basic_username="<basic-auth-username>"
-    <API-ID>_<endpoint-type>_basic_password="<basic-auth-password>"
-    ```
+    === "Format"
+        ``` java
+        <API-ID>_<endpoint-type>_basic_username="<basic-auth-username>"
+        <API-ID>_<endpoint-type>_basic_password="<basic-auth-password>"
+        ```
 
-    ``` java tab="Example"
-    services:
-        adapter:
-            environment:
-            - api_60f7111f-fdc5-4cc7-b497-1cea64c6a97f_prod_basic_username="admin"
-            - api_60f7111f-fdc5-4cc7-b497-1cea64c6a97f_prod_basic_password="admin"
-    ```
+    === "Example"
+        ``` java
+        services:
+            adapter:
+                environment:
+                - api_60f7111f-fdc5-4cc7-b497-1cea64c6a97f_prod_basic_username="admin"
+                - api_60f7111f-fdc5-4cc7-b497-1cea64c6a97f_prod_basic_password="admin"
+        ```
     
     - `<basic-auth-username>` - Provide the username                            
     - `<basic-auth-password>` - Provide the password

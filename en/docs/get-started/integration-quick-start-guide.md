@@ -187,10 +187,10 @@ Follow the steps given below to run the integration artifacts we developed on a 
                 Two mock hospital information services are available in the `DoctorInfo.jar` file located in the `<mi-qsg-home>/Backend/` directory. 
     
                 To manually start the service, open a terminal window, navigate to the `<mi-qsg-home>/Backend/` folder, and use the following command to start the services:
-    
-                ```bash
+            
+            ``` bash
                 java -jar DoctorInfo.jar
-                ```
+            ```
    
             - Deploy the Healthcare service.
 

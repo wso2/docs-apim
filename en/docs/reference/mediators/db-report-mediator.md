@@ -42,38 +42,40 @@ The syntax of the DB Report mediator changes depending on whether you connect to
 -   **Data source**
     The syntax of the DBLookup mediator further differs based on whether the connection to the database is made using an external datasource or a Carbon datasource. Click on the relevant tab to view the required syntax.
 
-    ``` java tab='External Datasource'
-    <dbreport>
-       <connection>
-          <pool>
-            <dsName/>
-            <icClass/>
-            <url/>
-            <user/>
-            <password/>
-            <property name="name" value="value"/>*
-          </pool>
-       </connection>
-       <statement>
-          <sql>select something from table where something_else = ?</sql>
-          <parameter [value="" | expression=""] type="CHAR|VARCHAR|LONGVARCHAR|NUMERIC|DECIMAL|BIT|TINYINT|SMALLINT|INTEGER|BIGINT|REAL|FLOAT|DOUBLE|DATE|TIME|TIMESTAMP"/>*
-       </statement>+
-    </dbreport>
-    ```
+    === "External Datasource"
+        ``` java
+        <dbreport>
+        <connection>
+            <pool>
+                <dsName/>
+                <icClass/>
+                <url/>
+                <user/>
+                <password/>
+                <property name="name" value="value"/>*
+            </pool>
+        </connection>
+        <statement>
+            <sql>select something from table where something_else = ?</sql>
+            <parameter [value="" | expression=""] type="CHAR|VARCHAR|LONGVARCHAR|NUMERIC|DECIMAL|BIT|TINYINT|SMALLINT|INTEGER|BIGINT|REAL|FLOAT|DOUBLE|DATE|TIME|TIMESTAMP"/>*
+        </statement>+
+        </dbreport>
+        ```
 
-    ``` java tab='Carbon Datasource'
-    <dbreport>
-       <connection>
-          <pool>
-            <dsName/>
-          </pool>
-       </connection>
-       <statement>
-          <sql>select something from table where something_else = ?</sql>
-          <parameter [value="" | expression=""] type="CHAR|VARCHAR|LONGVARCHAR|NUMERIC|DECIMAL|BIT|TINYINT|SMALLINT|INTEGER|BIGINT|REAL|FLOAT|DOUBLE|DATE|TIME|TIMESTAMP"/>*
-       </statement>+
-    </dbreport>
-    ```
+    === "Carbon Datasource"
+        ``` java
+        <dbreport>
+        <connection>
+            <pool>
+                <dsName/>
+            </pool>
+        </connection>
+        <statement>
+            <sql>select something from table where something_else = ?</sql>
+            <parameter [value="" | expression=""] type="CHAR|VARCHAR|LONGVARCHAR|NUMERIC|DECIMAL|BIT|TINYINT|SMALLINT|INTEGER|BIGINT|REAL|FLOAT|DOUBLE|DATE|TIME|TIMESTAMP"/>*
+        </statement>+
+        </dbreport>
+        ```
 
 ## Configurations
 

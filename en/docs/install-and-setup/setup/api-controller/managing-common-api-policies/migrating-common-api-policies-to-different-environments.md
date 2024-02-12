@@ -57,15 +57,17 @@
 
     -   **Response**
 
-        ``` bash tab="Response Format"
-        Successfully exported API Policy!
-        Find the exported API Policies at /Users/benura/.wso2apictl/exported/policies/api/<Environment Name>/<Policy Name>_<Policy Version>.zip
-        ```
+        === "Response Format"
+            ``` bash
+            Successfully exported API Policy!
+            Find the exported API Policies at /Users/benura/.wso2apictl/exported/policies/api/<Environment Name>/<Policy Name>_<Policy Version>.zip
+            ```
 
-        ``` bash tab="Example Response"
-        Successfully exported API Policy!
-        Find the exported API Policies at /Users/benura/.wso2apictl/exported/policies/api/dev/addHeader_v1.zip
-        ```
+        === "Example Response"
+            ``` bash
+            Successfully exported API Policy!
+            Find the exported API Policies at /Users/benura/.wso2apictl/exported/policies/api/dev/addHeader_v1.zip
+            ```
 
 The exported ZIP file has the following structure:
 

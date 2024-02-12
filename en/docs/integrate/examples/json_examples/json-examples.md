@@ -9,124 +9,143 @@ final XML tree. If the original JSON payload is of type `object` , the special e
 
 ### Empty objects
 
-``` javascript tab='JSON'
-{"object":{}}
-```
+=== "JSON"
+   ``` javascript
+   {"object":{}}
+   ```
 
-``` html tab='XML'
-<jsonObject>
-  <object></object>
-</jsonObject>
-```
+=== "XML"
+   ``` html
+   <jsonObject>
+   <object></object>
+   </jsonObject>
+   ```
 
 ### Empty strings
 
-``` javascript tab='JSON'
-{"object":""}
-```
+=== "JSON"
+   ``` javascript
+   {"object":""}
+   ```
 
-``` html tab='XML'
-<jsonObject>
-  <object></object>
-</jsonObject>
-```
+=== "XML"
+   ``` html
+   <jsonObject>
+   <object></object>
+   </jsonObject>
+   ```
 
 ### Empty array
 
-``` javascript tab='JSON'
-[]
-```
+=== "JSON"
+   ``` javascript
+   []
+   ```
 
-``` html tab='XML (JsonStreamBuilder)'
-<jsonArray></jsonArray>
-```
+=== "XML (JsonStreamBuilder)"
+   ``` html
+   <jsonArray></jsonArray>
+   ```
 
-``` html tab='XML (JsonBuilder)'
-<jsonArray>
-  <?xml-multiple jsonElement?>
-</jsonArray>
-```
+=== "XML (JsonBuilder)"
+   ``` html
+   <jsonArray>
+   <?xml-multiple jsonElement?>
+   </jsonArray>
+   ```
 
 ### Named arrays
 
-``` javascript tab='JSON'
-{"array":[1,2]}
-```
+=== "JSON"
+   ``` javascript
+   {"array":[1,2]}
+   ```
 
-``` html tab='XML (JsonStreamBuilder)'
-<jsonObject>
-  <array>1</array>
-  <array>2</array>
-</jsonObject>
-```
+=== "XML (JsonStreamBuilder)"
+   ``` html
+   <jsonObject>
+   <array>1</array>
+   <array>2</array>
+   </jsonObject>
+   ```
 
-``` html tab='XML (JsonBuilder)'
-<jsonObject>
-  <?xml-multiple array?>
-  <array>1</array>
-  <array>2</array>
-</jsonObject>
-```
+=== "XML (JsonBuilder)"
+   ``` html
+   <jsonObject>
+   <?xml-multiple array?>
+   <array>1</array>
+   <array>2</array>
+   </jsonObject>
+   ```
 
-``` javascript tab='JSON'
-{"array":[]}
-```
+=== "JSON"
+   ``` javascript
+   {"array":[]}
+   ```
 
-``` html tab='XML (JsonStreamBuilder)'
-<jsonObject></jsonObject>
-```
+=== "XML (JsonStreamBuilder)"
+   ``` html
+   <jsonObject></jsonObject>
+   ```
 
-``` html tab='XML (JsonBuilder)'
-<jsonObject>
-  <?xml-multiple array?>
-</jsonObject>
-```
+=== "XML (JsonBuilder)"
+   ``` html
+   <jsonObject>
+   <?xml-multiple array?>
+   </jsonObject>
+   ```
 
 ### Anonymous arrays
 
-``` javascript tab='JSON'
-[1,2]
-```
+=== "JSON"
+   ``` javascript
+   [1,2]
+   ```
 
-``` html tab='XML (JsonStreamBuilder)'
-<jsonArray>
+=== "XML (JsonStreamBuilder)"
+   ``` html
+   <jsonArray>
+      <jsonElement>1</jsonElement>
+      <jsonElement>2</jsonElement>
+   </jsonArray>
+   ```
+
+=== "XML (JsonBuilder)"
+   ``` html
+   <jsonArray>
+   <?xml-multiple jsonElement?>
    <jsonElement>1</jsonElement>
    <jsonElement>2</jsonElement>
-</jsonArray>
-```
+   </jsonArray>
+   ```
 
-``` html tab='XML (JsonBuilder)'
-<jsonArray>
-  <?xml-multiple jsonElement?>
-  <jsonElement>1</jsonElement>
-  <jsonElement>2</jsonElement>
-</jsonArray>
-```
+=== "JSON"
+   ``` javascript
+   [1, []]
+   ```
 
-``` javascript tab='JSON'
-[1, []]
-```
+=== "XML (JsonStreamBuilder)"
+   ``` html
+   <jsonArray>
+   <jsonElement>1</jsonElement>
+   <jsonElement>
+      <jsonArray></jsonArray>
+   </jsonElement>
+   </jsonArray>
+   ```
 
-``` html tab='XML (JsonStreamBuilder)'
-<jsonArray>
-  <jsonElement>1</jsonElement>
-  <jsonElement>
-     <jsonArray></jsonArray>
-  </jsonElement>
-</jsonArray>
-```
-
-``` html tab='XML (JsonBuilder)'
-<jsonArray>
-  <?xml-multiple jsonElement?>
-  <jsonElement>1</jsonElement>
-  <jsonElement>
-     <jsonArray>
-       <?xml-multiple jsonElement?>
-     </jsonArray>
-  </jsonElement>
-</jsonArray>
-```
+=== "XML (JsonBuilder)"
+   ``` html
+   <jsonArray>
+   <?xml-multiple jsonElement?>
+   <jsonElement>1</jsonElement>
+   <jsonElement>
+      <jsonArray>
+         <?xml-multiple jsonElement?>
+      </jsonArray>
+   </jsonElement>
+   </jsonArray>
+   ```
 
 ## XML processing instructions (PIs)
 
@@ -136,25 +155,29 @@ Note the addition of `xml-multiple` processing instructions to the XML payloads 
 
 When building XML elements, the EI handles the `$` character and digits in a special manner when they appear as the first character of a JSON key. Following are examples of two such occurrences. Note the addition of the `_JsonReader_PS_` and `_JsonReader_PD_` prefixes in place of the `$` and digit characters, respectively.
 
-``` javascript tab='JSON'
-{"$key":1234}
-```
+=== "JSON"
+   ``` javascript
+   {"$key":1234}
+   ```
 
-``` html tab='XML'
-<jsonObject>
-  <_JsonReader_PS_key>1234</_JsonReader_PS_key>
-</jsonObject>
-```
+=== "XML"
+   ``` html
+   <jsonObject>
+   <_JsonReader_PS_key>1234</_JsonReader_PS_key>
+   </jsonObject>
+   ```
 
-``` javascript tab='JSON'
-{"32X32":"image_32x32.png"}
-```
+=== "JSON"
+   ``` javascript
+   {"32X32":"image_32x32.png"}
+   ```
 
-``` html tab='XML'
-<jsonObject>
-  <_JsonReader_PD_32X32>image_32x32.png</_JsonReader_PD_32X32>
-</jsonObject>
-```
+=== "XML"
+   ``` html
+   <jsonObject>
+   <_JsonReader_PD_32X32>image_32x32.png</_JsonReader_PD_32X32>
+   </jsonObject>
+   ```
 
 ## Converting spaces
 
@@ -192,17 +215,19 @@ When an XML element is converted to JSON, the following rules apply:
 
 Consider the following empty XML elements:
 
-``` html tab='Example 1'
-<jsonObject>
-  <object></object>
-</jsonObject>
-```
+=== "Example 1"
+   ``` html
+   <jsonObject>
+   <object></object>
+   </jsonObject>
+   ```
 
-``` html tab='Example 2'
-<jsonObject>
-  <object/>
-</jsonObject>
-```
+=== "Example 2"
+   ``` html
+   <jsonObject>
+   <object/>
+   </jsonObject>
+   ```
 
 By default, empty XML elements convert to JSON as null objects as shown below.
 

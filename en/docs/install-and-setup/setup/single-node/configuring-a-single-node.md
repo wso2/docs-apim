@@ -117,12 +117,14 @@ If you want to deploy WSO2 API-M using a hybrid single node deployment, where WS
 
 Start the WSO2 API-M servers using the standard start-up script. For more information, see [Starting the server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server).
 
-```tab="Linux/Mac OS"
-cd <API-M_HOME>/bin/
-sh api-manager.sh
-```
+=== "Linux/Mac OS"
+    ```bash
+    cd <API-M_HOME>/bin/
+    sh api-manager.sh
+    ```
 
-```tab="Windows"
-cd <API-M_HOME>\bin\
-api-manager.bat --run 
-```
+=== "Windows"
+    ```bash
+    cd <API-M_HOME>\bin\
+    api-manager.bat --run 
+    ```
