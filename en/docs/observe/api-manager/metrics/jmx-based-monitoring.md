@@ -30,15 +30,17 @@ You can disable the JMX server for your product by adding the `rmi_server_start`
 You can enable JMX for a datasource by adding the `jmx_enable` property with value `true` into the
 `<API-M_HOME>/repository/conf/deployment.toml` file as shown below.
 
-``` tab="Enable in Shared DB"
-[database.shared_db]
-jmx_enable = "true"
-```
+=== "Enable in Shared DB"
+    ``` toml
+    [database.shared_db]
+    jmx_enable = "true"
+    ```
 
-``` tab="Enable in APIM DB"
-[database.am_db]
-jmx_enable = "true"
-```
+=== "Enable in APIM DB"
+    ``` toml
+    [database.am_db]
+    jmx_enable = "true"
+    ```
 
 ## Monitoring a WSO2 product with JConsole
 

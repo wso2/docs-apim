@@ -73,25 +73,29 @@ Follow the instructions below to enable logs for a given service component that 
 1.  Open the `<API-M_HOME>/repository/conf/log4j2.properties` file.
 2.  Add a new logger specifying the component name that you need to enable logs and the [log level](#setting-the-log-levels) as shown below.
 
-     ``` tab="Format"
-     logger.<Logger_Name>.name = <Component_name>
-     logger.<Logger_Name>.level = <Log_level>
-     ```
+    === "Format"
+        ```
+        logger.<Logger_Name>.name = <Component_name>
+        logger.<Logger_Name>.level = <Log_level>
+        ```
 
-     ``` tab="Example"
-     logger.org-wso2-carbon-user-core.name = org.wso2.carbon.user.core
-     logger.org-wso2-carbon-user-core.level = DEBUG
-     ```
+    === "Example"
+        ```
+        logger.org-wso2-carbon-user-core.name = org.wso2.carbon.user.core
+        logger.org-wso2-carbon-user-core.level = DEBUG
+        ```
 
 3.  Append the newly added logger name to `loggers` configuration which is a comma separated list of all active loggers.
 
-     ``` tab="Format"
-     loggers = <Logger_Name>, trace-messages, org-apache-coyote,com-hazelcast
-     ```
+    === "Format"
+        ```
+        loggers = <Logger_Name>, trace-messages, org-apache-coyote,com-hazelcast
+        ```
 
-     ``` tab="Example"
-     loggers = org-wso2-carbon-user-core, trace-messages, org-apache-coyote,com-hazelcast
-     ```
+    === "Example"
+        ```
+        loggers = org-wso2-carbon-user-core, trace-messages, org-apache-coyote,com-hazelcast
+        ```
 
 ### Setting the log levels
 

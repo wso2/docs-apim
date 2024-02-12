@@ -17,7 +17,7 @@ This section let's see how to add a simple approval workflow to control the API 
      4. Disable the `Simple Workflow Executor` and enable the `Approval Workflow Executor`.
 
         <a name="config"></a>
-        ```
+        ```xml
         <WorkFlowExtensions>
             ....
         <!--APIStateChange executor="org.wso2.carbon.apimgt.impl.workflow.APIStateChangeSimpleWorkflowExecutor" /-->

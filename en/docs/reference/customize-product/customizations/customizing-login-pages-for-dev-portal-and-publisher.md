@@ -173,23 +173,24 @@ Follow the steps below to customize them.
     
     For example, if you want to customize the header, footer and title sections of the login and signup pages of WSO2 API Manager, change or edit the **headerTitle**, **pageTitle** and **footerText** in the following lines in `header.jsp` file with your content. If you are doing this, please make sure to add the `product-title.jsp` file to the extensions folder along with the `header.jsp` file.
 
-    ``` tab="Example"
-        String headerTitle = "API Manager";
-        String pageTitle = "WSO2 API Manager";
-        String footerText = "WSO2 API Manager";
-        String faviconSrc = "libs/theme/assets/images/favicon.ico";
-        String logoSrc = null;
-        String logoHeight = "50";
-        String logoWidth = "50";
-        String logoAltText = "";
-        File customCSSFile = null;
-        String customCSS = "";
-        String tenantThemeDirectoryName = "";
-        boolean showCookiePolicy = true;
-        boolean showPrivacyPolicy = true;
-        String cookiePolicyText = null;
-        String privacyPolicyText = null;
-    ```
+    === "Example"
+        ```
+            String headerTitle = "API Manager";
+            String pageTitle = "WSO2 API Manager";
+            String footerText = "WSO2 API Manager";
+            String faviconSrc = "libs/theme/assets/images/favicon.ico";
+            String logoSrc = null;
+            String logoHeight = "50";
+            String logoWidth = "50";
+            String logoAltText = "";
+            File customCSSFile = null;
+            String customCSS = "";
+            String tenantThemeDirectoryName = "";
+            boolean showCookiePolicy = true;
+            boolean showPrivacyPolicy = true;
+            String cookiePolicyText = null;
+            String privacyPolicyText = null;
+        ```
 
 4. The changes will be applied during the **API Manager server startup**.
 

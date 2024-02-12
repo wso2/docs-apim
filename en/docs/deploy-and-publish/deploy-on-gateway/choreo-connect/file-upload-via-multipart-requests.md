@@ -7,7 +7,7 @@ First, use the requestBody keyword to describe the request payload containing a 
 !!! note
     The following example shows how to upload a file via multipart request in [OAS3](https://swagger.io/docs/specification/describing-request-body/file-upload/) . If you are using an OAS2 API definition, please refer to [this swagger document](https://swagger.io/docs/specification/2-0/file-upload/) on multipart form file uploads.
 
-``` yml
+``` yaml
     requestBody:
       content:
         multipart/form-data:
@@ -27,7 +27,7 @@ First, use the requestBody keyword to describe the request payload containing a 
 
 You can use the multipart media type to define uploading an array of files.
 
-``` yml
+``` yaml
     requestBody:
       content:
         multipart/form-data:

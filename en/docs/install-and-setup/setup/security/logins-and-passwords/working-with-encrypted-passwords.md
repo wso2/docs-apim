@@ -20,19 +20,21 @@ The instructions below explain how plain text passwords in configuration files c
 
      Use the `<alias>="[<actual_password>]"` format, under `[secrets]` as shown below. The most commonly used passwords in configuration files are listed in the example configuration.
 
-       ``` tab="Format"
-       [secrets]
-       <password_1_alias> = "[<password_1>]"
-       <password_2_alias> = "[<password_2>]"
-       ```
+    === "Format"
+        ``` toml
+        [secrets]
+        <password_1_alias> = "[<password_1>]"
+        <password_2_alias> = "[<password_2>]"
+        ```
        
-       ``` tab="Example"
-       [secrets]
-       admin_password = "[admin]"
-       keystore_password = "[wso2carbon]"
-       key_password = "[wso2carbon]"
-       truststore_password = "[wso2carbon]"
-       ```
+    === "Example"
+        ``` toml
+        [secrets]
+        admin_password = "[admin]"
+        keystore_password = "[wso2carbon]"
+        key_password = "[wso2carbon]"
+        truststore_password = "[wso2carbon]"
+        ```
     
 3.  Locate the configurations with the plain text passwords in the `<APIM_HOME>/repository/conf/deployment.toml` configuration file, and replace them with `$secret{<alias>}` in order to refer to the encrypted password instead of the plain text password. 
 
@@ -40,31 +42,33 @@ The instructions below explain how plain text passwords in configuration files c
 
     The sample configuration for the most commonly used passwords is given below.
    
-       ``` tab="Format"
-       [super_admin]
-       username="admin"
-       password="$secret{<admin_password_alias>}"
+    === "Format"
+        ``` toml
+        [super_admin]
+        username="admin"
+        password="$secret{<admin_password_alias>}"
+            
+        [keystore.tls]
+        password = "$secret{<keystore_password_alias>}" 
+        key_password = "$secret{<key_password_alias>}"  
+        
+        [truststore]                  
+        password = "$secret{<truststore_password>}"       
+        ```
        
-       [keystore.tls]
-       password = "$secret{<keystore_password_alias>}" 
-       key_password = "$secret{<key_password_alias>}"  
-   
-       [truststore]                  
-       password = "$secret{<truststore_password>}"       
-       ```
-       
-       ``` tab="Example"
-       [super_admin]
-       username="admin"
-       password="$secret{admin_password}"
-       
-       [keystore.tls]
-       password = "$secret{keystore_password}" 
-       key_password = "$secret{key_password}"  
-   
-       [truststore]                  
-       password = "$secret{truststore_password}"   
-       ``` 
+    === "Example"
+        ``` toml
+        [super_admin]
+        username="admin"
+        password="$secret{admin_password}"
+            
+        [keystore.tls]
+        password = "$secret{keystore_password}" 
+        key_password = "$secret{key_password}"  
+        
+        [truststore]                  
+        password = "$secret{truststore_password}"   
+        ``` 
        
     !!! Note
         You can also replace your passwords by referring values passed by environment variables and system properties. For instructions, see [Set Passwords using Environment Variables/System Properties]({{base_path}}/administer/product-security/logins-and-passwords/set-passwords-using-vars-and-sys-props)

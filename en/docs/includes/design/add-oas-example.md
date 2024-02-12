@@ -1,8 +1,9 @@
-    With OpenAPI 3.0 you can provide the expected payloads and headers in the following formats. 
+With OpenAPI 3.0 you can provide the expected payloads and headers in the following formats. 
 
-    **Single Example for an Operation**
+  **Single Example for an Operation**
 
-    ```yaml tab='Format'
+=== "Format"
+    ```yaml
     <resource path>:
       <operation>:
         responses:
@@ -16,7 +17,8 @@
                 example: <example>
     ```
 
-    ```yaml tab='Example'
+=== "Example"
+    ```yaml
     /pet/findByStatus:
       get:
         responses:
@@ -31,9 +33,10 @@
                   mock response: hello world
     ```
 
-    **Multiple Examples for an Operation**
+  **Multiple Examples for an Operation**
 
-    ```yaml tab='Format'
+=== "Format"
+    ```yaml
     <resource path>:
       <operation>:
         responses:
@@ -49,7 +52,8 @@
                     value: <example>
     ```
 
-    ```yaml tab='Example'
+=== "Example"
+    ```yaml
     /pet/findByStatus:
       get:
         responses:
@@ -83,18 +87,18 @@
                       mock response: default Welcome
     ```
 
-    | **Place Holder** | **Usage** |
+  | **Place Holder** | **Usage** |
     |-----------------|--------------------|
     | `response code` | Can be 3 digit status code or a wildcard format like 2XX. `default` can be also provided instead of a particular status code. |   
     | `header` | Header name. You can provide multiple headers similarly under `headers`. |   
     | `media type` | Mock response content type. Provide allowed content types for the resource. When accept header is presented in a request, Choreo Connect will return the content which suited to accepted media type among them. |   
     | `example` | Provide the content body as a simple string or as an object. If an object is given as the `example`, it will be parsed to JSON format. |   
 
-    <!-- TODO(amali): add examples in swagger 2.0-->
+  <!-- TODO(amali): add examples in swagger 2.0-->
 
-    For more information on OpenAPI response body example specifications, visit [Request and Response Body Examples](https://swagger.io/docs/specification/adding-examples/).
+  For more information on OpenAPI response body example specifications, visit [Request and Response Body Examples](https://swagger.io/docs/specification/adding-examples/).
 
-    !!! example
+!!! example
         You can find a complete OpenAPI example for Mock Implementation here: [OpenAPI for Mock Implementation](https://github.com/wso2/product-microgateway/blob/main/samples/openAPI-definitions/mock-impl-sample.yaml)
 
         If you take the example in **Multiple Examples for an Operation** mentioned previously and update the OpenAPI definition with it, you can use `Prefer` header and `Accept` header to get different examples for same resource operation.
@@ -102,31 +106,35 @@
 
         Invoking `GET` for `/pet/findByStatus` will return the default example as given below.
 
-        ```bash tab='Request'
-        curl -X GET https://localhost:9095/v3/1.0.6/pet/findByStatus
-        ```
+        === "Request"
+            ```bash
+            curl -X GET https://localhost:9095/v3/1.0.6/pet/findByStatus
+            ```
 
-        ```bash tab='Response'
-        < HTTP/1.1 200 OK
-        < content-type: application/json
-        < x-wso2-example: "default header value"
-        < 
-        {"mock response":"default hello world"}
-        ```
+        === "Response"
+            ```bash
+            < HTTP/1.1 200 OK
+            < content-type: application/json
+            < x-wso2-example: "default header value"
+            < 
+            {"mock response":"default hello world"}
+            ```
 
         Invoking `GET` for `/pet/findByStatus` with the header `Prefer` will return the matched example for the particular code and the example reference.
 
-        ```bash tab='Request'
-        curl -H 'Prefer: code=503, example=ref2' -X GET https://localhost:9095/v3/1.0.6/pet/findByStatus
-        ```
+        === "Request"
+            ```bash
+            curl -H 'Prefer: code=503, example=ref2' -X GET https://localhost:9095/v3/1.0.6/pet/findByStatus
+            ```
 
-        ```bash tab='Response'
-        < HTTP/1.1 503 Service Unavailable
-        < content-type: application/json
-        < x-wso2-example: "example header value"
-        < 
-        {"mock response":"Welcome"}
-        ```
+        === "Response"
+            ```bash
+            < HTTP/1.1 503 Service Unavailable
+            < content-type: application/json
+            < x-wso2-example: "example header value"
+            < 
+            {"mock response":"Welcome"}
+            ```
 
     <!-- TODO(amali): add more examples-->
 

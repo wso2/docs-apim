@@ -13,34 +13,36 @@ processing and schedule a move task to move that file.
 
 Following are the integration artifacts that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
-```xml tab='Inbound Endpoint'
-<?xml version="1.0" encoding="UTF-8"?>
-<inboundEndpoint xmlns="http://ws.apache.org/ns/synapse" 
-                 name="file" sequence="request" 
-                 onError="fault" 
-                 protocol="file" 
-                 suspend="false">
-   <parameters>
-      <parameter name="interval">1000</parameter>
-      <parameter name="sequential">true</parameter> 
-      <parameter name="coordination">true</parameter> 
-      <parameter name="transport.vfs.ActionAfterProcess">MOVE</parameter>
-      <parameter name="transport.vfs.MoveAfterProcess">file:///home/user/test/out</parameter>
-      <parameter name="transport.vfs.FileURI">file:///home/user/test/in</parameter>
-      <parameter name="transport.vfs.MoveAfterFailure">file:///home/user/test/failed</parameter>
-      <parameter name="transport.vfs.FileNamePattern">.*.xml</parameter>
-      <parameter name="transport.vfs.ContentType">text/xml</parameter>
-      <parameter name="transport.vfs.ActionAfterFailure">MOVE</parameter>
-   </parameters>
-</inboundEndpoint>
-```
+=== "Inbound Endpoint"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <inboundEndpoint xmlns="http://ws.apache.org/ns/synapse" 
+                    name="file" sequence="request" 
+                    onError="fault" 
+                    protocol="file" 
+                    suspend="false">
+    <parameters>
+        <parameter name="interval">1000</parameter>
+        <parameter name="sequential">true</parameter> 
+        <parameter name="coordination">true</parameter> 
+        <parameter name="transport.vfs.ActionAfterProcess">MOVE</parameter>
+        <parameter name="transport.vfs.MoveAfterProcess">file:///home/user/test/out</parameter>
+        <parameter name="transport.vfs.FileURI">file:///home/user/test/in</parameter>
+        <parameter name="transport.vfs.MoveAfterFailure">file:///home/user/test/failed</parameter>
+        <parameter name="transport.vfs.FileNamePattern">.*.xml</parameter>
+        <parameter name="transport.vfs.ContentType">text/xml</parameter>
+        <parameter name="transport.vfs.ActionAfterFailure">MOVE</parameter>
+    </parameters>
+    </inboundEndpoint>
+    ```
 
-```xml tab='Sequence'
-<?xml version="1.0" encoding="UTF-8"?>
-<sequence xmlns="http://ws.apache.org/ns/synapse" name="request">
-    <log level="full"/>
-</sequence>
-```
+=== "Sequence"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <sequence xmlns="http://ws.apache.org/ns/synapse" name="request">
+        <log level="full"/>
+    </sequence>
+    ```
 
 ### Build and run
 

@@ -110,7 +110,7 @@ You will notice that all the API resources are created automatically when the Op
     
      [![]({{base_path}}/assets/img/learn/edit-api-definition-pet-store.png)]({{base_path}}/assets/img/learn/edit-api-definition-pet-store.png)
 
-     ??? note "Importing an API definition"
+    ??? note "Importing an API definition"
          You can also import an API definition.
          
             1. Click on **Import Definition** from the toolbar
@@ -120,11 +120,9 @@ You will notice that all the API resources are created automatically when the Op
                 - OpenAPI Archive/File
 
             3. To try this out, select OpenAPI URL and enter `https://petstore3.swagger.io/api/v3/openapi.json` as the URL.
-
-                [![]({{base_path}}/assets/img/learn/import-api-definition.png)]({{base_path}}/assets/img/learn/import-api-definition.png)
-
-                !!! tip
-                    The Linter results can be viewed here.
+        [![Import API Definition]({{base_path}}/assets/img/learn/import-api-definition.png)]({{base_path}}/assets/img/learn/import-api-definition.png)        
+            
+        **The Linter results can be viewed here.**
 
             4. If there are any errors present, they can be solved in the built-in editor by clicking on the **Edit and Import** button.
 

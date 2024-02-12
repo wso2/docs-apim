@@ -70,7 +70,7 @@ These features are deprecated and will be removed from subsequent versions of WS
 
      Synchronous Data Retrieval Mode in Gateway Runtime Artifact Synchronization was configurable by setting the value of `data_retrieval_mode` to `sync` (`data_retrieval_mode = "sync"`). 
      
-     ```
+     ```toml
      [apim.sync_runtime_artifacts.gateway]
      data_retrieval_mode = "sync"
      ```

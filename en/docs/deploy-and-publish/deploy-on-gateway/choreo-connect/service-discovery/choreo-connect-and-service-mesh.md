@@ -54,7 +54,7 @@ For more information, see [Consul HTTP API](https://www.consul.io/api-docs/agent
 
 Refer to the Adapter section to the main configuration file of Choreo Connect (`config.toml` file).
 
-```
+```toml
 [adapter.consul]
   enabled = true
   url = "https://169.254.1.1:8501"

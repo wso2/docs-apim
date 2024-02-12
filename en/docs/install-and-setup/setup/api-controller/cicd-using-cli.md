@@ -37,19 +37,21 @@ Let us check out the basic building blocks for creating a CI/CD pipeline with WS
 3.  Add WSO2 API-M environments using the `add env` command.
 
     !!! example
-        ``` bash tab="Linux/Unix"
-        apictl add env dev \
-                    --apim https://localhost:9443 
+        === "Linux/Unix"
+            ``` bash
+            apictl add env dev \
+                        --apim https://localhost:9443 
 
-        apictl add env prod \
-                    --apim https://localhost:9444 
-        ```
+            apictl add env prod \
+                        --apim https://localhost:9444 
+            ```
 
-        ``` bash tab="Mac/Windows""
-        apictl add env dev --apim https://localhost:9443 
+        === "Mac/Windows"
+            ``` bash
+            apictl add env dev --apim https://localhost:9443 
 
-        apictl add env prod --apim https://localhost:9444 
-        ```    
+            apictl add env prod --apim https://localhost:9444 
+            ```    
 
     For more information, see [Add an environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#add-an-environment).
     

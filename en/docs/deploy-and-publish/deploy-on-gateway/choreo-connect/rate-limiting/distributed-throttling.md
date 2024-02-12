@@ -89,7 +89,7 @@ Follow the instructions below to enable Distributed Rate Limiting:
 !!! tip 
     When using multiple traffic manager nodes for high availability, you can use a configuration as given below.
 
-    ```
+    ```toml
     [enforcer.throttling]
       enableGlobalEventPublishing = true
       jmsConnectionProviderURL = "amqp://admin:$env{tm_admin_pwd}@carbon/carbon?failover='roundrobin'%26cyclecount='2'%26brokerlist='tcp://<Traffic-Manager-1-host>:5672?retries='5'%26connectdelay='50';tcp://<Traffic-Manager-2-host>:5672?retries='5'%26connectdelay='50''"

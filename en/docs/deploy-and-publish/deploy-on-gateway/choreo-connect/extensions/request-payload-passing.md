@@ -11,7 +11,7 @@ Follow the instructions below to enable request payload passing for all APIs:
 1. Open the `config.toml` file in Choreo Connect.
 2. Add the following configurations under the `router` section to enable request payload passing.
 
-      ```
+      ```toml
       # Configs for request payload passing from Router to Enforcer.
       [router.payloadPassingToEnforcer]
         # Enable/Disable request payload passing.

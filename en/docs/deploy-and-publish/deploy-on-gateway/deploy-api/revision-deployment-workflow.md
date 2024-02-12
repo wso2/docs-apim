@@ -17,7 +17,7 @@ In this section let's see how to add an approval workflow to control the deploym
     4. Disable the `Simple Workflow Executor` and enable the `Approval Workflow Executor` by adding the following configuration.
 
        <a name="config"></a>
-       ```
+       ```xml
        <WorkFlowExtensions>
            ....
        <!--APIRevisionDeployment executor="org.wso2.carbon.apimgt.impl.workflow.
@@ -41,7 +41,7 @@ In this section let's see how to add an approval workflow to control the deploym
     ![Deployment Pending]({{base_path}}/assets/img/deploy/pending-revision.png)
 
     !!! info
-    Note that when clicking the Deploy New Revision button, a gateway with a pending request will be disabled for selection until the workflow task is completed or deleted.
+        Note that when clicking the Deploy New Revision button, a gateway with a pending request will be disabled for selection until the workflow task is completed or deleted.
     
     ![Deploy New Revision Disabled]({{base_path}}/assets/img/deploy/pending-deploy-new-revision-tab.png)
 
@@ -77,7 +77,7 @@ In this section let's see how to add an approval workflow to control the deploym
        [![API revision deployment updated list]({{base_path}}/assets/img/deploy/revision deployment-updated-status.png)]({{base_path}}/assets/img/deploy/revision deployment-updated-status.png)
        
     !!! info
-    You can send a new pending request even while a deployment to a specific gateway is in progress. The current revision will not be undeployed until the new request is approved. As
-    mentioned earlier, you have the option to either cancel the second pending request or undeploy the current revision at your discretion.
+         You can send a new pending request even while a deployment to a specific gateway is in progress. The current revision will not be undeployed until the new request is approved. As
+         mentioned earlier, you have the option to either cancel the second pending request or undeploy the current revision at your discretion.
 
     [![API gateway with a deployed and a pending revision]({{base_path}}/assets/img/deploy/deployed-and-pending-revisions.png)]({{base_path}}/assets/img/deploy/deployed-and-pending-revisions.png)

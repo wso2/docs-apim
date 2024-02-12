@@ -47,8 +47,8 @@ Each component has its private-public key pair and truststore. In the case of th
     | Kubernetes |[Choreo Connect as a Standalone Gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/)| `config-toml-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect/` |
     | Kubernetes |[Choreo Connect with WSO2 API Manager as a Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/)| `config-toml-configmap.yaml` | `<CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect-with-apim/` |
 
-```toml
-[adapter.keystore] 
+``` toml
+[adapter.keystore]
 certPath = "/home/wso2/security/keystore/mg.pem"
 keyPath = "/home/wso2/security/keystore/mg.key"
 

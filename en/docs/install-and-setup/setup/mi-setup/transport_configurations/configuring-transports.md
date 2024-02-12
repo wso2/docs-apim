@@ -61,21 +61,23 @@ process checks all the certificates in a certificate chain.
 
 To enable this feature for the HTTP Pass-Through, add the following parameters for the HTTP transport receiver and sender in the deployment.toml file:
 
-```toml tab='Passthrough Listener'
-[transport.http]
-listener.certificate_revocation_verifier_enable = true
-listener.certificate_revocation_cache_size = 1024
-listener.certificate_revocation_cache_delay = 1000
-listener.verify_client = "require"
+=== "Passthrough Listener"
+    ```toml
+    [transport.http]
+    listener.certificate_revocation_verifier_enable = true
+    listener.certificate_revocation_cache_size = 1024
+    listener.certificate_revocation_cache_delay = 1000
+    listener.verify_client = "require"
 
-```
+    ```
 
-```toml tab='Passthrough Sender'
-[transport.http]
-sender.certificate_revocation_verifier_enable = true
-sender.certificate_revocation_cache_size = 1024
-sender.certificate_revocation_cache_delay = 1000
-```
+=== "Passthrough Sender"
+    ```toml
+    [transport.http]
+    sender.certificate_revocation_verifier_enable = true
+    sender.certificate_revocation_cache_size = 1024
+    sender.certificate_revocation_cache_delay = 1000
+    ```
 
 ### Configuring Transport Level Security  
 
@@ -164,17 +166,19 @@ sender.enable = false
 
 Add the following sections to the deployment.toml file to enable the required message builders and formatters:
 
-```toml tab='Message Builder'
-[[custom_message_builders]]
-content_type = "application/edi-hl7"
-class="org.wso2.carbon.business.messaging.hl7.message.HL7MessageBuilder"
-```
+=== "Message Builder"
+    ```toml
+    [[custom_message_builders]]
+    content_type = "application/edi-hl7"
+    class="org.wso2.carbon.business.messaging.hl7.message.HL7MessageBuilder"
+    ```
 
-```toml tab='Message Formatter'
-[[custom_message_formatters]]
-content_type = "application/edi-hl7"
-class="org.wso2.carbon.business.messaging.hl7.message.HL7MessageFormatter"
-```
+=== "Message Formatter"
+    ```toml
+    [[custom_message_formatters]]
+    content_type = "application/edi-hl7"
+    class="org.wso2.carbon.business.messaging.hl7.message.HL7MessageFormatter"
+    ```
 -->
 
 ## Configuring the FIX transport
@@ -337,18 +341,20 @@ sender.enable =false
 ## Configuring custom transports
 Other than the transports defined above, you can use a custom transport that enables you to add a new transport to the Micro Integrator. Custom transport configurations contain senders and listeners that you can define. A custom transport configuration is as follows.
 
-```toml tab='Custom Listener'
-[[custom_transport.listener]]
-class="org.wso2.micro.integrator.TransportListener"
-protocol = "protocol"
-```
+=== "Custom Listener"
+    ```toml
+    [[custom_transport.listener]]
+    class="org.wso2.micro.integrator.TransportListener"
+    protocol = "protocol"
+    ```
 
-```toml tab='Custom Sender'
-[[custom_transport.sender]]
-class="org.wso2.micro.integrator.TransportSender"
-protocol = "protocol"
-parameter.'transport.param' = true
-```
+=== "Custom Sender"
+    ```toml
+    [[custom_transport.sender]]
+    class="org.wso2.micro.integrator.TransportSender"
+    protocol = "protocol"
+    parameter.'transport.param' = true
+    ```
 
 You can define the listener and sender classes in the `class` parameter. Any additional parameter can be passed to the configuration using `parameter`. The following section involves using a custom transport to configure HL7 transport.
 
@@ -366,18 +372,20 @@ HL7 is not shipped by default in the pack. To make the transport available, down
 
 Add the following configurations to the `deployment.toml` file (stored in the `<MI_HOME>/conf` folder): 
 
-```toml tab='HL7 Listener'
-[[custom_transport.listener]]
-class="org.wso2.micro.integrator.business.messaging.hl7.transport.HL7TransportListener"
-protocol = "hl7"
-parameter.'transport.hl7.TimeOut' = 10000
-```
+=== "HL7 Listener"
+    ```toml
+    [[custom_transport.listener]]
+    class="org.wso2.micro.integrator.business.messaging.hl7.transport.HL7TransportListener"
+    protocol = "hl7"
+    parameter.'transport.hl7.TimeOut' = 10000
+    ```
 
-```toml tab='HL7 Sender'
-[[custom_transport.sender]]
-class="org.wso2.micro.integrator.business.messaging.hl7.transport.HL7TransportSender"
-protocol = "hl7"
-```
+=== "HL7 Sender"
+    ```toml
+    [[custom_transport.sender]]
+    class="org.wso2.micro.integrator.business.messaging.hl7.transport.HL7TransportSender"
+    protocol = "hl7"
+    ```
 
 You can configure how long request threads wait for the application's response by specifying the `parameter.'transport.hl7.TimeOut'` parameter as shown above. This configures the timeout in milliseconds at the transport level.
 

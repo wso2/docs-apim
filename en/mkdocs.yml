@@ -16,8 +16,8 @@
 # under the License.
 
 # Project information
-site_name: WSO2 API Manager Documentation 4.2.0
-site_description: Documentation for WSO2 API Manager
+site_name: WSO2 API Manager Documentation 4.3.0
+site_description: Documentation for WSO2 API Manager 4.3.0
 site_author: WSO2
 site_url: https://apim.docs.wso2.com/en/latest/
 
@@ -35,13 +35,36 @@ theme:
     name: material
     custom_dir: theme/material
     palette:
-        primary: deep-orange
-        accent: deep-orange
+
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+    #   toggle:
+    #     icon: material/brightness-auto
+    #     name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+    #   toggle:
+    #     icon: material/brightness-7
+    #     name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+    #   toggle:
+    #     icon: material/brightness-4
+    #     name: Switch to system preference
     logo: images/logo.svg
     favicon: images/favicon.png
-    highlightjs: true
-    feature:
-        tabs: true
+    features:
+        - content.code.copy
+        - navigation.tabs
+        - navigation.tabs.sticky
+        - content.action.edit
+        - content.action.view
+        - navigation.top
+        - toc.follow
     language: 'en'
 #Breaks build if there's a warning
 strict: false
@@ -1743,7 +1766,8 @@ markdown_extensions:
     - pymdownx.critic
     - pymdownx.details
     - pymdownx.emoji:
-          emoji_generator: !!python/name:pymdownx.emoji.to_svg
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg
     - pymdownx.inlinehilite
     - pymdownx.keys
     - pymdownx.mark
@@ -1752,9 +1776,16 @@ markdown_extensions:
     - pymdownx.tasklist:
           custom_checkbox: true
     - pymdownx.tilde
+    - pymdownx.highlight:
+          use_pygments: true
+          line_spans: __codeline
+          anchor_linenums: true
+          pygments_lang_class: true
     - pymdownx.snippets:
           base_path: docs
     - attr_list
+    - pymdownx.tabbed:
+          alternate_style: true
 plugins:
     - search
     - markdownextradata: {}
@@ -2220,21 +2251,20 @@ plugins:
     # Extra
 extra_css:
     - assets/lib/highlightjs/default.min.css
+    - assets/css/orange-palette.css
     - assets/css/theme.css
     - assets/lib/json-formatter/json-formatter.css
 extra_javascript:
     - assets/lib/json-formatter/json-formatter.umd.js
     - assets/lib/highlightjs/highlight.min.js
     - assets/js/theme.js
-    - assets/lib/backtotop/js/util.js
-    - assets/lib/backtotop/js/main.js
 extra:
     social:
-        - type: github
+        - icon: fontawesome/brands/github-alt
           link: https://github.com/wso2
-        - type: twitter
+        - icon: fontawesome/brands/twitter
           link: https://twitter.com/wso2
-        - type: linkedin
+        - icon: fontawesome/brands/linkedin-in
           link: https://www.linkedin.com/company/wso2
     choreo_connect: # not applied in "includes" section, update "includes" separately
         version: 1.2.0
@@ -2242,7 +2272,7 @@ extra:
         helm_chart:
             version: 1.2.0-1
             git_tag: v1.2.0.1
-    site_version: 4.2.0
-    #base_path: http://localhost:8000
-    base_path: https://apim.docs.wso2.com/en/4.2.0
+    site_version: 4.3.0
+    base_path: http://localhost:8000/en/latest
+    # base_path: https://apim-docs-stg.wso2.com/en/4.3.0
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1

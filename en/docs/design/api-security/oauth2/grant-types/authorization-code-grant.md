@@ -56,7 +56,7 @@ The `/token` endpoint responds in the same way like in password grant type.
 
 Note that if you are using a separate server for authentication (e.g., a distributed API Manager setup or an instance of WSO2 Identity Server as the authentication server), be sure to give the full URL of the authentication server as given below, in the `<API-M_HOME>/repository/conf/deployment.toml` file. The default configuration has a relative path, which works in a standalone API Manager setup:
 
-```
+```toml
 [authentication.endpoints]
 login_url="/authenticationendpoint/login.do"
 retry_url="/authenticationendpoint/retry.do"

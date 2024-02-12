@@ -47,13 +47,15 @@ Use either one of the following sample cURL commands for this purpose.
 
 #### Obtain the access token without specifying the scope
 
-``` java tab="Format"
-curl -k -d "grant_type=client_credentials" -H "Authorization: Basic <Base64-encoded-client_key:client_secret>" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:<https-port>/token -v
-```
+=== "Format"
+     ``` java
+     curl -k -d "grant_type=client_credentials" -H "Authorization: Basic <Base64-encoded-client_key:client_secret>" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:<https-port>/token -v
+     ```
 
-``` java tab="Example"
-curl -k -d "grant_type=client_credentials" -H "Authorization: Basic cEJ6dUlaaEdwaGZRbWRjVVgwbG5lRmlpdXh3YTo0U0pnV19qTU56aGpIU284OGJuZVhtTnFNMjRh" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token -v
-```
+=== "Example"
+     ``` java
+     curl -k -d "grant_type=client_credentials" -H "Authorization: Basic cEJ6dUlaaEdwaGZRbWRjVVgwbG5lRmlpdXh3YTo0U0pnV19qTU56aGpIU284OGJuZVhtTnFNMjRh" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token -v
+     ```
 
 **Response**
 ```
@@ -78,13 +80,15 @@ curl -k -d "grant_type=client_credentials" -H "Authorization: Basic cEJ6dUlaaEdw
 
 #### Obtain the access token by specifying a scope
 
-``` java tab="Format"
-curl -k -d "grant_type=client_credentials&scope=test" -H "Authorization: Basic <ConsumerKey:ConsumerSecret>" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
-```
+=== "Format"
+     ``` java
+     curl -k -d "grant_type=client_credentials&scope=test" -H "Authorization: Basic <ConsumerKey:ConsumerSecret>" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+     ```
 
-``` java tab="Example"
-curl -k -d "grant_type=client_credentials&scope=test" -H "Authorization: Basic cEJ6dUlaaEdwaGZRbWRjVVgwbG5lRmlpdXh3YTo0U0pnV19qTU56aGpIU284OGJuZVhtTnFNMjRh" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
-```
+=== "Example"
+     ``` java
+     curl -k -d "grant_type=client_credentials&scope=test" -H "Authorization: Basic cEJ6dUlaaEdwaGZRbWRjVVgwbG5lRmlpdXh3YTo0U0pnV19qTU56aGpIU284OGJuZVhtTnFNMjRh" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+     ```
 
 ## Additional information
 

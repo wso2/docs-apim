@@ -10,27 +10,28 @@ image/svg+xml, text/css, text/html, text/plain, text/xml HTTP content types.
 
 Below section explains configurations relevant to the HTTP data compression in Choreo Connect.
 
-```toml tab="Format"
-[router.filters]
-  [router.filters.compression]
-    enabled = true
-    library = "gzip"
-  [router.filters.compression.requestDirection]
-    enabled = false
-    minimumContentLength = 30
-    contentType = ["text/html"]
-  [router.filters.compression.responseDirection]
-    enabled = true
-    minimumContentLength = 30
-    contentType = ["text/html","application/json"]
-    enableForEtagHeader = true
-  [router.filters.compression.libraryProperties]
-    memoryLevel = 3
-    windowBits = 12
-    compressionLevel = 9
-    compressionStrategy = "defaultStrategy"
-    chunkSize = 4096
-```
+=== "Format"
+    ```toml
+    [router.filters]
+    [router.filters.compression]
+        enabled = true
+        library = "gzip"
+    [router.filters.compression.requestDirection]
+        enabled = false
+        minimumContentLength = 30
+        contentType = ["text/html"]
+    [router.filters.compression.responseDirection]
+        enabled = true
+        minimumContentLength = 30
+        contentType = ["text/html","application/json"]
+        enableForEtagHeader = true
+    [router.filters.compression.libraryProperties]
+        memoryLevel = 3
+        windowBits = 12
+        compressionLevel = 9
+        compressionStrategy = "defaultStrategy"
+        chunkSize = 4096
+    ```
 
 Following table explains the attribute details relevant to the above configuration.
 
@@ -133,23 +134,26 @@ will compress the HTTP response data sent to the downstream.
     - Data compression will be applied only to the content types defined in the configurations.
     - If `Content-encoding` header is given in the request, Choreo Connect will not apply data compression during the request/response flow.
 
- ``` bash tab="Format"
- curl -X 'POST' "https://<CHOREO-CONNECT_ROUTER_HOST>:<CHOREO-CONNECT_ROUTER_PORT>/<API-context>/<API-resource>" -H "Content-type:application/json" -H "Authorization:Bearer $TOKEN" -H "Accept-encoding: gzip" --data <data> -k
- ```
+    === "Format"
+        ``` bash
+        curl -X 'POST' "https://<CHOREO-CONNECT_ROUTER_HOST>:<CHOREO-CONNECT_ROUTER_PORT>/<API-context>/<API-resource>" -H "Content-type:application/json" -H "Authorization:Bearer $TOKEN" -H "Accept-encoding: gzip" --data <data> -k
+        ```
 
- ``` bash tab="Example Request"
- curl -X 'POST' "https://localhost:9095/v2/testAPI/*" -H "Content-type:application/json" -H "Accept-encoding: gzip" -H "Authorization:Bearer $TOKEN" -k --data '{"name":"John","age":30,"Address":"No 123, Street Name, Province, Country"}'
- ```
+    === "Example Request"
+        ``` bash
+        curl -X 'POST' "https://localhost:9095/v2/testAPI/*" -H "Content-type:application/json" -H "Accept-encoding: gzip" -H "Authorization:Bearer $TOKEN" -k --data '{"name":"John","age":30,"Address":"No 123, Street Name, Province, Country"}'
+        ```
 
- ``` bash tab="Example With Response Headers"
- server: envoy
- content-type: text/plain; charset=UTF-8
- vary: Accept-Encoding
- x-request-id: 5c9b2d23-599f-4b30-852c-123feadb34d1
- x-token-id: 65f29805-37cc-4ac9-a0f3-1231bd7c9eca
- cache-control: no-cache, private
- date: Fri, 07 Oct 2022 07:31:00 GMT
- content-encoding: gzip
- transfer-encoding: chunked
- ```
+    === "Example With Response Headers"
+        ``` bash
+        server: envoy
+        content-type: text/plain; charset=UTF-8
+        vary: Accept-Encoding
+        x-request-id: 5c9b2d23-599f-4b30-852c-123feadb34d1
+        x-token-id: 65f29805-37cc-4ac9-a0f3-1231bd7c9eca
+        cache-control: no-cache, private
+        date: Fri, 07 Oct 2022 07:31:00 GMT
+        content-encoding: gzip
+        transfer-encoding: chunked
+        ```
 

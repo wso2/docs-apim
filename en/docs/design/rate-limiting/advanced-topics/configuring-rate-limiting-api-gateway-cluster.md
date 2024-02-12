@@ -111,33 +111,35 @@ Follow the instructions below to configure the Redis server with WSO2 API Manage
 
 2. Add the following configurations to the `deployment.toml` file.
 
-    ```toml tab='Format'
-    [apim.redis_config]
-    host = "<Redis-host>"
-    port = "<Redis-Port>"
-    user = "<Redis-User-Name>"
-    password = "<Redis-Password>"
-    gateway_id = "<ID Of the Gateway Node>"
+    === "Format"
+        ```toml
+        [apim.redis_config]
+        host = "<Redis-host>"
+        port = "<Redis-Port>"
+        user = "<Redis-User-Name>"
+        password = "<Redis-Password>"
+        gateway_id = "<ID Of the Gateway Node>"
 
-    [throttle_properties]
-    'throttling.distributed.counter.type' = "<counter type>"
-    'throttling.sync-async_hybrid_mode.enable' = <enable/disable the hybrid Mode>
-    'throttling.local_quota_buffer_percentage' = <local quota buffer value>
-    ```
+        [throttle_properties]
+        'throttling.distributed.counter.type' = "<counter type>"
+        'throttling.sync-async_hybrid_mode.enable' = <enable/disable the hybrid Mode>
+        'throttling.local_quota_buffer_percentage' = <local quota buffer value>
+        ```
 
-    ```toml tab='Exmaple'
-    [apim.redis_config]
-    host = "localhost"
-    port = 6379
-    user = "root"
-    password = "root"
-    gateway_id = "gw1"
-    
-    [throttle_properties]
-    'throttling.distributed.counter.type' = "redis"
-    'throttling.sync-async_hybrid_mode.enable' = true
-    'throttling.local_quota_buffer_percentage' = 30
-    ```
+    === "Exmaple"
+        ```toml
+        [apim.redis_config]
+        host = "localhost"
+        port = 6379
+        user = "root"
+        password = "root"
+        gateway_id = "gw1"
+        
+        [throttle_properties]
+        'throttling.distributed.counter.type' = "redis"
+        'throttling.sync-async_hybrid_mode.enable' = true
+        'throttling.local_quota_buffer_percentage' = 30
+        ```
 
 Please note that the above set of configurations are the minimum required configurations to enable the hybrid mode. For advanced configurations, please refer the below tables.
 
