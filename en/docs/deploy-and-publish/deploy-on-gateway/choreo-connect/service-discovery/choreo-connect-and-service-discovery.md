@@ -23,7 +23,7 @@ For instructions, see the [Consul official documentation](https://www.consul.io/
 1. Navigate to the `config-toml-configmap.yaml` file.
 2. Go to the `[adapter.consul]` section and update the configurations.
 
-    ``` 
+    ``` toml
     [adapter.consul]
       enabled = true
       url = "https://169.254.1.1:8501"

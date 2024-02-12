@@ -72,9 +72,9 @@ Follow the instructions below to enable the stream builders in the API gateway:
 1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file.
 2.  Add following configuration.
 
-    ``` java
-        [message_builder]
-        json = "org.apache.synapse.commons.json.JsonStreamBuilder"
+    ``` toml
+    [message_builder]
+    json = "org.apache.synapse.commons.json.JsonStreamBuilder"
     ```
 
 ## Invalidating Cached Responses Remotely

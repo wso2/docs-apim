@@ -121,27 +121,29 @@ The regex\_policy sequence is given below.
 You can test this feature by sending an SQL injection attack with the XML message body. The sample request and response 
 is given below.
 
-``` xml tab="Message"
-<?xml version="1.0" encoding="UTF-8"?>
-<breakfast_menu>
-    <food>
-        <name>Homestyle Breakfast</name>
-        <price>drop table</price>
-        <description>
-            Two eggs, bacon or sausage, toast, and our ever-popular hash browns
-        </description>
-        <calories>950</calories>
-    </food>
-</breakfast_menu>
-```
+=== "Message"
+    ``` xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <breakfast_menu>
+        <food>
+            <name>Homestyle Breakfast</name>
+            <price>drop table</price>
+            <description>
+                Two eggs, bacon or sausage, toast, and our ever-popular hash browns
+            </description>
+            <calories>950</calories>
+        </food>
+    </breakfast_menu>
+    ```
 
-``` xml tab="Response"
-<am:fault xmlns:am="http://wso2.org/apimanager">
-    <am:code>400</am:code>
-    <am:message>Bad Request</am:message>
-    <am:description>SQL-Injection Threat detected in Payload</am:description>
-</am:fault>
-```
+=== "Response"
+    ``` xml
+    <am:fault xmlns:am="http://wso2.org/apimanager">
+        <am:code>400</am:code>
+        <am:message>Bad Request</am:message>
+        <am:description>SQL-Injection Threat detected in Payload</am:description>
+    </am:fault>
+    ```
 
 !!! warning
     **Performance impact**  

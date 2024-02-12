@@ -86,13 +86,15 @@ Log in will get an access token from the Choreo Connect adapter and store it for
         ```
 - **Response**
 
-        ``` bash tab="Response Format"
-        Successfully logged into Choreo Connect Adapter in environment: <environment-name>
-        ```
+        === "Response Format"
+            ``` bash
+            Successfully logged into Choreo Connect Adapter in environment: <environment-name>
+            ```
 
-        ```bash tab="Example Response"
-        Successfully logged into Choreo Connect Adapter in environment: dev
-        ```
+        === "Example Response"
+            ```bash
+            Successfully logged into Choreo Connect Adapter in environment: dev
+            ```
 
     !!! warning
         Using `--password` in CTL is not secure. Instead, you can use `--password-stdin` to include password file or provide the password when prompted.
@@ -149,17 +151,20 @@ An API project can be deployed to a Choreo Connect using the following commands.
 
 -   **Response**
 
-    ``` bash tab="Deployed"
-    Successfully deployed API to Choreo Connect.
-    ```
+    === "Deployed"
+        ``` bash
+        Successfully deployed API to Choreo Connect.
+        ```
 
-    ``` bash tab="API Already Exists"
-    Unable to deploy API. API already exists. Status: Conflict 409
-    ```
+    === "API Already Exists"
+        ``` bash
+        Unable to deploy API. API already exists. Status: Conflict 409
+        ```
 
-    ```bash tab="Deployed or Updated"
-    Successfully deployed/updated the API in Choreo Connect.
-    ```
+    === "Deployed or Updated"
+        ```bash
+        Successfully deployed/updated the API in Choreo Connect.
+        ```
 
 ## List Deployed APIs
 
@@ -267,13 +272,15 @@ This command can be used to logout from a Choreo Connect adapter environment. On
         ```
 -   **Response**
 
-    ``` bash tab="Response Format"
-    Logged out from Choreo Connect Adapter in environment: <environment-name>
-    ```
+    === "Response Format"
+        ``` bash
+        Logged out from Choreo Connect Adapter in environment: <environment-name>
+        ```
 
-    ``` bash tab="Example Response"
-    Logged out from Choreo Connect Adapter in environment: dev
-    ```
+    === "Example Response"
+        ``` bash
+        Logged out from Choreo Connect Adapter in environment: dev
+        ```
 
 ## Remove a Choreo Connect Environment
 
@@ -291,10 +298,12 @@ This command can be used to remove a Choreo Connect environment from apictl. Onc
 
 -   **Response**
 
-    ``` bash tab="Response Format"
-    Successfully removed environment '<environment-name>'
-    ```
+    === "Response Format"
+        ``` bash
+        Successfully removed environment '<environment-name>'
+        ```
 
-    ``` bash tab="Example Response"
-    Successfully removed environment 'dev'
-    ```
+    === "Example Response"
+        ``` bash
+        Successfully removed environment 'dev'
+        ```

@@ -274,7 +274,7 @@ html .md-footer-meta.md-typeset a {
 }
 
 .md-header__source {
-    max-width: 125px;
+    max-width: 150px;
     text-align: right;
 }
 
@@ -616,8 +616,8 @@ html .md-footer-meta.md-typeset a {
     display: contents;
 }
 
-.md-tabs__dropdown-link:after {
-    font-family: Material Icons;
+/* .md-tabs__dropdown-link:after {
+    font-family: "Font Awesome 6 Free" !important;
     font-style: normal;
     font-variant: normal;
     font-weight: 400;
@@ -627,11 +627,11 @@ html .md-footer-meta.md-typeset a {
     speak: none;
     word-wrap: normal;
     direction: ltr;
-    content: "\E313";
+    content: "\f107";
     display: inline-block;
     vertical-align: middle;
     margin-left: .2rem;
-}
+} */
 
 .mb-tabs__dropdown.group-select {
     background-color: #737373;
@@ -731,7 +731,7 @@ html .md-footer-meta.md-typeset a {
 }
 
 .md-header__version-select .md-tabs__link.md-tabs__dropdown-link {
-    display: flex;
+    display: inline-block;
     padding: .45rem;
     margin-top: .35rem;
     border-radius: .1rem;
@@ -773,6 +773,9 @@ html .md-footer-meta.md-typeset a {
 }
 
 .mb-config-catalog .superfences-tabs .tab-selector {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     text-align: right;
 }
 

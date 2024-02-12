@@ -33,15 +33,17 @@ Dynamic secrets are specified in configurations as environment variables, system
     !!! Note
         In this example, `dynamic_secret` is a placeholder for the secret. You will use this placeholder as the secret's alias when you encrypt the plain-text secret using the apictl (in the next step).
 
-    ```toml tab='Environment Variable'
-    [secrets]
-    server_secret = "$env{dynamic_secret}"
-    ```
+    === "Environment Variable"
+        ```toml
+        [secrets]
+        server_secret = "$env{dynamic_secret}"
+        ```
 
-    ```toml tab='System Property'
-    [secrets]
-    server_secret = "$sys{dynamic_secret}"
-    ``` 
+    === "System Property"
+        ```toml
+        [secrets]
+        server_secret = "$sys{dynamic_secret}"
+        ``` 
 
 2.  Now, encrypt a plain-text secret for the `dynamic_secret` alias by using the WSO2 API Controller. For more information, see [Encrypting Secrets with CTL]({{base_path}}/install-and-setup/setup/api-controller/encrypting-secrets-with-ctl)
 
@@ -59,13 +61,15 @@ In a <b>VM environment</b>, you need to manually run the Cipher Tool as follows:
 1.  Open a terminal, navigate to the `<MI_HOME>/bin/` directory.
 2.  Execute the `-Dconfigure` command with the cipher tool script as shown below.
 
-    ```bash tab='On Linux'
-    ./ciphertool.sh -Dconfigure
-    ```
+    === "On Linux"
+        ```bash
+        ./ciphertool.sh -Dconfigure
+        ```
 
-    ```bash tab='On Windows'
-    ./ciphertool.bat -Dconfigure
-    ```
+    === "On Windows"
+        ```bash
+        ./ciphertool.bat -Dconfigure
+        ```
 
 ### In a Kubernetes environment
 

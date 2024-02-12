@@ -182,23 +182,27 @@ and [Local Scopes]({{base_path}}/design/api-security/oauth2/oauth2-scopes/fine-g
          
    - Linux/Mac OS
          
-       ``` tab="Format"
-         ./api-manager.sh -DdisableRoleValidationAtScopeCreation=<boolean_value>
-       ```
+    === "Format"
+          ```
+          ./api-manager.sh -DdisableRoleValidationAtScopeCreation=<boolean_value>
+          ```
              
-       ``` tab="Example"
-         ./api-manager.sh -DdisableRoleValidationAtScopeCreation=true
-       ```
+    === "Example"
+          ```
+          ./api-manager.sh -DdisableRoleValidationAtScopeCreation=true
+          ```
              
    - Windows
          
-       ``` tab="Format"
-         api-manager.bat -DdisableRoleValidationAtScopeCreation=<boolean_value>
-       ```
+    === "Format"
+          ```
+          api-manager.bat -DdisableRoleValidationAtScopeCreation=<boolean_value>
+          ```
              
-       ``` tab="Example"
-             api-manager.bat -DdisableRoleValidationAtScopeCreation=true           
-       ```
+    === "Example"
+          ```
+          api-manager.bat -DdisableRoleValidationAtScopeCreation=true           
+          ```
        
 ## Obtaining Tokens with Scopes
 

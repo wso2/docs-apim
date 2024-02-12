@@ -111,32 +111,34 @@ Follow the instructions below to change the type of the default datasource.
     
     Sample configuration is shown below:
     
-    ``` tab="Format"
-    type = "postgre"
-    url = "jdbc:postgresql://localhost:5432/<DATABASE_NAME>"
-    username = "<USER_NAME>"
-    password = "<PASSWORD>"
-    driver = "org.postgresql.Driver"
-    validationQuery = "SELECT 1"
-    ```
+    === "Format"
+        ``` toml
+        type = "postgre"
+        url = "jdbc:postgresql://localhost:5432/<DATABASE_NAME>"
+        username = "<USER_NAME>"
+        password = "<PASSWORD>"
+        driver = "org.postgresql.Driver"
+        validationQuery = "SELECT 1"
+        ```
     
-    ``` tab="Example"
-    [database.shared_db]
-    type = "postgre"
-    url = "jdbc:postgresql://localhost:5432/shared_db"
-    username = "sharedadmin"
-    password = "sharedadmin"
-    driver = "org.postgresql.Driver"
-    validationQuery = "SELECT 1"
-    
-    [database.apim_db]
-    type = "postgre"
-    url = "jdbc:postgresql://localhost:5432/apim_db"
-    username = "apimadmin"
-    password = "apimadmin"
-    driver = "org.postgresql.Driver"
-    validationQuery = "SELECT 1"
-    ```
+    === "Example"
+        ``` toml
+        [database.shared_db]
+        type = "postgre"
+        url = "jdbc:postgresql://localhost:5432/shared_db"
+        username = "sharedadmin"
+        password = "sharedadmin"
+        driver = "org.postgresql.Driver"
+        validationQuery = "SELECT 1"
+        
+        [database.apim_db]
+        type = "postgre"
+        url = "jdbc:postgresql://localhost:5432/apim_db"
+        username = "apimadmin"
+        password = "apimadmin"
+        driver = "org.postgresql.Driver"
+        validationQuery = "SELECT 1"
+        ```
 
 1. You can update the configuration elements given below for your database connection.
    
@@ -153,40 +155,42 @@ Follow the instructions below to change the type of the default datasource.
     
     Sample configuration is shown below:
     
-    ``` tab="Format"
-    type = "postgre"
-    url = "jdbc:postgresql://localhost:5432/<DATABASE_NAME>"
-    username = "<USER_NAME>"
-    password = "<PASSWORD>"
-    driver = "org.postgresql.Driver"
-    validationQuery = "SELECT 1"
-    pool_options.<OPTION-1> = <VALUE-1>
-    pool_options.<OPTION-2> = <VALUE-2>
-    ...
-    ```
+    === "Format" 
+        ``` toml
+        type = "postgre"
+        url = "jdbc:postgresql://localhost:5432/<DATABASE_NAME>"
+        username = "<USER_NAME>"
+        password = "<PASSWORD>"
+        driver = "org.postgresql.Driver"
+        validationQuery = "SELECT 1"
+        pool_options.<OPTION-1> = <VALUE-1>
+        pool_options.<OPTION-2> = <VALUE-2>
+        ...
+        ```
     
-    ``` tab="Example"
-    [database.shared_db]
-    type = "postgre"
-    url = "jdbc:postgresql://localhost:5432/shared_db"
-    username = "sharedadmin"
-    password = "sharedadmin"
-    driver = "org.postgresql.Driver"
-    validationQuery = "SELECT 1"
-    pool_options.maxActive = 100
-    pool_options.maxWait = 10000
-    pool_options.validationInterval = 10000
-    
-    [database.apim_db]
-    type = "postgre"
-    url = "jdbc:postgresql://localhost:5432/apim_db"
-    username = "apimadmin"
-    password = "apimadmin"
-    driver = "org.postgresql.Driver"
-    validationQuery = "SELECT 1"
-    pool_options.maxActive = 50
-    pool_options.maxWait = 30000
-    ```
+    === "Example"
+        ``` toml
+        [database.shared_db]
+        type = "postgre"
+        url = "jdbc:postgresql://localhost:5432/shared_db"
+        username = "sharedadmin"
+        password = "sharedadmin"
+        driver = "org.postgresql.Driver"
+        validationQuery = "SELECT 1"
+        pool_options.maxActive = 100
+        pool_options.maxWait = 10000
+        pool_options.validationInterval = 10000
+        
+        [database.apim_db]
+        type = "postgre"
+        url = "jdbc:postgresql://localhost:5432/apim_db"
+        username = "apimadmin"
+        password = "apimadmin"
+        driver = "org.postgresql.Driver"
+        validationQuery = "SELECT 1"
+        pool_options.maxActive = 50
+        pool_options.maxWait = 30000
+        ```
 
     !!! info
         For more information on other parameters that can be defined in the `<API-M_HOME>/repository/conf/deployment.toml` file, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
@@ -204,12 +208,13 @@ Follow the instructions below to change the type of the default datasource.
         - Create tables in the carbon database (`WSO2CARBON_DB`) using the script `<API-M_HOME>/dbscripts/postgresql.sql`.
         -   Open the `<API-M_HOME>/repository/conf/deployment.toml` configuration file. Locate the `[database.local]` configuration element and update the URL pointing to your PostgreSQL database, the username, and password required to access the database and the PostgreSQL driver details similarly as explained before.
         
-        ``` tab="Example"
-        [database.local]
-        type = "postgre"
-        url = "jdbc:postgresql://localhost:5432/carbon_db"
-        username = "carbonadmin"
-        password = "carbonadmin"
-        driver = "org.postgresql.Driver"
-        validationQuery = "SELECT 1"
-        ```
+        === "Example"
+            ``` toml
+            [database.local]
+            type = "postgre"
+            url = "jdbc:postgresql://localhost:5432/carbon_db"
+            username = "carbonadmin"
+            password = "carbonadmin"
+            driver = "org.postgresql.Driver"
+            validationQuery = "SELECT 1"
+            ```

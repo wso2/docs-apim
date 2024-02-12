@@ -16,21 +16,23 @@ For more information, see [OpenTracer Configurations]({{base_path}}/reference/co
 
 1. Copy the following configuration into the `deployment.toml` file.
 
-    ```toml tab="Format"
-	[apim.open_tracer]
-	remote_tracer.enable = true
-	remote_tracer.name = "jaeger"
-	remote_tracer.properties.hostname = "<hostname-of-jaeger-endpoint>"
-	remote_tracer.properties.port = "<port-of-jaeger-endpoint>"
-	```
+    === "Format"
+        ```toml
+        [apim.open_tracer]
+        remote_tracer.enable = true
+        remote_tracer.name = "jaeger"
+        remote_tracer.properties.hostname = "<hostname-of-jaeger-endpoint>"
+        remote_tracer.properties.port = "<port-of-jaeger-endpoint>"
+        ```
 
-	```toml tab="Example"
-	[apim.open_tracer]
-	remote_tracer.enable = true
-	remote_tracer.name = "jaeger"
-	remote_tracer.properties.hostname = "localhost"
-	remote_tracer.properties.port = "6831"
-	```
+	=== "Example"
+        ```toml
+        [apim.open_tracer]
+        remote_tracer.enable = true
+        remote_tracer.name = "jaeger"
+        remote_tracer.properties.hostname = "localhost"
+        remote_tracer.properties.port = "6831"
+        ```
 
 2. Start the server.
 
@@ -42,21 +44,23 @@ For more information, see [OpenTracer Configurations]({{base_path}}/reference/co
 
 1. Copy the following configuration into the `deployment.toml` file.
 
-    ```toml tab="Format"
-	[apim.open_tracer]
-	remote_tracer.enable = true
-	remote_tracer.name = "zipkin"
-	remote_tracer.properties.hostname = "<hostname-of-zikin-endpoint>"
-	remote_tracer.properties.port = "<port-o-zipkin-endpoint>"
-	```
+    === "Format"
+        ```toml
+        [apim.open_tracer]
+        remote_tracer.enable = true
+        remote_tracer.name = "zipkin"
+        remote_tracer.properties.hostname = "<hostname-of-zikin-endpoint>"
+        remote_tracer.properties.port = "<port-o-zipkin-endpoint>"
+        ```
 
-	```toml tab="Example"
-	[apim.open_tracer]
-	remote_tracer.enable = true
-	remote_tracer.name = "zipkin"
-	remote_tracer.properties.hostname = "localhost"
-	remote_tracer.properties.port = "9411"
-	```
+	=== "Example"
+        ```toml
+        [apim.open_tracer]
+        remote_tracer.enable = true
+        remote_tracer.name = "zipkin"
+        remote_tracer.properties.hostname = "localhost"
+        remote_tracer.properties.port = "9411"
+        ```
 
 2. Start the server.
 
@@ -106,17 +110,19 @@ You can use any tracing server with a custom tracer implementation in WSO2 API M
 
 3. Add the following configuration into the `deployment.toml` file.
 
-    ```toml tab="Format"
-    [apim.open_tracer]
-    remote_tracer.enable = true
-    remote_tracer.name = <custom_tracer_name>
-    ```
+    === "Format"
+        ```toml
+        [apim.open_tracer]
+        remote_tracer.enable = true
+        remote_tracer.name = <custom_tracer_name>
+        ```
 
-    ```toml tab="Example"
-    [apim.open_tracer]
-    remote_tracer.enable = true
-    remote_tracer.name = "elastic"
-    ```
+    === "Example"
+        ```toml
+        [apim.open_tracer]
+        remote_tracer.enable = true
+        remote_tracer.name = "elastic"
+        ```
 
 4. Add the Elastic Opentracer JAR file in to the `lib` directory (`<API-M_HOME>/repository/components/lib`). You can download it from [here](https://mvnrepository.com/artifact/co.elastic.apm/apm-opentracing). 
 

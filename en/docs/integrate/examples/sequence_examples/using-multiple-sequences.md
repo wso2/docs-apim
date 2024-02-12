@@ -15,133 +15,139 @@ Following are the integration artifacts that we can used to implement this scena
 
 - Mediation sequences:
 
-    ```xml tab='Sequence 1'
-    <sequence xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteSeq" onError="StockQuoteErrorSeq">
-        <log level="custom">
-            <property name="Sequence" value="StockQuoteSeq"/>
-            <property name="Description" value="Request recieved"/>
-        </log>
-        <sequence key="CallStockQuoteSeq"/>
-        <sequence key="TransformAndRespondSeq"/>
-    </sequence>
-    ```
+    === "Sequence 1"
+        ```xml
+        <sequence xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteSeq" onError="StockQuoteErrorSeq">
+            <log level="custom">
+                <property name="Sequence" value="StockQuoteSeq"/>
+                <property name="Description" value="Request recieved"/>
+            </log>
+            <sequence key="CallStockQuoteSeq"/>
+            <sequence key="TransformAndRespondSeq"/>
+        </sequence>
+        ```
 
-    ```xml tab='Sequence 2'
-    <sequence xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteErrorSeq">
-        <log level="custom">
-            <property name="Description" value="Error occurred in StockQuoteErrorSeq"/>
-            <property name="Status" value="ERROR"/>
-        </log>
-    </sequence>
-    ```
+    === "Sequence 2"
+        ```xml
+        <sequence xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteErrorSeq">
+            <log level="custom">
+                <property name="Description" value="Error occurred in StockQuoteErrorSeq"/>
+                <property name="Status" value="ERROR"/>
+            </log>
+        </sequence>
+        ```
 
-    ```xml tab='Sequence 3'
-    <sequence xmlns="http://ws.apache.org/ns/synapse" name="TransformAndRespondSeq" onError="TransformAndRespondErrorSeq">
-        <log level="custom">
-            <property name="Sequence" value="TransformAndRespondSeq"/>
-            <property name="Description" value="Response is ready to be transformed"/>
-        </log>
-        <payloadFactory media-type="xml">
-            <format>
-                <Information xmlns="">
-                    <Name>$1</Name>
-                    <Last>$2</Last>
-                    <High>$3</High>
-                    <Low>$4</Low>
-                </Information>
-            </format>
-            <args>
-                <arg evaluator="xml" xmlns:m0="http://services.samples/xsd" expression="//m0:name"/>
-                <arg evaluator="xml" xmlns:m0="http://services.samples/xsd" expression="//m0:last"/>
-                <arg evaluator="xml" xmlns:m0="http://services.samples/xsd" expression="//m0:low"/>
-                <arg evaluator="xml" xmlns:m0="http://services.samples/xsd" expression="//m0:high"/>
-            </args>
-        </payloadFactory>
-        <log level="custom">
-            <property name="Sequence" value="TransformAndRespondSeq"/>
-            <property name="Description" value="Responding back to the client with the transformed response"/>
-        </log>
-        <respond/>
-    </sequence>
-    ```
+    === "Sequence 3"
+        ```xml
+        <sequence xmlns="http://ws.apache.org/ns/synapse" name="TransformAndRespondSeq" onError="TransformAndRespondErrorSeq">
+            <log level="custom">
+                <property name="Sequence" value="TransformAndRespondSeq"/>
+                <property name="Description" value="Response is ready to be transformed"/>
+            </log>
+            <payloadFactory media-type="xml">
+                <format>
+                    <Information xmlns="">
+                        <Name>$1</Name>
+                        <Last>$2</Last>
+                        <High>$3</High>
+                        <Low>$4</Low>
+                    </Information>
+                </format>
+                <args>
+                    <arg evaluator="xml" xmlns:m0="http://services.samples/xsd" expression="//m0:name"/>
+                    <arg evaluator="xml" xmlns:m0="http://services.samples/xsd" expression="//m0:last"/>
+                    <arg evaluator="xml" xmlns:m0="http://services.samples/xsd" expression="//m0:low"/>
+                    <arg evaluator="xml" xmlns:m0="http://services.samples/xsd" expression="//m0:high"/>
+                </args>
+            </payloadFactory>
+            <log level="custom">
+                <property name="Sequence" value="TransformAndRespondSeq"/>
+                <property name="Description" value="Responding back to the client with the transformed response"/>
+            </log>
+            <respond/>
+        </sequence>
+        ```
 
-    ```xml tab='Sequence 4'
-    <sequence xmlns="http://ws.apache.org/ns/synapse" name="TransformAndRespondErrorSeq">
-        <log level="custom">
-            <property name="Description" value="Error occurred in TransformAndRespondSeq"/>
-            <property name="Status" value="ERROR"/>
-        </log>
-    </sequence>
-    ```
+    === "Sequence 4"
+        ```xml
+        <sequence xmlns="http://ws.apache.org/ns/synapse" name="TransformAndRespondErrorSeq">
+            <log level="custom">
+                <property name="Description" value="Error occurred in TransformAndRespondSeq"/>
+                <property name="Status" value="ERROR"/>
+            </log>
+        </sequence>
+        ```
 
-    ```xml tab='Sequence 5'
-    <sequence xmlns="http://ws.apache.org/ns/synapse" name="CallStockQuoteErrorSeq">
-          <log level="custom">
-              <property name="Description" value="Error occurred in CallStockQuoteSeq"/>
-              <property name="Status" value="ERROR"/>
-          </log>
-    </sequence>
-    ```
+    === "Sequence 5"
+        ```xml
+        <sequence xmlns="http://ws.apache.org/ns/synapse" name="CallStockQuoteErrorSeq">
+            <log level="custom">
+                <property name="Description" value="Error occurred in CallStockQuoteSeq"/>
+                <property name="Status" value="ERROR"/>
+            </log>
+        </sequence>
+        ```
 
-    ```xml tab='Sequence 6'
-    <sequence xmlns="http://ws.apache.org/ns/synapse" name="CallStockQuoteSeq" onError="CallStockQuoteErrorSeq">
-        <switch source="//ns:symbol" xmlns:ns="http://org.apache.synapse/xsd">
-            <case regex="IBM">
-                <log level="custom">
-                    <property name="Sequence" value="CallStockQuoteSeq"/>
-                    <property name="Description" value="Calling IBM endpoint"/>
-                </log>
-                <call blocking="true">
-                    <endpoint>
-                        <http method="GET" uri-template="http://localhost:8290/stockquote/view/IBM"/>
-                    </endpoint>
-                </call>
-                <log level="custom">
-                    <property name="Sequence" value="CallStockQuoteSeq"/>
-                    <property name="Description" value="Response received from IBM endpoint"/>
-                </log>
-            </case>
-            <case regex="GOOG">
-                <log level="custom">
-                    <property name="Sequence" value="CallStockQuoteSeq"/>
-                    <property name="Description" value="Calling GOOG endpoint"/>
-                </log>
-                <call blocking="true">
-                    <endpoint>
-                        <http method="GET" uri-template="http://localhost:8290/stockquote/view/GOOG"/>
-                    </endpoint>
-                </call>
-                <log level="custom">
-                    <property name="Sequence" value="CallStockQuoteSeq"/>
-                    <property name="Description" value="Response received from GOOG endpoint"/>
-                </log>
-            </case>
-            <case regex="AMZN">
-                <log level="custom">
-                    <property name="Sequence" value="CallStockQuoteSeq"/>
-                    <property name="Description" value="Calling AMZN endpoint"/>
-                </log>
-                <call blocking="true">
-                    <endpoint>
-                        <http method="GET" uri-template="http://localhost:8290/stockquote/view/AMZN"/>
-                    </endpoint>
-                </call>
-                <log level="custom">
-                    <property name="Sequence" value="CallStockQuoteSeq"/>
-                    <property name="Description" value="Response received from AMZN endpoint"/>
-                </log>
-            </case>
-            <default>
-                <log level="custom">
-                    <property name="Sequence" value="CallStockQuoteSeq"/>
-                    <property name="Description" value="Invalid Symbol"/>
-                    <property name="Status" value="ERROR"/>
-                </log>
-                <drop/>
-            </default>
-        </switch>
-    </sequence>
-    ```
+    === "Sequence 6"
+        ```xml
+        <sequence xmlns="http://ws.apache.org/ns/synapse" name="CallStockQuoteSeq" onError="CallStockQuoteErrorSeq">
+            <switch source="//ns:symbol" xmlns:ns="http://org.apache.synapse/xsd">
+                <case regex="IBM">
+                    <log level="custom">
+                        <property name="Sequence" value="CallStockQuoteSeq"/>
+                        <property name="Description" value="Calling IBM endpoint"/>
+                    </log>
+                    <call blocking="true">
+                        <endpoint>
+                            <http method="GET" uri-template="http://localhost:8290/stockquote/view/IBM"/>
+                        </endpoint>
+                    </call>
+                    <log level="custom">
+                        <property name="Sequence" value="CallStockQuoteSeq"/>
+                        <property name="Description" value="Response received from IBM endpoint"/>
+                    </log>
+                </case>
+                <case regex="GOOG">
+                    <log level="custom">
+                        <property name="Sequence" value="CallStockQuoteSeq"/>
+                        <property name="Description" value="Calling GOOG endpoint"/>
+                    </log>
+                    <call blocking="true">
+                        <endpoint>
+                            <http method="GET" uri-template="http://localhost:8290/stockquote/view/GOOG"/>
+                        </endpoint>
+                    </call>
+                    <log level="custom">
+                        <property name="Sequence" value="CallStockQuoteSeq"/>
+                        <property name="Description" value="Response received from GOOG endpoint"/>
+                    </log>
+                </case>
+                <case regex="AMZN">
+                    <log level="custom">
+                        <property name="Sequence" value="CallStockQuoteSeq"/>
+                        <property name="Description" value="Calling AMZN endpoint"/>
+                    </log>
+                    <call blocking="true">
+                        <endpoint>
+                            <http method="GET" uri-template="http://localhost:8290/stockquote/view/AMZN"/>
+                        </endpoint>
+                    </call>
+                    <log level="custom">
+                        <property name="Sequence" value="CallStockQuoteSeq"/>
+                        <property name="Description" value="Response received from AMZN endpoint"/>
+                    </log>
+                </case>
+                <default>
+                    <log level="custom">
+                        <property name="Sequence" value="CallStockQuoteSeq"/>
+                        <property name="Description" value="Invalid Symbol"/>
+                        <property name="Status" value="ERROR"/>
+                    </log>
+                    <drop/>
+                </default>
+            </switch>
+        </sequence>
+        ```
 
 - REST API, which calls the back-end service.
   ```xml
@@ -191,13 +197,15 @@ Set up the back-end service:
 3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
 4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
    
-      ```bash tab='On MacOS/Linux/CentOS'
-      sh axis2server.sh
-      ```
+    === "On MacOS/Linux/CentOS"
+        ```bash
+        sh axis2server.sh
+        ```
           
-      ```bash tab='On Windows'
-      axis2server.bat
-      ```
+    === "On Windows"
+        ```bash
+        axis2server.bat
+        ```
 
 Send a request to invoke the service:
 ```xml

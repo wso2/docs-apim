@@ -92,29 +92,31 @@ Follow the steps below to change the type of the default datasource.
 
     Sample configuration is shown below:
 
-    ``` tab="Format"
-    url = "jdbc:informix-sqli://localhost:1533/<DATABASE_NAME>;CLIENT_LOCALE=en_US.utf8;DB_LOCALE=en_us.utf8;IFX_USE_STRENC=true;"
-    username = "<USER_NAME>"
-    password = "<PASSWORD>"
-    driver = "com.informix.jdbc.IfxDriver"
-    validationQuery = "SELECT 1"
-    ```
+    === "Format"
+        ``` toml
+        url = "jdbc:informix-sqli://localhost:1533/<DATABASE_NAME>;CLIENT_LOCALE=en_US.utf8;DB_LOCALE=en_us.utf8;IFX_USE_STRENC=true;"
+        username = "<USER_NAME>"
+        password = "<PASSWORD>"
+        driver = "com.informix.jdbc.IfxDriver"
+        validationQuery = "SELECT 1"
+        ```
 
-    ``` tab="Example"
-    [database.shared_db]
-    url = "jdbc:informix-sqli://localhost:1533/shared_db;CLIENT_LOCALE=en_US.utf8;DB_LOCALE=en_us.utf8;IFX_USE_STRENC=true;"
-    username = "regadmin"
-    password = "regadmin"
-    driver = "com.informix.jdbc.IfxDriver"
-    validationQuery = "SELECT 1"
+    === "Example"
+        ``` toml
+        [database.shared_db]
+        url = "jdbc:informix-sqli://localhost:1533/shared_db;CLIENT_LOCALE=en_US.utf8;DB_LOCALE=en_us.utf8;IFX_USE_STRENC=true;"
+        username = "regadmin"
+        password = "regadmin"
+        driver = "com.informix.jdbc.IfxDriver"
+        validationQuery = "SELECT 1"
 
-    [database.apim_db]
-    url = "jdbc:informix-sqli://localhost:1533/apim_db;CLIENT_LOCALE=en_US.utf8;DB_LOCALE=en_us.utf8;IFX_USE_STRENC=true;"
-    username = "apimadmin"
-    password = "apimadmin"
-    driver = "com.informix.jdbc.IfxDriver"
-    validationQuery = "SELECT 1"
-    ```
+        [database.apim_db]
+        url = "jdbc:informix-sqli://localhost:1533/apim_db;CLIENT_LOCALE=en_US.utf8;DB_LOCALE=en_us.utf8;IFX_USE_STRENC=true;"
+        username = "apimadmin"
+        password = "apimadmin"
+        driver = "com.informix.jdbc.IfxDriver"
+        validationQuery = "SELECT 1"
+        ```
 
 1.  You can update the configuration elements given below for your database connection.
 
@@ -131,37 +133,39 @@ Follow the steps below to change the type of the default datasource.
 
     Sample configuration is shown below:
     
-    ``` tab="Format"
-    url = "jdbc:informix-sqli://localhost:1533/<DATABASE_NAME>;CLIENT_LOCALE=en_US.utf8;DB_LOCALE=en_us.utf8;IFX_USE_STRENC=true;"
-    username = "<USER_NAME>"
-    password = "<PASSWORD>"
-    driver = "com.informix.jdbc.IfxDriver"
-    validationQuery = "SELECT 1"
-    pool_options.<OPTION-1> = <VALUE-1>
-    pool_options.<OPTION-2> = <VALUE-2>
-    ...
-    ```
+    === "Format"
+        ``` toml
+        url = "jdbc:informix-sqli://localhost:1533/<DATABASE_NAME>;CLIENT_LOCALE=en_US.utf8;DB_LOCALE=en_us.utf8;IFX_USE_STRENC=true;"
+        username = "<USER_NAME>"
+        password = "<PASSWORD>"
+        driver = "com.informix.jdbc.IfxDriver"
+        validationQuery = "SELECT 1"
+        pool_options.<OPTION-1> = <VALUE-1>
+        pool_options.<OPTION-2> = <VALUE-2>
+        ...
+        ```
     
-    ``` tab="Example"
-    [database.shared_db]
-    url = "jdbc:informix-sqli://localhost:1533/shared_db;CLIENT_LOCALE=en_US.utf8;DB_LOCALE=en_us.utf8;IFX_USE_STRENC=true;"
-    username = "regadmin"
-    password = "regadmin"
-    driver = "com.informix.jdbc.IfxDriver"
-    validationQuery = "SELECT 1"
-    pool_options.maxActive = 100
-    pool_options.maxWait = 10000
-    pool_options.validationInterval = 10000
-    
-    [database.apim_db]
-    url = "jdbc:informix-sqli://localhost:1533/apim_db;CLIENT_LOCALE=en_US.utf8;DB_LOCALE=en_us.utf8;IFX_USE_STRENC=true;"
-    username = "apimadmin"
-    password = "apimadmin"
-    driver = "com.informix.jdbc.IfxDriver"
-    validationQuery = "SELECT 1"
-    pool_options.maxActive = 50
-    pool_options.maxWait = 30000
-    ```
+    === "Example"
+        ``` toml
+        [database.shared_db]
+        url = "jdbc:informix-sqli://localhost:1533/shared_db;CLIENT_LOCALE=en_US.utf8;DB_LOCALE=en_us.utf8;IFX_USE_STRENC=true;"
+        username = "regadmin"
+        password = "regadmin"
+        driver = "com.informix.jdbc.IfxDriver"
+        validationQuery = "SELECT 1"
+        pool_options.maxActive = 100
+        pool_options.maxWait = 10000
+        pool_options.validationInterval = 10000
+        
+        [database.apim_db]
+        url = "jdbc:informix-sqli://localhost:1533/apim_db;CLIENT_LOCALE=en_US.utf8;DB_LOCALE=en_us.utf8;IFX_USE_STRENC=true;"
+        username = "apimadmin"
+        password = "apimadmin"
+        driver = "com.informix.jdbc.IfxDriver"
+        validationQuery = "SELECT 1"
+        pool_options.maxActive = 50
+        pool_options.maxWait = 30000
+        ```
     
     !!! info
         For more information on other parameters that can be defined in the `<API-M_HOME>/repository/conf/deployment.toml` file, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).

@@ -28,7 +28,7 @@ Follow the instructions below to configure analytics with Choreo:
 
 4. Locate the environment variables section under the `enforcer` and change the following variables.
 
-    ``` yml
+    ``` yaml
     environment:
         ...
         analytics_authURL=https://analytics-event-auth.choreo.dev/auth/v1
@@ -225,7 +225,7 @@ Update the `choreo-connect-1.x.x/docker-compose/choreo-connect(-with-apim)/conf/
      1. Open the `filebeat.yml` file.
      2. Configure the container log files as the input source.
 
-        ```yml
+        ```yaml
           filebeat.inputs:
           - type: container
             enabled: true

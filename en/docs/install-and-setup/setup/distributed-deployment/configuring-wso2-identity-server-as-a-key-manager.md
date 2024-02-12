@@ -59,23 +59,25 @@ Follow the instructions below to set up and configure the databases for the WSO2
 
      You need to define the following configuration in the `<IS_HOME>/repository/conf/deployment.toml` file. Sample configurations for MySQL have been provided.
   
-    ``` tab="Format"
-     
-     [database.shared_db]
-     type = "mysql"
-     url = "jdbc:mysql://<database-host>:3306/<WSO2_SHARED_DB>"
-     username = "<db_username>"
-     password = "<db_password>"
-    ```
+    === "Format"
+        ``` toml
+        
+        [database.shared_db]
+        type = "mysql"
+        url = "jdbc:mysql://<database-host>:3306/<WSO2_SHARED_DB>"
+        username = "<db_username>"
+        password = "<db_password>"
+        ```
     
-    ``` tab="Example"
-    
-     [database.shared_db]
-     type = "mysql"
-     url = "jdbc:mysql://localhost:3306/shared_db"
-     username = "umadmin"
-     password = "umadmin"
-    ```
+    === "Example"
+        ``` toml
+        
+        [database.shared_db]
+        type = "mysql"
+        url = "jdbc:mysql://localhost:3306/shared_db"
+        username = "umadmin"
+        password = "umadmin"
+        ```
 
 3. **If multi-tenancy is used**, you need to share the `WSO2AM_DB` with the Identity Server.
     
@@ -84,63 +86,69 @@ Follow the instructions below to set up and configure the databases for the WSO2
     !!! note
         **If you are using Identity Server in an HA setup and not using multi-tenancy**, create an identity database and share the `[database.identity_db]` db between the two IS nodes.
 
-    ``` tab="Format"
-     [database.identity_db]
-     type = "mysql"
-     url = "jdbc:mysql://<database-host>:3306/<WSO2AM_DB>?useSSL=false"
-     username = "wso2carbon"
-     password = "wso2carbon"
-    ```
+    === "Format"
+        ``` toml
+        [database.identity_db]
+        type = "mysql"
+        url = "jdbc:mysql://<database-host>:3306/<WSO2AM_DB>?useSSL=false"
+        username = "wso2carbon"
+        password = "wso2carbon"
+        ```
 
-    ``` tab="Example"
-     [database.identity_db]
-     type = "mysql"
-     url = "jdbc:mysql://localhost:3306/apim_db?useSSL=false"
-     username = "wso2carbon"
-     password = "wso2carbon"
-    ```
+    === "Example"
+        ``` toml
+        [database.identity_db]
+        type = "mysql"
+        url = "jdbc:mysql://localhost:3306/apim_db?useSSL=false"
+        username = "wso2carbon"
+        password = "wso2carbon"
+        ```
 
 4. Share `WSO2_SHARED_DB` with WSO2 API-M.
 
      Define the same datasource configurations that were mentioned in <a href="#step3-2">step 3.2</a> for `WSO2_SHARED_DB` in the `<APIM_HOME>/repository/conf/deployment.toml` file.
 
-     ``` tab="Format"
-     [database.shared_db]
-     type = "mysql"
-     url = "jdbc:mysql://<database-host>:3306/<WSO2_SHARED_DB>"
-     username = "<db_username>"
-     password = "<db_password>"
-     ```
+    === "Format" 
+        ``` toml
+        [database.shared_db]
+        type = "mysql"
+        url = "jdbc:mysql://<database-host>:3306/<WSO2_SHARED_DB>"
+        username = "<db_username>"
+        password = "<db_password>"
+        ```
 
-     ``` tab="Example"
-     [database.shared_db]
-     type = "mysql"
-     url = "jdbc:mysql://localhost:3306/shared_db"
-     username = "umadmin"
-     password = "umadmin"
-     ```
+    === "Example"
+        ``` toml
+        [database.shared_db]
+        type = "mysql"
+        url = "jdbc:mysql://localhost:3306/shared_db"
+        username = "umadmin"
+        password = "umadmin"
+        ```
 
 5.  Share `WSO2AM-DB` with WSO2 API-M.
 
      Define the datasource configurations for `WSO2AM-DB` in the `<APIM_HOME>/repository/conf/deployment.toml` file. 
 
-     ``` tab="Format"
+    === "Format"
+        ``` toml
 
-     [database.apim_db]
-     type = "mysql"
-     url = "jdbc:mysql://<database-host>:3306/<WSO2AM_DB>"
-     username = "<db_username>"
-     password = "<db_password>"
-     ```
+        [database.apim_db]
+        type = "mysql"
+        url = "jdbc:mysql://<database-host>:3306/<WSO2AM_DB>"
+        username = "<db_username>"
+        password = "<db_password>"
+        ```
 
-     ``` tab="Example"
+    === "Example"
+        ``` toml
 
-     [database.apim_db]
-     type = "mysql"
-     url = "jdbc:mysql://localhost:3306/apim_db"
-     username = "amadmin"
-     password = "amadmin"
-     ```
+        [database.apim_db]
+        type = "mysql"
+        url = "jdbc:mysql://localhost:3306/apim_db"
+        username = "amadmin"
+        password = "amadmin"
+        ```
 
 ## Step 4 - Configure WSO2 IS with WSO2 API-M
 
@@ -219,23 +227,25 @@ Follow the instructions below to set up and configure the databases for the WSO2
 
 5. Configure the event listener endpoint to publish controller events to the Control Plane.
 
-    ``` tab="Format"
+    === "Format"
+        ``` toml
 
-    [event_listener.properties]
-    notification_endpoint = "https://<control-plane-host>:<control-plane-https-port>/internal/data/v1/notify"
-    username = "${admin.username}"
-    password = "${admin.password}"
-    'header.X-WSO2-KEY-MANAGER' = "WSO2-IS"
-    ```
+        [event_listener.properties]
+        notification_endpoint = "https://<control-plane-host>:<control-plane-https-port>/internal/data/v1/notify"
+        username = "${admin.username}"
+        password = "${admin.password}"
+        'header.X-WSO2-KEY-MANAGER' = "WSO2-IS"
+        ```
 
-    ``` tab="Example"
+    === "Example"
+        ``` toml
 
-    [event_listener.properties]
-    notification_endpoint = "https://<cp.wso2.com>:9443/internal/data/v1/notify"
-    username = "${admin.username}"
-    password = "${admin.password}"
-    'header.X-WSO2-KEY-MANAGER' = "WSO2-IS"
-    ```
+        [event_listener.properties]
+        notification_endpoint = "https://<cp.wso2.com>:9443/internal/data/v1/notify"
+        username = "${admin.username}"
+        password = "${admin.password}"
+        'header.X-WSO2-KEY-MANAGER' = "WSO2-IS"
+        ```
 
 6. Add the following configuration in the `<IS_HOME>/repository/conf/deployment.toml` file to change the default encryption type and remove the `keystore.primary` configuration.
     ```
