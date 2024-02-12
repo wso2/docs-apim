@@ -92,7 +92,7 @@ for (var i = 0; i < dropdowns.length; i++) {
 /* 
  * Reading versions
  */
-var pageHeader = document.getElementsByClassName('md-header__inner');
+var pageHeader = document.getElementById('page-header');
 var docSetLang = pageHeader.getAttribute('data-lang');
 
 (window.location.pathname.split('/')[1] !== docSetLang) ? 
@@ -102,8 +102,10 @@ var docSetLang = pageHeader.getAttribute('data-lang');
 var docSetUrl = window.location.origin + '/' + docSetLang;
 var request = new XMLHttpRequest();
 
-request.open('GET', docSetUrl +
+setTimeout(() => {
+    request.open('GET', docSetUrl +
              'versions/assets/versions.json', true);
+}, 5000)
 
 request.onload = function() {
   if (request.status >= 200 && request.status < 400) {
