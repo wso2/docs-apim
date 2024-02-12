@@ -266,7 +266,7 @@ In the following example, parameters are configured as dynamic values in the DB 
     </dblookup>
     ```
 
-=== 'DB Report (Using a File)"
+=== "DB Report (Using a File)"
     ```xml
     <dbreport>
         <connection>

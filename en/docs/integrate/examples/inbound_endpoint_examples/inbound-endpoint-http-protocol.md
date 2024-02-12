@@ -10,32 +10,32 @@ for mediation. The response also behaves in the same way.
 Following are the integration artifacts that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
 === "Inbound Endpoint"
-   ```xml
-   <?xml version="1.0" encoding="UTF-8"?>
-   <inboundEndpoint xmlns="http://ws.apache.org/ns/synapse"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <inboundEndpoint xmlns="http://ws.apache.org/ns/synapse"
                   name="HttpListenerEP1"
                   sequence="TestIn"
                   onError="fault"
                   protocol="http"
                   suspend="false">
-      <parameters>
-      <parameter name="inbound.http.port">8085</parameter>
-      </parameters>
-   </inboundEndpoint>
-   ```
+       <parameters>
+       <parameter name="inbound.http.port">8085</parameter>
+       </parameters>
+    </inboundEndpoint>
+    ```
 
 === "Sequence"
-   ```xml
-   <?xml version="1.0" encoding="UTF-8"?>
-   <sequence xmlns="http://ws.apache.org/ns/synapse" name="TestIn">
-      <call>
-         <endpoint>
-               <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-         </endpoint>
-      </call>
-      <respond/>
-   </sequence>
-   ```
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <sequence xmlns="http://ws.apache.org/ns/synapse" name="TestIn">
+       <call>
+          <endpoint>
+                <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+          </endpoint>
+       </call>
+       <respond/>
+    </sequence>
+    ```
 ## Build and run
 
 Create the artifacts:
@@ -51,13 +51,13 @@ Set up the back-end service:
 2. Extract the downloaded zip file.
 3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
 4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
-   
-     === "On MacOS/Linux/CentOS"
+
+    === "On MacOS/Linux/CentOS"
          ```bash
          sh axis2server.sh
          ```
           
-     === "On Windows"
+    === "On Windows"
          ```bash
          axis2server.bat
          ```

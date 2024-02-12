@@ -28,42 +28,42 @@ Follow the steps given below to start the server.
 
       -   To start the server:
           
-           === "On macOS/Linux"
-               ```bash
-               sh micro-integrator.sh
-               ```
+        === "On macOS/Linux"
+            ```bash
+            sh micro-integrator.sh
+            ```
 
-           === "On Windows"
-               ```bash
-               micro-integrator.bat
-               ```
+        === "On Windows"
+            ```bash
+            micro-integrator.bat
+            ```
           
       -   To start the server in background mode:
 
-           === "On macOS/Linux"
-               ```bash
-               sh micro-integrator.sh start
-               ```
+        === "On macOS/Linux"
+            ```bash
+            sh micro-integrator.sh start
+            ```
 
-           === "On Windows"
-               ```bash
-               micro-integrator.bat --start
-               ```
+        === "On Windows"
+            ```bash
+            micro-integrator.bat --start
+            ```
 
 ## Stopping the MI server
 
 -     To stop the Micro Integrator standalone application, go to the terminal and press <i>Ctrl+C</i>.
 -     To stop the Micro Integrator in background mode:
 
-      === "On macOS/Linux"
-            ```bash
-            sh micro-integrator.sh stop
-            ```
+    === "On macOS/Linux"
+        ```bash
+        sh micro-integrator.sh stop
+        ```
 
-      === "On Windows"
-            ```bash
-            micro-integrator.bat --stop
-            ```
+    === "On Windows"
+        ```bash
+        micro-integrator.bat --stop
+        ```
 
 ## See Also
 

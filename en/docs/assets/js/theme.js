@@ -102,10 +102,10 @@ var docSetLang = pageHeader.getAttribute('data-lang');
 var docSetUrl = window.location.origin + '/' + docSetLang;
 var request = new XMLHttpRequest();
 
-setTimeout(() => {
+// setTimeout(() => {
     request.open('GET', docSetUrl +
              'versions/assets/versions.json', true);
-}, 5000)
+// }, 5000)
 
 request.onload = function() {
   if (request.status >= 200 && request.status < 400) {

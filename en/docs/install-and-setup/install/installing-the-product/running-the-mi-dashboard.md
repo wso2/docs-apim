@@ -134,15 +134,15 @@ Follow the steps given below.
 2.    Navigate to the `<MI-DASHBOARD_HOME>/bin` folder from your command line.
 3.    Execute one of the commands given below.
 
-       === "On macOS/Linux"
-			```bash
-			sh dashboard.sh
-			```
+    === "On macOS/Linux"
+		```bash
+		sh dashboard.sh
+		```
 
-       === "On Windows"
-			```bash
-			dashboard.bat
-			```
+    === "On Windows"
+		```bash
+		dashboard.bat
+		```
 
 ## Accessing the dashboard
 

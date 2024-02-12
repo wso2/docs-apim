@@ -102,7 +102,7 @@ Listed below are the default log destinations (appenders) used by the root logge
 
 -   `CARBON_CONSOLE`: This is the consoleAppender that prints logs to the server's console. These logs are printed to the `wso2carbon.log` file and the `wso2error.log` file through the two appenders given below.
 
-     === "CARBON_CONSOLE"
+    === "CARBON_CONSOLE"
          ```xml
          # CARBON_CONSOLE is set to be a ConsoleAppender using a PatternLayout.
          appender.CARBON_CONSOLE.type = Console
@@ -115,7 +115,7 @@ Listed below are the default log destinations (appenders) used by the root logge
     
 -   `CARBON_LOGFILE`: This is a RollingFile appender that generates management logs of the server. Logs are printed to the `<MI_HOME>/repository/logs/wso2carbon.log`.
 
-     === "CARBON_LOGFILE"
+    === "CARBON_LOGFILE"
          ```xml
          # CARBON_LOGFILE is set to be a DailyRollingFileAppender using a PatternLayout.
          appender.CARBON_LOGFILE.type = RollingFile
@@ -139,7 +139,7 @@ Listed below are the default log destinations (appenders) used by the root logge
 -   `ERROR_LOGFILE`: This is a RollingFile appender that print the error logs to the `<MI_HOME>/repository/logs/wso2error.log` file.
 
 
-     === "ERROR_LOGFILE"
+    === "ERROR_LOGFILE"
          ```xml
          # Appender config to SERVICE_APPENDER
          appender.ERROR_LOGFILE.type = RollingFile
@@ -173,7 +173,7 @@ This logger generates logs for services deployed in the Micro Integrator. It ref
 
     See the instructions on [monitoring per-service logs]({{base_path}}/integrate/develop/monitoring-service-level-logs).
 
-  === "SERVICE_LOGGER"
+=== "SERVICE_LOGGER"
       ```xml
       logger.SERVICE_LOGGER.name= SERVICE_LOGGER
       logger.SERVICE_LOGGER.level = INFO
@@ -181,7 +181,7 @@ This logger generates logs for services deployed in the Micro Integrator. It ref
       logger.SERVICE_LOGGER.additivity = false
       ```
 
-  === "APPENDER"
+=== "APPENDER"
       ```xml
       # Appender config to SERVICE_LOGFILE
       appender.SERVICE_LOGFILE.type = RollingFile
@@ -210,7 +210,7 @@ This logger generates logs for APIs deployed in the Micro Integrator. It refers 
 
     See the instructions on [monitoring per-API logs]({{base_path}}/install-and-setup/setup/mi-setup/observability/logs/enabling-logs-for-api).
 
-  === "API_LOGGER"
+=== "API_LOGGER"
       ```xml
       logger.API_LOGGER.name= API_LOGGER
       logger.API_LOGGER.level = INFO
@@ -218,7 +218,7 @@ This logger generates logs for APIs deployed in the Micro Integrator. It refers 
       logger.API_LOGGER.additivity = false
       ```
 
-  === "APPENDER"
+=== "APPENDER"
       ```xml
       # Appender config to API_APPENDER
       appender.API_LOGFILE.type = RollingFile
@@ -238,7 +238,7 @@ This logger generates logs for APIs deployed in the Micro Integrator. It refers 
 
 This is a `RollingFile` appender that writes logs to the `<MI_HOME>/repository/logs/audit.log` file. By default, the `AUDIT_LOG` logger is configured to write logs using this appender.
 
-  === "AUDIT_LOGGER"
+=== "AUDIT_LOGGER"
       ```xml
       logger.AUDIT_LOG.name = AUDIT_LOG
       logger.AUDIT_LOG.level = INFO
@@ -246,7 +246,7 @@ This is a `RollingFile` appender that writes logs to the `<MI_HOME>/repository/l
       logger.AUDIT_LOG.additivity = false
       ```
 
-  === "APPENDER"
+=== "APPENDER"
       ```xml
       # Appender config to AUDIT_LOGFILE
       appender.AUDIT_LOGFILE.type = RollingFile
@@ -277,7 +277,7 @@ This logger generates correlation logs for monitoring individual HTTP requests f
     exceeds 10MB, a new log file is created. If required, you can change
     this file size.
 
-  === "correlation"
+=== "correlation"
       ```xml
       logger.correlation.name = correlation
       logger.correlation.level = INFO
@@ -285,7 +285,7 @@ This logger generates correlation logs for monitoring individual HTTP requests f
       logger.correlation.additivity = false
       ```
 
-  === "APPENDER"
+=== "APPENDER"
       ```xml
       # Appender config to put correlation Log.
       appender.CORRELATION.type = RollingFile
@@ -321,14 +321,14 @@ Once you have configured this logger, see the instructions on [monitoring correl
 
 This is a `RollingFile` appender that writes logs to the `<MI_HOME>/repository/logs/wso2carbon-trace-messages.log` file. By default, the `trace.messages` logger is configured to write logs using this appender.
 
-  === "trace-messages"
+=== "trace-messages"
       ```xml
       logger.trace-messages.name = trace.messages
       logger.trace-messages.level = TRACE
       logger.trace-messages.appenderRef.CARBON_TRACE_LOGFILE.ref = CARBON_TRACE_LOGFILE
       ```
 
-  === "APPENDER"
+=== "APPENDER"
       ```xml
       # Appender config to CARBON_TRACE_LOGFILE
       appender.CARBON_TRACE_LOGFILE.type = RollingFile
@@ -359,14 +359,14 @@ These logs are disabled by default by setting the log level to `OFF`. You can en
     !!! Tip
         The Passthrough HTTP transport is the main transport that handles HTTP/HTTPS messages in the Micro Integrator.
 
-     === "Synapse HTTP Headers"
+    === "Synapse HTTP Headers"
          ```xml
          # The following loggers are used to log HTTP headers and messages.
          logger.synapse-transport-http-headers.name=org.apache.synapse.transport.http.headers
          logger.synapse-transport-http-headers.level=OFF
          ```
 
-     === "Synapse Wire Logs"
+    === "Synapse Wire Logs"
          ```xml
          logger.synapse-transport-http-wire.name=org.apache.synapse.transport.http.wire
          logger.synapse-transport-http-wire.level=OFF
@@ -374,13 +374,13 @@ These logs are disabled by default by setting the log level to `OFF`. You can en
 
 -   The following loggers configure wire logs for the Callout mediator/MessageProcessor.
 
-     === "Client Headers"
+    === "Client Headers"
          ```xml
          logger.httpclient-wire-header.name=httpclient.wire.header
          logger.httpclient-wire-header.level=OFF
          ```
 
-     === "Client Wire Content"
+    === "Client Wire Content"
          ```xml
          logger.httpclient-wire-content.name=httpclient.wire.content
          logger.httpclient-wire-content.level=OFF

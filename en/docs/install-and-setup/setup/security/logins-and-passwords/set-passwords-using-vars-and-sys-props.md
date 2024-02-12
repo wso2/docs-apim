@@ -8,19 +8,19 @@ The instructions on this page explain how you can set the passwords of system us
 
 2.  Open `<APIM_HOME>/repository/deployment.toml` file and refer the password value in the configuration using the `$env{<environment_variable_name>}` placeholder. 
 
-     === "Format"
-         ``` toml
-         [super_admin]
-         username="admin"
-         password="$env{<environment_variable_name>}"
-         ```
+    === "Format"
+        ``` toml
+        [super_admin]
+        username="admin"
+        password="$env{<environment_variable_name>}"
+        ```
        
-     === "Example"
-         ``` toml
-         [super_admin]
-         username="admin"
-         password="$env{ADMIN_PASSWORD}"
-         ```
+    === "Example"
+        ``` toml
+        [super_admin]
+        username="admin"
+        password="$env{ADMIN_PASSWORD}"
+        ```
 
 3.  Start the server to apply the changes.
 
@@ -31,19 +31,19 @@ The instructions on this page explain how you can set the passwords of system us
  
  1.  Open the `<APIM_HOME>/repository/deployment.toml` file and refer the required password value in the configuration using the `$sys{system.property}` placeholder. 
  
-  === "Format"
-      ``` toml
-      [super_admin]
-      username="admin"
-      password="$sys{system.property}"
-      ```
+    === "Format"
+        ``` toml
+        [super_admin]
+        username="admin"
+        password="$sys{system.property}"
+        ```
         
-  === "Example"
-      ``` toml
-      [super_admin]
-      username="admin"
-      password="$sys{admin.password}"
-      ```
+    === "Example"
+        ``` toml
+        [super_admin]
+        username="admin"
+        password="$sys{admin.password}"
+        ```
     
 2.  Pass the above-configured system property to the runtime by using one of the following options.
      
