@@ -8122,9 +8122,7 @@ worker_pool_size_max = 400
 worker_pool_queue_length = -1
 io_buffer_size = 16384
 http.max.connection.per.host.port = 32767
-http.user.agent.preserve = false
 preserve_http_server_name = true
-http.headers.preserve = ["Content-Type"]
 disable_connection_keepalive = false
 max_open_connections = -1
 force_xml_validation = false
@@ -8294,48 +8292,6 @@ sender.ssl_profile.interval = "600000"</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>This defines the maximum number of connections allowed per host port.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>http.user.agent.preserve</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> boolean </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>&quot;true&quot; or &quot;false&quot;</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>If this parameter is set to true, the user-agent HTTP header of messages passing through the integrator is preserved and printed in the outgoing message.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>http.headers.preserve</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>Content-Type</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>This parameter allows you to specify the header field/s of messages passing through the EI that need to be preserved and printed in the outgoing message such as Location, CommonsHTTPTransportSenderKeep-Alive, Date, Server, User-Agent, and Host. For example, http.headers.preserve = Location, Date, Server.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8819,6 +8775,72 @@ sender.ssl_profile.interval = "600000"</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>The password of the keystore file that is used as the trust store. By default, the product&#39;s trust store is configured for this purpose.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <input name="61" type="checkbox" id="_tab_61">
+                <label class="tab-selector" for="_tab_61"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[passthru_http]
+http.user.agent.preserve = false
+http.headers.preserve = ["Content-Type"]</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[passthru_http]</code>
+                            
+                            <p>
+                                This configuration header is required for configuring the parameters that are used for tuning the default HTTP passthrough transport of the API Manager in non-blocking mode.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>http.user.agent.preserve</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>If this parameter is set to true, the user-agent HTTP header of messages passing through the integrator is preserved and printed in the outgoing message.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>http.headers.preserve</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>Content-Type</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>This parameter allows you to specify the header field/s of messages passing through the APIM that need to be preserved and printed in the outgoing message such as Location, CommonsHTTPTransportSenderKeep-Alive, Date, Server, User-Agent, and Host.</p>
                                     </div>
                                 </div>
                             </div>
