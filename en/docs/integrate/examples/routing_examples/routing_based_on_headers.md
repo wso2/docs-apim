@@ -50,7 +50,7 @@ Listed below are the synapse configurations for implementing this scenario. See 
     </sequence>
     ```
 
-=== Sequence 2"
+=== "Sequence 2"
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <sequence xmlns="http://ws.apache.org/ns/synapse" name="sequence2"> 

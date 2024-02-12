@@ -158,7 +158,7 @@ If required, you can manually change the HTTP/HTTPS ports in the <code>deploymen
 !!! Note
     	With the default internal port offset, the effective port will be <code>https_port + 1</code>.
 
-=== 'HTTPS Port"
+=== "HTTPS Port"
 	```yaml
 	wso2.transport.http:            
 	listenerConfigurations:

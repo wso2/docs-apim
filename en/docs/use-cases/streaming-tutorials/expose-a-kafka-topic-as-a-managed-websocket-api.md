@@ -215,16 +215,16 @@ Follow the instructions below to publish the AsyncAPI definition to the service 
 
      After the Siddhi application is successfully deployed, the following log messages appear in the Streaming Integrator and API Manager server logs to indicate that the AsyncAPI definition is successfully published in the Service Catalog.
 
-     === "Streaming Integrator server logs"
-          ```bash
-          Siddhi App KafkaToWebSocketSample deployed successfully
-          Async API: SweetProdApp-1.0.0 uploaded to the service catalog
-          ```
+    === "Streaming Integrator server logs"
+        ```bash
+        Siddhi App KafkaToWebSocketSample deployed successfully
+        Async API: SweetProdApp-1.0.0 uploaded to the service catalog
+        ```
 
-     === "API Manager server logs"
-          ```bash
-          CommonUtil Creation of folder is successful. Directory Name : SweetProdApp-1.0.0
-          ```
+    === "API Manager server logs"
+        ```bash
+        CommonUtil Creation of folder is successful. Directory Name : SweetProdApp-1.0.0
+        ```
 
 ## Step 6 - View the service catalog entry in WSO2 API-M
 
@@ -311,16 +311,16 @@ Follow the instructions below to publish the API via the WSO2 API Manager Publis
          ```
 
      2. Invoke the API by using an authorization header by executing the following command.
-        
-          === "WS"
-               ``` java
-               wscat -c ws://localhost:9104/sweetProdApp/1.0.0 -H "Authorization: Bearer [accesstoken]" 
-               ```
 
-          === "WSS"
-               ``` java
-               wscat -n -c wss://localhost:8104/sweetProdApp/1.0.0 -H "Authorization: Bearer [accesstoken]"
-               ```
+        === "WS"
+            ``` java
+            wscat -c ws://localhost:9104/sweetProdApp/1.0.0 -H "Authorization: Bearer [accesstoken]" 
+            ```
+
+        === "WSS"
+            ``` java
+            wscat -n -c wss://localhost:8104/sweetProdApp/1.0.0 -H "Authorization: Bearer [accesstoken]"
+            ```
 
         <html>
         <div class="admonition note">
@@ -329,14 +329,14 @@ Follow the instructions below to publish the API via the WSO2 API Manager Publis
         There are clients (especially browsers) that do not allow to add headers. In such cases, you can send the access token for the API invocation as a query parameter named `access_token` by using the command below:</p>
            
         === "WS"
-          ``` java
-          wscat -c "ws://localhost:9104/sweetProdApp/1.0.0?access_token=[accesstoken]" 
-          ```
+            ``` java
+            wscat -c "ws://localhost:9104/sweetProdApp/1.0.0?access_token=[accesstoken]" 
+            ```
 
         === "WSS"
-          ``` java
-          wscat -n -c "wss://localhost:8104/sweetProdApp/1.0.0?access_token=[accesstoken]"
-          ```
+            ``` java
+            wscat -n -c "wss://localhost:8104/sweetProdApp/1.0.0?access_token=[accesstoken]"
+            ```
 
         </div>
         </html>  

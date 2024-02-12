@@ -95,16 +95,16 @@ Set up the back-end service:
 2. Extract the downloaded zip file.
 3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
 4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
-   
-      === "On MacOS/Linux/CentOS"
-          ```bash
-          sh axis2server.sh
-          ```
+
+    === "On MacOS/Linux/CentOS"
+        ```bash
+        sh axis2server.sh
+        ```
           
-      === "On Windows"
-          ```bash
-          axis2server.bat
-          ```
+    === "On Windows"
+        ```bash
+        axis2server.bat
+        ```
 
 [Configure the ActiveMQ broker]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-activemq) and set up the JMS Sender.
 
@@ -251,16 +251,16 @@ Set up the back-end service:
 2. Extract the downloaded zip file.
 3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
 4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
-   
-      === "On MacOS/Linux/CentOS"
-          ```bash
-          sh axis2server.sh
-          ```
+
+    === "On MacOS/Linux/CentOS"
+        ```bash
+        sh axis2server.sh
+        ```
           
-      === "On Windows"
-          ```bash
-          axis2server.bat
-          ```
+    === "On Windows"
+        ```bash
+        axis2server.bat
+        ```
    
 [Configure the ActiveMQ broker]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-activemq).
 
