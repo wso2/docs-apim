@@ -1,6 +1,6 @@
 # Configure a Global Key Manager
 
-This document outlines the steps to enable cross-tenant key manager support in WSO2 API Manager (API-M). It addresses the challenge faced when applications in one tenant need to invoke APIs published in a different tenant, resulting in HTTP 401 errors even with valid tokens. The proposed solution involves configuring a global key manager accessible across all tenants.
+This document outlines the steps to enable the global key manager support in WSO2 API Manager (API-M). With this feature, a single token generated using the global key manager can be used to invoke cross-tenant APIs without generating a token in that specific tenant's key manager.
 
 The global key manager can be created through the admin portal of the super tenant. This global key manager will be visible in the devportal of all the tenants and this can be used to generate a token which can be used to invoke APIs across tenants. Any third party key manager can be configured as a global key manager.
 
