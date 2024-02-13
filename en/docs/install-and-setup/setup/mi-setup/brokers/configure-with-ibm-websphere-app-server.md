@@ -4,7 +4,7 @@ This page describes how to configure the WSO2 Micro Integrator with IBM WebSpher
 
 1. Set up IBM WebSphere Application Server according to the instructions provided by IBM.
 2. Download and install WSO2 Micro Integrator.
-3. Create a JMS queue (e.g., **samplequeue**) and a JMS connection factory (e.g., **QueueConnectionFactory**) as described in the topics under [Setting Up JMS in IBM WebSphere Application Server](http://pic.dhe.ibm.com/infocenter/iisinfsv/v8r5/index.jsp?topic=%2Fcom.ibm.swg.im.iis.infoservdir.user.doc%2Ftopics%2Ft_isd_user_creating_jms_que_cx_fact.html) in the IBM documentation.
+3. Create a JMS queue (e.g., **samplequeue**) and a JMS connection factory (e.g., **QueueConnectionFactory**) as described in the topics under [Setting Up JMS in IBM WebSphere Application Server](https://www.ibm.com/docs/en/iis/9.1?topic=jms-setting-up-in-websphere-application-server) in the IBM documentation.
 4. Copy the following libraries from `WEBSHPERE_HOME>/java/lib` directory to `MI_HOME/lib` directory.
 
     -   com.ibm.ws.runtime.jar
