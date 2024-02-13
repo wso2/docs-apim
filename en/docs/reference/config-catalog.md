@@ -8786,8 +8786,8 @@ sender.ssl_profile.interval = "600000"</code></pre>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[passthru_http]
-http.user.agent.preserve = false
-http.headers.preserve = ["Content-Type"]</code></pre>
+'http.user.agent.preserve' = false
+'http.headers.preserve' = ["Content-Type"]</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -8802,7 +8802,7 @@ http.headers.preserve = ["Content-Type"]</code></pre>
                         <div class="params-wrap">
                             <div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>http.user.agent.preserve</code> </span>
+                                  <span class="param-name-wrap"> <code>'http.user.agent.preserve'</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -8825,7 +8825,7 @@ http.headers.preserve = ["Content-Type"]</code></pre>
                         <div class="params-wrap">
                             <div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>http.headers.preserve</code> </span>
+                                  <span class="param-name-wrap"> <code>'http.headers.preserve'</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
