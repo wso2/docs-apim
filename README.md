@@ -12,7 +12,7 @@ As an open source project, WSO2 API-M welcomes contributions from the community.
 
 1. Accept the Contributor License Agreement (CLA)
 
-    You need to Accept the Contributor License Agreement (CLA) when prompted by a GitHub email notification after sending your first Pull Request (PR). Subsequent PRs will not require CLA acceptance.
+    You need to accept the Contributor License Agreement (CLA) when prompted by a GitHub email notification after sending your first Pull Request (PR). Subsequent PRs will not require CLA acceptance.
 
     If the CLA gets changed for some (unlikely) reason, you will be presented with the new CLA text after sending your first PR after the change.
 
