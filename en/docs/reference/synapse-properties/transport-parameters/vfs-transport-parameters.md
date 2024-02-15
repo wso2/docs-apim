@@ -433,6 +433,31 @@ When you use the [transport.vfs.FileURI](#vfs-transport-file_url) parameter, you
             When this parameter is set to <code>true</code>, the newly created file will have the same last-modified timestamp as the original file. The default setting is <code>true</code>.
          </td>
       </tr>
+      <tr>
+         <td>
+           timeout
+         </td>
+         <td>
+            The connection timeout in milliseconds. Possible value: <code>1000</code>. The default value is <code>5000</code>.
+         </td>
+      </tr>
+      <tr>
+         <td>
+           sftpPathFromRoot
+         </td>
+         <td>
+            <div class="content-wrapper">
+               When you need to access the absolute path of the URL, you can define the URL with <code>sftpPathFromRoot</code> as shown below. Also, note that <a href="#vfs-transport-avoid_permissions">transport.vfs.AvoidPermissionCheck</a> is a mandatory parameter for this URL when SFTP is used.
+               <div class="code panel pdl" style="border-width: 1px;">
+                  <div class="codeContent panelContent pdl">
+                     <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
+                        <pre class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1"></a>&lt;parameter name=<span class="st">&quot;transport.vfs.FileURI&quot;</span>&gt;sftp:<span class="co">//[ username[: password]@] hostname[: port][ absolute-path]?sftpPathFromRoot=true;transport.vfs.AvoidPermissionCheck=true&lt;/parameter&gt;</span></span></code></pre>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </td>
+      </tr>
    </tbody>
 </table>
 
