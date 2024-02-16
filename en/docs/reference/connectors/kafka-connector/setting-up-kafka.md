@@ -23,7 +23,7 @@ Copy the following additional client libraries to the `<MI_HOME>/lib` directory 
 * [kafka-avro-serializer-5.3.0.jar](https://mvnrepository.com/artifact/io.confluent/kafka-avro-serializer/5.3.0)
 * [kafka-schema-registry-client-5.3.0.jar](https://mvnrepository.com/artifact/io.confluent/kafka-schema-registry-client/5.3.0)
 
-Navigate to <KAFKA_HOME> and run the following command to start the ZooKeeper server:
+Navigate to `<KAFKA_HOME>` and run the following command to start the ZooKeeper server:
 
 ```bash
 bin/zookeeper-server-start.sh config/zookeeper.properties
