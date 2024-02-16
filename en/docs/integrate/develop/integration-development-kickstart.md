@@ -94,7 +94,7 @@ Let's create two Endpoint artifacts for the two healthcare services:
       </tr>
       <tr>
         <td>URI Template</td>
-        <td>http://localhost:9090/grandOak/doctors/{uri.var.doctorType}</td>
+        <td><code>http://localhost:9090/grandOak/doctors/{uri.var.doctorType}</code></td>
       </tr>
       <tr>
         <td>Method</td>
@@ -125,7 +125,7 @@ Let's create two Endpoint artifacts for the two healthcare services:
     
       <tr>
         <td>URI Template</td>
-        <td>http://localhost:9091/pineValley/doctors</td>
+        <td><code>http://localhost:9091/pineValley/doctors</code></td>
       </tr>
     
       <tr>
