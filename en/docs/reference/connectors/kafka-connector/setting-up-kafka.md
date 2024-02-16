@@ -29,7 +29,7 @@ Navigate to `<KAFKA_HOME>` and run the following command to start the ZooKeeper 
 bin/zookeeper-server-start.sh config/zookeeper.properties
 ```
 
-From the <KAFKA_HOME> directory, run the following command to start the Kafka server:
+From the `<KAFKA_HOME>` directory, run the following command to start the Kafka server:
 
 ```bash
 bin/kafka-server-start.sh config/server.properties
