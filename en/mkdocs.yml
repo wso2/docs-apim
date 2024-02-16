@@ -1070,7 +1070,7 @@ nav:
                 - Kafka Overview: reference/connectors/kafka-connector/kafka-connector-overview.md
                 - Set up Kafka: reference/connectors/kafka-connector/setting-up-kafka.md
                 - Enable Security for Kafka: reference/connectors/kafka-connector/enabling-security-for-kafka.md
-                - 3.1.x:
+                - 3.1.x and later:
                     - Kafka Example: reference/connectors/kafka-connector/kafka-connector-producer-example.md
                     - Kafka Avro Message Example: reference/connectors/kafka-connector/kafka-connector-avro-producer-example.md
                     - Kafka Connector Reference: reference/connectors/kafka-connector/kafka-connector-config.md
