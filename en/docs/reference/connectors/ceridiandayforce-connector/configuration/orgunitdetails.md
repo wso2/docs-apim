@@ -180,8 +180,7 @@ Following example illustrates how to connect to Dayforce with the init operation
     </target>
     <description/>
     </proxy>
-                                
-```
+    ```
 
 2. Create a json file named query.json and copy the configurations given below to it:
 

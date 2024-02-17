@@ -14,7 +14,7 @@ First, define an OAuth2 scheme under components/securitySchemes with all support
 !!! note
     The following example shows how to define OAuth2 security schemes in [OAS3](https://swagger.io/docs/specification/authentication/oauth2/) . If you are using an OAS2 API definition, please refer to [this](https://swagger.io/docs/specification/2-0/authentication/api-keys/) [Swagger document](https://swagger.io/docs/specification/2-0/authentication/) on defining authorization in OAS2.
 
-``` yml
+``` yaml
 components:
   securitySchemes:
     OAuth2:
@@ -31,7 +31,7 @@ components:
 
 List the scopes required by each operation or API by listing OAuth2 security with relevant scopes. To do this, list the scopes required by each operation in the `security` section of that operation:
 
-``` yml
+``` yaml
 # Assign oauth2 security scheme with scopes to the operation
 paths:
   "/pet/{petId}":
@@ -49,7 +49,7 @@ paths:
 
 If the operation or API is secured with an OAuth2 security scheme with scopes, you can authenticate the API request with a valid JWT token. However, the JWT token should have at least one required scope under the "scopes" claim to authorize the request.
 
-``` yml
+``` yaml
 "scope": "read write" # payload of the JWT should contain required scopes separated by space
 ```
 
@@ -93,17 +93,19 @@ components:
 
 Then, the required scopes should be added to the "micro-gw.conf" file (comma separated) under the users which are provided access to certain endpoints.
 
-``` java tab="Format"
-[b7a.users.<username>]
-    password="@<HASH_ALGO>:{<HASH_ALGO(password)>}"
-    scopes="scope1,scope2"
-```
+=== "Format"
+    ``` java
+    [b7a.users.<username>]
+        password="@<HASH_ALGO>:{<HASH_ALGO(password)>}"
+        scopes="scope1,scope2"
+    ```
 
-``` java tab="Example"
-["b7a.users.shani"]
-    password="@sha256:{5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8}"
-    scopes="read,write"
-```
+=== "Example"
+    ``` java
+    ["b7a.users.shani"]
+        password="@sha256:{5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8}"
+        scopes="read,write"
+    ```
 
  The users with the scopes in the configuration can access the endpoints with certain scopes included in the oauth2 scheme using basic authentication.
 -->

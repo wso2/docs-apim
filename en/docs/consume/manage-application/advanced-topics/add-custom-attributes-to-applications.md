@@ -19,7 +19,7 @@ Follow the instructions below to configure server-specific custom attributes:
 
 2. Add the `application_attributes` section as shown below.
 
-    ``` java
+    ``` toml
     [[apim.devportal.application_attributes]]
     required=true
     hidden=false
@@ -31,7 +31,7 @@ Follow the instructions below to configure server-specific custom attributes:
         Default attribute values can be specified in the configurations as below. Default values must be defined for 
         required, hidden attributes.
         
-        ```
+        ```toml
         [[apim.devportal.application_attributes]]
         required=true
         hidden=true

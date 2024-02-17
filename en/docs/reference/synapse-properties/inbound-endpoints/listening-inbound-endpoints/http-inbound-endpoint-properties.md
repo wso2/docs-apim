@@ -5,45 +5,47 @@ The HTTP inbound protocol is used to separate endpoint listeners for each HTTP i
 
 ## Syntax
 
-```xml tab='HTTP Listener'
-<inboundEndpoint name="HttpListenerEP" protocol="http" suspend="false" sequence="TestIn" onError="fault" >
-    <p:parameters xmlns:p="http://ws.apache.org/ns/synapse">
-        <p:parameter  name="inbound.http.port">8081</p:parameter>
-    </p:parameters>
-<inboundEndpoint>
-```
-
-```xml tab='HTTPS Listener'
-<inboundEndpoint name="HttpListenerEP" protocol="https" suspend="false" sequence="TestIn" onError="fault" >
-        <p:parameters xmlns:p="http://ws.apache.org/ns/synapse">
+=== "HTTP Listener"
+      ```xml
+      <inboundEndpoint name="HttpListenerEP" protocol="http" suspend="false" sequence="TestIn" onError="fault" >
+         <p:parameters xmlns:p="http://ws.apache.org/ns/synapse">
             <p:parameter  name="inbound.http.port">8081</p:parameter>
-            <p:parameter name="keystore">
-                <KeyStore>
-                    <Location>repository/resources/security/wso2carbon.jks</Location>
-                    <Type>JKS</Type>
-                    <Password>wso2carbon</Password>
-                    <KeyPassword>wso2carbon</KeyPassword>
-                </KeyStore>
-            </p:parameter>
-            <p:parameter name="truststore">
-                <TrustStore>
-                    <Location>repository/resources/security/client-truststore.jks</Location>
-                    <Type>JKS</Type>
-                    <Password>wso2carbon</Password>
-                </TrustStore>
-            </p:parameter>
-            <p:parameter name="SSLVerifyClient">require</p:parameter>
-            <p:parameter name="HttpsProtocols">TLSv1,TLSv1.1,TLSv1.2</p:parameter>
-            <p:parameter name="SSLProtocol">SSLV3</p:parameter>
-            <p:parameter name="CertificateRevocationVerifier">
-                <CertificateRevocationVerifier enable="true">
-                   <CacheSize>10</CacheSize>
-                   <CacheDelay>2</CacheDelay>
-                </CertificateRevocationVerifier>
-             </p:parameter>
-         </p:parameters>
-</inboundEndpoint>
-```
+         </p:parameters>
+      <inboundEndpoint>
+      ```
+
+=== "HTTPS Listener"
+      ```xml
+      <inboundEndpoint name="HttpListenerEP" protocol="https" suspend="false" sequence="TestIn" onError="fault" >
+            <p:parameters xmlns:p="http://ws.apache.org/ns/synapse">
+                  <p:parameter  name="inbound.http.port">8081</p:parameter>
+                  <p:parameter name="keystore">
+                     <KeyStore>
+                        <Location>repository/resources/security/wso2carbon.jks</Location>
+                        <Type>JKS</Type>
+                        <Password>wso2carbon</Password>
+                        <KeyPassword>wso2carbon</KeyPassword>
+                     </KeyStore>
+                  </p:parameter>
+                  <p:parameter name="truststore">
+                     <TrustStore>
+                        <Location>repository/resources/security/client-truststore.jks</Location>
+                        <Type>JKS</Type>
+                        <Password>wso2carbon</Password>
+                     </TrustStore>
+                  </p:parameter>
+                  <p:parameter name="SSLVerifyClient">require</p:parameter>
+                  <p:parameter name="HttpsProtocols">TLSv1,TLSv1.1,TLSv1.2</p:parameter>
+                  <p:parameter name="SSLProtocol">SSLV3</p:parameter>
+                  <p:parameter name="CertificateRevocationVerifier">
+                     <CertificateRevocationVerifier enable="true">
+                        <CacheSize>10</CacheSize>
+                        <CacheDelay>2</CacheDelay>
+                     </CertificateRevocationVerifier>
+                  </p:parameter>
+             </p:parameters>
+      </inboundEndpoint>
+      ```
 
 ## Properties
 

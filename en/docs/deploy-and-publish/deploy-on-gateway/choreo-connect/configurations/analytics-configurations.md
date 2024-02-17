@@ -36,8 +36,10 @@ See the example .toml file given below.
                 <label class="tab-selector" for="_tab_2"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[analytics]
-  enabled = false</code></pre>
+```toml
+[analytics]
+  enabled = false
+```
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -92,10 +94,12 @@ See the example .toml file given below.
                 <label class="tab-selector" for="_tab_3"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[analytics.adapter]
+```toml
+[analytics.adapter]
   bufferFlushInterval = "1s"
   bufferSizeBytes = 16384
-  gRPCRequestTimeout = "20s"</code></pre>
+  gRPCRequestTimeout = "20s"
+```
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -188,9 +192,11 @@ See the example .toml file given below.
                 <label class="tab-selector" for="_tab_4"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[analytics.enforcer.configProperties]
+```toml
+[analytics.enforcer.configProperties]
   authURL = "$env{analytics_authURL}"
-  authToken = "$env{analytics_authToken}"</code></pre>
+  authToken = "$env{analytics_authToken}"
+```
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -264,11 +270,13 @@ See the example .toml file given below.
                 <label class="tab-selector" for="_tab_5"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[analytics.enforcer.LogReceiver]
+```toml
+[analytics.enforcer.LogReceiver]
   port = 18090
   maxMessageSize = 1000000000
   maxHeaderLimit = 8192
-  keepAliveTime = 600</code></pre>
+  keepAliveTime = 600
+```
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -380,12 +388,14 @@ See the example .toml file given below.
                 <label class="tab-selector" for="_tab_6"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[analytics.enforcer.LogReceiver.threadPool]
+```toml
+[analytics.enforcer.LogReceiver.threadPool]
     coreSize = 10
     maxSize = 100
     #keep alive time of threads in seconds
     keepAliveTime = 600
-    queueSize = 1000</code></pre>
+    queueSize = 1000
+```
                     </div>
                 </div>
                 <div class="doc-wrapper">

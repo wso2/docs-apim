@@ -104,9 +104,9 @@ Let's try out the example where you want to view the online bookings saved in a 
                         
     2. Create a new user by executing the following SQL query.
         
-       ```
-       GRANT SELECT, RELOAD, SHOW DATABASES, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'wso2si' IDENTIFIED BY 'wso2';
-       ```
+        ```
+        GRANT SELECT, RELOAD, SHOW DATABASES, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'wso2si' IDENTIFIED BY 'wso2';
+        ```
        
     3. Switch to the `tours` database and create a new table, by executing the following queries.
     

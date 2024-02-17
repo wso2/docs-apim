@@ -38,7 +38,7 @@ To view a sample data source configuration for each database type supported, exp
              isAutoCommit: false
     ```
     
-    ** Parameter descriptions*
+    **Parameter descriptions**
     
     | **Parameter**         | **Description**                                                           |
     |-----------------------|---------------------------------------------------------------------------|
@@ -76,6 +76,7 @@ To view a sample data source configuration for each database type supported, exp
             validationTimeout: 30000
             isAutoCommit: false
     ```
+    
     | **Parameter**         | **Description**                                                           |
     |-----------------------|---------------------------------------------------------------------------|
     | `name`                | A unique name for the data source. |

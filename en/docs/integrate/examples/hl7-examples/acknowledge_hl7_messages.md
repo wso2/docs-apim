@@ -24,13 +24,15 @@ When auto acknowledgement for HL7 messages is disabled in the Micro Integrator, 
 
 - If a NACK message is required instead, set the result mode to `NACK` and provide a custom NACK message as shown below. 
 
-    ```xml tab='HL7 Result Mode'
-    <property name="HL7_RESULT_MODE" value="NACK" scope="axis2" />
-    ```
+    === "HL7 Result Mode"
+        ```xml
+        <property name="HL7_RESULT_MODE" value="NACK" scope="axis2" />
+        ```
 
-    ```xml tab='NACK Message'
-    <property name="HL7_NACK_MESSAGE" value="ERROR MESSAGE" scope="axis2" />
-    ```
+    === "NACK Message"
+        ```xml
+        <property name="HL7_NACK_MESSAGE" value="ERROR MESSAGE" scope="axis2" />
+        ```
 
 - You can use the `HL7_RAW_MESSAGE` property in the axis2 scope to retrieve the original raw EDI format HL7 message in an InSequence. The user doesn't have to convert from XML to EDI again. Therefore, this may be particularly helpful inside a custom mediator.
 

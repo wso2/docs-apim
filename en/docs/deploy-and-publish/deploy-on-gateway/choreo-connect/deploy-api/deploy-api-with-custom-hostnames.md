@@ -105,22 +105,24 @@ data:
 !!! info
     When configuring multiple Choreo Connect Gateway environments, you have to configure the default VHost of the particular environment.
     
-    ```toml tab="Format"
-    # default vhosts mapping for standalone mode
-    [[adapter.vhostMapping]]
-      environment = <ENVIRONMENT_NAME>
-      vhost = <DEFAULT_VHOST_OF_ENVIRONMENT>
-    ```
+    === "Format"
+        ```toml
+        # default vhosts mapping for standalone mode
+        [[adapter.vhostMapping]]
+          environment = <ENVIRONMENT_NAME>
+          vhost = <DEFAULT_VHOST_OF_ENVIRONMENT>
+        ```
     
-    ```toml tab="Example"
-    # default vhosts mapping for standalone mode
-    [[adapter.vhostMapping]]
-      environment = "Default"
-      vhost = "localhost"
-    [[adapter.vhostMapping]]
-      environment = "sg-region"
-      vhost = "sg.wso2.com"
-    ```
+    === "Example"
+        ```toml
+        # default vhosts mapping for standalone mode
+        [[adapter.vhostMapping]]
+          environment = "Default"
+          vhost = "localhost"
+        [[adapter.vhostMapping]]
+          environment = "sg-region"
+          vhost = "sg.wso2.com"
+        ```
     
     If the VHost is not declared in the API project, the API is deployed with the default VHost of the environment.
     For exammple, an API project with following `deployment_environments.yaml` will be deployed to the following.

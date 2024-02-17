@@ -74,7 +74,7 @@ detached) to an already running Java process. This universal agent uses the JVM 
 5. Start the JVM Agent ex: java -jar jolokia-jvm-1.7.1.jar --host=localhost --port=9764 start <PID>
 6. Also you can call it with --help to get a short usage information:
 
-   Once the server starts, you can read MBeans using Jolokia APIs. The following are a few examples.
+    Once the server starts, you can read MBeans using Jolokia APIs. The following are a few examples.
 
     -   List all available MBeans: `http://localhost:9763/jolokia/list` (Change the appropriate hostname and port accordingly.)
     -   WSO2 ESB MBean:

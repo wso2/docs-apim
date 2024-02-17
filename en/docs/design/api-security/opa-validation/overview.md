@@ -58,18 +58,19 @@ Configurations for the policy is as follows.
 
 You can define your own policy enforcement logic in OPA by using the values provided by the gateway. The following is a sample policy definition in **Rego** to check the header value. `x-abcd` should be `ABCD` when HTTP method is `PUT`, otherwise HTTP method can be `POST`.
 
-```rego tab='Sample'
-package myPolicy
+=== "Sample"
+    ```rego
+    package myPolicy
 
-default allow = false
-allow {
-    input.method == "PUT"
-    input.transportHeaders["x-abcd"] == "ABCD"
-}
-allow {
-    input.method == "POST"
-}
-```
+    default allow = false
+    allow {
+        input.method == "PUT"
+        input.transportHeaders["x-abcd"] == "ABCD"
+    }
+    allow {
+        input.method == "POST"
+    }
+    ```
 
 ### Request Payload to the OPA server
 
@@ -78,99 +79,102 @@ By default, each Gateway uses a default Request Generator to generate the reques
 !!! Info
     You can have your own **Request Generator Implementation** - you can do so by implementing the interface **OPARequestGenerator**. [Custom OPA Policy with Custom Request Generator](#custom-opa-policy-with-custom-request-generator) in this document describes this in more detail.
 
-```json tab='Format'
-{
-    "input": {
-        "path": "<full_path>",
-        "vhost": "<VIRTUAL_HOST>",
-        "apiName": "<API_name>",
-        "apiVersion": "<API_version>",
-        "httpVersion": "<HTTP_version>",
-        "transportHeaders": {"<HeaderKey>":"<HeaderValue>"},
-        "method": "<HTTP_method>",
-        "authenticationContext": {
-            "tokenType": "<one of [API Key|JWT|Internal Key]>",
-            "keyType": "one of [PRODUCTION|SANDBOX]",
-            "token": "<raw_auth_token>"
-        },
-        "requestOrigin": "<client_IP>",
-        "pathTemplate": "<resource_template_in_OAS_definition",
-        "prodClusterName": "<production_endpoint_cluster_name>",
-        "sandClusterName": "<sandbox_endpoint_cluster_name>",
-        "orgId": "<organization_ID>"
+=== "Format"
+    ```json
+    {
+        "input": {
+            "path": "<full_path>",
+            "vhost": "<VIRTUAL_HOST>",
+            "apiName": "<API_name>",
+            "apiVersion": "<API_version>",
+            "httpVersion": "<HTTP_version>",
+            "transportHeaders": {"<HeaderKey>":"<HeaderValue>"},
+            "method": "<HTTP_method>",
+            "authenticationContext": {
+                "tokenType": "<one of [API Key|JWT|Internal Key]>",
+                "keyType": "one of [PRODUCTION|SANDBOX]",
+                "token": "<raw_auth_token>"
+            },
+            "requestOrigin": "<client_IP>",
+            "pathTemplate": "<resource_template_in_OAS_definition",
+            "prodClusterName": "<production_endpoint_cluster_name>",
+            "sandClusterName": "<sandbox_endpoint_cluster_name>",
+            "orgId": "<organization_ID>"
+        }
     }
-}
-```
+    ```
 
-```json tab='Synapse payload'
-{
-    "input": {
-        "path": "/pizzashack/1.0.0/menu",
-        "method": "GET",
-        "requestOrigin": "127.0.0.1",
-        "apiContext": {
-            "apiName": "PizzaShackAPI",
-            "subscriber": "admin",
-            "applicationUUID": "60cf16eb-f73c-4677-8440-167b2be6f831",
-            "apiPublisher": "admin",
-            "isAuthenticated": true,
-            "keyType": "PRODUCTION",
-            "consumerKey": "GRfjDbo8yJqXUGbFaOtNo_5Npyka",
-            "accessToken": "JWT Access Token",
-            "issuer": "https://localhost:9443/oauth2/token",
-            "applicationName": "DefaultApplication",
-            "subscriberOrganization": "carbon.super",
-            "username": "admin@carbon.super"
-        },
-        "transportHeaders": {
-            "Origin": "https://localhost:9443",
-            "Connection": "keep-alive",
-            "Referer": "https://localhost:9443/",
-            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36",
-            "Host": "localhost:8243",
-            "Accept-Encoding": "gzip, deflate, br",
-            "accept": "application/json",
-            "Accept-Language": "en-GB,en-US;q=0.9,en;q=0.8"
-        } 
+=== "Synapse payload"
+    ```json
+    {
+        "input": {
+            "path": "/pizzashack/1.0.0/menu",
+            "method": "GET",
+            "requestOrigin": "127.0.0.1",
+            "apiContext": {
+                "apiName": "PizzaShackAPI",
+                "subscriber": "admin",
+                "applicationUUID": "60cf16eb-f73c-4677-8440-167b2be6f831",
+                "apiPublisher": "admin",
+                "isAuthenticated": true,
+                "keyType": "PRODUCTION",
+                "consumerKey": "GRfjDbo8yJqXUGbFaOtNo_5Npyka",
+                "accessToken": "JWT Access Token",
+                "issuer": "https://localhost:9443/oauth2/token",
+                "applicationName": "DefaultApplication",
+                "subscriberOrganization": "carbon.super",
+                "username": "admin@carbon.super"
+            },
+            "transportHeaders": {
+                "Origin": "https://localhost:9443",
+                "Connection": "keep-alive",
+                "Referer": "https://localhost:9443/",
+                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36",
+                "Host": "localhost:8243",
+                "Accept-Encoding": "gzip, deflate, br",
+                "accept": "application/json",
+                "Accept-Language": "en-GB,en-US;q=0.9,en;q=0.8"
+            } 
+        }
     }
-}
-```
+    ```
 
-```json tab='Choreo Connect payload'
-{
-    "input": {
-        "path": "/t/foo.com/v2/1.0.5/foo?hello=world",
-        "vhost": "localhost",
-        "apiName": "SwaggerPetstore",
-        "apiVersion": "1.0.5",
-        "httpVersion": "HTTP/1.1",
-        "transportHeaders": {
-            "authorization": "Bearer eyJ0eXAiOiJKV1QiLC...",
-            "x-request-id": "bc1fd847-0a33-45ab-9911-fcdd3f2f77ec",
-            "content-length": "17",
-            ":method": "POST",
-            "x-forwarded-proto": "https",
-            ":scheme": "https",
-            "foo": "bar",
-            ":path": "/t/foo.com/v2/1.0.5/foo?hello=world",
-            "content-type": "application/x-www-form-urlencoded",
-            ":authority": "localhost:9095",
-            "user-agent": "curl/7.77.0",
-            "accept": "application/json"
-        },
-        "method": "POST",
-        "authenticationContext": {
-            "tokenType": "JWT",
-            "keyType": "PRODUCTION",
-            "token": "eyJ0eXAiOiJKV1QiLC..."
-        },
-        "requestOrigin": "172.19.0.1",
-        "pathTemplate": "/foo",
-        "prodClusterName": "carbon.super_clusterProd_localhost_SwaggerPetstore1.0.5",
-        "orgId": "carbon.super"
+=== "Choreo Connect payload"
+    ```json
+    {
+        "input": {
+            "path": "/t/foo.com/v2/1.0.5/foo?hello=world",
+            "vhost": "localhost",
+            "apiName": "SwaggerPetstore",
+            "apiVersion": "1.0.5",
+            "httpVersion": "HTTP/1.1",
+            "transportHeaders": {
+                "authorization": "Bearer eyJ0eXAiOiJKV1QiLC...",
+                "x-request-id": "bc1fd847-0a33-45ab-9911-fcdd3f2f77ec",
+                "content-length": "17",
+                ":method": "POST",
+                "x-forwarded-proto": "https",
+                ":scheme": "https",
+                "foo": "bar",
+                ":path": "/t/foo.com/v2/1.0.5/foo?hello=world",
+                "content-type": "application/x-www-form-urlencoded",
+                ":authority": "localhost:9095",
+                "user-agent": "curl/7.77.0",
+                "accept": "application/json"
+            },
+            "method": "POST",
+            "authenticationContext": {
+                "tokenType": "JWT",
+                "keyType": "PRODUCTION",
+                "token": "eyJ0eXAiOiJKV1QiLC..."
+            },
+            "requestOrigin": "172.19.0.1",
+            "pathTemplate": "/foo",
+            "prodClusterName": "carbon.super_clusterProd_localhost_SwaggerPetstore1.0.5",
+            "orgId": "carbon.super"
+        }
     }
-}
-```
+    ```
 
 ### Response Payload from the OPA server
 
@@ -179,17 +183,19 @@ Similar to the request generation, the default request generator class validates
 !!! note
     If required, you can have your own **Response Valiation Implementation** by implementing the interface **OPARequestGenerator**. For more information, see [Custom OPA Policy with Custom Request Generator](#custom-opa-policy-with-custom-request-generator).
 
-```json tab='Format'
-{
-    "result": <BOOLEAN_POLICY_RESULT>
-}
-```
+=== "Format"
+    ```json
+    {
+        "result": <BOOLEAN_POLICY_RESULT>
+    }
+    ```
 
-```json tab='Sample'
-{
-    "result": true
-}
-```
+=== "Sample"
+    ```json
+    {
+        "result": true
+    }
+    ```
 
 ### Customize the OPA request payload and response validation
 

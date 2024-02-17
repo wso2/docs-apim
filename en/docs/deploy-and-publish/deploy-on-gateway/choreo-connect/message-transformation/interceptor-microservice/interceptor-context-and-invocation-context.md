@@ -20,57 +20,59 @@ Invocation context describes the request information. This is an optional object
 Choreo Connect Router to your interceptor service by referring it in the `includes` in Open API Definition.
 Invocation context has the following information.
 
-``` json tab="Format"
-{
-  "invocationContext": {
-    "requestId": "<unitaque_id_for_request>",
-    "protocol": "<HTTP_protocol>",
-    "scheme": "<secheme_http_or_https>",
-    "apiName": "<API_name>",
-    "apiVersion": "<API_version>",
-    "vhost": "<virtual_host>",
-    "basePath": "/petstore",
-    "supportedMethods": "<supported_HTTP_methods_for_the_resource>",
-    "method": "<invoked_HTTP_method>",
-    "path": "<invoked_resource_path>",
-    "pathTemplate": "<invoked_resource_path_template>",
-    "source": "<client_IP>",
-    "prodClusterName": "<production_endpoint_cluster_name>",
-    "sandClusterName": "<sandbox_endpoint_cluster_name",
-    "authenticationContext": {
-      "token": "<raw_auth_token>",
-      "tokenType": "<one of [API Key|JWT|Internal Key]>",
-      "keyType": <"one of [PRODUCTION|SANDBOX]">
+=== "Format"
+    ``` json
+    {
+      "invocationContext": {
+        "requestId": "<unitaque_id_for_request>",
+        "protocol": "<HTTP_protocol>",
+        "scheme": "<secheme_http_or_https>",
+        "apiName": "<API_name>",
+        "apiVersion": "<API_version>",
+        "vhost": "<virtual_host>",
+        "basePath": "/petstore",
+        "supportedMethods": "<supported_HTTP_methods_for_the_resource>",
+        "method": "<invoked_HTTP_method>",
+        "path": "<invoked_resource_path>",
+        "pathTemplate": "<invoked_resource_path_template>",
+        "source": "<client_IP>",
+        "prodClusterName": "<production_endpoint_cluster_name>",
+        "sandClusterName": "<sandbox_endpoint_cluster_name",
+        "authenticationContext": {
+          "token": "<raw_auth_token>",
+          "tokenType": "<one of [API Key|JWT|Internal Key]>",
+          "keyType": <"one of [PRODUCTION|SANDBOX]">
+        }
+      }
     }
-  }
-}
-```
+    ```
 
-``` json tab="Sample"
-{
-  "invocationContext": {
-       "requestId": "75269e44-f797-4432-9906-cf39e68d6ab8",
-       "protocol": "HTTP/1.1",
-       "scheme": "https",
-       "apiName": "PetStore",
-       "apiVersion": "v1.0.0",
-       "vhost": "localhost",
-       "basePath": "/petstore",
-       "supportedMethods": "GET POST",
-       "method": "POST",
-       "path": "/petstore/pet/1",
-       "pathTemplate": "/pet/{petID}",
-       "source": "192.168.8.332:8080",
-       "prodClusterName": "carbon.super_clusterProd_localhost_Online-Storev1.0.0",
-       "sandClusterName": "",
-       "authenticationContext": {
-           "token": "xxxxxxxxxxxxxxxx",
-           "tokenType": "API Key|JWT Auth|Internal Key",
-           "keyType": "PRODUCTION|SANDBOX",
-       }
-  }
-}
-```
+=== "Sample"
+    ``` json
+    {
+      "invocationContext": {
+          "requestId": "75269e44-f797-4432-9906-cf39e68d6ab8",
+          "protocol": "HTTP/1.1",
+          "scheme": "https",
+          "apiName": "PetStore",
+          "apiVersion": "v1.0.0",
+          "vhost": "localhost",
+          "basePath": "/petstore",
+          "supportedMethods": "GET POST",
+          "method": "POST",
+          "path": "/petstore/pet/1",
+          "pathTemplate": "/pet/{petID}",
+          "source": "192.168.8.332:8080",
+          "prodClusterName": "carbon.super_clusterProd_localhost_Online-Storev1.0.0",
+          "sandClusterName": "",
+          "authenticationContext": {
+              "token": "xxxxxxxxxxxxxxxx",
+              "tokenType": "API Key|JWT Auth|Internal Key",
+              "keyType": "PRODUCTION|SANDBOX",
+          }
+      }
+    }
+    ```
 
 | Field Name            | Description                                                                        |
 |-----------------------|------------------------------------------------------------------------------------|

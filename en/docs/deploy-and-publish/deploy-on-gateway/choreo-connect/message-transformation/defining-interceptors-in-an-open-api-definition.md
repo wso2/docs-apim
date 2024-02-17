@@ -18,87 +18,52 @@ You can define the request flow interceptor as follows in the OpenAPI Definition
 For a detailed description of the keys, see [Description of Keys of Interceptor OpenAPI Extension](#description-of-keys-of-interceptor-open-api-extension).
 Also, for a detailed example, see the [detailed sample OpenAPI definition with request flow interceptor](https://github.com/wso2/product-microgateway/blob/main/samples/openAPI-definitions/interceptors_sample.yaml).
 
-``` yaml tab="Format"
-x-wso2-request-interceptor:
-  serviceURL: [http|https]://<host>[:<port>]
-  includes: # any of following
-    - request_headers
-    - request_body
-    - request_trailers
-    - invocation_context
-  requestTimeout: OPTIONAL <request timeout in seconds>
-  clusterTimeout: OPTIONAL <override interceptor cluster timeout in seconds>
-```
+=== "Format"
+    ``` yaml
+    x-wso2-request-interceptor:
+    serviceURL: [http|https]://<host>[:<port>]
+    includes: # any of following
+        - request_headers
+        - request_body
+        - request_trailers
+        - invocation_context
+    requestTimeout: OPTIONAL <request timeout in seconds>
+    clusterTimeout: OPTIONAL <override interceptor cluster timeout in seconds>
+    ```
 
-``` yaml tab="Example API Level"
-.
-.
-info:
-  version: 1.0.5
-  title: PizzaShackAPI
-x-wso2-basePath: /v2
-x-wso2-production-endpoints:
-    urls:
-    - https://localhost:2380/v2
-x-wso2-request-interceptor:
-  serviceURL: http://host.request.interceptor:9081
-  includes:
-    - request_headers
-    - invocation_context
-.
-.
-```
+=== "Example API Level"
+    ``` yaml
+    .
+    .
+    info:
+    version: 1.0.5
+    title: PizzaShackAPI
+    x-wso2-basePath: /v2
+    x-wso2-production-endpoints:
+        urls:
+        - https://localhost:2380/v2
+    x-wso2-request-interceptor:
+    serviceURL: http://host.request.interceptor:9081
+    includes:
+        - request_headers
+        - invocation_context
+    .
+    .
+    ```
 
-``` yaml tab="Example Resource Level"
-.
-.
-info:
-  version: 1.0.5
-  title: PizzaShackAPI
-x-wso2-basePath: /v2
-x-wso2-production-endpoints:
-    urls:
-    - https://localhost:2380/v2
-paths:
-    /pet/findByStatus:
-        x-wso2-production-endpoints:
-            urls:
-            -  https://localhost:2380/v1
-        x-wso2-request-interceptor:
-            serviceURL: http://host.request.interceptor:9081
-            includes:
-            - request_body
-        get:
-            tags:
-            - pets
-            summary: Finds Pets by status
-            description: Multiple status values can be provided with comma separated strings
-            operationId: findPetsByStatus
-            parameters:
-            - name: status
-              in: query
-              description: Status values that need to be considered for filter
-        .
-        .
-    /pet/{petId}:
-        get:
-.
-.
-```
-
-``` yaml tab="Example HTTP Operation Level"
-.
-.
-info:
-  version: 1.0.5
-  title: PizzaShackAPI
-x-wso2-basePath: /v2
-x-wso2-production-endpoints:
-    urls:
-    - https://localhost:2380/v2
-paths:
-    /pet/findByStatus:
-        get:
+=== "Example Resource Level"
+    ``` yaml
+    .
+    .
+    info:
+    version: 1.0.5
+    title: PizzaShackAPI
+    x-wso2-basePath: /v2
+    x-wso2-production-endpoints:
+        urls:
+        - https://localhost:2380/v2
+    paths:
+        /pet/findByStatus:
             x-wso2-production-endpoints:
                 urls:
                 -  https://localhost:2380/v1
@@ -106,22 +71,61 @@ paths:
                 serviceURL: http://host.request.interceptor:9081
                 includes:
                 - request_body
-            tags:
-            - pets
-            summary: Finds Pets by status
-            description: Multiple status values can be provided with comma separated strings
-            operationId: findPetsByStatus
-            parameters:
-            - name: status
-              in: query
-              description: Status values that need to be considered for filter
-        .
-        .
-    /pet/{petId}:
-        get:
-.
-.
-```
+            get:
+                tags:
+                - pets
+                summary: Finds Pets by status
+                description: Multiple status values can be provided with comma separated strings
+                operationId: findPetsByStatus
+                parameters:
+                - name: status
+                in: query
+                description: Status values that need to be considered for filter
+            .
+            .
+        /pet/{petId}:
+            get:
+    .
+    .
+    ```
+
+=== "Example HTTP Operation Level"
+    ``` yaml
+    .
+    .
+    info:
+    version: 1.0.5
+    title: PizzaShackAPI
+    x-wso2-basePath: /v2
+    x-wso2-production-endpoints:
+        urls:
+        - https://localhost:2380/v2
+    paths:
+        /pet/findByStatus:
+            get:
+                x-wso2-production-endpoints:
+                    urls:
+                    -  https://localhost:2380/v1
+                x-wso2-request-interceptor:
+                    serviceURL: http://host.request.interceptor:9081
+                    includes:
+                    - request_body
+                tags:
+                - pets
+                summary: Finds Pets by status
+                description: Multiple status values can be provided with comma separated strings
+                operationId: findPetsByStatus
+                parameters:
+                - name: status
+                in: query
+                description: Status values that need to be considered for filter
+            .
+            .
+        /pet/{petId}:
+            get:
+    .
+    .
+    ```
 
 <!-- The content of the below warning is same as the info notice in the file
 deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/request-flow-interceptor.md -->
@@ -143,92 +147,56 @@ includes:
  - response_trailers
 ```
 
-``` yaml tab="Format"
-x-wso2-response-interceptor:
-  serviceURL: [http|https]://<host>[:<port>]
-  includes: # any of following
-    - request_headers
-    - request_body
-    - request_trailers
-    - response_headers
-    - response_body
-    - response_trailers
-    - invocation_context
-  requestTimeout: OPTIONAL <request timeout in seconds>
-  clusterTimeout: OPTIONAL <override interceptor cluster timeout in seconds>
-```
+=== "Format"
+    ``` yaml
+    x-wso2-response-interceptor:
+    serviceURL: [http|https]://<host>[:<port>]
+    includes: # any of following
+        - request_headers
+        - request_body
+        - request_trailers
+        - response_headers
+        - response_body
+        - response_trailers
+        - invocation_context
+    requestTimeout: OPTIONAL <request timeout in seconds>
+    clusterTimeout: OPTIONAL <override interceptor cluster timeout in seconds>
+    ```
 
-``` yaml tab="Example API Level"
-.
-.
-info:
-  version: 1.0.5
-  title: PizzaShackAPI
-x-wso2-basePath: /v2
-x-wso2-production-endpoints:
-    urls:
-    - https://localhost:2380/v2
-x-wso2-response-interceptor:
-  serviceURL: http://host.response.interceptor:9081
-  includes:
-    - request_headers
-    - request_body
-    - response_headers
-.
-.
-```
+=== "Example API Level"
+    ``` yaml
+    .
+    .
+    info:
+    version: 1.0.5
+    title: PizzaShackAPI
+    x-wso2-basePath: /v2
+    x-wso2-production-endpoints:
+        urls:
+        - https://localhost:2380/v2
+    x-wso2-response-interceptor:
+    serviceURL: http://host.response.interceptor:9081
+    includes:
+        - request_headers
+        - request_body
+        - response_headers
+    .
+    .
+    ```
 
-``` yaml tab="Example Resource Level"
-.
-.
-info:
-  version: 1.0.5
-  title: PizzaShackAPI
-x-wso2-basePath: /v2
-x-wso2-production-endpoints:
-    urls:
-    - https://localhost:2380/v2
-paths:
-    /pet/findByStatus:
-        x-wso2-production-endpoints:
-            urls:
-            -  https://localhost:2380/v1
-        x-wso2-response-interceptor:
-            serviceURL: http://host.response.interceptor:9081
-            includes:
-            - request_body
-            - invocation_context
-        get:
-            tags:
-            - pets
-            summary: Finds Pets by status
-            description: Multiple status values can be provided with comma separated strings
-            operationId: findPetsByStatus
-            parameters:
-            - name: status
-              in: query
-              description: Status values that need to be considered for filter
-        .
-        .
-    /pet/{petId}:
-        get:
-.
-.
-```
-
-``` yaml tab="Example HTTP Operation Level"
-.
-.
-info:
-  version: 1.0.5
-  title: PizzaShackAPI
-x-wso2-basePath: /v2
-x-wso2-production-endpoints:
-    urls:
-    - https://localhost:2380/v2
-paths:
-    /pet/findByStatus:
-        get:
+=== "Example Resource Level"
+    ``` yaml
+    .
+    .
+    info:
+    version: 1.0.5
+    title: PizzaShackAPI
+    x-wso2-basePath: /v2
+    x-wso2-production-endpoints:
+        urls:
+        - https://localhost:2380/v2
+    paths:
+        /pet/findByStatus:
             x-wso2-production-endpoints:
                 urls:
                 -  https://localhost:2380/v1
@@ -237,22 +205,62 @@ paths:
                 includes:
                 - request_body
                 - invocation_context
-            tags:
-            - pets
-            summary: Finds Pets by status
-            description: Multiple status values can be provided with comma separated strings
-            operationId: findPetsByStatus
-            parameters:
-            - name: status
-              in: query
-              description: Status values that need to be considered for filter
-        .
-        .
-    /pet/{petId}:
-        get:
-.
-.
-```
+            get:
+                tags:
+                - pets
+                summary: Finds Pets by status
+                description: Multiple status values can be provided with comma separated strings
+                operationId: findPetsByStatus
+                parameters:
+                - name: status
+                in: query
+                description: Status values that need to be considered for filter
+            .
+            .
+        /pet/{petId}:
+            get:
+    .
+    .
+    ```
+
+=== "Example HTTP Operation Level"
+    ``` yaml
+    .
+    .
+    info:
+    version: 1.0.5
+    title: PizzaShackAPI
+    x-wso2-basePath: /v2
+    x-wso2-production-endpoints:
+        urls:
+        - https://localhost:2380/v2
+    paths:
+        /pet/findByStatus:
+            get:
+                x-wso2-production-endpoints:
+                    urls:
+                    -  https://localhost:2380/v1
+                x-wso2-response-interceptor:
+                    serviceURL: http://host.response.interceptor:9081
+                    includes:
+                    - request_body
+                    - invocation_context
+                tags:
+                - pets
+                summary: Finds Pets by status
+                description: Multiple status values can be provided with comma separated strings
+                operationId: findPetsByStatus
+                parameters:
+                - name: status
+                in: query
+                description: Status values that need to be considered for filter
+            .
+            .
+        /pet/{petId}:
+            get:
+    .
+    .
+    ```
 
 <!-- The content of the below warning is same as the info notice in the file
 deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/response-flow-interceptor.md -->

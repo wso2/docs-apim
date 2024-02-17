@@ -4,47 +4,51 @@ This example demonstrates the usage of the message forwarding processor.
 ## Synapse configuration
 Following are the artifact configurations that we can use to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
-```xml tab='Proxy Service'
-<proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="https http" startOnLoad="true" trace="disable">
-          <description />
-    <target>
-       <inSequence>
-        <log level="full"/>
-        <property name="FORCE_SC_ACCEPTED" scope="axis2" value="true"/>
-        <property name="OUT_ONLY" value="true"/>
-        <store messageStore="MyStore"/>
-    </inSequence>
-    <outSequence>
-      <send />
-    </outSequence>
-</target>
-</proxy>
-```
+=== "Proxy Service"
+    ```xml
+    <proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="https http" startOnLoad="true" trace="disable">
+            <description />
+        <target>
+        <inSequence>
+            <log level="full"/>
+            <property name="FORCE_SC_ACCEPTED" scope="axis2" value="true"/>
+            <property name="OUT_ONLY" value="true"/>
+            <store messageStore="MyStore"/>
+        </inSequence>
+        <outSequence>
+        <send />
+        </outSequence>
+    </target>
+    </proxy>
+    ```
 
-```xml tab='Message Store'
-<messageStore xmlns="http://ws.apache.org/ns/synapse" name="MyStore"/>
-```
+=== "Message Store"
+    ```xml
+    <messageStore xmlns="http://ws.apache.org/ns/synapse" name="MyStore"/>
+    ```
 
-```xml tab='Message Processor'
-<messageProcessor xmlns="http://ws.apache.org/ns/synapse"
-    class="org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor"
-    messageStore="MyStore" name="ScheduledProcessor" targetEndpoint="StockQuoteServiceEp">
-    <parameter name="interval">10000</parameter>
-    <parameter name="throttle">false</parameter>
-    <parameter name="target.endpoint">StockQuoteServiceEp</parameter>
-</messageProcessor>
-```
+=== "Message Processor"
+    ```xml
+    <messageProcessor xmlns="http://ws.apache.org/ns/synapse"
+        class="org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor"
+        messageStore="MyStore" name="ScheduledProcessor" targetEndpoint="StockQuoteServiceEp">
+        <parameter name="interval">10000</parameter>
+        <parameter name="throttle">false</parameter>
+        <parameter name="target.endpoint">StockQuoteServiceEp</parameter>
+    </messageProcessor>
+    ```
 
-```xml tab='Endpoint'
-<endpoint xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteServiceEp">
-    <address uri="http://localhost:9000/services/SimpleStockQuoteService">
-        <suspendOnFailure>
-            <errorCodes>-1</errorCodes>
-            <progressionFactor>1.0</progressionFactor>
-        </suspendOnFailure>
-    </address>
-</endpoint>
-```
+=== "Endpoint"
+    ```xml
+    <endpoint xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteServiceEp">
+        <address uri="http://localhost:9000/services/SimpleStockQuoteService">
+            <suspendOnFailure>
+                <errorCodes>-1</errorCodes>
+                <progressionFactor>1.0</progressionFactor>
+            </suspendOnFailure>
+        </address>
+    </endpoint>
+    ```
 
 ## Build and run
 
@@ -64,13 +68,15 @@ Set up the back-end service:
 3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
 4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
    
-      ```bash tab='On MacOS/Linux/CentOS'
-      sh axis2server.sh
-      ```
+    === "On MacOS/Linux/CentOS"
+        ```bash
+        sh axis2server.sh
+        ```
           
-      ```bash tab='On Windows'
-      axis2server.bat
-      ```
+    === "On Windows"
+        ```bash
+        axis2server.bat
+        ```
 
 Send the following request to invoke the service:
 

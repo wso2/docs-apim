@@ -25,13 +25,15 @@ Follow the instructions below to run the TCPMon available with your WSO2 Carbon 
 1.  Go to `<API-M_HOME>/bin` directory of your product pack.
 2.  Execute the following command to run the tool.
     
-     ``` java tab="For Windows"
-     tcpmon.bat
-     ```
+    === "For Windows"
+        ``` java
+        tcpmon.bat
+        ```
 
-     ``` java tab="For Linux"
-     ./tcpmon.sh
-     ```
+    === "For Linux"
+        ``` java
+        ./tcpmon.sh
+        ```
 
 ### Running TCPMon (downloaded from Apache)
 
@@ -42,13 +44,15 @@ Follow the instructions below to download TCPMon from Apache and run the tool:
 3.  Go to the build of the extracted directory to find the execution script.
 4.  Execute the following command to run the tool.
 
-     ``` java tab="For Windows"
-     tcpmon.bat
-     ```
+    === "For Windows"
+        ``` java
+        tcpmon.bat
+        ```
 
-     ``` java tab="For Linux"
-     ./tcpmon.sh
-     ```
+    === "For Linux"
+        ``` java
+        ./tcpmon.sh
+        ```
 
 ## Other Usages of TCPMon
 

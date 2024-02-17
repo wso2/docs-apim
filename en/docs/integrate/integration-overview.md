@@ -107,7 +107,7 @@ Learn about the main integration capabilities of the Micro Integrator of WSO2 AP
 <div>
     <div class="content">
         <!-- card -->
-        <div class="card" onclick="location.href='{{base_path}}/integrate/integration-use-case/message-routing-overview';">
+        <div class="card col-md-3" onclick="location.href='{{base_path}}/integrate/integration-use-case/message-routing-overview';">
             <div class="line"></div>
             <div class="card-content" >
                 <p class="title">Message Routing</p>

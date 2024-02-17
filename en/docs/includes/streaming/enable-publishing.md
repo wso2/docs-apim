@@ -9,7 +9,7 @@ Follow the instructions below to enable publishing the AsyncAPI definition to th
 
      2. Uncomment `offset` in the `[server]` section and set it to `5` as shown below.
 
-         ```
+         ```toml
          [server]
          offset=5
          ```

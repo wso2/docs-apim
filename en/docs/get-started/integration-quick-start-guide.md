@@ -28,8 +28,8 @@ Most healthcare centers have a system that is used to make doctor appointments. 
 <a href="{{base_path}}/assets/img/integrate/quick-start-guide/mi-quick-start-guide.png"><img src="{{base_path}}/assets/img/integrate/quick-start-guide/mi-quick-start-guide.png" width="1600" height="600"></a>
 
 
-    !!! Tip
-        You may export` <mi-qsg-home>/HealthcareIntegrationProject` to Integration Studio to view the project structure.
+!!! Tip
+    You may export `<mi-qsg-home>/HealthcareIntegrationProject` to Integration Studio to view the project structure.
 
 In the above scenario, the following takes place:
 
@@ -169,26 +169,28 @@ Follow the steps given below to run the integration artifacts we developed on a 
     1. Open a terminal and navigate to the `<mi-qsg-home>/bin` folder.
     2. Execute the relevant OS specific command:
  
-        ```bash tab='On MacOS/Linux/CentOS'
-        sh run.sh 
-        ```
+        === "On MacOS/Linux/CentOS"
+            ```bash 
+            sh run.sh 
+            ```
             
-        ```bash tab='On Windows'
-        run.bat 
-        ```  
+        === "On Windows"
+            ```bash 
+            run.bat 
+            ```  
       
         !!! Tip
             The script assumes `MI_HOME` and `<mi-qsg-home>` are located in the same directory. It carries out the following steps.
 
             - Start the back-end services.
+                
+                Two mock hospital information services are available in the `DoctorInfo.jar` file located in the `<mi-qsg-home>/Backend/` directory.
 
-                Two mock hospital information services are available in the `DoctorInfo.jar` file located in the `<mi-qsg-home>/Backend/` directory. 
-    
-                To manually start the service, open a terminal window, navigate to the `<mi-qsg-home>/Backend/` folder, and use the following command to start the services:
-    
-                ```bash
-                java -jar DoctorInfo.jar
-                ```
+                To manually start the service, open a terminal window, navigate to the `<mi-qsg-home>/Backend/` folder, and use the following command to start the services.
+
+            ```bash
+            java -jar DoctorInfo.jar
+            ```
    
             - Deploy the Healthcare service.
 
@@ -198,13 +200,15 @@ Follow the steps given below to run the integration artifacts we developed on a 
 
     1. Execute the relevant command in a terminal based on the OS:
  
-      ```bash tab='On MacOS/Linux/CentOS'
-      sh micro-integrator.sh
-      ```
-          
-      ```bash tab='On Windows'
-      micro-integrator.bat
-      ```
+        === "On MacOS/Linux/CentOS"
+            ```bash 
+            sh micro-integrator.sh
+            ```
+
+        === "On Windows" 
+            ```bash
+            micro-integrator.bat
+            ```
 
 4. (Optional) Start the Dashboard.
 
@@ -272,13 +276,15 @@ The REST API you deployed in the Micro Integrator is an **integration service** 
         Open a terminal, navigate to the `<API-M_HOME>/bin` directory, and execute the relevant command. 
    
         
-        ```bash tab="On MacOS/Linux"
-        ./api-manager.sh
-        ```
+        === "On MacOS/Linux"
+            ```bash
+            ./api-manager.sh
+            ```
         
-        ```bash tab="On Windows"
-        api-manager.bat --run
-        ```
+        === "On Windows"
+            ```bash
+            api-manager.bat --run
+            ```
 
 2. Update and start the Micro Integrator runtime:
 
