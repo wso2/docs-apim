@@ -12,15 +12,17 @@ Follow the steps given below.
     
     2. Define the `hostname` attribute under server configurations as shown below.
 
-        ``` format tab="Format"
-        [server]
-        hostname = "{hostname}"
-        ```
+        === "Format"
+            ``` format
+            [server]
+            hostname = "{hostname}"
+            ```
     
-        ``` example tab="Example"
-        [server]
-        hostname = "am.dev.wso2.com"
-        ```
+        === "Example"
+            ``` example
+            [server]
+            hostname = "am.dev.wso2.com"
+            ```
     
         Replace `{hostname}` with the  Hostname or IP address of the machine hosting this server. This becomes part of the **endpoint** reference of the services deployed on this server instance.
     
@@ -60,15 +62,17 @@ Follow the steps given below.
 1.  Open the `<MI-HOME>/conf/deployment.toml` file 
 2.  Define the `hostname` attribute under server configuration as shown below.
 
-    ``` format tab="Format"
-    [server]
-    hostname = "{hostname}"
-    ```
+    === "Format"
+        ``` toml
+        [server]
+        hostname = "{hostname}"
+        ```
 
-    ``` example tab="Example"
-    [server]
-    hostname="localhost"
-    ```
+    === "Example"
+        ``` toml
+        [server]
+        hostname="localhost"
+        ```
 
 To configure hostnames for WSDLs and endpoints, it is recommended to add the following parameter for the transport listener in the `deployment.toml` file.
 

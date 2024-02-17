@@ -180,109 +180,111 @@ curl -H 'Accept: application/json' -X GET http://localhost:8290/services/nested_
 
 You will now see the following result:
 
-```xml tab='XML result'
-<Entries xmlns="http://ws.wso2.org/dataservice">
-   <Entry>
-      <OfficeCode>1</OfficeCode>
-      <AddressLine1>51</AddressLine1>
-      <AddressLine2>Glen Street</AddressLine2>
-      <City>Norwich</City>
-      <State>London</State>
-      <Country>United Kingdom</Country>
-      <Phone>+441523624</Phone>
-      <Entries>
+=== "XML result"
+      ```xml
+      <Entries xmlns="http://ws.wso2.org/dataservice">
          <Entry>
-            <EmployeeNumber>1</EmployeeNumber>
-            <FirstName>John</FirstName>
-            <LastName>Gardiner</LastName>
-            <Email>john@office1.com</Email>
-            <JobTitle>Manager</JobTitle>
             <OfficeCode>1</OfficeCode>
-         </Entry>
-         <Entry>
-            <EmployeeNumber>3</EmployeeNumber>
-            <FirstName>David</FirstName>
-            <LastName>Green</LastName>
-            <Email>david@office1.com</Email>
-            <JobTitle>Manager</JobTitle>
-            <OfficeCode>1</OfficeCode>
+            <AddressLine1>51</AddressLine1>
+            <AddressLine2>Glen Street</AddressLine2>
+            <City>Norwich</City>
+            <State>London</State>
+            <Country>United Kingdom</Country>
+            <Phone>+441523624</Phone>
+            <Entries>
+               <Entry>
+                  <EmployeeNumber>1</EmployeeNumber>
+                  <FirstName>John</FirstName>
+                  <LastName>Gardiner</LastName>
+                  <Email>john@office1.com</Email>
+                  <JobTitle>Manager</JobTitle>
+                  <OfficeCode>1</OfficeCode>
+               </Entry>
+               <Entry>
+                  <EmployeeNumber>3</EmployeeNumber>
+                  <FirstName>David</FirstName>
+                  <LastName>Green</LastName>
+                  <Email>david@office1.com</Email>
+                  <JobTitle>Manager</JobTitle>
+                  <OfficeCode>1</OfficeCode>
+               </Entry>
+            </Entries>
          </Entry>
       </Entries>
-   </Entry>
-</Entries>
-```
+      ```
 
-```json tab='JSON result'
-{
-   "Offices":{
-      "Office":[
-         {
-            "Phone":"+441523624",
-            "Country":"United Kingdom",
-            "OfficeCode":1,
-            "City":"Norwich",
-            "Entries":{
-               "Entry":[
-                  {
-                     "EmployeeNumber":"1",
-                     "FirstName":"John",
-                     "LastName":"Gardiner",
-                     "Email":"john@office1.com",
-                     "JobTitle":"Manager",
-                     "OfficeCode":"1"
-                  },
-                  {
-                     "EmployeeNumber":"3",
-                     "FirstName":"David",
-                     "LastName":"Green",
-                     "Email":"david@office1.com",
-                     "JobTitle":"Manager",
-                     "OfficeCode":"1"
-                  },
-                  {
-                     "EmployeeNumber":"1002",
-                     "FirstName":"Peter",
-                     "LastName":"Parker",
-                     "Email":"peter@wso2.com",
-                     "JobTitle":null,
-                     "OfficeCode":"1"
-                  },
-                  {
-                     "EmployeeNumber":"1003",
-                     "FirstName":"Chris",
-                     "LastName":"Sam",
-                     "Email":"chris@sam.com",
-                     "JobTitle":null,
-                     "OfficeCode":"1"
-                  },
-                  {
-                     "EmployeeNumber":"1006",
-                     "FirstName":"Chris",
-                     "LastName":"Sam",
-                     "Email":"chris@sam.com",
-                     "JobTitle":null,
-                     "OfficeCode":"1"
-                  },
-                  {
-                     "EmployeeNumber":"1007",
-                     "FirstName":"John",
-                     "LastName":"Doe",
-                     "Email":"johnd@wso2.com",
-                     "JobTitle":null,
-                     "OfficeCode":"1"
-                  },
-                  {
-                     "EmployeeNumber":"1008",
-                     "FirstName":"Peter",
-                     "LastName":"Parker",
-                     "Email":"peterp@wso2.com",
-                     "JobTitle":null,
-                     "OfficeCode":"1"
+=== "JSON result"
+      ```json
+      {
+         "Offices":{
+            "Office":[
+               {
+                  "Phone":"+441523624",
+                  "Country":"United Kingdom",
+                  "OfficeCode":1,
+                  "City":"Norwich",
+                  "Entries":{
+                     "Entry":[
+                        {
+                           "EmployeeNumber":"1",
+                           "FirstName":"John",
+                           "LastName":"Gardiner",
+                           "Email":"john@office1.com",
+                           "JobTitle":"Manager",
+                           "OfficeCode":"1"
+                        },
+                        {
+                           "EmployeeNumber":"3",
+                           "FirstName":"David",
+                           "LastName":"Green",
+                           "Email":"david@office1.com",
+                           "JobTitle":"Manager",
+                           "OfficeCode":"1"
+                        },
+                        {
+                           "EmployeeNumber":"1002",
+                           "FirstName":"Peter",
+                           "LastName":"Parker",
+                           "Email":"peter@wso2.com",
+                           "JobTitle":null,
+                           "OfficeCode":"1"
+                        },
+                        {
+                           "EmployeeNumber":"1003",
+                           "FirstName":"Chris",
+                           "LastName":"Sam",
+                           "Email":"chris@sam.com",
+                           "JobTitle":null,
+                           "OfficeCode":"1"
+                        },
+                        {
+                           "EmployeeNumber":"1006",
+                           "FirstName":"Chris",
+                           "LastName":"Sam",
+                           "Email":"chris@sam.com",
+                           "JobTitle":null,
+                           "OfficeCode":"1"
+                        },
+                        {
+                           "EmployeeNumber":"1007",
+                           "FirstName":"John",
+                           "LastName":"Doe",
+                           "Email":"johnd@wso2.com",
+                           "JobTitle":null,
+                           "OfficeCode":"1"
+                        },
+                        {
+                           "EmployeeNumber":"1008",
+                           "FirstName":"Peter",
+                           "LastName":"Parker",
+                           "Email":"peterp@wso2.com",
+                           "JobTitle":null,
+                           "OfficeCode":"1"
+                        }
+                     ]
                   }
-               ]
-            }
+               }
+            ]
          }
-      ]
-   }
-}
-```
+      }
+      ```

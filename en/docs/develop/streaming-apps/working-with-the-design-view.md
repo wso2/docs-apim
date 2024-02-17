@@ -24,13 +24,13 @@ To open the design view of the Streaming Integrator Tooling:
 To add a Siddhi component to the Siddhi application that you are creating/editing in the design view, click on the 
 relevant icon in the left pane, and then drag and drop it to the grid as demonstrated in the example below.
 
-![Dragging and dropping Siddhi components](../../../../assets/img/streaming/working-with-the design-view/Drag-And-Drop-Siddhi-Component.gif)
+[![Dragging and dropping Siddhi components]({{base_path}}/assets/img/streaming/working-with-the design-view/Drag-And-Drop-Siddhi-Component.gif)]({{base_path}}/assets/img/streaming/working-with-the design-view/Drag-And-Drop-Siddhi-Component.gif)
 
 Once you add a Siddhi component, you can configure it as required. To
 configure a Siddhi component, click the settings icon on the component.
 This opens a form with parameters related to the relevant component.
 
-![Configure Siddhi component settings](../../../../assets/img/streaming/working-with-the design-view/Configure-Siddhi-Component-In-Design-View.png)
+[![Configure Siddhi component settings]({{base_path}}/assets/img/streaming/working-with-the design-view/Configure-Siddhi-Component-In-Design-View.png)]({{base_path}}/assets/img/streaming/working-with-the design-view/Configure-Siddhi-Component-In-Design-View.png)
 
 The following is the complete list of Siddhi components that you can add
 to the grid of the design view when you create a Siddhi application.
@@ -59,7 +59,7 @@ to the grid of the design view when you create a Siddhi application.
                <p><strong>Stream Name</strong> <strong>:</strong> A unique name for the stream. This should be specified in title caps, and without spaces (e.g., <code>ProductionDataStream</code> ).</p>
                <p><strong>Attributes</strong> : Attributes of streams are specified as name and type pairs in the <strong>Attributes</strong> table.</p>
                <p>If you want to generate the the stream from a file or a database, click <strong>Generate Stream</strong>. However, note that you need to create the relevant file or set up the database and the tables beforehand.</p>
-               <p><img src="/assets/img/streaming/working-with-the design-view/Generate-Stream.png"/></p>
+               <p><img src="{{base_path}}/assets/img/streaming/working-with-the design-view/Generate-Stream.png"/></p>
                <p>The <strong>Generate Stream</strong> form opens as follows</p>
                <p><img src="{{base_path}}/assets/img/streaming/working-with-the design-view/generate-stream-form.png"/></p>
                <p>To generate the stream from a file:
@@ -1312,7 +1312,7 @@ connections between Siddhi components. A connection is defined by
 drawing an arrow from one component to another by dragging the cursor as
 demonstrated below.
 
-![Connecting Siddhi components](/assets/img/streaming/working-with-the design-view/Connect-Siddhi-Components.gif)
+![Connecting Siddhi components]({{base_path}}/assets/img/streaming/working-with-the design-view/Connect-Siddhi-Components.gif)
 
 ## Saving and running Siddhi applications
 

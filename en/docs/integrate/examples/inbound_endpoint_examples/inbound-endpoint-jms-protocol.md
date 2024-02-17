@@ -5,35 +5,37 @@ This sample demonstrates how one way message bridging from JMS to HTTP can be do
 
 Following are the integration artifacts that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
-```xml tab='Inbound Endpoint'
- <?xml version="1.0" encoding="UTF-8"?>
- <inboundEndpoint xmlns="http://ws.apache.org/ns/synapse" name="jms_inbound" sequence="request" onError="fault" protocol="jms" suspend="false">
-    <parameters>
-       <parameter name="interval">1000</parameter>
-       <parameter name="transport.jms.Destination">ordersQueue</parameter>
-       <parameter name="transport.jms.CacheLevel">1</parameter>
-       <parameter name="transport.jms.ConnectionFactoryJNDIName">QueueConnectionFactory</parameter>
-       <parameter name="sequential">true</parameter>
-       <parameter name="java.naming.factory.initial">org.apache.activemq.jndi.ActiveMQInitialContextFactory</parameter>
-       <parameter name="java.naming.provider.url">tcp://localhost:61616</parameter>
-       <parameter name="transport.jms.SessionAcknowledgement">AUTO_ACKNOWLEDGE</parameter>
-       <parameter name="transport.jms.SessionTransacted">false</parameter>
-       <parameter name="transport.jms.ConnectionFactoryType">queue</parameter>
-    </parameters>
- </inboundEndpoint>
-```
+=== "Inbound Endpoint"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <inboundEndpoint xmlns="http://ws.apache.org/ns/synapse" name="jms_inbound" sequence="request" onError="fault" protocol="jms" suspend="false">
+        <parameters>
+        <parameter name="interval">1000</parameter>
+        <parameter name="transport.jms.Destination">ordersQueue</parameter>
+        <parameter name="transport.jms.CacheLevel">1</parameter>
+        <parameter name="transport.jms.ConnectionFactoryJNDIName">QueueConnectionFactory</parameter>
+        <parameter name="sequential">true</parameter>
+        <parameter name="java.naming.factory.initial">org.apache.activemq.jndi.ActiveMQInitialContextFactory</parameter>
+        <parameter name="java.naming.provider.url">tcp://localhost:61616</parameter>
+        <parameter name="transport.jms.SessionAcknowledgement">AUTO_ACKNOWLEDGE</parameter>
+        <parameter name="transport.jms.SessionTransacted">false</parameter>
+        <parameter name="transport.jms.ConnectionFactoryType">queue</parameter>
+        </parameters>
+    </inboundEndpoint>
+    ```
 
-```xml tab='Sequence'
-<?xml version="1.0" encoding="UTF-8"?>
-<sequence name="request" trace="disable" xmlns="http://ws.apache.org/ns/synapse"/>
-  <call>
-     <endpoint>
-        <address format="soap12" uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-     </endpoint>
-  </call>
-  <drop/>
-</sequence>
-```
+=== "Sequence"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <sequence name="request" trace="disable" xmlns="http://ws.apache.org/ns/synapse"/>
+    <call>
+        <endpoint>
+            <address format="soap12" uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+        </endpoint>
+    </call>
+    <drop/>
+    </sequence>
+    ```
 
 ## Build and run
 

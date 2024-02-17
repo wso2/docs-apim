@@ -36,40 +36,42 @@ The syntax of the DBLookup mediator changes depending on whether you connect to 
 -   **Data source**
     The syntax of the DBLookup mediator further differs based on whether the connection to the database is made using an external datasource or a Carbon datasource.
 
-    ``` java tab='External Datasource'
-    <dblookup>
-       <connection>
-          <pool>
-            <dsName/>
-            <icClass/>
-            <url/>
-            <user/>
-            <password/>
-            <property name="name" value="value"/>*
-          </pool>
-       </connection>
-       <statement>
-          <sql>select something from table where something_else = ?</sql>
-          <parameter [value="" | expression=""] type="CHAR|VARCHAR|LONGVARCHAR|NUMERIC|DECIMAL|BIT|TINYINT|SMALLINT|INTEGER|BIGINT|REAL|FLOAT|DOUBLE|DATE|TIME|TIMESTAMP"/>*
-          <result name="string" column="int|string"/>*
-       </statement>+
-    </dblookup>
-    ```
+    === "External Datasource"
+        ``` java
+        <dblookup>
+        <connection>
+            <pool>
+                <dsName/>
+                <icClass/>
+                <url/>
+                <user/>
+                <password/>
+                <property name="name" value="value"/>*
+            </pool>
+        </connection>
+        <statement>
+            <sql>select something from table where something_else = ?</sql>
+            <parameter [value="" | expression=""] type="CHAR|VARCHAR|LONGVARCHAR|NUMERIC|DECIMAL|BIT|TINYINT|SMALLINT|INTEGER|BIGINT|REAL|FLOAT|DOUBLE|DATE|TIME|TIMESTAMP"/>*
+            <result name="string" column="int|string"/>*
+        </statement>+
+        </dblookup>
+        ```
 
-    ``` java tab='Carbon Datasource'
-    <dblookup>
-       <connection>
-          <pool>
-            <dsName/>
-          </pool>
-       </connection>
-       <statement>
-          <sql>select something from table where something_else = ?</sql>
-          <parameter [value="" | expression=""] type="CHAR|VARCHAR|LONGVARCHAR|NUMERIC|DECIMAL|BIT|TINYINT|SMALLINT|INTEGER|BIGINT|REAL|FLOAT|DOUBLE|DATE|TIME|TIMESTAMP"/>*
-          <result name="string" column="int|string"/>*
-       </statement>+
-    </dblookup>
-    ```
+    === "Carbon Datasource"
+        ``` java
+        <dblookup>
+        <connection>
+            <pool>
+                <dsName/>
+            </pool>
+        </connection>
+        <statement>
+            <sql>select something from table where something_else = ?</sql>
+            <parameter [value="" | expression=""] type="CHAR|VARCHAR|LONGVARCHAR|NUMERIC|DECIMAL|BIT|TINYINT|SMALLINT|INTEGER|BIGINT|REAL|FLOAT|DOUBLE|DATE|TIME|TIMESTAMP"/>*
+            <result name="string" column="int|string"/>*
+        </statement>+
+        </dblookup>
+        ```
 
 ## Configurations
 

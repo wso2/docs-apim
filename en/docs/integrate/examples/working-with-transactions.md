@@ -93,7 +93,7 @@ The sample scenario can be depicted as follows:
     `           <MI_HOME>/conf/deployment.toml          ` file. By default the session is not transacted. In order to 
     make it transacted, we set the session_transaction parameter to true .
     
-    ```
+    ```toml
     [[transport.jms.listener]]
     name = "myTopicConnectionFactory"
     parameter.initial_naming_factory = "org.apache.activemq.jndi.ActiveMQInitialContextFactory"
@@ -200,13 +200,15 @@ The sample scenario can be depicted as follows:
     * Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
     * Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
    
-      ```bash tab='On MacOS/Linux/CentOS'
-      sh axis2server.sh
-      ```
+        === "On MacOS/Linux/CentOS"
+            ```bash
+            sh axis2server.sh
+            ```
           
-      ```bash tab='On Windows'
-      axis2server.bat
-      ```
+        === "On Windows"
+            ```bash
+            axis2server.bat
+            ```
             
     You now have a running WSO2 MI instance, ActiveMQ instance and a
     sample back-end service to simulate the sample scenario.
@@ -285,7 +287,7 @@ entire transaction should be rolled back.
 1.  Create the `             JMSListenerProxy            ` proxy service
     in WSO2 MI with the following configuration:
 
-    ```
+    ```xml
         <proxy xmlns="http://ws.apache.org/ns/synapse"
                name="JMSListenerProxy"
                transports="https http jms"

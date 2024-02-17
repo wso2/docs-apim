@@ -58,17 +58,20 @@ Usage of the `aws init` command is quite simple. Two mandatory flags are associa
 
 -   **Response**
     
-    ``` bash tab="Response Format"
-    Initializing a new WSO2 API Manager project in /<path-to-api-manager-project>
-    Project initialized
-    Open README file to learn more
-    ```
+    === "Response Format"
+        ``` bash
+        Initializing a new WSO2 API Manager project in /<path-to-api-manager-project>
+        Project initialized
+        Open README file to learn more
+        ```
     
-    ``` bash tab="Example Response"
-    Initializing a new WSO2 API Manager project in /home/user/Documents/product-apim-tooling/import-export-cli/products
-    Project initialized
-    Open README file to learn more
-    ```
+    === "Example Response"
+        ``` bash
+        Initializing a new WSO2 API Manager project in /home/user/Documents/product-apim-tooling/import-export-cli/products
+        Project initialized
+        Open README file to learn more
+        ```
+
 ### How the **aws init** command works.
 
 The `aws init` command will be using the AWS CLI in the background to get a list of all the APIs from the AWS API gateway. It will then look for the ID of the API name provided by the user when the `aws init` command was executed, to download the OAS of that API. After making the necessary adjustments to the APIs version, tags, endpoints etc, an API project will be initialized and the downloaded OAS will be deleted.

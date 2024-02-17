@@ -23,13 +23,15 @@ Backend JWTs can be signed with RSA to ensure their validity when being sent bet
 
 The JWKS endpoint can be accessed via the following URL depending on the tenant.
 
-```url tab="Super Tenant"
-https://<hostname>:8243/jwks
-```
+=== "Super Tenant"
+    ```url
+    https://<hostname>:8243/jwks
+    ```
 
-```url tab="Tenant"
-https://<hostname>:8243/t/<tenant domain>/jwks
-```
+=== "Tenant"
+    ```url
+    https://<hostname>:8243/t/<tenant domain>/jwks
+    ```
 
 Refer to the following sample JWKS response.
 
@@ -87,7 +89,7 @@ Before passing end user attributes, you need to enable and configure the JWT imp
 
 2. Enable and configure the JWT implementation.
 
-     ```
+     ```toml
      [apim.jwt]
      enable = true
      ```

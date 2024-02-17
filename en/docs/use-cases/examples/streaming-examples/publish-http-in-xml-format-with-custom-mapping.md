@@ -42,7 +42,7 @@ This application demonstrates how to configure WSO2 Streaming Integrator to send
 
         d. Send more events.
 
-    - **Send events to the HTTP endpoint defined via the `publish.url` in the Sink configuration by issuing the following CURL command:
+    - **Send events to the HTTP endpoint defined via the `publish.url` in the Sink configuration by issuing the following CURL command:**
 
         `curl -X POST -d '{"streamName": "SweetProductionStream", "siddhiAppName": "PublishHttpInXmlFormatWithCustomMapping","data": ['toffee', 67.43]}' http://localhost:9390/simulation/single -H 'content-type: text/plain'`
 

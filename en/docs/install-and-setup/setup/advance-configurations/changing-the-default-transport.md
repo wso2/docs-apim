@@ -145,7 +145,7 @@ HTTP PassThrough Transport is the default, non-blocking HTTP transport implement
 ### Connection Throttling
 
 Using the HTTP PassThrough transport protocol, you can enable connection throttling to restrict the number of simultaneous open connections. To enable connection throttling, edit the `<APIM_HOME>/repository/conf/deployment.toml` and add the following configuration under `passthough_http` configurations.
-    ``` java
+    ``` toml
         [passthru_http]
         max_open_connections = 2
     ```
@@ -158,25 +158,25 @@ This will restrict simultaneous open incoming connections to 2. To disable throt
 
 !!! Note "The following configurations should be added to the deployment.toml file in order to apply the changes"
     HTTP Transport Receiver Parameters
-    ```
+    ```toml
     [transport.passthru_http.listener.parameters]
     port=7003
     ```
     
     HTTP Transport Sender Parameters
-    ```
+    ```toml
     [transport.passthru_http.sender.parameters]
     non-blocking=false
     ```
     
     HTTPS Transport Receiver Parameters
-    ```
+    ```toml
     [transport.passthru_https.listener.parameters]
     port=7003
     ```
 
     HTTPS Transport Sender Parameters
-    ```
+    ```toml
     [transport.passthru_https.sender.parameters]
     non-blocking=false
     ```

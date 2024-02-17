@@ -10,7 +10,7 @@ JMX is enabled in WSO2 products by default, which ensures that the JMX server st
 
 The default JMX ports (RMIRegistryPort and the RMIServerPort) can be changed by adding the below configuration into `<API-M_HOME>/repository/conf/deployment.toml` file as shown below. Following are the default values and you can update them as required.
 
-````
+````toml
  [monitoring.jmx]
  rmi_registry_port = 9999
  rmi_server_port = 11111
@@ -20,7 +20,7 @@ The default JMX ports (RMIRegistryPort and the RMIServerPort) can be changed by 
 
 You can disable the JMX server for your product by adding the `rmi_server_start` property with value `false` into the `<API-M_HOME>/repository/conf/deployment.toml` file as shown below.
 
-````
+````toml
  [monitoring.jmx]
  rmi_server_start=false
 ````
@@ -30,15 +30,17 @@ You can disable the JMX server for your product by adding the `rmi_server_start`
 You can enable JMX for a datasource by adding the `jmx_enable` property with value `true` into the
 `<API-M_HOME>/repository/conf/deployment.toml` file as shown below.
 
-``` tab="Enable in Shared DB"
-[database.shared_db]
-jmx_enable = "true"
-```
+=== "Enable in Shared DB"
+    ```toml
+    [database.shared_db]
+    jmx_enable = "true"
+    ```
 
-``` tab="Enable in APIM DB"
-[database.am_db]
-jmx_enable = "true"
-```
+=== "Enable in APIM DB"
+    ``` toml
+    [database.am_db]
+    jmx_enable = "true"
+    ```
 
 ## Monitoring a WSO2 product with JConsole
 

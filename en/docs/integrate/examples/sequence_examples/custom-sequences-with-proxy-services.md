@@ -5,43 +5,50 @@ This example demonstrates how to reuse sequences in the Micro Integrator.
 
 This configuration creates two Proxy Services. The first Proxy Service (StockQuoteProxy1) uses the sequence named "proxy_1" to process incoming messages and the sequence named "out" to process outgoing responses. The second Proxy Service (StockQuoteProxy2) is set to directly forward messages that are received to the endpoint named "proxy_2_endpoint" without any mediation.
 
-```xml tab='Endpoint'
-<endpoint xmlns="http://ws.apache.org/ns/synapse" name="proxy_2_endpoint">
-    <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-</endpoint>
-```
+=== "Endpoint"
+    ```xml
+    <endpoint xmlns="http://ws.apache.org/ns/synapse" name="proxy_2_endpoint">
+        <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+    </endpoint>
+    ```
 
-```xml tab='Local Entry'
-<localEntry xmlns="http://ws.apache.org/ns/synapse" key="proxy_wsdl" src="file:samples/wsdl/sample_proxy_1.wsdl"/>
-```
+=== "Local Entry"
+    ```xml
+    <localEntry xmlns="http://ws.apache.org/ns/synapse" key="proxy_wsdl" src="file:samples/wsdl/sample_proxy_1.wsdl"/>
+    ```
 
-```xml tab='Sequence'
-<sequence xmlns="http://ws.apache.org/ns/synapse" name="proxy_1">
-    <send>
-        <endpoint><address uri="http://localhost:9000/services/SimpleStockQuoteService"/></endpoint>
-    </send>
-</sequence>
-```
+=== "Sequence"
+    ```xml
+    <sequence xmlns="http://ws.apache.org/ns/synapse" name="proxy_1">
+        <send>
+            <endpoint><address uri="http://localhost:9000/services/SimpleStockQuoteService"/></endpoint>
+        </send>
+    </sequence>
+    ```
 
-```xml tab='Out Sequence'
-<sequence xmlns="http://ws.apache.org/ns/synapse" name="out">
-    <send/>
-</sequence>
-```
+=== "Out Sequence"
+    ```xml
+    <sequence xmlns="http://ws.apache.org/ns/synapse" name="out">
+        <send/>
+    </sequence>
+    ```
 
-```xml tab='Proxy Service 1'
-<proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy1">
-    <publishWSDL key="proxy_wsdl"/>
-    <target inSequence="proxy_1" outSequence="out"/>
-</proxy>
-```
+=== "Proxy Service 1"
+    ```xml
+    <proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy1">
+        <publishWSDL key="proxy_wsdl"/>
+        <target inSequence="proxy_1" outSequence="out"/>
+    </proxy>
+    ```
 
-```xml tab='Proxy Service 2'
-<proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy2">
-    <publishWSDL key="proxy_wsdl"/>
-    <target endpoint="proxy_2_endpoint" outSequence="out"/>
-</proxy>
-```
+=== "Proxy Service 2"
+    ```xml
+    <proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy2">
+        <publishWSDL key="proxy_wsdl"/>
+        <target endpoint="proxy_2_endpoint" outSequence="out"/>
+    </proxy>
+    ```
+
 ## Build and run
 
 Create the artifacts:
@@ -58,13 +65,15 @@ Set up the back-end service:
 3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
 4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
    
-      ```bash tab='On MacOS/Linux/CentOS'
-      sh axis2server.sh
-      ```
+    === "On MacOS/Linux/CentOS"
+        ```bash
+        sh axis2server.sh
+        ```
           
-      ```bash tab='On Windows'
-      axis2server.bat
-      ```
+    === "On Windows"
+        ```bash
+        axis2server.bat
+        ```
 
 Download the [sample_proxy_1.wsdl file](https://github.com/wso2-docs/WSO2_EI/blob/master/samples-protocol-switching/sample_proxy_1.wsdl) and copy it to the `MI_HOME/samples/wsdl` folder (create this folder if does not already exist).
 

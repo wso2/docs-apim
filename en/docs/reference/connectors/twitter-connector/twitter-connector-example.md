@@ -91,10 +91,11 @@ curl --location 'http://<HOST_NAME>:<PORT>/createtweet' \
    "poll": {"options": ["yes", "maybe", "no"], "duration_minutes": 120}
 }'
 ```
+
 If you are using MI 4.2.0 in your local environment without configuring, `<HOST_NAME> = localhost` and `<PORT> = 8290`.
-```
 
 A response simillar to following will be received.
+
 ```json
 {
    "data": {

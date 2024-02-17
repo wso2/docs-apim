@@ -171,20 +171,22 @@ Consider an example where the sequence template is configured to log the greetin
 
 However, in the following example, the Call template mediator in the REST API is not passing a greeting message to the template. Also, a <b>default</b> greeting message is not defined in the template. In this scenario, an error will get triggered when the REST API calls the template. If you need to handle this error, or in general any error that may occur at execution of the mediation logic inside the template, you can add the 'onError' parameter to the Call Template mediator and call an error-handling sequence.
 
-```xml tab="Call Template"
-<?xml version="1.0" encoding="UTF-8"?>
-<api context="/test" name="test" xmlns="http://ws.apache.org/ns/synapse">
-    ......
-      <call-template target="sequence-temp" onError="error-handling-sequence" />
-    ........
-</api>
-```
+=== "Call Template"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <api context="/test" name="test" xmlns="http://ws.apache.org/ns/synapse">
+        ......
+        <call-template target="sequence-temp" onError="error-handling-sequence" />
+        ........
+    </api>
+    ```
 
-```xml tab="error-handling-sequence"
-<?xml version="1.0" encoding="UTF-8"?>
-<sequence name="error-handling-sequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-    <log level="custom">
-        <property name="faultMessage" value="Call Template Error"/>
-    </log>
-</sequence>
-```
+=== "error-handling-sequence"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <sequence name="error-handling-sequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+        <log level="custom">
+            <property name="faultMessage" value="Call Template Error"/>
+        </log>
+    </sequence>
+    ```

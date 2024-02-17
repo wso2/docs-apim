@@ -26,19 +26,19 @@ Follow the instructions below to expose a third-party Service Provider stream as
         
         2. Update the `service.catalog.configs:` section as follows:
         
-                ```
-                service.catalog.configs:
-                    enabled: true
-                    hostname: localhost
-                    port: 9448
-                    username: admin
-                    password: admin
-                ```
-                 In the above configuration -
+            ```
+            service.catalog.configs:
+                enabled: true
+                hostname: localhost
+                port: 9448
+                username: admin
+                password: admin
+            ```
+            In the above configuration -
                  
-                   - You are enabling the AsyncAPI generation functionality by setting the `enabled` parameter to `true`. 
+                - You are enabling the AsyncAPI generation functionality by setting the `enabled` parameter to `true`. 
                     
-                   - You are specifying `9448` as the port because you configured a port offset of 5 in the previous step. The default port of the API Manager is `9443`.
+                - You are specifying `9448` as the port because you configured a port offset of 5 in the previous step. The default port of the API Manager is `9443`.
 
     4. Configure authentication between API-M and SI.
        
@@ -60,14 +60,14 @@ Follow the instructions below to expose a third-party Service Provider stream as
 
      2. Uncomment `offset` in the `[server]` section and set it to `5` as shown below.
 
-         ```
+         ```toml
          [server]
          offset=5
          ```        
 
 ??? note "3. Start Kafka"
 
-    1.Navigate to the `<KAFKA_HOME>` directory and start a Zookeeper node.
+    1. Navigate to the `<KAFKA_HOME>` directory and start a Zookeeper node.
 
         ```
         sh bin/zookeeper-server-start.sh config/zookeeper.properties
@@ -215,14 +215,16 @@ Follow the instructions below to publish the AsyncAPI definition to the service 
 
      After the Siddhi application is successfully deployed, the following log messages appear in the Streaming Integrator and API Manager server logs to indicate that the AsyncAPI definition is successfully published in the Service Catalog.
 
-    ```bash tab="Streaming Integrator server logs"
-    Siddhi App KafkaToWebSocketSample deployed successfully
-    Async API: SweetProdApp-1.0.0 uploaded to the service catalog
-    ```
+    === "Streaming Integrator server logs"
+          ```bash
+          Siddhi App KafkaToWebSocketSample deployed successfully
+          Async API: SweetProdApp-1.0.0 uploaded to the service catalog
+          ```
 
-    ```bash tab="API Manager server logs"
-    CommonUtil Creation of folder is successful. Directory Name : SweetProdApp-1.0.0
-    ```
+    === "API Manager server logs"
+          ```bash
+          CommonUtil Creation of folder is successful. Directory Name : SweetProdApp-1.0.0
+          ```
 
 ## Step 6 - View the service catalog entry in WSO2 API-M
 
@@ -310,13 +312,15 @@ Follow the instructions below to publish the API via the WSO2 API Manager Publis
 
      2. Invoke the API by using an authorization header by executing the following command.
         
-         ``` java tab="WS"
-         wscat -c ws://localhost:9104/sweetProdApp/1.0.0 -H "Authorization: Bearer [accesstoken]" 
-         ```
+        === "WS"
+            ``` java
+            wscat -c ws://localhost:9104/sweetProdApp/1.0.0 -H "Authorization: Bearer [accesstoken]" 
+            ```
 
-         ``` java tab="WSS"
-         wscat -n -c wss://localhost:8104/sweetProdApp/1.0.0 -H "Authorization: Bearer [accesstoken]"
-         ```
+        === "WSS"
+            ``` java
+            wscat -n -c wss://localhost:8104/sweetProdApp/1.0.0 -H "Authorization: Bearer [accesstoken]"
+            ```
 
         <html>
         <div class="admonition note">
@@ -324,13 +328,15 @@ Follow the instructions below to publish the API via the WSO2 API Manager Publis
         <p>
         There are clients (especially browsers) that do not allow to add headers. In such cases, you can send the access token for the API invocation as a query parameter named `access_token` by using the command below:</p>
            
-        ``` java tab="WS"
-        wscat -c "ws://localhost:9104/sweetProdApp/1.0.0?access_token=[accesstoken]" 
-        ```
+        === "WS"
+            ``` java
+            wscat -c "ws://localhost:9104/sweetProdApp/1.0.0?access_token=[accesstoken]" 
+            ```
 
-        ``` java tab="WSS"
-        wscat -n -c "wss://localhost:8104/sweetProdApp/1.0.0?access_token=[accesstoken]"
-        ```
+        === "WSS"
+            ``` java
+            wscat -n -c "wss://localhost:8104/sweetProdApp/1.0.0?access_token=[accesstoken]"
+            ```
 
         </div>
         </html>  

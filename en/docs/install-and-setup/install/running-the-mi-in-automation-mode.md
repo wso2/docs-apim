@@ -60,20 +60,24 @@ Follow the steps given below to start the server.
 
    -   To start in automation Mode:
 
-       ```bash tab="On macOS/Linux"
-       sh micro-integrator.sh --car <composite_application_name>
-       ```
+    === "On macOS/Linux"
+         ```bash
+         sh micro-integrator.sh --car <composite_application_name>
+         ```
 
-       ```bash tab="On Windows"
-       micro-integrator.bat --car <composite_application_name>
-       ```
+    === "On Windows"
+        ```bash
+        micro-integrator.bat --car <composite_application_name>
+        ```
        
       For example:
 
-       ```bash tab="On macOS/Linux"
-       sh micro-integrator.sh --car TaskExecutingServiceCompositeExporter
-       ```
+    === "On macOS/Linux"
+        ```bash
+        sh micro-integrator.sh --car TaskExecutingServiceCompositeExporter
+        ```
 
-       ```bash tab="On Windows"
-       micro-integrator.bat --car TaskExecutingServiceCompositeExporter
-       ```
+    === "On Windows"
+        ```bash
+        micro-integrator.bat --car TaskExecutingServiceCompositeExporter
+        ```

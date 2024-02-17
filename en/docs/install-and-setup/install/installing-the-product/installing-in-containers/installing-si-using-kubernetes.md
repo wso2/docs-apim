@@ -179,7 +179,7 @@ To invoke Siddhi Applications, follow the steps below:
 
 3. To send events to the `PowerSurgeDetection` deployed in Kubernetes, issue the following CURL command.
 
-    ```
+    ```bash
     curl -X POST \
       http://siddhi/streaming-integrator-0/8080/checkPower \
         -H 'Accept: */*' \

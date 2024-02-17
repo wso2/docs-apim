@@ -34,13 +34,15 @@ Note : If OAuth2/Basic Auth is set as mandatory, the request needs to be authent
 
 Use the cURL command below to invoke the API via the gateway.
 
-``` bash tab="Format"
-curl -k -X GET "<API_URL>" -H  "accept: application/json" -H  "Authorization: Basic base64(username:password)"
-```
+=== "Format"
+    ``` bash
+    curl -k -X GET "<API_URL>" -H  "accept: application/json" -H  "Authorization: Basic base64(username:password)"
+    ```
 
-``` bash tab="Example"
-curl -k -X GET "https://localhost:8243/pizzashack/1.0.0/menu" -H  "accept: application/json" -H  "Authorization: Basic c2hhbmk6c2hhbmkxMjM="
-```
+=== "Example"
+    ``` bash
+    curl -k -X GET "https://localhost:8243/pizzashack/1.0.0/menu" -H  "accept: application/json" -H  "Authorization: Basic c2hhbmk6c2hhbmkxMjM="
+    ```
 
 ##Basic Authentication with Scopes
 WSO2 API Manager allow users to configure [Scopes]({{base_path}}/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/) with role bindings which can associate with API Resources. Basic authentication
