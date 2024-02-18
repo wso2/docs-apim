@@ -17,7 +17,7 @@ in the following ways:
         define table SweetProductionTable (name string, amount double);
     ```
 
-        !!! info
+    !!! info
     
         This method is not recommended in a production environment because
         is less secure compared to the other methods.
@@ -30,7 +30,7 @@ in the following ways:
     as a ref (i.e., in a separate section siddhi: and subsection refs:)
     as shown in the example below.  
 
-        !!! info
+    !!! info
     
         The database connection is started when a Siddhi application is
         deployed, and disconnected when the Siddhi application is
@@ -77,7 +77,7 @@ in the following ways:
             @Store(type='<DATABASE_TYPE>', datasource=’<carbon.datasource.name>’)
     ```
 
-        !!! info
+    !!! info
     
         The database connection pool is initialized at server startup, and
         destroyed at server shut down.
@@ -99,24 +99,24 @@ The following database types are currently supported for WSO2 SP.
 
 !!! tip
 
-Before you begin:
+    Before you begin:
 
-In order to create and use an event table to store data, the following
-should be completed:
+    In order to create and use an event table to store data, the following
+    should be completed:
 
-- The required database (MySql, MongoDB, Oracle Database, etc) should be downloaded and installed.
+    - The required database (MySql, MongoDB, Oracle Database, etc) should be downloaded and installed.
 
-- A database instance should be started.
+    - A database instance should be started.
 
-- The user IDs used to perform the required table operations should be granted the relevant privileges.
+    - The user IDs used to perform the required table operations should be granted the relevant privileges.
 
-- The relevant JDBC Driver must be downloaded and the jar must be put in the `<SI_HOME>/lib` directory.
+    - The relevant JDBC Driver must be downloaded and the jar must be put in the `<SI_HOME>/lib` directory.
 
 
-- [RDBMS](#DefiningTablesforPhysicalStores-RDBMS)
-- [Apache HBase](#DefiningTablesforPhysicalStores-ApacheHBase)
-- [Apache Solr](#DefiningTablesforPhysicalStores-ApacheSolr)
-- [MongoDB](#DefiningTablesforPhysicalStores-MongoDB)
+    - [RDBMS](#DefiningTablesforPhysicalStores-RDBMS)
+    - [Apache HBase](#DefiningTablesforPhysicalStores-ApacheHBase)
+    - [Apache Solr](#DefiningTablesforPhysicalStores-ApacheSolr)
+    - [MongoDB](#DefiningTablesforPhysicalStores-MongoDB)
 
   
 
