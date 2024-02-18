@@ -196,8 +196,8 @@ grant type.
 
 !!! note
 
-The identity provider with which WSO2 SP interacts with to authenticate
-users must be started before the SP server.
+    The identity provider with which WSO2 SP interacts with to authenticate
+    users must be started before the SP server.
 
 
 The auth manager must be configured under the

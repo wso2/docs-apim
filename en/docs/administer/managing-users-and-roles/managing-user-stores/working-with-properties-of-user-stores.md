@@ -2,26 +2,6 @@
 
 The following table provides descriptions of the key properties you use to configure primary user stores.
 
-!!! info
-<table>
-    <thead>
-        <tr class="header">
-            <th><p>Property name</p></th>
-            <th><p>Description</p></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-                <div class="content-wrapper">
-                    !!! info
-                </div>
-            </td>
-            <td>xyz</td>
-        </tr>
-    </tbody>
-</table>
-
 <table>
 <thead>
 <tr class="header">
