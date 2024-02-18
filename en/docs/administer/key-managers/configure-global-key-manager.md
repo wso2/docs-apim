@@ -2,6 +2,9 @@
 
 This document outlines the steps to enable the global key manager support in WSO2 API Manager (API-M). With this feature, a single token generated using the global key manager can be used to invoke cross-tenant APIs without generating a token in that specific tenant's key manager.
 
+!!! Note
+    This feature is available only as an update and is available from Update level 4.0.0.258 (released on 27th December 2023).
+
 The global key manager can be created through the admin portal of the super tenant. This global key manager will be visible in the devportal of all the tenants and this can be used to generate a token which can be used to invoke APIs across tenants. Any third party key manager can be configured as a global key manager.
 
 !!! Note
@@ -37,6 +40,8 @@ Follow the steps given below to configure the Global Key Manager
       After adding the Global Key Manager, the drop-down icon next to the **Add Key Manager** button will be removed since only one Global Key Manager can be added.
 
 ## Trying Out the Global Key Manager
+
+Let's look at a scenario where a single access token generated for an application using the Global Key Manager is used to invoke subscribed APIs of different tenants
 
 1. Stop the WSO2 API Manager if it is already running
 
@@ -77,7 +82,7 @@ Follow the steps given below to configure the Global Key Manager
 
 13. Click **GENERATE KEYS**
 
-14. Click **GENERATE ACCESS TOKEN** to create an application access token. Make sure to copy the generated JWT access token that appears so that you can use it in the future.
+14. Click **GENERATE ACCESS TOKEN** to generate an application access token. Make sure to copy the generated JWT access token that appears so that you can use it in the future.
 
 15. Go to the Developer Portal landing page, select the SampleAPI and [Subscribe]({{base_path}}/consume/manage-subscription/subscribe-to-an-api/#subscribe-to-an-existing-application) to the SampleApp
 
@@ -103,5 +108,3 @@ Follow the steps given below to configure the Global Key Manager
 20. Try Out the API with the same access token generated using the Global Key Manager which was used in Step 16.
 
 A Successful response indicates that the API of a tenant can be invoked using an access token generated for an application using the Global Key Manager. Note that the access token was generated in the super tenant’s Developer Portal, but an API in a different tenant was invoked using this access token
-
-This scenario depicts a use-case where an access token generated for an application using the Global Key Manager is used to invoke subscribed APIs of different tenants
