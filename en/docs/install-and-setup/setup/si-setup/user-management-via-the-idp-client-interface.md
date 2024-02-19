@@ -144,8 +144,10 @@ IdP provider:
 <td><code>             3600            </code></td>
 <td><div class="content-wrapper">
 <p>The number of seconds for which the session is valid once the user logs in.</p>
-!!! info
+<div class="admonition info">
+<p class="admonition-title">Info</p>
 <p>The value specified here needs to be greater than 60 seconds because the system checks the user credentials and keeps extending the session every minute until the session timeout is reached.</p>
+</div>
 
 </div></td>
 </tr>

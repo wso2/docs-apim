@@ -72,8 +72,10 @@ Note the following regarding the configuration above.
 <td><div class="content-wrapper">
 <p>Do NOT put the password here but leave the default value. I f the user store is read-only, this element and its value are ignored. This password is used only if the user store is read-write and the <code>               AddAdmin              </code> value is set to <code>               true              </code> .<br />
 </p>
-!!! note
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>Note that the password in the <code>               user-mgt.xml              </code> file is written to the primary user store when the server starts for the first time. Thereafter, the password will be validated from the primary user store and not from the <code>               user-mgt.xml              </code> file. Therefore, if you need to change the admin password stored in the user store, you cannot simply change the value in the <code>               user-mgt.xml              </code> file. To change the admin password, you must use the <strong>Change Password</strong> option from the management console as explained <a href="https://docs.wso2.com/display/ADMIN44x/Changing+a+Password">here</a> .</p>
+</div>
 
 </div></td>
 </tr>
