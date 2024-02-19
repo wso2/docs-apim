@@ -37,28 +37,31 @@ When running the Choreo Connect, you can provide the username, password as Adapt
 !!! note 
     If a username/password is not specified as environment variables, the username, password defined in the API Definition section will be used while deploying the API to Choreo Connect.
 
-```yaml tab="Format"
-api_<API-ID>_<endpoint-type>_basic_username=<username>
-api_<API-ID>_<endpoint-type>_basic_password=<password>
-```
+=== "Format"
+    ```yaml
+    api_<API-ID>_<endpoint-type>_basic_username=<username>
+    api_<API-ID>_<endpoint-type>_basic_password=<password>
+    ```
 
-``` yaml tab="Docker Compose Example"
-services:
-    adapter:
-        environment:
-        - api_60f7111f-fdc5-4cc7-b497-1cea64c6a97f_prod_basic_username="admin"
-        - api_60f7111f-fdc5-4cc7-b497-1cea64c6a97f_prod_basic_password="admin"
-```
+=== "Docker Compose Example"
+    ``` yaml
+    services:
+        adapter:
+            environment:
+            - api_60f7111f-fdc5-4cc7-b497-1cea64c6a97f_prod_basic_username="admin"
+            - api_60f7111f-fdc5-4cc7-b497-1cea64c6a97f_prod_basic_password="admin"
+    ```
 
-``` yaml tab="Kubernetes Example"
-containers:
-    - name: choreo-connect-adapter
-      env:
-        - name: api_60f7111f-fdc5-4cc7-b497-1cea64c6a97f_prod_basic_username
-          value: "admin"
-        - name: api_60f7111f-fdc5-4cc7-b497-1cea64c6a97f_prod_basic_password
-          value: "admin"
-```
+=== "Kubernetes Example"
+    ``` yaml
+    containers:
+        - name: choreo-connect-adapter
+          env:
+            - name: api_60f7111f-fdc5-4cc7-b497-1cea64c6a97f_prod_basic_username
+              value: "admin"
+            - name: api_60f7111f-fdc5-4cc7-b497-1cea64c6a97f_prod_basic_password
+              value: "admin"
+    ```
 
 - API-ID - `SHA1(<apiName>:<apiVersion>)`
 - endpoint-type - `prod` or `sand`.

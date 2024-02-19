@@ -9,39 +9,43 @@ In this example, the client sends requests to a **proxy service**, which stores 
 
 Following are the artifact configurations that we can use to implement this scenario. See the instructions on how to [build and run](#build-and-run-example-1) this example.
 
-```xml tab="Message Store"
-<messageStore xmlns="http://ws.apache.org/ns/synapse" class="org.apache.synapse.message.store.impl.jms.JmsStore" name="JMSMS">
-  <parameter name="java.naming.factory.initial">org.apache.activemq.jndi.ActiveMQInitialContextFactory</parameter>
-  <parameter name="java.naming.provider.url">tcp://localhost:61616</parameter>
-</messageStore>
-```
+=== "Message Store"
+    ```xml
+    <messageStore xmlns="http://ws.apache.org/ns/synapse" class="org.apache.synapse.message.store.impl.jms.JmsStore" name="JMSMS">
+      <parameter name="java.naming.factory.initial">org.apache.activemq.jndi.ActiveMQInitialContextFactory</parameter>
+      <parameter name="java.naming.provider.url">tcp://localhost:61616</parameter>
+    </messageStore>
+    ```
 
-```xml tab="Endpoint"
-<endpoint xmlns="http://ws.apache.org/ns/synapse" name="SimpleStockQuoteService"> 
-    <address uri="http://127.0.0.1:9000/services/SimpleStockQuoteService"/>
-</endpoint>
-```
+=== "Endpoint"
+    ```xml
+    <endpoint xmlns="http://ws.apache.org/ns/synapse" name="SimpleStockQuoteService"> 
+        <address uri="http://127.0.0.1:9000/services/SimpleStockQuoteService"/>
+    </endpoint>
+    ```
 
-```xml tab="Proxy Service"
-<proxy xmlns="http://ws.apache.org/ns/synapse" name="Proxy1" transports="https http" startOnLoad="true" trace="disable">   
-  <target>
-    <inSequence>
-      <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2"/>
-      <property name="OUT_ONLY" value="true"/>
-      <log level="full"/>
-      <store messageStore="JMSMS"/>
-    </inSequence>
-  </target>
-</proxy>
-```
+=== "Proxy Service"
+    ```xml
+    <proxy xmlns="http://ws.apache.org/ns/synapse" name="Proxy1" transports="https http" startOnLoad="true" trace="disable">   
+      <target>
+        <inSequence>
+          <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2"/>
+          <property name="OUT_ONLY" value="true"/>
+          <log level="full"/>
+          <store messageStore="JMSMS"/>
+        </inSequence>
+      </target>
+    </proxy>
+    ```
 
-```xml tab="Message Processor"
-<messageProcessor xmlns="http://ws.apache.org/ns/synapse" class="org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor" name="Processor1" targetEndpoint="SimpleStockQuoteService" messageStore="JMSMS">
-       <parameter name="max.delivery.attempts">4</parameter>
-       <parameter name="interval">4000</parameter>
-       <parameter name="is.active">true</parameter>
-</messageProcessor>
-```
+=== "Message Processor"
+    ```xml
+    <messageProcessor xmlns="http://ws.apache.org/ns/synapse" class="org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor" name="Processor1" targetEndpoint="SimpleStockQuoteService" messageStore="JMSMS">
+          <parameter name="max.delivery.attempts">4</parameter>
+          <parameter name="interval">4000</parameter>
+          <parameter name="is.active">true</parameter>
+    </messageProcessor>
+    ```
 
 See the descriptions of the above configurations:
 
@@ -92,13 +96,15 @@ Set up the back-end service:
 3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
 4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
    
-      ```bash tab='On MacOS/Linux/CentOS'
-      sh axis2server.sh
-      ```
+    === "On MacOS/Linux/CentOS"
+        ```bash
+        sh axis2server.sh
+        ```
           
-      ```bash tab='On Windows'
-      axis2server.bat
-      ```
+    === "On Windows"
+        ```bash
+        axis2server.bat
+        ```
 
 [Configure the ActiveMQ broker]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-activemq) and set up the JMS Sender.
 
@@ -140,51 +146,56 @@ In the sample, when the message forwarding processor receives a response from th
 
 Following are the artifact configurations that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run-example-2) this example.
 
-```xml tab="Proxy Service"
-<proxy name="Proxy2" xmlns="http://ws.apache.org/ns/synapse" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
-  <target>
-    <inSequence>
-      <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2" />
-      <log level="full" />
-      <store messageStore="JMSMS" />
-    </inSequence>
-  </target>
-</proxy>
-```
+=== "Proxy Service"
+    ```xml
+    <proxy name="Proxy2" xmlns="http://ws.apache.org/ns/synapse" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
+      <target>
+        <inSequence>
+          <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2" />
+          <log level="full" />
+          <store messageStore="JMSMS" />
+        </inSequence>
+      </target>
+    </proxy>
+    ```
 
-```xml tab="Message Store"
-<messageStore xmlns="http://ws.apache.org/ns/synapse" class="org.apache.synapse.message.store.impl.jms.JmsStore" name="JMSMS">
-  <parameter name="java.naming.factory.initial">org.apache.activemq.jndi.ActiveMQInitialContextFactory</parameter>
-  <parameter name="java.naming.provider.url">tcp://localhost:61616</parameter>
-</messageStore>
-```
+=== "Message Store"
+    ```xml
+    <messageStore xmlns="http://ws.apache.org/ns/synapse" class="org.apache.synapse.message.store.impl.jms.JmsStore" name="JMSMS">
+      <parameter name="java.naming.factory.initial">org.apache.activemq.jndi.ActiveMQInitialContextFactory</parameter>
+      <parameter name="java.naming.provider.url">tcp://localhost:61616</parameter>
+    </messageStore>
+    ```
 
-```xml tab="Message Processor"
-<messageProcessor name="Processor2" class="org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor" targetEndpoint="SimpleStockQuoteService" messageStore="JMSMS" xmlns="http://ws.apache.org/ns/synapse">
-  <parameter name="interval">1000</parameter>
-  <parameter name="client.retry.interval">1000</parameter>
-  <parameter name="max.delivery.attempts">4</parameter>
-  <parameter name="message.processor.reply.sequence">replySequence</parameter>
-  <parameter name="is.active">true</parameter>
-  <parameter name="max.delivery.drop">Disabled</parameter>
-  <parameter name="member.count">1</parameter>
-</messageProcessor>
-```
+=== "Message Processor"
+    ```xml
+    <messageProcessor name="Processor2" class="org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor" targetEndpoint="SimpleStockQuoteService" messageStore="JMSMS" xmlns="http://ws.apache.org/ns/synapse">
+      <parameter name="interval">1000</parameter>
+      <parameter name="client.retry.interval">1000</parameter>
+      <parameter name="max.delivery.attempts">4</parameter>
+      <parameter name="message.processor.reply.sequence">replySequence</parameter>
+      <parameter name="is.active">true</parameter>
+      <parameter name="max.delivery.drop">Disabled</parameter>
+      <parameter name="member.count">1</parameter>
+    </messageProcessor>
+    ```
 
-```xml tab="Sequence"
-<sequence xmlns="http://ws.apache.org/ns/synapse" name="replySequence">
-  <log level="full">
-    <property name="REPLY" value="MESSAGE" />
-  </log>
-  <drop/>
-</sequence>
-```
+=== "Sequence"
+    ```xml
+    <sequence xmlns="http://ws.apache.org/ns/synapse" name="replySequence">
+      <log level="full">
+        <property name="REPLY" value="MESSAGE" />
+      </log>
+      <drop/>
+    </sequence>
+    ```
 
-```xml tab="Endpoint"
-<endpoint xmlns="http://ws.apache.org/ns/synapse" name="SimpleStockQuoteService">
-  <address uri="http://127.0.0.1:9000/services/SimpleStockQuoteService"/>
-</endpoint>
-```
+=== "Endpoint"
+    ```xml
+    <endpoint xmlns="http://ws.apache.org/ns/synapse" name="SimpleStockQuoteService">
+      <address uri="http://127.0.0.1:9000/services/SimpleStockQuoteService"/>
+    </endpoint>
+    ```
 
 See the descriptions of the above configurations:
 
@@ -241,13 +252,15 @@ Set up the back-end service:
 3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
 4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
    
-      ```bash tab='On MacOS/Linux/CentOS'
-      sh axis2server.sh
-      ```
+    === "On MacOS/Linux/CentOS"
+        ```bash
+        sh axis2server.sh
+        ```
           
-      ```bash tab='On Windows'
-      axis2server.bat
-      ```
+    === "On Windows"
+        ```bash
+        axis2server.bat
+        ```
    
 [Configure the ActiveMQ broker]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-activemq).
 

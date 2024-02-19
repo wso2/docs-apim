@@ -4,7 +4,7 @@
 
 If you are following the developer first approach, ([deploy the API via CLI tool]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-in-choreo-connect/#choreo-connect-as-a-standalone-gateway/)). You can add CrossOrigin Resource Sharing (**CORS**) configurations for each API (at API level) using the OpenAPI vendor extension **x-wso2-cors** in the API definition. The following code snippet depicts the usage of the `x-wso2-cors` extension. For more information, see the [detailed sample OpenAPI definition with CORS level configuration](https://github.com/wso2/product-microgateway/blob/master/samples/cors_sample.yaml).
 
-``` java
+```yaml
 x-wso2-basePath: /petstore/v1
 x-wso2-production-endpoints:
   urls:
@@ -33,7 +33,7 @@ Follow the instructions below to enable CORS globally. Once this is enabled, it 
 
 2. Locate the following configuration set and make the `enabled` attribute to `true` with the required CORS attributes there.
 
-     ``` yml
+     ``` toml
      [router.cors]
          enabled = true
          allowOrigins = ["*"]

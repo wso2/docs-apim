@@ -35,13 +35,35 @@ theme:
     name: material
     custom_dir: theme/material
     palette:
-        primary: deep-orange
-        accent: deep-orange
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
     logo: images/logo.svg
     favicon: images/favicon.png
-    highlightjs: true
-    feature:
-        tabs: true
+    features:
+        - content.code.copy
+        - navigation.tabs
+        - navigation.tabs.sticky
+        - content.action.edit
+        - content.action.view
+        - navigation.top
+        - toc.follow
     language: 'en'
 #Breaks build if there's a warning
 strict: false
@@ -1070,7 +1092,7 @@ nav:
                 - Kafka Overview: reference/connectors/kafka-connector/kafka-connector-overview.md
                 - Set up Kafka: reference/connectors/kafka-connector/setting-up-kafka.md
                 - Enable Security for Kafka: reference/connectors/kafka-connector/enabling-security-for-kafka.md
-                - 3.1.x:
+                - 3.1.x and later:
                     - Kafka Example: reference/connectors/kafka-connector/kafka-connector-producer-example.md
                     - Kafka Avro Message Example: reference/connectors/kafka-connector/kafka-connector-avro-producer-example.md
                     - Kafka Connector Reference: reference/connectors/kafka-connector/kafka-connector-config.md
@@ -1078,6 +1100,7 @@ nav:
                     - Kafka Example: reference/connectors/kafka-connector/kafka-connector-producer-example.md
                     - Kafka Connector Reference: reference/connectors/kafka-connector/3.0.x/kafka-connector-config.md
                 - Kafka Inbound Endpoint Example: reference/connectors/kafka-connector/kafka-inbound-endpoint-example.md
+                - Kafka Inbound Endpoint Reference: reference/connectors/kafka-connector/kafka-inbound-endpoint-config.md
             - LDAP Connector:
                 - LDAP Overview: reference/connectors/ldap-connector/ldap-connector-overview.md
                 - Set up an LDAP Server: reference/connectors/ldap-connector/setting-up-ldap.md
@@ -1433,7 +1456,6 @@ nav:
                         - Change to MSSQL: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mssql.md
                         - Change to PostgreSQL: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-postgresql.md
                         - Change to Oracle: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-oracle.md
-                        - Change to MariaDB: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mariadb.md
                         - Change to IBM DB2: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-ibm-db2.md
                         - Change to Oracle RAC: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-oracle-rac.md
                     - Manage Data Growth and Improving Performance: install-and-setup/setup/setting-up-databases/managing-data-growth-and-improving-performance.md
@@ -1478,6 +1500,7 @@ nav:
                     - Change the Default Transport: install-and-setup/setup/advance-configurations/changing-the-default-transport.md
                     - Configure Caching: install-and-setup/setup/advance-configurations/configuring-caching.md
                     - Customize the Management Console: install-and-setup/setup/advance-configurations/customizing-the-management-console.md
+                    - Configure the Crypto Provider: install-and-setup/setup/advance-configurations/configuring-the-crypto-provider.md
             - Set up Micro Integrator:
                 - Update WSO2 Micro Integrator: install-and-setup/setup/mi-setup/updating-mi.md
                 - Data Stores:
@@ -1561,6 +1584,10 @@ nav:
                     - Configure a Distributed API-M Deployment: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
                     - Configure a Distributed API-M Deployment with Traffic Manager Separation: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-tm-separated.md
                     - Run the API-M Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
+                - Multi-DC Deployment:
+                    - Multi-DC Deployment Patterns Overview: install-and-setup/setup/multi-dc-deployment/multi-dc-deployment-patterns-overview.md
+                    - Configure Multi-DC Deployment - Pattern 1: install-and-setup/setup/multi-dc-deployment/configuring-multi-dc-deployment-pattern-1.md
+                    - Configure Multi-DC Deployment - Pattern 2: install-and-setup/setup/multi-dc-deployment/configuring-multi-dc-deployment-pattern-2.md
             - Deploy the Micro Integrator:
                 - Configure a Micro Integrator Cluster: install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei.md
                 - Deployment Synchronization: install-and-setup/setup/mi-setup/deployment/deployment_synchronization.md
@@ -1741,7 +1768,8 @@ markdown_extensions:
     - pymdownx.critic
     - pymdownx.details
     - pymdownx.emoji:
-          emoji_generator: !!python/name:pymdownx.emoji.to_svg
+          emoji_index: !!python/name:materialx.emoji.twemoji
+          emoji_generator: !!python/name:materialx.emoji.to_svg
     - pymdownx.inlinehilite
     - pymdownx.keys
     - pymdownx.mark
@@ -1753,6 +1781,8 @@ markdown_extensions:
     - pymdownx.snippets:
           base_path: docs
     - attr_list
+    - pymdownx.tabbed:
+          alternate_style: true
 plugins:
     - search
     - markdownextradata: {}
@@ -2218,14 +2248,13 @@ plugins:
     # Extra
 extra_css:
     - assets/lib/highlightjs/default.min.css
+    - assets/css/orange-palette.css
     - assets/css/theme.css
     - assets/lib/json-formatter/json-formatter.css
 extra_javascript:
     - assets/lib/json-formatter/json-formatter.umd.js
     - assets/lib/highlightjs/highlight.min.js
     - assets/js/theme.js
-    - assets/lib/backtotop/js/util.js
-    - assets/lib/backtotop/js/main.js
 extra:
     social:
         - type: github
@@ -2241,6 +2270,6 @@ extra:
             version: 1.2.0-1
             git_tag: v1.2.0.1
     site_version: 4.2.0
-    #base_path: http://localhost:8000
-    base_path: https://apim-docs-stg.wso2.com/en/latest
+    base_path: http://localhost:8000/en/latest
+    # base_path: https://apim.docs.wso2.com/en/latest
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1

@@ -101,19 +101,21 @@ parent message. Then the split messages pass through a sequence which
 includes a [Log mediator]({{base_path}}/reference/mediators/log-Mediator) with the log level set to
 `         full        ` .
 
-``` java tab='Using a XPath expression'
-<foreach id="foreach_1" expression="//m0:getQuote/m0:request" xmlns:m0="http://services.samples">
-        <sequence>
-             <log level="full"/>
-        </sequence>
-</foreach>
-```
+=== "Using a XPath expression"
+    ``` java
+    <foreach id="foreach_1" expression="//m0:getQuote/m0:request" xmlns:m0="http://services.samples">
+            <sequence>
+                <log level="full"/>
+            </sequence>
+    </foreach>
+    ```
 
-``` java tab='Using a JSONPath expression'
-<foreach id="foreach_1" expression="json-eval($.getQuote.request)">
-        <sequence>
-             <log level="full"/>
-        </sequence>
-</foreach>
-```
+=== "Using a JSONPath expression"
+    ``` java
+    <foreach id="foreach_1" expression="json-eval($.getQuote.request)">
+            <sequence>
+                <log level="full"/>
+            </sequence>
+    </foreach>
+    ```
 

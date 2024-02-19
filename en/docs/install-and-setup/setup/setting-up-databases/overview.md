@@ -32,4 +32,3 @@ WSO2 products are shipped with scripts for creating the required tables in all t
 -   [Changing to Oracle RAC]({{base_path}}/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-oracle-rac)
 -   [Changing to PostgreSQL]({{base_path}}/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-postgresql)
 -   [Changing to IBM DB2]({{base_path}}/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-ibm-db2)
--   [Changing to MariaDB]({{base_path}}/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mariadb)

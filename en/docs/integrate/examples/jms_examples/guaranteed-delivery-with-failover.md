@@ -31,67 +31,73 @@ See the instructions on how to [build and run](#build-and-run) this example.
 
 - **Message Stores**
 
-    ```xml tab='Failover message store'
-    <messageStore name="failover"/>  
-    ```
+    === "Failover message store"
+        ```xml
+        <messageStore name="failover"/>  
+        ```
 
-    ```xml tab='Message Store'
-    <messageStore  
-        class="org.apache.synapse.message.store.impl.jms.JmsStore" name="Original">  
-        <parameter name="store.failover.message.store.name">failover</parameter>  
-        <parameter name="store.producer.guaranteed.delivery.enable">true</parameter>  
-        <parameter name="java.naming.factory.initial">org.apache.activemq.jndi.ActiveMQInitialContextFactory</parameter>  
-        <parameter name="java.naming.provider.url">tcp://localhost:61616</parameter>  
-        <parameter name="store.jms.JMSSpecVersion">1.1</parameter>  
-    </messageStore>
-    ```
+    === "Message Store"
+        ```xml
+        <messageStore  
+            class="org.apache.synapse.message.store.impl.jms.JmsStore" name="Original">  
+            <parameter name="store.failover.message.store.name">failover</parameter>  
+            <parameter name="store.producer.guaranteed.delivery.enable">true</parameter>  
+            <parameter name="java.naming.factory.initial">org.apache.activemq.jndi.ActiveMQInitialContextFactory</parameter>  
+            <parameter name="java.naming.provider.url">tcp://localhost:61616</parameter>  
+            <parameter name="store.jms.JMSSpecVersion">1.1</parameter>  
+        </messageStore>
+        ```
 
 - **Message Processors**
 
-    ```xml tab='Scheduled message forwarding processor'
-    <messageProcessor name="ForwardMessageProcessor" class="org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor" targetEndpoint="SimpleStockQuoteService" messageStore="Original" xmlns="http://ws.apache.org/ns/synapse">
-           <parameter name="interval">1000</parameter>
-           <parameter name="client.retry.interval">1000</parameter>
-           <parameter name="max.delivery.attempts">4</parameter>
-           <parameter name="is.active">true</parameter>
-           <parameter name="max.delivery.drop">Disabled</parameter>
-           <parameter name="member.count">1</parameter>
-    </messageProcessor>
-    ```
+    === "Scheduled message forwarding processor"
+        ```xml
+        <messageProcessor name="ForwardMessageProcessor" class="org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor" targetEndpoint="SimpleStockQuoteService" messageStore="Original" xmlns="http://ws.apache.org/ns/synapse">
+            <parameter name="interval">1000</parameter>
+            <parameter name="client.retry.interval">1000</parameter>
+            <parameter name="max.delivery.attempts">4</parameter>
+            <parameter name="is.active">true</parameter>
+            <parameter name="max.delivery.drop">Disabled</parameter>
+            <parameter name="member.count">1</parameter>
+        </messageProcessor>
+        ```
 
-    ```xml tab='Scheduled failover message forwarding processor'
-    <messageProcessor name="FailoverMessageProcessor" class="org.apache.synapse.message.processor.impl.failover.FailoverScheduledMessageForwardingProcessor" messageStore="failover" xmlns="http://ws.apache.org/ns/synapse">
-           <parameter name="interval">1000</parameter>
-           <parameter name="client.retry.interval">60000</parameter>
-           <parameter name="max.delivery.attempts">1000</parameter>
-           <parameter name="is.active">true</parameter>
-           <parameter name="max.delivery.drop">Disabled</parameter>
-           <parameter name="member.count">1</parameter>
-           <parameter name="message.target.store.name">Original</parameter>
-    </messageProcessor> 
-    ```
+    === "Scheduled failover message forwarding processor"
+        ```xml
+        <messageProcessor name="FailoverMessageProcessor" class="org.apache.synapse.message.processor.impl.failover.FailoverScheduledMessageForwardingProcessor" messageStore="failover" xmlns="http://ws.apache.org/ns/synapse">
+            <parameter name="interval">1000</parameter>
+            <parameter name="client.retry.interval">60000</parameter>
+            <parameter name="max.delivery.attempts">1000</parameter>
+            <parameter name="is.active">true</parameter>
+            <parameter name="max.delivery.drop">Disabled</parameter>
+            <parameter name="member.count">1</parameter>
+            <parameter name="message.target.store.name">Original</parameter>
+        </messageProcessor> 
+        ```
 
 - **Proxy configurations**
 
-    ```xml tab='Proxy Service'
-    <proxy name="Proxy1" transports="https http" startOnLoad="true" trace="disable" xmlns="http://ws.apache.org/ns/synapse">    
-          <target>  
-            <inSequence>  
-             <header name="Action" value="urn:getQuote"/>
-             <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2"/>  
-             <property name="OUT_ONLY" value="true"/>  
-             <log level="full"/>  
-             <store messageStore="Original"/>  
-            </inSequence>  
-          </target>  
-    </proxy>   
-    ```
+    === "Proxy Service"
+        ```xml
+        <proxy name="Proxy1" transports="https http" startOnLoad="true" trace="disable" xmlns="http://ws.apache.org/ns/synapse">    
+            <target>  
+                <inSequence>  
+                <header name="Action" value="urn:getQuote"/>
+                <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2"/>  
+                <property name="OUT_ONLY" value="true"/>  
+                <log level="full"/>  
+                <store messageStore="Original"/>  
+                </inSequence>  
+            </target>  
+        </proxy>   
+        ```
 
-    ```xml tab='Endpoint'
-    <endpoint name="SimpleStockQuoteService">  
-      <address uri="http://127.0.0.1:9000/services/SimpleStockQuoteService"/>  
-    </endpoint>
-    ```
+    === "Endpoint"
+        ```xml
+        <endpoint name="SimpleStockQuoteService">  
+        <address uri="http://127.0.0.1:9000/services/SimpleStockQuoteService"/>  
+        </endpoint>
+        ```
 
 The synapse configurations used above are as follows:
 
@@ -133,7 +139,7 @@ Create the artifacts:
 
 Set up the broker:
 
-1.  [Configure a broker]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transport#configuring-the-jms-transport) with your Micro Integrator instance. Let's use Active MQ for this example.
+1.  [Configure a broker]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-jms-transport) with your Micro Integrator instance. Let's use Active MQ for this example.
 2.  Start the broker.
 3.  Start the Micro Integrator (after starting the broker).
 
@@ -148,13 +154,15 @@ Set up the back-end service:
 3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
 4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
    
-      ```bash tab='On MacOS/Linux/CentOS'
-      sh axis2server.sh
-      ```
+    === "On MacOS/Linux/CentOS"
+        ```bash
+        sh axis2server.sh
+        ```
           
-      ```bash tab='On Windows'
-      axis2server.bat
-      ```
+    === "On Windows"
+        ```bash
+        axis2server.bat
+        ```
 
 Invoke the proxy service (http://localhost:8290/services/Proxy1) with the following payload:
 

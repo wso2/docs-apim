@@ -4,15 +4,15 @@ A scope is not always used for controlling access to a resource. You can also us
 
 If you do not want a role validation for a scope in an API's request, add the scope as `allowed_scopes` in the `<API-M_HOME>/repository/conf/deployment.toml` file and restart the server. It will be allowlisted. For example,
 
-```
+```toml
 [oauth]
 allowed_scopes = ["^device_.*", "openid", "some_random_scope"]
 ```
 
 Next, invoke the Token API to get a token for the scope that you just allowlisted. For example,
 
-```
-curl -k -d  "grant_type=password&username=admin&password=admin&scope=some_random_scope" -H "Authorization: Basic WmRFUFBvZmZwYVFnR25ScG5iZldtcUtSS3IwYTpSaG5ocEVJYUVCMEN3T1FReWpiZTJwaDBzc1Vh" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:8243/token
+```bash
+curl -k -d  "grant_type=password&username=admin&password=admin&scope=some_random_scope" -H "Authorization: Basic WmRFUFBvZmZwYVFnR25ScG5iZldtcUtSS3IwYTpSaG5ocEVJYUVCMEN3T1FReWpiZTJwaDBzc1Vh" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
 ```
 
 Note that the issued token has the scope you requested. You get the token without any role validation as the scope is allowlisted.

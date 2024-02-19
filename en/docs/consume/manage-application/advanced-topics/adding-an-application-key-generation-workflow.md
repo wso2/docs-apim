@@ -33,7 +33,7 @@ First, enable the application registration workflow.
     ```
     The application key generation Approve Workflow Executor is now engaged.
 
-4.  Sign in to the API Developer Portal (<https://localhost:9443/devportal>) as a Developer Portal user and open the application with which you subscribed to the API. Click **Applications** and click on an **ACTIVE** application.
+4.  Sign in to the API Developer Portal `https://localhost:9443/devportal` as a Developer Portal user and open the application with which you subscribed to the API. Click **Applications** and click on an **ACTIVE** application.
 
 
     !!! note

@@ -34,7 +34,7 @@ Follow the instructions below if you need to **deploy an existing revision** on 
 
 1. Sign in to the Publisher.
 
-      [https://localhost:9443/publisher](https://localhost:9443/publisher)
+      `https://localhost:9443/publisher`
 
 2. Navigate to the **Deploy** section and click **Deployments**.
 3. Select the required revision from the **Deployed Revision** drop-down menu.
@@ -48,7 +48,7 @@ Follow the instructions below to create a new revision from your existing API:
 
 1. Sign in to the Publisher.
    
-      [https://localhost:9443/publisher](https://localhost:9443/publisher)
+      `https://localhost:9443/publisher`
 
 2. Navigate to the **Deploy** section and click **Deployments**.
 
@@ -71,7 +71,7 @@ Follow the instructions below if you need to undeploy a revision from a Gateway 
 
 1. Sign in to the Publisher.
 
-      [https://localhost:9443/publisher](https://localhost:9443/publisher)
+      `https://localhost:9443/publisher`
 
 2. Navigate to the **Deploy** section and click **Deployments**
 3. Click on the **Undeploy** button that appears against the respective Gateway Environment from which you want to undeploy the revision.

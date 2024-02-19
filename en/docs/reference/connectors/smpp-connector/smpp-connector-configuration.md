@@ -6,9 +6,9 @@ SMPP (Short Message Peer-to-Peer Protocol) Connector allows you to send an SMS f
 
 Before you start configuring the SMPP connector, you also need WSO2 MI, and we refer to that location as <PRODUCT_HOME>.
 
-To configure the SMPP connector, copy the following client libraries from the given locations to the `<PRODUCT_HOME>/repository/components/lib` directory.
+To configure the SMPP connector, copy the following client libraries from the given locations to the `<PRODUCT_HOME>/lib` directory.
 
-* [jsmpp-3.0.0.jar](https://repo1.maven.org/maven2/org/jsmpp/jsmpp/3.0.0/jsmpp-3.0.0.jar)
+* [jsmpp-3.0.0-wso2v2.jar](https://maven.wso2.org/nexus/content/groups/wso2-public/org/jsmpp/jsmpp/3.0.0-wso2v2/jsmpp-3.0.0-wso2v2.jar)
 
 ## Configure the SMSC (Short Message Service Center) simulator
 

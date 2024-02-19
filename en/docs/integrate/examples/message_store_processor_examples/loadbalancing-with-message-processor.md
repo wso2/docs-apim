@@ -5,83 +5,91 @@ This example demonstrates how the message forwarding processor handles load bala
 
 Following are the artifact configurations that we can use to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
-```xml tab='Proxy Service'
-<proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy"
-              transports="https http"
-              startOnLoad="true">
-    <description/>
-    <target>
-       <inSequence>
-          <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2"/>
-          <property name="OUT_ONLY" value="true"/>
-          <store messageStore="JMSMS"/>
-       </inSequence>
-       <outSequence/>
-       <faultSequence/>
-    </target>
- </proxy>
-```
+=== "Proxy Service"
+    ```xml
+    <proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy"
+                  transports="https http"
+                  startOnLoad="true">
+        <description/>
+        <target>
+          <inSequence>
+              <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2"/>
+              <property name="OUT_ONLY" value="true"/>
+              <store messageStore="JMSMS"/>
+          </inSequence>
+          <outSequence/>
+          <faultSequence/>
+        </target>
+    </proxy>
+    ```
 
-```xml tab='Endpoint 1'
-<endpoint xmlns="http://ws.apache.org/ns/synapse" name="SimpleStockQuoteService1">
-  <address uri="http://localhost:9001/services/SimpleStockQuoteService"/>
-</endpoint>
-```
+=== "Endpoint 1"
+    ```xml
+    <endpoint xmlns="http://ws.apache.org/ns/synapse" name="SimpleStockQuoteService1">
+      <address uri="http://localhost:9001/services/SimpleStockQuoteService"/>
+    </endpoint>
+    ```
 
-```xml tab='Endpoint 2'
-<endpoint xmlns="http://ws.apache.org/ns/synapse" name="SimpleStockQuoteService2">
-  <address uri="http://localhost:9002/services/SimpleStockQuoteService"/>
-</endpoint>
-```
+=== "Endpoint 2"
+    ```xml
+    <endpoint xmlns="http://ws.apache.org/ns/synapse" name="SimpleStockQuoteService2">
+      <address uri="http://localhost:9002/services/SimpleStockQuoteService"/>
+    </endpoint>
+    ```
 
-```xml tab='Endpoint 3'
-<endpoint xmlns="http://ws.apache.org/ns/synapse" name="SimpleStockQuoteService3">
-  <address uri="http://localhost:9003/services/SimpleStockQuoteService"/>
-</endpoint>
-```
+=== "Endpoint 3"
+    ```xml
+    <endpoint xmlns="http://ws.apache.org/ns/synapse" name="SimpleStockQuoteService3">
+      <address uri="http://localhost:9003/services/SimpleStockQuoteService"/>
+    </endpoint>
+    ```
 
-```xml tab='Message Store'
-<messageStore xmlns="http://ws.apache.org/ns/synapse" class="org.apache.synapse.message.store.impl.jms.JmsStore" name="JMSMS">
-  <parameter name="java.naming.factory.initial">org.apache.activemq.jndi.ActiveMQInitialContextFactory</parameter>
-  <parameter name="store.jms.cache.connection">false</parameter>
-  <parameter name="java.naming.provider.url">tcp://localhost:61616</parameter>
-  <parameter name="store.jms.JMSSpecVersion">1.1</parameter>
-  <parameter name="store.jms.destination">JMSMS</parameter>
-</messageStore>
-```
+=== "Message Store"
+    ```xml
+    <messageStore xmlns="http://ws.apache.org/ns/synapse" class="org.apache.synapse.message.store.impl.jms.JmsStore" name="JMSMS">
+      <parameter name="java.naming.factory.initial">org.apache.activemq.jndi.ActiveMQInitialContextFactory</parameter>
+      <parameter name="store.jms.cache.connection">false</parameter>
+      <parameter name="java.naming.provider.url">tcp://localhost:61616</parameter>
+      <parameter name="store.jms.JMSSpecVersion">1.1</parameter>
+      <parameter name="store.jms.destination">JMSMS</parameter>
+    </messageStore>
+    ```
 
-```xml tab='Message Processor 1'
-<messageProcessor xmlns="http://ws.apache.org/ns/synapse" class="org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor"
-                         name="Forwarder1"
-                         targetEndpoint="SimpleStockQuoteService1"
-                         messageStore="JMSMS">
-  <parameter name="client.retry.interval">1000</parameter>
-  <parameter name="interval">1000</parameter>
-  <parameter name="is.active">true</parameter>
-</messageProcessor>
-```
+=== "Message Processor 1"
+    ```xml
+    <messageProcessor xmlns="http://ws.apache.org/ns/synapse" class="org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor"
+                            name="Forwarder1"
+                            targetEndpoint="SimpleStockQuoteService1"
+                            messageStore="JMSMS">
+      <parameter name="client.retry.interval">1000</parameter>
+      <parameter name="interval">1000</parameter>
+      <parameter name="is.active">true</parameter>
+    </messageProcessor>
+    ```
 
-```xml tab='Message Processor 2'
-<messageProcessor xmlns="http://ws.apache.org/ns/synapse" class="org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor"
-                         name="Forwarder2"
-                         targetEndpoint="SimpleStockQuoteService2"
-                         messageStore="JMSMS">
-  <parameter name="client.retry.interval">1000</parameter>
-  <parameter name="interval">1000</parameter>
-  <parameter name="is.active">true</parameter>
-</messageProcessor>
-```
+=== "Message Processor 2"
+    ```xml
+    <messageProcessor xmlns="http://ws.apache.org/ns/synapse" class="org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor"
+                            name="Forwarder2"
+                            targetEndpoint="SimpleStockQuoteService2"
+                            messageStore="JMSMS">
+      <parameter name="client.retry.interval">1000</parameter>
+      <parameter name="interval">1000</parameter>
+      <parameter name="is.active">true</parameter>
+    </messageProcessor>
+    ```
 
-```xml tab='Message Processor 3'
-<messageProcessor xmlns="http://ws.apache.org/ns/synapse" class="org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor"
-                         name="Forwarder3"
-                         targetEndpoint="SimpleStockQuoteService3"
-                         messageStore="JMSMS">
-  <parameter name="client.retry.interval">1000</parameter>
-  <parameter name="interval">1000</parameter>
-  <parameter name="is.active">true</parameter>
-</messageProcessor>
-```
+=== "Message Processor 3"
+    ```xml
+    <messageProcessor xmlns="http://ws.apache.org/ns/synapse" class="org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor"
+                            name="Forwarder3"
+                            targetEndpoint="SimpleStockQuoteService3"
+                            messageStore="JMSMS">
+      <parameter name="client.retry.interval">1000</parameter>
+      <parameter name="interval">1000</parameter>
+      <parameter name="is.active">true</parameter>
+    </messageProcessor>
+    ```
 
 ## Build and run
 

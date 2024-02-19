@@ -34,7 +34,7 @@ Follow the instructions below to attach one or more default policies that are sh
 
         1. Open the `<API-M_HOME>/repository/conf/deployment.toml` file and add the following configuration:
 
-        ```
+        ```toml
         [apim.policy]
         'enable_api_level_policies' = true
         ```
@@ -42,166 +42,174 @@ Follow the instructions below to attach one or more default policies that are sh
         2. Update the `WSO2AM_DB` database using the relevant script mentioned below.
 
         ??? info "DB Scripts"
-            ```tab="DB2"
-            CREATE TABLE AM_API_POLICY_MAPPING (
-                API_POLICY_MAPPING_ID INTEGER GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
-                API_UUID VARCHAR(256) NOT NULL,
-                REVISION_UUID VARCHAR(45),
-                POLICY_UUID VARCHAR(45) NOT NULL,
-                POLICY_ORDER INTEGER NOT NULL,
-                DIRECTION VARCHAR(10) NOT NULL,
-                PARAMETERS VARCHAR(1024) NOT NULL,
-                FOREIGN KEY (API_UUID) REFERENCES AM_API(API_UUID) ON DELETE CASCADE,
-                FOREIGN KEY (POLICY_UUID) REFERENCES AM_OPERATION_POLICY(POLICY_UUID) ON DELETE CASCADE,
-                PRIMARY KEY(API_POLICY_MAPPING_ID)
-            )
-            /
-            ```
+            === "DB2"
+                ```
+                CREATE TABLE AM_API_POLICY_MAPPING (
+                    API_POLICY_MAPPING_ID INTEGER GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
+                    API_UUID VARCHAR(256) NOT NULL,
+                    REVISION_UUID VARCHAR(45),
+                    POLICY_UUID VARCHAR(45) NOT NULL,
+                    POLICY_ORDER INTEGER NOT NULL,
+                    DIRECTION VARCHAR(10) NOT NULL,
+                    PARAMETERS VARCHAR(1024) NOT NULL,
+                    FOREIGN KEY (API_UUID) REFERENCES AM_API(API_UUID) ON DELETE CASCADE,
+                    FOREIGN KEY (POLICY_UUID) REFERENCES AM_OPERATION_POLICY(POLICY_UUID) ON DELETE CASCADE,
+                    PRIMARY KEY(API_POLICY_MAPPING_ID)
+                )
+                /
+                ```
 
 
-            ```tab="H2"
-            CREATE TABLE IF NOT EXISTS AM_API_POLICY_MAPPING (
-                API_POLICY_MAPPING_ID INTEGER AUTO_INCREMENT,
-                API_UUID VARCHAR(256) NOT NULL,
-                REVISION_UUID VARCHAR(45),
-                POLICY_UUID VARCHAR(45) NOT NULL,
-                POLICY_ORDER INTEGER NOT NULL,
-                DIRECTION VARCHAR(10) NOT NULL,
-                PARAMETERS VARCHAR(1024) NOT NULL,
-                FOREIGN KEY (API_UUID) REFERENCES AM_API(API_UUID) ON DELETE CASCADE,
-                FOREIGN KEY (POLICY_UUID) REFERENCES AM_OPERATION_POLICY(POLICY_UUID) ON DELETE CASCADE,
-                PRIMARY KEY(API_POLICY_MAPPING_ID)
-            );
-            ```
+            === "H2"
+                ```
+                CREATE TABLE IF NOT EXISTS AM_API_POLICY_MAPPING (
+                    API_POLICY_MAPPING_ID INTEGER AUTO_INCREMENT,
+                    API_UUID VARCHAR(256) NOT NULL,
+                    REVISION_UUID VARCHAR(45),
+                    POLICY_UUID VARCHAR(45) NOT NULL,
+                    POLICY_ORDER INTEGER NOT NULL,
+                    DIRECTION VARCHAR(10) NOT NULL,
+                    PARAMETERS VARCHAR(1024) NOT NULL,
+                    FOREIGN KEY (API_UUID) REFERENCES AM_API(API_UUID) ON DELETE CASCADE,
+                    FOREIGN KEY (POLICY_UUID) REFERENCES AM_OPERATION_POLICY(POLICY_UUID) ON DELETE CASCADE,
+                    PRIMARY KEY(API_POLICY_MAPPING_ID)
+                );
+                ```
 
 
-            ```tab="MSSQL"
-            IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_API_POLICY_MAPPING]') AND TYPE IN (N'U'))
-            CREATE TABLE AM_API_POLICY_MAPPING (
-                API_POLICY_MAPPING_ID INTEGER IDENTITY(1,1),
-                API_UUID VARCHAR(256) NOT NULL,
-                REVISION_UUID VARCHAR(45),
-                POLICY_UUID VARCHAR(45) NOT NULL,
-                POLICY_ORDER INTEGER NOT NULL,
-                DIRECTION VARCHAR(10) NOT NULL,
-                PARAMETERS VARCHAR(1024) NOT NULL,
-                FOREIGN KEY (API_UUID) REFERENCES AM_API(API_UUID) ON DELETE CASCADE,
-                FOREIGN KEY (POLICY_UUID) REFERENCES AM_OPERATION_POLICY(POLICY_UUID) ON DELETE CASCADE,
-                PRIMARY KEY(API_POLICY_MAPPING_ID)
-            );
+            === "MSSQL"
+                ```
+                IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_API_POLICY_MAPPING]') AND TYPE IN (N'U'))
+                CREATE TABLE AM_API_POLICY_MAPPING (
+                    API_POLICY_MAPPING_ID INTEGER IDENTITY(1,1),
+                    API_UUID VARCHAR(256) NOT NULL,
+                    REVISION_UUID VARCHAR(45),
+                    POLICY_UUID VARCHAR(45) NOT NULL,
+                    POLICY_ORDER INTEGER NOT NULL,
+                    DIRECTION VARCHAR(10) NOT NULL,
+                    PARAMETERS VARCHAR(1024) NOT NULL,
+                    FOREIGN KEY (API_UUID) REFERENCES AM_API(API_UUID) ON DELETE CASCADE,
+                    FOREIGN KEY (POLICY_UUID) REFERENCES AM_OPERATION_POLICY(POLICY_UUID) ON DELETE CASCADE,
+                    PRIMARY KEY(API_POLICY_MAPPING_ID)
+                );
 
-            ```
-
-
-            ```tab="MySQL"
-            CREATE TABLE IF NOT EXISTS AM_API_POLICY_MAPPING (
-                API_POLICY_MAPPING_ID INTEGER AUTO_INCREMENT,
-                API_UUID VARCHAR(256) NOT NULL,
-                REVISION_UUID VARCHAR(45),
-                POLICY_UUID VARCHAR(45) NOT NULL,
-                POLICY_ORDER INTEGER NOT NULL,
-                DIRECTION VARCHAR(10) NOT NULL,
-                PARAMETERS VARCHAR(1024) NOT NULL,
-                FOREIGN KEY (API_UUID) REFERENCES AM_API(API_UUID) ON DELETE CASCADE,
-                FOREIGN KEY (POLICY_UUID) REFERENCES AM_OPERATION_POLICY(POLICY_UUID) ON DELETE CASCADE,
-                PRIMARY KEY(API_POLICY_MAPPING_ID)
-            )ENGINE INNODB;
-            ```
+                ```
 
 
-            ```tab="MySQL Cluster"
-            CREATE TABLE IF NOT EXISTS AM_API_POLICY_MAPPING (
-                API_POLICY_MAPPING_ID INTEGER AUTO_INCREMENT,
-                API_UUID VARCHAR(256) NOT NULL,
-                REVISION_UUID VARCHAR(45),
-                POLICY_UUID VARCHAR(45) NOT NULL,
-                POLICY_ORDER INTEGER NOT NULL,
-                DIRECTION VARCHAR(10) NOT NULL,
-                PARAMETERS VARCHAR(1024) NOT NULL,
-                FOREIGN KEY (API_UUID) REFERENCES AM_API(API_UUID) ON DELETE CASCADE,
-                FOREIGN KEY (POLICY_UUID) REFERENCES AM_OPERATION_POLICY(POLICY_UUID) ON DELETE CASCADE,
-                PRIMARY KEY(API_POLICY_MAPPING_ID)
-            )ENGINE=NDB;
-            ```
+            === "MySQL"
+                ```
+                CREATE TABLE IF NOT EXISTS AM_API_POLICY_MAPPING (
+                    API_POLICY_MAPPING_ID INTEGER AUTO_INCREMENT,
+                    API_UUID VARCHAR(256) NOT NULL,
+                    REVISION_UUID VARCHAR(45),
+                    POLICY_UUID VARCHAR(45) NOT NULL,
+                    POLICY_ORDER INTEGER NOT NULL,
+                    DIRECTION VARCHAR(10) NOT NULL,
+                    PARAMETERS VARCHAR(1024) NOT NULL,
+                    FOREIGN KEY (API_UUID) REFERENCES AM_API(API_UUID) ON DELETE CASCADE,
+                    FOREIGN KEY (POLICY_UUID) REFERENCES AM_OPERATION_POLICY(POLICY_UUID) ON DELETE CASCADE,
+                    PRIMARY KEY(API_POLICY_MAPPING_ID)
+                )ENGINE INNODB;
+                ```
 
 
-            ```tab="Oracle"
-            CREATE TABLE AM_API_POLICY_MAPPING (
-                API_POLICY_MAPPING_ID INTEGER,
-                API_UUID VARCHAR(256) NOT NULL,
-                REVISION_UUID VARCHAR(45),
-                POLICY_UUID VARCHAR(45) NOT NULL,
-                POLICY_ORDER INTEGER NOT NULL,
-                DIRECTION VARCHAR(10) NOT NULL,
-                PARAMETERS VARCHAR(1024) NOT NULL,
-                FOREIGN KEY (API_UUID) REFERENCES AM_API(API_UUID) ON DELETE CASCADE,
-                FOREIGN KEY (POLICY_UUID) REFERENCES AM_OPERATION_POLICY(POLICY_UUID) ON DELETE CASCADE,
-                PRIMARY KEY(API_POLICY_MAPPING_ID)
-            )
-            /
-
-            CREATE SEQUENCE AM_API_POLICY_MAPPING_SEQ START WITH 1 INCREMENT BY 1
-            /
-
-            CREATE OR REPLACE TRIGGER AM_API_POLICY_MAPPING_SEQ
-                                        BEFORE INSERT
-                                ON AM_API_POLICY_MAPPING
-                                REFERENCING NEW AS NEW
-                                FOR EACH ROW
-                                BEGIN
-                                SELECT AM_API_POLICY_MAPPING_SEQ.nextval INTO :NEW.API_POLICY_MAPPING_ID FROM dual;
-                                END;
-            /
-
-            ```
+            === "MySQL Cluster"
+                ```
+                CREATE TABLE IF NOT EXISTS AM_API_POLICY_MAPPING (
+                    API_POLICY_MAPPING_ID INTEGER AUTO_INCREMENT,
+                    API_UUID VARCHAR(256) NOT NULL,
+                    REVISION_UUID VARCHAR(45),
+                    POLICY_UUID VARCHAR(45) NOT NULL,
+                    POLICY_ORDER INTEGER NOT NULL,
+                    DIRECTION VARCHAR(10) NOT NULL,
+                    PARAMETERS VARCHAR(1024) NOT NULL,
+                    FOREIGN KEY (API_UUID) REFERENCES AM_API(API_UUID) ON DELETE CASCADE,
+                    FOREIGN KEY (POLICY_UUID) REFERENCES AM_OPERATION_POLICY(POLICY_UUID) ON DELETE CASCADE,
+                    PRIMARY KEY(API_POLICY_MAPPING_ID)
+                )ENGINE=NDB;
+                ```
 
 
-            ```tab="Oracle RAC"
-            CREATE TABLE AM_API_POLICY_MAPPING (
-                API_POLICY_MAPPING_ID INTEGER,
-                API_UUID VARCHAR(256) NOT NULL,
-                REVISION_UUID VARCHAR(45),
-                POLICY_UUID VARCHAR(45) NOT NULL,
-                POLICY_ORDER INTEGER NOT NULL,
-                DIRECTION VARCHAR(10) NOT NULL,
-                PARAMETERS VARCHAR(1024) NOT NULL,
-                FOREIGN KEY (API_UUID) REFERENCES AM_API(API_UUID) ON DELETE CASCADE,
-                FOREIGN KEY (POLICY_UUID) REFERENCES AM_OPERATION_POLICY(POLICY_UUID) ON DELETE CASCADE,
-                PRIMARY KEY(API_POLICY_MAPPING_ID)
-            )
-            /
+            === "Oracle"
+                ```
+                CREATE TABLE AM_API_POLICY_MAPPING (
+                    API_POLICY_MAPPING_ID INTEGER,
+                    API_UUID VARCHAR(256) NOT NULL,
+                    REVISION_UUID VARCHAR(45),
+                    POLICY_UUID VARCHAR(45) NOT NULL,
+                    POLICY_ORDER INTEGER NOT NULL,
+                    DIRECTION VARCHAR(10) NOT NULL,
+                    PARAMETERS VARCHAR(1024) NOT NULL,
+                    FOREIGN KEY (API_UUID) REFERENCES AM_API(API_UUID) ON DELETE CASCADE,
+                    FOREIGN KEY (POLICY_UUID) REFERENCES AM_OPERATION_POLICY(POLICY_UUID) ON DELETE CASCADE,
+                    PRIMARY KEY(API_POLICY_MAPPING_ID)
+                )
+                /
 
-            CREATE SEQUENCE AM_API_POLICY_MAPPING_SEQ START WITH 1 INCREMENT BY 1
-            /
+                CREATE SEQUENCE AM_API_POLICY_MAPPING_SEQ START WITH 1 INCREMENT BY 1
+                /
 
-            CREATE OR REPLACE TRIGGER AM_API_POLICY_MAPPING_SEQ
-                                        BEFORE INSERT
-                                ON AM_API_POLICY_MAPPING
-                                REFERENCING NEW AS NEW
-                                FOR EACH ROW
-                                BEGIN
-                                SELECT AM_API_POLICY_MAPPING_SEQ.nextval INTO :NEW.API_POLICY_MAPPING_ID FROM dual;
-                                END;
-            /
+                CREATE OR REPLACE TRIGGER AM_API_POLICY_MAPPING_SEQ
+                                            BEFORE INSERT
+                                    ON AM_API_POLICY_MAPPING
+                                    REFERENCING NEW AS NEW
+                                    FOR EACH ROW
+                                    BEGIN
+                                    SELECT AM_API_POLICY_MAPPING_SEQ.nextval INTO :NEW.API_POLICY_MAPPING_ID FROM dual;
+                                    END;
+                /
 
-            ```
+                ```
+
+
+            === "Oracle RAC"
+                ```
+                CREATE TABLE AM_API_POLICY_MAPPING (
+                    API_POLICY_MAPPING_ID INTEGER,
+                    API_UUID VARCHAR(256) NOT NULL,
+                    REVISION_UUID VARCHAR(45),
+                    POLICY_UUID VARCHAR(45) NOT NULL,
+                    POLICY_ORDER INTEGER NOT NULL,
+                    DIRECTION VARCHAR(10) NOT NULL,
+                    PARAMETERS VARCHAR(1024) NOT NULL,
+                    FOREIGN KEY (API_UUID) REFERENCES AM_API(API_UUID) ON DELETE CASCADE,
+                    FOREIGN KEY (POLICY_UUID) REFERENCES AM_OPERATION_POLICY(POLICY_UUID) ON DELETE CASCADE,
+                    PRIMARY KEY(API_POLICY_MAPPING_ID)
+                )
+                /
+
+                CREATE SEQUENCE AM_API_POLICY_MAPPING_SEQ START WITH 1 INCREMENT BY 1
+                /
+
+                CREATE OR REPLACE TRIGGER AM_API_POLICY_MAPPING_SEQ
+                                            BEFORE INSERT
+                                    ON AM_API_POLICY_MAPPING
+                                    REFERENCING NEW AS NEW
+                                    FOR EACH ROW
+                                    BEGIN
+                                    SELECT AM_API_POLICY_MAPPING_SEQ.nextval INTO :NEW.API_POLICY_MAPPING_ID FROM dual;
+                                    END;
+                /
+
+                ```
 
             
-            ```tab="PostgreSQL"
-            DROP TABLE IF EXISTS AM_API_POLICY_MAPPING;
-            CREATE TABLE IF NOT EXISTS AM_API_POLICY_MAPPING (
-                API_POLICY_MAPPING_ID SERIAL,
-                API_UUID VARCHAR(256) NOT NULL,
-                REVISION_UUID VARCHAR(45),
-                POLICY_UUID VARCHAR(45) NOT NULL,
-                POLICY_ORDER INTEGER NOT NULL,
-                DIRECTION VARCHAR(10) NOT NULL,
-                PARAMETERS VARCHAR(1024) NOT NULL,
-                FOREIGN KEY (API_UUID) REFERENCES AM_API(API_UUID) ON DELETE CASCADE,
-                FOREIGN KEY (POLICY_UUID) REFERENCES AM_OPERATION_POLICY(POLICY_UUID) ON DELETE CASCADE,
-                PRIMARY KEY(API_POLICY_MAPPING_ID)
-            );
-            ```
+            === "PostgreSQL"
+                ```
+                DROP TABLE IF EXISTS AM_API_POLICY_MAPPING;
+                CREATE TABLE IF NOT EXISTS AM_API_POLICY_MAPPING (
+                    API_POLICY_MAPPING_ID SERIAL,
+                    API_UUID VARCHAR(256) NOT NULL,
+                    REVISION_UUID VARCHAR(45),
+                    POLICY_UUID VARCHAR(45) NOT NULL,
+                    POLICY_ORDER INTEGER NOT NULL,
+                    DIRECTION VARCHAR(10) NOT NULL,
+                    PARAMETERS VARCHAR(1024) NOT NULL,
+                    FOREIGN KEY (API_UUID) REFERENCES AM_API(API_UUID) ON DELETE CASCADE,
+                    FOREIGN KEY (POLICY_UUID) REFERENCES AM_OPERATION_POLICY(POLICY_UUID) ON DELETE CASCADE,
+                    PRIMARY KEY(API_POLICY_MAPPING_ID)
+                );
+                ```
 
 5.  Let’s attach a policy to the `/menu GET` operation. Scroll down through the left side column of the UI and click on `/menu GET` API operation. You should be able to see the below screen when the API operation is expanded.
 

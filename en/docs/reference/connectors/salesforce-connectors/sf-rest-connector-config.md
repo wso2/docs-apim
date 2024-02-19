@@ -1,6 +1,6 @@
 # Salesforce REST Connector Reference
 
-The following operations allow you to work with the Salesforce REST Connector. Click an operation name to see parameter details and samples on how to use it.
+The following operations allow you to work with the Salesforce REST Connector v1.x that provides seamless integration with the [Salesforce REST API v32.0](https://developer.salesforce.com/docs/atlas.en-us.196.0.api_rest.meta/api_rest/intro_what_is_rest_api.htm). Click an operation name to see parameter details and samples on how to use it.
 
 ---
 
@@ -136,6 +136,7 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
         "clientSecret": "XXXXXXXXXXXX (Replace with your client secret)",
         "blocking" : "false"
     }
+    ```
     
 
 ??? note "salesforcerest.init for username/password flow"

@@ -11,7 +11,7 @@ When the API subscription update workflow is enabled, when the subscription tier
     [![Workflow Extensions Browse]({{base_path}}/assets/img/learn/wf-extensions-browse.png)]({{base_path}}/assets/img/learn/wf-extensions-browse.png)
 
 2.  Open the `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` resource and click **Edit as text**. Disable the SubscriptionUpdateSimpleWorkflowExecutor and enable SubscriptionUpdateApprovalWorkflowExecutor. 
-    ``` 
+    ``` xml
         <WorkFlowExtensions>
         ...
             <!--SubscriptionUpdate executor="org.wso2.carbon.apimgt.impl.workflow.SubscriptionUpdateSimpleWorkflowExecutor"/-->

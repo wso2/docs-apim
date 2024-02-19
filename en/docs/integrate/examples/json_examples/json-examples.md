@@ -9,124 +9,143 @@ final XML tree. If the original JSON payload is of type `object` , the special e
 
 ### Empty objects
 
-``` javascript tab='JSON'
-{"object":{}}
-```
+=== "JSON"
+      ``` javascript
+      {"object":{}}
+      ```
 
-``` html tab='XML'
-<jsonObject>
-  <object></object>
-</jsonObject>
-```
+=== "XML"
+      ``` html
+      <jsonObject>
+      <object></object>
+      </jsonObject>
+      ```
 
 ### Empty strings
 
-``` javascript tab='JSON'
-{"object":""}
-```
+=== "JSON"
+      ``` javascript
+      {"object":""}
+      ```
 
-``` html tab='XML'
-<jsonObject>
-  <object></object>
-</jsonObject>
-```
+=== "XML"
+      ``` html
+      <jsonObject>
+      <object></object>
+      </jsonObject>
+      ```
 
 ### Empty array
 
-``` javascript tab='JSON'
-[]
-```
+=== "JSON"
+      ``` javascript
+      []
+      ```
 
-``` html tab='XML (JsonStreamBuilder)'
-<jsonArray></jsonArray>
-```
+=== "XML (JsonStreamBuilder)"
+      ``` html
+      <jsonArray></jsonArray>
+      ```
 
-``` html tab='XML (JsonBuilder)'
-<jsonArray>
-  <?xml-multiple jsonElement?>
-</jsonArray>
-```
+=== "XML (JsonBuilder)"
+      ``` html
+      <jsonArray>
+      <?xml-multiple jsonElement?>
+      </jsonArray>
+      ```
 
 ### Named arrays
 
-``` javascript tab='JSON'
-{"array":[1,2]}
-```
+=== "JSON"
+      ``` javascript
+      {"array":[1,2]}
+      ```
 
-``` html tab='XML (JsonStreamBuilder)'
-<jsonObject>
-  <array>1</array>
-  <array>2</array>
-</jsonObject>
-```
+=== "XML (JsonStreamBuilder)"
+      ``` html
+      <jsonObject>
+      <array>1</array>
+      <array>2</array>
+      </jsonObject>
+      ```
 
-``` html tab='XML (JsonBuilder)'
-<jsonObject>
-  <?xml-multiple array?>
-  <array>1</array>
-  <array>2</array>
-</jsonObject>
-```
+=== "XML (JsonBuilder)"
+      ``` html
+      <jsonObject>
+      <?xml-multiple array?>
+      <array>1</array>
+      <array>2</array>
+      </jsonObject>
+      ```
 
-``` javascript tab='JSON'
-{"array":[]}
-```
+=== "JSON"
+      ``` javascript
+      {"array":[]}
+      ```
 
-``` html tab='XML (JsonStreamBuilder)'
-<jsonObject></jsonObject>
-```
+=== "XML (JsonStreamBuilder)"
+      ``` html
+      <jsonObject></jsonObject>
+      ```
 
-``` html tab='XML (JsonBuilder)'
-<jsonObject>
-  <?xml-multiple array?>
-</jsonObject>
-```
+=== "XML (JsonBuilder)"
+      ``` html
+      <jsonObject>
+      <?xml-multiple array?>
+      </jsonObject>
+      ```
 
 ### Anonymous arrays
 
-``` javascript tab='JSON'
-[1,2]
-```
+=== "JSON"
+      ``` javascript
+      [1,2]
+      ```
 
-``` html tab='XML (JsonStreamBuilder)'
-<jsonArray>
-   <jsonElement>1</jsonElement>
-   <jsonElement>2</jsonElement>
-</jsonArray>
-```
+=== "XML (JsonStreamBuilder)"
+      ``` html
+      <jsonArray>
+         <jsonElement>1</jsonElement>
+         <jsonElement>2</jsonElement>
+      </jsonArray>
+      ```
 
-``` html tab='XML (JsonBuilder)'
-<jsonArray>
-  <?xml-multiple jsonElement?>
-  <jsonElement>1</jsonElement>
-  <jsonElement>2</jsonElement>
-</jsonArray>
-```
+=== "XML (JsonBuilder)"
+      ``` html
+      <jsonArray>
+      <?xml-multiple jsonElement?>
+      <jsonElement>1</jsonElement>
+      <jsonElement>2</jsonElement>
+      </jsonArray>
+      ```
 
-``` javascript tab='JSON'
-[1, []]
-```
+=== "JSON"
+      ``` javascript
+      [1, []]
+      ```
 
-``` html tab='XML (JsonStreamBuilder)'
-<jsonArray>
-  <jsonElement>1</jsonElement>
-  <jsonElement>
-     <jsonArray></jsonArray>
-  </jsonElement>
-</jsonArray>
-```
+=== "XML (JsonStreamBuilder)"
+      ``` html
+      <jsonArray>
+      <jsonElement>1</jsonElement>
+      <jsonElement>
+         <jsonArray></jsonArray>
+      </jsonElement>
+      </jsonArray>
+      ```
 
-``` html tab='XML (JsonBuilder)'
-<jsonArray>
-  <?xml-multiple jsonElement?>
-  <jsonElement>1</jsonElement>
-  <jsonElement>
-     <jsonArray>
-       <?xml-multiple jsonElement?>
-     </jsonArray>
-  </jsonElement>
-</jsonArray>
-```
+=== "XML (JsonBuilder)"
+      ``` html
+      <jsonArray>
+      <?xml-multiple jsonElement?>
+      <jsonElement>1</jsonElement>
+      <jsonElement>
+         <jsonArray>
+            <?xml-multiple jsonElement?>
+         </jsonArray>
+      </jsonElement>
+      </jsonArray>
+      ```
 
 ## XML processing instructions (PIs)
 
@@ -136,25 +155,29 @@ Note the addition of `xml-multiple` processing instructions to the XML payloads 
 
 When building XML elements, the EI handles the `$` character and digits in a special manner when they appear as the first character of a JSON key. Following are examples of two such occurrences. Note the addition of the `_JsonReader_PS_` and `_JsonReader_PD_` prefixes in place of the `$` and digit characters, respectively.
 
-``` javascript tab='JSON'
-{"$key":1234}
-```
+=== "JSON"
+      ``` javascript
+      {"$key":1234}
+      ```
 
-``` html tab='XML'
-<jsonObject>
-  <_JsonReader_PS_key>1234</_JsonReader_PS_key>
-</jsonObject>
-```
+=== "XML"
+      ``` html
+      <jsonObject>
+      <_JsonReader_PS_key>1234</_JsonReader_PS_key>
+      </jsonObject>
+      ```
 
-``` javascript tab='JSON'
-{"32X32":"image_32x32.png"}
-```
+=== "JSON"
+      ``` javascript
+      {"32X32":"image_32x32.png"}
+      ```
 
-``` html tab='XML'
-<jsonObject>
-  <_JsonReader_PD_32X32>image_32x32.png</_JsonReader_PD_32X32>
-</jsonObject>
-```
+=== "XML"
+      ``` html
+      <jsonObject>
+      <_JsonReader_PD_32X32>image_32x32.png</_JsonReader_PD_32X32>
+      </jsonObject>
+      ```
 
 ## Converting spaces
 
@@ -192,17 +215,19 @@ When an XML element is converted to JSON, the following rules apply:
 
 Consider the following empty XML elements:
 
-``` html tab='Example 1'
-<jsonObject>
-  <object></object>
-</jsonObject>
-```
+=== "Example 1"
+      ``` html
+      <jsonObject>
+      <object></object>
+      </jsonObject>
+      ```
 
-``` html tab='Example 2'
-<jsonObject>
-  <object/>
-</jsonObject>
-```
+=== "Example 2"
+      ``` html
+      <jsonObject>
+      <object/>
+      </jsonObject>
+      ```
 
 By default, empty XML elements convert to JSON as null objects as shown below.
 
@@ -245,7 +270,7 @@ If you set the `synapse.enable_xml_nil=true` property in the `deployment.toml` f
 
 To convert an XML payload to JSON, set the `messageType` property to `application/json` in the axis2 scope before sending message to an endpoint. Similarly, to convert a JSON payload to XML, set the `messageType` property to `application/xml` or `text/xml`. For example:
 
-```
+```xml
 <proxy xmlns="http://ws.apache.org/ns/synapse"
           name="tojson"
           transports="https,http"
@@ -518,7 +543,7 @@ payload.
 
 ```
 <log>
-  <property name="JSON-Payload" expression="json-eval($.)"/>
+  <property name="JSON-Payload" expression="json-eval($)"/>
 </log>
 ```
 
@@ -576,7 +601,7 @@ The [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-m
 
 We can create a proxy service that consumes the above response and creates a new response containing the location name and tags associated with the location based on several fields from the above response.
 
-```
+```xml
 <proxy xmlns="http://ws.apache.org/ns/synapse"
          name="singleresponse"
          transports="https,http"
@@ -705,7 +730,7 @@ using the `         getPayloadJSON        ` and
 
 Following is an example of a JSON to JSON transformation performed by the Script mediator. Suppose a second service returns the following response:
 
-```
+```json
 {
     "results" : [
           {
@@ -764,7 +789,7 @@ Following is an example of a JSON to JSON transformation performed by the Script
 The following proxy service shows how we can transform the above
 response using JavaScript with the Script mediator.
 
-```
+```xml
 <proxy xmlns="http://ws.apache.org/ns/synapse"
            name="locations"
            transports="https,http"
@@ -786,7 +811,7 @@ response using JavaScript with the Script mediator.
 The registry resource `         transform.js        ` contains the
 JavaScript function that performs the transformation:
 
-```
+```javascript
 function transform(mc) {
         payload = mc.getPayloadJSON();
         results = payload.results;
@@ -914,7 +939,7 @@ Let's send the JSON message returned by the `         locations        `
 proxy service as the request for the following proxy service,
 `         transformjson        ` :
 
-```
+```xml
 <proxy xmlns="http://ws.apache.org/ns/synapse"
            name="transformjson"
            transports="https,http"
@@ -933,7 +958,7 @@ proxy service as the request for the following proxy service,
                mc.setPayloadJSON(payload);
              </script>
              <log>
-                <property name="JSON-Payload" expression="json-eval($.)"/>
+                <property name="JSON-Payload" expression="json-eval($)"/>
              </log>
              <respond/>
           </inSequence>
@@ -1132,7 +1157,7 @@ In this example, the required schema for validating messages going through the V
 
 An example for a valid JSON payload request is given below.
 
-```
+```json
 {
   "getQuote": {
    "request": {

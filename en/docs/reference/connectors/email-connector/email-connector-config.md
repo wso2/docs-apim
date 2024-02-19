@@ -369,6 +369,11 @@ The following operations allow you to work with the Email Connector. Click an op
             <td>Yes</td>
         </tr>
         <tr>
+            <td>personalName</td>
+            <td>The personal name of the message sender. This is available from Email Connector version 1.1.2 onwards.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
             <td>cc</td>
             <td>The recipient addresses of 'CC' (carbon copy) type.</td>
             <td>Optional</td>

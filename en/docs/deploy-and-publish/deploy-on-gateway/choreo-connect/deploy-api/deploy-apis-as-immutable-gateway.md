@@ -42,7 +42,7 @@ All the apictl projects in the directory will be deployed during the startup.
 
 ## Step 4 - update config.toml
 
-```
+```toml
 [adapter.server]
     enabled = false
 ```

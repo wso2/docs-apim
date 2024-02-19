@@ -25,6 +25,24 @@ template: templates/single-column.html
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
     }
+
+    @media (max-width: 1386px) {
+        .md-main .md-sidebar.md-sidebar--primary {
+            width: 0;
+        }
+    }
+
+    @media (max-width: 1219px) {
+        .md-content, .md-nav {
+            margin-top: 0;
+        }
+        .md-container {
+            margin-top: 2.4rem;
+        }
+        .md-main__inner {
+            padding-top: 1.5rem;
+        }
+    }
 </style>
 
 <div class="homePage">

@@ -1,5 +1,9 @@
 # Access the MI Analytics Portal
 
+!!! note
+
+    - The MI Analytics feature has been deprecated. This solution is recommended only for users who are using WSO2 EI 7.0.0 and want to migrate in to a newer version while retaining the already existing analytics data.
+
 Let's use **MI Analytics** to view and monitor **statistics** and **message tracing**.
 
 You can monitor the following statistics and more through the MI Analytics Portal:
@@ -45,13 +49,15 @@ Let's start the servers in the given order.
 1.  Open a terminal and navigate to the `<MI_ANALYTICS_HOME>/bin` directory.
 2.  Start the Analytics server by executing the following command:
 
-    ```bash tab='On MacOS/Linux/Centos'
-    sh server.sh
-    ```
+    === "On MacOS/Linux/Centos"
+        ```bash
+        sh server.sh
+        ```
 
-    ```bash tab='On Windows'
-    server.bat
-    ```
+    === "On Windows"
+        ```bash
+        server.bat
+        ```
 
 ### Step 1.2 - Start the Micro Integrator
 
@@ -62,13 +68,15 @@ Once you have [started the Analytics Server](#starting-the-analytics-server), yo
 1.  Open a terminal and navigate to the `<MI_ANALYTICS_HOME>/bin` directory.
 2.  Start the Analytics Portal's runtime by executing the following command:
 
-    ```bash tab='On MacOS/Linux/Centos'
-    sh portal.sh
-    ```
+    === "On MacOS/Linux/Centos"
+        ```bash
+        sh portal.sh
+        ```
 
-    ```bash tab='On Windows'
-    portal.bat
-    ```
+    === "On Windows"
+        ```bash
+        portal.bat
+        ```
 
 In a new browser window or tab, open the Analytics Portal using the following URL: https://localhost:9645/analytics-dashboard. 
 Use `admin` for both the username and password.

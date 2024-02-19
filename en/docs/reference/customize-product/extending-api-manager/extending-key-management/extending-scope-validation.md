@@ -38,7 +38,7 @@ Follow the instructions below to skip role validation for scopes:
         Make sure you include a random scope in the request which will be any value suitable for the name of the scope.
 
     ``` xml
-    curl -k -d "grant_type=password&username=admin&password=admin&scope=some_random_scope" -H "Authorization: Basic WmRFUFBvZmZwYVFnR25ScG5iZldtcUtSS3IwYTpSaG5ocEVJYUVCMEN3T1FReWpiZTJwaDBzc1Vh" -H "Content-Type: application/x-www-form-urlencoded" https://10.100.0.3:8243/token
+    curl -k -d "grant_type=password&username=admin&password=admin&scope=some_random_scope" -H "Authorization: Basic WmRFUFBvZmZwYVFnR25ScG5iZldtcUtSS3IwYTpSaG5ocEVJYUVCMEN3T1FReWpiZTJwaDBzc1Vh" -H "Content-Type: application/x-www-form-urlencoded" https://10.100.0.3:9443/oauth2/token
     ```
 
      Along with the token, you receive a response from the server similar to the one below.

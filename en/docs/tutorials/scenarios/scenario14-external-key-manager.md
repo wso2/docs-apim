@@ -48,7 +48,7 @@ client secret:  221f10b7-d169-45e0-851e-e1b017052162
 
 Now let's configure the connection between API-M and Keycloak.
 
-1. Log on to Admin Portal [https://localhost:9443/admin/](https://localhost:9443/admin/) using RailCo admin user. Use `admin@railco.com` and `admin` as the password.
+1. Log on to Admin Portal `https://localhost:9443/admin/` using RailCo admin user. Use `admin@railco.com` and `admin` as the password.
 2. Go to **Key Managers** and select **Add Keymanagers**
 3. Provide a suitable name and display name.
 4. Select **Key Manager Type** as **Keycloak** from the dropdown menu.
@@ -64,7 +64,7 @@ Now the Key Manager is configured.
 
 Let’s invoke an API using a token generated from Keycloak.
 
-1. Log on to Railco tenant domain’s Developer Portal [https://localhost:9443/devportal/](https://localhost:9443/devportal/) using tom@railco.com and password _user123_.
+1. Log on to Railco tenant domain’s Developer Portal `https://localhost:9443/devportal/` using tom@railco.com and password _user123_.
 2. Go to the **Applications** page and select **KeyCloakAPP**. This application is already subscribed to the **RailCoTrainAPI**. 
 3. Select **Production Keys → OAuth2 Tokens** . You will see a tab for **Keycloak**
     

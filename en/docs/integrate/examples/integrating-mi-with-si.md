@@ -86,7 +86,7 @@ Create the artifacts:
 1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
 2. [Create an ESB Solution project]({{base_path}}/integrate/develop/create-integration-project/#esb-config-project).
 3. [Create the rest API]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-and-run) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/integrate/develop/using-remote-micro-integrator/) in your Micro Integrator.
 
 Invoke the sample API:
 

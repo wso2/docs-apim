@@ -17,3 +17,7 @@ If you mark any version of an API as the default, two API URLs are listed in its
 ## Default version and Backward Compatibility
 
 When you need to modify a published API, you can create a new version of the existing API. In addition, you can make the new version of the API the default API version, so that the subscribers who are using the default API URL for accessing the API can get the changes immediately. However, the changes made to the API version must be backward compatible in order to enable the subscribers to be able to use the API as they did before, without failures. 
+
+!!! note
+    API product versioning is available after WSO2 API Manager 4.2.0 U2 update level 55 onwards.
+    If you are using the latest U2 update level please note that for APIs, default version will be set to `false` when creating a new API. However for API Products, default version will be set to `true` when creating a new API Product.

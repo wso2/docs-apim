@@ -55,10 +55,9 @@ The above user and role is added by default.
 The parameters used in the above configurations are as follows:
 
 !!! note
-
-If new users/roles are added and the above default user and role are
-also needed, the following parameters must be added to the user store
-along with the added user/role.
+    If new users/roles are added and the above default user and role are
+    also needed, the following parameters must be added to the user store
+    along with the added user/role.
 
 
 <table style="width:100%;">
@@ -197,8 +196,8 @@ grant type.
 
 !!! note
 
-The identity provider with which WSO2 SP interacts with to authenticate
-users must be started before the SP server.
+    The identity provider with which WSO2 SP interacts with to authenticate
+    users must be started before the SP server.
 
 
 The auth manager must be configured under the

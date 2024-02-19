@@ -94,7 +94,7 @@ Let's create two Endpoint artifacts for the two healthcare services:
       </tr>
       <tr>
         <td>URI Template</td>
-        <td>http://localhost:9090/grandOak/doctors/{uri.var.doctorType}</td>
+        <td><code>http://localhost:9090/grandOak/doctors/{uri.var.doctorType}</code></td>
       </tr>
       <tr>
         <td>Method</td>
@@ -125,7 +125,7 @@ Let's create two Endpoint artifacts for the two healthcare services:
     
       <tr>
         <td>URI Template</td>
-        <td>http://localhost:9091/pineValley/doctors</td>
+        <td><code>http://localhost:9091/pineValley/doctors</code></td>
       </tr>
     
       <tr>
@@ -398,13 +398,15 @@ Once you have downloaded and set up the Micro Integrator locally, follow the ste
     1.    Open a terminal and navigate to the `<MI_HOME>/bin` folder.
     2.    Execute one of the commands given below.
 
-          ```bash tab="On MacOS/Linux"
-          ./micro-integrator.sh
-          ```
+        === "On MacOS/Linux"
+              ```bash
+              ./micro-integrator.sh
+              ```
 
-          ```bash tab="On Windows"
-          micro-integrator.bat
-          ```
+        === "On Windows"
+              ```bash
+              micro-integrator.bat
+              ```
 
 ## Step 4 - Observe deployed artifacts
 

@@ -33,32 +33,34 @@ Then, add the configurations for the specific type of tracing in order to enable
 
 1. Copy the following configuration into the `deployment.toml` file.
 
-    ```toml tab="Format"
-    [opentelemetry]
-    enable = true
-    logs = true
-    type = "jaeger"
-    host = "<hostname-of-jaeger-endpoint>"
-    port =  "<port-of-jaeger-endpoint>"
+    === "Format"
+        ```toml
+        [opentelemetry]
+        enable = true
+        logs = true
+        type = "jaeger"
+        host = "<hostname-of-jaeger-endpoint>"
+        port =  "<port-of-jaeger-endpoint>"
 
-    # instead of ‘host’ and ‘port’, ‘url’ can be used directly in the following way.
-    url =  "<url-of-jaeger-endpoint>"
-    ```
+        # instead of ‘host’ and ‘port’, ‘url’ can be used directly in the following way.
+        url =  "<url-of-jaeger-endpoint>"
+        ```
 
-    ```toml tab="Example"
-    [opentelemetry]
-    enable = true
-    logs = true
-    type = "jaeger"
-    host = "localhost"
-    port = 14250
+    === "Example"
+        ```toml
+        [opentelemetry]
+        enable = true
+        logs = true
+        type = "jaeger"
+        host = "localhost"
+        port = 14250
 
-    # or
+        # or
 
-    url = "http://localhost:14250"
-    ```
+        url = "http://localhost:14250"
+        ```
 
-2. Start the server. Once that is done, [Download Jaeger](https://www.jaegertracing.io/download/) and start it as mentioned in its [Quick Start Guide](https://www.jaegertracing.io/docs/1.15/#quick-start). Then the traces can be viewed from the [Jaeger UI](http://localhost:16686).
+2. Start the server. Once that is done, [Download Jaeger](https://www.jaegertracing.io/download/) and start it as mentioned in its [Quick Start Guide](https://www.jaegertracing.io/docs/1.15/#quick-start). Then the traces can be viewed from the Jaeger UI `http://localhost:16686`.
 
     [![Distributed tracing jaeger]({{base_path}}/assets/img/administer/opentelemetry-jaeger-mi.png)]({{base_path}}/assets/img/administer/opentelemetry-jaeger-mi.png)
 
@@ -67,29 +69,31 @@ Then, add the configurations for the specific type of tracing in order to enable
 
 1. Copy the following configuration into the `deployment.toml` file.
 
-    ```toml tab="Format"
-    [opentelemetry]
-    enable = true
-    logs = true
-    type = "zipkin"
-    host = "<hostname-of-zipkin-endpoint>"
-    port =  "<port-of-zipkin-endpoint>"
+    === "Format"
+        ```toml
+        [opentelemetry]
+        enable = true
+        logs = true
+        type = "zipkin"
+        host = "<hostname-of-zipkin-endpoint>"
+        port =  "<port-of-zipkin-endpoint>"
 
-    # instead of host and port, ‘url’ can be used directly in the following way.
-    url =  "<url-of-zipkin-endpoint>"
-    ```
+        # instead of host and port, ‘url’ can be used directly in the following way.
+        url =  "<url-of-zipkin-endpoint>"
+        ```
 
-    ```toml tab="Example"
-    [opentelemetry]
-    enable = true
-    logs = true
-    type = "zipkin"
-    host = "localhost"
-    port = 9411
+    === "Example"
+        ```toml
+        [opentelemetry]
+        enable = true
+        logs = true
+        type = "zipkin"
+        host = "localhost"
+        port = 9411
 
-    # or
-    url = "http://localhost:9411"
-    ```
+        # or
+        url = "http://localhost:9411"
+        ```
 
 2. Start the server. Once that is done, Download Zipkin and start it as mentioned in its Quick Start Guide. Then the traces can be viewed from Zipkin UI (http://localhost:9411). 
 
@@ -134,44 +138,46 @@ OpenTelemetry protocol(OTLP) is a general-purpose telemetry data delivery protoc
 
 1. Copy the following configuration into the `deployment.toml` file to use OTLP.
 
-    ```toml tab="Format"
-    [opentelemetry]
-    enable = true
-    logs = true
-    type = "otlp"
-    url = "endpoint-url"
+    === "Format"
+        ```toml
+        [opentelemetry]
+        enable = true
+        logs = true
+        type = "otlp"
+        url = "endpoint-url"
 
-    [[opentelemetry.properties]]
-    name = "name-of-the-header"
-    value = "key-value-of-the-header" 
-    ```
+        [[opentelemetry.properties]]
+        name = "name-of-the-header"
+        value = "key-value-of-the-header" 
+        ```
 
-    ```toml tab="Example"
-    [opentelemetry]
-    enable = true
-    logs = true
-    type = "otlp"
-    url = "https://otlp.nr-data.net:4317/v1/traces"
+    === "Example"
+        ```toml
+        [opentelemetry]
+        enable = true
+        logs = true
+        type = "otlp"
+        url = "https://otlp.nr-data.net:4317/v1/traces"
 
-    [[opentelemetry.properties]]
-    name = "api-key"
-    value = "<your-insight-insert-key>" 
-    ```
+        [[opentelemetry.properties]]
+        name = "api-key"
+        value = "<your-insight-insert-key>" 
+        ```
 
     !!! note 
         Above example illustrates the OpenTelemetry configurations for NewRelic APM.
 
 It is recommended to use OTLP to view the traces through NewRelic APM. But still you can use zipkin format traces to view the traces through NewRelic in the following way.
 
-```toml tab="Format"
-[opentelemetry]
-enable = true
-logs = true
-type = "zipkin"
-url = "https://trace-api.newrelic.com/trace/v1?Api-Key=<Place
-_your_Insight_Insert_key_here>&Data-Format=zipkin&Data-Format-Version=2"
-
-```
+=== "Format"
+    ```toml
+    [opentelemetry]
+    enable = true
+    logs = true
+    type = "zipkin"
+    url = "https://trace-api.newrelic.com/trace/v1?Api-Key=<Place
+    _your_Insight_Insert_key_here>&Data-Format=zipkin&Data-Format-Version=2"
+    ```
 
 !!! note 
     To configure the API key in Newrelic:
@@ -344,12 +350,13 @@ public class SysoutTelemetryManager implements OpenTelemetryManager {
 
 3. Add the following configuration to the `deployment.toml` file.
 
-    ```toml tab="Format"
-    [opentelemetry]
-    enable = true
-    logs = true
-    type = "sysout"
-    ```
+    === "Format"
+        ```toml
+        [opentelemetry]
+        enable = true
+        logs = true
+        type = "sysout"
+        ```
 
 If you need more `opentelemetry.properties` than the developed ones, you can edit the `for` loop of `synapse.properties.j2` file in the `<MI_HOME>/repository/resources/conf/templates/conf` folder in the following way.
 
@@ -363,17 +370,18 @@ opentelemetry.properties.{{property.header}} = {{property.key}}
 
 The `deployment.toml` file entry will be as follows:
 
-```toml tab="Format"
-[opentelemetry]
-enable = true
-logs = true
-type = "type-name"
-url = "endpoint-url"
+=== "Format"
+    ```toml
+    [opentelemetry]
+    enable = true
+    logs = true
+    type = "type-name"
+    url = "endpoint-url"
 
-[[opentelemetry.properties]]
-header = "header"
-key = "key-of-the-header" 
-```
+    [[opentelemetry.properties]]
+    header = "header"
+    key = "key-of-the-header" 
+    ```
 
 Also, in the custom tracer class, a method should be implemented to return those properties that will be similar to the method `getHeaderKeyProperty` in `OTLPTelemetryManager` class and the constant of `org.apache.syanpse.flow.statistics.tracing.opentelemetry.management.TelemetryConstants` class also needs to be changed according to the name given. For more information, view manually instrumented [OTLP tracer](https://github.com/wso2/wso2-synapse/blob/master/modules/core/src/main/java/org/apache/synapse/aspects/flow/statistics/tracing/opentelemetry/management/OTLPTelemetryManager.java).
 

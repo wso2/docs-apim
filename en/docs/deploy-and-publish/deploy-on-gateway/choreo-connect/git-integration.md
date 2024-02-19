@@ -81,43 +81,45 @@ Git Integration in Choreo Connect works in the standalone mode.
 
 Add the following configuration under the Adapter section of the main configuration file of Choreo Connect (`config.toml` file) to enable Git for version controlling of API artifacts.
 
-```toml tab="Format"
-[adapter]
+=== "Format"
+    ```toml
+    [adapter]
 
-artifactsDirectory = "<path_to_the_artifacts_directory>"
+    artifactsDirectory = "<path_to_the_artifacts_directory>"
 
-[adapter.sourceControl]
-  enabled = true
-  pollInterval = 30
-  retryInterval = 5
-  maxRetryCount = 20
-  artifactsDirectory = "<path_to_the_artifacts_directory>"
-  [adapter.sourceControl.repository]
-    URL = "https://<hostname>/<username_or_organization>/<repository-name>.git"
-    branch = "<branch_name>"
-    username = $env{git_username}
-    accessToken = $env{git_access_token}
-    sshKeyFile = "/home/wso2/ssh-keys/<private_key_file>"
-```
+    [adapter.sourceControl]
+      enabled = true
+      pollInterval = 30
+      retryInterval = 5
+      maxRetryCount = 20
+      artifactsDirectory = "<path_to_the_artifacts_directory>"
+      [adapter.sourceControl.repository]
+        URL = "https://<hostname>/<username_or_organization>/<repository-name>.git"
+        branch = "<branch_name>"
+        username = $env{git_username}
+        accessToken = $env{git_access_token}
+        sshKeyFile = "/home/wso2/ssh-keys/<private_key_file>"
+    ```
 
-```toml tab="Example"
-[adapter]
+=== "Example"
+    ```toml
+    [adapter]
 
-artifactsDirectory = "/home/wso2/git-artifacts"
+    artifactsDirectory = "/home/wso2/git-artifacts"
 
-[adapter.sourceControl]
-  enabled = true
-  pollInterval = 30
-  retryInterval = 5
-  maxRetryCount = 20
-  artifactsDirectory = "/home/wso2/git-artifacts"
-  [adapter.sourceControl.repository]
-    URL = "https://github.com/wso2/product-microgateway.git"
-    branch = "main"
-    username = $env{git_username}
-    accessToken = $env{git_access_token}
-    sshKeyFile = "/home/wso2/ssh-keys/id_ed25519"
-```
+    [adapter.sourceControl]
+      enabled = true
+      pollInterval = 30
+      retryInterval = 5
+      maxRetryCount = 20
+      artifactsDirectory = "/home/wso2/git-artifacts"
+      [adapter.sourceControl.repository]
+        URL = "https://github.com/wso2/product-microgateway.git"
+        branch = "main"
+        username = $env{git_username}
+        accessToken = $env{git_access_token}
+        sshKeyFile = "/home/wso2/ssh-keys/id_ed25519"
+    ```
 
 The following table describes the above configuration.
 
@@ -182,43 +184,45 @@ To authenticate the repository with basic HTTP authentication, the username and 
 
      Add the following configuration in the main configuration file of Choreo Connect (`config.toml` file).
 
-    ```toml tab="Format"
-      [adapter]
+    === "Format"
+        ```toml
+          [adapter]
 
-      artifactsDirectory = "<path_to_the_artifacts_directory>"
+          artifactsDirectory = "<path_to_the_artifacts_directory>"
 
-      [adapter.sourceControl]
-        enabled = true
-        pollInterval = 30
-        retryInterval = 5
-        maxRetryCount = 20
-        artifactsDirectory = "<path_to_the_artifacts_directory>"
-        [adapter.sourceControl.repository]
-          URL = "https://<hostname>/<username_or_organization>/<repository-name>.git"
-          branch = ""
-          username = $env{git_username}
-          accessToken = $env{git_access_token}
-          sshKeyFile = ""
-    ```
+          [adapter.sourceControl]
+            enabled = true
+            pollInterval = 30
+            retryInterval = 5
+            maxRetryCount = 20
+            artifactsDirectory = "<path_to_the_artifacts_directory>"
+            [adapter.sourceControl.repository]
+              URL = "https://<hostname>/<username_or_organization>/<repository-name>.git"
+              branch = ""
+              username = $env{git_username}
+              accessToken = $env{git_access_token}
+              sshKeyFile = ""
+        ```
 
-    ```toml tab="Example"
-      [adapter]
+    === "Example"
+        ```toml
+          [adapter]
 
-      artifactsDirectory = "/home/wso2/git-artifacts"
+          artifactsDirectory = "/home/wso2/git-artifacts"
 
-      [adapter.sourceControl]
-        enabled = true
-        pollInterval = 30
-        retryInterval = 5
-        maxRetryCount = 20
-        artifactsDirectory = "/home/wso2/git-artifacts"
-        [adapter.sourceControl.repository]
-          URL = "https://github.com/wso2/product-microgateway.git"
-          branch = ""
-          username = $env{git_username}
-          accessToken = $env{git_access_token}
-          sshKeyFile = ""
-    ```
+          [adapter.sourceControl]
+            enabled = true
+            pollInterval = 30
+            retryInterval = 5
+            maxRetryCount = 20
+            artifactsDirectory = "/home/wso2/git-artifacts"
+            [adapter.sourceControl.repository]
+              URL = "https://github.com/wso2/product-microgateway.git"
+              branch = ""
+              username = $env{git_username}
+              accessToken = $env{git_access_token}
+              sshKeyFile = ""
+        ```
 
 __________________________________________
 
@@ -230,7 +234,7 @@ To authenticate the repository with SSH key, the SSH private key file path shoul
 
      - [Generating SSH keys - GitHub](https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
      - [Generating SSH keys - Bitbucket](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key)
-     - [Generating SSH keys - GitLab](https://docs.gitlab.com/ee/ssh)
+     - [Generating SSH keys - GitLab](https://docs.gitlab.com/ee/user/ssh.html)
 
     !!! Important
         Make sure to keep the passphrase of the SSH key empty.
@@ -239,43 +243,45 @@ To authenticate the repository with SSH key, the SSH private key file path shoul
 
      Add the following configuration in the main configuration file of Choreo Connect (`config.toml` file).
 
-    ```tab="Format"
-      [adapter]
+    === "Format"
+        ```toml
+          [adapter]
 
-      artifactsDirectory = "<path_to_the_artifacts_directory>"
+          artifactsDirectory = "<path_to_the_artifacts_directory>"
 
-      [adapter.sourceControl]
-      enabled = true
-      pollInterval = 30
-      retryInterval = 5
-      maxRetryCount = 20
-      artifactsDirectory = "<path_to_the_artifacts_directory>"
-      [adapter.sourceControl.repository]
-          URL = "git@<hostname>:<username>/<repository-name>.git"
-          branch = ""
-          username = ""
-          accessToken = ""
-          sshKeyFile = "/home/wso2/ssh-keys/<private_key_file>"
-    ```
+          [adapter.sourceControl]
+          enabled = true
+          pollInterval = 30
+          retryInterval = 5
+          maxRetryCount = 20
+          artifactsDirectory = "<path_to_the_artifacts_directory>"
+          [adapter.sourceControl.repository]
+              URL = "git@<hostname>:<username>/<repository-name>.git"
+              branch = ""
+              username = ""
+              accessToken = ""
+              sshKeyFile = "/home/wso2/ssh-keys/<private_key_file>"
+        ```
 
-    ```tab="Example"
-      [adapter]
+    === "Example"
+        ```toml
+          [adapter]
 
-      artifactsDirectory = "/home/wso2/git-artifacts"
+          artifactsDirectory = "/home/wso2/git-artifacts"
 
-      [adapter.sourceControl]
-      enabled = true
-      pollInterval = 30
-      retryInterval = 5
-      maxRetryCount = 20
-      artifactsDirectory = "/home/wso2/git-artifacts"
-      [adapter.sourceControl.repository]
-          URL = "git@github.com:wso2/product-microgateway.git"
-          branch = ""
-          username = ""
-          accessToken = ""
-          sshKeyFile = "/home/wso2/ssh-keys/id_ed25519"
-    ```
+          [adapter.sourceControl]
+          enabled = true
+          pollInterval = 30
+          retryInterval = 5
+          maxRetryCount = 20
+          artifactsDirectory = "/home/wso2/git-artifacts"
+          [adapter.sourceControl.repository]
+              URL = "git@github.com:wso2/product-microgateway.git"
+              branch = ""
+              username = ""
+              accessToken = ""
+              sshKeyFile = "/home/wso2/ssh-keys/id_ed25519"
+        ```
 
 3. Copy the generated private key file to the `docker-compose/resources/adapter/ssh-keys` directory.
 
@@ -294,45 +300,49 @@ To authenticate the repository with SSH key, the SSH private key file path shoul
 
      When using authentication with a SSH key file, you need to create a custom Docker image of the Adapter as mentioned below:
 
-    ```dockerfile tab='Format'
-      FROM wso2/choreo-connect-adapter:<tag>
+    === "Format"
+        ```dockerfile
+          FROM wso2/choreo-connect-adapter:<tag>
 
-      USER root
+          USER root
 
-      RUN apk add openssh-client
+          RUN apk add openssh-client
 
-      RUN mkdir /home/wso2/.ssh && chown -R wso2:wso2 /home/wso2/.ssh \
-          && ssh-keyscan -H <hostname> >> /home/wso2/.ssh/known_hosts
+          RUN mkdir /home/wso2/.ssh && chown -R wso2:wso2 /home/wso2/.ssh \
+              && ssh-keyscan -H <hostname> >> /home/wso2/.ssh/known_hosts
 
-      USER wso2
+          USER wso2
 
-      CMD eval "$(ssh-agent -s)" ; ssh-add /home/wso2/ssh-keys/* ; ./adapter
-    ```
+          CMD eval "$(ssh-agent -s)" ; ssh-add /home/wso2/ssh-keys/* ; ./adapter
+        ```
 
-    ```dockerfile tab='Example'
-      FROM wso2/choreo-connect-adapter:{{choreo_connect.version}}
+    === "Example"
+        ```dockerfile
+          FROM wso2/choreo-connect-adapter:{{choreo_connect.version}}
 
-      USER root
+          USER root
 
-      RUN apk add openssh-client
+          RUN apk add openssh-client
 
-      RUN mkdir /home/wso2/.ssh && chown -R wso2:wso2 /home/wso2/.ssh \
-          && ssh-keyscan -H github.com >> /home/wso2/.ssh/known_hosts
+          RUN mkdir /home/wso2/.ssh && chown -R wso2:wso2 /home/wso2/.ssh \
+              && ssh-keyscan -H github.com >> /home/wso2/.ssh/known_hosts
 
-      USER wso2
+          USER wso2
 
-      CMD eval "$(ssh-agent -s)" ; ssh-add /home/wso2/ssh-keys/* ; ./adapter
-    ```
+          CMD eval "$(ssh-agent -s)" ; ssh-add /home/wso2/ssh-keys/* ; ./adapter
+        ```
 
 6. Build the new image.
 
-    ```bash tab='Format'
-    docker build -t <IMAGE_NAME> -f <DOCKER_FILE_PATH> <CONTEXT>
-    ```
+    === "Format"
+        ```bash
+        docker build -t <IMAGE_NAME> -f <DOCKER_FILE_PATH> <CONTEXT>
+        ```
 
-    ```bash tab='Example'
-    docker build -t myimages/choreo-connect-adapter-ssh:1.0.0 -f Dockerfile .
-    ```
+    === "Example"
+        ```bash
+        docker build -t myimages/choreo-connect-adapter-ssh:1.0.0 -f Dockerfile .
+        ```
 
 7. Update the `docker-compose.yaml` file with the new Adapter image.
 
@@ -362,9 +372,10 @@ After the APIs are exposed via WSO2 Choreo Connect, you can invoke an API with a
 
 Let's use WSO2 Choreo Connect's test key endpoint to obtain an test key in order to access the API. For more information, see [Generate a Test JWT]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt).
 
-``` tab="Sample Token"
-TOKEN=$(curl -X POST "https://localhost:9095/testkey" -d "scope=read:pets" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -v)
-```
+=== "Sample Token"
+    ```bash
+    TOKEN=$(curl -X POST "https://localhost:9095/testkey" -d "scope=read:pets" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -v)
+    ```
 
 !!! info "More information"
     You can obtain a JWT token from any third-party secure token service or via the WSO2 API Manager.
@@ -373,10 +384,12 @@ TOKEN=$(curl -X POST "https://localhost:9095/testkey" -d "scope=read:pets" -H "A
 
 Execute the following command to invoke the API using the test key. You can now invoke the API running on the WSO2 Choreo Connect using the following cURL command.
 
-``` tab="Format"
-curl -X GET "https://<CHOREO-CONNECT_ROUTER_HOST>:<CHOREO-CONNECT_ROUTER_PORT>/<API-context>/<API-resource>" -H "accept:application/xml" -H "Authorization:Bearer $TOKEN" -k
-```
- 
-``` tab="Example"
-curl -X GET "https://localhost:9095/v2/pet/findByStatus?status=available" -H "accept: application/xml" -H "Authorization:Bearer $TOKEN" -k
-```
+=== "Format"
+    ```bash
+    curl -X GET "https://<CHOREO-CONNECT_ROUTER_HOST>:<CHOREO-CONNECT_ROUTER_PORT>/<API-context>/<API-resource>" -H "accept:application/xml" -H "Authorization:Bearer $TOKEN" -k
+    ```
+
+=== "Example"
+    ```bash
+    curl -X GET "https://localhost:9095/v2/pet/findByStatus?status=available" -H "accept: application/xml" -H "Authorization:Bearer $TOKEN" -k
+    ```

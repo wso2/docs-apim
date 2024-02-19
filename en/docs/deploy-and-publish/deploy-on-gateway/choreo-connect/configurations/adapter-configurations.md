@@ -42,10 +42,11 @@ See the example .toml file given below.
             <div class="superfences-tabs">
             
             <input name="2" type="checkbox" id="_tab_2">
-                <label class="tab-selector" for="_tab_2"><i class="icon fa fa-code"></i></label>
+                <label class="tab-selector" for="_tab_2"><i class="fa-solid fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[adapter.server]
+```toml
+[adapter.server]
   enabled = true
   host = "0.0.0.0"
   port = "9843"
@@ -53,7 +54,8 @@ See the example .toml file given below.
   tokenPrivateKeyPath = "/home/wso2/security/keystore/mg.key"
   [[adapter.server.users]]
     username = "admin"
-    password = "$env{adapter_admin_pwd}"</code></pre>
+    password = "$env{adapter_admin_pwd}"
+```
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -186,9 +188,11 @@ See the example .toml file given below.
                 <label class="tab-selector" for="_tab_3"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[adapter.keystore]
+```toml
+[adapter.keystore]
   certPath = "/home/wso2/security/keystore/mg.pem"
-  keyPath = "/home/wso2/security/keystore/mg.key"</code></pre>
+  keyPath = "/home/wso2/security/keystore/mg.key"
+```
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -262,8 +266,10 @@ See the example .toml file given below.
                 <label class="tab-selector" for="_tab_4"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[adapter.truststore]
-  location = "/home/wso2/security/truststore"</code></pre>
+```toml
+[adapter.truststore]
+  location = "/home/wso2/security/truststore"
+```
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -318,10 +324,11 @@ See the example .toml file given below.
                 <label class="tab-selector" for="_tab_5"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[[adapter.vhostMapping]]
+```toml
+[[adapter.vhostMapping]]
   environment = "Default"
   vhost = "localhost"
-</code></pre>
+```
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -395,7 +402,8 @@ See the example .toml file given below.
                 <label class="tab-selector" for="_tab_6"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[adapter.consul]
+```toml
+[adapter.consul]
   enabled = false
   url = "https://169.254.1.1:8501" # scheme + host ip + port
   pollInterval = 5 # seconds
@@ -406,7 +414,7 @@ See the example .toml file given below.
   caCertFile = "/home/wso2/security/truststore/consul/consul-agent-ca.pem"
   certFile = "/home/wso2/security/truststore/consul/local-dc-client-consul-0.pem"
   keyFile = "/home/wso2/security/truststore/consul/local-dc-client-consul-0-key.pem"
-</code></pre>
+```
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -617,7 +625,8 @@ See the example .toml file given below.
                 <label class="tab-selector" for="_tab_7"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[adapter.sourceControl]
+```toml
+[adapter.sourceControl]
   enabled = false
   pollInterval = 30
   retryInterval = 5
@@ -629,7 +638,7 @@ See the example .toml file given below.
     username = "$env{git_username}"
     accessToken = "$env{git_access_token}"
     sshKeyFile = "/home/wso2/ssh-keys/id_ed25519"
-</code></pre>
+```
                     </div>
                 </div>
                 <div class="doc-wrapper">

@@ -23,15 +23,18 @@ Here are the steps to revoke an Access Token.
 
 3. Revoke the access token by calling the following API from control plane.
 
-    ``` tab="Format"
+=== "Format"
+    ```bash
     curl -k -v -d "token=<ACCESS_TOKEN_TO_BE_REVOKED>" -H "Authorization: Basic <base64 encoded (clientId:clientSecret)>" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/revoke
     ```
     
-    ``` tab="Example"
+=== "Example"
+    ```bash
     curl -k -v -d "token=eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZyIsImtpZCI6Ik16WXhNbUZrT0dZd01XSTBaV05tTkRjeE5HWXdZbU00WlRBM01XSTJOREF6WkdRek5HTTBaR1JsTmpKa09ERmtaRFJpT1RGa01XRmhNelUyWkdWbE5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJ2YWppcmEtZGV2IiwiYXV0IjoiQVBQTElDQVRJT05fVVNFUiIsImF1ZCI6IkhEZVBINFluRHdjOWtsUHRROTY3MnpGVWZYa2EiLCJuYmYiOjE2MTk4NTIyOTYsImF6cCI6IkhEZVBINFluRHdjOWtsUHRROTY3MnpGVWZYa2EiLCJzY29wZSI6InJlYWQ6cGV0cyIsImlzcyI6Imh0dHBzOlwvXC9sb2NhbGhvc3Q6OTQ0M1wvb2F1dGgyXC90b2tlbiIsImV4cCI6MTYxOTg1NTg5NiwiaWF0IjoxNjE5ODUyMjk2LCJqdGkiOiI0ZTMzMGRiZC03NWM2LTRhYjUtYTc0OS1iOTQ5N2FhMzUyMWEifQ.jUzkrljwJu77FRGswRQ1uKBRDsHswwp1oRyjh-ULOf4pZ0faxCTKO2djpBBkxVtgaiv1YKtzhaqRUV_UgCLDAgVO76G-sntSXmN5ATEohwcJfSNRHzOsfiCem-kkgO6P2TE15x7G4hlTfufIiirVlXVjcv-4s3fTVCCd-rsm7JEgb9HM-W2GV6l8-CDJ1cfzEQxSnQ7hgueO9CzhTbSnfRNZrwxZtNxXQC8LZcKfNQAzBbOlScT0qB4iJj_FgOHdIlpLANC-IFeCO6UnChztGRqccyTWUSjNuQBtN3_jCb1MQig3m7b2ZSirDygnZ09oecxxxUC2Sj1mHM5i6LCsEA" -H "Authorization: Basic SERlUEg0WW5Ed2M5a2xQdFE5NjcyekZVZlhrYTplVzU1RFBBRm4zaUZzZjIwM3B4U0dFZ3NHODBh" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/revoke
     ```
     
-    ``` tab="Response"
+=== "Response"
+    ```bash
         You receive an empty response with the HTTP status as 200. The following HTTP headers are returned:
             
             X-Frame-Options: DENY
@@ -69,11 +72,13 @@ Here are the steps to revoke an Access Token.
 
 4. Verify by invoking the API using revoked access token. See the following example.
 
-    ``` tab="Example"
+=== "Example"
+    ```bash
         curl -X '<your method>' 'https://localhost:9095/<your api context>/<your api version>/<your resource>' -H 'accept: application/json'   -H 'Content-Type: application/json' -H 'Authorization: Bearer eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZyIsImtpZCI6Ik16WXhNbUZrT0dZd01XSTBaV05tTkRjeE5HWXdZbU00WlRBM01XSTJOREF6WkdRek5HTTBaR1JsTmpKa09ERmtaRFJpT1RGa01XRmhNelUyWkdWbE5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJ2YWppcmEtZGV2IiwiYXV0IjoiQVBQTElDQVRJT05fVVNFUiIsImF1ZCI6IkhEZVBINFluRHdjOWtsUHRROTY3MnpGVWZYa2EiLCJuYmYiOjE2MTk4NTIyOTYsImF6cCI6IkhEZVBINFluRHdjOWtsUHRROTY3MnpGVWZYa2EiLCJzY29wZSI6InJlYWQ6cGV0cyIsImlzcyI6Imh0dHBzOlwvXC9sb2NhbGhvc3Q6OTQ0M1wvb2F1dGgyXC90b2tlbiIsImV4cCI6MTYxOTg1NTg5NiwiaWF0IjoxNjE5ODUyMjk2LCJqdGkiOiI0ZTMzMGRiZC03NWM2LTRhYjUtYTc0OS1iOTQ5N2FhMzUyMWEifQ.jUzkrljwJu77FRGswRQ1uKBRDsHswwp1oRyjh-ULOf4pZ0faxCTKO2djpBBkxVtgaiv1YKtzhaqRUV_UgCLDAgVO76G-sntSXmN5ATEohwcJfSNRHzOsfiCem-kkgO6P2TE15x7G4hlTfufIiirVlXVjcv-4s3fTVCCd-rsm7JEgb9HM-W2GV6l8-CDJ1cfzEQxSnQ7hgueO9CzhTbSnfRNZrwxZtNxXQC8LZcKfNQAzBbOlScT0qB4iJj_FgOHdIlpLANC-IFeCO6UnChztGRqccyTWUSjNuQBtN3_jCb1MQig3m7b2ZSirDygnZ09oecxxxUC2Sj1mHM5i6LCsEA'   -d '<your-content>' -v -k
     ```
     
-    ``` tab="Response"
+=== "Response"
+    ```
         You will receive following response with the HTTP status as 401. 
 
         {"error_message":"Invalid Credentials","code":"900901","error_description":"Invalid JWT token. Make sure you have provided the correct security credentials"}
@@ -91,13 +96,15 @@ Here are the steps to revoke an API Key.
 
 4. Revoke the API Key by calling the following API from the Control Plane.
 
-    ``` tab="Format"
-    curl -k -v -H "Authorization: Bearer <access-token-for-API-M-REST-API>" -d '{ "apikey" : "<API-Key-to-revoke>" }' -H "Content-Type: application/json" "https://localhost:9443/api/am/devportal/v3/applications/<application-ID>/api-keys/<key-type>/revoke"
-    ```
+    === "Format"
+        ```bash
+        curl -k -v -H "Authorization: Bearer <access-token-for-API-M-REST-API>" -d '{ "apikey" : "<API-Key-to-revoke>" }' -H "Content-Type: application/json" "https://localhost:9443/api/am/devportal/v3/applications/<application-ID>/api-keys/<key-type>/revoke"
+        ```
 
-    ``` tab="Example"
-    curl -k -H "Authorization: Bearer e4cb79d6-c22e-386a-a1eb-0494208e9976" -H "Content-Type: application/json" -X POST -d '{ "apikey" : "eyJ4NXQiOiJOMkpqTWpOaU0yRXhZalJrTnpaalptWTFZVEF4Tm1GbE5qZzRPV1UxWVdRMll6YzFObVk1TlE9PSIsImtpZCI6ImdhdGV3YXlfY2VydGlmaWNhdGVfYWxpYXMiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbkBjYXJib24uc3VwZXIiLCJhcHBsaWNhdGlvbiI6eyJvd25lciI6ImFkbWluIiwidGllclF1b3RhVHlwZSI6bnVsbCwidGllciI6IjEwUGVyTWluIiwibmFtZSI6Im15IiwiaWQiOjIsInV1aWQiOiI5MzkyMTM2OC1lYmRkLTQxYzEtOWI2Ny1lMzhlZmNkZmMzMjAifSwiaXNzIjoiaHR0cHM6XC9cL2FwaW06OTQ0NFwvb2F1dGgyXC90b2tlbiIsInRpZXJJbmZvIjp7IlVubGltaXRlZCI6eyJ0aWVyUXVvdGFUeXBlIjoicmVxdWVzdENvdW50IiwiZ3JhcGhRTE1heENvbXBsZXhpdHkiOjAsImdyYXBoUUxNYXhEZXB0aCI6MCwic3RvcE9uUXVvdGFSZWFjaCI6dHJ1ZSwic3Bpa2VBcnJlc3RMaW1pdCI6MCwic3Bpa2VBcnJlc3RVbml0IjpudWxsfX0sImtleXR5cGUiOiJQUk9EVUNUSU9OIiwic3Vic2NyaWJlZEFQSXMiOlt7InN1YnNjcmliZXJUZW5hbnREb21haW4iOiJjYXJib24uc3VwZXIiLCJuYW1lIjoicXFxcSIsImNvbnRleHQiOiJcL3FxcVwvMSIsInB1Ymxpc2hlciI6ImFkbWluIiwidmVyc2lvbiI6IjEiLCJzdWJzY3JpcHRpb25UaWVyIjoiVW5saW1pdGVkIn1dLCJ0b2tlbl90eXBlIjoiYXBpS2V5IiwiaWF0IjoxNjUwMzY0MjYyLCJqdGkiOiJlYzYxZDI0Zi04Nzg2LTRlYjktYmZiNy1lN2EyMGQwMjk1ZjYifQ==.M6ZiC1asUawlx73JYU83knl6vm1AG1q95DKnk-mU_59UG1yTRMJDtQn0CpHNDlTb-w9P4JGY8H5Z6l-aLUsmlyDAgIDG58_Q264jYqXleinRlOQyeAkQrPUM4DlVqM9yKOM-xLB8ZrE8feMj6-jHk6boJNtGBV1XUioJ-IQwq2MnBOII3dRbePYA7hNICmlOWaVXDOZitpihTiIl1JUHT7a_nGDiXg3b-MC14PqrdrAnqNWxih_K6oiVrlulsAaVWhRr3dmTQcsA4Eqr2N9FMHDRPeUT8MKlCpy7_SZeWX207LkwdnvWSVrV6dNPJuAWU1g8my_MYQlDDltZqKaisw==" }' "https://localhost:9443/api/am/devportal/v3/applications/93921368-ebdd-41c1-9b67-e38efcdfc320/api-keys/PRODUCTION/revoke"
-    ```
+    === "Example"
+        ```bash
+        curl -k -H "Authorization: Bearer e4cb79d6-c22e-386a-a1eb-0494208e9976" -H "Content-Type: application/json" -X POST -d '{ "apikey" : "eyJ4NXQiOiJOMkpqTWpOaU0yRXhZalJrTnpaalptWTFZVEF4Tm1GbE5qZzRPV1UxWVdRMll6YzFObVk1TlE9PSIsImtpZCI6ImdhdGV3YXlfY2VydGlmaWNhdGVfYWxpYXMiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbkBjYXJib24uc3VwZXIiLCJhcHBsaWNhdGlvbiI6eyJvd25lciI6ImFkbWluIiwidGllclF1b3RhVHlwZSI6bnVsbCwidGllciI6IjEwUGVyTWluIiwibmFtZSI6Im15IiwiaWQiOjIsInV1aWQiOiI5MzkyMTM2OC1lYmRkLTQxYzEtOWI2Ny1lMzhlZmNkZmMzMjAifSwiaXNzIjoiaHR0cHM6XC9cL2FwaW06OTQ0NFwvb2F1dGgyXC90b2tlbiIsInRpZXJJbmZvIjp7IlVubGltaXRlZCI6eyJ0aWVyUXVvdGFUeXBlIjoicmVxdWVzdENvdW50IiwiZ3JhcGhRTE1heENvbXBsZXhpdHkiOjAsImdyYXBoUUxNYXhEZXB0aCI6MCwic3RvcE9uUXVvdGFSZWFjaCI6dHJ1ZSwic3Bpa2VBcnJlc3RMaW1pdCI6MCwic3Bpa2VBcnJlc3RVbml0IjpudWxsfX0sImtleXR5cGUiOiJQUk9EVUNUSU9OIiwic3Vic2NyaWJlZEFQSXMiOlt7InN1YnNjcmliZXJUZW5hbnREb21haW4iOiJjYXJib24uc3VwZXIiLCJuYW1lIjoicXFxcSIsImNvbnRleHQiOiJcL3FxcVwvMSIsInB1Ymxpc2hlciI6ImFkbWluIiwidmVyc2lvbiI6IjEiLCJzdWJzY3JpcHRpb25UaWVyIjoiVW5saW1pdGVkIn1dLCJ0b2tlbl90eXBlIjoiYXBpS2V5IiwiaWF0IjoxNjUwMzY0MjYyLCJqdGkiOiJlYzYxZDI0Zi04Nzg2LTRlYjktYmZiNy1lN2EyMGQwMjk1ZjYifQ==.M6ZiC1asUawlx73JYU83knl6vm1AG1q95DKnk-mU_59UG1yTRMJDtQn0CpHNDlTb-w9P4JGY8H5Z6l-aLUsmlyDAgIDG58_Q264jYqXleinRlOQyeAkQrPUM4DlVqM9yKOM-xLB8ZrE8feMj6-jHk6boJNtGBV1XUioJ-IQwq2MnBOII3dRbePYA7hNICmlOWaVXDOZitpihTiIl1JUHT7a_nGDiXg3b-MC14PqrdrAnqNWxih_K6oiVrlulsAaVWhRr3dmTQcsA4Eqr2N9FMHDRPeUT8MKlCpy7_SZeWX207LkwdnvWSVrV6dNPJuAWU1g8my_MYQlDDltZqKaisw==" }' "https://localhost:9443/api/am/devportal/v3/applications/93921368-ebdd-41c1-9b67-e38efcdfc320/api-keys/PRODUCTION/revoke"
+        ```
 
     !!! info
         Refer to [Developer Portal - Revoke API Key]({{base_path}}/reference/product-apis/devportal-apis/devportal-v3/devportal-v3/#tag/API-Keys/paths/~1applications~1{applicationId}~1api-keys~1{keyType}~1revoke/post) section for more info.

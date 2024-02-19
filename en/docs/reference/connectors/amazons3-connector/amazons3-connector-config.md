@@ -63,7 +63,27 @@ The Access Key ID (e.g., AKIAJA3J6GE646JWVA9C) and Secret Access Key (e.g., H/P/
 
 ## Deploying the client libraries
 
-Finally download and place the following client libraries in to the <PRODUCT-HOME>/lib directory.
+Finally download and place the following client libraries in to the `<PRODUCT_HOME>/lib` directory (From S3 connector 2.0.5 and above).
+
+* [auth-2.20.26.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/auth/2.20.26)
+* [aws-core-2.20.26.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/aws-core/2.20.26)
+* [aws-query-protocol-2.20.26.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/aws-query-protocol/2.20.26)
+* [aws-xml-protocol-2.20.26.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/aws-xml-protocol/2.20.26)
+* [endpoints-spi-2.20.26.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/endpoints-spi/2.20.26)
+* [http-client-spi-2.20.26.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/http-client-spi/2.20.26)
+* [json-utils-2.20.26](https://mvnrepository.com/artifact/software.amazon.awssdk/json-utils/2.20.26)
+* [metrics-spi-2.20.26.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/metrics-spi/2.20.26)
+* [profiles-2.20.26.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/profiles/2.20.26)
+* [protocol-core-2.20.26.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/protocol-core/2.20.26)
+* [reactive-streams-1.0.0.jar](https://mvnrepository.com/artifact/org.reactivestreams/reactive-streams/1.0.0)
+* [regions-2.20.26.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/regions/2.20.26)
+* [s3-2.20.26.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/s3/2.20.26)
+* [sdk-core-2.20.26.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/sdk-core/2.20.26)
+* [third-party-jackson-core-2.20.26.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/third-party-jackson-core/2.20.26)
+* [url-connection-client-2.1.2.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/url-connection-client/2.1.2)
+* [utils-2.20.26.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/utils/2.20.26)
+
+If you are using S3 connector version 2.0.4 or below, then you have to place the following client libraries instead of above.
 
 * [auth-2.14.12.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/auth/2.14.12)
 * [aws-core-2.13.71.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/aws-core/2.13.71)
@@ -73,7 +93,7 @@ Finally download and place the following client libraries in to the <PRODUCT-HOM
 * [metrics-spi-2.14.12.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/metrics-spi/2.14.12)
 * [profiles-2.14.12.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/profiles/2.14.12)
 * [protocol-core-2.14.12.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/protocol-core/2.14.12)
-* [reactive-streams-1.0.0.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/reactive-streams/1.0.0)
+* [reactive-streams-1.0.0.jar](https://mvnrepository.com/artifact/org.reactivestreams/reactive-streams/1.0.0)
 * [regions-2.14.12.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/regions/2.14.12)
 * [s3-2.14.12.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/s3/2.14.12)
 * [sdk-core-2.14.12.jar](https://mvnrepository.com/artifact/software.amazon.awssdk/sdk-core/2.14.12)

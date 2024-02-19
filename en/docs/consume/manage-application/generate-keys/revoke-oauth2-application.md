@@ -18,7 +18,7 @@
             Only a user with the relevant permission to manage Service Providers will be able to view/edit the existing Service Providers. A user with only subscribe permission is not able to view or edit the Service Providers. The Admin user by default has permission only to view and edit Service Providers of Applications created by the same user. However, its possible for the Admin user to assign the relevant permission for a particular Service Provider, to itself by navigating to **Users and Roles → List → Roles**, and then view/edit the Service Provider.
 
 
-    4.  Expand the **Inbound Authentication Configurations** section and select **OAuth/OpenID Configuration
+    4.  Expand the **Inbound Authentication Configurations** section and select **OAuth/OpenID** Configuration
         
         ![]({{base_path}}/assets/attachments/103333704/103333708.png)    
 

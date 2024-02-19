@@ -14,73 +14,78 @@ Configure a relational database to persist transaction count information and the
 
 1.  Select the preferred database type from the list given below and follow the relevant link to set up a database.
 
-    - [Setting up a MySQL database]({{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-MySQL)
-    - [Setting up an MSSQL database]({{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-MSSQL)
-    - [Setting up an Oracle database]({{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-Oracle)
-    - [Setting up a Postgre database]({{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-PostgreSQL)
-    - [Setting up an IBM database]({{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-IBM-DB2)
+    - [Setting up a MySQL database]({{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-mysql/)
+    - [Setting up an MSSQL database]({{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-mssql/)
+    - [Setting up an Oracle database]({{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-oracle/)
+    - [Setting up a Postgre database]({{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-postgresql/)
+    - [Setting up an IBM database]({{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-ibm-db2/)
 
 2.  Once you have set up the database, verify that the `deployment.toml` file of your Micro Integrator contains the relevant datasource configurations:
 
-    ```toml tab='MySQL'
-    [[datasource]]
-    id = "WSO2_TRANSACTION_DB"
-    url= "jdbc:mysql://localhost:3306/transactiondb"
-    username="root"
-    password="root"
-    driver="com.mysql.jdbc.Driver"
-    pool_options.maxActive=50
-    pool_options.maxWait = 60000
-    pool_options.testOnBorrow = true
-    ```
+    === "MySQL"
+        ```toml
+        [[datasource]]
+        id = "WSO2_TRANSACTION_DB"
+        url= "jdbc:mysql://localhost:3306/transactiondb"
+        username="root"
+        password="root"
+        driver="com.mysql.jdbc.Driver"
+        pool_options.maxActive=50
+        pool_options.maxWait = 60000
+        pool_options.testOnBorrow = true
+        ```
 
-    ```toml tab='MSSQL'
-    [[datasource]]
-    id = "WSO2_TRANSACTION_DB"
-    url= "jdbc:sqlserver://<IP>:1433;databaseName=transactiondb;SendStringParametersAsUnicode=false"
-    username="root"
-    password="root"
-    driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-    pool_options.maxActive=50
-    pool_options.maxWait = 60000
-    pool_options.testOnBorrow = true
-    ```
+    === "MSSQL"
+        ```toml
+        [[datasource]]
+        id = "WSO2_TRANSACTION_DB"
+        url= "jdbc:sqlserver://<IP>:1433;databaseName=transactiondb;SendStringParametersAsUnicode=false"
+        username="root"
+        password="root"
+        driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+        pool_options.maxActive=50
+        pool_options.maxWait = 60000
+        pool_options.testOnBorrow = true
+        ```
 
-    ```toml tab='Oracle'
-    [[datasource]]
-    id = "WSO2_TRANSACTION_DB"
-    url= "jdbc:oracle:thin:@SERVER_NAME:PORT/SID"
-    username="root"
-    password="root"
-    driver="oracle.jdbc.OracleDriver"
-    pool_options.maxActive=50
-    pool_options.maxWait = 60000
-    pool_options.testOnBorrow = true
-    ```
+    === "Oracle"
+        ```toml
+        [[datasource]]
+        id = "WSO2_TRANSACTION_DB"
+        url= "jdbc:oracle:thin:@SERVER_NAME:PORT/SID"
+        username="root"
+        password="root"
+        driver="oracle.jdbc.OracleDriver"
+        pool_options.maxActive=50
+        pool_options.maxWait = 60000
+        pool_options.testOnBorrow = true
+        ```
 
-    ```toml tab='PostgreSQL'
-    [[datasource]]
-    id = "WSO2_TRANSACTION_DB"
-    url= "jdbc:postgresql://localhost:5432/transactiondb"
-    username="root"
-    password="root"
-    driver="org.postgresql.Driver"
-    pool_options.maxActive=50
-    pool_options.maxWait = 60000
-    pool_options.testOnBorrow = true
-    ```
+    === "PostgreSQL"
+        ```toml
+        [[datasource]]
+        id = "WSO2_TRANSACTION_DB"
+        url= "jdbc:postgresql://localhost:5432/transactiondb"
+        username="root"
+        password="root"
+        driver="org.postgresql.Driver"
+        pool_options.maxActive=50
+        pool_options.maxWait = 60000
+        pool_options.testOnBorrow = true
+        ```
 
-    ```toml tab='IBM DB'
-    [[datasource]]
-    id = "WSO2_TRANSACTION_DB"
-    url="jdbc:db2://SERVER_NAME:PORT/transactiondb"
-    username="root"
-    password="root"
-    driver="com.ibm.db2.jcc.DB2Driver"
-    pool_options.maxActive=50
-    pool_options.maxWait = 60000
-    pool_options.testOnBorrow = true
-    ```
+    === "IBM DB"
+        ```toml
+        [[datasource]]
+        id = "WSO2_TRANSACTION_DB"
+        url="jdbc:db2://SERVER_NAME:PORT/transactiondb"
+        username="root"
+        password="root"
+        driver="com.ibm.db2.jcc.DB2Driver"
+        pool_options.maxActive=50
+        pool_options.maxWait = 60000
+        pool_options.testOnBorrow = true
+        ```
 
 3.  Add the parameters given below to the `deployment.toml` file and update the values.
 

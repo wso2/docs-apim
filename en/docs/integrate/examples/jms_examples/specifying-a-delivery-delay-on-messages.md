@@ -13,8 +13,9 @@ Given below are the synapse configurations that are required for mediating the a
 
 See the instructions on how to [build and run](#build-and-run) this example.
 
-```xml tab="Proxy Service 1"
-<proxy name="JMSDelivery" startOnLoad="true" trace="disable" transports="https http">
+=== "Proxy Service 1"
+    ```xml
+    <proxy name="JMSDelivery" startOnLoad="true" trace="disable" transports="https http">
             <description/>
             <target>
                 <inSequence>
@@ -39,11 +40,12 @@ See the instructions on how to [build and run](#build-and-run) this example.
                 </outSequence>
             </target>
             <publishWSDL uri="file:repository/samples/resources/proxy/sample_proxy_1.wsdl"/>
-</proxy>
-```
+    </proxy>
+    ```
 
-```xml tab="Proxy Service 2"
-<proxy name="JMSDeliveryDelayed" startOnLoad="true" trace="disable" transports="https http">
+=== "Proxy Service 2"
+    ```xml
+    <proxy name="JMSDeliveryDelayed" startOnLoad="true" trace="disable" transports="https http">
             <description/>
             <target>
                 <inSequence>
@@ -69,50 +71,54 @@ See the instructions on how to [build and run](#build-and-run) this example.
                 </outSequence>
             </target>
             <publishWSDL uri="file:repository/samples/resources/proxy/sample_proxy_1.wsdl"/>
-</proxy>
-```
+    </proxy>
+    ```
 
-```xml tab="Main Sequence"
-<sequence name="main">
-    <in>
-        <!-- Log all messages passing through -->
-       <log level="full"/>
-        <!-- ensure that the default configuration only sends if it is one of samples -->
-        <!-- Otherwise Synapse would be an open proxy by default (BAD!)               -->
-        <filter regex="http://localhost:9000.*" source="get-property('To')">
-        <!-- Send the messages where they have been sent (i.e. implicit "To" EPR) -->
-        <send/>
-        </filter>
-   </in>
-   <out>
-        <send/>
-   </out>
-   <description>The main sequence for the message mediation</description>
-</sequence>
-```
+=== "Main Sequence"
+    ```xml
+    <sequence name="main">
+        <in>
+            <!-- Log all messages passing through -->
+        <log level="full"/>
+            <!-- ensure that the default configuration only sends if it is one of samples -->
+            <!-- Otherwise Synapse would be an open proxy by default (BAD!)               -->
+            <filter regex="http://localhost:9000.*" source="get-property('To')">
+            <!-- Send the messages where they have been sent (i.e. implicit "To" EPR) -->
+            <send/>
+            </filter>
+    </in>
+    <out>
+            <send/>
+    </out>
+    <description>The main sequence for the message mediation</description>
+    </sequence>
+    ```
 
-```xml tab="Fault Sequence"
-<sequence name="fault">
-    <!-- Log the message at the full log level with the ERROR_MESSAGE and the ERROR_CODE-->
-    <log level="full">
-        <property name="MESSAGE" value="Executing default 'fault' sequence"/>
-        <property expression="get-property('ERROR_CODE')" name="ERROR_CODE"/>
-        <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
-     </log>
-     <!-- Drops the messages by default if there is a fault -->
-    <drop/>
-</sequence>
-```
+=== "Fault Sequence"
+    ```xml
+    <sequence name="fault">
+        <!-- Log the message at the full log level with the ERROR_MESSAGE and the ERROR_CODE-->
+        <log level="full">
+            <property name="MESSAGE" value="Executing default 'fault' sequence"/>
+            <property expression="get-property('ERROR_CODE')" name="ERROR_CODE"/>
+            <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
+        </log>
+        <!-- Drops the messages by default if there is a fault -->
+        <drop/>
+    </sequence>
+    ```
 
-```xml tab="Registry Artifact"
-<registry provider="org.wso2.micro.integrator.registry.MicroIntegratorRegistry">
-   <parameter name="cachableDuration">15000</parameter>
-</registry>
-```
+=== "Registry Artifact"
+    ```xml
+    <registry provider="org.wso2.micro.integrator.registry.MicroIntegratorRegistry">
+    <parameter name="cachableDuration">15000</parameter>
+    </registry>
+    ```
 
-```xml tab="Task Manager"
-<taskManager provider="org.wso2.micro.integrator.mediation.ntask.NTaskTaskManager"/>
-```
+=== "Task Manager"
+    ```xml
+    <taskManager provider="org.wso2.micro.integrator.mediation.ntask.NTaskTaskManager"/>
+    ```
 
 See the descriptions of the above configurations:
 
@@ -145,7 +151,7 @@ Create the artifacts:
 
 Set up the broker:
 
-1.  [Configure a broker]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transport#configuring-the-jms-transport) with your Micro Integrator instance. Let's use HornetQ for this example.
+1.  [Configure a broker]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-jms-transport) with your Micro Integrator instance. Let's use HornetQ for this example.
     
     -   On **Windows**: HORNETQ_HOME\bin\run.bat --run
     -   On **MacOS/Linux/Solaris**: sh HORNETQ_HOME/bin/run.sh

@@ -55,17 +55,19 @@ json_badgerfish = "org.wso2.carbon.relay.ExpandingMessageFormatter"
 
 If you want the Micro Integrator to receive messages of the `image/png` content type, add the following to the deployment.toml file:
 
-```toml tab='Message Builder'
-[[custom_message_builders]]
-class = "org.wso2.carbon.relay.BinaryRelayBuilder"
-content_type = "image/png"
-```
+=== "Message Builder"
+    ```toml
+    [[custom_message_builders]]
+    class = "org.wso2.carbon.relay.BinaryRelayBuilder"
+    content_type = "image/png"
+    ```
 
-```toml tab='Message Formatter'
-[[custom_message_formatters]]
-class = "org.wso2.carbon.relay.ExpandingMessageFormatter"
-content_type = "image/png"
-```
+=== "Message Formatter"
+    ```toml
+    [[custom_message_formatters]]
+    class = "org.wso2.carbon.relay.ExpandingMessageFormatter"
+    content_type = "image/png"
+    ```
 
 ## Message Relay Module Policy
 

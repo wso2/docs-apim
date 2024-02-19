@@ -33,7 +33,7 @@ If you have Lazy loading enabled, you can configure the allowed tenant idle time
 
     2.  Set the tenant idle time by adding the configuration shown below.
 
-        ``` java
+        ``` toml
         [tenant_mgt]
         tenant_idle_timeout='30'
         ```
@@ -66,7 +66,7 @@ Follow the instructions given below to change the tenant loading policy to eager
 
 2.  Add the following configuration
 
-    ``` java
+    ``` toml
     [tenant_mgt]
     eager_loading_tenants="*,!foo.com ,!bar.com"
     ```

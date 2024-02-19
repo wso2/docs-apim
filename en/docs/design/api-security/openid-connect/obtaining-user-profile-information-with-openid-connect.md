@@ -15,14 +15,16 @@ Follow the instructions below to obtain user profile information with OpenID con
 
 1.  Obtain a token using password grant type and `openid` scope. For more information on token generation with password grant type, see [Password Grant Type]({{base_path}}/design/api-security/oauth2/grant-types/password-grant/). The format of the curl command and a sample is given below :
 
-    ``` bash tab="Format"
-    curl -k -d "grant_type=password&username=<USERNAME>&password=<PASSWORD>&scope=openid" -H "Authorization: Basic <BASE64 ENCODED CONSUMER_KEY:CONSUMER_SECRET>, Content-Type: application/x-www-form-urlencoded" https://<GATEWAY_HOSTNAME>:<PORT>/token
-    ```
+    === "Format"
+        ``` bash
+        curl -k -d "grant_type=password&username=<USERNAME>&password=<PASSWORD>&scope=openid" -H "Authorization: Basic <BASE64 ENCODED CONSUMER_KEY:CONSUMER_SECRET>, Content-Type: application/x-www-form-urlencoded" https://<CONTROL_PLANE_HOSTNAME>:<PORT>/oauth2/token
+        ```
     
-    ``` bash tab="Example"
-    curl -k -d "grant_type=password&username=testuser&password=testuserpassword&scope=openid" -H "Authorization: Basic M1J6RFNrRFI5ZmQ5czRqY296R2xfVjh0QU5JYTpXeElqSkFJd0dqRWVYOHdHZGFfcGM1Wl94RjRh, Content-Type: application/x-www-form-urlencoded" https://apim.wso2.com:8243/token
-            
-    ```
+    === "Example"
+        ``` bash
+        curl -k -d "grant_type=password&username=testuser&password=testuserpassword&scope=openid" -H "Authorization: Basic M1J6RFNrRFI5ZmQ5czRqY296R2xfVjh0QU5JYTpXeElqSkFJd0dqRWVYOHdHZGFfcGM1Wl94RjRh, Content-Type: application/x-www-form-urlencoded" https://apim.wso2.com:9443/oauth2/token
+                
+        ```
 
 2.  You will receive a response in the format shown below. Note that the `id_token` parameter contains the JWT related to user information.
     ``` java
@@ -59,13 +61,15 @@ Follow the instructions below to obtain user profile information with OpenID con
 
 You can obtain user information as a payload by invoking the userinfo endpoint with the access token obtained in step 1. The format of the curl command and a sample is given below
 
-``` bash tab="Format"
-curl -k -v -H "Authorization: Bearer <ACCESS_TOKEN>" https://<GATEWAY_HOSTNAME>:<PORT>/oauth2/userinfo
-```
+=== "Format"
+    ``` bash
+    curl -k -v -H "Authorization: Bearer <ACCESS_TOKEN>" https://<CONTROL_PLANE_HOSTNAME>:<PORT>/oauth2/userinfo
+    ```
 
-``` bash tab="Example"
-curl -k -v -H "Authorization: Bearer 83705add-d77e-3cc8-9b6a-53d210ed3fed" https://apim.wso2.com:8243/oauth2/userinfo
-```
+=== "Example"
+    ``` bash
+    curl -k -v -H "Authorization: Bearer 83705add-d77e-3cc8-9b6a-53d210ed3fed" https://apim.wso2.com:9443/oauth2/userinfo
+    ```
 
 The response will be a JSON payload as shown below:
 
