@@ -91,7 +91,7 @@ Multi-HTTPS transport receiver) as a custom transport receiver.
      
      ssl_profile.file_path= "conf/sslprofiles/listenerprofiles.xml"
      ssl_profile.read_interval = 600000
-     ```
+    ```
      
 3.   Create the `listenerprofiles.xml` file in the `MI_HOME/conf/sslprofiles` directory and add the following 
      configurations:

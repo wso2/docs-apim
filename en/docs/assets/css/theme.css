@@ -16,7 +16,7 @@
  * under the License.
  */
 
- .md-tabs__link--active {
+.md-tabs__link--active {
     opacity: 1 !important;
 }
 
@@ -222,7 +222,7 @@ html .md-footer-meta.md-typeset a {
 .md-tabs>.md-grid,
 .md-main>.md-grid {
     max-width: none;
-    padding-left: 2.5rem;
+    padding-left: 1.5rem;
     padding-right: 2rem;
 }
 
@@ -354,45 +354,6 @@ html .md-footer-meta.md-typeset a {
     }
 }
 
-.text--replace {
-    overflow: hidden;
-    color: transparent;
-    text-indent: 100%;
-    white-space: nowrap
-}
-
-.cd-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: inline-block;
-    height: 40px;
-    width: 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-    background: url(../lib/backtotop/img/cd-top-arrow.svg) no-repeat center 50%;
-    background-color: hsla(5, 76%, 62%, 0.8);
-}
-
-.js .cd-top {
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity .3s, visibility .3s, background-color .3s
-}
-
-.js .cd-top--is-visible {
-    visibility: visible;
-    opacity: 1
-}
-
-.js .cd-top--fade-out {
-    opacity: .5
-}
-
-.js .cd-top:hover {
-    background-color: hsl(5, 76%, 62%);
-    opacity: 1
-}
-
 .md-footer__title {
     font-size: .75rem;
 }
@@ -422,8 +383,7 @@ html .md-footer-meta.md-typeset a {
     width: 100%;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-wrap: wrap;
 }
 
 @media screen and (max-width: 767px) {
@@ -433,7 +393,7 @@ html .md-footer-meta.md-typeset a {
 }
 
 .card {
-    height: 110px;
+    min-height: 110px;
     flex-basis: 0;
     flex-grow: 1;
     color: #404040;
@@ -449,7 +409,6 @@ html .md-footer-meta.md-typeset a {
     position: relative;
     display: flex;
     justify-content: left;
-    align-items: center;
     flex-direction: row;
     cursor: pointer;
     transition: all 0.6s ease;
@@ -459,6 +418,7 @@ html .md-footer-meta.md-typeset a {
 .card.img {
     flex-direction: column;
     height: 200px;
+    align-items: center;
 }
 
 .card:hover {
@@ -473,8 +433,6 @@ html .md-footer-meta.md-typeset a {
 }
 
 .card-content {
-    justify-content: center;
-    height: 88px;
     display: flex;
     align-items: left;
     text-align: left;
@@ -597,7 +555,8 @@ html .md-footer-meta.md-typeset a {
 }  */
 
 .md-typeset table:not([class]) td {
-    vertical-align: middle;
+    vertical-align: top;
+    padding: 0.6rem 0.8rem;
 }
 
 .mb-tabs__dropdown {
@@ -677,7 +636,7 @@ html .md-footer-meta.md-typeset a {
 
 .md-header__inner {
     max-width: none;
-    padding-left: 3.5rem;
+    padding-left: 2.5rem;
     padding-right: 2rem;
 }
 
