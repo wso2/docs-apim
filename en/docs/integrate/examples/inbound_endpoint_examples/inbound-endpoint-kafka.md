@@ -8,41 +8,43 @@ This sample demonstrates how one way message bridging from Kafka to HTTP can be
 
 Following are the integration artifacts that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
-```xml tab='Inbound Endpoint'
-<?xml version="1.0" encoding="UTF-8"?>
-<inboundEndpoint name="KAFKAListenerEP" sequence="kafka_process_seq" onError="fault" class="org.wso2.carbon.inbound.kafka.KafkaMessageConsumer" suspend="false" 
-    xmlns="http://ws.apache.org/ns/synapse">
-    <parameters>
-        <parameter name="sequential">true</parameter>
-        <parameter name="interval">10</parameter>
-        <parameter name="coordination">true</parameter>
-        <parameter name="inbound.behavior">polling</parameter>
-        <parameter name="value.deserializer">org.apache.kafka.common.serialization.StringDeserializer</parameter>
-        <parameter name="topic.name">test</parameter>
-        <parameter name="poll.timeout">100</parameter>
-        <parameter name="bootstrap.servers">localhost:9092</parameter>
-        <parameter name="group.id">hello</parameter>
-        <parameter name="contentType">application/json</parameter>
-        <parameter name="key.deserializer">org.apache.kafka.common.serialization.StringDeserializer</parameter>
-    </parameters>
-</inboundEndpoint>
-```
+=== "Inbound Endpoint"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <inboundEndpoint name="KAFKAListenerEP" sequence="kafka_process_seq" onError="fault" class="org.wso2.carbon.inbound.kafka.KafkaMessageConsumer" suspend="false" 
+        xmlns="http://ws.apache.org/ns/synapse">
+        <parameters>
+            <parameter name="sequential">true</parameter>
+            <parameter name="interval">10</parameter>
+            <parameter name="coordination">true</parameter>
+            <parameter name="inbound.behavior">polling</parameter>
+            <parameter name="value.deserializer">org.apache.kafka.common.serialization.StringDeserializer</parameter>
+            <parameter name="topic.name">test</parameter>
+            <parameter name="poll.timeout">100</parameter>
+            <parameter name="bootstrap.servers">localhost:9092</parameter>
+            <parameter name="group.id">hello</parameter>
+            <parameter name="contentType">application/json</parameter>
+            <parameter name="key.deserializer">org.apache.kafka.common.serialization.StringDeserializer</parameter>
+        </parameters>
+    </inboundEndpoint>
+    ```
 
-```xml tab='Sequence'
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<sequence xmlns="http://ws.apache.org/ns/synapse" name="kafka_process_seq">
-   <log level="full"/>
-   <log level="custom">
-      <property xmlns:ns="http://org.apache.synapse/xsd" name="partitionNo" expression="get-property('partitionNo')"/>
-   </log>
-   <log level="custom">
-      <property xmlns:ns="http://org.apache.synapse/xsd" name="messageValue" expression="get-property('messageValue')"/>
-   </log>
-   <log level="custom">
-      <property xmlns:ns="http://org.apache.synapse/xsd" name="offset" expression="get-property('offset')"/>
-   </log>
-</sequence>
-```
+=== "Sequence"
+    ```xml
+    <?xml version="1.0" encoding="ISO-8859-1"?>
+    <sequence xmlns="http://ws.apache.org/ns/synapse" name="kafka_process_seq">
+    <log level="full"/>
+    <log level="custom">
+        <property xmlns:ns="http://org.apache.synapse/xsd" name="partitionNo" expression="get-property('partitionNo')"/>
+    </log>
+    <log level="custom">
+        <property xmlns:ns="http://org.apache.synapse/xsd" name="messageValue" expression="get-property('messageValue')"/>
+    </log>
+    <log level="custom">
+        <property xmlns:ns="http://org.apache.synapse/xsd" name="offset" expression="get-property('offset')"/>
+    </log>
+    </sequence>
+    ```
 
 ### Build and run
 
@@ -95,10 +97,12 @@ The Kafka inbound gets the messages from the Kafka brokers and logs the messages
 
 You may consume messages in two ways: Using **specific topics** or using a **topic pattern**.
 
-```xml tab='Using Specific Topics'
-<parameter name="topic.names">test,sampletest</parameter>
-```
+=== "Using Specific Topics"
+    ```xml
+    <parameter name="topic.names">test,sampletest</parameter>
+    ```
 
-```xml tab='Using a Topic Pattern'
-<parameter name="topic.pattern">.*test</parameter>
-```
+=== "Using a Topic Pattern"
+    ```xml
+    <parameter name="topic.pattern">.*test</parameter>
+    ```

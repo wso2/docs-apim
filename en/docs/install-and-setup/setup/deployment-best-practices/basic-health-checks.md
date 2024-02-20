@@ -18,17 +18,20 @@ There can be scenarios where even though the ports are responding, the services 
 
 A sample cURL command and the response from the `Version` service are given below.
 
-``` java tab="Format"
-curl -v http://<HOSTNAME>:<PORT>/services/Version
-```
+=== "Format"
+    ``` java
+    curl -v http://<HOSTNAME>:<PORT>/services/Version
+    ```
 
-``` java tab="Example"
-curl -v http://localhost:9763/services/Version
-```
+=== "Example"
+    ``` java
+    curl -v http://localhost:9763/services/Version
+    ```
 
-``` java tab="Response"
-<ns:getVersionResponse xmlns:ns="http://version.services.core.carbon.wso2.org"><return>WSO2 API Manager-4.2.0</return></ns:getVersionResponse>
-```
+=== "Response"
+    ``` java
+    <ns:getVersionResponse xmlns:ns="http://version.services.core.carbon.wso2.org"><return>WSO2 API Manager-4.2.0</return></ns:getVersionResponse>
+    ```
 
 !!! note
     Basic health checks for WebSocket ports 9099 and 8099 can be performed using `curl -v http://<HOSTNAME>:<PORT>/health`. For example, use the `curl -v http://localhost:9099/health` cURL command to check the health of port 9099. The response will be `200 OK` if the port is healthy.
@@ -40,17 +43,19 @@ To verify the successful deployment of APIs in the Gateway, we recommend using t
 
 Sample usages of this are shown below
 
-``` yaml tab="cURL"
-curl -k https://<GATEWAY_HOSTNAME>:<PORT>/api/am/gateway/v2/server-startup-healthcheck
-```
+=== "cURL"
+    ``` yaml
+    curl -k https://<GATEWAY_HOSTNAME>:<PORT>/api/am/gateway/v2/server-startup-healthcheck
+    ```
 
-``` yaml tab="Kubernetes"
-readinessProbe:
-  httpGet:
-    path: /api/am/gateway/v2/server-startup-healthcheck
-    port: 9443
-    scheme: HTTPS
-```
+=== "Kubernetes"
+    ``` yaml
+    readinessProbe:
+      httpGet:
+        path: /api/am/gateway/v2/server-startup-healthcheck
+        port: 9443
+        scheme: HTTPS
+    ```
 
 ## Micro Integrator health checks
 

@@ -5,46 +5,48 @@ In order to use the Message Injector to inject messages to a RESTful endpoint, y
 
 Following are the integration artifacts that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
-```xml tab='Scheduled Task'
-<task class="org.apache.synapse.startup.tasks.MessageInjector" group="synapse.simple.quartz" name="SampleInjectToProxyTask" xmlns="http://ws.apache.org/ns/synapse">
-    <trigger count="2" interval="5"/>
-    <property name="injectTo" value="proxy" xmlns:task="http://www.wso2.org/products/wso2commons/tasks"/>
-    <property name="message" xmlns:task="http://www.wso2.org/products/wso2commons/tasks">
-        <request xmlns="">
-            <location>
-                <city>London</city>
-                <country>UK</country>
-            </location>
-        </request>
-    </property>
-    <property name="proxyName" value="SampleProxy" xmlns:task="http://www.wso2.org/products/wso2commons/tasks"/>
-</task>
-```
+=== "Scheduled Task"
+    ```xml
+    <task class="org.apache.synapse.startup.tasks.MessageInjector" group="synapse.simple.quartz" name="SampleInjectToProxyTask" xmlns="http://ws.apache.org/ns/synapse">
+        <trigger count="2" interval="5"/>
+        <property name="injectTo" value="proxy" xmlns:task="http://www.wso2.org/products/wso2commons/tasks"/>
+        <property name="message" xmlns:task="http://www.wso2.org/products/wso2commons/tasks">
+            <request xmlns="">
+                <location>
+                    <city>London</city>
+                    <country>UK</country>
+                </location>
+            </request>
+        </property>
+        <property name="proxyName" value="SampleProxy" xmlns:task="http://www.wso2.org/products/wso2commons/tasks"/>
+    </task>
+    ```
         
-```xml tab='Proxy Service'
-<?xml version="1.0" encoding="UTF-8"?>
-<proxy name="SampleProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
-    <target>
-        <inSequence>
-            <property expression="//request/location/city" name="uri.var.city" scope="default" type="STRING"/>
-            <property expression="//request/location/country" name="uri.var.cc" scope="default" type="STRING"/>
-            <log>
-                <property expression="get-property('uri.var.city')" name="Which city?"/>
-                <property expression="get-property('uri.var.cc')" name="Which country?"/>
-            </log>
-            <send>
-                <endpoint name="EP">
-                    <http method="get" uri-template="http://api.openweathermap.org/data/2.5/weather?q={uri.var.city},{uri.var.cc}&amp;APPID=ae2a70399cf2c35940a6538f38fee3d3"/>
-                </endpoint>
-            </send>
-        </inSequence>
-        <outSequence>
-            <log level="full"/>
-        </outSequence>
-        <faultSequence/>
-    </target>
-</proxy>
-```
+=== "Proxy Service"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="SampleProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+                <property expression="//request/location/city" name="uri.var.city" scope="default" type="STRING"/>
+                <property expression="//request/location/country" name="uri.var.cc" scope="default" type="STRING"/>
+                <log>
+                    <property expression="get-property('uri.var.city')" name="Which city?"/>
+                    <property expression="get-property('uri.var.cc')" name="Which country?"/>
+                </log>
+                <send>
+                    <endpoint name="EP">
+                        <http method="get" uri-template="http://api.openweathermap.org/data/2.5/weather?q={uri.var.city},{uri.var.cc}&amp;APPID=ae2a70399cf2c35940a6538f38fee3d3"/>
+                    </endpoint>
+                </send>
+            </inSequence>
+            <outSequence>
+                <log level="full"/>
+            </outSequence>
+            <faultSequence/>
+        </target>
+    </proxy>
+    ```
 
 ## Build and run
 

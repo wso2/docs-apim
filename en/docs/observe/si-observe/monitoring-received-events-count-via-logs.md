@@ -10,7 +10,7 @@ To configure WSO2 Streaming Integrator to log the total received events count, f
 
     `enableLoggingEventCount: true`
     
-    !!!  info
+    !!! info
         This is set to `false` by default.
     
 3. Add another parameter named `loggingDuration` and give the time interval (in minutes) for which you want the total received event count to be logged. e.g., If you want the total received event count to be logged every minute, you can set the parameter as follows:

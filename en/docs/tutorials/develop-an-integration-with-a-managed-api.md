@@ -280,7 +280,7 @@ Let's enable this client for the embedded Micro Integrator of WSO2 Integration S
 
 2. Uncomment the `[[service_catalog]]` section as shown below and change the API-M server configurations accordingly.
 
-    ``` 
+    ``` toml
  	 [[service_catalog]]
      apim_host = "https://localhost:9443"
      enable = true
@@ -292,7 +292,7 @@ Let's enable this client for the embedded Micro Integrator of WSO2 Integration S
 
      1. Update the configuration as shown below.
 
-	    ```
+	    ```toml
          [secrets]
          userName = "[admin]"
          password = "[admin]"

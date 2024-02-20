@@ -11,12 +11,13 @@ With the integration of Prometheus metrics, monitoring the performance and healt
  
 1. Add the following configuration. Replace `ADAPTER_METRIC_PORT` with the desired port value to expose metrics to the Prometheus server.
 
-    ```toml tab="Configuration"
-    [adapter.metrics]
-        enabled = true
-        type = "prometheus"
-        port = ADAPTER_METRIC_PORT
-    ```
+    === "Configuration"
+        ```toml
+        [adapter.metrics]
+            enabled = true
+            type = "prometheus"
+            port = ADAPTER_METRIC_PORT
+        ```
 
 1. Expose the `ADAPTER_METRIC_PORT` to Prometheus and metrics will be available at `:ADAPTER_METRIC_PORT/metrics`.
 
@@ -24,39 +25,41 @@ With the integration of Prometheus metrics, monitoring the performance and healt
 ### Enforcer
 1. Create and mount `prometheus-jmx-config.yml` file with following content to enforcer `/home/wso2/conf/prometheus-jmx-config.yml`. For more configuration options click [here](https://github.com/prometheus/jmx_exporter/blob/main/README.md).
 
-    ``` tab="Prometheus JMX Config"
-    lowercaseOutputName: true
-    lowercaseOutputLabelNames: true
-    rules:
-        # WSO2 Choreo Connect related metrics
-      - pattern: 'org.wso2.choreo.connect.enforcer<type=ExtAuthMetrics><>total_request_count: (.*)'
-        name: org_wso2_choreo_connect_enforcer_request_count_total
-        help: "WSO2 choreo connect enforcer total request count."
-        attrNameSnakeCase: true
-        type: COUNTER
-      - pattern: 'org.wso2.choreo.connect.enforcer<type=ExtAuthMetrics><>(average_response_time_millis|max_response_time_millis|min_response_time_millis|request_count_in_last_five_minute_window|request_count_window_start_time_millis): (.*)'
-        name: org_wso2_choreo_connect_enforcer_$1
-        help: "WSO2 choreo connect enforcer $1."
-        attrNameSnakeCase: true
-        type: GAUGE
-      - pattern: 'org.wso2.choreo.connect.enforcer<type=ThreadPoolConfig><>(\w+): (.*)'
-        name: org_wso2_choreo_connect_enforcer_thread_pool_$1
-        help: "WSO2 choreo connect enforcer thread pool $1."
-        attrNameSnakeCase: true
-        type: GAUGE
-        # OS related metrics
-      - pattern: 'java.lang<type=OperatingSystem><>(\w+): (.*)'
-        name: os_$1
-        help: Operating System $1
-        attrNameSnakeCase: true
-        type: GAUGE
-    ```
+    === "Prometheus JMX Config"
+        ``` yaml
+        lowercaseOutputName: true
+        lowercaseOutputLabelNames: true
+        rules:
+            # WSO2 Choreo Connect related metrics
+        - pattern: 'org.wso2.choreo.connect.enforcer<type=ExtAuthMetrics><>total_request_count: (.*)'
+            name: org_wso2_choreo_connect_enforcer_request_count_total
+            help: "WSO2 choreo connect enforcer total request count."
+            attrNameSnakeCase: true
+            type: COUNTER
+        - pattern: 'org.wso2.choreo.connect.enforcer<type=ExtAuthMetrics><>(average_response_time_millis|max_response_time_millis|min_response_time_millis|request_count_in_last_five_minute_window|request_count_window_start_time_millis): (.*)'
+            name: org_wso2_choreo_connect_enforcer_$1
+            help: "WSO2 choreo connect enforcer $1."
+            attrNameSnakeCase: true
+            type: GAUGE
+        - pattern: 'org.wso2.choreo.connect.enforcer<type=ThreadPoolConfig><>(\w+): (.*)'
+            name: org_wso2_choreo_connect_enforcer_thread_pool_$1
+            help: "WSO2 choreo connect enforcer thread pool $1."
+            attrNameSnakeCase: true
+            type: GAUGE
+            # OS related metrics
+        - pattern: 'java.lang<type=OperatingSystem><>(\w+): (.*)'
+            name: os_$1
+            help: Operating System $1
+            attrNameSnakeCase: true
+            type: GAUGE
+        ```
 
 1. Update `JAVA_AGENT` environment variable.
 
-    ```toml tab="JAVA_AGENT"
-    JAVA_AGENT_OPTS=${JAVA_AGENT_OPTS} -Dchoreo.connect.jmx.metrics.enabled=true -javaagent:/home/wso2/lib jmx_prometheus_javaagent-0.18.0.jar=ENFORCER_METRIC_PORT:/home/wso2/conf/prometheus-jmx-config.yml
-    ```
+    === "JAVA_AGENT"
+        ```toml
+        JAVA_AGENT_OPTS=${JAVA_AGENT_OPTS} -Dchoreo.connect.jmx.metrics.enabled=true -javaagent:/home/wso2/lib jmx_prometheus_javaagent-0.18.0.jar=ENFORCER_METRIC_PORT:/home/wso2/conf/prometheus-jmx-config.yml
+        ```
 
 1. Expose `ENFORCER_METRIC_PORT` and metrics will be available at `:ENFORCER_METRIC_PORT/metrics`.
    
@@ -73,57 +76,59 @@ With the integration of Prometheus metrics, monitoring the performance and healt
 2. Substitute `ROUTER_ADMIN_PORT`,`ENFORCER_METRIC_PORT` and `ADAPTER_METRIC_PORT` with their respective values. 
 3. Replace `HOST` with the appropriate host address or addresses.
 
-    ```toml tab="On Docker"
-    scrape_configs:
-    - .....
-    - job_name: 'router'
-        metrics_path: /stats/prometheus
-        static_configs:
-        - targets: ['HOST:ROUTER_ADMIN_PORT']
+    === "On Docker"
+        ```yaml
+        scrape_configs:
+        - .....
+        - job_name: 'router'
+            metrics_path: /stats/prometheus
+            static_configs:
+            - targets: ['HOST:ROUTER_ADMIN_PORT']
+        
+        - job_name: 'enforcer'
+            static_configs:
+            - targets: ['HOST:ENFORCER_METRIC_PORT']
+
+        - job_name: 'adapter'
+            static_configs:
+            - targets: ['HOST:ADAPTER_METRIC_PORT']
+        ```
     
-    - job_name: 'enforcer'
-        static_configs:
-        - targets: ['HOST:ENFORCER_METRIC_PORT']
+    === "On K8s"
+        ```yaml
+        scrape_configs:
+        - job_name: 'adapter'
+            # Use Kubernetes service discovery to find pods
+            kubernetes_sd_configs:
+            - role: pod
 
-    - job_name: 'adapter'
-        static_configs:
-        - targets: ['HOST:ADAPTER_METRIC_PORT']
-    ```
-    
-    ```tab="On K8s"
-    scrape_configs:
-    - job_name: 'adapter'
-        # Use Kubernetes service discovery to find pods
-        kubernetes_sd_configs:
-        - role: pod
+            # Define relabeling configurations for this job
+            relabel_configs:
+            # Keep pods with container names matching 'choreo-connect-adapter'
+            - source_labels: [__meta_kubernetes_pod_container_name]
+                action: keep
+                regex: choreo-connect-adapter
 
-        # Define relabeling configurations for this job
-        relabel_configs:
-        # Keep pods with container names matching 'choreo-connect-adapter'
-        - source_labels: [__meta_kubernetes_pod_container_name]
-            action: keep
-            regex: choreo-connect-adapter
+            # Keep pods with container ports matching 'ADAPTER_METRIC_PORT'
+            - source_labels: [__meta_kubernetes_pod_container_port_number]
+                regex: '<ADAPTER_METRIC_PORT>' # Replace
+                action: keep
 
-        # Keep pods with container ports matching 'ADAPTER_METRIC_PORT'
-        - source_labels: [__meta_kubernetes_pod_container_port_number]
-            regex: '<ADAPTER_METRIC_PORT>' # Replace
-            action: keep
+            # Set the target label 'job' to 'adapter', several pods can be under 'adapter' job
+            - target_label: job
+                replacement: adapter
 
-        # Set the target label 'job' to 'adapter', several pods can be under 'adapter' job
-        - target_label: job
-            replacement: adapter
+            # Set the target label '__metrics_path__' to path on which metrics are exposed
+            - target_label: __metrics_path__
+                replacement: /metrics
 
-        # Set the target label '__metrics_path__' to path on which metrics are exposed
-        - target_label: __metrics_path__
-            replacement: /metrics
-
-        # Extract instance information from container ID and port number, different pods of adapter will have different instance names
-        - source_labels: [__meta_kubernetes_pod_container_id, __meta_kubernetes_pod_container_port_number]
-            regex: '.*://(.+?)/(.+)'
-            replacement: '$1/$2'
-            target_label: instance
-     - ...
-    ```
+            # Extract instance information from container ID and port number, different pods of adapter will have different instance names
+            - source_labels: [__meta_kubernetes_pod_container_id, __meta_kubernetes_pod_container_port_number]
+                regex: '.*://(.+?)/(.+)'
+                replacement: '$1/$2'
+                target_label: instance
+        - ...
+        ```
 
     !!! note
         Configure the prometheus server with proper level of permission on K8s/Docker.

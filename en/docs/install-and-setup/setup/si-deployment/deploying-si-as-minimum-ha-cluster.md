@@ -221,7 +221,7 @@ To configure the HA cluster, follow the steps below:
 
        The following is sample HA configuration.
 
-        ```
+    ```
             - deployment.config:
                 type: ha
                 passiveNodeDetailsWaitTimeOutMillis: 300000
@@ -241,7 +241,7 @@ To configure the HA cluster, follow the steps below:
                     maxIdle: 10
                     maxWait: 60000
                     minEvictableIdleTimeMillis: 120000
-        ```
+    ```
 
 ## Starting the cluster
 

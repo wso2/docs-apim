@@ -6,31 +6,33 @@ In this example, the proxy service expects to receive a signed and encrypted mes
 ## Synapse configuration
 Following is a sample proxy service configuration that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
-```xml tab='Proxy Service'
-<proxy name="StockQuoteProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
-    <target>
-        <inSequence>
-            <header name="wsse:Security" action="remove"
-                    xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
-            <send>
-                <endpoint>
-                    <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-                </endpoint>
-            </send>
-        </inSequence>
-        <outSequence>
-            <send/>
-        </outSequence>
-    </target>
-    <publishWSDL uri="file:/path/to/sample_proxy_1.wsdl"/>
-    <policy key="sec_policy"/>
-    <enableSec/>
-</proxy>
-```
+=== "Proxy Service"
+    ```xml
+    <proxy name="StockQuoteProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+                <header name="wsse:Security" action="remove"
+                        xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
+                <send>
+                    <endpoint>
+                        <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+                    </endpoint>
+                </send>
+            </inSequence>
+            <outSequence>
+                <send/>
+            </outSequence>
+        </target>
+        <publishWSDL uri="file:/path/to/sample_proxy_1.wsdl"/>
+        <policy key="sec_policy"/>
+        <enableSec/>
+    </proxy>
+    ```
 
-```xml tab='Local Entry'
-<localEntry xmlns="http://ws.apache.org/ns/synapse" key="sec_policy" src="file:/path/to/policy1.xml"/>
-```
+=== "Local Entry"
+    ```xml
+    <localEntry xmlns="http://ws.apache.org/ns/synapse" key="sec_policy" src="file:/path/to/policy1.xml"/>
+    ```
 
 ## Build and run
 
@@ -55,13 +57,15 @@ Set up the back-end service:
 3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
 4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
    
-      ```bash tab='On MacOS/Linux/CentOS'
-      sh axis2server.sh
-      ```
+    === "On MacOS/Linux/CentOS"
+        ```bash
+        sh axis2server.sh
+        ```
           
-      ```bash tab='On Windows'
-      axis2server.bat
-      ```
+    === "On Windows"
+        ```bash
+        axis2server.bat
+        ```
 
 Be sure to [configure a user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/) for the Micro Integrator and add the required users and roles.
 

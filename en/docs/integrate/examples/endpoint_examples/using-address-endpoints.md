@@ -46,13 +46,15 @@ Set up the back-end service:
 3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
 4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
    
-      ```bash tab='On MacOS/Linux/CentOS'
-      sh axis2server.sh
-      ```
-          
-      ```bash tab='On Windows'
-      axis2server.bat
-      ```
+    === "On MacOS/Linux/CentOS"
+        ```bash
+        sh axis2server.sh
+        ```
+
+    === "On Windows"    
+        ```bash
+        axis2server.bat
+        ```
 
 Send the following request:
 

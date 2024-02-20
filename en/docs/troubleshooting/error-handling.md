@@ -411,29 +411,32 @@ message's HTTP status code as a custom error message:
     In this example, let's view the menu on the PizzaShack API and
     invoke the API with an incorrect token.
     
-    ```tab="Format"
-     curl -v -H "Authorization: Bearer <Access_Token>" http://localhost:8280/<API_name>/<version>/<context>     
-    ```
+    === "Format"
+        ```bash
+        curl -v -H "Authorization: Bearer <Access_Token>" http://localhost:8280/<API_name>/<version>/<context>     
+        ```
     
-    ```tab="Example"
-     curl -k -v -X GET "https://localhost:8243/pizzashack/1.0.0/menu" -H "accept: application/json" -H "Authorization: Bearer fb119e84-9542-3194-93dc-1ddddaaa1111"     
-    ```
+    === "Example"
+        ```bash
+        curl -k -v -X GET "https://localhost:8243/pizzashack/1.0.0/menu" -H "accept: application/json" -H "Authorization: Bearer fb119e84-9542-3194-93dc-1ddddaaa1111"     
+        ```
     
-    ```tab="Sample Response"
-      > GET /pizzashack/1.0.0/menu HTTP/1.1
-      > Host: localhost:8243
-      > User-Agent: curl/7.54.0
-      > accept: application/json
-      > Authorization: Bearer fb119e84-9542-3194-93dc-1ddddaaa1111
-      > 
-      < HTTP/1.1 555 
-      < Access-Control-Allow-Origin: *
-      < Access-Control-Allow-Methods: GET
-      < Access-Control-Allow-Headers: authorization,Access-Control-Allow-Origin,Content-Type,SOAPAction
-      < Content-Type: application/json; charset=UTF-8
-      < Date: Fri, 04 Jan 2019 09:53:56 GMT
-      < Transfer-Encoding: chunked
-      < 
-      {"fault":{"code":900901,"type":"Status report","message":"Runtime Error","description":"Invalid Credentials"}}   
-    ```
+    === "Sample Response"
+        ```
+        > GET /pizzashack/1.0.0/menu HTTP/1.1
+        > Host: localhost:8243
+        > User-Agent: curl/7.54.0
+        > accept: application/json
+        > Authorization: Bearer fb119e84-9542-3194-93dc-1ddddaaa1111
+        > 
+        < HTTP/1.1 555 
+        < Access-Control-Allow-Origin: *
+        < Access-Control-Allow-Methods: GET
+        < Access-Control-Allow-Headers: authorization,Access-Control-Allow-Origin,Content-Type,SOAPAction
+        < Content-Type: application/json; charset=UTF-8
+        < Date: Fri, 04 Jan 2019 09:53:56 GMT
+        < Transfer-Encoding: chunked
+        < 
+        {"fault":{"code":900901,"type":"Status report","message":"Runtime Error","description":"Invalid Credentials"}}   
+        ```
 

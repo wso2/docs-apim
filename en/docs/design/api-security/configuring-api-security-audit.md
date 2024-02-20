@@ -57,19 +57,21 @@ You need to add the API Token and Collection ID properties inside the configurat
 
 2.  Add the following configuration to the file and save the changes.
 
-     ``` bash tab="Format"
+    === "Format"
+        ``` toml
         [security_audit]
         api_token="{api-token}"
         collection_id="{collection-id}"
         global=true
-     ```
+        ```
 
-     ``` bash tab="Example"
+    === "Example"
+        ``` toml
         [security_audit]
         api_token="c21404ea-p13x-1swq-013a-pur90605uiwl"
         collection_id="a5213vyo-6tre-560u-p04h-p0inb98i0gt1"
         global=true
-     ```
+        ```
 
     !!! tip
         Set the **global** property to **false** to disable the feature for all other tenants except the super tenant.
@@ -87,21 +89,23 @@ You need to add the API Token and Collection ID properties inside the configurat
 
 3.  Add the following configuration to the JSON file and save it.
 
-    ``` bash tab="Format"
+    === "Format"
+        ``` bash
         SecurityAuditConfig: {
             "apiToken": "{api-token}",
             "collectionId": "{collection-id}",
             "overrideGlobal": true
         }
-    ```
+        ```
 
-    ``` bash tab="Example"
+    === "Example"
+        ``` bash
         SecurityAuditConfig: {
             "apiToken": "c21404ea-p13x-1swq-013a-pur90605uiwl",
             "collectionId": "a5213vyo-6tre-560u-p04h-p0inb98i0gt1",
             "overrideGlobal": true
         }
-    ```
+        ```
 
      [![advanced conf properties]({{base_path}}/assets/img/learn/advanced-config.png)]({{base_path}}/assets/img/learn/advanced-config.png)
 

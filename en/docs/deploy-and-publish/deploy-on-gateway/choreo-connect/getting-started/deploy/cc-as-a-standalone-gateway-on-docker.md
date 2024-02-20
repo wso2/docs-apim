@@ -77,25 +77,29 @@ Once the containers are up and running, we can monitor the status of the contain
     To use apictl with Choreo Connect, we need to add the Choreo Connect cluster as an environment to apictl.
     Basically, the adapter URL will be added as the Gateway environment, and the added environment can be used in the subsequent commands.
 
-    ``` shell tab="Format"
-    apictl mg add env <ENVIRONMENT_NAME> --adapter <ADAPTER_URL>
-    ```
+    === "Format"
+        ``` shell
+        apictl mg add env <ENVIRONMENT_NAME> --adapter <ADAPTER_URL>
+        ```
 
-    ``` shell tab="Example"
-    apictl mg add env dev --adapter https://localhost:9843
-    ```
+    === "Example"
+        ``` shell
+        apictl mg add env dev --adapter https://localhost:9843
+        ```
 
 2. Log in to the Choreo Connect Cluster
 
     Next you need to log in to the Choreo Connect environment (log in to the adapter) in order to deploy the API in Choreo Connect.
 
-    ``` shell tab="Format"
-    apictl mg login dev -u <AUTHORIZED_USER_USERNAME> -p <USER_PASSWORD> -k
-    ```
+    === "Format"
+        ``` shell
+        apictl mg login dev -u <AUTHORIZED_USER_USERNAME> -p <USER_PASSWORD> -k
+        ```
 
-    ``` shell tab="Example"
-    apictl mg login dev -u admin -p admin -k
-    ```
+    === "Example"
+        ``` shell
+        apictl mg login dev -u admin -p admin -k
+        ```
 
     !!! info
         The following apictl commands are executed with the flag `-k` to avoid the SSL verification with Choreo Connect. To communicate via HTTPS without skipping the SSL verification (without -k flag), add the cert of Choreo Connect into `/home/<your-pc-username>/.wso2apictl/certs`.
@@ -104,13 +108,15 @@ Once the containers are up and running, we can monitor the status of the contain
 
     Now let's deploy our first API to Choreo Connect using the project created in the step 3. Navigate to the location where the petstore project was initialized. Execute the following command to deploy the API in Choreo Connect.
 
-    ``` shell tab="Format"
-    apictl mg deploy api -f <PROJRECT_NAME> -e <ENVIRONMENT_NAME> -k
-    ```
+    === "Format"
+        ``` shell
+        apictl mg deploy api -f <PROJRECT_NAME> -e <ENVIRONMENT_NAME> -k
+        ```
 
-    ``` shell tab="Example"
-    apictl mg deploy api -f petstore -e dev -k
-    ```
+    === "Example"
+        ``` shell
+        apictl mg deploy api -f petstore -e dev -k
+        ```
 
 ## Step 5 - Invoke the sample API
 
@@ -119,9 +125,10 @@ Once the containers are up and running, we can monitor the status of the contain
     After the APIs are exposed via WSO2 Choreo Connect, you can invoke an API with a valid access token (JWT) or using a test key.  
     Let's use WSO2 Choreo Connect's test key endpoint to obtain a test key in order to access the API. Refer [Generate a Test JWT]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt) for more details.
 
-    ``` shell tab="Sample Token"
-    TOKEN=$(curl -X POST "https://localhost:9095/testkey" -d "scope=read:pets" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -v)
-    ```
+    === "Sample Token"
+        ``` shell
+        TOKEN=$(curl -X POST "https://localhost:9095/testkey" -d "scope=read:pets" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -v)
+        ```
 
     !!! info
         You can obtain a JWT token from any third-party secure token service or via WSO2 API Manager, that is configured as an issuer in Choreo Connect.
@@ -130,10 +137,12 @@ Once the containers are up and running, we can monitor the status of the contain
 
     Execute the following command to Invoke the API using the test key. You can now invoke the API running on Choreo Connect using the following cURL command.
 
-    ``` shell tab="Format"
-    curl -X GET "<Docker-hostname>:<Docker-port>/<API-context>/<API-resource>" -H "Authorization: Bearer $TOKEN" -k
-    ```
+    === "Format"
+        ``` shell
+        curl -X GET "<Docker-hostname>:<Docker-port>/<API-context>/<API-resource>" -H "Authorization: Bearer $TOKEN" -k
+        ```
 
-    ``` shell tab="Example"
-    curl -X GET "https://localhost:9095/v2/pet/findByStatus?status=available" -H "accept: application/json" -H "Authorization:Bearer $TOKEN" -k
-    ```
+    === "Example"
+        ``` shell
+        curl -X GET "https://localhost:9095/v2/pet/findByStatus?status=available" -H "accept: application/json" -H "Authorization:Bearer $TOKEN" -k
+        ```

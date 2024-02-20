@@ -121,8 +121,8 @@ Let's send a request with multiple transactions to the data service:
 
 3. Invoke the **request_box** under **request_box_exampleSOAP12Binding** with the following request body:
 
-         !!! Tip
-             Note that we are sending two transactions with details of two employees.
+    !!! Tip
+         Note that we are sending two transactions with details of two employees.
 
          ```xml
          <dat:request_box xmlns:p="http://ws.wso2.org/dataservice">

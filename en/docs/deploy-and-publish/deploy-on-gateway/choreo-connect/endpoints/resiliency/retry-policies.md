@@ -10,27 +10,29 @@ You can define a Retry Policy for an endpoint in the `x-wso2-production-endpoint
 
 For example, if the Retry Policy is defined as follows, it will result in the router retrying three times if the backend responds with a 504 status code.
 
-``` bash tab="Production Endpoint"
-x-wso2-production-endpoints:
-    urls:
-      - https://localhost:2380/v3
-    advanceEndpointConfig:
-      retryConfig:
-        count: 3
-        statusCodes:
-          - 504
-```
+=== "Production Endpoint"
+    ``` bash
+    x-wso2-production-endpoints:
+        urls:
+          - https://localhost:2380/v3
+        advanceEndpointConfig:
+          retryConfig:
+            count: 3
+            statusCodes:
+              - 504
+    ```
 
-``` bash tab="Sandbox Endpoint"
-x-wso2-sandbox-endpoints:
-    urls:
-      - https://localhost:2380/v3
-    advanceEndpointConfig:
-      retryConfig:
-        count: 3
-        statusCodes:
-          - 504
-```
+=== "Sandbox Endpoint"
+    ``` bash
+    x-wso2-sandbox-endpoints:
+        urls:
+          - https://localhost:2380/v3
+        advanceEndpointConfig:
+          retryConfig:
+            count: 3
+            statusCodes:
+              - 504
+    ```
 
 | **Field** | **Description** |
 |-------|-------------|
