@@ -174,6 +174,7 @@ This command can be used to list the deployed APIs on a given Choreo Connect ada
     ```bash
     apictl mg get apis -e <environment-name>
     ```
+    
     !!! tip
         By default, the number of APIs listed will be limited to 25. To increase or decrease the limit set the flag `--limit` or its shorthand flag `-l`. For an example,
         ```bash

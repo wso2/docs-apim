@@ -88,13 +88,13 @@ This tutorial demonstrates how you can use the Siddhi query API to perform essen
     curl -X POST "https://localhost:9443/siddhi-apps" -H "accept: application/json" -H "Content-Type: text/plain" -d @SweetProduction-Store.siddhi -u admin:admin -k
     ```
 
-  Upon successful deployment, the following response is logged for the `CURL` command you just executed.
+    Upon successful deployment, the following response is logged for the `CURL` command you just executed.
   
     ```
     {"type":"success","message":"Siddhi App saved succesfully and will be deployed in next deployment cycle"}
     ```
 
-  In addition to that, the following is logged in the SI console.
+    In addition to that, the following is logged in the SI console.
   
     ```
     INFO {org.wso2.carbon.streaming.integrator.core.internal.StreamProcessorService} - Siddhi App SweetProduction-Store deployed successfully

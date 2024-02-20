@@ -136,6 +136,7 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
         "clientSecret": "XXXXXXXXXXXX (Replace with your client secret)",
         "blocking" : "false"
     }
+    ```
     
 
 ??? note "salesforcerest.init for username/password flow"
