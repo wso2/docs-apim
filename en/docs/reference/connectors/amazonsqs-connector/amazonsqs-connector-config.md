@@ -297,7 +297,7 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
         </tr>
     </table>
 
-   **Sample configuration**
+    **Sample configuration**
 
     ```xml
     <amazonsqs.sendMessageBatch>
@@ -351,7 +351,7 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
     > **Note**: It is possible you will receive a message even after you have deleted it. This might happen on rare occasions if one of the servers storing a copy of the message is unavailable when you request to delete the message. The copy remains on the server and might be returned to you again on a subsequent receive request. You should create your system to be idempotent so that receiving a particular message more than once is not a problem.
 
-   **Sample configuration**
+    **Sample configuration**
 
     ```xml
     <amazonsqs.deleteMessage>
@@ -401,7 +401,7 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
         </tr>
     </table>
 
-   **Sample configuration**
+    **Sample configuration**
 
     ```xml
     <amazonsqs.deleteMessageBatch>
@@ -465,7 +465,7 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
     > 
     > Unlike with a queue, when you change the visibility timeout for a specific message, that timeout value is applied immediately but is not saved in memory for that message. If you don't delete a message after it is received, the visibility timeout for the message the next time it is received reverts to the original timeout value, not the value you set with the changeMessageVisibility operation.
 
-   **Sample configuration**
+    **Sample configuration**
 
     ```xml
     <amazonsqs.changeMessageVisibility>       
@@ -516,7 +516,7 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
         </tr>
     </table>
 
-   **Sample configuration**
+    **Sample configuration**
 
     ```xml
     <amazonsqs.changeMessageVisibilityBatch>
@@ -583,7 +583,7 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
         </tr>
     </table>
 
-   **Sample configuration**
+    **Sample configuration**
 
     ```xml
     <amazonsqs.addPermission>

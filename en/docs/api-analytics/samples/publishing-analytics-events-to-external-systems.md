@@ -23,7 +23,7 @@ Follow the instructions below to create the custom event publisher.
      
      2. Define the `wso2-nexus` repository in the `pom.xml` file.
 
-         ```
+         ```xml
           <repository>
               <id>wso2-nexus</id>
               <name>WSO2 internal Repository</name>
@@ -38,7 +38,7 @@ Follow the instructions below to create the custom event publisher.
 
      3.  Add the dependency in the `pom.xml` file.
 
-        ```
+        ```xml
           <dependency>
               <groupId>org.wso2.am.analytics.publisher</groupId>
               <artifactId>org.wso2.am.analytics.publisher.client</artifactId>
@@ -86,15 +86,16 @@ Follow the instructions below to configure WSO2 API Gateway and Choreo Connect f
 ??? info "API Manager Gateway"
     
     Follow the instructions below to configure WSO2 API Gateway for the sample created above:
+
     1. Copy the JAR file to the `<API-M_HOME>/repository/components/lib` directory.
     2. Open the `<API-M_HOME>/repository/conf/deployment.toml` file in a text editor and modify the `apim.analytics` section as follows:
        
-         ```
-         [apim.analytics]
-         enable = true
-         properties."publisher.reporter.class" = "<FullyQualifiedClassNameOfMetricReporterImplClass>"
-         logger.reporter.level = "INFO"
-         ```
+        ```toml
+        [apim.analytics]
+        enable = true
+        properties."publisher.reporter.class" = "<FullyQualifiedClassNameOfMetricReporterImplClass>"
+        logger.reporter.level = "INFO"
+        ```
 
     3. Open the `<API-M_HOME>/repository/conf/log4j2.properties` file in a text editor and do the following modifications.
 
@@ -113,10 +114,11 @@ Follow the instructions below to configure WSO2 API Gateway and Choreo Connect f
 
 ??? info "Choreo Connect"
     Follow the instructions below to configure Choreo Connect for the sample created above:
+    
     1. Copy the JAR file to the `choreo-connect-1.0.0/docker-compose/resources/enforcer/dropins` directory.
     2. Open the `choreo-connect-1.0.0/docker-compose/choreo-connect-with-apim/conf/config.toml` file in a text editor and modify the `analytics` section as follows:
 
-         ```
+        ```
           [analytics]
               enabled = true
               [analytics.enforcer]

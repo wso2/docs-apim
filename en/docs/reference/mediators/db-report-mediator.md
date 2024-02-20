@@ -99,7 +99,7 @@ The parameters available to configure the DB Report mediator are as follows.
         </pool>
     </connection>
     </dblookup>
-  ```
+    ```
 
 <table>
 <thead>

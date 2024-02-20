@@ -101,7 +101,7 @@ Invoke the proxy service:
 - Send a request to get the IBM stock quote and see that a JSON response is received with the IBM stock quote.
 
     === "Request"
-    `    ```xml
+        ```xml
         HTTP method: POST 
         Request URL: http://localhost:8290/services/ContentBasedRoutingProxy
         Content-Type: text/xml;charset=UTF-8
@@ -116,7 +116,7 @@ Invoke the proxy service:
             </ser:getQuote>
         </soapenv:Body>
         </soapenv:Envelope>
-        ````
+        ```
 
     === "Response"
         ```xml

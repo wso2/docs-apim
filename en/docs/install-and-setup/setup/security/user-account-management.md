@@ -206,6 +206,7 @@ Follow the instructions below to disable anonymous access to the Developer Porta
         ```toml
         [apim.devportal]
         enable_anonymous_mode=false
+        ```
 
 5. Restart the server or wait for 15 mins until the registry cache expires.
 
