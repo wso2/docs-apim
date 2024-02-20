@@ -88,8 +88,10 @@ Let's try out the example where you want to view the online bookings saved in a 
 1. Download and install MySQL.
 
 2. Enable binary logging in the MySQL server. For detailed instructions, see [Debezium documentation - Enabling the binlog](https://debezium.io/docs/connectors/mysql/#enabling-the-binlog).<br/>
+
     !!! info
         If you are using MySQL 8.0, use the following query to check the binlog status.<br/>
+
         ```
         SELECT variable_value as "BINARY LOGGING STATUS (log-bin) ::"
         FROM performance_schema.global_variables WHERE variable_name='log_bin';

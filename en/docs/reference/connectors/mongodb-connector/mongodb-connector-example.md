@@ -146,7 +146,7 @@ Follow these steps to deploy the exported CApp to the integration runtime.
 {!includes/reference/connectors/deploy-capp.md!}
 
 ??? note "Click here for instructions on removing the iterative mongodb server logs"
-Add the configuration below to **remove** the iterative `org.mongodb.driver.cluster` server logs;
+    Add the configuration below to **remove** the iterative `org.mongodb.driver.cluster` server logs;
 
     1.  Add the following logger to the `log4j2.properties` file in the `<PRODUCT_HOME>/conf` folder.
 
@@ -157,7 +157,9 @@ Add the configuration below to **remove** the iterative `org.mongodb.driver.clus
 
     2.  Then, add `org-mongodb-driver-cluster` to the list of `loggers`.
 
-!!! Prerequisite 1. Download the Mongo java driver from [here](https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.12.12/mongo-java-driver-3.12.12.jar).
+!!! Prerequisite 
+
+    1. Download the Mongo java driver from [here](https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.12.12/mongo-java-driver-3.12.12.jar).
 
     2. Add the driver to the `<PRODUCT_HOME>/dropins` folder.
 
@@ -209,7 +211,7 @@ Add the configuration below to **remove** the iterative `org.mongodb.driver.clus
 ### Find Operation
 
 !!! Note
-In order to find documents by ObjectId, the find query payload should be in the following format:
+    In order to find documents by ObjectId, the find query payload should be in the following format:
 
     ```json
     {

@@ -10,9 +10,9 @@ The management console provides facility to search all resources in the registry
     -   Resource name
     -   **Created/updated date range** - The date when a resource was created/updated
 
-                !!! info
-        Created/updated dates must be in MM/DD/YYYY format. Alternatively, you can pick it from the calendar interface provided.
-        ![]({{base_path}}/assets/attachments/126562657/126562658.png)
+        !!! info
+            Created/updated dates must be in MM/DD/YYYY format. Alternatively, you can pick it from the calendar interface provided.
+            ![]({{base_path}}/assets/attachments/126562657/126562658.png)
 
 
     -   **Created/updated author** - The person who created/updated the resource

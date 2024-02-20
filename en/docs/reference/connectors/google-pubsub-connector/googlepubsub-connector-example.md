@@ -185,8 +185,9 @@ First create an API, which will be where we configure the integration logic. Rig
                
    3. Add the property mediator to capture the `subscriptionName` values. Follow the steps given in createTopicSubscription operation.     
            
-Now you can switch into the Source view and check the XML configuration files of the created API and sequences.    
-    !!! note "pubsubApi.xml"
+Now you can switch into the Source view and check the XML configuration files of the created API and sequences.
+  
+!!! note "pubsubApi.xml"
         ```
         <?xml version="1.0" encoding="UTF-8"?>
         <api context="/resources" name="pubsubApi" xmlns="http://ws.apache.org/ns/synapse">

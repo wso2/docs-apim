@@ -85,7 +85,7 @@ To try out the example given above, let's include the source configuration in a 
     }'
     ```
    
-   The following is logged in the terminal.
+    The following is logged in the terminal.
    
     ```text
     INFO {io.siddhi.core.stream.output.sink.LogSink} - New Student : Event{timestamp=1603185021250, data=[John Doe, Graphic Design, 1], isExpired=false}
