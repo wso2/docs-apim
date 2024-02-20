@@ -3,7 +3,7 @@
 This document outlines the steps to enable the global key manager support in WSO2 API Manager (API-M). With this feature, a single token generated using the global key manager can be used to invoke cross-tenant APIs without generating a token in that specific tenant's key manager.
 
 !!! Note
-    This feature is available only as an update and is available from Update level 4.0.0.258 (released on 27th December 2023).
+    This feature is available only as an update and is available from Update level 4.1.0.133 (released on 16th February 2024).
 
 The global key manager can be created through the admin portal of the super tenant. This global key manager will be visible in the devportal of all the tenants and this can be used to generate a token which can be used to invoke APIs across tenants. Any third party key manager can be configured as a global key manager.
 
