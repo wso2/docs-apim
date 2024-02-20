@@ -887,8 +887,8 @@ to the grid of the design view when you create a Siddhi application.
                   <li>The input stream with the events to be processed by the query.</li>
                   <li>The output stream to which the events processed by the query are directed.</li>
                </ul>
-               <p>Window queries include a window to select a subset of events to be processed based on a specific criterion. For more information, see <a href="https://siddhi-io.github.io/siddhi/documentation/siddhi-4.x/query-guide-4.x/#defined-window">Siddhi Query Guide - (Defined) Window</a>.</p>
                </div>
+               <p>Window queries include a window to select a subset of events to be processed based on a specific criterion. For more information, see <a href="https://siddhi-io.github.io/siddhi/documentation/siddhi-4.x/query-guide-4.x/#defined-window">Siddhi Query Guide - (Defined) Window</a>.</p>
             </div>
          </td>
       </tr>
@@ -944,13 +944,13 @@ to the grid of the design view when you create a Siddhi application.
                <div class="admonition info">
                <p class="admonition-title">Info</p>
                <p>A window query can have only one source at a given time.</p>
+               </div>
                <ul>
                   <li>Streams</li>
                   <li>Tables</li>
                   <li>Triggers</li>
                   <li>Windows</li>
                </ul>
-               </div>
             </div>
          </td>
       </tr>
@@ -1032,14 +1032,14 @@ to the grid of the design view when you create a Siddhi application.
             <div class="content-wrapper">
                <div class="admonition info">
                <p class="admonition-title">Info</p>
-               A join query must always be connected to two sources, and at least one of them must be a defined stream/trigger/window.
+               <p>A join query must always be connected to two sources, and at least one of them must be a defined stream/trigger/window.</p>
+               </div>
                <ul>
                   <li>Streams</li>
                   <li>Tables</li>
                   <li>Aggregations</li>
                   <li>Windows</li>
                </ul>
-               </div>
             </div>
          </td>
       </tr>
@@ -1049,13 +1049,13 @@ to the grid of the design view when you create a Siddhi application.
             <div class="content-wrapper">
                <div class="admonition info">
                <p class="admonition-title">Info</p>
-               A join query must always be connected to a single target.
+               <p>A join query must always be connected to a single target.</p>
+               </div>
                <ul>
                   <li>Streams</li>
                   <li>Tables</li>
                   <li>Windows</li>
                </ul>
-               </div>
             </div>
          </td>
       </tr>

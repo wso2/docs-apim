@@ -57,10 +57,10 @@ Listed below are some system properties that can be used when starting the serve
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Note that from Carbon 4.4.1 onwards, you can also start the worker profile by setting the following system property to 'true' in the product startup script before the script is executed.</p>
-</div>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>-DworkerNode=false</code></pre>
+</div>
 </div>
 </div>
 </td>
