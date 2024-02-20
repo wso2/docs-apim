@@ -479,8 +479,10 @@ The following table contains examples of how some of the commonly used methods c
 <td>setProperty(property)</td>
 <td><div class="content-wrapper">
 <p>See the example for the <code>               getProperty              </code> method. The <code>               setProperty              </code> method is used to set the response time calculated from the time durations obtained (using the <code>               getProperty              </code> method) in the message context.</p>
-!!! note
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>In the ESB profile due to a Rhino engine upgrade, when strings are concatenated and set as a property in the message context, you need to use the toString() method to convert the result to a string.</p>
+</div>
 <p>In the following example, <strong>var result = "a"</strong> and then <strong>result = result + "b"</strong> . When concatenating these strings, the script invoked needs to be as follows:</p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">

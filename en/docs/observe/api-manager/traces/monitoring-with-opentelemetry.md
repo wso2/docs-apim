@@ -16,21 +16,25 @@ For more information, see [OpenTelemetry Configurations]({{base_path}}/reference
 
 !!! note
 	[``OTEL_RESOURCE_ATTRIBUTES``](https://opentelemetry.io/docs/specs/otel/resource/sdk/#specifying-resource-information-via-an-environment-variable) can be used to set resource attributes such as `deployment.environment` and `service.name`. This can be done in one of the following ways:
-		- Via `deployment.toml`.
-			```toml
-			[[apim.open_telemetry.resource_attributes]]
-			name = "service.name"
-			value = "MyService"
 
-			[[apim.open_telemetry.resource_attributes]]
-			name = "deployment.environment"
-			value = "Production"
-			```
+	- Via `deployment.toml`.
 
-		- Via the `OTEL_RESOURCE_ATTRIBUTES` environment variable (as per the OpenTelemetry spec).
-			```
-			export OTEL_RESOURCE_ATTRIBUTES=deployment.environment=Production,service.name=MyService
-			```
+		```toml
+		[[apim.open_telemetry.resource_attributes]]
+		name = "service.name"
+		value = "MyService"
+
+		[[apim.open_telemetry.resource_attributes]]
+		name = "deployment.environment"
+		value = "Production"
+		```
+
+	- Via the `OTEL_RESOURCE_ATTRIBUTES` environment variable (as per the OpenTelemetry spec).
+
+	    ```
+		export OTEL_RESOURCE_ATTRIBUTES=deployment.environment=Production,service.name=MyService
+	    ```
+
 	When a resource attribute is given via both the `deployment.toml` and the `OTEL_RESOURCE_ATTRIBUTES` environment variable, the value of the attribute given via the environment variable will replace the value given via `deployment.toml`.
 
 ## Enabling Jaeger Tracing

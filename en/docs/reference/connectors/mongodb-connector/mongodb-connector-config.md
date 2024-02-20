@@ -899,48 +899,48 @@ Sample configuration of STANDARD (replica set) configs
 The following operations allow you to work with the MongoDB connector. Click an operation name to see parameter details and samples on how to use it.
 
 ??? note "insertOne"
-Inserts a document into a collection. See the related [insertOne documentation](https://docs.mongodb.com/manual/reference/method/db.collection.insertOne/) for more information.
-<table>
-<tr>
-<th>Parameter Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default Value</th>
-<th>Required</th>
-</tr>
-<tr>
-<td>
-Collection
-</td>
-<td>
-String
-</td>
-<td>
-The name of the MongoDB collection.
-</td>
-<td> -
-</td>
-<td>
-Yes
-</td>
-</tr>
-<tr>
-<td>
-Document
-</td>
-<td>
-JSON String
-</td>
-<td>
-A document to insert into the collection.
-</td>
-<td> -
-</td>
-<td>
-Yes
-</td>
-</tr>
-</table>
+    Inserts a document into a collection. See the related [insertOne documentation](https://docs.mongodb.com/manual/reference/method/db.collection.insertOne/) for more information.
+    <table>
+    <tr>
+    <th>Parameter Name</th>
+    <th>Type</th>
+    <th>Description</th>
+    <th>Default Value</th>
+    <th>Required</th>
+    </tr>
+    <tr>
+    <td>
+    Collection
+    </td>
+    <td>
+    String
+    </td>
+    <td>
+    The name of the MongoDB collection.
+    </td>
+    <td> -
+    </td>
+    <td>
+    Yes
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Document
+    </td>
+    <td>
+    JSON String
+    </td>
+    <td>
+    A document to insert into the collection.
+    </td>
+    <td> -
+    </td>
+    <td>
+    Yes
+    </td>
+    </tr>
+    </table>
 
     **Sample Configuration**
 
@@ -965,65 +965,65 @@ Yes
     ```
 
 ??? note "insertMany"
-Inserts multiple documents into a collection. See the related [insertMany documentation](https://docs.mongodb.com/manual/reference/method/db.collection.insertMany) for more information.
-<table>
-<tr>
-<th>Parameter Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default Value</th>
-<th>Required</th>
-</tr>
-<tr>
-<td>
-Collection
-</td>
-<td>
-String
-</td>
-<td>
-The name of the MongoDB collection.
-</td>
-<td> -
-</td>
-<td>
-Yes
-</td>
-</tr>
-<tr>
-<td>
-Documents
-</td>
-<td>
-JSON String
-</td>
-<td>
-An array of documents to insert into the collection.
-</td>
-<td> -
-</td>
-<td>
-Yes
-</td>
-</tr>
-<tr>
-<td>
-Ordered
-</td>
-<td>
-Boolean
-</td>
-<td>
-A boolean specifying whether the MongoDB instance should perform an ordered or unordered insert.
-</td>
-<td>
-true
-</td>
-<td>
-No
-</td>
-</tr>
-</table>
+    Inserts multiple documents into a collection. See the related [insertMany documentation](https://docs.mongodb.com/manual/reference/method/db.collection.insertMany) for more information.
+    <table>
+    <tr>
+    <th>Parameter Name</th>
+    <th>Type</th>
+    <th>Description</th>
+    <th>Default Value</th>
+    <th>Required</th>
+    </tr>
+    <tr>
+    <td>
+    Collection
+    </td>
+    <td>
+    String
+    </td>
+    <td>
+    The name of the MongoDB collection.
+    </td>
+    <td> -
+    </td>
+    <td>
+    Yes
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Documents
+    </td>
+    <td>
+    JSON String
+    </td>
+    <td>
+    An array of documents to insert into the collection.
+    </td>
+    <td> -
+    </td>
+    <td>
+    Yes
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Ordered
+    </td>
+    <td>
+    Boolean
+    </td>
+    <td>
+    A boolean specifying whether the MongoDB instance should perform an ordered or unordered insert.
+    </td>
+    <td>
+    true
+    </td>
+    <td>
+    No
+    </td>
+    </tr>
+    </table>
 
     **Sample Configuration**
 
@@ -1058,81 +1058,81 @@ No
     ```
 
 ??? note "findOne"
-Returns one document that satisfies the specified query criteria on the collection. If multiple documents satisfy the query, this method returns the first document according to the [natural order](https://docs.mongodb.com/manual/reference/glossary/#term-natural-order). See the related [find documentation](https://docs.mongodb.com/manual/reference/method/db.collection.find/) for more information.
-<table>
-<tr>
-<th>Parameter Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default Value</th>
-<th>Required</th>
-</tr>
-<tr>
-<td>
-Collection
-</td>
-<td>
-String
-</td>
-<td>
-The name of the MongoDB collection.
-</td>
-<td> -
-</td>
-<td>
-Yes
-</td>
-</tr>
-<tr>
-<td>
-Query
-</td>
-<td>
-JSON String
-</td>
-<td>
-Specifies query selection criteria using [query operators](https://docs.mongodb.com/manual/reference/operator/). To return the first document in a collection, omit this parameter or pass an empty document ({}).
-</td>
-<td>
-{}
-</td>
-<td>
-No
-</td>
-</tr>
-<tr>
-<td>
-Projection
-</td>
-<td>
-JSON String
-</td>
-<td>
-Specifies the fields to return using [projection operators](https://docs.mongodb.com/manual/reference/operator/projection/). Omit this parameter to return all fields in the matching document.
-</td>
-<td> -
-</td>
-<td>
-No
-</td>
-</tr>
-<tr>
-<td>
-Collation
-</td>
-<td>
-JSON String
-</td>
-<td>
-Collation allows users to specify language-specific rules for string comparison, such as rules for letter case and accent marks.
-</td>
-<td> -
-</td>
-<td>
-No
-</td>
-</tr>
-</table>
+    Returns one document that satisfies the specified query criteria on the collection. If multiple documents satisfy the query, this method returns the first document according to the [natural order](https://docs.mongodb.com/manual/reference/glossary/#term-natural-order). See the related [find documentation](https://docs.mongodb.com/manual/reference/method/db.collection.find/) for more information.
+    <table>
+    <tr>
+    <th>Parameter Name</th>
+    <th>Type</th>
+    <th>Description</th>
+    <th>Default Value</th>
+    <th>Required</th>
+    </tr>
+    <tr>
+    <td>
+    Collection
+    </td>
+    <td>
+    String
+    </td>
+    <td>
+    The name of the MongoDB collection.
+    </td>
+    <td> -
+    </td>
+    <td>
+    Yes
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Query
+    </td>
+    <td>
+    JSON String
+    </td>
+    <td>
+    Specifies query selection criteria using [query operators](https://docs.mongodb.com/manual/reference/operator/). To return the first document in a collection, omit this parameter or pass an empty document ({}).
+    </td>
+    <td>
+    {}
+    </td>
+    <td>
+    No
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Projection
+    </td>
+    <td>
+    JSON String
+    </td>
+    <td>
+    Specifies the fields to return using [projection operators](https://docs.mongodb.com/manual/reference/operator/projection/). Omit this parameter to return all fields in the matching document.
+    </td>
+    <td> -
+    </td>
+    <td>
+    No
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Collation
+    </td>
+    <td>
+    JSON String
+    </td>
+    <td>
+    Collation allows users to specify language-specific rules for string comparison, such as rules for letter case and accent marks.
+    </td>
+    <td> -
+    </td>
+    <td>
+    No
+    </td>
+    </tr>
+    </table>
 
     **Sample Configuration**
 
@@ -1155,97 +1155,97 @@ No
     ```
 
 ??? note "find"
-Selects documents in a collection or [view](https://docs.mongodb.com/manual/core/views/) and returns a [cursor](https://docs.mongodb.com/manual/reference/glossary/#term-cursor) to the selected documents. See the related [find documentation](https://docs.mongodb.com/manual/reference/method/db.collection.find/) for more information.
-<table>
-<tr>
-<th>Parameter Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default Value</th>
-<th>Required</th>
-</tr>
-<tr>
-<td>
-Collection
-</td>
-<td>
-String
-</td>
-<td>
-The name of the MongoDB collection.
-</td>
-<td> -
-</td>
-<td>
-Yes
-</td>
-</tr>
-<tr>
-<td>
-Query
-</td>
-<td>
-JSON String
-</td>
-<td>
-Selection filter using [query operators](https://docs.mongodb.com/manual/reference/operator/). To return all documents in a collection, omit this parameter or pass an empty document ({}).
-</td>
-<td>
-{}
-</td>
-<td>
-No
-</td>
-</tr>
-<tr>
-<td>
-Projection
-</td>
-<td>
-JSON String
-</td>
-<td>
-Specifies the fields to return using [projection operators](https://docs.mongodb.com/manual/reference/operator/projection/). Omit this parameter to return all fields in the matching document.
-</td>
-<td> -
-</td>
-<td>
-No
-</td>
-</tr>
-<tr>
-<td>
-Collation
-</td>
-<td>
-JSON String
-</td>
-<td>
-Collation allows users to specify language-specific rules for string comparison, such as rules for letter case and accent marks.
-</td>
-<td> -
-</td>
-<td>
-No
-</td>
-</tr>
-<tr>
-<td>
-Sort
-</td>
-<td>
-JSON String
-</td>
-<td>
-A document that defines the sort order of the result set.
-</td>
-<td> -
-</td>
-<td>
-No
-</td>
-</tr>
-</table>
+    Selects documents in a collection or [view](https://docs.mongodb.com/manual/core/views/) and returns a [cursor](https://docs.mongodb.com/manual/reference/glossary/#term-cursor) to the selected documents. See the related [find documentation](https://docs.mongodb.com/manual/reference/method/db.collection.find/) for more information.
+    <table>
+    <tr>
+    <th>Parameter Name</th>
+    <th>Type</th>
+    <th>Description</th>
+    <th>Default Value</th>
+    <th>Required</th>
+    </tr>
+    <tr>
+    <td>
+    Collection
+    </td>
+    <td>
+    String
+    </td>
+    <td>
+    The name of the MongoDB collection.
+    </td>
+    <td> -
+    </td>
+    <td>
+    Yes
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Query
+    </td>
+    <td>
+    JSON String
+    </td>
+    <td>
+    Selection filter using [query operators](https://docs.mongodb.com/manual/reference/operator/). To return all documents in a collection, omit this parameter or pass an empty document ({}).
+    </td>
+    <td>
+    {}
+    </td>
+    <td>
+    No
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Projection
+    </td>
+    <td>
+    JSON String
+    </td>
+    <td>
+    Specifies the fields to return using [projection operators](https://docs.mongodb.com/manual/reference/operator/projection/). Omit this parameter to return all fields in the matching document.
+    </td>
+    <td> -
+    </td>
+    <td>
+    No
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Collation
+    </td>
+    <td>
+    JSON String
+    </td>
+    <td>
+    Collation allows users to specify language-specific rules for string comparison, such as rules for letter case and accent marks.
+    </td>
+    <td> -
+    </td>
+    <td>
+    No
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Sort
+    </td>
+    <td>
+    JSON String
+    </td>
+    <td>
+    A document that defines the sort order of the result set.
+    </td>
+    <td> -
+    </td>
+    <td>
+    No
+    </td>
+    </tr>
+    </table>
 
     **Sample Configuration**
 
@@ -1268,114 +1268,114 @@ No
     ```
 
 ??? note "updateOne"
-Updates a single document within the collection based on the filter. See the related [updateOne documentation](https://docs.mongodb.com/manual/reference/method/db.collection.updateOne/) for more information.
-<table>
-<tr>
-<th>Parameter Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default Value</th>
-<th>Required</th>
-</tr>
-<tr>
-<td>
-Collection
-</td>
-<td>
-String
-</td>
-<td>
-The name of the MongoDB collection.
-</td>
-<td> -
-</td>
-<td>
-Yes
-</td>
-</tr>
-<tr>
-<td>
-Query
-</td>
-<td>
-JSON String
-</td>
-<td>
-The selection criteria for the update. The same [query selectors](https://docs.mongodb.com/manual/reference/operator/query/#query-selectors) as in the [find()](https://docs.mongodb.com/manual/reference/method/db.collection.find/#db.collection.find) method are available. Specify an empty document {} to update the first document returned in the collection.
-</td>
-<td>
-{}
-</td>
-<td>
-No
-</td>
-</tr>
-<tr>
-<td>
-Update
-</td>
-<td>
-JSON String
-</td>
-<td>
-The modifications to apply.
-</td>
-<td> -
-</td>
-<td>
-Yes
-</td>
-</tr>
-<tr>
-<td>
-Upsert
-</td>
-<td>
-Boolean
-</td>
-<td>
-Creates a new document if no documents match the filter.
-</td>
-<td>
-false
-</td>
-<td>
-No
-</td>
-</tr>
-<tr>
-<td>
-Collation
-</td>
-<td>
-JSON String
-</td>
-<td>
-Collation allows users to specify language-specific rules for string comparison, such as rules for letter case and accent marks.
-</td>
-<td> -
-</td>
-<td>
-No
-</td>
-</tr>
-<tr>
-<td>
-Array Filters
-</td>
-<td>
-JSON String
-</td>
-<td>
-An array of filter documents that determine which array elements to modify for an update operation on an array field.
-</td>
-<td> -
-</td>
-<td>
-No
-</td>
-</tr>
-</table>
+    Updates a single document within the collection based on the filter. See the related [updateOne documentation](https://docs.mongodb.com/manual/reference/method/db.collection.updateOne/) for more information.
+    <table>
+    <tr>
+    <th>Parameter Name</th>
+    <th>Type</th>
+    <th>Description</th>
+    <th>Default Value</th>
+    <th>Required</th>
+    </tr>
+    <tr>
+    <td>
+    Collection
+    </td>
+    <td>
+    String
+    </td>
+    <td>
+    The name of the MongoDB collection.
+    </td>
+    <td> -
+    </td>
+    <td>
+    Yes
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Query
+    </td>
+    <td>
+    JSON String
+    </td>
+    <td>
+    The selection criteria for the update. The same [query selectors](https://docs.mongodb.com/manual/reference/operator/query/#query-selectors) as in the [find()](https://docs.mongodb.com/manual/reference/method/db.collection.find/#db.collection.find) method are available. Specify an empty document {} to update the first document returned in the collection.
+    </td>
+    <td>
+    {}
+    </td>
+    <td>
+    No
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Update
+    </td>
+    <td>
+    JSON String
+    </td>
+    <td>
+    The modifications to apply.
+    </td>
+    <td> -
+    </td>
+    <td>
+    Yes
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Upsert
+    </td>
+    <td>
+    Boolean
+    </td>
+    <td>
+    Creates a new document if no documents match the filter.
+    </td>
+    <td>
+    false
+    </td>
+    <td>
+    No
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Collation
+    </td>
+    <td>
+    JSON String
+    </td>
+    <td>
+    Collation allows users to specify language-specific rules for string comparison, such as rules for letter case and accent marks.
+    </td>
+    <td> -
+    </td>
+    <td>
+    No
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Array Filters
+    </td>
+    <td>
+    JSON String
+    </td>
+    <td>
+    An array of filter documents that determine which array elements to modify for an update operation on an array field.
+    </td>
+    <td> -
+    </td>
+    <td>
+    No
+    </td>
+    </tr>
+    </table>
 
     !!! Info
         Array Filters parameter should be in a JSON object format. See the example given below.
@@ -1429,114 +1429,114 @@ No
     ```
 
 ??? note "updateMany"
-Updates all documents that match the specified filter for a collection. See the related [updateMany documentation](https://docs.mongodb.com/manual/reference/method/db.collection.updateMany/) for more information.
-<table>
-<tr>
-<th>Parameter Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default Value</th>
-<th>Required</th>
-</tr>
-<tr>
-<td>
-Collection
-</td>
-<td>
-String
-</td>
-<td>
-The name of the MongoDB collection.
-</td>
-<td> -
-</td>
-<td>
-Yes
-</td>
-</tr>
-<tr>
-<td>
-Query
-</td>
-<td>
-JSON String
-</td>
-<td>
-The selection criteria for the update. The same [query selectors](https://docs.mongodb.com/manual/reference/operator/query/#query-selectors) as in the [find()](https://docs.mongodb.com/manual/reference/method/db.collection.find/#db.collection.find) method are available. Specify an empty document {} to update all documents in the collection.
-</td>
-<td>
-{}
-</td>
-<td>
-No
-</td>
-</tr>
-<tr>
-<td>
-Update
-</td>
-<td>
-JSON String
-</td>
-<td>
-The modifications to apply.
-</td>
-<td> -
-</td>
-<td>
-Yes
-</td>
-</tr>
-<tr>
-<td>
-Upsert
-</td>
-<td>
-Boolean
-</td>
-<td>
-Creates a new document if no documents match the filter.
-</td>
-<td>
-false
-</td>
-<td>
-No
-</td>
-</tr>
-<tr>
-<td>
-Collation
-</td>
-<td>
-JSON String
-</td>
-<td>
-Collation allows users to specify language-specific rules for string comparison, such as rules for letter case and accent marks.
-</td>
-<td> -
-</td>
-<td>
-No
-</td>
-</tr>
-<tr>
-<td>
-Array Filters
-</td>
-<td>
-JSON String
-</td>
-<td>
-An array of filter documents that determine which array elements to modify for an update operation on an array field.
-</td>
-<td> -
-</td>
-<td>
-No
-</td>
-</tr>
-</table>
+    Updates all documents that match the specified filter for a collection. See the related [updateMany documentation](https://docs.mongodb.com/manual/reference/method/db.collection.updateMany/) for more information.
+    <table>
+    <tr>
+    <th>Parameter Name</th>
+    <th>Type</th>
+    <th>Description</th>
+    <th>Default Value</th>
+    <th>Required</th>
+    </tr>
+    <tr>
+    <td>
+    Collection
+    </td>
+    <td>
+    String
+    </td>
+    <td>
+    The name of the MongoDB collection.
+    </td>
+    <td> -
+    </td>
+    <td>
+    Yes
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Query
+    </td>
+    <td>
+    JSON String
+    </td>
+    <td>
+    The selection criteria for the update. The same [query selectors](https://docs.mongodb.com/manual/reference/operator/query/#query-selectors) as in the [find()](https://docs.mongodb.com/manual/reference/method/db.collection.find/#db.collection.find) method are available. Specify an empty document {} to update all documents in the collection.
+    </td>
+    <td>
+    {}
+    </td>
+    <td>
+    No
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Update
+    </td>
+    <td>
+    JSON String
+    </td>
+    <td>
+    The modifications to apply.
+    </td>
+    <td> -
+    </td>
+    <td>
+    Yes
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Upsert
+    </td>
+    <td>
+    Boolean
+    </td>
+    <td>
+    Creates a new document if no documents match the filter.
+    </td>
+    <td>
+    false
+    </td>
+    <td>
+    No
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Collation
+    </td>
+    <td>
+    JSON String
+    </td>
+    <td>
+    Collation allows users to specify language-specific rules for string comparison, such as rules for letter case and accent marks.
+    </td>
+    <td> -
+    </td>
+    <td>
+    No
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Array Filters
+    </td>
+    <td>
+    JSON String
+    </td>
+    <td>
+    An array of filter documents that determine which array elements to modify for an update operation on an array field.
+    </td>
+    <td> -
+    </td>
+    <td>
+    No
+    </td>
+    </tr>
+    </table>
 
     !!! Info
         Array filters parameter should be in a JSON object format. See the example given below.
@@ -1590,65 +1590,65 @@ No
     ```
 
 ??? note "deleteOne"
-Removes a single document from a collection. See the related [deleteOne documentation](https://docs.mongodb.com/manual/reference/method/db.collection.deleteOne/#db.collection.deleteOne) for more information.
-<table>
-<tr>
-<th>Parameter Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default Value</th>
-<th>Required</th>
-</tr>
-<tr>
-<td>
-Collection
-</td>
-<td>
-String
-</td>
-<td>
-The name of the MongoDB collection.
-</td>
-<td> -
-</td>
-<td>
-Yes
-</td>
-</tr>
-<tr>
-<td>
-Query
-</td>
-<td>
-JSON String
-</td>
-<td>
-Specifies deletion criteria using [query operators](https://docs.mongodb.com/manual/reference/operator/). Specify an empty document {} to delete the first document returned in the collection.
-</td>
-<td>
-{}
-</td>
-<td>
-No
-</td>
-</tr>
-<tr>
-<td>
-Collation
-</td>
-<td>
-JSON String
-</td>
-<td>
-Collation allows users to specify language-specific rules for string comparison, such as rules for letter case and accent marks.
-</td>
-<td> -
-</td>
-<td>
-No
-</td>
-</tr>
-</table>
+    Removes a single document from a collection. See the related [deleteOne documentation](https://docs.mongodb.com/manual/reference/method/db.collection.deleteOne/#db.collection.deleteOne) for more information.
+    <table>
+    <tr>
+    <th>Parameter Name</th>
+    <th>Type</th>
+    <th>Description</th>
+    <th>Default Value</th>
+    <th>Required</th>
+    </tr>
+    <tr>
+    <td>
+    Collection
+    </td>
+    <td>
+    String
+    </td>
+    <td>
+    The name of the MongoDB collection.
+    </td>
+    <td> -
+    </td>
+    <td>
+    Yes
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Query
+    </td>
+    <td>
+    JSON String
+    </td>
+    <td>
+    Specifies deletion criteria using [query operators](https://docs.mongodb.com/manual/reference/operator/). Specify an empty document {} to delete the first document returned in the collection.
+    </td>
+    <td>
+    {}
+    </td>
+    <td>
+    No
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Collation
+    </td>
+    <td>
+    JSON String
+    </td>
+    <td>
+    Collation allows users to specify language-specific rules for string comparison, such as rules for letter case and accent marks.
+    </td>
+    <td> -
+    </td>
+    <td>
+    No
+    </td>
+    </tr>
+    </table>
 
     **Sample Configuration**
 
@@ -1671,65 +1671,65 @@ No
     ```
 
 ??? note "deleteMany"
-Removes all documents that match the query from a collection. See the related [deleteMany documentation](https://docs.mongodb.com/manual/reference/method/db.collection.deleteMany/#db.collection.deleteMany) for more information.
-<table>
-<tr>
-<th>Parameter Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default Value</th>
-<th>Required</th>
-</tr>
-<tr>
-<td>
-Collection
-</td>
-<td>
-String
-</td>
-<td>
-The name of the MongoDB collection.
-</td>
-<td> -
-</td>
-<td>
-Yes
-</td>
-</tr>
-<tr>
-<td>
-Query
-</td>
-<td>
-JSON String
-</td>
-<td>
-Specifies deletion criteria using [query operators](https://docs.mongodb.com/manual/reference/operator/). To delete all documents in a collection, pass in an empty document ({}).
-</td>
-<td>
-{}
-</td>
-<td>
-No
-</td>
-</tr>
-<tr>
-<td>
-Collation
-</td>
-<td>
-JSON String
-</td>
-<td>
-Collation allows users to specify language-specific rules for string comparison, such as rules for letter case and accent marks.
-</td>
-<td> -
-</td>
-<td>
-No
-</td>
-</tr>
-</table>
+    Removes all documents that match the query from a collection. See the related [deleteMany documentation](https://docs.mongodb.com/manual/reference/method/db.collection.deleteMany/#db.collection.deleteMany) for more information.
+    <table>
+    <tr>
+    <th>Parameter Name</th>
+    <th>Type</th>
+    <th>Description</th>
+    <th>Default Value</th>
+    <th>Required</th>
+    </tr>
+    <tr>
+    <td>
+    Collection
+    </td>
+    <td>
+    String
+    </td>
+    <td>
+    The name of the MongoDB collection.
+    </td>
+    <td> -
+    </td>
+    <td>
+    Yes
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Query
+    </td>
+    <td>
+    JSON String
+    </td>
+    <td>
+    Specifies deletion criteria using [query operators](https://docs.mongodb.com/manual/reference/operator/). To delete all documents in a collection, pass in an empty document ({}).
+    </td>
+    <td>
+    {}
+    </td>
+    <td>
+    No
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Collation
+    </td>
+    <td>
+    JSON String
+    </td>
+    <td>
+    Collation allows users to specify language-specific rules for string comparison, such as rules for letter case and accent marks.
+    </td>
+    <td> -
+    </td>
+    <td>
+    No
+    </td>
+    </tr>
+    </table>
 
     **Sample Configuration**
 
@@ -1752,49 +1752,49 @@ No
     ```
 
 ??? note "aggregate"
-Process data in collections and return computed results. For more information, see the documentation for [aggregate](https://www.mongodb.com/docs/manual/reference/method/db.collection.aggregate/#db.collection.aggregate).
-<table>
-<tr>
-<th>Parameter Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default Value</th>
-<th>Required</th>
-</tr>
-<tr>
-<td>
-Collection
-</td>
-<td>
-String
-</td>
-<td>
-The name of the MongoDB collection.
-</td>
-<td> -
-</td>
-<td>
-Yes
-</td>
-</tr>
-<tr>
-<td>
-Stages
-</td>
-<td>
-JSON Array
-</td>
-<td>
-The stages of the aggregation/aggregation pipeline. Each stage is a document with a corresponding operator name, such as $match or $group.
-</td>
-<td>
--
-</td>
-<td>
-Yes
-</td>
-</tr>
-</table>
+    Process data in collections and return computed results. For more information, see the documentation for [aggregate](https://www.mongodb.com/docs/manual/reference/method/db.collection.aggregate/#db.collection.aggregate).
+    <table>
+    <tr>
+    <th>Parameter Name</th>
+    <th>Type</th>
+    <th>Description</th>
+    <th>Default Value</th>
+    <th>Required</th>
+    </tr>
+    <tr>
+    <td>
+    Collection
+    </td>
+    <td>
+    String
+    </td>
+    <td>
+    The name of the MongoDB collection.
+    </td>
+    <td> -
+    </td>
+    <td>
+    Yes
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Stages
+    </td>
+    <td>
+    JSON Array
+    </td>
+    <td>
+    The stages of the aggregation/aggregation pipeline. Each stage is a document with a corresponding operator name, such as $match or $group.
+    </td>
+    <td>
+    -
+    </td>
+    <td>
+    Yes
+    </td>
+    </tr>
+    </table>
 
     **Sample Configuration**
 

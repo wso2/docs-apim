@@ -8,7 +8,7 @@
     --md-accent-fg-color--transparent: #526cfe1a;
     --md-accent-bg-color: #fff;
     --md-accent-bg-color--light: #ffffffb3;
-    --md-hjs-color: #00f;
+    --md-hjs-color: #444;
 }
 :root {
     --md-text-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
