@@ -65,17 +65,15 @@
 
     -   **Response**
 
-        === "Response Format"
-            ``` bash
-            Successfully exported API!
-            Find the exported API at <USER_HOME>/.wso2apictl/exported/apis/<envrionment-name>/<API-name>_<version>.zip
-            ```
+        ``` bash tab="Response Format"
+        Successfully exported API!
+        Find the exported API at <USER_HOME>/.wso2apictl/exported/apis/<envrionment-name>/<API-name>_<version>.zip
+        ```
 
-        === "Example Response"
-            ``` bash
-            Successfully exported API!
-            Find the exported API at /Users/kim/.wso2apictl/exported/apis/dev/PhoneVerification_1.0.0.zip
-            ```
+        ``` bash tab="Example Response"
+        Successfully exported API!
+        Find the exported API at /Users/kim/.wso2apictl/exported/apis/dev/PhoneVerification_1.0.0.zip
+        ```
 
 The exported ZIP file has the following structure:
 
@@ -356,29 +354,27 @@ You can use the below command to export all the APIs belong to the currently log
 
 - **Response**
 
-    === "Response Format"
-        ``` go
-        Exporting APIs for the migration...
-        Cleaning all the previously exported APIs of the given target tenant, in the given environment if any, and prepare to export APIs from beginning
-        Batch of <number-of-APIs> APIs exported successfully..!
+    ``` go tab="Response Format"
+    Exporting APIs for the migration...
+    Cleaning all the previously exported APIs of the given target tenant, in the given environment if any, and prepare to export APIs from beginning
+    Batch of <number-of-APIs> APIs exported successfully..!
 
-        Total number of APIs exported: <number-of-APIs>
-        API export path: <USER_HOME>/.wso2apictl/exported/migration/<environment-name>/tenant-default/apis
+    Total number of APIs exported: <number-of-APIs>
+    API export path: <USER_HOME>/.wso2apictl/exported/migration/<environment-name>/tenant-default/apis
 
-        Command: export apis execution completed !
-        ```
+    Command: export apis execution completed !
+    ```
 
-    === "Example Response"
-        ``` go
-        Exporting APIs for the migration...
-        Cleaning all the previously exported APIs of the given target tenant, in the given environment if any, and prepare to export APIs from beginning
-        Batch of 5 APIs exported successfully..!
+    ``` go tab="Example Response"
+    Exporting APIs for the migration...
+    Cleaning all the previously exported APIs of the given target tenant, in the given environment if any, and prepare to export APIs from beginning
+    Batch of 5 APIs exported successfully..!
 
-        Total number of APIs exported: 5
-        API export path: /Users/kim/.wso2apictl/exported/migration/<environment-name>/tenant-default/apis
+    Total number of APIs exported: 5
+    API export path: /Users/kim/.wso2apictl/exported/migration/<environment-name>/tenant-default/apis
 
-        Command: export apis execution completed !
-        ```
+    Command: export apis execution completed !
+    ```
 
 ### Import an API
 

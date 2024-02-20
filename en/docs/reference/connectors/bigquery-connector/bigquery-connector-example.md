@@ -618,7 +618,7 @@ Invoke the API as shown below using the curl command. Curl Application can be do
 
    **Expected Response**
     
-   ```json
+     ```json
      // API callback
      callBackFunction({
        "kind": "bigquery#tableDataList",

@@ -52,26 +52,24 @@ Follow the instructions below to change the type of the default `WSO2_CARBON_DB`
 
 Edit the default datasource configuration in the `<API-M_HOME>/repository/conf/deployment.toml` file as shown below.
 
-=== "Format"
-    ```toml
-    type = "h2"
-    url = "jdbc:h2:./repository/database/WSO2CARBON_DB;DB_CLOSE_ON_EXIT=FALSE;LOCK_TIMEOUT=60000"
-    username = "wso2carbon"
-    password = "wso2carbon"
-    driver="org.h2.Driver"
-    validationQuery="SELECT 1"
-    ```
+```toml tab="Format"
+type = "h2"
+url = "jdbc:h2:./repository/database/WSO2CARBON_DB;DB_CLOSE_ON_EXIT=FALSE;LOCK_TIMEOUT=60000"
+username = "wso2carbon"
+password = "wso2carbon"
+driver="org.h2.Driver"
+validationQuery="SELECT 1"
+```
 
-=== "Example"
-    ```toml
-    [database.carbon_db]
-    type = "h2"
-    url = "jdbc:h2:./repository/database/WSO2CARBON_DB;DB_CLOSE_ON_EXIT=FALSE;LOCK_TIMEOUT=60000"
-    username = "wso2carbon"
-    password = "wso2carbon"
-    driver="org.h2.Driver"
-    validationQuery="SELECT 1"
-    ```
+```toml tab="Example"
+[database.carbon_db]
+type = "h2"
+url = "jdbc:h2:./repository/database/WSO2CARBON_DB;DB_CLOSE_ON_EXIT=FALSE;LOCK_TIMEOUT=60000"
+username = "wso2carbon"
+password = "wso2carbon"
+driver="org.h2.Driver"
+validationQuery="SELECT 1"
+```
 
 The elements in the above configuration are described below:
 
@@ -186,31 +184,27 @@ Follow the instructions below to configure new datasources to point to the ne
 2.  If you are setting up a separate database to store registry-related data, update the following configurations in the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
 
-    === "Format"
-        ```toml
-        [database.config]
-        dataSource = "jdbc/MY_DATASOURCE_NAME"
-        ```
+    ```toml tab="Format"
+    [database.config]
+    dataSource = "jdbc/MY_DATASOURCE_NAME"
+    ```
 
-    === "Example"
-        ```toml
-        [database.config]
-        dataSource = "jdbc/WSO2_CARBON_DB"
-        ```
+    ```toml tab="Example"
+    [database.config]
+    dataSource = "jdbc/WSO2_CARBON_DB"
+    ```
 
 3.  If you are setting up a separate database to store user management data, update the following configurations in the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
-    === "Format"
-        ```toml
-        [user_store]
-        dataSource = "jdbc/MY_DATASOURCE_NAME"
-        ```
+    ```toml tab="Format"
+    [user_store]
+    dataSource = "jdbc/MY_DATASOURCE_NAME"
+    ```
 
-    === "Example"
-        ```toml
-        [user_store]
-        dataSource = "jdbc/WSO2_CARBON_DB"
-        ```
+    ```toml tab="Example"
+    [user_store]
+    dataSource = "jdbc/WSO2_CARBON_DB"
+    ```
 
 ### Creating database tables
 

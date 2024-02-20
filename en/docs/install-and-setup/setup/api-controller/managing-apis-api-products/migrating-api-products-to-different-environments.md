@@ -65,17 +65,15 @@
                   
     -   **Response**
 
-        === "Response Format"
-            ``` bash
-            Successfully exported API Product!
-            Find the exported API Product at <USER_HOME>/.wso2apictl/exported/api-products/<envrionment-name>/<API Product-name>_1.0.0.zip
-            ```
+        ``` bash tab="Response Format"
+        Successfully exported API Product!
+        Find the exported API Product at <USER_HOME>/.wso2apictl/exported/api-products/<envrionment-name>/<API Product-name>_1.0.0.zip
+        ```
 
-        === "Example Response"
-            ``` bash
-            Successfully exported API Product!
-            Find the exported API Product at /Users/kim/.wso2apictl/exported/api-products/dev/LeasingAPIProduct_1.0.0.zip
-            ```
+        ``` bash tab="Example Response"
+        Successfully exported API Product!
+        Find the exported API Product at /Users/kim/.wso2apictl/exported/api-products/dev/LeasingAPIProduct_1.0.0.zip
+        ```
 
 The exported ZIP file has the following structure:
 

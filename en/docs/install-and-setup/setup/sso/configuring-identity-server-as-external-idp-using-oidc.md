@@ -17,15 +17,13 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
 
 -   Start the servers using the following commands:
 
-    === "On Windows"
-        ``` bash
-        wso2server.bat --run
-        ```
+    ``` tab="On Windows"
+    wso2server.bat --run
+    ```
 
-    === "On Linux/Mac OS"
-        ``` bash
-        sh wso2server.sh
-        ```
+    ``` tab="On Linux/Mac OS"
+    sh wso2server.sh
+    ```
 
 ## Configure the Identity Server
 

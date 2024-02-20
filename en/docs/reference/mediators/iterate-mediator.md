@@ -162,38 +162,36 @@ follows:
 
 In these examples, the **Iterate** mediator splits the messages into parts and processes them asynchronously. Also see [Splitting Messages into Parts and Processing in Parallel (Iterate/Aggregate)](https://wso2docs.atlassian.net/wiki/spaces/EI660/pages/6521935/Splitting+Messages+into+Parts+and+Processing+in+Parallel+Iterate+Aggregate).
 
-=== "Using an XPath expression"
-    ``` java
-        <iterate expression="//m0:getQuote/m0:request" preservePayload="true"
-                attachPath="//m0:getQuote"
-                xmlns:m0="http://services.samples">
-            <target>
-                <sequence>
-                    <send>
-                        <endpoint>
-                            <address
-                                uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-                        </endpoint>
-                    </send>
-                </sequence>
-            </target>
-        </iterate>
-    ```
-
-=== "Using a JSONpath expression"
-    ``` java
-        <iterate id="jsonIterator" preservePayload="true" 
-                attachPath="json-eval($.placeHolder)" 
-                expression="json-eval($.students.studentlist)">
+``` java tab='Using an XPath expression'
+    <iterate expression="//m0:getQuote/m0:request" preservePayload="true"
+             attachPath="//m0:getQuote"
+             xmlns:m0="http://services.samples">
         <target>
             <sequence>
                 <send>
                     <endpoint>
-                        <http method="POST" uri-template="http://localhost:8280/iteratesample/echojson"/>
+                        <address
+                            uri="http://localhost:9000/services/SimpleStockQuoteService"/>
                     </endpoint>
                 </send>
             </sequence>
         </target>
-        </iterate>
-    ```
+    </iterate>
+```
+
+``` java tab='Using a JSONpath expression'
+    <iterate id="jsonIterator" preservePayload="true" 
+             attachPath="json-eval($.placeHolder)" 
+             expression="json-eval($.students.studentlist)">
+       <target>
+          <sequence>
+             <send>
+                 <endpoint>
+                       <http method="POST" uri-template="http://localhost:8280/iteratesample/echojson"/>
+                 </endpoint>
+             </send>
+          </sequence>
+       </target>
+    </iterate>
+```
 

@@ -5,49 +5,45 @@
 
     -   Connecting the Gateway to the Key Manager component in the Control Plane:
 
-        === "Control Plane with HA"
-            ``` toml
-            [apim.key_manager]
-            service_url = "https://[control-plane-LB-host]/services/"
-            username = "$ref{super_admin.username}"
-            password = "$ref{super_admin.password}"                
-            ```
+        ``` toml tab="Control Plane with HA"
+        [apim.key_manager]
+        service_url = "https://[control-plane-LB-host]/services/"
+        username = "$ref{super_admin.username}"
+        password = "$ref{super_admin.password}"                
+        ```
         
-        === "Single Control Plane"
-            ``` toml
-            [apim.key_manager]
-            service_url = "https://[control-plane-host]:${mgt.transport.https.port}/services/"
-            username = "$ref{super_admin.username}"
-            password = "$ref{super_admin.password}"
-            ```
+        ``` toml tab="Single Control Plane"
+        [apim.key_manager]
+        service_url = "https://[control-plane-host]:${mgt.transport.https.port}/services/"
+        username = "$ref{super_admin.username}"
+        password = "$ref{super_admin.password}"
+        ```
 
     -   Connecting the Gateway to the Traffic Manager component in the Control Plane:
 
-        === "Control Plane with HA"
-            ``` toml
-            [[apim.throttling.url_group]]
-            traffic_manager_urls = ["tcp://control-plane-1-host:9611"]
-            traffic_manager_auth_urls = ["ssl://control-plane-1-host:9711"]
-            
-            [[apim.throttling.url_group]]
-            traffic_manager_urls = ["tcp://control-plane-2-host:9611"]
-            traffic_manager_auth_urls = ["ssl://control-plane-2-host:9711"]
-            
-            [apim.throttling]
-            service_url = "https://[Traffic-Manager-LB-Host]/services/"
-            throttle_decision_endpoints = ["tcp://control-plane-1-host:5672", "tcp://control-plane-2-host:5672"]
-            ```
+        ``` toml tab="Control Plane with HA"
+        [[apim.throttling.url_group]]
+        traffic_manager_urls = ["tcp://control-plane-1-host:9611"]
+        traffic_manager_auth_urls = ["ssl://control-plane-1-host:9711"]
         
-        === "Single Control Plane"
-            ``` toml
-            [[apim.throttling.url_group]]
-            traffic_manager_urls = ["tcp://control-plane-host:9611"]
-            traffic_manager_auth_urls = ["ssl://control-plane-host:9711"]
-            
-            [apim.throttling]
-            service_url = "https://control-plane-host:${mgt.transport.https.port}/services/"
-            throttle_decision_endpoints = ["tcp://control-plane-host:5672"]
-            ```     
+        [[apim.throttling.url_group]]
+        traffic_manager_urls = ["tcp://control-plane-2-host:9611"]
+        traffic_manager_auth_urls = ["ssl://control-plane-2-host:9711"]
+        
+        [apim.throttling]
+        service_url = "https://[Traffic-Manager-LB-Host]/services/"
+        throttle_decision_endpoints = ["tcp://control-plane-1-host:5672", "tcp://control-plane-2-host:5672"]
+        ```
+        
+        ``` toml tab="Single Control Plane"
+        [[apim.throttling.url_group]]
+        traffic_manager_urls = ["tcp://control-plane-host:9611"]
+        traffic_manager_auth_urls = ["ssl://control-plane-host:9711"]
+        
+        [apim.throttling]
+        service_url = "https://control-plane-host:${mgt.transport.https.port}/services/"
+        throttle_decision_endpoints = ["tcp://control-plane-host:5672"]
+        ```     
 
 3.  Add the following configurations to the `deployment.toml` file to configure the Gateway environment.
 
@@ -115,15 +111,13 @@
       
     5.  Open the server's `/etc/hosts` file and map the hostnames to IPs.
     
-        === "Format"
-            ```java
-            <GATEWAY-IP> gw.wso2.com
-            ```
+        ```java tab="Format"
+        <GATEWAY-IP> gw.wso2.com
+        ```
     
-        === "Example"
-            ``` java
-            xxx.xxx.xxx.xx4 gw.wso2.com
-            ``` 
+        ``` java tab="Example"
+        xxx.xxx.xxx.xx4 gw.wso2.com
+        ``` 
 
 ??? info "Sample configuration for the Gateway"
     ```toml

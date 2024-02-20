@@ -291,56 +291,52 @@ TOKEN=$(curl -X POST "https://localhost:9095/testkey" -H "Authorization: Basic Y
 
 Execute the following cURL command to invoke the API using the access token.
 
-=== "SOAP 1.1"
-    ```bash
-    curl -X 'POST' 'https://localhost:9095/phoneverify/1.0.0' -H 'Content-Type: text/xml' -H "Authorization: Bearer $TOKEN" -H "SOAPAction: http://ws.cdyne.com/PhoneVerify/query/CheckPhoneNumber" -d @request.xml -k -v
-    ```
+```bash tab="SOAP 1.1"
+curl -X 'POST' 'https://localhost:9095/phoneverify/1.0.0' -H 'Content-Type: text/xml' -H "Authorization: Bearer $TOKEN" -H "SOAPAction: http://ws.cdyne.com/PhoneVerify/query/CheckPhoneNumber" -d @request.xml -k -v
+```
 
-=== "SOAP 1.2"
-    ```bash
-    curl -X 'POST' 'https://localhost:9095/phoneverify/1.0.0' -H 'Content-Type: application/soap+xml' -H "Authorization: Bearer $TOKEN"  -d @request.xml -k -v
-    ```
+```bash tab="SOAP 1.2"
+curl -X 'POST' 'https://localhost:9095/phoneverify/1.0.0' -H 'Content-Type: application/soap+xml' -H "Authorization: Bearer $TOKEN"  -d @request.xml -k -v
+```
 
 A sample content for `request.xml` file referred in above cURL command looks like follows.
 
-=== "SOAP 1.1"
-    ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <soap:Envelope
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-      xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-      <soap:Body>
-        <CheckPhoneNumber
-          xmlns="http://ws.cdyne.com/PhoneVerify/query">
-          <PhoneNumber>18006785432</PhoneNumber>
-          <LicenseKey>18006785432</LicenseKey>
-        </CheckPhoneNumber>
-      </soap:Body>
-    </soap:Envelope>
-    ```
+```xml tab="SOAP 1.1"
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+	<soap:Body>
+		<CheckPhoneNumber
+			xmlns="http://ws.cdyne.com/PhoneVerify/query">
+			<PhoneNumber>18006785432</PhoneNumber>
+			<LicenseKey>18006785432</LicenseKey>
+		</CheckPhoneNumber>
+	</soap:Body>
+</soap:Envelope>
+```
 
-=== "SOAP 1.2"
-    ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <soap12:Envelope
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-      xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
-      <soap12:Body>
-        <CheckPhoneNumber
-          xmlns="http://ws.cdyne.com/PhoneVerify/query">
-          <PhoneNumber>18006785432</PhoneNumber>
-          <LicenseKey>18006785432</LicenseKey>
-        </CheckPhoneNumber>
-      </soap12:Body>
-    </soap12:Envelope>
-    ```
+```xml tab="SOAP 1.2"
+<?xml version="1.0" encoding="utf-8"?>
+<soap12:Envelope
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+	<soap12:Body>
+		<CheckPhoneNumber
+			xmlns="http://ws.cdyne.com/PhoneVerify/query">
+			<PhoneNumber>18006785432</PhoneNumber>
+			<LicenseKey>18006785432</LicenseKey>
+		</CheckPhoneNumber>
+	</soap12:Body>
+</soap12:Envelope>
+```
 
 ### Error Response Types
 The default error response type in WSO2 Choreo Connect is `JSON`. However, when you are using Choreo Connect with SOAP backends, you may need to have error responses in respective (`text/xml` or `application/soap+xml`) types. You will be able to enable this by setting the following config as `true`. 
 
-```toml
+```yaml
 [adapter]
 soapErrorInXMLEnabled = true
 ```

@@ -13,7 +13,7 @@ Follow the steps below to enable OAuth2 token encryption
 1.  Stop the API Manager server if it is already running.
 2.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file, uncomment the following configuration and set the `enable_token_encryption` value to be `true`.   
 
-    ```toml
+    ``` 
     [apim.oauth_config]
     enable_token_encryption = true
     ```
@@ -21,7 +21,7 @@ Follow the steps below to enable OAuth2 token encryption
     !!! Note
         By default, WSO2 API Manager uses `RSA/ECB/OAEPwithSHA1andMGF1Padding` algorithm for token encryption. If you want to change the algorithm, please add following configuration to deployment.toml, specifying the preferred algorithm.
     
-        ```toml
+        ```
         [system.parameter]
         "org.wso2.CipherTransformation" = "<Algorithm>"
         ```

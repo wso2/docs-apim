@@ -43,8 +43,7 @@ See the example .toml file given below.
                 <label class="tab-selector" for="_tab_2"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-```toml
-[router]
+<pre><code class="toml">[router]
   listenerHost = "0.0.0.0"
   listenerPort = 9090
   securedListenerHost = "0.0.0.0"
@@ -54,7 +53,7 @@ See the example .toml file given below.
   systemHost = "localhost"
   useRemoteAddress = false
   perConnectionBufferLimitBytes = 1048576
-```
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -269,13 +268,12 @@ See the example .toml file given below.
                 <label class="tab-selector" for="_tab_3"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-```toml
-[router.connectionTimeout]
+<pre><code class="toml">[router.connectionTimeout]
   requestTimeoutInSeconds = 0
   requestHeadersTimeoutInSeconds = 0 
   streamIdleTimeoutInSeconds = 300
   idleTimeoutInSeconds = 3600
-```
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -387,12 +385,11 @@ See the example .toml file given below.
                 <label class="tab-selector" for="_tab_4"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-```toml
-[router.upstream.timeouts]
+<pre><code class="toml">[router.upstream.timeouts]
   routeTimeoutInSeconds = 60
   maxRouteTimeoutInSeconds = 60
   routeIdleTimeoutInSeconds = 300
-```
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -485,13 +482,11 @@ See the example .toml file given below.
                 <label class="tab-selector" for="_tab_5"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-```toml
-[router.upstream.health]
+<pre><code class="toml">[router.upstream.health]
   timeout = 1
   interval = 10
   unhealthyThreshold = 2
-  healthyThreshold = 2
-```
+  healthyThreshold = 2</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -603,11 +598,9 @@ See the example .toml file given below.
                 <label class="tab-selector" for="_tab_6"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-```toml
-[adapter.keystore]
+<pre><code class="toml">[adapter.keystore]
   certPath = "/home/wso2/security/keystore/mg.pem"
-  keyPath = "/home/wso2/security/keystore/mg.key"
-```
+  keyPath = "/home/wso2/security/keystore/mg.key"</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -681,15 +674,14 @@ See the example .toml file given below.
                 <label class="tab-selector" for="_tab_7"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-```toml
-[router.cors]
+<pre><code class="toml">[router.cors]
 enabled = true
 allowOrigins = ["*"]
 allowMethods = ["GET","PUT","POST","DELETE","PATCH","OPTIONS"]
 allowHeaders = ["authorization","Access-Control-Allow-Origin","Content-Type","SOAPAction","apikey", "testKey", "Internal-Key"]
 exposeHeaders = []
 allowCredentials = false
-```
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -841,12 +833,11 @@ allowCredentials = false
                 <label class="tab-selector" for="_tab_8"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-```toml
-[router.upstream.retry]
+<pre><code class="toml">[router.upstream.retry]
   maxRetryCount = 5
   baseIntervalInMillis = 25
   statusCodes = [ 504 ]
-```
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -939,8 +930,7 @@ allowCredentials = false
                 <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-```toml
-[router.upstream.tls]
+<pre><code class="toml">[router.upstream.tls]
   minimumProtocolVersion = "TLS1_1"
   maximumProtocolVersion = "TLS1_2"
   ciphers = "ECDHE-ECDSA-AES128-GCM-SHA256, ECDHE-RSA-AES128-GCM-SHA256, ECDHE-ECDSA-AES128-SHA, ECDHE-RSA-AES128-SHA, AES128-GCM-SHA256, AES128-SHA, ECDHE-ECDSA-AES256-GCM-SHA384, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-ECDSA-AES256-SHA, ECDHE-RSA-AES256-SHA, AES256-GCM-SHA384, AES256-SHA"
@@ -948,7 +938,7 @@ allowCredentials = false
   trustedCertPath = "/etc/ssl/certs/ca-certificates.crt"
   verifyHostName = true
   disableSslVerification = false
-```
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -1106,12 +1096,11 @@ allowCredentials = false
                 <label class="tab-selector" for="_tab_10"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-```toml
-[router.downstream.tls]
+<pre><code class="toml">[router.downstream.tls]
   # the default client ca-certificates
   trustedCertPath = "/etc/ssl/certs/ca-certificates.crt"
   mTLSAPIsEnabled = false
-```
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -1187,13 +1176,12 @@ allowCredentials = false
                 <label class="tab-selector" for="_tab_11"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-```toml
-[router.payloadPassingToEnforcer]
+<pre><code class="toml">[router.payloadPassingToEnforcer]
   passRequestPayload = true
   maxRequestBytes = 10240
   allowPartialMessage = false
   packAsBytes = true
-```
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -1307,8 +1295,7 @@ allowCredentials = false
                 <label class="tab-selector" for="_tab_12"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-```toml
-[router.filters]
+<pre><code class="toml">[router.filters]
   [router.filters.compression]
     enabled = true
     library = "gzip"
@@ -1327,7 +1314,7 @@ allowCredentials = false
     compressionLevel = 9
     compressionStrategy = "defaultStrategy"
     chunkSize = 4096
-```
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">

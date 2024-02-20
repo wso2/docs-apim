@@ -28,37 +28,33 @@ The allowed origins for a particular REST API can be configured as a system para
 
     - The origin will have the following syntax.
 
-    === "Format"
-        ```bash
-        <scheme>://<hostname>[ :<port> ]
-        ```
+    ```bash tab="Format"
+    <scheme>://<hostname>[ :<port> ]
+    ```
 
-    === "Example"
-        ```bash
-        https://myorg1.publisher.example.com
-        ```
+    ```bash tab="Example"
+    https://myorg1.publisher.example.com
+    ```
 
 ### Method 1- Specify the allowed origins in the deployment.toml file under [system.parameter]
 
  1.  Open the `<API-M_HOME>/repository/deployment.toml` file and specify the allowed origins for the REST APIs under `[system.parameter]`.
 
-    === "Format"
-        ```toml
-        [system.parameter]
-        'rest.api.publisher.allowed.origins' = "<comma-separated-origins>"
-        'rest.api.devportal.allowed.origins' = "<comma-separated-origins>"
-        'rest.api.gateway.allowed.origins' = "<comma-separated-origins>"
-        'rest.api.service.catalog.allowed.origins' = "<comma-separated-origins>"
-        ```
+    ```toml tab="Format"
+    [system.parameter]
+    'rest.api.publisher.allowed.origins' = "<comma-separated-origins>"
+    'rest.api.devportal.allowed.origins' = "<comma-separated-origins>"
+    'rest.api.gateway.allowed.origins' = "<comma-separated-origins>"
+    'rest.api.service.catalog.allowed.origins' = "<comma-separated-origins>"
+    ```
 
-    === "Example"
-        ```toml
-        [system.parameter]
-        'rest.api.publisher.allowed.origins' = "https://myorg1.publisher.example.com"
-        'rest.api.devportal.allowed.origins' = "https://myorg1.devportal.example.com,https://myorg2.devportal.example.com"
-        'rest.api.gateway.allowed.origins' = "https://myorg1.gateway.example.com,https://myorg3.gateway.example.com"
-        'rest.api.service.catalog.allowed.origins' = "https://myorg1.service.catalog.example.com"
-        ```
+    ```toml tab="Example"
+    [system.parameter]
+    'rest.api.publisher.allowed.origins' = "https://myorg1.publisher.example.com"
+    'rest.api.devportal.allowed.origins' = "https://myorg1.devportal.example.com,https://myorg2.devportal.example.com"
+    'rest.api.gateway.allowed.origins' = "https://myorg1.gateway.example.com,https://myorg3.gateway.example.com"
+    'rest.api.service.catalog.allowed.origins' = "https://myorg1.service.catalog.example.com"
+    ```
 
  2.  Start the server to apply the changes.
 
@@ -73,21 +69,19 @@ This can be done in one of two ways.
 
    1. Specify the allowed origins for the REST APIs in the server startup script stored in the `<PRODUCT_HOME>/bin` directory. (`api-manager.sh` for Linux/Mac OS and `api-manager.bat` for Windows)
 
-    === "Format"
-        ```bash
-        -Drest.api.publisher.allowed.origins=<comma-separated-origins> \
-        -Drest.api.devportal.allowed.origins=<comma-separated-origins> \
-        -Drest.api.gateway.allowed.origins=<comma-separated-origins> \
-        -Drest.api.service.catalog.allowed.origins=<comma-separated-origins>
-        ```
+    ```bash tab="Format"
+    -Drest.api.publisher.allowed.origins=<comma-separated-origins> \
+    -Drest.api.devportal.allowed.origins=<comma-separated-origins> \
+    -Drest.api.gateway.allowed.origins=<comma-separated-origins> \
+    -Drest.api.service.catalog.allowed.origins=<comma-separated-origins>
+    ```
 
-    === "Example"
-        ```bash
-        -Drest.api.publisher.allowed.origins=https://myorg1.publisher.example.com \
-        -Drest.api.devportal.allowed.origins=https://myorg1.devportal.example.com,https://myorg2.devportal.example.com \
-        -Drest.api.gateway.allowed.origins=https://myorg1.gateway.example.com,https://myorg3.gateway.example.com \
-        -Drest.api.service.catalog.allowed.origins=https://myorg1.service.catalog.example.com
-        ```
+    ```bash tab="Example"
+    -Drest.api.publisher.allowed.origins=https://myorg1.publisher.example.com \
+    -Drest.api.devportal.allowed.origins=https://myorg1.devportal.example.com,https://myorg2.devportal.example.com \
+    -Drest.api.gateway.allowed.origins=https://myorg1.gateway.example.com,https://myorg3.gateway.example.com \
+    -Drest.api.service.catalog.allowed.origins=https://myorg1.service.catalog.example.com
+    ```
 
    2. Start the server.
 
@@ -100,40 +94,36 @@ Start the API-M server by specifying the allowed origins for the REST APIs as sy
 
    - Linux/Mac OS
 
-=== "Format"
-    ```bash
-    ./api-manager.sh \
-    -Drest.api.publisher.allowed.origins=<comma-separated-origins> \
-    -Drest.api.devportal.allowed.origins=<comma-separated-origins> \
-    -Drest.api.gateway.allowed.origins=<comma-separated-origins> \
-    -Drest.api.service.catalog.allowed.origins=<comma-separated-origins>
-    ```
+```bash tab="Format"
+./api-manager.sh \
+-Drest.api.publisher.allowed.origins=<comma-separated-origins> \
+-Drest.api.devportal.allowed.origins=<comma-separated-origins> \
+-Drest.api.gateway.allowed.origins=<comma-separated-origins> \
+-Drest.api.service.catalog.allowed.origins=<comma-separated-origins>
+```
 
-=== "Example"
-    ```bash
-    ./api-manager.sh \
-    -Drest.api.publisher.allowed.origins=https://myorg1.publisher.example.com \
-    -Drest.api.devportal.allowed.origins=https://myorg1.devportal.example.com,https://myorg2.devportal.example.com \
-    -Drest.api.gateway.allowed.origins=https://myorg1.gateway.example.com,https://myorg3.gateway.example.com \
-    -Drest.api.service.catalog.allowed.origins=https://myorg1.service.catalog.example.com
-    ```
+```bash tab="Example"
+./api-manager.sh \
+-Drest.api.publisher.allowed.origins=https://myorg1.publisher.example.com \
+-Drest.api.devportal.allowed.origins=https://myorg1.devportal.example.com,https://myorg2.devportal.example.com \
+-Drest.api.gateway.allowed.origins=https://myorg1.gateway.example.com,https://myorg3.gateway.example.com \
+-Drest.api.service.catalog.allowed.origins=https://myorg1.service.catalog.example.com
+```
 
    - Windows
 
-=== "Format"
-    ```bash
-    api-manager.bat \
-    -Drest.api.publisher.allowed.origins=<comma-separated-origins> \
-    -Drest.api.devportal.allowed.origins=<comma-separated-origins> \
-    -Drest.api.gateway.allowed.origins=<comma-separated-origins> \
-    -Drest.api.service.catalog.allowed.origins=<comma-separated-origins>
-    ```
+```bash tab="Format"
+api-manager.bat \
+-Drest.api.publisher.allowed.origins=<comma-separated-origins> \
+-Drest.api.devportal.allowed.origins=<comma-separated-origins> \
+-Drest.api.gateway.allowed.origins=<comma-separated-origins> \
+-Drest.api.service.catalog.allowed.origins=<comma-separated-origins>
+```
 
-=== "Example"
-    ```bash
-    api-manager.bat \
-    -Drest.api.publisher.allowed.origins=https://myorg1.publisher.example.com \
-    -Drest.api.devportal.allowed.origins=https://myorg1.devportal.example.com,https://myorg2.devportal.example.com \
-    -Drest.api.gateway.allowed.origins=https://myorg1.gateway.example.com,https://myorg3.gateway.example.com \
-    -Drest.api.service.catalog.allowed.origins=https://myorg1.service.catalog.example.com
-    ```
+```bash tab="Example"
+api-manager.bat \
+-Drest.api.publisher.allowed.origins=https://myorg1.publisher.example.com \
+-Drest.api.devportal.allowed.origins=https://myorg1.devportal.example.com,https://myorg2.devportal.example.com \
+-Drest.api.gateway.allowed.origins=https://myorg1.gateway.example.com,https://myorg3.gateway.example.com \
+-Drest.api.service.catalog.allowed.origins=https://myorg1.service.catalog.example.com
+```

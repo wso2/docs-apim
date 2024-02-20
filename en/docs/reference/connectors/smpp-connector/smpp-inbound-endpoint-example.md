@@ -126,14 +126,14 @@ You can download the ZIP file and extract the contents to get the project code.
    
    **Sample request**
    
-   ```
+     ```
      curl -v POST -d '{"sourceAddress":"16111", "message":"Hi! This is the first test SMS message.","distinationAddress":"071XXXXXXX"}' "http://172.17.0.1:8290/send" -H "Content-Type:application/json"
-   ```
+     ```
    SMPP Inbound Endpoint will consume message from the SMSC.
    
    **Expected response**
    
-   ```
+     ```
      [2020-05-18 10:56:05,495]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - MessageId = 0, SourceAddress = null, DataCoding = 0, ScheduleDeliveryTime = null, SequenceNumber = 7, ServiceType = null
      [2020-05-18 10:56:05,506]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - To: , MessageID: urn:uuid:F767BC9689D3D2221B1589779565430, Direction: request, Envelope: <?xml version='1.0' encoding='utf-8'?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Body><text xmlns="http://ws.apache.org/commons/ns/payload">Hi! This is the first test SMS message.</text></soapenv:Body></soapenv:Envelope>
-   ```
+     ```

@@ -44,15 +44,13 @@ https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zi
 * Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
 * Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
    
-    === "On MacOS/Linux/CentOS"
-        ```bash
-        sh axis2server.sh
-        ```
+      ```bash tab='On MacOS/Linux/CentOS'
+      sh axis2server.sh
+      ```
           
-    === "On Windows"
-        ```bash
-        axis2server.bat
-        ```
+      ```bash tab='On Windows'
+      axis2server.bat
+      ```
 
 [Enable the UDP transport]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-udp-transport) and start the Micro-Integrator.
 

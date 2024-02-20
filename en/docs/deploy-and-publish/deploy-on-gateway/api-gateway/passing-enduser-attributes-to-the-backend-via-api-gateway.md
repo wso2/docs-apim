@@ -23,15 +23,13 @@ Backend JWTs can be signed with RSA to ensure their validity when being sent bet
 
 The JWKS endpoint can be accessed via the following URL depending on the tenant.
 
-=== "Super Tenant"
-    ```url
-    https://<hostname>:8243/jwks
-    ```
+```url tab="Super Tenant"
+https://<hostname>:8243/jwks
+```
 
-=== "Tenant"
-    ```url
-    https://<hostname>:8243/t/<tenant domain>/jwks
-    ```
+```url tab="Tenant"
+https://<hostname>:8243/t/<tenant domain>/jwks
+```
 
 Refer to the following sample JWKS response.
 
@@ -89,7 +87,7 @@ Before passing end user attributes, you need to enable and configure the JWT imp
 
 2. Enable and configure the JWT implementation.
 
-     ```toml
+     ```
      [apim.jwt]
      enable = true
      ```
@@ -167,7 +165,7 @@ Follow the instructions below if you want to pass additional attributes to the b
      generator_impl = "org.wso2.carbon.test.CustomTokenGenerator"
      ```
      
-    !!! note
+     !!! note
          Note that `CustomTokenGenerator` is for opaque tokens only and public class `CustomGatewayJWTGenerator` is for JWT.
 
 4.  Set the `apim.jwt.enable` element to **true** in the `deployment.toml` file.

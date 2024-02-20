@@ -41,13 +41,11 @@ See the example .toml file given below.
                 <label class="tab-selector" for="_tab_2"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-```toml
-[enforcer.authService]
+<pre><code class="toml">[enforcer.authService]
   port = 8081
   maxMessageSize = 1000000000
   maxHeaderLimit = 8192
-  keepAliveTime = 600
-```
+  keepAliveTime = 600</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -178,13 +176,11 @@ See the example .toml file given below.
                 <label class="tab-selector" for="_tab_3"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-```toml
-[enforcer.authService.threadPool]
+<pre><code class="toml">[enforcer.authService.threadPool]
   coreSize = 400
   maxSize = 500
   keepAliveTime = 600
-  queueSize = 1000
-```
+  queueSize = 1000</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -296,13 +292,11 @@ See the example .toml file given below.
                 <label class="tab-selector" for="_tab_4"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-```toml
-[[enforcer.filters]]
+<pre><code class="toml">[[enforcer.filters]]
     className = "org.wso2.choreo.connect.custom.CCCustomFilter"
     position = 3
     [enforcer.filters.configProperties]
-        testConfig1 = "testValue1"
-```
+        testConfig1 = "testValue1"</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -395,12 +389,10 @@ See the example .toml file given below.
                 <label class="tab-selector" for="_tab_5"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-```toml
-[enforcer.cache]
+<pre><code class="toml">[enforcer.cache]
   enabled = true
   maximumSize = 10000
-  expiryTime = 15
-```
+  expiryTime = 15</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -493,11 +485,9 @@ See the example .toml file given below.
                 <label class="tab-selector" for="_tab_6"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-```toml
-[enforcer.management]
+<pre><code class="toml">[enforcer.management]
 username = "admin"
-password = "admin"
-```
+password = "admin"</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -571,10 +561,8 @@ password = "admin"
                 <label class="tab-selector" for="_tab_7"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-```toml
-[enforcer.restserver]
-enabled = true
-```
+<pre><code class="toml">[enforcer.restserver]
+enabled = true</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -629,8 +617,7 @@ enabled = true
                 <label class="tab-selector" for="_tab_8"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-```toml
-[enforcer.jwtGenerator]
+<pre><code class="toml">[enforcer.jwtGenerator]
   enabled = false
   encoding = "base64"
   claimDialect = "http://wso2.org/claims"
@@ -642,7 +629,7 @@ enabled = true
   claimsExtractorImpl = "org.wso2.carbon.apimgt.impl.token.ExtendedDefaultClaimsRetriever"
   publicCertificatePath = "/home/wso2/security/truststore/mg.pem"
   privateKeyPath = "/home/wso2/security/keystore/mg.key"
-```
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -891,8 +878,7 @@ enabled = true
                 <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-```toml
-[enforcer.jwtIssuer]
+<pre><code class="toml">[enforcer.jwtIssuer]
   enabled = true
   issuer = "https://localhost:9095/testkey"
   encoding = "base64"
@@ -900,8 +886,7 @@ enabled = true
   signingAlgorithm = "SHA256withRSA"
   publicCertificatePath = "/home/wso2/security/truststore/mg.pem"
   privateKeyPath = "/home/wso2/security/keystore/mg.key"
-  validityPeriod = 3600
-```
+  validityPeriod = 3600</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -1093,11 +1078,9 @@ enabled = true
                 <label class="tab-selector" for="_tab_10"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-```toml
-[[enforcer.jwtIssuer.jwtUser]]
+<pre><code class="toml">[[enforcer.jwtIssuer.jwtUser]]
   username = "admin"
-  password = "$env{enforcer_admin_pwd}"
-```
+  password = "$env{enforcer_admin_pwd}"</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -1171,11 +1154,9 @@ enabled = true
                 <label class="tab-selector" for="_tab_11"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-```toml
-[enforcer.security.authHeader]
+<pre><code class="toml">[enforcer.security.authHeader]
   enableOutboundAuthHeader = false
-  authorizationHeader = "authorization"
-```
+  authorizationHeader = "authorization"</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -1249,13 +1230,11 @@ enabled = true
                 <label class="tab-selector" for="_tab_12"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-```toml
-[enforcer.security.mutualSSL]
+<pre><code class="toml">[enforcer.security.mutualSSL]
   certificateHeader = "X-WSO2-CLIENT-CERTIFICATE"
   enableClientValidation = true
   clientCertificateEncode = false
-  enableOutboundCertificateHeader = false
-```
+  enableOutboundCertificateHeader = false</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -1367,8 +1346,7 @@ enabled = true
                 <label class="tab-selector" for="_tab_13"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-```toml
-[[enforcer.security.tokenService]]
+<pre><code class="toml">[[enforcer.security.tokenService]]
   name="Resident Key Manager"
   issuer = "https://localhost:9443/oauth2/token"
   certificateAlias = "wso2carbon"
@@ -1376,7 +1354,7 @@ enabled = true
   validateSubscription = false
   consumerKeyClaim = "azp"
   certificateFilePath = "/home/wso2/security/truststore/wso2carbon.pem"
-```
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -1545,15 +1523,14 @@ enabled = true
                 <label class="tab-selector" for="_tab_14"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-```toml
-[enforcer.throttling]
+<pre><code class="toml">[enforcer.throttling]
   enableGlobalEventPublishing = false
   enableHeaderConditions = false
   enableQueryParamConditions = false
   enableJwtClaimConditions = false
   jmsConnectionInitialContextFactory = "org.wso2.andes.jndi.PropertiesFileInitialContextFactory"
   jmsConnectionProviderURL = "amqp://admin:$env{tm_admin_pwd}@carbon/carbon?brokerlist='tcp://localhost:5672'"
-```
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -1703,11 +1680,9 @@ enabled = true
                 <label class="tab-selector" for="_tab_15"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-```toml
-[enforcer.throttling.publisher]
+<pre><code class="toml">[enforcer.throttling.publisher]
   username = "admin"
-  password = "$env{tm_admin_pwd}"
-```
+  password = "$env{tm_admin_pwd}"</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -1781,11 +1756,9 @@ enabled = true
                 <label class="tab-selector" for="_tab_16"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-```toml
-[[enforcer.throttling.publisher.URLGroup]]
+<pre><code class="toml">[[enforcer.throttling.publisher.URLGroup]]
   receiverURLs = ["tcp://localhost:9611"]
-  authURLs = ["ssl://localhost:9711"]
-```
+  authURLs = ["ssl://localhost:9711"]</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -1859,14 +1832,12 @@ enabled = true
                 <label class="tab-selector" for="_tab_17"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-```toml
-[enforcer.throttling.publisher.pool]
+<pre><code class="toml">[enforcer.throttling.publisher.pool]
   maxIdleDataPublishingAgents = 1000
   initIdleObjectDataPublishingAgents = 200
   publisherThreadPoolCoreSize = 200
   publisherThreadPoolMaximumSize = 1000
-  publisherThreadPoolKeepAliveTime = 200
-```
+  publisherThreadPoolKeepAliveTime = 200</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -1997,8 +1968,7 @@ enabled = true
                 <label class="tab-selector" for="_tab_18"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-```toml
-[enforcer.throttling.publisher.agent]
+<pre><code class="toml">[enforcer.throttling.publisher.agent]
   sslEnabledProtocols = "TLSv1.2"
   ciphers="TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDH_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256  ,TLS_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_DSS_WITH_AES_128_GCM_SHA256  ,TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA,TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA,SSL_RSA_WITH_3DES_EDE_CBC_SHA, TLS_ECDH_ECDSA_WITH_3DES_EDE_CBC_SHA,TLS_ECDH_RSA_WITH_3DES_EDE_CBC_SHA,SSL_DHE_RSA_WITH_3DES_EDE_CBC_SHA, SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA,TLS_EMPTY_RENEGOTIATION_INFO_SCSV"
   queueSize = 32768
@@ -2017,8 +1987,7 @@ enabled = true
   secureMaxTransportPoolSize = 250
   secureMaxIdleConnections = 250
   secureEvictionTimePeriod = 5500
-  secureMinIdleTimeInPool = 5000
-```
+  secureMinIdleTimeInPool = 5000</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -2377,11 +2346,9 @@ enabled = true
                 <label class="tab-selector" for="_tab_19"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-```toml
-[enforcer.metrics]
+<pre><code class="toml">[enforcer.metrics]
   enabled = false
-  type = "azure"
-```
+  type = "azure"</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">

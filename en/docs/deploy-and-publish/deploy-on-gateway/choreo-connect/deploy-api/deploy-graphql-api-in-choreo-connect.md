@@ -230,15 +230,13 @@ apictl mg add env dev --adapter https://localhost:9843
 
 You can use the following command to log in to the above Choreo Connect cluster (log in to the Choreo Connect adapter). When you log in, an access token will be retrieved from Choreo Connect and it will be saved in the apictl.
 
-=== "Format"
-    ``` bash
-    apictl mg login dev -u <username> -p <password> -k
-    ```
+``` bash tab="Format"
+apictl mg login dev -u <username> -p <password> -k
+```
 
-=== "Example"
-    ``` bash
-    apictl mg login dev -u admin -p admin -k
-    ```
+``` bash tab="Example"
+apictl mg login dev -u admin -p admin -k
+```
 
 ### Step 4 - Deploy the API
 
@@ -254,17 +252,15 @@ After exposing the GraphQL API via Choreo Connect, you can invoke an API with a 
 
 Let's use the following command to generate a JWT to access the API, and set it to the variable `TOKEN`. 
 
-=== "Format"
-    ```bash
-    TOKEN=$(curl -X POST "https://<hostname>:<port>/testkey" -d "scope=<scope values>" -H "Authorization: Basic base64(username:password)" -k -v)
+``` tab="Format"
+TOKEN=$(curl -X POST "https://<hostname>:<port>/testkey" -d "scope=<scope values>" -H "Authorization: Basic base64(username:password)" -k -v)
 
-    ```
+```
 
-=== "Example"
-    ```bash
-    TOKEN=$(curl -X POST "https://localhost:9095/testkey" -d "" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -v)
+``` tab="Example"
+TOKEN=$(curl -X POST "https://localhost:9095/testkey" -d "" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -v)
 
-    ```
+```
 
 
 ### Step 6 - Invoke the API
@@ -278,17 +274,14 @@ Let's use the following command to generate a JWT to access the API, and set it 
 
 - Invoke the API using the following cURL command structure.
 
-    === "Format"
-        ```bash
-        curl -X POST "<Docker-hostname>:<Docker-port>/<API-context>/<API-version>" -H "Authorization: Bearer $TOKEN" -d "<query>" -H "Content-Type: application/json" -k 
-        ```
+    ```bash tab="Format"
+    curl -X POST "<Docker-hostname>:<Docker-port>/<API-context>/<API-version>" -H "Authorization: Bearer $TOKEN" -d "<query>" -H "Content-Type: application/json" -k 
+    ```
 
-    === "Example"
-        ```bash
-        curl -X POST "https://localhost:9095/starwars/1.0.0" -H "Authorization: Bearer $TOKEN" -d '{"query":"query MyQuery { allDroids { appearsIn } }","variables":null}' -H "Content-Type: application/json" -k 
-        ```
+    ```bash tab="Example"
+    curl -X POST "https://localhost:9095/starwars/1.0.0" -H "Authorization: Bearer $TOKEN" -d '{"query":"query MyQuery { allDroids { appearsIn } }","variables":null}' -H "Content-Type: application/json" -k 
+    ```
 
-    === "Response"
-        ```bash
-        {"data":{"allDroids":[{"appearsIn":["NEWHOPE","EMPIRE","JEDI"]},{"appearsIn":["NEWHOPE","EMPIRE","JEDI"]}]}}
-        ```
+    ```bash tab="Response"
+    {"data":{"allDroids":[{"appearsIn":["NEWHOPE","EMPIRE","JEDI"]},{"appearsIn":["NEWHOPE","EMPIRE","JEDI"]}]}}
+    ```

@@ -89,34 +89,32 @@ Follow the instructions below to change the type of the default datasource.
 
     Sample configuration is shown below:
 
-    === "Format"
-        ``` toml
-        type = "db2"
-        url = "jdbc:db2://localhost:50000/<DATABASE_NAME>"
-        username = "<USER_NAME>"
-        password = "<PASSWORD>"
-        driver = "com.ibm.db2.jcc.DB2Driver"
-        validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
-        ```
+    ``` tab="Format"
+    type = "db2"
+    url = "jdbc:db2://localhost:50000/<DATABASE_NAME>"
+    username = "<USER_NAME>"
+    password = "<PASSWORD>"
+    driver = "com.ibm.db2.jcc.DB2Driver"
+    validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
+    ```
 
-    === "Example"
-        ``` toml
-        [database.apim_db]
-        type = "db2"
-        url = "jdbc:db2://localhost:50000/apim_db"
-        username = "apimadmin"
-        password = "apimadmin"
-        driver = "com.ibm.db2.jcc.DB2Driver"
-        validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
-        
-        [database.shared_db]
-        type = "db2"
-        url = "jdbc:db2://localhost:50000/shared_db"
-        username = "sharedadmin"
-        password = "sharedadmin"
-        driver = "com.ibm.db2.jcc.DB2Driver"
-        validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
-        ```
+    ``` tab="Example"
+    [database.apim_db]
+    type = "db2"
+    url = "jdbc:db2://localhost:50000/apim_db"
+    username = "apimadmin"
+    password = "apimadmin"
+    driver = "com.ibm.db2.jcc.DB2Driver"
+    validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
+    
+    [database.shared_db]
+    type = "db2"
+    url = "jdbc:db2://localhost:50000/shared_db"
+    username = "sharedadmin"
+    password = "sharedadmin"
+    driver = "com.ibm.db2.jcc.DB2Driver"
+    validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
+    ```
 
 1.  You can update the configuration elements given below for your database connection.
 
@@ -133,42 +131,40 @@ Follow the instructions below to change the type of the default datasource.
 
     Sample configuration is shown below:
     
-    === "Format"
-        ``` toml
-        type = "db2"
-        url = "jdbc:db2://localhost:50000/<DATABASE_NAME>"
-        username = "<USER_NAME>"
-        password = "<PASSWORD>"
-        driver = "com.ibm.db2.jcc.DB2Driver"
-        validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
-        pool_options.<OPTION-1> = <VALUE-1>
-        pool_options.<OPTION-2> = <VALUE-2>
-        ...
-        ```
+    ``` tab="Format"
+    type = "db2"
+    url = "jdbc:db2://localhost:50000/<DATABASE_NAME>"
+    username = "<USER_NAME>"
+    password = "<PASSWORD>"
+    driver = "com.ibm.db2.jcc.DB2Driver"
+    validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
+    pool_options.<OPTION-1> = <VALUE-1>
+    pool_options.<OPTION-2> = <VALUE-2>
+    ...
+    ```
 
-    === "Example"
-        ``` toml
-        [database.apim_db]
-        type = "db2"
-        url = "jdbc:db2://localhost:50000/apim_db"
-        username = "apimadmin"
-        password = "apimadmin"
-        driver = "com.ibm.db2.jcc.DB2Driver"
-        validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
-        pool_options.maxActive = 100
-        pool_options.maxWait = 10000
-        pool_options.validationInterval = 10000
+    ``` tab="Example"
+    [database.apim_db]
+    type = "db2"
+    url = "jdbc:db2://localhost:50000/apim_db"
+    username = "apimadmin"
+    password = "apimadmin"
+    driver = "com.ibm.db2.jcc.DB2Driver"
+    validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
+    pool_options.maxActive = 100
+    pool_options.maxWait = 10000
+    pool_options.validationInterval = 10000
 
-        [database.shared_db]
-        type = "db2"
-        url = "jdbc:db2://localhost:50000/shared_db"
-        username = "sharedadmin"
-        password = "sharedadmin"
-        driver = "com.ibm.db2.jcc.DB2Driver"
-        validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
-        pool_options.maxActive = 50
-        pool_options.maxWait = 30000
-        ```
+    [database.shared_db]
+    type = "db2"
+    url = "jdbc:db2://localhost:50000/shared_db"
+    username = "sharedadmin"
+    password = "sharedadmin"
+    driver = "com.ibm.db2.jcc.DB2Driver"
+    validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
+    pool_options.maxActive = 50
+    pool_options.maxWait = 30000
+    ```
     
     !!! info
         For more information on other parameters that can be defined in the `<API-M_HOME>/repository/conf/deployment.toml` file, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
@@ -186,13 +182,12 @@ Follow the instructions below to change the type of the default datasource.
         - Create tables in the carbon database (`WSO2CARBON_DB`) using the script `<API-M_HOME>/dbscripts/db2.sql`.
         -   Open the `<API-M_HOME>/repository/conf/deployment.toml` configuration file. Locate the `[database.local]` configuration element and update the URL pointing to your IBM DB2 database, the username, and password required to access the database and the IBM DB2 driver details similarly as explained before.
         
-        === "Example"
-            ``` toml
-            [database.local]
-            type = "db2"
-            url = "jdbc:db2://localhost:50000/carbon_db"
-            username = "carbonadmin"
-            password = "carbonadmin"
-            driver = "com.ibm.db2.jcc.DB2Driver"
-            validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
-            ```
+        ``` tab="Example"
+        [database.local]
+        type = "db2"
+        url = "jdbc:db2://localhost:50000/carbon_db"
+        username = "carbonadmin"
+        password = "carbonadmin"
+        driver = "com.ibm.db2.jcc.DB2Driver"
+        validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
+        ```

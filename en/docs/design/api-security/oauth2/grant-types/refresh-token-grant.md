@@ -41,15 +41,13 @@ Replace `<base64(client-id:client-secret)>` as appropriate.
 
 For example, the following cURL command can be used to access the Token API.
 
-=== "Format"
-    ``` java
-    curl -k -d "grant_type=refresh_token&refresh_token=<refresh-token>" -H "Authorization: Basic SVpzSWk2SERiQjVlOFZLZFpBblVpX2ZaM2Y4YTpHbTBiSjZvV1Y4ZkM1T1FMTGxDNmpzbEFDVzhh" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
-    ```
+``` java tab="Format"
+curl -k -d "grant_type=refresh_token&refresh_token=<refresh-token>" -H "Authorization: Basic SVpzSWk2SERiQjVlOFZLZFpBblVpX2ZaM2Y4YTpHbTBiSjZvV1Y4ZkM1T1FMTGxDNmpzbEFDVzhh" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+```
 
-=== "Example"
-    ``` java
-    curl -k -d "grant_type=refresh_token&refresh_token=3154090c-37f1-3268-90f9-8bd84daf135c" -H "Authorization: Basic UXk3RUZfVEtMbEVLWTlVRFpiWHVscVA4ZVVBYTpKSWN3VTlIX1hGUFdTcW1RQmllZ3lJUzRKazhh" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
-    ```
+``` java tab="Example"
+curl -k -d "grant_type=refresh_token&refresh_token=3154090c-37f1-3268-90f9-8bd84daf135c" -H "Authorization: Basic UXk3RUZfVEtMbEVLWTlVRFpiWHVscVA4ZVVBYTpKSWN3VTlIX1hGUFdTcW1RQmllZ3lJUzRKazhh" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+```
 
 You receive a response similar to the following:
 
@@ -65,7 +63,7 @@ You receive a response similar to the following:
 
 The above REST response grants you a renewed access token along with a refresh token, which you can use the next time you renew the access token. A refresh token can be used only once. You can configure an expiration time for the refresh token by adding following configuration in the `<APIM_HOME>/repository/conf/deployment.toml` file.
 
-``` toml
+```
     [oauth.token_validation]
     refresh_token_validity = 3600
 ```
@@ -82,15 +80,13 @@ The parameters required to invoke the following API are as follows:
 
 - <code>base64Encode(clientId:clientSecret)</code> - Use a base64 encoder to encode your client ID and client secret in the format - `<clientId>:<clientSecret>`. WSO2 does not recommend the use of online base64 encoders for this purpose.
 
-=== "Format"
-    ``` java
-    curl -k -v -d "token=<refresh_token_to_be_revoked>" -H "Authorization: Basic <base64Encode(clientId:clientSecret)>" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/revoke
-    ```
+``` java tab="Format"
+curl -k -v -d "token=<refresh_token_to_be_revoked>" -H "Authorization: Basic <base64Encode(clientId:clientSecret)>" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/revoke
+```
 
-=== "Example"
-    ``` java
-    curl -k -v -d "token=c8e8eec2-0092-3ac6-b23f-ef7492f345a6" -H "Authorization: Basic OVRRNVJLZWFhVGZGeUpRSkRzam9aZmp4UkhjYTpDZnJ3ZXRual9ZOTdSSzFTZWlWQWx1aXdVVmth" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/revoke
-    ```
+``` java tab="Example"
+curl -k -v -d "token=c8e8eec2-0092-3ac6-b23f-ef7492f345a6" -H "Authorization: Basic OVRRNVJLZWFhVGZGeUpRSkRzam9aZmp4UkhjYTpDZnJ3ZXRual9ZOTdSSzFTZWlWQWx1aXdVVmth" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/revoke
+```
 
 **Response**
 
@@ -126,15 +122,13 @@ The parameters required to invoke the following API are as follows:
 
 - `token_type_hint -` This parameter is **optional**. If you do not specify this parameter, then WSO2 API Manager will search in both key spaces (access token and refresh token) and if it finds a matching token then it will be revoked. Therefore, if this parameter it not specified the token revocation process takes longer. However, if you specify this parameter then it will only searches in the respective token key space, hence the token revocation process is much faster.
 
-=== "Format"
-    ``` java
-    curl -k -v -d "token=<refresh_token_to_be_revoked>&token_type_hint=<access_token_or_refresh_token>" -H "Authorization: Basic <base64 encoded (clientId:clientSecret)>" -H Content-Type: application/x-www-form-urlencoded https://localhost:9443/oauth2/revoke
-    ```
+``` java tab="Format"
+curl -k -v -d "token=<refresh_token_to_be_revoked>&token_type_hint=<access_token_or_refresh_token>" -H "Authorization: Basic <base64 encoded (clientId:clientSecret)>" -H Content-Type: application/x-www-form-urlencoded https://localhost:9443/oauth2/revoke
+```
 
-=== "Example"
-    ``` java
-    curl -k -v -d "token=4ed29669-a457-3f83-af1e-180cad271cca&token_type_hint=refresh_token" -H "Authorization: Basic OVRRNVJLZWFhVGZGeUpRSkRzam9aZmp4UkhjYTpDZnJ3ZXRual9ZOTdSSzFTZWlWQWx1aXdVVmth" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/revoke
-    ```
+``` java tab="Example"
+curl -k -v -d "token=4ed29669-a457-3f83-af1e-180cad271cca&token_type_hint=refresh_token" -H "Authorization: Basic OVRRNVJLZWFhVGZGeUpRSkRzam9aZmp4UkhjYTpDZnJ3ZXRual9ZOTdSSzFTZWlWQWx1aXdVVmth" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/revoke
+```
 
 **Response**
 

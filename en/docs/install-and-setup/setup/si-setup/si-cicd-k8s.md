@@ -18,97 +18,95 @@ This deployment can be scaled horizontally as an [Active-Active deployment]({{ba
 You can find more deployment patterns [here]({{base_path}}/install-and-setup/setup/si-deployment/deployment-guide/).
 You can extend the below YAML files to introduce other components. (e.g., configMaps, Ingress, etc.)
 
-=== "Deployment"
-    ```yaml
-    apiVersion: "apps/v1"
-    kind: Deployment
+```yaml tab="Deployment"
+apiVersion: "apps/v1"
+kind: Deployment
+metadata:
+  name: "si-deployment"
+spec:
+  replicas: 1
+  minReadySeconds: 30
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: "integration"
+  template:
     metadata:
-      name: "si-deployment"
-    spec:
-      replicas: 1
-      minReadySeconds: 30
-      strategy:
-        rollingUpdate:
-          maxSurge: 1
-          maxUnavailable: 0
-        type: RollingUpdate
-      selector:
-        matchLabels:
-          app: "integration"
-      template:
-        metadata:
-          labels:
-            app: "integration"
-        spec:
-          containers:
-          - name: wso2si-sample
-            image: docker.io/samplerepo/helloworld:1.0.0
-            imagePullPolicy: Always
-            resources:
-              requests:
-                memory: "1Gi"
-                cpu: "1000m"
-              limits:
-                memory: "1Gi"
-                cpu: "1000m"
-            ports:
-            -
-              containerPort: 9090
-              protocol: "TCP"
-            -
-              containerPort: 9443
-              protocol: "TCP"
-            -
-              containerPort: 9711
-              protocol: "TCP"
-            -
-              containerPort: 9611
-              protocol: "TCP"
-            -
-              containerPort: 7711
-              protocol: "TCP"
-            -
-              containerPort: 7611
-              protocol: "TCP"
-    ```
-
-=== "Service"
-    ```yaml
-    apiVersion: "v1"
-    kind: "Service"
-    metadata:
-      name: "si-service"
-    spec:
-      type: "ClusterIP"
-      selector:
+      labels:
         app: "integration"
-      ports:
-        # ports that this service should serve on
+    spec:
+      containers:
+      - name: wso2si-sample
+        image: docker.io/samplerepo/helloworld:1.0.0
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "1000m"
+          limits:
+            memory: "1Gi"
+            cpu: "1000m"
+        ports:
         -
-          name: pass-through-http
-          protocol: TCP
-          port: 9090
+          containerPort: 9090
+          protocol: "TCP"
         -
-          name: servlet-https
-          protocol: TCP
-          port: 9443
+          containerPort: 9443
+          protocol: "TCP"
         -
-          name: http-port-1
-          protocol: TCP
-          port: 9711
+          containerPort: 9711
+          protocol: "TCP"
         -
-          name: http-port-2
-          protocol: TCP
-          port: 9611
+          containerPort: 9611
+          protocol: "TCP"
         -
-          name: http-port-3
-          protocol: TCP
-          port: 7711
+          containerPort: 7711
+          protocol: "TCP"
         -
-          name: http-port-4
-          protocol: TCP
-          port: 7611
-    ```
+          containerPort: 7611
+          protocol: "TCP"
+```
+
+```yaml tab="Service"
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  name: "si-service"
+spec:
+  type: "ClusterIP"
+  selector:
+    app: "integration"
+  ports:
+    # ports that this service should serve on
+    -
+      name: pass-through-http
+      protocol: TCP
+      port: 9090
+    -
+      name: servlet-https
+      protocol: TCP
+      port: 9443
+    -
+      name: http-port-1
+      protocol: TCP
+      port: 9711
+    -
+      name: http-port-2
+      protocol: TCP
+      port: 9611
+    -
+      name: http-port-3
+      protocol: TCP
+      port: 7711
+    -
+      name: http-port-4
+      protocol: TCP
+      port: 7611
+```
 
 
 ## Setting up the environment

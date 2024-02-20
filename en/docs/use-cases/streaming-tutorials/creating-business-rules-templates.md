@@ -99,7 +99,7 @@ To create a business rule from scratch, follow the procedure below:
 
 5. Click **Input** to expand the **Input** section. Then select the rule template from which the source and input configurations for the business rule must be selected.
 
-    ![Input Section]({{base_path}}/assets/img/streaming/working-with-business-rules/select-input.png)
+    ![Input Section]({{base_path}}/assets/img/streaming/working-with-business-rules/Select-Input.png)
 
     This displays the list of available sources and the exposed attributes of the selected template as shown below.
 

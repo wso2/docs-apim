@@ -13,15 +13,13 @@
     ```
 - Once you are able to see the api-operator pod up and running, you can check its logs using the below command.
 
-    === "Format"
-        ```shell
-        kubectl logs -f <NAME_OF_THE_API-OPERATOR_POD>
-        ```
+   ```shell tab="Format"
+   kubectl logs -f <NAME_OF_THE_API-OPERATOR_POD>
+   ```
   
-    === "Example"
-        ```shell
-        kubectl logs -f api-operator-59c665f477-9bw7l
-        ```
+   ```shell tab="Example"
+   kubectl logs -f api-operator-59c665f477-9bw7l
+   ```
 - Once the above command is executed, it will show the logs in the API operator.
 
 ## Useful kubectl commands for troubleshooting

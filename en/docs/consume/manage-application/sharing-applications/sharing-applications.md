@@ -21,7 +21,7 @@ You can enable application sharing with users in a single group or between users
 
     **Default**
 
-    ``` toml
+    ``` java
     [apim.devportal]
     enable_application_sharing = true
     application_sharing_type = "default"
@@ -30,7 +30,7 @@ You can enable application sharing with users in a single group or between users
 
     **SAML**
 
-    ``` toml
+    ``` java
     [apim.devportal]
     enable_application_sharing = true
     application_sharing_type = "saml"
@@ -39,7 +39,7 @@ You can enable application sharing with users in a single group or between users
 
     **Custom**
 
-    ``` toml
+    ``` java
     [apim.devportal]
     enable_application_sharing = true
     #application_sharing_type = "default"

@@ -10,7 +10,7 @@ WSO2 API Manager has three types of threat protectors for the Gateway.
 
 You can use a combination of the threat protectors given above to validate the messages and protect your gateway from attacks. An example custom mediation policy which which validates the API request against XML and regex valdators is given below.
 
-``` xml
+``` java
 <sequence xmlns="http://ws.apache.org/ns/synapse" name="combinevalidator">
     <property name="xmlValidation" value="true"/>
     <property name="dtdEnabled" value="false"/>

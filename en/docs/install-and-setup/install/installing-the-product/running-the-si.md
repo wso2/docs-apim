@@ -28,27 +28,23 @@ Follow the steps given below to start the Streaming Integrator server.
 
       -   To start the server:
           
-        === "On macOS/Linux"
-            ```bash
-            sh server.sh
-            ```
+          ```bash tab="On macOS/Linux"
+          sh server.sh
+          ```
 
-        === "On Windows"
-            ```bash
-            server.bat
-            ```
+          ```bash tab="On Windows"
+          server.bat
+          ```
 
       -   To start the server in background mode:
 
-        === "On macOS/Linux"
-            ```bash
-            sh server.sh start
-            ```
+          ```bash tab="On macOS/Linux"
+          sh server.sh start
+          ```
 
-        === "On Windows"
-            ```bash
-            server.bat --start
-            ```
+          ```bash tab="On Windows"
+          server.bat --start
+          ```
       
 By default, the HTTP listener port is 8290 and the default HTTPS listener port is 8253.
 
@@ -57,15 +53,13 @@ By default, the HTTP listener port is 8290 and the default HTTPS listener port i
 -     To stop the Streaming Integrator standalone application, go to the terminal and press <i>Ctrl+C</i>.
 -     To stop the Streaming Integrator in background mode:
 
-    === "On macOS/Linux"
-        ```bash
-        sh server.sh stop
-        ```
+      ```bash tab="On macOS/Linux"
+      sh server.sh stop
+      ```
 
-    === "On Windows"
-        ```bash
-        server.bat --stop
-        ```
+      ```bash tab="On Windows"
+      server.bat --stop
+      ```
 
 ## See Also
 

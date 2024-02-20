@@ -57,15 +57,13 @@ After adding an environment, you can login to the Micro Integrator instance of t
                  
     -   **Response**
 
-        === "Response Format"
-            ``` bash
-            Logged into MI in '<environment-name>' environment 
-            ```
+        ``` bash tab="Response Format"
+        Logged into MI in '<environment-name>' environment 
+        ```
 
-        === "Example Response"
-            ```bash
-            Logged into MI in dev environment
-            ```
+        ```bash tab="Example Response"
+        Logged into MI in dev environment
+        ```
 
     !!! warning
         Using `--password` in CTL is not secure. You can use `--password-stdin` instead. For example,
@@ -90,15 +88,13 @@ After adding an environment, you can login to the Micro Integrator instance of t
     
     -   **Response**
 
-        === "Response Format"
-            ``` bash
-            Logged out from MI in '<environment-name>' environment 
-            ```
+        ``` bash tab="Response Format"
+        Logged out from MI in '<environment-name>' environment 
+        ```
 
-        === "Example Response"
-            ```bash
-            Logged out from MI in dev environment
-            ```
+        ```bash tab="Example Response"
+        Logged out from MI in dev environment
+        ```
 
 ## Manage Users
 

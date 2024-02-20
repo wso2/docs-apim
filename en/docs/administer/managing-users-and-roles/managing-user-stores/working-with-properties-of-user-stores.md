@@ -46,10 +46,8 @@ The following table provides descriptions of the key properties you use to confi
 <td><code>             UserSearchBase            </code></td>
 <td><div class="content-wrapper">
 <p>DN of the context or object under which the user entries are stored in the user store. In this case, it is the &quot;users&quot; container. When the user store searches for users, it will start from this location of the directory.</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
+!!! info
 <p>Different databases have different search bases.</p>
-</div>
 
 </div></td>
 </tr>
@@ -61,10 +59,8 @@ The following table provides descriptions of the key properties you use to confi
 <td><code>             UserNameAttribute            </code></td>
 <td><div class="content-wrapper">
 <p>The attribute used for uniquely identifying a user entry. Users can be authenticated using their email address, UID, etc.</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
+!!! info
 <p>The name of the attribute is considered as the username.</p>
-</div>
 
 <p>For information on using email address to authenticate users, click <a href="https://docs.wso2.com/display/IS530/Using+Email+Address+as+the+Username">here</a> .</p>
 </div></td>
@@ -209,10 +205,8 @@ The following table provides descriptions of the key properties you use to confi
 <td><p><code>              StoreSaltedPassword             </code></p></td>
 <td><div class="content-wrapper">
 <p>(JDBC) Indicates whether to salt the password.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
+!!! tip
 <p><strong>Tip:</strong> Make sure you secure the password with salt and key.</p>
-<div>
 
 </div></td>
 </tr>

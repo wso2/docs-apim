@@ -173,7 +173,7 @@ The default role name of the Administrator, (`admin`) can be changed before star
 
 Configure the property `admin_role` with your custom role (`administrator`) in the `deployment.toml` file as follows and start the server.
 
-```toml
+```
 [super_admin]
 admin_role = "administrator"
 username = "admin"

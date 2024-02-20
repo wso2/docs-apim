@@ -34,20 +34,17 @@ To add a new certificate to a Choreo Connect component, the PEM formatted certif
 
 2.  Add the certificate to the relevant component's resource folder.
 
-    === "adapter"
-        ```
-        <CHOREO-CONNECT_HOME>/docker-compose/resources/adapter/security/truststore
-        ```
+    ``` tab="adapter"
+    <CHOREO-CONNECT_HOME>/docker-compose/resources/adapter/security/truststore
+    ```
 
-    === "enforcer"
-        ```
-        <CHOREO-CONNECT_HOME>/docker-compose/resources/enforcer/security/truststore
-        ```
+    ``` tab="enforcer"
+    <CHOREO-CONNECT_HOME>/docker-compose/resources/enforcer/security/truststore
+    ```
 
-    === "router"
-        ```
-        <CHOREO-CONNECT_HOME>/docker-compose/resources/router/security/truststore
-        ```
+    ``` tab="router"
+    <CHOREO-CONNECT_HOME>/docker-compose/resources/router/security/truststore
+    ```
         
 3.  Restart the component.
    
@@ -58,23 +55,20 @@ To add a new certificate to a Choreo Connect component, the PEM formatted certif
 
     The certificate locations are configured as a volume mount for each component container in the `docker-compose.yaml` file as given below.
 
-    === "adapter"
-        ```yaml
-        volumes:
-                - ../resources/adapter/security:/home/wso2/security
-        ```
+    ``` tab="adapter"
+    volumes:
+            - ../resources/adapter/security:/home/wso2/security
+    ```
 
-    === "enforcer"
-        ```yaml
-        volumes:
-                - ../resources/enforcer/security:/home/wso2/security
-        ```
+    ``` tab="enforcer"
+    volumes:
+            - ../resources/enforcer/security:/home/wso2/security
+    ```
 
-    === "router"
-        ```yaml
-        volumes:
-                - ../resources/router/security:/home/wso2/security
-        ```
+    ``` tab="router"
+    volumes:
+            - ../resources/router/security:/home/wso2/security
+    ```
 
     This mounts both the key store and truststore locations to the container.
 

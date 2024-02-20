@@ -13,9 +13,8 @@ Given below are the synapse configurations that are required for mediating the a
 
 See the instructions on how to [build and run](#build-and-run) this example.
 
-=== "Proxy Service 1"
-    ```xml
-    <proxy name="JMSDelivery" startOnLoad="true" trace="disable" transports="https http">
+```xml tab="Proxy Service 1"
+<proxy name="JMSDelivery" startOnLoad="true" trace="disable" transports="https http">
             <description/>
             <target>
                 <inSequence>
@@ -40,12 +39,11 @@ See the instructions on how to [build and run](#build-and-run) this example.
                 </outSequence>
             </target>
             <publishWSDL uri="file:repository/samples/resources/proxy/sample_proxy_1.wsdl"/>
-    </proxy>
-    ```
+</proxy>
+```
 
-=== "Proxy Service 2"
-    ```xml
-    <proxy name="JMSDeliveryDelayed" startOnLoad="true" trace="disable" transports="https http">
+```xml tab="Proxy Service 2"
+<proxy name="JMSDeliveryDelayed" startOnLoad="true" trace="disable" transports="https http">
             <description/>
             <target>
                 <inSequence>
@@ -71,54 +69,50 @@ See the instructions on how to [build and run](#build-and-run) this example.
                 </outSequence>
             </target>
             <publishWSDL uri="file:repository/samples/resources/proxy/sample_proxy_1.wsdl"/>
-    </proxy>
-    ```
+</proxy>
+```
 
-=== "Main Sequence"
-    ```xml
-    <sequence name="main">
-        <in>
-            <!-- Log all messages passing through -->
-        <log level="full"/>
-            <!-- ensure that the default configuration only sends if it is one of samples -->
-            <!-- Otherwise Synapse would be an open proxy by default (BAD!)               -->
-            <filter regex="http://localhost:9000.*" source="get-property('To')">
-            <!-- Send the messages where they have been sent (i.e. implicit "To" EPR) -->
-            <send/>
-            </filter>
-    </in>
-    <out>
-            <send/>
-    </out>
-    <description>The main sequence for the message mediation</description>
-    </sequence>
-    ```
+```xml tab="Main Sequence"
+<sequence name="main">
+    <in>
+        <!-- Log all messages passing through -->
+       <log level="full"/>
+        <!-- ensure that the default configuration only sends if it is one of samples -->
+        <!-- Otherwise Synapse would be an open proxy by default (BAD!)               -->
+        <filter regex="http://localhost:9000.*" source="get-property('To')">
+        <!-- Send the messages where they have been sent (i.e. implicit "To" EPR) -->
+        <send/>
+        </filter>
+   </in>
+   <out>
+        <send/>
+   </out>
+   <description>The main sequence for the message mediation</description>
+</sequence>
+```
 
-=== "Fault Sequence"
-    ```xml
-    <sequence name="fault">
-        <!-- Log the message at the full log level with the ERROR_MESSAGE and the ERROR_CODE-->
-        <log level="full">
-            <property name="MESSAGE" value="Executing default 'fault' sequence"/>
-            <property expression="get-property('ERROR_CODE')" name="ERROR_CODE"/>
-            <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
-        </log>
-        <!-- Drops the messages by default if there is a fault -->
-        <drop/>
-    </sequence>
-    ```
+```xml tab="Fault Sequence"
+<sequence name="fault">
+    <!-- Log the message at the full log level with the ERROR_MESSAGE and the ERROR_CODE-->
+    <log level="full">
+        <property name="MESSAGE" value="Executing default 'fault' sequence"/>
+        <property expression="get-property('ERROR_CODE')" name="ERROR_CODE"/>
+        <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
+     </log>
+     <!-- Drops the messages by default if there is a fault -->
+    <drop/>
+</sequence>
+```
 
-=== "Registry Artifact"
-    ```xml
-    <registry provider="org.wso2.micro.integrator.registry.MicroIntegratorRegistry">
-    <parameter name="cachableDuration">15000</parameter>
-    </registry>
-    ```
+```xml tab="Registry Artifact"
+<registry provider="org.wso2.micro.integrator.registry.MicroIntegratorRegistry">
+   <parameter name="cachableDuration">15000</parameter>
+</registry>
+```
 
-=== "Task Manager"
-    ```xml
-    <taskManager provider="org.wso2.micro.integrator.mediation.ntask.NTaskTaskManager"/>
-    ```
+```xml tab="Task Manager"
+<taskManager provider="org.wso2.micro.integrator.mediation.ntask.NTaskTaskManager"/>
+```
 
 See the descriptions of the above configurations:
 

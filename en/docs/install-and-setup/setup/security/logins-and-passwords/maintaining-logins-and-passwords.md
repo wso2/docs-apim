@@ -43,7 +43,7 @@ Follow the instructions below to change the default admin password:
     ```
 
     ??? info "sample deployment.toml configs"
-        ```toml
+        ```
         [super_admin]
         username = "foo_admin"
         password = "<![CDATA[~^&*#`43d:3;]]>"
@@ -107,7 +107,7 @@ Use the `<API-M_HOME>/bin/chpasswd.sh` script.
     username_java_regex = '^[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}'
     username_java_script_regex = '^[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$'
         
-    [apim.devportal]
+    [apim.devportal]  
     enable_cross_tenant_subscriptions = true
     default_reserved_username = "apim_reserved_user"
     ```
@@ -154,7 +154,7 @@ Use the `<API-M_HOME>/bin/chpasswd.sh` script.
 3. Restart the server.
 
 ??? info "sample deployment.toml configs"
-    ```toml
+    ```
     [tenant_mgt]
     enable_email_domain= true
 

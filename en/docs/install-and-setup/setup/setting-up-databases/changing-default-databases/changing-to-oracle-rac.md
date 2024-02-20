@@ -97,34 +97,32 @@ Follow the instructions below to change the type of the default datasource.
     
     Sample configuration is shown below:
     
-    === "Format"
-        ``` toml
-        type = "oracle"
-        url = "jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=racnode1) (PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=racnode2) (PORT=1521))(CONNECT_DATA=(SERVICE_NAME=rac)))"
-        username = "<USER_NAME>"
-        password = "<PASSWORD>"
-        driver = "oracle.jdbc.driver.OracleDriver"
-        validationQuery = "SELECT 1 FROM DUAL"
-        ```
+    ``` tab="Format"
+    type = "oracle"
+    url = "jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=racnode1) (PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=racnode2) (PORT=1521))(CONNECT_DATA=(SERVICE_NAME=rac)))"
+    username = "<USER_NAME>"
+    password = "<PASSWORD>"
+    driver = "oracle.jdbc.driver.OracleDriver"
+    validationQuery = "SELECT 1 FROM DUAL"
+    ```
     
-    === "Example"
-        ``` toml
-        [database.shared_db]
-        type = "oracle"
-        url = "jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=racnode1) (PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=racnode2) (PORT=1521))(CONNECT_DATA=(SERVICE_NAME=rac)))"
-        username = "sharedadmin"
-        password = "sharedadmin"
-        driver = "oracle.jdbc.driver.OracleDriver"
-        validationQuery = "SELECT 1 FROM DUAL"
-        
-        [database.apim_db]
-        type = "oracle"
-        url = "jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=racnode1) (PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=racnode2) (PORT=1521))(CONNECT_DATA=(SERVICE_NAME=rac)))"
-        username = "apimadmin"
-        password = "apimadmin"
-        driver = "oracle.jdbc.driver.OracleDriver"
-        validationQuery = "SELECT 1 FROM DUAL"
-        ```
+    ``` tab="Example"
+    [database.shared_db]
+    type = "oracle"
+    url = "jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=racnode1) (PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=racnode2) (PORT=1521))(CONNECT_DATA=(SERVICE_NAME=rac)))"
+    username = "sharedadmin"
+    password = "sharedadmin"
+    driver = "oracle.jdbc.driver.OracleDriver"
+    validationQuery = "SELECT 1 FROM DUAL"
+    
+    [database.apim_db]
+    type = "oracle"
+    url = "jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=racnode1) (PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=racnode2) (PORT=1521))(CONNECT_DATA=(SERVICE_NAME=rac)))"
+    username = "apimadmin"
+    password = "apimadmin"
+    driver = "oracle.jdbc.driver.OracleDriver"
+    validationQuery = "SELECT 1 FROM DUAL"
+    ```
 
 1. You can update the configuration elements given below for your database connection.
    
@@ -141,42 +139,40 @@ Follow the instructions below to change the type of the default datasource.
     
     Sample configuration is shown below:
     
-    === "Format"
-        ``` toml
-        type = "oracle"
-        url = "jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=racnode1) (PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=racnode2) (PORT=1521))(CONNECT_DATA=(SERVICE_NAME=rac)))"
-        username = "<USER_NAME>"
-        password = "<PASSWORD>"
-        driver = "oracle.jdbc.driver.OracleDriver"
-        validationQuery = "SELECT 1 FROM DUAL"
-        pool_options.<OPTION-1> = <VALUE-1>
-        pool_options.<OPTION-2> = <VALUE-2>
-        ...
-        ```
+    ``` tab="Format"
+    type = "oracle"
+    url = "jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=racnode1) (PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=racnode2) (PORT=1521))(CONNECT_DATA=(SERVICE_NAME=rac)))"
+    username = "<USER_NAME>"
+    password = "<PASSWORD>"
+    driver = "oracle.jdbc.driver.OracleDriver"
+    validationQuery = "SELECT 1 FROM DUAL"
+    pool_options.<OPTION-1> = <VALUE-1>
+    pool_options.<OPTION-2> = <VALUE-2>
+    ...
+    ```
     
-    === "Example"
-        ``` toml
-        [database.shared_db]
-        type = "oracle"
-        url = "jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=racnode1) (PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=racnode2) (PORT=1521))(CONNECT_DATA=(SERVICE_NAME=rac)))"
-        username = "sharedadmin"
-        password = "sharedadmin"
-        driver = "oracle.jdbc.driver.OracleDriver"
-        validationQuery = "SELECT 1 FROM DUAL"
-        pool_options.maxActive = 100
-        pool_options.maxWait = 10000
-        pool_options.validationInterval = 10000
-        
-        [database.apim_db]
-        type = "oracle"
-        url = "jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=racnode1) (PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=racnode2) (PORT=1521))(CONNECT_DATA=(SERVICE_NAME=rac)))"
-        username = "apimadmin"
-        password = "apimadmin"
-        driver = "oracle.jdbc.driver.OracleDriver"
-        validationQuery = "SELECT 1 FROM DUAL"
-        pool_options.maxActive = 50
-        pool_options.maxWait = 30000
-        ```
+    ``` tab="Example"
+    [database.shared_db]
+    type = "oracle"
+    url = "jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=racnode1) (PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=racnode2) (PORT=1521))(CONNECT_DATA=(SERVICE_NAME=rac)))"
+    username = "sharedadmin"
+    password = "sharedadmin"
+    driver = "oracle.jdbc.driver.OracleDriver"
+    validationQuery = "SELECT 1 FROM DUAL"
+    pool_options.maxActive = 100
+    pool_options.maxWait = 10000
+    pool_options.validationInterval = 10000
+    
+    [database.apim_db]
+    type = "oracle"
+    url = "jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=racnode1) (PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=racnode2) (PORT=1521))(CONNECT_DATA=(SERVICE_NAME=rac)))"
+    username = "apimadmin"
+    password = "apimadmin"
+    driver = "oracle.jdbc.driver.OracleDriver"
+    validationQuery = "SELECT 1 FROM DUAL"
+    pool_options.maxActive = 50
+    pool_options.maxWait = 30000
+    ```
 
     !!! info
         For more information on other parameters that can be defined in the `<API-M_HOME>/repository/conf/deployment.toml` file, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
@@ -193,14 +189,13 @@ Follow the instructions below to change the type of the default datasource.
             
         - Create tables in the carbon database (`WSO2CARBON_DB`) using the script `<API-M_HOME>/dbscripts/oracle_rac.sql`.
         -   Open the `<API-M_HOME>/repository/conf/deployment.toml` configuration file. Locate the `[database.local]` configuration element and update the URL pointing to your Oracle RAC database, the username, and password required to access the database and the Oracle RAC driver details similarly as explained before.
-        ;
-        === "Example"
-            ``` toml
-            [database.local]
-            type = "oracle"
-            url = "jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=racnode1) (PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=racnode2) (PORT=1521))(CONNECT_DATA=(SERVICE_NAME=rac)))"
-            username = "carbonadmin"
-            password = "carbonadmin"
-            driver = "oracle.jdbc.driver.OracleDriver"
-            validationQuery = "SELECT 1 FROM DUAL"
-            ```
+        
+        ``` tab="Example"
+        [database.local]
+        type = "oracle"
+        url = "jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=racnode1) (PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=racnode2) (PORT=1521))(CONNECT_DATA=(SERVICE_NAME=rac)))"
+        username = "carbonadmin"
+        password = "carbonadmin"
+        driver = "oracle.jdbc.driver.OracleDriver"
+        validationQuery = "SELECT 1 FROM DUAL"
+        ```

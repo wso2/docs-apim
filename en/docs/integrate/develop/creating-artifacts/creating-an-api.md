@@ -300,21 +300,20 @@ When you create the API, an API resource is created by default. If you want to a
         In the following example, if a DELETE request is received by `SampleAPI` on the `/payments` URL, the request will be
         dispatched to the default resource as none of the resources in SampleAPI are configured to handle DELETE requests.
 
-    === "SampleAPI"
-        ```xml
-        <api name="SampleAPI" context="/payments">
-        <resource url-mapping="/list" methods="GET" inSequence="seq7" outSequence="seq8"/>
-        <resource uri-template="/edit/{userId}" methods="PUT POST" outSequence="seq9">
-            <inSequence>
-                <log/>
-                <send>
-                    <endpoint key="BackendService"/>
-                </send>
-            </inSequence>
-        </resource>
-        <resource inSequence="seq10" outSequence="seq11"/>
-        </api>
-        ```    
+    ```xml tab='SampleAPI'
+    <api name="SampleAPI" context="/payments">
+    <resource url-mapping="/list" methods="GET" inSequence="seq7" outSequence="seq8"/>
+    <resource uri-template="/edit/{userId}" methods="PUT POST" outSequence="seq9">
+        <inSequence>
+             <log/>
+             <send>
+                  <endpoint key="BackendService"/>
+             </send>
+        </inSequence>
+    </resource>
+    <resource inSequence="seq10" outSequence="seq11"/>
+    </api>
+    ```    
 
 ### Updating metadata
 

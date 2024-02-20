@@ -99,7 +99,7 @@ First, enable the API state change workflow.
 
 3.  Go to the `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` resource, disable the Simple Workflow Executor and enable WS Workflow Executor.
 
-    ``` xml
+    ```
     <WorkFlowExtensions>
         ....
         <!-- Publisher related workflows -->

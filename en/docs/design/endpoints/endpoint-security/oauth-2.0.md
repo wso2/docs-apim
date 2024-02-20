@@ -88,44 +88,40 @@ Follow the instructions below to point WSO2 API Manager to a remote Redis Server
 
 If you are using an unauthenticated Redis server, you should add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
-=== "Format"
-    ```toml
-    [apim.redis_config]
-    host = {redis-server-hostname}
-    port = {redis-server-port}
-    ```
+```toml tab="Format"
+[apim.redis_config]
+host = {redis-server-hostname}
+port = {redis-server-port}
+```
 
-=== "Example"
-    ```toml
-    [apim.redis_config]
-    host = "localhost"
-    port = 8080
-    ```
+```toml tab="Example"
+[apim.redis_config]
+host = "localhost"
+port = 8080
+```
 
 ### Authenticated Redis Server
 
 If you are using an authenticated Redis server, you should add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
-=== "Format"
-    ```toml
-    [apim.redis_config]
-    host = {redis-server-hostname}
-    port = {redis-server-port}
-    user = {redis-server-username}
-    password = {redis-server-password}
-    database_id = {redis-server-database-id}
-    connection_timeout = {redis-server-connection-timeout-in-seconds}
-    ssl = {redis-server-is-ssl-enabled}
-    ```
+```toml tab="Format"
+[apim.redis_config]
+host = {redis-server-hostname}
+port = {redis-server-port}
+user = {redis-server-username}
+password = {redis-server-password}
+database_id = {redis-server-database-id}
+connection_timeout = {redis-server-connection-timeout-in-seconds}
+ssl = {redis-server-is-ssl-enabled}
+```
 
-=== "Example"
-    ```toml
-    [apim.redis_config]
-    host = "localhost"
-    port = 8080
-    user = "admin"
-    password = "admin"
-    database_id = 1
-    connection_timeout = 36000
-    ssl = true
-    ```
+```toml tab="Example"
+[apim.redis_config]
+host = "localhost"
+port = 8080
+user = "admin"
+password = "admin"
+database_id = 1
+connection_timeout = 36000
+ssl = true
+```

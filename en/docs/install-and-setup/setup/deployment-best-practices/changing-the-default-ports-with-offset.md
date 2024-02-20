@@ -25,17 +25,15 @@ The default port offset in the WSO2 API-M runtime is `0`. Use one of the followi
 3.  Uncomment the `offset` parameter under `[server]` and set the offset value.
 
 
-    === "Format"
-        ```toml
-        [server]
-        offset=<offset_value>
-        ```
+    ```toml tab="Format"
+    [server]
+    offset=<offset_value>
+    ```
 
-    === "Example"
-        ```toml
-        [server]
-        offset=1
-        ```
+    ```toml tab="Example"
+    [server]
+    offset=1
+    ```
 
 4. [Restart the server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/).
 
@@ -47,27 +45,23 @@ The default port offset in the WSO2 API-M runtime is `0`. Use one of the followi
 
     - Linux/Mac OS
     
-        === "Format"
-            ```bash
-            ./api-manager.sh -DportOffset=<offset_value>
-            ```
+        ```toml tab="Format"
+        ./api-manager.sh -DportOffset=<offset_value>
+        ```
         
-        === "Example"
-            ```toml
-            ./api-manager.sh -DportOffset=3
-            ```
+        ```toml tab="Example"
+        ./api-manager.sh -DportOffset=3
+        ```
         
     - Windows
     
-        === "Format"
-            ```toml
-            api-manager.bat -DportOffset=<offset_value>
-            ```
+        ```toml tab="Format"
+        api-manager.bat -DportOffset=<offset_value>
+        ```
         
-        === "Example"
-            ```toml
-            api-manager.bat -DportOffset=3
-            ```
+        ```toml tab="Example"
+        api-manager.bat -DportOffset=3
+        ```
 
 When you offset the server's port, it automatically changes all ports. 
 
@@ -90,17 +84,15 @@ The default port offset in the WSO2 Micro Integrator runtime is `10`. Use one of
 
 3.  Uncomment the `offset` parameter under `[server]` and set the offset value.
 
-    === "Format"
-        ```toml
-        [server]
-        offset=<offset_value>
-        ```
+    ```toml tab="Format"
+    [server]
+    offset=<offset_value>
+    ```
 
-    === "Example"
-        ```toml
-        [server]
-        offset = 3
-        ```
+    ```toml  tab="Example"
+    [server]
+    offset = 3
+    ```
 
 4. [Restart the server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi).
 
@@ -112,27 +104,23 @@ The default port offset in the WSO2 Micro Integrator runtime is `10`. Use one of
 
     - Linux/Mac OS
     
-        === "Format"
-            ```toml
-            ./micro-integrator.sh -DportOffset=<offset_value>
-            ```
+        ```toml tab="Format"
+        ./micro-integrator.sh -DportOffset=<offset_value>
+        ```
         
-        === "Example"
-            ```toml
-            ./micro-integrator.sh -DportOffset=3
-            ```
+        ```toml tab="Example"
+        ./micro-integrator.sh -DportOffset=3
+        ```
         
     - Windows
     
-        === "Format"
-            ```toml
-            micro-integrator.bat -DportOffset=<offset_value>
-            ```
+        ```toml tab="Format"
+        micro-integrator.bat -DportOffset=<offset_value>
+        ```
         
-        === "Example"
-            ```toml
-            micro-integrator.bat -DportOffset=3
-            ```
+        ```toml tab="Example"
+        micro-integrator.bat -DportOffset=3
+        ```
 
 #### Changing the default EI Analytics ports
 
@@ -141,26 +129,24 @@ If required, you can manually change the HTTP/HTTPS ports in the `deployment.yam
 !!! Note
     With the default internal port offset, the effective port is <code>https_port + 1</code>.
 
-=== "HTTPS Port"
-    ```yaml
-    wso2.transport.http:            
-    listenerConfigurations:
-    -
-        id: "msf4j-https"
-        host: "0.0.0.0"
-        port: https_port
-        scheme: https
-    ```
+```yaml tab='HTTPS Port'
+wso2.transport.http:            
+listenerConfigurations:
+-
+	id: "msf4j-https"
+	host: "0.0.0.0"
+	port: https_port
+	scheme: https
+```
 
-=== "HTTP Port"
-    ```yaml
-    wso2.transport.http:
-    listenerConfigurations:
-    -
-    id: "default"
-    host: "0.0.0.0"
-    port: http_port
-    ```
+```yaml tab='HTTP Port'
+wso2.transport.http:
+listenerConfigurations:
+-
+  id: "default"
+  host: "0.0.0.0"
+  port: http_port
+```
 
 ## Changing the default SI ports
 
@@ -172,35 +158,33 @@ Follow the steps given below.
 
 2.  Update the port offset parameters in the following configurations:
 
-    === "SI runtime"
-        ```yaml
-        # Carbon Configuration Parameters
-        wso2.carbon:
-            # value to uniquely identify a server
-        id: wso2-si
-            # server name
-        name: WSO2 Streaming Integrator
-            # server type
-        type: wso2-si
-            # ports used by this server
-        ports:
-            # port offset
-            offset: 0
-        ```
+    ```yaml tab="SI runtime"
+    # Carbon Configuration Parameters
+    wso2.carbon:
+        # value to uniquely identify a server
+    id: wso2-si
+        # server name
+    name: WSO2 Streaming Integrator
+        # server type
+    type: wso2-si
+        # ports used by this server
+    ports:
+        # port offset
+        offset: 0
+    ```
 
-    === "SI Tooling runtime"
-        ```yaml
-        # Carbon Configuration Parameters
-        wso2.carbon:
-            # value to uniquely identify a server
-        id: wso2-si
-            # server name
-        name: WSO2 Streaming Integrator Tooling
-            # ports used by this server
-        ports:
-            # port offset
-            offset: 3
-        ```
+    ```yaml tab="SI Tooling runtime"
+      # Carbon Configuration Parameters
+    wso2.carbon:
+        # value to uniquely identify a server
+    id: wso2-si
+        # server name
+    name: WSO2 Streaming Integrator Tooling
+        # ports used by this server
+    ports:
+        # port offset
+        offset: 3
+    ```
 
 ## What's Next?
 

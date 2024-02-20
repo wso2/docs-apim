@@ -9,7 +9,7 @@ Before you begin, make sure you do the following.
 1. Create an account in [https://developer.okta.com/](https://developer.okta.com/)
 2. Download WSO2 API Manager 4.1.0 distribution from [https://wso2.com/api-management/](https://wso2.com/api-management/)
 3. Unzip the distribution and open the `deployment.toml` file located in `<APIM_HOME>/repository/conf/`. Add the following configuration
-    ```toml
+    ```
     [tenant_mgt]
     enable_email_domain= true
     ```
@@ -56,28 +56,28 @@ Before you begin, make sure you do the following.
 
     1.  Navigate to **Users** -> **Profile Editor** and click the pencil icon to edit the default profile.
 
-        [![Edit the default profile in the Profile Editor]({{base_path}}/assets/img/learn/profile-editor.png)]({{base_path}}/assets/img/learn/profile-editor.png)
+        [![Edit the default profile in the Profile Editor](/assets/img/learn/profile-editor.png)](/assets/img/learn/profile-editor.png)
 
     2.  Click **Add Attribute** to add new user attributes.
-        [![Add new attribute]({{base_path}}/assets/img/learn/okta-add-new-attribute-add.png)]({{base_path}}/assets/img/learn/okta-add-new-attribute-add.png) 
+        [![Add new attribute](/assets/img/learn/okta-add-new-attribute-add.png)](/assets/img/learn/okta-add-new-attribute-add.png) 
 
 9.  Enter the user attributes shown in the image below. Click **Save**.
 
-    [![Add new attributes]({{base_path}}/assets/img/learn/okta-add-new-attribute-details.png)](/assets/img/learn/okta-add-new-attribute-details.png) 
+    [![Add new attributes](/assets/img/learn/okta-add-new-attribute-details.png)](/assets/img/learn/okta-add-new-attribute-details.png) 
 
 10.   Follow the steps below to edit the user profile.
 
     1.  Go to **Users** -> **People** and click on your profile name.
         
-        <a href="{{base_path}}/assets/img/learn/okta-profile-edit.png"><img src="{{base_path}}/assets/img/learn/okta-profile-edit.png"/></a>
+        <a href="/assets/img/learn/okta-profile-edit.png"><img src="/assets/img/learn/okta-profile-edit.png"/></a>
     
     2.  Click **Edit** to change the profile details.
         
-        <a href="{{base_path}}/assets/img/learn/okta-profile-edit2.png"><img src="{{base_path}}/assets/img/learn/okta-profile-edit2.png"" width="600" height="400"/></a>
+        <a href="/assets/img/learn/okta-profile-edit2.png"><img src="/assets/img/learn/okta-profile-edit2.png"" width="600" height="400"/></a>
 
     3.  Add the **Role**. This will be used in the API Manager to map an internal role to the provisioned user.
         
-        <a href="{{base_path}}/assets/img/learn/okta-profile-edit3.png"><img src="{{base_path}}/assets/img/learn/okta-profile-edit3.png"/></a>
+        <a href="/assets/img/learn/okta-profile-edit3.png"><img src="/assets/img/learn/okta-profile-edit3.png"/></a>
 
 ## Step 2 - Setup API-Manager
 
