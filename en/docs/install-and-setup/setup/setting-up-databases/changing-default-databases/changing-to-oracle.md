@@ -99,34 +99,32 @@ Follow the instructions below to change the type of the default datasource.
     
     Sample configuration is shown below:
     
-    === "Format"
-        ``` toml
-        type = "oracle"
-        url = "jdbc:oracle:thin:<DB_host>:1521:<sid>"
-        username = "<USER_NAME>"
-        password = "<PASSWORD>"
-        driver = "oracle.jdbc.driver.OracleDriver"
-        validationQuery = "SELECT 1 FROM DUAL"
-        ```
+    ``` tab="Format"
+    type = "oracle"
+    url = "jdbc:oracle:thin:<DB_host>:1521:<sid>"
+    username = "<USER_NAME>"
+    password = "<PASSWORD>"
+    driver = "oracle.jdbc.driver.OracleDriver"
+    validationQuery = "SELECT 1 FROM DUAL"
+    ```
     
-    === "Example"
-        ``` toml
-        [database.shared_db]
-        type = "oracle"
-        url = "jdbc:oracle:thin:@localhost:1521/orcl1"
-        username = "sharedadmin"
-        password = "sharedadmin"
-        driver = "oracle.jdbc.driver.OracleDriver"
-        validationQuery = "SELECT 1 FROM DUAL"
-        
-        [database.apim_db]
-        type = "oracle"
-        url = "jdbc:oracle:thin:@localhost:1521/orcl2"
-        username = "apimadmin"
-        password = "apimadmin"
-        driver = "oracle.jdbc.driver.OracleDriver"
-        validationQuery = "SELECT 1 FROM DUAL"
-        ```
+    ``` tab="Example"
+    [database.shared_db]
+    type = "oracle"
+    url = "jdbc:oracle:thin:@localhost:1521/orcl1"
+    username = "sharedadmin"
+    password = "sharedadmin"
+    driver = "oracle.jdbc.driver.OracleDriver"
+    validationQuery = "SELECT 1 FROM DUAL"
+    
+    [database.apim_db]
+    type = "oracle"
+    url = "jdbc:oracle:thin:@localhost:1521/orcl2"
+    username = "apimadmin"
+    password = "apimadmin"
+    driver = "oracle.jdbc.driver.OracleDriver"
+    validationQuery = "SELECT 1 FROM DUAL"
+    ```
 
     !!! important "Configuring the 'url'"
         Note that you can use `service_name` instead of the `sid` to configure the `url`. A sample is given below.
@@ -149,42 +147,40 @@ Follow the instructions below to change the type of the default datasource.
     
     Sample configuration is shown below:
     
-    === "Format"
-        ``` toml
-        type = "oracle"
-        url = "jdbc:oracle:thin:<DB_host>:1521:<sid>"
-        username = "<USER_NAME>"
-        password = "<PASSWORD>"
-        driver = "oracle.jdbc.driver.OracleDriver"
-        validationQuery = "SELECT 1 FROM DUAL"
-        pool_options.<OPTION-1> = <VALUE-1>
-        pool_options.<OPTION-2> = <VALUE-2>
-        ...
-        ```
+    ``` tab="Format"
+    type = "oracle"
+    url = "jdbc:oracle:thin:<DB_host>:1521:<sid>"
+    username = "<USER_NAME>"
+    password = "<PASSWORD>"
+    driver = "oracle.jdbc.driver.OracleDriver"
+    validationQuery = "SELECT 1 FROM DUAL"
+    pool_options.<OPTION-1> = <VALUE-1>
+    pool_options.<OPTION-2> = <VALUE-2>
+    ...
+    ```
     
-    === "Example"
-        ``` toml
-        [database.shared_db]
-        type = "oracle"
-        url = "jdbc:oracle:thin:@localhost:1521/orcl1"
-        username = "sharedadmin"
-        password = "sharedadmin"
-        driver = "oracle.jdbc.driver.OracleDriver"
-        validationQuery = "SELECT 1 FROM DUAL"
-        pool_options.maxActive = 100
-        pool_options.maxWait = 10000
-        pool_options.validationInterval = 10000
-        
-        [database.apim_db]
-        type = "oracle"
-        url = "jdbc:oracle:thin:@localhost:1521/orcl2"
-        username = "apimadmin"
-        password = "apimadmin"
-        driver = "oracle.jdbc.driver.OracleDriver"
-        validationQuery = "SELECT 1 FROM DUAL"
-        pool_options.maxActive = 50
-        pool_options.maxWait = 30000
-        ```
+    ``` tab="Example"
+    [database.shared_db]
+    type = "oracle"
+    url = "jdbc:oracle:thin:@localhost:1521/orcl1"
+    username = "sharedadmin"
+    password = "sharedadmin"
+    driver = "oracle.jdbc.driver.OracleDriver"
+    validationQuery = "SELECT 1 FROM DUAL"
+    pool_options.maxActive = 100
+    pool_options.maxWait = 10000
+    pool_options.validationInterval = 10000
+    
+    [database.apim_db]
+    type = "oracle"
+    url = "jdbc:oracle:thin:@localhost:1521/orcl2"
+    username = "apimadmin"
+    password = "apimadmin"
+    driver = "oracle.jdbc.driver.OracleDriver"
+    validationQuery = "SELECT 1 FROM DUAL"
+    pool_options.maxActive = 50
+    pool_options.maxWait = 30000
+    ```
 
     !!! important "Configuring the 'url'"
         Note that you can use `service_name` instead of the `sid` to configure the `url`. A sample is given below.
@@ -208,13 +204,12 @@ Follow the instructions below to change the type of the default datasource.
         - Create tables in the carbon database (`WSO2CARBON_DB`) using the script `<API-M_HOME>/dbscripts/oracle.sql`.
         -   Open the `<API-M_HOME>/repository/conf/deployment.toml` configuration file. Locate the `[database.local]` configuration element and update the URL pointing to your Oracle database, the username, and password required to access the database and the Oracle driver details similarly as explained before.
         
-        === "Example"
-            ``` toml
-            [database.local]
-            type = "oracle"
-            url = "jdbc:oracle:thin:@localhost:1521/orcl"
-            username = "carbonadmin"
-            password = "carbonadmin"
-            driver = "oracle.jdbc.driver.OracleDriver"
-            validationQuery = "SELECT 1 FROM DUAL"
-            ```
+        ``` tab="Example"
+        [database.local]
+        type = "oracle"
+        url = "jdbc:oracle:thin:@localhost:1521/orcl"
+        username = "carbonadmin"
+        password = "carbonadmin"
+        driver = "oracle.jdbc.driver.OracleDriver"
+        validationQuery = "SELECT 1 FROM DUAL"
+        ```

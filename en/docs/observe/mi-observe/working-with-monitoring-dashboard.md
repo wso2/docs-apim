@@ -169,15 +169,13 @@ Follow the steps given below.
 1.    Open a terminal and navigate to the `<MI-DASHBOARD_HOME>/bin` folder.
 2.    Execute one of the commands given below.
 
-    === "On MacOS/Linux"
-        ```bash
-        ./dashboard.sh
-        ```
+      ```bash tab="On MacOS/Linux"
+      ./dashboard.sh
+      ```
 
-    === "On Windows"
-        ```bash
-        dashboard.bat
-        ```
+      ```bash tab="On Windows"
+      dashboard.bat
+      ```
       
 ### Step 4 - Start the MI servers
 
@@ -186,15 +184,13 @@ Follow the steps given below.
 1.    Open a terminal and navigate to the `<MI_HOME>/bin` folder.
 2.    Execute one of the commands given below.
 
-    === "On MacOS/Linux"
-        ```bash
-        ./micro-integrator.sh
-        ```
+      ```bash tab="On MacOS/Linux"
+      ./micro-integrator.sh
+      ```
 
-    === "On Windows"
-        ```bash
-        micro-integrator.bat
-        ```
+      ```bash tab="On Windows"
+      micro-integrator.bat
+      ```
       
 ### Step 5 - Sign in to the Dashboard
 

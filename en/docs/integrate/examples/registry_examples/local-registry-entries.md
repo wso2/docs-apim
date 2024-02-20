@@ -5,43 +5,40 @@ This sample demonstrates how sequences and endpoints can be fetched from a local
 
 Following are the integration artifacts that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
-=== "Proxy Service"
-    ```xml
-    <proxy name="MainProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
-        <target>
-            <inSequence>
-                <property name="direction" scope="default" type="STRING" value="incoming"/>
-                <sequence key="stockquote"/>
-            </inSequence>
-            <outSequence>
-                <send/>
-            </outSequence>
-            <faultSequence/>
-        </target>
-    </proxy>
-    ```
+```xml tab='Proxy Service'
+<proxy name="MainProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <property name="direction" scope="default" type="STRING" value="incoming"/>
+            <sequence key="stockquote"/>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </target>
+</proxy>
+```
 
-=== "Sequence"
-    ```xml
-    <sequence name="stockquote" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-        <!-- log the message using the custom log level. illustrates custom properties for log -->
-        <log level="custom">
-            <property name="Text" value="Sending quote request"/>
-            <property expression="get-property('direction')" name="direction"/>
-        </log>
-        <!-- send message to real endpoint referenced by key "simple" endpoint definition -->
-        <send>
-            <endpoint key="simple"/>
-        </send>
-    </sequence>
-    ```
+```xml tab='Sequence'
+<sequence name="stockquote" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <!-- log the message using the custom log level. illustrates custom properties for log -->
+    <log level="custom">
+        <property name="Text" value="Sending quote request"/>
+        <property expression="get-property('direction')" name="direction"/>
+    </log>
+    <!-- send message to real endpoint referenced by key "simple" endpoint definition -->
+    <send>
+        <endpoint key="simple"/>
+    </send>
+</sequence>
+```
 
-=== "Endpoint"
-    ```xml
-    <endpoint name="simple" xmlns="http://ws.apache.org/ns/synapse">
-        <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-    </endpoint>
-    ```
+```xml tab='Endpoint'
+<endpoint name="simple" xmlns="http://ws.apache.org/ns/synapse">
+    <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+</endpoint>
+```
 
 ## Build and run
 
@@ -60,15 +57,13 @@ Set up the back-end service:
 3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
 4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
    
-    === "On MacOS/Linux/CentOS"
-        ```bash
-        sh axis2server.sh
-        ```
+      ```bash tab='On MacOS/Linux/CentOS'
+      sh axis2server.sh
+      ```
           
-    === "On Windows"
-        ```bash
-        axis2server.bat
-        ```
+      ```bash tab='On Windows'
+      axis2server.bat
+      ```
 
 Send a message to invoke the service and analyze the mediation log on the Micro Integrator's start-up console.
 

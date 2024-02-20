@@ -56,7 +56,7 @@ Note that the roles must be valid. If the API creator is not an API-M admin they
 
     In order to disable this cache, add the following to the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
-    ```toml
+    ```
     [apim.cache.publisher_roles]
     enable = false
     ```

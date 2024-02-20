@@ -86,35 +86,35 @@ Let's design a Siddhi application that triggers an integration flow and deploy i
 
     a. To calculate the average per minute, add a Siddhi query named `CalculateAverageProductionPerMinute` as follows:
 
-       ```
+        ```
         @info(name = 'CalculateAverageProductionPerMinute')
         from InputStream#window.timeBatch(1 min)
         select avg(amount) as avgAmount, symbol
         group by symbol
         insert into AVGStream;
-       ```
+        ```
 
      This query applies a time batch window to the `InputStream` stream so that events within each minute is considered a separate subset to be calculations in the query are applied. The minutes are considered in a tumbling manner because it is a batch window. Then the `avg()` function is applied to the `amount` attribute of the input stream to derive the average production amount. The results are then inserted into an inferred stream named `AVGStream`.
 
     b. To filter events from the `AVGStream` stream where the average production is greater then 100, add a query named `FilterExcessProduction` as follows.
 
-       ```
-       @info(name = 'FilterExcessProduction')
-       from AVGStream[avgAmount > 100]
-       select symbol, avgAmount
-       insert into FooStream;
-       ```
+        ```
+        @info(name = 'FilterExcessProduction')
+        from AVGStream[avgAmount > 100]
+        select symbol, avgAmount
+        insert into FooStream;
+        ```
 
       Here, the `avgAmount > 100` filter is applied to filter only events that report an average production amount greater than 100. The filtered events are inserted into the `FooStream` stream.
 
     c. To select all the responses from the Micro Integrator to be logged, add a new query named `LogResponseEvents`
 
-       ```
-       @info(name = 'LogResponseEvents')
-       from BarStream
-       select *
-       insert into LogStream;
-       ```
+        ```
+        @info(name = 'LogResponseEvents')
+        from BarStream
+        select *
+        insert into LogStream;
+        ```
 
       The responses received from the Micro Integrator are directed to the `BarStream` input stream. This query gets them all these events from the `BarStream` stream and inserts them into the `LogStream` stream that is connected to a `log` stream so that they can be published as logs in the terminal.
 

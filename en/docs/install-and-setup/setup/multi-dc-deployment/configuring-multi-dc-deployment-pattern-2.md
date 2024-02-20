@@ -42,65 +42,61 @@ Follow the guideline [here]({{base_path}}/install-and-setup/setup/distributed-de
 
 #### Connecting the Gateway to the Control Plane node
 
-=== "Configuration for a setup with Single Control Plane"
-    ``` toml
-    # Key Manager configuration
-    [apim.key_manager]
-    service_url = "https://[main-region-cp-host]:${mgt.transport.https.port}/services/"
-    username = "$ref{super_admin.username}"
-    password = "$ref{super_admin.password}"
+``` toml tab="Configuration for a setup with Single Control Plane"
+# Key Manager configuration
+[apim.key_manager]
+service_url = "https://[main-region-cp-host]:${mgt.transport.https.port}/services/"
+username = "$ref{super_admin.username}"
+password = "$ref{super_admin.password}"
 
-    # Event Hub configurations
-    [apim.event_hub]
-    enable = true
-    username = "$ref{super_admin.username}"
-    password = "$ref{super_admin.password}"
-    service_url = "https://[main-region-cp-host]:${mgt.transport.https.port}/services/"
-    event_listening_endpoints = ["tcp://main-region-cp-host:5672"]               
-    ```
+# Event Hub configurations
+[apim.event_hub]
+enable = true
+username = "$ref{super_admin.username}"
+password = "$ref{super_admin.password}"
+service_url = "https://[main-region-cp-host]:${mgt.transport.https.port}/services/"
+event_listening_endpoints = ["tcp://main-region-cp-host:5672"]               
+```
 
-=== "Configuration for a setup containing Control Planes with High Availability"
-    ``` toml
-    # Key Manager configuration
-    [apim.key_manager]
-    service_url = "https://[main-region-cp-LB-host]/services/"
-    username = "$ref{super_admin.username}"
-    password = "$ref{super_admin.password}"
+``` toml tab="Configuration for a setup containing Control Planes with High Availability"
+# Key Manager configuration
+[apim.key_manager]
+service_url = "https://[main-region-cp-LB-host]/services/"
+username = "$ref{super_admin.username}"
+password = "$ref{super_admin.password}"
 
-    # Event Hub configurations
-    [apim.event_hub]
-    enable = true
-    username = "$ref{super_admin.username}"
-    password = "$ref{super_admin.password}"
-    service_url = "https://main-region-cp-LB-host/services/"
-    event_listening_endpoints = ["tcp://main-region-cp-1-host:5672, tcp://main-region-cp-2-host:5672"]
-    ```
+# Event Hub configurations
+[apim.event_hub]
+enable = true
+username = "$ref{super_admin.username}"
+password = "$ref{super_admin.password}"
+service_url = "https://main-region-cp-LB-host/services/"
+event_listening_endpoints = ["tcp://main-region-cp-1-host:5672, tcp://main-region-cp-2-host:5672"]
+```
 
 #### Connecting the Gateway to the Traffic Manager node
 
-=== "Configuration for a setup with Single Traffic Manager"
-    ``` toml
-    [apim.throttling]
-    throttle_decision_endpoints = ["tcp://sub-region-1-tm-host:5672"]
+``` toml tab="Configuration for a setup with Single Traffic Manager"
+[apim.throttling]
+throttle_decision_endpoints = ["tcp://sub-region-1-tm-host:5672"]
 
-    [[apim.throttling.url_group]]
-    traffic_manager_urls = ["tcp://sub-region-1-tm-host:9611"]
-    traffic_manager_auth_urls = ["ssl://sub-region-1-tm-host:9711"]            
-    ```
+[[apim.throttling.url_group]]
+traffic_manager_urls = ["tcp://sub-region-1-tm-host:9611"]
+traffic_manager_auth_urls = ["ssl://sub-region-1-tm-host:9711"]            
+```
 
-=== "Configuration for a setup containing Traffic Manager with High Availability"
-    ``` toml
-    [apim.throttling]
-    throttle_decision_endpoints = ["tcp://sub-region-1-tm-1-host:5672", "tcp://sub-region-1-tm-2-host:5672"]
+``` toml tab="Configuration for a setup containing Traffic Manager with High Availability"
+[apim.throttling]
+throttle_decision_endpoints = ["tcp://sub-region-1-tm-1-host:5672", "tcp://sub-region-1-tm-2-host:5672"]
 
-    [[apim.throttling.url_group]]
-    traffic_manager_urls = ["tcp://sub-region-1-tm-1-host:9611"]
-    traffic_manager_auth_urls = ["ssl://sub-region-1-tm-1-host:9711"]
+[[apim.throttling.url_group]]
+traffic_manager_urls = ["tcp://sub-region-1-tm-1-host:9611"]
+traffic_manager_auth_urls = ["ssl://sub-region-1-tm-1-host:9711"]
 
-    [[apim.throttling.url_group]]
-    traffic_manager_urls = ["tcp://sub-region-1-tm-2-host:9611"]
-    traffic_manager_auth_urls = ["ssl://sub-region-1-tm-2-host:9711"]
-    ```
+[[apim.throttling.url_group]]
+traffic_manager_urls = ["tcp://sub-region-1-tm-2-host:9611"]
+traffic_manager_auth_urls = ["ssl://sub-region-1-tm-2-host:9711"]
+```
 
 ### Step 2: Configure the Traffic Manager nodes
 
@@ -108,27 +104,25 @@ Follow the guideline [here]({{base_path}}/install-and-setup/setup/distributed-de
 
 #### Configure the Traffic Manager to communicate with the Control Plane
 
-=== "Configuration for a setup with Single Control Plane"
-    ``` toml
-    # Event Hub configurations
-    [apim.event_hub]
-    enable = true
-    username = "$ref{super_admin.username}"
-    password = "$ref{super_admin.password}"
-    service_url = "https://main-region-cp-host:${mgt.transport.https.port}/services/"
-    event_listening_endpoints = ["tcp://main-region-cp-host:5672"]
-    ```
+``` toml tab="Configuration for a setup with Single Control Plane"
+# Event Hub configurations
+[apim.event_hub]
+enable = true
+username = "$ref{super_admin.username}"
+password = "$ref{super_admin.password}"
+service_url = "https://main-region-cp-host:${mgt.transport.https.port}/services/"
+event_listening_endpoints = ["tcp://main-region-cp-host:5672"]
+```
 
-=== "Configuration for a setup containing Control Plane with High Availability"
-    ``` toml
-    # Event Hub configurations
-    [apim.event_hub]
-    enable = true
-    username = "$ref{super_admin.username}"
-    password = "$ref{super_admin.password}"
-    service_url = "https://main-region-cp-LB-host/services/"
-    event_listening_endpoints = ["tcp://main-region-cp-1-host:5672", "tcp://main-region-cp-2-host:5672"]
-    ```
+``` toml tab="Configuration for a setup containing Control Plane with High Availability"
+# Event Hub configurations
+[apim.event_hub]
+enable = true
+username = "$ref{super_admin.username}"
+password = "$ref{super_admin.password}"
+service_url = "https://main-region-cp-LB-host/services/"
+event_listening_endpoints = ["tcp://main-region-cp-1-host:5672", "tcp://main-region-cp-2-host:5672"]
+```
 
 !!! Note
     &lt;main-region-cp-LB-host&gt; should be replaced by the host of the Load Balancer (LB) fronting the control plane nodes of the main region in an HA setup whereas &lt;main-region-cp-host&gt; should be replaced by the host of the control plane of the main region since the gateway nodes and the traffic manager nodes of the sub region will communicate with the main region control plane directly in a single control plane setup.

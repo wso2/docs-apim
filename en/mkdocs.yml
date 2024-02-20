@@ -35,35 +35,13 @@ theme:
     name: material
     custom_dir: theme/material
     palette:
-    # Palette toggle for automatic mode
-    - media: "(prefers-color-scheme)"
-      toggle:
-        icon: material/brightness-auto
-        name: Switch to light mode
-
-    # Palette toggle for light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default 
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-
-    # Palette toggle for dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      toggle:
-        icon: material/brightness-4
-        name: Switch to system preference
+        primary: deep-orange
+        accent: deep-orange
     logo: images/logo.svg
     favicon: images/favicon.png
-    features:
-        - content.code.copy
-        - navigation.tabs
-        - navigation.tabs.sticky
-        - content.action.edit
-        - content.action.view
-        - navigation.top
-        - toc.follow
+    highlightjs: true
+    feature:
+        tabs: true
     language: 'en'
 #Breaks build if there's a warning
 strict: false
@@ -1768,8 +1746,7 @@ markdown_extensions:
     - pymdownx.critic
     - pymdownx.details
     - pymdownx.emoji:
-          emoji_index: !!python/name:materialx.emoji.twemoji
-          emoji_generator: !!python/name:materialx.emoji.to_svg
+          emoji_generator: !!python/name:pymdownx.emoji.to_svg
     - pymdownx.inlinehilite
     - pymdownx.keys
     - pymdownx.mark
@@ -1781,8 +1758,6 @@ markdown_extensions:
     - pymdownx.snippets:
           base_path: docs
     - attr_list
-    - pymdownx.tabbed:
-          alternate_style: true
 plugins:
     - search
     - markdownextradata: {}
@@ -2248,13 +2223,14 @@ plugins:
     # Extra
 extra_css:
     - assets/lib/highlightjs/default.min.css
-    - assets/css/orange-palette.css
     - assets/css/theme.css
     - assets/lib/json-formatter/json-formatter.css
 extra_javascript:
     - assets/lib/json-formatter/json-formatter.umd.js
     - assets/lib/highlightjs/highlight.min.js
     - assets/js/theme.js
+    - assets/lib/backtotop/js/util.js
+    - assets/lib/backtotop/js/main.js
 extra:
     social:
         - type: github
@@ -2270,6 +2246,6 @@ extra:
             version: 1.2.0-1
             git_tag: v1.2.0.1
     site_version: 4.2.0
-    # base_path: http://localhost:8000/en/latest
+    #base_path: http://localhost:8000
     base_path: https://apim.docs.wso2.com/en/latest
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1

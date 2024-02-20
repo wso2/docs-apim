@@ -18,23 +18,21 @@ For more information, see [OpenTelemetry Configurations]({{base_path}}/reference
 
 1. Copy the following configuration into the `deployment.toml` file.
 
-	=== "Format"
-		```toml
-		[apim.open_telemetry]
-		remote_tracer.enable = true
-		remote_tracer.name = "jaeger"
-		remote_tracer.hostname = "<hostname-of-jaeger-endpoint>"
-		remote_tracer.port = "<port-of-jaeger-endpoint>"
-		```
+	```toml tab="Format"
+	[apim.open_telemetry]
+	remote_tracer.enable = true
+	remote_tracer.name = "jaeger"
+	remote_tracer.hostname = "<hostname-of-jaeger-endpoint>"
+	remote_tracer.port = "<port-of-jaeger-endpoint>"
+	```
 
-	=== "Example"
-		```toml
-		[apim.open_telemetry]
-		remote_tracer.enable = true
-		remote_tracer.name = "jaeger"
-		remote_tracer.hostname = "localhost"
-		remote_tracer.port = 14250
-		```
+	```toml tab="Example"
+	[apim.open_telemetry]
+	remote_tracer.enable = true
+	remote_tracer.name = "jaeger"
+	remote_tracer.hostname = "localhost"
+	remote_tracer.port = 14250
+	```
 
 2. Start the server.
 
@@ -47,23 +45,21 @@ For more information, see [OpenTelemetry Configurations]({{base_path}}/reference
 
 1. Copy the following configuration into the `deployment.toml` file.
 
-	=== "Format"
-		```toml
-		[apim.open_telemetry]
-		remote_tracer.enable = true
-		remote_tracer.name = "zipkin"
-		remote_tracer.hostname = "<hostname-of-zikin-endpoint>"
-		remote_tracer..port = "<port-of-zipkin-endpoint>"
-		```
+	```toml tab="Format"
+	[apim.open_telemetry]
+	remote_tracer.enable = true
+	remote_tracer.name = "zipkin"
+	remote_tracer.hostname = "<hostname-of-zikin-endpoint>"
+	remote_tracer..port = "<port-of-zipkin-endpoint>"
+	```
 
-	=== "Example"
-		```toml
-		[apim.open_telemetry]
-		remote_tracer.enable = true
-		remote_tracer.name = "zipkin"
-		remote_tracer.hostname = "localhost"
-		remote_tracer.port = 9411
-		```
+	```toml tab="Example"
+	[apim.open_telemetry]
+	remote_tracer.enable = true
+	remote_tracer.name = "zipkin"
+	remote_tracer.hostname = "localhost"
+	remote_tracer.port = 9411
+	```
 
 2. Start the server.
 
@@ -106,29 +102,27 @@ For more information, see [OpenTelemetry Configurations]({{base_path}}/reference
 
 - Copy the following configuration into the `deployment.toml` file.
 
-	=== "Format"
-		```toml
-		[apim.open_telemetry]
-		remote_tracer.enable = true
-		remote_tracer.name = "otlp"
-		remote_tracer.url = "<endpoint-url>"
+	```toml tab="Format"
+	[apim.open_telemetry]
+	remote_tracer.enable = true
+	remote_tracer.name = "otlp"
+    remote_tracer.url = "<endpoint-url>"
 
-		[[apim.open_telemetry.remote_tracer.properties]]
-		name = "<name-of-the-header>"
-		value = "<key-value-of-the-header>"
-		```
+    [[apim.open_telemetry.remote_tracer.properties]]
+    name = "<name-of-the-header>"
+    value = "<key-value-of-the-header>"
+	```
 
-	=== "Example"
-		```toml
-		[apim.open_telemetry]
-		remote_tracer.enable = true
-		remote_tracer.name = "otlp"
-		remote_tracer.url = "https://otlp.nr-data.net:4317/v1/traces"
+	```toml tab="Example"
+    [apim.open_telemetry]
+	remote_tracer.enable = true
+	remote_tracer.name = "otlp"
+    remote_tracer.url = "https://otlp.nr-data.net:4317/v1/traces"
 
-		[[apim.open_telemetry.remote_tracer.properties]]
-		name = "api-key"
-		value = "<key-value-of-the-header>"
-		```
+    [[apim.open_telemetry.remote_tracer.properties]]
+    name = "api-key"
+    value = "<key-value-of-the-header>"
+    ```
 
     !!! note 
         Above example illustrates the OpenTelemetry configurations for NewRelic APM.
@@ -181,12 +175,11 @@ For more information view manually instrumented [Jaeger tracer](https://github.c
 
 2. Add the following configuration into the deployment.toml file.
 
-    === "Format"
-		```toml
-		[apim.open_telemetry]
-		remote_tracer.enable = true
-		remote_tracer.name = "<custom-tracer-name>"
-		```
+    ```toml tab="Format"
+	[apim.open_telemetry]
+	remote_tracer.enable = true
+	remote_tracer.name = "<custom-tracer-name>"
+    ```
 
 3. Add any external JAR files to the `<API-M_HOME>/repository/components/lib` directory if required.
 

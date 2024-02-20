@@ -44,27 +44,23 @@ Execute the following command to install the Helm Cart by selecting the helm ver
 
 -   Using **Helm v2**
 
-    === "Format"
-        ```bash
-        helm install --name <RELEASE_NAME> wso2/choreo-connect --version {{choreo_connect.helm_chart.version}} --namespace <NAMESPACE>
-        ```
+    ```bash tab='Format'
+    helm install --name <RELEASE_NAME> wso2/choreo-connect --version {{choreo_connect.helm_chart.version}} --namespace <NAMESPACE>
+    ```
 
-    === "Sample"
-        ```bash
-        helm install --name my-release wso2/choreo-connect --version {{choreo_connect.helm_chart.version}} --namespace cc
-        ```
+    ```bash tab='Sample'
+    helm install --name my-release wso2/choreo-connect --version {{choreo_connect.helm_chart.version}} --namespace cc
+    ```
 
 -   Using **Helm v3**
 
-    === "Format"
-        ```bash
-        helm install <RELEASE_NAME> wso2/choreo-connect --version {{choreo_connect.helm_chart.version}} --namespace <NAMESPACE> --create-namespace
-        ```
+    ``` tab='Format'
+    helm install <RELEASE_NAME> wso2/choreo-connect --version {{choreo_connect.helm_chart.version}} --namespace <NAMESPACE> --create-namespace
+    ```
 
-    === "Sample"
-        ```bash
-        helm install my-release wso2/choreo-connect --version {{choreo_connect.helm_chart.version}} --namespace cc --create-namespace
-        ```
+    ``` tab='Sample'
+    helm install my-release wso2/choreo-connect --version {{choreo_connect.helm_chart.version}} --namespace cc --create-namespace
+    ```
 
 The above steps will deploy Choreo Connect using WSO2 product Docker images available at DockerHub.
 
@@ -74,21 +70,19 @@ Please see the following example.
 
 -   Using **Helm v2**
 
-    === "Format"
-        ```bash
-        helm install --name <RELEASE_NAME> wso2/choreo-connect --version {{choreo_connect.helm_chart.version}} --namespace <NAMESPACE> \
-            --set wso2.subscription.username=<SUBSCRIPTION_USERNAME> \
-            --set wso2.subscription.password=<SUBSCRIPTION_PASSWORD>
-        ```
+    ```bash tab='Format'
+    helm install --name <RELEASE_NAME> wso2/choreo-connect --version {{choreo_connect.helm_chart.version}} --namespace <NAMESPACE> \
+        --set wso2.subscription.username=<SUBSCRIPTION_USERNAME> \
+        --set wso2.subscription.password=<SUBSCRIPTION_PASSWORD>
+    ```
 
 -   Using **Helm v3**
 
-    === "Format"
-        ```bash
-        helm install <RELEASE_NAME> wso2/choreo-connect --version {{choreo_connect.helm_chart.version}} --namespace <NAMESPACE> --create-namespace \
-            --set wso2.subscription.username=<SUBSCRIPTION_USERNAME> \
-            --set wso2.subscription.password=<SUBSCRIPTION_PASSWORD>
-        ```
+    ```bash tab='Format'
+    helm install <RELEASE_NAME> wso2/choreo-connect --version {{choreo_connect.helm_chart.version}} --namespace <NAMESPACE> --create-namespace \
+        --set wso2.subscription.username=<SUBSCRIPTION_USERNAME> \
+        --set wso2.subscription.password=<SUBSCRIPTION_PASSWORD>
+    ```
 
 <br/>
 Skip the following section "Option 2: Install Chart from Source" since you have already installed Choreo Connect and jump to [Access the Choreo Connect deployment](#access-the-choreo-connect-deployment) for deploying APIs.
@@ -179,31 +173,27 @@ Follow the steps given below.
 
 1.  Get the external IP (`EXTERNAL-IP`) of the Ingress resources by listing down the Kubernetes Ingresses.
 
-    === "Format"
-        ```bash
-        kubectl get ing -n <NAMESPACE>
-        ```
+    ```bash tab='Format'
+    kubectl get ing -n <NAMESPACE>
+    ```
 
-    === "Sample"
-        ```bash
-        kubectl get ing -n cc
-        ```
+    ```bash tab='Sample'
+    kubectl get ing -n cc
+    ```
 
     Output:
 
-    === "Format"
-        ```bash
-        NAME                                    CLASS    HOSTS              ADDRESS          PORTS     AGE
-        <RELEASE_NAME>-choreo-connect-adapter   <none>   adapter.wso2.com   <EXTERNAL-IP>    80, 443   49s
-        <RELEASE_NAME>-choreo-connect-router    <none>   gw.wso2.com        <EXTERNAL-IP>    80, 443   49s
-        ```
+    ```bash tab='Format'
+    NAME                                    CLASS    HOSTS              ADDRESS          PORTS     AGE
+    <RELEASE_NAME>-choreo-connect-adapter   <none>   adapter.wso2.com   <EXTERNAL-IP>    80, 443   49s
+    <RELEASE_NAME>-choreo-connect-router    <none>   gw.wso2.com        <EXTERNAL-IP>    80, 443   49s
+    ```
 
-    === "Sample"
-        ```bash
-        NAME                                    CLASS    HOSTS              ADDRESS          PORTS     AGE
-        my-release-choreo-connect-adapter       <none>   adapter.wso2.com   127.0.0.1        80, 443   49s
-        my-release-choreo-connect-router        <none>   gw.wso2.com        127.0.0.1        80, 443   49s
-        ```
+    ```bash tab='Sample'
+    NAME                                    CLASS    HOSTS              ADDRESS          PORTS     AGE
+    my-release-choreo-connect-adapter       <none>   adapter.wso2.com   127.0.0.1        80, 443   49s
+    my-release-choreo-connect-router        <none>   gw.wso2.com        127.0.0.1        80, 443   49s
+    ```
 
 2.  Add the above hosts in the `/etc/hosts` file as follows:
 

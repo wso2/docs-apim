@@ -49,31 +49,27 @@ To prevent these types of security attacks, it is encouraged to disable the weak
 
 1.  To enable preferred ciphers, add the configuration given below to the `<PRODUCT_HOME>/repository/conf/deployment.toml` file.
 
-    === "Format"
-        ``` toml
-        [transport.passthru_https.listener.parameters]
-        PreferredCiphers = "<CIPHER_LIST>"
-        ```
+    ``` tab="Format"
+    [transport.passthru_https.listener.parameters]
+    PreferredCiphers = "<CIPHER_LIST>"
+    ```
 
-    === "Example"
-        ``` toml
-        [transport.passthru_https.listener.parameters]
-        PreferredCiphers = "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"
-        ```
+    ``` tab="Example"
+    [transport.passthru_https.listener.parameters]
+    PreferredCiphers = "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"
+    ```
 
 2. To enable HTTP protocols (TLS versions), add the configurations given below to the `<PRODUCT_HOME>/repository/conf/deployment.toml` file.
 
-    === "Format"
-        ``` toml
-        [transport.passthru_https.listener.parameters]
-        HttpsProtocols = "<TLS_VERSION_LIST>"
-        ```
+    ``` tab="Format"
+    [transport.passthru_https.listener.parameters]
+    HttpsProtocols = "<TLS_VERSION_LIST>"
+    ```
 
-    === "Example"
-        ``` toml
-        [transport.passthru_https.listener.parameters]
-        HttpsProtocols = "TLSv1.2,TLSv1.3"
-        ```
+    ``` tab="Example"
+    [transport.passthru_https.listener.parameters]
+    HttpsProtocols = "TLSv1.2,TLSv1.3"
+    ```
 
 ## Changing the server name in HTTP response headers
 
@@ -114,7 +110,7 @@ enable = false
 
 !!! Note
     Comment out or remove the `http_endpoint` entry in the `deployment.toml` file (stored in the `<API-M_HOME>/repository/conf` folder). This is done to avoid an error that occurs when adding the above configuration.
-    ```toml
+    ```
     [[apim.gateway.environment]]
         name = "Default"
         type = "hybrid"

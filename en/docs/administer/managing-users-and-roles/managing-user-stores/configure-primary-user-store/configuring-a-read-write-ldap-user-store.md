@@ -22,7 +22,7 @@ Follow the given steps to configure a read-write LDAP as the primary user store:
 Before you begin
 
 -   Navigate to `<PRODUCT_HOME>/repository/conf` directory to open `deployment.toml` file and do user_store_properties configurations as follows:
-    ```toml
+    ```
     [user_store.properties]
     TenantManager= "org.wso2.carbon.user.core.tenant.CommonHybridLDAPTenantManager"
     ConnectionURL="ldap://localhost:10390"
@@ -59,7 +59,7 @@ Before you begin
     ConnectionRetryDelay= "2m"
     ```
 -   The `class` attribute for a read-write LDAP is `<UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager">`
-    ```toml
+    ```
     [user_store]
     class="org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager"
     type = "database"
@@ -196,7 +196,7 @@ The **admin** user is the super tenant that will be able to manage all other use
 These two alternative configurations can be done as explained below.
 
 -   If the user store is read-only, find a valid user that already resides in the user store. For example, say a valid username is 'admin'. Update the `[super_admin]` section of your configuration as shown below. You do not have to update the password element as it is already set in the user store.
-    ```toml
+    ```
     [super_admin]
     username = "admin"
     password = "admin"

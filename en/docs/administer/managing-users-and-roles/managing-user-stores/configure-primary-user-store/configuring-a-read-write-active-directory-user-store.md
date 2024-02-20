@@ -17,64 +17,64 @@ Follow the given steps to configure an external Active Directory as the primary 
 
 !!! info
 
-    -   Navigate to `<PRODUCT_HOME>/repository/conf` directory to open `deployment.toml` file and do user_store_properties configurations. Following is the sample read-write active directory user store configurations:
-    ```toml
-    [user_store.properties]
-    TenantManager="org.wso2.carbon.user.core.tenant.CommonHybridLDAPTenantManager"
-    ConnectionURL="ldaps://10.100.1.102:639"
-    ConnectionName="CN=admin,CN=Users,DC=WSO2,DC=Com"
-    ConnectionPassword="A1b2c3d4"           
-    AnonymousBind="false"
-    UserSearchBase="CN=Users,DC=WSO2,DC=Com"
-    UserEntryObjectClass="user"
-    UserNameAttribute="cn"
-    UserNameSearchFilter="(&amp;(objectClass=user)(cn=?))"
-    UserNameListFilter="(&amp;(objectClass=user)(!(sn=Service)))"           
-    ReadGroups="true"
-    WriteGroups="true"
-    GroupSearchBase="CN=Users,DC=WSO2,DC=Com"
-    GroupEntryObjectClass="group"
-    GroupNameAttribute="cn"
-    GroupNameSearchFilter="(&amp;(objectClass=group)(cn=?))"
-    GroupNameListFilter="(objectcategory=group)"
-    MembershipAttribute="member"
-    MemberOfAttribute="memberOf"
-    BackLinksEnabled="true"
-    Referral="follow"
-    UsernameJavaRegEx="[a-zA-Z0-9._\\-|//]{3,30}$"
-    UsernameJavaScriptRegEx="^[\\S]{3,30}$"
-    UsernameJavaRegExViolationErrorMsg="Username pattern policy violated"
-    PasswordJavaRegEx="^[\\S]{5,30}$"
-    PasswordJavaScriptRegEx="^[\\S]{5,30}$"
-    PasswordJavaRegExViolationErrorMsg="Password length should be within 5 to 30 characters"
-    RolenameJavaRegEx="[a-zA-Z0-9._\\-|//]{3,30}$"
-    RolenameJavaScriptRegEx="^[\\S]{3,30}$"
-    SCIMEnabled="false"
-    IsBulkImportSupported="false"
-    EmptyRolesAllowed="true"
-    PasswordHashMethod="PLAIN_TEXT"
-    MultiAttributeSeparator=","
-    isADLDSRole="false"
-    userAccountControl="512"
-    MaxUserNameListLength="100"    
-    MaxRoleNameListLength="100"                    
-    MembershipAttributeRange="1500"
-    kdcEnabled="false"
-    defaultRealmName="WSO2.ORG"
-    UserRolesCacheEnabled="true"
-    ConnectionPoolingEnabled="false"
-    LDAPConnectionTimeout="5000"
-    StartTLSEnabled="false"
-    ConnectionRetryDelay="120000"
-    ```
-    
-    -   The `class` attribute for an external AD is `org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager`.
-    ```toml
-    [user_store]
-    class="org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager"
-    type = "active_directory"
-    base_dn = "cn=Users,dc=wso2,dc=org"
-    ```
+-   Navigate to `<PRODUCT_HOME>/repository/conf` directory to open `deployment.toml` file and do user_store_properties configurations. Following is the sample read-write active directory user store configurations:
+ ```toml
+ [user_store.properties]
+ TenantManager="org.wso2.carbon.user.core.tenant.CommonHybridLDAPTenantManager"
+ ConnectionURL="ldaps://10.100.1.102:639"
+ ConnectionName="CN=admin,CN=Users,DC=WSO2,DC=Com"
+ ConnectionPassword="A1b2c3d4"           
+ AnonymousBind="false"
+ UserSearchBase="CN=Users,DC=WSO2,DC=Com"
+ UserEntryObjectClass="user"
+ UserNameAttribute="cn"
+ UserNameSearchFilter="(&amp;(objectClass=user)(cn=?))"
+ UserNameListFilter="(&amp;(objectClass=user)(!(sn=Service)))"           
+ ReadGroups="true"
+ WriteGroups="true"
+ GroupSearchBase="CN=Users,DC=WSO2,DC=Com"
+ GroupEntryObjectClass="group"
+ GroupNameAttribute="cn"
+ GroupNameSearchFilter="(&amp;(objectClass=group)(cn=?))"
+ GroupNameListFilter="(objectcategory=group)"
+ MembershipAttribute="member"
+ MemberOfAttribute="memberOf"
+ BackLinksEnabled="true"
+ Referral="follow"
+ UsernameJavaRegEx="[a-zA-Z0-9._\\-|//]{3,30}$"
+ UsernameJavaScriptRegEx="^[\\S]{3,30}$"
+ UsernameJavaRegExViolationErrorMsg="Username pattern policy violated"
+ PasswordJavaRegEx="^[\\S]{5,30}$"
+ PasswordJavaScriptRegEx="^[\\S]{5,30}$"
+ PasswordJavaRegExViolationErrorMsg="Password length should be within 5 to 30 characters"
+ RolenameJavaRegEx="[a-zA-Z0-9._\\-|//]{3,30}$"
+ RolenameJavaScriptRegEx="^[\\S]{3,30}$"
+ SCIMEnabled="false"
+ IsBulkImportSupported="false"
+ EmptyRolesAllowed="true"
+ PasswordHashMethod="PLAIN_TEXT"
+ MultiAttributeSeparator=","
+ isADLDSRole="false"
+ userAccountControl="512"
+ MaxUserNameListLength="100"    
+ MaxRoleNameListLength="100"                    
+ MembershipAttributeRange="1500"
+ kdcEnabled="false"
+ defaultRealmName="WSO2.ORG"
+ UserRolesCacheEnabled="true"
+ ConnectionPoolingEnabled="false"
+ LDAPConnectionTimeout="5000"
+ StartTLSEnabled="false"
+ ConnectionRetryDelay="120000"
+ ```
+ 
+-   The `class` attribute for an external AD is `org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager`.
+```toml
+[user_store]
+class="org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager"
+type = "active_directory"
+base_dn = "cn=Users,dc=wso2,dc=org"
+```
 
 !!! note
     Note that these configurations will automatically applied to the `user-mgt.xml` file so you do not need to edit it.
@@ -207,7 +207,7 @@ The **admin** user is the super tenant that will be able to manage all other use
 <!-- -->
 
 -   Find a valid user that already resides in the user store. For example, say a valid username is AdminSOA. Update the `[super_admin]` section of your configuration as shown below. You do not have to update the password element as it is already set in the user store.
-        ``` toml
+        ``` 
         [super_admin]
         username = "AdminSOA"
         admin_role = "admin"
@@ -215,7 +215,7 @@ The **admin** user is the super tenant that will be able to manage all other use
         ```
 
 -   If the user store can be written to, you can add the super tenant user to the user store. Therefore, create_admin_account should be set to true as shown below.
-        ``` toml
+        ``` 
         [super_admin]
         username = "admin"
         admin_role = "admin"

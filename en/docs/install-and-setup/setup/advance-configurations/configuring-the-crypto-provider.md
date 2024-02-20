@@ -16,72 +16,62 @@ APIM supports the configuration of crypto provider to either Bouncy Castle (defa
 
 1. Run the script fips.sh or fips.bat in the <APIM-HOME>/bin directory before starting the server.
 
-    === "Linux/Mac OS"
-        ``` bash
-        cd <API-M_HOME>/bin/
-        sh fips.sh
-        ```
+    ``` java tab="Linux/Mac OS"
+    cd <API-M_HOME>/bin/
+    sh fips.sh
+    ```
 
-    === "Windows"
-        ``` bash
-        cd <API-M_HOME>\bin\
-        fips.bat --run
-        ```
+    ``` java tab="Windows"
+    cd <API-M_HOME>\bin\
+    fips.bat --run
+    ```
 
 2. Verify whether the required changes are done by running the following command.
 
-    === "Linux/Mac OS"
-        ``` bash
-        cd <API-M_HOME>/bin/
-        sh fips.sh VERIFY
-        ```
+    ``` java tab="Linux/Mac OS"
+    cd <API-M_HOME>/bin/
+    sh fips.sh VERIFY
+    ```
 
-    === "Windows"
-        ``` bash
-        cd <API-M_HOME>\bin\
-        fips.bat --run VERIFY
-        ```
+    ``` java tab="Windows"
+    cd <API-M_HOME>\bin\
+    fips.bat --run VERIFY
+    ```
 
 3. Start the APIM server with the following system property.
 
-    === "Linux/Mac OS"
-        ``` java
-        cd <API-M_HOME>/bin/
-        sh api-manager.sh -Dsecurity.jce.provider=BCFIPS
-        ```
+    ``` java tab="Linux/Mac OS"
+    cd <API-M_HOME>/bin/
+    sh api-manager.sh -Dsecurity.jce.provider=BCFIPS
+    ```
 
-    === "Windows"
-        ``` java
-        cd <API-M_HOME>\bin\
-        api-manager.bat --run -Dsecurity.jce.provider=BCFIPS
-        ```
+    ``` java tab="Windows"
+    cd <API-M_HOME>\bin\
+    api-manager.bat --run -Dsecurity.jce.provider=BCFIPS
+    ```
 
 ### Change the crypto provider to BC (Bouncy Castle)
 
 1. Run the following command before starting the server.
 
-    === "Linux/Mac OS"
-        ``` bash
-        cd <API-M_HOME>/bin/
-        sh fips.sh DISABLE
-        ```
+    ``` java tab="Linux/Mac OS"
+    cd <API-M_HOME>/bin/
+    sh fips.sh DISABLE
+    ```
 
-    === "Windows"
-        ``` java
-        cd <API-M_HOME>\bin\
-        fips.bat --run DISABLE
-        ```
+    ``` java tab="Windows"
+    cd <API-M_HOME>\bin\
+    fips.bat --run DISABLE
+    ```
 
 2. Start the APIM server as usual.
 
-    === "Linux/Mac OS"
-        ``` bash
-        cd <API-M_HOME>/bin/
-        sh api-manager.sh
-        ```
+    ``` java tab="Linux/Mac OS"
+    cd <API-M_HOME>/bin/
+    sh api-manager.sh
+    ```
 
-    === "Windows"
-        ``` bash
-        cd <API-M_HOME>\bin\
-        api-manager.bat --run
-        ```
+    ``` java tab="Windows"
+    cd <API-M_HOME>\bin\
+    api-manager.bat --run
+    ```

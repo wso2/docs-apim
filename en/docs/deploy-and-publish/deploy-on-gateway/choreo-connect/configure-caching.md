@@ -12,7 +12,7 @@ The OAuth token is enabled by default in the Choreo Connect. Adding the followin
 
 #### OAuth caching
 
-``` toml
+``` java
 [enforcer.cache]
   enabled = true
   maximumSize = 10000

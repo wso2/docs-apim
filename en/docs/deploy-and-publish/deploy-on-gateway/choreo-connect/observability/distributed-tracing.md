@@ -14,26 +14,24 @@ Supported distributed tracing systems,
 !!! note
     If you are trying out tracing capabilities of Choreo Connect and do not have an actual deployment of Jaeger or Zipkin, you can start Choreo Connect together with Jaeger/Zipkin by adding one of the below containers to product docker-compose file.
 
-    === "Jaeger"
-        ```yaml
-        jaeger:
-          image: jaegertracing/all-in-one:1.27
-          environment:
-            - COLLECTOR_ZIPKIN_HOST_PORT=9411
-          ports:
-            - "5775:5775"
-            - "16686:16686"
-            - "14268:14268"
-        ```
+    ```yaml tab="Jaeger"
+    jaeger:
+      image: jaegertracing/all-in-one:1.27
+      environment:
+        - COLLECTOR_ZIPKIN_HOST_PORT=9411
+      ports:
+        - "5775:5775"
+        - "16686:16686"
+        - "14268:14268"
+    ```
 
-    === "Zipkin"
-        ```yaml
-        zipkin:
-          image: openzipkin/zipkin
-          container_name: zipkin
-          ports:
-            - "9411:9411"
-        ```
+    ```yaml tab="Zipkin"
+    zipkin:
+      image: openzipkin/zipkin
+      container_name: zipkin
+      ports:
+        - "9411:9411"
+    ```
 
 ### Jaeger
 
@@ -113,27 +111,25 @@ Follow these steps to configure WSO2 Choreo Connect with Azure Application Insig
 
 1. Add the following configuration.
 
-    === "Configuration"
-        ```toml
-        [tracing]
-          enabled = true
-          type = "azure"
-          [tracing.configProperties]
-            connectionString = {APPLICATIONINSIGHTS_CONNECTION_STRING}
-            instrumentationName = "CHOREO-CONNECT"
-            maximumTracesPerSecond = "2"
-        ```
+    ```toml tab="Configuration"
+    [tracing]
+      enabled = true
+      type = "azure"
+      [tracing.configProperties]
+        connectionString = {APPLICATIONINSIGHTS_CONNECTION_STRING}
+        instrumentationName = "CHOREO-CONNECT"
+        maximumTracesPerSecond = "2"
+    ```
     
-    === "Example"
-        ```toml
-        [tracing]
-          enabled = true
-          type = "azure"
-          [tracing.configProperties]
-            connectionString = "InstrumentationKey=ab71943f-xxxx-xxxx-xxxx-fb2eb69ae11d;IngestionEndpoint=https://xxxxxx.applicationinsights.azure.com/"
-            instrumentationName = "CHOREO-CONNECT"
-            maximumTracesPerSecond = "2"
-        ```
+    ```toml tab="Example"
+    [tracing]
+      enabled = true
+      type = "azure"
+      [tracing.configProperties]
+        connectionString = "InstrumentationKey=ab71943f-xxxx-xxxx-xxxx-fb2eb69ae11d;IngestionEndpoint=https://xxxxxx.applicationinsights.azure.com/"
+        instrumentationName = "CHOREO-CONNECT"
+        maximumTracesPerSecond = "2"
+    ```
 
 1. Start Choreo Connect.
 1. [Create and Deploy an API]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker-with-apim/).
@@ -153,42 +149,40 @@ You will be able to see all traces. Detailed trace view will look like below.
 
 1. Update the Docker compose files with the following configuration to start a Jaeger service with OTLP gRPC collector enabled.
 
-    === "Configuration"
-        ```yaml
-        jaeger:
-          image: jaegertracing/all-in-one:1.37
-          environment:
-            - COLLECTOR_OTLP_ENABLED=true
-          ports:
-            - "16686:16686"
-            - "4317:4317"
-        ```
+    ```yaml tab="Configuration"
+    jaeger:
+      image: jaegertracing/all-in-one:1.37
+      environment:
+        - COLLECTOR_OTLP_ENABLED=true
+      ports:
+        - "16686:16686"
+        - "4317:4317"
+    ```
 
     !!! Important
         Note that only Jaeger versions 1.35 and above support OTLP gRPC telemetry data collection. Also, it is required to set the environment variable `COLLECTOR_OTLP_ENABLED=true`.
 
 1. {!includes/deploy/cc-configuration-file.md!}
 
-    === "Configuration"
-        ```toml
-        [tracing]
-          enabled = true
-          type = "otlp"
-          [tracing.configProperties]
-            # maximum length of the request path to extract and include in the HttpUrl tag.
-            maxPathLength = "256"
-            # jaeger host
-            host = "jaeger"
-            # jaeger port for OTLP gRPC collector
-            port = "4317"
-            # library Name to be tagged in traces (`otel.library.name`).
-            instrumentationName = "CHOREO-CONNECT"
-            # maximum number of sampled traces per second string
-            maximumTracesPerSecond = "2"
-            # connection timeout for the otlp service
-            connectionTimeout = "20"
-            endpoint = "/api/v2/spans"
-        ```
+    ```toml tab="Configuration"
+    [tracing]
+      enabled = true
+      type = "otlp"
+      [tracing.configProperties]
+        # maximum length of the request path to extract and include in the HttpUrl tag.
+        maxPathLength = "256"
+        # jaeger host
+        host = "jaeger"
+        # jaeger port for OTLP gRPC collector
+        port = "4317"
+        # library Name to be tagged in traces (`otel.library.name`).
+        instrumentationName = "CHOREO-CONNECT"
+        # maximum number of sampled traces per second string
+        maximumTracesPerSecond = "2"
+        # connection timeout for the otlp service
+        connectionTimeout = "20"
+        endpoint = "/api/v2/spans"
+    ```
 
 1. Start Choreo Connect.
 1. [Create and Deploy an API]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker-with-apim/).
@@ -202,49 +196,47 @@ You will be able to browse through the request traces and expand each trace to v
 
 1. {!includes/deploy/cc-configuration-file.md!}
 
-    === "Configuration"
-        ```toml
-        [tracing]
-          enabled = true
-          type = "otlp"
-          [tracing.configProperties]
-            # maximum length of the request path to extract and include in the HttpUrl tag.
-            maxPathLength = "256"
-            # New Relic OTLP gRPC collector endpoint
-            connectionString = "https://otlp.nr-data.net"
-            # auth header name
-            authHeaderName = "api-key"
-            # auth header value
-            authHeaderValue = "<INGEST_LICENSE_KEY>"
-            # library Name to be tagged in traces (`otel.library.name`).
-            instrumentationName = "CHOREO-CONNECT"
-            # maximum number of sampled traces per second string
-            maximumTracesPerSecond = "2"
-            # connection timeout for the otlp service
-            connectionTimeout = "20"
-        ```
+    ```toml tab="Configuration"
+    [tracing]
+      enabled = true
+      type = "otlp"
+      [tracing.configProperties]
+        # maximum length of the request path to extract and include in the HttpUrl tag.
+        maxPathLength = "256"
+        # New Relic OTLP gRPC collector endpoint
+        connectionString = "https://otlp.nr-data.net"
+        # auth header name
+        authHeaderName = "api-key"
+        # auth header value
+        authHeaderValue = "<INGEST_LICENSE_KEY>"
+        # library Name to be tagged in traces (`otel.library.name`).
+        instrumentationName = "CHOREO-CONNECT"
+        # maximum number of sampled traces per second string
+        maximumTracesPerSecond = "2"
+        # connection timeout for the otlp service
+        connectionTimeout = "20"
+    ```
 
-    === "Example"
-        ```toml
-        [tracing]
-          enabled = true
-          type = "otlp"
-          [tracing.configProperties]
-            # maximum length of the request path to extract and include in the HttpUrl tag.
-            maxPathLength = "256"
-            # New Relic OTLP gRPC collector endpoint
-            connectionString = "https://otlp.nr-data.net"
-            # auth header name
-            authHeaderName = "api-key"
-            # auth header value
-            authHeaderValue = "e8f478ae6d3c97f845e16b6cfba0ea5e95e3NRAL"
-            # library Name to be tagged in traces (`otel.library.name`).
-            instrumentationName = "CHOREO-CONNECT"
-            # maximum number of sampled traces per second string
-            maximumTracesPerSecond = "2"
-            # connection timeout for the otlp service
-            connectionTimeout = "20"
-        ```
+    ```toml tab="Example"
+    [tracing]
+      enabled = true
+      type = "otlp"
+      [tracing.configProperties]
+        # maximum length of the request path to extract and include in the HttpUrl tag.
+        maxPathLength = "256"
+        # New Relic OTLP gRPC collector endpoint
+        connectionString = "https://otlp.nr-data.net"
+        # auth header name
+        authHeaderName = "api-key"
+        # auth header value
+        authHeaderValue = "e8f478ae6d3c97f845e16b6cfba0ea5e95e3NRAL"
+        # library Name to be tagged in traces (`otel.library.name`).
+        instrumentationName = "CHOREO-CONNECT"
+        # maximum number of sampled traces per second string
+        maximumTracesPerSecond = "2"
+        # connection timeout for the otlp service
+        connectionTimeout = "20"
+    ```
 
 1. Start Choreo Connect.
 1. [Create and Deploy an API]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker-with-apim/).

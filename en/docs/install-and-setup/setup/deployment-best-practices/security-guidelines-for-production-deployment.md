@@ -912,7 +912,7 @@ Follow the steps below to change the default credentials.
     -   Add the `app_password` property and enter a preferred password as the value.
       
         ``` toml
-        [identity.auth_framework.endpoint]
+        [identity.auth_framework.endpoint] 
         app_password="<value of preferred password>"
         ```  
         

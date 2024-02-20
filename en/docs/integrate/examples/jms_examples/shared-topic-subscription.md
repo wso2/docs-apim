@@ -15,60 +15,55 @@ Given below are the synapse configurations that are required for mediating the a
 
 See the instructions on how to [build and run](#build-and-run) this example.
 
-=== "Inbound Endpoint"
-    ```xml
-    <inboundEndpoint name="jms_inbound" sequence="request"onError="fault" protocol="jms" suspend="false">
-      <parameters>
-        <parameter name="interval">1000</parameter>
-        <parameter name="transport.jms.Destination">/topic/exampleTopic</parameter>
-        <parameter name="transport.jms.CacheLevel">3</parameter>
-        <parameter name="transport.jms.ConnectionFactoryJNDIName">TopicConnectionFactory</parameter>
-        <parameter name="sequential">true</parameter>
-        <parameter name="java.naming.factory.initial">org.jnp.interfaces.NamingContextFactory</parameter>
-        <parameter name="java.naming.provider.url">jnp://localhost:1099</parameter>
-        <parameter name="transport.jms.SessionAcknowledgement">AUTO_ACKNOWLEDGE</parameter>
-        <parameter name="transport.jms.SessionTransacted">false</parameter>
-        <parameter name="transport.jms.ConnectionFactoryType">topic</parameter>
-        <parameter name="transport.jms.JMSSpecVersion">2.0</parameter>
-        <parameter name="transport.jms.SharedSubscription">true</parameter>
-        <parameter name="transport.jms.DurableSubscriberName">mySubscription</parameter>
-      </parameters>
-    </inboundEndpoint>
-    ```
+```xml tab="Inbound Endpoint"
+<inboundEndpoint name="jms_inbound" sequence="request"onError="fault" protocol="jms" suspend="false">
+  <parameters>
+    <parameter name="interval">1000</parameter>
+    <parameter name="transport.jms.Destination">/topic/exampleTopic</parameter>
+    <parameter name="transport.jms.CacheLevel">3</parameter>
+    <parameter name="transport.jms.ConnectionFactoryJNDIName">TopicConnectionFactory</parameter>
+    <parameter name="sequential">true</parameter>
+    <parameter name="java.naming.factory.initial">org.jnp.interfaces.NamingContextFactory</parameter>
+    <parameter name="java.naming.provider.url">jnp://localhost:1099</parameter>
+    <parameter name="transport.jms.SessionAcknowledgement">AUTO_ACKNOWLEDGE</parameter>
+    <parameter name="transport.jms.SessionTransacted">false</parameter>
+    <parameter name="transport.jms.ConnectionFactoryType">topic</parameter>
+    <parameter name="transport.jms.JMSSpecVersion">2.0</parameter>
+    <parameter name="transport.jms.SharedSubscription">true</parameter>
+    <parameter name="transport.jms.DurableSubscriberName">mySubscription</parameter>
+  </parameters>
+</inboundEndpoint>
+```
 
-=== "Registry Artifact"
-    ```xml
-    <registry provider="org.wso2.micro.integrator.registry.MicroIntegratorRegistry">
-      <parameter name="cachableDuration">15000</parameter>
-    </registry>
-    ```
+```xml tab="Registry Artifact"
+<registry provider="org.wso2.micro.integrator.registry.MicroIntegratorRegistry">
+  <parameter name="cachableDuration">15000</parameter>
+</registry>
+```
 
-=== "Task Manager"
-    ```xml
-    <taskManager provider="org.wso2.micro.integrator.mediation.ntask.NTaskTaskManager">
-      <parameter name="cachableDuration">15000</parameter>
-    </taskManager>
-    ```
+```xml tab="Task Manager"
+<taskManager provider="org.wso2.micro.integrator.mediation.ntask.NTaskTaskManager">
+  <parameter name="cachableDuration">15000</parameter>
+</taskManager>
+```
 
-=== "Sequence (Request)"
-    ```xml
-    <sequence name="request" onError="fault">
-      <log level="full"/>
-      <drop/>
-    </sequence>
-    ```
+```xml tab="Sequence (Request)"
+<sequence name="request" onError="fault">
+  <log level="full"/>
+  <drop/>
+</sequence>
+```
 
-=== "Sequence (Fault)"
-    ```xml
-    <sequence name="fault">
-      <log level="full">
-        <property name="MESSAGE" value="Executing default &#34;fault&#34; sequence"/>
-        <property name="ERROR_CODE" expression="get-property('ERROR_CODE')"/>
-        <property name="ERROR_MESSAGE" expression="get-property('ERROR_MESSAGE')"/>
-      </log>
-      <drop/>
-    </sequence>
-    ```
+```xml tab="Sequence (Fault)"
+<sequence name="fault">
+  <log level="full">
+    <property name="MESSAGE" value="Executing default &#34;fault&#34; sequence"/>
+    <property name="ERROR_CODE" expression="get-property('ERROR_CODE')"/>
+    <property name="ERROR_MESSAGE" expression="get-property('ERROR_MESSAGE')"/>
+  </log>
+  <drop/>
+</sequence>
+```
 
 See the descriptions of the above configurations:
 

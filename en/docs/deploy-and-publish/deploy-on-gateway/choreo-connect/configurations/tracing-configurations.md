@@ -40,11 +40,10 @@ See the example .toml file given below.
                 <label class="tab-selector" for="_tab_2"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-```toml
-[enforcer.tracing]
+<pre><code class="toml">[enforcer.tracing]
   enabled = false
   type = "jaeger"
-```
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -118,8 +117,7 @@ See the example .toml file given below.
                 <label class="tab-selector" for="_tab_3"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-```toml
-[enforcer.tracing.configProperties]
+<pre><code class="toml">[enforcer.tracing.configProperties]
   host = "jaeger"
   port = "9411"
   endpoint = "/api/v2/spans"
@@ -127,7 +125,7 @@ See the example .toml file given below.
   maximumTracesPerSecond = "2"
   maxPathLength = "256"
   connectionTimeout = "20"
-```
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">

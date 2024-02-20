@@ -34,21 +34,19 @@ Follow the instructions below to add dynamic data to environment configurations 
 
 3.  Export the environment variables with required values.
 
-    === "Linux/Mac"
-        ```bash
-        export DEV_ENV_PROD_URL=https://petstore.swagger.io/v2
-        export DEV_ENV_PROD_RE_DELAY=10
-        export DEV_ENV_PROD_RE_TO=5
-        export DEV_ENV_SAND_URL=https://sand.petstore.swagger.io/v2
-        ```
+    ```bash tab="Linux/Mac"
+    export DEV_ENV_PROD_URL=https://petstore.swagger.io/v2
+    export DEV_ENV_PROD_RE_DELAY=10
+    export DEV_ENV_PROD_RE_TO=5
+    export DEV_ENV_SAND_URL=https://sand.petstore.swagger.io/v2
+    ```
 
-    === "Windows"
-        ```bat
-        SET DEV_ENV_PROD_URL=https://petstore.swagger.io/v2
-        SET DEV_ENV_PROD_RE_DELAY=10
-        SET DEV_ENV_PROD_RE_TO=5
-        SET DEV_ENV_SAND_URL=https://sand.petstore.swagger.io/v2
-        ```  
+    ```bat tab="Windows"
+    SET DEV_ENV_PROD_URL=https://petstore.swagger.io/v2
+    SET DEV_ENV_PROD_RE_DELAY=10
+    SET DEV_ENV_PROD_RE_TO=5
+    SET DEV_ENV_SAND_URL=https://sand.petstore.swagger.io/v2
+    ```  
 
 4.  Import the API Project
 
@@ -159,15 +157,13 @@ For example, consider we need to send a special header to the backend when calli
 
 4. Export the environment variables with required values.
 
-    === "Linux/Mac"
-        ```bash
-        export ENV_KEY=dev_101
-        ```
+    ```bash tab="Linux/Mac"
+    export ENV_KEY=dev_101
+    ```
 
-    === "Windows"
-        ```bat
-        SET ENV_KEY=dev_101
-        ```
+    ```bat tab="Windows"
+    SET ENV_KEY=dev_101
+    ```
 
 5. Import the API Project.
 

@@ -20,7 +20,7 @@ Therefore, WSO2 Choreo Connect supports service discovery using the Consul so th
 
 Add the following configuration under the Adapter section to the main configuration file of Choreo Connect (`config.toml` file).
 
-``` toml
+``` 
 [adapter.consul]
   enabled = true
   url = "https://169.254.1.1:8501"
@@ -63,30 +63,26 @@ You can define the Consul upstream endpoints by using the following syntax:
 
 Example 1:
 
-=== "Format"
-    ```java
-    consul(<service_name>,<default_host>)
-    ```
+```java tab="Format"
+consul(<service_name>,<default_host>)
+```
 
-=== "Example"
-    ```java
-    consul(pet,https://10.10.1.5:5000)
-    ```
+```java tab="Example"
+consul(pet,https://10.10.1.5:5000)
+```
 
 Example 2:<br>
 If you want more fine-grained access to your Consul services, you can limit the access to the upstream services by providing
 the `datacenters` and `tags`
 
 
-=== "Format"
-    ```java
-    consul([<datacenter_1>,<datacenter_2>].<service_name>.[tag_1,tag_2],<default_host>)
-    ```
+```java tab="Format"
+consul([<datacenter_1>,<datacenter_2>].<service_name>.[tag_1,tag_2],<default_host>)
+```
 
-=== "Example"
-    ```java
-    consul([aws-east,gcp-west].pet.[prod],https://10.10.1.5:5000)
-    ```
+```java tab="Example"
+consul([aws-east,gcp-west].pet.[prod],https://10.10.1.5:5000)
+```
 
 Define the upstream endpoints to the Consul service catalog based services using one of the following methods.
 
@@ -105,36 +101,34 @@ Define the upstream endpoints to the Consul service catalog based services direc
 The definition should go under the `urls` section of `x-wso2-production-endpoints` or `x-wso2-sandbox-endpoints` (or both).
 
 
-=== "Format"
-    ```yaml
+```yaml tab="Format"
+x-wso2-production-endpoints:
+  urls:
+    - consul(<service_name>,<default_host>)
+  type: load_balance
+```
+
+```yaml tab="Example"
+paths:
+  /pet:
     x-wso2-production-endpoints:
       urls:
-        - consul(<service_name>,<default_host>)
+        - consul(pet,https://10.10.1.5:5000)
       type: load_balance
-    ```
-
-=== "Example"
-    ```yaml
-    paths:
-      /pet:
-        x-wso2-production-endpoints:
-          urls:
-            - consul(pet,https://10.10.1.5:5000)
-          type: load_balance
-        post:
-          consumes:
-            - application/json
-            - application/xml
-          description: ""
-          operationId: addPet
-          parameters:
-            - description: Pet object that needs to be added to the store
-              in: body
-              name: body
-              required: true
-              schema:
-                $ref: '#/definitions/Pet'
-    ```
+    post:
+      consumes:
+        - application/json
+        - application/xml
+      description: ""
+      operationId: addPet
+      parameters:
+        - description: Pet object that needs to be added to the store
+          in: body
+          name: body
+          required: true
+          schema:
+            $ref: '#/definitions/Pet'
+```
 
 !!! info
         - Choreo Connect takes one `pollInterval` amount of time to update the upstreams' configuration after being updated in Consul service catalog.<br>

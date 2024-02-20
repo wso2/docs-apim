@@ -16,7 +16,7 @@ Follow the steps below to enable the password recovery feature for the Developer
 
      For more information, see [Configuring the Email Sending Module](https://is.docs.wso2.com/en/5.10.0/setup/configuring-email-sending/).
 
-    ``` toml
+    ``` java
     [output_adapter.email]
     from_address = "wso2am@gmail.com"
     username = "wso2amtest"
@@ -206,7 +206,6 @@ Follow the instructions below to disable anonymous access to the Developer Porta
         ```toml
         [apim.devportal]
         enable_anonymous_mode=false
-        ```
 
 5. Restart the server or wait for 15 mins until the registry cache expires.
 

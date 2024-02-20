@@ -28,27 +28,23 @@ Follow the steps given below to start the server.
 
     -   To start the server:
 
-        === "On MacOS/Linux"
-            ```bash
-            sh api-manager.sh
-            ```
+        ```bash tab="On MacOS/Linux"
+        sh api-manager.sh
+        ```
 
-        === "On Windows"
-            ```bash
-            api-manager.bat --run
-            ```
+        ```bash tab="On Windows"
+        api-manager.bat --run
+        ```
 
     -   To start the server in background mode:
 
-        === "On macOS/Linux"
-            ```bash
-            sh api-manager.sh start
-            ```
+        ```bash tab="On macOS/Linux"
+        sh api-manager.sh start
+        ```
 
-        === "On Windows"
-            ```bash
-            api-manager.bat --start
-            ```
+        ```bash tab="On Windows"
+        api-manager.bat --start
+        ```
 
 When the server starts successfully, the following log is printed: `"WSO2 Carbon started in 'n' seconds"`
 
@@ -84,15 +80,13 @@ To sign in to each web portal:
 -   To stop the API-M server standalone application, go to the terminal and press <i>Ctrl+C</i>.
 -   To stop the API-M server in background mode:
 
-    === "On macOS/Linux"
-        ```bash
-        sh api-manager.sh stop
-        ```
+    ```bash tab="On macOS/Linux"
+    sh api-manager.sh stop
+    ```
 
-    === "On Windows"
-        ```bash
-        api-manager.bat --stop
-        ```
+    ```bash tab="On Windows"
+    api-manager.bat --stop
+    ```
 
 !!! Tip
     For additional options, you can use with the startup commands, add `-help` after the start-up command as shown below.

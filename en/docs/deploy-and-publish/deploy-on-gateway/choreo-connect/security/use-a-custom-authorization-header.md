@@ -6,17 +6,15 @@ By default Choreo Connect uses **Authorization** header to receive the authoriza
 
 Below extension can be used to do above configuration per API. This extension is not supported in resource level.
 
-=== "Adding OpenAPI extension inside the definition"
-    ``` java
-    x-wso2-auth-header: "XAuth"
-    ```
+``` java tab="Adding OpenAPI extension inside the definition"
+x-wso2-auth-header: "XAuth"
+```
 
 ## Global configuration
 
 This security configuration is to be added in to the config.toml file and it is global for all API in a specific runtime.
 
-=== "Adding configuration"
-    ``` toml
-    [security.adapter]
-      authorizationHeader = "XAuth"
-    ```
+``` java tab="Adding configuration"
+[security.adapter]
+  authorizationHeader = "XAuth"
+```

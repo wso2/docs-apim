@@ -202,10 +202,10 @@ Follow the instructions below to add documentation to an API:
 
      As a subscriber, you can read the documentation and learn about the API.
 
-    !!! note
-          For REST APIs, generated document will be listed as `Default`
+     !!! note
+     For REST APIs, generated document will be listed as `Default`
 
-          [![View API related documentation]({{base_path}}/assets/img/learn/view-docs-api.png)]({{base_path}}/assets/img/learn/view-docs-api.png)
+     [![View API related documentation]({{base_path}}/assets/img/learn/view-docs-api.png)]({{base_path}}/assets/img/learn/view-docs-api.png)
 
 You have created documentation using the API Publisher and viewed the documentation as a subscriber in the Developer Portal.
 

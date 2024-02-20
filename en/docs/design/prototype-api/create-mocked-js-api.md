@@ -45,7 +45,7 @@ Follow the instructions below to add a mock implementation to the API:
      The example response defined in the OpenAPI definition is set as the mock response payload. You can modify the generated inline scripts as required. 
 
     ??? note "Click here to view the inline Mock Implementation script."
-        ```json
+        ``` 
          responses[200]["application/json"] = {              // Mock response payload stored as a variable
            "id" : 10,
            "name" : "doggie",
@@ -78,7 +78,7 @@ Follow the instructions below to add a mock implementation to the API:
      [![Modified inline script]({{base_path}}/assets/img/learn/create-api-prototype-generated-script-modified.png)]({{base_path}}/assets/img/learn/create-api-prototype-generated-script-modified.png)
    
     ??? note "Click here to view the modified inline Mock Implementation script."
-        ```json
+        ```
          // **GENERATED CODE** //
 
          var responseCode = mc.getProperty('query.param.responseCode');

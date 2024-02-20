@@ -95,48 +95,45 @@ Follow the steps below to set up an Oracle database.
 
 Open the `deployment.toml` file in the `<MI_HOME>/conf` directory and add the following sections to create the connection between the Micro Integrator and the relevant database. Note that you need separate configurations corresponding to the separate databases (`clusterdb`, `userdb`, and `transactiondb`).
 
-=== "Cluster DB Connection"
-    ```toml
-    [[datasource]]
-    id = "WSO2_COORDINATION_DB"
-    url= "jdbc:oracle:thin:@SERVER_NAME:PORT/SID"
-    username="root"
-    password="root"
-    driver="oracle.jdbc.OracleDriver"
-    pool_options.maxActive=50
-    pool_options.maxWait = 60000
-    pool_options.testOnBorrow = true
-    ```
+```toml tab='Cluster DB Connection'
+[[datasource]]
+id = "WSO2_COORDINATION_DB"
+url= "jdbc:oracle:thin:@SERVER_NAME:PORT/SID"
+username="root"
+password="root"
+driver="oracle.jdbc.OracleDriver"
+pool_options.maxActive=50
+pool_options.maxWait = 60000
+pool_options.testOnBorrow = true
+```
 
-=== "User DB Connection"
-    ```toml
-    [[datasource]]
-    id = "WSO2CarbonDB"
-    url= "jdbc:oracle:thin:@SERVER_NAME:PORT/SID"
-    username="root"
-    password="root"
-    driver="oracle.jdbc.OracleDriver"
-    pool_options.maxActive=50
-    pool_options.maxWait = 60000
-    pool_options.testOnBorrow = true
-    ```
+```toml tab='User DB Connection'
+[[datasource]]
+id = "WSO2CarbonDB"
+url= "jdbc:oracle:thin:@SERVER_NAME:PORT/SID"
+username="root"
+password="root"
+driver="oracle.jdbc.OracleDriver"
+pool_options.maxActive=50
+pool_options.maxWait = 60000
+pool_options.testOnBorrow = true
+```
 
-=== "Transaction Counter DB Connection"
-    ```toml
-    [[datasource]]
-    id = "WSO2_TRANSACTION_DB"
-    url= "jdbc:oracle:thin:@SERVER_NAME:PORT/SID"
-    username="root"
-    password="root"
-    driver="oracle.jdbc.OracleDriver"
-    pool_options.maxActive=50
-    pool_options.maxWait = 60000
-    pool_options.testOnBorrow = true
-    [transaction_counter]
-    enable = true
-    data_source = "WSO2_TRANSACTION_DB"
-    update_interval = 2
-    ```
+```toml tab='Transaction Counter DB Connection'
+[[datasource]]
+id = "WSO2_TRANSACTION_DB"
+url= "jdbc:oracle:thin:@SERVER_NAME:PORT/SID"
+username="root"
+password="root"
+driver="oracle.jdbc.OracleDriver"
+pool_options.maxActive=50
+pool_options.maxWait = 60000
+pool_options.testOnBorrow = true
+[transaction_counter]
+enable = true
+data_source = "WSO2_TRANSACTION_DB"
+update_interval = 2
+```
 
 {!includes/integration/pull-content-user-store-db-id.md!}
 

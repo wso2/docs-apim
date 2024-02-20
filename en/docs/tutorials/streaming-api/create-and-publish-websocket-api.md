@@ -174,15 +174,13 @@ Now, you have created and configured the WebSocket API successfully.
 
       2.  Invoke the API's `/notifications` topic with an authorization header by executing the following command.
         
-        === "WS"
-            ``` bash
-            wscat -c ws://localhost:9099/chats/1.0.0/notifications -H "Authorization: Bearer [accesstoken]" 
-            ```
+           ``` bash tab="WS"
+           wscat -c ws://localhost:9099/chats/1.0.0/notifications -H "Authorization: Bearer [accesstoken]" 
+           ```
 
-        === "WSS"
-            ``` bash
-            wscat -n -c wss://localhost:8099/chats/1.0.0/notifications -H "Authorization: Bearer [accesstoken]"
-            ```
+           ``` bash tab="WSS"
+           wscat -n -c wss://localhost:8099/chats/1.0.0/notifications -H "Authorization: Bearer [accesstoken]"
+           ```
           
           When the connection is successful, the WebSocket server will send: 
            ```bash
@@ -191,15 +189,13 @@ Now, you have created and configured the WebSocket API successfully.
 
       3.  In a separate terminal, invoke the API's `/rooms/{roomID}` topic with an authorization header by executing the following command.
 
-        === "WS"
-            ``` bash
-            wscat -c ws://localhost:9099/chats/1.0.0/rooms/room1 -H "Authorization: Bearer [accesstoken]" 
-            ```
+           ``` bash tab="WS"
+           wscat -c ws://localhost:9099/chats/1.0.0/rooms/room1 -H "Authorization: Bearer [accesstoken]" 
+           ```
 
-        === "WSS"
-            ``` bash
-            wscat -n -c wss://localhost:8099/chats/1.0.0/rooms/room1 -H "Authorization: Bearer [accesstoken]"
-            ```
+           ``` bash tab="WSS"
+           wscat -n -c wss://localhost:8099/chats/1.0.0/rooms/room1 -H "Authorization: Bearer [accesstoken]"
+           ```
 
           When the connection is successful, the WebSocket server will send:
            ```bash
@@ -214,15 +210,13 @@ Now, you have created and configured the WebSocket API successfully.
           
       4.  In another terminal, invoke the API's `/rooms/{roomID}` topic again. This denotes the second user, who will be connecting to `room1`.
       
-        === "WS"
-            ``` bash
-            wscat -c ws://localhost:9099/chats/1.0.0/rooms/room1 -H "Authorization: Bearer [accesstoken]" 
-            ```
+           ``` bash tab="WS"
+           wscat -c ws://localhost:9099/chats/1.0.0/rooms/room1 -H "Authorization: Bearer [accesstoken]" 
+           ```
 
-        === "WSS"
-            ``` bash
-            wscat -n -c wss://localhost:8099/chats/1.0.0/rooms/room1 -H "Authorization: Bearer [accesstoken]"
-            ```
+           ``` bash tab="WSS"
+           wscat -n -c wss://localhost:8099/chats/1.0.0/rooms/room1 -H "Authorization: Bearer [accesstoken]"
+           ```
           
           You will receive the message: `You joined room1!` in this terminal, along with the corresponding notification in the `notifications` terminal.
           
@@ -236,15 +230,13 @@ Now, you have created and configured the WebSocket API successfully.
           </p>
           </html>
 
-        === "WS"
-            ``` bash
-            wscat -c "ws://localhost:9099/chats/1.0.0/notifications?access_token=[accesstoken]" 
-            ```
+           ``` bash tab="WS"
+           wscat -c "ws://localhost:9099/chats/1.0.0/notifications?access_token=[accesstoken]" 
+           ```
   
-        === "WSS"
-            ``` bash
-            wscat -n -c "wss://localhost:8099/chats/1.0.0/notifications?access_token=[accesstoken]"
-            ```
+           ``` bash tab="WSS"
+           wscat -n -c "wss://localhost:8099/chats/1.0.0/notifications?access_token=[accesstoken]"
+           ```
 
           </div>
 

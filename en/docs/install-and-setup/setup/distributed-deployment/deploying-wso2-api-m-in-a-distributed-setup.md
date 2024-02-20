@@ -84,49 +84,45 @@ Configure the Gateway to communicate with the Control Plane.
 
     **Connecting the Gateway to the Key Manager component in the Control Plane**:
 
-    === "Control Plane with HA"
-        ```toml
-        [apim.key_manager]
-        service_url = "https://[control-plane-LB-host]/services/"
-        username = "$ref{super_admin.username}"
-        password = "$ref{super_admin.password}"   
-        ```
+    ```toml tab="Control Plane with HA"
+    [apim.key_manager]
+    service_url = "https://[control-plane-LB-host]/services/"
+    username = "$ref{super_admin.username}"
+    password = "$ref{super_admin.password}"   
+    ```
 
-    === "Single Control Plane"
-        ```toml
-        [apim.key_manager]
-        service_url = "https://[control-plane-host]:${mgt.transport.https.port}/services/"
-        username = "$ref{super_admin.username}"
-        password = "$ref{super_admin.password}"
-        ```
+    ```toml tab="Single Control Plane"
+    [apim.key_manager]
+    service_url = "https://[control-plane-host]:${mgt.transport.https.port}/services/"
+    username = "$ref{super_admin.username}"
+    password = "$ref{super_admin.password}"
+    ```
 
     **Connecting the Gateway to the Traffic Manager component in the Control Plane**:
 
-    === "Control Plane with HA"
-        ```toml
-        [apim.throttling]
-        service_url = "https://[control-plane-LB-host]/services/"
-        throttle_decision_endpoints = ["tcp://control-plane-1-host:5672", "tcp://control-plane-2-host:5672"]
+    ```toml tab="Control Plane with HA"
+    [apim.throttling]
+    service_url = "https://[control-plane-LB-host]/services/"
+    throttle_decision_endpoints = ["tcp://control-plane-1-host:5672", "tcp://control-plane-2-host:5672"]
 
-        [[apim.throttling.url_group]]
-        traffic_manager_urls = ["tcp://control-plane-1-host:9611"]
-        traffic_manager_auth_urls = ["ssl://control-plane-1-host:9711"]
+    [[apim.throttling.url_group]]
+    traffic_manager_urls = ["tcp://control-plane-1-host:9611"]
+    traffic_manager_auth_urls = ["ssl://control-plane-1-host:9711"]
 
-        [[apim.throttling.url_group]]
-        traffic_manager_urls = ["tcp://control-plane-2-host:9611"]
-        traffic_manager_auth_urls = ["ssl://control-plane-2-host:9711"]
-        ```
+    [[apim.throttling.url_group]]
+    traffic_manager_urls = ["tcp://control-plane-2-host:9611"]
+    traffic_manager_auth_urls = ["ssl://control-plane-2-host:9711"]
+    ```
 
-    === "Single Control Plane"
-        ```toml
-        [apim.throttling]
-        service_url = "https://control-plane-host:${mgt.transport.https.port}/services/"
-        throttle_decision_endpoints = ["tcp://control-plane-host:5672"]
+    ```toml tab="Single Control Plane"
+    [apim.throttling]
+    service_url = "https://control-plane-host:${mgt.transport.https.port}/services/"
+    throttle_decision_endpoints = ["tcp://control-plane-host:5672"]
 
-        [[apim.throttling.url_group]]
-        traffic_manager_urls = ["tcp://control-plane-host:9611"]
-        traffic_manager_auth_urls = ["ssl://control-plane-host:9711"]
-        ```
+    [[apim.throttling.url_group]]
+    traffic_manager_urls = ["tcp://control-plane-host:9611"]
+    traffic_manager_auth_urls = ["ssl://control-plane-host:9711"]
+    ```
 
     !!! Info
         Rate limiting configurations are used to configure both traffic management as well as the event hub for the Gateway in this scenario. 
@@ -198,120 +194,118 @@ Configure the Gateway to communicate with the Control Plane.
 
 #### Sample configuration for the Gateway
 
-=== "HA Cluster"
-    ```toml
-    [server]
-    hostname = "gw.wso2.com"
-    node_ip = "127.0.0.1"
-    server_role = "gateway-worker"
+```toml tab="HA Cluster"
+[server]
+hostname = "gw.wso2.com"
+node_ip = "127.0.0.1"
+server_role = "gateway-worker"
 
-    [user_store]
-    type = "database_unique_id"
+[user_store]
+type = "database_unique_id"
 
-    [super_admin]
-    username = "admin"
-    password = "admin"
-    create_admin_account = true
+[super_admin]
+username = "admin"
+password = "admin"
+create_admin_account = true
 
-    [database.shared_db]
-    type = "mysql"
-    hostname = "db.wso2.com"
-    name = "shared_db"
-    port = "3306"
-    username = "sharedadmin"
-    password = "sharedadmin"
+[database.shared_db]
+type = "mysql"
+hostname = "db.wso2.com"
+name = "shared_db"
+port = "3306"
+username = "sharedadmin"
+password = "sharedadmin"
 
-    [keystore.tls]
-    file_name =  "wso2carbon.jks"
-    type =  "JKS"
-    password =  "wso2carbon"
-    alias =  "wso2carbon"
-    key_password =  "wso2carbon"
+[keystore.tls]
+file_name =  "wso2carbon.jks"
+type =  "JKS"
+password =  "wso2carbon"
+alias =  "wso2carbon"
+key_password =  "wso2carbon"
 
-    [truststore]
-    file_name = "client-truststore.jks"
-    type = "JKS"
-    password = "wso2carbon"
+[truststore]
+file_name = "client-truststore.jks"
+type = "JKS"
+password = "wso2carbon"
 
-    [transport.http]
-    properties.port = 9763
-    properties.proxyPort = 80
+[transport.http]
+properties.port = 9763
+properties.proxyPort = 80
 
-    [transport.https]
-    properties.port = 9443
-    properties.proxyPort = 443
+[transport.https]
+properties.port = 9443
+properties.proxyPort = 443
 
-    [apim.sync_runtime_artifacts.gateway]
-    gateway_labels =["Default"]
+[apim.sync_runtime_artifacts.gateway]
+gateway_labels =["Default"]
 
-    # key manager implementation
-    [apim.key_manager]
-    service_url = "https://cp.wso2.com/services/"
+# key manager implementation
+[apim.key_manager]
+service_url = "https://cp.wso2.com/services/"
 
-    # Traffic Manager configurations
-    [apim.throttling]
-    service_url = "https://cp.wso2.com/services/"
-    throttle_decision_endpoints = ["tcp://apim-cp-1:5672", "tcp://apim-cp-2:5672"]
+# Traffic Manager configurations
+[apim.throttling]
+service_url = "https://cp.wso2.com/services/"
+throttle_decision_endpoints = ["tcp://apim-cp-1:5672", "tcp://apim-cp-2:5672"]
 
-    [[apim.throttling.url_group]]
-    traffic_manager_urls=["tcp://apim-cp-1:9611"]
-    traffic_manager_auth_urls=["ssl://apim-cp-1:9711"]
+[[apim.throttling.url_group]]
+traffic_manager_urls=["tcp://apim-cp-1:9611"]
+traffic_manager_auth_urls=["ssl://apim-cp-1:9711"]
 
-    [[apim.throttling.url_group]]
-    traffic_manager_urls=["tcp://apim-cp-2:9611"]
-    traffic_manager_auth_urls=["ssl://apim-cp-2:9711"]
-    ```
+[[apim.throttling.url_group]]
+traffic_manager_urls=["tcp://apim-cp-2:9611"]
+traffic_manager_auth_urls=["ssl://apim-cp-2:9711"]
+```
 
-=== "Single Node"
-    ```toml
-    [server]
-    hostname = "gw.wso2.com"
-    node_ip = "127.0.0.1"
-    server_role = "gateway-worker"
-    offset=0
+```toml tab="Single Node"
+[server]
+hostname = "gw.wso2.com"
+node_ip = "127.0.0.1"
+server_role = "gateway-worker"
+offset=0
 
-    [user_store]
-    type = "database_unique_id"
+[user_store]
+type = "database_unique_id"
 
-    [super_admin]
-    username = "admin"
-    password = "admin"
-    create_admin_account = true
+[super_admin]
+username = "admin"
+password = "admin"
+create_admin_account = true
 
-    [database.shared_db]
-    type = "mysql"
-    hostname = "db.wso2.com"
-    name = "shared_db"
-    port = "3306"
-    username = "sharedadmin"
-    password = "sharedadmin"
+[database.shared_db]
+type = "mysql"
+hostname = "db.wso2.com"
+name = "shared_db"
+port = "3306"
+username = "sharedadmin"
+password = "sharedadmin"
 
-    [keystore.tls]
-    file_name =  "wso2carbon.jks"
-    type =  "JKS"
-    password =  "wso2carbon"
-    alias =  "wso2carbon"
-    key_password =  "wso2carbon"
+[keystore.tls]
+file_name =  "wso2carbon.jks"
+type =  "JKS"
+password =  "wso2carbon"
+alias =  "wso2carbon"
+key_password =  "wso2carbon"
 
-    [truststore]
-    file_name = "client-truststore.jks"
-    type = "JKS"
-    password = "wso2carbon"
+[truststore]
+file_name = "client-truststore.jks"
+type = "JKS"
+password = "wso2carbon"
 
-    [apim.sync_runtime_artifacts.gateway]
-    gateway_labels =["Default"]
+[apim.sync_runtime_artifacts.gateway]
+gateway_labels =["Default"]
 
-    [apim.key_manager]
-    service_url = "https://cp.wso2.com:9443/services/"
+[apim.key_manager]
+service_url = "https://cp.wso2.com:9443/services/"
 
-    [apim.throttling]
-    service_url = "https://cp.wso2.com:9443/services/"
-    throttle_decision_endpoints = ["tcp://cp.wso2.com:5672"]
+[apim.throttling]
+service_url = "https://cp.wso2.com:9443/services/"
+throttle_decision_endpoints = ["tcp://cp.wso2.com:5672"]
 
-    [[apim.throttling.url_group]]
-    traffic_manager_urls=["tcp://cp.wso2.com:9611"]
-    traffic_manager_auth_urls=["ssl://cp.wso2.com:9711"]
-    ```
+[[apim.throttling.url_group]]
+traffic_manager_urls=["tcp://cp.wso2.com:9611"]
+traffic_manager_auth_urls=["ssl://cp.wso2.com:9711"]
+```
 
 ### Configure the Control Plane Nodes
 
@@ -323,35 +317,33 @@ Configure the Control Plane to communicate with the Gateway.
 
     **Connecting the Control Plane to the Gateway node**:
 
-    === "Gateway with HA"
-        ```toml
-        [[apim.gateway.environment]]
-        name = "Default"
-        type = "hybrid"
-        display_in_api_console = true
-        description = "This is a hybrid gateway that handles both production and sandbox token traffic."
-        show_as_token_endpoint_url = true
-        service_url = "https://[api-gateway-LB-host]/services/"
-        ws_endpoint = "ws://[api-gateway-LB-host-or-ip]:9099"
-        wss_endpoint = "wss://[api-gateway-LB-host-or-ip]:8099"
-        http_endpoint = "http://[api-gateway-LB-host]"
-        https_endpoint = "https://[api-gateway-LB-host]"
-        ```
+    ```toml tab="Gateway with HA"
+    [[apim.gateway.environment]]
+    name = "Default"
+    type = "hybrid"
+    display_in_api_console = true
+    description = "This is a hybrid gateway that handles both production and sandbox token traffic."
+    show_as_token_endpoint_url = true
+    service_url = "https://[api-gateway-LB-host]/services/"
+    ws_endpoint = "ws://[api-gateway-LB-host-or-ip]:9099"
+    wss_endpoint = "wss://[api-gateway-LB-host-or-ip]:8099"
+    http_endpoint = "http://[api-gateway-LB-host]"
+    https_endpoint = "https://[api-gateway-LB-host]"
+    ```
 
-    === "Single Gateway"
-        ```toml
-        [[apim.gateway.environment]]
-        name = "Default"
-        type = "hybrid"
-        display_in_api_console = true
-        description = "This is a hybrid gateway that handles both production and sandbox token traffic."
-        show_as_token_endpoint_url = true
-        service_url = "https://[api-gateway-host]:9443/services/"
-        ws_endpoint = "ws://[api-gateway-host]:9099"
-        wss_endpoint = "wss://[api-gateway-host]:8099"
-        http_endpoint = "http://[api-gateway-host]:${http.nio.port}"
-        https_endpoint = "https://[api-gateway-host]:${https.nio.port}"
-        ```
+    ```toml tab="Single Gateway"
+    [[apim.gateway.environment]]
+    name = "Default"
+    type = "hybrid"
+    display_in_api_console = true
+    description = "This is a hybrid gateway that handles both production and sandbox token traffic."
+    show_as_token_endpoint_url = true
+    service_url = "https://[api-gateway-host]:9443/services/"
+    ws_endpoint = "ws://[api-gateway-host]:9099"
+    wss_endpoint = "wss://[api-gateway-host]:8099"
+    http_endpoint = "http://[api-gateway-host]:${http.nio.port}"
+    https_endpoint = "https://[api-gateway-host]:${https.nio.port}"
+    ```
 
     !!! Info
         This configuration is used for deploying APIs to the Gateway and for connecting the Developer Portal component to the Gateway if the Gateway is shared across tenants. If the Gateway is not used in multiple tenants, you can create a [Gateway Environment using the Admin Portal]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames/#using-a-new-gateway-environment-to-expose-apis-via-custom-hostnames).  
@@ -388,37 +380,35 @@ Configure the Control Plane to communicate with the Gateway.
 
     The below configurations are only added to the Control Plane if you are using the Resident Key Manager (which resides in the Control Plane). If you are using WSO2 IS as a Key Manager, you need to add these to the IS node. Once you add the below configurations, the Control Plane or Identity Server will listen to token revocation events and invoke the `notification_endpoint` regarding the revoked token. 
 
-    === "Control Plane with High Availability"
-        ```toml
-        # Event Listener configurations
-        [[event_listener]]
-        id = "token_revocation"
-        type = "org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
-        name = "org.wso2.is.notification.ApimOauthEventInterceptor"
-        order = 1
+    ```toml tab="Control Plane with High Availability"
+    # Event Listener configurations
+    [[event_listener]]
+    id = "token_revocation"
+    type = "org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
+    name = "org.wso2.is.notification.ApimOauthEventInterceptor"
+    order = 1
 
-        [event_listener.properties]
-        notification_endpoint = "https://[control-plane-LB-host]/internal/data/v1/notify"
-        username = "${admin.username}"
-        password = "${admin.password}"
-        'header.X-WSO2-KEY-MANAGER' = "default"
-        ```
+    [event_listener.properties]
+    notification_endpoint = "https://[control-plane-LB-host]/internal/data/v1/notify"
+    username = "${admin.username}"
+    password = "${admin.password}"
+    'header.X-WSO2-KEY-MANAGER' = "default"
+    ```
 
-    === "Single Control Plane"
-        ```toml
-        # Event Listener configurations
-        [[event_listener]]
-        id = "token_revocation"
-        type = "org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
-        name = "org.wso2.is.notification.ApimOauthEventInterceptor"
-        order = 1
+    ```toml tab="Single Control Plane"
+    # Event Listener configurations
+    [[event_listener]]
+    id = "token_revocation"
+    type = "org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
+    name = "org.wso2.is.notification.ApimOauthEventInterceptor"
+    order = 1
 
-        [event_listener.properties]
-        notification_endpoint = "https://[control-plane-host]:${mgt.transport.https.port}/internal/data/v1/notify"
-        username = "${admin.username}"
-        password = "${admin.password}"
-        'header.X-WSO2-KEY-MANAGER' = "default"
-        ```
+    [event_listener.properties]
+    notification_endpoint = "https://[control-plane-host]:${mgt.transport.https.port}/internal/data/v1/notify"
+    username = "${admin.username}"
+    password = "${admin.password}"
+    'header.X-WSO2-KEY-MANAGER' = "default"
+    ```
     
 
 3. Optionally, add the following configuration to enable distributed cache invalidation within the nodes.
@@ -437,178 +427,176 @@ Configure the Control Plane to communicate with the Gateway.
 
 #### Sample configuration for the Control Plane
 
-=== "HA Cluster"
-    ```toml
-    [server]
-    hostname = "cp.wso2.com"
-    node_ip = "127.0.0.1"
-    server_role="control-plane"
-    base_path = "${carbon.protocol}://${carbon.host}:${carbon.management.port}"
+```toml tab="HA Cluster"
+[server]
+hostname = "cp.wso2.com"
+node_ip = "127.0.0.1"
+server_role="control-plane"
+base_path = "${carbon.protocol}://${carbon.host}:${carbon.management.port}"
 
-    [user_store]
-    type = "database_unique_id"
+[user_store]
+type = "database_unique_id"
 
-    [super_admin]
-    username = "admin"
-    password = "admin"
-    create_admin_account = true
+[super_admin]
+username = "admin"
+password = "admin"
+create_admin_account = true
 
-    [database.apim_db]
-    type = "mysql"
-    hostname = "db.wso2.com"
-    name = "apim_db"
-    port = "3306"
-    username = "apimadmin"
-    password = "apimadmin"
+[database.apim_db]
+type = "mysql"
+hostname = "db.wso2.com"
+name = "apim_db"
+port = "3306"
+username = "apimadmin"
+password = "apimadmin"
 
-    [database.shared_db]
-    type = "mysql"
-    hostname = "db.wso2.com"
-    name = "shared_db"
-    port = "3306"
-    username = "sharedadmin"
-    password = "sharedadmin"
+[database.shared_db]
+type = "mysql"
+hostname = "db.wso2.com"
+name = "shared_db"
+port = "3306"
+username = "sharedadmin"
+password = "sharedadmin"
 
-    [keystore.tls]
-    file_name =  "wso2carbon.jks"
-    type =  "JKS"
-    password =  "wso2carbon"
-    alias =  "wso2carbon"
-    key_password =  "wso2carbon"
+[keystore.tls]
+file_name =  "wso2carbon.jks"
+type =  "JKS"
+password =  "wso2carbon"
+alias =  "wso2carbon"
+key_password =  "wso2carbon"
 
-    [truststore]
-    file_name = "client-truststore.jks"
-    type = "JKS"
-    password = "wso2carbon"
+[truststore]
+file_name = "client-truststore.jks"
+type = "JKS"
+password = "wso2carbon"
 
-    [[apim.gateway.environment]]
-    name = "Default"
-    type = "hybrid"
-    display_in_api_console = true
-    description = "This is a hybrid gateway that handles both production and sandbox token traffic."
-    show_as_token_endpoint_url = true
-    service_url = "https://[api-gateway-LB-host]/services/"
-    ws_endpoint = "ws://[api-gateway-LB-host]:9099"
-    wss_endpoint = "wss://[api-gateway-LB-host]:8099"
-    http_endpoint = "http://[api-gateway-LB-host]"
-    https_endpoint = "https://[api-gateway-LB-host]"
+[[apim.gateway.environment]]
+name = "Default"
+type = "hybrid"
+display_in_api_console = true
+description = "This is a hybrid gateway that handles both production and sandbox token traffic."
+show_as_token_endpoint_url = true
+service_url = "https://[api-gateway-LB-host]/services/"
+ws_endpoint = "ws://[api-gateway-LB-host]:9099"
+wss_endpoint = "wss://[api-gateway-LB-host]:8099"
+http_endpoint = "http://[api-gateway-LB-host]"
+https_endpoint = "https://[api-gateway-LB-host]"
 
-    [apim.devportal]
-    url = "https://cp.wso2.com/devportal"
+[apim.devportal]
+url = "https://cp.wso2.com/devportal"
 
-    [transport.http]
-    properties.port = 9763
-    properties.proxyPort = 80
+[transport.http]
+properties.port = 9763
+properties.proxyPort = 80
 
-    [transport.https]
-    properties.port = 9443
-    properties.proxyPort = 443
+[transport.https]
+properties.port = 9443
+properties.proxyPort = 443
 
-    # Event Hub configurations
-    [apim.event_hub]
-    enable = true
-    username = "$ref{super_admin.username}"
-    password = "$ref{super_admin.password}"
-    service_url = "https://cp.wso2.com/services/"
-    event_listening_endpoints = ["tcp://localhost:5672"]
-    event_duplicate_url = ["tcp://apim-cp-2:5672"]
+# Event Hub configurations
+[apim.event_hub]
+enable = true
+username = "$ref{super_admin.username}"
+password = "$ref{super_admin.password}"
+service_url = "https://cp.wso2.com/services/"
+event_listening_endpoints = ["tcp://localhost:5672"]
+event_duplicate_url = ["tcp://apim-cp-2:5672"]
 
-    [[apim.event_hub.publish.url_group]]
-    urls = ["tcp://apim-cp-1:9611"]
-    auth_urls = ["ssl://apim-cp-1:9711"]
+[[apim.event_hub.publish.url_group]]
+urls = ["tcp://apim-cp-1:9611"]
+auth_urls = ["ssl://apim-cp-1:9711"]
 
-    [[apim.event_hub.publish.url_group]]
-    urls = ["tcp://apim-cp-2:9611"]
-    auth_urls = ["ssl://apim-cp-2:9711"]
+[[apim.event_hub.publish.url_group]]
+urls = ["tcp://apim-cp-2:9611"]
+auth_urls = ["ssl://apim-cp-2:9711"]
 
-    # key manager implementation
-    [apim.key_manager]
-    service_url = "https://cp.wso2.com/services/"
+# key manager implementation
+[apim.key_manager]
+service_url = "https://cp.wso2.com/services/"
 
-    [[event_listener]]
-    id = "token_revocation"
-    type = "org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
-    name = "org.wso2.is.notification.ApimOauthEventInterceptor"
-    order = 1
+[[event_listener]]
+id = "token_revocation"
+type = "org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
+name = "org.wso2.is.notification.ApimOauthEventInterceptor"
+order = 1
 
-    [event_listener.properties]
-    notification_endpoint = "https://cp.wso2.com/internal/data/v1/notify"
-    username = "${admin.username}"
-    password = "${admin.password}"
-    'header.X-WSO2-KEY-MANAGER' = "default"
-    ```
+[event_listener.properties]
+notification_endpoint = "https://cp.wso2.com/internal/data/v1/notify"
+username = "${admin.username}"
+password = "${admin.password}"
+'header.X-WSO2-KEY-MANAGER' = "default"
+```
 
-=== "Single Node"
-    ```toml
-    [server]
-    hostname = "cp.wso2.com"
-    node_ip = "127.0.0.1"
-    server_role = "control-plane"
-    offset=0
+```toml tab="Single Node"
+[server]
+hostname = "cp.wso2.com"
+node_ip = "127.0.0.1"
+server_role = "control-plane"
+offset=0
 
-    [user_store]
-    type = "database_unique_id"
+[user_store]
+type = "database_unique_id"
 
-    [super_admin]
-    username = "admin"
-    password = "admin"
-    create_admin_account = true
+[super_admin]
+username = "admin"
+password = "admin"
+create_admin_account = true
 
-    [database.apim_db]
-    type = "mysql"
-    hostname = "db.wso2.com"
-    name = "apim_db"
-    port = "3306"
-    username = "root"
-    password = "root"
+[database.apim_db]
+type = "mysql"
+hostname = "db.wso2.com"
+name = "apim_db"
+port = "3306"
+username = "root"
+password = "root"
 
-    [database.shared_db]
-    type = "mysql"
-    hostname = "db.wso2.com"
-    name = "shared_db"
-    port = "3306"
-    username = "root"
-    password = "root"
+[database.shared_db]
+type = "mysql"
+hostname = "db.wso2.com"
+name = "shared_db"
+port = "3306"
+username = "root"
+password = "root"
 
-    [keystore.tls]
-    file_name =  "wso2carbon.jks"
-    type =  "JKS"
-    password =  "wso2carbon"
-    alias =  "wso2carbon"
-    key_password =  "wso2carbon"
+[keystore.tls]
+file_name =  "wso2carbon.jks"
+type =  "JKS"
+password =  "wso2carbon"
+alias =  "wso2carbon"
+key_password =  "wso2carbon"
 
-    # Gateway configuration
-    [[apim.gateway.environment]]
-    name = "Default"
-    type = "hybrid"
-    display_in_api_console = true
-    description = "This is a hybrid gateway that handles both production and sandbox token traffic."
-    show_as_token_endpoint_url = true
-    service_url = "https://gw.wso2.com:9443/services/"
-    username= "${admin.username}"
-    password= "${admin.password}"
-    ws_endpoint = "ws://gw.wso2.com:9099"
-    wss_endpoint = "wss://gw.wso2.com:8099"
-    http_endpoint = "http://gw.wso2.com:8280"
-    https_endpoint = "https://gw.wso2.com:8243"
+# Gateway configuration
+[[apim.gateway.environment]]
+name = "Default"
+type = "hybrid"
+display_in_api_console = true
+description = "This is a hybrid gateway that handles both production and sandbox token traffic."
+show_as_token_endpoint_url = true
+service_url = "https://gw.wso2.com:9443/services/"
+username= "${admin.username}"
+password= "${admin.password}"
+ws_endpoint = "ws://gw.wso2.com:9099"
+wss_endpoint = "wss://gw.wso2.com:8099"
+http_endpoint = "http://gw.wso2.com:8280"
+https_endpoint = "https://gw.wso2.com:8243"
 
-    # key manager implementation
-    [apim.key_manager]
-    service_url = "https://cp.wso2.com:9443/services/"
+# key manager implementation
+[apim.key_manager]
+service_url = "https://cp.wso2.com:9443/services/"
 
-    # Event Listener configurations
-    [[event_listener]]
-    id = "token_revocation"
-    type = "org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
-    name = "org.wso2.is.notification.ApimOauthEventInterceptor"
-    order = 1
+# Event Listener configurations
+[[event_listener]]
+id = "token_revocation"
+type = "org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
+name = "org.wso2.is.notification.ApimOauthEventInterceptor"
+order = 1
 
-    [event_listener.properties]
-    notification_endpoint = "https://cp.wso2.com:9443/internal/data/v1/notify"
-    username = "${admin.username}"
-    password = "${admin.password}"
-    'header.X-WSO2-KEY-MANAGER' = "default"
-    ```
+[event_listener.properties]
+notification_endpoint = "https://cp.wso2.com:9443/internal/data/v1/notify"
+username = "${admin.username}"
+password = "${admin.password}"
+'header.X-WSO2-KEY-MANAGER' = "default"
+```
 
 ## Step 7 - Start the API-M nodes
 
@@ -618,32 +606,28 @@ Once you have successfully configured all the API-M nodes in the deployment, you
 
     Open a terminal, navigate to the `<API-M-GATEWAY-HOME>/bin` folder, and execute the following command:
     
-    === "Linux/Mac OS"
-        ``` java
-        cd <API-M_HOME>/bin/
-        sh api-manager.sh -Dprofile=gateway-worker
-        ```
+    ``` java tab="Linux/Mac OS"
+    cd <API-M_HOME>/bin/
+    sh api-manager.sh -Dprofile=gateway-worker
+    ```
     
-    === "Windows"
-        ``` java
-        cd <API-M_HOME>\bin\
-        api-manager.bat --run -Dprofile=gateway-worker
-        ```
+    ``` java tab="Windows"
+    cd <API-M_HOME>\bin\
+    api-manager.bat --run -Dprofile=gateway-worker
+    ```
 
 -   Start the Control Plane nodes
 
     Open a terminal, navigate to the `<API-M-CONTROL-PLANE-HOME>/bin` folder, and execute the following command:
 
-    === "Linux/Mac OS"
-        ``` java
-        cd <API-M_HOME>/bin/
-        sh api-manager.sh -Dprofile=control-plane
-        ```
+    ``` java tab="Linux/Mac OS"
+    cd <API-M_HOME>/bin/
+    sh api-manager.sh -Dprofile=control-plane
+    ```
 
-    === "Windows"
-        ``` java
-        cd <API-M_HOME>\bin\
-        api-manager.bat --run -Dprofile=control-plane
-        ```
+    ``` java tab="Windows"
+    cd <API-M_HOME>\bin\
+    api-manager.bat --run -Dprofile=control-plane
+    ```
 
 For more information on starting API-M profiles, see [API-M Profiles]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles).

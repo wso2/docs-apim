@@ -23,8 +23,8 @@ Follow the given steps to configure a read-only LDAP/AD as the primary user stor
 Before you begin
 
 -   Navigate to `<API-M_HOME>/repository/conf` directory to open `deployment.toml` file and do user_store_properties configurations according to the LDAP user store provider. Following is the sample read-only user store configurations:
-    ```toml
-    [user_store.properties]
+    ```
+    [user_store.properties] 
     TenantManager="org.wso2.carbon.user.core.tenant.CommonHybridLDAPTenantManager"
     ConnectionURL="ldap://localhost:10390"
     ConnectionName="uid=admin,ou=system"
@@ -71,7 +71,7 @@ Before you begin
     ```
 
 -   The `class` attribute for a read-only LDAP/Active Directory is `org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager`.
-    ```toml
+    ```
     [user_store]
     class="org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager"
     type = "read_only_ldap"
@@ -234,7 +234,7 @@ The configuration for the external read-only user store in the user-mgt.xml file
 
 The **admin** user is the super tenant that will be able to manage all other users, roles and permissions in the system by using the management console of the product. Therefore, the user that should have admin permissions is required to be stored in the user store when you start the system for the first time. By default, the system will create an admin user in the LDAP that has admin permissions. But this cannot be done it the LDAP user store is read-only. Hence that capability should be disabled as follows:
 
-``` toml
+``` 
 [super_admin]
 username = "admin"
 admin_role = "admin"
@@ -247,7 +247,7 @@ create_admin_account = false
 
 
 If the user store can be written to, you can add the super tenant user to the user store. Therefore, create_admin_account should be set to true as shown below.
-``` toml
+``` 
 [super_admin]
 username = "admin"
 admin_role = "admin"

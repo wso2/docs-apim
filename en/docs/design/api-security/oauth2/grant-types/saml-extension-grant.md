@@ -50,7 +50,7 @@ A sequence diagram explaining the above flow would be as follows:
     -   A valid consumer key and consumer secret. Initially, these keys must be generated in the API Developer Portal clicking the **Generate Keys** button on the **Production Keys** tab of the application.
     -   A running API Gateway instance.
     -   If the Key Manager is on a different server than the API Gateway, change the server URL (host and ports) of the Key Manager as mentioned below, in the `<API-M_HOME>/repository/conf/deployment.toml` file.
-    ```toml
+    ```
     [apim.key_manager]
     configuration.ServerURL = "<key-manager-server-url>"
     ```
@@ -139,15 +139,13 @@ Here's an example consumer key and secret combination:
 
 3.  Go to the extracted folder using the command line and execute the following command. We assume that both the client and the API Gateway run on the same server. Therefore, the Token API URL is `https://localhost:9443/oauth2/token`
 
-    === "Format"
-        ``` java
-        java -jar SAML2AssertionCreator.jar <Identity_Provider_Entity_Id> <saml-subject> <saml-recipient> <saml-audience> <Identity_Provider_JKS_file> <Identity_Provider_JKS_password> <Identity_Provider_certificate_alias> <Identity_Provider_private_key_password>
-        ```  
+    ``` java tab="Format"
+    java -jar SAML2AssertionCreator.jar <Identity_Provider_Entity_Id> <saml-subject> <saml-recipient> <saml-audience> <Identity_Provider_JKS_file> <Identity_Provider_JKS_password> <Identity_Provider_certificate_alias> <Identity_Provider_private_key_password>
+    ```  
     
-    === "Example"
-        ``` java
-        java -jar SAML2AssertionCreator.jar TestSP admin https://localhost:9443/oauth2/token https://localhost:9443/oauth2/token <APIM-Home>/repository/resources/security/wso2carbon.jks wso2carbon wso2carbon wso2carbon
-        ```
+    ``` java tab="Example"
+    java -jar SAML2AssertionCreator.jar TestSP admin https://localhost:9443/oauth2/token https://localhost:9443/oauth2/token <APIM-Home>/repository/resources/security/wso2carbon.jks wso2carbon wso2carbon wso2carbon
+    ```
 
     The arguments are as follows:
 

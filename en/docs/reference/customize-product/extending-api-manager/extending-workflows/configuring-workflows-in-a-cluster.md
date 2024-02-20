@@ -54,10 +54,8 @@ In this guide, you access the Admin Portal ( `https://:9443/admin` ) Web applic
     &lt;/wsdl:service&gt;</code></pre>
     </div>
     </div>
-        <div class="admonition tip">
-        <p class="admonition-title">Tip</p>
+        !!! tip
         <p><strong>Note</strong> that all workflow process services of the BPS run on port 9765 because you changed its default port (9763) with an offset of 2.</p>
-        </div>
     </td>
     </tr>
     <tr class="even">
@@ -139,10 +137,8 @@ In this guide, you access the Admin Portal ( `https://:9443/admin` ) Web applic
     &lt;/wsdl:service&gt; </code></pre>
     </div>
     </div>
-        <div class="admonition tip">
-        <p class="admonition-title">Tip</p>
+        !!! tip
         <p><strong>Note</strong> that all workflow process services of the BPS run on port 9765 because you changed its default port (9763) with an offset of 2.</p>
-        </div>
     </td>
     </tr>
     </tbody>

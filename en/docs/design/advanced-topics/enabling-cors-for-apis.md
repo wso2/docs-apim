@@ -19,7 +19,7 @@ Follow the instructions below to enable CORS response headers globally. Once thi
 2.  Locate the following configuration and set the `enable` attribute to `true` with the required CORS headers in the response. 
      After this configuration is applied in the API Gateway, it will affect all the API calls served by the Gateway.
 
-    ``` toml
+    ``` java
     [apim.cors]
     enable = true
     allow_origins = "*"

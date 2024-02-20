@@ -27,8 +27,7 @@ The instructions below contain the steps that you require to follow to create a 
 
    1. Use the following interface to implement the Custom OPA Request Generator.
 
-    === "Interface"
-       ```java
+       ```java tab='Interface'
        package org.apache.synapse.mediators.opa;
 
        import org.apache.synapse.MessageContext;
@@ -71,8 +70,7 @@ The instructions below contain the steps that you require to follow to create a 
 
        Here is the sample implementation that only returns request headers to OPA.
 
-    === "Sample Implementation"
-       ```java
+       ```java tab='Sample Implementation'
        package org.example.tests;
 
        import org.apache.synapse.MessageContext;

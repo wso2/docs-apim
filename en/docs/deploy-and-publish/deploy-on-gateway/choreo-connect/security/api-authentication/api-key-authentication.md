@@ -12,7 +12,7 @@ Select one of the methods given below to enable API Key Authentication for an AP
 !!! tip
     Following is the config added to Choreo Connect by default for API Key Authentication. To change the default settings, add this to config.toml and update as required.
 
-    ```toml
+    ```
     [[enforcer.security.tokenService]]
     # Provide unique name for the JWT issuer
     name = "APIM APIkey"
@@ -43,7 +43,7 @@ The following example defines an API Key security scheme named `apiKeyAuth`, whi
 !!! note
     The following example shows how to define API Key security schemes in [OAS3](https://swagger.io/docs/specification/authentication/api-keys/). If you are using an OAS2 API definition, go to [this Swagger document](https://swagger.io/docs/specification/2-0/authentication/api-keys/) to get more information on defining API Key security in OAS2.
 
-``` yaml
+``` yml
 # step 1 - Define the API Key security scheme
 components:
  securitySchemes:
@@ -65,7 +65,7 @@ A security scheme can be specified at a resource level or to the whole API by us
 
    The following code snippet is an example of how the API key can be applied to a specific resource.
 
-  ``` yaml
+  ``` yml
    # step 2 - Specify the API Key security in operation level
    "/pet/{petId}":
      get:
@@ -90,7 +90,7 @@ A security scheme can be specified at a resource level or to the whole API by us
 
     The following code snippet is an example of how the API key can be applied globally to all operations.
 
-     ``` yaml
+     ``` yml
      # step 2 - Specify the API Key security in api level
      security:
       - ApiKeyAuth: [] 
@@ -110,20 +110,17 @@ Use one of the following options to invoke APIs using an API key based on the me
 
      Execute the following cURL command to invoke APIs when the API key is defined in the OpenAPI definition security schemes.
 
-    === "Format"
-        ``` bash
-        curl -k -X GET "<API_URL>" -H  "accept: application/json" -H  "<Header name>: <API Key>"
-        ```
+      ``` bash tab="Format"
+      curl -k -X GET "<API_URL>" -H  "accept: application/json" -H  "<Header name>: <API Key>"
+      ```
 
-    === "Example"
-        ``` bash
-        curl -k -X GET "https://localhost:9095/petstore/v1/pet/1" -H  "accept: application/json" -H  "X-API-KEY: eyJhbGciOiJSUzI1NiIsICJ0eXAiOiJqd3QiLCAia2lkIjoiYmFsbGVyaW5hIn0=.eyJzdWIiOiJhZG1pbiIsICJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo5MDk1L2FwaWtleSIsICJpYXQiOjE1ODAxMDUzOTAsICJqdGkiOiI3OTFiNzAyMC1kN2U2LTRmYmEtYmMyMy1lMzk5YTVlNmYzYjciLCAiYXVkIjoiaHR0cDovL29yZy53c28yLmFwaW1ndC9nYXRld2F5IiwgImtleXR5cGUiOiJQUk9EVUNUSU9OIiwgImFsbG93ZWRBUElzIjpbXX0=.f-86LfD7lLq-0oM1V1u1dLW7fWcydH4MElWVxUfRTGGRiXHhh8VrS5q18LdCtH1E1jav5pPZpdDQgQUvhVYNXVqiipydfJFOMbDysA0Jdakmh_TVmeZRHhIYgzcVHQNnXMcYXg7Ns4QPBvJVONfbmDluuiU_uFnOPBiXj2N4HL2OTLgVXkEoVTEpL0mmaO2Ab4ZHqKW5xj32aeK8sEAtU5Nd3rQOGvfEwL7xvx4JAmza8ka0eYt7c4QCPVcDSVOkdas9njlsvEdtka5GRL9PAx3xg370phSD1cji6WSRlZhEGzuq6hjLbCqsf17KvZgK1zbrEbSypjgegEe-any3EQ=="
-        ```
+      ``` bash tab="Example"
+      curl -k -X GET "https://localhost:9095/petstore/v1/pet/1" -H  "accept: application/json" -H  "X-API-KEY: eyJhbGciOiJSUzI1NiIsICJ0eXAiOiJqd3QiLCAia2lkIjoiYmFsbGVyaW5hIn0=.eyJzdWIiOiJhZG1pbiIsICJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo5MDk1L2FwaWtleSIsICJpYXQiOjE1ODAxMDUzOTAsICJqdGkiOiI3OTFiNzAyMC1kN2U2LTRmYmEtYmMyMy1lMzk5YTVlNmYzYjciLCAiYXVkIjoiaHR0cDovL29yZy53c28yLmFwaW1ndC9nYXRld2F5IiwgImtleXR5cGUiOiJQUk9EVUNUSU9OIiwgImFsbG93ZWRBUElzIjpbXX0=.f-86LfD7lLq-0oM1V1u1dLW7fWcydH4MElWVxUfRTGGRiXHhh8VrS5q18LdCtH1E1jav5pPZpdDQgQUvhVYNXVqiipydfJFOMbDysA0Jdakmh_TVmeZRHhIYgzcVHQNnXMcYXg7Ns4QPBvJVONfbmDluuiU_uFnOPBiXj2N4HL2OTLgVXkEoVTEpL0mmaO2Ab4ZHqKW5xj32aeK8sEAtU5Nd3rQOGvfEwL7xvx4JAmza8ka0eYt7c4QCPVcDSVOkdas9njlsvEdtka5GRL9PAx3xg370phSD1cji6WSRlZhEGzuq6hjLbCqsf17KvZgK1zbrEbSypjgegEe-any3EQ=="
+      ```
 
-    === "Response"
-        ``` bash
-        {"id":1,"category":{"id":0},"name":"tested","photoUrls":[],"tags":[],"status":"tested"}
-        ```
+      ``` bash tab="Response"
+      {"id":1,"category":{"id":0},"name":"tested","photoUrls":[],"tags":[],"status":"tested"}
+      ```
 
 ## Additional Information
 
@@ -135,7 +132,7 @@ Choreo Connect API Key Authentication supports API key restriction for IP addres
 
 You may use the following to reconfigure API Authentication related configs.
 
-```toml
+```
 [[enforcer.security.tokenService]]
 name = "APIM APIkey"
 validateSubscription = true
@@ -175,7 +172,7 @@ certificateFilePath = "/home/wso2/security/truststore/wso2carbon.pem"
 
 During the absence of the above config section, the following will be referred if present to support backward compatibility.
 
-```toml
+```
 [[enforcer.security.tokenService]]
 name = "APIM Publisher"
 issuer = "https://localhost:9443/publisher"

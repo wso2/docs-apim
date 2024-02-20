@@ -15,24 +15,22 @@ For more information, see [Open Tracer Configurations]({{base_path}}/reference/c
 
 1. Copy the following configuration into the `deployment.toml` file.
 
-    === "Format"
-        ```toml
-        [apim.open_tracer]
-        remote_tracer.enable = true
-        remote_tracer.name = "jaeger"
-        remote_tracer.properties.hostname = "<hostname-of-jaeger-endpoint>"
-        remote_tracer.properties.port = "<port-of-jaeger-endpoint>"
-        ```
+    ```toml tab="Format"
+    [apim.open_tracer]
+    remote_tracer.enable = true
+    remote_tracer.name = "jaeger"
+    remote_tracer.properties.hostname = "<hostname-of-jaeger-endpoint>"
+    remote_tracer.properties.port = "<port-of-jaeger-endpoint>"
+    ```
 
-    === "Example"
-        ```toml
-        [apim.open_tracer]
-        remote_tracer.enable = true
-        remote_tracer.name = "jaeger"
-        remote_tracer.properties.hostname = "localhost"
-        remote_tracer.properties.port = "6831" 
-        #6832 can also be used as the port
-        ```
+    ```toml tab="Example"
+    [apim.open_tracer]
+    remote_tracer.enable = true
+    remote_tracer.name = "jaeger"
+    remote_tracer.properties.hostname = "localhost"
+    remote_tracer.properties.port = "6831" 
+    #6832 can also be used as the port
+    ```
 
 2. Start the server.
 
@@ -44,23 +42,21 @@ For more information, see [Open Tracer Configurations]({{base_path}}/reference/c
 
 1. Copy the following configuration into the `deployment.toml` file.
 
-    === "Format"
-        ```toml
-        [apim.open_tracer]
-        remote_tracer.enable = true
-        remote_tracer.name = "zipkin"
-        remote_tracer.properties.hostname = "<hostname-of-zikin-endpoint>"
-        remote_tracer.properties.port = "<port-o-zipkin-endpoint>"
-        ```
+    ```toml tab="Format"
+    [apim.open_tracer]
+    remote_tracer.enable = true
+    remote_tracer.name = "zipkin"
+    remote_tracer.properties.hostname = "<hostname-of-zikin-endpoint>"
+    remote_tracer.properties.port = "<port-o-zipkin-endpoint>"
+    ```
 
-    === "Example"
-        ```toml
-        [apim.open_tracer]
-        remote_tracer.enable = true
-        remote_tracer.name = "zipkin"
-        remote_tracer.properties.hostname = "localhost"
-        remote_tracer.properties.port = "9411"
-        ```
+    ```toml tab="Example"
+    [apim.open_tracer]
+    remote_tracer.enable = true
+    remote_tracer.name = "zipkin"
+    remote_tracer.properties.hostname = "localhost"
+    remote_tracer.properties.port = "9411"
+    ```
 
 2. Start the server.
 

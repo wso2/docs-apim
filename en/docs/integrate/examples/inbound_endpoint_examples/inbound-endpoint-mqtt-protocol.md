@@ -9,33 +9,31 @@ Mosquitto server as the Message Broker.
 
 Following are the integration artifacts that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
-=== "Inbound Endpoint"
-    ```xml
-    <?xml version="1.0" encoding="UTF-8"?>
-    <inboundEndpoint name="SampleInbound" onError="fault" protocol="mqtt" sequence="TestIn" statistics="enable" suspend="false" trace="enable" xmlns="http://ws.apache.org/ns/synapse">
-        <parameters>
-            <parameter name="sequential">true</parameter>
-            <parameter name="mqtt.connection.factory">mqttConFactory</parameter>
-            <parameter name="mqtt.server.host.name">localhost</parameter>
-            <parameter name="mqtt.server.port">1883</parameter>
-            <parameter name="mqtt.topic.name">esb.test</parameter>
-            <parameter name="content.type">application/xml</parameter>
-            <parameter name="mqtt.subscription.qos">0</parameter>
-            <parameter name="mqtt.session.clean">false</parameter>
-            <parameter name="mqtt.ssl.enable">false</parameter>
-            <parameter name="mqtt.reconnection.interval">1000</parameter>
-        </parameters>
-    </inboundEndpoint>
-    ```
+```xml tab='Inbound Endpoint'
+<?xml version="1.0" encoding="UTF-8"?>
+<inboundEndpoint name="SampleInbound" onError="fault" protocol="mqtt" sequence="TestIn" statistics="enable" suspend="false" trace="enable" xmlns="http://ws.apache.org/ns/synapse">
+    <parameters>
+        <parameter name="sequential">true</parameter>
+        <parameter name="mqtt.connection.factory">mqttConFactory</parameter>
+        <parameter name="mqtt.server.host.name">localhost</parameter>
+        <parameter name="mqtt.server.port">1883</parameter>
+        <parameter name="mqtt.topic.name">esb.test</parameter>
+        <parameter name="content.type">application/xml</parameter>
+        <parameter name="mqtt.subscription.qos">0</parameter>
+        <parameter name="mqtt.session.clean">false</parameter>
+        <parameter name="mqtt.ssl.enable">false</parameter>
+        <parameter name="mqtt.reconnection.interval">1000</parameter>
+    </parameters>
+</inboundEndpoint>
+```
 
-=== "Sequence"
-    ```xml
-    <?xml version="1.0" encoding="UTF-8"?>
-    <sequence name="TestIn" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-    <log level="full"/>
-    <drop/>
-    </sequence>
-    ```
+```xml tab='Sequence'
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="TestIn" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+   <log level="full"/>
+   <drop/>
+</sequence>
+```
 
 ## Build and run
 

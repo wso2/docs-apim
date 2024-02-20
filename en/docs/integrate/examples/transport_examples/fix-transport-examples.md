@@ -52,39 +52,37 @@ Banzai.
 
 Create the FIX configuration files as specified below. The `FileStorePath` property in the following two files should point to two directories in your local file system. Once the samples are executed, Synapse will create FIX message stores in these two directories.
 
-=== "fix-synapse.cfg"
-    ```java
-    [default]
-        FileStorePath=repository/logs/fix/data
-        ConnectionType=acceptor
-        StartTime=00:00:00
-        EndTime=00:00:00
-        HeartBtInt=30
-        ValidOrderTypes=1,2,F
-        SenderCompID=SYNAPSE
-        TargetCompID=BANZAI
-        UseDataDictionary=Y
-        DefaultMarketPrice=12.30
+```java tab='fix-synapse.cfg'
+[default]
+    FileStorePath=repository/logs/fix/data
+    ConnectionType=acceptor
+    StartTime=00:00:00
+    EndTime=00:00:00
+    HeartBtInt=30
+    ValidOrderTypes=1,2,F
+    SenderCompID=SYNAPSE
+    TargetCompID=BANZAI
+    UseDataDictionary=Y
+    DefaultMarketPrice=12.30
 
-        [session]
-        BeginString=FIX.4.0
-        SocketAcceptPort=9876
-    ```
+    [session]
+    BeginString=FIX.4.0
+    SocketAcceptPort=9876
+```
 
-=== "synapse-sender.cfg"
-    ```java
-    [default]
-        FileStorePath=repository/logs/fix/data
-        SocketConnectHost=localhost
-        StartTime=00:00:00
-        EndTime=00:00:00
-        HeartBtInt=30
-        ReconnectInterval=5
-        SenderCompID=SYNAPSE
-        TargetCompID=EXEC
-        ConnectionType=initiator
+```java tab='synapse-sender.cfg'
+[default]
+    FileStorePath=repository/logs/fix/data
+    SocketConnectHost=localhost
+    StartTime=00:00:00
+    EndTime=00:00:00
+    HeartBtInt=30
+    ReconnectInterval=5
+    SenderCompID=SYNAPSE
+    TargetCompID=EXEC
+    ConnectionType=initiator
 
-        [session]
-        BeginString=FIX.4.0
-        SocketConnectPort=19876
-    ```
+    [session]
+    BeginString=FIX.4.0
+    SocketConnectPort=19876
+```
