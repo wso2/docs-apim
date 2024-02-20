@@ -96,8 +96,8 @@ The following configurations allow you to configure AmazonSQS Inbound Endpoint f
  <property name="SET_ROLLBACK_ONLY" value="true"/>
  ```
     
- ??? note "Sample fault sequence"
-        ```
+??? note "Sample fault sequence"
+    ```
         <?xml version="1.0" encoding="UTF-8"?>
         <sequence name="fault" xmlns="http://ws.apache.org/ns/synapse">
             <property name="SET_ROLLBACK_ONLY" value="true"/>
@@ -113,4 +113,4 @@ The following configurations allow you to configure AmazonSQS Inbound Endpoint f
             </log>
             <drop/>
         </sequence>
-        ```
+    ```

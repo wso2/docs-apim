@@ -231,8 +231,8 @@ To try out the transformations described above with some of the given examples, 
    
    - Publishes the production statistics in a custom format. `name` and `amount` attributes are presented as `Name` and `Quantity`, and nested under `ProductionData` in the `Product` enclosing element. These events are published in the `Users/foo/productions.json` file.
    
-        !!! tip
-            You can save the `productions.json` file mentioned above in a different location of your choice if required.
+    !!! tip
+        You can save the `productions.json` file mentioned above in a different location of your choice if required.
    
    - Calculates the total production amount and the average production amount per sweet, and presents them as values for the `total` and `average` attributes in the output event published in the `productions.json` file.
    

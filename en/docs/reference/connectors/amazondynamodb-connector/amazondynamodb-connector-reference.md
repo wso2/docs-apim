@@ -413,7 +413,7 @@ To use the Amazon DynamoDB connector, add the <amazondynamodb.init> element in y
         "Message":{
             "S":"I want to update multiple items in a single call. What's the best way to do that?"
         }
-   }
+    }
 
     }
     ```
@@ -1827,7 +1827,7 @@ To use the Amazon DynamoDB connector, add the <amazondynamodb.init> element in y
       "TableName":"Thread",
       "TableSizeBytes":0,
       "TableStatus":"UPDATING"
-   }
+    }
     }
     ```
 

@@ -26,19 +26,19 @@ Follow the instructions below to expose a third-party Service Provider stream as
         
         2. Update the `service.catalog.configs:` section as follows:
         
-                ```
-                service.catalog.configs:
-                    enabled: true
-                    hostname: localhost
-                    port: 9448
-                    username: admin
-                    password: admin
-                ```
-                 In the above configuration -
+            ```
+            service.catalog.configs:
+                enabled: true
+                hostname: localhost
+                port: 9448
+                username: admin
+                password: admin
+            ```
+            In the above configuration -
                  
-                   - You are enabling the AsyncAPI generation functionality by setting the `enabled` parameter to `true`. 
+                - You are enabling the AsyncAPI generation functionality by setting the `enabled` parameter to `true`. 
                     
-                   - You are specifying `9448` as the port because you configured a port offset of 5 in the previous step. The default port of the API Manager is `9443`.
+                - You are specifying `9448` as the port because you configured a port offset of 5 in the previous step. The default port of the API Manager is `9443`.
 
     4. Configure authentication between API-M and SI.
        
@@ -67,7 +67,7 @@ Follow the instructions below to expose a third-party Service Provider stream as
 
 ??? note "3. Start Kafka"
 
-    1.Navigate to the `<KAFKA_HOME>` directory and start a Zookeeper node.
+    1. Navigate to the `<KAFKA_HOME>` directory and start a Zookeeper node.
 
         ```
         sh bin/zookeeper-server-start.sh config/zookeeper.properties

@@ -17,7 +17,7 @@ in the following ways:
         define table SweetProductionTable (name string, amount double);
     ```
 
-        !!! info
+    !!! info
     
         This method is not recommended in a production environment because
         is less secure compared to the other methods.
@@ -30,7 +30,7 @@ in the following ways:
     as a ref (i.e., in a separate section siddhi: and subsection refs:)
     as shown in the example below.  
 
-        !!! info
+    !!! info
     
         The database connection is started when a Siddhi application is
         deployed, and disconnected when the Siddhi application is
@@ -77,7 +77,7 @@ in the following ways:
             @Store(type='<DATABASE_TYPE>', datasource=’<carbon.datasource.name>’)
     ```
 
-        !!! info
+    !!! info
     
         The database connection pool is initialized at server startup, and
         destroyed at server shut down.

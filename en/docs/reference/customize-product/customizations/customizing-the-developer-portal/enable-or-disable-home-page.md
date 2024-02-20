@@ -21,75 +21,75 @@ By using `defaultTheme.js` as a reference , you could customize these link tabs 
     Following JSON is an example for a `userTheme.js` to define the look and feel, and the behavior of the landing page. You can set the attributes (components) such as `carousel`, `listByTag`, `parallax` and `contact` as shown in the below example. (Refer to the above screenshot to identify the components referred by the attribute names)
 
     ``` js
-{
-    "custom": {
-        "landingPage": {
-            "active": true,
-            "carousel": {
+    {
+        "custom": {
+            "landingPage": {
                 "active": true,
-                "slides": [
-                    {
-                        "src": "/site/public/images/landing/01.jpg",
-                        "title": "Lorem <span>ipsum</span> dolor sit amet",
-                        "content":
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer felis lacus, placerat vel condimentum in, porta a urna. Suspendisse dolor diam, vestibulum at molestie dapibus, semper eget ex. Morbi sit amet euismod tortor."
-                    },
-                    {
-                        "src": "/site/public/images/landing/02.jpg",
-                        "title": "Curabitur <span>malesuada</span> arcu sapien",
-                        "content":
-                            "Curabitur malesuada arcu sapien, suscipit egestas purus efficitur vitae. Etiam vulputate hendrerit venenatis. "
-                    },
-                    {
-                        "src": "/site/public/images/landing/03.jpg",
-                        "title": "Nam vel ex <span>feugiat</span> nunc laoreet",
-                        "content":
-                            "Nam vel ex feugiat nunc laoreet elementum. Duis sed nibh condimentum, posuere risus a, mollis diam. Vivamus ultricies, augue id pulvinar semper, mauris lorem bibendum urna, eget tincidunt quam ex ut diam."
-                    }
-                ]
-            },
-            "listByTag": {
-                "active": true,
-                "content": [
-                    {
-                        "tag": "finance",
-                        "title": "Checkout our Finance APIs",
-                        "description":
-                            "WSO2 offers online payment solutions and have more than 123 million customers worldwide. The WSO2 Finance API makes powerful functionality available to developers by exposing various features of the platform. Functionality includes but is not limited to invoice management, transaction processing, and account management.",
-                        "maxCount": 5
-                    },
-                    {
-                        "tag": "weather",
-                        "title": "Checkout our Weather APIs",
-                        "description":
-                            "WSO2 offers online payment solutions and have more than 123 million customers worldwide. The WSO2 Finance API makes powerful functionality available to developers by exposing various features of the platform. Functionality includes but is not limited to invoice management, transaction processing, and account management.",
-                        "maxCount": 5
-                    }
-                ]
-            },
-            "parallax": {
-                "active": true,
-                "content": [
-                    {
-                        "src": "/site/public/images/landing/parallax1.jpg",
-                        "title": "Lorem <span>ipsum</span> dolor sit amet",
-                        "content":
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer felis lacus, placerat vel condimentum in, porta a urna. Suspendisse dolor diam, vestibulum at molestie dapibus, semper eget ex. Morbi sit amet euismod tortor."
-                    },
-                    {
-                        "src": "/site/public/images/landing/parallax2.jpg",
-                        "title": "Nam vel ex <span>feugiat</span> nunc laoreet",
-                        "content":
-                            "Nam vel ex feugiat nunc laoreet elementum. Duis sed nibh condimentum, posuere risus a, mollis diam. Vivamus ultricies, augue id pulvinar semper, mauris lorem bibendum urna, eget tincidunt quam ex ut diam."
-                    }
-                ]
-            },
-            "contact": {
-                "active": true
+                "carousel": {
+                    "active": true,
+                    "slides": [
+                        {
+                            "src": "/site/public/images/landing/01.jpg",
+                            "title": "Lorem <span>ipsum</span> dolor sit amet",
+                            "content":
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer felis lacus, placerat vel condimentum in, porta a urna. Suspendisse dolor diam, vestibulum at molestie dapibus, semper eget ex. Morbi sit amet euismod tortor."
+                        },
+                        {
+                            "src": "/site/public/images/landing/02.jpg",
+                            "title": "Curabitur <span>malesuada</span> arcu sapien",
+                            "content":
+                                "Curabitur malesuada arcu sapien, suscipit egestas purus efficitur vitae. Etiam vulputate hendrerit venenatis. "
+                        },
+                        {
+                            "src": "/site/public/images/landing/03.jpg",
+                            "title": "Nam vel ex <span>feugiat</span> nunc laoreet",
+                            "content":
+                                "Nam vel ex feugiat nunc laoreet elementum. Duis sed nibh condimentum, posuere risus a, mollis diam. Vivamus ultricies, augue id pulvinar semper, mauris lorem bibendum urna, eget tincidunt quam ex ut diam."
+                        }
+                    ]
+                },
+                "listByTag": {
+                    "active": true,
+                    "content": [
+                        {
+                            "tag": "finance",
+                            "title": "Checkout our Finance APIs",
+                            "description":
+                                "WSO2 offers online payment solutions and have more than 123 million customers worldwide. The WSO2 Finance API makes powerful functionality available to developers by exposing various features of the platform. Functionality includes but is not limited to invoice management, transaction processing, and account management.",
+                            "maxCount": 5
+                        },
+                        {
+                            "tag": "weather",
+                            "title": "Checkout our Weather APIs",
+                            "description":
+                                "WSO2 offers online payment solutions and have more than 123 million customers worldwide. The WSO2 Finance API makes powerful functionality available to developers by exposing various features of the platform. Functionality includes but is not limited to invoice management, transaction processing, and account management.",
+                            "maxCount": 5
+                        }
+                    ]
+                },
+                "parallax": {
+                    "active": true,
+                    "content": [
+                        {
+                            "src": "/site/public/images/landing/parallax1.jpg",
+                            "title": "Lorem <span>ipsum</span> dolor sit amet",
+                            "content":
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer felis lacus, placerat vel condimentum in, porta a urna. Suspendisse dolor diam, vestibulum at molestie dapibus, semper eget ex. Morbi sit amet euismod tortor."
+                        },
+                        {
+                            "src": "/site/public/images/landing/parallax2.jpg",
+                            "title": "Nam vel ex <span>feugiat</span> nunc laoreet",
+                            "content":
+                                "Nam vel ex feugiat nunc laoreet elementum. Duis sed nibh condimentum, posuere risus a, mollis diam. Vivamus ultricies, augue id pulvinar semper, mauris lorem bibendum urna, eget tincidunt quam ex ut diam."
+                        }
+                    ]
+                },
+                "contact": {
+                    "active": true
+                }
             }
         }
     }
-}
 
     ```
 

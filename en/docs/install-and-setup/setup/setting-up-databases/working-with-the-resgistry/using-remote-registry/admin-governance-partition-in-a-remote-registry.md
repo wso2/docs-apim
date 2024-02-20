@@ -39,7 +39,7 @@ Database configurations are stored in $CARBON\_HOME/repository/conf/datasources/
 
 2. Navigate to $G-REG\_HOME/repository/conf/datasources/master-datasources.xml file where G-REG\_HOME is the Governance Registry distribution home. Replace the existing WSO2\_CARBON\_DB datasource with the following configuration:
 
-``` html/xml
+``` xml
     <datasource>
        <name>WSO2_CARBON_DB</name>
        <description>The datasource used for registry and user manager</description>
@@ -71,7 +71,7 @@ Change the values of the following elements according to your environment.
 
 3. Navigate to $G-REG\_HOME /repository/conf/axis2/axis2.xml file in all Carbon-based product instances to be connected with the remote registry, and enable clustering with the following configuration.
 
-``` html/xml
+``` xml
     <clustering class="org.wso2.carbon.core.clustering.hazelcast.HazelcastClusteringAgent" enable="false"/>
 ```
 
@@ -105,7 +105,7 @@ Now that the shared registry is configured, let's take a look at the configurati
 
 3. Configure $CARBON \_HOME/repository/conf/datasource/master-datasources.xml where CARBON \_HOME is the distribution home of any WSO2 Carbon-based product you downloaded in step 1. Then, add the following datasource for the registry space.
 
-``` html/xml
+``` xml
     <datasource>
             <name>WSO2_CARBON_DB_GREG</name>
             <description>The datasource used for registry and user manager</description>
@@ -136,7 +136,7 @@ Change the values of the relevant elements accordingly. **
 
 Add a new db config to the datasource configuration done in step 3 above. For example,
 
-``` html/xml
+``` xml
     <dbConfig name="remote_registry">
           <dataSource>jdbc/WSO2CarbonDB_GREG</dataSource>
     </dbConfig>
@@ -144,7 +144,7 @@ Add a new db config to the datasource configuration done in step 3 above. For ex
 
 Specify the remote Governance Registry instance with the following configuration:
 
-``` html/xml
+``` xml
     <remoteInstance url="https://x.x.x.x:9443/registry">
         <id>instanceid</id>
         <dbConfig>remote_registry</dbConfig>
@@ -164,7 +164,7 @@ Change the values of the following elements according to your environment.
 
 Define the registry partitions using the remote Governance Registry instance. In this deployment strategy, we are mounting the governance partition of the Carbon-based product instances to the remote Governance Registry instance. This is graphically represented in Figure 3 at the beginning.
 
-``` html/xml
+``` xml
     <mount path="/_system/governance" overwrite="true">
         <instanceId>instanceid</instanceId>
         <targetPath>/_system/governance</targetPath>
@@ -182,7 +182,7 @@ Define the registry partitions using the remote Governance Registry instance. In
 
 5. Navigate to $CARBON \_HOME/repository/conf/axis2/axis2.xml file where CARBON \_HOME is the distribution home of any WSO2 Carbon-based products to be connected with the remote registry. Enable carbon clustering by copying the following configuration to all Carbon server instances:
 
-``` html/xml
+``` xml
     <clustering class="org.wso2.carbon.core.clustering.hazelcast.HazelcastClusteringAgent" enable="false"/>
 ```
 

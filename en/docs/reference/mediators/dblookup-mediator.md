@@ -85,18 +85,18 @@ follows:
 !!! Info
     When specifying the DB connection using a connection pool, other than specifying parameter values inline, you can also specify following parameter values of the connection information (i.e. Driver, URL, User and password) as registry entries. The advantage of specifying a parameter value as a registry entry is that the same connection information configurations can be used in different environments simply by changing the registry entry value. To do this, give the registry path within the `key` attribute as shown in the example below.
 
-```
-<dblookup xmlns="http://ws.apache.org/ns/synapse">
-<connection>
-    <pool>
-        <password key="conf:/repository/esb/password"/>
-        <driver key="conf:/repository/esb/driver"/>
-        <url key="conf:/repository/esb/url"/>
-        <user key="conf:/repository/esb/username"/>
-    </pool>
-</connection>
-</dblookup>
-```
+    ```
+    <dblookup xmlns="http://ws.apache.org/ns/synapse">
+    <connection>
+        <pool>
+            <password key="conf:/repository/esb/password"/>
+            <driver key="conf:/repository/esb/driver"/>
+            <url key="conf:/repository/esb/url"/>
+            <user key="conf:/repository/esb/username"/>
+        </pool>
+    </connection>
+    </dblookup>
+    ```
     
 | Parameter Name             | Description                                                                                                      |
 |----------------------------|------------------------------------------------------------------------------------------------------------------|

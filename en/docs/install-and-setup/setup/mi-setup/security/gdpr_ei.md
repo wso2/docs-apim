@@ -119,6 +119,7 @@ INFO - LogMediator USER_NAME = Sam
 ```
 
 Let's look at how to anonymize the username value in log files.
+
 1.  [Download](https://github.com/wso2-docs/WSO2_EI/raw/master/Forget-Me-Tool/org.wso2.carbon.privacy.forgetme.tool-1.3.1.zip) 
     the **Forget-Me** tool and extract the contents. The location of the extracted folder will be referred to as `TOOL_HOME`
     from this point onwards.
