@@ -242,9 +242,9 @@ Change the values of the following elements according to your environment.
 -   &lt;enableCache&gt; : Whether caching is enabled on the Carbon server instance.
 
 !!! info
-    !!! note
+    Note
 
-        When adding the corresponding configuration to the registry.xml file of a slave node, set &lt;readOnly&gt;true&lt;/readOnly&gt;. This is the only configuration change.
+    When adding the corresponding configuration to the registry.xml file of a slave node, set &lt;readOnly&gt;true&lt;/readOnly&gt;. This is the only configuration change.
 
 
 Define the registry partitions using the remote Governance Registry instance.
@@ -276,10 +276,10 @@ Define the registry partitions using the remote Governance Registry instance.
 ```
 
 !!! info
-    !!! note
+    Note
 
 
-        4. Copy 'MySQL JDBC connector jar' ( [http://dev.mysql.com/downloads/connector/j/5.1.html)](http://dev.mysql.com/downloads/connector/j/5.1.html) to $ G-REG\_HOME/repository/components/lib in Carbon server instances of Foo product cluster.
+    4. Copy 'MySQL JDBC connector jar' ( [http://dev.mysql.com/downloads/connector/j/5.1.html)](http://dev.mysql.com/downloads/connector/j/5.1.html) to $ G-REG\_HOME/repository/components/lib in Carbon server instances of Foo product cluster.
 
 ### Configuring the bar product cluster
 
@@ -378,9 +378,9 @@ Change the values of the following elements according to your environment.
 -   &lt;enableCache&gt; : Whether caching is enabled on the Carbon server instance.
 
 !!! info
-    !!! note
+    Note
 
-        When adding the corresponding configuration to the registry.xml file of a slave node, set &lt;readOnly&gt;true&lt;/readOnly&gt;. This is the only configuration change.
+    When adding the corresponding configuration to the registry.xml file of a slave node, set &lt;readOnly&gt;true&lt;/readOnly&gt;. This is the only configuration change.
 
 
 Define the registry partitions using the remote Governance Registry instance.
@@ -407,16 +407,16 @@ Define the registry partitions using the remote Governance Registry instance.
 
 3. Navigate to $CARBON \_HOME/repository/conf/axis2/axis2.xml file and enable carbon clustering by copying the following configuration to all Carbon server instances:
 
-``` xml
-    <clustering class="org.wso2.carbon.core.clustering.hazelcast.HazelcastClusteringAgent" enable="false"/>
-```
+    ``` xml
+        <clustering class="org.wso2.carbon.core.clustering.hazelcast.HazelcastClusteringAgent" enable="false"/>
+    ```
 
-!!! info
-    !!! note
+    !!! info
+        Note
 
 
         4. Copy 'MySQL JDBC connector jar' ( [http://dev.mysql.com/downloads/connector/j/5.1.html)](http://dev.mysql.com/downloads/connector/j/5.1.html) to $ G-REG\_HOME/repository/components/lib in Carbon server instances of Bar product cluster.
 
-        5. Start both clusters and note the log entries that indicate successful mounting to the remote Governance Registry nodes.
+5. Start both clusters and note the log entries that indicate successful mounting to the remote Governance Registry nodes.
 
-        6. Navigate to the registry browser in the Carbon server's management console of a selected node and note the config and governance partitions indicating successful mounting to the remote registry instances.
+6. Navigate to the registry browser in the Carbon server's management console of a selected node and note the config and governance partitions indicating successful mounting to the remote registry instances.
