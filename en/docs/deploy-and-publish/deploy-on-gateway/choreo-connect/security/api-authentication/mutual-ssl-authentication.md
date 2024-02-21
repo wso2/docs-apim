@@ -7,7 +7,7 @@ Certificate-based authentication on the Choreo Connect is authenticating a reque
 - Navigate to the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect(-with-apim)/conf/config.toml` file.
 - Configure the `mTLSAPIsEnabled` to `true` under the `[router.downstream.tls]` configuration to enable the mTLS APIs in the Choreo Connect.
 
-     ```
+     ```toml
       [router.downstream.tls]
          trustedCertPath = "/etc/ssl/certs/ca-certificates.crt"  # Default path for client ca-certificates
          mTLSAPIsEnabled = true
@@ -58,19 +58,19 @@ Certificate-based authentication on the Choreo Connect is authenticating a reque
 
 ### Invoke an API secured with Mutual SSL using cURL
 
--   
-
-     ``` tab="Format"
+=== "Format"
+     ```bash
       curl -k --location -X GET "<API_URL>" -H  "accept: application/json" -H  "Authorization: Bearer <access-token>" --key <client_private_key> --cert <client_public_certificate>
      ```
 
-     ``` tab="Example"
+=== "Example"
+     ```bash
       curl -k --location -X GET 'https://localhost:9095/test/1.0/foo' -H 'accept: applicaition/json' -H 'Authorization: Bearer  0ee9aa70-d631-3401-b152-521b431036ca' --key privateKey.key --cert example.pem
      ```
 
 !!!Note
     `enableClientValidation` configuration should be `true` for sending the client certificates directly to the Choroe Connect. No need to add this configuration to the `config.toml` file since this is the default configuration. If you have added this and changed this to `false`, then the client certificates should be sent within a header.
-    ```
+    ```toml
      [enforcer.security.mutualSSL]
          enableClientValidation = true
     ```
@@ -98,7 +98,8 @@ Follow the instructions below to enable the mTLS Header and some properties:
 1.  Navigate to the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect(-with-apim)/conf/config.toml` file.
 2.  Configure the `enableClientValidation` to `false` under the `[enforcer.security.mutualSSL]` configuration to enable the mTLS Header.
 
-    ``` tab="Format"
+=== "Format"
+    ```toml
      [enforcer.security.mutualSSL]
         certificateHeader = "<Header Name>"      # This will give a custom header name for the mTLS header
         enableClientValidation = false           # This should be false to check the header value for the client certificate
@@ -106,7 +107,8 @@ Follow the instructions below to enable the mTLS Header and some properties:
         enableOutboundCertificateHeader = false  # This should be true if the client certificate is needed to be sent to the backend
     ```
 
-    ``` tab="Example"
+=== "Example"
+    ```toml
      [enforcer.security.mutualSSL]
         certificateHeader = "SSL-CLIENT-CERT"
         enableClientValidation = false
@@ -117,11 +119,13 @@ Follow the instructions below to enable the mTLS Header and some properties:
 3.  Start the Server.
 4.  Invoke the API  with the custom header.
 
-     ``` bash tab="Format"
+=== "Format"
+     ``` bash
      curl -k --location -X GET "<API_URL>" -H  "accept: application/json" -H  "Authorization: Bearer <access-token>" -H "<MTSL_Header_name>:<Certificate_Key>"
      ```
 
-     ``` bash tab="Example"
+=== "Example"
+     ``` bash
      curl -k --location -X GET 'https://localhost:9095/test/1.0/foo' -H 'accept: applicaition/json' -H 'Authorization: Bearer 0ee9aa70-d631-3401-b152-521b431036ca' -H 'SSL-CLIENT-CERT: -----BEGIN CERTIFICATE-----LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURsakNDQW40Q0NRRDc2MUpWekluMGNUQU5CZ2txaGtpRzl3MEJBUXNGQURDQmpERUxNQWtHQTFVRUJoTUMKVTB3eEVEQU9CZ05WQkFnTUIxZGxjM1JsY200eEVEQU9CZ05WQkFjTUIwTnZiRzl0WW04eERUQUxCZ05WQkFvTQpCRmRUVHpJeEN6QUpCZ05WQkFzTUFrTlRNUkl3RUFZRFZRUUREQWxzYjJOaGJHaHZjM1F4S1RBbkJna3Foa2lHCjl3MEJDUUVXR25kaGRHaHpZV3hoYTI5eVlXeGxaMlZBWjIxaGFXd3VZMjl0TUI0WERUSXhNREV4TkRBME16VXoKTlZvWERUSXlNREV4TkRBME16VXpOVm93Z1l3eEN6QUpCZ05WQkFZVEFsTk1NUkF3RGdZRFZRUUlEQWRYWlhOMApaWEp1TVJBd0RnWURWUVFIREFkRGIyeHZiV0p2TVEwd0N3WURWUVFLREFSWFUwOHlNUXN3Q1FZRFZRUUxEQUpEClV6RVNNQkFHQTFVRUF3d0piRzlqWVd4b2IzTjBNU2t3SndZSktvWklodmNOQVFrQkZocDNZWFJvYzJGc1lXdHYKY21Gc1pXZGxRR2R0WVdsc0xtTnZiVENDQVNJd0RRWUpLb1pJaHZjTkFRRUJCUUFEZ2dFUEFEQ0NBUW9DZ2dFQgpBTWMrRjhJblZmMzAwZ2FraTh2QUZ6cUFTSGNQV0xZalQ4dmMwOUs1TzZHRjgzaXpUa2F0UDFtYW1ydWlKL2VRCk1KL2VLVGhJdzR3MWEzS3Y4cjJwc3d2bWRjdjAzZnhRNis2aFh3Ykh5VUtHWFFwbVhtL3d5VE01NzRlR1cybXAKM2toTjlIdFV0SU5uS3BzSENLcFI3MFhGKzNrTTZleHJJNnRJUUpxdTdKM2t1OEdqRVI3R1Vma2trYXI1OGs3eApibEpIWG5URkdjWXJNSXAvcS9YUENqR0pGajhub2tNbjhnL0dWTExCVGFXSWJVa3E2ejRJYjk1dHNOd2thU1dhCnh6U2t3K3JIVkZLWnpPTlV1WTdKTk16Zkp6RkllZG5lY0U3c2Y0WnFIRlF6aUpVbW9qWklDMXp5bFdZdzQ4OEUKNUZvaU9xTWpHYTlUMXhXMUpOWTBab01DQXdFQUFUQU5CZ2txaGtpRzl3MEJBUXNGQUFPQ0FRRUFSZTdrcWZlbwpjd1htazRLWlBKMmlnaGY2VU9jc2dYSEZqMnVpQTNhSWMrd2xwREJpdkdCbDJHM2gxQXl6UFNtcVpYaUcvTGttCkg1dm43VUpGQXlQRVBlQ25HdWduTk5kZGpnSFp0SEdJLzdXcm1LTHdIOEU3TWdmSWJ6dk5Hd3ZXWmRrZi9DblcKNjNDYzhhTzJQMDhYd0dHU25JSDg2cWF6NEtvZUF1aFlCdHZyekNObERraTFjZ1E1bHczU0djU3dxMlB0eEd4cApvS0xWOUJYUzlVdUNJRDRrYjFqRUo3YlplTis0Z0pDbTVGTldUbWdhWXFDcjdERWIwRkhpWitLVnBsZzJZZ3ZYCkM2Z2ZrRm9NYTVJREwvWGVja0J0dFlITzFKcWUyMElRKy9kVHB4ZWE4RjE5aDVmeDRZWVlsRFhLWS8wRmxiRXoKZ1l2UGFIUnVKWnFlV1E9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==-----END CERTIFICATE-----'
      ```
 

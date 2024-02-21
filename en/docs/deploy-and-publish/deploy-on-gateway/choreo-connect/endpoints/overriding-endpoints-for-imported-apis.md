@@ -9,27 +9,31 @@ You can define endpoint details as the Adapter environment variables at docker-c
 
 1. Set the production or sandbox endpoint(s) of an API.
 
-    ``` java tab="Format"   
-    <API-ID>_<endpoint-type>_endpoint_<endpoint-index>="<endpoint-URL>" 
-    ```
+    === "Format"
+        ``` java  
+        <API-ID>_<endpoint-type>_endpoint_<endpoint-index>="<endpoint-URL>" 
+        ```
 
-    ``` java tab="Example"
-    services:
-        adapter:
-            environment:
-            - api_cc429c240db698dd2522038f8f85602bfcd33ed3_prod_endpoint_0="http://wso2.prod.com"
-            - api_cc429c240db698dd2522038f8f85602bfcd33ed3_sand_endpoint_0="http://wso2.sand.com"
-    ```
+    === "Example"
+        ``` java
+        services:
+            adapter:
+                environment:
+                - api_cc429c240db698dd2522038f8f85602bfcd33ed3_prod_endpoint_0="http://wso2.prod.com"
+                - api_cc429c240db698dd2522038f8f85602bfcd33ed3_sand_endpoint_0="http://wso2.sand.com"
+        ```
     
     - `<API-ID>` - `api_SHA1(<apiName>:<apiVersion>)` ID generated for the imported API. For the above examples, sample API-ID would be `api_cc429c240db698dd2522038f8f85602bfcd33ed3`. The ID hash can be generated as follows.
 
-        ``` java tab="Format"
-        echo -n "<apiName>:<apiVersion>" | openssl sha1
-        ```
+        === "Format"
+            ``` java
+            echo -n "<apiName>:<apiVersion>" | openssl sha1
+            ```
 
-        ``` java tab="Example"
-        echo -n "Petstore:1.0.0" | openssl sha1
-        ```
+        === "Example"
+            ``` java
+            echo -n "Petstore:1.0.0" | openssl sha1
+            ```
 
     - `<endpoint-type>` - Use one of the following values based on the type of endpoint.
         - `prod` - Use this for a production endpoint.
@@ -40,18 +44,20 @@ You can define endpoint details as the Adapter environment variables at docker-c
         
 2. If the backend is protected by basic authentication, provide username and password as follows.
     
-    ``` java tab="Format"
-    <API-ID>_<endpoint-type>_basic_username="<basic-auth-username>"
-    <API-ID>_<endpoint-type>_basic_password="<basic-auth-password>"
-    ```
+    === "Format"
+        ``` java
+        <API-ID>_<endpoint-type>_basic_username="<basic-auth-username>"
+        <API-ID>_<endpoint-type>_basic_password="<basic-auth-password>"
+        ```
 
-    ``` java tab="Example"
-    services:
-        adapter:
-            environment:
-            - api_cc429c240db698dd2522038f8f85602bfcd33ed3_prod_basic_username="admin"
-            - api_cc429c240db698dd2522038f8f85602bfcd33ed3_prod_basic_password="admin"
-    ```
+    === "Example"
+        ``` java
+        services:
+            adapter:
+                environment:
+                - api_cc429c240db698dd2522038f8f85602bfcd33ed3_prod_basic_username="admin"
+                - api_cc429c240db698dd2522038f8f85602bfcd33ed3_prod_basic_password="admin"
+        ```
     
     - `<basic-auth-username>` - Provide the username                            
     - `<basic-auth-password>` - Provide the password

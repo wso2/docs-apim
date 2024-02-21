@@ -123,9 +123,9 @@ Let's create a basic Siddhi application to consume messages from a Kafka topic.
     
        This pushes a message to the Kafka Server. Then, the Siddhi application you deployed in the Streaming Integrator consumes this message. As a result, the Streaming Integrator log displays the following:
     
-        ```
-        INFO {io.siddhi.core.stream.output.sink.LogSink} - HelloKafka : OutputStream : Event{timestamp=1562069868006, data=[ALMOND COOKIE, 100.0], isExpired=false}
-        ```
+       ```
+       INFO {io.siddhi.core.stream.output.sink.LogSink} - HelloKafka : OutputStream : Event{timestamp=1562069868006, data=[ALMOND COOKIE, 100.0], isExpired=false}
+       ```
     
     You may notice that the output message has an uppercase name: `ALMOND COOKIE`. This is because of the simple message transformation done in the Siddhi application.   
 
@@ -183,9 +183,9 @@ For this purpose, you can configure the `topic.offsets.map` parameter. Let's mod
 
    The following log appears in the Streaming Integrator Studio console.
 
-    ```
-    INFO {io.siddhi.core.stream.output.sink.LogSink} - HelloKafka : OutputStream : Event{timestamp=1562676477785, data=[CUP CAKE, 300.0], isExpired=false}
-    ```
+  ```
+  INFO {io.siddhi.core.stream.output.sink.LogSink} - HelloKafka : OutputStream : Event{timestamp=1562676477785, data=[CUP CAKE, 300.0], isExpired=false}
+  ```
 
 As you configured your Siddhi application to consume messages with offset `2`, all messages bearing index `2` or above are consumed.
 

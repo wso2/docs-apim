@@ -14,7 +14,7 @@ In the API Manager, access logs of applications get recorded or written into the
 
 2. Add the following configuration.
 
-    ```properties
+    ```toml
     [http_access_log]
     useLogger = true
     ```
@@ -268,7 +268,7 @@ Follow the steps given below to enable access logs for the PassThrough or NIO tr
     
 6.  Add the following configuration in the `<API-M_HOME>/repository/conf/deployment.toml` file. You need to add this configuration in order to make sure that the access logs related to the PassThrough and NIO transports are rotated on a daily basis. If this configuration is not set, all the access log details related to the PassThrough and NIO transports will get logged in a single file. The date will be appended to the access log when it is rotated.        
     
-    ```properties
+    ```toml
     [n_http]
     "nhttp.is.log.rotatable" = "true"
     ```

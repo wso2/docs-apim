@@ -63,76 +63,82 @@ Instead of printing our "hello" message for each and every language inside the s
 
 Following are the integration artifacts we can use to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
-```xml tab="Sequence template"
-<template name="Hello_Logger" xmlns="http://ws.apache.org/ns/synapse">
-    <parameter name="message"/>
-    <sequence>
-        <log level="custom">
-            <property expression="$func:message" name="GREETING_MESSAGE"/>
-        </log>
-    </sequence>
-</template>
-```
+=== "Sequence template"
+    ```xml
+    <template name="Hello_Logger" xmlns="http://ws.apache.org/ns/synapse">
+        <parameter name="message"/>
+        <sequence>
+            <log level="custom">
+                <property expression="$func:message" name="GREETING_MESSAGE"/>
+            </log>
+        </sequence>
+    </template>
+    ```
 
-```xml tab="Proxy Service"
-<proxy name="HelloProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
-    <target>
-        <inSequence>
-            <switch source="//lang[1]/text()">
-                <case regex="English">
-                    <call-template target="Hello_Logger">
-                        <with-param name="message" value="Hello"/>
-                    </call-template>
-                </case>
-                <case regex="French">
-                    <call-template target="Hello_Logger">
-                        <with-param name="message" value="Bonjour"/>
-                    </call-template>
-                </case>
-                <case regex="Japanese">
-                    <call-template target="Hello_Logger">
-                        <with-param name="message" value="Konnichiwa"/>
-                    </call-template>
-                </case>
-                <default>
-                    <call-template target="Hello_Logger"/>
-                </default>
-            </switch>
-            <drop/>
-        </inSequence>
-        <outSequence/>
-        <faultSequence/>
-    </target>
-</proxy>
-```
+=== "Proxy Service"
+    ```xml
+    <proxy name="HelloProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+                <switch source="//lang[1]/text()">
+                    <case regex="English">
+                        <call-template target="Hello_Logger">
+                            <with-param name="message" value="Hello"/>
+                        </call-template>
+                    </case>
+                    <case regex="French">
+                        <call-template target="Hello_Logger">
+                            <with-param name="message" value="Bonjour"/>
+                        </call-template>
+                    </case>
+                    <case regex="Japanese">
+                        <call-template target="Hello_Logger">
+                            <with-param name="message" value="Konnichiwa"/>
+                        </call-template>
+                    </case>
+                    <default>
+                        <call-template target="Hello_Logger"/>
+                    </default>
+                </switch>
+                <drop/>
+            </inSequence>
+            <outSequence/>
+            <faultSequence/>
+        </target>
+    </proxy>
+    ```
 
 Note the following;
 
 -   The following four Call Template mediator configurations populate a sequence template named Hello_Logger with the "Hello" text in four different languages.
 
-    ```xml tab='Call Template 1'
-    <call-template target="Hello_Logger">
-      <with-param name="message" value="Hello" />
-    </call-template>
-    ```
+    === "Call Template 1"
+        ```xml
+        <call-template target="Hello_Logger">
+        <with-param name="message" value="Hello" />
+        </call-template>
+        ```
 
-    ```xml tab='Call Template 2'
-    <call-template target="Hello_Logger">
-       <with-param name="message" value="Bonjour" />
-    </call-template>
-    ```
+    === "Call Template 2"
+        ```xml
+        <call-template target="Hello_Logger">
+        <with-param name="message" value="Bonjour" />
+        </call-template>
+        ```
 
-    ```xml tab='Call Template 3'
-    <call-template target="Hello_Logger">
-      <with-param name="message" value="Konnichiwa" />
-    </call-template>
-    ```
+    === "Call Template 3"
+        ```xml
+        <call-template target="Hello_Logger">
+        <with-param name="message" value="Konnichiwa" />
+        </call-template>
+        ```
 
-    ```xml tab='Call Template 4'
-    <call-template target="Hello_Logger">
-      <with-param name="message" value="??" />
-    </call-template>
-    ```
+    === "Call Template 4"
+        ```xml
+        <call-template target="Hello_Logger">
+        <with-param name="message" value="??" />
+        </call-template>
+        ```
 
 -   With our "Hello_Logger" in place, the Call Template mediator can
 populate the template with actual hello messages and execute the
@@ -170,31 +176,33 @@ Following are the integration artifacts we can use to implement this scenario. S
 
 In this example, the sequence template is configured to log the greeting message that is passed from the mediation sequence in the REST API. According to the sequence template, a value for the greeting message is mandatory. However, the REST API is not passing a greeting message to this template. Therefore, the <b>default</b> greeting message specified in the template is effectively applied.
 
-```xml tab='Sequence Template'
-<?xml version="1.0" encoding="UTF-8"?>
-<template name="sequence-temp" xmlns="http://ws.apache.org/ns/synapse">
-    <parameter isMandatory="false" defaultValue="Welcome" name="greeting_message"/>
-    <sequence>
-        <log level="custom">
-            <property expression="$func:greeting_message" name="greeting"/>
-        </log>
-    </sequence>
-</template>
-```
+=== "Sequence Template"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <template name="sequence-temp" xmlns="http://ws.apache.org/ns/synapse">
+        <parameter isMandatory="false" defaultValue="Welcome" name="greeting_message"/>
+        <sequence>
+            <log level="custom">
+                <property expression="$func:greeting_message" name="greeting"/>
+            </log>
+        </sequence>
+    </template>
+    ```
 
-```xml tab='REST API'
-<?xml version="1.0" encoding="UTF-8"?>
-<api context="/test" name="test" xmlns="http://ws.apache.org/ns/synapse">
-    <resource methods="POST">
-        <inSequence>
-            <call-template target="sequence-temp" />
-            <respond/>
-        </inSequence>
-        <outSequence/>
-        <faultSequence/>
-    </resource>
-</api>
-```
+=== "REST API"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <api context="/test" name="test" xmlns="http://ws.apache.org/ns/synapse">
+        <resource methods="POST">
+            <inSequence>
+                <call-template target="sequence-temp" />
+                <respond/>
+            </inSequence>
+            <outSequence/>
+            <faultSequence/>
+        </resource>
+    </api>
+    ```
 
 ### Build and run (Example 2)
 

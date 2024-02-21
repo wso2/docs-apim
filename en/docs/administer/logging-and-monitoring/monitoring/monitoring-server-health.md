@@ -53,7 +53,7 @@ This section guides you through deploying the Carbon Health Check components in 
     
      Add the following global configuration to enable the DataSource Health Checker and the User Store Health Checker.
     
-    ```
+    ```toml
     [carbon_health_check]
     enable = true
     ```
@@ -72,7 +72,7 @@ The properties configured under each Health Checker will be available for each H
 
 This Health Checker returns the status of the user stores available in the system. You can configure the user stores to be monitored by adding the following configuration in the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
-```
+```toml
 [carbon_health_check.health_checker.data_source_health_checker]
 enable =false
 order = 98
@@ -90,7 +90,7 @@ order = 98
 !!! example "Response"
     When you invoke the API and the User Stores are healthy, you can see a response similar to the following:
 
-    ``` java
+    ``` json
     {
         "health":[
             {
@@ -110,7 +110,7 @@ This Health Checker returns the status of the data sources available in the syst
 
 To indicate the data source connection pool usage and specify the order, add the following configurations to the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
-```
+```toml
 [carbon_health_check.health_checker.data_source_health_checker]
 enable = true
 pool_usage_limit_percentage = "80"
@@ -130,7 +130,7 @@ order = "97"
 !!! example "Response"
     When you invoke the API and the User Stores are healthy, you can see a response similar to the following:
 
-    ```
+    ```json
     {
         "health":[
             {
@@ -216,7 +216,7 @@ Follow the instructions below to add a custom Health Checker:
 
 3. Register the new Health Checker as shown below in the `deployment.toml` file.
 
-    ```
+    ```toml
     [[health_checker]]
     name = "customChecker" 
     order="87" 
@@ -228,8 +228,8 @@ Follow the instructions below to add a custom Health Checker:
 !!! example "Sample configuration"
     The following is a sample configuration of the `deployment.toml` file, which is configured to monitor the DataSources Health Checker, User Store Health Checker, and a custom Health Checker. 
     
-    ```
-    [carbon_health_check] 
+    ```toml
+    [carbon_health_check]
     enable = true
     
     [carbon_health_check.health_checker.data_source_health_checker]
@@ -247,7 +247,7 @@ Follow the instructions below to add a custom Health Checker:
     [carbon_health_check.health_checker.super_tenant_health_checker.properties]
     'monitored.user.stores' = "primary" 
     
-    [[health_checker]] 
+    [[health_checker]]
     name = "customChecker" 
     order = "87"
     [health_checker.properties] 

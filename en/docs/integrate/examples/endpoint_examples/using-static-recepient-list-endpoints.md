@@ -7,48 +7,50 @@ This example demonstrates how messages can be routed to a list of static endpoin
 ## Synapse configuration
 Following is a sample proxy service configuration and mediation sequence that we can used to implement this scenario.
 
-```xml tab='Proxy Service'
-<proxy name="RecipientListProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
-   <target>
-        <inSequence>
-            <header name="Action" value="urn:placeOrder"/>
-            <call>
-                <endpoint>
-                    <!--List of Recipients (static)-->
-                    <recipientlist>
-                        <endpoint>
-                            <address uri="http://localhost:9001/services/SimpleStockQuoteService"/>
-                        </endpoint>
-                        <endpoint>
-                            <address uri="http://localhost:9002/services/SimpleStockQuoteService"/>
-                        </endpoint>
-                        <endpoint>
-                            <address uri="http://localhost:9003/services/SimpleStockQuoteService"/>
-                        </endpoint>
-                    </recipientlist>
-                </endpoint>
-            </call>
-            <respond/>
-        </inSequence>
-        <outSequence>
-            <send/>
-        </outSequence>
-        <faultSequence>
-            <sequence key="errorHandler"/>
-        </faultSequence
-    </target>
-</proxy>
-```
+=== "Proxy Service"
+    ```xml
+    <proxy name="RecipientListProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+            <inSequence>
+                <header name="Action" value="urn:placeOrder"/>
+                <call>
+                    <endpoint>
+                        <!--List of Recipients (static)-->
+                        <recipientlist>
+                            <endpoint>
+                                <address uri="http://localhost:9001/services/SimpleStockQuoteService"/>
+                            </endpoint>
+                            <endpoint>
+                                <address uri="http://localhost:9002/services/SimpleStockQuoteService"/>
+                            </endpoint>
+                            <endpoint>
+                                <address uri="http://localhost:9003/services/SimpleStockQuoteService"/>
+                            </endpoint>
+                        </recipientlist>
+                    </endpoint>
+                </call>
+                <respond/>
+            </inSequence>
+            <outSequence>
+                <send/>
+            </outSequence>
+            <faultSequence>
+                <sequence key="errorHandler"/>
+            </faultSequence
+        </target>
+    </proxy>
+    ```
 
-```xml tab='Error Handling Sequence'
-<sequence name="errorHandler">
-    <makefault response="true">
-        <code xmlns:tns="http://www.w3.org/2003/05/soap-envelope" value="tns:Receiver"/>
-        <reason value="COULDN'T SEND THE MESSAGE TO THE SERVER."/>
-    </makefault>
-    <send/>
-</sequence>
-```
+=== "Error Handling Sequence"
+    ```xml
+    <sequence name="errorHandler">
+        <makefault response="true">
+            <code xmlns:tns="http://www.w3.org/2003/05/soap-envelope" value="tns:Receiver"/>
+            <reason value="COULDN'T SEND THE MESSAGE TO THE SERVER."/>
+        </makefault>
+        <send/>
+    </sequence>
+    ```
 
 <!--
 Set up the back-end service.

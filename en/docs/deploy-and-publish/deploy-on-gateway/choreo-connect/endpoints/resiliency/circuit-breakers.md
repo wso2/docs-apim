@@ -10,31 +10,33 @@ Based on the circuit breaker configuration, the router (i.e. Envoy) will open th
 
 The following is the format of the vendor extension that is required to enable circuit breaking for an endpoint cluster in Choreo Connect.
 
-```yaml tab="Production Endpoint"
-x-wso2-production-endpoints:
-  urls:
-  - https://localhost:2380/v3
-  advanceEndpointConfig:
-    circuitBreakers:
-      maxConnections: 1024
-      maxRequests: 75
-      maxPendingRequests: 35
-      maxConnectionPools: 1024
-      maxRetries: 3
-```
+=== "Production Endpoint"
+    ```yaml
+    x-wso2-production-endpoints:
+      urls:
+      - https://localhost:2380/v3
+      advanceEndpointConfig:
+        circuitBreakers:
+          maxConnections: 1024
+          maxRequests: 75
+          maxPendingRequests: 35
+          maxConnectionPools: 1024
+          maxRetries: 3
+    ```
 
-```yaml tab="Sandbox Endpoint"
-x-wso2-sandbox-endpoints:
-  urls:
-  - https://localhost:2381/v3
-  advanceEndpointConfig:
-    circuitBreakers:
-      maxConnections: 1024
-      maxRequests: 75
-      maxPendingRequests: 35
-      maxConnectionPools: 1024
-      maxRetries: 3
-```
+=== "Sandbox Endpoint"
+    ```yaml
+    x-wso2-sandbox-endpoints:
+      urls:
+      - https://localhost:2381/v3
+      advanceEndpointConfig:
+        circuitBreakers:
+          maxConnections: 1024
+          maxRequests: 75
+          maxPendingRequests: 35
+          maxConnectionPools: 1024
+          maxRetries: 3
+    ```
 
 !!! note 
     The following is the default values for each circuit breaker which will be enable for each endpoint cluster by default.

@@ -16,50 +16,109 @@
  * under the License.
 -->
 
-<header class="md-header" data-md-component="header" id="page-header" data-url="{{ url }}" data-lang="{{ config.theme.language }}">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="{{ config.site_url | default(nav.homepage.url, true) | url }}" title="{{ config.site_name }}" class="md-header-nav__button md-logo">
-          {% if config.theme.logo.icon %}
-            <i class="md-icon">{{ config.theme.logo.icon }}</i>
-          {% else %}
-            <img src="{{ config.theme.logo | url }}" width="24" height="24">
-          {% endif %}
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          {% if config.site_name == page.title %}
-            {{ config.site_name }}
-          {% else %}
-            <span class="md-header-nav__topic"> 
-              {{ config.site_name | replace('WSO2', '') }}
-            </span>
-            <span id="pageTitle" class="md-header-nav__topic">
-              {{ page.title }}
-            </span>
-
-          {% endif %}
+{% set class = "md-header" %}
+{% if "navigation.tabs.sticky" in features %}
+  {% set class = class ~ " md-header--shadow md-header--lifted" %}
+{% elif "navigation.tabs" not in features %}
+  {% set class = class ~ " md-header--shadow" %}
+{% endif %}
+<header class="{{ class }}" data-md-component="header" id="page-header" data-url="{{ url }}" data-lang="{{ config.theme.language }}">
+  <nav class="md-header__inner md-grid" aria-label="{{ lang.t('header') }}">
+    <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}" title="{{ config.site_name | e }}"
+      class="md-header__button md-logo" aria-label="{{ config.site_name }}" data-md-component="logo">
+      {% include "partials/logo.html" %}
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      {% include ".icons/material/menu" ~ ".svg" %}
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            {{ config.site_name | replace('WSO2', '') }}
+          </span>
         </div>
-          <div class="md-header_algolia_search_box">
-            <div class="md-flex__ellipsis md-header__version-select">
-                <div class="mb-tabs__dropdown version-select">
-                    <a class="md-tabs__link md-tabs__dropdown-link" href="#!" data-target="version-select-dropdown">{{ config.extra.site_version }}</a>
-                    <ul id="version-select-dropdown" class="mb-tabs__dropdown-content" tabindex="0">
-                        <!-- Versions will added here dynamically -->
-                        <li class="md-tabs__item mb-tabs__dropdown">
-                            <a href="#" id="show-all-versions-link">Show all</a>
-                        </li>
-                    </ul>
-                </div>
-            </div> 
-            <div id="apimdocsearch">Initializing the Documentation Search ...</div>
-          </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            {% if page.meta and page.meta.title %}
+              {{ page.meta.title }}
+            {% else %}
+              {{ page.title }}
+            {% endif %}
+          </span>
+        </div>
       </div>
     </div>
+    <div class="md-flex__ellipsis md-header__version-select">
+      <div class="mb-tabs__dropdown version-select">
+        <a class="md-tabs__link md-tabs__dropdown-link" href="#!" data-target="version-select-dropdown">
+          {{ config.extra.site_version }}
+          <i class="fa-solid fa-angle-down"></i>
+        </a>
+        <ul id="version-select-dropdown" class="mb-tabs__dropdown-content" tabindex="0">
+          <!-- Versions will added here dynamically -->
+          <li class="md-tabs__item mb-tabs__dropdown">
+            <a href="#" id="show-all-versions-link">Show all</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </div>
+    <!-- {% if not config.theme.palette is mapping %}
+    <form class="md-header__option" data-md-component="palette">
+      {% for option in config.theme.palette %}
+      {% set scheme = option.scheme | d("default", true) %}
+      <input class="md-option" data-md-color-media="{{ option.media }}"
+        data-md-color-scheme="{{ scheme | replace(' ', '-') }}"
+        data-md-color-primary="{{ option.primary | replace(' ', '-') }}"
+        data-md-color-accent="{{ option.accent | replace(' ', '-') }}" {% if option.toggle %}
+        aria-label="{{ option.toggle.name }}" {% else %} aria-hidden="true" {% endif %} type="radio" name="__palette"
+        id="__palette_{{ loop.index }}">
+      {% if option.toggle %}
+      <label class="md-header__button md-icon" title="{{ option.toggle.name }}"
+        for="__palette_{{ loop.index0 or loop.length }}" hidden>
+        {% include ".icons/" ~ option.toggle.icon ~ ".svg" %}
+      </label>
+      {% endif %}
+      {% endfor %}
+    </form>
+    {% endif %} -->
+    {% if config.extra.alternate %}
+    <div class="md-header__option">
+      <div class="md-select">
+        {% set icon = config.theme.icon.alternate or "material/translate" %}
+        <button class="md-header__button md-icon" aria-label="{{ lang.t('select.language') }}">
+          {% include ".icons/" ~ icon ~ ".svg" %}
+        </button>
+        <div class="md-select__inner">
+          <ul class="md-select__list">
+            {% for alt in config.extra.alternate %}
+            <li class="md-select__item">
+              <a href="{{ alt.link | url }}" hreflang="{{ alt.lang }}" class="md-select__link">
+                {{ alt.name }}
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% if "material/search" in config.plugins %}
+    <label class="md-header__button md-icon" for="__search">
+      {% include ".icons/material/magnify.svg" %}
+    </label>
+    {% include "partials/search.html" %}
+    {% endif %}
+    {% if config.repo_url %}
+    <div class="md-header__source">
+      {% include "partials/source.html" %}
+    </div>
+    {% endif %}
   </nav>
+  {% if "navigation.tabs.sticky" in features %}
+  {% if "navigation.tabs" in features %}
+    {% include "partials/tabs.html" %}
+  {% endif %}
+  {% endif %}
 </header>

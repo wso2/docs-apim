@@ -37,46 +37,48 @@ apictl's Git integration feature uses a dedicated configuration file which is lo
 The structure of the file is as per below:
 
 
-``` tab="Format"
-repos:
-  <repoId1>: # This is coming from the "vcs.yaml" file (created via "apictl vcs init") of the Git repository.
-    environments:
-      <environment1>:
-        lastAttemptedRev: <lastAttemptedGitCommitId>
-        lastSuccessfulRev:
-        - <lastSuccessfulGitCommitId> # This is equal to the <lastAttemptedGitCommitId>
-        - <previousSuccessfulGitCommitId>
-        - <..>
-        failedProjects: {}
-  <repoId2>:
-    environments:
-      <environment1>:
+=== "Format"
+    ```
+    repos:
+      <repoId1>: # This is coming from the "vcs.yaml" file (created via "apictl vcs init") of the Git repository.
+        environments:
+          <environment1>:
+            lastAttemptedRev: <lastAttemptedGitCommitId>
+            lastSuccessfulRev:
+            - <lastSuccessfulGitCommitId> # This is equal to the <lastAttemptedGitCommitId>
+            - <previousSuccessfulGitCommitId>
+            - <..>
+            failedProjects: {}
+      <repoId2>:
+        environments:
+          <environment1>:
+            ..
+      <repoId3>:
         ..
-  <repoId3>:
-    ..
-...
-```
+    ...
+    ```
 
-``` tab="Example"
-repos:
-  99f6338f-24e0-42da-a69e-78aba98d0380:
-    environments:
-      dev:
-        lastAttemptedRev: 7ef7911f197640b82b0c7f36f62f8b23d40d3bc1
-        lastSuccessfulRev:
-        - 7ef7911f197640b82b0c7f36f62f8b23d40d3bc1
-        - 81b5a5f3998c1e04f6e37357b6e6bb09a1fe8fe6
-        failedProjects: {}
-  6815a6fa-a63c-4ff4-b690-7d85661bb187:
-    environments:
-      dev:
-        lastAttemptedRev: 72925a149a6afa954d5a94dd79480adc4f812542
-        lastSuccessfulRev:
-        - 72925a149a6afa954d5a94dd79480adc4f812542
-        - e8d2d308c6140f63c4eb5c0765ab79e4eee9aeb9
-        - b4fed92fdac370b62b38eafcbc23c40382c5c277
-        failedProjects: {}
-```
+=== "Example"
+    ```
+    repos:
+      99f6338f-24e0-42da-a69e-78aba98d0380:
+        environments:
+          dev:
+            lastAttemptedRev: 7ef7911f197640b82b0c7f36f62f8b23d40d3bc1
+            lastSuccessfulRev:
+            - 7ef7911f197640b82b0c7f36f62f8b23d40d3bc1
+            - 81b5a5f3998c1e04f6e37357b6e6bb09a1fe8fe6
+            failedProjects: {}
+      6815a6fa-a63c-4ff4-b690-7d85661bb187:
+        environments:
+          dev:
+            lastAttemptedRev: 72925a149a6afa954d5a94dd79480adc4f812542
+            lastSuccessfulRev:
+            - 72925a149a6afa954d5a94dd79480adc4f812542
+            - e8d2d308c6140f63c4eb5c0765ab79e4eee9aeb9
+            - b4fed92fdac370b62b38eafcbc23c40382c5c277
+            failedProjects: {}
+    ```
 
 Unlike the other configuration files inside `.wso2apictl`, `vcs_config.yaml` maintains a state for each repository. So it is mandatory to persist it during each `apictl vcs` command execution during each build cycle. In some container-based build systems, it might be difficult to keep this file persisted and make it available for each build cycle as it is required to enable volume mounts etc. It is also not advisable to persist/share the full `.wso2apictl` folder as it might include credentials. In such cases, an alternative approach would be to externalize the `vcs_config.yaml` into a different location where volume mounts or some persistence mechanism can be enabled for  `vcs_config.yaml` only.
 

@@ -90,15 +90,15 @@ This tutorial demonstrates how you can use the Siddhi query API to perform essen
 
   Upon successful deployment, the following response is logged for the `CURL` command you just executed.
   
-    ```
+  ```
     {"type":"success","message":"Siddhi App saved succesfully and will be deployed in next deployment cycle"}
-    ```
+  ```
 
   In addition to that, the following is logged in the SI console.
   
-    ```
+  ```
     INFO {org.wso2.carbon.streaming.integrator.core.internal.StreamProcessorService} - Siddhi App SweetProduction-Store deployed successfully
-    ```
+  ```
 
 6. To trigger an insert/update event, execute following `CURL` command in the console.
 

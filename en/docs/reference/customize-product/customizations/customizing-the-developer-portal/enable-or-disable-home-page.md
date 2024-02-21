@@ -21,7 +21,7 @@ By using `defaultTheme.js` as a reference , you could customize these link tabs 
     Following JSON is an example for a `userTheme.js` to define the look and feel, and the behavior of the landing page. You can set the attributes (components) such as `carousel`, `listByTag`, `parallax` and `contact` as shown in the below example. (Refer to the above screenshot to identify the components referred by the attribute names)
 
     ``` js
-{
+    {
     "custom": {
         "landingPage": {
             "active": true,
@@ -89,7 +89,7 @@ By using `defaultTheme.js` as a reference , you could customize these link tabs 
             }
         }
     }
-}
+    }
 
     ```
 

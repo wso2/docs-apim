@@ -6,13 +6,15 @@ Choreo Connect itself provides the ability to generate a JWT as a test key to ac
 
 You can obtain a test JWT with the default configuration using a request similar to the following.
 
-``` java tab="Format"
-curl -X POST "https://<hostname>:<port>/testkey" -H "Authorization: Basic <Base64_Encoded(username:password)>" -k
-```
+=== "Format"
+    ``` bash
+    curl -X POST "https://<hostname>:<port>/testkey" -H "Authorization: Basic <Base64_Encoded(username:password)>" -k
+    ```
 
-``` java tab="Example"
-curl -X POST "https://localhost:9095/testkey" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k
-```
+=== "Example"
+    ``` bash
+    curl -X POST "https://localhost:9095/testkey" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k
+    ```
 
 !!! info
     Here the basic authentication header is the base64 encoded username and password. For an example, `Base64_Encoded(admin:admin)`. This is required because the test key generation service (/testkey) is protected with basic authentication as explained below.
@@ -21,7 +23,7 @@ curl -X POST "https://localhost:9095/testkey" -H "Authorization: Basic YWRtaW46Y
 
 To configure test JWT generation, open `<CHOREO-CONNECT_HOME>/resources/conf/config.toml` file in a text editor and configure the parameters as described below.
 
-``` yaml
+``` toml
 [enforcer.jwtIssuer]
   enabled = true
   issuer = "https://localhost:9095/testkey" # https://<host>:<port>/testkey
@@ -46,7 +48,7 @@ To allow users to invoke the test key service endpoint with basic authentication
 
 To accept these test keys generated from the Enforcer as trusted tokens, the following is added to config.toml by default, giving the same `issuer` and the `publicCertificatePath` parameter values used when configuring `enforcer.jwtIssuer` above.
 
-``` yaml
+``` toml
 # Issuer 2
 [[security.enforcer.tokenService]]
     name="MGW"

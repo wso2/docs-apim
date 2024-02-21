@@ -116,13 +116,15 @@ Now you have a registered identity provider and as well as a service provider wi
 
      Use the following sample cURL command to obtain a JWT from the service provider inside WSO2 IS that we configured in [Step 1](#step-1-obtain-a-jwt-from-an-external-identity-provider). Note that, you can use any `grant_type` when sending the request. For more information, see [OAuth2 Grant Types]({{base_path}}/design/api-security/oauth2/grant-types/overview/).
 
-    ``` java tab="Format"
-    curl -k -d "grant_type=<grant_type_of_your_choice>" -H "Authorization: Basic <Base64-encoded-client_key:client_secret>" -H "Content-Type: application/x-www-form-urlencoded" https://<IS_Server_Host>:9444/oauth2/token
-    ```
+    === "Format"
+        ``` java
+        curl -k -d "grant_type=<grant_type_of_your_choice>" -H "Authorization: Basic <Base64-encoded-client_key:client_secret>" -H "Content-Type: application/x-www-form-urlencoded" https://<IS_Server_Host>:9444/oauth2/token
+        ```
 
-    ``` java tab="Example"
-    curl -k -d "grant_type=password&username=admin&password=admin" -H "Authorization: Basic cEJ6dUlaaEdwaGZRbWRjVVgwbG5lRmlpdXh3YTo0U0pnV19qTU56aGpIU284OGJuZVhtTnFNMjRh" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9444/oauth2/token
-    ```
+    === "Example"
+        ``` java
+        curl -k -d "grant_type=password&username=admin&password=admin" -H "Authorization: Basic cEJ6dUlaaEdwaGZRbWRjVVgwbG5lRmlpdXh3YTo0U0pnV19qTU56aGpIU284OGJuZVhtTnFNMjRh" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9444/oauth2/token
+        ```
 
     **Sample Response**
     ```
@@ -131,13 +133,15 @@ Now you have a registered identity provider and as well as a service provider wi
 
 2. Execute the following cURL command to retrieve the access token from WSO2 API-M for the generated JWT in the previous step.
 
-    ``` java tab="Format"
-    curl -X POST -u <clientid>:<clientsecret> -k -d 'grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=<JWT>' -H 'Content-Type: application/x-www-form-urlencoded' https://localhost:<HTTPS-port>/oauth2/token
-    ```
+    === "Format"
+        ``` java
+        curl -X POST -u <clientid>:<clientsecret> -k -d 'grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=<JWT>' -H 'Content-Type: application/x-www-form-urlencoded' https://localhost:<HTTPS-port>/oauth2/token
+        ```
 
-    ``` java tab="Example"
-    curl -X POST -u 4WCCBckEpMMM5oFmC59EEtJXpzEa:_htM8KV73STHfzBO4TGbnC9iSswa -k -d 'grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZyIsImtpZCI6Ik16WXhNbUZrT0dZd01XSTBaV05tTkRjeE5HWXdZbU00WlRBM01XSTJOREF6WkdRek5HTTBaR1JsTmpKa09ERmtaRFJpT1RGa01XRmhNelUyWkdWbE5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJhZG1pbiIsImF1dCI6IkFQUExJQ0FUSU9OX1VTRVIiLCJhdWQiOiJxNVlVSzloY1lMcUZXenZaQVJHb21UNzh6NThhIiwibmJmIjoxNjEzMTMwNTAxLCJhenAiOiJxNVlVSzloY1lMcUZXenZaQVJHb21UNzh6NThhIiwiaXNzIjoiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQ0XC9vYXV0aDJcL3Rva2VuIiwiZXhwIjoxNjEzMTM0MTAxLCJpYXQiOjE2MTMxMzA1MDEsImp0aSI6IjdmZDc0NGQ5LWJlYTMtNDJiNS1hY2RjLWVmMDU0NGRjMmZhZiJ9.mBh0FB8kPKwkqP8rV78YXaSqmv_j-7kSKlylOfH8i1M3g8JvEQRx5gsxwMNidOr28DIL9hNv7Ebz6j6tqu-HUXtB_QgQGbF1QRALtBcYaV1-O8V_TAs02P7KYx_jfZv2HCVEE-s-jW2vBAMa24ZwgI0uCk4QHsev1chLd85FZdwbzqe0E0lt5hfB0Y5kLnZmzQFdBxkrv9eTppO5Z2WLyKFt9j2oI2a2eqa_NOYr7pwLyuzg-QL4Xz3SdfC3SMHPjAmaksJfcOS-SuswQ_edPN02fXVR0SKGCVIS-86u-9D4xgFvf_jtIg2Xd2LNNHY6BPBj1l9Nk_rfesnllx04ZA' -H 'Content-Type: application/x-www-form-urlencoded' https://localhost:9443/oauth2/token
-    ```
+    === "Example"
+        ``` java
+        curl -X POST -u 4WCCBckEpMMM5oFmC59EEtJXpzEa:_htM8KV73STHfzBO4TGbnC9iSswa -k -d 'grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZyIsImtpZCI6Ik16WXhNbUZrT0dZd01XSTBaV05tTkRjeE5HWXdZbU00WlRBM01XSTJOREF6WkdRek5HTTBaR1JsTmpKa09ERmtaRFJpT1RGa01XRmhNelUyWkdWbE5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJhZG1pbiIsImF1dCI6IkFQUExJQ0FUSU9OX1VTRVIiLCJhdWQiOiJxNVlVSzloY1lMcUZXenZaQVJHb21UNzh6NThhIiwibmJmIjoxNjEzMTMwNTAxLCJhenAiOiJxNVlVSzloY1lMcUZXenZaQVJHb21UNzh6NThhIiwiaXNzIjoiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQ0XC9vYXV0aDJcL3Rva2VuIiwiZXhwIjoxNjEzMTM0MTAxLCJpYXQiOjE2MTMxMzA1MDEsImp0aSI6IjdmZDc0NGQ5LWJlYTMtNDJiNS1hY2RjLWVmMDU0NGRjMmZhZiJ9.mBh0FB8kPKwkqP8rV78YXaSqmv_j-7kSKlylOfH8i1M3g8JvEQRx5gsxwMNidOr28DIL9hNv7Ebz6j6tqu-HUXtB_QgQGbF1QRALtBcYaV1-O8V_TAs02P7KYx_jfZv2HCVEE-s-jW2vBAMa24ZwgI0uCk4QHsev1chLd85FZdwbzqe0E0lt5hfB0Y5kLnZmzQFdBxkrv9eTppO5Z2WLyKFt9j2oI2a2eqa_NOYr7pwLyuzg-QL4Xz3SdfC3SMHPjAmaksJfcOS-SuswQ_edPN02fXVR0SKGCVIS-86u-9D4xgFvf_jtIg2Xd2LNNHY6BPBj1l9Nk_rfesnllx04ZA' -H 'Content-Type: application/x-www-form-urlencoded' https://localhost:9443/oauth2/token
+        ```
 
     !!! note
         - The **-u** flag should specify the “ `<Client Id>:<Client Secret>` ” value.

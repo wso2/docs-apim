@@ -21,26 +21,30 @@ There are different connection configurations that can be used for the above pro
 !!! Note
     The File connector internally uses the [Apache VFS Library](https://commons.apache.org/proper/commons-vfs/). According to the selected connection type, the following VFS connection URLs will be generated.
 
-    ```bash tab='Local File'
-    [file://] absolute-path
-    file:///home/someuser/somedir
-    file:///C:/Documents and Settings
-    ```
+    === "Local File"
+        ```bash
+        [file://] absolute-path
+        file:///home/someuser/somedir
+        file:///C:/Documents and Settings
+        ```
 
-    ```bash tab='FTP'
-    ftp://[ username[: password]@] hostname[: port][ relative-path]
-    ftp://myusername:mypassword@somehost/pub/downloads/somefile.tgz
-    ```
+    === "FTP"
+        ```bash
+        ftp://[ username[: password]@] hostname[: port][ relative-path]
+        ftp://myusername:mypassword@somehost/pub/downloads/somefile.tgz
+        ```
 
-    ```bash tab='FTPS'
-    ftps://[ username[: password]@] hostname[: port][ absolute-path]
-    ftps://myusername:mypassword@somehost/pub/downloads/somefile.tgz
-    ``` 
+    === "FTPS"
+        ```bash
+        ftps://[ username[: password]@] hostname[: port][ absolute-path]
+        ftps://myusername:mypassword@somehost/pub/downloads/somefile.tgz
+        ``` 
 
-    ```bash tab='SFTP'
-    sftp://[ username[: password]@] hostname[: port][ relative-path]
-    sftp://myusername:mypassword@somehost/pub/downloads/somefile.tgz
-    ```
+    === "SFTP"
+        ```bash
+        sftp://[ username[: password]@] hostname[: port][ relative-path]
+        sftp://myusername:mypassword@somehost/pub/downloads/somefile.tgz
+        ```
 
 !!! Tip
     There are instances where errors occur when using .csv files and the output is encoded. To overcome this, add the following configuration to the `<PRODUCT_HOME>/repository/conf/deployment.toml` file.

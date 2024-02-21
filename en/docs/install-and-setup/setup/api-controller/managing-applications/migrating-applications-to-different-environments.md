@@ -73,15 +73,17 @@ You can export an application in the Developer Portal and download it as a zippe
 
     -   **Response**
 
-        ``` bash tab="Response Format"
-        Successfully exported Application!
-        Find the exported Application at <USER_HOME>/.wso2apictl/exported/apps/<envrionment-name>/<Application-owner>_<Application-name>.zip
-        ```
+        === "Response Format"
+            ``` bash
+            Successfully exported Application!
+            Find the exported Application at <USER_HOME>/.wso2apictl/exported/apps/<envrionment-name>/<Application-owner>_<Application-name>.zip
+            ```
 
-        ``` bash tab="Example Response"
-        Successfully exported Application!
-        Find the exported Application at /Users/kim/.wso2apictl/exported/apps/dev/admin_SampleApp.zip
-        ```
+        === "Example Response"
+            ``` bash
+            Successfully exported Application!
+            Find the exported Application at /Users/kim/.wso2apictl/exported/apps/dev/admin_SampleApp.zip
+            ```
 
 The exported application zipped file will be as follows:
 ```bash

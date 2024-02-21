@@ -2,38 +2,41 @@
 
 Given below are the properties that should be configured when you define a custom inbound endpoint.
 
-``` java tab='Custom Listening Inbound'
-<inboundEndpoint xmlns="http://ws.apache.org/ns/synapse" name="custom_listener" sequence="request" onError="fault"
-                         class="org.wso2.carbon.inbound.custom.listening.SampleListeningEP" suspend="false">
-       <parameters>
-          <parameter name="sequential">true</parameter>
-          <parameter name="inbound.behavior">listening</parameter>
-          <parameter name="coordination">true</parameter>
-       </parameters>
-</inboundEndpoint>
-```
+=== "Custom Listening Inbound"
+      ``` java
+      <inboundEndpoint xmlns="http://ws.apache.org/ns/synapse" name="custom_listener" sequence="request" onError="fault"
+                              class="org.wso2.carbon.inbound.custom.listening.SampleListeningEP" suspend="false">
+            <parameters>
+               <parameter name="sequential">true</parameter>
+               <parameter name="inbound.behavior">listening</parameter>
+               <parameter name="coordination">true</parameter>
+            </parameters>
+      </inboundEndpoint>
+      ```
 
-``` java tab='Custom Polling Inbound'
-<inboundEndpoint xmlns="http://ws.apache.org/ns/synapse" name="class" sequence="request" onError="fault"
-                                class="org.wso2.carbon.inbound.custom.poll.SamplePollingClient" suspend="false">
-       <parameters>
-          <parameter name="sequential">true</parameter>
-          <parameter name="interval">2000</parameter>
-          <parameter name="coordination">true</parameter>
-       </parameters>
-</inboundEndpoint>
-```
+=== "Custom Polling Inbound"
+      ``` java
+      <inboundEndpoint xmlns="http://ws.apache.org/ns/synapse" name="class" sequence="request" onError="fault"
+                                    class="org.wso2.carbon.inbound.custom.poll.SamplePollingClient" suspend="false">
+            <parameters>
+               <parameter name="sequential">true</parameter>
+               <parameter name="interval">2000</parameter>
+               <parameter name="coordination">true</parameter>
+            </parameters>
+      </inboundEndpoint>
+      ```
 
-``` java tab='Custom Event-Based Inbound'
-<inboundEndpoint xmlns="http://ws.apache.org/ns/synapse" name="custom_waiting" sequence="request" onError="fault"
-                         class="org.wso2.carbon.inbound.custom.wait.SampleWaitingClient" suspend="false">
-       <parameters>
-          <parameter name="sequential">true</parameter>
-          <parameter name="inbound.behavior">eventBased</parameter>
-          <parameter name="coordination">true</parameter>
-       </parameters>
-</inboundEndpoint>
-```
+=== "Custom Event-Based Inbound"
+      ``` java
+      <inboundEndpoint xmlns="http://ws.apache.org/ns/synapse" name="custom_waiting" sequence="request" onError="fault"
+                              class="org.wso2.carbon.inbound.custom.wait.SampleWaitingClient" suspend="false">
+            <parameters>
+               <parameter name="sequential">true</parameter>
+               <parameter name="inbound.behavior">eventBased</parameter>
+               <parameter name="coordination">true</parameter>
+            </parameters>
+      </inboundEndpoint>
+      ```
 
 <table>
    <thead>

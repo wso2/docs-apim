@@ -27,13 +27,15 @@ WSO2 Identity Server acts as an identity service provider of systems enabled wit
 
 -  Start the servers using the following commands:
 
-    ``` tab="On Windows"
-    wso2server.bat --run
-    ```
+    === "On Windows"
+        ``` bash
+        wso2server.bat --run
+        ```
 
-    ``` tab="On Linux/Mac OS"
-    sh wso2server.sh
-    ```
+    === "On Linux/Mac OS"
+        ``` bash
+        sh wso2server.sh
+        ```
 
 ## Configure the Identity Server
 

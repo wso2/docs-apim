@@ -64,17 +64,20 @@ Create an optimized distribution for a particular API-M profile.
 
 1.  Run the `<API-M_HOME>/bin/profileSetup.sh` script or `<API-M_HOME>/bin/profileSetup.bat` script based on your operating system, with the profile flag.
 
-    ``` tab="Sample Format"
-    sh <API-M_HOME>/bin/profileSetup.sh  -Dprofile=<preferred-profile>
-    ```
+    === "Sample Format"
+        ``` bash
+        sh <API-M_HOME>/bin/profileSetup.sh  -Dprofile=<preferred-profile>
+        ```
     
-    ``` tab="Example:Linux/Solaris/MacOS"
-    sh <API-M_HOME>/bin/profileSetup.sh  -Dprofile=gateway-worker
-    ```
+    === "Example:Linux/Solaris/MacOS"
+        ``` bash
+        sh <API-M_HOME>/bin/profileSetup.sh  -Dprofile=gateway-worker
+        ```
     
-    ``` tab="Example:Windows"
-    <PRODUCT_HOME>/bin/profileSetup.bat -Dprofile=gateway-worker
-    ```
+    === "Example:Windows"
+        ``` bash
+        <PRODUCT_HOME>/bin/profileSetup.bat -Dprofile=gateway-worker
+        ```
     
 2. Copy the respective database connector JAR to `/lib` directory.
    
@@ -90,7 +93,7 @@ Create an optimized distribution for a particular API-M profile.
 
      Change the following DB configurations, which are in the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
-     ```
+     ```toml
      [database.apim_db]
      type = "mysql"
      hostname = "localhost"
@@ -110,17 +113,20 @@ Create an optimized distribution for a particular API-M profile.
 
 5.  Start the server with the specified profile.
 
-    ``` tab="Sample Format"
-    sh <API-M_HOME>/bin/api-manager.sh -Dprofile=<preferred-profile>
-    ```
+    === "Sample Format"
+        ``` bash
+        sh <API-M_HOME>/bin/api-manager.sh -Dprofile=<preferred-profile>
+        ```
     
-    ``` tab="Example:Linux/Solaris/MacOS"
-    sh <API-M_HOME>/bin/api-manager.sh -Dprofile=gateway-worker
-    ```
+    === "Example:Linux/Solaris/MacOS"
+        ``` bash
+        sh <API-M_HOME>/bin/api-manager.sh -Dprofile=gateway-worker
+        ```
     
-    ``` tab="Example:Windows"
-    <API-M_HOME>/bin/api-manager.bat -Dprofile=gateway-worker
-    ```    
+    === "Example:Windows"
+        ``` bash
+        <API-M_HOME>/bin/api-manager.bat -Dprofile=gateway-worker
+        ```    
 
 ### Method 2 - Optimizing while starting the server
 
@@ -129,17 +135,20 @@ Start the server using the script based on your operating system, using the comm
 !!! warning
     Before running this command you are expected to do the configuration changes in the `deployment.toml` file manually in the pack.
 
-``` tab="Sample Format"
-sh <PRODUCT_HOME>/bin/api-manager.sh --optimize -Dprofile=<preferred-profile>
-```
+=== "Sample Format"
+    ``` bash
+    sh <PRODUCT_HOME>/bin/api-manager.sh --optimize -Dprofile=<preferred-profile>
+    ```
 
-``` tab="Example:Linux/Solaris/MacOS"
-sh <PRODUCT_HOME>/bin/api-manager.sh --optimize -Dprofile=gateway-worker
-```
+=== "Example:Linux/Solaris/MacOS"
+    ``` bash
+    sh <PRODUCT_HOME>/bin/api-manager.sh --optimize -Dprofile=gateway-worker
+    ```
 
-``` tab="Example:Windows"
-<PRODUCT_HOME>/bin/api-manager.bat --optimize -Dprofile=gateway-worker
-```  
+=== "Example:Windows"
+    ``` bash
+    <PRODUCT_HOME>/bin/api-manager.bat --optimize -Dprofile=gateway-worker
+    ```  
 
 ??? info "Click here to see the sample output when you optimize the server for Gateway profile while starting in Gateway worker profile."
     ``` java
@@ -179,17 +188,20 @@ sh <PRODUCT_HOME>/bin/api-manager.sh --optimize -Dprofile=gateway-worker
 
 Passing the `--skipConfigOptimization` option allows you to preserve the configurations that you previously manually applied while optimizing the profile.
 
-``` tab="Sample Format"
-sh <PRODUCT_HOME>/bin/api-manager.sh --optimize -Dprofile=<preferred-profile> --skipConfigOptimization
-```
+=== "Sample Format"
+    ``` bash
+    sh <PRODUCT_HOME>/bin/api-manager.sh --optimize -Dprofile=<preferred-profile> --skipConfigOptimization
+    ```
 
-``` tab="Example:Linux/Solaris/MacOS"
-sh <PRODUCT_HOME>/bin/api-manager.sh --optimize -Dprofile=gateway-worker --skipConfigOptimization    
-```
+=== "Example:Linux/Solaris/MacOS"
+    ``` bash
+    sh <PRODUCT_HOME>/bin/api-manager.sh --optimize -Dprofile=gateway-worker --skipConfigOptimization    
+    ```
 
-``` tab="Example:Windows"
-<PRODUCT_HOME>/bin/api-manager.bat --optimize -Dprofile=gateway-worker --skipConfigOptimization
-```  
+=== "Example:Windows"
+    ``` bash
+    <PRODUCT_HOME>/bin/api-manager.bat --optimize -Dprofile=gateway-worker --skipConfigOptimization
+    ```  
 
 !!! Note
     Profile optimization using scripts is the recommended approach. Manually optimizing and including the usage of the `--skipConfigOptimization` option should be done only in the cases where it can't be avoided. 

@@ -412,7 +412,7 @@ validationQuery = "SELECT 2"
 
 The registry indexing process, which indexes the APIs in the Registry, is only required to be run on the API Publisher and Developer Portal nodes. To disable the indexing process from running on the other nodes (Gateways and Key Managers), you need to add the following configuration section in the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
-```java
+```toml
 [indexing]
 enable = false
 ```

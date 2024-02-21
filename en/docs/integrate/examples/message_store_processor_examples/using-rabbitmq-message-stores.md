@@ -6,48 +6,52 @@ In this example, the client sends requests to a **proxy service**, which stores 
 
 Following are the artifact configurations that we can use to implement this scenario. See the instructions on how to [build and run](#build-and-run-example-1) this example.
 
-```xml tab="Message Store"
-<?xml version="1.0" encoding="UTF-8"?>
-<messageStore class="org.apache.synapse.message.store.impl.rabbitmq.RabbitMQStore" name="rabbitmq" xmlns="http://ws.apache.org/ns/synapse">
-    <parameter name="store.rabbitmq.host.name">localhost</parameter>
-    <parameter name="store.producer.guaranteed.delivery.enable">false</parameter>
-    <parameter name="store.rabbitmq.host.port">5672</parameter>
-    <parameter name="store.rabbitmq.route.key"/>
-    <parameter name="store.rabbitmq.username"/>
-    <parameter name="store.rabbitmq.virtual.host"/>
-    <parameter name="rabbitmq.connection.ssl.enabled">false</parameter>
-    <parameter name="store.rabbitmq.exchange.name"/>
-    <parameter name="store.rabbitmq.queue.name">xyz</parameter>
-    <parameter name="store.rabbitmq.password"/>
-</messageStore>
-```
+=== "Message Store"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <messageStore class="org.apache.synapse.message.store.impl.rabbitmq.RabbitMQStore" name="rabbitmq" xmlns="http://ws.apache.org/ns/synapse">
+        <parameter name="store.rabbitmq.host.name">localhost</parameter>
+        <parameter name="store.producer.guaranteed.delivery.enable">false</parameter>
+        <parameter name="store.rabbitmq.host.port">5672</parameter>
+        <parameter name="store.rabbitmq.route.key"/>
+        <parameter name="store.rabbitmq.username"/>
+        <parameter name="store.rabbitmq.virtual.host"/>
+        <parameter name="rabbitmq.connection.ssl.enabled">false</parameter>
+        <parameter name="store.rabbitmq.exchange.name"/>
+        <parameter name="store.rabbitmq.queue.name">xyz</parameter>
+        <parameter name="store.rabbitmq.password"/>
+    </messageStore>
+    ```
 
-```xml tab="Endpoint"
-<endpoint xmlns="http://ws.apache.org/ns/synapse" name="SimpleStockQuoteService"> 
-    <address uri="http://127.0.0.1:9000/services/SimpleStockQuoteService"/>
-</endpoint>
-```
+=== "Endpoint"
+    ```xml
+    <endpoint xmlns="http://ws.apache.org/ns/synapse" name="SimpleStockQuoteService"> 
+        <address uri="http://127.0.0.1:9000/services/SimpleStockQuoteService"/>
+    </endpoint>
+    ```
 
-```xml tab="Proxy Service"
-<proxy xmlns="http://ws.apache.org/ns/synapse" name="Proxy1" transports="https http" startOnLoad="true" trace="disable">   
-  <target>
-    <inSequence>
-      <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2"/>
-      <property name="OUT_ONLY" value="true"/>
-      <log level="full"/>
-      <store messageStore="rabbitmq"/>
-    </inSequence>
-  </target>
-</proxy>
-```
+=== "Proxy Service"
+    ```xml
+    <proxy xmlns="http://ws.apache.org/ns/synapse" name="Proxy1" transports="https http" startOnLoad="true" trace="disable">   
+      <target>
+        <inSequence>
+          <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2"/>
+          <property name="OUT_ONLY" value="true"/>
+          <log level="full"/>
+          <store messageStore="rabbitmq"/>
+        </inSequence>
+      </target>
+    </proxy>
+    ```
 
-```xml tab="Message Processor"
-<messageProcessor xmlns="http://ws.apache.org/ns/synapse" class="org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor" name="Processor1" targetEndpoint="SimpleStockQuoteService" messageStore="rabbitmq">
-       <parameter name="max.delivery.attempts">4</parameter>
-       <parameter name="interval">4000</parameter>
-       <parameter name="is.active">true</parameter>
-</messageProcessor>
-```
+=== "Message Processor"
+    ```xml
+    <messageProcessor xmlns="http://ws.apache.org/ns/synapse" class="org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor" name="Processor1" targetEndpoint="SimpleStockQuoteService" messageStore="rabbitmq">
+          <parameter name="max.delivery.attempts">4</parameter>
+          <parameter name="interval">4000</parameter>
+          <parameter name="is.active">true</parameter>
+    </messageProcessor>
+    ```
 
 See the descriptions of the above configurations:
 
@@ -98,13 +102,15 @@ Set up the back-end service:
 3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
 4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
    
-      ```bash tab='On MacOS/Linux/CentOS'
-      sh axis2server.sh
-      ```
+    === "On MacOS/Linux/CentOS"
+        ```bash
+        sh axis2server.sh
+        ```
           
-      ```bash tab='On Windows'
-      axis2server.bat
-      ```
+    === "On Windows"
+        ```bash
+        axis2server.bat
+        ```
 
 [Configure the RabbitMQ broker]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-rabbitmq) with the Micro Integrator.
 

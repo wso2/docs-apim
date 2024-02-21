@@ -80,21 +80,17 @@ The following are Advanced Endpoint Configurations that you can configure for bo
                             </li>
                             <li>
                             Add or change the value of the timeout as follows:
-                             <code>
-                             ```
+                             ```toml
                              [synapse_properties]
                              'synapse.global_timeout_interval'=3000
                              ```
-                             </code>
                             </li>
                             <li>
                             Add or change the socket timeout value as follows:
-                            <code>
-                             ```
+                             ```toml
                              [passthru_http]
                              'http.socket.timeout'=3000
                              ```
-                            </code>
                             </li>
                         </ol>
                         <p>Note that the <strong>socket timeout value</strong> should be greater than both the Synapse global timeout and any endpoint timeouts given for your API.</p>

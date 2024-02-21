@@ -24,31 +24,33 @@ messageType property before your mediators in the configuration:
 
 Listed below are the default message builders and formatters that are enabled for WSO2 Micro Integrator by default:
 
-```toml tab='Default Message Builders'
-application_xml = "org.apache.axis2.builder.ApplicationXMLBuilder"
-form_urlencoded = "org.apache.synapse.commons.builders.XFormURLEncodedBuilder"
-multipart_form_data = "org.apache.axis2.builder.MultipartFormDataBuilder"
-text_plain = "org.apache.axis2.format.PlainTextBuilder"
-application_json = "org.wso2.micro.integrator.core.json.JsonStreamBuilder"
-json_badgerfish = "org.apache.axis2.json.JSONBadgerfishOMBuilder"
-text_javascript = "org.apache.axis2.json.JSONBuilder"
-octet_stream = "org.wso2.carbon.relay.BinaryRelayBuilder"
-application_binary = "org.apache.axis2.format.BinaryBuilder"
-```
+=== "Default Message Builders"
+    ```toml
+    application_xml = "org.apache.axis2.builder.ApplicationXMLBuilder"
+    form_urlencoded = "org.apache.synapse.commons.builders.XFormURLEncodedBuilder"
+    multipart_form_data = "org.apache.axis2.builder.MultipartFormDataBuilder"
+    text_plain = "org.apache.axis2.format.PlainTextBuilder"
+    application_json = "org.wso2.micro.integrator.core.json.JsonStreamBuilder"
+    json_badgerfish = "org.apache.axis2.json.JSONBadgerfishOMBuilder"
+    text_javascript = "org.apache.axis2.json.JSONBuilder"
+    octet_stream = "org.wso2.carbon.relay.BinaryRelayBuilder"
+    application_binary = "org.apache.axis2.format.BinaryBuilder"
+    ```
 
-```toml tab='Default Message Formatters'
-form_urlencoded = "org.apache.synapse.commons.formatters.XFormURLEncodedFormatter"
-multipart_form_data = "org.apache.axis2.transport.http.MultipartFormDataFormatter"
-application_xml = "org.apache.axis2.transport.http.ApplicationXMLFormatter"
-text_xml = "org.apache.axis2.transport.http.SOAPMessageFormatter"
-soap_xml = "org.apache.axis2.transport.http.SOAPMessageFormatter"
-text_plain = "org.apache.axis2.format.PlainTextFormatter"
-application_json = "org.wso2.micro.integrator.core.json.JsonStreamFormatter"
-json_badgerfish = "org.apache.axis2.json.JSONBadgerfishMessageFormatter"
-text_javascript = "org.apache.axis2.json.JSONMessageFormatter"
-octet_stream = "org.wso2.carbon.relay.ExpandingMessageFormatter"
-application_binary = "org.apache.axis2.format.BinaryFormatter"
-```
+=== "Default Message Formatters"
+    ```toml
+    form_urlencoded = "org.apache.synapse.commons.formatters.XFormURLEncodedFormatter"
+    multipart_form_data = "org.apache.axis2.transport.http.MultipartFormDataFormatter"
+    application_xml = "org.apache.axis2.transport.http.ApplicationXMLFormatter"
+    text_xml = "org.apache.axis2.transport.http.SOAPMessageFormatter"
+    soap_xml = "org.apache.axis2.transport.http.SOAPMessageFormatter"
+    text_plain = "org.apache.axis2.format.PlainTextFormatter"
+    application_json = "org.wso2.micro.integrator.core.json.JsonStreamFormatter"
+    json_badgerfish = "org.apache.axis2.json.JSONBadgerfishMessageFormatter"
+    text_javascript = "org.apache.axis2.json.JSONMessageFormatter"
+    octet_stream = "org.wso2.carbon.relay.ExpandingMessageFormatter"
+    application_binary = "org.apache.axis2.format.BinaryFormatter"
+    ```
 
 ## Configuring message builders/formatters
 
