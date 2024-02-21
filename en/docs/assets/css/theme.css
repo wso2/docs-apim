@@ -553,11 +553,6 @@ html .md-footer-meta.md-typeset a {
     width:  0.8rem;
 }
 
-/* .home_icon a:active svg,
-.home_icon a:hover svg {
-    fill: #ff7043;
-}  */
-
 .md-typeset table:not([class]) td {
     vertical-align: top;
     padding: 0.6rem 0.8rem;
