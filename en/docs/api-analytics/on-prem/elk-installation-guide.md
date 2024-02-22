@@ -114,6 +114,7 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
 #### Installing Logstash
 
 1. [Install Logstash](https://www.elastic.co/guide/en/logstash/8.1/installing-logstash.html) according to your operating system.
+2. Add the following content to a file (eg: logstash-sample.conf)
 
     ``` java
     input {
@@ -148,6 +149,7 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
         }
     }
     ```
+3. Start the server ./logstash -f {FilePathToConfig}/logstash-sample.conf
 
 #### Installing Kibana
 
