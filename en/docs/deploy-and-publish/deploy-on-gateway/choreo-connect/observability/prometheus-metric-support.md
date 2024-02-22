@@ -137,12 +137,12 @@ With the integration of Prometheus metrics, monitoring the performance and healt
 
 ## Using Choreo Connect Grafana Dashboards
 
-1. Download the dashboard json files from [here]({{base_path}}/assets/attachments/cc-grafana-dashboards/CC-Grafana-Dashboard-JSON.zip).
+1. Download the dashboard json files from [here]({{base_path}}/assets/attachments/cc-grafana-dashboards/choreo-connect-grafana-dashboard-json.zip).
 2. Import the dashboards to Grafana.
 3. Change Prometheus job name and other dashboard variables as required.
 
     !!! note
-        Image previews of the dashboards are available [here]({{base_path}}/assets/attachments/cc-grafana-dashboards/CC-Grafana-Dashboard-Images.zip).
+        Image previews of the dashboards are available [here]({{base_path}}/assets/attachments/cc-grafana-dashboards/choreo-connect-grafana-dashboard-images.zip).
 
 ## Exposed Metrics
 
