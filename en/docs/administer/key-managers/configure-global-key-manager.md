@@ -45,12 +45,20 @@ Let's look at a scenario where a single access token generated for an applicatio
 
 1. Stop the WSO2 API Manager if it is already running
 
-2. Enable cross tenant subscriptions by adding the following to the `<API-M_HOME>/repository/conf/deployment.toml`
+2. Enable cross-tenant subscriptions by adding the following to the `<API-M_HOME>/repository/conf/deployment.toml`
 
     ``` toml 
     [apim.devportal]  
     enable_cross_tenant_subscriptions = true
     ```
+
+    !!! Note
+        When using cross-tenant subscriptions, if you are generating access tokens with the **Password grant** or the **Code grant**, add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file.
+
+        ``` toml
+        [oauth.access_token]
+        generate_with_sp_tenant_domain = "true"
+        ```
 
 3. Start the WSO2 API Manager.
 
