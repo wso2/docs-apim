@@ -28,7 +28,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
     This feature provides an improved revision description display in API Publisher portal.
 
-??? note "Support defining a custom API-Key header header name at API level"
+??? note "Support defining a custom API-Key header name at API level"
 
     This feature aims to introduce functionality that allows users to utilize custom header names for the API-Key header.  
 

@@ -278,7 +278,7 @@ Follow the instructions below to create an API via WSO2 API Controller.
      Let's use the command below to create an API named `PetstoreAPI`. This creates a folder named `PetstoreAPI` in your current directory.
 
        ```bash
-       ./apictl init PetstoreAPI --oas https://apim.docs.wso2.com/en/4.2.0/assets/attachments/get_started/petstore.json
+       ./apictl init PetstoreAPI --oas https://apim.docs.wso2.com/en/4.3.0/assets/attachments/get_started/petstore.json
        ```
 
      On successfully executing this command, you should see the following message.
