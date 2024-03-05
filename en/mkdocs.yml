@@ -151,6 +151,7 @@ nav:
                 - Add a Non-Blocking Send Operation: design/api-policies/regular-gateway-policies/adding-a-non-blocking-send-operation.md
                 - Add a Class Mediator: design/api-policies/regular-gateway-policies/adding-a-class-mediator.md
                 - Configure Message Builders and Formatters: design/api-policies/regular-gateway-policies/configuring-message-builders-formatters.md
+                - JWT claim based access validator: design/api-policies/regular-gateway-policies/jwt-claim-based-access-validator.md
             - Choreo Connect Policies:
                 - Overview: design/api-policies/choreo-connect-policies/cc-op-policy-overview.md
                 - Call Interceptor Service: design/api-policies/choreo-connect-policies/call-interceptor-service.md
