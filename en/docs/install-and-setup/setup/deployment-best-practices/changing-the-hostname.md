@@ -54,30 +54,3 @@ Follow the steps given below.
 !!! Warning
 
     After you change the hostname, if you encounter login failures when trying to access the API Publisher and API Developer Portal with the error `Registered callback does not match with the provided url`, see ['Registered callback does not match with the provided url' error]({{base_path}}/troubleshooting/troubleshooting-invalid-callback-error) in the Troubleshooting guide.
-
-## Changing the Micro Integrator hostname
-
-Follow the steps given below.
-
-1.  Open the `<MI-HOME>/conf/deployment.toml` file 
-2.  Define the `hostname` attribute under server configuration as shown below.
-
-    === "Format"
-        ``` toml
-        [server]
-        hostname = "{hostname}"
-        ```
-
-    === "Format"
-        ``` toml
-        [server]
-        hostname="localhost"
-        ```
-
-To configure hostnames for WSDLs and endpoints, it is recommended to add the following parameter for the transport listener in the `deployment.toml` file.
-
-```toml
-[transport.http]
-listener.wsdl_epr_prefix="$ref{server.hostname}"
-```
-
