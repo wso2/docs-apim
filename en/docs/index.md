@@ -85,7 +85,7 @@ template: templates/single-column.html
                     Create, publish, and consume an API in 5 minutes. Let's get started by running a simple use case.
                 </p>
             </div>
-            <div class="linkSet2 middle" onclick="location.href='{{base_path}}/get-started/quick-start-guide/integration-qsg';">
+            <div class="linkSet2 middle" onclick="location.href='https://mi.docs.wso2.com/en/4.2.0/get-started/quick-start-guide/';">
                 <img src="{{base_path}}/assets/img/home/landing-page/write-your-first-integration-service.svg" title="Integration Service" width="75" alt="Integration Service"/>
                 <h4>Write your first Integration Service</h4>
                 <p>
@@ -252,7 +252,7 @@ template: templates/single-column.html
                 </p>
                 <a href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying'><h4>Deploy the API Manager Runtime</h4></a>
             </div>
-            <div class="linkSet2 middle" onclick="location.href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying_1';">
+            <div class="linkSet2 middle" onclick="location.href='https://mi.docs.wso2.com/en/4.2.0/install-and-setup/install-and-setup-overview/#deploy';">
                 <img src="{{base_path}}/assets/img/home/proxies.svg" alt="Proxies">
                 <p>
                     See the instructions on setting up the Micro Integrator runtime for your selected deployment pattern.
