@@ -68,7 +68,7 @@ Follow the instructios below to invoke a **GraphQL Query operation** using the G
 1. Enter the following sample query.
 
     ```
-    query{
+    query testQuery{
         human(id:1000){
             id
             name
@@ -108,7 +108,7 @@ Follow the instructios below to invoke a **GraphQL Subscription operation** usin
 1. Enter the following sample query to execute a subscription operation via WebSockets.
 
     ```
-    subscription {
+    subscription testSubscription{
         reviewAdded(episode: JEDI) {
             stars
             episode
