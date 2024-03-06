@@ -28,10 +28,6 @@ As the certificates are used for different purposes, the certificate location re
 
 To add a new certificate to a Choreo Connect component, the PEM formatted certificate must be added to the *truststore* location of that particular component.
 
-!!! info
-
-    When generating certificates, it's important to ensure that the extendedKeyUsage includes serverAuth and clientAuth. Failure to do so may result in connectivity issues between choreo-connect components.
-
 1.  Convert the public certificate to a PEM format. For example,
 
     `openssl x509 -inform der -in public_certificate.cert -out certificate.pem`
@@ -80,6 +76,10 @@ To add a new certificate to a Choreo Connect component, the PEM formatted certif
 ## Changing the private certificate of a component
 
 Follow the instructions below to change the private certificate of a component:
+
+!!! info
+
+    When generating certificates, it's important to ensure that the extendedKeyUsage includes serverAuth and clientAuth. Failure to do so may result in connectivity issues between choreo-connect components.
 
 1. Generate a new key pair for the component.
    
