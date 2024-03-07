@@ -1812,13 +1812,6 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
             **Note**: This parameter is available only with Amazon S3 connector v2.0.1 and above.</td>
             <td>Optional</td>
         </tr>
-        <tr>
-            <td>getContentAsBase64</td>
-            <td>Get the file content as Base64 encoded.
-            <br>
-            **Note**: This parameter is available only with Amazon S3 connector v2.0.6 and above.</td>
-            <td>Optional</td>
-        </tr>
     </table>
 
     **Sample configuration**
