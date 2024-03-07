@@ -30,7 +30,7 @@ The ```allow_cert_expiry_validation``` can be set to ```true``` if the certifica
 If the ```allow_full_cert_chain_validation``` is set to ```false``` a single client certificate is expected in the request and the revocation validation will be done for that certificate. For this to happen it is required to add the immediate issuer of the client certificate in the server's trust store.
 Same as above, the ```allow_cert_expiry_validation``` can be set to ```true``` if the certificate expiry validation is required.
 
-In the instances of custom listener profiles are added, following configuration can be used to configure the custom listenerprofiles.xml file.
+In the instances of custom listener profiles are added, following configuration can be used to configure the custom ```<WSO2_APIM_HOME>/repository/resources/security/listenerprofiles.xml``` file.
 
 ```
 <CertificateRevocationVerifier>
