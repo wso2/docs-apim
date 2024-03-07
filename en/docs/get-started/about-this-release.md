@@ -72,6 +72,10 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
     With this feature, it is possible to define API names with spaces. This was not possible in previous versions.
 
+??? note "OpenAPI 3.1.0 support"
+
+    WSO2 API Manager supports the latest version of the Open API Specification, which is OpenAPI 3.1.0. This allows the developers to create more standardized, well-documented APIs, streamlining the API development process and enhancing the overall developer experience.
+
 ??? note "Allow changing the owner of an API"
 
     This feature allows users to transfer ownership of their API to another user within the same organization. Upon transfer, the new owner gains permissions to delete or edit the API as needed, ensuring seamless management and continuity within the organization.
