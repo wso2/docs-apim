@@ -184,5 +184,5 @@ By default, the K8s API operator is configured to watch the deployed namespace. 
 
 ## What's Next
 
-- [Deploying Integrations using the Operator]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments)
+- [Deploying Integrations using the Operator](https://mi.docs.wso2.com/en/latest/install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments/)
 - [Deploying APIs using the Operator]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-apis/api-deployments)

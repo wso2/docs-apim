@@ -44,7 +44,7 @@ The high-level steps for deploying integrations in Kubernetes using the API K8s 
 2.  The API Operator takes control of the Integration CRD.
 3.  The Integration controller in the API Operator creates and deploys the relevant Kubernetes artifacts such as deployment, service, ingress, and horizontal pod autoscaler in the Kubernetes environment.
 
-For more information and instructions, see [Deploying Integrations]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments).
+For more information and instructions, see [Deploying Integrations](https://mi.docs.wso2.com/en/latest/install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments/).
   
 ## Custom Resources
 

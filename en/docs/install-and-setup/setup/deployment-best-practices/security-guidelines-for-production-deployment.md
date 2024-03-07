@@ -211,7 +211,7 @@ instead of granting all permission to one administrator, you can distribute the 
 configured in the <code>&lt;PRODUCT_HOME&gt;/repository/conf/log4j2.properties</code> file. Rollover based on a time period can be configured by changing the below configuration (Default value is 1 day).</p>
 <code>appender.CARBON_LOGFILE.policies.time.interval = 1</code>
 <p>You can also configure rollover based on log file size, and also it is possible to limit the number of backup 
-files. For details on how to configure log rotation and manage log growth details in the API-M runtime, see <a href="{{base_path}}/administer/logging-and-monitoring/logging/managing-log-growth/">Managing log growth</a>.</p></td>
+files. For details on how to configure log rotation and manage log growth details in the API-M runtime, see <a href="https://mi.docs.wso2.com/en/latest/administer/logging-and-monitoring/logging/managing-log-growth/">Managing log growth</a>.</p></td>
 </tr>
 <tr class="even">
 <td><p>Prevent log forging</p></td>
@@ -311,7 +311,7 @@ Given below are the security guidelines for the Streaming Integrator runtime.
                   <p>Make sure that WSO2 default certificates do not exist in any of the keystores in your production environment. For example, be sure to delete the default public certificate in the default trust store that is shipped with the product.</p>
                </li>
             </ul>
-            See <a href="{{base_path}}/install-and-setup/setup/mi-setup/security/creating_keystores/">Creating New Keystores</a> for information on how to create and configure your own keys.
+            See <a href="{{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager">Creating New Keystores</a> for information on how to create and configure your own keys.
             </p>
          </td>
       </tr>
@@ -319,7 +319,7 @@ Given below are the security guidelines for the Streaming Integrator runtime.
          <td>Encrypt passwords in configuration files</td>
          <td>
             <p>WSO2 products use a tool called <strong>Secure Vault</strong> to encrypt the plain-text passwords in configuration files.</p>
-            <p>See <a href="{{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text/">Securing Passwords in Configuration Files</a> for instructions.</p>
+            <p>See <a href="https://mi.docs.wso2.com/en/latest/install-and-setup/setup/security/encrypting-plain-text/">Securing Passwords in Configuration Files</a> for instructions.</p>
          </td>
       </tr>
       <tr class="even">
@@ -434,7 +434,7 @@ Given below are the security guidelines for the Streaming Integrator runtime.
             <p><br /></p>
          </td>
          <td>
-            <p>Ensure that you have a relevant log rotation scheme to manage logs. Log4J properties for Streaming Integrator can be configured in the <code>              &lt;SI_HOME&gt;/conf/server/log4j2.xml             </code> file. To roll the <strong>wso2carbon.log</strong> based on size, <a href="{{base_path}}/administer/logging-and-monitoring/logging/managing-log-growth/">this</a> guide can be used.</p>
+            <p>Ensure that you have a relevant log rotation scheme to manage logs. Log4J properties for Streaming Integrator can be configured in the <code>              &lt;SI_HOME&gt;/conf/server/log4j2.xml             </code> file. To roll the <strong>wso2carbon.log</strong> based on size, <a href="https://mi.docs.wso2.com/en/latest/administer/logging-and-monitoring/logging/managing-log-growth/">this</a> guide can be used.</p>
          </td>
       </tr>
       <tr class="even">
