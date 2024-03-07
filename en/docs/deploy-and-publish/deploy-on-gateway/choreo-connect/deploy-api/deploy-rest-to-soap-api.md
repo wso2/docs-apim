@@ -2,7 +2,7 @@
 
 When it comes to web services, they are designed to provide rich functionlity to end users by supporting interoperable interactions over a network. Web services are mainly categorized into two types called SOAP and RESTful services. However, due to various reasons like flexibility, scalability, complexity, performance, etc. RESTful services became better for modern clients. Due to this reason exposing a SOAP endpoint as a RESTfull service is helpful as it provides more flexibilities when integrating web services with various end user applications.
 
-This guide will explain you on how to perform the SOAP to REST transformation using [WSO2 Micro Integrator]({{base_path}}/integrate/integration-overview/) and how to deploy the converted API in Choreo Connect gateway to provision the [key features]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features/) that the Choreo Connect is supporting by using an example.
+This guide will explain you on how to perform the SOAP to REST transformation using [WSO2 Micro Integrator](https://mi.docs.wso2.com/en/latest/get-started/introduction/) and how to deploy the converted API in Choreo Connect gateway to provision the [key features]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features/) that the Choreo Connect is supporting by using an example.
 
 The following diagram illustrates the request flow from client to the backend through WSO2 Micro Integrator and the response flow from backend to client through WSO2 Micro Integrator for this example. The WSO2 Micro Integrator acting as the backend for the Choreo Connect Gateway whereas its handling the `JSON` to `SOAP` message transformation as well as `GET` to `POST` method transformation.
 
@@ -27,7 +27,7 @@ Following steps will guide you through creation of SOAP to REST transformation u
 
 !!! info "Before you begin"
 
-    This guide assumes that you already have installed WSO2 Integration Studio, if not you can follow up instructions on [Installing WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio/).
+    This guide assumes that you already have installed WSO2 Integration Studio, if not you can follow up instructions on [Installing WSO2 Integration Studio](https://mi.docs.wso2.com/en/latest/develop/installing-wso2-integration-studio/).
 
 !!! Tip
     The project that will be creating in below **Step 1** & **Step 2** is available in `/samples/rest-to-soap-conversion` directory of the [Choreo Connect's github repository](https://github.com/wso2/product-microgateway).
@@ -35,7 +35,7 @@ Following steps will guide you through creation of SOAP to REST transformation u
     If you wish to use that, you can go through the following steps to import it directly to the Integration Studio and use.
 
     1. Clone the [Choreo Connect repository](https://github.com/wso2/product-microgateway).
-    2. Import the `PhoneVerify` sample project to the Integration studio. Refer [Importing Projects]({{base_path}}/integrate/develop/importing-projects/) for more information.
+    2. Import the `PhoneVerify` sample project to the Integration studio. Refer [Importing Projects](https://mi.docs.wso2.com/en/latest/develop/importing-projects/) for more information.
     3. [Configure Micro Integrator to Update APIM Service Catalog]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-to-soap-api/#step-3-configure-micro-integrator-to-update-apim-service-catalog) if required.
     4. [Deploy the Artifacts]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-to-soap-api/#step-5-deploy-the-artifacts-in-micro-integrator).
 
@@ -45,7 +45,7 @@ Select **File->New->Integration Project** from Integration studio and enter the 
 
 Make sure to tick the **Create ESB Configs** and **Create Composite Exporter** when creating the Integration project.
 
-For more information refer to [Creating an Integration Project]({{base_path}}/integrate/develop/create-integration-project/).
+For more information refer to [Creating an Integration Project](https://mi.docs.wso2.com/en/latest/develop/create-integration-project/).
 
 ### Step 2 - Create the REST API
 
@@ -54,10 +54,10 @@ For more information refer to [Creating an Integration Project]({{base_path}}/in
 3. Select the **Import API Artifact** option and provide file having [this synapse configuration](https://raw.githubusercontent.com/wso2/product-microgateway/rest-to-soap-cc/samples/rest-to-soap-conversion/PhoneVerification/PhoneVerificationConfigs/src/main/synapse-config/api/PhoneVerify.xml).
 
 !!! Note
-    If you want to design your API from scratch, select **Create New API Artifact** option in the above step and create it using Integration Studio. For more information on this refer documentation on [Creating a REST API]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api/).
+    If you want to design your API from scratch, select **Create New API Artifact** option in the above step and create it using Integration Studio. For more information on this refer documentation on [Creating a REST API](https://mi.docs.wso2.com/en/latest/develop/creating-artifacts/creating-an-api/).
 
 !!! Tip
-    This example is using [PayloadFactory Mediator]({{base_path}}/reference/mediators/payloadfactory-mediator/) to transform `JSON` content to `SOAP`. Also a similar example can be find in [Converting JSON to SOAP]({{base_path}}/integrate/examples/message_transformation_examples/json-to-soap-conversion/).
+    This example is using [PayloadFactory Mediator](https://mi.docs.wso2.com/en/latest/reference/mediators/payloadfactory-mediator/) to transform `JSON` content to `SOAP`. Also a similar example can be find in [Converting JSON to SOAP](https://mi.docs.wso2.com/en/latest/learn/examples/message-transformation-examples/json-to-soap-conversion/).
 
 ### Step 3 - Configure Micro Integrator to Update APIM Service Catalog
 
@@ -120,9 +120,9 @@ This step will show you how to Update the swagger definition to change some impo
 
 ### Step 5 - Deploy the Artifacts in Micro Integrator
 
-You have multiple options to deploy your REST API. See the [Deploying Artifacts]({{base_path}}/integrate/develop/deploy-artifacts/#deploy-artifacts-in-the-embedded-micro-integrator) for more information.
+You have multiple options to deploy your REST API. See the [Deploying Artifacts](https://mi.docs.wso2.com/en/latest/develop/deploy-artifacts/#deploy-artifacts-in-the-embedded-micro-integrator) for more information.
 
-In this example we are using the [Embedded Micro Integrator]({{base_path}}/integrate/develop/deploy-artifacts/#deploy-artifacts-in-the-embedded-micro-integrator) in your WSO2 Integration Studio.
+In this example we are using the [Embedded Micro Integrator](https://mi.docs.wso2.com/en/latest/develop/deploy-artifacts/#deploy-artifacts-in-the-embedded-micro-integrator) in your WSO2 Integration Studio.
 
 Below steps will show you, how to deploy your REST API.
 
@@ -220,7 +220,7 @@ apictl init PhoneVerify --oas http://localhost:8290/PhoneVerify?swagger.json
 ```
 
 !!! Note
-    The Swagger URL `http://localhost:8290/PhoneVerify?swagger.json` is used to get the Swagger definition of the deployed integration service in previous steps. You may read more details on this from [Using Swagger Documents]({{base_path}}/integrate/develop/advanced-development/using-swagger-for-apis/).
+    The Swagger URL `http://localhost:8290/PhoneVerify?swagger.json` is used to get the Swagger definition of the deployed integration service in previous steps. You may read more details on this from [Using Swagger Documents](https://mi.docs.wso2.com/en/latest/develop/advanced-development/using-swagger-for-apis/).
 
 
 #### Step 2 - Deploy the API
@@ -266,6 +266,6 @@ curl -X 'GET' 'https://localhost:9095/phoneverify/checkphonenumber?PhoneNumber=8
 
 ## See Also
 
-- [Converting JSON to SOAP]({{base_path}}/integrate/examples/message_transformation_examples/json-to-soap-conversion/)
-- [Exposing a SOAP Endpoint as a RESTful API]({{base_path}}/integrate/examples/rest_api_examples/enabling-rest-to-soap/)
-- [Exposing an Integration Service as a Managed API]({{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial/)
+- [Converting JSON to SOAP](https://mi.docs.wso2.com/en/latest/learn/examples/message-transformation-examples/json-to-soap-conversion/)
+- [Exposing a SOAP Endpoint as a RESTful API](https://mi.docs.wso2.com/en/latest/learn/examples/rest-api-examples/enabling-rest-to-soap/)
+- [Exposing an Integration Service as a Managed API](https://mi.docs.wso2.com/en/latest/learn/integration-tutorials/service-catalog-tutorial/)

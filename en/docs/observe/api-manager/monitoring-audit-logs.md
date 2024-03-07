@@ -27,7 +27,7 @@ appender.AUDIT_LOGFILE.filter.threshold.type = ThresholdFilter
 appender.AUDIT_LOGFILE.filter.threshold.level = INFO
 ```
 
-The log growth of audit logs can be managed by the configurations discussed in [Managing log growth]({{base_path}}/administer/logging-and-monitoring/logging/managing-log-growth) guide.
+The log growth of audit logs can be managed by the configurations discussed in [Managing log growth](https://mi.docs.wso2.com/en/latest/administer/logging-and-monitoring/logging/managing-log-growth/) guide.
    
 ## Audit log actions
 

@@ -37,7 +37,7 @@ appenders = CARBON_LOGFILE, CARBON_CONSOLE, AUDIT_LOGFILE, ATOMIKOS_LOGFILE, CAR
 DELETE_EVENT_LOGFILE, TRANSACTION_LOGFILE
 ```
    
-For information on managing the log growth of the Carbon Logs, see the [Managing log growth]({{base_path}}/administer/logging-and-monitoring/logging/managing-log-growth) guide.
+For information on managing the log growth of the Carbon Logs, see the [Managing log growth](https://mi.docs.wso2.com/en/latest/administer/logging-and-monitoring/logging/managing-log-growth/) guide.
 
 ### Enabling logs for a tenant
 

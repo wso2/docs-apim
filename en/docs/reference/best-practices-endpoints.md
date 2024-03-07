@@ -1,6 +1,6 @@
 # Best practices for working with endpoints
 
-- Do not use anonymous endpoints. Always use [named endpoints]({{base_path}}/reference/synapse-properties/endpoint-properties). As anynymous endpoints have auto-generated names in the synapse
+- Do not use anonymous endpoints. Always use [named endpoints](https://mi.docs.wso2.com/en/latest/reference/synapse-properties/endpoint-properties/). As anynymous endpoints have auto-generated names in the synapse
   configuration, it is difficult to identify which endpoint is causing
   the error in case of an error.
 
@@ -104,16 +104,16 @@
   immediately and subsequent messages to that endpoint get rejected
   without being sent to the backend service. This might not be the
   expected behaviour in every use case. Therefore, it is important to
-  perform [endpoint error handling]({{base_path}}/reference/synapse-properties/endpoint-properties/#endpoint-error-handling-properties)
+  perform [endpoint error handling](https://mi.docs.wso2.com/en/latest/reference/synapse-properties/endpoint-properties/#endpoint-error-handling-properties)
   based on the use case.
 
-- Use the [HTTP endpoint]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports)
+- Use the [HTTP endpoint](https://mi.docs.wso2.com/en/latest/install-and-setup/setup/transport-configurations/configuring-transports/)
   for RESTful service invocations. The HTTP endpoint is especially
   designed to make RESTful service integration easy. For example, it
   supports `url-templates` , which is an option
   to set the http method.
 
-- For RESTful service integration, use either [REST APIs]({{base_path}}/reference/synapse-properties/rest-api-properties)
+- For RESTful service integration, use either [REST APIs](https://mi.docs.wso2.com/en/latest/reference/synapse-properties/rest-api-properties/)
   or HTTP endpoints. You can use REST APIs to expose an integration
   solution as a RESTful service, and use HTTP endpoints to logically
   represent a RESTful backend service.

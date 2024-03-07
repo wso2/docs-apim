@@ -29,7 +29,7 @@ The following are some of the main capabilities of the product.
 
 <div class="leftContentOverview" style="width:75% !important;">You can implement an API-led integration strategy by easily combining the API management layer and the integration layer of the product's platform.
     <ul>
-            <li><a href="{{base_path}}/integrate/api-led-integration">API-led Integration</li>
+            <li><a href="https://mi.docs.wso2.com/en/latest/develop/api-led-integration">API-led Integration</li>
     </ul>
   </div>
 
@@ -137,7 +137,7 @@ The following are some of the main capabilities of the product.
 
 <div class="leftContentOverview" style="width:75% !important;">The WSO2 Micro Integrator runtime enables you to host composite microservices that can harness the power of a low-code integration approach, while reaping the benefits of microservices architectures.
     <ul>
-        <li><a href="{{base_path}}/integrate/integration-overview/#microservices-integration">Microservices integration</li>
+        <li><a href="https://mi.docs.wso2.com/en/latest/get-started/introduction/#microservice-integration">Microservices integration</li>
     </ul>
   </div>
   
@@ -155,7 +155,7 @@ The following are some of the main capabilities of the product.
 
 <div class="leftContentOverview" style="width:75% !important;">The WSO2 Micro Integrator can also be used by enterprises as a classic ESB. When deployed as an ESB, it caters to your message routing, transformation, message mediation, service orchestration, as well as service and API hosting needs.
     <ul>
-        <li><a href="{{base_path}}/integrate/integration-overview/#centralized-integration-enterprise-service-bus">Centralized integration</li>
+        <li><a href="https://mi.docs.wso2.com/en/latest/get-started/introduction/#enterprise-service-bus">Centralized integration</li>
     </ul>
   </div>
   

@@ -11,9 +11,9 @@ The cloud-native solution is more suitable in the following scenarios:
 - You are creating a new cloud-native Micro Integrator deployment. 
 
 	!!! Note
-		See the instructions on setting up a cloud-native [Micro Integrator deployment on Kubernetes]({{base_path}}/install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns).
+		See the instructions on setting up a cloud-native [Micro Integrator deployment on Kubernetes](https://mi.docs.wso2.com/en/latest/install-and-setup/setup/deployment/kubernetes-deployment-patterns/).
 
-- You already have Prometheus, Grafana, and Jaeger as your in-house monitoring and observability tools. This applies to [VM deployments]({{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei) as well as [Kuberentes deployments]({{base_path}}/install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns).
+- You already have Prometheus, Grafana, and Jaeger as your in-house monitoring and observability tools. This applies to [VM deployments](https://mi.docs.wso2.com/en/latest/install-and-setup/setup/deployment/deploying-wso2-mi/) as well as [Kuberentes deployments](https://mi.docs.wso2.com/en/latest/install-and-setup/setup/deployment/kubernetes-deployment-patterns/).
 
 ### Technologies
 
@@ -49,5 +49,5 @@ Once you set up the basic deployment, you can integrate message tracing capabili
 
 ## What's Next?
 
--	Set up <a href="{{base_path}}/observe/micro-integrator/setting-up-cloud-native-observability-on-a-vm">cloud-native observability on a VM</a>.
--	Set up <a href="{{base_path}}/observe/micro-integrator/setting-up-cloud-native-observability-in-kubernetes/">cloud-native observability on Kubernetes</a>.
+-	Set up <a href="https://mi.docs.wso2.com/en/latest/observe-and-manage/setting-up-cloud-native-observability-on-a-vm/">cloud-native observability on a VM</a>.
+-	Set up <a href="https://mi.docs.wso2.com/en/latest/observe-and-manage/setting-up-cloud-native-observability-in-kubernetes/">cloud-native observability on Kubernetes</a>.

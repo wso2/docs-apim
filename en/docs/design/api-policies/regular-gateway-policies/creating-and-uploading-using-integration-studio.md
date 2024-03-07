@@ -16,7 +16,7 @@ This custom policy adds a full trace log that gets printed when you invoke a par
       [![Integration Studio]({{base_path}}/assets/img/learn/api-gateway/message-mediation/integration-studio.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/integration-studio.png)
 
     !!! tip
-        To learn more about using WSO2 Integration Studio, see the [WSO2 Integration Studio]({{base_path}}/integrate/develop/wso2-integration-studio/) documentation.
+        To learn more about using WSO2 Integration Studio, see the [WSO2 Integration Studio](https://mi.docs.wso2.com/en/latest/develop/wso2-integration-studio/) documentation.
 
 4. Click **Window -> Perspective -> Open Perspective -> Other** to get the Perspective options.
   
