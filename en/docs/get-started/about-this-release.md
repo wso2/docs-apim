@@ -91,7 +91,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 ## Compatible WSO2 product versions
 
 - WSO2 API Manager 4.3.0 is compatible with WSO2 Identity Server 6.1.0.
-- WSO2 API Manager 4.3.0 is compatible with APK version 1.1.0.
+- WSO2 API Manager 4.3.0 is compatible with WSO2 API Platform for Kubernetes (APK) version 1.1.0.
 
 ## Fixed issues
 
