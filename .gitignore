@@ -21,3 +21,12 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# generated docs
+en/site
+
+#Ignore DS_Store files generated in mac
+.DS_Store
+
+# IDE config files
+*.idea
