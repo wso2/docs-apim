@@ -59,9 +59,9 @@ We recommend the following patterns for denying requests.
         <tr class="odd">
             <td>JavaScript Exception</td>
             <td><p>
-                ```
-                    &lt;\s*script\b[^&gt;]*&gt;[^&lt;]+&lt;\s*/\s*script\s*&gt;
-                ```
+            ```
+            &lt;\s*script\b[^&gt;]*&gt;[^&lt;]+&lt;\s*/\s*script\s*&gt;
+            ```
             </p></td>
         </tr>
         <tr class="even">
