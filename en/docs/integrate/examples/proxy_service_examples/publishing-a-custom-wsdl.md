@@ -1,8 +1,8 @@
 # Publishing a Custom WSDL
 When you create a proxy service, a default WSDL is automatically
 generated. You can access this WSDL by suffixing the service URL
-with ?wsdl. See the example given below, where the proxy service name is
-'sample_service' and IP is localhost:
+with `?wsdl`. See the example given below, where the proxy service name is
+`sample_service` and IP is `localhost`:
 
 `http://localhost:8290/services/sample_service?wsdl`
 
