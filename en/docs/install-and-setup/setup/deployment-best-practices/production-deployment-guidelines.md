@@ -67,12 +67,6 @@ Given below is a checklist that will guide you to set up your production environ
                      <a href="{{base_path}}/install-and-setup/setup/setting-up-databases/overview">Database registry</a> for the API-M runtime.
                   </li>
                </ul>
-               <p>The Micro Integrator runtime uses a file-based registry instead of a database.</p>
-               <ul>
-                  <li>
-                     <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/file_based_registry">File-based registry</a> for the Micro Integrator. runtime.
-                  </li>
-               </ul>
             </div>
          </td>
       </tr>
@@ -84,9 +78,6 @@ Given below is a checklist that will guide you to set up your production environ
                <ul>
                   <li>
                      Performance Tuning - WSO2 API-M runtime
-                  </li>
-                  <li>
-                     Performance tuning - WSO2 Micro Integrator
                   </li>
                </ul>
             </div>
@@ -105,22 +96,15 @@ Given below is a checklist that will guide you to set up your production environ
                   <li>8280 - Default HTTP port used by ESB for proxy services.</li>
                   <li>8243 - Default HTTPS port used by ESB for proxy services.</li>
                </ul>
-               <b>Micro Integrator Ports</b>
-               <ul>
-                  <li>8290 - Default HTTP port used by the Micro Integrator for proxy services and APIs.</li>
-                  <li>8253 - Default HTTPS port used by the Micro Integrator for proxy services and APIs.</li>
-                  <li>9164 - Default HTTPS port used by the Micro Integrator Management APIs.</li>
-               </ul>
             </div>
          </td>
       </tr>
       <tr class="even">
          <td>Proxy servers</td>
          <td>
-            If the runtime is hosted behind a proxy such as ApacheHTTPD, you can configure the runtime  to use the proxy server. See the following topics for instructions:
+            If the runtime is hosted behind a proxy such as ApacheHTTPD, you can configure the runtime  to use the proxy server. See the following topic for instructions:
             <ul>
                <li>Configuring a <a href="{{base_path}}/install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer">proxy server for the API-M runtime</a>.</li>
-               <li>Configuring a <a href="{{base_path}}/install-and-setup/setup/mi-setup/configuring_proxy_servers">proxy server for the Micro Integrator runtime</a>.</li>
             </ul>
          </td>
       </tr>

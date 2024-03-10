@@ -13,7 +13,7 @@ Setting up involves doing the required configurations for the API Manager and it
     For instructions to set up databases for each component, see the following topics:
     
     - [Setting up Databases for the API Manager]({{base_path}}/install-and-setup/setup/setting-up-databases/overview)
-    - [Setting up Databases for the Micro Integrator]({{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-MySQL)
+    - [Setting up Databases for the Micro Integrator](https://mi.docs.wso2.com/en/latest/install-and-setup/setup/databases/setting-up-mysql/)
     - [Setting up Databases for the Streaming Integrator]({{base_path}}/install-and-setup/setup/si-setup/configuring-data-sources)
     
 - **Configuring primary user stores**
@@ -23,7 +23,7 @@ Setting up involves doing the required configurations for the API Manager and it
     For instructions to set up primary user stores for each component, see the following topics:
     
     - [Configuring Primary User Stores for the API Manager]({{base_path}}/administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores)
-    - [Configuring Primary User Stores for the Micro Integrator]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore)
+    - [Configuring Primary User Stores for the Micro Integrator](https://mi.docs.wso2.com/en/latest/install-and-setup/setup/user-stores/setting-up-a-userstore/)
     
 - **Configuring security**
 
@@ -42,7 +42,7 @@ Setting up involves doing the required configurations for the API Manager and it
     
     For instructions to configure transports for each component, see the following topics:
     
-    - [Configuring Transports for the Micro Integrator]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports)
+    - [Configuring Transports for the Micro Integrator](https://mi.docs.wso2.com/en/latest/install-and-setup/setup/transport-configurations/configuring-transports/)
     - [Configuring Transports for the Streaming Integrator]({{base_path}}/install-and-setup/setup/si-setup/supporting-different-transports)
     
 - **Performance Tuning**
@@ -81,15 +81,15 @@ In addition, the component-specific setup tasks are as follows:
         
 - **Micro Integrator**
 
-    - [**Setting up the file-based registry**]({{base_path}}/install-and-setup/setup/mi-setup/deployment/file_based_registry)
+    - [**Setting up the file-based registry**](https://mi.docs.wso2.com/en/latest/install-and-setup/setup/deployment/file-based-registry/)
     
         The Micro Integrator is shipped with a file-system-based registry to store registry artifacts. This section explains the default directory structure of the registry and how to change it if required.
     
-    -*[**Setting up message brokers**]({{base_path}}/install-and-setup/setup/mi-setup/brokers/deploy-rabbitMQ)
+    -*[**Setting up message brokers**](https://mi.docs.wso2.com/en/latest/install-and-setup/setup/brokers/deploy-rabbitmq/)
     
         This section explains how to set up the different message brokers with which the Micro Integrator component can integrate.
         
-    - [**Setting up message builders and formatters**]({{base_path}}/install-and-setup/setup/mi-setup/message_builders_formatters/message-builders-and-formatters)
+    - [**Setting up message builders and formatters**](https://mi.docs.wso2.com/en/latest/install-and-setup/setup/message-builders-formatters/message-builders-and-formatters/)
     
         When the Micro Integrator receives a request via a transport, the transport uses a **message builder** to process the payload and convert it to SOAP. 
         
@@ -97,13 +97,13 @@ In addition, the component-specific setup tasks are as follows:
         
         This section explains how to configure these message builders and message formatters.
     
-    - [**Configuring message relay**]({{base_path}}/install-and-setup/setup/mi-setup/message_builders_formatters/message-relay)
+    - [**Configuring message relay**](https://mi.docs.wso2.com/en/latest/install-and-setup/setup/message-builders-formatters/message-relay/)
     
         Enabling message relay allows the Micro Integrator component to to pass messages along without building or processing them unless specifically requested to do so. This way, the Micro Integrator can handle a higher throughput.
         
         This section guides you to enable and configure message relay.
         
-    - [**Time stamp conversion for RDBMS**]({{base_path}}/install-and-setup/setup/mi-setup/feature_configs/configuring_timestamp_conversion_for_rdbms)
+    - [**Time stamp conversion for RDBMS**](https://mi.docs.wso2.com/en/latest/install-and-setup/setup/feature-configs/configuring-timestamp-conversion-for-rdbms/)
     
         This section explains how to enable/disable time stamp conversions for the RDBMS databases configured for the Micro Integrator component.
 

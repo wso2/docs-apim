@@ -50,32 +50,6 @@ The API Gateway does the JWT token validation by validating the signature, issue
 
 Once the token is validated, the API Gateway acts upon the API request before sending it to the backend. It first processes the message to a preconfigured format (e.g., JSON, XML, CSV etc.).  It then applies security policies, rate limiting policies,  collects statistics, etc., via its handlers.  The mediators then act upon the API payload based on the mediation logic developed. The message is then formatted to a preconfigured format (e.g., JSON, XML, CSV, etc.) and sent to the backend. WSO2 API Gateway supports transports such as HTTP, HTTPS, etc. It is also able to scale on-demand in cloud environments and is easily pluggable in non-cloud environments. 
 
-#### Choreo Connect
-
-<a href="{{base_path}}/assets/img/deploy/mgw/choreo-connect-basic-architecture.png"><img src="{{base_path}}/assets/img/deploy/mgw/choreo-connect-basic-architecture.png" width="600" alt="auth0 token validation"></a>
-
-Choreo Connect (the API Microgateway) is a cloud-native, open-source, and developer-centric API Gateway. It provides first-class support for Kubernetes while facilitating an array of API management quality of services (QoS), such as message security, rate-limiting, observability, and message mediation. Choreo Connect can be run in the cloud, on-premises, or in a hybrid environment, as long as it supports Kubernetes.
-
-Choreo Connect comprises three components: Router, Enforcer, and Adapter. The Router is the component in charge of directing traffic from various clients to the intended destination (service). Choreo Connect uses the [Envoy Proxy](https://www.envoyproxy.io/) as the core component for traffic routing. The Router is key to exposing APIs to external and remote clients. The policy enforcement engine, which is the Enforcer, performs token validation, rate limitation, analytics, and other validations. The Adapter serves as the control plane for both the Router and the Enforcer. Choreo Connect can be used as a standalone Gateway or with WSO2 API Manager as the Control Plane.
-
-#### Micro Integrator
-
-The Micro Integrator of WSO2 API Manager is lightweight and container friendly. This allows you to leverage the comprehensive enterprise messaging capabilities of the Micro Integrator in your decentralized, cloud-native integrations.
-
-<img src="{{base_path}}/assets/img/integrate/intro/mi-microservices-architecture.png" alt="decentralized micro services" name="decentralized microservices" width="700">
-
-As shown above, if your organization is running on a decentralized, cloud-native, integration architecture where microservices are used for integrating the various APIs, events, and systems, WSO2 Micro Integrator can easily function as your **Integration** (micro) services and **API** (micro) services.
-
-Micro Integrator is an event-driven, standards-based messaging engine that can work like an Enterprise Service Bus. This supports message routing, message transformations, and other types of messaging use cases. If your organization uses an API-driven, centralized, integration architecture, the Micro Integrator can be used as the central integration layer that implements the message mediation logic connecting all the systems, data, events, APIs, etc. in your integration ecosystem.
-
-#### Streaming Integrator
-
-The [Streaming Integrator]({{base_path}}/steaming/streaming-overview/) component of WSO2 API Manager is a streaming data processing server that integrates streaming data and takes action based on streaming data. The streaming integration capabilities of WSO2 API Manager are delivered via this runtime. This is a cloud-native, lightweight component that understands, captures, analyzes, processes, and acts upon streaming data and events in real-time. It utilizes the SQL-like query language ‘Siddhi’ to implement the solution.
-
-<img src="{{base_path}}/assets/img/integrate/intro/streaming-integrator.png" alt="Streaming Integrator" name="Streaming Integrator" width="600">
-
-The Streaming Integrator allows you to integrate static data sources with streaming data sources. Thus, it enables various types of applications (e.g., files, cloud based applications, data stores, and streaming applications) to access streaming data and also exposes their output in a streaming manner. This is useful for performing ETL (Extract, Transform, Load) operations, capturing change data (i.e., CDC operations), and stream processing.
-
 ## Control Plane
  
 The Control Plane is where the API security validation, API key generation, and rate limiting decisions are taken.
@@ -108,7 +82,7 @@ There are multiple developer-friendly tools that can be used to help you work wi
 
 #### Integration Studio
 
-The WSO2 API Manager and the Micro Integrator are coupled with [WSO2 Integration Studio]({{base_path}}/integrate/develop/wso2-integration-studio); a comprehensive graphical integration flow designer for building integrations using a simple drag-and-drop functionality.
+The WSO2 API Manager and the Micro Integrator are coupled with [WSO2 Integration Studio](https://mi.docs.wso2.com/en/latest/develop/wso2-integration-studio/); a comprehensive graphical integration flow designer for building integrations using a simple drag-and-drop functionality.
 
 <img src="{{base_path}}/assets/img/integrate/intro/integration-studio.png" alt="Integration Studio" name="Integration Studio">
 

@@ -29,7 +29,7 @@ The integration cluster may be a Micro Integrator cluster or a Streaming Integra
 
 <ul>
     <li>
-        <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei">Micro Integrator Cluster with Minimum High Availability</a>
+        <a href="https://mi.docs.wso2.com/en/latest/install-and-setup/setup/deployment/deploying-wso2-mi/">Micro Integrator Cluster with Minimum High Availability</a>
     </li>
     <li>
         <a href="{{base_path}}/install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster">Streaming Integrator Cluster with Minimum High Availability</a>
@@ -63,7 +63,7 @@ The integration cluster consists of two nodes of the integration runtime for eac
 
 <ul>
     <li>
-        <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei">Micro Integrator Cluster with Minimum High Availability</a>
+        <a href="https://mi.docs.wso2.com/en/latest/install-and-setup/setup/deployment/deploying-wso2-mi/">Micro Integrator Cluster with Minimum High Availability</a>
     </li>
     <li>
         <a href="{{base_path}}/install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster">Streaming Integrator Cluster with Minimum High Availability</a>
@@ -112,7 +112,7 @@ The integration cluster consist of a minimum of two nodes of the integration run
 
 <ul>
     <li>
-        <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei">Micro Integrator Cluster with Minimum High Availability</a>
+        <a href="https://mi.docs.wso2.com/en/latest/install-and-setup/setup/deployment/deploying-wso2-mi/">Micro Integrator Cluster with Minimum High Availability</a>
     </li>
     <li>
         <a href="{{base_path}}/install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster">Streaming Integrator Cluster with Minimum High Availability</a>
@@ -170,7 +170,7 @@ The integration cluster consist of a minimum of two nodes of the integration run
 
 <ul>
     <li>
-        <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei">Micro Integrator Cluster with Minimum High Availability</a>
+        <a href="https://mi.docs.wso2.com/en/latest/install-and-setup/setup/deployment/deploying-wso2-mi/">Micro Integrator Cluster with Minimum High Availability</a>
     </li>
     <li>
         <a href="{{base_path}}/install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster">Streaming Integrator Cluster with Minimum High Availability</a>
