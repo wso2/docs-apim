@@ -458,6 +458,8 @@ nav:
         - User Account Management:
             - Recover Password: consume/user-account-management/recover-password.md
             - Change Password: consume/user-account-management/change-dev-portal-password.md
+        - Token Management:
+            - Token Persistence : /consume/token-management/token-persistence.md
     - Integrate:
         - Integration Overview: integrate/integration-overview.md
         - Integration Concepts: integrate/integration-key-concepts.md
@@ -2274,6 +2276,6 @@ extra:
             version: 1.2.0-1
             git_tag: v1.2.0.1
     site_version: 4.3.0
-#    base_path: http://localhost:8000/en/next/
-    base_path: https://apim.docs.wso2.com/en/4.3.0
+    base_path: http://localhost:8000/en/next/
+    # base_path: https://apim.docs.wso2.com/en/4.3.0
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
