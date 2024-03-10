@@ -85,5 +85,6 @@ Token introspection and User info OIDC endpoints of KeyManager will self validat
      - `AM_SUBJECT_ENTITY_EVENTS`
      - `IDN_APP_REVOKED_EVENTS`
      - `IDN_SUBJECT_ENTITY_EVENTS`
+     
 - The SessionDataPublisher in API-M cannot no longer revoke the logged-in tokens during user logout.
 - If you are using a customized JWT token issuer and wish to enable this feature, to support the additional system claims, make sure your custom JWTTokenIssuer is extending `org.wso2.is.key.manager.tokenpersistence.issuer.ExtendedJWTTokenIssuer` class.
