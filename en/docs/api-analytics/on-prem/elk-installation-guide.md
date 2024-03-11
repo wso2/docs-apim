@@ -79,6 +79,29 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
 !!! note
     The `apim_metrics.log` file be rolled each day or when the log size reaches the limit of 1000 MB by default. Furthermore, only 10 revisions will be kept and older revisions will be deleted automatically. You can change these configurations by updating the configurations provided in step 2 given above in this. section.
 
+#### Step 1.3 - Enabling Operation Policies in Analytics Event
+
+Operation and API Policies of the APIs/API Products are loaded to the Analytics Event by enabling the following property. This can be either provide as an argument or configured in the start up scripts on the server startup.
+
+    - Linux/Mac OS
+    
+        ```toml tab="Format"
+        ./api-manager.sh -DoperationPolicyEnableWithAnalyticsEvent=<offset_value>
+        ```
+        
+        ```toml tab="Example"
+        ./api-manager.sh -DoperationPolicyEnableWithAnalyticsEvent=true
+        ```
+        
+    - Windows
+    
+        ```toml tab="Format"
+        api-manager.bat -DoperationPolicyEnableWithAnalyticsEvent=<offset_value>
+        ```
+        
+        ```toml tab="Example"
+        api-manager.bat -DoperationPolicyEnableWithAnalyticsEvent=true
+        ```
 
 ### Step 2 - Configuring ELK
 
