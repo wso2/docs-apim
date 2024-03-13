@@ -2,7 +2,7 @@
 
 The performance of WSO2 API Manager was measured for GraphQL APIs. While the schema, the queries, and the responses were mimicked using the [Starwars API](https://github.com/wso2/samples-apim/tree/master/graphql-backend), the backend used for the test is a Netty backend. The Netty service is configured so that the response is aligned with the GraphQL request in order to only provide the data requested by a particular query.
 
-Tests were done using **50**, **100**, **200**, **500**, and **1000** concurrent users. Concurrent users mean that it consists of multiple users accessing the API Gateway at the same time. Three GraphQL queries were used for the tests. These queries were constructed with varying operation counts. First query with 1 operation, second with 4 operations, and third with 9 operations. It is important to note that when this operation count increases, the higher the workload for API Manager. Details regarding the query variations are outlined below. The three queries and their responses can be found [here](https://github.com/ashera96/performance-apim/tree/master/resources).
+Tests were done using **50**, **100**, **200**, **500**, and **1000** concurrent users. Concurrent users mean that it consists of multiple users accessing the API Gateway at the same time. Three GraphQL queries were used for the tests. These queries were constructed with varying operation counts. First query with 1 operation, second with 4 operations, and third with 9 operations. It is important to note that when this operation count increases, the higher the workload for API Manager. Details regarding the query variations are outlined below. The three queries and their responses can be found [here](https://github.com/wso2/performance-apim/tree/master-graphql/resources).
 
 <table>
 <thead>
@@ -62,7 +62,7 @@ Two key performance metrics were used to measure the performance of each test.
     <td>Apache JMeter Client</td>
     <td>c5.large</td>
     <td>2</td>
-    <td>2</td>
+    <td>4</td>
   </tr>
   <tr>
     <td>Apache JMeter Server 01</td>
@@ -86,15 +86,15 @@ Two key performance metrics were used to measure the performance of each test.
     <td>WSO2 API Manager</td>
     <td>c5.large</td>
     <td>2</td>
-    <td>2</td>
+    <td>4</td>
   </tr>
 </tbody>
 </table>
 
 - Token type: JWT
 - The operating system is Ubuntu 18.04
-- MySQL version in RDS instance is 5.7
-- Java version is JDK 11
+- MySQL version in RDS instance is 8.0
+- Java version is Temurin JDK 17
 
 ### Performance test scripts
 
@@ -106,7 +106,7 @@ All scripts used to run the performance tests and analyze results are in the fol
 
 ## Results
 
-The complete results can be found [here](https://github.com/wso2/performance-apim/blob/performance-test-378-2022-07-08_14-57-52/performance/benchmarks/summary.md).
+The complete results can be found [here](https://github.com/wso2/performance-apim/blob/performance-test-447-2024-03-12_05-54-54/performance/benchmarks/summary.md).
 
 The following graph depicts the throughput changes based on the number of concurrent users for different GraphQL queries.
 
@@ -132,7 +132,7 @@ The following graph depicts the average response time changes based on the numbe
 
 Let’s look at the 90th, 95th, and 99th response time percentiles. It is useful to measure the percentage of requests that exceeded the response time value for a given percentile. A percentile can be used to determine the percentage of requests completed below the particular response time value.
 
-For example, when there are 100 concurrent users, the 90th response time percentile for Query 1 is 102ms. This means that 10% of the requests have taken more than 102ms to respond. Similarly, the 99th response time percentile for Query 1 is 201ms, which means that 99% of the requests have been completed within 201ms.
+For example, when there are 100 concurrent users, the 90th response time percentile for Query 1 is 76ms. This means that 10% of the requests have taken more than 76ms to respond. Similarly, the 99th response time percentile for Query 1 is 132ms, which means that 99% of the requests have been completed within 132ms.
 
 The figure below represents the percentile values for Query 1.
 
@@ -142,7 +142,7 @@ The figure below represents the percentile values for Query 1.
 
 - Query 2 and Query 3 scenarios are relatively slower than the preceding results due to the performance overhead caused by the payload processing at the API Manager Gateway.
 
-- Response Times percentiles are less than 750ms up to 300 concurrent users for all three queries.
+- Response Times percentiles are less than 750ms up to 500 concurrent users for all three queries.
 
 !!! note
     1000 concurrent users mean a lot, and it is not very common. It is recommended to scale horizontally or vertically to support more concurrent users with acceptable response times. When scaling horizontally, two or more Gateway nodes need to be used with a load balancer. Another load test must be carried out to measure the performance after scaling.
