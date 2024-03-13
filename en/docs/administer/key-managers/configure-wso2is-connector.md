@@ -156,7 +156,7 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
       </tr>
       <tr class="even">
       <td>Issuer</td>
-      <td>The issuer that consumes or validates access tokens </br>e.g., <code>https://localhost:9444/services</code></td>
+      <td>The issuer that consumes or validates access tokens </br>e.g., <code>https://localhost:9444/oauth2/token</code></td>
       <td>Optional</td>
       </tr>
       <tr class="odd">
