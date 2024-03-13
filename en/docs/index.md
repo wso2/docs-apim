@@ -20,7 +20,7 @@ template: templates/versions.html
  * under the License.
 -->
 
-### Current version (Stable)
+### Current Version (Stable)
 
 <table>
     <tbody>
