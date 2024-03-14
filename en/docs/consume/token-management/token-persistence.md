@@ -35,7 +35,7 @@ Token introspection and User info OIDC endpoints of KeyManager will self validat
 ## Prerequisits 
 
 - Once, token persistence optimization is enabled, you cannot revert it back. If you revert, the tokens generated while it was on will be considered as invalid in the Key Manager.
-- Once enabled, the product will only works with JWTs. Hence the token type of all the old applications should be changed to JWT (including the OAuth system applications; publisher, developer portal and admin portal).
+- Once enabled, the product will only works with JWTs. Hence the token type of all the existing applications should be changed to JWT (including the OAuth system applications; publisher, developer portal and admin portal).
 - This solution is only recommended to be used in deployments where API-M is used as the Key Manager. It is not recommended to be used when WSO2 IS is used as a Key Manager.
 
 
@@ -64,6 +64,12 @@ Token introspection and User info OIDC endpoints of KeyManager will self validat
 
     [transport.https.properties]
     maxHttpHeaderSize = "12288"
+
+   [apim.oauth_config]
+   enable_jwt_for_portals = true
+   
+   [oauth]
+   add_tenant_domain_to_access_token = true
    ```
    
 2. Restart the server.
