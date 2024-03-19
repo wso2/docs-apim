@@ -439,3 +439,32 @@
 .hljs-deletion {
     color: #ff7043;
 }
+
+.md-typeset table:not([class]) th {
+    min-width: 5rem;
+    padding: .6rem .8rem;
+    background-color: rgba(0,0,0,.54);
+    color: #fff;
+    vertical-align: top;
+    font-weight: 400;
+}
+
+.md-typeset table:not([class]) {
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12),0 3px 1px -2px rgba(0,0,0,.2);
+    border: 0;
+}
+
+.md-header__topic:first-child {
+    font-weight: 400;
+}
+
+.md-footer-copyright {
+    margin: 0 .6rem;
+    padding: .4rem 0;
+    color: hsla(0,0%,100%,.3);
+    font-size: .64rem;
+}
+
+.md-footer-copyright__highlight {
+    color: hsla(0,0%,100%,.7);
+}

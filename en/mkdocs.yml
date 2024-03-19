@@ -57,11 +57,12 @@ extra_javascript:
   - assets/js/theme.js
 
 extra:
+  generator: false
   social:
-    - type: github
+    - icon: fontawesome/brands/github
       link: https://github.com/wso2
-    - type: twitter
+    - icon: fontawesome/brands/twitter
       link: https://twitter.com/wso2
-    - type: linkedin
+    - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/company/wso2
   site_version: versions
