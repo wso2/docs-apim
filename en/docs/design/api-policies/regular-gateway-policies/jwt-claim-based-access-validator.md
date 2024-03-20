@@ -1,4 +1,4 @@
-                                                                                                                                     # JWT Claim Based Access Validator
+# JWT Claim Based Access Validator
 
 This policy provides the capability to restrict access to an API resource based on a custom claim value provided in the JWT access token.
 The policy allows configuring a custom claim name and its value along with an optional regex.
