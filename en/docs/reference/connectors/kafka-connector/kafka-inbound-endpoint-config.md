@@ -376,4 +376,9 @@ The following parameters are required when configuring Kafka Inbound Endpoint.
             <td>The prefix for Kafka headers.</td>
             <td></td>
         </tr>
+        <tr>
+            <td>avro.use.logical.type.converters</td>
+            <td>Whether to enable the use of logical type converters in Avro. This parameter is available only with Kafka Inbound Endpoint v1.2.2 and above.</td>
+            <td>False</td>
+        </tr>
 </table>
