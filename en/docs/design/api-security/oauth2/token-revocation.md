@@ -61,11 +61,4 @@ The parameters required to invoke the following API are as follows:
             Transfer-Encoding: chunked
             
         ```
-    
-!!! note "Revoking access tokens obtained with a JWT grant"
-    
-    If you obtained an access token with the JWT grant type, you do not have to provide the client secret to revoke it. The sample cURL command to revoke an access token with JWT grant is given below.
 
-    ``` java
-    curl -X POST -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -d "token=<ACCESS_TOKEN_TO_BE_REVOKED>&token_type_hint=access_token&client_id=<CLIENT_ID>" http://localhost:8243/revoke
-    ```
