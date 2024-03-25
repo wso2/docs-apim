@@ -93,7 +93,7 @@ The examples here use the `PizzaShack` REST API, which was created in [Create a 
 
     The API Chat UI to test the PizzaShack API appears.
 
-7.  Enter the copied access token in the **Authorization** field.
+7.  Enter the copied access token in the **Authorization** field or click on **GET TEST KEY**.
 
     [![Copy Access Token]({{base_path}}/assets/img/get_started/api-chat-configure-key.png)]({{base_path}}/assets/img/get_started/api-chat-configure-key.png)
 
