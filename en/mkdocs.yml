@@ -413,6 +413,7 @@ nav:
         - Consume APIs - Overview: consume/consume-api-overview.md
         - Discover APIs:
             - Search: consume/discover-apis/search.md
+            - Marketplace Assistant: consume/discover-apis/marketplace-assistant.md
         - Manage Applications:
             - Create Application: consume/manage-application/create-application.md
             - Generate Keys:
@@ -451,6 +452,7 @@ nav:
                 - Add Additional Headers to Test a REST API: consume/invoke-apis/invoke-apis-using-tools/include-additional-headers-in-the-api-console.md
             - SOAP Client: consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client.md
             - Postman: consume/invoke-apis/invoke-apis-using-tools/try-out-using-postman.md
+            - Test APIs with API Chat: consume/invoke-apis/invoke-apis-using-tools/test-apis-with-apichat.md
         - Collaborations:
             - Interact with the Community: consume/collaboration/interact-with-the-community.md
         - Generating SDKs:
@@ -2275,6 +2277,6 @@ extra:
             version: 1.2.0-1
             git_tag: v1.2.0.1
     site_version: 4.3.0
-    # base_path: http://localhost:8000/en/latest
-    base_path: https://apim.docs.wso2.com/en/latest
+    base_path: http://localhost:8000/en/latest
+    # base_path: https://apim.docs.wso2.com/en/latest
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
