@@ -104,6 +104,51 @@ You can bypass the `Client Secret` in the Devportal and the Publisher web portal
 
 After completing the steps above, the respective web portal will no longer use the Client Secret for authentication.
 
+## Enable JWT for Web portals
+
+By default, web portals generate opaque tokens during the login. You could change this to JWT by adding the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml file`:
+
+
+```toml
+[transport.https.properties]
+maxHttpHeaderSize = "12288"
+
+[apim.oauth_config]
+enable_jwt_for_portals = true
+
+[oauth]
+add_tenant_domain_to_access_token = true
+```
+
+If you have an existing deployment, follow the additional steps below:
+
+1. First, go to the Management Console (carbon/admin) and log in as the admin.
+
+2. On the left side, select `Service Providers` and `List`.
+
+    <html>
+        <div class="admonition note">
+            <p class="admonition-title">Note</p>
+            <p>When you attempt to log in to Devportal or Publisher, a service provider will be created for that portal. You can view those service providers in the above `list`. For example, apim_devportal for Devportal.</p>
+        </div>
+    </html>
+
+3. Edit the service provider you need to change (Devportal or Publisher) and select `Inbound Authentication Configuration`.
+
+4. Select `OAuth/OpenID Connect Configuration`. You will be able to view OAuth Client Key and Secret.
+
+5. Then, select `Edit`. This will redirect you to the `Update application settings` form.
+
+6. Select `JWT` under `Token Issuer`.
+
+7. Click `Update`.
+
+8. Go back to the `Service Providers` as mentioned in the step 2 and click `edit`.
+
+9. Expand `Local & Outbound Authentication Configuration` and select `Use user store domain in local subject identifier`.
+
+10. Save changes.
+
 ## What's Next?
 
 [Start the API-M runtime]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m) and access the web portals.
