@@ -136,7 +136,14 @@ This will update all the scope mappings in the `tenant-conf.json` file with the 
     | apim:sub_alert_manage                         | &check; |                      |                    | &check;               |                      |                     |
     | apim:tenantInfo                               | &check; |                      |                    |                       |                      |                     |
     | apim:admin_operations                         | &check; |                      |                    |                       |                      |                     |
-    | apim:shared_scope_manage                      | &check; |                      |                    |                       |                      |                     |    
+    | apim:shared_scope_manage                      | &check; |                      |                    |                       |                      |                     |
+    | apim:common_operation_policy_view             | &check; | &check;              | &check;            |                       |                      |                     |
+    | apim:common_operation_policy_manage           | &check; |                      | &check;            |                       |                      |                     |
+    | apim:gateway_policy_view                      | &check; | &check;              | &check;            |                       |                      |                     |
+    | apim:apim:gateway_policy_manage               | &check; |                      | &check;            |                       |                      |                     |
+    | apim:apim:apim:comment_view                   | &check; | &check;              | &check;            |                       |                      |                     |
+    | apim:apim:apim:comment_write                  | &check; | &check;              | &check;            |                       |                      |                     |
+    | apim:apim:apim:comment_manage                 | &check; | &check;              | &check;            |                       |                      |                     |     
 
 ## Editing or deleting a role
 
