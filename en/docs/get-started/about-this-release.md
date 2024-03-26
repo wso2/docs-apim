@@ -88,6 +88,14 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
     With this feature, a single token generated using the global key manager can be used to invoke cross-tenant APIs without generating a token in that specific tenant's key manager. This global key manager will be visible in the devportal of all the tenants and this can be used to generate a token which can be used to invoke APIs across tenants. Any third party key manager can be configured as a global key manager.
 
+??? note "AI-powered Marketplace Assistant"
+
+    This feature is designed to assist API consumers in finding the most suitable API for their specific needs given the large number of APIs to choose from.
+
+??? note "AI-powered API Chat for testing APIs using Natural Language"
+
+    This feature is designed to streamline the process of testing APIs for consumers who possess a specific user story or scenario that needs validation. This feature harnesses the power of artificial intelligence to enable users to interact with APIs using natural language, eliminating the need for complex testing frameworks or coding knowledge.
+
 ## Compatible WSO2 product versions
 
 - WSO2 API Manager 4.3.0 is compatible with WSO2 Identity Server 6.1.0.
