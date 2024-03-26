@@ -97,4 +97,4 @@ The examples here use the `PizzaShack` REST API, which was created in [Create a 
 
     [![Copy Access Token]({{base_path}}/assets/img/get_started/api-chat-configure-key.png)]({{base_path}}/assets/img/get_started/api-chat-configure-key.png)
 
-8.  You can enter your query in natural language and execute it. For example, if you have a resource like "/pet/findByStatus," you can input the query, such as "Get the pets that are available," and execute it to obtain results. The resources are executed sequentially based on your query. Alternatively, you can use the sample queries available to try out API Chat.
+8.  You can enter your query in natural language and execute it. For example, if you have a resource like "/menu," you can input the query, such as "Give me a list of available menu items" and execute it to obtain results. The resources are executed sequentially based on your query. Alternatively, you can use the sample queries available to try out API Chat.
