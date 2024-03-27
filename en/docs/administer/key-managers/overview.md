@@ -40,3 +40,5 @@ Finally if the backend JWT generation is enabled, it generates the JWT.
 - [Configure PingFederate as a Key Manager]({{base_path}}/administer/key-managers/configure-pingfederate-connector/)
 
 - [Configure ForgeRock as a Key Manager]({{base_path}}/administer/key-managers/configure-forgerock-connector/)
+
+- [Configure Azure AD as a Key Manager]({{base_path}}/administer/key-managers/configure-azure-ad-key-manager/)
