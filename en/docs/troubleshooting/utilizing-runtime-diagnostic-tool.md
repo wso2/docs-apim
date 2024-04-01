@@ -20,7 +20,7 @@ The tool is packaged inside the product distribution with default configurations
 
 ### Server Configurations
 
-Given table below is the description of the server configurations.
+The table given below describes the server configurations.
 
 | Configuration | Description                                         |
 | --- |-----------------------------------------------------|
