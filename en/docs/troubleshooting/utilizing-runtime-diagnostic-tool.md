@@ -64,8 +64,8 @@ Currently, the tool supports the following action executors.
 
 | Configuration | Description                                         |
 | --- |-----------------------------------------------------|
-| count | Number of thread dumps to be taken.                 |
-| delay | Delay between each thread dump in milliseconds.     |
+| `count` | Number of thread dumps to be taken.                 |
+| `delay` | Delay between each thread dump in milliseconds.     |
 
 Given below is a sample configuration for the ThreadDumper action executor.
 
