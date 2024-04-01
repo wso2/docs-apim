@@ -67,7 +67,7 @@ Currently, the tool supports the following action executors.
 | `count` | Number of thread dumps to be taken.                 |
 | `delay` | Delay between each thread dump in milliseconds.     |
 
-Given below is a sample configuration for the ThreadDumper action executor.
+Given below is a sample configuration for the `ThreadDumper` action executor.
 
 ```toml
 [[action_executor_configuration]]
@@ -78,7 +78,7 @@ delay = "2000"
 
 #### MemoryDumper
 
-Given below is a sample configuration for the MemoryDumper action executor.
+Given below is a sample configuration for the `MemoryDumper` action executor.
 
 ```toml
 [[action_executor_configuration]]
@@ -87,7 +87,7 @@ executor = "MemoryDumper"
 
 #### OpenFileFinder
 
-Given below is a sample configuration for the OpenFileFinder action executor.
+Given below is a sample configuration for the `OpenFileFinder` action executor.
 
 ```toml
 [[action_executor_configuration]]
@@ -96,7 +96,7 @@ executor = "OpenFileFinder"
 
 #### Netstat
 
-Given below is a sample configuration for the Netstat action executor.
+Given below is a sample configuration for the `Netstat` action executor.
 
 ```toml
 [[action_executor_configuration]]
@@ -106,7 +106,7 @@ command = "netstat -lt"
 
 #### ServerInfo
 
-Given below is a sample configuration for the ServerInfo action executor.
+Given below is a sample configuration for the `ServerInfo` action executor.
 
 ```toml
 [[action_executor_configuration]]
@@ -115,7 +115,7 @@ executor = "ServerInfo"
 
 #### MetricsSnapshot
 
-Given below is a sample configuration for the MetricsSnapshot action executor.
+Given below is a sample configuration for the `MetricsSnapshot` action executor.
 
 ```toml
 [[action_executor_configuration]]
@@ -143,7 +143,7 @@ Currently, the tool supports the following watchers.
 | `interval` | The interval between each check in seconds.                                            |
 | `action_executors` | The action executors to be triggered when the threshold is reached. (Comma separated)  |
 
-Given below is a sample configuration for the cpu_watcher.
+Given below is a sample configuration for `cpu_watcher`.
 
 ```toml
 [cpu_watcher]
@@ -164,7 +164,7 @@ action_executors = "ThreadDumper,MetricsSnapshot,ServerInfo"
 | `interval`         | The interval between each check in seconds.                                           |
 | `action_executors` | The action executors to be triggered when the threshold is reached. (Comma separated) |
 
-Given below is a sample configuration for the memory_watcher.
+Given below is a sample configuration for `memory_watcher`.
 
 ```toml
 [memory_watcher]
@@ -182,7 +182,7 @@ action_executors = "ThreadDumper,MetricsSnapshot,ServerInfo"
 | enabled | Whether the watcher is enabled or not.                                                |
 | interval | The interval between each check in seconds.                                           |
 
-Given below is a sample configuration for the log_watcher.
+Given below is a sample configuration for `log_watcher`.
 
 ```toml
 [log_watcher]
@@ -196,7 +196,7 @@ interval = "0.1"
 | --- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `regex` | Directory to store the zip files                                                                                                                                                                                                                                                    |
 | `executors` | The action executors to be triggered when the threshold is reached. (Comma separated)                                                                                                                                                                                               |
-| `reload_time` | Continuous error logs that match the regex pattern won't be processed repeatedly unless the reload_time has elapsed. An error log which matches a certain regex pattern will only be processed after the reload time interval whereas a similar error log was processed before. |
+| `reload_time` | Continuous error logs that match the regex pattern won't be processed repeatedly unless the `reload_time` has elapsed. An error log which matches a certain regex pattern will only be processed after the reload time interval whereas a similar error log was processed before. |
 
 Given below is a sample configuration.
 
