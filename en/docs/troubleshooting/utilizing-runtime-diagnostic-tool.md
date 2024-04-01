@@ -53,7 +53,7 @@ Currently, the tool supports the following action executors.
 
 | Action Executor | Description                                                             |
 | --- |-------------------------------------------------------------------------------------|
-| `ThreadDumper` | Runs the jstack tool to take thread dump and writes the output a file.     |
+| `ThreadDumper` | Runs the jstack tool to take thread dump and writes the output to a file.     |
 | `MemoryDumper` | Takes a heap dump                                                          |
 | `OpenFileFinder` | Finds the open files by the server process and writes the output a file. |
 | `Netstat` | Dumps the network statistics of the server to a file.                           |
