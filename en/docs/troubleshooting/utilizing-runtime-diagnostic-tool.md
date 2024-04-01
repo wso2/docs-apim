@@ -24,14 +24,14 @@ The table given below describes the server configurations.
 
 | Configuration | Description                                         |
 | --- |-----------------------------------------------------|
-| deployment_toml_path | Path to the deployment.toml file in the WSO2 server |
-| logs_directory | Path to the logs directory.                         |
-| updates_config_path | Path to the updates config file.                    |
-| diagnostic_log_file_path | Path to write the diagnostic log file.              |
-| carbon_log_file_path | Path to the carbon error log (wso2error.log) file.  |
-| process_id_path | Path to the process id file (wso2carbon.pid).       |
-| server_name | Name of the WSO2 server.                            |
-| server_version | Version of the WSO2 server.                         |
+| `deployment_toml_path` | Path to the deployment.toml file in the WSO2 server |
+| `logs_directory` | Path to the logs directory.                         |
+| `updates_config_path` | Path to the updates config file.                    |
+| `diagnostic_log_file_path` | Path to write the diagnostic log file.              |
+| `carbon_log_file_path` | Path to the carbon error log (wso2error.log) file.  |
+| `process_id_path` | Path to the process id file (wso2carbon.pid).       |
+| `server_name` | Name of the WSO2 server.                            |
+| `server_version` | Version of the WSO2 server.                         |
 
 Given below is a sample configuration for the WSO2 API Manager.
 
@@ -53,12 +53,12 @@ Currently, the tool supports the following action executors.
 
 | Action Executor | Description                                                             |
 | --- |-------------------------------------------------------------------------------------|
-| ThreadDumper | Runs the jstack tool to take thread dump and writes the output a file.     |
-| MemoryDumper | Takes a heap dump                                                          |
-| OpenFileFinder | Finds the open files by the server process and writes the output a file. |
-| Netstat | Dumps the network statistics of the server to a file.                           |
-| ServerInfo | Dumps the server information such as name, verstion etc.                     |
-| MetricsSnapshot | Takes a current snapshot of the Passthrough transport metrics in synapse|
+| `ThreadDumper` | Runs the jstack tool to take thread dump and writes the output a file.     |
+| `MemoryDumper` | Takes a heap dump                                                          |
+| `OpenFileFinder` | Finds the open files by the server process and writes the output a file. |
+| `Netstat` | Dumps the network statistics of the server to a file.                           |
+| `ServerInfo` | Dumps the server information such as name, verstion etc.                     |
+| `MetricsSnapshot` | Takes a current snapshot of the Passthrough transport metrics in synapse|
 
 #### ThreadDumper
 
@@ -128,20 +128,20 @@ Currently, the tool supports the following watchers.
 
 | Watcher | Description                                                                |
 | --- |----------------------------------------------------------------------------|
-| cpu_watcher | Watches the CPU usage of the server.                                       |
-| memory_watcher | Watches the memory usage of the server.                                    |
-| log_watcher | Watches the logs for specific error patterns and triggers actions.         |
-| traffic_analyzer | Analyzes the Passthrough server traffic and records in diagnostic log file |
+| `cpu_watcher` | Watches the CPU usage of the server.                                       |
+| `memory_watcher` | Watches the memory usage of the server.                                    |
+| `log_watcher` | Watches the logs for specific error patterns and triggers actions.         |
+| `traffic_analyzer` | Analyzes the Passthrough server traffic and records in the diagnostic log file. |
 
 #### cpu_watcher
 
 | Configuration | Description                                                                            |
 | --- |----------------------------------------------------------------------------------------|
-| enabled | Whether the watcher is enabled or not.                                                 |
-| threshold | The threshold value for the CPU usage.                                                 |
-| attempts | The number of attempts before triggering the action executors (This resets every hour) |
-| interval | The interval between each check in seconds.                                            |
-| action_executors | The action executors to be triggered when the threshold is reached. (Comma separated)  |
+| `enabled` | Whether the watcher is enabled or not.                                                 |
+| `threshold` | The threshold value for the CPU usage.                                                 |
+| `attempts` | The number of attempts before triggering the action executors (This resets every hour). |
+| `interval` | The interval between each check in seconds.                                            |
+| `action_executors` | The action executors to be triggered when the threshold is reached. (Comma separated)  |
 
 Given below is a sample configuration for the cpu_watcher.
 
@@ -158,11 +158,11 @@ action_executors = "ThreadDumper,MetricsSnapshot,ServerInfo"
 
 | Configuration    | Description                                                                           |
 |------------------|---------------------------------------------------------------------------------------|
-| enabled          | Whether the watcher is enabled or not.                                                |
-| threshold        | The threshold value for the memory usage.                                             |
-| attempts         | The number of attempts before triggering the action executors (This resets every hour)|
-| interval         | The interval between each check in seconds.                                           |
-| action_executors | The action executors to be triggered when the threshold is reached. (Comma separated) |
+| `enabled`          | Whether the watcher is enabled or not.                                                |
+| `threshold`        | The threshold value for the memory usage.                                             |
+| `attempts`         | The number of attempts before triggering the action executors (This resets every hour).|
+| `interval`         | The interval between each check in seconds.                                           |
+| `action_executors` | The action executors to be triggered when the threshold is reached. (Comma separated) |
 
 Given below is a sample configuration for the memory_watcher.
 
@@ -194,9 +194,9 @@ interval = "0.1"
 
 | Configuration | Description                                                                                                                                                                                                                                                                         |
 | --- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| regex | Directory to store the zip files                                                                                                                                                                                                                                                    |
-| executors | The action executors to be triggered when the threshold is reached. (Comma separated)                                                                                                                                                                                               |
-| reload_time | Continuous error logs that match the regex pattern won't be processed repeatedly unless the reload_time has elapsed. An error log which matches a certain regex pattern will only be processed after the reload time interval whereas a similar error log was processed before. |
+| `regex` | Directory to store the zip files                                                                                                                                                                                                                                                    |
+| `executors` | The action executors to be triggered when the threshold is reached. (Comma separated)                                                                                                                                                                                               |
+| `reload_time` | Continuous error logs that match the regex pattern won't be processed repeatedly unless the reload_time has elapsed. An error log which matches a certain regex pattern will only be processed after the reload time interval whereas a similar error log was processed before. |
 
 Given below is a sample configuration.
 
@@ -211,19 +211,19 @@ reload_time = "30"
 
 | Configuration | Description                                                                           |
 | --- |---------------------------------------------------------------------------------------|
-| last_second_requests_enabled | Whether the last second requests watcher is enabled or not.                           |
-| last_second_requests_windows_size | The window size for the last second requests watcher.                                  |
-| last_second_requests_delay | The delay for the last second requests watcher.                                        |
-| last_second_requests_interval | The interval for the last second requests watcher.                                     |
-| last_fifteen_seconds_requests_enabled | Whether the last fifteen seconds requests watcher is enabled or not.                 |
-| last_fifteen_seconds_requests_window_size | The window size for the last fifteen seconds requests watcher.                        |
-| last_fifteen_seconds_requests_delay | The delay for the last fifteen seconds requests watcher.                              |
-| last_fifteen_seconds_requests_interval | The interval for the last fifteen seconds requests watcher.                           |
-| last_minutes_requests_enabled | Whether the last minutes requests watcher is enabled or not.                           |
-| last_minutes_requests_window_size | The window size for the last minutes requests watcher.                                  |
-| last_minutes_requests_delay | The delay for the last minutes requests watcher.                                        |
-| last_minutes_requests_interval | The interval for the last minutes requests watcher.                                     |
-| notify_interval | The interval for the traffic analyzer to notify the user.                               |
+| `last_second_requests_enabled` | Whether the last second requests watcher is enabled or not.                           |
+| `last_second_requests_windows_size` | The window size for the last second requests watcher.                                  |
+| `last_second_requests_delay` | The delay for the last second requests watcher.                                        |
+| `last_second_requests_interval` | The interval for the last second requests watcher.                                     |
+| `last_fifteen_seconds_requests_enabled` | Whether the last fifteen seconds requests watcher is enabled or not.                 |
+| `last_fifteen_seconds_requests_window_size` | The window size for the last fifteen seconds requests watcher.                        |
+| `last_fifteen_seconds_requests_delay` | The delay for the last fifteen seconds requests watcher.                              |
+| `last_fifteen_seconds_requests_interval` | The interval for the last fifteen seconds requests watcher.                           |
+| `last_minutes_requests_enabled` | Whether the last minutes requests watcher is enabled or not.                           |
+| `last_minutes_requests_window_size` | The window size for the last minutes requests watcher.                                  |
+| `last_minutes_requests_delay` | The delay for the last minutes requests watcher.                                        |
+| `last_minutes_requests_interval` | The interval for the last minutes requests watcher.                                     |
+| `notify_interval` | The interval for the traffic analyzer to notify the user.                               |
 
 Given below is a sample configuration for the traffic analyzer.
 
@@ -250,8 +250,8 @@ notify_interval = "300"
 
 | Configuration | Description                                                                                       |
 | --- |---------------------------------------------------------------------------------------------------|
-| output_directory | Directory to store the zip files                                                                  |
-| max_count | Maximum number of zip files to maintain. When the count exceeds, the older files will be deleted. |
+| `output_directory` | Directory to store the zip files                                                                  |
+| `max_count` | Maximum number of zip files to maintain. When the count exceeds, the older files will be deleted. |
 
 Given below is a sample configuration.
 
@@ -265,12 +265,12 @@ max_count = "50"
 
 | Configuration | Description                                                                                       |
 | --- |---------------------------------------------------------------------------------------------------|
-| enabled | Whether the FTP is enabled or not.                                                                |
-| host | The FTP host.                                                                                     |
-| port | The FTP port.                                                                                     |
-| username | The FTP username.                                                                                 |
-| password | The FTP password.                                                                                 |
-| directory | The FTP directory.                                                                                |
+| `enabled` | Whether the FTP is enabled or not.                                                                |
+| `host` | The FTP host.                                                                                     |
+| `port` | The FTP port.                                                                                     |
+| `username` | The FTP username.                                                                                 |
+| `password` | The FTP password.                                                                                 |
+| `directory` | The FTP directory.                                                                                |
 
 Given below is a sample configuration.
 
@@ -288,12 +288,12 @@ directory = "diagnostics"
 
 | Configuration | Description                                                                                       |
 | --- |---------------------------------------------------------------------------------------------------|
-| enabled | Whether the SFTP is enabled or not.                                                               |
-| host | The SFTP host.                                                                                    |
-| port | The SFTP port.                                                                                    |
-| username | The SFTP username.                                                                                |
-| password | The SFTP password.                                                                                |
-| directory | The SFTP directory.                                                                               |
+| `enabled` | Whether the SFTP is enabled or not.                                                               |
+| `host` | The SFTP host.                                                                                    |
+| `port` | The SFTP port.                                                                                    |
+| `username` | The SFTP username.                                                                                |
+| `password` | The SFTP password.                                                                                |
+| `directory` | The SFTP directory.                                                                               |
 
 Given below is a sample configuration.
 
@@ -309,7 +309,7 @@ directory = "diagnostics"
 
 ### Log4j2 Configurations
 
-The log4j2.properties file can be used to configure the logging level of the tool. The default log level is set to INFO. The log4j2.properties file can be found in the `conf` directory.
+The `log4j2.properties` file can be used to configure the logging level of the tool. The default log level is set to INFO. The `log4j2.properties` file can be found in the `conf` directory.
 
 ## Analysing Runtime Issues with the WSO2 Runtime Diagnostic Tool
 
@@ -317,7 +317,7 @@ The log4j2.properties file can be used to configure the logging level of the too
 
 The zip files are generated in the `<WSO2_HOME>/diagnostics-tool/data` directory. The zip file is named as `<processId>-<timestamp>.zip`. The zip file contains the following files:
 
-- **deployment.toml**: The deployment.toml file of the server which contains the configurations.
+- **deployment.toml**: The `deployment.toml` file of the server which contains the configurations.
 - **diagnostics.log**: The log file of the diagnostics tool which contains logs related to traffic pattern to the server. The logs are explained in the [Diagnostics Log](#diagnostics-log) section.
 - **log.txt**: The log line that triggered the Action Executors.
 - **logs.zip**: The log directory of the server in zip format. This may contain the heap dump file if it is generated.
@@ -334,21 +334,21 @@ The diagnostics log contains the following logs:
 #### Memory Watcher
 The memory watcher logs are prefixed with `[MemoryWatcher]`.
 
-Eg: `MemoryWatcher Heap usage is above threshold. Heap usage: 87, Retry count: " + count`.
+For example: `MemoryWatcher Heap usage is above threshold. Heap usage: 87, Retry count: " + count`.
 
 Here, the log indicates that the heap usage is above the threshold and the heap usage is 87%. The MemoryWatcher retries a couple of times before executing the Action Executors.
 
 #### CPU Watcher
 The CPU watcher logs are prefixed with `[CPUWatcher]`.
 
-Eg: `CPUWatcher CPU usage is above threshold. CPU usage: 91, Retry count: " + count`.
+For example: `CPUWatcher CPU usage is above threshold. CPU usage: 91, Retry count: " + count`.
 
 Here, the log indicates that the CPU usage is above the threshold and the CPU usage is 91%. The CPUWatcher retries a couple of times before executing the Action Executors.
 
 #### Traffic Analyzer
 The traffic analyzer logs are prefixed with `[TrafficAnalyzer]`.
 
-Eg: `TrafficAnalyzer Attribute Last15SecondRequests of type http-listener increased more than the threshold, old value: 2, new value: 227, threshold: 115.22752880979914`.
+For example: `TrafficAnalyzer Attribute Last15SecondRequests of type http-listener increased more than the threshold, old value: 2, new value: 227, threshold: 115.22752880979914`.
 
 Here, the log indicates that the Last15SecondRequests attribute of type http-listener increased more than the threshold. The old value is 2, the new value is 227 and the threshold is 115.22752880979914. The threshold is calculated based on the standard deviation of a Simple Moving Average window.
 
@@ -369,4 +369,4 @@ ZipFileExecutor [INFO] Zipping the folder at /Users/user/wso2am-4.3.0/diagnostic
 ZipFileExecutor [INFO] Diagnosis Dumped in :/Users/user/wso2am-4.3.0/diagnostics-tool/data/96970_2024-03-01_14:21:06.838.zip
 ```
 
-Here, the log indicates that the log line matching the regex pattern `(.*)org.apache.synapse.transport.passthru(.*)` is found. The ServerInfo, OpenFileFinder, Netstat, MetricsSnapshot, and ThreadDumper Action Executors are executed. The executors are executed in parallel and the zip file is generated with the output at the end.
+Here, the log indicates that the log line matching the regex pattern `(.*)org.apache.synapse.transport.passthru(.*)` is found. The `ServerInfo`, `OpenFileFinder`, `Netstat`, `MetricsSnapshot`, and `ThreadDumper` Action Executors are executed. The executors are executed in parallel and the zip file is generated with the output at the end.
