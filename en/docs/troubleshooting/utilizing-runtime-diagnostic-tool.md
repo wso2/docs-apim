@@ -196,7 +196,7 @@ interval = "0.1"
 | --- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | regex | Directory to store the zip files                                                                                                                                                                                                                                                    |
 | executors | The action executors to be triggered when the threshold is reached. (Comma separated)                                                                                                                                                                                               |
-| reload_time | Continuous error log which matches the regex patter won't be processed again and again unless the reload_time has elapsed. An error log which matches a certain regex pattern will only be processed after the reload time interval where a similar error log was processed before. |
+| reload_time | Continuous error logs that match the regex pattern won't be processed repeatedly unless the reload_time has elapsed. An error log which matches a certain regex pattern will only be processed after the reload time interval whereas a similar error log was processed before. |
 
 Given below is a sample configuration.
 
