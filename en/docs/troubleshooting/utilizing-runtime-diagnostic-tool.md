@@ -16,7 +16,7 @@ There are four main components in the tool:
 
 ## Configuration Guide
 
-The tool is packaged inside the product distribution with default configurations. The configurations can be customized based on the user requirements. 
+The tool is packaged inside the product distribution with default configurations. The configurations can be customized based on user requirements. 
 
 ### Server Configurations
 
