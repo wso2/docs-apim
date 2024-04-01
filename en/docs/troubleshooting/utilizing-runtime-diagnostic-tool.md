@@ -57,7 +57,7 @@ Currently, the tool supports the following action executors.
 | `MemoryDumper` | Takes a heap dump                                                          |
 | `OpenFileFinder` | Finds the open files by the server process and writes the output a file. |
 | `Netstat` | Dumps the network statistics of the server to a file.                           |
-| `ServerInfo` | Dumps the server information such as name, verstion etc.                     |
+| `ServerInfo` | Dumps the server information such as name, version, etc.                     |
 | `MetricsSnapshot` | Takes a current snapshot of the Passthrough transport metrics in synapse|
 
 #### ThreadDumper
