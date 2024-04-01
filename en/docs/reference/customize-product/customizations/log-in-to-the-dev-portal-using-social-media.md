@@ -33,7 +33,7 @@ You can integrate WSO2 Identity Server with WSO2 API Manager and use your social
 7.  Go to **Set Up the Facebook SDK for JavaScript** and click **Next** until the steps are complete.
 8.  Click **Settings** and select **Basic**. You can find your `App ID` and the `App Secret` as shown in the image below.
 
-    ![Facebook App Id]({{base_path}}/assets/img/learn/appId-facebook.png)
+    ![Facebook App Id]({{base_path}}/assets/img/learn/appCredentials-facebook.png)
 
 9.  Select a **Category** for you application.
 
@@ -71,7 +71,7 @@ Let's see how to configure WSO2 Identity Server to work with Facebook for user a
     | facebook               | <https://localhost:9444/oauth2/token> |
 
     !!! note
-        To authenticate the user with **Facebook** which is an external system, we have to configure the federated authenticator. For more details, see [Federated Authetication](https://is.docs.wso2.com/en/5.10.0/get-started/quick-start-guide/#federated-authentication).
+        To authenticate the user with **Facebook** which is an external system, we have to configure the federated authenticator. For more details, see [Federated Authetication](https://is.docs.wso2.com/en/6.1.0/guides/identity-federation/facebook).
 
 3.  Go to **Facebook Configuration** under **Federated Authenticators**.
 
@@ -155,7 +155,7 @@ To federate logging in to the Publisher and Developer Portal with Facebook, you 
 ### Test Facebook authentication
 
 !!! warning
-        Make sure to copy the **org.wso2.carbon.identity.application.authenticator.facebook-5.1.14.jar** found in `<IS_HOME>/repository/components/dropins` directory to `<API-M_HOME>/repository/components/dropins` directory. Then **restart** the API-M server before testing Facebook Authentication.
+        Make sure to copy the **org.wso2.carbon.identity.application.authenticator.facebook-5.x.x.jar** found in `<IS_HOME>/repository/components/dropins` directory to `<API-M_HOME>/repository/components/dropins` directory. Then **restart** the API-M server before testing Facebook Authentication.
 
 1.  Access the Publisher via `https://localhost:9443/publisher` . Observe the request redirect to the WSO2 IS login page and then Facebook login page.
 
