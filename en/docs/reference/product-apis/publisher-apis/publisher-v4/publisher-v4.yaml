@@ -1,4 +1,4 @@
-#   Copyright (c) 2024, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+#   Copyright (c) 2024, WSO2 LLC. (http://www.wso2.org) All Rights Reserved.
 #
 #   Licensed under the Apache License, Version 2.0 (the "License");
 #   you may not use this file except in compliance with the License.
@@ -18,6 +18,7 @@ info:
   title: WSO2 API Manager - Publisher API
   description: |
     This document specifies a **RESTful API** for WSO2 **API Manager** - **Publisher**.
+    Please see [full OpenAPI Specification](https://raw.githubusercontent.com/wso2/carbon-apimgt/master/components/apimgt/org.wso2.carbon.apimgt.rest.api.publisher.v1/src/main/resources/publisher-api.yaml) of the API which is written using [OAS 3.0](http://swagger.io/) specification.
 
     # Authentication
     The Publisher REST API is protected using OAuth2 and access control is achieved through scopes. Before you start invoking
@@ -61,10 +62,9 @@ info:
     }
     ```
 
-    
     Note that in a distributed deployment or IS as KM separated environment to invoke RESTful APIs (product APIs), users must generate tokens through API-M Control Plane's token endpoint.
     The tokens generated using third party key managers, are to manage end-user authentication when accessing APIs.
-
+    
     Next you must use the above client id and secret to obtain the access token.
     We will be using the password grant type for this, you can use any grant type you desire.
     You also need to add the proper **scope** when getting the access token. All possible scopes for publisher REST API can be viewed in **OAuth2 Security** section
@@ -101,7 +101,7 @@ info:
     * Make sure you have an API Manager instance up and running.
     * Update the `basepath` parameter to match the hostname and port of the APIM instance.
 
-    [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/17491134-edb4ef7a-1ac7-420b-8651-2d9fd5585f6c)
+    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/32294946-7fbaad97-7fb9-43ae-b6f2-13b63f2867d7)
   contact:
     name: WSO2
     url: https://wso2.com/api-manager/
@@ -1841,6 +1841,7 @@ paths:
         - OAuth2Security:
             - apim:api_publish
             - apim:api_manage
+            - apim:api_create
       x-code-samples:
         - lang: Curl
           source: 'curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
@@ -4074,6 +4075,13 @@ paths:
           in: query
           description: |
             Whether to update the API or not. This is used when updating already existing APIs
+          required: false
+          schema:
+            type: boolean
+        - name: preservePortalConfigurations
+          in: query
+          description: |
+            Preserve Portal Configurations. This is used to preserve the portal configurations of the API
           required: false
           schema:
             type: boolean
@@ -6631,7 +6639,7 @@ paths:
       x-code-samples:
         - lang: Curl
           source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/publisher/v4/api-products/copy-api-products?newVersion=2.0&defaultVersion=false&apiproductId=2fd14eb8-b828-4013-b448-0739d2e76bf7"'
+          "https://127.0.0.1:9443/api/am/publisher/v4/api-products/copy-api-products?newVersion=2.0&defaultVersion=false&apiProductId=2fd14eb8-b828-4013-b448-0739d2e76bf7"'
       operationId: createNewAPIProductVersion
 
   /api-products/export:
@@ -8853,6 +8861,12 @@ components:
         gatewayVendor:
           type: string
           example: wso2
+        gatewayType:
+          title: Field to identify gateway type.
+          type: string
+          description: Accepts one of the following. wso2/synapse, wso2/apk.
+          example: wso2/synapse
+          default: wso2/synapse
         advertiseOnly:
           type: boolean
           example: true
@@ -9419,8 +9433,9 @@ components:
           title: Field to identify gateway type.
           type: string
           description: The gateway type selected for the API policies. Accepts one of the
-            following. wso2/synapse, wso2/choreo-connect.
+            following. wso2/synapse, wso2/apk.
           example: wso2/synapse
+          default: wso2/synapse
         asyncTransportProtocols:
           type: array
           description: |
@@ -10728,7 +10743,12 @@ components:
           example: Default
         type:
           type: string
+          default: hybrid
           example: hybrid
+        gatewayType:
+          type: string
+          example: Regular
+          default: Regular
         serverUrl:
           type: string
           example: https://localhost:9443/services/
@@ -11862,6 +11882,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Environment'
+        gatewayTypes:
+          type: array
+          example:
+            - Regular
+            - APK
+          items:
+            type: string
         scopes:
           type: array
           example:
@@ -11892,6 +11919,12 @@ components:
           description: |
             Is Document Visibility configuration enabled
           example: false
+        portalConfigurationOnlyModeEnabled:
+          type: boolean
+          description: |
+            Is Portal Configuration Only Mode enabled
+          example: false
+          default: false
         crossTenantSubscriptionEnabled:
           type: boolean
           description: |
@@ -11908,6 +11941,9 @@ components:
           type: string
           description: Authorization Header
           example: authorization
+        IsJWTEnabledForLoginTokens: 
+          type: boolean
+          default: false
         customProperties:
           type: array
           items:
