@@ -1,6 +1,6 @@
 # Token Persistence Management
 
-In WSO2 API Manager, [OAuth2 token persistence](https://is.docs.wso2.com/en/latest/deploy/token-persistence/) is integral to authentication and authorization. By default, the API-M stores opaque tokens directly in the database, preserving their original form. For JSON Web Tokens (JWTs), the API Manager stores references instead of the complete tokens, optimizing storage. Token generation or validation triggers interactions with the database. Using JWTs instead of Opaque is the recommended apporach in WSO2 API Manager since, Gateway can self validate JWTS without additional hops to KeyManager unlike Opaque.
+In WSO2 API Manager, [OAuth2 token persistence](https://is.docs.wso2.com/en/latest/deploy/token-persistence/) is integral to authentication and authorization. By default, the API-M stores opaque tokens directly in the database, preserving their original form. For JSON Web Tokens (JWTs), the API Manager stores references instead of the complete tokens, optimizing storage. Token generation or validation triggers interactions with the database. Using JWTs instead of Opaque is the recommended approach in WSO2 API Manager since Gateway can self validate JWTs without additional hops to KeyManager unlike Opaque.
 
 ## Why Token Persistence Optimization
 
