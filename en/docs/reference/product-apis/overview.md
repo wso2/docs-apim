@@ -6,8 +6,7 @@ The following topics list the APIs exposed from the API Publisher, Developer Por
 <table>
   <tr>
     <td nowrap="true"><a href="{{base_path}}/reference/product-apis/publisher-apis/publisher-v4/publisher-v4/">WSO2 Publisher API v4</a></td>
-    <td rowspan="3" class="md-typeset__td"><b>WSO2 recommends that you use the latest REST APIs</b> as it is up to date and has support for the latest WSO2 API Manager 4.2.0 features.
-    </td>
+    <td rowspan="6" class="md-typeset__td"><b>WSO2 recommends that you use the latest REST APIs</b> as it is up to date and has support for the latest WSO2 API Manager 4.3.0 features.</td>
   </tr>
   <tr>
     <td nowrap="true"><a href="{{base_path}}/reference/product-apis/devportal-apis/devportal-v3/devportal-v3/">WSO2 Developer Portal API v3</a></td>
@@ -17,7 +16,6 @@ The following topics list the APIs exposed from the API Publisher, Developer Por
   </tr>
   <tr>
     <td nowrap="true"><a href="{{base_path}}/reference/product-apis/gateway-apis/gateway-v2/gateway-v2/">WSO2 Gateway API v2</a></td>
-    <td rowspan="3" class="md-typeset__td"></td>
   </tr>
   <tr>
     <td nowrap="true"><a href="{{base_path}}/reference/product-apis/service-catalog-apis/service-catalog-v1/service-catalog-v1/">WSO2 Service Catalog API v1</a></td>
@@ -27,6 +25,7 @@ The following topics list the APIs exposed from the API Publisher, Developer Por
   </tr>
 </table>
 
+
 ## Quick Start
 
 Following Postman collection provides quick start guide for WSO2 API Manager REST APIs. It can be used to,
@@ -35,8 +34,3 @@ Following Postman collection provides quick start guide for WSO2 API Manager RES
  * Create, subscribe and invoke a sample API Product 
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/25611032-aa201bbc-7bdf-4e2c-afeb-d5494ef50f91)
-
-??? info "Expand to copy the Postman collection"
-    <script src="https://gist.github.com/chamilaadhi/7d37fd33bc6b152af02ab40c02056ba0.js"></script>
-
-
