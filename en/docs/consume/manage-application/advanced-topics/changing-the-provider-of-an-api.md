@@ -13,7 +13,7 @@ Follow the instructions below to change the ownership of an application:
 
          `https://<APIM-hostname>:9443/carbon`
 
-     2. Create two users named **Chris** and **Kim** with the `Internal/subscriber` role.
+     2. Create two users named **Chris** and **Kim** with the `Internal/creator` role.
         Refer [Create New Users]({{base_path}}/administer/managing-users-and-roles/managing-users#adding-a-new-user) for more information.
 
 3.  We can check the current provider by logging to the publisher portal and by looking at the api tiles.
