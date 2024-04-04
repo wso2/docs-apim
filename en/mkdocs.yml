@@ -637,6 +637,7 @@ nav:
                 - Getting Started Guide: api-analytics/choreo-analytics/getting-started-guide.md
                 - Role-based Access Control : api-analytics/choreo-analytics/role-based-access-control.md
                 - Alerts: api-analytics/choreo-analytics/configure-alerts.md
+                - Choreo Based Analytics via Proxy: api-analytics/choreo-analytics/choreo-based-analytics-via-proxy.md
             - Other Analytics Solutions: 
                 - ELK Based Analytics Installation Guide: api-analytics/on-prem/elk-installation-guide.md
                 - Datadog Analytics Installation Guide : api-analytics/on-prem/datadog-installation-guide.md
