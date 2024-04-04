@@ -25,7 +25,7 @@ APIM supports the configuration of crypto provider to either Bouncy Castle (defa
     === "Windows"
         ``` java
         cd <API-M_HOME>\bin\
-        fips.bat --run
+        fips.bat
         ```
 
 2. Verify whether the required changes are done by running the following command.
@@ -39,7 +39,7 @@ APIM supports the configuration of crypto provider to either Bouncy Castle (defa
     === "Windows"
         ``` java
         cd <API-M_HOME>\bin\
-        fips.bat --run VERIFY
+        fips.bat VERIFY
         ```
 
 3. Start the APIM server with the following system property.
@@ -53,7 +53,7 @@ APIM supports the configuration of crypto provider to either Bouncy Castle (defa
     === "Windows"
         ``` java
         cd <API-M_HOME>\bin\
-        api-manager.bat --run -Dsecurity.jce.provider=BCFIPS
+        api-manager.bat -Dsecurity.jce.provider=BCFIPS
         ```
 
 ### Change the crypto provider to BC (Bouncy Castle)
@@ -69,7 +69,7 @@ APIM supports the configuration of crypto provider to either Bouncy Castle (defa
     === "Windows"
         ``` java
         cd <API-M_HOME>\bin\
-        fips.bat --run DISABLE
+        fips.bat DISABLE
         ```
 
 2. Start the APIM server as usual.
@@ -83,5 +83,5 @@ APIM supports the configuration of crypto provider to either Bouncy Castle (defa
     === "Windows"
         ``` java
         cd <API-M_HOME>\bin\
-        api-manager.bat --run
+        api-manager.bat
         ```
