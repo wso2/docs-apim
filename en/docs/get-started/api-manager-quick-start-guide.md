@@ -4,7 +4,7 @@ This section is a step-by-step guide to create, publish, and invoke an API using
 
 ### Before you begin...
 
-Follow the instructions below to start WSO2 APIM-M.
+Follow the instructions below to start WSO2 API-M.
 
 1. Install [Oracle Java SE Development Kit (JDK)](http://java.sun.com/javase/downloads/index.jsp) version 17 and set the `JAVA_HOME` environment variable.
      
@@ -45,14 +45,8 @@ Follow the instructions below to create and publish an API via the Publisher Por
 
 3. Create a mock REST service.
 
-     Let's use a mock REST service to create a REST API from scratch.
- 
-     A mock service with a JSON response `{"hello": "world"}` is provided by default when you use the service URL as `http://run.mocky.io/v2/5185415ba171ea3a00704eed`, which appears in the [https://designer.mocky.io/](https://designer.mocky.io/) mock service. Let's use the HTTP protocol instead of the HTTPS protocol for this guide.
+     Let's use a mock REST service to create a REST API from scratch. You'll need to set up your own mock service with a JSON response like `{"hello": "world"}`. You can create your mock service using various tools and platforms available online.
 
-    !!! tip
-        Optionally, to test this service, copy the service URL [http://run.mocky.io/v2/5185415ba171ea3a00704eed](http://run.mocky.io/v2/5185415ba171ea3a00704eed) and navigate to it on a new browser. You should see the following JSON message.
-            
-         `{"hello": "world"}`
     
 4. Select **REST API** from the home screen and then click **Start From Scratch**.
    
@@ -85,10 +79,10 @@ Follow the instructions below to create and publish an API via the Publisher Por
      <tr> 
      <th>Endpoint
      </th>
-     <td><code>http://run.mocky.io/v2/5185415ba171ea3a00704eed</code>
+     <td><code>http://mock-json-server-url/</code>
       <div class="admonition note">
       <p class="admonition-title">Note</p>
-      <p><b>Use the HTTP protocol</b> because to use HTTPS you need to import the [https://designer.mocky.io/](https://designer.mocky.io/) certificate into WSO2 API-M.</p>
+      <p><b>Use the HTTP protocol</b> because to use HTTPS you need to import the mock json server's certificate into WSO2 API-M.</p>
       </div> 
      </td>
      </tr>
@@ -232,7 +226,7 @@ Follow the instructions below to setup WSO2 API Controller.
 
      1. Navigate to the [API Manager Tooling page](https://wso2.com/api-management/tooling/).
 
-     2. Download the apictl version 4.2.0 (or the latest of the 4.1.x family) based on your operating system from the **API Controller Tooling** section.
+     2. Download the apictl version 4.3.0 (or the latest of the 4.3.x family) based on your operating system from the **API Controller Tooling** section.
  
      3. Extract the ZIP to a preferred location.
 
@@ -275,10 +269,12 @@ Follow the instructions below to create an API via WSO2 API Controller.
 
 1. Initialize an API project by providing a name for the project.
 
+    First, copy the content from `https://apim.docs.wso2.com/en/4.3.0/assets/attachments/get_started/petstore.json` and create `petstore.json` file.
+
      Let's use the command below to create an API named `PetstoreAPI`. This creates a folder named `PetstoreAPI` in your current directory.
 
        ```bash
-       ./apictl init PetstoreAPI --oas https://apim.docs.wso2.com/en/4.2.0/assets/attachments/get_started/petstore.json
+       ./apictl init PetstoreAPI --oas <path-to-petstore.json>
        ```
 
      On successfully executing this command, you should see the following message.
