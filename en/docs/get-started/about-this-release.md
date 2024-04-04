@@ -32,10 +32,6 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
     WSO2 API Manager supports the latest version of the Open API Specification, which is OpenAPI 3.1.0. This allows the developers to create more standardized, well-documented APIs, streamlining the API development process and enhancing the overall developer experience.
 
-??? note "Advanced Runtime Diagnostics"
-
-    A cutting-edge diagnostic tool, now available, offers deep insights into the API gateway runtime, identifying and resolving issues with unprecedented ease and efficiency.
-
 ??? note "API level policy support for API Manager"
 
     This feature enhances the functionality of the existing system by supporting multiple policies at both the operation and API levels as opposed to just attaching a single policy for the whole API. Additionally, it introduces the capability to set the order of these policies, ensuring precise control over their execution. In cases where both operation-level and API-level policies are applied, the API-level policies take precedence, providing a hierarchical approach to policy management.
