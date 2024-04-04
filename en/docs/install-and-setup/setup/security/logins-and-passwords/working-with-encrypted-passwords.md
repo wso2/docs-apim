@@ -235,7 +235,7 @@ Follow the instructions below to change any password that you have already encry
 
 If you start the WSO2 API Manager as a background job, you will not be able to provide password values on the command line. Therefore, you must start the server in `daemon` mode as explained below.
 
-1.  Create a new file in the <APIM_HOME> directory. The file should be named according to your OS as explained below.
+1.  Create a new file in the `<APIM_HOME>` directory. The file should be named according to your OS as explained below.
 
     * For Linux: The file name should be `password-tmp`
     * For Windows: The file name should be `password-tmp.txt`
