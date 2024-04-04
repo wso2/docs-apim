@@ -18,6 +18,14 @@ info:
   title: WSO2 API Manager - DevOps
   description: |
     This document specifies a **RESTful API** for WSO2 **API Manager** - DevOps.
+
+    # Try out in Postman
+    If you want to try-out the embedded postman collection with "Run in Postman" option, please follow the guidelines listed below.
+    * All of the endpoints have been configured with an Authorization Basic header with encoded credentials. Before invoking any REST API resource make sure you update the credentials.
+    * Make sure you have an API Manager instance up and running.
+    * Update the `basepath` parameter to match the hostname and port of the APIM instance.
+
+    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/32294946-425b9310-f093-4bca-bd90-9811209e8016)
   contact:
     name: WSO2
     url: http://wso2.com/products/api-manager/
@@ -56,8 +64,8 @@ paths:
                 $ref: "#/components/schemas/Error"
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/devops/v0/tenant-logs/1/apis?log-level=FULL"'
+          source: 'curl -k -H "Authorization: Basic YWRtaW46YWRtaW4="
+          "https://127.0.0.1:9443/api/am/devops/v0/tenant-logs/carbon.super/apis?log-level=FULL"'
 
 
   "/tenant-logs/{tenantId}/apis/{apiId}":
@@ -90,8 +98,8 @@ paths:
         - $ref: '#/components/parameters/apiId'
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/devops/v0/tenant-logs/1/apis/12d6e73c-778d-45ac-b57d-117c6c5092a4"'
+          source: 'curl -k -H "Authorization: Basic YWRtaW46YWRtaW4="
+          "https://127.0.0.1:9443/api/am/devops/v0/tenant-logs/carbon.super/apis/12d6e73c-778d-45ac-b57d-117c6c5092a4"'
     put:
       summary: |
         Set logging levels of the API with its api ID
@@ -132,8 +140,8 @@ paths:
                 $ref: "#/components/schemas/Error"
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/devops/v0/tenant-logs/1/apis/12d6e73c-778d-45ac-b57d-117c6c5092a4"'
+          source: 'curl -k -X PUT -H "Authorization: Basic YWRtaW46YWRtaW4="
+          "https://127.0.0.1:9443/api/am/devops/v0/tenant-logs/carbon.super/apis/12d6e73c-778d-45ac-b57d-117c6c5092a4"'
 
   "/config/correlation/":
     get:
@@ -163,7 +171,7 @@ paths:
                 $ref: "#/components/schemas/Error"
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          source: 'curl -k -H "Authorization: Basic YWRtaW46YWRtaW4="
           "https://127.0.0.1:9443/api/am/devops/v0/config/correlation"'
 
     put:
@@ -204,7 +212,7 @@ paths:
                 $ref: "#/components/schemas/Error"
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -d data.json
+          source: 'curl -k -X PUT -H "Authorization: Basic YWRtaW46YWRtaW4=" -d data.json
           "https://127.0.0.1:9443/api/am/devops/v0/config/correlation"'
 
 servers:
