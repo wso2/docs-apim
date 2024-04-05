@@ -4,7 +4,7 @@
 
 ## Prerequisites
 
-   - Installation OpenSSL.
+   - Install OpenSSL.
 
 ## Installation and Configuration Steps
 
