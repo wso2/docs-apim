@@ -173,7 +173,7 @@ Follow the instructions below to change the direction of the UI:
 2. Reload the Developer Portal to view the changes. 
 
 !!! info
-    If you have done the theme changes for the instance via the `<APIM_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/site/public/theme/userTheme.json` file the above configuration is valid. However, if it is the tenant theme file (`userTheme.json`) the variable assignment is not required and the `userTheme.json` file has to be a valid JSON file. For example, the valid configuration that should go into the `userTheme.json` file to change the page direction to RTL (Right To Left) is as follows:
+    If you have done the theme changes for the instance via the `<APIM_HOME>/repository/deployment/server/webapps/devportal/site/public/theme/userTheme.json` file the above configuration is valid. However, if it is the tenant theme file (`userTheme.json`) the variable assignment is not required and the `userTheme.json` file has to be a valid JSON file. For example, the valid configuration that should go into the `userTheme.json` file to change the page direction to RTL (Right To Left) is as follows:
 
     ```json
         {
@@ -199,7 +199,7 @@ WSO2 API Manager has the capability of language switching for the **Developer Po
 
 Follow the instructions below to enable the language switch:
 
-1. Open the `<APIM_HOME>/repository/deployment/server/webapps/devportal/src/main/webapp/site/public/theme/userTheme.json` file.
+1. Open the `<APIM_HOME>/repository/deployment/server/webapps/devportal/site/public/theme/userTheme.json` file.
 
 2. Add the following configuration to the file to enable the language switch.
 
