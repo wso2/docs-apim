@@ -464,7 +464,7 @@ For example, let us consider there is an [API Product]({{base_path}}/design/crea
 1.  Export the API Product using `export api-product` command from the development environment (dev). For more information, see [Export an API Product]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/migrating-api-products-to-different-environments/#export-an-api-product).
 
     ```bash
-    $ apictl export api-product -n PetsInfo -e dev --latest
+    $ apictl export api-product -n PetsInfo -v 1.0.0 -e dev --latest
     
     Successfully exported API Product!
     Find the exported API Product at /home/wso2user/.wso2apictl/exported/api-products/dev/PetsInfo_1.0.0.zip
