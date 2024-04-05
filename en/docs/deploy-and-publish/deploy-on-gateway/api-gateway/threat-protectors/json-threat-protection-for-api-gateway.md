@@ -35,27 +35,25 @@ is given below.
 
 To edit the existing sequence follow the steps below.
 
-1.  Log in to the Management Console.
-2.  Navigate to `/_system/governance/apimgt/customsequences/in/json_validator.xml          `
-3.  Edit the `json_validator.xml` file.
-4.  Go to the API Publisher and re-publish your API for the changes to take effect.
+1. Go to **Policies** section in the Publisher Portal.
+2. Add a new policy with the name **JSON Validator** and provide an newer version.
+3. Upload the Policy File with the required changes.
+4. Click **Save** to save the newer version of the policy.
+5. Apply the newly created policy to the API as per the below section.
 
 ### Applying the JSON validator policy
 
 You can apply the predefined JSON Policy through the UI. Follow the instructions below to apply the json\_validator 
 in sequence.
 
--   Create an API or edit an existing API.
+1. Create an API or edit an existing API.
+2. Go to **Policies** under the **API Configuration** sub-section from the left hand panel.
+3. As required, drag and drop the **JSON Validator** from the Policy List tab into Request Flow.
+4. Provide the required parameters for JSON validation.
 
--   Go to **Message Mediation** Policies under **Request** configurations of the **Runtime Configurations** tab.
-
--   Select **Edit** the message mediation bar and select **Common Policies** . 
-
--   Select `json\_validator` from the drop-down menu for Common Policies.
-
-    <a href="{{base_path}}/assets/img/learn/mediation-json-validator.png"><img src="{{base_path}}/assets/img/learn/mediation-json-validator.png" width="70%" alt="Select JSON validator from the drop-down menu"></a> 
-
--   Scroll down the page and click **Save** to save the changes.
+    <a href="{{base_path}}/assets/img/learn/mediation-json-validator.png"><img src="{{base_path}}/assets/img/learn/mediation-json-validator.png" width="70%" alt="Drag and drop the JSON Validator from the policy list"></a> 
+    
+4. Scroll down the page and click **Save** to save the changes (click **Save and Deploy** and deploy the API for the changes to take effect in the gateways).
 
 ### Testing the JSON threat protector
 
