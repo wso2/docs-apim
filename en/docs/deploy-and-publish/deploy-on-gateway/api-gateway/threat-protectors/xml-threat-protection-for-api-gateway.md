@@ -86,28 +86,24 @@ your requirement.
 
 To edit the existing sequence follow the steps below.
 
-1.  Log in to the Management Console.
-2.  Navigate to `/_system/governance/apimgt/customsequences/in/xml_validator.xml`
-3.  Edit the `xml_validator.xml` file.
-4.  Go to the API Publisher and re-publish your API for the changes to take effect.
+1. Go to **Policies** section in the Publisher Portal.
+2. Add a new policy with the name **XML Validator** and provide an newer version.
+3. Upload the Policy File with the required changes.
+4. Click **Save** to save the newer version of the policy.
+5. Apply the newly created policy to the API as per the below section.
 
 ### Applying the XML validator policy
 
 You can apply the predefined XML Policy through the UI. Follow the instructions below to apply the xml\_validator 
 in sequence.
 
--   Create an API or edit an existing API.
+1. Create an API or edit an existing API.
+2. Go to **Policies** under the **API Configuration** sub-section from the left hand panel.
+3. As required, drag and drop the **XML Validator** from the Policy List tab into Request Flow.
 
--   Go to **Message Mediation** Policies under **Request** configurations of the **Runtime Configurations** tab.
-
--   Select **Edit** in the message mediation bar and select **Common Policies** .
-
--   Select `xml_validator` from the drop-down menu for Common Policies.
-
-    <a href="{{base_path}}/assets/img/learn/mediation-xml-validator.png"><img src="{{base_path}}/assets/img/learn/mediation-xml-validator.png" width="70%" alt="Select XML validator from the drop-down menu"></a> 
-
+    <a href="{{base_path}}/assets/img/learn/mediation-xml-validator.png"><img src="{{base_path}}/assets/img/learn/mediation-xml-validator.png" width="70%" alt="Drag and drop the XML Validator from the policy list"></a> 
     
--   Scroll down the page and click **Save** to save the changes.
+4. Scroll down the page and click **Save** to save the changes (click **Save and Deploy** and deploy the API for the changes to take effect in the gateways).
 
 ### Testing the XML threat protector
 
