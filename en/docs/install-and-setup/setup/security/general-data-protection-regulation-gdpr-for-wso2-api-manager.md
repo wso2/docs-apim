@@ -1,15 +1,15 @@
 # General Data Protection Regulation (GDPR) for WSO2 API Manager
 
-The Forget-Me Tool, which is also referred to as the Identity Anonymization Tool, is pre-packed with WSO2 API Manager. You can use the Forget-Me Tool to obfuscate the identities of an **external user** who was deleted based on the request of the system administrator. This tool removes the user identities stored in the database and in log files in order to meet the GDPR requirements.
+The Forget-Me Tool, also known as the Identity Anonymization Tool, can be used to obfuscate the identities of an **external user** who was deleted based on the request of the system administrator. This tool removes the user identities stored in the database and in log files in order to meet the GDPR requirements.
 
 ## Removing the references of the deleted user identities
 
 Follow the instructions below to remove the references of the deleted user identities stored in WSO2 product databases and log files:
 
-### Step 1 - Optionally, build the Forget-Me Tool
+### Step 1 - Build the Forget-Me Tool
 
-!!! note
-    - This step is **mandatory** when you are **working with multiple WSO2 products** and you need to delete the user's identity from all the products at once.
+!!! info
+    - This tool can be used to delete the users' identities **across multiple WSO2 products** simultaneously.
 
 Follow the instructions below to build the Forget-Me Tool:
 
@@ -33,10 +33,10 @@ Follow the instructions below to build the Forget-Me Tool:
 
 ### Step 2 - Change the default configurations of the tool
 
-All configurations related to this tool can be found inside the `conf` directory. When working with WSO2 API-M, it will be in the `<API-M_HOME>/repository/components/tools/forget-me/conf` directory, and when working with the standalone Forget-Me Tool, it will be in the `<TOOL_HOME>/conf` directory.
+All configurations related to this tool can be found inside the `<TOOL_HOME>/conf` directory.
 
 ??? info "More information on the configuration related directories and files in the Forget-Me Tool"
-    The following table describes the purpose of the most important configuration related directories and files of the tool, which are in the `<API-M_HOME>/repository/components/tools/forget-me/conf` and `<TOOL_HOME>/conf` directories.
+    The following table describes the purpose of the most important configuration related directories and files of the tool, which are in the `<TOOL_HOME>/conf` directory.
 
     <table>
     <tr>
@@ -119,14 +119,14 @@ You can configure the following in the `config.json` file based on your requirem
 - **`processors`** - A list of processors on which you want the tool run. The processors that you can specify are predefined. Possible values are `RDBMS` and `log-file`.
 - **`directories`** - The definitions of directories on which you want the tool to run. When you specify a directory definition, be sure to either specify the directory path relative to the location of the `config.json` file or specify the absolute path to the directory.
 
-    ??? info "Example code snippet to define multiple directories in the standalone Forget-Me Tool when working with multiple WSO2 products"
+    ??? info "Example code snippet to define multiple directories in the Forget-Me Tool"
         ```
         "directories": [
             {
             "dir": "log-config",
             "type": "log-file",
             "processor" : "log-file",
-            "log-file-path" : "<EI_HOME>/repository/logs",
+            "log-file-path" : "<APIM_HOME>/repository/logs",
             "log-file-name-regex" : "(.)*(log|out)"
             },
             {
@@ -156,13 +156,13 @@ The default configurations are set up as follows:
 
 - **Read Logs**: 
      
-     The default read logs are available in the `<API-M_HOME>/repository/logs` *(Relevant to API-M)* and `<TOOL_HOME>/logs` *(Relevant to the standalone Forget-Me Tool)* directory. 
+     The default read logs are available in `<TOOL_HOME>/logs` *(Relevant to the standalone Forget-Me Tool)* directory. 
      
      You can change this location in the `directories` → `log-file-path` section of the log-file processor.
 
 - **Read Datasource** : 
          
-     A datasource is used to establish a connection to a database. When working with WSO2 API-M, you can configure the datasources in the `<API-M_HOME>/repository/conf/datasources/` directory. If you are using the standalone Forget-Me Tool, you can configure the datasources in the `<TOOL_HOME>/conf/datasources/` directory.
+     A datasource is used to establish a connection to a database. You can configure the datasources in the `<TOOL_HOME>/conf/datasources/` directory.
     
      You can point to the latter mentioned datasources in the `config.json` file using the `extensions` section as shown below:
     
@@ -192,7 +192,7 @@ The default configurations are set up as follows:
         "identity": "WSO2_CARBON_DB"
         ```
          
-    - `<key>` - Define the name of the directory in which the database scripts reside. By default, the database scripts reside in the sub-folders that are available in the `<API-M_HOME>/repository/components/tools/forget-me/conf/sql` *(Relevant to API-M)* and `<TOOL_HOME>/conf/sql` *(Relevant to the standalone Forget-Me Tool)* directories. 
+    - `<key>` - Define the name of the directory in which the database scripts reside. By default, the database scripts reside in the sub-folders that are available in `<TOOL_HOME>/conf/sql` *(Relevant to the standalone Forget-Me Tool)* directories. 
     
          If you wish, you can add any additional database scripts in the relevant existing sub-folders itself or you can add them in a new sub-folder within the `sql` directory.
 
@@ -212,35 +212,12 @@ Run the Forget-Me tool based on the WSO2 products that you have in your deployme
     -   This tool is designed to run in offline mode (i.e., the server should be shut down or run on another machine) in order to prevent unnecessary load to the server. </br>If this tool runs in online mode (i.e., when the server is running), DB lock situations on the H2 databases may occur. This DB lock may happen if at least one of your databases point to H2. 
     </br>For example, if you have the User, REG, and AM databases pointing to MySQL, but your Carbon DB is in H2, then also you can get a DB lock error when running in online mode.
     -   If you have configured a database other than the default H2 database, copy the relevant driver to the following directory based on your deployment.
-         - If you are only working with WSO2 API Manager -
-
-             `<API-M_HOME>/repository/components/tools/forget-me/lib`
-
-         - If you are working with the standalone Forget-Me Tool -
-
-             `<TOOL_HOME>/lib`
+        
+        `<TOOL_HOME>/lib`
 
     -   The tool is designed to replace all references to a deleted user's identity with either a randomly generated UUID value, or a pseudonym that you specify when you run the tool. Therefore, you need to manually delete the user and then use this tool to clear the residuals in tables.
 
-#### Run the Forget-Me Tool in WSO2 API Manager
-
-Follow the instructions below to run the Forget-Me Tool, which is packaged with WSO2 API Manager by default:
-
-1. Open a new terminal window and navigate to the `<API-M_HOME>/bin` directory.
-
-2. Execute one of the following commands depending on your operating system:
-
-    -   On Linux/Mac OS: `./forgetme.sh -U <username>`
-    -   On Windows: `forgetme.bat -U <username>`
-
-    !!! info
-        The command specified above uses only the `-U <username>` option, which is the only mandatory option to run the tool. There are several other optional command-line options that you can specify based on your requirement. For more information, see [Supported command-line options when running the Forget-Me Tool](#supported-command-line-options-when-running-the-forget-me-tool)
-
-3. All references to the user are removed from WSO2 API Manager. You can view the generated reports inside the `<API-M_HOME>/repository/components/tools/forget-me/conf` directory. Reports will be generated with the naming convention of `Report-<PROCESSOR>-<TIMESTAMP>.txt`  in your current working directory.
-    
-     Example:  `Report-log-file-1598483873677.txt`
-
-#### Run the Forget-Me Tool for other WSO2 products
+#### Run the Forget-Me Tool
 
 Follow the instructions below to run the Forget-Me Tool in standalone mode:
 
@@ -285,8 +262,7 @@ The following is the list of all the command-line options that can be used with 
 <td>d</td>
 <td>The configuration directory to use when the tool is run.</td>
 <td>No</td>
-<td> When using only API-M -</br><code>&lt;APIM_HOME&gt;/repository/components/tools/forget-me/conf</code></br>
-When working with the standalone Forget-Me Tool-</br><code> &lt;TOOL_HOME&gt;/conf</code></td>
+<td><code> &lt;TOOL_HOME&gt;/conf</code></td>
 <td><code>-d /users/alex/forgetme/config</code></td>
 </tr>
 <tr class="odd">
