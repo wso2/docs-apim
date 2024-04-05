@@ -520,11 +520,18 @@ The following is the Devportal app theme object merging with the React Material 
 
 1. Configure a custom URL for the tenant.
 
-2. Sign in to tenant's Carbon Console and add the following property to `/_system/config/apimgt/applicationdata/tenant-conf.json` file.
+2. Sign in to the WSO2 Admin Portal.
+
+3. Navigate to Advanced Configurations (Settings -> Advanced).
+
+4. Add the property "EnablePerTenantServiceProviderCreation" : "true" as depicted below.
 
 ```json
 "EnablePerTenantServiceProviderCreation" : "true" 
 ```
+
+[![Per Tenant SP Creation]({{base_path}}/assets/img/learn/per-tenant-sp-creation.png)]({{base_path}}/assets/img/learn/per-tenant-sp-creation.png)
+
 3. `login` folder in the tenant theme contains the config files and resources to define login theme customizations.
 ```
 └──login
