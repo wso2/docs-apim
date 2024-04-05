@@ -45,7 +45,7 @@ In a multi-tenanted API Manager setup, self-signup to the Developer Portal works
 
 5. Sign in to the admin portal  ( `https://<HostName>:9443/admin` ) as tenant admin and navigate to **Advance Configurations** by clicking **Advance** under **Settings**.
 
-6. Add the following configuration and save the content.
+6. Add the following configuration and save the content. This was added because even though the new user can create a new account, that new user can't login to devportal without the `Internal/subscriber` role.
 
     ``` json
        "SelfSignUp": {
