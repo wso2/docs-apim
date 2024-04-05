@@ -45,7 +45,7 @@ In this guide, let's use two separate instances of WSO2 API Manager, and let's p
         In a **multi-tenant environment**, you must sign in using the tenant's credentials.
 
 
-5.  Navigate to  **Main > Resources > Browse**.
+5.  Navigate to  **Main > Registry > Browse**.
 
     <img src="{{base_path}}/assets/img/learn/navigate-main-resources.png" alt="Menu option to navigate to the Browse option" title="Menu option to navigate to the Browse option" width="70%" />
     
