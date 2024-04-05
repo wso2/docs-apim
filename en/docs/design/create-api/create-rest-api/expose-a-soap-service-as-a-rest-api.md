@@ -5,11 +5,17 @@ The organizations that have SOAP/WSDL based services can easily bridge their exi
 
 Follow the instructions below to create a SOAP service as a RESTful API using **Pass Through**
 
-1.  Sign in to the API Publisher and click **CREATE API**.
+1.  Sign in to the API Publisher Portal.
+
+    `https://<hostname>:9443/publisher` 
+   
+    Example: `https://localhost:9443/publisher`
+
+2.  Click **CREATE API** and then click **Import WSDL** under **SOAP API**
 
      [![Create SOAP API]({{base_path}}/assets/img/learn/create-soap-api.jpg)]({{base_path}}/assets/img/learn/create-soap-api.jpg)
 
-2.  Select the **Pass Through** option and thereafter, select one of the following options:
+3.  Select the **Pass Through** option and thereafter, select one of the following options:
 
      * WSDL URL - If you select this option, you need to provide an endpoint URL.
 
@@ -24,7 +30,7 @@ Follow the instructions below to create a SOAP service as a RESTful API using **
      This example uses the WSDL [Phone Verify](http://ws.cdyne.com/phoneverify/phoneverify.asmx?wsdl) from CDYNE as the endpoint here, but you can use any SOAP backend of your choice.
         [![Generate rest API from soap backend]({{base_path}}/assets/img/learn/generate-rest-api-from-soap-backend.jpg)]({{base_path}}/assets/img/learn/generate-rest-api-from-soap-backend.jpg)
 
-3.  Click **NEXT** to proceed to the next phase, provide the information in the table below, and click **CREATE**.
+4.  Click **NEXT** to proceed to the next phase, provide the information in the table below, and click **CREATE**.
 
     | Field   | Sample Value       |
     |---------|--------------------|
@@ -39,7 +45,7 @@ Follow the instructions below to create a SOAP service as a RESTful API using **
 
      [![Created SOAP API]({{base_path}}/assets/img/learn/created-soap-api.jpg)]({{base_path}}/assets/img/learn/created-soap-api.jpg)
      
-4. Click **API Definition** to view the API definition of the created schema.
+5. Click **API Definition** to view the API definition of the created schema.
 
     [![API definition of SOAP API created by Pass-through mode]({{base_path}}/assets/img/learn/api-definition-of-soap-api-created-by-passthrough-mode.jpg)]({{base_path}}/assets/img/learn/api-definition-of-soap-api-created-by-passthrough-mode.jpg)
   
