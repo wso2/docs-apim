@@ -4931,44 +4931,6 @@ If a token is revoked, the notification will be sent to the JMS topic. Write a c
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>enable_realtime_notifier</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>TRUE</code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p>(Only applicable if Choreo Connect is used). If set to FALSE, works as persistent.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>enable_persistent_notifier</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>TRUE</code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Notifications will be persisted to etcd. When Choreo Connect starts up, the etcd will be queried by Choreo Connect.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
                                   <span class="param-name-wrap"> <code>realtime_notifier.ttl</code> </span>
                                 </div>
                                 <div class="param-info">

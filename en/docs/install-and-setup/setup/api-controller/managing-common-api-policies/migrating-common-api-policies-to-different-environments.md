@@ -96,10 +96,6 @@ The structure of an exported Common API Policy ZIP file is explained below:
             <td><code>Policy-name.yaml</code></td>
             <td>Synapse gateway configurations which get applied during the runtime.</td>
         </tr>
-        <tr class="odd">
-            <td><code>Policy-name.gotmpl</code></td>
-            <td>Choreo Connect gateway configurations which get applied during the runtime.</td>
-        </tr>
     </tbody>
 </table>
 

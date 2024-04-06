@@ -1854,22 +1854,6 @@
                             "description": "This config is required only during a custom implementation. \n\nIf a token is revoked, the notification will be sent to the JMS topic. Write a custom implementation to change this behaviour."
                         },
                         {
-                            "name": "enable_realtime_notifier",
-                            "type": "string",
-                            "required": false,
-                            "default": "TRUE",
-                            "possible": "",
-                            "description": "(Only applicable if Choreo Connect is used). If set to FALSE, works as persistent."
-                        },
-                        {
-                            "name": "enable_persistent_notifier",
-                            "type": "string",
-                            "required": false,
-                            "default": "TRUE",
-                            "possible": "",
-                            "description": "Notifications will be persisted to etcd. When Choreo Connect starts up, the etcd will be queried by Choreo Connect."
-                        },
-                        {
                             "name": "realtime_notifier.ttl",
                             "type": "string",
                             "required": false,

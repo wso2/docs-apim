@@ -1,3 +1,0 @@
-[[custom_transport.listener]]
-class = "org.wso2.micro.integrator.business.messaging.hl7.transport.HL7TransportListener"
-protocol = "hl7"

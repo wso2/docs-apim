@@ -21,5 +21,4 @@ WSO2 API Manager allows prototyping an API at two different stages.
 For more information on prototyping an API, see the following links.
 
 - [Mock responses based on the OpenAPI specification with API Gateway]({{base_path}}/design/prototype-api/create-mocked-js-api/)    
-- [Mock responses based on the OpenAPI specification with Choreo Connect]({{base_path}}/design/prototype-api/create-mocked-oas-api/)    
-- [Expose an existing backend implementation as a Pre-Released API]({{base_path}}/design/prototype-api/backend-url-prototype-api/) (This is supported by both the Gateways, namely API Gateway and Choreo Connect)
+- [Expose an existing backend implementation as a Pre-Released API]({{base_path}}/design/prototype-api/backend-url-prototype-api/)

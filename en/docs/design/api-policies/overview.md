@@ -6,8 +6,6 @@ Policy is dependent on the API Gateway that you have configured with WSO2 API Ma
 
 - **Regular Gateway (Synapse Gateway)**
 
-- **Choreo Connect**
-
 API Manager ships a default set of policies that cover most of the common use cases that you will need, while also giving you the ability to create your own. Note that the common policy list is more robust when compared with previous API Manager versions. There are three main flows that you can utilize to attach any policy that you need. Namely, `Request Flow`, `Response Flow` and `Fault Flow`. You can also attach multiple policies under each of these flows, and are free to swap and rearrange the attached policies.
 
 Note the following architectural changes brought about by this feature:

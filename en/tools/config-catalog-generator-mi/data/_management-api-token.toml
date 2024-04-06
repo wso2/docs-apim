@@ -1,3 +1,0 @@
-[management_api.handler.token_config]
-expiry = "3600"
-size = "2048"

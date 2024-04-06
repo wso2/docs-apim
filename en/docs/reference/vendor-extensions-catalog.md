@@ -319,13 +319,3 @@ The response cache enabling and the timeout for an API can be specified as follo
             enabled: true
             cacheTimeoutInSeconds: 600
        ```
-
-## x-wso2-pass-request-payload-to-enforcer
-
-**x-wso2-pass-request-payload-to-enforcer** is an optional extension used to disable request payload passing from the Router to the Enforcer in Choreo Connect deployments. By default, request payload passing is in **disabled** mode. Without this extension, if request payload passing is enabled, all other APIs will pass the request payloads to the Enforcer. 
-
-If you need to **disable request payload passing for a specific API**, you need to add this extension at the root level of the API definitions and assign the value as `false` as shown below:
-
-```
-x-wso2-pass-request-payload-to-enforcer: false
-```

@@ -1,4 +1,0 @@
-[transport.blocking.mail.listener]
-enable = true
-name = "mailto"
-parameter.customParameter = "value"
