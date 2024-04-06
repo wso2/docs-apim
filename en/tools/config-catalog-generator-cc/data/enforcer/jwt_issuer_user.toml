@@ -1,3 +1,0 @@
-[[enforcer.jwtIssuer.jwtUser]]
-  username = "admin"
-  password = "$env{enforcer_admin_pwd}"

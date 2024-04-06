@@ -2,9 +2,6 @@
 
 Let's create a Prototype API that has a mock implementation of JavaScript snippets auto-generated based on the OpenAPI specification, and invoke it via Publisher and Developer Portals to test it out.
 
-!!! note
-    This is not supported when [Choreo Connect]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview) is used as the Gateway.
-
 ## Step 1 - Create the interface of the API
 
 Note the following when creating an interface for the API.

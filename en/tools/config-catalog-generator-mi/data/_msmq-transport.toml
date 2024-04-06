@@ -1,8 +1,0 @@
-[transport.msmq]
-
-listener.enable = false
-listener.hostname = "$ref{server.hostname}"
-listener.parameter.customParameter = ""
-
-sender.enable = false
-sender.parameter.customParameter = ""

@@ -258,14 +258,6 @@ To deploy the API Manager runtime, see the topics given below.
     </tr>
     <tr>
         <th>
-            <a href="{{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-wso2am-operator">Deploy API-M on Kubernetes using the Operator</a>
-        </th>
-        <td>
-            Explains how the WSO2 API Manager Kubernetes operator deploys the API Manager component in Kubernetes.
-        </td>
-    </tr>
-    <tr>
-        <th>
             <a href="{{base_path}}/install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources">Deploy API-M on Kubernetes using Helm Resources</a>
         </th>
         <td>
