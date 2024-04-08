@@ -71,24 +71,24 @@ We recommend the following patterns for denying requests.
 
 To edit the existing sequence follow the steps below.
 
-1.  Log in to the Management Console.
-2.  Navigate to `/_system/governance/apimgt/customsequences/in/regex_policy.xml`
-3.  Edit the `regex_policy.xml` file.
-4.  Go to the API Publisher and re-publish your API for the changes to take effect.
+1. Go to **Policies** section in the Publisher Portal.
+2. Add a new policy with the name **Regex Policy** and provide an newer version.
+3. Upload the Policy File with the required changes.
+4. Click **Save** to save the newer version of the policy.
+5. Apply the newly created policy to the API as per the below section.
 
 ### Applying the Regular Expression Policy
 
 You can apply the predefined Regular Expression Policy through the UI. Follow the instructions below to apply the 
 regex\_policy in sequence.
 
-1.  Create an API or edit an existing API.
-2.  Go to **Message Mediation** Policies under **Request** configurations of the **Runtime Configurations** tab.
-3.  Select **Edit** in the message mediation bar and select **Common Policies** .
-4.  Select `regex_policy` from the drop-down menu for Common Policies.
+1. Create an API or edit an existing API.
+2. Go to **Policies** under the **API Configuration** sub-section from the left hand panel.
+3. As required, drag and drop the **Regex Policy** from the Policy List tab into Request Flow.
 
-    <a href="{{base_path}}/assets/img/learn/mediation-regex-policy.png"><img src="{{base_path}}/assets/img/learn/mediation-regex-policy.png" width="70%" alt="Select Regex policy from the drop-down menu"></a> 
+    <a href="{{base_path}}/assets/img/learn/mediation-regex-policy.png"><img src="{{base_path}}/assets/img/learn/mediation-regex-policy.png" width="70%" alt="Drag and drop the Regex Policy from the policy list"></a> 
     
-4.  Scroll down the page and click **Save** to save the changes.
+4. Scroll down the page and click **Save** to save the changes (click **Save and Deploy** and deploy the API for the changes to take effect in the gateways).
 
 Each request is sanitized through the regular expression threat protector. You can add or modify the regex patterns 
 according to your requirement.

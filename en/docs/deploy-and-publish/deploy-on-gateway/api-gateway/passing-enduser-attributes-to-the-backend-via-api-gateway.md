@@ -360,6 +360,11 @@ apim.jwt.binding_federated_user_claims</code></pre></td>
 <td><p>Specifies whether the backend JWT header should include the kid claim</p></td>
 <td><code>true</code></td>
 </tr>
+<tr class="even">
+<td><pre><code>apim.jwt.use_sha256_hash</code></pre></td>
+<td><p>Specifies whether the certificate header is signed using the SHA256 algorithm. The default algorithm used to generate the header value is SHA1.</p></td>
+<td><code>false</code></td>
+</tr>
 </tbody>
 </table>
 
