@@ -33,7 +33,6 @@ Here's a summary:
     | Name          | TestCustomHeader     |
     | Context       | /testcustomheader    |
     | Version       | 1.0.0                |
-    | Business Plan | Gold                 |
     | Endpoint      | http://wso2cloud-custom-auth-header-sample-1-0-0.wso2apps.com/custom-auth-header/validate-header |
 
 3.  Navigate to the **API Configurations** --> **Policies** tab. Create a new policy with the information given in the table below by following the instructions in [Create a Policy]({{base_path}}/design/api-policies/create-policy/).
@@ -41,10 +40,11 @@ Here's a summary:
     | Section                   | Field             | Sample Value          |
     |---------------------------|-------------------|-----------------------|
     | General Details           | Name              | Custom Authorization Token |
+|                               | Version           | 1.0                |
     |                           | Description       | Passing a custom authorization token to the backend |
     |                           | Applicable Flows  | Request               |
-    | Gateway Specific Details  | Supported Gateways| Regular Gateway       |
-    |                           | Policy File       | `tokenExchange.xml` file you creaated |
+    |                           | Supported API Types  | HTTP               |
+    | Gateway Specific Details  | Policy File       | `tokenExchange.xml` file you created |
     | Policy Attributes         | N/A               | N/A                     |
 
 4.  Next, find the **Custom Authorization Token** policy that you just created by following Step 3, from the `Request` tab of the policy list. Drag and drop this policy to the desired API operation(s) by following the instructions in [Attach Policies]({{base_path}}/design/api-policies/attach-policy/).
@@ -53,7 +53,7 @@ Here's a summary:
 
 5.  Finally, scroll down and click on the **Save** button in order to apply the attached policies to the API.
 
-    [![Disable Chunking]({{base_path}}/assets/img/design/api-policies/save-attached-policies.png)]({{base_path}}/assets/img/design/api-policies/save-attached-policies.png)
+    [![Disable Chunking]({{base_path}}/assets/img/design/api-policies/save-api-for-custom-authorization-token-policy.png)]({{base_path}}/assets/img/design/api-policies/save-api-for-custom-authorization-token-policy.png)
       
 6.  Make sure to navigate to the **Deployments** tab and click on **Deploy New Revision** button. Also, if the API is not in `PUBLISHED` state, navigate to the **Lifecycle** tab and publish your API.
 
@@ -82,7 +82,7 @@ the **`Authorization`** header.
             ```
 
     !!! info
-        -   **<access token&gt;** is the token that you got in step 20.
+        -   **<access token&gt;** is the token that you got in step 7.
         -   **<API URL&gt;** appears on the API's **Overview** page in the API Developer Portal. Copy the HTTP endpoint. 
             If you select the HTTPs endpoint, be sure to run the cURL command with the -k option.
 
