@@ -48,7 +48,7 @@ To enable the API Chat, the API Manager requires configuration. Follow these ste
    ```toml
    [apim.ai]
    enable = true
-   endpoint = "https://e95488c8-8511-4882-967f-ec3ae2a0f86f-dev.e1-us-east-azure.choreoapis.dev/lgpt/interceptor-service/interceptor-service-be2/v1.0"
+   endpoint = "https://e95488c8-8511-4882-967f-ec3ae2a0f86f-prod.e1-us-east-azure.choreoapis.dev/lgpt/interceptor-service/interceptor-service-be2/v1.0"
    token = "<use token that you generated>"
    ```
 
