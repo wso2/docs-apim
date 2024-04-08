@@ -8,20 +8,29 @@ You can integrate WSO2 Identity Server with WSO2 API Manager and use your social
 ### Create a Facebook application
 
 1.  Go to [https://developers.facebook.com/](https://developers.facebook.com/) and log in using your Facebook credentials.
-2.  Select **My Apps** in the navigation and create a new app by clicking **Create App** .
-3.  Enter the name of your app and your email address. Click **Create App ID** .
+2.  Select **My Apps** in the navigation and create a new app by clicking **Create App**.
+3.  Select **Authenticate and request data from users with Facebook Login** and click **Next**.
+
+    ![Select Facebook login app]({{base_path}}/assets/img/learn/select-facebook-login-app.png)
+
+4.  Select **No, I'm not building a game** as the login type and click **Next** to proceed to create the app.
+
+    ![Select Facebook login type]({{base_path}}/assets/img/learn/select-facebook-login-type.png)
+
+5.  Enter the name of your app and your email address. Click **Create App**.
 
     ![Create new facebook app]({{base_path}}/assets/img/learn/create-facebook-app.png)
 
-4.  Click **Set Up** to create a **Facebook Login** product.
+6.  Click **Customize adding a Facebook Login button** under **Customize this app** section in your created app dashboard.
+7.  Select **Go to quickstart** in the **Quickstart** section.
 
-    ![Setup facebook login product]({{base_path}}/assets/img/learn/setup-facebook-login-app.png)
+    ![Facebook quickstart]({{base_path}}/assets/img/learn/customize-facebook-login.png)
 
-5.  Select **Web** to work with this sample. You can select any other platform you wish to use.
+8.  Select **Web** to work with this sample. You can select any other platform you wish to use.
 
     ![Setup facebook login product]({{base_path}}/assets/img/learn/web-facebook-login-app.png)
 
-6.  Add the `serverURL` of WSO2 Identity Server (which is configured with `offset` = 1) <https://localhost:9444/> and click **Save** and **Continue** .
+9.  Add the `serverURL` of WSO2 Identity Server (which is configured with `offset` = 1) <https://localhost:9444/> and click **Save** and **Continue** .
 
     !!! info
         If you have changed the hostname of identity server use that instead of `localhost`.
@@ -30,12 +39,12 @@ You can integrate WSO2 Identity Server with WSO2 API Manager and use your social
 
     ![Add facebook Identity Server URL]({{base_path}}/assets/img/learn/add-facebook-is-server-url.png)
 
-7.  Go to **Set Up the Facebook SDK for JavaScript** and click **Next** until the steps are complete.
-8.  Click **Settings** and select **Basic**. You can find your `App ID` and the `App Secret` as shown in the image below.
+10.  Go to **Set Up the Facebook SDK for JavaScript** and click **Next** until the steps are complete.
+11.  In the app dashboard under **App settings**, Click **Settings** and select **Basic**. You can find your `App ID` and the `App Secret` as shown in the image below.
 
-    ![Facebook App Id]({{base_path}}/assets/img/learn/appId-facebook.png)
+    ![Facebook App Id]({{base_path}}/assets/img/learn/appCredentials-facebook.png)
 
-9.  Select a **Category** for you application.
+    Additionally, Select a **Category** for you application.
 
     ![Facebook App Category]({{base_path}}/assets/img/learn/facebook-app-category.png)
 
@@ -43,7 +52,11 @@ You can integrate WSO2 Identity Server with WSO2 API Manager and use your social
 
     ![Facebook Site URL]({{base_path}}/assets/img/learn/facebook-site-url.png)
     
-10. Click on the new **Facebook Login** product you have added and configure it as follows.
+12. Select **Go to settings** in the **Settings** section under **Facebook Login**.
+
+    ![Facebook Login Settings]({{base_path}}/assets/img/learn/customize-facebook-login-settings.png)
+
+13. Click on the new **Facebook Login** product you have added and configure it as follows.
 
     ![Facebook Login App Settings]({{base_path}}/assets/img/learn/facebook-login-app-settings.png)
 
@@ -71,7 +84,7 @@ Let's see how to configure WSO2 Identity Server to work with Facebook for user a
     | facebook               | <https://localhost:9444/oauth2/token> |
 
     !!! note
-        To authenticate the user with **Facebook** which is an external system, we have to configure the federated authenticator. For more details, see [Federated Authetication](https://is.docs.wso2.com/en/5.10.0/get-started/quick-start-guide/#federated-authentication).
+        To authenticate the user with **Facebook** which is an external system, we have to configure the federated authenticator. For more details, see [Federated Authetication](https://is.docs.wso2.com/en/6.1.0/guides/identity-federation/facebook).
 
 3.  Go to **Facebook Configuration** under **Federated Authenticators**.
 
@@ -155,7 +168,7 @@ To federate logging in to the Publisher and Developer Portal with Facebook, you 
 ### Test Facebook authentication
 
 !!! warning
-        Make sure to copy the **org.wso2.carbon.identity.application.authenticator.facebook-5.1.14.jar** found in `<IS_HOME>/repository/components/dropins` directory to `<API-M_HOME>/repository/components/dropins` directory. Then **restart** the API-M server before testing Facebook Authentication.
+        Make sure to copy the **org.wso2.carbon.identity.application.authenticator.facebook-5.x.x.jar** found in `<IS_HOME>/repository/components/dropins` directory to `<API-M_HOME>/repository/components/dropins` directory. Then **restart** the API-M server before testing Facebook Authentication.
 
 1.  Access the Publisher via `https://localhost:9443/publisher` . Observe the request redirect to the WSO2 IS login page and then Facebook login page.
 
