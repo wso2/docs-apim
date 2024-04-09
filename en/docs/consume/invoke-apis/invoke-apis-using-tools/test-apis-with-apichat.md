@@ -3,7 +3,7 @@
 Testing APIs is an essential step in the API development lifecycle. API Manager simplifies the testing task by allowing you to engage with your APIs using natural language through API Chat. It eliminates manual test scenario creation, payload mocking, etc. It enables easy API communication using human language and requires no coding for handling sequences with multiple resource calls. This makes your API testing efficient and user-friendly.
 
 !!! info
-    This is an experimental feature and is available only for REST APIs with OpenAPI definitions.
+    This feature is currently in the **experimental** stage and is exclusively accessible for REST APIs with OpenAPI V3.0.x definitions. If your APIs are defined using Swagger or OpenAPI V3.1.x specifications, regrettably, this feature is not available for use at this moment.
 
 Follow the steps below to test your API with API Chat:
 
