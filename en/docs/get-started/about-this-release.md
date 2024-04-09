@@ -12,13 +12,17 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
 ## New features
 
+??? note "Integrating WSO2 API Platform with Kubernetes (APK) 1.1.0"
+
+    The WSO2 API Platform for Kubernetes (APK) boasts gateway functionalities, serving as a comprehensive data plane. This permits effortless deployment of lightweight, container-native data plane instances using APK. It harnesses Kubernetes' capabilities to streamline API management, facilitating the creation of scalable, sturdy, and adaptable API ecosystems with reduced overhead. The latest release empowers users to administer the APK data plane via the API Manager 4.3.0 control plane. Additionally, it offers the flexibility to utilize API Manager 4.3.0 as the control plane for managing the APK data plane.
+
 ??? note "AI-powered API Chat for testing APIs using Natural Language"
 
     This feature is designed to simplify API testing for consumers with minimal prior knowledge. This innovative tool allows users to interact and test APIs through natural language, making the exploration and testing process effortless and intuitive.
 
 ??? note "AI-powered API Marketplace Assistant"
 
-    Streamline your API search with natural language conversations and get tailored recommendations using advanced AI, ensuring you find the most suitable API quickly and efficiently.
+    Enhance your API discovery process through intuitive natural language conversations, harnessing AI to receive personalized recommendations. This approach ensures you swiftly and accurately identify the most appropriate API, optimizing your search process for efficiency and effectiveness.
 
 ??? note "Ephemeral Access Tokens Support"
 
@@ -26,11 +30,15 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
 ??? note "Versioning support for API Products"
 
-    This feature entails the addition of versioning support for API Products, enabling users to manage different versions of their API offerings more effectively.
+    The API product feature enables the creation of a marketable API product by combining different resources from multiple APIs. The new feature includes the addition of versioning support for these API products, allowing users to more effectively manage and maintain various versions of their API offerings.
 
 ??? note "OpenAPI 3.1.0 support"
 
     WSO2 API Manager supports the latest version of the Open API Specification, which is OpenAPI 3.1.0. This allows the developers to create more standardized, well-documented APIs, streamlining the API development process and enhancing the overall developer experience.
+
+??? note "Advanced Runtime Diagnostics"
+
+    A cutting-edge diagnostic tool, now available, offers deep insights into the API gateway runtime, identifying and resolving issues with unprecedented ease and efficiency.
 
 ??? note "API level policy support for API Manager"
 
@@ -40,21 +48,17 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
     In WSO2 API Manager, managing Global Level Policies within the gateway infrastructure is made easier. This streamlines policy handling, eliminating the need for administrators to manually create XML-type policy files. This feature facilitates a user-friendly approach to handling policies, eliminates the requirement for manual XML creation and placement in specific directories, and enhances control by providing a clear interface for creating, deploying, and undeploying policies, offering administrators better control over policy management.
 
-??? note "Support APK as a Gateway"
-
-    WSO2 API Platform for Kubernetes(APK) is WSO2's cloud native API management platform. This empowers users to deploy lightweight, container-native data plane deployments effortlessly. Leverage the power of Kubernetes to simplify your API management and ensure scalable, robust, and flexible API ecosystems with minimal overhead.
-
 ??? note "Support Azure AD as a third-party Key Manager"
 
-    It is possible to configure AzureAD as a third-party Key Manager with WSO2 API Manager.
+    WSO2 API Manager, known for its robust support for multiple key manager integrations, has further expanded its capabilities in the latest release. Now, it allows for the seamless configuration of Azure Active Directory (AzureAD) as a third-party Key Manager. This enhancement not only broadens the scope of external key manager support but also leverages AzureAD's comprehensive security and identity management features.
 
 ??? note "Role based access control for Admin Portal"
 
-    This feature enables administrators to restrict access to specific sections within the admin portal based on predefined scopes.
+    The API Manager admin portal caters to various administrative roles, such as workflow administrators, policy administrators, and those managing key management features. A new functionality within the portal allows for the assignment of access levels to different sections, tailored to specific administrative scopes. Consequently, multiple administrators can be designated within the application, each with permissions to manage only the tasks pertinent to their specific roles, ensuring role-focused efficiency and security.
 
 ??? note "Key Manager visibility support in Developer portal"
 
-    Using this feature, access to Key Managers can be restricted based on user roles from the admin portal.
+    Organizations often deploy multiple key management servers tailored to their specific use cases. When users create an application and generate access tokens, they are typically given the freedom to select their preferred key manager. However, it may be necessary to limit access to certain key management servers depending on the user's role. This functionality allows for the restriction of key manager access directly from the admin portal, with permissions set according to the user roles, ensuring appropriate access control and security measures are in place.
 
 ??? note "Approval workflow for deploying a revision"
 
@@ -70,7 +74,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
 ??? note "Distributed backend throttling mechanism, a shared counter-based algorithm to efficiently manage API traffic"
 
-    This feature helps to improve synchronization frequency during distributed backend throttling and minimize slippage, ensuring better accuracy, especially in critical high-load use cases.
+    The backend rate limit feature is designed to safeguard backend systems from unexpected surges in API call bursts. For organizations utilizing multiple gateways within a cluster, managing this rate limiting becomes complex as the count needs to be consistent across all nodes, ensuring the backend does not exceed the specified limit. This feature enhances the synchronization process during distributed backend throttling, reducing discrepancies and improving precision in maintaining the defined rate limits.
 
 ??? note "JWKS endpoint support, enabling seamless validation of backend access tokens send by API gateway"
 
@@ -82,7 +86,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
 ??? note "Configurable Crypto Provider support"
 
-    APIM supports the configuration of crypto provider to either Bouncy Castle (default) or Bouncy Castle FIPS which is a crypto provider and dependencies from Bouncy Castle adhering to the FIPS 140-2 compliance.
+    APIM allows users to configure their cryptographic provider, offering a choice between the default Bouncy Castle and Bouncy Castle FIPS, the latter being in compliance with FIPS 140-2 standards. This enhancement ensures that WSO2 API Manager users can achieve FIPS compliance in their deployments, enhancing the security and compliance of their cryptographic operations.
 
 ??? note "Global Key Manager support"
 
@@ -90,7 +94,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
 ??? note "Improved revision descriptions display for API revisions"
 
-    This feature provides an improved revision description display in API Publisher portal.
+    The API revision feature enables the creation and management of multiple versions of the same API, allowing for selective deployment to different gateways. Users benefit from the capability to easily revert to previous versions if necessary, effectively using these revisions as restore points for their APIs. A notable enhancement to this feature is the addition of revision descriptions, which are displayed within the API Publisher portal, providing detailed context about each specific revision.
 
 ??? note "Allow changing the owner of an API"
 
