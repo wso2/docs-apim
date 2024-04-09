@@ -1,0 +1,7 @@
+[[apim.event_hub.publish.url_group]]
+urls = ["tcp://control-plane-1-host:9611"]
+auth_urls = ["ssl://control-plane-1-host:9711"]
+
+[[apim.event_hub.publish.url_group]]
+urls = ["tcp://control-plane-2-host:9611"]
+auth_urls = ["ssl://control-plane-2-host:9711"]
