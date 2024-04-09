@@ -6,16 +6,16 @@ When the API subscription deletion workflow is enabled, when the subscription de
 
 ### Engaging the Approval Workflow Executor in the API Manager
 
-1.  Sign in to the API Manager Management Console (`https://<Server Host>:9443/carbon`) and go to **Browse** under **Resources**.
+1.  Sign in to the API Manager Management Console (`https://<Server Host>:9443/carbon`) and go to **Browse** under **Registry**.
 
-    [![Workflow Extensions Browse]({{base_path}}/assets/img/learn/wf-extensions-browse.png)]({{base_path}}/assets/img/learn/wf-extensions-browse.png)
+    [![Workflow Extensions Browse]({{base_path}}/assets/img/learn/navigate-main-resources.png)]({{base_path}}/assets/img/learn/navigate-main-resources.png)
 
 2.  Open the `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` resource and click **Edit as text**. Disable the `SubscriptionDeletionSimpleWorkflowExecutor` and enable `SubscriptionDeletionApprovalWorkflowExecutor`. 
     ``` 
         <WorkFlowExtensions>
         ...
             <!--SubscriptionDeletion executor="org.wso2.carbon.apimgt.impl.workflow.SubscriptionDeletionSimpleWorkflowExecutor"/-->
-            <ubscriptionDeletion executor="org.wso2.carbon.apimgt.impl.workflow.SubscriptionDeletionAprrovalWorkflowExecutor"/>
+            <SubscriptionDeletion executor="org.wso2.carbon.apimgt.impl.workflow.SubscriptionDeletionApprovalWorkflowExecutor"/>
         ...
         </WorkFlowExtensions>
     ```

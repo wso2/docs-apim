@@ -14,9 +14,9 @@ First, enable the application registration workflow.
 
 1.  Start WSO2 API Manager and sign in to the APIM management console (`https://<Server Host>:9443/carbon`).
 
-2. Click **Main** --> **Resources** --> **Browse**.
+2. Click **Main** --> **Registry** --> **Browse**.
 
-     <a href="{{base_path}}/assets/img/learn/wf-extensions-browse.png"><img src="{{base_path}}/assets/img/learn/wf-extensions-browse.png" width="250" height="100"/></a>
+     <a href="{{base_path}}/assets/img/learn/navigate-main-resources.png"><img src="{{base_path}}/assets/img/learn/navigate-main-resources.png" width="250" height="100"/></a>
 
 3.  Go to the `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` resource, disable the Simple Workflow Executor and enable **Approval Workflow Executor**  for application registration key generation. You can enable Approve workflow executor for Product keys or Sandbox keys or both by disabling the simple workflow executor and enable approval workflow executor for the ones you need. Please note that this workflow is not applicable for API keys generation.
 

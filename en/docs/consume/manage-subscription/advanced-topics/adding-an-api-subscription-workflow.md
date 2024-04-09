@@ -9,9 +9,9 @@ Attaching a custom workflow to API subscription enables you to add throttling ti
 
 First, enable the API subscription workflow for **Approval Workflow Executor.**
 
-1.  Sign in to API Manager Management Console ( `https://<Server Host>:9443/carbon` ) and select **Browse** under **Resources** .
+1.  Sign in to API Manager Management Console ( `https://<Server Host>:9443/carbon` ) and select **Browse** under **Registry** .
 
-    ![]({{base_path}}/assets/img/learn/wf-extensions-browse.png)
+    ![]({{base_path}}/assets/img/learn/navigate-main-resources.png)
 
 2.  Go to the `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` resource, disable the Simple Workflow Executor and enable WS Workflow Executor.
 

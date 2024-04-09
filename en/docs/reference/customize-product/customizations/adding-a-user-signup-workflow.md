@@ -14,9 +14,9 @@ Follow the instructions below to add a user sign-up workflow with regard to the 
 
      `https://localhost:9443/carbon`
 
-2. Select **Browse** under **Resources**.
+2. Select **Browse** under **Registry**.
 
-    ![Browse resources]({{base_path}}/assets/img/learn/wf-extensions-browse.png)
+    ![Browse resources]({{base_path}}/assets/img/learn/navigate-main-resources.png)
 
 3.  Go to `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` resource, disable the **UserSignUpSimpleWorkflowExecutor** and enable **UserSignUpApprovalWorkflowExecutor** for user self sign up.
 
