@@ -1,0 +1,7 @@
+[apim.event_hub]
+enabled = true
+username = "username"
+password = "password"
+service_url = "https://control-plane-host/services/"
+event_listening_endpoints = ["tcp://control-plane-host:5672"]
+event_duplicate_url = ["tcp://control-plane-2-host:5672"]

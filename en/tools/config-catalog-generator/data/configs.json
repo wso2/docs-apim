@@ -1915,6 +1915,104 @@
             "exampleFile": "apim.token.revocation.toml"
         },
         {
+            "title": "API-M Event Hub configurations",
+            "options": [
+                {
+                    "name": "apim.event_hub",
+                    "required": false,
+                    "description": "Configures the event hub in API Manager",
+                    "params": [
+                        {
+                            "name": "enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Enable the event hub."
+                        },
+                        {
+                            "name": "username",
+                            "type": "string",
+                            "required": false,
+                            "default": "Username of the super tenant admin",
+                            "possible": "",
+                            "description": "Username of the super tenant admin."
+                        },
+                        {
+                            "name": "password",
+                            "type": "string",
+                            "required": false,
+                            "default": "Password of the super tenant admin",
+                            "possible": "",
+                            "description": "Password of the super tenant admin."
+                        },
+                        {
+                            "name": "service_url",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Internal service URL of the event hub. This configuration is used to pull artifacts from the control plane."
+                        },
+                        {
+                            "name": "event_listening_endpoints",
+                            "type": "string array",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Array of event listening endpoints which are used to create a JMS connection with the control plane."
+                        },
+                        {
+                            "name": "event_duplicate_url",
+                            "type": "string array",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Array of endpoints which is used in control plane to communicate with the other in a HA setup (If multiple URLs are added, other URLs will be taken as failover endpoints)."
+                        },
+                        {
+                            "name": "event_waiting_time",
+                            "type": "integer",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The waiting time before the gateway/traffic manager waits before processing JMS events received from the event hub (in Milliseconds)."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.event_hub.toml"
+        },
+        {
+            "title": "API-M Event Hub Publish URL group configurations",
+            "options": [
+                {
+                    "name": "apim.event_hub.publish.url_group",
+                    "required": false,
+                    "description": "Configures event hub publish URL groups",
+                    "params": [
+                        {
+                            "name": "urls",
+                            "type": "string array",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "Array of URLs used to publish event streams to the control plane in a HA setup (If multiple URLs are added, other URLs will be taken as failover endpoints)."
+                        },
+                        {
+                            "name": "auth_urls",
+                            "type": "string array",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "Array of URLs used to create a secure connection for binary data streaming to the control plane in a HA setup (If multiple URLs are added, other URLs will be taken as failover endpoints)."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.event_hub.publish.url_group.toml"
+        },
+        {
             "title": "Enable Notifications",
             "options": [
                 {
