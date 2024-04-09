@@ -236,7 +236,16 @@ Follow the instructions below to set up and configure the databases for the WSO2
     'header.X-WSO2-KEY-MANAGER' = "WSO2-IS"
     ```
 
-6.  If you wish to encrypt the OAuth2 Keys (access tokens, client secrets, and authorization codes) follow the steps given in [Encrypting OAuth Keys](https://is.docs.wso2.com/en/5.10.0/learn/testing-oidc-encrypted-id-token-with-is/#enable-id-token-encryption), which is in the WSO2 Identity Server 5.10.0 documentation, and apply the relevant configurations in the `<IS_HOME>/repository/conf/deployment.toml` file to enable the feature.
+6. If you wish to encrypt the OAuth2 Keys (access tokens, client secrets, and authorization codes) follow the steps given in [Encrypting OAuth Keys](https://is.docs.wso2.com/en/5.10.0/learn/testing-oidc-encrypted-id-token-with-is/#enable-id-token-encryption), which is in the WSO2 Identity Server 5.10.0 documentation, and apply the relevant configurations in the `<IS_HOME>/repository/conf/deployment.toml` file to enable the feature.
+
+7. Add the below configuration in the `<IS_HOME>/repository/conf/deployment.toml` file to disable group and role separation in WSO2 Identity Server.
+    ``` toml
+    [authorization_manager.properties]
+    GroupAndRoleSeparationEnabled = false
+    ```
+   
+    !!! Note
+        This configuration is required to disable group and role separation in the WSO2 Identity Server since this is enabled by default.
 
 ## Step 5 - Configure WSO2 API-M with the WSO2 IS
 
@@ -244,12 +253,12 @@ By default, WSO2 API Manager and WSO2 Identity Server comes with a JDBC User Sto
 
 1. Add below configuration in `<APIM_HOME>/repository/conf/deployment.toml`
 
-```java
+``` toml
    [apim.key_manager]
    service_url = "https://localhost:9444/services/"
    type = "WSO2-IS"
-
 ```
+
 ## Step 6 - Optionally, configure High Availability (HA) for the Identity Server
 
 !!! warning
