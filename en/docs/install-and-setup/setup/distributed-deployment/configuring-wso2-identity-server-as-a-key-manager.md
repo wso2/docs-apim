@@ -85,7 +85,7 @@ Follow the instructions below to set up and configure the databases for the WSO2
         **If you are using Identity Server in an HA setup and not using multi-tenancy**, create an identity database and share the `[database.identity_db]` db between the two IS nodes.
 
     === "Format"
-        ```toml
+        ``` toml
         [database.identity_db]
         type = "mysql"
         url = "jdbc:mysql://<database-host>:3306/<WSO2AM_DB>?useSSL=false"
@@ -256,17 +256,25 @@ Follow the instructions below to set up and configure the databases for the WSO2
 
 8. If you are using the existing keystore and truststore (with self signed certificate) shipped by default with the product distributions, replace the keystore in `<IS_HOME>/repository/resources/security/wso2carbon.jks` and trustore in `<IS_HOME>/repository/resources/security/client-truststore.jks` with the ``<APIM_HOME>/repository/resources/security/wso2carbon.jks` and  `<APIM_HOME>/repository/resources/security/client-truststore.jks` respectively. Make sure to follow this step before starting either of the servers for the first time. (Please note that in a production environment, it is not recommended to use the default keystores. Instead, it is recommended to [create new keystores]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/) with new keys and certificates.)
 
+9. Add the below configuration in the `<IS_HOME>/repository/conf/deployment.toml` file to disable group and role separation in WSO2 Identity Server.
+    ``` toml
+    [authorization_manager.properties]
+    GroupAndRoleSeparationEnabled = false
+    ```
+   
+    !!! Note
+        This configuration is required to disable group and role separation in the WSO2 Identity Server since this is enabled by default.
+
 ## Step 5 - Configure WSO2 API-M with the WSO2 IS
 
 1. By default, WSO2 API Manager and WSO2 Identity Server come with a JDBC User Store as the primary userstore. If you wish to use any other type of user store (e.g., LDAP, Active Directory, etc.) in WSO2 IS, it has to be configured in the API Manager nodes. For more information, see [Configuring the Primary User Store]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store/) and apply the relevant configs to plug in a new user store.
   
     Add below configuration in `<APIM_HOME>/repository/conf/deployment.toml`
   
-    ```toml
-       [apim.key_manager]
-       service_url = "https://localhost:9444/services/"
-       type = "WSO2-IS"
-     
+    ``` toml
+   [apim.key_manager]
+   service_url = "https://localhost:9444/services/"
+   type = "WSO2-IS"
     ```
    
 2. The token exchange grant type is enabled by default in WSO2 API-M 4.1.0 onwards. But the corresponding grant type is currently not supported by the WSO2 Identity Server. You need to modify the `[oauth.grant_type.token_exchange]` config in the `<APIM_HOME>/repository/conf/deployment.toml` file as follows.
