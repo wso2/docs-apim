@@ -102,7 +102,7 @@ Devops REST API can be used to configure log level of APIs. It only allows the u
     
     === "Sample response"
         ```bash
-        {"apis":[{"context":"/pizzashack/1.0.0","logLevel":"OFF","apiId":"64f06bef-0019-4bf4-875a-76c03b10d2fc"}]}
+        {"apis":[{"context":"/pizzashack/1.0.0","logLevel":"OFF","apiId":"f7683dc4-e6f5-47ca-a2f4-eca2c311f708","resourceMethod":null,"resourcePath":null},{"context":"/pizzashack/1.0.0","logLevel":"OFF","apiId":"f7683dc4-e6f5-47ca-a2f4-eca2c311f708","resourceMethod":"POST","resourcePath":"/order"},{"context":"/pizzashack/1.0.0","logLevel":"OFF","apiId":"f7683dc4-e6f5-47ca-a2f4-eca2c311f708","resourceMethod":"GET","resourcePath":"/menu"},{"context":"/pizzashack/1.0.0","logLevel":"OFF","apiId":"f7683dc4-e6f5-47ca-a2f4-eca2c311f708","resourceMethod":"GET","resourcePath":"/order/{orderId}"},{"context":"/pizzashack/1.0.0","logLevel":"OFF","apiId":"f7683dc4-e6f5-47ca-a2f4-eca2c311f708","resourceMethod":"PUT","resourcePath":"/order/{orderId}"},{"context":"/pizzashack/1.0.0","logLevel":"OFF","apiId":"f7683dc4-e6f5-47ca-a2f4-eca2c311f708","resourceMethod":"DELETE","resourcePath":"/order/{orderId}"}]}
         ```
 
 2. Get log level of an API.
@@ -114,12 +114,12 @@ Devops REST API can be used to configure log level of APIs. It only allows the u
     
     === "Sample cURL command"
         ```bash
-        curl -X GET 'https://localhost:9443/api/am/devops/v0/tenant-logs/carbon.super/apis/64f06bef-0019-4bf4-875a-76c03b10d2fc' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -k
+        curl -X GET 'https://localhost:9443/api/am/devops/v0/tenant-logs/carbon.super/apis/f7683dc4-e6f5-47ca-a2f4-eca2c311f708' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -k
         ```
     
     === "Sample response"
         ```bash
-        {"apis":[{"context":"/pizzashack/1.0.0","logLevel":"OFF","apiId":"64f06bef-0019-4bf4-875a-76c03b10d2fc"}]}
+        {"apis":[{"context":"/pizzashack/1.0.0","logLevel":"OFF","apiId":"f7683dc4-e6f5-47ca-a2f4-eca2c311f708","resourceMethod":null,"resourcePath":null}]}
         ```
 
 3. Set log level of an API.
@@ -136,7 +136,24 @@ Devops REST API can be used to configure log level of APIs. It only allows the u
     
     === "Sample response"
         ```bash
-        {"logLevel":"FULL"}
+        {"logLevel":"full","resourceMethod":null,"resourcePath":null}
+        ```
+
+4. Set log level of a resource in an API.
+
+    === "cURL command"
+        ```bash
+        curl -X PUT 'http://<HOST_NAME>:<PORT>/api/am/devops/v0/tenant-logs/{tenant-domain}/apis/{api-id}' -H 'Authorization: Basic <base64Encode(username:password)>' -H 'Content-Type: application/json' -d '{"logLevel": "<logLevel>","resourceMethod":"<resourceMethod>","resourcePath":"/<resourcePath>"}' -k
+        ```
+    
+    === "Sample cURL command"
+        ```bash
+        curl -X PUT 'https://localhost:9443/api/am/devops/v0/tenant-logs/carbon.super/apis/64f06bef-0019-4bf4-875a-76c03b10d2fc' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -H 'Content-Type: application/json' -d '{"logLevel": "full","resourceMethod":"GET","resourcePath":"/menu"}' -k
+        ```
+    
+    === "Sample response"
+        ```bash
+        {"logLevel": "full","resourceMethod":"GET","resourcePath":"/menu"}
         ```
 
 ## Configure API Logs using API Controller (APICTL)
