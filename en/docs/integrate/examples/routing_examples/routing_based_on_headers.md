@@ -2,7 +2,7 @@
 
 This example scenario uses an inventory of stocks as the back-end service. A proxy service is configured in the Micro Integrator to use separate mediation sequences for processing request messages with different **message headers**. 
 
-When a stock quote request is received, the Micro Integrator will read the **request header** and then route the message to the relevant mediation sequence for processing. The relevant sequence will forward the message to the backend, receive the response, process it, and return it to the client.
+When a stock quote request is received, the Micro Integrator will read the **request header** and then route the message to the relevant mediation sequence for processing. The relevant sequence will forward the message to the backend, receive the response, process it and return it to the client.
     
 ## Synapse configuration
     
