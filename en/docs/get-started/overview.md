@@ -120,7 +120,7 @@ The following are some of the main capabilities of the product.
 <div class="leftContentOverview" style="width:75% !important;">WSO2 API Managers API Analytics Dashboard provides insights into your APIs. These insights can help you to understand your customers and make important strategic business decisions.
     <ul>
         <li><a href="{{base_path}}/observe/observe-overview/">Observability</li>
-        <li><a href="{{base_path}}/observe/api-manager-analytics/overview-of-api-analytics/">API Manager Analytics</li>
+        <li><a href="{{base_path}}/api-analytics/choreo-analytics/getting-started-guide">API Manager Analytics</li>
     </ul>
   </div>
   
@@ -188,8 +188,7 @@ The following are some of the main capabilities of the product.
 ## What's Next
 
 - Try out the WSO2 API Manager by following the Quick Start Guides on the following.
-    - [Managing an API proxy]({{base_path}}/get-started/quick-start-guide/quick-start-guide)
-    - [Creating an integration service]({{base_path}}/get-started/quick-start-guide/integration-qsg)
-    - [Streaming integration]({{base_path}}/get-started/quick-start-guide/streaming-qsg)
-- Understand the [basic architecture of the product]({{base_path}}/get-started/architecture).
+    - [Managing an API proxy]({{base_path}}/get-started/api-manager-quick-start-guide)
+    - [Streaming integration]({{base_path}}/get-started/streaming-quick-start-guide)
+- Understand the [basic architecture of the product]({{base_path}}/get-started/apim-architecture).
 - Learn more [about this release]({{base_path}}/get-started/about-this-release).

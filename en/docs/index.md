@@ -78,7 +78,7 @@ template: templates/single-column.html
     <div class="section02">
         <h3>Quick Start Guide</h3>
         <div class="linkWrapper">
-            <div class="linkSet2" onclick="location.href='{{base_path}}/get-started/quick-start-guide/quick-start-guide';">
+            <div class="linkSet2" onclick="location.href='{{base_path}}/get-started/api-manager-quick-start-guide';">
                 <img src="{{base_path}}/assets/img/home/landing-page/design-and-implement-apis.svg" title="Design and Implement APIs" width="75" alt="Design and Implement APIs"/>
                 <h4>Design and implement APIs</h4>
                 <p>
@@ -92,7 +92,7 @@ template: templates/single-column.html
                     Create an integration service and expose it as a managed API. Let's get started by running a simple use case. 
                 </p>
             </div>
-            <div class="linkSet2 last" onclick="location.href='{{base_path}}/get-started/quick-start-guide/streaming-qsg';">
+            <div class="linkSet2 last" onclick="location.href='{{base_path}}/get-started/streaming-quick-start-guide';">
                 <img src="{{base_path}}/assets/img/home/landing-page/write-a-streaming-integration.svg" title="Streaming Integration" width="75" alt="Streaming Integration"/>
                 <h4>Write a Streaming Integration</h4>
                 <p>
@@ -116,7 +116,7 @@ template: templates/single-column.html
             </p>
             <a href='{{base_path}}/get-started/key-concepts'><h4>Understand the Concepts</h4></a>
         </div>
-        <div class="linkSet2 last" onclick="location.href='{{base_path}}/get-started/architecture';">
+        <div class="linkSet2 last" onclick="location.href='{{base_path}}/get-started/apim-architecture';">
             <h3>Architecture</h3>
             <p>
                 The WSO2 API Manager consists of a management plane, a data plane, and a control plane, along with multiple developer-friendly tools to help you work with the various components.
@@ -257,14 +257,14 @@ template: templates/single-column.html
                 <p>
                     See the instructions on setting up the Micro Integrator runtime for your selected deployment pattern.
                 </p>
-                <a href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying_1'><h4>Deploy the Micro Integrator Runtime</h4></a>
+                <a href='https://mi.docs.wso2.com/en/4.2.0/install-and-setup/install-and-setup-overview/#deploy'><h4>Deploy the Micro Integrator Runtime</h4></a>
             </div>
-            <div class="linkSet2 last" onclick="location.href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying_2';">
+            <div class="linkSet2 last" onclick="location.href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying_1';">
                 <img src="{{base_path}}/assets/img/home/streaming.svg" alt="Streaming">
                 <p>
                     See the instructions on setting up the Streaming Integrator runtime for your selected deployment pattern.
                 </p>
-                <a href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying_2'><h4>Deploy the Streaming Integrator Runtime</h4></a>
+                <a href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying_1'><h4>Deploy the Streaming Integrator Runtime</h4></a>
             </div>
         </div>
     </div>

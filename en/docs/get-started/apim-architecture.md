@@ -1,10 +1,10 @@
 # Architecture and Key Components
 
-The diagram below is a high-level snapshot of WSO2 API Manager and the various components that it comprises of. 
+The diagram below is a high-level snapshot of WSO2 API Manager and the various components that it can work together with. 
 
 [![Basic Architecture]({{base_path}}/assets/img/get_started/architecture/apim-architecture.png)]({{base_path}}/assets/img/get_started/architecture/apim-architecture.png)
 
-The API Manager consists of an API management layer and an integration layer where the above components all fit into and mesh together to address the various use cases of the product. The API management layer contains several components, which you can use in your deployment according to your requirement. The integration layer includes either the Micro Integrator runtime (for services integration) and the Streaming Integrator runtime (for streaming requirements) or both runtimes. For details on deployment patterns, see [Deployment Overview]({{base_path}}/install-and-setup/setup/deployment-overview/). The pattern you use would depend on the workload of each component and the traffic that is expected for each of the components and runtimes.
+The above diagram consists of an API management layer and an integration layer where the above components all fit into and mesh together to address the various use cases of the product. The API management layer contains several components, which you can use in your deployment according to your requirement. The integration layer includes either the Micro Integrator runtime (for services integration) and the Streaming Integrator runtime (for streaming requirements) or both runtimes. For details on deployment patterns, see [Deployment Overview]({{base_path}}/install-and-setup/setup/deployment-overview/). The pattern you use would depend on the workload of each component and the traffic that is expected for each of the components and runtimes.
 
 ## Management Plane
 
@@ -50,17 +50,9 @@ The API Gateway does the JWT token validation by validating the signature, issue
 
 Once the token is validated, the API Gateway acts upon the API request before sending it to the backend. It first processes the message to a preconfigured format (e.g., JSON, XML, CSV etc.).  It then applies security policies, rate limiting policies,  collects statistics, etc., via its handlers.  The mediators then act upon the API payload based on the mediation logic developed. The message is then formatted to a preconfigured format (e.g., JSON, XML, CSV, etc.) and sent to the backend. WSO2 API Gateway supports transports such as HTTP, HTTPS, etc. It is also able to scale on-demand in cloud environments and is easily pluggable in non-cloud environments. 
 
-#### Choreo Connect
-
-<a href="{{base_path}}/assets/img/deploy/mgw/choreo-connect-basic-architecture.png"><img src="{{base_path}}/assets/img/deploy/mgw/choreo-connect-basic-architecture.png" width="600" alt="auth0 token validation"></a>
-
-Choreo Connect (the API Microgateway) is a cloud-native, open-source, and developer-centric API Gateway. It provides first-class support for Kubernetes while facilitating an array of API management quality of services (QoS), such as message security, rate-limiting, observability, and message mediation. Choreo Connect can be run in the cloud, on-premises, or in a hybrid environment, as long as it supports Kubernetes.
-
-Choreo Connect comprises three components: Router, Enforcer, and Adapter. The Router is the component in charge of directing traffic from various clients to the intended destination (service). Choreo Connect uses the [Envoy Proxy](https://www.envoyproxy.io/) as the core component for traffic routing. The Router is key to exposing APIs to external and remote clients. The policy enforcement engine, which is the Enforcer, performs token validation, rate limitation, analytics, and other validations. The Adapter serves as the control plane for both the Router and the Enforcer. Choreo Connect can be used as a standalone Gateway or with WSO2 API Manager as the Control Plane.
-
 #### Micro Integrator
 
-The Micro Integrator of WSO2 API Manager is lightweight and container friendly. This allows you to leverage the comprehensive enterprise messaging capabilities of the Micro Integrator in your decentralized, cloud-native integrations.
+The [WSO2 Micro Integrator](https://mi.docs.wso2.com/en/latest/) is lightweight and container friendly. This allows you to leverage the comprehensive enterprise messaging capabilities of the Micro Integrator in your decentralized, cloud-native integrations.
 
 <img src="{{base_path}}/assets/img/integrate/intro/mi-microservices-architecture.png" alt="decentralized micro services" name="decentralized microservices" width="700">
 
@@ -70,7 +62,7 @@ Micro Integrator is an event-driven, standards-based messaging engine that can w
 
 #### Streaming Integrator
 
-The [Streaming Integrator]({{base_path}}/steaming/streaming-overview/) component of WSO2 API Manager is a streaming data processing server that integrates streaming data and takes action based on streaming data. The streaming integration capabilities of WSO2 API Manager are delivered via this runtime. This is a cloud-native, lightweight component that understands, captures, analyzes, processes, and acts upon streaming data and events in real-time. It utilizes the SQL-like query language ‘Siddhi’ to implement the solution.
+The [Streaming Integrator]({{base_path}}/streaming/streaming-overview/) is a streaming data processing server that integrates streaming data and takes action based on streaming data. This is a cloud-native, lightweight component that understands, captures, analyzes, processes, and acts upon streaming data and events in real-time. It utilizes the SQL-like query language ‘Siddhi’ to implement the solution.
 
 <img src="{{base_path}}/assets/img/integrate/intro/streaming-integrator.png" alt="Streaming Integrator" name="Streaming Integrator" width="600">
 
@@ -123,7 +115,3 @@ The Streaming Editor is a developer tool that is used to develop Siddhi applicat
 #### apictl
 
 WSO2 API Controller (CTL) is a command-line tool for managing API Manager environments, listing APIs, API products and applications, creating API projects, importing and exporting APIs, API products and applications, generating tokens for APIs and API products for testing purposes, etc.
-
-#### kubectl
-
-The API operator for Kubernetes makes APIs and microservices first-class citizen in the Kubernetes ecosystem.
