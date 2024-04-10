@@ -88,7 +88,7 @@ Now, you have created and configured the GraphQL API successfully.
  1. Enter the following sample payload as the StarWarsAPI request. Then click on execute button as follows.
  
       ```
-      query{
+      query testQuery{
          human(id:1000){
             id
             name
@@ -124,7 +124,7 @@ Now, you have created and configured the GraphQL API successfully.
 1. Enter the following sample payload as the StarWarsAPI `reviewAdded` subscription request to get real-time updates about the addition of new reviews.
 
     ```
-    subscription {
+    subscription testSubscription{
        reviewAdded(episode: JEDI) {
           stars
           episode
