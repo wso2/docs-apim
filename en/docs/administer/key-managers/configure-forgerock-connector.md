@@ -33,7 +33,7 @@ Follow the instructions given below to configure the ForgeRock Authorization Ser
 
     [![Create A new Service Oauth Provider]({{base_path}}/assets/img/administer/create-new-service-oauth-provider.png)]({{base_path}}/assets/img/administer/create-new-service-oauth-provider.png)
 
-5. In the next page go to Advanced tab and update the following values and click save changes.
+5. In the next page go to `Advanced` tab and update the following values and click save changes.
 
     <table>
      <tr>
