@@ -8,9 +8,9 @@ This section let's see how to add a simple approval workflow to control the API 
 
      1. Sign in to the API-M management console (`https://<Server Host>:9443/carbon`).
 
-     2. Click **Resources** --> **Browse**.
+     2. Click **Registry** --> **Browse**.
      
-         [![Resources Browse Menu]({{base_path}}/assets/img/learn/wf-extensions-browse.png)]({{base_path}}/assets/img/learn/wf-extensions-browse.png)
+         [![Resources Browse Menu]({{base_path}}/assets/img/learn/navigate-main-resources.png)]({{base_path}}/assets/img/learn/navigate-main-resources.png)
 
      3. Go to the `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` resource.
      
