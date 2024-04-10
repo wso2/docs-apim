@@ -7,38 +7,38 @@ Therefore, WSO2 API Manager can connect Keycloak out-of-the-box using the [WSO2 
 Follow the instructions given below to configure Keycloak as a third-party Key Manager. 
 
 !!! info
-    For more information, see the [Getting Started Guide, which is under the official Keycloak documentation](https://www.keycloak.org/docs/latest/getting_started/).
+    For more information, see the [Getting Started Guide, which is under the official Keycloak documentation](https://www.keycloak.org/guides#getting-started).
 
 ## Step 1 - Configure Keycloak
 
 1. Sign in to the Keycloak Management Console.
      
-    `http://localhost:8080/auth`
+    `http://localhost:8080/`
 
-    <a name="step12"></a>
+    !!! Note
+        The documentation provides steps to configure the KeyCloak version 24.0.1. If you are using a different version, the screenshots could be different. Moreover, The steps which have been provided is to a local docker image of Keycloak. If you are using a different setup, the URL may vary.
     
 2. Click **Client Scopes** and create client scope named "default".
 
      [![add default client scope]({{base_path}}/assets/img/administer/keycloak-add-client-scope-default.png)]({{base_path}}/assets/img/administer/keycloak-add-client-scope-default.png)
 
-3. Click **Clients** and create a client with the following information.
+3. Click **Clients** and create a client with the Redirect URIs https://localhost:9443/.
 
-     <table>
-     <tr><td>Access Type</td><td> Confidential </td></tr><tr>
-     <td> Redirect URIs </td><td> https://localhost:9443/ </td></tr>
-     </table>
+    [![Keycloak add client - step 1]({{base_path}}/assets/img/administer/keycloak-add-client-1.png)]({{base_path}}/assets/img/administer/keycloak-add-client-1.png)
 
-    [![Keycloak add client]({{base_path}}/assets/img/administer/keycloak-add-client.png)]({{base_path}}/assets/img/administer/keycloak-add-client.png)
+    [![Keycloak add client - step 2]({{base_path}}/assets/img/administer/keycloak-add-client-2.png)]({{base_path}}/assets/img/administer/keycloak-add-client-2.png)
 
-4. Define a longer value as the **Access Token Lifespan** under the **Advanced Settings** settings section.
+    [![Keycloak add client - step 3]({{base_path}}/assets/img/administer/keycloak-add-client-3.png)]({{base_path}}/assets/img/administer/keycloak-add-client-3.png)
+
+4. Optionally, define a longer value as the **Access Token Lifespan** in the client settings in the **Advanced** tab under **Advanced settings** section.
 
      [![Set expiry time]({{base_path}}/assets/img/administer/keycloak-set-expiry-time.png)]({{base_path}}/assets/img/administer/keycloak-set-expiry-time.png)
 
-5. Click **Client Scopes** and select the scope named `default` as the **Default Client scope**.
+5. Click **Client Scopes** and add the default scope created previously to the client as default scope.
 
      [![Add scope to client scopes]({{base_path}}/assets/img/administer/keycloak-add-to-client-scopes.png)]({{base_path}}/assets/img/administer/keycloak-add-to-client-scopes.png)
 
-6. Click **Service Account Roles** and assign the `admin` role an assigned role.
+6. Click **Service Account Roles** and assign the `admin` role as an assigned role.
 
      [![Assign service account roles]({{base_path}}/assets/img/administer/keycloak-serviceaccount-assign-admin.png)]({{base_path}}/assets/img/administer/keycloak-serviceaccount-assign-admin.png)
 
@@ -50,38 +50,16 @@ Follow the instructions given below to configure Keycloak as a third-party Key M
 
 ## Step 2 - Configure WSO2 API Manager
 
-1. Import Keycloak certificate into the WSO2 API Manager truststore.
+1. If you are configuring TLS between Keycloak and WSO2 API Manager, add the Keycloak cert to the API Manager truststore and vice versa.
 
-    - The default Keycloak keystore is `application.keystore`.
-    - In a standalone setup, the `application.keystore` can be found in the `<KEYCLOAK_HOME>/standalone/configuration` directory.
-    - Alternatively, you can use the following command to generate a self-signed certificate in Keycloak.
+    !!! Note
+        For information on [Configuring TLS in Keycloak](https://www.keycloak.org/server/enabletls), see the Keycloak official documentation.
 
-        ```
-        keytool -genkey -alias server -keyalg RSA -keysize 2048 -validity 3650 -keystore application.keystore -dname "CN=localhost,OU=Support,O=WSO2,L=Colombo,S=Western,C=LK" -storepass password -keypass password -noprompt -ext SAN=dns:localhost
-        ```
-    
-         - The alias should be **server**.
-
-2. Export the certificate in `application.keystore`.
-
-      ```
-      keytool -export -alias server -file keycloak.crt -keystore application.keystore -storepass password -noprompt
-      ```
-
-    !!! tip
-        For information on [Enabling SSL/HTTPS for the Keycloak Server](https://www.keycloak.org/docs/latest/server_installation/), see the Keycloak official documentation. 
-
-3. Import the certificate into the WSO2 API-M truststore.
-
-       ```
-       keytool -import -trustcacerts -alias keycloak -file keycloak.crt -keystore client-truststore.jks -storepass wso2carbon -noprompt
-       ```
-
-4. Start WSO2 API Manager.
+2. Start WSO2 API Manager.
 
      `<API-M_HOME>` refers to the root folder of the extracted WSO2 API-M distribution.
 
-5. Add a Key Manager.
+3. Add a Key Manager.
 
     1. Sign in to the Admin Portal. 
 
