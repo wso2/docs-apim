@@ -1347,11 +1347,3 @@ html .md-typeset .superfences-tabs>label:hover {
         margin-right: 12.1rem;
     }
 }
-
-.beta-badge {
-    display: inline-block;
-    background: #ffd600;
-    font-size: 14px;
-    padding: 5px;
-    line-height: 1;
-}
