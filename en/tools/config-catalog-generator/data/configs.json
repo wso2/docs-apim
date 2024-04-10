@@ -1102,6 +1102,96 @@
             "exampleFile": "apim.oauth_config.toml"
         },
         {
+            "title": "API-M Mutual SSL Configuration",
+            "options": [
+                {
+                    "name": "apimgt.mutual_ssl",
+                    "required": true,
+                    "description": "Collection of Mutual SSL related configs",
+                    "params": [
+                        {
+                            "name": "certificate_header",
+                            "type": "string",
+                            "required": false,
+                            "default": "X-WSO2-CLIENT-CERTIFICATE",
+                            "possible": "",
+                            "description": "Specifies the header name for the client certificate."
+                        },
+                        {
+                            "name": "enable_client_validation",
+                            "type": "boolean",
+                            "required": false,
+                            "default": false,
+                            "possible": "true, false",
+                            "description": "This property needs to be true if the MutualSSL connection is established between the load balancer and the Gateway."
+                        },
+                        {
+                            "name": "client_certificate_encode",
+                            "type": "boolean",
+                            "required": false,
+                            "default": false,
+                            "possible": "true, false",
+                            "description": "This property needs to be true if the certificate should be decoded when it is passed from the load balancer to the Gateway."
+                        },
+                        {
+                            "name": "enable_certificate_chain_validation",
+                            "type": "boolean",
+                            "required": false,
+                            "default": false,
+                            "possible": "true, false",
+                            "description": "Specifies if certificate chain validation is enabled."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apimgt.mutual_ssl.toml"
+        },
+        {
+            "title": "API Definitions Security Audit Configurations",
+            "options": [
+                {
+                    "name": "security_audit",
+                    "required": true,
+                    "description": "Configures API definitions security audit settings.",
+                    "params": [
+                        {
+                            "name": "api_token",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "Specifies the API token for security audit."
+                        },
+                        {
+                            "name": "collection_id",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "Specifies the collection ID for security audit."
+                        },
+                        {
+                            "name": "global",
+                            "type": "boolean",
+                            "required": false,
+                            "default": true,
+                            "possible": "true, false",
+                            "description": "Specifies if security audit is globally enabled."
+                        },
+                        {
+                            "name": "base_url",
+                            "type": "string",
+                            "required": false,
+                            "default": "https://platform.42crunch.com/api/v1/apis",
+                            "possible": "",
+                            "description": "Specifies the base URL for the 42Crunch platform."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "security_audit.toml"
+        },
+        {
             "title": "API-M Developer Portal configurations",
             "options": [
                 {
