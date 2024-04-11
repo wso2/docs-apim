@@ -3,7 +3,7 @@
 The [Open Policy Agent (OPA)](https://openpolicyagent.org/) is an open source, general-purpose policy engine that unifies policy enforcement. 
 With the ability to define complex policies as a code, OPA provides the much needed flexibility over standard static access control mechanisms such as role based or attribute based access control.
 
-You can offload some responsibility of making the decision to authorize or not when a consumer invokes APIs based on policies attached to APIs. Both WSO2 API Manager regular Gateway and Choreo Connect supports Open Policy Agent based request validation. Open Policy Agent comprises of a policy engine that allows users (or systems) to query policies for decisions. 
+You can offload some responsibility of making the decision to authorize or not when a consumer invokes APIs based on policies attached to APIs. Open Policy Agent comprises of a policy engine that allows users (or systems) to query policies for decisions. 
 A policy for Open Policy Agent can be though as a set of rules and policy engine evaluate these rules based on the input it receives.
 
 WSO2 API Manager uses this unique policy engine to evaluate the requests that the Gateway receives and decides the fate of the request.
@@ -139,43 +139,6 @@ By default, each Gateway uses a default Request Generator to generate the reques
     }
     ```
 
-=== "Choreo Connect payload"
-    ```json
-    {
-        "input": {
-            "path": "/t/foo.com/v2/1.0.5/foo?hello=world",
-            "vhost": "localhost",
-            "apiName": "SwaggerPetstore",
-            "apiVersion": "1.0.5",
-            "httpVersion": "HTTP/1.1",
-            "transportHeaders": {
-                "authorization": "Bearer eyJ0eXAiOiJKV1QiLC...",
-                "x-request-id": "bc1fd847-0a33-45ab-9911-fcdd3f2f77ec",
-                "content-length": "17",
-                ":method": "POST",
-                "x-forwarded-proto": "https",
-                ":scheme": "https",
-                "foo": "bar",
-                ":path": "/t/foo.com/v2/1.0.5/foo?hello=world",
-                "content-type": "application/x-www-form-urlencoded",
-                ":authority": "localhost:9095",
-                "user-agent": "curl/7.77.0",
-                "accept": "application/json"
-            },
-            "method": "POST",
-            "authenticationContext": {
-                "tokenType": "JWT",
-                "keyType": "PRODUCTION",
-                "token": "eyJ0eXAiOiJKV1QiLC..."
-            },
-            "requestOrigin": "172.19.0.1",
-            "pathTemplate": "/foo",
-            "prodClusterName": "carbon.super_clusterProd_localhost_SwaggerPetstore1.0.5",
-            "orgId": "carbon.super"
-        }
-    }
-    ```
-
 ### Response Payload from the OPA server
 
 Similar to the request generation, the default request generator class validates the response from OPA. When using the default implementation, you have to write your OPA policies using the following response format when queried with the `allow` policy.
@@ -199,7 +162,6 @@ Similar to the request generation, the default request generator class validates
 
 ### Customize the OPA request payload and response validation
 
-If you need to customize the OPA input JSON or OPA response validation, you can do so by writing your own custom OPA policies with custom Request Generators. Both regular Gateway and Choreo Connect support this extension.
+If you need to customize the OPA input JSON or OPA response validation, you can do so by writing your own custom OPA policies with custom Request Generators.
 
 - [Custom OPA Policy for Regular Gateway](custom-opa-policy-for-regular-gateway.md)
-- [Custom OPA Policy for Choreo Connect](custom-opa-policy-for-choreo-connect.md)

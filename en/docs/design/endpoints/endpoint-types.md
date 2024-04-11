@@ -35,9 +35,6 @@ An Endpoint is a specific destination for a message such as an address, WSDL, a 
 <p class="admonition-title">Note</p>
 <p>The <b>Mock Implementation</b> will be only available for APIs that are in the <b>CREATED</b> or <b>PRE-RELEASED</b> state.</p>
 </div></li>
-<li>
-<a href="{{base_path}}/design/prototype-api/create-mocked-oas-api/">Mock implementation with Choreo Connect</a> - When using the Mock Implementation in Choreo Connect, you can generate mock responses based on the examples provided in the OpenAPI specification and directly get the response. For non-default cases, the exact response can be requested using the <code>Prefer</code> and <code>Accept</code> headers.
-</li>
 </td>
 </tr>
 <tr><td>AWS Lambda</td><td>An AWS Lambda endpoint can be used to invoke AWS Lambda functions through WSO2 API Gateway. For more information on creating APIs with AWS Lambda endpoint, see <a href="{{base_path}}/tutorials/create-and-publish-awslambda-api/">Create and Publish an AWS Lambda API</a>.</td>

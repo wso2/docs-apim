@@ -91,7 +91,7 @@ With OpenAPI 3.0 you can provide the expected payloads and headers in the follow
     |-----------------|--------------------|
     | `response code` | Can be 3 digit status code or a wildcard format like 2XX. `default` can be also provided instead of a particular status code. |   
     | `header` | Header name. You can provide multiple headers similarly under `headers`. |   
-    | `media type` | Mock response content type. Provide allowed content types for the resource. When accept header is presented in a request, Choreo Connect will return the content which suited to accepted media type among them. |   
+    | `media type` | Mock response content type. Provide allowed content types for the resource. |   
     | `example` | Provide the content body as a simple string or as an object. If an object is given as the `example`, it will be parsed to JSON format. |   
 
   <!-- TODO(amali): add examples in swagger 2.0-->
@@ -137,30 +137,3 @@ With OpenAPI 3.0 you can provide the expected payloads and headers in the follow
             ```
 
     <!-- TODO(amali): add more examples-->
-
-    !!! tip "Behavioral Characteristics"
-
-        The following are the behavioral characteristics of Mock Implementation with Choreo Connect.
-
-        **Preferred Status Code in the Prefer Header**   
-
-        - If the request has a valid integer value as the **code** preference, 
-          Choreo Connect picks the most matched response example from the OpenAPI specification by checking the exact codes and
-          wild cards matches. Status code of the response will be same as the code preference given in the request. 
-          
-        - If the request does not have a code preference,
-          Choreo Connect will check for examples under `default` responses. If no default responses are defined, 
-          then picks a one out of the response examples. 
-          
-        **Accept Type in the Accept Header** 
-          
-        - If the request has accept-types,
-          Choreo connect will pick examples defined under a matching media type. 
-          
-        - If the request does not have accept-types, 
-          Choreo connect will check for examples with 'application/json' as the media type. If there are no examples for 'application/json', then picks one out of available media-type examples.
-
-        **Preference not found** or **Example not provided**
-            
-        - If the request has an example preference provided with the `Prefer` or `Accept` header, but does not match any of the cases above or has no matching examples, then `501, Not Implemented` status code would be returned with `900871` error code. The same error response will be returned if the invoked resource does not contain any mock response examples in the OpenAPI definition.
-

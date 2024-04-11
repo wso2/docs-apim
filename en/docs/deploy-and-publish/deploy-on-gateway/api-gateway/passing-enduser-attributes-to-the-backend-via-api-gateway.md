@@ -374,7 +374,3 @@ apim.jwt.binding_federated_user_claims</code></pre></td>
     1.  Go to the `<APIM_GATEWAY>/repository/conf` directory and open the `log4j2.properties` file with a text editor.
     2.  Add these two loggers to the list of loggers:<br/>
     <code>loggers = AUDIT_LOG, trace-messages,... <strong>, synapse-headers, synapse-wire</strong></code>
-
-## See Also
-
-If you want to learn how you can pass end user attributes to the backend when working with Choreo Connect, see [Passing Enduser Attributes to the Backend]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/passing-enduser-attributes-to-the-backend-via-choreo-connect), which is under the Choreo Connect documentation section.

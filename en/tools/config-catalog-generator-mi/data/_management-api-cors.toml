@@ -1,4 +1,0 @@
-[management_api.cors]
-enabled = true
-allowed_origins = "*"
-allowed_headers = "Authorization"
