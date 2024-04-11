@@ -1,6 +1,6 @@
 # WSO2 API Controller (APICTL)
 
-The **WSO2 API Controller (apictl)** is the command-line tool of WSO2 API Manager. This allows you to move APIs, API Products, and Applications across API-M environments and to perform CI/CD operations. It can also be used to perform these same tasks on a Kubernetes deployment. Also, apictl can be used as a developer CLI tool for Choreo Connect. Furthermore, it can be used with the Micro Integrator (WSO2 MI) for monitoring integration artifacts and performing management/administrative tasks from the command line.
+The **WSO2 API Controller (apictl)** is the command-line tool of WSO2 API Manager. This allows you to move APIs, API Products, and Applications across API-M environments and to perform CI/CD operations. It can also be used to perform these same tasks on a Kubernetes deployment. Furthermore, it can be used with the Micro Integrator (WSO2 MI) for monitoring integration artifacts and performing management/administrative tasks from the command line.
 
 ## Get Started
 
@@ -730,77 +730,6 @@ Archive API, Application, or API Product projects to a zip format. The bundle na
             </th>
             <td>
                 The destination where the bundled ZIP file of the API/API product director is saved.
-            </td>
-        </tr>
-    </table>
-
-### apictl mg
-
-Deploy, Update, Undepoly an apictl project to/from Choreo Connect.
-
--   Usage
-
-    ```bash
-    apictl mg [subcommand] [argument] [flag]
-    ```
-
--   Subcommands
-
-    <table>
-        <tr>
-            <th>
-                <code>add</code>
-            </th>
-            <td>
-                Adds a Choreo Connect environment.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                <code>deploy</code>
-            </th>
-            <td>
-                Deploy an API (apictl project) in Choreo Connect.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                <code>get</code>
-            </th>
-            <td>
-                List APIs deployed in the Choreo Connect environment.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                <code>login</code>
-            </th>
-            <td>
-                Log in to the Choreo Connect environment.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                <code>logout</code>
-            </th>
-            <td>
-                Log out from the Choreo Connect environment.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                <code>remove</code>
-            </th>
-            <td>
-                Remove an environment from the Choreo Connect environment.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                <code>undeploy</code>
-            </th>
-            <td>
-                Undeploy an API in Choreo Connect.
             </td>
         </tr>
     </table>

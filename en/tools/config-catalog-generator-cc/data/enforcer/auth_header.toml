@@ -1,3 +1,0 @@
-[enforcer.security.authHeader]
-  enableOutboundAuthHeader = false
-  authorizationHeader = "authorization"

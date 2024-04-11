@@ -1,2 +1,0 @@
-[system.parameter]
-org.wso2.SecureVaultPasswordRegEx = "any_valid_regex"

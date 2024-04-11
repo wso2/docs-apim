@@ -7729,10 +7729,6 @@ paths:
                   type: string
                   description: Operation policy definition of synapse gateway to upload
                   format: binary
-                ccPolicyDefinitionFile:
-                  type: string
-                  description: Operation policy definition of choreo connect to upload
-                  format: binary
         required: true
       responses:
         201:
@@ -7975,10 +7971,6 @@ paths:
                 synapsePolicyDefinitionFile:
                   type: string
                   description: Operation policy definition of synapse gateway to upload
-                  format: binary
-                ccPolicyDefinitionFile:
-                  type: string
-                  description: Operation policy definition of choreo connect to upload
                   format: binary
         required: true
       responses:

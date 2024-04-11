@@ -1,3 +1,0 @@
-[enforcer.tracing]
-  enabled = false
-  type = "jaeger"

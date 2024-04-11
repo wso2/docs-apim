@@ -79,9 +79,9 @@ You need to implement two interfaces from the above dependency, (i.e., `CounterM
 
 ## Step 2 - Deploy the Event Publisher
 
-After the project is implemented and built, you need to deploy and configure the resulting library within WSO2 API Manager. This section will guide you through the steps required to deploy and configure the above-created library in WSO2 API Manager Gateway and/or Choreo Connect.
+After the project is implemented and built, you need to deploy and configure the resulting library within WSO2 API Manager. This section will guide you through the steps required to deploy and configure the above-created library in WSO2 API Manager Gateway.
 
-Follow the instructions below to configure WSO2 API Gateway and Choreo Connect for the sample created above:
+Follow the instructions below to configure WSO2 API Gateway for the sample created above:
 
 ??? info "API Manager Gateway"
     
@@ -111,67 +111,6 @@ Follow the instructions below to configure WSO2 API Gateway and Choreo Connect f
              logger.reporter.name = <PackageName>
              logger.reporter.level = INFO
              ```
-
-??? info "Choreo Connect"
-    Follow the instructions below to configure Choreo Connect for the sample created above:
-    
-    1. Copy the JAR file to the `choreo-connect-1.0.0/docker-compose/resources/enforcer/dropins` directory.
-    2. Open the `choreo-connect-1.0.0/docker-compose/choreo-connect-with-apim/conf/config.toml` file in a text editor and modify the `analytics` section as follows:
-
-        ```
-          [analytics]
-              enabled = true
-              [analytics.enforcer]
-              [analytics.enforcer.configProperties]
-                  authURL = "$env{analytics_authURL}"
-                  authToken = "$env{analytics_authToken}"
-                  "publisher.reporter.class" = "org.wso2.am.analytics.publisher.sample.reporter.CustomReporter"
-        ```
-
-    3. Open the `choreo-connect-1.0.0/docker-compose/choreo-connect-with-apim/conf/log4j2.properties` file in a text editor and do the following modifications.
-
-         1. Add an appender to the appenders list.
-
-             ```
-             appenders = ENFORCER_ANALYTICS, ...(list of other available appenders)
-             ```
-
-         2. Add the following configurations after the appenders.
-
-             ```
-              appender.ENFORCER_ANALYTICS.type = RollingFile
-              appender.ENFORCER_ANALYTICS.name = ENFORCER_ANALYTICS
-              appender.ENFORCER_ANALYTICS.fileName = logs/enforcer_analytics.log
-              appender.ENFORCER_ANALYTICS.filePattern = /logs/enforcer_analytics-%d{MM-dd-yyyy}.log
-              appender.ENFORCER_ANALYTICS.layout.type = PatternLayout
-              appender.ENFORCER_ANALYTICS.layout.pattern = [%d] - %m%ex%n
-              appender.ENFORCER_ANALYTICS.policies.type = Policies
-              appender.ENFORCER_ANALYTICS.policies.time.type = TimeBasedTriggeringPolicy
-              appender.ENFORCER_ANALYTICS.policies.time.interval = 1
-              appender.ENFORCER_ANALYTICS.policies.time.modulate = true
-              appender.ENFORCER_ANALYTICS.policies.size.type = SizeBasedTriggeringPolicy
-              appender.ENFORCER_ANALYTICS.policies.size.size=10MB
-              appender.ENFORCER_ANALYTICS.strategy.type = DefaultRolloverStrategy
-              appender.ENFORCER_ANALYTICS.strategy.max = 20
-              appender.ENFORCER_ANALYTICS.filter.threshold.type = ThresholdFilter
-              appender.ENFORCER_ANALYTICS.filter.threshold.level = DEBUG
-             ```
-
-         3. Add `reporter` to the loggers list.
-
-              ```
-              loggers = reporter, ...(list of other available loggers)
-              ```
-
-         4. Add the following configurations after the loggers.
-
-              ```
-              logger.reporter.name = org.wso2.am.analytics.publisher.sample.reporter
-              logger.reporter.level = INFO
-              logger.reporter.additivity = false
-              logger.reporter.appenderRef.rolling.ref = ENFORCER_ANALYTICS
-              ```
-
 
 ## Step 3 - Visualize analytics data
 
@@ -216,19 +155,6 @@ This section will guide you through the steps required to visualize the publishe
           paths:
               - /<API-M_HOME>/repository/logs/wso2carbon.log
         ```
-
-    ??? info "Choreo Connect"
-         Modify the Filebeat configuration file as follows:
-         
-         The log data is available in `enforcer_analytics.log`.
-
-         ```
-         filebeat.inputs:
-         - type: log
-         enabled: true
-         paths:
-             - /home/wso2/logs/enforcer_analytics.log
-         ```
 
 2. [Set up assets]((https://www.elastic.co/guide/en/beats/filebeat/7.13/filebeat-installation-configuration.html#setup-assets)). 
          

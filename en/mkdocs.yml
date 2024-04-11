@@ -105,7 +105,6 @@ nav:
             - Overview: design/prototype-api/overview.md
             - Mock Implementation: 
                 - With API Gateway: design/prototype-api/create-mocked-js-api.md
-                - With Choreo Connect: design/prototype-api/create-mocked-oas-api.md
             - Existing Backend Implementation as a Prototype API: design/prototype-api/backend-url-prototype-api.md
         - Create API Products:
                 - API Product Overview: design/create-api-product/api-product-overview.md
@@ -151,10 +150,6 @@ nav:
                 - Add a Class Mediator: design/api-policies/regular-gateway-policies/adding-a-class-mediator.md
                 - Configure Message Builders and Formatters: design/api-policies/regular-gateway-policies/configuring-message-builders-formatters.md
                 - JWT claim based access validator: design/api-policies/regular-gateway-policies/jwt-claim-based-access-validator.md
-            - Choreo Connect Policies:
-                - Overview: design/api-policies/choreo-connect-policies/cc-op-policy-overview.md
-                - Call Interceptor Service: design/api-policies/choreo-connect-policies/call-interceptor-service.md
-                - Create a Custom Policy: design/api-policies/choreo-connect-policies/create-custom-cc-policy.md
             - Revoke One Time Tokens Policy: design/api-policies/revoke-one-time-tokens-policy.md
         - API Security:
             - Authentication:
@@ -208,7 +203,6 @@ nav:
             - Open Policy Agent (OPA) Validation:
                 - Overview: design/api-security/opa-validation/overview.md
                 - Custom OPA Policy for Regualr Gateway: design/api-security/opa-validation/custom-opa-policy-for-regular-gateway.md
-                - Custom OPA Policy for Choreo Connect: design/api-security/opa-validation/custom-opa-policy-for-choreo-connect.md
         - Rate Limiting:
                 - Throttling Use-Cases: design/rate-limiting/introducing-throttling-use-cases.md
                 - Add New Throttling Policies: design/rate-limiting/adding-new-throttling-policies.md
@@ -235,7 +229,6 @@ nav:
             - Validate API Definitions with Linters: design/advanced-topics/validate-api-definitions-with-linters.md
     - Deploy and Publish APIs:
         - Deploy on Gateway:
-            - Deploy APIs in the API Gateway vs Choreo Connect: deploy-and-publish/deploy-on-gateway/deploying-apis-in-api-gateway-vs-choreo-connect.md
             - Deploy API:
                 - Deploy an API: deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api.md
                 - Expose APIs via Custom Hostnames: deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames.md
@@ -270,139 +263,6 @@ nav:
                     - API Gateways with Dedicated Backends: deploy-and-publish/deploy-on-gateway/api-gateway/api-gateways-with-dedicated-backends.md
                     - Mutual SSL Between API Gateway and Backend: deploy-and-publish/deploy-on-gateway/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
                     - Storing Custom Synapse Artifacts in the Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/custom-synapse-artifacts.md
-            - Choreo Connect:
-                - Choreo Connect Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview.md
-                - Supported Features : deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features.md
-                - Quick Start Guide : deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide-docker-with-apim.md
-                - Concepts:
-                    - API Manager as Control Plane:
-                        - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane.md
-                        - Event Hub: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/event-hub.md
-                        - Rate Limiting: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/cc-rate-limiting.md
-                        - Revoked Tokens: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/revoked-tokens.md
-                        - Third Party Key Manager: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/third-party-key-managers.md
-                    - As a Standalone Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway.md
-                    - Subscription Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/subscription-validation.md
-                    - Choreo Connect With Tenants: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/choreo-connect-with-tenants.md
-                    - Supported Template Patterns: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/template-patterns-for-choreo-connect.md
-                    - Choreo Connect Analytics: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/choreo-connect-analytics.md
-                - Deploy an API:
-                    - REST API: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-in-choreo-connect.md
-                    - SOAP API: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-soap-api-passthrough.md
-                    - REST API from a SOAP Endpoint: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-to-soap-api.md
-                    - WebSocket API: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-websocket-api-in-choreo-connect.md
-                    - GraphQL API: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-graphql-api-in-choreo-connect.md
-                    - Expose via Custom Hostnames - vHosts: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-with-custom-hostnames.md
-                    - Immutable Gateway:
-                        - Deploy as an Immutable Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-apis-as-immutable-gateway.md
-                    - REST API with a Mock Implementation: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-with-mock-impl.md
-                - Security:
-                    - API Authentication:
-                        - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-authentication.md
-                        - Use an Internal Key: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/internal-key-authentication.md
-                        - Use an Access Token: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/oauth2-access-tokens.md
-                        - Use an API Key: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-key-authentication.md
-                        - Use Mutual SSL: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/mutual-ssl-authentication.md
-                        - Use an Enforcer Test Key: deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt.md
-                        - Configure an External Key Manager: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/configuring-an-external-key-manager.md
-                        - Use a Custom Authorization Header: deploy-and-publish/deploy-on-gateway/choreo-connect/security/use-a-custom-authorization-header.md
-                        - Reject Revoked Tokens: deploy-and-publish/deploy-on-gateway/choreo-connect/security/rejecting-revoked-tokens.md
-                        - Disable Security: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/disabling-security.md
-                    - API Authorization:
-                        - Scope Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authorization/scope-validation.md
-                        - Subscription Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authorization/subscription-validation.md
-                        - Custom Claims Mapping: deploy-and-publish/deploy-on-gateway/choreo-connect/support-custom-claims-mapping.md
-                        - Open Policy Agent (OPA) Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authorization/opa-validation.md
-                    - Transport Security:
-                        - Component Certificates: deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/component-certificates.md
-                        - Backend Certificates: deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/backend-certificates.md
-                        - mTLS Between Choreo Connect and Backend: deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/mutual-tls-between-gateway-and-backend.md
-                    - Enable CORS: deploy-and-publish/deploy-on-gateway/choreo-connect/security/enabling-cors.md
-                    - Pass End User Attributes to the Backend: deploy-and-publish/deploy-on-gateway/choreo-connect/passing-enduser-attributes-to-the-backend-via-choreo-connect.md
-                - Configurations:
-                    - Configuration Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configuration-overview.md
-                    - Configure Logs: 
-                        - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-overview.md
-                        - Adapter: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-adapter.md
-                        - Enforcer: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-enforcer.md
-                        - Router: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-logs-router.md
-                    - Main Configurations:
-                        - Adapter: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/adapter-configurations.md
-                        - Enforcer: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/enforcer-configurations.md
-                        - Router: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/router-configurations.md
-                        - Control Plane: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/control-plane-configurations.md
-                        - Analytics: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/analytics-configurations.md
-                        - Tracing: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/tracing-configurations.md
-                - Deployment Options:
-                    - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-deploy-overview.md
-                    - Installation Prerequisites: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/installation-prerequisites.md
-                    - On Docker Compose:
-                        - With WSO2 API Manager as a Control Plane : deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-apim-as-control-plane.md
-                        - As a Standalone Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-docker.md
-                    - On Kubernetes with Helm Artifacts:
-                        - With WSO2 API Manager as a Control Plane: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane-helm-artifacts.md
-                        - As a Standalone Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-kubernetes-helm-artifacts.md
-                    - On Kubernetes with YAML Artifacts:
-                        - With WSO2 API Manager as a Control Plane: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane.md
-                        - As a Standalone Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-kubernetes.md
-                - Endpoints:
-                    - Endpoint Types: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/endpoint-types.md
-                    - Define Endpoints in an OpenAPI Definition: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/defining-endpoints-in-an-openapi-definition.md
-                    - Load Balanced Endpoints: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/load-balanced-endpoints.md
-                    - Failover Endpoints: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/failover-endpoints.md
-                    - Override Endpoint Information: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/overriding-endpoints-for-imported-apis.md
-                    - Define a Backend Security Scheme: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/defining-a-backend-security-scheme.md
-                    - Resiliency:
-                        - Retry Policies: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/resiliency/retry-policies.md
-                        - Timeouts: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/resiliency/timeout.md
-                        - Circuit Breakers: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/resiliency/circuit-breakers.md
-                - Extensions:
-                    - Add Custom Filters: deploy-and-publish/deploy-on-gateway/choreo-connect/extensions/custom-filters.md
-                    - Request Payload Passing: deploy-and-publish/deploy-on-gateway/choreo-connect/extensions/request-payload-passing.md
-                - Rate Limiting:
-                    - Enable Distributed Rate Limiting: deploy-and-publish/deploy-on-gateway/choreo-connect/rate-limiting/distributed-throttling.md
-                - Mediation:
-                    - Message Transformation: 
-                        - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/message-transformation-overview.md
-                        - Interceptor Microservice:
-                            - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/interceptor-microservice.md
-                            - Request Flow Interceptor: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/request-flow-interceptor.md
-                            - Response Flow Interceptor: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/response-flow-interceptor.md
-                            - Interceptor Context and Invocation Context: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/interceptor-context-and-invocation-context.md
-                            - Sample Interceptor Services: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/sample-interceptor-services.md
-                        - Define Interceptors in an OpenAPI Definition: deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/defining-interceptors-in-an-open-api-definition.md
-                    - API Policies: design/api-policies/choreo-connect-policies/cc-op-policy-overview.md
-                - Service Discovery:
-                    - Configure Choreo Connect with Consul: deploy-and-publish/deploy-on-gateway/choreo-connect/service-discovery/service-discovery-overview.md
-                    - Service Discovery:  deploy-and-publish/deploy-on-gateway/choreo-connect/service-discovery/choreo-connect-and-service-discovery.md
-                    - Service Mesh: deploy-and-publish/deploy-on-gateway/choreo-connect/service-discovery/choreo-connect-and-service-mesh.md
-                    - Service Mesh in Kubernetes:  deploy-and-publish/deploy-on-gateway/choreo-connect/service-discovery/choreo-connect-and-k8s.md
-                - Service Mesh Integration: deploy-and-publish/deploy-on-gateway/choreo-connect/service-mesh/istio.md
-                - Observability:
-                    - Distributed Tracing: deploy-and-publish/deploy-on-gateway/choreo-connect/observability/distributed-tracing.md
-                - Analytics:
-                      - Configure Analytics with Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-analytics.md
-                      - Publish Custom Attributes with Analytics: deploy-and-publish/deploy-on-gateway/choreo-connect/analytics/publish-custom-analytics-attributes.md
-                - Git Integration: deploy-and-publish/deploy-on-gateway/choreo-connect/git-integration.md
-                - Data Compression: deploy-and-publish/deploy-on-gateway/choreo-connect/data-compression.md
-                - Configure Multiple Gateways with Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-multiple-gateways-with-choreo-connect.md
-                - File Upload via Multipart Requests: deploy-and-publish/deploy-on-gateway/choreo-connect/file-upload-via-multipart-requests.md
-                - HTTP 2.0: deploy-and-publish/deploy-on-gateway/choreo-connect/http-2.md
-                - Token Caching: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-caching.md
-                - Production Deployment Guideline: deploy-and-publish/deploy-on-gateway/choreo-connect/production-deployment-guideline.md
-                - Performance Tests:
-                      - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/performance-tests/performance-test-results-overview-cc.md
-                      - Router with One CPU: deploy-and-publish/deploy-on-gateway/choreo-connect/performance-tests/router-with-one-cpu-for-rest-api.md
-                      - Router with Two CPU: deploy-and-publish/deploy-on-gateway/choreo-connect/performance-tests/router-with-two-cpu-for-rest-api.md
-                - Migrate from Ballerina API Microgateway to Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/migration-guide-from-ballerina-api-microgateway.md
-                - Troubleshooting:
-                    - Enable Debug Logs: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/adding-debug-logs.md
-                    - Error Handling: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/error-handling.md
-                    - Enforcer Admin API: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/enforcer-admin-api/enforcer-v1.0.0.md
-                    - Debug Memory Issues: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/debug-memory.md
-                - x-forward-for (XFF): deploy-and-publish/deploy-on-gateway/choreo-connect/xff-header.md
-                - Update Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/update-choreo-connect.md
-                - Frequently Asked Questions (FAQs): deploy-and-publish/deploy-on-gateway/choreo-connect/faq.md
         - Publish on Developer Portal:
             - Publish an API: deploy-and-publish/publish-on-dev-portal/publish-an-api.md
             - Add a Third-party API: deploy-and-publish/publish-on-dev-portal/third-party-api-support.md
@@ -934,7 +794,6 @@ nav:
             - MI Config Catalog: reference/config-catalog-mi.md
             - MI Dashboard Config Catalog: reference/config-catalog-mi-dashboard.md
         - API Controller (APICTL): reference/apictl/wso2-api-controller.md
-        - API Kubernetes Operator: reference/k8s-operators/k8s-api-operator.md
         - Connectors:
             - Connectors Overview: reference/connectors/connectors-overview.md
             - When to Use Connectors: reference/connectors/why-connectors.md
@@ -1606,18 +1465,6 @@ nav:
                 - Micro Integrator on K8s:
                     - Micro Integrator Deployment Patterns on K8s: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns.md
                     - Deploy the Micro Integrator on K8s: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment.md
-                - APIs and Integrations on K8s:
-                    - Install the API K8s Operator: install-and-setup/setup/kubernetes-operators/k8s-api-operator/install.md
-                    - Deploy APIs Using the Operator: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-apis/api-deployments.md
-                    - Deploy Integrations Using the Operator: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments.md
-                    - Deploy Integrations Using Helm Resources: install-and-setup/setup/mi-setup/deployment/deploying-micro-integrator-with-helm.md
-                    - API Deployment Samples:
-                        - Sample 1 - Target Endpoint: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-apis/api-samples/sample-1-target-endpoint.md
-                        - Sample 2 - Deployment Params and Certs: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-apis/api-samples/sample-2-deployment-params-and-certs.md
-                    - Integration Deployment Samples:
-                        - Sample 1 - Hello World: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md
-                        - Sample 2 - Message Routing: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md
-                        - Sample 3 - JMS Sender/Receiver: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver.md
             - Deployment Best Practices:
                 - Deployment Checklist: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
                 - Security Guidelines for a Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
@@ -1663,8 +1510,6 @@ nav:
                 - Manage Common API Policies:
                     - Manage Common API Policies: install-and-setup/setup/api-controller/managing-common-api-policies/managing-common-api-policies.md
                     - Migrate Common API Policies to Different Environments: install-and-setup/setup/api-controller/managing-common-api-policies/migrating-common-api-policies-to-different-environments.md
-                - Manage APIs in Kubernetes: install-and-setup/setup/api-controller/managing-apis-in-kubernetes/managing-apis-in-kubernetes.md
-                - Manage Choreo Connect: install-and-setup/setup/api-controller/managing-choreo-connect/managing-choreo-connect-with-ctl.md
                 - Manage Integrations: install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl.md
                 - Encrypt Secrets with apictl: install-and-setup/setup/api-controller/encrypting-secrets-with-ctl.md
                 - Enable Correlation Logs with apictl: install-and-setup/setup/api-controller/enabling-correlation-logs-with-apictl.md
@@ -1901,7 +1746,6 @@ plugins:
               'learn/api-gateway/scaling-the-gateway.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/api-gateway/scaling-the-gateway/'
               'learn/api-gateway/api-gateways-with-dedicated-backends.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/api-gateway/api-gateways-with-dedicated-backends/'
               'learn/api-gateway/mutual-ssl-between-api-gateway-and-backend.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/api-gateway/mutual-ssl-between-api-gateway-and-backend/'
-              'learn/api-microgateway/grouping-apis-with-labels.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview/'
               'learn/design-api/publish-api/publish-an-api.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/publish-on-dev-portal/publish-an-api/'
               'learn/design-api/publish-api/publish-through-multiple-api-gateways.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-through-multiple-api-gateways/'
               'learn/design-api/publish-api/publish-to-multiple-external-api-stores.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/publish-on-dev-portal/publish-to-multiple-external-api-stores/'
@@ -2083,7 +1927,6 @@ plugins:
               'develop/product-apis/restful-apis.md': 'https://apim.docs.wso2.com/en/4.2.0/reference/product-apis/overview/'
               'develop/product-apis/configuring-rest-api.md': 'https://apim.docs.wso2.com/en/4.2.0/reference/product-apis/advanced-configurations/'
               'learn/analytics/analyzing-apim-statistics-with-batch-analytics/introducing-the-wso2-api-manager-statistics-model.md': 'https://apim.docs.wso2.com/en/4.2.0/observe/api-manager-analytics/overview-of-api-analytics/'
-              'deploy/choreo-connect/quick-start-with-kubernetes.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy/choreo-connect/get-started-with-kubernetes-for-choreo-connect/'
               'deploy/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway/'
               'consume/collaboration/use-the-community-features.md': 'https://apim.docs.wso2.com/en/4.2.0/consume/collaboration/interact-with-the-community/'
               'learn/consume-api/discover-apis/search.md': 'https://apim.docs.wso2.com/en/4.2.0/consume/discover-apis/search/'
@@ -2159,7 +2002,6 @@ plugins:
               'observe/api-manager-analytics/configure-analytics/working-with-organizations.md': 'https://apim.docs.wso2.com/en/4.2.0/api-analytics/role-based-access-control/'
               'observe/api-manager-analytics/configure-analytics/register-for-analytics.md': 'https://apim.docs.wso2.com/en/4.2.0/api-analytics/getting-started-guide/'
               'observe/api-manager-analytics/configure-analytics/configure-alerts.md': 'https://apim.docs.wso2.com/en/4.2.0/api-analytics/configure-alerts/'
-              'observe/api-manager-analytics/configure-analytics/configure-microgateway.md': 'https://apim.docs.wso2.com/en/4.2.0/api-analytics/gateways/configure-choreo-connect/'
               'observe/api-manager-analytics/configure-analytics/configure-synapse-gateway.md': 'https://apim.docs.wso2.com/en/4.2.0/api-analytics/gateways/configure-synapse-gateway/'
               'observe/api-manager-analytics/analytics-pages/analytics-pages-introduction.md': 'https://apim.docs.wso2.com/en/4.2.0/api-analytics/viewing/analytics-pages-introduction/'
               'observe/api-manager-analytics/analytics-pages/analytics-pages-overview.md': 'https://apim.docs.wso2.com/en/4.2.0/api-analytics/viewing/analytics-pages-overview/'
@@ -2228,26 +2070,6 @@ plugins:
               'design/prototype-api/create-a-mock-api-with-an-inline-script.md': 'https://apim.docs.wso2.com/en/4.2.0/design/prototype-api/create-a-prototype-api/'
               'design/prototype-api/deploy-and-test-mock-apis.md': 'https://apim.docs.wso2.com/en/4.2.0/design/prototype-api/create-a-prototype-api/'
               'design/prototype-api/create-a-prototype-api.md': 'https://apim.docs.wso2.com/en/4.2.0/design/prototype-api/overview/'
-              'deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-log4j.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-log4j2/'
-              'deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-log4j.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-log4j2/'
-              'deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/inter-component-communication.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview/#communication-between-the-components'
-              'deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-overview.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-deploy-overview/'
-              'deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-api-controller/'
-              'deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-kubernetes.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-api-controller/'
-              'deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-kubernetes-with-apim.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim/'
-              'deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-web-socket-api.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-websocket-api-in-choreo-connect/'
-              'deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-with-virtual-hosts.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-with-custom-hosts-with-apim/'
-              'deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/overview.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview/#choreo-connect-modes/'
-              'deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-via-apictl.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-in-apim-as-control-plane-mode/#choreo-connect-as-a-standalone-gateway'
-              'deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-via-apim.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-in-choreo-connect/'
-              'deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-with-custom-hosts-with-apim.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-with-custom-hostnames/'
-              'deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-with-custom-hosts-with-apictl.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-with-custom-hostnames/#choreo-connect-as-a-standalone-gateway'
-              'deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-apim-as-control-plane/'
-              'deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-kubernetes-with-api-controller.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-kubernetes/'
-              'deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-apim.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-apim-as-control-plane/'
-              'deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-on-docker-with-api-controller.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-as-a-standalone-gateway-on-docker/'
-              'deploy-and-publish/deploy-on-gateway/choreo-connect/security/importing-certificates-to-the-choreo-connect-truststore.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/component-certificates/'
-              'deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/transport-security.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/backend-certificates/'
               'deploy-and-publish/deploy-on-gateway/api-gateway/message-tracing.md': 'https://apim.docs.wso2.com/en/4.2.0/get-started/about-this-release/#removed-features-and-functionalities'
               'develop/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping.md': 'https://apim.docs.wso2.com/en/4.2.0/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping/'
 

@@ -1,4 +1,0 @@
-[analytics.adapter]
-  bufferFlushInterval = "1s"
-  bufferSizeBytes = 16384
-  gRPCRequestTimeout = "20s"
