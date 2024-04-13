@@ -83,8 +83,9 @@ class="org.wso2.carbon.relay.BinaryRelayBuilder"
 content_type = "empty/content"
 class="org.wso2.carbon.relay.ExpandingMessageFormatter"
 
-[transport]
-default_content_type = "empty/content"
+[[transport.parameters]]
+name = "DEFAULT_REQUEST_CONTENT_TYPE"
+value = "empty/content"
 ```
 
 ### Handling text/csv messages
