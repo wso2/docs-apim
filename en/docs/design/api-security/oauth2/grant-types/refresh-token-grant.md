@@ -96,7 +96,7 @@ The parameters required to invoke the following API are as follows:
 
 ```
 > POST /oauth2/revoke HTTP/1.1
-> Host: localhost:9500
+> Host: localhost:9443
 > User-Agent: curl/8.4.0
 > Accept: */*
 > Authorization: Basic dTJRMGpDb2RhWklnRlZoZkxUY3VSNHJCX05ZYTpCWkVmaUZBd043NkJDUUxKTjFTcW5YaGxVcm9h
@@ -142,7 +142,7 @@ The parameters required to invoke the following API are as follows:
 
 ```
 > POST /oauth2/revoke HTTP/1.1
-> Host: localhost:9500
+> Host: localhost:9443
 > User-Agent: curl/8.4.0
 > Accept: */*
 > Authorization: Basic dTJRMGpDb2RhWklnRlZoZkxUY3VSNHJCX05ZYTpCWkVmaUZBd043NkJDUUxKTjFTcW5YaGxVcm9h
