@@ -126,7 +126,7 @@ The parameters required to invoke the following API are as follows:
 
 - `base64Encode(clientId:clientSecret)` - Use a base64 encoder to encode your client ID and client secret in the format: `<clientId>:<clientSecret>`. WSO2 does not recommend the use of online base64 encoders for this purpose.
 
-- `token_type_hint -` This parameter is **optional**. If you do not specify this parameter, then WSO2 API Manager will search in both key spaces (access token and refresh token) and if it finds a matching token then it will be revoked. Therefore, if this parameter it is not specified the token revocation process takes longer. However, if you specify this parameter then it will only search in the respective token key space, hence the token revocation process is much faster.
+- `token_type_hint -` This parameter is **optional**. If you do not specify this parameter, then WSO2 API Manager will search in both key spaces (access token and refresh token) and if it finds a matching token then it will be revoked. Therefore, if this parameter is not specified the token revocation process takes longer. However, if you specify this parameter then it will only search in the respective token key space, hence the token revocation process is much faster.
 
 === "Format"
     ``` java
