@@ -70,18 +70,18 @@ Let's look at a scenario where a single access token generated for an applicatio
 
     [![Sample API Creation]({{base_path}}/assets/img/administer/global-keymanager/sample-api-creation.png)]({{base_path}}/assets/img/administer/global-keymanager/sample-api-creation.png)
 
-    !!! Note
-        The subscription availability option will only be displayed if there are tenants in your environment.
-
 7. Go to **Portal Configurations** from the left menu and click **Subscriptions**, click the **Subscription Availability** dropdown, and select the desired subscription availability option. For this scenario, select **Available to all the tenants** and Click Save.
+
+    !!! Note
+        The **Subscription Availability** option will only be displayed if there are tenants in your environment.
 
     [![Relationship between the API's visibility and subscription availability]({{base_path}}/assets/img/learn/api-subscription-availability.png)]({{base_path}}/assets/img/learn/api-subscription-availability.png)
 
 8. [Deploy the API]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/)
 
-9.  Sign in to the WSO2 API Publisher (`https://<hostname>:9443/publisher`) using the new tenant’s (abc.com) admin credentials and repeat Steps 5 - 7
+9. Sign in to the WSO2 API Publisher (`https://<hostname>:9443/publisher`) using the new tenant’s (abc.com) admin credentials and repeat Steps 5 - 7
 
-10. Sign in to the super tenant's WSO2 API Manager Developer Portal using the super tenant’s admin credentials (`https://<hostname>:9443/devportal`)
+10. Sign in to the super tenant's Developer Portal using the super tenant’s admin credentials (`https://<hostname>:9443/devportal`)
 
 11. [Create an application]({{base_path}}/consume/manage-application/create-application/) (Ex: SampleApp)
 
