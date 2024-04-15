@@ -1,14 +1,14 @@
 # Product Compatibility
 
-Given below are the compatibility details of the WSO2 API Manager (WSO2 API-M) 4.2.0 runtimes.
+Given below are the compatibility details of the WSO2 API Manager (WSO2 API-M) 4.3.0 runtimes.
 
 ## API-M runtime compatibility
 
-Given below is the tested compatibility of the API-M runtime of WSO2 API Manager 4.2.0.
+Given below is the tested compatibility of the API-M runtime of WSO2 API Manager 4.3.0.
 
 #### Tested Operating Systems
 
-As WSO2 API Manager is a Java application, you can generally run it on most operating systems. Listed below are the operating systems that have been tested with the API-M 4.2.0 runtime.
+As WSO2 API Manager is a Java application, you can generally run it on most operating systems. Listed below are the operating systems that have been tested with the API-M 4.3.0 runtime.
 
 |**Operating System**|**Versions**  |
 |--------------------|--------------|
@@ -28,7 +28,7 @@ The **WSO2 API-M** runtime has been tested with the following JDKs:
 |AdoptOpenJDK        | 11, 17    |
 |OpenJDK             | 11, 17    |
 |Oracle JDK          | 11, 17    |
-|Temurin OpenJDK     | 11, 17    |
+|Temurin OpenJDK     | 11, 17, 21    |
 
 #### Tested DBMSs
 
@@ -49,10 +49,10 @@ The **WSO2 API-M** runtime is tested with the following databases:
 
 #### Tested WSO2 Products
 
-The following is a list of other WSO2 products that have been tested with WSO2 API Manager 4.2.0.
+The following is a list of other WSO2 products that have been tested with WSO2 API Manager 4.3.0.
 
-- [WSO2 Micro Integrator 4.2.0](https://wso2.com/micro-integrator/)
 - [WSO2 Identity Server 6.0.0 and 6.1.0](https://wso2.com/identity-and-access-management/#)
+- [WSO2 API Platform For Kubernetes(APK) 1.1.0](https://wso2.com/api-platform-for-k8s)
 
 #### Compatible WSO2 Identity Servers (as Key Manager)
 
@@ -68,58 +68,19 @@ The following is a list of other WSO2 products that have been tested with WSO2 A
 </thead>
 <tbody>
 <tr class="even">
-<td>API-M 4.2.0 GA</td>
+<td>API-M 4.3.0 GA</td>
 <td>GA or update for WSO2 IS-6.0.0/WSO2 IS-6.1.0</td>
 </tr>
 <tr class="even">
-<td>API-M-4.2.0 update</td>
+<td>API-M-4.3.0 update</td>
 <td>GA or updated for WSO2 IS-6.0.0/WSO2 IS-6.1.0</td>
 </tr>
 </tbody>
 </table>
 
-## Micro Integrator runtime compatibility
-
-Given below is the tested compatibility of the Micro Integrator of WSO2 API Manager 4.2.0.
-
-#### Tested Operating Systems
-
-The **Micro Integrator** runtime is tested with the following operating systems:
-
-|**Operating System**|**Versions**|
-|--------------------|------------|
-|Windows             | 2019       |
-|Ubuntu              |18.04       |
-|Red Hat Enterprise Linux |7.4, 8.2  |
-|CentOS              |      7.5   |
-|MacOS               | 10.15      |
-|SUSE Linux          | 12         |
-
-#### Tested JDKs
-
-The **Micro Integrator** runtime is tested with the following JDKs:
-
-| **JDKS**            |**Versions**|
-|---------------------|------------|
-| CorrettoJDK         | 11, 17     |
-| AdoptOpenJDK        | 11, 17     |
-| OpenJDK             | 11, 17     |
-| Oracle JDK          | 11, 17     |
-
-#### Tested DBMSs
-
-The **Micro Integrator** runtime is tested with the following databases:
-
-|**DBMS**     |**Versions**|
-|--------------|-----------|
-|MySQL         | 5.7, 8    |
-|Oracle        | 12c release 2, 19c  |
-|Microsoft SQL Server| 2017 |
-|PostgreSQL            |10 |
-
 ## Streaming Integrator compatibility
 
-Given below is the tested compatibility of the Streaming Integrator of WSO2 API Manager 4.2.0.
+Given below is the tested compatibility of the Streaming Integrator version 4.2.0.
 
 #### Tested Operating Systems
 
