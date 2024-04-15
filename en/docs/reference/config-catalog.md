@@ -2730,7 +2730,7 @@ key_validation_handler_impl = "org.wso2.carbon.apimgt.keymgt.handlers.DefaultKey
 <pre><code class="toml">[apim.oauth_config]
 enable_outbound_auth_header = false
 auth_header = "Authorization"
-revoke_endpoint = "https://localhost:${https.nio.port}/revoke"
+revoke_endpoint = "https://localhost:${mgt.transport.https.port}/oauth2/revoke"
 enable_token_encryption = false
 enable_token_hashing = false</code></pre>
                     </div>
@@ -2796,7 +2796,7 @@ enable_token_hashing = false</code></pre>
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>https://localhost:8243/revoke</code></span>
+                                            <span class="param-default-value">Default: <code>https://localhost:9443/oauth2/revoke</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>Valid URL for revocation endpoint.</code></span>
@@ -4648,7 +4648,7 @@ log_tracer.enable = true
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.token.revocation]
-notifier_impl = "org.wso2.carbon.apimgt.keymgt.events.TokenRevocationNotifierImpl"
+notifier_impl = "org.wso2.carbon.apimgt.notification.TokenRevocationNotifier"
 enable_realtime_notifier = true
 realtime_notifier.ttl = 5000
 enable_persistent_notifier = true
