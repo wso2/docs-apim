@@ -4646,7 +4646,7 @@ log_tracer.enable = true
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.token.revocation]
-notifier_impl = "org.wso2.carbon.apimgt.notification.TokenRevocationNotifier"
+notifier_impl = "org.wso2.carbon.apimgt.notification.TokenRevocationNotifierImpl"
 enable_realtime_notifier = true
 realtime_notifier.ttl = 5000
 enable_persistent_notifier = true
@@ -4677,7 +4677,7 @@ persistent_notifier.password = "root"</code></pre>
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>org.wso2.carbon.apimgt.notification.TokenRevocationNotifier</code></span>
+                                            <span class="param-default-value">Default: <code>org.wso2.carbon.apimgt.notification.TokenRevocationNotifierImpl</code></span>
                                         </div>
                                         
                                     </div>
