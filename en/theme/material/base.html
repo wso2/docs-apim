@@ -29,6 +29,7 @@
       {% endif %}
       <link rel="icon" href="{{ config.theme.favicon | url }}">
       <meta name="generator" content="mkdocs-{{ mkdocs_version }}, mkdocs-material-9.1.2">
+      <meta http-equiv="Content-Security-Policy" content="connect-src 'self' apim.docs.wso2.com api.github.com;">
     {% endblock %}
     {% block htmltitle %}
       {% if page.meta and page.meta.title %}
