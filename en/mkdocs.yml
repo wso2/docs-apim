@@ -1236,8 +1236,8 @@ nav:
                 - Synapse Message Context Properties: reference/mediators/property-reference/message-context-properties.md
                 - Accessing Properties with XPath : reference/mediators/property-reference/accessing-properties-with-xpath.md
             - Scheduled Task Properties: reference/synapse-properties/scheduled-task-properties.md
-            - Synapse Properties:
-                - Endpoint Properties: reference/synapse-properties/endpoint-properties.md
+            #- Synapse Properties:
+                #- Endpoint Properties: reference/synapse-properties/endpoint-properties.md
                 #- Sequence Properties: reference/synapse-properties/sequence-properties.md
             - Inbound Endpoints:
                 - About Inbound Endpoints: reference/synapse-properties/inbound-endpoints/about-inbound-endpoints.md
@@ -2247,7 +2247,7 @@ plugins:
               'deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/transport-security.md': 'https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/choreo-connect/security/tls/backend-certificates/'
               'deploy-and-publish/deploy-on-gateway/api-gateway/message-tracing.md': 'https://apim.docs.wso2.com/en/4.2.0/get-started/about-this-release/#removed-features-and-functionalities'
               'develop/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping.md': 'https://apim.docs.wso2.com/en/4.2.0/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping/'
-
+              'reference/synapse-properties/endpoint-properties.md': 'https://mi.docs.wso2.com/en/4.2.0/reference/synapse-properties/endpoint-properties/'       
 
     # Extra
 extra_css:
