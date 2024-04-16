@@ -7,10 +7,10 @@ Testing APIs is an essential step in the API development lifecycle. API Manager 
 
 Follow the steps below to test your API with API Chat:
 
-## Step 1 - Sign in to Choreo
-
 !!! tip
-    If you've previously registered your environment for the [Marketplace Assistant]({{base_path}}/consume/invoke-api/invoke-apis-using-tools/), you can skip Step 1 by utilizing the same credentials for the API Chat. Otherwise, follow these steps to register your on-premise environment:
+    If you've previously registered your environment for the [Marketplace Assistant]({{base_path}}/consume/discover-apis/marketplace-assistant), you can skip Step 1 by utilizing the same credentials for the API Chat. Otherwise, complete Step 1 to register your on-premise environment.
+
+## Step 1 - Sign in to Choreo
 
 1. Navigate to Choreo using the URL: <a href="https://console.choreo.dev">https://console.choreo.dev</a>.
 
@@ -26,14 +26,16 @@ Follow the instructions below to register your on-premise environment:
 
       [![Settings Menu]({{base_path}}/assets/img/observe/settings-menu.png)]({{base_path}}/assets/img/observe/settings-menu.png)
 
-2. Select the **On-prem Keys** tab and click **Generate Key**.
+2. If you are a member of multiple organizations, select the appropriate organization from the top left-hand corner.
+
+3. Select the **On-prem Keys** tab and click **Generate Key**.
 
       [![On-prem Key]({{base_path}}/assets/img/observe/on-prem-key.png)]({{base_path}}/assets/img/observe/on-prem-key.png)
 
-3. Enter a suitable name for your environment (e.g., customer1-dev).
+4. Enter a suitable name for your environment (e.g., dev).
 
-4. Click **Generate**.
-5. Copy the key that was generated before closing the dialog box.
+5. Click **Generate**.
+6. Copy the key that was generated before closing the dialog box.
 
 ## Step 3 - Configure API Manager
 
@@ -76,7 +78,17 @@ Now we can begin testing APIs. Note that this guide covers the API Chat capabilt
 
          TEST KEY will be generated with default scopes. If you need to generate a token with specific scopes, go to the application view and generate a token.
 
-7. Now you can enter your query in natural language and execute it. You can use the sample queries to try out API Chat, or provide your own query. Let's use the following query: _First get me the menu. Then, create a new Order with customerName 'John Smith', pizzaType 'Pepperoni', and quantity 2. Then update the same Order and change the pizzaType to 'Margherita'._
+7. Now you can enter your query in natural language and execute it.
+    
+     Note that we provide some samples that you can try. They cover the following 3 scenarios:
+
+      I. Invoke all resources of the API
+
+      II. Invoke a single resource of the API
+      
+      III. Invoke an action involving multiple resources
+   
+    Let's provide our own query for this guide: _First get me the menu. Then, create a new Order with customerName 'John Smith', pizzaType 'Pepperoni', and quantity 2. Then update the same Order and change the pizzaType to 'Margherita'._
 
     [![API Chat Query]({{base_path}}/assets/img/get_started/api-chat-query.png)]({{base_path}}/assets/img/get_started/api-chat-query.png)
 
