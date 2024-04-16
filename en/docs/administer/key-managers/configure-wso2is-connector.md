@@ -189,7 +189,7 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
       <tr class="odd">
       <td>Revoke Endpoint</td>
       <td>The endpoint that revokes the access tokens.</br>
-        e.g., <code>https://localhost:9444/oauth2/revoke</code></code></td>
+        e.g., <code>https://localhost:9444/oauth2/revoke</code></td>
       <td>Optional</td>
       </tr>
       <tr class="even">
