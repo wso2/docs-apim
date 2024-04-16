@@ -19,7 +19,7 @@
 site_name: WSO2 API Manager Documentation 4.3.0
 site_description: Documentation for WSO2 API Manager 4.3.0
 site_author: WSO2
-site_url: https://apim.docs.wso2.com/en/4.3.0/
+site_url: https://apim.docs.wso2.com/en/latest/
 
 # Repository
 repo_name: wso2/docs-apim
@@ -1370,5 +1370,5 @@ extra:
             git_tag: v1.2.0.1
     site_version: 4.3.0
     # base_path: http://localhost:8000/en/next/
-    base_path: https://apim.docs.wso2.com/en/4.3.0
+    base_path: https://apim.docs.wso2.com/en/latest
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
