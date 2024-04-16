@@ -3,7 +3,7 @@
 !!! info
     The **Single Sign-On with OpenID Connect** feature is enabled by default in the API Manager.  
     
-The **Single Sign-On with SAML 2.0** feature in the API Manager is implemented according to the SAML 2.0 browser-based SSO support that is facilitated by WSO2 Identity Server (WSO2 IS). This feature is available in any WSO2 IS version from 4.1.0 onwards. Note that **WSO2 IS 5.10.0** is used in this guide. WSO2 Identity Server acts as an identity service provider of systems enabled with Single Sign-On, while the Web applications act as SSO service providers. Using this feature, you can configure SSO with SAML 2.0 across the API Publisher and Developer Portal. After configuring, you can access the Developer Portal or API Publisher in a single authentication attempt.
+The **Single Sign-On with SAML 2.0** feature in the API Manager is implemented according to the SAML 2.0 browser-based SSO support that is facilitated by WSO2 Identity Server (WSO2 IS). This feature is available in any WSO2 IS version from 4.1.0 onwards. Note that **WSO2 IS 6.1.0** is used in this guide. WSO2 Identity Server acts as an identity service provider of systems enabled with Single Sign-On, while the Web applications act as SSO service providers. Using this feature, you can configure SSO with SAML 2.0 across the API Publisher and Developer Portal. After configuring, you can access the Developer Portal or API Publisher in a single authentication attempt.
 
 The topics below explain the configurations.
 
@@ -69,13 +69,14 @@ The topics below explain the configurations.
         * For **Local Claim** select `http://wso2.org/claims/groups` from the dropdown.
         * Tick **Mandatory Claim** checkbox.
     3. From the dropdown next to `Subject Claim URI:` label, select `http://wso2.org/claims/username`
-   
+
+    [![IS SAML SSO Claim Configurations]({{base_path}}/assets/img/learn/extensions/saml2-sso/is-saml-sso-claim-configs.png)]({{base_path}}/assets/img/learn/extensions/saml2-sso/is-saml-sso-claim-configs.png)
 
 6. Click and expand the **Inbound Authentication Configuration** section, click and expand **SAML2 Web SSO Configuration**, and click **Configure**.
      ![inbound-authentication-config]({{base_path}}/assets/img/learn/extensions/saml2-sso/inbound-authentication-config.png)
   
     !!! note
-        To enable tenant-specific SSO with IS 5.10.0 for the API Publisher and Developer Portal -</br>
+        To enable tenant-specific SSO with IS 6.1.0 for the API Publisher and Developer Portal -</br>
          1. Click and expand the Local & Outbound Authentication Configuration section.</br>
          2. Select **Use tenant domain in local subject identifier**.
 
@@ -111,7 +112,7 @@ Similarly, add the Identity Server as an identity provider configurations in `ht
 
 1. Start API Manager
   ```
-       ./wso2server.sh
+       ./api-manager.sh
    ```
  
 2.  Sign in to the WSO2 API Management Console UI (e.g. `https://localhost:9443/carbon)`.
@@ -129,13 +130,15 @@ Similarly, add the Identity Server as an identity provider configurations in `ht
         * Local Claim URI: `http://wso2.org/claims/roles`
     3. In the dropdown next to the **Role Claim URI** label, select `http://wso2.org/claims/groups`
 
+    [![SAML SSO APIM CLAIM CONFIGURATIONS]({{base_path}}/assets/img/learn/extensions/saml2-sso/is-saml-sso-apim-claim-configs.png)]({{base_path}}/assets/img/learn/extensions/saml2-sso/is-saml-sso-apim-claim-configs.png)
+
 6.  Click and expand the **Role Configuration** section.
     1. Click **Add role Mapping**.
     2. Create a table entry with the following data.
         * Identity Provider Role: `testRole`
         * Local Role: `Internal/creator`
-    3. In the text box next to `Identity Provider OutBound Provisioning Roles:` label, type: `provision`
 
+    [![SAML SSO APIM ROLE CONFIGURATIONS]({{base_path}}/assets/img/learn/extensions/saml2-sso/is-saml-sso-apim-role-configs.png)]({{base_path}}/assets/img/learn/extensions/saml2-sso/is-saml-sso-apim-role-configs.png)
 
 7. Configure **Federated authenticators** > **SAML2 Web SSO Configurations**
 
