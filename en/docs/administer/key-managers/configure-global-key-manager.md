@@ -23,9 +23,12 @@ Follow the steps given below to configure the Global Key Manager
 
     [![Add Global Key Manager]({{base_path}}/assets/img/administer/global-keymanager/add-global-key-manager.png)]({{base_path}}/assets/img/administer/global-keymanager/add-global-key-manager.png)
 
-6. Add the Global Key Manager configurations. Refer to the [configurations]({{base_path}}/administer/key-managers/overview/#configuring-key-managers-with-wso2-api-m/) of the key manager that needs to be added as the global key manager
+6. Add the Global Key Manager configurations. Refer to the [configurations]({{base_path}}/administer/key-managers/overview/#configuring-key-managers-with-wso2-api-m) of the key manager that needs to be added as the global key manager
 
     [![Add Global Key Manager Configurations]({{base_path}}/assets/img/administer/global-keymanager/add-global-key-manager-configurations.png)]({{base_path}}/assets/img/administer/global-keymanager/add-global-key-manager-configurations.png)
+
+!!! Note
+      Refer to the configurations of the key manager that needs to be added as the global key manager.
 
 7. Click **Add** to register the Global Key Manager
 
@@ -49,23 +52,26 @@ Follow the steps given below to configure the Global Key Manager
 
 3. Start the WSO2 API Manager.
 
-4. Sign in to the WSO2 API Publisher (`https://<hostname>:9443/publisher`) using the super tenant’s admin credentials
+4. [Create a tenant]({{base_path}}/administer/multitenancy/managing-tenants/) (Ex: abc.com)
 
-5. [Create an API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/) (Eg: SampleAPI)
+5. Sign in to the WSO2 API Publisher (`https://<hostname>:9443/publisher`) using the super tenant’s admin credentials
+
+6. [Create an API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/) (Eg: SampleAPI)
 
     [![Sample API Creation]({{base_path}}/assets/img/administer/global-keymanager/sample-api-creation.png)]({{base_path}}/assets/img/administer/global-keymanager/sample-api-creation.png)
 
-6. Go to **Portal Configurations** from the left menu and click **Subscriptions**, click the **Subscription Availability** dropdown, and select the desired subscription availability option. For this scenario, select **Available to all the tenants** and Click Save.
+7. Go to **Portal Configurations** from the left menu and click **Subscriptions**, click the **Subscription Availability** dropdown, and select the desired subscription availability option. For this scenario, select **Available to all the tenants** and Click Save.
+
+    !!! Note
+        The **Subscription Availability** option will only be displayed if there are tenants in your environment.
 
     [![Relationship between the API's visibility and subscription availability]({{base_path}}/assets/img/learn/api-subscription-availability.png)]({{base_path}}/assets/img/learn/api-subscription-availability.png)
 
-7. [Deploy the API]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/)
-
-8. [Create a tenant]({{base_path}}/administer/multitenancy/managing-tenants/) (Ex: abc.com)
+8. [Deploy the API]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/)
 
 9. Sign in to the WSO2 API Publisher (`https://<hostname>:9443/publisher`) using the new tenant’s (abc.com) admin credentials and repeat Steps 5 - 7
 
-10. Sign in to the WSO2 API Manager Developer Portal using the super tenant’s admin credentials (`https://<hostname>:9443/devportal`)
+10. Sign in to the super tenant's Developer Portal using the super tenant’s admin credentials (`https://<hostname>:9443/devportal`)
 
 11. [Create an application]({{base_path}}/consume/manage-application/create-application/) (Ex: SampleApp)
 
