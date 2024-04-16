@@ -152,14 +152,14 @@ Follow the instructions below to set up and configure the databases for the WSO2
 
 ## Step 4 - Configure WSO2 IS with WSO2 API-M
 
-1. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-extensions-1.6.8.zip).
+1. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-extensions-1.7.8.zip).
 
-2. Extract the distribution and copy the following JAR files, which are in the `<wso2is-extensions-1.6.8>/dropins` directory, to the `<IS_HOME>/repository/components/dropins` directory.
+2. Extract the distribution and copy the following JAR files, which are in the `<wso2is-extensions-1.7.8>/dropins` directory, to the `<IS_HOME>/repository/components/dropins` directory.
 
-     - `wso2is.key.manager.core-1.6.8.jar`
-     - `wso2is.notification.event.handlers-1.6.8.jar`
+     - `wso2is.key.manager.core-1.7.8.jar`
+     - `wso2is.notification.event.handlers-1.7.8.jar`
 
-3. Add the `keymanager-operations.war`, which is in the `<wso2is-extensions-1.6.8>/webapps` directory, to the `<IS_HOME>/repository/deployment/server/webapps` directory.
+3. Add the `keymanager-operations.war`, which is in the `<wso2is-extensions-1.7.8>/webapps` directory, to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
 4.  Configure the Traffic Manager endpoints.
 
@@ -278,9 +278,9 @@ Follow the instructions below to set up and configure the databases for the WSO2
     Add below configuration in `<APIM_HOME>/repository/conf/deployment.toml`
   
     ``` toml
-   [apim.key_manager]
-   service_url = "https://localhost:9444/services/"
-   type = "WSO2-IS"
+    [apim.key_manager]
+    service_url = "https://localhost:9444/services/"
+    type = "WSO2-IS"
     ```
    
 2. The token exchange grant type is enabled by default in WSO2 API-M 4.1.0 onwards. But the corresponding grant type is currently not supported by the WSO2 Identity Server. You need to modify the `[oauth.grant_type.token_exchange]` config in the `<APIM_HOME>/repository/conf/deployment.toml` file as follows.
