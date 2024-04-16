@@ -1068,7 +1068,7 @@
                             "name": "revoke_endpoint",
                             "type": "string",
                             "required": false,
-                            "default": "https://localhost:8243/revoke",
+                            "default": "https://localhost:9443/oauth2/revoke",
                             "possible": "Valid URL for revocation endpoint.",
                             "description": "Token revocation endpoint used in the API Developer Portal"
                         },
@@ -1939,7 +1939,7 @@
                             "name": "notifier_impl",
                             "type": "string",
                             "required": false,
-                            "default": "org.wso2.carbon.apimgt.notification.TokenRevocationNotifier",
+                            "default": "org.wso2.carbon.apimgt.notification.TokenRevocationNotifierImpl",
                             "possible": "",
                             "description": "This config is required only during a custom implementation. \n\nIf a token is revoked, the notification will be sent to the JMS topic. Write a custom implementation to change this behaviour."
                         },
