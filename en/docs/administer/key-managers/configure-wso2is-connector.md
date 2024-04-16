@@ -108,9 +108,7 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component
 
 2. Sign in to the Admin Portal. 
  
-      `https://<hostname>:9443/admin`
-
-      `https://localhost:9443/admin`
+      `https://<hostname>:9443/admin` (ex: https://localhost:9443/admin)
 
 3. Click **Key Managers**.
 

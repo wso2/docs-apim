@@ -278,9 +278,9 @@ Follow the instructions below to set up and configure the databases for the WSO2
     Add below configuration in `<APIM_HOME>/repository/conf/deployment.toml`
   
     ``` toml
-   [apim.key_manager]
-   service_url = "https://localhost:9444/services/"
-   type = "WSO2-IS"
+    [apim.key_manager]
+    service_url = "https://localhost:9444/services/"
+    type = "WSO2-IS"
     ```
    
 2. The token exchange grant type is enabled by default in WSO2 API-M 4.1.0 onwards. But the corresponding grant type is currently not supported by the WSO2 Identity Server. You need to modify the `[oauth.grant_type.token_exchange]` config in the `<APIM_HOME>/repository/conf/deployment.toml` file as follows.
