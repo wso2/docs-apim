@@ -1041,6 +1041,43 @@
             "exampleFile": "apim.key_manager.toml"
         },
         {
+            "title": "API-M AI configurations",
+            "options": [
+                {
+                    "name": "apim.ai",
+                    "required": true,
+                    "description": "Collection of AI feature related configs",
+                    "params": [
+                        {
+                            "name": "enable",
+                            "type": "boolean",
+                            "required": true,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Enable the AI features."
+                        },
+                        {
+                            "name": "token",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "The access token to authenticate AI feature related requests"
+                        },
+                        {
+                            "name": "endpoint",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The endpoint that exposes the AI capabilities for API Manager"
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.ai.toml"
+        },
+        {
             "title": "API-M OAuth configurations",
             "options": [
                 {
