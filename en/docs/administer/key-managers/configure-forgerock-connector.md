@@ -29,7 +29,7 @@ Follow the instructions given below to configure the ForgeRock Authorization Ser
 
 3. Navigate to **Root Realm** -> **Dashboard** -> **Services** -> **Add a service** section and select **OAuth2 Provider** from dropdown list.
 
-4. Create an OAuth provider service. Do not provide any new values at the New Service page and click Create button.
+4. Create an OAuth provider service. Do not provide any new values at the `New Service` page and click `Create` button.
 
     [![Create A new Service Oauth Provider]({{base_path}}/assets/img/administer/create-new-service-oauth-provider.png)]({{base_path}}/assets/img/administer/create-new-service-oauth-provider.png)
 
