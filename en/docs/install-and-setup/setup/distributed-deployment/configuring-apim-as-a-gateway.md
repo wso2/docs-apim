@@ -11,7 +11,7 @@ APK Only supports REST API and GraphQL API creation for now.
 
 Following diagram depicts the architecture of how the WSO2 APIM Control Plane connects with WSO2 APK Gateway using APIM-APK Agent.
 
-[![Architecture](../../../assets/img/setup-and-install/APK_CP_TO_DP_K8s.png)]({../../../assets/img/setup-and-install/APK_CP_TO_DP_K8s.png)
+<a href="{{base_path}}/assets/img/setup-and-install/apk-overview.png" ><img src="{{base_path}}/assets/img/setup-and-install/apk-overview.png" alt="Architecture" title="Architecture" width="100%" /></a>
 
 ## APIM APK Agent
 
