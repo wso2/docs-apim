@@ -14,7 +14,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
 ??? note "Integrating WSO2 API Platform with Kubernetes (APK) 1.1.0"
 
-    The WSO2 API Platform for Kubernetes (APK) boasts gateway functionalities, serving as a comprehensive data plane. This permits effortless deployment of lightweight, container-native data plane instances using APK. It harnesses Kubernetes' capabilities to streamline API management, facilitating the creation of scalable, sturdy, and adaptable API ecosystems with reduced overhead. The latest release empowers users to administer the APK data plane via the API Manager 4.3.0 control plane. Additionally, it offers the flexibility to utilize API Manager 4.3.0 as the control plane for managing the APK data plane.
+    The WSO2 API Platform for Kubernetes (APK) boasts gateway functionalities, serving as a comprehensive data plane. This permits effortless deployment of lightweight, container-native data plane instances using APK. It harnesses Kubernetes' capabilities to streamline API management, facilitating the creation of scalable, sturdy, and adaptable API ecosystems with reduced overhead. The latest release empowers users to administer the APK data plane via the API Manager 4.3.0 control plane. Additionally, it offers the flexibility to utilize API Manager 4.3.0 as the control plane for managing the APK data plane. Refer the [Setting APK as Gateway in APIM]({{base_path}}/install-and-setup/setup/distributed-deployment/configuring-apim-as-a-gateway/) documentation for more information.
 
 ??? note "AI-powered API Chat for testing APIs using Natural Language"
 
