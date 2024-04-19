@@ -30,6 +30,8 @@ The APIM APK Agent is a component that connects the WSO2 API Manager (APIM) cont
 - API Marketplace: Provide a marketplace for discovering and consuming APIs.
 - Integration with WSO2 APK Gateway: Integrate with the APK Gateway for deploying APIs and managing traffic.
 
+You can refer the [APK Control Plane API Management Overview](https://apk.docs.wso2.com/en/latest/control-plane/apk-as-gateway-in-apim/api-management/control-plane-api-management-overview/) for more details on the supported and unsupported features.
+
 ## Next Steps
 
-You can refer the [Quick Start Guide](https://apk.docs.wso2.com/en/latest/control-plane/apk-as-gateway-in-apim-qsg/) regards to trying out API Manager Control Plane with APK Gateway using APIM-APK Agent.
+You can refer the [Quick Start Guide](https://apk.docs.wso2.com/en/latest/control-plane/apk-as-gateway-in-apim/apk-as-gateway-in-apim-qsg/) regards to trying out API Manager Control Plane with APK Gateway using APIM-APK Agent.
