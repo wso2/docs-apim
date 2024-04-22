@@ -1346,7 +1346,7 @@ plugins:
               'use-cases/examples/inbound_endpoint_examples/using-CXF-WS-RM-Inbound.md' : 'https://mi.docs.wso2.com/en/latest/reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/              cxf-ws-rm-inbound-endpoint-properties'
               'observe/mi-observe/tcp/message_monitoring_with_tcpmon.md' : 'https://mi.docs.wso2.com/en/latest/observe-and-manage/classic-observability-tcp/message-monitoring-with-tcpmon'
               'observe/mi-observe/tcp/other_usages_of_tcpmon.md' : 'https://mi.docs.wso2.com/en/latest/observe-and-manage/classic-observability-tcp/other-usages-of-tcpmon'
-              'reference/synapse-properties/sequence-properties.md' : 'https://mi.docs.wso2.com/en/latest/reference/synapse-properties/mediation-sequences'
+              'reference/synapse-properties/sequence-properties.md' : 'https://mi.docs.wso2.com/en/latest/reference/mediation-sequences'
               'observe/mi-observe/tcp/starting_tcp_mon.md' : 'https://mi.docs.wso2.com/en/latest/observe-and-manage/classic-observability-tcp/starting-tcp-mon'
               'administer/logging-and-monitoring/logging/managing-log-growth.md' : 'https://mi.docs.wso2.com/en/latest/administer/logging-and-monitoring/logging/managing-log-growth'
               'administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs.md' : 'https://mi.docs.wso2.com/en/latest/administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs'
