@@ -65,7 +65,7 @@ Explore the features and functionalities of the Marketplace Assistant to streaml
 
 ### Why is this an experimental feature?
 
-The Marketplace Assistant is considered an experimental feature due to its innovative nature and ongoing development. As with any new technology, there may be unforeseen. challenges or limitations that need to be addressed. By labeling it as experimental, we aim to gather feedback from users, refine the functionality, and improve the overall user experience.
+The Marketplace Assistant is labeled as an experimental feature because it represents innovative technology that is still under development. AI technology is rapidly evolving with significant enhancements in large language models and the introduction of increasingly efficient chips, and we are integrating the latest advancements to enhance our capabilities. Rolling out new features as experimental underscores our commitment to innovation, and as we continue to refine them, we are focused on enhancing their performance and reliability based on user input and ongoing development efforts.
 
 ### What are the usage limits?
 
