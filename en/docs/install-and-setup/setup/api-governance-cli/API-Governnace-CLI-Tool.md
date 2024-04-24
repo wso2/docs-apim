@@ -9,12 +9,31 @@ Example `config.yaml`:
 User:
   username: <username>
   password: <user_password>
-  clientId: <generated_client_id>
+  clientID: <generated_client_ID>
   clientSecret: <generated_client_secret>
 Server:
   hostname: <server_host>
    port: <port>
 ```
+
+!!! note
+
+    When generating the access token using the above provided clinetID and clientSecret, the following scopes are provided.
+        ```
+            apim:api_view
+            apim:api_create
+            apim:app_import_export
+            apim:api_import_export
+            apim:api_product_import_export
+            apim:admin
+            apim:api_publish
+            apim:subscribe
+            apim:app_manage
+            apim:sub_manage
+            apim:api_delete
+            apim:app_owner_change
+        ```
+
 ## Usage
 
 The CLI tool supports various commands to validate one or more APIs. Below are the commands and their descriptions:
