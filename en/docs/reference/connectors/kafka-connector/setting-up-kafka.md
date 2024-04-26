@@ -1,5 +1,21 @@
 # Setting up Kafka
 
+## For Kafka inbound endpoint
+
+To configure the Kafka inbound endpoint, copy the following orbit bundles to the `<MI_HOME>/dropins` directory.
+
+* [kafka-avro-serializer](https://mvnrepository.com/artifact/org.wso2.orbit.io.confluent/kafka-avro-serializer/7.6.0.wso2v1)
+* [kafka-schema-serializer](https://mvnrepository.com/artifact/org.wso2.orbit.io.confluent/kafka-schema-serializer/7.6.0.wso2v1)
+* [kafka-schema-registry-client](https://mvnrepository.com/artifact/org.wso2.orbit.io.confluent/kafka-schema-registry-client/7.6.0.wso2v1)
+
+Copy the following additional client libraries to the `<MI_HOME>/lib` directory.
+
+* [kafka-clients-3.7.0.jar](https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients/3.7.0)
+* [avro-1.11.3.jar](https://mvnrepository.com/artifact/org.apache.avro/avro/1.11.3)
+
+!!!Note
+    If you are also using the Kafka connector, copy the necessary dependencies as outlined in the following section.
+
 ## For connector version 3.2.0 and later
 
 To use the Kafka connector, download and install [Apache Kafka](http://kafka.apache.org/downloads.html). Before you start configuring Kafka you also need the integration runtime and we refer to that location as `<PRODUCT_HOME>`.
