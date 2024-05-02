@@ -12,6 +12,19 @@ The JWT component in WSO2 API Manager(WSO2 API-M) has synchronous implementation
 
 The following sections guide you through the synchronous token handling and how to configure it in a production environment.
 
+The flow of synchronous token handling for JWT is as follows:
+
+1.  The client sends an access token request.
+2.  The JWT component in WSO2 API-M revokes the latest ACTIVE access token for the given client/user/scope.
+4.  JWT component creates a new access token and persists its JTI value in the database using the same thread. Once it is persisted, the new token is returned to the client.
+
+By default, synchronous token handling for JWT is enabled in WSO2 API Manager 3.2.0. To indicate the number of times to retry in the event of a `CONN_APP_KEY` violation when storing the access token, navigate to file `<APIM_HOME>/repository/conf/deployment.toml` and add the following configuration.
+
+``` toml
+[oauth.token_generation]
+"retry_count_on_persistence_failures"=5
+``` 
+
 ## Opaque tokens
 
 The OAuth2 component in WSO2 API Manager(WSO2 API-M) has synchronous implementation you can use to handle opaque token persistence in the database.
@@ -22,7 +35,7 @@ The following sections guide you through the synchronous token persistence and h
 
 [![Synchronous token persistence]({{base_path}}/assets/img/learn/synchronous-token-persistence.png)]({{base_path}}/assets/img/learn/synchronous-token-persistence.png)
 
-The flow of synchronous token persistence is as follows:
+The flow of synchronous token persistence for Opaque token is as follows:
 
 1.  The client sends an access token request.
 2.  The OAuth2 component in WSO2 API-M checks for an existing active access token for the given client/user/scope.
@@ -31,7 +44,7 @@ The flow of synchronous token persistence is as follows:
 3.  If an active access token is found, the token is returned to the client.
 4.  Alternatively, if an existing access token is not found, the OAuth2 component creates a new access token and persists it in the database using the same thread. Once it is persisted, the new token is returned to the client.
 
-By default, synchronous token persistence is enabled in WSO2 API Manager 3.2.0. To indicate the number of times to retry in the event of a `CONN_APP_KEY` violation when storing the access token, navigate to file `<APIM_HOME>/repository/conf/deployment.toml` and add the following configuration.
+By default, synchronous token persistence for Opaque token is enabled in WSO2 API Manager 3.2.0. To indicate the number of times to retry in the event of a `CONN_APP_KEY` violation when storing the access token, navigate to file `<APIM_HOME>/repository/conf/deployment.toml` and add the following configuration.
 
 ``` toml
 [oauth.token_generation]
