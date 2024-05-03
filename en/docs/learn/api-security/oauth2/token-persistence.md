@@ -51,7 +51,7 @@ By default, synchronous token persistence for Opaque token is enabled in WSO2 AP
 "retry_count_on_persistence_failures"=5
 ``` 
 
-## Recovery flow of token persistent
+## Recovery flow of token persistence
 
 This section explains the recovery flow triggered in WSO2 API Manager for exceptional cases that may occur in a production environment caused by the client application mishandling the `CON_APP_KEY` constraint that is explained below.
 
