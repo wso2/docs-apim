@@ -88,7 +88,7 @@ The process flow now moves on to the recovery flow in order to handle the `CON_A
 
 <h4 id="synchronous-jwt-token-persistence-recovery-flow"> Synchronous token handling in JWT tokens </h4>
 
-Since there is no token persistent in the JWT token flow, for each access renewal request for JWT component will result in a new access token by revoking the latest ACTIVE access token.
+Since there is no token persistence in the JWT flow, each token renewal request will result in a new access token by revoking the latest ACTIVE access token.
 
 ##### Flow
 
