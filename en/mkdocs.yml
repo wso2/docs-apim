@@ -227,6 +227,8 @@ nav:
             - Add an API State Change Workflow: design/advanced-topics/adding-an-api-state-change-workflow.md
             - Block Subscription to an API: design/advanced-topics/block-subscription-to-an-api.md
             - Validate API Definitions with Linters: design/advanced-topics/validate-api-definitions-with-linters.md
+            - Notifications:
+                - Overview: design/advanced-topics/notifications/notifications-overview.md
     - Deploy and Publish APIs:
         - Deploy on Gateway:
             - Deploy API:
