@@ -1,14 +1,14 @@
 # Configure the Global Key Manager
 
-This document outlines the steps to enable the global key manager support in WSO2 API Manager (API-M). With this feature, a single token generated using the global key manager can be used to invoke cross-tenant APIs without generating a token in that specific tenant's key manager.
+This document outlines the steps to enable the Global Key Manager support in WSO2 API Manager (API-M). With this feature, a single token generated using the Global Key Manager can be used to invoke cross-tenant APIs without generating a token in that specific tenant's key manager.
 
 !!! Note
-      This feature is available only as an update and is available from Update level 4.2.0.82 (released on 13th May 2024).
+      This feature is available only as an update and is available from update level 4.2.0.82 (released on 13th May 2024).
 
-The global key manager can be created through the admin portal of the super tenant. This global key manager will be visible in the devportal of all the tenants and this can be used to generate a token which can be used to invoke APIs across tenants. Any third party key manager can be configured as a global key manager.
+The Global Key Manager can be created through the Admin Portal of the super tenant. This Global Key Manager will be visible in the devportal of all the tenants and this can be used to generate a token which can be used to invoke APIs across tenants. Any third party key manager can be configured as a Global Key Manager.
 
 !!! Note
-      It is only possible to create one global key manager which can only be done through the Admin portal of the super tenant.
+      It is only possible to create one Global Key Manager which can only be done through the Admin Portal of the super tenant.
 
 Follow the steps given below to configure the Global Key Manager.
 
@@ -26,12 +26,12 @@ Follow the steps given below to configure the Global Key Manager.
 
     [![Add Global Key Manager]({{base_path}}/assets/img/administer/global-keymanager/add-global-key-manager.png)]({{base_path}}/assets/img/administer/global-keymanager/add-global-key-manager.png)
 
-6. Add the Global Key Manager configurations. Refer to the [configurations]({{base_path}}/administer/key-managers/overview/#configuring-key-managers-with-wso2-api-m) of the key manager that needs to be added as the global key manager.
+6. Add the Global Key Manager configurations. Refer to the [configurations]({{base_path}}/administer/key-managers/overview/#configuring-key-managers-with-wso2-api-m) of the key manager that needs to be added as the Global Key Manager.
 
     [![Add Global Key Manager Configurations]({{base_path}}/assets/img/administer/global-keymanager/add-global-key-manager-configurations.png)]({{base_path}}/assets/img/administer/global-keymanager/add-global-key-manager-configurations.png)
 
 !!! Note
-      Refer to the configurations of the key manager that needs to be added as the global key manager.
+      Refer to the configurations of the key manager that needs to be added as the Global Key Manager.
 
 7. Click **Add** to register the Global Key Manager.
 
@@ -90,7 +90,7 @@ Let's look at a scenario where a single access token generated for an applicatio
 
     [![Sample App Creation]({{base_path}}/assets/img/administer/global-keymanager/sample-app-creation.png)]({{base_path}}/assets/img/administer/global-keymanager/sample-app-creation.png)
 
-12. Click **Production Keys** and Select the Global Key Manager (IS-GKM) which was created from the list of key managers displayed.
+12. Click **Production Keys** and select the Global Key Manager (IS-GKM) which was created from the list of key managers displayed.
 
     [![Select Global Key Manager]({{base_path}}/assets/img/administer/global-keymanager/select-global-key-manager.png)]({{base_path}}/assets/img/administer/global-keymanager/select-global-key-manager.png)
 
@@ -104,7 +104,7 @@ Let's look at a scenario where a single access token generated for an applicatio
 
 16. [Try Out the API]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console/) with the access token generated using the Global Key Manager.
 
-    A Successful response indicates that an API of the super tenant can be invoked using an access token generated for an application using the Global Key Manager.
+    A successful response indicates that an API of the super tenant can be invoked using an access token generated for an application using the Global Key Manager.
 
 17. Click **SWITCH DEV PORTALS** which is at the top of the navigation bar.
 
@@ -114,11 +114,11 @@ Let's look at a scenario where a single access token generated for an applicatio
 
     [![Tenant List]({{base_path}}/assets/img/administer/global-keymanager/tenant-list.png)]({{base_path}}/assets/img/administer/global-keymanager/tenant-list.png)
 
-19. Select the SampleAPI and Subscribe to the SampleApp similar to Step 15.
+19. Select the SampleAPI and subscribe using the SampleApp similar to Step 15.
 
     !!! Note
         The keys generated for an application using the Global Key Manager will be displayed across tenants. In this example scenario, the keys for the sampleApp were generated in the Super Tenant’s Developer Portal. These keys are reflected in the Production Keys of the IS-GKM tab of the sampleApp in the abc.com’s Developer Portal.
 
 20. Try Out the API with the same access token generated using the Global Key Manager which was used in Step 16.
 
-A Successful response indicates that the API of a tenant can be invoked using an access token generated for an application using the Global Key Manager. Note that the access token was generated in the super tenant’s Developer Portal, but an API in a different tenant was invoked using this access token.
+A successful response indicates that the API of a tenant can be invoked using an access token generated for an application using the Global Key Manager. Note that the access token was generated in the super tenant’s Developer Portal, but an API in a different tenant was invoked using this access token.
