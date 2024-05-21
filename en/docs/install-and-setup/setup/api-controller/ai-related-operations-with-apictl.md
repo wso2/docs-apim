@@ -8,7 +8,7 @@ First you have to download and intialize the apictl.
 1.  Make sure that the WSO2 API-M is started and that the corresponding version of apictl is set up.   
 For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
-3.  Run the corresponding apictl command below to delete and upload APIs and API Products
+3.  Run the corresponding apictl commands below to delete and upload APIs and API Products from a logged in user's tenant.
 
 
 ### Set token as a config variable
