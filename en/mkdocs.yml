@@ -207,6 +207,7 @@ nav:
                 - Throttling Use-Cases: design/rate-limiting/introducing-throttling-use-cases.md
                 - Add New Throttling Policies: design/rate-limiting/adding-new-throttling-policies.md
                 - Set Throttling Limits: design/rate-limiting/setting-throttling-limits.md
+                - Reset Application Throttling Policies: design/rate-limiting/resetting-application-throttling-policies.md
                 - Access Control: design/rate-limiting/access-control.md
                 - Enforce Throttling and Resource Access Policies: design/rate-limiting/enforce-throttling-and-resource-access-policies.md
                 - Set Maximum Backend Throughput Limits: design/rate-limiting/setting-maximum-backend-throughput-limits.md
