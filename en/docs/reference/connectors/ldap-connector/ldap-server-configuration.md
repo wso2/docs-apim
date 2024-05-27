@@ -12,7 +12,7 @@ To use the LDAP connector, add the `<ldap.init>` element in your configuration b
         </tr>
         <tr>
             <td>providerUrl</td>
-            <td>The URL of the LDAP server.</td>
+            <td>The URL of the LDAP server. Instead of just one URL, you can also specify a space-separated list of URLs. In this case, the LDAP connector will attempt to use each URL in turn until it is able to create a successful connection.</td>
             <td>Yes</td>
         </tr>
         <tr>
