@@ -405,10 +405,16 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
         ```go
         apictl login <environment-name> -u <username> -p <password> 
         ``` 
+        ```go
+        apictl login <environment-name> --token <access-token>
+        ```
 
         !!! tip
             If you run `apictl login <environment-name>` you are prompted to provide both the username and the password.
             If you run `apictl login <environment-name> --username <username>`, you are prompted to provide the password.
+
+        !!! tip 
+            If you want to pass the access token directly as `apictl login <environment-name> --token <access-token>`, you can generate a personal access token providing the required scopes, see [Minimal permissions and scopes required to perform apictl operations]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations)        
 
         !!! info
             **Flags:**  
@@ -417,6 +423,7 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
                 `--username` or `-u` : Username for login  
                 `--password` or `-p` : Password for login     
                 `--password-stdin` : Get password from stdin  
+                `--token` : Personal access token
 
         !!! example
             ```bash
@@ -425,9 +432,11 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
             ```bash
             apictl login dev -u admin -p admin 
             ```
-            
             ```bash
             apictl login dev --username admin --password admin 
+            ```
+            ```bash
+            apictl login dev --token 45ab5790-aa3f-3ebb-882b-37b81f585976 
             ```
                  
     -   **Response**
