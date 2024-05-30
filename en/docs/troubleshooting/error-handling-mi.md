@@ -99,6 +99,12 @@ This section describes the error codes for endpoint failures. For more informati
 | 401001         | Blocking call operation failed (from the Call mediator when you have enabled blocking in it).   |
 | 401002         | Blocking sender operation failed (from the Call mediator when you have enabled blocking in it). |
 
+### XML / JSON parsing errors
+
+| **Error Code** | **Detail**                   |
+|----------------|------------------------------|
+| 601000         | Malform XML or JSON received |
+
 ## Custom Error Codes
 
 | **Error Code** |   **Detail**                                                                                    |
