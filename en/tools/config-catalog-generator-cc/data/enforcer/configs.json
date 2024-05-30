@@ -834,6 +834,138 @@
       "exampleFile": "throttling_agent.toml"
     },
     {
+      "title": "Throttling Distributed Counter Configuration",
+      "options": [
+        {
+          "name": "enforcer.throttling.localThrottler.distributedCounter",
+          "required": true,
+          "description": "Configuration for the distributed counter used in throttling. Please note this feature is only available after U2 update level 24 for Choreo Connect 1.0.0.",
+          "params": [
+            {
+              "name": "enabled",
+              "type": "boolean",
+              "default": false,
+              "description": "Flag to enable distributed counter"
+            },
+            {
+              "name": "redisHost",
+              "type": "string",
+              "required": true,
+              "description": "Host address of the Redis server"
+            },
+            {
+              "name": "redisPort",
+              "type": "integer",
+              "required": true,
+              "description": "Port of the Redis server"
+            },
+            {
+              "name": "redisUser",
+              "type": "string",
+              "description": "Username for Redis authentication"
+            },
+            {
+              "name": "redisPass",
+              "type": "string",
+              "description": "Password for Redis authentication"
+            },
+            {
+              "name": "redisDatabaseID",
+              "type": "string",
+              "description": "Database ID for Redis"
+            },
+            {
+              "name": "redisConnectionTimeout",
+              "type": "string",
+              "description": "Connection timeout for Redis"
+            },
+            {
+              "name": "redisIsSslEnabled",
+              "type": "boolean",
+              "description": "Flag to enable SSL for Redis connection (if this is enabled import the Redis cert to the truststore)"
+            },
+            {
+              "name": "gatewayID",
+              "type": "string",
+              "required": true,
+              "description": "Unique ID for the gateway"
+            },
+            {
+              "name": "minGatewayCount",
+              "type": "string",
+              "description": "Minimum number of gateways run in a given time"
+            },
+            {
+              "name": "keyLockRetrievalTimeout",
+              "type": "string",
+              "description": "Time taken to acquire a lock in Redis key"
+            }
+          ]
+        }
+      ],
+      "exampleFile": "throttling_local_throttler_distributed.toml"
+    },
+    {
+      "title": "Throttling Distributed Counter Connection Pool Configuration",
+      "options": [
+        {
+          "name": "enforcer.throttling.localThrottler.distributedCounter.properties",
+          "description": "Redis connection pool configurations. Please note this feature is only available after U2 update level 24 for Choreo Connect 1.0.0.",
+          "params": [
+            {
+              "name": "maxTotal",
+              "type": "integer",
+              "default": 8,
+              "description": "Maximum total connections"
+            },
+            {
+              "name": "maxIdle",
+              "type": "integer",
+              "default": 8,
+              "description": "Maximum idle connections"
+            },
+            {
+              "name": "minIdle",
+              "type": "integer",
+              "default": 0,
+              "description": "Minimum idle connections"
+            },
+            {
+              "name": "testOnBorrow",
+              "type": "boolean",
+              "default": false,
+              "description": "Flag to set testOnBorrow parameter for the connection pool"
+            },
+            {
+              "name": "blockWhenExhausted",
+              "type": "boolean",
+              "default": true,
+              "description": "Flag to set blockWhenExhausted parameter for the connection pool"
+            },
+            {
+              "name": "minEvictableIdleTimeMillis",
+              "type": "string",
+              "default": "60000",
+              "description": "The minimum amount of time an object may sit idle in the pool before it is eligible for eviction."
+            },
+            {
+              "name": "timeBetweenEvictionRunsMillis",
+              "type": "string",
+              "default": "30000",
+              "description": "The number of milliseconds to sleep between runs of the idle connection validation/cleaner thread."
+            },
+            {
+              "name": "numTestsPerEvictionRun",
+              "type": "integer",
+              "default": "-1",
+              "description": "The number of objects to examine during each run of the idle object evictor thread "
+            }
+          ]
+        }
+      ],
+      "exampleFile": "throttling_local_throttler_distributed_properties.toml"
+    },
+    {
       "title": "Metrics",
       "options": [
         {
