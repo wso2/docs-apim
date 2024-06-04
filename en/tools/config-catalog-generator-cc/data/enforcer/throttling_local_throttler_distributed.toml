@@ -1,0 +1,12 @@
+[enforcer.throttling.localThrottler.distributedCounter]
+  enabled = true
+  redisHost = "redis"
+  redisPort = 6379
+  redisUser = ""
+  redisPass = ""
+  redisDatabaseID = ""
+  redisConnectionTimeout =""
+  redisIsSslEnabled = ""
+  gatewayID = "gateway-1"
+  minGatewayCount = ""
+  keyLockRetrievalTimeout = ""

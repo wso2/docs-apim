@@ -1,0 +1,9 @@
+[enforcer.throttling.localThrottler.distributedCounter.properties]
+  maxTotal = 8
+  maxIdle = 8
+  minIdle = 0
+  testOnBorrow = false
+  blockWhenExhausted = true
+  minEvictableIdleTimeMillis = 60000
+  timeBetweenEvictionRunsMillis = 30000
+  numTestsPerEvictionRun = -1
