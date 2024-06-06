@@ -7,6 +7,12 @@ Follow the steps given below to configure WSO2 IS 7 as a Key Manager component.
 !!! info
     This document provides instructions on configuring **WSO2 Identity Server 7** as a Key Manager. If you are using an older version of WSO2 Identity Server, see [Configure WSO2 IS as a Key Manager]({{base_path}}/administer/key-managers/configure-wso2is-connector).
 
+!!! warning
+    **Incompatibility with Scopes**  
+    WSO2 API Manager 4.3.0 is **not** compatible with the Role model of WSO2 Identity Server 7. Therefore, scopes are not supported when using WSO2 Identity Server 7 as the Key Manager with WSO2 API Manager 4.3.0.
+
+    It is not recommended to use WSO2 Identity Server 7 as the Key Manager with WSO2 API Manager 4.3.0, for use cases that use scopes to secure APIs. Consider using a [WSO2 Identity Server version older than 7 as a Key Manager]({{base_path}}/administer/key-managers/configure-wso2is-connector) instead.
+
 ## Step 1 - Configure WSO2 IS 7
 
 1. Download and install [WSO2 Identity Server 7](https://wso2.com/identity-server/).
@@ -21,17 +27,7 @@ Follow the steps given below to configure WSO2 IS 7 as a Key Manager component.
 
 2. Add following configurations in the `<IS7_HOME>/repository/conf/deployment.toml` file.
 
-    ```toml
-    [server]
-    # ... other values ...
-    legacy_mode = true
-    
-    [oauth.global_rbac_scope_issuer]
-    enable=true
-    
-    [oauth.global_scope_validators.role_based_scope_issuer]
-    enable=true
-    
+    ```toml 
     [[resource.access_control]]
     context="(.*)/scim2/Me"
     secure=true
@@ -41,18 +37,12 @@ Follow the steps given below to configure WSO2 IS 7 as a Key Manager component.
     scopes=[]
     ```
 
-3. Add the following unique key constraint to the `IDN_OAUTH_CONSUMER_APPS` table of `WSO2IDENTITY_DB`. By default, the `WSO2IDENTITY_DB` database is an H2 database which is located in `<IS7_HOME>/repository/database/WSO2IDENTITY_DB.mv.db`.
-
-    ```sql
-    ALTER TABLE IDN_OAUTH_CONSUMER_APPS ADD CONSTRAINT UNIQUE_CONSUMER_KEY_CONSTRAINT UNIQUE (CONSUMER_KEY);
-    ```
-
     !!! Note
         **Before you begin:**
 
         You need to import the public certificate of the WSO2 Identity Server 7 to the truststore of the WSO2 API Manager, and vice-versa. For information on importing the certificates, see the [Importing certificates to the truststore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-3-importing-certificates-to-the-truststore) guide.
 
-4. Start WSO2 Identity Server 7 with a port offset.
+3. Start WSO2 Identity Server 7 with a port offset.
    portOffset is required only if you are running both API-M and IS 7 in the same JVM.
 
       `sh wso2server.sh -DportOffset=1`
