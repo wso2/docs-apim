@@ -69,11 +69,21 @@ The following is a list of other WSO2 products that have been tested with WSO2 A
 <tbody>
 <tr class="even">
 <td>API-M 4.3.0 GA</td>
-<td>GA or update for WSO2 IS-6.0.0/WSO2 IS-6.1.0</td>
+<td>
+GA or update for:
+<ul>
+<li>WSO2 IS-6.0.0/WSO2 IS-6.1.0</li>
+<li>WSO2 IS-7.0.0 (scopes & roles are not compatible)</li>
+</ul>
+</td>
 </tr>
 <tr class="even">
 <td>API-M-4.3.0 update</td>
-<td>GA or updated for WSO2 IS-6.0.0/WSO2 IS-6.1.0</td>
+<td>GA or update for:
+<ul>
+<li>WSO2 IS-6.0.0/WSO2 IS-6.1.0</li>
+<li>WSO2 IS-7.0.0 (scopes & roles are not compatible)</li>
+</ul>
 </tr>
 </tbody>
 </table>
