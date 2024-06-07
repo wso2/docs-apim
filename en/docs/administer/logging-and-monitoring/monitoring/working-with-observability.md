@@ -59,7 +59,7 @@ logs.
 
 ### Types of correlation logs
 
-When lightweight observability is enabled the API Manager logs the message tracking logs. The formats of request and response message tracking log entries are as follows:
+When lightweight observability is enabled, the API Manager logs the message tracking logs. The formats of request and response message tracking log entries are as follows:
 
 *Format*
 
@@ -110,7 +110,7 @@ When lightweight observability is enabled the API Manager logs the message track
     <tr class="even">
     <td>direction</td>
     <td>
-        Direction of the message tracked by the API manager. It can be RequestIn, RequestOut, ResponseIn or ResponseOut.<br/>
+        Direction of the message tracked by the API Manager. It can be RequestIn, RequestOut, ResponseIn or ResponseOut.<br/>
     </td>
     </tr>
     <tr class="odd">
