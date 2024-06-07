@@ -57,6 +57,86 @@ the startup scripts.
 - After invoking an API navigate to `<API-M_HOME>/repository/logs/correlation.log` and verify the
 logs.
 
+### Types of correlation logs
+
+When lightweight observability is enabled, the API Manager logs the message tracking logs. The formats of request and response message tracking log entries are as follows:
+
+*Format*
+
+`<timestamp> | <threadName> | CorrelationId: <correlationId>, Direction: <direction>, HTTPMethod: <httpMethod>, Destination: <address>`
+`<timestamp> | <threadName> | CorrelationId: <correlationId>, Direction: <direction>, HTTPStatusCode: <httpSC>, Origin: <address>`
+
+!!! example
+    `2021-06-08 19:23:33,099||PassThroughMessageProcessor-5|CorrelationId: 32ac33f7-dcb2-455c-8615-62725690eb50, Direction: RequestIn, HTTPMethod: GET, Destination: /pizzashack/1.0.0/order`
+
+    `2021-06-08 19:23:35,480||PassThroughMessageProcessor-5|CorrelationId: 32ac33f7-dcb2-455c-8615-62725690eb50, Direction: RequestOut, HTTPMethod: GET, Destination: https://localhost:9443/am/sample/pizzashack/v1/api/`
+
+    `2021-06-08 19:23:35,494||PassThroughMessageProcessor-6|CorrelationId: 32ac33f7-dcb2-455c-8615-62725690eb50, Direction: ResponseIn, HTTPStatusCode: 201, Origin: https://localhost:9443/am/sample/pizzashack/v1/api/`
+
+    `2021-06-08 19:23:35,498||PassThroughMessageProcessor-6|CorrelationId: 32ac33f7-dcb2-455c-8615-62725690eb50, Direction: ResponseOut, HTTPStatusCode: 201, Origin: /pizzashack/1.0.0/order`
+
+??? "Click here to expand"
+    The following is a detailed description of the message tracking log entry.
+    <table>
+    <thead>
+    <tr class="header">
+    <th>Field</th>
+    <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+    <td>timestamp</td>
+    <td>
+        The time at which the log is created.<br/>
+        <strong>Example: </strong><code>2021-06-08 19:23:33,099</code>
+    </td>
+    </tr>
+    <tr class="even">
+    <td>threadName</td>
+    <td>
+        The identifier of the thread.<br/>
+        <strong>Example: </strong><code>PassThroughMessageProcessor-5</code>
+    </td>
+    </tr>
+    <tr class="odd">
+    <td>correlationId</td>
+    <td>
+        Each log contains a correlation ID, which is unique to the HTTP request. A client can send a unique correlation ID in the header of the HTTP request. If this correlation ID is missing in the incoming request, WSO2 API-M will generate a random correlation ID for the request.
+        The HTTP header that carries the correlation ID is configured in WSO2 API-M.<br/>
+        <strong>Example: </strong><code>32ac33f7-dcb2-455c-8615-62725690eb50</code>
+    </td>
+    </tr>
+    <tr class="even">
+    <td>direction</td>
+    <td>
+        Direction of the message tracked by the API Manager. It can be RequestIn, RequestOut, ResponseIn or ResponseOut.<br/>
+    </td>
+    </tr>
+    <tr class="odd">
+    <td>httpMethod</td>
+    <td>
+       HTTP method utilized.  (Logs only for request messages).<br/>
+       <strong>Example: </strong><code>GET</code>
+    </td>
+    </tr>
+    <tr class="even">
+    <td>httpSC</td>
+    <td>
+        HTTP status code. (Logs only for response messages).<br/>
+        <strong>Example: </strong><code>201</code>
+    </td>
+    </tr>
+    <tr class="odd">
+    <td>address</td>
+    <td>
+        Address of the destination or origin of the message.<br/>
+        <strong>Example: </strong><code>https://localhost:9443/am/sample/pizzashack/v1/api/</code>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+
 ### Method call logs
 
 When correlation logging is enabled, the API Manager logs the time taken to execute certain important methods of the following modules.
@@ -72,7 +152,7 @@ In API Manager, by default the important methods are marked with the `@MethodSt
 `timestamp | correlationID | threadName | duration | callType | className | methodName | methodArguments`
 
 !!! example
-    `2018-11-28 10:10:56,293|a783f7c3-647f-4d10-9b72-106faa01bba8|PassThroughMessageProcessor-3|0|METHOD|org.wso2.carbon.apimgt.gateway.handlers.security.CORSRequestHandler|handleRequest|[messageContext]`
+    `2018-11-28 10:10:56,293|a783f7c3-647f-4d10-9b72-106faa01bba8|PassThroughMessageProcessor-3|0|METHOD|org.wso2.carbon.apimgt.gateway.handlers.security.CORSRequestHandler|handleRequest|[messageContext]`
 
 ??? "Click here for more details on the method call log entry."
     <table>
