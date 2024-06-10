@@ -82,7 +82,7 @@ GA or update for:
 <td>GA or update for:
 <ul>
 <li>WSO2 IS-6.0.0/WSO2 IS-6.1.0</li>
-<li>WSO2 IS-7.0.0 (scopes & roles are not compatible)</li>
+<li>WSO2 IS-7.0.0 (Role based authorization is not compatible)</li>
 </ul>
 </tr>
 </tbody>
