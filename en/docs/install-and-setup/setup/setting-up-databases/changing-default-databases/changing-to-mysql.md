@@ -361,6 +361,9 @@ Follow the  instructions below to set up a MySQL database:
 
 ### Creating the datasource connection to MySQL
 
+!!! note
+    It is recommended to use the UTC zone for database operations as it does not observe daylight savings time (DST). If a database server is hosted in a time zone that is affected by DST, not using UTC could potentially result in an outage (due to the DST shift) when generating OAuth codes or access tokens.
+
 A datasource is used to establish a connection to a database. By default, `WSO2_SHARED_DB` and `WSO2AM_DB` datasources are configured in the `deployment.toml` file to connect to the default H2 databases.
 
 After setting up the MySQL database to replace the default H2 database, either change the default configurations of the `WSO2_SHARED_DB` and `WSO2AM_DB` datasources, or configure a new datasource to point it to the new database as explained below.
