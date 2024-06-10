@@ -8,7 +8,7 @@ Follow the steps given below to configure WSO2 IS 7 as a Key Manager component.
     This document provides instructions on configuring **WSO2 Identity Server 7** as a Key Manager. If you are using an older version of WSO2 Identity Server, see [Configure WSO2 IS as a Key Manager]({{base_path}}/administer/key-managers/configure-wso2is-connector).
 
 !!! warning
-    **Incompatibility with Scopes**  
+    **Incompatibility with OAuth2 Scopes**  
     WSO2 API Manager 4.3.0 is **not** compatible with the Role model of WSO2 Identity Server 7. Therefore, scopes are not supported when using WSO2 Identity Server 7 as the Key Manager with WSO2 API Manager 4.3.0.
 
     It is not recommended to use WSO2 Identity Server 7 as the Key Manager with WSO2 API Manager 4.3.0, for use cases that use scopes to secure APIs. Consider using a [WSO2 Identity Server version older than 7 as a Key Manager]({{base_path}}/administer/key-managers/configure-wso2is-connector) instead.
