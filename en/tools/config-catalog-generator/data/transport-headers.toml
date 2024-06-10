@@ -1,0 +1,6 @@
+[apim.transport_headers]
+enable = false
+removeRequestHeaders = "true"
+preserveRequestHeaders = ""
+excludeRequestHeaders = ""
+excludeResponseHeaders = ""
