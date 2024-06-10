@@ -5600,6 +5600,59 @@
                 }
             ],
             "exampleFile": "registry-handler.toml"
+        },
+        {
+            "title": "Transport Header Handler",
+            "options": [
+                {
+                    "name": "apim.transport_headers",
+                    "required": false,
+                    "description": "This includes configuration to enable TransportHeaderHandler.",
+                    "params": [
+                        {
+                            "name": "enabled",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Enable TransportHeaderHandler."
+                        },
+                        {
+                            "name": "removeRequestHeaders",
+                            "type": "string",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Indicates whether to remove the request headers from the response in a failure scenario. For OPTIONS call, request headers will always be removed."
+                        },
+                        {
+                            "name": "preserveRequestHeaders",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Comma separated List of headers preserved while removing request headers from the response. Default is empty. This list of headers will be preserved only when removeRequestHeaders is set to true."
+                        },
+                        {
+                            "name": "excludeRequestHeaders",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Comma separated List of well known request headers that should be removed in a Response to the client."
+                        },
+                        {
+                            "name": "excludeResponseHeaders",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Comma separated List of well known response headers that should be removed in a Request sent to backend."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "transport-headers.toml"
         }
     ]
 }
