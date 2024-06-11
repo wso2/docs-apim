@@ -29,6 +29,8 @@ anyone of mandatory will skip the authentication.
  
 Note : If OAuth2/Basic Auth is set as mandatory, the request needs to be authenticated using only one of them. If OAuth2 failed only, the Basic Authentication will be applied.
 
+!!! note
+    Basic Authentication type is not supported by throttling policies. Therefore, Basic Authentication requests are categorized under the **Unauthenticated tier**.
 
 ## Invoking an API using Basic Authentication
 
