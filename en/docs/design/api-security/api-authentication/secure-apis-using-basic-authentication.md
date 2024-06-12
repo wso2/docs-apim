@@ -29,6 +29,8 @@ anyone of mandatory will skip the authentication.
  
 Note : If OAuth2/Basic Auth is set as mandatory, the request needs to be authenticated using only one of them. If OAuth2 failed only, the Basic Authentication will be applied.
 
+!!! note
+    APIs with basic authentication are not tied to an application since they do not require a subscription. Therefore, they do not support application-level throttling. Due to the absence of subscription tier information these requests are categorized under the **Unauthenticated tier**. However, throttling at the API level is still applicable to these APIs.
 
 ## Invoking an API using Basic Authentication
 
