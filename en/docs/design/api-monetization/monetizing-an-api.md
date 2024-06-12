@@ -17,7 +17,7 @@ WSO2 API Manager uses <a href="https://stripe.com">Stripe</a> as its sample impl
       </div> 
 </html>
 
-Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin/releases/download/v1.4.0/org.wso2.apim.monetization.impl-1.4.0.jar) to monetize an API in the following example scenario.
+Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin) to monetize an API in the following example scenario.
 
 ### Before you begin
 
@@ -47,26 +47,33 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
 
          Use the details of the Tenant Admin and verify the account. Let's name this account as Tenant Admin. <a name="tenantSK"></a>
 
-     2. [Obtain the keys](https://stripe.com/docs/keys#api-keys).  
+     2. [Obtain the keys](https://stripe.com/docs/keys#api-keys). 
+
+        API Key can be obtained under the Developer view of Stripe dashboard
 
         [![Obtain keys]({{base_path}}/assets/img/learn/monetization_obtain_keys.png)]({{base_path}}/assets/img/learn/monetization_obtain_keys.png)
-        
- 2.  Create an account for the API Publisher.  
-    
-     Each Publisher Stripe account corresponds to a specific Publisher in WSO2 API Manager. Every Publisher should create a separate Stripe account if they wish to monetize their APIs.
 
-    1.  [Create an account in Stripe](https://dashboard.stripe.com/register). 
-
-    2.  [Obtain the keys](https://stripe.com/docs/keys#api-keys).
-
- 3.  Enable Connect and create a [connected account](https://stripe.com/docs/connect/quickstart#create-account) in Stripe.  
+ 2.  Create and enable [connected account](https://stripe.com/docs/connect/quickstart#create-account) in Stripe.  
 
     1. Sign in to the Tenant Admin's Stripe account.
-    2. Click **Connected accounts** > **Get Started** > **Build a platform or marketplace** > **Continue** to create a platform account.
+    2. Click **Connected accounts** from the left menu.
 
         [![Create a platform account]({{base_path}}/assets/img/learn/monetization_create_connected_account.png)]({{base_path}}/assets/img/learn/monetization_create_connected_account.png)
 
-    3. In the prompted screen click **+ Create** and select the Account type as Standard and select the Country. If you haven't enabled OAuth for standard accounts, the **Continue** button will be disabled. Click **enable OAuth for Standard Accounts** in the pop-up that appears on **Continue** button.
+    3. In the prompted screen click **+ Create** and select the Account type as Standard and select the Country. 
+    
+    <html>
+        <div class="admonition note">
+            <p class="admonition-title">Note</p>
+            <ul>
+                <li>
+                    <p>
+                        If you haven't enabled OAuth for standard accounts, the **Continue** button will be disabled. Click **enable OAuth for Standard Accounts** in the pop-up that appears on **Continue** button.
+                    </p>
+                </li>
+            </ul>
+        </div> 
+    </html>
 
         [![Enable oauth]({{base_path}}/assets/img/learn/monetization_enable_oauth.png){: style="width:60%"}]({{base_path}}/assets/img/learn/monetization_enable_oauth.png)
     
