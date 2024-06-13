@@ -48,7 +48,7 @@ Use either one of the following sample cURL commands for this purpose.
 #### Obtain the access token without specifying the scope
 
 ``` java tab="Format"
-curl -k -d "grant_type=client_credentials" -H "Authorization: Basic <Base64-encoded-client_key:client_secret>" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:<https-port>/token -v
+curl -k -d "grant_type=client_credentials" -H "Authorization: Basic <Base64-encoded-client_key:client_secret>" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token -v
 ```
 
 ``` java tab="Example"
