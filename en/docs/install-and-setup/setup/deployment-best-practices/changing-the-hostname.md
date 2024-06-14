@@ -35,13 +35,13 @@ Follow the steps given below.
         url = "https://<hostname>:${mgt.transport.https.port}/devportal"
         ```
 
-2. Generate a key store, export the public certificate from the keystore, and import that certificate to the `client­-truststore.jks` file.
+2.  Generate a key store, export the public certificate from the keystore, and import that certificate to the `client­-truststore.jks` file.
     
      For more information, see [Creating New Keystores]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/).
 
-3. Restart the server.
+3.  Restart the server.
 
-4. Map the hostname alias to its IP address in the `/etc/hosts` file of your system as shown below.
+4.  Map the hostname alias to its IP address in the `/etc/hosts` file of your system as shown below.
 
     !!! Info
         You need this when the host is internal or not resolved by a DNS,
