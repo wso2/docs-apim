@@ -52,7 +52,7 @@ Follow the steps given below.
     ```
 
 !!! Note
-    when changing the TLS keystore certificate or adding a new one, and if the certificate doesn't have "localhost" as a SAN entry, we need to do following modifications.
+    The default server hostname for internal API calls is set as "localhost". This default setting is used to construct the URL of a service endpoint for internal API usage. Depending on the requirement, you can configure the hostname by following below steps.
 
     1. Modify the app.origin.host with the required custom hostname in settings.json files in portals.
 
