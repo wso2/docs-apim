@@ -1,4 +1,10 @@
+# API Governance CLI Tool
+
 The API Governance CLI Tool is designed to validate API(s) against a set of rules and generate a report detailing any violations. This tool is intended for developers and API administrators to ensure compliance with best practices and organizational standards.
+
+## Download the Tool
+
+You can download the tool for apim 4.3.0 from [here]({{base_path}}/assets/attachments/governance/governance.cli.4.2.0.zip).
 
 ## Configuration
 
