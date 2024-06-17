@@ -52,7 +52,7 @@ Follow the steps given below.
     ```
 
 !!! Note
-    The default server hostname for internal API calls is set as "localhost". This default setting is used to construct the URL of a service endpoint for internal API usage. Depending on the requirement, you can configure the hostname by following below steps.
+    For internal calls APIM will assume the hostname as localhost. If we are in a need to change this, we need to configure the hostname by following below steps.
 
     1. Modify the app.origin.host with the required custom hostname in settings.json files in portals.
 
@@ -71,7 +71,7 @@ Follow the steps given below.
     2. Add following property with the required custom hostname in the deployment.toml file.
         ```toml
         [server]
-        internal_hostname = "<Custom_Hostname>"
+        internal_hostname = "example.com"
         ```
 
 !!! Warning
