@@ -34,12 +34,12 @@ The **WSO2 API-M** runtime has been tested with the following JDKs:
 
 The **WSO2 API-M** runtime is tested with the following databases:
 
-|**DBMS**     |**Versions**|
-|--------------|-----------|
-|MySQL         | 5.7, 8    |
-|Oracle        | 12c release 2, 19c, 23c  |
-|Microsoft SQL Server| 2017, 2019, 2022 |
-|PostgreSQL            | 15.3, 16.2 |
+|**DBMS**     | **Versions**            |
+|--------------|-------------------------|
+|MySQL         | 5.7, 8                  |
+|Oracle        | 12c release 2, 19c, 23c |
+|Microsoft SQL Server| 2017, 2019, 2022        |
+|PostgreSQL            | 12.15, 15.3, 16.2       |
 
 !!! warning
     When creating the database related to apim_db with MySQL 8.0, add **character set latin1** to avoid the MySQL Linux ERROR 1071 (42000).
