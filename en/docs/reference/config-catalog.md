@@ -8832,7 +8832,6 @@ sender.ssl_profile.interval = "600000"</code></pre>
 
 ## HTTP/S Pass-through Transport (blocking mode)
 
-
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
@@ -8842,31 +8841,21 @@ sender.ssl_profile.interval = "600000"</code></pre>
                 <label class="tab-selector" for="_tab_61"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[transport.passthru_https]
-listener.enable = true
-listener.parameters.port = 8200
-listener.hostname = ""
-listener.origin_server = ""
-listener.request_timeout = ""
-listener.request_tcp_no_delay = ""
-listener.request_core_thread_pool_size = ""
-listener.request_max_thread_pool_size = ""
-listener.thread_keepalive_time = ""
-listener.thread_keepalive_time_unit = ""
+<pre><code class="toml">[transport.blocking_http]
+sender.parameters.'http.proxyHost' = "$env{OUT_PROXY_HOST}"
+sender.parameters.'http.proxyPort' = "$env{OUT_PROXY_PORT}"
+sender.parameters.'http.nonProxyHosts' = "$env{OUT_PROXY_NON_HOSTS}"
 
 [transport.blocking_https]
-sender.enable = true
-sender.parameters.cacheHttpClient = true
-sender.parameters.Transfer-Encoding = ""
-sender.parameters.defaultMaxConnectionsPerHost = 200
-sender.parameters.OmitSOAP12Action = true
-sender.parameters.SO_TIMEOUT = 60000</code></pre>
+sender.parameters.'http.proxyHost' = "$env{OUT_PROXY_HOST}"
+sender.parameters.'http.proxyPort' = "$env{OUT_PROXY_PORT}"
+sender.parameters.'http.nonProxyHosts' = "$env{OUT_PROXY_NON_HOSTS}"</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[transport.passthru_https]</code>
+                            <code>[transport.blocking_http]</code>
                             
                             <p>
                                 This configuration header is required for configuring the parameters that are used for configuring the default HTTP/S passthrough transport in blocking mode
