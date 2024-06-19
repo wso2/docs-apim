@@ -8832,6 +8832,7 @@ sender.ssl_profile.interval = "600000"</code></pre>
 
 ## HTTP/S Pass-through Transport (blocking mode)
 
+
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
@@ -8849,7 +8850,8 @@ sender.parameters.'http.nonProxyHosts' = "$env{OUT_PROXY_NON_HOSTS}"
 [transport.blocking_https]
 sender.parameters.'http.proxyHost' = "$env{OUT_PROXY_HOST}"
 sender.parameters.'http.proxyPort' = "$env{OUT_PROXY_PORT}"
-sender.parameters.'http.nonProxyHosts' = "$env{OUT_PROXY_NON_HOSTS}"</code></pre>
+sender.parameters.'http.nonProxyHosts' = "$env{OUT_PROXY_NON_HOSTS}"
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
