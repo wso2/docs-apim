@@ -957,7 +957,7 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Specify NONE to disbale the sigining.</p>
+                                        <p>Specify NONE to disable the signing.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
