@@ -3324,7 +3324,7 @@
             "title": "HTTP/S Pass-through Transport (blocking mode)",
             "options": [
                 {
-                    "name": "transport.passthru_https",
+                    "name": "transport.blocking_http",
                     "required": false,
                     "description": "This configuration header is required for configuring the parameters that are used for configuring the default HTTP/S passthrough transport in blocking mode",
                     "params": [
