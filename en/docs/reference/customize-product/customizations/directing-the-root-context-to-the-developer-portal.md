@@ -2,8 +2,8 @@
 
 WSO2 API Manager includes separate Web applications as the Publisher and the Developer Portal. The root context of the API Manager is set to go to the Publisher by default. For example, assume that the API Manager is hosted on a domain named `apis.com` with default ports. The URLs of the Developer Portal and Publisher will be as follows:
 
--   Developer Portal - `https://apis.com:9443/devportal`<!--(https://apis.com:9443/devportal/)>
--   Publisher - `https://apis.com:9443/publisher`<!---(https://apis.com:9443/publisher/)>
+-   Developer Portal - `https://apis.com:9443/devportal`<!--(https://apis.com:9443/devportal/)-->
+-   Publisher - `https://apis.com:9443/publisher`<!---(https://apis.com:9443/publisher/)-->
 
 If you open the root context, which is `https://apis.com:9443` in your browser, it directs to the Publisher by default. You can set this to go to the Developer Portal as follows:
 
