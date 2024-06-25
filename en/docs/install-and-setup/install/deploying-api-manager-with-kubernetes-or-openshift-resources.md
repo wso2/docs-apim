@@ -53,7 +53,7 @@ Follow the instructions below to use Kubernetes (K8s) and Helm resources for con
 
 3.  Deploy WSO2 API Manager with WSO2 API Manager Analytics.
 
-     Refer the [Getting Started Guide]({{base_path}}/api-analytics/getting-started-guide) to setup the cloud Analytics solution and obtain an on-prem key.
+     Refer the [Getting Started Guide]({{base_path}}/api-analytics/choreo-analytics/getting-started-guide) to setup the cloud Analytics solution and obtain an on-prem key.
 
     ```
     helm install --dependency-update --name <RELEASE_NAME> <HELM_HOME>/am-single --namespace <NAMESPACE> --set wso2.choreoAnalytics.enabled=true --set wso2.choreoAnalytics.endpoint=<CHOREO_ANALYTICS_ENDPOINT> --set wso2.choreoAnalytics.onpremKey=<ONPREM_KEY>
