@@ -248,7 +248,7 @@ To create a business template using the Business Rules Template editor, follow t
 
 
 3. The Template Editor opens as shown below. There are two views from which you can interact and create a template group. **Design view** allows you to visualize a template group and interact with it. **Code view** allows you to interact with a template group by typing content. (For more information about template group structure, see
-    [Business Rules Templates](business-rules-templates).)
+    [Business Rules Templates](#business-rules-templates).)
 
     !!!warning
         Do not template sensitive information such as passwords in a Siddhi application or expose them directly in a Siddhi application. For detailed instructions to protect sensitive data by obfuscating them, see [Protecting Sensitive Data via the Secure Vault]({{base_path}}/install-and-setup/setup/si-setup/protecting-sensitive-data-via-the-secure-vault).
