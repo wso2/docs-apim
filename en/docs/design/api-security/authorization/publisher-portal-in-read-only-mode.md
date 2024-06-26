@@ -18,7 +18,7 @@ Follow the instructions below to create a Read only user:
 
 2. Create a user (Chris) and assign the **observer** default role.
 
-       [![Read-only user creation]({{base_path}}/assets/img/learn/api-security/assign-role-to-user.png){: style="width:70%"}](({{base_path}}/assets/img/learn/api-security/assign-role-to-user.png))
+       [![Read-only user creation]({{base_path}}/assets/img/learn/api-security/assign-role-to-user.png){: style="width:70%"}]({{base_path}}/assets/img/learn/api-security/assign-role-to-user.png)
 
 3. Click **Finish**.
 
