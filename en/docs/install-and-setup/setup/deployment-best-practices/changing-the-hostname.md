@@ -52,7 +52,7 @@ Follow the steps given below.
     ```
 
 !!! Note
-    For internal calls APIM will assume the hostname as localhost. If we are in a need to change this, we need to configure the hostname by following below steps.
+    For internal calls, APIM assumes the hostname to be localhost. If you need to change this, follow the steps below to configure the hostname:
 
     1. Modify the app.origin.host with the required custom hostname in settings.json files in portals.
 
