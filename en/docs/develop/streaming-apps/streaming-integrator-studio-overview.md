@@ -320,7 +320,7 @@ Simulation can be carried out in two ways:
 -   Single Simulation
 -   Feed Simulation
 
-For detailed information about event simulation, see [Simulating Events](_Simulating_Events_).
+For detailed information about event simulation, see [Simulating Events]({{base_path}}/develop/streaming-apps/testing-a-siddhi-application/#simulating-events).
 
 ### Output Console
 
