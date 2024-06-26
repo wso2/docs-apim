@@ -173,7 +173,7 @@ You will notice that all the API resources are created automatically when the Op
      | Field               | Sample value                                          |
      |---------------------|-------------------------------------------------------|
      | Endpoint type       | HTTP/REST Endpoint                                    |
-     | Production endpoint | [https://petstore3.swagger.io/api/v3](https://petstore3.swagger.io/api/v3)                       |
+     | Production endpoint | `https://petstore3.swagger.io/api/v3`          |
      | Sandbox endpoint    | Let's only work with the production endpoint for this sample. Therefore, deselect the sandbox endpoint option. |
 
      <html>
