@@ -655,7 +655,7 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
     Status: 201 Created
     ```    
 ??? note "getFunction"
-    The deleteFunction method implementation returns information about the function or function version. See the [related API documentation](https://docs.aws.amazon.com/lambda/latest/dg/API_GetFunction.html).
+    The getFunction method implementation returns information about the function or function version. See the [related API documentation](https://docs.aws.amazon.com/lambda/latest/dg/API_GetFunction.html).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -752,7 +752,7 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
     }
     ``` 
 ??? note "getFunctionConfiguration"
-    The deleteFunction method implementation returns the version-specific settings of a Lambda function or version. See the [related API documentation](https://docs.aws.amazon.com/lambda/latest/dg/API_GetFunctionConfiguration.html).
+    The getFunctionConfiguration method implementation returns the version-specific settings of a Lambda function or version. See the [related API documentation](https://docs.aws.amazon.com/lambda/latest/dg/API_GetFunctionConfiguration.html).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -845,7 +845,7 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
     }
     ``` 
 ??? note "invoke	"
-    The deleteFunction method implementation invokes a Lambda function. See the [related API documentation](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html).
+    The invoke method implementation invokes a Lambda function. See the [related API documentation](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -935,7 +935,7 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
     }
     ```
 ??? note "listFunctions"
-    The deleteFunction method implementation returns a list of Lambda functions, with the version-specific configuration of each. See the [related API documentation](https://docs.aws.amazon.com/lambda/latest/dg/API_ListFunctions.html).
+    The listFunctions method implementation returns a list of Lambda functions, with the version-specific configuration of each. See the [related API documentation](https://docs.aws.amazon.com/lambda/latest/dg/API_ListFunctions.html).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -997,7 +997,7 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
     ```
     
 ??? note "removePermission	"
-    The deleteFunction method implementation revokes function-use permission from an AWS service or another account. See the [related API documentation](https://docs.aws.amazon.com/lambda/latest/dg/API_RemovePermission.html).
+    The removePermission method implementation revokes function-use permission from an AWS service or another account. See the [related API documentation](https://docs.aws.amazon.com/lambda/latest/dg/API_RemovePermission.html).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -1064,7 +1064,7 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
 ### Layers
 
 ??? note "addLayerVersionPermission"
-    The deleteFunction method implementation adds permission to the resource-based policy of a version of an AWS Lambda layer. See the [related API documentation](https://docs.aws.amazon.com/lambda/latest/dg/API_AddLayerVersionPermission.html).
+    The addLayerVersionPermission method implementation adds permission to the resource-based policy of a version of an AWS Lambda layer. See the [related API documentation](https://docs.aws.amazon.com/lambda/latest/dg/API_AddLayerVersionPermission.html).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -1154,7 +1154,7 @@ The following operations allow you to work with the Amazon Lambda Connector. Cli
     }
     ``` 
 ??? note "removeLayerVersionPermission"
-    The deleteFunction method implementation revokes permission to the resource-based policy of a version of an AWS Lambda layer. See the [related API documentation](https://docs.aws.amazon.com/lambda/latest/dg/API_RemoveLayerVersionPermission.html).
+    The removeLayerVersionPermission method implementation revokes permission to the resource-based policy of a version of an AWS Lambda layer. See the [related API documentation](https://docs.aws.amazon.com/lambda/latest/dg/API_RemoveLayerVersionPermission.html).
     <table>
         <tr>
             <th>Parameter Name</th>
