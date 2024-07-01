@@ -51,6 +51,29 @@ Follow the steps given below.
     <ip_address>    <hostname>
     ```
 
+!!! Note
+    For internal calls, APIM assumes the hostname to be localhost. If you need to change this, follow the steps below to configure the hostname:
+
+    1. Modify the app.origin.host with the required custom hostname in settings.json files in portals.
+
+        **Publisher path**: repository/deployment/server/webapps/publisher/site/public/conf/settings.json.</br>
+        **Admin portal path**: repository/deployment/server/webapps/admin/site/public/conf/settings.json.</br>
+        **Devportal path**: repository/deployment/server/webapps/devportal/site/public/theme/settings.json.
+        
+       ```json
+       app: {
+       ...,
+        origin: {
+           host: 'example.com',
+        },
+       ...
+       ```
+    2. Add following property with the required custom hostname in the deployment.toml file.
+        ```toml
+        [server]
+        internal_hostname = "example.com"
+        ```
+
 !!! Warning
 
     After you change the hostname, if you encounter login failures when trying to access the API Publisher and API Developer Portal with the error `Registered callback does not match with the provided url`, see ['Registered callback does not match with the provided url' error]({{base_path}}/troubleshooting/troubleshooting-invalid-callback-error) in the Troubleshooting guide.

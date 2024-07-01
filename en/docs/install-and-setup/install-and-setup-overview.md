@@ -369,8 +369,10 @@ See the topics given below to manage APIs, API products, Apps, etc. in the API-M
 
 ### Upgrading
 
-To upgrade to the current API Manager component from a previous version, see the topics given below.
+To upgrade to the current API Manager component from a previous version, refer the [upgrading WSO2 API Manager]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager) page  .
 
+
+<!---
 <table>
     <tr>
         <td>
@@ -413,6 +415,7 @@ To upgrade to the current API Manager component from a previous version, see the
         </td>
     </tr>
 </table>
+-->
 
 ## Streaming Integrator
 

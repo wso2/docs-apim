@@ -140,7 +140,7 @@
 
     <div class="admonition warning">
         <p class="admonition-title">Warning</p>
-        <p>You need an access token to invoke the API. It is important to have a valid subscription before using the SDK, to obtain an access token. Note that the obtained access token has an [expiration time](/learn/consume-api/manage-application/generate-keys/obtain-access-token/changing-the-default-token-expiration-time).</p>
+        <p>You need an access token to invoke the API. It is important to have a valid subscription before using the SDK, to obtain an access token. Note that the obtained access token has an [expiration time]({{base_path}}/learn/consume-api/manage-application/generate-keys/obtain-access-token/changing-the-default-token-expiration-time).</p>
     </div>
     
 9.  Set the base path to the API client.
