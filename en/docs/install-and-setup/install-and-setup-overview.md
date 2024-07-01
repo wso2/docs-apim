@@ -264,14 +264,6 @@ To deploy the API Manager runtime, see the topics given below.
             Explains how Helm resources deploy the API Manager component in Kubernetes.
         </td>
     </tr>
-    <tr>
-        <th>
-            <a href="{{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-apis/api-deployments">Deploy APIs on Kubernetes</a>
-        </th>
-        <td>
-            Explains how the Kubernetes operator can deploy APIs in Kubernetes as managed APIs.
-        </td>
-    </tr>
 </table>
 
 ### CI/CD
@@ -460,7 +452,7 @@ To install and run the Streaming Integrator, see the following topics.
     </tr>
     <tr>
         <th>
-            <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-si-as-a-windows-service">Running the Streaming Integrator as a Windows Service</a>
+            <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-si-as-windows-service/">Running the Streaming Integrator as a Windows Service</a>
         </th>
         <td>
             Explains how to install and run the Streaming Integrator as a Windows service.
