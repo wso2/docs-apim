@@ -68,7 +68,7 @@ To make the delivery successful, you can provide a working endpoint and restart 
 
 To test this flow you can do the following. 
 
-1. Create a new endpoint in [https://hookbin.com/](https://hookbin.com/) and provide the endpoint in the docker-compose.yml file under `CATERING_SERVICE_EP`. 
+1. Create a new mock endpoint in [Mocky](https://designer.mocky.io/design) with the payload as `{"success":true}` and provide the endpoint in the docker-compose.yml file under `CATERING_SERVICE_EP`. 
 
 2. Restart Micro-Integrator runtime using the following command: `docker-compose up -d --build mi-runtime`
 

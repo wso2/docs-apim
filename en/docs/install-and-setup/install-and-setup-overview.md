@@ -264,14 +264,6 @@ To deploy the API Manager runtime, see the topics given below.
             Explains how Helm resources deploy the API Manager component in Kubernetes.
         </td>
     </tr>
-    <tr>
-        <th>
-            <a href="{{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-apis/api-deployments">Deploy APIs on Kubernetes</a>
-        </th>
-        <td>
-            Explains how the Kubernetes operator can deploy APIs in Kubernetes as managed APIs.
-        </td>
-    </tr>
 </table>
 
 ### CI/CD
@@ -377,8 +369,10 @@ See the topics given below to manage APIs, API products, Apps, etc. in the API-M
 
 ### Upgrading
 
-To upgrade to the current API Manager component from a previous version, see the topics given below.
+To upgrade to the current API Manager component from a previous version, refer the [upgrading WSO2 API Manager]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager) page  .
 
+
+<!---
 <table>
     <tr>
         <td>
@@ -421,6 +415,7 @@ To upgrade to the current API Manager component from a previous version, see the
         </td>
     </tr>
 </table>
+-->
 
 ## Streaming Integrator
 
@@ -457,7 +452,7 @@ To install and run the Streaming Integrator, see the following topics.
     </tr>
     <tr>
         <th>
-            <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-si-as-a-windows-service">Running the Streaming Integrator as a Windows Service</a>
+            <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-si-as-windows-service/">Running the Streaming Integrator as a Windows Service</a>
         </th>
         <td>
             Explains how to install and run the Streaming Integrator as a Windows service.

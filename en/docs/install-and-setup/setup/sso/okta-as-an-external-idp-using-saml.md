@@ -56,7 +56,7 @@ Before you begin, make sure you do the following.
 
     1.  Navigate to **Users** -> **Profile Editor** and click the pencil icon to edit the default profile.
 
-        [![Edit the default profile in the Profile Editor]({{base_path}}/assets/img/learn/okta-add-new-attribute.png)]({{base_path}}/assets/img/learn/okta-add-new-attribute.png)
+        [![Edit the default profile in the Profile Editor]({{base_path}}/assets/img/learn/profile-editor.png)]({{base_path}}/assets/img/learn/profile-editor.png)
 
     2.  Click **Add Attribute** to add new user attributes.
     

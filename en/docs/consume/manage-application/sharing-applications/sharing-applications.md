@@ -27,16 +27,6 @@ You can enable application sharing with users in a single group or between users
     application_sharing_type = "default"
             
     ```
-
-    **SAML**
-
-    ``` java
-    [apim.devportal]
-    enable_application_sharing = true
-    application_sharing_type = "saml"
-            
-    ```
-
     **Custom**
 
     ``` java
