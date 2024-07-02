@@ -45,7 +45,7 @@ In a multi-tenanted API Manager setup, self-signup to the Developer Portal works
 
 5. Sign in to the admin portal  ( `https://<HostName>:9443/admin` ) as tenant admin and navigate to **Advance Configurations** by clicking **Advance** under **Settings**.
 
-6. Add the following configuration and save the content.
+6. Add the following configuration and save the content. The `SignUpRoles` configuration indicates the default roles that will be assigned to a user who self signs up to the Developer portal.
 
     ``` json
        "SelfSignUp": {
