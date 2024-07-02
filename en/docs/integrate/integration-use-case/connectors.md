@@ -31,7 +31,7 @@ The following are documented connectors available from the [connector store](htt
             <td>This connector enables you to perform CRUD operations for queues in Amazon SQS instance, update permissions, and work with messages through the <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/Welcome.html">Amazon SQS API</a>.</td>
         </tr>
         <tr>
-            <td><a href="{{base_path}}/reference/connectors/ceridiandayforce-connector/ceridiandayforce-overview/">Ceridian Dayforce</a></td>
+            <td><a href="{{base_path}}/reference/connectors/ceridiandayforce-connector/cerediandayforce-overview/">Ceridian Dayforce</a></td>
             <td>The Ceridian Dayforce connector allows you to  access the REST API of Ceridian Dayforce HCM.</td>
         </tr>
         <tr>

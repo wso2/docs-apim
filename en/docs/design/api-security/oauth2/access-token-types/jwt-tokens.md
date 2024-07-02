@@ -6,6 +6,13 @@ WSO2 API Manager supports the use of self-contained and signed JWT formatted OAu
 
 The gateway itself validates the API requests that are authenticated using the JWT access tokens.
 
+<html>
+      <div class="admonition note">
+      <p class="admonition-title">Note</p>
+      <p>By default, JWT access tokens are not stored or retained after generation, leading to the generation of a new token for each access token request. </p>
+      </div> 
+</html>
+
 ## Prerequisites for JWT based tokens
 
 The following prerequisites have to be satisfied for JWT based tokens to work.

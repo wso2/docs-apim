@@ -102,4 +102,4 @@ Click the **Source** tab to view the XML-based synapse configuration (source cod
 
 ## Tutorial
 
--   See the tutorial on [using inbound endpoints]({{base_path}}/integrate/tutorials/using-inbound-endpoints)
+-   See the tutorial on [using inbound endpoints]({{base_path}}/tutorials/integration-tutorials/using-inbound-endpoints)

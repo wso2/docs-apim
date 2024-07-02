@@ -54,11 +54,11 @@ application_binary = "org.apache.axis2.format.BinaryFormatter"
 
 ### Handling message relay
 
-If you want to enable message relay, so that messages of a specific content type are not built or formatted but simply pass through the Micro Integrator, you can specify the message relay builder (for the required content types) in the deployment.toml file (stored in the `MI_HOME/conf` directory) as shown below.
+If you want to enable message relay, so that messages of a specific content type are not built or formatted but simply pass through the Micro Integrator, you can specify the message relay builder (for the required content types) in the `deployment.toml` file (stored in the `<MI_HOME>/conf` directory) as shown below.
 
 ```toml
 [[custom_message_formatters]]
-class = "org.wso2.carbon.relay.BinaryRelayBuilder"
+class = "org.wso2.carbon.relay.ExpandingMessageFormatter"
 content_type = "application/json/badgerfish"
 
 [[custom_message_builders]]
@@ -70,7 +70,7 @@ See [Configuring Message Relay]({{base_path}}/install-and-setup/setup/mi-setup/m
 
 ### Handling messages with no content type
 
-To ensure that messages with no content type are handled gracefully, add the following to the deployment.toml file (stored in the `MI_HOME/conf` directory).
+To ensure that messages with no content type are handled gracefully, add the following to the `deployment.toml` file (stored in the `<MI_HOME>/conf` directory).
 
 ```toml
 [[custom_message_builders]]
@@ -81,8 +81,9 @@ class="org.wso2.carbon.relay.BinaryRelayBuilder"
 content_type = "empty/content"
 class="org.wso2.carbon.relay.ExpandingMessageFormatter"
 
-[transport]
-default_content_type = "empty/content"
+[[transport.parameters]]
+name = "DEFAULT_REQUEST_CONTENT_TYPE"
+value = "empty/content"
 ```
 
 ### Handling text/csv messages
@@ -131,7 +132,7 @@ com.ctc.wstx.outputInvalidCharHandler.char=\u0020
 
 ### Validating JSON messages
 
-If you want the JSON builder to validate JSON messages that are received by the Micro Integrator, the following property should be added to the deployment.toml file. This validation ensures that erroneous JSON messages are rejected by the Micro Integrator.
+If you want the JSON builder to validate JSON messages that are received by the Micro Integrator, the following property should be added to the `deployment.toml` file. This validation ensures that erroneous JSON messages are rejected by the Micro Integrator.
 
 ```toml
 [[transport.http]]
@@ -213,10 +214,10 @@ processed in the WSO2 Micro Integrator mediation flow.
     ```
 
 2.  Create a JAR file of this class and add it into the classpath of the
-    Axis2 installation, i.e., the `MI_HOME/lib`
+    Axis2 installation, i.e., the `<MI_HOME>/lib`
     folder.
 3.  To enable your custom message builder for content type text/xml, add
-    the following line in the deployment.toml file:
+    the following line in the `deployment.toml` file:
 
     ```toml
     [[custom_message_builders]]

@@ -100,8 +100,11 @@ Let's use the Star Wars sample backend server as the backend for the GraphQL API
          <p>Endpoint</p>
       </td>
       <td>
-         <a href="http://localhost:8080/graphql" target="_blank">http://localhost:8080/graphql</a>
-                <div class="admonition note">
+         <code>
+            http://localhost:8080/graphql
+         </code>
+   
+   <div class="admonition note">
       <p class="admonition-title">Note</p>
       <p>
       <ul>
@@ -155,7 +158,7 @@ Let's use the Star Wars sample backend server as the backend for the GraphQL API
                    <div class="admonition note">
                    <p class="admonition-title">Note</p>
                    <p> 
-                   <ul><li>The role that you enter <b>should be a valid role that already exists in WSO2 API Manager</b>. Make sure to assign the role to the user. </li><li>For more information, see <a href="../../administer/managing-users-and-roles/managing-users/">Adding Users</a> and <a href="../../administer/managing-users-and-roles/managing-user-roles/">Adding User Roles</a>.</li></ul>
+                   <ul><li>The role that you enter <b>should be a valid role that already exists in WSO2 API Manager</b>. Make sure to assign the role to the user. </li><li>For more information, see <a href="/administer/managing-users-and-roles/managing-users/">Adding Users</a> and <a href="/administer/managing-users-and-roles/managing-user-roles/">Adding User Roles</a>.</li></ul>
                    </p>
                    </div>
                   

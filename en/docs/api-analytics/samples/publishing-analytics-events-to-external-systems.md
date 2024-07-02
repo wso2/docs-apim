@@ -228,7 +228,7 @@ This section will guide you through the steps required to visualize the publishe
              - /home/wso2/logs/enforcer_analytics.log
          ```
 
-2. [Set up assets]((https://www.elastic.co/guide/en/beats/filebeat/7.13/filebeat-installation-configuration.html#setup-assets)). 
+2. <a href="https://www.elastic.co/guide/en/beats/filebeat/7.13/filebeat-installation-configuration.html#setup-asset" target="_blank">Set up assets</a>
          
     !!! tip
         In case of a failure with the above command, run the following command to set up assets.

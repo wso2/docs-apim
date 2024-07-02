@@ -90,7 +90,7 @@ For this example, let us use the [Swagger Petstore - OpenAPI 3.0](https://petsto
       Sandbox: https://dev.sandbox.wso2.com
       ```
 
-     [![]({{base_path}}/assets/img/learn/api-controller/prod-dev-endpoints-petstore-api.png)]({{base_path}}/assets/img/learn/api-controller/endpoints-petstore-api.png)
+     [![]({{base_path}}/assets/img/learn/api-controller/endpoints-petstore-api.png)]({{base_path}}/assets/img/learn/api-controller/endpoints-petstore-api.png)
 
   6. Go to the **Portal Configurations** > **Subscriptions**, select business plain and save the API. 
 
@@ -429,7 +429,7 @@ Run any of the following apictl commands to get keys for the API/API Product.
 
     !!! example
         ```bash
-        apictl get keys -n PizzaShackAPI -v 1.0.0 -e dev  -r admin -t https://localhost:8243/token
+        apictl get keys -n PizzaShackAPI -v 1.0.0 -e dev  -r admin -t https://localhost:9443/oauth2/token
         ```
     !!! info
         **Flags:**  

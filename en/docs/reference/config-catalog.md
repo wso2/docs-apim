@@ -2730,7 +2730,7 @@ key_validation_handler_impl = "org.wso2.carbon.apimgt.keymgt.handlers.DefaultKey
 <pre><code class="toml">[apim.oauth_config]
 enable_outbound_auth_header = false
 auth_header = "Authorization"
-revoke_endpoint = "https://localhost:${https.nio.port}/revoke"
+revoke_endpoint = "https://localhost:${mgt.transport.https.port}/oauth2/revoke"
 enable_token_encryption = false
 enable_token_hashing = false</code></pre>
                     </div>
@@ -2796,7 +2796,7 @@ enable_token_hashing = false</code></pre>
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>https://localhost:8243/revoke</code></span>
+                                            <span class="param-default-value">Default: <code>https://localhost:9443/oauth2/revoke</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>Valid URL for revocation endpoint.</code></span>
@@ -4648,7 +4648,7 @@ log_tracer.enable = true
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.token.revocation]
-notifier_impl = "org.wso2.carbon.apimgt.keymgt.events.TokenRevocationNotifierImpl"
+notifier_impl = "org.wso2.carbon.apimgt.notification.TokenRevocationNotifierImpl"
 enable_realtime_notifier = true
 realtime_notifier.ttl = 5000
 enable_persistent_notifier = true
@@ -4679,7 +4679,7 @@ persistent_notifier.password = "root"</code></pre>
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>org.wso2.carbon.apimgt.notification.TokenRevocationNotifier</code></span>
+                                            <span class="param-default-value">Default: <code>org.wso2.carbon.apimgt.notification.TokenRevocationNotifierImpl</code></span>
                                         </div>
                                         
                                     </div>
@@ -8844,31 +8844,22 @@ sender.ssl_profile.interval = "600000"</code></pre>
                 <label class="tab-selector" for="_tab_61"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[transport.passthru_https]
-listener.enable = true
-listener.parameters.port = 8200
-listener.hostname = ""
-listener.origin_server = ""
-listener.request_timeout = ""
-listener.request_tcp_no_delay = ""
-listener.request_core_thread_pool_size = ""
-listener.request_max_thread_pool_size = ""
-listener.thread_keepalive_time = ""
-listener.thread_keepalive_time_unit = ""
+<pre><code class="toml">[transport.blocking_http]
+sender.parameters.'http.proxyHost' = "$env{OUT_PROXY_HOST}"
+sender.parameters.'http.proxyPort' = "$env{OUT_PROXY_PORT}"
+sender.parameters.'http.nonProxyHosts' = "$env{OUT_PROXY_NON_HOSTS}"
 
 [transport.blocking_https]
-sender.enable = true
-sender.parameters.cacheHttpClient = true
-sender.parameters.Transfer-Encoding = ""
-sender.parameters.defaultMaxConnectionsPerHost = 200
-sender.parameters.OmitSOAP12Action = true
-sender.parameters.SO_TIMEOUT = 60000</code></pre>
+sender.parameters.'http.proxyHost' = "$env{OUT_PROXY_HOST}"
+sender.parameters.'http.proxyPort' = "$env{OUT_PROXY_PORT}"
+sender.parameters.'http.nonProxyHosts' = "$env{OUT_PROXY_NON_HOSTS}"
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[transport.passthru_https]</code>
+                            <code>[transport.blocking_http]</code>
                             
                             <p>
                                 This configuration header is required for configuring the parameters that are used for configuring the default HTTP/S passthrough transport in blocking mode
@@ -13956,6 +13947,147 @@ useLogger = true</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>Allows logs to get written into the `&lt;APIM_HOME&gt;repository/logs/wso2carbon.log` or any other log file and show up on the console.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## Transport Header Handler
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="94" type="checkbox" id="_tab_94">
+                <label class="tab-selector" for="_tab_94"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[apim.transport_headers]
+enable = false
+removeRequestHeaders = "true"
+preserveRequestHeaders = ""
+excludeRequestHeaders = ""
+excludeResponseHeaders = ""
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[apim.transport_headers]</code>
+                            
+                            <p>
+                                This includes configuration to enable TransportHeaderHandler.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enabled</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true,false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable TransportHeaderHandler.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>removeRequestHeaders</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true,false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Indicates whether to remove the request headers from the response in a failure scenario. For OPTIONS call, request headers will always be removed.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>preserveRequestHeaders</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Comma separated List of headers preserved while removing request headers from the response. Default is empty. This list of headers will be preserved only when removeRequestHeaders is set to true.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>excludeRequestHeaders</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Comma separated List of well known request headers that should be removed in a Response to the client.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>excludeResponseHeaders</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Comma separated List of well known response headers that should be removed in a Request sent to backend.</p>
                                     </div>
                                 </div>
                             </div>

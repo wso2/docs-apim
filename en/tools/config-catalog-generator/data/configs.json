@@ -1036,7 +1036,7 @@
                             "name": "revoke_endpoint",
                             "type": "string",
                             "required": false,
-                            "default": "https://localhost:8243/revoke",
+                            "default": "https://localhost:9443/oauth2/revoke",
                             "possible": "Valid URL for revocation endpoint.",
                             "description": "Token revocation endpoint used in the API Developer Portal"
                         },
@@ -1753,7 +1753,7 @@
                             "name": "notifier_impl",
                             "type": "string",
                             "required": false,
-                            "default": "org.wso2.carbon.apimgt.notification.TokenRevocationNotifier",
+                            "default": "org.wso2.carbon.apimgt.notification.TokenRevocationNotifierImpl",
                             "possible": "",
                             "description": "This config is required only during a custom implementation. \n\nIf a token is revoked, the notification will be sent to the JMS topic. Write a custom implementation to change this behaviour."
                         },
@@ -3324,7 +3324,7 @@
             "title": "HTTP/S Pass-through Transport (blocking mode)",
             "options": [
                 {
-                    "name": "transport.passthru_https",
+                    "name": "transport.blocking_http",
                     "required": false,
                     "description": "This configuration header is required for configuring the parameters that are used for configuring the default HTTP/S passthrough transport in blocking mode",
                     "params": [
@@ -5190,6 +5190,59 @@
                 }
             ],
             "exampleFile": "http_access_log.toml"
+        },
+        {
+            "title": "Transport Header Handler",
+            "options": [
+                {
+                    "name": "apim.transport_headers",
+                    "required": false,
+                    "description": "This includes configuration to enable TransportHeaderHandler.",
+                    "params": [
+                        {
+                            "name": "enabled",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Enable TransportHeaderHandler."
+                        },
+                        {
+                            "name": "removeRequestHeaders",
+                            "type": "string",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Indicates whether to remove the request headers from the response in a failure scenario. For OPTIONS call, request headers will always be removed."
+                        },
+                        {
+                            "name": "preserveRequestHeaders",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Comma separated List of headers preserved while removing request headers from the response. Default is empty. This list of headers will be preserved only when removeRequestHeaders is set to true."
+                        },
+                        {
+                            "name": "excludeRequestHeaders",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Comma separated List of well known request headers that should be removed in a Response to the client."
+                        },
+                        {
+                            "name": "excludeResponseHeaders",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Comma separated List of well known response headers that should be removed in a Request sent to backend."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "transport-headers.toml"
         }
     ]
 }

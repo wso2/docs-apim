@@ -29,7 +29,7 @@ We can use GET Employee Health and Wellness operation with required parameters t
 
 **Properties**
 
-* xRefCode (Mandatory): he unique identifier (external reference code) of the employee whose data will be retrieved. The value provided must be the exact match for an employee; otherwise, a bad request (400) error will be returned.
+* xRefCode (Mandatory): the unique identifier (external reference code) of the employee whose data will be retrieved. The value provided must be the exact match for an employee; otherwise, a bad request (400) error will be returned.
 * contextDate (Optional): The Context Date value is an “as-of” date used to determine which employee data to search when records have specific start and end dates. The service defaults to the current datetime if the requester does not specify a value. Example: 2017-01-01T13:24:56
 * contextDateRangeFrom (Optional): The Context Date Range From value is the start of the range of dates used to determine which employee data to search when records have specific start and end dates. The service defaults to null if the requester does not specify a value. Example: 2017-01-01T13:24:56
 * contextDateRangeTo (Optional): The Context Date Range To value is the end of the range of dates to determine which employee data to search when records have specific start and end dates. The service defaults to null if the requester does not specify a value. Example: 2017-01-01T13:24:56
@@ -66,7 +66,7 @@ Given below is a sample response for this operation.
 
 **Related Dayforce documentation**
 
-[https://developers.dayforce.com/Build/API-Explorer/Employee-Personal-Information/Employee-Health-and-Wellness/GET-Employee-Health-and-Wellness.aspx](hhttps://developers.dayforce.com/Build/API-Explorer/Employee-Personal-Information/Employee-Health-and-Wellness/GET-Employee-Health-and-Wellness.aspx)
+[https://developers.dayforce.com/Build/API-Explorer/Employee-Personal-Information/Employee-Health-and-Wellness/GET-Employee-Health-and-Wellness.aspx](https://developers.dayforce.com/Build/API-Explorer/Employee-Personal-Information/Employee-Health-and-Wellness/GET-Employee-Health-and-Wellness.aspx)
 
 ### Sample configuration
 

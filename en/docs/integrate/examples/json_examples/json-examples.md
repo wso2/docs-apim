@@ -518,7 +518,7 @@ payload.
 
 ```
 <log>
-  <property name="JSON-Payload" expression="json-eval($.)"/>
+  <property name="JSON-Payload" expression="json-eval($)"/>
 </log>
 ```
 
@@ -931,7 +931,7 @@ proxy service as the request for the following proxy service,
                mc.setPayloadJSON(payload);
              </script>
              <log>
-                <property name="JSON-Payload" expression="json-eval($.)"/>
+                <property name="JSON-Payload" expression="json-eval($)"/>
              </log>
              <respond/>
           </inSequence>

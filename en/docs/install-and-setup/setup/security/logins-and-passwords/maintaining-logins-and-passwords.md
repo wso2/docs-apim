@@ -21,7 +21,10 @@ Follow the instructions below to change the default admin password:
 
         If you specify passwords inside XML files, you have to be mindful when defining special characters in the user names and passwords.
         Based on the XML specification (<https://www.w3.org/TR/xml/#sec-cdata-sect/>), some special characters can disrupt the configuration.
-        For example, the ampersand character (&) must not appear in the literal form in XML files. It can cause a Java Null Pointer exception. You must wrap it with [CDATA](https://www.w3schools.com/xml/dom_cdatasection.asp) as shown below or remove the character:    
+        For example, the ampersand character (&) must not appear in the literal form in XML files. It can cause a Java Null Pointer exception. You must wrap it with [CDATA](https://www.w3schools.com/xml/dom_cdatasection.asp) as shown below or remove the character:  
+
+    -   Do not use **£** character in the admin password as it can cause a buffer overflow exception. This happens due to a
+        limitation where a **£** character has two values as its byte representation. 
 
     -   The above credentials are applied to the `jndi.properties` file.
         -   **It is not possible to use the `@` `{` `}` symbols in the username or password**.
@@ -60,7 +63,7 @@ Follow the instructions below to change the default admin password:
     Therefore, if you need to change the admin password stored in the user store, you cannot simply change the credentials as above.
     To change the super admin password, you must use the **Change Password** option from the management console.
 
-    To change the password from Management Console (<https://localhost:9443/carbon>), follow the steps in [Changing a Password](https://docs.wso2.com/display/ADMIN44x/Changing+a+Password) corresponding to API Manager.
+    To change the password from Management Console (<https://localhost:9443/carbon>), follow the steps in [Changing a Password](https://wso2docs.atlassian.net/wiki/spaces/ADMIN44x/pages/6684791/Changing+a+Password) corresponding to API Manager.
 
 ## Recover a password
 

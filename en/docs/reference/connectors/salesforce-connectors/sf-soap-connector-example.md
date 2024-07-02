@@ -1,4 +1,4 @@
-# Salesforce SOAP Connector Example
+    # Salesforce SOAP Connector Example
 
 The Salesforce SOAP Connector allows you to work with records in Salesforce, a web-based service that allows organizations to manage contact relationship management (CRM) data. You can use the Salesforce connector to create, query, retrieve, update, and delete records in your organization's Salesforce data. The connector uses the [Salesforce SOAP API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_quickstart_intro.htm?search_text=SOAP%20API%20Developer%20Guide) to interact with Salesforce.
 
@@ -200,13 +200,12 @@ Now follow the steps below to add configurations to the resource.
             </resource>
         </api>
         ```
+   
 ## Get the project
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/salesforcesoap.zip">
-    <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
-</a>
+
 
 !!! tip
     You may need to update the value of the access token and make other such changes before deploying and running this project.

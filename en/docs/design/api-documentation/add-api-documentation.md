@@ -91,7 +91,8 @@ Follow the instructions below to add documentation to an API:
         <tr class="even">
         <td>Source</td>
         <td>URL<br />
-        <a href="http://www.dummyforum.com" class="uri">http://www.dummyforum.com</a></td>
+            <p>http://www.dummyforum.com</p>
+        </td>
         </tr>
         </tbody>
         </table>

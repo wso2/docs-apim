@@ -39,7 +39,7 @@ Follow the instructions given in this section to create and configure the requir
 6. Create a **Proxy Service** artifact.
 
     1.  In the project explorer, right-click **ProxyServiceSampleConfigs** and click **New -> Proxy Service**.
-    2.  Follow the [Using a Simple Proxy Service]({{base_path}}/integrate/examples/proxy_service_examples/introduction-to-proxy-services.md) to create the StockQuoteProxy Proxy Service.
+    2.  Follow the [Using a Simple Proxy Service]({{base_path}}/integrate/examples/proxy_service_examples/introduction-to-proxy-services) to create the StockQuoteProxy Proxy Service.
     3.  Enter the details given below to create a new Proxy Service.
         <table>
         <tr>

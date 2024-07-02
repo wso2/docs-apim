@@ -12,6 +12,10 @@ The following section explains as to how the APIs in WSO2 API Manager can be sec
     
      [![Enable mutual SSL]({{base_path}}/assets/img/learn/enable-mutual-ssl.png)]({{base_path}}/assets/img/learn/enable-mutual-ssl.png)
 
+    !!! note
+          HTTP transport will be disabled for an API if it has Mutual SSL enabled.
+
+
 4.  Click **Add Certificate** to upload a new client certificate.
     
     !!! note

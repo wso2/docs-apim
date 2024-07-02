@@ -88,7 +88,7 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
 4. Extract the distribution and copy the following JAR files to the `<IS_HOME>/repository/components/dropins` directory.
 
      - `wso2is.key.manager.core-1.4.2`
-     - `wso2is.notification.event.handlers-1.4.2`
+     - `wso2is.notification.event.handlers-1.4.2.8`
 
 5. Add `keymanager-operations.war` to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
@@ -189,7 +189,7 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
       <tr class="odd">
       <td>Revoke Endpoint</td>
       <td>The endpoint that revokes the access tokens.</br>
-        e.g., <code>https://localhost:9444/oauth2/revoke</code></code></td>
+        e.g., <code>https://localhost:9444/oauth2/revoke</code></td>
       <td>Optional</td>
       </tr>
       <tr class="even">

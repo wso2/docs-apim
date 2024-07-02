@@ -79,9 +79,9 @@ You need to add the API Token and Collection ID properties inside the configurat
 #### Enable Audit API for a single tenant
 
 !!! tip
-    For more information on creating a tenant, see [Managing Tenants]({{base_path}}/administer/product-administration/multitenancy/introduction-to-multitenancy/).
+    For more information on creating a tenant, see [Managing Tenants]({{base_path}}/administer/multitenancy/introduction-to-multitenancy/).
 
-1.  Navigate to the Admin Console [https://localhost:9443/admin](https://localhost:9443/admin) and sign in with your tenant credentials.
+1.  Navigate to the Admin Console `https://localhost:9443/admin` and sign in with your tenant credentials.
 
 2.  Go to **Settings > Advanced**.
 
@@ -131,9 +131,7 @@ You need to add the API Token and Collection ID properties inside the configurat
 
      [![sample audit report]({{base_path}}/assets/img/learn/sample-audit-report.png)]({{base_path}}/assets/img/learn/sample-audit-report.png)
 
-     For more information on the details provided in the report, see [Audit report sections](#auditreports)
-
-<a href="auditreports"></a>
+     For more information on the details provided in the report, see [Audit report sections]({{base_path}}/design/api-security/configuring-api-security-audit/#audit-report-sections)<a href="auditreports"></a>
 
 ## Audit report sections
 

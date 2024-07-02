@@ -77,6 +77,10 @@ To add a new certificate to a Choreo Connect component, the PEM formatted certif
 
 Follow the instructions below to change the private certificate of a component:
 
+!!! info
+
+    When generating certificates, it's important to ensure that the extendedKeyUsage includes serverAuth and clientAuth. Failure to do so may result in connectivity issues between choreo-connect components.
+
 1. Generate a new key pair for the component.
    
 2. Copy the private key and certificate (in PEM format) into `<CHOREO-CONNECT_HOME>/resources/<COMPONENT>/security/keystore` directory.
