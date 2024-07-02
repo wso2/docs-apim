@@ -112,8 +112,8 @@ before `</Handlers>`.
     The outcomes of using Class Mediator vs Custom Handler are very similar. However, when using a custom handler 
     you need to maintain a customized velocity template file that needs to be manually merged when you upgrade your 
     product to a newer version. Therefore, it is recommended to use custom Handlers when you wish to specify the exact 
-    order of execution of JARs as this can not be done with 
-    [Mediators]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests).
+    order of execution of JARs as this can not be done by 
+    [Specifying a Mediation Flow Using a Policy]({{base_path}}/design/api-policies/regular-gateway-policies/specifying-mediation-flow-based-on-policy/).
 
 
 Custom Handler is a way of extending API Manager which the product offer to change the API flow through the API Gateway. 
