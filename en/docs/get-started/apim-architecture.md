@@ -32,9 +32,9 @@ These integration services can be created using WSO2 Integration Studio and a va
 
 #### API Analytics
 
-- For information on the architecture, see [API Analytics Architecture]({{base_path}}/api-analytics/api-analytics-architecture/)
+- For information on the architecture, see [API Analytics Architecture]({{base_path}}/api-analytics/choreo-analytics/api-analytics-architecture/)
 
-- For information on working with Analytics, see the [API Analytics Getting Started Guide]({{base_path}}/api-analytics/getting-started-guide/).
+- For information on working with Analytics, see the [API Analytics Getting Started Guide]({{base_path}}/api-analytics/choreo-analytics/getting-started-guide/).
 
 ## Data Plane
 

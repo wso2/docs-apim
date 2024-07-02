@@ -64,7 +64,7 @@ Let us check out the basic building blocks for creating a CI/CD pipeline with WS
 Now, you have added two different environments. Our end goal is to automate the API migration between the `dev` and `prod` environments. 
 Therefore, first, the API should be created with relevant information, create a new revision, deploy the revision in relevant gateways 
 and publish in the `dev` environment using the API Publisher in WSO2 API-M. 
-For more information on deploying an API in the WSO2 API-M, see the [Quick Start Guide](http://localhost:8000/getting-started/quick-start-guide/).   
+For more information on deploying an API in the WSO2 API-M, see the [Quick Start Guide]({{base_path}}/getting-started/quick-start-guide/).   
 
 For this example, let us use the [Swagger Petstore - OpenAPI 3.0](https://petstore3.swagger.io/). 
 

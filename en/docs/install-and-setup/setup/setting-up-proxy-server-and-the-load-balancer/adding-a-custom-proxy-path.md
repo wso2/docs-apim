@@ -20,7 +20,7 @@ In the above example, "apim" is the "proxy context paths" of API Manager.
 
  When a client sends a request to the proxy entry URL path, e.g.
 `https://knnect.lk/apim` , the request is directed to the
-back-end service URL ([https://<server-ip>:9443/carbon](https://<server-ip>:9443/carbon)) 
+back-end service URL (`https://<server-ip>:9443/carbon`) 
 where the original service lies. Eventually, the client has to be
 served via the requested proxy entry URL path. The mapping between the
 proxy URL path and the back-end service URL path is resolved by the

@@ -29,9 +29,9 @@ Each handler performs a specific task as mentioned in the table below. Note that
 | APIMgtGoogleAnalyticsTrackingHandler | Publish data to Google Analytics, if Google Analytics is configured | N/A                                                             |
 | APIManagerExtensionHandler           | Execute custom mediation sequences at inflow                        | Execute custom mediation sequences at outflow                   |
 
-### Mediation extensions
+### Mediation policies
 
-Mediation extensions are the custom mediation logic that can be executed in either the inflow or the outflow. For more details on how to configure mediation extensions, see [Adding Mediation Extensions]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests) .
+Mediation policies enable you to define custom mediation logic that can be executed during the API request, response and fault flow based on specified policies. For detailed instructions on how to configure mediation flows using policies, see [Specifying a Mediation Flow Using a Policy]({{base_path}}/design/api-policies/regular-gateway-policies/specifying-mediation-flow-based-on-policy/#specifying-a-mediation-flow-using-a-policy).
 
 ### In sequence and out sequence
 
