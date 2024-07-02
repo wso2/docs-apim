@@ -207,6 +207,7 @@ nav:
             - Enable CORS for APIs: design/advanced-topics/enabling-cors-for-apis.md
             - Add an API State Change Workflow: design/advanced-topics/adding-an-api-state-change-workflow.md
             - Block Subscription to an API: design/advanced-topics/block-subscription-to-an-api.md
+            - API Governance CLI Tool: design/advanced-topics/api-governance-cli-tool.md
     - Deploy and Publish APIs:
         - Deploy on Gateway:
             - Deploy APIs in the API Gateway vs Choreo Connect: deploy-and-publish/deploy-on-gateway/deploying-apis-in-api-gateway-vs-choreo-connect.md
