@@ -306,7 +306,11 @@ Follow the steps below to configure the API gateway(s) (WSO2 API Manager nodes) 
         
           1. Create self-signed certificates for WSO2 API-M and WSO2 IS hostnames.
           2. [Import the public certs]({{base_path}}/administer/product-security/General/UsingAsymmetricEncryption/admin-creating-new-keystores/#step-3-importing-certificates-to-the-truststore) of WSO2 API-M to the `trust-store.jks` of WSO2 IS and vice versa. 
-  
+
+    !!! Important
+
+        When WSO2 Identity Server (IS) is configured as the resident key manager, the IS acts as the default key manager component. When a secondary user store is configured in IS, basic authentication cannot be directly applied for OAuth users who exist in a secondary user store within the key manager component. This is because the key manager component is not involved in basic authentication. Therefore, the user needs to be added to the Control Plane (CP) component of the APIM server to authenticate the user.
+
 ### Step 9 - Configure the other API-M components
 
 Follow the instructions below to configure the other WSO2 API-M components, namely the Publisher, Developer Portal, Traffic Manager, and Gateway:
