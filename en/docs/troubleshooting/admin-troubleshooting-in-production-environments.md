@@ -35,7 +35,7 @@ These commands provide you with the **thread-dump.txt** file and the **thread-us
 
     In this example, the thread ID that takes up the highest CPU usage is 1604.
 
-2.  Convert the decimal value (in this case 1604) to hexadecimal. You can use an [online converter](http://easycalculation.com/decimal-converter.php) to do this. The hexadecimal value for 1604 is 644.
+2.  Convert the decimal value (in this case 1604) to hexadecimal. You can use an online converter to do this. The hexadecimal value for 1604 is 644.
 3.  Search the **thread-dump.txt** file for the hexadecimal obtained in order to identify the thread that spins. In this case, the hexadecimal value to search for is 644. The **thread-dump.txt** file should have that value as a thread ID of one thread.
 4.  That thread usually has a stack trace, and that's the lead you need to find the issue. In this example, the stack trace of the thread that spins is as follows.
 

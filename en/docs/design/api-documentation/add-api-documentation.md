@@ -91,7 +91,7 @@ Follow the instructions below to add documentation to an API:
         <tr class="even">
         <td>Source</td>
         <td>URL<br />
-        <a href="http://www.dummyforum.com" class="uri">http://www.dummyforum.com</a></td>
+        `http://www.dummyforum.com`</td>
         </tr>
         </tbody>
         </table>
@@ -127,7 +127,7 @@ Follow the instructions below to add documentation to an API:
         <tr class="even">
         <td>Source</td>
         <td>URL<br />
-        <a href="http://www.dummy.com/PizzaShackAPIDoc.pdf" class="uri">http://www.dummy.com/PizzaShackAPIDoc.pdf</a></td>
+        `http://www.dummy.com/PizzaShackAPIDoc.pdf`</td>
         </tr>
         </tbody>
         </table>

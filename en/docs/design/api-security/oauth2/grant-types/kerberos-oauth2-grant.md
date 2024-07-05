@@ -166,9 +166,9 @@ Follow the instructions below to configure Kerberos Grant using the Identity Se
         
 
         -   **Identity Provider Name** :
-            [example.com](http://example.com)
+            `example.com`
 
-        -   **Alias** : <https://192.168.53.12:9443/oauth/token>
+        -   **Alias** : `https://192.168.53.12:9443/oauth/token`
 
         [![add-new-idp]({{base_path}}/assets/img/learn/add-new-idp.png)]({{base_path}}/assets/img/learn/add-new-idp.png)
 
@@ -176,7 +176,7 @@ Follow the instructions below to configure Kerberos Grant using the Identity Se
         Kerberos Configuration** tab. Enter the required details as
         follows.  
         -   **Server Principal Name** :
-            <HTTP/idp.example.com@EXAMPLE.COM>
+            `HTTP/idp.example.com@EXAMPLE.COM`
         -   **Server Principal Password:** <password\>
 
         [![Configure Kerberos]({{base_path}}/assets/img/learn/configure-kerberos.png)]({{base_path}}/assets/img/learn/configure-kerberos.png)
