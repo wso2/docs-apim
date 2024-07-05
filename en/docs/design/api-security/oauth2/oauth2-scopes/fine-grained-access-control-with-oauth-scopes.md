@@ -239,5 +239,39 @@ When a scope is attached to an API resource, access to it gets restricted based 
 
      If you first create a local scope and then create a shared scope with same scope name before attaching the local scope to any API resource, the local scope will removed from local scope UI. However, it will not be reflected in the API Definition, unless you save the API. This is an identified limitation in supporting both local and shared scopes.
 
+## Restrict Unassigned Scopes
 
+The default behavior of the Scope Issuer in API-M is not to restrict any unregistered/unassigned scopes when obtaining a token. For example, if you create a local scope for an API but do not assign it to any API resource, obtaining a token using the local scope name will include that scope in the returned token.
 
+To override this behavior and validate unregistered/unassigned scopes when obtaining a token, set the Java system property `restrict.unassigned.scopes` to `true` at the server startup:
+This can be done in one of two ways.
+
+**Option 1**: Adding in startup script
+
+- Open `<API-M_HOME>/bin/api-manager.(sh|bat)` file.
+- Add `-Drestrict.unassigned.scopes=true` at the end of the file.
+- Restart the server.
+
+  **Option 2**: Provide as a parameter during server startup
+
+   Restart the server with the parameter set as below.
+
+   - Linux/Mac OS
+
+      ``` tab="Format"
+        ./api-manager.sh -Drestrict.unassigned.scopes=<boolean_value>
+      ```
+
+      ``` tab="Example"     
+        ./api-manager.sh -Drestrict.unassigned.scopes=true
+      ```
+
+   - Windows
+
+      ``` tab="Format"
+        api-manager.bat -Drestrict.unassigned.scopes=<boolean_value>
+      ```
+
+     ``` tab="Example"
+        api-manager.bat -Drestrict.unassigned.scopes=true
+     ```
