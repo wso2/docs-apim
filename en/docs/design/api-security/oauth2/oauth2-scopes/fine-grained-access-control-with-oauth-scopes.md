@@ -250,15 +250,15 @@ The default behavior of the Scope Issuer in API-M is not to restrict any unregis
 To override this behavior and validate unregistered/unassigned scopes when obtaining a token, set the Java system property `restrict.unassigned.scopes` to `true` at the server startup:
 This can be done in one of two ways.
 
-   **Option 1**: Adding in startup script
+   **Option 1**: Adding it into the startup script.
 
 - Open `<API-M_HOME>/bin/api-manager.(sh|bat)` file.
-- Add `-Drestrict.unassigned.scopes=true` at the end of the file.
+- Add `-Drestrict.unassigned.scopes=true` property to the file.
 - Restart the server.
 
-   **Option 2**: Provide as a parameter during server startup
+   **Option 2**: Provide as a system property during server startup
 
-   Restart the server with the parameter set as below.
+   Restart the server with the property set as below.
 
    - Linux/Mac OS
 
