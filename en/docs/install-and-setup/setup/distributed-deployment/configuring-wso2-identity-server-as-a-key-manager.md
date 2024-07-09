@@ -309,7 +309,7 @@ Follow the steps below to configure the API gateway(s) (WSO2 API Manager nodes) 
 
     !!! Important
 
-        When WSO2 Identity Server (IS) is configured as the resident key manager, the IS acts as the default key manager component. When a secondary user store is configured in IS, basic authentication cannot be directly applied for OAuth users who exist in a secondary user store within the key manager component. This is because the key manager component is not involved in basic authentication. Therefore, the user needs to be added to the Control Plane (CP) component of the APIM server to authenticate the user.
+        When WSO2 Identity Server (IS) is configured as the resident key manager, the IS acts as the default key manager component. This key manager component authenticates users when they are using OAuth2 authentication and not basic authentication. Hence for users who exist in a secondary user store within the key manager component, basic authentication will not work. Therefore if basic authentication should be used, the user needs to be added to the Control Plane (CP) component of the APIM server for authentication.
 
 ### Step 9 - Configure the other API-M components
 
