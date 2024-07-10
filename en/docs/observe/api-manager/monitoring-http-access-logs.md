@@ -20,7 +20,7 @@ In the API Manager, access logs of applications get recorded or written into the
 
     ```properties
     [http_access_log]
-    useLogger = true
+    enabled = true
     ```
 
 3. Restart the server.
