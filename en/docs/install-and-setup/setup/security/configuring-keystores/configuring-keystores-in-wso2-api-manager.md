@@ -117,7 +117,7 @@ key_password = "wso2carbon"
 
 If you have generated a custom keystore and you need to use it to sign the API keys, it is required to configure the following TOML configurations to define which keystore and certs should be used. Given below is a sample TOML configuration that refers to a custom keystore named `APIKeyKeyStore` and the cert with the alias `apikeysigner`.
 
-To configure a custom keystore to use and sign the API keys in the Devportal node, add the following to the `<API-M_HOME>/repository/conf/deployment.toml` file.
+To configure a custom keystore to use and sign the API Keys in the Developer Portal node, add the following to the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
 ```
 [apim.devportal] 
