@@ -100,6 +100,30 @@ key_password =  "passwd12#"
     alias =  "mydomain"
     key_password =  "passwd12#"
     ```
+## Configuring Custom Keystores
+
+You can also configure and use a custom keystore in API Manager to sign the API Keys. Given below is a sample TOML configuration to configure a custom keystore in the API Manager server. For more information, see [Configuration Catalog]({{base_path}}/reference/config-catalog/).
+
+To configure custom keystores, add the following to the `<API-M_HOME>/repository/conf/deployment.toml` file.
+
+```
+[custom_keystore.APIKeyKeyStore]
+file_name = "apikeysigner.jks"
+type = "JKS"
+password = "wso2carbon"
+alias = "apikeysigner"
+key_password = "wso2carbon"
+```
+
+If you have generated a custom keystore and you need to use it to sign the API keys, it is required to configure the following TOML configurations to define which keystore and certs should be used. Given below is a sample TOML configuration that refers to a custom keystore named `APIKeyKeyStore` and the cert with the alias `apikeysigner`.
+
+To configure a custom keystore to use and sign the API Keys in the Developer Portal node, add the following to the `<API-M_HOME>/repository/conf/deployment.toml` file.
+
+```
+[apim.devportal] 
+api_key_keystore = "APIKeyKeyStore" 
+api_key_alias = "<custom-alias>"
+```
 
 ## Recommendations for setting up keystores
 
