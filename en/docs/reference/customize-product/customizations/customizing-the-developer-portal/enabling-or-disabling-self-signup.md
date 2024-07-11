@@ -53,7 +53,7 @@ In order to disable self signup for a particular tenant, follow the steps below.
 
     ![Identity Provider Resident]({{base_path}}/assets/img/learn/idp-resident.png)
 
-3. Expand the **User Onboarding** tab and expand the **Self Registration** tab
+3. Expand the **Self Registration** tab under **User Onboarding**.
 
     ![Account Management Policies]({{base_path}}/assets/img/learn/user-onboarding-self-onboarding.png)
 
