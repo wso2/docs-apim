@@ -2,7 +2,7 @@
 
 !!! Warning "Limitations"
 
-    APIM supports only a limited set of capabilities with this feature. If you want to process complex WSDL/XML schema please refer [WSO2 Integration Studio documentation](https://apim.docs.wso2.com/en/4.2.0/integrate/develop/creating-artifacts/creating-an-api/).
+    APIM supports only a limited set of capabilities with this feature. If you want to process complex WSDL/XML schema please refer [WSO2 Integration Studio documentation](https://mi.docs.wso2.com/en/latest/develop/creating-artifacts/creating-an-api/).
 
     This feature has the following known limitations.
     
