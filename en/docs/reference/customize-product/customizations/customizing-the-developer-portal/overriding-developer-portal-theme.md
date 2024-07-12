@@ -521,13 +521,13 @@ The following is the Devportal app theme object merging with the React Material 
 ### Applying themes for tenant login pages
 
 1. Configure a custom URL for the tenant.
-
-2. Sign in to tenant's Carbon Console and add the following property to `<APIM-HOME>/repository/resources/tenant-conf.json` file.
+2. Sign in to tenant's Admin Console.
+3. Go to **Settings > Advanced** and add the following property.
 
   ```json
   "EnablePerTenantServiceProviderCreation" : "true" 
   ```
-3. `login` folder in the tenant theme contains the config files and resources to define login theme customizations.
+4. `login` folder in the tenant theme contains the config files and resources to define login theme customizations.
 
   ```
   └──login
@@ -539,7 +539,7 @@ The following is the Devportal app theme object merging with the React Material 
        └── favicon.ico
   ```
 
-4. Apply changes to `login/loginTheme.json` file. A sample file would look like below.
+5. Apply changes to `login/loginTheme.json` file. A sample file would look like below.
 
   ```js
   {
@@ -573,6 +573,6 @@ The following is the Devportal app theme object merging with the React Material 
   !!! note
       Note that it is not allowed to define both a header, title, and a logo for the login customizations. You can only define either a header, title, or a logo.
     
-4. Copy the image files into `login/images` folder and mention the file names against favicon and logo src fields. In case you need to change the look and feel of login pages you can add a custom css file to `login/css` folder. Make sure to name the file as `custom.css`.
+6. Copy the image files into `login/images` folder and mention the file names against favicon and logo src fields. In case you need to change the look and feel of login pages you can add a custom css file to `login/css` folder. Make sure to name the file as `custom.css`.
 
-5. Zip this file along with other resources in the tenant theme and upload it via the Admin Portal. Or you can make changes manually if you have access to the server's file system.
+7. Zip this file along with other resources in the tenant theme and upload it via the Admin Portal. Or you can make changes manually if you have access to the server's file system.

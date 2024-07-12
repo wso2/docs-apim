@@ -29,20 +29,15 @@ Follow the instructions below to enable notifications for new API versions:
     For more information, see [Enable Notifications]({{base_path}}/reference/config-catalog/#enable-notifications).    
 
 
-2.  Sign in to the Management Console.
+2.  Sign in to the Admin Console.
 
-    `https://<hostname>:9443/carbon` 
+    `https://<hostname>:9443/admin` 
    
-    Example: `https://localhost:9443/carbon`
+    Example: `https://localhost:9443/admin`
 
-3. Click **Main &gt; Resource &gt; Browse**.
+3. Go to **Settings > Advanced**.
 
-    [![Browser option]({{base_path}}/assets/img/learn/browse-option.png)]({{base_path}}/assets/img/learn/browse-option.png)
-
-
-4.  Enter `<APIM-HOME>/repository/resources/tenant-conf.json`, click **Go**, and click **Edit as Text**.
-
-5.  Set the `NotificationsEnabled` property to `true` as shown below:
+4.  Set the `NotificationsEnabled` property to `true` as shown below:
 
     ``` json
     "NotificationsEnabled":"true",

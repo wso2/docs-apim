@@ -44,10 +44,9 @@ Follow the instructions below to configure server-specific custom attributes:
 
 Follow the instructions below to configure tenant-specific custom attributes:
 
-1. Sign in to the WSO2 API Manager Management Console `https://<hostname>:9443/carbon`.
-2. Click **Resources** --> **Browse**.
-3. Enter `/_system/config/apimgt/applicationdata/tenant-conf.json` in the navigation bar and click **Go**.
-4. Add `ApplicationConfigs` under `Attributes` as shown below in the **tenant-conf.json** file.
+1. Sign in to the WSO2 API Manager Admin Console `https://<hostname>:9443/admin`.
+2. Go to **Settings** --> **Advanced**.
+3. Add `Attributes` under `ApplicationConfigs` as shown below.
 
      ``` java
      "ApplicationConfigs": {
