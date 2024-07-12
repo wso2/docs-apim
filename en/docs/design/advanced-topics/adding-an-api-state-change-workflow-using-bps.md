@@ -201,9 +201,9 @@ The elements of the above configuration are explained below.
     Setting a DCREndPointUser
     Create a user with exclusive **apim:apiworkflow** scope permissions when setting a `DCREndPointUser.` Please avoid using super admin credentials. If super admin credentials are used, the created OAuth application will have all the permissions related to scopes in the other REST APIs. Follow the instructions below to create a user with the **apim:apiworkflow** scope permissions:
 
-    1.  Sign in to  APIM management console (`https://<Server Host>:9443/carbon`) and create a role named `workflowCallbackRole`. Set the create and publisher or subscriber permissions to this role.
-    2.  Go to **Resources** and click **Browse**. 
-    3. Go to `<APIM-HOME>/repository/resources/tenant-conf.json` and update the role related to ‘apim:api\_workflow’ scope with the newly created role.
+    1. Sign in to APIM management console (`https://<Server Host>:9443/carbon`) and create a role named `workflowCallbackRole`. Set the create and publisher or subscriber permissions to this role.
+    2. Sign in to  APIM Admin console (`https://<Server Host>:9443/admin`) and go to **Settings** --> **Advanced**.
+    3. Update the role related to ‘apim:api\_workflow’ scope with the newly created role.
 
         ``` json
         ...
