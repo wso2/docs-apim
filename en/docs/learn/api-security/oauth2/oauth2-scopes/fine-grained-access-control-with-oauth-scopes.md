@@ -223,8 +223,7 @@ When a scope is attached to an API resource, access to it gets restricted based 
 5. If the user has the roles specified in the scope, the access token will be issued with the requested scope. Otherwise, only the default scopes will be returned with the access token.            
 
     ??? info
-        By default in WSO2 API-M, if no scopes are requested or if none of requested scopes are allowed, the token will be issued with `default` scope.
-        In addition, a token obtained using client credentials grant will be issued with `am_application_scope`.     
+        By default in WSO2 API-M, if no scopes are requested or if none of requested scopes are allowed, the token will be issued with `default` scope.     
 
      <a href="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/token-scopes-output.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/token-scopes-output.png" alt="Token Scopes" 
           title="Token Scopes" width="60%" /></a>
