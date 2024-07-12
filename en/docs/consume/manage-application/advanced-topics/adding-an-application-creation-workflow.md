@@ -24,7 +24,7 @@ First enable the approve workflow executor for application creation.
     ``` xml
     <WorkFlowExtensions>
         <!--ApplicationCreation executor="org.wso2.carbon.apimgt.impl.workflow.ApplicationCreationSimpleWorkflowExecutor"-->
-        <ApplicationCreation executor="org.wso2.carbon.apimgt.impl.workflow.ApplicationCreationApprovalWorkflowExecutor">
+        <ApplicationCreation executor="org.wso2.carbon.apimgt.impl.workflow.ApplicationCreationApprovalWorkflowExecutor"/>
     </WorkFlowExtensions>
     ```
 
