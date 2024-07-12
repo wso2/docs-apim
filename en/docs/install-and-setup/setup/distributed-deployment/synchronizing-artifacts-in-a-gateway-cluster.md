@@ -157,7 +157,12 @@ password = "wso2carbon"
 Add the tables of the `AM_GW_API_ARTIFACTS` and `AM_GW_PUBLISHED_API_DETAILS` to this new database that you are specifying. 
 The scripts to create these tables are in the `<API-M_HOME>/dbscripts/apimgt/` directory.
 
+!!! important
 
+     **Migrating from file based mechanism to inbuilt artifact synchronization**
+
+      * When inbuilt artifact synchronization is enabled, file based storage and the configured persistent storage should not be used simultaneously in order to avoid potential inconsistencies.
+      * Upon migrating to inbuilt artifact synchronization, artifacts stored using the file based storage should be manually deleted. However this is a one-time task.
 ## FAQ About Inbuilt Artifact Synchronizer
 
 **In this architecture, does the Gateway require a database connection?**
