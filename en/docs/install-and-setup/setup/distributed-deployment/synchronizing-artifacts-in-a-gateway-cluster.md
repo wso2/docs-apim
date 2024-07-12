@@ -157,6 +157,12 @@ password = "wso2carbon"
 Add the tables of the `AM_GW_API_ARTIFACTS` and `AM_GW_PUBLISHED_API_DETAILS` to this new database that you are specifying. 
 The scripts to create these tables are in the `<API-M_HOME>/dbscripts/apimgt/` directory.
 
+!!! important
+
+     **Migrating from file based mechanism to inbuilt artifact synchronization**
+
+      * When transitioning to database (DB) retrieval mode, it is essential not to use two storage methods simultaneously to avoid potential issues.
+      * Upon moving to DB retrieval mode, artifacts stored using the previous method should be manually deleted. This is a one-time task and not a frequent requirement.
 
 ## FAQ About Inbuilt Artifact Synchronizer
 
