@@ -189,15 +189,13 @@ By default, anonymous access to the Developer Portal is enabled. Therefore, user
 
 Follow the instructions below to disable anonymous access to the Developer Portal for a particular tenant:
 
-1. Sign in to the WSO2 API-M Management Console as a tenant admin user.
+1. Sign in to the WSO2 API-M Admin Console as a tenant admin user.
 
-    `https://<API-M_host>:<API-M_port>/carbon`
+    `https://<API-M_host>:<API-M_port>/admin`
 
-2. Navigate to **Main > Resources > Browse** 
+2. Navigate to **Settings > Advanced** 
 
-3. Enter `/_system/config/apimgt/applicationdata/tenant-conf.json` as the location and click **Go** to browse the registry and locate the required resource.
-
-4. Add the field named `EnableAnonymous` with the value `false` to the `tenant-conf.json` as shown below.
+3. Add the field named `EnableAnonymous` with the value `false` as shown below.
 
     [![Disabling Developer Portal Anonymous Mode]({{base_path}}/assets/img/administer/disable-developer-portal-anonymous-mode.png)]({{base_path}}/assets/img/administer/disable-developer-portal-anonymous-mode.png)
 
