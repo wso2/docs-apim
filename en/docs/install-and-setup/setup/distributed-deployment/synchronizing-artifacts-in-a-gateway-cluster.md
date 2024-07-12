@@ -161,8 +161,8 @@ The scripts to create these tables are in the `<API-M_HOME>/dbscripts/apimgt/` d
 
      **Migrating from file based mechanism to inbuilt artifact synchronization**
 
-      * When transitioning to database (DB) retrieval mode, it is essential not to use two storage methods simultaneously to avoid potential issues.
-      * Upon moving to DB retrieval mode, artifacts stored using the previous method should be manually deleted. This is a one-time task and not a frequent requirement.
+      * When inbuilt synchronization is enabled (when artifacts are stored in the database), it is essential not to use two storage methods simultaneously to avoid potential issues.
+      * Upon moving to store artifcats in the database, artifacts stored using the previous method should be manually deleted. This is a one-time task and not a frequent requirement.
 
 ## FAQ About Inbuilt Artifact Synchronizer
 
