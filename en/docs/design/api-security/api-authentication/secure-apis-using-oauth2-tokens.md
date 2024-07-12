@@ -87,21 +87,17 @@ Each tenant can define their name for the authorization header by following the 
     The tenant wide authorization header customizations take precedence over the server-wide authorization header customizations.
 
 
-1.  Sign in to the [WSO2 API Manager Management Console]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#accessing-the-management-console) with your tenant credentials.
+1.  Sign in to the API Manager's Admin Console ( `https://<hostname>:9443/admin` ) with your tenant credentials.
      
-     `https://<server-host>:9443/carbon`
+     `https://<server-host>:9443/admin`
 
     !!! tip
         For information on creating a tenant, see [Managing Tenants]({{base_path}}/administer/multitenancy/managing-tenants/).
 
 
-2.  Click **Main**, then click **Browse** which is under **Resources**.
+2.  Go to **Settings** --> **Advanced**.
 
-     [![Registry Browse]({{base_path}}/assets/img/learn/registry-browse.png)]({{base_path}}/assets/img/learn/registry-browse.png)
-
-3.  Enter / `_system/config/apimgt/applicationdata/tenant-conf.json` as the location and click **Go** to access the `tenant-conf.json` file that is in the WSO2 Registry.
-4.  Click **Edit as text** to be able to edit the JSON file.
-5.  Add the following configuration with the customized authorization header to the JSON file and save the file.
+3.  Add the following configuration with the customized authorization header to the JSON file and save the file.
 
     === "Format"
         ``` bash
@@ -206,7 +202,7 @@ Each tenant can define their name for the authorization header by following the 
         }
         ```
 
-6.  If you have already published and deployed the APIs, [sign in to the API Publisher]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#accessing-the-api-publisher) using your tenant credentials, and save and redeploy those APIs.
+4.  If you have already published and deployed the APIs, [sign in to the API Publisher]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#accessing-the-api-publisher) using your tenant credentials, and save and redeploy those APIs.
 
 ### Customize per API
 
