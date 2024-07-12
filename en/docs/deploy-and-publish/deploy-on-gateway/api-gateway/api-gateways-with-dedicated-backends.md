@@ -20,7 +20,7 @@ Follow the steps below to configure a parameterized endpoint as the API endpoint
 
 3.  Save and [publish]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api) the API.
 
-4.  Navigate to the `<API-M_HOME>/repository/deployment/server/synapse-configs/sequences` directory of each Gateway and create the following sequence.
+4.  Navigate to the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences` directory of each Gateway and create the following sequence.
 
     ``` java
         <sequence xmlns="http://ws.apache.org/ns/synapse" name="WSO2AM--Ext--In">
@@ -61,7 +61,7 @@ Follow the steps below to configure a parameterized endpoint as the API endpoint
             }
         ```
         2. Add the created JAR file into the `<API-M_HOME>/repository/components/lib` folder of each Gateway. You can download a sample JAR file [here]({{base_path}}/assets/attachments/deploy-and-publish/env-resolver-1.0.0.jar).<br/><br/>
-        3. Add the following sequence to the `<API-M_HOME>/repository/deployment/server/synapse-configs/sequences` folder of each Gateway.
+        3. Add the following sequence to the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences` folder of each Gateway.
 
         ``` java
             <sequence xmlns="http://ws.apache.org/ns/synapse" name="WSO2AM--Ext--In">
