@@ -61,7 +61,7 @@ You can use role mapping to map the above created roles to the existing default 
 
 1. Sign in to the Admin Portal (`https://<APIM_Host>:<APIM_Port>/admin`) if you have not done so already.
 
-2. Navigate to **Settings > Role Permissions** in Admin Portal and click on **Add Role Permission**.
+2. Navigate to **Settings > Scope Assignments** in Admin Portal and click on **Add scope mappings**.
     [![View Role Permission]({{base_path}}/assets/img/administer/view-role-permissions.png)]({{base_path}}/assets/img/administer/view-role-permissions.png)
 
 3. Provide the name of the newly created role.
