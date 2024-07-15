@@ -6,11 +6,11 @@ Follow the instructions below to configure Okta as a third-party Key Manager:
 
 ## Step 1 - Configure Okta
 
-1. Navigate to the [Okta sign up page](https://developer.okta.com/signup/) and singup to **Workforce Identity Cloud**. We have created an account in **Developer Edition** for this.
+1. Navigate to the [Okta sign up page](https://developer.okta.com/signup/) and signup to **Workforce Identity Cloud**.
 
      [![Okta signup]({{base_path}}/assets/img/administer/okta-signup.png)]({{base_path}}/assets/img/administer/okta-signup.png)
 
-     Create an Okta account and get the Okta instance URL.
+     Create an Okta account and get the Okta instance URL. You can create an account in Developer Edition for this.
 
      Example:
     
