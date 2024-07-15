@@ -16,6 +16,10 @@ Follow the instructions below to start WSO2 API-M.
 
      - `api-manager.bat --run` (for Windows)
      - `sh api-manager.sh` (for Linux)
+  
+!!! note
+
+        You may be confronted by an Address in Bind error upon execution. This can be fixed by navigating to `<API-M_HOME>/repository/conf/deployment.toml` and changing bind_address under [keystore.listener_profile] from 0:0:0:0 to 0:0:0:0:0:0:0:0.
 
 ### What you'll build
 
