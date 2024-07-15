@@ -14,6 +14,9 @@ Follow the instructions below to configure WSO2 Identity Server (WSO2 IS) as the
 
 Download and install the [WSO2 Identity Server 5.10.0](https://wso2.com/identity-and-access-management/previous-releases/) by selecting the version 5.10.0 from the dropdown. If you downloaded the archive, extract it. `<IS_HOME>` refers to the root folder of the extracted WSO2 Identity Server.
 
+!!! note
+    If you have a WSO2 subscription, it is recommended to update both APIM and IS to the latest available U2 versions to prevent any compatibility issues between the two products.
+
 It is assumed that you have already downloaded WSO2 API Manager.
 `<APIM_HOME>` refers to the root folder of the unzipped WSO2 API-M pack.
 
