@@ -18,6 +18,9 @@ downloaded the archive, extract it. `<IS_HOME>` refers to the root folder of the
 It is assumed that you have already downloaded WSO2 API Manager.
 `<APIM_HOME>` refers to the root folder of the unzipped WSO2 API-M pack.
 
+!!! note
+    If you have a WSO2 subscription, it is recommended to update both APIM and IS to the latest available U2 versions to prevent any compatibility issues between the two products.
+
 ## Step 2 - Optionally, configure port offset for WSO2 IS
 
 !!! note
