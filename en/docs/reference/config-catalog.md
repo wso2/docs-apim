@@ -8115,16 +8115,16 @@ SSLEnabled = "true"</code></pre>
                 <label class="tab-selector" for="_tab_60"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[transport.passthru_https]
+<pre><code class="toml">[passthru_http]
 http.socket.timeout = "3m"
 worker_pool_size_core = 300
 worker_pool_size_max = 400
 worker_pool_queue_length = -1
 io_buffer_size = 16384
 http.max.connection.per.host.port = 32767
-http.user.agent.preserve = false
+'http.user.agent.preserve' = false
 preserve_http_server_name = true
-http.headers.preserve = ["Content-Type"]
+'http.headers.preserve' = ["Content-Type"]
 disable_connection_keepalive = false
 max_open_connections = -1
 force_xml_validation = false
@@ -8157,16 +8157,17 @@ sender.trust_store.file_name = "$ref{truststore.file_name}"
 sender.trust_store.type = "$ref{truststore.type}"
 sender.trust_store.password = "$ref{truststore.password}"
 sender.ssl_profile.file_path = "repository/resources/security/sslprofiles.xml"
-sender.ssl_profile.interval = "600000"</code></pre>
+sender.ssl_profile.interval = "600000"
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[transport.passthru_http]</code>
+                            <code>[passthru_http]</code>
                             
                             <p>
-                                This configuration header is required for configuring the parameters that are used for tuning the default HTTP/S passthrough transport of the API Manager in non-blocking mode.
+                                This configuration header is required for configuring the parameters that are used for tuning the default HTTP passthrough transport of the API Manager in non-blocking mode.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -8298,7 +8299,7 @@ sender.ssl_profile.interval = "600000"</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>http.user.agent.preserve</code> </span>
+                                  <span class="param-name-wrap"> <code>&#39;http.user.agent.preserve&#39;</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -8319,7 +8320,7 @@ sender.ssl_profile.interval = "600000"</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>http.headers.preserve</code> </span>
+                                  <span class="param-name-wrap"> <code>&#39;http.headers.preserve&#39;</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -8335,7 +8336,7 @@ sender.ssl_profile.interval = "600000"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>This parameter allows you to specify the header field/s of messages passing through the EI that need to be preserved and printed in the outgoing message such as Location, CommonsHTTPTransportSenderKeep-Alive, Date, Server, User-Agent, and Host. For example, http.headers.preserve = Location, Date, Server.</p>
+                                        <p>This parameter allows you to specify the header field/s of messages passing through the APIM that need to be preserved and printed in the outgoing message such as Location, CommonsHTTPTransportSenderKeep-Alive, Date, Server, User-Agent, and Host.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
