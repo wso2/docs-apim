@@ -96,3 +96,11 @@ Now, you have created a new REST API successfully.
     [![Publish test API]({{base_path}}/assets/img/learn/lifecycle-publish-test-api.png)]({{base_path}}/assets/img/learn/lifecycle-publish-test-api.png)
 
 You have successfully published the AWS Lambda API.
+
+!!!Note
+    Add the following configuration to the `<APIM_HOME>/repository/conf/deployment.toml` file to ensure that request parameters such as headers, query parameters, path parameters, HTTP method, and request path are sent to the AWS Lambda function.
+
+    ```toml
+        [apim.lambda_mediator_config]
+        pass_request_params = true
+    ```
