@@ -1,4 +1,4 @@
-[passthru_https]
+[passthru_http]
 http.socket.timeout = "3m"
 worker_pool_size_core = 300
 worker_pool_size_max = 400

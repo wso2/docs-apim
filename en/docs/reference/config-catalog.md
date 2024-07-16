@@ -8115,7 +8115,7 @@ SSLEnabled = "true"</code></pre>
                 <label class="tab-selector" for="_tab_60"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[passthru_https]
+<pre><code class="toml">[passthru_http]
 http.socket.timeout = "3m"
 worker_pool_size_core = 300
 worker_pool_size_max = 400
