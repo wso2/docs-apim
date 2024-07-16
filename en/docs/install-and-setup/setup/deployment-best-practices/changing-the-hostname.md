@@ -101,6 +101,6 @@ To configure hostnames for WSDLs and endpoints, it is recommended to add the fol
 
 ```toml
 [transport.http]
-listener.wsdl_epr_prefix="$ref{server.hostname}"
+listener.wsdl_epr_prefix="http://$ref{server.hostname}"
 ```
 
