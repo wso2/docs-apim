@@ -112,7 +112,7 @@ Follow the steps below to clone the API-M documentation GitHub repository and to
    >
    > Run the above command with the following flag appended:
    >
-   > `$ --break-system-packages`
+   > `--break-system-packages`
 
 ### Step 4 - Run MkDocs
 
