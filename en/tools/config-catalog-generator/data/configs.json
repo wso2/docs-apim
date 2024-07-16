@@ -3368,9 +3368,9 @@
             "title": "HTTP/S Pass-through Transport (non-blocking mode)",
             "options": [
                 {
-                    "name": "transport.passthru_http",
+                    "name": "passthru_http",
                     "required": false,
-                    "description": "This configuration header is required for configuring the parameters that are used for tuning the default HTTP/S passthrough transport of the API Manager in non-blocking mode.",
+                    "description": "This configuration header is required for configuring the parameters that are used for tuning the default HTTP passthrough transport of the API Manager in non-blocking mode.",
                     "params": [
                         {
                             "name": "http.socket.timeout",
@@ -3421,7 +3421,7 @@
                             "description": "This defines the maximum number of connections allowed per host port."
                         },
                         {
-                            "name": "http.user.agent.preserve",
+                            "name": "'http.user.agent.preserve'",
                             "type": "boolean",
                             "required": true,
                             "default": "\"true\" or \"false\"",
@@ -3429,7 +3429,7 @@
                             "description": "If this parameter is set to true, the user-agent HTTP header of messages passing through the integrator is preserved and printed in the outgoing message."
                         },
                         {
-                            "name": "http.headers.preserve",
+                            "name": "'http.headers.preserve'",
                             "type": "string",
                             "required": true,
                             "default": "Content-Type",
@@ -3442,7 +3442,7 @@
                             "required": true,
                             "default": false,
                             "possible": "\"true\" or \"false\"",
-                            "description": "If this parameter is set to true, the HTTP connections with the back end service are closed soon after the request is served. It is recommended to set this property to false so that the integrator does not have to create a new connection every time it sends a request to a back-end service. However, you may need to close connections after they are used if the back-end service does not provide sufficient support for keep-alive connections."
+                            "description": "This parameter allows you to specify the header field/s of messages passing through the APIM that need to be preserved and printed in the outgoing message such as Location, CommonsHTTPTransportSenderKeep-Alive, Date, Server, User-Agent, and Host."
                         },
                         {
                             "name": "listener.parameters.port",
