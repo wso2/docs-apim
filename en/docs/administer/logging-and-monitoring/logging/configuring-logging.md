@@ -221,8 +221,9 @@ The following is a sample Gateway Wire Log for an API request.
 4. Observe the logs for incoming and outgoing traffic in the `<API-M_HOME>/repository/logs/wso2carbon.log` file.
 
 !!! note
-    When backend connections are configured to keep alive, the same connections are reused for processing requests and responses. This behavior prevents the creation of new connections, and as a result, a LoggingIOSession is not created even if wire logs are enabled. When the configuration is disabled keep alive for backend connections forces the creation of new connections for each request, allowing LoggingIOSession to be created and wire logs to be generated.
-    On the listener side, connections are managed by the client, and a LoggingIOSession is bound to connections created after wire logs are enabled, resulting in visible wire logs. On the sender side, connections are maintained in a connection pool and  same connections are reused in keep alive mode regardless of log4j configurations. Only when target handler connections are closed and new connections are created will LoggingIOSession bind to the new connections, enabling wire logs.
+    When backend connections are configured to keep alive, the same connections are reused for processing requests and responses. This behavior prevents the creation of new connections, and as a result, a `LoggingIOSession` is not created even if wire logs are enabled. When the configuration is disabled keep alive for backend connections forces the creation of new connections for each request, allowing `LoggingIOSession` to be created and wire logs to be generated.
+    
+    On the listener side, connections are managed by the client, and a `LoggingIOSession` is bound to connections created after wire logs are enabled, resulting in visible wire logs. On the sender side, connections are maintained in a connection pool and  same connections are reused in keep alive mode regardless of log4j configurations. Only when target handler connections are closed and new connections are created will `LoggingIOSession` bind to the new connections, enabling wire logs.
 
 ## HTTP Access Logs
 
