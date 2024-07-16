@@ -1294,6 +1294,7 @@ nav:
                 - Add a User Signup Workflow: reference/customize-product/customizations/adding-a-user-signup-workflow.md
                 - Add internationalization: reference/customize-product/customizations/adding-internationalization.md
                 - Advanced UI Customization: reference/customize-product/customizations/advanced-ui-customization.md
+                - Modify Workflow Approval Task Limit: reference/customize-product/customizations/modify-workflow-approval-task-limit.md
             - Admin Services: reference/wso2-admin-services.md
             - Work with the Source Code: reference/working-with-the-source-code.md
             - Java Documentation: reference/java-documentation.md
