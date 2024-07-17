@@ -81,7 +81,7 @@ For information on how to enable JWT claims caching, see [JWT claims Caching]({{
 
 ### Publisher-roles cache
 
-This indicates whether the role cache needs to be enabled in the Publisher. It is disabled by default. If this is disabled, for all API publisher calls, there will be a call to the Key Manager. It expires in 15 minutes by default. It is highly recommended to enable this cache. However, if the system is in a state where the role addition and deletion happen seamlessly, the caching will not happen as expected.
+This indicates whether the role cache needs to be enabled in the Publisher. It is enabled by default. If this is disabled, for all API publisher calls, there will be a call to the Key Manager. It expires in 15 minutes by default. It is highly recommended to keep this cache enabled. However, if the system is in a state where the role addition and deletion happen seamlessly, the caching will not happen as expected.
 
 ```
 [apim.cache.publisher_roles]
