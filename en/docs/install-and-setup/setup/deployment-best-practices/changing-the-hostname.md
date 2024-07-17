@@ -78,6 +78,12 @@ Follow the steps given below.
 
     After you change the hostname, if you encounter login failures when trying to access the API Publisher and API Developer Portal with the error `Registered callback does not match with the provided url`, see ['Registered callback does not match with the provided url' error]({{base_path}}/troubleshooting/troubleshooting-invalid-callback-error) in the Troubleshooting guide.
 
+!!! Note
+
+    When changing the hostname in `deployment.toml` prior to the initial startup of the server, the URLs and endpoints will be read from the file system and subsequently persisted in the database. This is applicable to most configurations in the Resident Identity Provider (IDP). Therefore, any changes made before the initial server startup can be performed via the `deployment.toml` file.
+    
+    However, if changes are required after the initial server startup, the Resident IDP configuration must be updated via the Management Console(`https://<host>:<port>/carbon`) UI.
+
 ## Changing the Micro Integrator hostname
 
 Follow the steps given below.
