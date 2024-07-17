@@ -226,8 +226,8 @@ Following is a sample of gateway wire log for an API request.
 
 ###Enable Gateway wire logs
 
-1.  Open `APIM_HOME>/repository/conf/log4j2.properties` file.
-2.  You will be able to find `synapse-wire` logger which is already defined in default `log4j2.properties` file.
+1. Open `APIM_HOME>/repository/conf/log4j2.properties` file.
+2. You will be able to find `synapse-wire` logger which is already defined in default `log4j2.properties` file.
 
     ``` 
     logger.synapse-wire.name = org.apache.synapse.transport.http.wire
@@ -241,7 +241,7 @@ Following is a sample of gateway wire log for an API request.
     logger.synapse-headers.level = DEBUG
     ```
  
-3.  Append the `synapse-wire` logger name to `loggers` configuration which is a comma separated list of all active loggers. 
+3. Append the `synapse-wire` logger name to `loggers` configuration which is a comma separated list of all active loggers. 
 
     ```
     loggers = synapse-wire, trace-messages, org-apache-coyote,com-hazelcast
@@ -252,7 +252,10 @@ Following is a sample of gateway wire log for an API request.
     ```
     loggers = synapse-headers, trace-messages, org-apache-coyote,com-hazelcast
     ```
-4.  Observe the logs for incoming and outgoing traffic in `<APIM_HOME>/repository/logs/wso2carbon.log` file.
+4. Observe the logs for incoming and outgoing traffic in `<APIM_HOME>/repository/logs/wso2carbon.log` file.
+
+!!! Limitation
+    If synapse-wire logs are enabled during high load, outgoing traffic between the gateway and the backend will not be printed in the `wso2carbon.log` file. This happens when the backend connection is keep alive. As we are maintaining connections in a connection pool, the same connections will be reused in keep alive mode irrespective of the changes done in the `log4j2.properties` file.
 
 ##HTTP Access Logs
 HTTP requests/responses are logged in access logs to monitor the activities related to an application's usage. Please see [Monitoring HTTP Access Logs]({{base_path}}/administer/product-administration/monitoring/logging/monitoring-http-access-logs/) for instructions on how to configure and use HTTP access logs in WSO2 API Manager.
