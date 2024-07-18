@@ -303,6 +303,10 @@ Start WSO2 Identity Server for the changes to take effect. For more information,
         In a distributed deployment or IS as KM separated environment to invoke RESTful APIs (product APIs), users must generate tokens through API-M Control Plane's token endpoint.
         The tokens generated using third party key managers, are to manage end-user authentication when accessing APIs.
 
+    !!! Important
+        
+        When WSO2 Identity Server (IS) is configured as the resident key manager, the IS acts as the default key manager component. This key manager component authenticates users when they are using OAuth2 authentication and not basic authentication. Hence for users who exist in a secondary user store within the key manager component, basic authentication will not work. Therefore if basic authentication should be used, the user needs to be added to the Control Plane (CP) component of the APIM server for authentication.
+
 Follow the instructions below to configure the other WSO2 API-M components, namely the Publisher, Developer Portal, Traffic Manager, and Gateway:
 
 - All-in-One Deployment
