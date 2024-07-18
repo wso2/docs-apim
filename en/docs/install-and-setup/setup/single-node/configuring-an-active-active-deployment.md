@@ -204,7 +204,7 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
             type = "loadbalance"
             ```
     
-    3. Save your changes.
+    2. Save your changes.
 
 {!includes/design/redis-counter-note.md!}
 
