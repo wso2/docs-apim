@@ -327,7 +327,6 @@ Follow the  instructions below to set up a MySQL database:
                 REVISION_UUID VARCHAR(255),
                 API_TIER VARCHAR(128),
                 UNIQUE (API_UUID,REVISION_UUID),
-                FOREIGN KEY(REVISION_UUID) REFERENCES AM_REVISION(REVISION_UUID) ON DELETE CASCADE,
                 PRIMARY KEY (AM_API_REVISION_METADATA_ID)
         )ENGINE INNODB;
 
