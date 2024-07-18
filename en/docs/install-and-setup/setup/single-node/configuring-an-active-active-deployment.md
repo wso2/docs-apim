@@ -191,6 +191,7 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
         ``` tab="Format"
         [apim.throttling]
         event_duplicate_url = ["tcp://<node2-hostname>:<node2-port>"]
+        throttle_decision_endpoints = ["tcp://<node1-hostname>:<node1-port>"]
 
         [[apim.throttling.url_group]]
         traffic_manager_urls = ["tcp://<node1-hostname>:<node1-port>"]
@@ -206,6 +207,7 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
         ``` tab="Example"
         [apim.throttling]
         event_duplicate_url = ["tcp://127.0.0.1:5673"]
+        throttle_decision_endpoints = ["tcp://localhost:5672"]
 
         [[apim.throttling.url_group]]
         traffic_manager_urls = ["tcp://127.0.0.1:9611"]
@@ -223,6 +225,7 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
         ``` tab="Format"
         [apim.throttling]
         event_duplicate_url = ["tcp://<node1-hostname>:<node1-port>"]
+        throttle_decision_endpoints = ["tcp://<node2-hostname>:<node2-port>"]
 
         [[apim.throttling.url_group]]
         traffic_manager_urls = ["tcp://<node1-hostname>:<node1-port>"]
@@ -238,6 +241,7 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
         ``` tab="Example"
         [apim.throttling]
         event_duplicate_url = ["tcp://127.0.0.1:5672"]
+        throttle_decision_endpoints = ["tcp://localhost:5673"]
 
         [[apim.throttling.url_group]]
         traffic_manager_urls = ["tcp://127.0.0.1:9611"]
