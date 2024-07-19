@@ -107,6 +107,16 @@ Follow the steps below to clone the API-M documentation GitHub repository and to
       $ pip3 install -r requirements.txt
       ```
 
+   > **NOTE:**
+   >
+   > If you were confronted with the following error:
+   >
+   > `error: externally-managed-environment`
+   >
+   > Run the above command with the following flag appended:
+   >
+   > `--break-system-packages`
+
 ### Step 4 - Run MkDocs
 1. Run the following command to start the server and view the site on your local server.
 
