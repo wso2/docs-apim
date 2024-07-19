@@ -17,6 +17,20 @@ Follow the instructions below to start WSO2 APIM-M.
      - `api-manager.bat --run` (for Windows)
      - `sh api-manager.sh` (for Linux)
 
+   !!! note
+
+        In Windows, you may be confronted by the following error:
+
+        ```
+        System may be unstable: HTTPS ListeningIOReactor encountered a checked exception : Address already in use: bind java.net.BindException: Address already in use: bind
+        ```
+
+         This can be fixed by adding the following to <API-M_HOME>/repository/conf/deployment.toml
+
+        ```
+        [keystore.listener_profile]
+        bind_address = "0.0.0.0:0:0:0:0"
+
 ### What you'll build
 
 In this sample scenario, you implement a full lifecycle of an API using WSO2 API Manager.
