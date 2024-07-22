@@ -266,7 +266,7 @@ Follow the instructions below to set up and configure the databases for the WSO2
     ```
    
     !!! Note
-        This configuration is required to disable group and role separation in the WSO2 Identity Server since this is enabled by default. If the `GroupAndRoleSeparationEnabled` setting is set to true in the Identity Server, it is necessary to also set `GroupAndRoleSeparationEnabled` to true in the API Manager. 
+        This configuration is required to disable group and role separation in the WSO2 Identity Server since this is enabled by default. 
 
 ## Step 5 - Configure WSO2 API-M with the WSO2 IS
 
