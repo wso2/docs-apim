@@ -147,3 +147,26 @@ It is also possible to specify a bandwidth per unit time instead of a number of 
             x-wso2-throttling-tier: 20kPerMin
     ```
 </div>
+
+#### Changing the Default Tiers
+
+Users can change the default tiers by appending the following config to the `tenant-conf.json` file in Management Console.
+
+1.  Log in to the API Manager's management console ( `https://localhost:9443/carbon` ) and go to the **Resource &gt; Browse** menu.
+
+     ![](../../assets/img/learn/change-default-tiers-browse.png)
+
+2.  Browse for the `/_system/config/apimgt/applicationdata/tenant-conf.json` path.
+
+     ![](../../assets/img/learn/default-tiers-tenant-configurations.png)
+
+3.  Append the following configurations to the `tenant-conf.json` file as required.
+
+    ```
+         "DefaultAPILevelTier":"<Tier Name>",
+         "DefaultApplicationLevelTier" : "<Tier Name>",
+         "DefaultSubscriptionLevelTier" : "<Tier Name> "
+    ```
+
+     ![](../../assets/img/learn/default-tier-add-tenant-configs.png)
+
