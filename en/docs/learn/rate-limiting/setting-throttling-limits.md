@@ -160,7 +160,7 @@ Users can change the default tiers by appending the following config to the `ten
 
      ![](../../assets/img/learn/default-tiers-tenant-configurations.png)
 
-3.  Add the following configurations to the ``tenant-conf.json` file.
+3.  Append the following configurations to the `tenant-conf.json` file as required.
 
     ```
          "DefaultAPILevelTier":"<Tier Name>",
