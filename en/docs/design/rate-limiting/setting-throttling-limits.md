@@ -155,3 +155,22 @@ It is also possible to specify a bandwidth per unit time instead of a number of 
             x-wso2-throttling-tier: 20kPerMin
     ```
 </div>
+
+
+#### Changing the Default Tiers
+
+Users can change the default tiers by appending the following config to the advanced Configurations in Admin portal.
+
+1. Log in to the API Manager's Admin Portal ( `https://localhost:9443/admin` ) and go to the **Settings &gt; Advanced** menu.
+
+   ![](../../assets/img/design/rate-limiting/change-default-tiers-menu.png)
+
+2. Append the following configurations to the **Advanced Configurations** as required.
+
+    ```
+         "DefaultAPILevelTier":"<Tier Name>",
+         "DefaultApplicationLevelTier" : "<Tier Name>",
+         "DefaultSubscriptionLevelTier" : "<Tier Name> "
+    ```
+
+   ![](../../assets/img/design/rate-limiting/add-default-tier-configurations.png)
