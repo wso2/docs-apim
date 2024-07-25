@@ -921,6 +921,8 @@ In order to enable denying of threads:
     !!! note
         If the correlation logs are enabled using the system property, DevOps API will not be able to change the denied threads of the JDBC component. 
 
+    !!! Limitation
+        Thread denying is currently supported only for JDBC type logs. HTTP and METHOD level logs cannot be blocked using this option.
 
 If the above configuration is not added, by default, the `MessageDeliveryTaskThreadPool` thread will be denied as it is found to print a considerable amount of messages for API-M instances. However, if the above configuration is added, the default value will be overridden. 
 
