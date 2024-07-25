@@ -6,7 +6,7 @@ WSO2 API Manager has an integrated Swagger Editor, which is part of the Swagger 
 
 The [Swagger Editor](https://github.com/swagger-api/swagger-editor) is a dependency-free collection of HTML, JavaScript, and CSS that dynamically generate documentation from a Swagger-compliant API. Swagger-compliant APIs give you interactive documentation, client SDK generation, and more discoverability. The Swagger Editor has JSON code and its UI facilitates easier code indentation, keyword highlighting and shows syntax errors on the fly. You can add resource parameters, summaries and descriptions to your APIs using the Swagger Editor.
 
-API Manager supports [Open API 3.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md) and [Open API 2.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md) specifications and you can simply create, import, edit and consume the APIs defined in both specifications.
+API Manager supports [Open API 3.1.0](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md), [Open API 3.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md) and [Open API 2.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md) specifications and you can simply create, import, edit and consume the APIs defined in both specifications.
 
 In this tutorial, let's see how you can add interactive documentation to an API by directly editing the Swagger code via the API Publisher UI.
 
