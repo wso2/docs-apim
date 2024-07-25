@@ -776,7 +776,7 @@ For example, let's assume you need to blacklist threads: `pool-10-thread-1` and 
     Make sure to add it before `org.wso2.carbon.bootstrap.Bootstrap $*`.
 
 !!! Limitation
-    The `BlacklistedThreads` feature is currently supported only for JDBC type logs. HTTP and METHOD level logs cannot be blocked using this feature. 
+    Thread denying is currently supported only for JDBC type logs. HTTP and METHOD level logs cannot be blocked using this option. 
 
 If the above configuration is not added, by default, the `MessageDeliveryTaskThreadPool` thread will be denied as it is found to print a considerable amount of messages for API-M instances. However, if the above configuration is added, the default value will be overridden. 
 
