@@ -155,6 +155,11 @@ Follow the instructions below to add documentation to an API:
 !!! Note
     The API Manager allows to configure the types of files that can be uploaded as documentation using below configuration. By default, the allowed file types include pdf, txt, doc, docx, xls, xlsx, odt, ods, json, yaml, and md.
 
+    ```
+    [apim.publisher]
+    supported_document_types = "pdf, txt, doc"
+    ```
+
 [![Add file based API documentation]({{base_path}}/assets/img/learn/add-docs-pdf-file.png)]({{base_path}}/assets/img/learn/add-docs-pdf-file.png)
 
 3.  Click **Add Document**.
