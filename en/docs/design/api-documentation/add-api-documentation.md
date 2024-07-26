@@ -150,7 +150,7 @@ Follow the instructions below to add documentation to an API:
         | Name    | APIManagerSamples                                                                                                                                                                       |
         | Summary | API Manager Samples                                                                                                                                                                     |
         | Type    | Samples & SDK                                                                                                                                                                           |
-        | Source  | You can provide only these file formats.(`.pdf`, `.doc`, `.txt` ) of any size. For example, use the sample PDF file [here]({{base_path}}/assets/attachments/learn/api-docs-sample.pdf). |
+        | Source  | You can provide any of the allowed file formats. Use the sample PDF [here]({{base_path}}/assets/attachments/learn/api-docs-sample.pdf) |
 
 !!! Note
     The API Manager allows to configure the types of files that can be uploaded as documentation using below configuration. By default, the allowed file types include pdf, txt, doc, docx, xls, xlsx, odt, ods, json, yaml, and md.
