@@ -42,6 +42,8 @@ Follow the instructions below to change the header:
      enable_client_validation = false
      #This property needs to be true if the certificate should be decoded when it is passed from the load balancer to the Gateway.
      client_certificate_encode = false
+     # This property needs to be true if the certificate chain needed to be validated.
+     enable_certificate_chain_validation = false
     ```
 
     ``` tab="Example"
@@ -49,6 +51,7 @@ Follow the instructions below to change the header:
      certificate_header = "SSL-CLIENT-CERT"
      enable_client_validation = false
      client_certificate_encode = false
+     enable_certificate_chain_validation = false
     ```
 
 3.  Start the Server.
