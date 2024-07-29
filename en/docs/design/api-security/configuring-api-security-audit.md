@@ -61,7 +61,6 @@ You need to add the API Token and Collection ID properties inside the configurat
         collection_id="{collection-id}"
         global=true
         base_url="{base_url_of_the_platform}"
-        base_url="https://platform.42crunch.com/api/v1/apis"
      ```
 
      ``` bash tab="Example"
@@ -69,6 +68,7 @@ You need to add the API Token and Collection ID properties inside the configurat
         api_token="c21404ea-p13x-1swq-013a-pur90605uiwl"
         collection_id="a5213vyo-6tre-560u-p04h-p0inb98i0gt1"
         global=true
+        base_url="https://platform.42crunch.com/api/v1/apis"
      ```
 
     !!! tip
