@@ -32,8 +32,8 @@ By default, the WSO2 API Manager retrieves the client certificate from the **X-W
 
 Follow the instructions below to change the header:
 
-1.  Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file.
-2.  Configure the `certificate_header` under the `[apimgt.mutual_ssl]` configuration.
+1. Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file.
+2. Configure the `certificate_header` under the `[apimgt.mutual_ssl]` configuration.
 
     === "Format"
           ```toml
@@ -43,6 +43,8 @@ Follow the instructions below to change the header:
           enable_client_validation = false
           #This property needs to be true if the certificate should be decoded when it is passed from the load balancer to the Gateway.
           client_certificate_encode = false
+          # This property needs to be true if the certificate chain needed to be validated.
+          enable_certificate_chain_validation = false
           ```
 
     === "Example"
@@ -51,10 +53,11 @@ Follow the instructions below to change the header:
           certificate_header = "SSL-CLIENT-CERT"
           enable_client_validation = false
           client_certificate_encode = false
+          enable_certificate_chain_validation = false
           ```
 
-3.  Start the Server.
-4.  Invoke the API  with the custom header.
+3. Start the Server.
+4. Invoke the API  with the custom header.
 
     === "Format"
         ``` bash
