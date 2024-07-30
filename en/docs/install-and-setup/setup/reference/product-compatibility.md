@@ -119,12 +119,12 @@ The **Micro Integrator** runtime is tested with the following JDKs:
 
 The **Micro Integrator** runtime is tested with the following databases:
 
-|**DBMS**     |**Versions**|
-|--------------|-----------|
-|MySQL         | 5.7, 8    |
-|Oracle        | 12c, 19c  |
-|Microsoft SQL Server| 2017|
-|PostgreSQL            |10 |
+|**DBMS**     | **Versions** |
+|--------------|--------------|
+|MySQL         | 5.7, 8       |
+|Oracle        | 12c, 19c     |
+|Microsoft SQL Server| 2017         |
+|PostgreSQL            | 10, 14.2     |
 
 ## Streaming Integrator compatibility
 
