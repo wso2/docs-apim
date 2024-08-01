@@ -30,6 +30,9 @@ Open the `wso2am-4.x.x/repository/conf` directory. Edit `apim.analytics` configu
 enable = true
 type = "elk"
 ```
+!!! note
+    With API Manager 4.3.0 the response size will be published by default if the content-length header is present in the response headers. If needed for every response, the `properties.'build_response_message' = true` property has to be enabled.
+
 
 #### Step 1.2 - Enabling Logs
 
@@ -90,37 +93,41 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
     ```
     apim_event_response:
     {
-        "apiCreator": "admin",
+        "apiName": "PizzaShackAPI",
+        "proxyResponseCode": 200,
+        "destination": "https://localhost:9443/am/sample/pizzashack/v1/api/",
         "apiCreatorTenantDomain": "carbon.super",
-        "apiId": "43d030dc-427f-4678-98e3-87b7d9882b5f",
-        "apiMethod": "GET",
-        "apiName": "SampleAPI",
-        "apiResourceTemplate": "/*",
-        "apiType": "HTTP",
-        "apiVersion": "1.0.0",
-        "applicationId": "2d6c54b0-7c7d-4b50-83dc-e6ae6f88962e",
-        "applicationName": "DefaultApplication",
-        "applicationOwner": "admin",
-        "backendLatency": 13,
-        "correlationId": "79ed20c3-55b1-434a-adf6-eea25e2d09c3",
-        "destination": "http://192.168.114.51:8281/services/sampleAPIBackend",
-        "eventType": "response",
-        "gatewayType": "SYNAPSE",
-        "keyType": "SANDBOX",
         "platform": "Mac OS X",
-        "properties":{},
-        "apiContext":"/api1/2.0.0",
-        "userName":"admin@carbon.super"
-        "proxyResponseCode": 202,
-        "regionId": "default",
-        "requestMediationLatency": 54,
-        "requestTimestamp": "2022-01-20T03:34:36.451Z",
+        "apiMethod": "GET",
+        "apiVersion": "1.0.0",
+        "gatewayType": "SYNAPSE",
+        "apiCreator": "admin",
         "responseCacheHit": false,
-        "responseLatency": 73,
-        "responseMediationLatency": 6,
-        "targetResponseCode": 202,
-        "userAgent": "Chrome",
-        "userIp": "172.16.2.70"
+        "backendLatency": 625,
+        "correlationId": "14c17fef-48cb-4344-8a23-c30983121e46",
+        "requestMediationLatency": 122,
+        "keyType": "PRODUCTION",
+        "apiId": "34b539a6-330a-41cd-ae81-fd081910fd2e",
+        "applicationName": "SampleAPI",
+        "targetResponseCode": 200,
+        "requestTimestamp": "2024-08-01T13:15:10.561Z",
+        "applicationOwner": "admin",
+        "userAgent": "Edge",
+        "userName": "admin@carbon.super",
+        "apiResourceTemplate": "/menu",
+        "regionId": "default",
+        "responseLatency": 766,
+        "responseMediationLatency": 19,
+        "userIp": "127.0.0.1",
+        "apiContext": "/pizzashack/1.0.0",
+        "applicationId": "07c7833d-06ba-48a2-bd24-df4fa71ee21e",
+        "apiType": "HTTP",
+        "properties": {
+            "responseContentType": "application/json",
+            "apiContext": "/pizzashack/1.0.0",
+            "responseSize": 2210,
+            "userName": "admin@carbon.super"
+        }
     }
     ```
 
