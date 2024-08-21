@@ -166,7 +166,7 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component
       <tr class="even">
       <td>Client Registration Endpoint </td>
       <td><p>The endpoint that verifies the identity and obtain profile information of the end-user based on the authentication performed by an authorization server.</br>
-        e.g., <code>https://localhost:9444/keymanager-operations/user-info/claims/generate</code></p></br>
+        e.g., <code>https://localhost:9444/keymanager-operations/dcr/register</code></p></br>
           <p>If you have set the following as a well known endpoint, you need to set the Client Registration Endpoint as https://localhost:9444/keymanager-operations/dcr/register</p>
           <ol>
                <li><code>https://localhost:9444/oauth2/oidcdiscovery/.well-known/openid-configuration</code></li>
@@ -196,7 +196,7 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component
       <tr class="even">
       <td>Userinfo Endpoint</td>
       <td><p>The endpoint that allows clients to verify the identity of the end-user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end-user.</br>
-      e.g., <code>https://localhost:9444/keymanager-operations/userinfo?schema=openid</code></p>
+      e.g., <code>https://localhost:9444/keymanager-operations/user-info/claims/generate</code></p>
           <p>If you have set the following as a well known endpoint, you need to set the Userinfo Endpoint as https://localhost:9444/oauth2/userinfo?schema=openid</p>
           <ol>
                <li><code>https://localhost:9444/oauth2/oidcdiscovery/.well-known/openid-configuration</code></li>
