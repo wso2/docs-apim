@@ -95,7 +95,7 @@ Follow the steps given below to configure WSO2 IS 7.x as a Key Manager component
     | Revoke Endpoint | `https://localhost:9444/oauth2/revoke` |
     | Display Revoke Endpoint | `https://localhost:9444/oauth2/revoke` |
     | UserInfo Endpoint | `https://localhost:9444/scim2/Me` |
-    | Authorize Endpoint | `https://localhost:9444/scim2/Me` |
+    | Authorize Endpoint | `https://localhost:9444/oauth2/authorize` |
     | Scope Management Endpoint | `https://localhost:9444/api/identity/oauth2/v1.0/scopes` |
 
 7. Under **Grant types**, provide all the following: `password`, `client_credentials`, `refresh_token`, `urn:ietf:params:oauth:grant-type:saml2-bearer`, `iwa:ntlm`, `urn:ietf:params:oauth:grant-type:device_code`, `authorization_code`, `urn:ietf:params:oauth:grant-type:jwt-bearer`, `urn:ietf:params:oauth:grant-type:token-exchange`.
