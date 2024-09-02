@@ -1272,7 +1272,7 @@ nav:
         - Key Managers:
             - Overview: administer/key-managers/overview.md
             - Configure WSO2 IS as a Key Manager: administer/key-managers/configure-wso2is-connector.md
-            - Configure WSO2 IS 7 as a Key Manager: administer/key-managers/configure-wso2is7-connector.md
+            - Configure WSO2 IS 7.x as a Key Manager: administer/key-managers/configure-wso2is7-connector.md
             - Configure Keycloak as a Key Manager: administer/key-managers/configure-keycloak-connector.md
             - Configure Okta as a Key Manager: administer/key-managers/configure-okta-connector.md
             - Configure Auth0 as a Key Manager: administer/key-managers/configure-auth0-connector.md

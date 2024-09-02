@@ -85,7 +85,7 @@ GA or update for:
 <li>WSO2 IS-7.0.0 (tenancy is not compatible)</li>
 <div class="admonition note">
       <p class="admonition-title">Note</p>
-      <p>Role based authorization for WSO2 IS 7 is supported from WSO2 APIM 4.3.0.23 and WSO2 IS 7.0.0.65 onwards</p>
+      <p>Role based authorization for WSO2 IS 7.x is supported from WSO2 APIM 4.3.0.23 and WSO2 IS 7.0.0.65 onwards</p>
 </div>
 </ul>
 </tr>

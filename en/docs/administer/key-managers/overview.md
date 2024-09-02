@@ -46,7 +46,7 @@ When the permission type for the role-based restriction is set to DENY, users wi
 
 - [Configure WSO2 IS as a Key Manager]({{base_path}}/administer/key-managers/configure-wso2is-connector/)
 
-- [Configure WSO2 IS 7 as a Key Manager]({{base_path}}/administer/key-managers/configure-wso2is7-connector/)
+- [Configure WSO2 IS 7.x as a Key Manager]({{base_path}}/administer/key-managers/configure-wso2is7-connector/)
 
 - [Configure Keycloak as a Key Manager]({{base_path}}/administer/key-managers/configure-keycloak-connector/)
 
