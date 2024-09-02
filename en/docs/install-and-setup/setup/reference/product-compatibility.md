@@ -82,7 +82,11 @@ GA or update for:
 <td>GA or update for:
 <ul>
 <li>WSO2 IS-6.0.0/WSO2 IS-6.1.0</li>
-<li>WSO2 IS-7.0.0 (Role based authorization & tenancy are not compatible)</li>
+<li>WSO2 IS-7.0.0 (tenancy is not compatible)</li>
+<div class="admonition note">
+      <p class="admonition-title">Note</p>
+      <p>Role based authorization for WSO2 IS 7 is supported from WSO2 APIM 4.3.0.23 and WSO2 IS 7.0.0.65 onwards</p>
+</div>
 </ul>
 </tr>
 </tbody>
