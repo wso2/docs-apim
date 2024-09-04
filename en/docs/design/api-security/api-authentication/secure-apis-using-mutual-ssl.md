@@ -5,7 +5,7 @@ In contrast to the usual one-way SSL authentication where a client verifies the 
 The following section explains as to how the APIs in WSO2 API Manager can be secured using mutual SSL in addition to OAuth2.
 
 !!! note
-     When using Mutual SSL to invoke APIs, it is a must to **use HTTPS as the transport**. Mutual SSL/TLS is a security protocol that ensures both the client and the server authenticate with each other. It builds on the standard SSL/TLS protocol used in HTTPS to add an additional layer of security.
+     From APIM 4.0.0 onwards, when using Mutual SSL to invoke APIs, it is a must to **use HTTPS as the transport**. Mutual SSL/TLS is a security protocol that ensures both the client and the server authenticate with each other. It builds on the standard SSL/TLS protocol used in HTTPS to add an additional layer of security.
 
 {!includes/design/create-mtls-api.md!}
 
