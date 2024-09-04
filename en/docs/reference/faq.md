@@ -229,10 +229,6 @@ You can verify whether the password change is applied correctly by checking the 
 ```
 Go to the **Resources &gt; Browse** menu in the management console to open the registry and update the credentials in the `/_system/governance/apimgt/applicationdata/sign-up-config.xml` registry location.
 
-### How can I recover the admin password used to log in to the management console?
-
-Use the `<API-M_HOME>/bin/chpasswd.sh` script.
-
 ### How can I manage session timeouts for the management console?
 
 To configure session timeouts, see [Configuring the session time-out]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#configuring-the-session-time-out).
