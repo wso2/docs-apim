@@ -62,13 +62,6 @@ Follow the instructions below to change the default admin password:
 
     To change the password from Management Console (<https://localhost:9443/carbon>), follow the steps in [Changing a Password](https://wso2docs.atlassian.net/wiki/spaces/ADMIN44x/pages/6684791/Changing+a+Password) corresponding to API Manager.
 
-## Recover a password
-
-Use the `<API-M_HOME>/bin/chpasswd.sh` script.
-
-!!! note
-    If you encountered an error similar to `ant: command not found`, Please install [Apache Ant](https://ant.apache.org/) before running the above script.
-
 ## Setup an e-mail login
 
 1. Follow the steps from Step 1 to Step 5 given in [Email Authentication](https://is.docs.wso2.com/en/5.10.0/learn/using-email-address-as-the-username/) in the WSO2 IS documentation.
