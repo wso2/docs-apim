@@ -3,7 +3,7 @@
 Certificate-based authentication on the Choreo Connect is authenticating a request based on a digital certificate, before granting access to the backend. By way of certificate-based authentication, the Choreo Connect supports mutual SSL. In mutual SSL, both parties the client and the server identifies themselves in order to create a successful SSL connection. Mutual SSL allows a client to make a request without a username and password, provided that the server is aware of the client's certificate.
 
 !!! note
-     From APIM 4.0.0 onwards, when using Mutual SSL to invoke APIs, it is a must to **use HTTPS as the transport**. Mutual SSL/TLS is a security protocol that ensures both the client and the server authenticate with each other. It builds on the standard SSL/TLS protocol used in HTTPS to add an additional layer of security.
+      Mutual SSL/TLS is a security protocol that ensures both the client and the server authenticate with each other. It builds on the standard SSL/TLS protocol used in HTTPS to add an additional layer of security. Hence from APIM 4.0.0 onwards, when using Mutual SSL to invoke APIs, **it is a must to use HTTPS as the transport**.
 
 ### Prerequisites
 
