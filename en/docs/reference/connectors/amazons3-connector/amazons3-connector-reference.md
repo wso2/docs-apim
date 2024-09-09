@@ -2526,7 +2526,7 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
             <td>isContentBase64Encoded</td>
             <td>Indicates whether the <code>fileContent</code> should be treated as Base64-encoded. By default, this is set to <code>false</code>.</td>
             <td>Optional</td>
-        <tr>
+        </tr>
         <tr>
             <td>sseCustomerAlgorithm</td>
             <td>Specifies the algorithm to use to when encrypting the object.</td>
