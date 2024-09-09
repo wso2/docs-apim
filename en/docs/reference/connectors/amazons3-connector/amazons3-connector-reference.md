@@ -1867,7 +1867,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
     See the [related API documentation](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/clouddirectory/model/putObjectRequest.html) for more information.
 
     !!! note
-        The `fileContent` parameter is available only with Amazon S3 connector v2.0.2 and above. Either `filePath` or `fileContent` parameter is mandatory.
+        The `fileContent` parameter is available only with Amazon S3 connector v2.0.2 and above. Either the `filePath` or `fileContent` parameter is mandatory.
+        The `isContentBase64Encoded` parameter is available only with Amazon S3 connector v2.0.7 and above.
 
     <table>
         <tr>
@@ -1893,6 +1894,11 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
         <tr>
             <td>fileContent</td>
             <td>Content of the file.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>isContentBase64Encoded</td>
+            <td>Indicates whether the <code>fileContent</code> should be treated as Base64-encoded. By default, this is set to <code>false</code>.</td>
             <td>Optional</td>
         </tr>
         <tr>
@@ -2477,7 +2483,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
     See the [related API documentation](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/model/UploadPartRequest.html) for more information.
 
     !!! note
-        The `fileContent` parameter is available only with Amazon S3 connector v2.0.2 and above. Either `filePath` or `fileContent` parameter is mandatory.
+        The `fileContent` parameter is available only with Amazon S3 connector v2.0.2 and above. Either the `filePath` or `fileContent` parameter is mandatory.
+        The `isContentBase64Encoded` parameter is available only with Amazon S3 connector v2.0.7 and above.
 
     <table>
         <tr>
@@ -2513,6 +2520,11 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
         <tr>
             <td>fileContent</td>
             <td>Content of the file.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>isContentBase64Encoded</td>
+            <td>Indicates whether the <code>fileContent</code> should be treated as Base64-encoded. By default, this is set to <code>false</code>.</td>
             <td>Optional</td>
         </tr>
         <tr>
@@ -2990,7 +3002,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
     Following is the proxy configuration for init and multipartUpload. The init section has connection parameters.
 
     !!! note
-        The `fileContent` parameter is available only with Amazon S3 connector v2.0.2 and above. Either `filePath` or `fileContent` parameter is mandatory.
+        The `fileContent` parameter is available only with Amazon S3 connector v2.0.2 and above. Either the `filePath` or `fileContent` parameter is mandatory.
+        The `isContentBase64Encoded` parameter is available only with Amazon S3 connector v2.0.7 and above.
 
     <table>
         <tr>
@@ -3021,6 +3034,11 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
         <tr>
             <td>fileContent</td>
             <td>Content of the file.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>isContentBase64Encoded</td>
+            <td>Indicates whether the <code>fileContent</code> should be treated as Base64-encoded. By default, this is set to <code>false</code>.</td>
             <td>Optional</td>
         </tr>
         <tr>
