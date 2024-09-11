@@ -132,6 +132,6 @@ You can use the proxy given below to test the SMB2 functionality.
    <parameter name="transport.vfs.MoveAfterFailure">vfs:smb2://username:password@host/SMBFileShare/fail</parameter>
    <parameter name="transport.vfs.ActionAfterFailure">MOVE</parameter>
    <parameter name="transport.vfs.FileNamePattern">.*\.txt</parameter>
-   <parameter name="transport.vfs.MoveAfterProcess">vfs:smb2://username:password@/host/SMBFileShare/original</parameter>
+   <parameter name="transport.vfs.MoveAfterProcess">vfs:smb2://username:password@host/SMBFileShare/original</parameter>
 </proxy>
 ```
