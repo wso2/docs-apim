@@ -126,7 +126,7 @@ You can use the proxy given below to test the SMB2 functionality.
       </inSequence>
    </target>
    <parameter name="transport.PollInterval">15</parameter>
-   <parameter name="transport.vfs.FileURI">vfs:smb2://username:password@/host/SMBFileShare/in</parameter>
+   <parameter name="transport.vfs.FileURI">vfs:smb2://username:password@host/SMBFileShare/in</parameter>
    <parameter name="transport.vfs.ContentType">text/plain</parameter>
    <parameter name="transport.vfs.ActionAfterProcess">MOVE</parameter>
    <parameter name="transport.vfs.MoveAfterFailure">vfs:smb2://username:password@/host/SMBFileShare/fail</parameter>
