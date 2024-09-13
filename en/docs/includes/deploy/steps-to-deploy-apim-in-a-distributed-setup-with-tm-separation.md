@@ -86,8 +86,6 @@ Follow the instructions given below to configure the Gateway node so that it can
     !!! Info
         Event hub configuration is used to retrieve Gateway artifacts. Using `event_listening_endpoints`, the Gateway will create a JMS connection with the event hub that is then used to subscribe for API/Application/Subscription and Key Manager operations-related events. The `service_url` points to the internal API that resides in the event hub that is used to pull artifacts and information from the database.
 
-        {!includes/deploy/enable-jms-ssl-for-eventhub.md!}
-
     * **Connecting the Gateway to the Traffic Manager node**:
       
     === "Traffic Manager with HA"
@@ -118,7 +116,7 @@ Follow the instructions given below to configure the Gateway node so that it can
     !!! Info
         Rate limiting configurations are used by the Gateway to connect with the Traffic Manager. The Gateway will publish Gateway invocation-related events to the TM using the `apim.throttling.url_group`. Traffic Managers will receive these events and rate limiting decisions will be published to the Gateway. To receive these rate limiting decisions, the Gateway has to create a JMS connection using `throttle_decision_endpoints` and listen.
 
-        {!includes/deploy/enable-jms-ssl-for-tm.md!}
+        {!includes/deploy/enable-jms-ssl-for-gw-tm.md!}
 
 3. Add the following configurations to the deployment.toml file to configure the Gateway environment. Change the `gateway_labels` property based on your Gateway environment.
 
@@ -370,10 +368,11 @@ Follow the steps given below to configure the Control Plane nodes to communicate
         This configuration is used for deploying APIs to the Gateway and for connecting the Developer Portal component to the Gateway if the Gateway is shared across tenants. If the Gateway is not used in multiple tenants, you can create a [Gateway Environment using the Admin Portal](../../../../deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames/#using-a-new-gateway-environment-to-expose-apis-via-custom-hostnames).  
 
         Note that in the above configurations, the `service_url` points to the `9443` port of the Gateway node, while `http_endpoint` and `https_endpoint` points to the `http` and `https nio ports` (8280 and 8243).
-
-        {!includes/deploy/enable-jms-ssl-for-gw.md!}
     
     **Add Event Hub Configurations**:
+
+    !!! Info
+            {!includes/deploy/enable-jms-ssl-for-eventhub.md!}
 
     === "Control Plane with High Availability"
         ```toml
@@ -414,8 +413,6 @@ Follow the steps given below to configure the Control Plane nodes to communicate
 
     !!! Info
         As there are two event hubs in a HA setup, each event hub has to publish events to both event streams. This will be done through the event streams created with `apim.event_hub.publish.url_group`. The token revocation events that are received to an event hub will be duplicated to the other event hub using `event_duplicate_url`.
-
-        {!includes/deploy/enable-jms-ssl-for-eventhub.md!}
 
     **Add Event Listener Configurations**:
 
@@ -687,11 +684,6 @@ Configure the Traffic Manager to communicate with the Control Plane.
 
     !!! Info
         With `event_listening_endpoints`, the Traffic Manager is subscribed to the JMS stream of both event hubs. Once a policy-related event is received, it will pull the execution plans from the `service_url`.
-
-        {!includes/deploy/enable-jms-ssl-for-eventhub.md!}
-
-    !!! Info
-            {!includes/deploy/enable-jms-ssl-for-gw.md!}
 
     If the Traffic Manager node is configured with High Availability (HA), configure rate limiting as follows.
 
