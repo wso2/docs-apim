@@ -117,6 +117,8 @@ Follow the instructions given below to configure the Gateway node so that it can
     !!! Info
         Rate limiting configurations are used by the Gateway to connect with the Traffic Manager. The Gateway will publish Gateway invocation-related events to the TM using the `apim.throttling.url_group`. Traffic Managers will receive these events and rate limiting decisions will be published to the Gateway. To receive these rate limiting decisions, the Gateway has to create a JMS connection using `throttle_decision_endpoints` and listen.
 
+        {!includes/deploy/enable-jms-ssl-for-gw-tm.md!}
+
 3. Add the following configurations to the deployment.toml file to configure the Gateway environment. Change the `gateway_labels` property based on your Gateway environment.
 
     ```toml
@@ -369,6 +371,9 @@ Follow the steps given below to configure the Control Plane nodes to communicate
         Note that in the above configurations, the `service_url` points to the `9443` port of the Gateway node, while `http_endpoint` and `https_endpoint` points to the `http` and `https nio ports` (8280 and 8243).
     
     **Add Event Hub Configurations**:
+
+    !!! Info
+            {!includes/deploy/enable-jms-ssl-for-eventhub.md!}
 
     === "Control Plane with High Availability"
         ```toml
