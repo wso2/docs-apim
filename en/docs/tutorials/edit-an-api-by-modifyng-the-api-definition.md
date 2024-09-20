@@ -182,7 +182,7 @@ In this tutorial, let's see how you can add interactive documentation to an API 
                   ![]({{base_path}}/assets/img/learn/tutorials/pizza-shack-api-get-summary-and-description-updated.png)
 
            !!! important
-           Starting from WSO2 API Manager 4.x, the WSO2 API Manager ensures that the info.version and info.title fields in the OpenAPI (Swagger) specification are automatically aligned with the version and title of the API that is published on the API Manager. This approach ensures that the version and title in the Swagger definition accurately correspond to the actual API deployed in the API Gateway.
+           Starting from WSO2 API Manager 4.x, the platform ensures that the info.version and info.title fields in the OpenAPI (Swagger) specification are automatically aligned with the version and title of the API that is published on the API Manager. This approach ensures that the version and title in the Swagger definition accurately correspond to the actual API deployed in the API Gateway.
 
 
 7. Complete the rest of the API creation process.
