@@ -658,7 +658,8 @@ Let's use the
 2.  Click on the API that you wish to monetize.  
 
 3.  Click **Subscriptions** to see the available business plans including the one you recently created.
-![Select business plan]({{base_path}}/assets/img/learn/select-business-plan.png)
+
+    ![Select business plan]({{base_path}}/assets/img/learn/select-business-plan.png)
 
 4.  Select the subscription policy you created and click **save**.
 ![Enable monetization]({{base_path}}/assets/img/learn/enable-monetization.png)
