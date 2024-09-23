@@ -295,7 +295,7 @@ By default, the WSO2 API Manager validates the scopes coming in the `scope` clai
 
 APIs published on WSO2 API Gateway can also be secured using the audience (`aud`) claim in JWT access tokens. This method is particularly useful when APIs are shared across multiple clients or services, and you want to ensure that each token is issued for a specific intended audience. 
 
-When a client application invokes an API that is secured with audience, it must include a valid JWT access token with the correct audience. If the audience claim in the JWT does not match the expected audience of the API, the request will be denied.
+When a client application invokes an API that is secured with audience validation, it must include a valid JWT access token with the correct audience. If the audience claim in the JWT does not match the expected audience of the API, the request will be denied.
 
 #### Setup audience validation
  
