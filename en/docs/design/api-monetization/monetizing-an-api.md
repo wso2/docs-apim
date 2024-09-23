@@ -676,7 +676,8 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
 ![Select business plan]({{base_path}}/assets/img/learn/select-business-plan.png)
 
 4.  Select the subscription policy you created and click **save**.
-![Enable monetization]({{base_path}}/assets/img/learn/enable-monetization.png)
+
+    ![Enable monetization]({{base_path}}/assets/img/learn/enable-monetization.png)
 
 5.  Click **Monetization** to navigate to the Monetization configurations.
 
