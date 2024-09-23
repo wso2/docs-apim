@@ -290,3 +290,23 @@ By default, the claim mapping is done in a one-to-one manner. But, if the mappin
 ### Scope validation
 
 By default, the WSO2 API Manager validates the scopes coming in the `scope` claim of the JWT. If the JWT contains the scopes in a different claim, users can map that claim into the `scope` claim as per [JWT claim transformation](#jwt-claim-transformation) section.
+
+### Audience validation
+
+APIs published on WSO2 API Gateway can also be secured using the audience (`aud`) claim in JWT access tokens. This method is particularly useful when APIs are shared across multiple clients or services, and you want to ensure that each token is issued for a specific intended audience. 
+
+When a client application invokes an API that is secured with audience validation, it must include a valid JWT access token with the correct audience. If the audience claim in the JWT does not match the expected audience of the API, the request will be denied.
+
+#### Setup audience validation
+ 
+ 1.  [Sign in to the Publisher]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#accessing-the-api-publisher).
+ `https://<server-host>:9443/publisher         `
+ 
+ 2.  When [creating]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/) or updating an API, enable **Audience Validation** in the **Application Level Security** tab under **Develop -> API Configurations -> Runtime**. 
+
+ 3. Type **Allowed Audience** value or values, and press Enter. 
+
+ 4.  Save and Deploy the API.
+ 
+  [![Setup audience validation]({{base_path}}/assets/img/learn/api-security/oauth2/access-token-types/setup-audience-validation.png)]({{base_path}}/assets/img/learn/api-security/oauth2/access-token-types/setup-audience-validation.png)
+ 
