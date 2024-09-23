@@ -656,11 +656,17 @@ Let's use the
     `https://<hostname>:9443/publisher`
 
 2.  Click on the API that you wish to monetize.  
-    ![Enable monetization]({{base_path}}/assets/img/learn/enable-monetization.png)
 
-3.  Click **Monetization** to navigate to the Monetization configurations.
+3.  Click **Subscriptions** to see the available business plans including the one you recently created.
 
-4.  Enter the connect ID as the connected account key and click
+    ![Select business plan]({{base_path}}/assets/img/learn/select-business-plan.png)
+
+4.  Select the subscription policy you created and click **save**.
+![Enable monetization]({{base_path}}/assets/img/learn/enable-monetization.png)
+
+5.  Click **Monetization** to navigate to the Monetization configurations.
+
+6.  Enter the connect ID as the connected account key and click
     **Save**.  
 
     When using Stripe as the billing engine, you need to enter the [connect ID](#connectID), which is the ID that indicates the link between the Tenant Admin and the API Publisher Stripe accounts.
