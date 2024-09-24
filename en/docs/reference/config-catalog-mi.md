@@ -532,7 +532,7 @@ key_password = "wso2carbon"</code></pre>
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;, &quot;PKCS12&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -670,7 +670,7 @@ key_password = "wso2carbon"</code></pre>
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;, &quot;PKCS12&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -863,7 +863,7 @@ alias="symmetric.key.value"</code></pre>
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;, &quot;PKCS12&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -4029,7 +4029,7 @@ force_json_validation = false</code></pre>
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot; or &quot;PKCS12&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -4113,7 +4113,7 @@ force_json_validation = false</code></pre>
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot; or &quot;PKCS12&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -4323,7 +4323,7 @@ force_json_validation = false</code></pre>
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot; or &quot;PKCS12&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -4407,7 +4407,7 @@ force_json_validation = false</code></pre>
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot; or &quot;PKCS12&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -5409,7 +5409,7 @@ sender.parameter.customParameter = ""</code></pre>
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot; or &quot;PKCS12&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -5602,7 +5602,7 @@ sender.parameter.customParameter = ""</code></pre>
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot; or &quot;PKCS12&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -8689,7 +8689,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot; or &quot;PKCS12&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -8752,7 +8752,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot; or &quot;PKCS12&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
