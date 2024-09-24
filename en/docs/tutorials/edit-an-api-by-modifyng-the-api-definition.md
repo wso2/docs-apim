@@ -166,23 +166,23 @@ In this tutorial, let's see how you can add interactive documentation to an API 
                If you get an error after adding the API definition in the Swagger UI, first check the indentation of the code that you added, which defines the API, because Swagger throw errors if the indention is not correct.
                 ![]({{base_path}}/assets/img/learn/tutorials/rest-api-definition-pizzashack-indentation.png)
 
-       6. Add a summary and description for the GET method.
+6. Add a summary and description for the GET method.
 
-           1.  Click **Edit Source** and add the following code, which defines a summary and description, to the GET method.
+    1.  Click **Edit Source** and add the following code, which defines a summary and description, to the GET method.
 
-               ``` java
-               summary: "Get Order details"
-               description: "Get details of an order by order Id"
-               ```
+        ``` java
+        summary: "Get Order details"
+        description: "Get details of an order by order Id"
+        ```
 
-               ![]({{base_path}}/assets/img/learn/tutorials/pizzashack-api-get-summary-and-descrption.png)
+        ![]({{base_path}}/assets/img/learn/tutorials/pizzashack-api-get-summary-and-descrption.png)
 
-           2.  Click **Apply Changes**.
-                  The summary and description of the GET method that you added is visible when you expand the GET method in the API Publisher.
-                  ![]({{base_path}}/assets/img/learn/tutorials/pizza-shack-api-get-summary-and-description-updated.png)
+    2.  Click **Apply Changes**.
+          The summary and description of the GET method that you added is visible when you expand the GET method in the API Publisher.
+          ![]({{base_path}}/assets/img/learn/tutorials/pizza-shack-api-get-summary-and-description-updated.png)
 
-!!! Important
-    Starting from WSO2 API Manager 4.x, the platform ensures that the `info.version` and `info.title` fields in the OpenAPI (Swagger) specification are automatically aligned with the version and title of the API that is published on the API Manager. This approach ensures that the version and title in the Swagger definition accurately correspond to the actual API deployed in the API Gateway.
+    !!! Important
+        Starting from WSO2 API Manager 4.x, the platform ensures that the `info.version` and `info.title` fields in the OpenAPI (Swagger) specification are automatically aligned with the version and title of the API that is published on the API Manager. This approach ensures that the version and title in the Swagger definition accurately correspond to the actual API deployed in the API Gateway.
 
 
 7. Complete the rest of the API creation process.
