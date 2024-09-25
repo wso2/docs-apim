@@ -74,7 +74,7 @@ Pattern 1 in a multi-datacenter (multi-DC) deployment of WSO2 API Manager involv
 <a href="{{base_path}}/assets/img/setup-and-install/multi-dc-pattern-1.png"><img src="{{base_path}}/assets/img/setup-and-install/multi-dc-pattern-1.png" alt="Multi-DC Pattern 1" width="80%"></a>
 
 !!! Note
-    WSO2 API Manager has been tested for DB replication only with MSSQL and Oracle DBs.
+    WSO2 API Manager has been tested for DB replication only with MSSQL, Oracle and PostgreSQL DBs.
 
 ### Advantages
 
