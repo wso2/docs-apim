@@ -116,3 +116,17 @@ Open the `deployment.toml` file in the `<MI_HOME>/conf` directory and add the fo
 {!includes/integration/pull-content-user-store-db-id.md!}
 
 See the descriptions of [database connection parameters]({{base_path}}/reference/config-catalog-mi/#database-connection).
+
+!!! note
+
+    To access tables in non-public schemas when using PostgreSQL, you need to explicitly define the schema name in the database connection URL as follows:
+
+    ```sql
+    postgres://user:password@host/dbname?sslmode=disable&search_path=schema
+    ```
+
+    Alternatively, you can set the schema directly within the PostgreSQL database configuration as follows:
+
+    ```sql
+    SET search_path TO wso2schema;
+    ```
