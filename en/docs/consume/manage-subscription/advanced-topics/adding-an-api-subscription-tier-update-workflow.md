@@ -55,4 +55,7 @@ When the API subscription update workflow is enabled, when the subscription tier
 
     Now the consumer can use the existing subscription with the newly assigned throttling tier.
 
-    
+10. The subscription update approval capability is now added into API Publisher portal as well to enable the Publishers of the API to approve/reject the subscriptions without being depended on the Admin for the above task. In order to check the subcription requests from the publisher portal Goto **Tasks** --> **Subscription** --> **Update**.
+
+    [![Subscription Update New Tier Request_Publisher_Portal]({{base_path}}/assets/img/learn/subscription-update-approval-in-publisher.png)]({{base_path}}/assets/img/learn/subscription-update-approval-in-publisher.png)
+
