@@ -41,14 +41,24 @@ Follow the steps given below to configure the Global Key Manager
 
 ## Trying Out the Global Key Manager
 
+Let's look at a scenario where a single access token generated for an application using the Global Key Manager is used to invoke subscribed APIs of different tenants
+
 1. Stop the WSO2 API Manager if it is already running
 
-2. Enable cross tenant subscriptions by adding the following to the `<API-M_HOME>/repository/conf/deployment.toml`
+2. Enable cross-tenant subscriptions by adding the following to the `<API-M_HOME>/repository/conf/deployment.toml`
 
     ``` toml 
     [apim.devportal]  
     enable_cross_tenant_subscriptions = true
     ```
+
+    !!! Note
+        When using cross-tenant subscriptions, if you are generating access tokens with the **Password grant** or the **Code grant**, add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file.
+
+        ``` toml
+        [oauth.access_token]
+        generate_with_sp_tenant_domain = "true"
+        ```
 
 3. Start the WSO2 API Manager.
 
@@ -83,7 +93,7 @@ Follow the steps given below to configure the Global Key Manager
 
 13. Click **GENERATE KEYS**
 
-14. Click **GENERATE ACCESS TOKEN** to create an application access token. Make sure to copy the generated JWT access token that appears so that you can use it in the future.
+14. Click **GENERATE ACCESS TOKEN** to generate an application access token. Make sure to copy the generated JWT access token that appears so that you can use it in the future.
 
 15. Go to the Developer Portal landing page, select the SampleAPI and [Subscribe]({{base_path}}/consume/manage-subscription/subscribe-to-an-api/#subscribe-to-an-existing-application) to the SampleApp
 
@@ -109,5 +119,3 @@ Follow the steps given below to configure the Global Key Manager
 20. Try Out the API with the same access token generated using the Global Key Manager which was used in Step 16.
 
 A Successful response indicates that the API of a tenant can be invoked using an access token generated for an application using the Global Key Manager. Note that the access token was generated in the super tenant’s Developer Portal, but an API in a different tenant was invoked using this access token
-
-This scenario depicts a use-case where an access token generated for an application using the Global Key Manager is used to invoke subscribed APIs of different tenants
