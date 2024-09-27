@@ -38,6 +38,7 @@ The **WSO2 API-M** runtime is tested with the following databases:
 |--------------|--------------------|
 |MySQL         | 5.7, 8             |
 |Oracle        | 12c release 2, 19c |
+|Oracle RAC           | 19c                |
 |Microsoft SQL Server| 2017, 2019, 2022   |
 |PostgreSQL            | 10, 14.2           |
 
