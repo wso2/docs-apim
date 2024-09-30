@@ -68,12 +68,26 @@ The following is a list of other WSO2 products that have been tested with WSO2 A
 </thead>
 <tbody>
 <tr class="even">
-<td>API-M 4.3.0 GA</td>
-<td>GA or update for WSO2 IS-6.0.0/WSO2 IS-6.1.0</td>
+<td>API-M 4.4.0 GA</td>
+<td>
+GA or update for:
+<ul>
+<li>WSO2 IS-6.0.0/WSO2 IS-6.1.0</li>
+<li>WSO2 IS-7.0.0 (Tenancy is not compatible)</li>
+</ul>
+</td>
 </tr>
 <tr class="even">
-<td>API-M-4.3.0 update</td>
-<td>GA or updated for WSO2 IS-6.0.0/WSO2 IS-6.1.0</td>
+<td>API-M-4.4.0 update</td>
+<td>GA or update for:
+<ul>
+<li>WSO2 IS-6.0.0/WSO2 IS-6.1.0</li>
+<li>WSO2 IS-7.0.0 (tenancy is not compatible)</li>
+<div class="admonition note">
+      <p class="admonition-title">Note</p>
+      <p>Role based authorization for WSO2 IS 7.x is supported from WSO2 IS 7.0.0.65 onwards</p>
+</div>
+</ul>
 </tr>
 </tbody>
 </table>

@@ -2,7 +2,10 @@
 
 WSO2 API Manager supports multiple Key Managers. As a result, WSO2 API Manager is prepacked with an inbuilt resident Key Manager and it has the inbuilt capability of configuring WSO2 Identity Server (WSO2 IS) as a Key Manager.
 
-Follow the steps given below to configure WSO2 IS as a Key Manager component:
+Follow the steps given below to configure WSO2 IS as a Key Manager component
+
+!!! info
+    This document provides instructions on configuring **WSO2 Identity Server versions before 7.x** as a Key Manager. If you are using **WSO2 Identity Server 7.x**, see [Configure WSO2 IS 7.x as a Key Manager]({{base_path}}/administer/key-managers/configure-wso2is7-connector).
 
 ## Step 1 - Configure WSO2 IS
 
