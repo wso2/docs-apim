@@ -1456,6 +1456,7 @@ nav:
                     - Distributed Deployment Overview: install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md
                     - Configure a Distributed API-M Deployment: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
                     - Configure a Distributed API-M Deployment with Traffic Manager Separation: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-tm-separated.md
+                    - Configure a Distributed API-M Deployment with Key Manager Separation: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-km-separated.md
                     - Run the API-M Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
                 - Multi-DC Deployment:
                     - Multi-DC Deployment Patterns Overview: install-and-setup/setup/multi-dc-deployment/multi-dc-deployment-patterns-overview.md
