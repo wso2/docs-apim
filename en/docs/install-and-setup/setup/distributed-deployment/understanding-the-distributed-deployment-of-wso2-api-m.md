@@ -157,6 +157,10 @@ The following diagram depicts how the Control Plane, Traffic Manager, and Gatewa
 
 [![Distributed deployment]({{base_path}}/assets/img/setup-and-install/distributed-deployment-tm.png){: style="width:78%"}]({{base_path}}/assets/img/setup-and-install/distributed-deployment-tm.png)
 
+### Simple Scalable Deployment with Key Manager Separation
+
+The following diagram depicts how the Control Plane, Key Manager, and Gateway profiles communicate in a distributed deployment setup. It also depicts the database connections of each node. Separating the Key Manager component from the Control Plane may be necessary if there are deployment complexities in your environment. For example, if there is a high number of token generation calls, it might be required to scale the Key Manager component. In such cases, separating the Key Manager from the Control Plane allows for independent scaling.To learn how to configure this deployment, refer [configuring a distributed API-M deployment]({{base_path}}/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-km-separated).
+
 ## What's Next?
 
 -   Find out more about [running API-M profiles]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles).
