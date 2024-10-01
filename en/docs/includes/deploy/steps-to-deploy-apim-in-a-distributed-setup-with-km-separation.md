@@ -815,6 +815,15 @@ Follow the steps given below to configure the Control Plane nodes to communicate
     alias =  "wso2carbon"
     key_password =  "wso2carbon"
 
+    [apim.devportal]
+    url = "https://cp.wso2.com:9443/devportal"
+
+    # key manager implementation
+    [apim.key_manager]
+    service_url = "https://km.wso2.com:9443/services/"
+    username= "$ref{super_admin.username}"
+    password= "$ref{super_admin.password}"
+
     # Gateway configuration
     [[apim.gateway.environment]]
     name = "Default"
