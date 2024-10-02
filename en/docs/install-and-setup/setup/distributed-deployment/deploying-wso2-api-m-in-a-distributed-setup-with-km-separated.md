@@ -42,7 +42,7 @@ Given below are the API-M nodes you can have in a distributed deployment.
     </tr>
 </table>
 
-
+<a href="{{base_path}}/assets/img/setup-and-install/deployment-km.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-km.png" width="100%"></a>
 
 {!includes/deploy/steps-to-deploy-apim-in-a-distributed-setup-with-km-separation.md!}
 
