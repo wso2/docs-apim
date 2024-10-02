@@ -716,6 +716,7 @@ nav:
                             - Work with Encrypted Passwords: install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords.md
                             - Set Up ReCaptcha: install-and-setup/setup/security/logins-and-passwords/setting-up-recaptcha.md
                             - Configure reCaptcha for Single Sign On : install-and-setup/setup/security/logins-and-passwords/configuring-recaptcha-for-single-sign-on.md
+                            - Intergrate with HashiCorp Vault : install-and-setup/setup/security/logins-and-passwords/harshicrop-vault-extension.md
                     - Configure Keystores:
                         - Configure Keystores in API Manager: install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager.md
                         - Keystore Basics:
