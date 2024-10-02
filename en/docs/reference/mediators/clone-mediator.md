@@ -1,6 +1,6 @@
 # Clone Mediator
 
-The **Clone Mediator** can be used to clone a message into several messages. It resembles the [Scatter-Gather enterprise integration pattern](https://wso2docs.atlassian.net/wiki/spaces/EIP/pages/48791738/Scatter-Gather). The Clone mediator is similar to the [Iterate mediator]({{base_path}}/reference/mediators/iterate-mediator). The difference between the two mediators is that the Iterate mediator splits a message into different parts, whereas the Clone mediator makes multiple identical copies of the message.
+The **Clone Mediator** can be used to clone a message into several messages. It resembles the [Scatter-Gather enterprise integration pattern](https://mi.docs.wso2.com/en/latest/learn/enterprise-integration-patterns/message-routing/scatter-gather/). The Clone mediator is similar to the [Iterate mediator]({{base_path}}/reference/mediators/iterate-mediator). The difference between the two mediators is that the Iterate mediator splits a message into different parts, whereas the Clone mediator makes multiple identical copies of the message.
 
 !!! Info
     The Clone mediator is a [content-aware]({{base_path}}
