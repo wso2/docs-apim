@@ -1,6 +1,6 @@
 # Store Mediator
 
-The **Store mediator** enqueues messages passing through its mediation sequence in a given **message store**. It can serve as a [dead letter channel](https://wso2docs.atlassian.net/wiki/spaces/IntegrationPatterns/pages/36864029/Dead+Letter+Channel) if it is included in a fault sequence and if its message store is connected to a **message processor** that forwards all the messages in the store to an endpoint.
+The **Store mediator** enqueues messages passing through its mediation sequence in a given **message store**. It can serve as a [dead letter channel](https://mi.docs.wso2.com/en/latest/learn/enterprise-integration-patterns/messaging-channels/dead-letter-channel/) if it is included in a fault sequence and if its message store is connected to a **message processor** that forwards all the messages in the store to an endpoint.
 
 ## Syntax
 
