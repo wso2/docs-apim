@@ -1,7 +1,7 @@
 
 # Integrate with HashiCorp Vault
 
-Using [HashiCorp Vault extension](https://github.com/wso2-extensions/carbon-securevault-hashicorp/tree/master), you can set up HashiCorp Vault to store passwords that are mapped to aliases instead of the actual passwords. When setting up Harshicrop Vault with APIM you can use either of the following authentication methords, based on your requirment.
+Using [HashiCorp Vault extension](https://github.com/wso2-extensions/carbon-securevault-hashicorp/tree/master), you can set up HashiCorp Vault to store passwords that are mapped to aliases instead of the actual passwords. When setting up Hashicrop Vault with APIM you can use either of the following authentication methords, based on your requirment.
    
 1. Using Root Token authentication
 2. Using App-Role authentication
@@ -64,7 +64,7 @@ Using [HashiCorp Vault extension](https://github.com/wso2-extensions/carbon-secu
     logger.org-wso2-carbon-securevault-hashicorp.name=org.wso2.carbon.securevault.hashicorp
     logger.org-wso2-carbon-securevault-hashicorp.level=INFO
     logger.org-wso2-carbon-securevault-hashicorp.additivity=false
-    logger.org-wso2-carbon-securevault-hashicorp.appenderRefCARBON_CONSOLE. ref = CARBON_CONSOLE
+    logger.org-wso2-carbon-securevault-hashicorp.appenderRefCARBON_CONSOLE.ref = CARBON_CONSOLE
     ```
 
 6. Then append `org-wso2-carbon-securevault-hashicorp` to the `loggers` list in the same file as follows.
@@ -98,23 +98,28 @@ Using [HashiCorp Vault extension](https://github.com/wso2-extensions/carbon-secu
 1. Provide the `VAULT_TOKEN` to the prompted message in the console or by creating a new file in the `<API-M_HOME>` 
    directory. The file should be named according to your Operating System.
 
-    === "Linux"
-        The file name should be `hashicorpRootToken-tmp`.
-
-      
-    === "Windows"
-        ```
-        The file name should be `hashicorpRootToken-tmp.txt`.
-        ```
+    ```lang-none tab="Linux"
+     
+     The file name should be "hashicorpRootToken-tmp".
+    ```
+    
+    ```lang-none tab="Windows"
+    
+     The file name should be "hashicorpRootToken-tmp.txt".
+    ```  
 
     !!! note
         When you add `tmp` to the file name, note that this will automatically get deleted from the file system after the server starts. Alternatively, if you want to retain the password file after the server starts, the file should be named as follows:
 
-        === "Linux"
-            The file name should be `hashicorpRootToken-persist`.
+        ```lang-none tab="Linux"
         
-        === "Windows"
-            The file name should be `hashicorpRootToken-persist.txt`.
+        The file name should be "hashicorpRootToken-persist".
+        ```
+        
+        ```lang-none tab="Windows"
+        
+        The file name should be "hashicorpRootToken-persist.txt".
+        ```  
 
 
 
@@ -131,10 +136,8 @@ Using [HashiCorp Vault extension](https://github.com/wso2-extensions/carbon-secu
 
 1. Start the HashiCorp Vault server and set the environment variables.
 
-    ```shell
-    export VAULT_ADDR='http://127.0.0.1:8200'
-    export VAULT_TOKEN='<root token>'
-    ```
+    ><pre>export VAULT_ADDR='https://127.0.0.1:8200'
+    export VAULT_TOKEN='xxxxxxxxxxxxxx'</pre>
 
 2. Include the policy in the `kv-read-write.hcl` file as below.
 
@@ -146,34 +149,24 @@ Using [HashiCorp Vault extension](https://github.com/wso2-extensions/carbon-secu
 
 3. Upload the kv policy using the command below.
 
-    ```shell
-    vault policy write kv-read-write kv-read-write.hcl
-    ```
+    ><pre>vault policy write kv-read-write kv-read-write.hcl</pre>
 
 4. The following commands can be used to create the AppRole using the created policy.
 
-    ```shell
-    vault auth enable approle
-    ```
-    ```shell   
-    vault write auth/approle/role/my-role \
+    ><pre>vault auth enable approle</pre>
+    ><pre>vault write auth/approle/role/my-role \
         token_policies="kv-read-write" \
         token_type="service" \
         token_ttl="24h" \
-        token_max_ttl="72h"
-    ```
+        token_max_ttl="72h"</pre>
 
 5. Get the role-id as below.
 
-    ```shell
-    vault read auth/approle/role/my-role/role-id
-    ```
+    ><pre>vault read auth/approle/role/my-role/role-id</pre>
 
 6. Get the secret-id as below.
 
-    ```shell
-    vault write -f auth/approle/role/my-role/secret-id
-    ```
+    ><pre>vault write -f auth/approle/role/my-role/secret-id</pre>
 
 7. Create the kv engine with a path name (e.g., `wso2apim`).
 
@@ -214,13 +207,14 @@ Using [HashiCorp Vault extension](https://github.com/wso2-extensions/carbon-secu
     secVault.enabled=true
     secretRepositories=vault
     secretRepositories.vault.provider=org.wso2.carbon.securevault.hashicorp.repository.HashiCorpSecretRepositoryProvider
-    secretRepositories.vault.properties.address=http://127.0.0.1:8200
+    secretRepositories.vault.properties.address=https://127.0.0.1:8200
     secretRepositories.vault.properties.namespace=ns1
     secretRepositories.vault.properties.enginePath=wso2apim
     secretRepositories.vault.properties.engineVersion=2
     secretRepositories.vault.properties.authType=APP_ROLE
     secretRepositories.vault.properties.roleId=<role id>
     ```
+
     !!! note
         In production, you should always use the vault address with TLS enabled.
 
@@ -265,29 +259,33 @@ Using [HashiCorp Vault extension](https://github.com/wso2-extensions/carbon-secu
 1. Provide the `Secret ID` to the prompted message in the console or by creating a new file in the `<API-M_HOME>` 
    directory. The file should be named according to your Operating System.
 
-    === "Linux"
-        The file name should be `hashicorpSecretId-tmp`.
-        
-      
-    === "Windows"
-        The file name should be `hashicorpSecretId-tmp.txt`.
-        
+    ```lang-none tab="Linux"
+     
+     The file name should be "hashicorpSecretId-tmp".
+    ```
+    
+    ```lang-none tab="Windows"
+    
+     The file name should be "hashicorpSecretId-tmp.txt".
+    ```    
         
 !!! note
     When you add `tmp` to the file name, note that this will automatically get deleted from the file system after the server starts. Alternatively, if you want to retain the password file after the server starts, the file should be named as follows.
 
-
-    === "Linux"
-        The file name should be `hashicorpSecretId-persist`.
-        
-        
-    === "Windows"
-        The file name should be `hashicorpSecretId-persist.txt`.
-
-
+    ```lang-none tab="Linux"
+     
+     The file name should be "hashicorpSecretId-persist".
+    ```
+    
+    ```lang-none tab="Windows"
+    
+     The file name should be "hashicorpSecretId-persist.txt".
+    ```
 
 2. Start the WSO2 API Manager Server and enter the keystore password at startup when prompted.
-    ```shell
-    [Enter KeyStore and Private Key Password :] wso2carbon
-    ```
+   ```shell
+   [Enter KeyStore and Private Key Password :] wso2carbon
+   ```
+    
+    
 
