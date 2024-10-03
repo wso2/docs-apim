@@ -76,8 +76,6 @@ nav:
                 - Test a WebSub/WebHook API: design/create-api/create-streaming-api/test-a-websub-api.md
             - Create an API From a Service: design/create-api/create-an-api-using-a-service.md
             #- Build APIs in Integration Studio: design/create-api/api-integration-studio.md
-            - AI APIs:
-                - Create an AI API: design/create-api/create-ai-api/create-an-ai-api.md
         - Create API Revisions: design/create-api/create-api-revisions.md
         - Add Custom Properties to APIs: design/create-api/adding-custom-properties-to-apis.md
         - Change the Thumbnail of an API: design/create-api/change-api-thumbnail.md
@@ -1316,9 +1314,6 @@ nav:
             - Configure the Global Key Manager: administer/key-managers/configure-global-key-manager.md
         - Advanced Configurations: administer/advanced-configurations.md
         - Manage Role based access control for the Admin portal: administer/role-based-access-control.md
-        - AI Vendors:
-            - Configure a Custom AI Vendor: administer/ai-vendors/custom-ai-vendor.md
-            - Write your own Connector: administer/ai-vendors/write-ai-vendor-connector.md
     - Install and Setup:
         - Install and Setup Overview: install-and-setup/install-and-setup-overview.md
         - Install:
