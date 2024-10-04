@@ -344,21 +344,25 @@ Follow the instructions below to configure the Micro Integrator to publish traci
     stat.tracer.collect_payloads= true
     stat.tracer.collect_mediation_properties= true
     
-    [opentracing]
+    [opentelemetry]
     enable = true
     logs = true
-    manager_host = "localhost"
-    agent_host = "localhost”
+    type = "jaeger"
+    host = "<hostname-of-jaeger-endpoint>"
+    port =  "<port-of-jaeger-endpoint>"
     ```
 
-2. Add the following entries to the `<MI_HOME>/repository/resources/conf/keyMappings.json` file.
+    !!! Tip
+        Instead of using `host` and `port`, the `url` parameter can be used directly to connect to Jaeger in the following way.
 
-    ```json
-    "opentracing.enable": "synapse_properties.'opentracing.enable'",
-    "opentracing.logs": "synapse_properties.'jaeger.reporter.log.spans'",
-    "opentracing.manager_host": "synapse_properties.'jaeger.sampler.manager.host'",
-    "opentracing.agent_host": "synapse_properties.'jaeger.sender.agent.host'"
-    ```
+        ```toml
+        [opentelemetry]
+        enable = true
+        logs = true
+        type = "jaeger"
+        url =  "<url-of-jaeger-endpoint>"
+        ```
+
 !!! note
     The service name used to initialize the JaegerTracer can be configured using the environment variable `SERVICE_NAME`
     as shown below.
