@@ -152,15 +152,6 @@ Now you have a registered identity provider and as well as a service provider wi
         
            You can use the JWT that we obtained at the end of [Step 1](#step-1-obtain-a-jwt-from-an-external-identity-provider) here). The value of the assertion parameter **MUST** contain a **single JWT.** For more information on assertion, see [JWT Bearer Grant](#jwt-bearer-grant).
 
-    !!! info
-        If you have configured the service provider and identity provider in a tenant, you have to add the tenant domain as a query parameter to the access token endpoint.
-
-        If the tenant domain is `wso2.com`, the access token endpoint will be as follows:
-
-        ``` java
-        Access Token Endpoint: https://localhost:9443/oauth2/token?tenantDomain=wso2.com
-        ```
-
     You would now have received the response from the token endpoint of WSO2 API-M. The response would contain the access token, refresh token, expiry time, scope and token type.
 
     **Sample response**
