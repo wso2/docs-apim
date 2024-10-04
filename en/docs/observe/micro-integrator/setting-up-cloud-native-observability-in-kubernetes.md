@@ -194,14 +194,24 @@ flow.statistics.capture_all= true
 stat.tracer.collect_payloads= true
 stat.tracer.collect_mediation_properties= true
 
-[opentracing]
+[opentelemetry]
 enable = true
-jaeger.sampler.manager_host="hostname"
-jaeger.sender.agent_host="hostname"
+logs = true
+type = "jaeger"
+host = "<hostname-of-jaeger-endpoint>"
+port =  "<port-of-jaeger-endpoint>"
 ```
 
-!!! tip
-    Enter the host name of your Jaeger service as the value for `manager_host` and `agent_host` parameters. 
+!!! Tip
+    Instead of using `host` and `port`, the `url` parameter can be used directly to connect to Jaeger in the following way.
+
+    ```toml
+    [opentelemetry]
+    enable = true
+    logs = true
+    type = "jaeger"
+    url =  "<url-of-jaeger-endpoint>"
+    ```
 
 These settings enable the tracing data instrumentation and publishing to a Jaeger instance.
 
