@@ -26,13 +26,13 @@ Run the following apictl command to export a rate limiting policy.
 -   **Command**
 
     ```bash
-    apictl export policy rate-limiting  -e <environment name> -n <policy name>    -- type <policy type>  -- format
+    apictl export policy rate-limiting -e <environment name> -n <policy name> --type <policy type>
     ```
 
     !!! Info
         **Flags**
 
-        `-- type` - Here the type is optional and when the type is not given, the first rate limiting policy found with the name is exported. If the user wants to specify a certain policy, then the type can be used.
+        `--type` - Here the type is optional and when the type is not given, the first rate limiting policy found with the name is exported. If the user wants to specify a certain policy, then the type can be used.
 
         | Parameter     | Description                                      |
         |-------------- |------------------------------------------------- |
@@ -41,12 +41,12 @@ Run the following apictl command to export a rate limiting policy.
         | subscription  | to export only subscription rate limiting policies  |
         | application   | to export only application rate limiting policies   |
 
-        `-- format` - File format of exported file(json or yaml) (default "YAML")
+        `--format` - File format of exported file(json or yaml) (default "YAML")
 
     !!! example
 
         ```bash
-        apictl export  policy  rate-limiting   -n Silver  -e prod   -- type subscription
+        apictl export policy rate-limiting -n Silver -e prod --type subscription
         ```
 
     !!! info "Exported File"
@@ -92,12 +92,12 @@ Run the following apictl command to import a rate limiting policy.
 -   **Command**
 
     ```bash
-    apictl import policy rate-limiting  -f <file path>   -e <environment name>    -- update
+    apictl import policy rate-limiting -f <file path> -e <environment name> --update
     ```
 
     !!! example
         ```bash
-        apictl import  policy rate-limiting   -f ~/Application-Gold  -e prod   -- update
+        apictl import  policy rate-limiting -f ~/Application-Gold -e prod --update
 
         ```
 
