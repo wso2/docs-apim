@@ -51,6 +51,57 @@ This step involves configuring the extraction of key information from request/ r
 1. If the data is in the request payload, specify the appropriate **JSON path** to extract the values.
 [![AI Vendor General Details - Payload]({{base_path}}/assets/img/administer/custom-ai-vendor/custom-ai-vendor-general-details-llm-configurations-payload.png)]({{base_path}}/assets/img/administer/custom-ai-vendor/ccustom-ai-vendor-general-details-llm-configurations-payload.png)
 
+!!! example "Mistral AI Response Payload"
+    Below outlines the structure of a sample Mistral AI response payload and provides details on how specific fields can be extracted using JSON paths.
+
+    ```json
+    {
+    "id": "cmpl-e5cc70bb28c444948073e77776eb30ef",
+    "object": "chat.completion",
+    "model": "mistral-small-latest",
+    "usage": {
+        "prompt_tokens": 16,
+        "completion_tokens": 34,
+        "total_tokens": 50
+    },
+    "created": 1702256327,
+    "choices": [
+            {
+            "index": 0,
+            "message": {
+                "content": "string",
+                "tool_calls": [
+                {
+                    "id": "null",
+                    "type": "function",
+                    "function": {
+                    "name": "string",
+                    "arguments": {}
+                    }
+                }
+                ],
+                "prefix": false,
+                "role": "assistant"
+            },
+            "finish_reason": "stop"
+            }
+        ]
+    }
+    ```
+
+    - Extracting model information:
+        - The `model` field is located at the root level of the response payload.
+        - **Valid JSON Path**: `$.model`
+    - Extracting prompt token count:
+        - The `prompt_tokens` field is nested within the `usage` object.
+        - **Valid JSON Path**: `$.usage.prompt_tokens`
+    - Extracting completion token count:
+        - The `completion_tokens` field is also nested within the `usage` object.
+        - **Valid JSON Path**: `$.usage.completion_tokens`
+    - Extracting total token count:
+        The `total_tokens` field is located within the `usage` object.
+        - **Valid JSON Path**: `$.usage.total_tokens`
+
 2. If the data is in the request header, provide the header key.
 [![AI Vendor General Details - Header]({{base_path}}/assets/img/administer/custom-ai-vendor/custom-ai-vendor-general-details-llm-configurations-header.png)]({{base_path}}/assets/img/administer/custom-ai-vendor/custom-ai-vendor-general-details-llm-configurations-header.png)
 
