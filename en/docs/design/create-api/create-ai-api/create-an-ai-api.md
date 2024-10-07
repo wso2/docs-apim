@@ -4,59 +4,59 @@ AI APIs enable seamless integration of artificial intelligence services into app
 
 Follow the instructions below to create a REST API using the basic flow:
 
-1. Sign in to the WSO2 API Publisher.
+### 1. Sign in to the WSO2 API Publisher.
 
-    `https://<hostname>:9443/publisher` 
-   
-    Example: `https://localhost:9443/publisher`
+`https://<hostname>:9443/publisher` 
 
-    <html><div class="admonition note">
-      <p class="admonition-title">Note</p>
-      <p>The <b>Create API</b> button will only appear for a user who has the <code>creator</code> role permission.</p>
-      </div>
-    </html>
+Example: `https://localhost:9443/publisher`
 
-2. Click **Create API** and then click **AI API**.
+<html><div class="admonition note">
+    <p class="admonition-title">Note</p>
+    <p>The <b>Create API</b> button will only appear for a user who has the <code>creator</code> role permission.</p>
+    </div>
+</html>
 
-    [![Select AI API]({{base_path}}/assets/img/learn/select-ai-api.png){: style="width:90%"}]({{base_path}}/assets/img/learn/select-ai-api.png)
+### 2. Click **Create API** and then click **AI API**.
 
-3.  Select **AI Provider** and **AI Provider API Version**.
+[![Select AI API]({{base_path}}/assets/img/learn/select-ai-api.png){: style="width:90%"}]({{base_path}}/assets/img/learn/select-ai-api.png)
 
-    [![Select AI Service Provider and Version]({{base_path}}/assets/img/learn/create-ai-api.png){: style="width:90%"}]({{base_path}}/assets/img/learn/create-ai-api.png)
+### 3.  Select **AI Provider** and **AI Provider API Version**.
 
-    <div class="admonition note">
-     <p class="admonition-title">Note</p>
-     <p>The available <b>AI service providers and versions</b> will appear on relevant dropdowns. In adition to inbuild AI service vendors, you can also configure custom AI service vendors.</p>
-     </div>
+[![Select AI Service Provider and Version]({{base_path}}/assets/img/learn/create-ai-api.png){: style="width:90%"}]({{base_path}}/assets/img/learn/create-ai-api.png)
 
-4.  Configure AI API details. 
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The available <b>AI service providers and versions</b> will appear on relevant dropdowns. In adition to inbuild AI service vendors, you can also <a href='{{base_path}}/administer/ai-vendors/custom-ai-vendor/'>configure custom AI service vendors</a>.</p>
+</div>
+
+### 4.  Configure AI API details. 
     
-     <table><colgroup> <col/> <col/> <col/> </colgroup><tbody><tr><th colspan="2" >Field</th><th >Sample value</th></tr><tr><td colspan="2" class="confluenceTd">Name</td><td class="confluenceTd">MistralAIAPI</td></tr><tr><td colspan="2" class="confluenceTd">Version</td><td colspan="1" class="confluenceTd">0.0.2</td></tr><tr><td colspan="2" class="confluenceTd">Context</td><td class="confluenceTd"><div class="content-wrapper"><p><code>mistralaiapi</code></p><div><div class="confluence-information-macro-body"><p>The API context is used by the Gateway to identify the API. Therefore, the API context must be unique. This context is the API's root context when invoking the API through the Gateway.</p></div><div class="confluence-information-macro confluence-information-macro-tip"><span class="aui-icon aui-icon-small aui-iconfont-approve confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>You can define the API's version as a parameter of its context by adding the <code>{version}</code> into the context. For example, <code>{version}/mistralaiapi</code>. The API Manager assigns the actual version of the API to the <code>{version}</code> parameter internally. For example, <code>https://localhost:8243/0.0.2/mistralaiapi</code>. Note that the version appears before the context, allowing you to group your APIs based on the versions.</p></div></div></div></div></td></tr><tr><td colspan="2" class="confluenceTd">Endpoint</td><td colspan="1" class="confluenceTd"><p><a class="external-link" href="https://api.mistral.ai" rel="nofollow">https://api.mistral.ai</a></p><p>The endpoint of the AI service vendor is automatically added as the production and sandbox endpoints.</p></td></tr></tbody></table>
+<table><colgroup> <col/> <col/> <col/> </colgroup><tbody><tr><th colspan="2" >Field</th><th >Sample value</th></tr><tr><td colspan="2" class="confluenceTd">Name</td><td class="confluenceTd">MistralAIAPI</td></tr><tr><td colspan="2" class="confluenceTd">Version</td><td colspan="1" class="confluenceTd">0.0.2</td></tr><tr><td colspan="2" class="confluenceTd">Context</td><td class="confluenceTd"><div class="content-wrapper"><p><code>mistralaiapi</code></p><div><div class="confluence-information-macro-body"><p>The API context is used by the Gateway to identify the API. Therefore, the API context must be unique. This context is the API's root context when invoking the API through the Gateway.</p></div><div class="confluence-information-macro confluence-information-macro-tip"><span class="aui-icon aui-icon-small aui-iconfont-approve confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>You can define the API's version as a parameter of its context by adding the <code>{version}</code> into the context. For example, <code>{version}/mistralaiapi</code>. The API Manager assigns the actual version of the API to the <code>{version}</code> parameter internally. For example, <code>https://localhost:8243/0.0.2/mistralaiapi</code>. Note that the version appears before the context, allowing you to group your APIs based on the versions.</p></div></div></div></div></td></tr><tr><td colspan="2" class="confluenceTd">Endpoint</td><td colspan="1" class="confluenceTd"><p><a class="external-link" href="https://api.mistral.ai" rel="nofollow">https://api.mistral.ai</a></p><p>The endpoint of the AI service vendor is automatically added as the production and sandbox endpoints.</p></td></tr></tbody></table>
 
-5.  Click **Create** to create the API.
+### 5.  Click **Create** to create the API.
 
-    The overview page of the newly created API appears. 
-    
-    [![API overview page]({{base_path}}/assets/img/learn/overviewpage-ai-api.png)]({{base_path}}/assets/img/learn/overviewpage-ai-api.png)
+The overview page of the newly created API appears. 
 
-6. Go to **API Configurations**, and click **Endpoints**.
+### 6. Go to **API Configurations**, and click **Endpoints**.
 
-     [![API Key Configurations]({{base_path}}/assets/img/learn/ai-api-auth.png){: style="width:90%"}]({{base_path}}/assets/img/learn/ai-api-auth.png)
+#### a. Get an API Key from the AI Service Vendor.
 
-     1. Get an API Key from the AI Service Vendor.
+<html><div class="admonition example">
+<p class="admonition-title">Example: Mistral AI</p>
+<p>Login to **Mistral AI** and go to **<a href='https://console.mistral.ai/'>Mistral AI Console.</a>**</p>
+<p>Click **API Keys** and create new key.</p>
 
-         <html><div class="admonition example">
-         <p class="admonition-title">Example: Mistral AI</p>
-         <p>Login to **Mistral AI** and go to **<a href='https://console.mistral.ai/'>Mistral AI Console.</a>**</p>
-         <p>Click **API Keys** and create new key.</p>
+[![Get Mistral API Key]({{base_path}}/assets/img/learn/mistral-api-key.png){: style="width:90%"}]({{base_path}}/assets/img/learn/mistral-api-key.png)
+</div>
+</html>
 
-         [![Get Mistral API Key]({{base_path}}/assets/img/learn/mistral-api-key.png){: style="width:90%"}]({{base_path}}/assets/img/learn/mistral-api-key.png)
-         </div>
-         </html>
+#### b. Fill **API Key** for Production and Sandbox Endpoints.
 
-     2. Fill **API Key** for Production and Sandbox Endpoints.
+**API Key format:** `Bearer <API-Key>` 
 
-     3. Click **Save**.
+[![API Key Configurations]({{base_path}}/assets/img/learn/ai-api-auth.png){: style="width:90%"}]({{base_path}}/assets/img/learn/ai-api-auth.png)
+
+#### c. Click **Save**.
 
 Now, you have successfully created an AI API. Next, [deploy the API]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/), [test the API]({{base_path}}/design/create-api/create-rest-api/test-a-rest-api/), and finally [publish the API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api).
 
