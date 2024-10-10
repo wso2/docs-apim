@@ -45,6 +45,12 @@ Listed below are the startup commands for starting each of the API-M profiles.
         </td>
         <td><pre><code>-Dprofile=traffic-manager</code></pre></td>
     </tr>
+    <tr>
+        <td>
+            Key Manager Profile
+        </td>
+        <td><pre><code>-Dprofile=api-key-manager-node</code></pre></td>
+    </tr>
 </table>
 
 
