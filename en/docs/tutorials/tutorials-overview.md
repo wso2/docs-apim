@@ -44,6 +44,7 @@ The following list of tutorials guide you to use the API-first approach when cre
                 <li><a href="{{base_path}}/tutorials/create-and-publish-a-graphql-api">Create and Publish a GraphQL API<a></li>
                 <li><a href="{{base_path}}/tutorials/create-and-publish-awslambda-api">Create and Publish an AWS Lambda API<a></li>
                 <li><a href="{{base_path}}/tutorials/expose-a-soap-service-as-a-rest-api">Expose a SOAP Service as a REST API<a></li>
+                <li><a href="{{base_path}}/tutorials/create-and-publish-a-sequencebackend-api">Expose a REST API with a custom mediation logic<a></li>
             </ul>
         </td>
         <td>
