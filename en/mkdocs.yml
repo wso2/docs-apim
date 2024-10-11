@@ -213,6 +213,7 @@ nav:
                 - Enforce Throttling and Resource Access Policies: design/rate-limiting/enforce-throttling-and-resource-access-policies.md
                 - Set Maximum Backend Throughput Limits: design/rate-limiting/setting-maximum-backend-throughput-limits.md
                 - Rate Limiting for Streaming APIs: design/rate-limiting/rate-limiting-for-streaming-apis.md
+                - Rate Limiting for AI APIs: design/rate-limiting/rate-limiting-for-ai-apis.md
                 - Query Limits for GraphQL:
                     - Overview: design/rate-limiting/graphql-api/overview-query-limits-for-graphql.md
                     - Query Depth Limit: design/rate-limiting/graphql-api/query-depth-limitation.md
