@@ -39,6 +39,8 @@ An Endpoint is a specific destination for a message such as an address, WSDL, a 
 </tr>
 <tr><td>AWS Lambda</td><td>An AWS Lambda endpoint can be used to invoke AWS Lambda functions through WSO2 API Gateway. For more information on creating APIs with AWS Lambda endpoint, see <a href="{{base_path}}/tutorials/create-and-publish-awslambda-api/">Create and Publish an AWS Lambda API</a>.</td>
 </tr>
+<tr><td>Sequence Backend</td><td>A Sequence Backend can be used to provide a custom mediation logic which works as a backend to REST API and invoke through WSO2 API Gateway. For more information on creating APIs withSequence Backend endpoint, see <a href="{{base_path}}/tutorials/create-and-publish-a-sequencebackend-api/">Create and Publish an Sequence Backend API</a>.</td>
+</tr>
 </table>
 
 **Note the following:**
