@@ -79,6 +79,9 @@ The elements in the above configuration are described below:
 
 By default, the primary keystore configured as above is used for internal data encryption (encrypting data in internal data stores and configuration files) as well as for signing messages that are communicated with external parties. In other words, if we define the primary keystore only, it will be used as both Secondary Keystore (TLS) and Internal Keystore. However, it is sometimes a common requirement to have separate keystores for SSL/TSL connections, communicating messages with external parties (such as JWT, SAML, OIDC id\_token signing) and for encrypting information in internal data stores. This is because, for signing messages and external communications, the keystore certificates need to be frequently renewed. However, for encrypting information in internal data stores, the keystore certificates should not be changed frequently because the data that is already encrypted will become unusable every time the certificate changes.
 
+!!! Important
+    If you replace the Primary Key Store refer to JWT Requirements: [Importing the public certificate into the client trust store]({{base_path}}/design/api-security/oauth2/access-token-types/jwt-tokens/#importing-the-public-certificate-into-the-client-trust-store)
+
 ## Configuring the Secondary Keystore for TLS connections
 
 In order to configure a separate keystore as the secondary keystore, add below configurations to `deployment.toml`.
