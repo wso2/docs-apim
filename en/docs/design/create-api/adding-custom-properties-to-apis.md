@@ -21,27 +21,29 @@ After the custom properties have been added, you can [search for APIs using cust
 
 ### Add custom properties via the API Publisher
 
-1.  Sign in to the API Publisher as an API creator using the following URL: 
+1.  Sign in to the WSO2 API Publisher.
       
-      `https://<localhost>:9443/publisher`
+      `https://<hostname>:9443/publisher`
+      
+      Example: `https://localhost:9443/publisher`
 
-2.  [Create a new API]({{base_path}}/design-api/create-api/create-a-rest-api/) or edit an existing API.
+2.  [Create a new API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/) or edit an existing API.
 
-3.  Click **Properties** and click **ADD NEW PROPERTY**.
+3.  Click **Properties** and click **Add New Property**.
 
       [![Add new property menu]({{base_path}}/assets/img/learn/properties-add-property.png)]({{base_path}}/assets/img/learn/properties-add-property.png)
 
-4. Enter a custom property name and value (e.g., property name: environment, property value: preprod), mark Developer Portal visibility as appropriate and click **ADD** to add it.
+4. Enter a custom property name and value (e.g., property name: environment, property value: preprod), mark Developer Portal visibility as appropriate and click **Add** to add it.
 
       [![Add new property]({{base_path}}/assets/img/learn/add-new-property.png)]({{base_path}}/assets/img/learn/add-new-property.png)
 
-5.  Click **SAVE** to save the API.
+5.  Click **Save** to save the API.
 
 <a name="AddcustompropertiesviatheRESTAPI"></a>
 
 ### Add custom properties via the REST API
 
-Use the [existing REST API]({{base_path}}/develop/product-apis/restful-apis/) to add a new API and in order to add the API with custom properties make sure to add the following element to the request body including the relevant properties.
+Use the [existing REST API]({{base_path}}/reference/product-apis/overview/) to add a new API and in order to add the API with custom properties make sure to add the following element to the request body including the relevant properties.
 
 `"additionalProperties : {"environment": "preprod", "secured": "true"}`
 
