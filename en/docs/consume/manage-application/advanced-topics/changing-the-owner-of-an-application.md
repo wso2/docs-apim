@@ -30,7 +30,7 @@ Follow the instructions below to change the ownership of an application:
         
          `https://<APIM-hostname>:9443/admin`
 
-    2.  Click **Applications** under **Settings**.
+    2.  Click **Change Application Owner** under **Settings**.
         This shows you the list of applications together with the respective owners.
 
     3.  Search for the application that you want to share and click **Edit**.
