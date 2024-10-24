@@ -30,6 +30,7 @@ Open the `wso2am-4.x.x/repository/conf` directory. Edit `apim.analytics` configu
 enable = true
 type = "elk"
 ```
+
 !!! note
     With API Manager 4.3.0 the response size will be published by default if the content-length header is present in the response headers. If needed for every response, the `properties.'build_response_message' = true` property has to be enabled.
 
