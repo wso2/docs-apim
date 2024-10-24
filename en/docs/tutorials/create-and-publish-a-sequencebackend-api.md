@@ -32,8 +32,8 @@ WSO2 API Manager has integrated the support for invoking **REST API** with custo
     Sequence Backend endpoint configuration needs to have atleast one sequence for the API (either SANDBOX or PRODUCTION).
         [![Upload Sequence Backend]({{base_path}}/assets/img/learn/upload-sequence-backend-file.png)]({{base_path}}/assets/img/learn/upload-sequence-backend-file.png)
 
-        !!!note
-            In both key types, only one sequence is allowed to be added. If a developer wants to replace, then the uploaded one should be deleted from the preferred key type.
+    !!!note
+        In both key types, only one sequence is allowed to be added. If a developer wants to replace, then the uploaded one should be deleted from the preferred key type.
 
 4. Click **Save**
     [![Save the Sequence Uploaded]({{base_path}}/assets/img/learn/endpoint-sequence-backend-save.png)]({{base_path}}/assets/img/learn/endpoint-sequence-backend-save.png)
