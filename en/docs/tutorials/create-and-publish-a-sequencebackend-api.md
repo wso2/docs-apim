@@ -28,8 +28,8 @@ WSO2 API Manager has integrated the support for invoking **REST API** with custo
 
 3. Upload a sequence file to the preferred **Key Type**
     
-    To upload, first the key type (SANDBOX or PRODUCTION) should be selected.
-    Sequence Backend endpoint configuration needs to have atleast one sequence for the API (either for SANDBOX or PRODUCTION).
+    To upload, you can hit Add button under the selected key type.
+    Sequence Backend endpoint configuration needs to have atleast one sequence for the API (either SANDBOX or PRODUCTION).
         [![Upload Sequence Backend]({{base_path}}/assets/img/learn/upload-sequence-backend-file.png)]({{base_path}}/assets/img/learn/upload-sequence-backend-file.png)
 
         !!!note
@@ -53,7 +53,7 @@ WSO2 API Manager has integrated the support for invoking **REST API** with custo
     [![Save the Endpoint Configuration]({{base_path}}/assets/img/learn/endpoint-config-sequence-backend-save.png)]({{base_path}}/assets/img/learn/endpoint-config-sequence-backend-save.png)
 
     !!!note
-         Button will not be enable if there's no sequence provided under the Sequence Backend endpoint configuration.
+         Button will not be enabled if there's no sequence provided under the Sequence Backend endpoint configuration.
 
 !!!note
         Sequence Backend endpoint type only applicable for REST APIs and can be deployed only in Synapse Gateway.
