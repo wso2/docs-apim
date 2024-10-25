@@ -1,0 +1,253 @@
+{
+	"info": {
+		"_postman_id": "f9bf58c0-1b85-4c34-a44b-c2f339db9fea",
+		"name": "WSO2 API Manager 4.4.0 - DevOps REST API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28719432"
+	},
+	"item": [
+		{
+			"name": "Get Log Levels of APIs",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{adminUsername}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{adminPwd}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{basepath}}/tenant-logs/{{tenantId}}/apis?log-level=OFF",
+					"host": [
+						"{{basepath}}"
+					],
+					"path": [
+						"tenant-logs",
+						"{{tenantId}}",
+						"apis"
+					],
+					"query": [
+						{
+							"key": "log-level",
+							"value": "OFF"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Log Levels of an API",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{adminUsername}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{adminPwd}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{basepath}}/tenant-logs/{{tenantId}}/apis/{{apiId}}",
+					"host": [
+						"{{basepath}}"
+					],
+					"path": [
+						"tenant-logs",
+						"{{tenantId}}",
+						"apis",
+						"{{apiId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Set Log Level of an API",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{adminUsername}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{adminPwd}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"logLevel\": \"FULL\",\n  \"resourceMethod\": \"GET\",\n  \"resourcePath\": \"/menu\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{basepath}}/tenant-logs/{{tenantId}}/apis/{{apiId}}",
+					"host": [
+						"{{basepath}}"
+					],
+					"path": [
+						"tenant-logs",
+						"{{tenantId}}",
+						"apis",
+						"{{apiId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Status of Correlation Log Component",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{adminUsername}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{adminPwd}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{basepath}}/config/correlation",
+					"host": [
+						"{{basepath}}"
+					],
+					"path": [
+						"config",
+						"correlation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Enable/Disable Correlation Logs",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{adminUsername}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{adminPwd}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"components\": [\n    {\n      \"name\": \"http\",\n      \"enabled\": true,\n      \"properties\": [\n        {\n          \"name\": \"deniedThreads\",\n          \"value\": [\n            \"MessageDeliveryTaskPool\"\n          ]\n        }\n      ]\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{basepath}}/config/correlation",
+					"host": [
+						"{{basepath}}"
+					],
+					"path": [
+						"config",
+						"correlation"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "basepath",
+			"value": "https://127.0.0.1:9443/api/am/devops/v0",
+			"type": "string"
+		},
+		{
+			"key": "tenantId",
+			"value": "carbon.super",
+			"type": "string"
+		},
+		{
+			"key": "apiId",
+			"value": "83bf5b80-717a-439a-b2d8-f66e2e56c333",
+			"type": "string"
+		},
+		{
+			"key": "adminPwd",
+			"value": "admin",
+			"type": "string"
+		},
+		{
+			"key": "adminUsername",
+			"value": "admin",
+			"type": "string"
+		}
+	]
+}
