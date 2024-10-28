@@ -36,7 +36,7 @@ Two key performance metrics were used to measure the performance of each test.
     <td>Apache JMeter Client</td>
     <td>c5.large</td>
     <td>2</td>
-    <td>4</td>
+    <td>2</td>
   </tr>
   <tr>
     <td>Apache JMeter Server 01</td>
@@ -66,7 +66,7 @@ Two key performance metrics were used to measure the performance of each test.
     <td>WSO2 API Manager</td>
     <td>c5.large</td>
     <td>2</td>
-    <td>4</td>
+    <td>2</td>
   </tr>
 </tbody>
 </table>
@@ -86,7 +86,7 @@ All scripts used to run the performance tests and analyze results are in the fol
 
 ## Results
 
-Considering the fact that an average WSO2 API Manager user uses ~1KiB messages, the performance test highlights for that scenario are represented in the charts below. The complete results can be found [here](https://github.com/wso2/performance-apim/blob/performance-test-442-2024-03-08_12-05-14/performance/benchmarks/summary.md).
+Considering the fact that an average WSO2 API Manager user uses ~1KiB messages, the performance test highlights for that scenario are represented in the charts below. The complete results can be found [here](https://github.com/wso2/performance-apim/blob/performance-test-468-2024-10-23_15-25-13/performance/benchmarks/summary.md).
 
 The following graph depicts the throughput changes based on the number of concurrent users.
 
@@ -111,7 +111,7 @@ The following graph depicts the average response time changes based on the numbe
 
 Let’s look at the 90th, 95th, and 99th response time percentiles when the message size is 1KiB. It is useful to measure the percentage of requests that exceeded the response time value for a given percentile. A percentile can be used to determine the percentage of requests completed below the particular response time value.
 
-For example, when there are 100 concurrent users, the 90th response time percentile for Echo API is 48ms. This means that 10% of the requests have taken more than 48ms to respond. Similarly, the 99th response time percentile for Echo API is 88ms, which means that 99% of the requests have been completed within 88ms.
+For example, when there are 100 concurrent users, the 90th response time percentile for Echo API is 46ms. This means that 10% of the requests have taken more than 46ms to respond. Similarly, the 99th response time percentile for Echo API is 72ms, which means that 99% of the requests have been completed within 72ms.
 
 The figure below represents the percentile values for Echo API (PassThrough Scenario).
 
