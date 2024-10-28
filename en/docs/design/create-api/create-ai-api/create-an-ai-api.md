@@ -52,7 +52,13 @@ The overview page of the newly created API appears.
 
 #### b. Fill **API Key** for Production and Sandbox Endpoints.
 
-**API Key format:** `Bearer <API-Key>` 
+!!! Note
+        APIM supports three AI/LLM vendors by default. The supported authorization approach for each is mentioned below: 
+    - **MistralAI**: `Authorization` header
+    - **AzureOpenAI**: `api-key` header
+    - **OpenAI**: `Authorization` header
+
+    Note that we prepend "Bearer " to the header value that you provide when it comes to MistralAI and OpenAI since they are expecting an Authorization header.
 
 [![API Key Configurations]({{base_path}}/assets/img/learn/ai-api-auth.png){: style="width:90%"}]({{base_path}}/assets/img/learn/ai-api-auth.png)
 
