@@ -77,7 +77,7 @@ Learn more on the concepts that you need to know when creating a REST API:
 
 <!-- -   [Endpoints]({{base_path}}/design/endpoints/endpoint-types/) -->
 -   [API Security]({{base_path}}/design/api-security/api-authentication/secure-apis-using-oauth2-tokens/)
--   [Rate Limiting]({{base_path}}/design/rate-limiting/introducing-throttling-use-cases/)
+-   [Rate Limiting for AI APIs]({{base_path}}/design/rate-limiting/rate-limiting-for-ai-apis/)
 -   [Life Cycle Management]({{base_path}}/design/lifecycle-management/api-lifecycle/)
 <!-- -   [API Monetization]({{base_path}}/design/api-monetization/monetizing-an-api/) -->
 -   [API Visibility]({{base_path}}/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/)
