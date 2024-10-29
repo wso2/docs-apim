@@ -257,7 +257,7 @@ template: templates/single-column.html
                 <p>
                     See the instructions on setting up the Micro Integrator runtime for your selected deployment pattern.
                 </p>
-                <a href='https://mi.docs.wso2.com/en/4.2.0/install-and-setup/install-and-setup-overview/#deploy'><h4>Deploy the Micro Integrator Runtime</h4></a>
+                <a href='https://mi.docs.wso2.com/en/4.3.0/install-and-setup/install-and-setup-overview/#deploy'><h4>Deploy the Micro Integrator Runtime</h4></a>
             </div>
             <div class="linkSet2 last" onclick="location.href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying_1';">
                 <img src="{{base_path}}/assets/img/home/streaming.svg" alt="Streaming">

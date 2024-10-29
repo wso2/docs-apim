@@ -1226,7 +1226,7 @@ paths:
               example:
                 type: rate-limiting policy
                 subtype: application
-                version: v4.1.0
+                version: v4.4.0
                 data:
                   policyId: cd828243-a0db-430c-97e9-9e41fd865d48
                   policyName: 50PerMin
