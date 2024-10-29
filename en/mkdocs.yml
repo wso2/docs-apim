@@ -77,7 +77,6 @@ nav:
           - Architecture: get-started/apim-architecture.md
           - Quick Start Guide:
                 - API Management: get-started/api-manager-quick-start-guide.md
-                - Streaming: get-started/streaming-quick-start-guide.md
           - About this Release: get-started/about-this-release.md
     - Design APIs:
         - Design APIs Overview: design/design-api-overview.md
@@ -437,7 +436,6 @@ nav:
             - admin_Directory Structure of WSO2 Products: reference/guides/directory-structure-of-wso2-products.md
         - Troubleshooting:
               - Error Handling: troubleshooting/error-handling.md
-              - Error Handling in Micro Integrator: troubleshooting/error-handling-mi.md
               - Capturing System Data in Error Situations: troubleshooting/capturing-system-data-in-error-situations.md
               - Troubleshooting in Production Environments: troubleshooting/admin-troubleshooting-in-production-environments.md
               - Cleaning Up Partially Created Keys: troubleshooting/cleaning-up-partially-created-keys.md
@@ -469,12 +467,6 @@ nav:
             - Configure Logs: administer/logging-and-monitoring/logging/configuring-logging.md
             # Remove After added TCP dump - TCP-Based Messages: administer/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
             - Server Health: administer/logging-and-monitoring/monitoring/monitoring-server-health.md
-        #- Monitoring Micro Integrator:
-            # Remove After added TCP dump
-            #- TCP Messages:
-                #- Starting TCPMon: observe/mi-observe/tcp/starting_tcp_mon.md
-                #- Message Monitoring with TCPMon: observe/mi-observe/tcp/message_monitoring_with_tcpmon.md
-                #- Other Usages of TCPMon: observe/mi-observe/tcp/other_usages_of_tcpmon.md
         - Key Managers:
             - Overview: administer/key-managers/overview.md
             - Configure WSO2 IS as a Key Manager: administer/key-managers/configure-wso2is-connector.md
@@ -581,9 +573,6 @@ nav:
             - Deploy on Kubernetes:
                 - API-M on K8s:
                     - Deploy API-M on K8s Using Helm Resources: install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources.md
-                - Micro Integrator on K8s:
-                    - Micro Integrator Deployment Patterns on K8s: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns.md
-                    - Deploy the Micro Integrator on K8s: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment.md
             - Deployment Best Practices:
                 - Deployment Checklist: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
                 - Security Guidelines for a Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
@@ -594,15 +583,6 @@ nav:
                 - Backup and Recovery: install-and-setup/setup/deployment-best-practices/backup-recovery.md
                 - Performance Tuning:
                     -   API-M Performance Tuning: install-and-setup/setup/deployment-best-practices/tuning-performance.md
-                    -   Micro Integrator Performance Tuning:
-                        - Tuning JVM Performance: install-and-setup/setup/mi-setup/performance_tuning/tuning_jvm_performance.md
-                        - Tuning Network and OS Performance: install-and-setup/setup/mi-setup/performance_tuning/network_os_performance.md
-                        - Tuning JDBC Configurations: install-and-setup/setup/mi-setup/performance_tuning/jdbc_tuning.md
-                        - Tuning the HTTP Transport: install-and-setup/setup/mi-setup/performance_tuning/http_transport_tuning.md
-                        - Tuning the JMS Transport: install-and-setup/setup/mi-setup/performance_tuning/jms_transport_tuning.md
-                        - Tuning the VFS Transport: install-and-setup/setup/mi-setup/performance_tuning/tuning-the-vfs-transport.md
-                        - Tuning the RabbitMQ Transport: install-and-setup/setup/mi-setup/performance_tuning/rabbitmq_transport_tuning.md
-                        - Tuning the Inbound Endpoints: install-and-setup/setup/mi-setup/performance_tuning/tuning-inbound-endpoints.md
         - CI/CD:
             - CI/CD - APIs:
                 - CI/CD for APIs - Overview: install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management.md
@@ -645,8 +625,7 @@ nav:
                 - API Manager (Streaming APIs): install-and-setup/setup/deployment-best-practices/performance-tests-results-async.md
                 - API Manager (GraphQL APIs): install-and-setup/setup/deployment-best-practices/performance-tests-results-graphql.md
                 - Token Persistence: install-and-setup/setup/deployment-best-practices/performance-test-results-token-persistence.md
-                - Micro Integrator: install-and-setup/setup/deployment-best-practices/performance-test-results-mi.md
-            - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md     
+            - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md
     - Tutorials:
           - Tutorials Overview: tutorials/tutorials-overview.md
           - Expose an Integration Service as a Managed API: tutorials/integration-tutorials/service-catalog-tutorial.md
@@ -862,7 +841,6 @@ plugins:
               'learn/api-security/api-authentication/secure-apis-using-basic-authentication.md': 'https://apim.docs.wso2.com/en/4.4.0/design/api-security/api-authentication/secure-apis-using-basic-authentication/'
               'learn/api-security/api-authentication/advanced-topics/federating-oauth-applications.md': 'https://apim.docs.wso2.com/en/4.4.0/design/api-security/api-authentication/advanced-topics/federating-oauth-applications/'
               'learn/api-security/authorization/api-authorization.md': 'https://apim.docs.wso2.com/en/4.4.0/design/api-security/authorization/api-authorization/'
-              'learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md': 'https://apim.docs.wso2.com/en/4.4.0/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/'
               'learn/api-security/authorization/role-based-access-control-using-xacml.md': 'https://apim.docs.wso2.com/en/4.4.0/design/api-security/authorization/role-based-access-control-using-xacml/'
               'learn/api-security/configuring-api-security-audit.md': 'https://apim.docs.wso2.com/en/4.4.0/design/api-security/configuring-api-security-audit/'
               'learn/api-security/api-request-response-schema-validation/json-schema-validator.md': 'https://apim.docs.wso2.com/en/4.4.0/design/api-security/api-request-response-schema-validation/json-schema-validator/'
@@ -918,15 +896,6 @@ plugins:
               'learn/api-security/oauth2/hashing-oauth-keys.md': 'https://apim.docs.wso2.com/en/4.4.0/design/api-security/oauth2/hashing-oauth-keys/'
               'learn/api-security/oauth2/provisioning-out-of-band-oauth-clients.md': 'https://apim.docs.wso2.com/en/4.4.0/design/api-security/oauth2/provisioning-out-of-band-oauth-clients/'
               'learn/api-security/oauth2/securing-oauth-token-with-hmac-validation.md': 'https://apim.docs.wso2.com/en/4.4.0/design/api-security/oauth2/securing-oauth-token-with-hmac-validation/'
-              'learn/api-security/threat-protection/bot-detection.md': 'https://apim.docs.wso2.com/en/4.4.0/design/api-security/threat-protection/bot-detection/'
-              'learn/api-security/threat-protection/gateway-threat-protectors/gateway-threat-protectors-for-api-manager.md': 'https://apim.docs.wso2.com/en/4.4.0/design/api-security/threat-protection/gateway-threat-protectors/gateway-threat-protectors-for-api-manager/'
-              'learn/api-security/openid-connect/obtaining-user-profile-information-with-openid-connect.md': 'https://apim.docs.wso2.com/en/4.4.0/design/api-security/openid-connect/obtaining-user-profile-information-with-openid-connect/'
-              'learn/rate-limiting/introducing-throttling-use-cases.md': 'https://apim.docs.wso2.com/en/4.4.0/design/rate-limiting/introducing-throttling-use-cases/'
-              'learn/rate-limiting/adding-new-throttling-policies.md': 'https://apim.docs.wso2.com/en/4.4.0/design/rate-limiting/adding-new-throttling-policies/'
-              'learn/rate-limiting/setting-throttling-limits.md': 'https://apim.docs.wso2.com/en/4.4.0/design/rate-limiting/setting-throttling-limits/'
-              'learn/rate-limiting/access-control.md': 'https://apim.docs.wso2.com/en/4.4.0/design/rate-limiting/access-control/'
-              'learn/rate-limiting/enforce-throttling-and-resource-access-policies.md': 'https://apim.docs.wso2.com/en/4.4.0/design/rate-limiting/enforce-throttling-and-resource-access-policies/'
-              'learn/rate-limiting/setting-maximum-backend-throughput-limits.md': 'https://apim.docs.wso2.com/en/4.4.0/design/rate-limiting/setting-maximum-backend-throughput-limits/'
               'learn/api-security/threat-protection/bot-detection.md': 'https://apim.docs.wso2.com/en/4.4.0/design/api-security/threat-protection/bot-detection/'
               'learn/api-security/threat-protection/gateway-threat-protectors/gateway-threat-protectors-for-api-manager.md': 'https://apim.docs.wso2.com/en/4.4.0/design/api-security/threat-protection/gateway-threat-protectors/gateway-threat-protectors-for-api-manager/'
               'learn/api-security/openid-connect/obtaining-user-profile-information-with-openid-connect.md': 'https://apim.docs.wso2.com/en/4.4.0/design/api-security/openid-connect/obtaining-user-profile-information-with-openid-connect/'
@@ -1037,8 +1006,6 @@ plugins:
               'learn/consume-api/collaboration/use-the-community-features.md': 'https://apim.docs.wso2.com/en/4.4.0/consume/collaboration/interact-with-the-community'
               'learn/consume-api/generating-sdks/generate-sdks-in-dev-portal.md': 'https://apim.docs.wso2.com/en/4.4.0/consume/generating-sdks/generate-sdks-in-dev-portal/'
               'learn/consume-api/generating-sdks/write-a-client-application-using-the-sdk.md': 'https://apim.docs.wso2.com/en/4.4.0/consume/generating-sdks/write-a-client-application-using-the-sdk/'
-              'learn/user-account-management/recover-password.md': 'https://apim.docs.wso2.com/en/4.4.0/consume/user-account-management/recover-password/'
-              'learn/user-account-management/change-dev-portal-password.md': 'https://apim.docs.wso2.com/en/4.4.0/consume/user-account-management/change-dev-portal-password/'
               'develop/product-apis/overview.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/product-apis/overview/'
               'develop/product-apis/advanced-configurations.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/product-apis/advanced-configurations/'
               'develop/extending-api-manager/extending-key-management/extending-key-validation.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/customize-product/extending-api-manager/extending-key-management/extending-key-validation/'
@@ -1102,8 +1069,6 @@ plugins:
               #'observe/api-manager-analytics/querying-apim-analytics.md': 'https://apim.docs.wso2.com/en/4.4.0/api-analytics/analytics-api-guide/'
               #'observe/api-manager-analytics/troubleshooting-analytics.md':
               'observe/api-manager-analytics/overview-of-api-analytics.md': 'https://apim.docs.wso2.com/en/4.4.0/api-analytics/getting-started-guide/'
-              'observe/mi-observe/using-the-analytics-dashboard.md': 'https://apim.docs.wso2.com/en/4.4.0/mi-analytics/using-the-analytics-dashboard/'
-              'install-and-setup/setup/mi-setup/observability/setting-up-classic-observability-deployment.md': 'https://apim.docs.wso2.com/en/4.4.0/mi-analytics/setting-up-mi-analytics/'
               'get-started/architecture.md': 'https://apim.docs.wso2.com/en/4.4.0/get-started/apim-architecture/'
               'api-analytics/getting-started-guide.md': 'https://apim.docs.wso2.com/en/latest/api-analytics/choreo-analytics/getting-started-guide/'
               'api-analytics/viewing/analytics-pages-alerts.md': 'https://wso2.com/choreo/docs/monitoring-and-insights/usage-insights/#alerts'
@@ -1119,31 +1084,7 @@ plugins:
               'administer/logging-and-monitoring/logging/monitoring-audit-logs.md': 'https://apim.docs.wso2.com/en/4.4.0/observe/api-manager/monitoring-audit-logs/'
               'administer/logging-and-monitoring/monitoring/monitoring-with-opentracing.md': 'https://apim.docs.wso2.com/en/4.4.0/observe/api-manager/traces/monitoring-with-opentracing/'
               'administer/logging-and-monitoring/monitoring/jmx-based-monitoring.md': 'https://apim.docs.wso2.com/en/4.4.0/observe/api-manager/metrics/jmx-based-monitoring/'
-              'observe/mi-observe/mi-observability-overview.md': 'https://apim.docs.wso2.com/en/4.4.0/observe/micro-integrator/cloud-native-observability-overview/'
-              'install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment.md': 'https://apim.docs.wso2.com/en/4.4.0/observe/micro-integrator/setting-up-cloud-native-observability-on-a-vm/'
-              'install-and-setup/setup/mi-setup/observability/setting-up-cloud-native-observability-in-kubernetes.md': 'https://apim.docs.wso2.com/en/4.4.0/observe/micro-integrator/setting-up-cloud-native-observability-in-kubernetes/'
-              'observe/mi-observe/cloud-native-observability-dashboards.md': 'https://apim.docs.wso2.com/en/4.4.0/observe/micro-integrator/observe/micro-integrator/viewing-cloud-native-observability-statistics/'
-              'install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties.md': 'https://apim.docs.wso2.com/en/4.4.0/observe/micro-integrator/classic-observability-logs/configuring-log4j2-properties/'
-              'install-and-setup/setup/mi-setup/observability/logs/enabling_component_logs.md': 'https://apim.docs.wso2.com/en/4.4.0/observe/micro-integrator/classic-observability-logs/enabling-logs-for-a-component/'
-              'observe/mi-observe/logs/monitoring_logs.md': 'https://apim.docs.wso2.com/en/4.4.0/observe/micro-integrator/classic-observability-logs/monitoring-logs/'
-              'observe/mi-observe/logs/monitoring-correlation-logs.md': 'https://apim.docs.wso2.com/en/4.4.0/observe/micro-integrator/classic-observability-logs/monitoring-correlation-logs/'
-              'observe/mi-observe/jmx_monitoring.md': 'https://apim.docs.wso2.com/en/4.4.0/observe/micro-integrator/classic-observability-metrics/jmx-monitoring/'
-              'observe/mi-observe/snmp_monitoring.md': 'https://apim.docs.wso2.com/en/4.4.0/observe/micro-integrator/classic-observability-metrics/snmp-monitoring/'
-              'observe/si-observe/setting-up-grafana-dashboards.md': 'https://apim.docs.wso2.com/en/4.4.0/observe/streaming-integrator/setting-up-si-statistics-dashboards/'
-              'observe/si-observe/managing-grafana-dashboards.md': 'https://apim.docs.wso2.com/en/4.4.0/observe/streaming-integrator/managing-dashboards/'
-              'observe/si-observe/viewing-dashboards.md': 'https://apim.docs.wso2.com/en/4.4.0/observe/streaming-integrator/viewing-etl-flows/'
-              'observe/si-observe/viewing-overall-statistics.md': 'https://apim.docs.wso2.com/en/4.4.0/observe/streaming-integrator/viewing-general-statistics/'
-              'observe/si-observe/monitoring-si-performance-via-grafana.md': 'https://apim.docs.wso2.com/en/4.4.0/observe/streaming-integrator/viewing-general-statistics/'
               'administer/logging-and-monitoring/logging/setting-up-logging.md': 'https://apim.docs.wso2.com/en/4.4.0/administer/logging-and-monitoring/logging/configuring-logging/'
-              'install-and-setup/setup/mi-setup/observability/observability.md': 'https://apim.docs.wso2.com/en/4.4.0/observe/micro-integrator/classic-observability-logs/monitoring-correlation-logs/'
-              'install-and-setup/setup/mi-setup/observability/logs/monitoring_logs.md': 'https://apim.docs.wso2.com/en/4.4.0/observe/micro-integrator/classic-observability-logs/monitoring-logs/'
-              'install-and-setup/setup/mi-setup/observability/logs/managing_log_growth.md': 'https://apim.docs.wso2.com/en/4.4.0/administer/logging-and-monitoring/logging/managing-log-growth/'
-              'install-and-setup/setup/mi-setup/observability/logs/masking_sensitive_info_in_logs.md': 'https://apim.docs.wso2.com/en/4.4.0/administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs/'
-              'integrate/develop/deploying-in-integration-cloud.md': 'https://wso2.com/choreo/'
-              'streaming/connectors/connectors-overview.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/streaming-connectors/connectors-overview/'
-              'streaming/connectors/downloading-and-installing-siddhi-extensions.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/streaming-connectors/downloading-and-installing-siddhi-extensions/'
-              'streaming/connectors/writing-custom-siddhi-extensions.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/streaming-connectors/writing-custom-siddhi-extensions/'
-              'streaming/connectors/configuring-system-parameters-for-siddhi-extensions.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/streaming-connectors/configuring-system-parameters-for-siddhi-extensions/'
               'api-analytics/viewing/view-overview-of-api-analytics.md': 'https://wso2.com/choreo/docs/monitoring-and-insights/usage-insights/#overview'
               'api-analytics/viewing/view-api-analytics-on-traffic.md': 'https://wso2.com/choreo/docs/monitoring-and-insights/usage-insights/#traffic'
               'api-analytics/viewing/view-api-analytics-on-errors.md': 'https://wso2.com/choreo/docs/monitoring-and-insights/usage-insights/#errors'
@@ -1151,13 +1092,6 @@ plugins:
               'api-analytics/viewing/view-analytics-on-devices.md': 'https://wso2.com/choreo/docs/monitoring-and-insights/usage-insights/#devices'
               'api-analytics/viewing/view-api-analytics-on-alerts.md': 'https://wso2.com/choreo/docs/monitoring-and-insights/usage-insights/#alerts'
               'api-analytics/viewing/download-api-analytics-reports.md': 'https://wso2.com/choreo/docs/monitoring-and-insights/usage-insights/#reports'
-              'install-and-setup/setup/mi-setup/observability/observability-deployment-strategy.md': 'https://apim.docs.wso2.com/en/4.4.0/observe/micro-integrator/cloud-native-observability-overview/'
-              'design/prototype-api/create-a-mock-api-with-an-inline-script.md': 'https://apim.docs.wso2.com/en/4.4.0/design/prototype-api/create-a-prototype-api/'
-              'design/prototype-api/deploy-and-test-mock-apis.md': 'https://apim.docs.wso2.com/en/4.4.0/design/prototype-api/create-a-prototype-api/'
-              'design/prototype-api/create-a-prototype-api.md': 'https://apim.docs.wso2.com/en/4.4.0/design/prototype-api/overview/'
-              'deploy-and-publish/deploy-on-gateway/api-gateway/message-tracing.md': 'https://apim.docs.wso2.com/en/4.4.0/get-started/about-this-release/#removed-features-and-functionalities'
-              'develop/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping/'
-              'install-and-setup/setup/mi-setup/observability/observability-deployment-strategy.md': 'https://apim.docs.wso2.com/en/4.2.0/observe/micro-integrator/cloud-native-observability-overview/'
               'design/prototype-api/create-a-mock-api-with-an-inline-script.md': 'https://apim.docs.wso2.com/en/4.2.0/design/prototype-api/create-a-prototype-api/'
               'design/prototype-api/deploy-and-test-mock-apis.md': 'https://apim.docs.wso2.com/en/4.2.0/design/prototype-api/create-a-prototype-api/'
               'design/prototype-api/create-a-prototype-api.md': 'https://apim.docs.wso2.com/en/4.2.0/design/prototype-api/overview/'
