@@ -12,7 +12,7 @@ Follow the instructions below to start WSO2 API-M.
 
     !!! note
 
-        Refer to the [Setup and Install]({{base_path}}/install-and-setup/install/ installing-the-product/installing-api-m-runtime/) for a step-by-step guide on configuring Java.
+        Refer to the [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/) for a step-by-step guide on configuring Java.
         
 
 
