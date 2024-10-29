@@ -30,7 +30,7 @@ A sample cURL command and the response from the `Version` service are given belo
 
 === "Response"
     ``` java
-    <ns:getVersionResponse xmlns:ns="http://version.services.core.carbon.wso2.org"><return>WSO2 API Manager-4.2.0</return></ns:getVersionResponse>
+    <ns:getVersionResponse xmlns:ns="http://version.services.core.carbon.wso2.org"><return>WSO2 API Manager-4.4.0</return></ns:getVersionResponse>
     ```
 
 !!! note
