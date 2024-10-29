@@ -138,7 +138,7 @@ Deployment repository will be used to gather configurations for each deployment.
 
 ### Step 4 - Setup API-M instances
 
-Download the WSO2 API Manager 4.2.0 [here]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl) and start the instance. Set this in a separate instance as the `dev` instance. 
+Download the WSO2 API Manager [here]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl) and start the instance. Set this in a separate instance as the `dev` instance. 
 
 ### Step 5 - Configure Jenkins Jobs
 
