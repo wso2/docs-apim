@@ -54,7 +54,7 @@ Run the following apictl command to export a rate limiting policy.
         ```
         type: throttling policy
         subtype: subscription policy
-        version: v4.2.0
+        version: v4.4.0
         data:
         policyId: 15797f4c-3742-4909-920c-13f164fd2b1c
         policyName: Silver

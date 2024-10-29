@@ -362,7 +362,7 @@
 
     ``` bash
         type: api
-        version: v4.2.0
+        version: v4.4.0
         data:
             name : SampleAPI
             version: 1.0.0

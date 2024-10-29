@@ -12,10 +12,8 @@ As WSO2 API Manager is a Java application, you can generally run it on most oper
 
 |**Operating System**|**Versions**  |
 |--------------------|--------------|
-|Windows             | 2016         |
-|Ubuntu              | 18.04, 20.04, 22.04 |
-|Red Hat Enterprise Linux   | 7.0, 8.7, 9.3   |
-|CentOS              | 7.4, 7.5     |
+|Windows             | 2021         |
+|Ubuntu              | 22.04 |
 |Rocky Linux              | 9.3    |
 
 #### Tested JDKs
@@ -24,10 +22,6 @@ The **WSO2 API-M** runtime has been tested with the following JDKs:
 
 |**JDKS**            |**Versions**|
 |--------------------|-----------|
-|CorrettoJDK         | 11, 17    |
-|AdoptOpenJDK        | 11, 17    |
-|OpenJDK             | 11, 17    |
-|Oracle JDK          | 11, 17    |
 |Temurin OpenJDK     | 11, 17, 21    |
 
 #### Tested DBMSs
@@ -36,10 +30,10 @@ The **WSO2 API-M** runtime is tested with the following databases:
 
 |**DBMS**     | **Versions**            |
 |--------------|-------------------------|
-|MySQL         | 5.7, 8                  |
-|Oracle        | 12c release 2, 19c, 23c |
-|Microsoft SQL Server| 2017, 2019, 2022        |
-|PostgreSQL            | 12.15, 15.3, 16.2       |
+|MySQL         | 5.7, 8, 8.4                  |
+|Oracle        | 19c, 23c |
+|Microsoft SQL Server| 2019, 2022        |
+|PostgreSQL            | 16.2, 17       |
 
 !!! warning
     When creating the database related to apim_db with MySQL 8.0, add **character set latin1** to avoid the MySQL Linux ERROR 1071 (42000).
@@ -51,8 +45,8 @@ The **WSO2 API-M** runtime is tested with the following databases:
 
 The following is a list of other WSO2 products that have been tested with WSO2 API Manager 4.3.0.
 
-- [WSO2 Identity Server 6.0.0 and 6.1.0](https://wso2.com/identity-and-access-management/#)
-- [WSO2 API Platform For Kubernetes(APK) 1.1.0](https://wso2.com/api-platform-for-k8s)
+- [WSO2 Identity Server 7.0.0 and 6.1.0](https://wso2.com/identity-and-access-management/#)
+- [WSO2 API Platform For Kubernetes(APK) 1.2.0](https://wso2.com/api-platform-for-k8s)
 
 #### Compatible WSO2 Identity Servers (as Key Manager)
 

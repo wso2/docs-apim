@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "cccaac2d-c36c-455a-a66e-cc686b09185c",
-		"name": "WSO2 API Manager 4.0.0 - Publisher REST API",
+		"name": "WSO2 API Manager 4.4.0 - Publisher REST API",
 		"description": "This document specifies a **RESTful API** for WSO2 **API Manager - Publisher REST API** .\nIt is written with [swagger 2.0](http://swagger.io/).\n",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},

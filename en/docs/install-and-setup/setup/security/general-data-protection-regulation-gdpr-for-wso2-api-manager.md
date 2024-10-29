@@ -304,7 +304,7 @@ The tenant ID of the user whose identity references you want to remove.
 <td>No</td>
 <td><br />
 </td>
-<td><code>-carbon “usr/bin/wso2am/wso2am4.0.0”</code></td>
+<td><code>-carbon “usr/bin/wso2am/wso2am4.4.0”</code></td>
 </tr>
 </tbody>
 </table>
