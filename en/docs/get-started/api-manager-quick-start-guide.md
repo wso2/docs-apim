@@ -6,11 +6,19 @@ This section is a step-by-step guide to create, publish, and invoke an API using
 
 Follow the instructions below to start WSO2 API-M.
 
-1. Install [Oracle Java SE Development Kit (JDK)](http://java.sun.com/javase/downloads/index.jsp) version 17 and set the `JAVA_HOME` environment variable.
+1. Install [Java SE Development Kit (JDK)](https://adoptium.net/temurin/releases/?arch=any&version=21) version 21 and set the `JAVA_HOME` environment variable.
      
-     For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/).
+     For more information on setting the `JAVA_HOME` environment variable for different operating systems.
 
-2. [Download version 4.4.0 of WSO2 API-M](https://wso2.com/api-management/).
+    !!! note
+
+        Refer to the [Setup and Install]({{base_path}}/install-and-setup/install/ installing-the-product/installing-api-m-runtime/) for a step-by-step guide on configuring Java.
+        
+
+
+2. Download WSO2 API-Manager
+     - [Open Source Distribution](https://github.com/wso2/product-apim/releases/tag/v4.4.0)
+     - [WSO2 Official Distribution](https://wso2.com/api-manager/#)
 
 3. Start WSO2 API-M by navigating to the `<API-M_HOME>/bin` directory using the command-line and execute the following command.
 
