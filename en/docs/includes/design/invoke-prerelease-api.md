@@ -4,13 +4,13 @@
 
 ## Step 4 - Test the API via the Publisher
 
-Once deployed to the Gateway, you can [test the REST type APIs via the Publisher Portal]({{base_path}}}/design/create-api/create-rest-api/test-a-rest-api).
+Once deployed to the Gateway, you can [test the REST type APIs via the Publisher Portal](../../../design/create-api/create-rest-api/test-a-rest-api).
 
 ## Step 5 - Publish the API as a Prototype
 
 !!! important
 		- By default, from WSO2 API Manager 4.1.0 onwards, security is enabled for all the resources of the Prototype API. As a result, you need a subscription to invoke the API.
-    - Skip this step if you have [disabled security]({{base_path}}/design/api-security/api-authentication/disable-security/) for all the resources in the API.
+    - Skip this step if you have [disabled security](../../../design/api-security/api-authentication/disable-security/) for all the resources in the API.
 
 		Follow the instructions below to attach Business Plans to the API.
 
