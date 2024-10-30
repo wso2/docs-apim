@@ -15,7 +15,7 @@ After the project deletion is enabled, any deleted API/Application or API Produc
 
 !!! example
     ```bash
-    $ apictl vcs deploy -e dev
+    apictl vcs deploy -e dev
     Deploying Projects (1)...
 
     APIs (1) ...
@@ -88,7 +88,7 @@ apictl set --vcs-config-path <full-path-to-store-vcs_config.yaml>
 
 !!! example
     ```bash
-    $ apictl set --vcs-config-path /home/wso2/api-manager/gitconfigs
+    apictl set --vcs-config-path /home/wso2/api-manager/gitconfigs
     VCS config file path is set to : /home/wso2/api-manager/gitconfigs
     ```
 

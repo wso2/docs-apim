@@ -36,7 +36,7 @@ kubectl apply -f https://github.com/wso2/streaming-integrator/tree/master/module
 
 You can verify the installation by making sure the following deployments are running in your Kubernetes cluster.
 ```
-$ kubectl get deployment
+kubectl get deployment
 
 NAME                 DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
 streaming-integrator   1         1         1            1           1m

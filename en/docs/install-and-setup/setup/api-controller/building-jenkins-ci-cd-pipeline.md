@@ -76,14 +76,14 @@ Now let’s initialize the source repository. This will be done from the develop
 1. Clone the source repository. Navigate to the repository folder.
 
     ```
-    $ git clone https://github.com/chamilaadhi/poc-cicd-source-repo.git
-    $ cd poc-cicd-source-repo
+    git clone https://github.com/chamilaadhi/poc-cicd-source-repo.git
+    cd poc-cicd-source-repo
     ```
 
 2. Execute the following command.
 
     ```
-    $ apictl vcs init
+    apictl vcs init
     ```
     This will create a `vcs.yaml` file in the repository. Commit it to the source repository. 
 
@@ -116,8 +116,8 @@ Deployment repository will be used to gather configurations for each deployment.
     Try uploading a sample resource. An example is given below.
 
     ```
-    $ touch resource.txt
-    $ curl -u repouser:<password> -X PUT https://xxxx.jfrog.io/artifactory/myrepo/ -T resource.txt
+    touch resource.txt
+    curl -u repouser:<password> -X PUT https://xxxx.jfrog.io/artifactory/myrepo/ -T resource.txt
     ```
 
     Access the repository URL to see the resource.
@@ -224,8 +224,8 @@ The artifact deployment job will listen to any new updates in the Artifactory re
 
 3. To test whether the webhook between Artifactory and the Jenkins job is working, you could execute the same upload test we did under Setup JFrog Artifactory section
   ```
-  $ touch resource.txt
-  $ curl -u repouser:<password> -X PUT https://xxxxx.jfrog.io/artifactory/myrepo/ -T resource.txt
+  touch resource.txt
+  curl -u repouser:<password> -X PUT https://xxxxx.jfrog.io/artifactory/myrepo/ -T resource.txt
   ```
 
 If the configuration is working, this will trigger a new build.
