@@ -189,7 +189,7 @@ Additionally, all permissions listed under <strong>Admin/Monitor</strong> in the
         ![Add Custom Scope Mapping]({{base_path}}/assets/img/administer/new-custom-scope-mapping.png) 
 
 !!! info 
-    The following are the scopes allowed for    each default Internal role under the default configurations.
+    The following are the scopes allowed for each default Internal role under the default configurations.
 
     | **Role**                                  | **admin** | **Internal/publisher** | **Internal/creator**  | **Internal/subscriber** | **Internal/analytics** | **Internal/everyone** | **Internal/devops**  | **Internal/integration_dev**  |
     | ----------------------------------------- | --------- | ---------------------- | --------------------- | ----------------------- | ---------------------- | --------------------- | -------------------- | ----------------------------- |
