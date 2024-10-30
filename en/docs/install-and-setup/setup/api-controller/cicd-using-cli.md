@@ -225,8 +225,8 @@ The repositories (**Source** and **Deployment**) that you committed the project 
 
 1. Set the Source and the Deployment directory paths.
    ```bash
-   $ apictl set --vcs-source-repo-path path/to/Source
-   $ apictl set --vcs-deployment-repo-path path/to/Deployment
+   apictl set --vcs-source-repo-path path/to/Source
+   apictl set --vcs-deployment-repo-path path/to/Deployment
    ```
 
     !!! note
@@ -238,14 +238,14 @@ The repositories (**Source** and **Deployment**) that you committed the project 
 
 2.  Navigate to the Source directory.
     ```bash
-    $ cd path/to/Source
+    cd path/to/Source
     ```
 
 3.  As this is the first time that the Source repository is used for Git Integration functionality of apictl, run `vcs init` command to initialize the repository with apictl. This needs to run only once for the repository.
 
     !!! example
         ```bash
-        $ apictl vcs init
+        apictl vcs init
         Successfully initialized GIT repository
         ```
 
@@ -262,7 +262,7 @@ The repositories (**Source** and **Deployment**) that you committed the project 
 
     !!! example
         ```bash
-        $ apictl vcs status -e prod
+        apictl vcs status -e prod
         Projects to Deploy (1)
 
         APIs (1) ...
@@ -281,7 +281,7 @@ The repositories (**Source** and **Deployment**) that you committed the project 
 
     !!! example
         ```bash
-        $ apictl vcs deploy -e prod
+        apictl vcs deploy -e prod
         Deploying Projects (1)...
 
         APIs (1) ...
@@ -295,7 +295,7 @@ The repositories (**Source** and **Deployment**) that you committed the project 
 
     !!! example
         ```bash
-        $ apictl vcs deploy -e prod
+        apictl vcs deploy -e prod
         Everything is up-to-date
         ```
 
@@ -312,7 +312,7 @@ The repositories (**Source** and **Deployment**) that you committed the project 
     4.  Navigate to the Source repository and run `vcs status` command to verify the new project addition (You can do the same by navigating to the Deployment repository as well).
 
         ```bash
-        $ apictl vcs status -e prod
+        apictl vcs status -e prod
         Projects to Deploy (1)
 
         APIs (1) ...
@@ -322,7 +322,7 @@ The repositories (**Source** and **Deployment**) that you committed the project 
     5.  Run `vcs deploy` command to deploy the new API to the production environment.
 
         ```bash
-        $ apictl vcs deploy -e prod
+        apictl vcs deploy -e prod
         Deploying Projects (1)...
 
         APIs (1) ...
@@ -464,7 +464,7 @@ For example, let us consider there is an [API Product]({{base_path}}/design/crea
 1.  Export the API Product using `export api-product` command from the development environment (dev). For more information, see [Export an API Product]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/migrating-api-products-to-different-environments/#export-an-api-product).
 
     ```bash
-    $ apictl export api-product -n PetsInfo -v 1.0.0 -e dev --latest
+    apictl export api-product -n PetsInfo -v 1.0.0 -e dev --latest
     
     Successfully exported API Product!
     Find the exported API Product at /home/wso2user/.wso2apictl/exported/api-products/dev/PetsInfo_1.0.0.zip
@@ -480,7 +480,7 @@ For example, let us consider there is an [API Product]({{base_path}}/design/crea
 
     !!! example
         ```bash
-        $ apictl vcs status -e prod
+        apictl vcs status -e prod
         Projects to Deploy (1)
 
         API Products (1) ...
@@ -491,7 +491,7 @@ For example, let us consider there is an [API Product]({{base_path}}/design/crea
         If you haven't initialized the repository with API Controller, you will get the below error.
         
         ```bash
-        $ apictl vcs status -e prod
+        apictl vcs status -e prod
         apictl: The repository info: vcs.yaml is not found in the repository root. If this is the first time you are using this repo, please initialize it with 'vcs init'.
         Exit status 1
         ```
@@ -502,7 +502,7 @@ For example, let us consider there is an [API Product]({{base_path}}/design/crea
 
     !!! example
         ```bash
-        $ apictl vcs deploy -e prod
+        apictl vcs deploy -e prod
         Deploying Projects (1)...
 
         API Products (1) ...
@@ -564,7 +564,7 @@ Let us assume that the **PetsApp** application is in the development environment
 1.  Export the Application using the `export app` command from the development environment (dev). Note that `--with-keys` option is used to export the subscriptions and keys (if any) of the application.
 
     ```bash
-    $ apictl export app --name PetsApp --owner david -e dev --with-keys
+    apictl export app --name PetsApp --owner david -e dev --with-keys
 
     Successfully exported Application!
     Find the exported Application at /home/wso2user/.wso2apictl/exported/apps/dev/david_PetsApp.zip
@@ -579,7 +579,7 @@ Let us assume that the **PetsApp** application is in the development environment
 
     !!! example
         ```bash
-        $ apictl vcs status -e prod
+        apictl vcs status -e prod
         Projects to Deploy (1)
 
         Applications (1) ...
@@ -590,7 +590,7 @@ Let us assume that the **PetsApp** application is in the development environment
         If you haven't initialized the repository with API Controller, you will get the below error.
         
         ```bash
-        $ apictl vcs status -e prod
+        apictl vcs status -e prod
         apictl: The repository info: vcs.yaml is not found in the repository root. If this is the first time you are using this repo, please initialize it with 'vcs init'.
         Exit status 1
         ```
@@ -601,7 +601,7 @@ Let us assume that the **PetsApp** application is in the development environment
 
     !!! example
         ```bash
-        $ apictl vcs deploy -e prod
+        apictl vcs deploy -e prod
         Deploying Projects (1)...
 
         Applications (1) ...
