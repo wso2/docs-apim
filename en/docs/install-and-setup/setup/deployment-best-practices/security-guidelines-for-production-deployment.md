@@ -892,7 +892,7 @@ This section provides a list of security guidelines for configuring the network
 <p><strong>Note:</strong> </p>
 <p>It is recommended to use an allowlisting approach when allowing access to resources in your product from the DMZ level.</p>
 
-<p>For the API-M Developer Portal, access to the following paths would be sufficient:</p>
+<p>For the API-M Developer Portal, exposing the following paths would be sufficient:</p>
     <ul>
       <li>https://&lt;host&gt;:&lt;port&gt;/devportal</li>
       <li>https://&lt;host&gt;:&lt;port&gt;/devportal/*</li>
