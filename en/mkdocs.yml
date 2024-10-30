@@ -1092,11 +1092,11 @@ plugins:
               'api-analytics/viewing/view-analytics-on-devices.md': 'https://wso2.com/choreo/docs/monitoring-and-insights/usage-insights/#devices'
               'api-analytics/viewing/view-api-analytics-on-alerts.md': 'https://wso2.com/choreo/docs/monitoring-and-insights/usage-insights/#alerts'
               'api-analytics/viewing/download-api-analytics-reports.md': 'https://wso2.com/choreo/docs/monitoring-and-insights/usage-insights/#reports'
-              'design/prototype-api/create-a-mock-api-with-an-inline-script.md': 'https://apim.docs.wso2.com/en/4.2.0/design/prototype-api/create-a-prototype-api/'
-              'design/prototype-api/deploy-and-test-mock-apis.md': 'https://apim.docs.wso2.com/en/4.2.0/design/prototype-api/create-a-prototype-api/'
-              'design/prototype-api/create-a-prototype-api.md': 'https://apim.docs.wso2.com/en/4.2.0/design/prototype-api/overview/'
-              'deploy-and-publish/deploy-on-gateway/api-gateway/message-tracing.md': 'https://apim.docs.wso2.com/en/4.2.0/get-started/about-this-release/#removed-features-and-functionalities'
-              'develop/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping.md': 'https://apim.docs.wso2.com/en/4.2.0/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping/'
+              'design/prototype-api/create-a-mock-api-with-an-inline-script.md': 'https://apim.docs.wso2.com/en/4.4.0/design/prototype-api/create-a-prototype-api/'
+              'design/prototype-api/deploy-and-test-mock-apis.md': 'https://apim.docs.wso2.com/en/4.4.0/design/prototype-api/create-a-prototype-api/'
+              'design/prototype-api/create-a-prototype-api.md': 'https://apim.docs.wso2.com/en/4.4.0/design/prototype-api/overview/'
+              'deploy-and-publish/deploy-on-gateway/api-gateway/message-tracing.md': 'https://apim.docs.wso2.com/en/4.4.0/get-started/about-this-release/#removed-features-and-functionalities'
+              'develop/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping/'
     # Extra
 extra_css:
     - assets/lib/highlightjs/default.min.css
