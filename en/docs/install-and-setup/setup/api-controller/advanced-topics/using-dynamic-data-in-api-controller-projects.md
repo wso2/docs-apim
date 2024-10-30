@@ -181,10 +181,10 @@ For example, consider we need to send a special header to the backend when calli
 6. Generate a token and invoke the API
 
     ```bash
-    $ apictl get keys -e development -n SwaggerPetstore -v 1.0.6 -r admin
+    apictl get keys -e development -n SwaggerPetstore -v 1.0.6 -r admin
     eyJ0eXAiOiJKV1QiLCJhbGciOiJSUz....RWrACAUNSFBpxz1lRLqFlDiaVJAg
 
-    $ curl -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUz....RWrACAUNSFBpxz1lRLqFlDiaVJAg" https://localhost:8243/v2/1.0.6/pet/1 -k
+    curl -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUz....RWrACAUNSFBpxz1lRLqFlDiaVJAg" https://localhost:8243/v2/1.0.6/pet/1 -k
     {"id":1,"category":{"id":1001,"name":"Animal"},"name":"doggie","photoUrls":["img/test/dog.jpeg","img/test/dog1.jpeg"],"tags":[{"id":2001,"name":"Pet"},{"id":2002,"name":"Animal"}],"status":"available"}
     ```
 

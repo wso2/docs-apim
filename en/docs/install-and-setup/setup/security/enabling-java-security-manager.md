@@ -32,13 +32,13 @@ The steps below show how to enable the Java Security Manager for WSO2 products.
     First, export the `signFiles` public key certificate from the `signkeystore.jks` keystore by executing the following command:
 
     ```java
-    $ keytool -export -keystore signkeystore.jks -alias signFiles -file sign-cert.cer 
+    keytool -export -keystore signkeystore.jks -alias signFiles -file sign-cert.cer 
     ```
 
     Then, import the same `signFiles` certificate to the `wso2carbon.jks` keystore by executing the command given below. Be sure to specify the correct directory path to the `wso2carbon.jks` file of your product.
 
     ```bash
-    $ keytool -import -alias signFiles -file sign-cert.cer -keystore <PATH_to_API-M_HOME>/repository/resources/security/wso2carbon.jks
+    keytool -import -alias signFiles -file sign-cert.cer -keystore <PATH_to_API-M_HOME>/repository/resources/security/wso2carbon.jks
     Enter keystore password:  
     Owner: CN=John, OU=Engineering, O=WSO2, L=Colombo, ST=Western, C=LK
     Issuer: CN=John, OU=Engineering, O=WSO2, L=Colombo, ST=Western, C=LK
