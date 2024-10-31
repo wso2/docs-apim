@@ -34,6 +34,10 @@ A common policy is a globally maintained policy and you can easily utilize this 
             <td>Sample Add Header</td>
         </tr>
         <tr>
+            <td>Version</td>
+            <td>1</td>
+        </tr>
+        <tr>
             <td>Description</td>
             <td>Description of sample add header policy</td>
         </tr>
