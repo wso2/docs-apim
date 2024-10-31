@@ -377,50 +377,7 @@ See the topics given below to manage APIs, API products, Apps, etc. in the API-M
 
 ### Upgrading
 
-To upgrade to the current API Manager component from a previous version, see the topics given below.
-
-<table>
-    <tr>
-        <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-320-to-400">Upgrading from WSO2 API-M 3.2.0 to WSO2 API-M 4.0.0</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-310-to-400">Upgrading from WSO2 API-M 3.1.0 to WSO2 API-M 4.0.0</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-400">Upgrading from WSO2 API-M 3.0.0 to WSO2 API-M 4.0.0</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-400">Upgrading from WSO2 API-M 2.6.0 to WSO2 API-M 4.0.0</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-400">Upgrading from WSO2 API-M 2.5.0 to WSO2 API-M 4.0.0</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-220-to-400">Upgrading from WSO2 API-M 2.2.0 to WSO2 API-M 4.0.0</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-210-to-400">Upgrading from WSO2 API-M 2.1.0 to WSO2 API-M 4.0.0</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-200-to-400">Upgrading from WSO2 API-M 2.0.0 to WSO2 API-M 4.0.0</a>
-        </td>
-    </tr>
-</table>
+To upgrade to the current API Manager component from a previous version refer [Upgrade WSO2 API Manager]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/).
 
 ## Micro Integrator
 
