@@ -50,7 +50,7 @@ We recommend the following patterns for denying requests.
         <tr class="even">
             <td>XPath Injection</td>
             <td>
-                <code>.*'.*|.*or.*|.*1=1.*|.*ALTER.*|.*ALTER TABLE.*|.*ALTER VIEW.*|</code><br />
+                <code>.*'.*|(?\u003C![\w\d])or(?![\w\d])|.*1=1.*|.*ALTER.*|.*ALTER TABLE.*|.*ALTER VIEW.*|</code><br />
                 <code>.*CREATE DATABASE.*|.*CREATE PROCEDURE.*|.*CREATE SCHEMA.*|</code><br />
                 <code>.*create table.*|.*CREATE VIEW.*|.*DELETE.*|.*DROP DATABASE.*|</code><br />
                 <code>.*DROP PROCEDURE.*|.*DROP.*|.*SELECT.*</code>
