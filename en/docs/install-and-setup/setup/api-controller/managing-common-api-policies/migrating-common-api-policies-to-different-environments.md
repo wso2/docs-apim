@@ -49,10 +49,10 @@
 
         !!! example
             ```bash
-            apictl export policy api -n addHeader -v v1 -e dev
+            apictl export policy api -n addHeader -v v2 -e dev
             ```          
             ```bash
-            apictl export policy api -n addHeader -v v1 -e dev --format JSON
+            apictl export policy api -n addHeader -v v2 -e dev --format JSON
             ``` 
 
     -   **Response**
@@ -60,13 +60,13 @@
         === "Response Format"
             ``` bash
             Successfully exported API Policy!
-            Find the exported API Policies at /Users/benura/.wso2apictl/exported/policies/api/<Environment Name>/<Policy Name>_<Policy Version>.zip
+            Find the exported API Policy at /Users/benura/.wso2apictl/exported/policies/api/<Environment Name>/<Policy Name>_<Policy Version>.zip
             ```
 
         === "Example Response"
             ``` bash
             Successfully exported API Policy!
-            Find the exported API Policies at /Users/benura/.wso2apictl/exported/policies/api/dev/addHeader_v1.zip
+            Find the exported API Policy at /Users/benura/.wso2apictl/exported/policies/api/dev/addHeader_v2.zip
             ```
 
 The exported ZIP file has the following structure:
@@ -136,10 +136,10 @@ You can use the common API Policy archive exported from the previous section (or
 
         !!! example
             ```bash
-            apictl import policy api -f ~/addHeader_v1.zip -e production 
+            apictl import policy api -f ~/addHeader_v2.zip -e production 
             ```
             ```bash
-            apictl import policy api --file ~/addHeader_v1.zip --environment production
+            apictl import policy api --file ~/addHeader_v2.zip --environment production
             ```   
             ```bash
             apictl import policy api -f ~/AddHeader -e production 
@@ -149,7 +149,7 @@ You can use the common API Policy archive exported from the previous section (or
             ```
 
         !!! tip
-            If your file path is `/Users/benura/.wso2apictl/exported/policies/api/dev/addHeader_v1.zip`, then you need to enter `dev/addHeader_v1.zip` as the value for `--file` or `-f` flag.
+            If your file path is `/Users/benura/.wso2apictl/exported/policies/api/dev/addHeader_v2.zip`, then you need to enter `dev/addHeader_v2.zip` as the value for `--file` or `-f` flag.
        
      -   **Response**
         
