@@ -4,7 +4,7 @@ WSO2 API Manager is a complete platform for building, integrating, and exposing 
 
 For more information on WSO2 API Manager, see the [overview]({{base_path}}/getting-started/overview/).
 
-The **WSO2 API Manager 4.0.0** is the latest **WSO2 API Manager release** and is the successor of **WSO2 API Manager 3.2.0** and **WSO2 Enterprise Integrator 7.1.0**. It contains the following components, which have new features and enhancements:
+The **WSO2 API Manager 4.0.0** is the successor of **WSO2 API Manager 3.2.0** and **WSO2 Enterprise Integrator 7.1.0**. It contains the following components, which have new features and enhancements:
 
 ## **API Manager**
 
