@@ -2,14 +2,14 @@
 
 Follow the given steps to configure a read-only LDAP/AD as the primary user store:
 
--   [Step 1: Setting up the read-only LDAP/AD user store manager](#ConfiguringaRead-OnlyLDAPUserStore-Step1:Settinguptheread-onlyLDAP/ADuserstoremanager)
--   [Step 2: Updating the system administrator](#ConfiguringaRead-OnlyLDAPUserStore-UpdatingthesystemadministratorStep2:Updatingthesystemadministrator)
--   [Step 3: Starting the server](#ConfiguringaRead-OnlyLDAPUserStore-Step3:Startingtheserver)
+-   [Step 1: Setting up the read-only LDAP/AD user store manager](#step-1-setting-up-the-read-only-ldapad-user-store-manager)
+-   [Step 2: Updating the system administrator](#step-2-updating-the-system-administrator)
+-   [Step 3: Starting the server](#step-3-starting-the-server)
 
 ### Step 1: Setting up the read-only LDAP/AD user store manager
 
 !!! info
-     API Manager is compatible with multiple user store. In WSO2 Identity Server, the embedded user store is LDAP. Instead of using the embedded user store, you can set your own user store as the primary user store.
+     API Manager is compatible with multiple user stores. Instead of using the embedded user store, you can set your own user store as the primary user store.
 Before you begin
 
 -   Navigate to `<API-M_HOME>/repository/conf` directory to open `deployment.toml` file and do user_store_properties configurations according to the LDAP user store provider. Following is the sample read-only user store configurations:
