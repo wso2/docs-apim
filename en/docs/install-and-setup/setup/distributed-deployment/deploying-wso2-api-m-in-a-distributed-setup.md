@@ -428,6 +428,15 @@ Configure the Control Plane to communicate with the Gateway.
 
     2. Configure a load balancer fronting the two Control Plane nodes in your deployment. For instructions, see [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer/).
 
+!!! Note
+    To set an appropriate delay for the heartbeat value when connections remain idle for extended periods, include the following configuration. This controls the frequency of the internal heartbeat sent by the underlying Qpid broker component:
+
+    ```toml
+    [qpid.heartbeat]
+    delay = 1
+    timeout_factor = 3.0
+    ```
+
 #### Sample configuration for the Control Plane
 
 ```toml tab="HA Cluster"
