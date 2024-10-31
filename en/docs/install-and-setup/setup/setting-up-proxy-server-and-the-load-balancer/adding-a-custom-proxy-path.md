@@ -50,7 +50,7 @@ reverse proxy server fronting the back-end service.
     prompted when creating the private key.  
 
     ```bash
-    sudo openssl genrsa -des3 -out server.key 1024
+    sudo openssl genrsa -des3 -out server.key 2048
     ```
 
 5.  Next, create the certificate signing request as shown below.
