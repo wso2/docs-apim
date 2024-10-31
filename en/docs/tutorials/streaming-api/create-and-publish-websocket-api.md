@@ -76,7 +76,7 @@ This will demonstrate a simple command line based chat room which has two channe
 5. Configure the runtime configurations.
     1. Click **Runtime** under the **API Configurations** section, select the required authentication type, and click **Save**.
 
-       <a href="{{base_path}}/assets/img/tutorials/streaming-api/websocket-api-runtime-configurations.png"><img src="{{base_path}}/assets/img/design/create-api/streaming-api/websocket-api-runtime-configurations.png" width="65%" alt="Runtime Configurations of WebSocket API"></a>
+       <a href="{{base_path}}/assets/img/tutorials/streaming-api/websocket-api-runtime-configurations.png"><img src="{{base_path}}/assets/img/tutorials/streaming-api/websocket-api-runtime-configurations.png" width="65%" alt="Runtime Configurations of WebSocket API"></a>
     
 6. Add topics to the WebSocket API.
 
