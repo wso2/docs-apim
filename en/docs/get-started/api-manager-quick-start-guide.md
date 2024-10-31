@@ -4,18 +4,51 @@ This section is a step-by-step guide to create, publish, and invoke an API using
 
 ### Before you begin...
 
-Follow the instructions below to start WSO2 API-M.
+Chose a deployment option to start WSO2 API Manager.
 
-1. Install [Oracle Java SE Development Kit (JDK)](http://java.sun.com/javase/downloads/index.jsp) version 17 and set the `JAVA_HOME` environment variable.
-     
-     For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/).
+=== "Docker"
 
-2. [Download version 4.4.0 of WSO2 API-M](https://wso2.com/api-management/).
+    Run WSO2 API Manager using Docker
 
-3. Start WSO2 API-M by navigating to the `<API-M_HOME>/bin` directory using the command-line and execute the following command.
+    1. Install [Docker](https://docs.docker.com/get-docker/) 
+    2. Pull and Start WSO2 API Manager using the following command.
 
-     - `api-manager.bat --run` (for Windows)
-     - `sh api-manager.sh` (for Linux)
+       ```bash
+       docker run -it -p 9443:9443 -p 8243:8243 -p 8280:8280 wso2/wso2am:4.4.0
+       ```
+
+    !!! note
+
+        - The `docker run` command will start WSO2 API Manager and expose the ports `9443`, `8243`, and `8280`.
+        - The default admin credentials for WSO2 API Manager are `admin/admin`.
+
+=== "Direct"
+    
+    Download and run WSO2 API Manager manually
+
+    1. Install [Java SE Development Kit (JDK)](https://adoptium.net/temurin/releases/?arch=any&version=21) version 21 and set the `JAVA_HOME` environment variable.
+    For more information on setting the `JAVA_HOME` environment variable for different operating systems.
+    
+    !!! note
+
+        Refer to the [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/#setting-up-java_home) for a step-by-step guide on configuring Java.
+
+    2. Download WSO2 API-Manager
+        - [Open Source Distribution](https://github.com/wso2/product-apim/releases/tag/v4.4.0)
+        - [WSO2 Official Distribution](https://wso2.com/api-manager/#)
+    
+    3. Start WSO2 API-M by navigating to the `<API-M_HOME>/bin` directory using the command-line and execute the following command.
+        
+        === "Windows"
+
+            ```
+            api-manager.bat --run
+            ```
+        === "Unix"
+
+            ```
+            sh api-manager.sh
+            ```
 
 ### What you'll build
 
