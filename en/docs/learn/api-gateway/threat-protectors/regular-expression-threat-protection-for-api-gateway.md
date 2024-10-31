@@ -57,8 +57,12 @@ We recommend the following patterns for blacklisting.
             </td>
         </tr>
         <tr class="odd">
-            <td>Javascript Exception</td>
-            <td><p><code>&lt;\s*script\b[^&gt;]*&gt;[^&lt;]+&lt;\s*/\s*script\s*&gt;</code></p></td>
+            <td>JavaScript Injection</td>
+            <td><p>
+                ```
+                &lt;\s*script\b[^&gt;]*&gt;[^&lt;]+&lt;\s*/\s*script\s*&gt;
+                ```
+            </p></td>
         </tr>
         <tr class="even">
             <td>XPath Expanded Syntax Injection</td>
