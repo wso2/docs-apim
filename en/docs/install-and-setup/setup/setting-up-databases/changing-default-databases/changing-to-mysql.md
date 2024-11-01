@@ -109,9 +109,12 @@ Follow the  instructions below to set up a MySQL database:
 
 1. Unzip the WSO2 API Manager pack. Let's refer to it as `<API-M_HOME>`.
 
-2. Download the MySQL Java connector [JAR file](https://dev.mysql.com/downloads/connector/j/), and extract it.
+2. Download the MySQL Java Connector from [MySQL Connector/J (Archived Versions)](https://downloads.mysql.com/archives/c-j/), and extract it.
 
-3. Copy it to the `<API-M_HOME>/repository/components/lib/` directory in all the nodes of the cluster.
+    !!! tip
+        The tested connector version is **8.0.33**.
+
+3. Copy the connector JAR file to the `<API-M_HOME>/repository/components/lib/` directory in all the nodes of the cluster.
 
 !!! tip
     Be sure to use the connector version that is supported by the MySQL version you use. If you come across any issues due to version incompatibility, follow the  instructions below:
