@@ -26,9 +26,11 @@ Follow the instructions given below to configure the ForgeRock Authorization Ser
    
     [![ForgeRock realms]({{base_path}}/assets/img/administer/forgerock-realms.png)]({{base_path}}/assets/img/administer/forgerock-realms.png)
 
-3. Navigate to **Root Realm** -> **Dashboard** -> **Configure OAuth Provider** -> **Configure OAuth 2.0** section.
+3. Navigate to **Root Realm** -> **Services** and add Oauth2 provider as a new service as follows,
 
-4. Create an OAuth provider based on the following values.
+    [![ForgeRock add OAuth Provider]({{base_path}}/assets/img/administer/forgerock-create-new-oauth-provider.png)]({{base_path}}/assets/img/administer/forgerock-create-new-oauth-provider.png)
+
+4. Update the created OAuth provider based on the following values.
 
      <table>
      <tr>
@@ -61,21 +63,12 @@ Follow the instructions given below to configure the ForgeRock Authorization Ser
      <td>Issue Refresh Tokens on Refreshing Access Tokens</td> <td>Disabled</td>
      </tr>
 
-     </tr>
-     <tr>
-     <td>Scope Implementation Class</td> <td>org.forgerock.openam.oauth2</td>
-     </tr>
-
      </table>
   
    
     [![ForgeRock create OAuth Provider]({{base_path}}/assets/img/administer/forgerock-create-oauth-provider.png)]({{base_path}}/assets/img/administer/forgerock-create-oauth-provider.png)
 
-5. Navigate to **Root Realm** -> **Services** add Oauth2 provider as a new service as follows,
-    [![ForgeRock add OAuth Provider]({{base_path}}/assets/img/administer/forgerock-add-oauth-provider.png)]({{base_path}}/assets/img/administer/forgerock-create-add-provider.png)
-
-
-6. Configure the scopes and the signing algorithm of the created OAuth 2.0 Provider using the following values.
+5. Navigate to the **Advanced** tab and configure the scopes and the signing algorithm of the created OAuth 2.0 Provider using the following values.
 
      <table>
      <tr>
@@ -83,7 +76,7 @@ Follow the instructions given below to configure the ForgeRock Authorization Ser
      </tr>
 
      <tr>
-     <td>Client Registration Scope Whitelist</td> <td>default</td>
+     <td>Client Registration Scope Allowlist</td> <td>default</td>
      </tr>
 
      <tr>
@@ -158,20 +151,18 @@ Create a static OAuth client as follows so that you can use the OAuth client key
      </tr>
 
      <tr>
-     <td>Scope(s)</td> <td><code>am-introspect-all-tokens</code> </br><code>dynamic_client_registration</code></td>
+     <td>Scope(s)</td> <td><code>am-introspect-all-tokens-any-realm</code> </br><code>dynamic_client_registration</code></td>
      </tr>
 
      </table>
    
      [![ForgeRock add client]({{base_path}}/assets/img/administer/forgerock-add-client.png)]({{base_path}}/assets/img/administer/forgerock-add-client.png)
 
-2. Navigate to the above created client under **Applications** -> **Client ID of the App** -> **Core** -> **Access Token LifeTime**.
+2. Navigate to the above created client under **Applications** -> **Client ID of the App (amAdmin)** -> **Core** -> **Access Token LifeTime**.
 
 3. Set a long value for the **Access Token LifeTime** to obtain a long living registration access token. You will use this token to register and update clients dynamically.
     
 4. Navigate to the **Advanced** tab and configure the `client_credential` grant type that you need to use to obtain the access token.
-   
-      [![ForgeRock client grant]({{base_path}}/assets/img/administer/forgerock-client-grant.png)]({{base_path}}/assets/img/administer/forgerock-client-grant.png)
 
 If you want to work with scopes, then you need to assign the relevant scopes to the relevant OAuth clients beforehand.    
 
@@ -195,13 +186,7 @@ Follow the instructions given below to configure WSO2 API Manager to work with t
 
     3. Add the following configuration to add a new Key Manager.
 
-         [![Add ForgeRock configurations]({{base_path}}/assets/img/administer/forgerock-add-km-1.png)]({{base_path}}/assets/img/administer/forgerock-add-km-1.png)
-
-         [![Add ForgeRock configurations]({{base_path}}/assets/img/administer/forgerock-add-km-2.png)]({{base_path}}/assets/img/administer/forgerock-add-km-2.png)
-
-         [![Add ForgeRock configurations]({{base_path}}/assets/img/administer/forgerock-add-km-3.png)]({{base_path}}/assets/img/administer/forgerock-add-km-3.png)
-
-         [![Add ForgeRock configurations]({{base_path}}/assets/img/administer/forgerock-add-km-4.png)]({{base_path}}/assets/img/administer/forgerock-add-km-4.png)
+        [![Add ForgeRock configurations]({{base_path}}/assets/img/administer/forgerock-add-km.png)]({{base_path}}/assets/img/administer/forgerock-add-km.png)
 
          The following table provides definitions for each of the configurations.
 
@@ -361,7 +346,7 @@ Follow the instructions given below to configure WSO2 API Manager to work with t
           </tr>
           <tr class="even">
             <td><b>Advanced Configurations</b></td>
-            <td>Token Generation</td>
+            <td></td>
             <td></td>
           </tr>
           <tr class="odd">
@@ -397,15 +382,32 @@ Follow the instructions given below to configure WSO2 API Manager to work with t
             <td>Optional</td>
           </tr>
           <tr class="odd">
-            <td><b>Token Handling Options</b></td>
-            <td>Provides a way to validate the token for this particular authorization server.
-            This is mandatory if the Token Validation Method is <b>introspect</b></br>
-            For Forgerock if its <b>JWT</b> it is required to specify a claim mapping as a unique identifier and
-            If its <b>REFERENCE</b> its required to set a regular expression for the length of the token.
-            </br><b>Example For JWT</b> </br> Claim Key : iss
-            </br>Claim Value : http://loccbcalhost:8080/openam/oauth2
-            </br> <b>Example for Reference</b><br>{27}</td>
-            <td></td>
+              <td><b>Token Handling Options</b></td>
+              <td>
+                  Provides a way to validate the token for this particular authorization server.
+                  <ul>
+                      <li><b>JWT</b>:
+                          <ul>
+                              <li>Requires a unique claim mapping to identify the token.</li>
+                              <li><b>Example Claim Mapping for JWT:</b>
+                                  <ul>
+                                      <li><b>Claim Key</b>: <code>iss</code></li>
+                                      <li><b>Claim Value</b>: <code>http://localhost:8080/cr75/oauth2</code></li>
+                                  </ul>
+                              </li>
+                          </ul>
+                      </li>
+                      <li><b>REFERENCE</b>:
+                          <ul>
+                              <li>Requires a regular expression to specify the token length.</li>
+                              <li><b>Example for REFERENCE</b>: <code>^[\w-]{27}$</code> (defines a token length of 27 characters)</li>
+                          </ul>
+                      </li>
+                  </ul>
+              </td>
+              <td>
+                  Optional. This is mandatory if the Token Validation Method is <b>introspect</b>.
+              </td>
           </tr>
           <tr class="even">
             <td>REFERENCE</td>
