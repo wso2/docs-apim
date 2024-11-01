@@ -122,8 +122,11 @@ Let's use the
         
         As a MySQL database is used for this example scenario, download and copy the [MySQL connector JAR](https://downloads.mysql.com/archives/c-j/) into the `<APIM_HOME/repository/components/lib` directory.
 
-        !!!tip
-            Tested connector version is **8.0.33**.
+        !!! tip
+            Look for the compatible MySQL Connector version based on the MySQL version being used.
+
+            - For MySQL version 8.0.x, the compatible MySQL Connector version is **8.0.x**.    
+            - For MySQL version 8.4.x, the compatible MySQL Connector version is **8.4.x**.
 
     2. Configure the WSO2 API Manager related datasource.  
         
