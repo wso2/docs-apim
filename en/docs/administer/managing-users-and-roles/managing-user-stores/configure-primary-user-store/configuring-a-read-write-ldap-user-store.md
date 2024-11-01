@@ -20,8 +20,8 @@ The following are the minimum configurations that are needed to be provided to c
 <tr class="even">
 <td>type</td>
 <td>userstore Type</td>
-<td>This is the type of the userstore manager that we are using. For read-write LDAP userstore manager. this value
-should be read_write_ldap_unique_id.
+<td>This is the type of the userstore manager being used. For read-write LDAP userstore manager, this value
+should be `read_write_ldap_unique_id`.
 </td>
 </tr>
 <tr class="odd">
@@ -39,8 +39,8 @@ Following are the minimum userstore properties that are needed to be provided to
 <thead>
 <tr class="header">
 <th>Property Id</th>
-<th>Primary userstore Property</th>
-<th>Secondary userstore Property</th>
+<th>Primary Userstore Property</th>
+<th>Secondary Userstore Property</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -79,8 +79,7 @@ Sample values: uid=admin,ou=system</p></td>
 </table>
 
 
-Replace the default `user_store` configuration in the `         <APIM_HOME>/repository/conf/deployment.toml        
-` file, as per your ldap server configuration. A sample configuration is given below.
+Replace the default `user_store` configuration in the `<APIM_HOME>/repository/conf/deployment.toml` file as per your LDAP server configuration. A sample configuration is given below.
 
 ``` toml
 [user_store]
@@ -117,8 +116,8 @@ read_groups = true
 <thead>
 <tr class="header">
 <th>Property Id</th>
-<th>Primary userstore Property</th>
-<th>Secondary userstore Property</th>
+<th>Primary Userstore Property</th>
+<th>Secondary Userstore Property</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -413,17 +412,6 @@ Default: not configured</td>
 <td>Retry the authentication request if a timeout happened
 <p>Default: not configured</p></td>
 </tr>
-<tr class="even">
-<td>LDAPConnection<br>Timeout</td>
-<td>ldap_connection<br>_timeout</td>
-<td>LDAP Connection Timeout</td>
-<td>If the connection to the LDAP is inactive for the length of time
-(in milliseconds) specified by this property, the connection
-will be terminated.
-<p>Default: not configured</p><br/>
-<p>Sample: 20</p>
-</td>
-</tr>
 </tbody>
 </table>
 
@@ -501,22 +489,11 @@ Following are some key points to consider  :
 
 ### Step 2: Updating the system administrator
 
-The **admin** user is the super tenant that will be able to manage all
-other users, roles, and permissions in the system by using the management
-console of the product. Therefore, the user that should have admin
-permissions is required to be stored in the userstore when you start
-the system for the first time. Since the LDAP userstore can be written
-to, you have the option of creating a new admin user in the userstore
-when you start the system for the first time. Alternatively, you can
-also use a user ID that already exists in the LDAP. For information
-about the system administrator user, see [Configuring the System
-Administrator]({{base_path}}/reference/config-catalog/#super-admin-configurations) .
+The **admin** user is the super tenant that will be able to manage all other users, roles, and permissions in the system by using the management console of the product. Therefore, the user that should have admin permissions is required to be stored in the userstore when you start the system for the first time. Since the LDAP userstore can be written to, you have the option of creating a new admin user in the userstore when you start the system for the first time. Alternatively, you can also use a user ID that already exists in the LDAP. For information about the system administrator user, see [Configuring the System Administrator]({{base_path}}/reference/config-catalog/#super-admin-configurations) .
 
 These two alternative configurations can be done as explained below.
 
--   If you are using a user that is already in the LDAP. Find a valid user that already resides in the userstore. For
-    example, say a valid username is
-    AdminSOA.Add the following configuration to the `deployment.toml` file as shown below. You do not have to update the password element as it is already set in the userstore.
+-   If you are using a user that is already in the LDAP. Find a valid user that already resides in the userstore. For example, say a valid username is AdminSOA.Add the following configuration to the `deployment.toml` file as shown below. You do not have to update the password element as it is already set in the userstore.
 
     ```toml
     [super_admin]
