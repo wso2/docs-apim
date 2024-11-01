@@ -81,8 +81,14 @@ Create an optimized distribution for a particular API-M profile.
    
      For example, if you are using a MySQL database,
 
-     1. Download the MySQL connector JAR file and extract it.
+     1. Download the [MySQL connector JAR](https://downloads.mysql.com/archives/c-j/) file and extract it.
      
+        !!! tip
+            Look for the compatible MySQL Connector version based on the MySQL version being used.
+
+            - For MySQL version 8.0.x, the compatible MySQL Connector version is **8.0.x**.
+            - For MySQL version 8.4.x, the compatible MySQL Connector version is **8.4.x**.
+
      2. Copy it to the `<API-M_HOME>/repository/components/lib/` directory.
 
 3. Create the required databases, namely the API-M database (`apimgtdb` also known as `WSO2_AM_DB`) and the shared database (`WSO2_SHARED_DB` also known as `shareddb`).
