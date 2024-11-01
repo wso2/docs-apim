@@ -91,8 +91,11 @@ Create an optimized distribution for a particular API-M profile.
 
      1. Download the [MySQL connector JAR](https://downloads.mysql.com/archives/c-j/) file and extract it.
      
-        !!!tip
-            Tested connector version is **8.0.33**.
+        !!! tip
+            Look for the compatible MySQL Connector version based on the MySQL version being used.
+
+            - For MySQL version 8.0.x, the compatible MySQL Connector version is **8.0.x**.
+            - For MySQL version 8.4.x, the compatible MySQL Connector version is **8.4.x**.
 
      2. Copy it to the `<API-M_HOME>/repository/components/lib/` directory.
 
