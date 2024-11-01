@@ -1,25 +1,15 @@
 # Configuring a Read-Only LDAP User Store
 
-User management functionality is provided by default in all WSO2 Carbon-based products and is configured in the `deployment.toml` file found in the `<API-M_HOME>/repository/conf/` directory and the changes will be automatically applied to `user-mgt.xml` file in `<API-M_HOME>/repository/conf/` directory as well. This file is shipped with user store manager configurations for all possible user store types (JDBC, read-only LDAP/Active Directory, read-write LDAP and read-write Active directory). The instructions given below explains how to configure a read-only LDAP as the primary user store for the WSO2 server.
-
-!!! info
-        The default User Store
-
-        The primary user store that is configured by default in the user-mgt.xml file is a JDBC user store, which reads/writes into the internal database of the product server. By default, the internal database is H2 for all WSO2 products excluding the Identity Server.
-        
-        
-        Note that the RDBMS used in the default configuration can remain as the database used for storing Authorization information.
-
 Follow the given steps to configure a read-only LDAP/AD as the primary user store:
 
--   [Step 1: Setting up the read-only LDAP/AD user store manager](#ConfiguringaRead-OnlyLDAPUserStore-Step1:Settinguptheread-onlyLDAP/ADuserstoremanager)
--   [Step 2: Updating the system administrator](#ConfiguringaRead-OnlyLDAPUserStore-UpdatingthesystemadministratorStep2:Updatingthesystemadministrator)
--   [Step 3: Starting the server](#ConfiguringaRead-OnlyLDAPUserStore-Step3:Startingtheserver)
+-   [Step 1: Setting up the read-only LDAP/AD user store manager](#step-1-setting-up-the-read-only-ldapad-user-store-manager)
+-   [Step 2: Updating the system administrator](#step-2-updating-the-system-administrator)
+-   [Step 3: Starting the server](#step-3-starting-the-server)
 
 ### Step 1: Setting up the read-only LDAP/AD user store manager
 
 !!! info
-     API Manager is compatible with multiple user store. In WSO2 Identity Server, the embedded user store is LDAP. Instead of using the embedded user store, you can set your own user store as the primary user store.
+     API Manager is compatible with multiple user stores. Instead of using the embedded user store, you can set your own user store as the primary user store.
 Before you begin
 
 -   Navigate to `<API-M_HOME>/repository/conf` directory to open `deployment.toml` file and do user_store_properties configurations according to the LDAP user store provider. Following is the sample read-only user store configurations:
