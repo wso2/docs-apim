@@ -1,16 +1,13 @@
 # Configuring a Read-Write LDAP User Store
 
-User management functionality is provided by default in all WSO2 Carbon-based products and is configured in the `deployment.toml` file found in the `<PRODUCT_HOME>/repository/conf/` directory and the changes will be automatically applied to `user-mgt.xml` file in `<PRODUCT_HOME>/repository/conf/` directory as well. This file is shipped with user store manager configurations for all possible user store types (JDBC, read-only LDAP/Active Directory, read-write LDAP and read-write Active directory). The instructions given below explains how to configure a read-write LDAP as the primary user store for the WSO2 server.
-
-!!! info
-        The default User Store
-
-        The primary user store that is configured by default in the user-mgt.xml file of WSO2 products is a JDBC user store, which reads/writes into the internal database of the product server. By default, the internal database is H2. This database is used by the Authorization Manager (for user authentication information) as well as the User Store Manager (for defining users and roles). In the case of the WSO2 Identity Server, the default user store is an LDAP (Apache DS) that is shipped with the product.
-
-
-        Note that the RDBMS used in the default configuration can remain as the database used for storing Authorization information.
-
 Follow the given steps to configure a read-write LDAP as the primary user store:
+
+!!! info "Note"
+
+    While the default primary user store of WSO2 API Manager is a JDBC usser store,  WSO2 Identity server 5.11.0 is shipped with a Read-Write LDAP as the primary user store.
+    While the user has the freedom to choose any Read-Write LDAP, in this guide WSO2 Identity Server is used as the Read-Write LDAP. 
+    Hence in this guide it is assumed that WSO2 Identity Server 5.11.0 is up and running with the port offset = 1.
+
 
 -   [Step 1: Setting up the read-write LDAP user store manager](#ConfiguringaRead-WriteLDAPUserStore-Step1:Settinguptheread-writeLDAPuserstoremanager)
 -   [Step 2: Updating the system administrator](#ConfiguringaRead-WriteLDAPUserStore-Step2:Updatingthesystemadministrator)
@@ -58,7 +55,7 @@ Before you begin
     UserRolesCacheEnabled= "true"
     ConnectionRetryDelay= "2m"
     ```
--   The `class` attribute for a read-write LDAP is `<UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager">`
+-   If you are using the WSO2 Identity server as the Read-Write LDAP, the `class` attribute is `<UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager">`
     ```
     [user_store]
     class="org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager"
@@ -177,7 +174,7 @@ The configuration for the external read/write user store in the `user-mgt.xml` f
             MembershipAttribute = "member"
             ```
 
-        To read roles based on a backlink attribute, use thefollowingcodesnipetinsteadofthe above:
+        To read roles based on a backlink attribute, use the following code snipet instead of the above:
 
         ```
         ReadGroups = "false"
