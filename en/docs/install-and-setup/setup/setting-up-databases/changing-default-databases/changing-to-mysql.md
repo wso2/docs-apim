@@ -118,7 +118,10 @@ Follow the  instructions below to set up a MySQL database:
 2. Download the MySQL Java Connector from [MySQL Connector/J (Archived Versions)](https://downloads.mysql.com/archives/c-j/), and extract it.
 
     !!! tip
-        The tested connector version is **8.0.33**.
+        Look for the compatible MySQL Connector version based on the MySQL version being used.
+
+        - For MySQL version 8.0.x, the compatible MySQL Connector version is **8.0.x**.
+        - For MySQL version 8.4.x, the compatible MySQL Connector version is **8.4.x**.
 
 3. Copy the connector JAR file to the `<API-M_HOME>/repository/components/lib/` directory in all the nodes of the cluster.
 
