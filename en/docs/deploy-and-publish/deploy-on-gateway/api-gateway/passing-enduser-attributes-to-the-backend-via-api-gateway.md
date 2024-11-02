@@ -104,8 +104,8 @@ Follow the instructions below if you want to pass additional attributes to the b
      A typical example of implementing your own claim generator is given below. It implements the `populateCustomClaims()` method to generate some custom claims and adds them to the JWT.  
 
     ``` java
-    import org.wso2.carbon.apimgt.keymgt.APIConstants;
-    import org.wso2.carbon.apimgt.keymgt.dto.APIKeyValidationInfoDTO;
+    import org.wso2.carbon.apimgt.impl.APIConstants;
+    import org.wso2.carbon.apimgt.impl.dto.APIKeyValidationInfoDTO;
     import org.wso2.carbon.apimgt.keymgt.token.JWTGenerator;
     import org.wso2.carbon.apimgt.api.*;
 
