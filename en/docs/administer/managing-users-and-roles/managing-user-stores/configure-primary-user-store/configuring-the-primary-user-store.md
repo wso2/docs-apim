@@ -2,13 +2,14 @@
 
 This documentation explains the process of setting up a primary user store for your system.
 
-!!! info
-    **The default User Store**
+!!! info "The default User Store"
 
-    The primary user store that is configured by default, is a JDBC user store, which reads/writes into an internal database. By default, the internal database is H2. This database is used by the Authorization Manager (for user authorization information) as well as, the User Store Manager (for defining users and roles).
+    The primary user store in of WSO2 products is configured by default as a JDBC user store in the user-mgt.xml file, which reads/writes into the internal database of the product server. This internal database is typically H2 by default. This database is used by both the Authorization Manager (for managing user authentication data) and the User Store Manager (for defining users and roles).
+    In the case of the WSO2 Identity Server 5.11.0, the default user store is an LDAP (Apache DS) that is shipped with the product.
+    Note that the RDBMS used in the default configuration can remain as the database used for storing Authorization information.
 
 
-Instead of using the embedded database, you can set up a separate repository and configure it as your primary user store. Since the user store you want to connect to might have different schemas from the ones available in the embedded user store, it needs to go through an adaptation process. We do the necessary adaptations depending on the user store type. We support the following primary user store types.
+Instead of using the embedded database in WSO2 API Manager, you can set up a separate repository and configure it as your primary user store. Since the user store you want to connect to might have different schemas from the ones available in the embedded user store, it needs to go through an adaptation process. We do the necessary adaptations depending on the user store type. We support the following primary user store types.
 
 <table>
 <colgroup>

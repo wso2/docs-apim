@@ -1,12 +1,5 @@
 #Configuring a Read-Write Active Directory User Store
 
-!!! info
-    The default User Store
-
-    The primary user store that is configured by default in the `user-mgt.xml` file is a JDBC user store, which reads/writes into the internal database of the product server. By default, the internal database is H2 for all WSO2 products excluding WSO2 Identity Server.
-    
-    Note that the RDBMS used in the default configuration can remain as the database used for storing Authorization information.
-
 Follow the given steps to configure an external Active Directory as the primary user store:
 
 -   [Step 1: Setting up the external AD user store manager](#step-1-setting-up-the-external-ad-user-store-manager)
