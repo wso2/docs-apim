@@ -6,7 +6,7 @@ It is assumed that you have already setup your read-write LDAP user store. Follo
 -   [Step 2: Updating the system administrator](#step-2-updating-the-system-administrator)
 -   [Step 3: Starting the server](#step-3-starting-the-server)
 
-### Step 1: Configure the read-write LDAP user store manager
+## Step 1: Configure the read-write LDAP user store manager
 
 The following are the minimum configurations that are needed to be provided to configure the read-write LDAP userstore manager.
 
@@ -494,7 +494,7 @@ Following are some key points to consider  :
         MembershipOfAttribute = "memberOf" 
         ```
 
-### Step 2: Updating the system administrator
+## Step 2: Updating the system administrator
 
 The **admin** user is the super tenant that will be able to manage all other users, roles, and permissions in the system by using the management console of the product. Therefore, the user that should have admin permissions is required to be stored in the userstore when you start the system for the first time. Since the LDAP userstore can be written to, you have the option of creating a new admin user in the userstore when you start the system for the first time. Alternatively, you can also use a user ID that already exists in the LDAP. For information about the system administrator user, see [Configuring the System Administrator]({{base_path}}/reference/config-catalog/#super-admin-configurations) .
 
@@ -520,6 +520,6 @@ These two alternative configurations can be done as explained below.
     password = "admin"
     ```
 
-### Step 3: Starting the server
+## Step 3: Starting the server
 
 Start your server and try to log in as the admin user you specified in **Step 2** .
