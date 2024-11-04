@@ -96,7 +96,7 @@ A local scope can be created and applied to a resource at API creation time by f
 
 2. Start creating an API as described [here]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/).
 
-3. Navigate to **Scopes** section and click on **CREATE SCOPES** button.
+3. Navigate to **Local Scopes** section and click on **CREATE SCOPES** button.
 
      [![Start Creating a Scope]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/api-scopes/start-creating-scope.png)]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/api-scopes/start-creating-scope.png)
 
@@ -109,10 +109,14 @@ A local scope can be created and applied to a resource at API creation time by f
                <td>A unique key for identifying the scope. This should be unique across all the APIs of the tenant.</td>
           </tr>
           <tr class="even">
+               <td><strong>Scope DisplayName</strong></td>
+               <td>A human-readable name for the scope. It typically says what the scope does.</td>
+          </tr>
+          <tr class="odd">
                <td><strong>Scope Description</strong></td>
                <td>The description for the scope.</td>
           </tr>          
-          <tr class="odd">
+          <tr class="even">
                <td><strong>Roles</strong></td>
                <td><div class="content-wrapper">
                     <p>The user role(s) that are allowed to obtain a token against this scope. E.g., manager, employee.</p>
