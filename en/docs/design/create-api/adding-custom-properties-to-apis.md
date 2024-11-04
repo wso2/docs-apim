@@ -68,3 +68,9 @@ For example, if you want to search for the environment property with a specific 
 When you click on the name of the API in the above screen, the respective API Overview page appears. Click on the **Properties** tab to list the API properties that you added.
 
 [![API Properties]({{base_path}}/assets/img/learn/view-custom-api-properties.png)]({{base_path}}/assets/img/learn/view-custom-api-properties.png)
+
+??? note "Note"
+        When devportal visibility is enabled for a property when searching from Publisher, we need to search it in the following manner.
+        <property_name>__display:<property_value>
+
+        For example, if you added a property called env with value dev, we need to search it in the publisher as env__display:dev.
