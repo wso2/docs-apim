@@ -138,7 +138,7 @@ Default: identityPerson( Is a custom object class defined in WSO2 Identity Serve
 <td><p>A uniquely identifying attribute that represents the username of the user. Users can be authenticated using their email address, UID, etc. The value of the attribute is considered as the username.</p>
 <p>Default: uid<br />
 <br />
-Note: email address is considered as a special case in WSO2 products, if you want to set the email address as username, see <a href="{{base_path}}/guides/identity-lifecycles/enable-email-as-username">Using email address as the username</a></p></td>
+ Note: email address is considered as a special case in WSO2 products, if you want to set the email address as username, see <a href="{{base_path}}/administer/product-security/logins-and-passwords/maintaining-logins-and-passwords/#setting-up-an-e-mail-login">Using email address as the username</a></p></td>
 </tr>
 <tr class="odd">
 <td>UserIDAttribute</td>
@@ -199,6 +199,13 @@ true: Write groups to userstore<br />
 false: Do not write groups to userstore, so only internal roles can be created. Depend on the value of ReadGroups property, it will read existing groups from userstore or not<br />
 </td>
 </tr>
+<tr class="even">
+<td>UserSearchBase</td>
+<td>user_search_base</td>
+<td>User Search Base</td>
+<td>DN of the context or object under which the users are stored in the user store. When the user store searches for users, it will start from this location of the directory
+<p>Default: ou=Users,dc=wso2,dc=org</p></td>
+ </tr>
 <tr class="even">
 <td>GroupSearchBase</td>
 <td>group_search_base</td>
