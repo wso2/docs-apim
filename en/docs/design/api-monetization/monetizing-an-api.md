@@ -874,10 +874,10 @@ type = "ELK"
 
 [apim.monetization]
 monetization_impl = "org.wso2.apim.monetization.impl.StripeMonetizationImpl"
-analytics_host = <hostname-of-elk-node>
-analytics_port = <port-of-elk-node>
+analytics_host = <hostname-of-elastic-instance>
+analytics_port = <port-of-elastic-instance>
 analytics_username = <elastic-username>
 analytics_password = <elastic-password>
 ```
 
-Note that you will need to replace `<hostname-of-elk-node>`, `<port-of-elk-node>`, `<elastic-username>`, and `<elastic-password>` with the appropriate values for your Elasticsearch instance.
+Note that you will need to replace `<hostname-of-elastic-instance>`, `<port-of-elastic-instance>`, `<elastic-username>`, and `<elastic-password>` with the appropriate values for your Elasticsearch instance.
