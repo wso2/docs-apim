@@ -80,7 +80,18 @@ Follow the instructions below to create and publish an API via the Publisher Por
 
 3. Create a mock REST service.
 
-     Let's use a mock REST service to create a REST API from scratch. You'll need to set up your own mock service with a JSON response like `{"hello": "world"}`. You can create your mock service using various tools and platforms available online.
+    Let's use a mock REST service to create a REST API from scratch. 
+    
+    Navigate to the [Mocky.io](https://designer.mocky.io/design) website and create a mock service by providing following configurations.
+    
+    | Field                   | Value                 |
+    | ----------------------- |-----------------------|
+    | `HTTP Status`           | 200 - OK              |
+    | `Response Content Type` | application/json      |
+    | `Charset`               | UTF-8                 |
+    | `HTTP Response Body`    | `{"hello": "world"}`  |
+
+    Finally click **Generate My HTTP Response** to save and generate the mock service url.
 
     
 4. Select **REST API** from the home screen and then click **Start From Scratch**.
@@ -114,7 +125,7 @@ Follow the instructions below to create and publish an API via the Publisher Por
      <tr> 
      <th>Endpoint
      </th>
-     <td><code>http://mock-json-server-url/</code>
+     <td><code>https://run.mocky.io/v3</code>
       <div class="admonition note">
       <p class="admonition-title">Note</p>
       <p><b>Use the HTTP protocol</b> because to use HTTPS you need to import the mock json server's certificate into WSO2 API-M.</p>
