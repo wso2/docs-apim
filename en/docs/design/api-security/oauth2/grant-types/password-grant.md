@@ -102,7 +102,6 @@ If you have multiple Carbon servers running on the same computer, [change the po
             "scope":"default",
             "token_type":"Bearer",
             "expires_in":3600,
-            "refresh_token":"ca5a51f18b2edf4eaa9e4b871e42b58a",
             "access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
         }
     ```
