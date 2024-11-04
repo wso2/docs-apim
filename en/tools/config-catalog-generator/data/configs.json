@@ -3634,78 +3634,6 @@
                     "description": "This configuration header is required for configuring the parameters that are used for configuring the default HTTP/S passthrough transport in blocking mode",
                     "params": [
                         {
-                            "name": "listener.enable",
-                            "type": "boolean",
-                            "required": true,
-                            "default": "true",
-                            "possible": "\"true\" or \"false\"",
-                            "description": "This parameter is used for enabling the HTTP passthrough transport listener in blocking mode."
-                        },
-                        {
-                            "name": "listener.parameters.port",
-                            "type": "integer",
-                            "required": true,
-                            "default": "8200",
-                            "possible": "-",
-                            "description": "The port on which this transport receiver should listen for incoming messages."
-                        },
-                        {
-                            "name": "listener.hostname",
-                            "type": "string",
-                            "required": false,
-                            "default": "-"
-                        },
-                        {
-                            "name": "listener.origin_server",
-                            "type": "string",
-                            "required": false,
-                            "default": "-"
-                        },
-                        {
-                            "name": "listener.request_timeout",
-                            "type": "string",
-                            "required": false,
-                            "default": "-"
-                        },
-                        {
-                            "name": "listener.request_tcp_no_delay",
-                            "type": "string",
-                            "required": false,
-                            "default": "-"
-                        },
-                        {
-                            "name": "listener.request_core_thread_pool_size",
-                            "type": "string",
-                            "required": false,
-                            "default": "-"
-                        },
-                        {
-                            "name": "listener.request_max_thread_pool_size",
-                            "type": "string",
-                            "required": false,
-                            "default": "-"
-                        },
-                        {
-                            "name": "listener.thread_keepalive_time",
-                            "type": "string",
-                            "required": false,
-                            "default": "-"
-                        },
-                        {
-                            "name": "listener.thread_keepalive_time_unit",
-                            "type": "string",
-                            "required": false,
-                            "default": "-"
-                        },
-                        {
-                            "name": "sender.enable",
-                            "type": "boolean",
-                            "required": true,
-                            "default": "true",
-                            "possible": "\"true\" or \"false\"",
-                            "description": "This parameter is used for enabling the HTTP passthrough transport sender in blocking mode."
-                        },
-                        {
                             "name": "sender.parameters.cacheHttpClient",
                             "type": "boolean",
                             "required": true,
@@ -3746,7 +3674,7 @@
                             "description": "If following is set to 'true', optional action part of the Content-Type will not be added to the SOAP 1.2 messages."
                         },
                         {
-                            "name": "sender.http.proxyHost",
+                            "name": "sender.parameters.'http.proxyHost'",
                             "type": "string",
                             "required": false,
                             "default": "-",
@@ -3754,12 +3682,83 @@
                             "description": "If the outgoing messages should be sent through an HTTP proxy server (in blocking mode), use this parameter to specify the target proxy."
                         },
                         {
-                            "name": "sender.http.proxyPort",
+                            "name": "sender.parameters.'http.proxyPort'",
                             "type": "integer",
                             "required": false,
                             "default": "-",
                             "possible": "-",
                             "description": "The port through which the target proxy (specified by the 'sender.proxy_host' parameter) accepts HTTP traffic (in blocking mode)."
+                        },
+                        {
+                            "name": "sender.parameters.'http.nonProxyHosts'",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The list of hosts to which the HTTP traffic should be sent directly without going through the proxy. When trying to add multiple hostnames along with an asterisk in order to define a set of sub-domains for non-proxy hosts, you need to add a period before the asterisk when configuring proxy server."
+                        }
+                    ]
+                },
+                {
+                    "name": "transport.blocking_https",
+                    "required": false,
+                    "description": "This configuration header is required for configuring the parameters that are used for configuring the default HTTP/S passthrough transport in blocking mode",
+                    "params": [
+                        {
+                            "name": "sender.parameters.cacheHttpClient",
+                            "type": "boolean",
+                            "required": true,
+                            "default": "-",
+                            "possible": "\"true\" or \"false\"",
+                            "description": "This parameter is used to specify whether the HTTPS client should save cache entries and the cached responses in the JVM memory or not."
+                        },
+                        {
+                            "name": "sender.parameters.Transfer-Encoding",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "\"chunked\" or \"true\"",
+                            "description": "This parameter enables you to specify whether the data sent should be chunked. It can be used instead of the Content-Length header if you want to upload data without having to know the amount of data to be uploaded in advance."
+                        },
+                        {
+                            "name": "sender.parameters.defaultMaxConnectionsPerHost",
+                            "type": "integer",
+                            "required": true,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The maximum number of connections that will be created per host server by the client. If the backend server is slow, the connections in use at a given time will take a long time to be released and added back to the connection pool. As a result, connections may not be available for some requests. In such situations, it is recommended to increase the value for this parameter."
+                        },
+                        {
+                            "name": "sender.parameters.OmitSOAP12Action",
+                            "type": "boolean",
+                            "required": true,
+                            "default": "-",
+                            "possible": "\"true\" or \"false\"",
+                            "description": "If following is set to 'true', optional action part of the Content-Type will not be added to the SOAP 1.2 messages."
+                        },
+                        {
+                            "name": "sender.parameters.SO_TIMEOUT",
+                            "type": "integer",
+                            "required": true,
+                            "default": "-",
+                            "possible": "60000",
+                            "description": "If following is set to 'true', optional action part of the Content-Type will not be added to the SOAP 1.2 messages."
+                        },
+                        {
+                            "name": "sender.parameters.'http.proxyHost'",
+                            "type": "string",
+                            "required": false,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "If the outgoing messages should be sent through an HTTP proxy server (in blocking mode), use this parameter to specify the target proxy."
+                        },
+                        {
+                            "name": "sender.parameters.'http.proxyPort'",
+                            "type": "integer",
+                            "required": false,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The port through which the target proxy (specified by the 'sender.secured_proxy_host' parameter) accepts HTTPS traffic (in blocking mode)."
                         },
                         {
                             "name": "sender.http.proxyHost",
@@ -3770,12 +3769,12 @@
                             "description": "If the outgoing messages should be sent through an HTTPS proxy server (in blocking mode), use this parameter to specify the target proxy."
                         },
                         {
-                            "name": "sender.http.proxyPort",
-                            "type": "integer",
-                            "required": false,
+                            "name": "sender.parameters.'http.nonProxyHosts'",
+                            "type": "string",
+                            "required": true,
                             "default": "-",
                             "possible": "-",
-                            "description": "The port through which the target proxy (specified by the 'sender.secured_proxy_host' parameter) accepts HTTPS traffic (in blocking mode)."
+                            "description": "The list of hosts to which the HTTP traffic should be sent directly without going through the proxy. When trying to add multiple hostnames along with an asterisk in order to define a set of sub-domains for non-proxy hosts, you need to add a period before the asterisk when configuring proxy server."
                         }
                     ]
                 }
