@@ -9,7 +9,7 @@ It is assumed that you have already setup your read-only LDAP user store. Follow
 !!! info
     API Manager is compatible with multiple user stores. Instead of using the embedded user store, you can set your own user store as the primary user store.
 
-### Step 1: Setting up the read-only LDAP/AD user store manager
+## Step 1: Setting up the read-only LDAP/AD user store manager
 
 The following are the minimum configurations that are required to configure the Read-only LDAP userstore manager.
 
@@ -96,7 +96,7 @@ Apart from the properties mentioned above, WSO2 API Manager also supports advanc
 
 ---
 
-## Properties used in read-only LDAP userstore manager
+### Properties used in read-only LDAP userstore manager
 
 Any of the following properties can be configured for the `PRIMARY` userstore by adding them as follows to
 `<APIM-HOME>/repository/conf/deployment.toml`.
@@ -115,7 +115,7 @@ read_groups = true
 !!! tip
     The properties given below can also be configured for a secondary userstore through the management console.
 
-## Properties used in read-only LDAP userstore manager
+### Properties used in read-only LDAP userstore manager
 
 Any of the following properties can be configured for the `PRIMARY` userstore by adding them as follows to
 `<APIM-HOME>/repository/conf/deployment.toml`.
@@ -594,7 +594,7 @@ UsernameJavaScriptRegEx="^[\\S]{3,30}$"
 kdcEnabled="false"
 ```
 
-### Step 2: Updating the system administrator
+## Step 2: Updating the system administrator
 
 The **admin** user is the super tenant that will be able to manage all other users, roles and permissions in the system by using the management console of the product. Therefore, the user that should have admin permissions is required to be stored in the user store when you start the system for the first time. By default, the system will create an admin user in the LDAP that has admin permissions. But this cannot be done it the LDAP user store is read-only. Hence that capability should be disabled in the `<APIM_HOME>/repository/conf/deployment.toml` file as follows:
 
@@ -619,7 +619,7 @@ create_admin_account = true
 ```
 For information about the system administrator user, see [Configuring the System Administrator]({{base_path}}/reference/config-catalog/#super-admin-configurations) , and for information on how keystores are used in WSO2 products, see [Using Asymmetric Encryption]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/) .
 
-### Step 3: Starting the server
+## Step 3: Starting the server
 
 Start your server and try to log in as the admin user you specified. The password is the admin user's password in the LDAP server.
 
