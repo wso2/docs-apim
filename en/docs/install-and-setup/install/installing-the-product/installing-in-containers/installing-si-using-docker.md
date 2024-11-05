@@ -25,7 +25,7 @@ docker pull wso2/streaming-integrator:1.0.0
 To run WSO2 Streaming Integrator, issue the following command.
 
 ```
-docker run -it wso2/streaming-integrator/1.0.0
+docker run -it wso2/streaming-integrator:1.0.0
 ```
 
 !!! tip
