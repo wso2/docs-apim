@@ -9,7 +9,7 @@ Follow the steps below to get started with the Marketplace Assistant:
 !!! tip
     If you've previously registered your environment for the [API Chat]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/test-apis-with-apichat), you can skip Step 1 and 2 by utilizing the same credentials for the Marketplace Assistant. Otherwise, complete Step 1 to register your on-premise environment.
 
-## Step 1 - Sign In to AI Subscription Portal
+## Step 1 - Sign in to AI Subscription Portal
 
 !!! warning
         Information in the AI Subscription Portal will be stored in the United States.
@@ -25,12 +25,12 @@ Follow the steps below to get started with the Marketplace Assistant:
    - Check your email inbox and click **Complete Account Creation**.
    - Provide an organization name (make a note of this, as it will be required for every login) and create a secure password.
 
-3. Log In to the AI Subscription Portal.
+3. Login to the AI Subscription Portal.
 
    - Click **Sign In** and enter your organization name.
    - Enter your email address and password.
 
-## Step 2 - Create a Key by Subscribing
+## Step 2 - Create a key by subscribing
 
 1. On the main landing page, click **New Subscription**.
 
@@ -46,7 +46,7 @@ Follow the steps below to get started with the Marketplace Assistant:
 
     [![AI Subscription Portal Dashboard]({{base_path}}/assets/img/observe/ai-subscription-portal-3.png)]({{base_path}}/assets/img/observe/ai-subscription-portal-3.png)
 
-    !!! info
+    !!! warning
         Users can revoke and regenerate keys for any subscription, as well as delete subscriptions. Please perform these actions with caution, as they will immediately invalidate any existing keys in use.
 
 ## Step 3 - Configure API Manager
