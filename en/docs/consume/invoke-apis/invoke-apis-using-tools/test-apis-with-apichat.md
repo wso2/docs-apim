@@ -10,7 +10,7 @@ Follow the steps below to test your API with API Chat:
 !!! tip
     If you've previously registered your environment for the [Marketplace Assistant]({{base_path}}/consume/discover-apis/marketplace-assistant), you can skip Step 1 and 2 by utilizing the same credentials for the API Chat. Otherwise, complete Step 1 and 2 to generate the credentials.
 
-## Step 1 - Sign In to AI Subscription Portal
+## Step 1 - Sign in to AI Subscription Portal
 
 !!! warning
         Information in the AI Subscription Portal will be stored in the United States.
@@ -26,12 +26,12 @@ Follow the steps below to test your API with API Chat:
    - Check your email inbox and click **Complete Account Creation**.
    - Provide an organization name (make a note of this, as it will be required for every login) and create a secure password.
 
-3. Log In to the AI Subscription Portal.
+3. Login to the AI Subscription Portal.
 
    - Click **Sign In** and enter your organization name.
    - Enter your email address and password.
 
-## Step 2 - Create a Key by Subscribing
+## Step 2 - Create a key by subscribing
 
 1. On the main landing page, click **New Subscription**.
 
@@ -47,7 +47,7 @@ Follow the steps below to test your API with API Chat:
 
     [![AI Subscription Portal Dashboard]({{base_path}}/assets/img/observe/ai-subscription-portal-3.png)]({{base_path}}/assets/img/observe/ai-subscription-portal-3.png)
 
-    !!! info
+    !!! warning
         Users can revoke and regenerate keys for any subscription, as well as delete subscriptions. Please perform these actions with caution, as they will immediately invalidate any existing keys in use.
 
 ## Step 3 - Configure API Manager
