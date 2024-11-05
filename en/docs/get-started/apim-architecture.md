@@ -50,24 +50,6 @@ The API Gateway does the JWT token validation by validating the signature, issue
 
 Once the token is validated, the API Gateway acts upon the API request before sending it to the backend. It first processes the message to a preconfigured format (e.g., JSON, XML, CSV etc.).  It then applies security policies, rate limiting policies,  collects statistics, etc., via its handlers.  The mediators then act upon the API payload based on the mediation logic developed. The message is then formatted to a preconfigured format (e.g., JSON, XML, CSV, etc.) and sent to the backend. WSO2 API Gateway supports transports such as HTTP, HTTPS, etc. It is also able to scale on-demand in cloud environments and is easily pluggable in non-cloud environments. 
 
-#### Micro Integrator
-
-The [WSO2 Micro Integrator](https://mi.docs.wso2.com/en/latest/) is lightweight and container friendly. This allows you to leverage the comprehensive enterprise messaging capabilities of the Micro Integrator in your decentralized, cloud-native integrations.
-
-<img src="{{base_path}}/assets/img/integrate/intro/mi-microservices-architecture.png" alt="decentralized micro services" name="decentralized microservices" width="700">
-
-As shown above, if your organization is running on a decentralized, cloud-native, integration architecture where microservices are used for integrating the various APIs, events, and systems, WSO2 Micro Integrator can easily function as your **Integration** (micro) services and **API** (micro) services.
-
-Micro Integrator is an event-driven, standards-based messaging engine that can work like an Enterprise Service Bus. This supports message routing, message transformations, and other types of messaging use cases. If your organization uses an API-driven, centralized, integration architecture, the Micro Integrator can be used as the central integration layer that implements the message mediation logic connecting all the systems, data, events, APIs, etc. in your integration ecosystem.
-
-#### Streaming Integrator
-
-The [Streaming Integrator]({{base_path}}/streaming/streaming-overview/) is a streaming data processing server that integrates streaming data and takes action based on streaming data. This is a cloud-native, lightweight component that understands, captures, analyzes, processes, and acts upon streaming data and events in real-time. It utilizes the SQL-like query language ‘Siddhi’ to implement the solution.
-
-<img src="{{base_path}}/assets/img/integrate/intro/streaming-integrator.png" alt="Streaming Integrator" name="Streaming Integrator" width="600">
-
-The Streaming Integrator allows you to integrate static data sources with streaming data sources. Thus, it enables various types of applications (e.g., files, cloud based applications, data stores, and streaming applications) to access streaming data and also exposes their output in a streaming manner. This is useful for performing ETL (Extract, Transform, Load) operations, capturing change data (i.e., CDC operations), and stream processing.
-
 ## Control Plane
  
 The Control Plane is where the API security validation, API key generation, and rate limiting decisions are taken.
@@ -98,20 +80,6 @@ For more information, see [Working with Throttling]({{base_path}}/design/rate-li
 
 There are multiple developer-friendly tools that can be used to help you work with WSO2 API Manager.
 
-#### Integration Studio
-
-The WSO2 API Manager and the Micro Integrator are coupled with [WSO2 Integration Studio]({{base_path}}/integrate/develop/wso2-integration-studio); a comprehensive graphical integration flow designer for building integrations using a simple drag-and-drop functionality.
-
-<img src="{{base_path}}/assets/img/integrate/intro/integration-studio.png" alt="Integration Studio" name="Integration Studio">
-
-WSO2 Integration Studio is your development environment for designing, developing, debugging, and testing integration solutions. As an integration developer, you can execute all the phases of the development lifecycle using this tool. When your integration solutions are production-ready, you can easily push the artifacts to your continuous integration/continuous deployment pipeline and also register them as services in the service catalog.
-
-#### Streaming Editor
-
-The Streaming Editor is a developer tool that is used to develop Siddhi applications and is closely coupled with the Streaming Integrator. 
-
-![Streaming Integrator Tooling Welcome Page]({{base_path}}/assets/img/streaming/streaming-integrator-studio-overview/streaming-integrator-tooling-welcome-page.png)
-
-#### apictl
+#### API Controller
 
 WSO2 API Controller (CTL) is a command-line tool for managing API Manager environments, listing APIs, API products and applications, creating API projects, importing and exporting APIs, API products and applications, generating tokens for APIs and API products for testing purposes, etc.
