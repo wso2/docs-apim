@@ -92,8 +92,8 @@ Follow the instructions below to expose a third-party Service Provider stream as
      The following log appears on the API Manager console when the server is started successfully.
 
     ```
-    [2021-04-20 15:51:00,036]  INFO - StartupFinalizerServiceComponent Server           :  WSO2 API Manager-4.0.0
-    [2021-04-20 15:51:00,038]  INFO - StartupFinalizerServiceComponent WSO2 Carbon started in 77 sec
+    [2024-10-29 15:20:46,029]  INFO - StartupFinalizerServiceComponent Server           :  WSO2 API Manager-4.4.0
+    [2024-10-29 15:20:46,030]  INFO - StartupFinalizerServiceComponent WSO2 Carbon started in 126 sec
     ```
 
 ## Step 2 - Start the Streaming Integrator

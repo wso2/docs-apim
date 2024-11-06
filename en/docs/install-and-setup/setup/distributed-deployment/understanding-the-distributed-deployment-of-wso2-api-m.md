@@ -41,6 +41,14 @@ Listed below are the different profiles available in WSO2 API Manager.
             Only starts the Traffic Manager component.
         </td>
     </tr>
+    <tr>
+        <td>
+            Key Manager Profile
+        </td>
+        <td>
+            Only starts the Key Manager component.
+        </td>
+    </tr>
 </table>
 
 ## Databases used by API-M profiles
@@ -79,6 +87,12 @@ database</strong></p>
 <td>Used</td>
 <td>Used</td>
 
+</tr>
+
+<tr class="even">
+<td><p><strong>Key Manager profile</strong></p></td>
+<td><p>Used</p></td>
+<td><p>Used</p></td>
 </tr>
 </tbody>
 </table>
@@ -120,12 +134,12 @@ Listed below are the five components in the API-M server. When you run the recom
             Traffic Manager
         </td>
         <td>
-            Used to make a decision on throttling. It also works as an event hub for broadcasting controller events such as throttling events, block conditions, revoke token retrieval events, API events, API policy events, application events, application policy events, application keys events, subscription events, and subscription policy events.
+            Responsible for making rate limiting decisions.
         </td>
     </tr>
     <tr>
         <td>
-            Publisher
+            Publisher Portal
         </td>
         <td>
             Enables API providers to easily publish their APIs, share documentation, provision API keys, and gather feedback on API features, quality, and usage.
@@ -156,6 +170,12 @@ The following diagram depicts how the Control Plane and Gateway profiles communi
 The following diagram depicts how the Control Plane, Traffic Manager, and Gateway profiles communicate in a distributed deployment setup. It also depicts the database connections of each node. Separating out the Traffic Manager Component from the Control plane might be needed if any deployment complexities are present in your environment. To learn how to configure this deployment, refer [configuring a distributed API-M deployment]({{base_path}}/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-tm-separated).
 
 [![Distributed deployment]({{base_path}}/assets/img/setup-and-install/distributed-deployment-tm.png){: style="width:78%"}]({{base_path}}/assets/img/setup-and-install/distributed-deployment-tm.png)
+
+### Simple Scalable Deployment with Key Manager Separation
+
+The following diagram depicts how the Control Plane, Key Manager, and Gateway profiles communicate in a distributed deployment setup. It also depicts the database connections of each node. Separating the Key Manager component from the Control Plane may be necessary if there are deployment complexities in your environment. For example, if there is a high number of token generation calls, it might be required to scale the Key Manager component. In such cases, separating the Key Manager from the Control Plane allows for independent scaling.To learn how to configure this deployment, refer [configuring a distributed API-M deployment]({{base_path}}/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-km-separated).
+
+[![Distributed deployment]({{base_path}}/assets/img/setup-and-install/distributed-deployment-km.png){: style="width:78%"}]({{base_path}}/assets/img/setup-and-install/distributed-deployment-km.png)
 
 ## What's Next?
 

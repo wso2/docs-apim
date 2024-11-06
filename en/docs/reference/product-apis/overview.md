@@ -6,7 +6,7 @@ The following topics list the APIs exposed from the API Publisher, Developer Por
 <table>
   <tr>
     <td nowrap="true"><a href="{{base_path}}/reference/product-apis/publisher-apis/publisher-v4/publisher-v4/">WSO2 Publisher API v4</a></td>
-    <td rowspan="3" class="md-typeset__td"><b>WSO2 recommends that you use the latest REST APIs</b> as it is up to date and has support for the latest WSO2 API Manager 4.2.0 features.
+    <td rowspan="3" class="md-typeset__td"><b>WSO2 recommends that you use the latest REST APIs</b> as it is up to date and has support for the latest WSO2 API Manager 4.4.0 features.
     </td>
   </tr>
   <tr>
@@ -34,9 +34,10 @@ Following Postman collection provides quick start guide for WSO2 API Manager RES
  * Create, publish, subscribe and invoke a sample REST API
  * Create, subscribe and invoke a sample API Product 
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/25611032-aa201bbc-7bdf-4e2c-afeb-d5494ef50f91)
-
-??? info "Expand to copy the Postman collection"
-    <script src="https://gist.github.com/chamilaadhi/7d37fd33bc6b152af02ab40c02056ba0.js"></script>
+<a href="../../../assets/attachments/reference/quick-start-postman-collection.json"
+download="WSO2 API Manager 4.4.0 Quick Start.postman_collection.json"
+style="display: inline-block; padding: 10px 15px; color: white; background-color: #ef5b25; text-align: center; text-decoration: none; border-radius: 5px;font-weight: bold;">
+Download Postman Collection
+</a>
 
 

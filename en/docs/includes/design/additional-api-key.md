@@ -31,3 +31,4 @@ When the HTTP referrer restriction has been enabled, only the specific HTTP refe
 2. Select `HTTP Referrers (Web Sites)` and add the referrers in the text input as shown below and generate the key.
 
    [![HTTP Referer Restricted API key](../../../../assets/img/learn/http-referer-api-key.png)]({{base_path}}/assets/img/learn/http-referer-api-key.png)
+

@@ -162,12 +162,21 @@ Follow the instructions below to create a REST API using the basic flow:
     3. On the sidebar, navigate to **Develop > API Configuration > API Definition**.
 
     4. Click on **Edit** from the toolbar.
-    [![API configuration toolbar]({{base_path}}/assets/img/design/create-api/linter-observe/linter-observe1.png)]({{base_path}}/assets/img/design/create-api/linter-observe/linter-observe1.png)
+        </br>
+        <div style="text-align: left;">
+            <a href="{{base_path}}/assets/img/design/create-api/linter-observe/linter-observe1.png">
+                 <img src="{{base_path}}/assets/img/design/create-api/linter-observe/linter-observe1.png" alt="API configuration toolbar" width="600" height="377">
+            </a>
+        </div>
 
     5. Switch to the Linter view by clicking on the LINTER button on the top.
 
     6. You will see the Linter error corresponding to the new rule you enforced.
-    [![Linter error]({{base_path}}/assets/img/design/create-api/linter-observe/linter-observe2.png)]({{base_path}}/assets/img/design/create-api/linter-observe/linter-observe2.png)
+        <div style="text-align: left;">
+            <a href="{{base_path}}/assets/img/design/create-api/linter-observe/linter-observe2.png">
+                <img src="{{base_path}}/assets/img/design/create-api/linter-observe/linter-observe2.png" alt="Linter error" width="600" height="377">
+            </a>
+        </div>
 
 
 Now, you have successfully created and configured a REST API. Next, [deploy the API]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/), [test the API]({{base_path}}/design/create-api/create-rest-api/test-a-rest-api/), and finally [publish the API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api).

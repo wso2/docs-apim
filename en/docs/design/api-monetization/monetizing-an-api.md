@@ -124,7 +124,13 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
   
     1. Download and add the database related connector JAR into the`<APIM_HOME/repository/components/lib` directory. 
         
-        As a MySQL database is used for this example scenario, download and copy the [MySQL connector JAR](https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.36) into the `<APIM_HOME/repository/components/lib` directory.
+        As a MySQL database is used for this example scenario, download and copy the [MySQL connector JAR](https://downloads.mysql.com/archives/c-j/) into the `<APIM_HOME/repository/components/lib` directory.
+
+        !!! tip
+            Look for the compatible MySQL Connector version based on the MySQL version being used.
+
+            - For MySQL version 8.0.x, the compatible MySQL Connector version is **8.0.x**.    
+            - For MySQL version 8.4.x, the compatible MySQL Connector version is **8.4.x**.
 
     2. Configure the WSO2 API Manager related datasource.  
         
@@ -868,10 +874,10 @@ type = "ELK"
 
 [apim.monetization]
 monetization_impl = "org.wso2.apim.monetization.impl.StripeMonetizationImpl"
-analytics_host = <hostname-of-elk-node>
-analytics_port = <port-of-elk-node>
+analytics_host = <hostname-of-elastic-instance>
+analytics_port = <port-of-elastic-instance>
 analytics_username = <elastic-username>
 analytics_password = <elastic-password>
 ```
 
-Note that you will need to replace `<hostname-of-elk-node>`, `<port-of-elk-node>`, `<elastic-username>`, and `<elastic-password>` with the appropriate values for your Elasticsearch instance.
+Note that you will need to replace `<hostname-of-elastic-instance>`, `<port-of-elastic-instance>`, `<elastic-username>`, and `<elastic-password>` with the appropriate values for your Elasticsearch instance.

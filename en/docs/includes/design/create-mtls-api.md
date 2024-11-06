@@ -1,6 +1,6 @@
 ## Create an API secured with Mutual SSL
 
-1.  [Create an API](https://apim.docs.wso2.com/en/4.1.0/design/create-api/create-rest-api/create-a-rest-api/).
+1.  [Create an API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/).
 2.  Click **Develop -> API Configurations -> Runtime**.
 3.  Select **Mutual SSL**.
     

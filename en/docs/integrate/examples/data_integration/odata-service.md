@@ -105,7 +105,7 @@ Open a command prompt execute the following CURL commands using CRUD operations:
 !!! important 
     Application owners should exist in both WSO2 API Manager and WSO2 Identity Server for this feature to work correctly. There are two approaches to fulfill this requirement:
 
-    1. Share the same user stores between APIM and IS: By sharing the user stores, ensure that the application owners are present in both APIM and IS. For more information on how to configure user stores, refer [Introduction to User Stores](https://apim.docs.wso2.com/en/4.2.0/administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores/).
+    1. Share the same user stores between APIM and IS: By sharing the user stores, ensure that the application owners are present in both APIM and IS. For more information on how to configure user stores, refer [Introduction to User Stores]({{base_path}}/administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores/).
 
     2. Create the same application owners in APIM and the IS user stores: Alternatively, you can create identical application owner accounts separately in both APIM and the IS user stores.
 
