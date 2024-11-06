@@ -121,11 +121,7 @@ Follow the instructions below to create, deploy and publish an API via the Publi
      <tr> 
      <th>Endpoint
      </th>
-     <td><code>http://run.mocky.io/v3</code>
-      <div class="admonition note">
-      <p class="admonition-title">Note</p>
-      <p>Use <b>HTTP protocol</b>, because to use HTTPS you need to import the Mocky server's certificate into WSO2 API-M.</p>
-      </div> 
+     <td><code>https://run.mocky.io/v3/e42a76f0-95f3-4759-b658-dcc2b0c8bacd</code>
      </td>
      </tr>
      </table>
