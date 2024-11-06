@@ -196,3 +196,6 @@ In this tutorial, let's see how you can add interactive documentation to an API 
 
 
 In this tutorial, you have seen how the integrated Swagger Editor can be used to design, describe, and document your API, so that the API consumers get a better understanding of the API's functionality.
+
+!!! note
+    Vendor extension-related entries (such as `x-auth-type` and `x-throttling-tier`) cannot be modified directly through the Swagger Editor, as these are tightly integrated with WSO2’s internal functionalities.
