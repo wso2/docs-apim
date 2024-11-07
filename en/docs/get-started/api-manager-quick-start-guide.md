@@ -50,7 +50,7 @@ Choose a deployment option to start WSO2 API Manager.
 
         !!! note
 
-            - The `docker run` command will start WSO2 API Manager and expose the ports `9443`, `8243`, and `8280`.
+            - The `docker run` command will start WSO2 API Manager and expose the ports `9443` and `8243`.
 
 ### What you'll build
 
@@ -162,21 +162,21 @@ Follow the instructions below to invoke the created API.
 
 1. Click on **Try Out** &rarr; **API Console** from the left menu. Then, click on **GET TEST KEY** to generate an access token.
 
-     [![Test API]({{base_path}}/assets/img/get_started/test-api.png)]({{base_path}}/assets/img/get_started/test-api.png)
-
-2. If this is the first time you are using the API test console from your browser,  open a new tab and navigate to the [https://localhost:8243/](https://localhost:8243/) URL.
-
-     This will prompt your browser to accept the certificate used by the API Gateway. This is required because by default the API Gateway uses a self-signed certificate that is not trusted by web browsers.
-    
     !!! note
 
-        This certificate that is used by the API Gateway is replaced when deploying the system in production.
+        If this is the first time you are using the API console from your browser, open a new tab and navigate to the [https://localhost:8243/](https://localhost:8243/) URL.
 
-3. Click on the `GET` resource of the API to expand the resource and Click **Try It Out**.
+        This will prompt your browser to accept the certificate used by the API Gateway. This is required because by default the API Gateway uses a self-signed certificate that is not trusted by web browsers.
+
+        Since a trusted certificate is used when running in production, you won't have to do this step when running in production.
+
+     [![Test API]({{base_path}}/assets/img/get_started/test-api.png)]({{base_path}}/assets/img/get_started/test-api.png)
+
+2. Click on the `GET` resource of the API to expand the resource and Click **Try It Out**.
    
      [![GET resource]({{base_path}}/assets/img/get_started/expanded-get-resource.png)]({{base_path}}/assets/img/get_started/expanded-get-resource.png)
 
-4. Click **Execute**.
+3. Click **Execute**.
 
      [![GET resource]({{base_path}}/assets/img/get_started/try-api.png)]({{base_path}}/assets/img/get_started/try-api.png)
 
