@@ -45,7 +45,7 @@ Choose a deployment option to start WSO2 API Manager.
     2. Pull and start WSO2 API Manager by executing the following command:
 
         ```bash
-        docker run -it -p 9443:9443 -p 8243:8243 -p 8280:8280 wso2/wso2am:4.4.0
+        docker run -it -p 9443:9443 -p 8243:8243 wso2/wso2am:4.4.0
         ```
 
         !!! note
