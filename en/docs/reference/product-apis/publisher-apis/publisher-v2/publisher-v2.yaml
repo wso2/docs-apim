@@ -8212,6 +8212,21 @@ components:
                 "endpoint_type": "Registry",
                 "endpoint_id": "{registry-name:entry-name:version}",
               }
+            
+            `AWS Lambda as Endpoint`
+
+              {
+                "endpoint_type":"awslambda",
+                "access_method":"role-supplied|stored",
+                "assume_role":true|false,
+                "amznAccessKey":"access_method==stored?<accessKey>:<empty>",
+                "amznSecretKey":"access_method==stored?<secretKey>:<empty>",
+                "amznRegion":"access_method==stored?<region>:<empty>",
+                "amznRoleArn":"assume_role==true?<roleArn>:<empty>",
+                "amznRoleSessionName":"assume_role==true?<roleSessionName>:<empty>",
+                "amznRoleRegion":"assume_role==true?<roleRegion>:<empty>"
+              }
+            
           example:
             endpoint_type: http
             sandbox_endpoints:
