@@ -1,8 +1,8 @@
 # Quick Start Guide
 
-New to **WSO2 API Manager**? Not to worry, we'll guide you with the basics!
+New to WSO2 API Manager? No worries; we'll guide you through the basics!
 
-In this step-by-step guide, you’ll learn how to create, publish, and invoke an API using the Publisher and Developer Portals.
+In this step-by-step guide, you’ll learn how to create, publish, and invoke an API using the Publisher Portal and Developer Portal.
 
 ### Before you begin...
 
@@ -154,8 +154,6 @@ Follow the instructions below to subscribe to the API via the Developer Portal o
 
      And with that, we have subscribed to the API using the `DefaultApplication`.
 
- **Voila!!!** You have now subscribed to the API and is ready for you to test out **HelloWorld** API.
-
 <a name="invoke"></a>
 
 ### Step 3: Invoke the API
@@ -186,4 +184,4 @@ Follow the instructions below to invoke the created API.
 
      [![Successful response]({{base_path}}/assets/img/get_started/try-it-success.png)]({{base_path}}/assets/img/get_started/try-it-success.png)
 
-__Congratulations!__ You have successfully created, deployed and published your first API. Thereon, we've subscribed to the API and invoked it.
+__Congratulations!__ With that, you've created, deployed, and published your first API. Next, you subscribed to it and put it to the test. Your journey with WSO2 API Manager has officially begun!
