@@ -1,4 +1,4 @@
-# Quick Start Guide - API Management
+# Quick Start Guide
 
 New to WSO2 API Manager? No worries; we'll guide you through the basics!
 
@@ -6,69 +6,69 @@ In this step-by-step guide, you’ll learn how to create, publish, and invoke an
 
 ### Before you begin...
 
-Chose a deployment option to start WSO2 API Manager.
+Choose a deployment option to start WSO2 API Manager.
 
-=== "Docker"
+=== "Run locally"
 
-    Run WSO2 API Manager using Docker
+    Here's how you can download and run WSO2 API Manager locally:
 
-    1. Install [Docker](https://docs.docker.com/get-docker/) 
-    2. Pull and Start WSO2 API Manager using the following command.
-
-       ```bash
-       docker run -it -p 9443:9443 -p 8243:8243 -p 8280:8280 wso2/wso2am:4.4.0
-       ```
-
-    !!! note
-
-        - The `docker run` command will start WSO2 API Manager and expose the ports `9443`, `8243`, and `8280`.
-        - The default admin credentials for WSO2 API Manager are `admin/admin`.
-
-=== "Direct"
+    1. Install [Java SE Development Kit (JDK)](https://adoptium.net/temurin/releases/?arch=any&version=21) version **21** and set the `JAVA_HOME` environment variable.
     
-    Download and run WSO2 API Manager manually
+        !!! tip
+            For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/#setting-up-java_home)
 
-    1. Install [Java SE Development Kit (JDK)](https://adoptium.net/temurin/releases/?arch=any&version=21) version 21 and set the `JAVA_HOME` environment variable.
-    For more information on setting the `JAVA_HOME` environment variable for different operating systems.
-    
-    !!! note
-
-        Refer to the [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/#setting-up-java_home) for a step-by-step guide on configuring Java.
-
-    2. Download WSO2 API-Manager
+    2. Download WSO2 API-Manager.
         - [Open Source Distribution](https://github.com/wso2/product-apim/releases/tag/v4.4.0)
         - [WSO2 Official Distribution](https://wso2.com/api-manager/#)
     
-    3. Start WSO2 API-M by navigating to the `<API-M_HOME>/bin` directory using the command-line and execute the following command.
-        
-        === "Windows"
+    3. Extract the downloaded zip file.
 
-            ```
-            api-manager.bat --run
-            ```
-        === "Unix"
+    4. Navigate to the `<API-M_HOME>/bin` folder from your command line.
+    
+    4. To start WSO2 API Manager, execute the relevant command:
 
-            ```
+        === "On MacOS/Linux"
+            ```bash
             sh api-manager.sh
             ```
+        
+        === "On Windows"
+            ```bash
+            api-manager.bat --run
+            ```
+
+=== "Run on Docker"
+
+    Here's how you can run WSO2 API Manager using Docker:
+
+    1. Install [Docker](https://docs.docker.com/get-docker/) if you haven't done so already.
+    2. Pull and start WSO2 API Manager by executing the following command:
+
+        ```bash
+        docker run -it -p 9443:9443 -p 8243:8243 wso2/wso2am:4.4.0
+        ```
+
+        !!! note
+
+            - The `docker run` command will start WSO2 API Manager and expose the ports `9443` and `8243`.
 
 ### What you'll build
 
-In this sample scenario, you implement a full lifecycle of an API using WSO2 API Manager.
+In this sample scenario, you'll implement the full lifecycle of an API using WSO2 API Manager.
 
 <a href="{{base_path}}/assets/img/get_started/apim-qsg-diagram.png"><img src="{{base_path}}/assets/img/get_started/apim-qsg-diagram.png" width="60%"></a>
 
-1. Creating and publishing an API via the Publisher Portal of WSO2 API-M.
-2. Deploy the API in a Gateway environment.
-3. Publish the API in the Developer Portal.
-2. Subscribing to the API via the Developer Portal of WSO2 API-M and generating keys.
-3. Invoking the API with the generated keys.
+Here are the steps that we are going to follow:
 
- Let's get started...
+- [Step 1: Create, Deploy and Publish an API](#step-1-create-deploy-and-publish-an-api)
+- [Step 2: Subscribe to the API](#step-2-subscribe-to-the-api)
+- [Step 3: Invoke the API](#step-3-invoke-the-api)
 
-### Step 1 - Create and publish an API
+Let's get started...
 
-Follow the instructions below to create and publish an API via the Publisher Portal of WSO2 API-M.
+### Step 1: Create, Deploy and Publish an API
+
+Follow the instructions below to create, deploy and publish an API via the Publisher Portal of WSO2 API-M.
 
 1. Navigate to the Publisher Portal.
    
@@ -78,9 +78,16 @@ Follow the instructions below to create and publish an API via the Publisher Por
                                                  
      [![Publisher portal home page]({{base_path}}/assets/img/get_started/api-publisher-home.png)]({{base_path}}/assets/img/get_started/api-publisher-home.png)
 
-3. Create a mock REST service.
+3. Next, let's create a mock REST service by navigating to [Mocky.io](https://designer.mocky.io/design). You can provide the following configuration in order to create a mock service.
+    
+    | Field                   | Value                 |
+    | ----------------------- |-----------------------|
+    | `HTTP Status`           | 200 - OK              |
+    | `Response Content Type` | application/json      |
+    | `Charset`               | UTF-8                 |
+    | `HTTP Response Body`    | `{"hello": "world"}`  |
 
-     Let's use a mock REST service to create a REST API from scratch. You'll need to set up your own mock service with a JSON response like `{"hello": "world"}`. You can create your mock service using various tools and platforms available online.
+    Finally click **Generate My HTTP Response** to save and generate the mock service url.
 
     
 4. Select **REST API** from the home screen and then click **Start From Scratch**.
@@ -114,11 +121,7 @@ Follow the instructions below to create and publish an API via the Publisher Por
      <tr> 
      <th>Endpoint
      </th>
-     <td><code>http://mock-json-server-url/</code>
-      <div class="admonition note">
-      <p class="admonition-title">Note</p>
-      <p><b>Use the HTTP protocol</b> because to use HTTPS you need to import the mock json server's certificate into WSO2 API-M.</p>
-      </div> 
+     <td><code>https://run.mocky.io/v3/e42a76f0-95f3-4759-b658-dcc2b0c8bacd</code>
      </td>
      </tr>
      </table>
@@ -131,9 +134,9 @@ Follow the instructions below to create and publish an API via the Publisher Por
 
 <a name="subscribe"></a>
 
-### Step 2 - Subscribe to the API
+### Step 2: Subscribe to the API
 
-Follow the instructions below to subscribe to the API and generate the keys via the Developer Portal of WSO2 API-M.
+Follow the instructions below to subscribe to the API via the Developer Portal of WSO2 API-M.
 
 1. Navigate to the Developer Portal.
 
@@ -145,47 +148,35 @@ Follow the instructions below to subscribe to the API and generate the keys via 
 
 2. Click **Sign-In** and enter **`admin/admin`** as your credentials to sign in to the Developer Portal.
 
-3. Click on the API thumbnail to view the overview of the API.
+3. Once you click on the HelloWorld API, you will be redirected to  the API overview page. Then, go ahead and click on the **TRY OUT** button.
 
-     [![API overview]({{base_path}}/assets/img/get_started/api-overview.png)]({{base_path}}/assets/img/get_started/api-overview.png)
- 
-4. Register an OAuth 2.0 application.
+     [![API try out]({{base_path}}/assets/img/get_started/try-out.png)]({{base_path}}/assets/img/get_started/try-out.png)
 
-    1. Click **Subscriptions** on the left menu bar of the screen.
-    
-        [![Subscription Card]({{base_path}}/assets/img/get_started/subscriptions-menu.png)]({{base_path}}/assets/img/get_started/subscriptions-menu.png)
-    
-    2. Click **SUBSCRIPTION & KEY GENERATION WIZARD** in the above screen.
-    
-         This wizard walks you through 5 steps that will register an OAuth 2.0 application which you will use to consume the `HelloWorld` API.
+     And with that, we have subscribed to the API using the `DefaultApplication`.
 
 <a name="invoke"></a>
 
-### Step 3 - Invoke the API
+### Step 3: Invoke the API
 
-Follow the instructions below to invoke the previously created API with the generated keys.
+Follow the instructions below to invoke the created API.
 
-1. Click **Try Out** on the left menu bar.
+1. Click on **Try Out** &rarr; **API Console** from the left menu. Then, click on **GET TEST KEY** to generate an access token.
 
-     The resources of the API will be listed.
-
-2. Paste the access token that you previously copied in the **Access Token** field.
-
-    [![Paste the access token]({{base_path}}/assets/img/get_started/test-api.png)]({{base_path}}/assets/img/get_started/test-api.png)
-
-3. **If this is the first time you are using the API test console** from your browser,  open a new tab and navigate to the [https://localhost:8243/](https://localhost:8243/) URL.
-
-     This will prompt your browser to accept the certificate used by the API Gateway. This is required because by default the API Gateway uses a self-signed certificate that is not trusted by web browsers.
-    
     !!! note
 
-        This certificate that is used by the API Gateway is replaced when deploying the system in production.
+        If this is the first time you are using the API console from your browser, open a new tab and navigate to the [https://localhost:8243/](https://localhost:8243/) URL.
 
-4. Click on the `GET` resource of the API to expand the resource and Click **Try It Out**.
+        This will prompt your browser to accept the certificate used by the API Gateway. This is required because by default the API Gateway uses a self-signed certificate that is not trusted by web browsers.
+
+        Since a trusted certificate is used when running in production, you won't have to do this step when running in production.
+
+     [![Test API]({{base_path}}/assets/img/get_started/test-api.png)]({{base_path}}/assets/img/get_started/test-api.png)
+
+2. Click on the `GET` resource of the API to expand the resource and Click **Try It Out**.
    
      [![GET resource]({{base_path}}/assets/img/get_started/expanded-get-resource.png)]({{base_path}}/assets/img/get_started/expanded-get-resource.png)
 
-5. Click **Execute**.
+3. Click **Execute**.
 
      [![GET resource]({{base_path}}/assets/img/get_started/try-api.png)]({{base_path}}/assets/img/get_started/try-api.png)
 
