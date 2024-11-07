@@ -44,4 +44,4 @@ You can use the new default property `thirdParty` to search for APIs that are fr
     Third-party API (REST API) resources can be used in API products. External Production/Sandbox endpoints of the APIs will be added as the endpoints for the API product. Endpoint security is not added for third-party API resources.
 
 !!! note
-    Subscriptions are available by default for third-party APIs. However, since the third-party APIs are not deployed in the API Gateway, the tokens generated from API Manager applications will not be valid. In order to support tokens and other functionalities from API Manager for third-party APIs, a special setup is required with the credentials of the service providers available within API Manager.
+    In API Manager, Third-party APIs are primarily used to advertise APIs that are deployed on external gateways. These APIs forward requests directly to the external gateways. Consequently, features that are available for APIs deployed through our gateway such as subscriptions, token generation, and other functionalities do not apply to third-party APIs.
