@@ -278,6 +278,13 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
 5. Download the artifact file from below.<br />
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Artifacts v1 - [here]({{base_path}}/assets/img/analytics/cloud/old_export.ndjson)<br />
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Artifacts v2 - [here]({{base_path}}/assets/img/analytics/cloud/export.ndjson)
+   <br />
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Artifacts v3 - [here]({{base_path}}/assets/img/analytics/cloud/export_v3.ndjson)
+
+!!! info
+    If you have Egress APIs as well, use Artifacts v3 file.
+
+
 6. Navigate to **Stack Management** > **Saved Object** and click on **Import**. Add the downloaded artifact file as an import object, and import
 
 !!! info
