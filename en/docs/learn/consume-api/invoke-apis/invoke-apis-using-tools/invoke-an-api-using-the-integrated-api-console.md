@@ -58,3 +58,6 @@ The examples here use the `PizzaShack` REST API, which was created in [Create a 
     ![]({{base_path}}/assets/img/learn/api-response.png)
 
 You have now successfully invoked an API using the Swagger API Console.
+
+!!! Note
+    When using the Swagger UI's tryout feature to send large payloads, there's a risk that the interface may hang or not function properly. This is because the Swagger client isn't designed as a production-ready tool for handling substantial requests. For testing large payloads, it's advisable to use alternatives like Curl, or other custom clients. The Swagger tryout is intended mainly for simple testing workloads.
