@@ -455,8 +455,7 @@ nav:
               - Manage Users for Admin Portal: administer/managing-users-and-roles/managing-users-for-admin-portal.md
         - Manage User Stores:
             - Introduction to User Stores: administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores.md
-            - Configure Secondary User Stores:
-                - API Manager: administer/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores.md
+            - Configure Secondary User Stores: administer/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores.md
             - Write a Custom User Store Manager: administer/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager.md
             - Configure the Authorization Manager: administer/managing-users-and-roles/managing-user-stores/configuring-the-authorization-manager.md
         - API Manager Multitenancy:
