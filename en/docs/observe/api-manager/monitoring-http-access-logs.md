@@ -105,7 +105,7 @@ Follow the steps given below to enable access logs for the PassThrough or NIO tr
     #access_log_pattern=%{X-Forwarded-For}i %h %l %u %t \”%r\” %s %b \”%{Referer}i\” \”%{User-Agent}i\”
     # combinded log pattern
     #access_log_pattern=%h %l %u %t \”%r\” %s %b \”%{Referer}i\” \”%{User-Agent}i\”
-    access_log_pattern=time=%t remoteHostname=%h localPort=%p localIP=%A requestMethod=%m requestURL=%U remoteIP=%a requestProtocol=%H HTTPStatusCode=%s queryString=%q
+    access_log_pattern=time=%t remoteHostname=%h localIP=%A requestMethod=%m requestURL=%U remoteIP=%a HTTPStatusCode=%s
     # common log pattern
     #access_log_pattern=%h %l %u %t \”%r\” %s %b
     # file prefix
