@@ -13,7 +13,7 @@ In the Datadog end a pipeline is created to pre-process the data. This pipeline 
 
 #### Step 1.1 - Configuring the deployment.toml file.
 
-The Choreo based analytics will be enabled by default. Specify the `type` as `elk` to enable ELK analytics as shown below.
+The Choreo based analytics will be enabled by default. Specify the `type` as `log` to enable Datadog analytics as shown below.
 Edit `apim.analytics` configurations in the `deployment.toml` file located inside the `wso2am-4.x.x/repository/conf` directory with the following configuration.
 
 ```toml
