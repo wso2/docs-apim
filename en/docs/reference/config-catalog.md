@@ -1442,7 +1442,11 @@ https_endpoint = "https://localhost:${https.nio.port}"</code></pre>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.sync_runtime_artifacts.gateway]
-gateway_labels = ["Default"]</code></pre>
+gateway_labels = ["Default"]
+deployment_retry_duration = 15000
+max_retry_count = 5
+retry_progression_factor = 2.0
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -13744,7 +13748,7 @@ UserCoreCacheTimeOut = 5 </code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>(LDAP) If the user name has special characters it replaces it to validate the user logging in. Only &quot; \ &quot; and &quot; \\ &quot; are identified as escape characters.</p>
+                                        <p>(LDAP) If the user name has special characters it replaces it to validate the user logging in. Only &quot; &#92; &quot; and &quot; &#92;&#92; &quot; are identified as escape characters.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
