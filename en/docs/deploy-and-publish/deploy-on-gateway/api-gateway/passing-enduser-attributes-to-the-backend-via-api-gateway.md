@@ -256,27 +256,13 @@ custom claims into JWT when invocation token in opaque mode.
 </td>
 <td>org.wso2.carbon.apimgt.impl.token.ExtendedDefaultClaimsRetriever</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><pre><code>apim.jwt.claim_dialect</code></pre></td>
 <td><div class="content-wrapper">
 <p>The dialect URI under which the user's claims are be looked for. Only works with the default value of the <code>org.wso2.carbon.apimgt.impl.token.ExtendedDefaultClaimsRetriever</code> element defined above.</p>
 <p>The JWT access token contains all claims that are defined in the <code>apim.jwt.claim_dialect</code> element. The default value of this element is <code>http://wso2.org/claims</code>. To get the list of a specific user's claims that need to be included in the JWT, simply uncomment this element after enabling the JWT. It will include all claims in <code>http://wso2.org/claims</code> to the JWT access token.</p>
 </div></td>
 <td>http://wso2.org/claims</td>
-</tr>
-<tr class="even">
-<td><pre><code>apim.jwt.convert_dialect</code></pre></td>
-<td><div class="content-wrapper">
-<p>In the Authorization code grant flow, backend JWT token contains claims from OIDC dialect even though
- <code>apim.jwt.claim_dialect</code> has been configured with the value <code>http://wso2.org/claims</code>. The
-  reason is that claims are taken from AuthorizationGrantCache, which contains the OIDC claim dialect values. And
-   this is happening due to a modification done to avoid the getUserClaimValues call to WSO2 user store during JWT
-    generation. So, AuthorizationGrantCache is used for retrieving user claims.</p>
-<p>In order to remap the OIDC claims into the configured dialect (by <code>apim.jwt.claim_dialect</code> value
-), the <code>apim.jwt.convert_dialect</code> configuration value should be set to <code>true</code>.</p>
-</div>
-</td>
-<td>false</td>
 </tr>
 <tr class="even">
 <td><pre><code>apim.jwt.signing_algorithm</code></pre></td>
