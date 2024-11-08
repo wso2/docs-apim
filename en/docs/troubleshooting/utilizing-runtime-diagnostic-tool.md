@@ -1,6 +1,6 @@
 # Utilizing the WSO2 Runtime Diagnostic Tool
 
-WSO2 Runtime Diagnostic Tool is a lightweight and easy-to-use tool for generating diagnostic details. It simplifies the data collection process to minimize user involvement. The tool is capable of preemptive data collection for certain types of issues, such as OOM errors. It also captures significant changes in Passthrough metrics for better insight into specific issues. The tool is supported for WSO2 API Manager and WSO2 Micro Integrator.
+WSO2 Runtime Diagnostic Tool is a lightweight and easy-to-use tool for generating diagnostic details. It simplifies the data collection process to minimize user involvement. The tool is capable of preemptive data collection for certain types of issues, such as OOM errors. It also captures significant changes in Passthrough metrics for better insight into specific issues.
 
 The tool can be configured using the [Configuration Guide](#configuration-guide) provided below. The output of the tool can be analyzed using the [Analysis Guide](#analysing-runtime-issues-with-the-wso2-runtime-diagnostic-tool) provided below.
 
