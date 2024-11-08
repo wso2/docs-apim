@@ -1524,7 +1524,11 @@ https_endpoint = "https://localhost:${https.nio.port}"</code></pre>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.sync_runtime_artifacts.gateway]
-gateway_labels = ["Default"]</code></pre>
+gateway_labels = ["Default"]
+deployment_retry_duration = 15000
+max_retry_count = 5
+retry_progression_factor = 2.0
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -1556,6 +1560,63 @@ gateway_labels = ["Default"]</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>Array of the labels that the gateway is going to subscribe to</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>deployment_retry_duration</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> int </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>15000</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The initial duration in milliseconds to wait before retrying a failed deployment</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>max_retry_count</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> int </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>5</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The maximum number of retry attempts for deploying artifacts in case of failures.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>retry_progression_factor</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> float </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>2.0</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The factor by which the retry duration increases after each failed deployment attempt.</p>
                                     </div>
                                 </div>
                             </div>
