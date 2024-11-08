@@ -187,8 +187,6 @@ The following are some of the main capabilities of the product.
 
 ## What's Next
 
-- Try out the WSO2 API Manager by following the Quick Start Guides on the following.
-    - [Managing an API proxy]({{base_path}}/get-started/api-manager-quick-start-guide)
-    - [Streaming integration]({{base_path}}/get-started/streaming-quick-start-guide)
+- Try out WSO2 API Manager by following the Quick Start Guides on [Managing an API proxy]({{base_path}}/get-started/api-manager-quick-start-guide).
 - Understand the [basic architecture of the product]({{base_path}}/get-started/apim-architecture).
 - Learn more [about this release]({{base_path}}/get-started/about-this-release).
