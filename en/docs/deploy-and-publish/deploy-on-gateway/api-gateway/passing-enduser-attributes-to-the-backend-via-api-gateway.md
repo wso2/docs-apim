@@ -328,17 +328,10 @@ custom claims into JWT when invocation token in opaque mode.
 <td><code>http://wso2.org/claims</code></td>
 </tr>
 <tr class="even">
-<td><pre><code>apim.jwt.convert_dialect</code></pre></td>
-<td><div class="content-wrapper">
-<p>In the Authorization code grant flow, backend JWT token contains claims from OIDC dialect even though
- <code>apim.jwt.claim_dialect</code> has been configured with the value <code>http://wso2.org/claims</code>. The
-  reason is that claims are taken from AuthorizationGrantCache, which contains the OIDC claim dialect values. And
-   this is happening due to a modification done to avoid the getUserClaimValues call to WSO2 user store during JWT
-    generation. So, AuthorizationGrantCache is used for retrieving user claims.</p>
-<p>In order to remap the OIDC claims into the configured dialect (by <code>apim.jwt.claim_dialect</code> value
-), the <code>apim.jwt.convert_dialect</code> configuration value should be set to <code>true</code>.</p>
-</div>
-</td>
+<td><pre>
+<code>
+apim.jwt.binding_federated_user_claims</code></pre></td>
+<td><p>This disables the binding federated user claims to the backend JWT generator.</p></td>
 <td><code>false</code></td>
 </tr>
 <tr class="odd">
@@ -358,13 +351,6 @@ custom claims into JWT when invocation token in opaque mode.
 <td>N/A</td>
 </tr>
 <tr class="even">
-<td><pre>
-<code>
-apim.jwt.binding_federated_user_claims</code></pre></td>
-<td><p>This disables the binding federated user claims to the backend JWT generator.</p></td>
-<td><code>false</code></td>
-</tr>
-<tr class="odd">
 <td><pre><code>apim.jwt.use_kid_property</code></pre></td>
 <td><p>Specifies whether the backend JWT header should include the kid claim</p></td>
 <td><code>false</code></td>
