@@ -97,6 +97,9 @@ You have now successfully invoked an API using the Open API Console
 6. Expand a method and click **Try it out**. Click **Execute**.
     
     [![API console execute]({{base_path}}/assets/img/learn/api-console-execute.png)]({{base_path}}/assets/img/learn/api-console-execute.png)
+
+!!! Note
+    When using the Swagger UI's tryout feature to send large payloads, there's a risk that the interface may hang or not function properly. This is because the Swagger client isn't designed as a production-ready tool for handling substantial requests. For testing large payloads, it's advisable to use alternatives like Curl, or other custom clients. The Swagger tryout is intended mainly for simple testing workloads.
         
 ## Get a test key to invoke an API
 
