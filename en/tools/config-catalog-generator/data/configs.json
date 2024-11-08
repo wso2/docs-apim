@@ -567,6 +567,30 @@
                                 "Default"
                             ],
                             "description": "Array of the labels that the gateway is going to subscribe to"
+                        },
+                        {
+                            "name": "deployment_retry_duration",
+                            "type": "int",
+                            "required": false,
+                            "default": "15000",
+                            "possible": "",
+                            "description": "The initial duration in milliseconds to wait before retrying a failed deployment"
+                        },
+                        {
+                            "name": "max_retry_count",
+                            "type": "int",
+                            "required": false,
+                            "default": "5",
+                            "possible": "",
+                            "description": "The maximum number of retry attempts for deploying artifacts in case of failures."
+                        },
+                        {
+                            "name": "retry_progression_factor",
+                            "type": "float",
+                            "required": false,
+                            "default": "2.0",
+                            "possible": "",
+                            "description": "The factor by which the retry duration increases after each failed deployment attempt."
                         }
                     ]
                 }
