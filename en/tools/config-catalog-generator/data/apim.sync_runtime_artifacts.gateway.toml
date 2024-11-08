@@ -1,2 +1,5 @@
 [apim.sync_runtime_artifacts.gateway]
 gateway_labels = ["Default"]
+deployment_retry_duration = 15000
+max_retry_count = 5
+retry_progression_factor = 2.0
