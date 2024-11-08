@@ -59,20 +59,14 @@ Follow the steps given below to configure the Key Manager nodes to communicate w
         password = "${admin.password}"
         'header.X-WSO2-KEY-MANAGER' = "default"
 
-        # Traffic Manager configurations
-        [apim.throttling]
+        # Eventhub configurations
+        [apim.event_hub]
+        enable = true
         username= "$ref{super_admin.username}"
         password= "$ref{super_admin.password}"
         service_url = "https://[control-plane-LB-host]/services/"
-        throttle_decision_endpoints = ["tcp://control-plane-1-host:5672", "tcp://control-plane-2-host:5672"]
-
-        [[apim.throttling.url_group]]
-        traffic_manager_urls = ["tcp://control-plane-1-host:9611"]
-        traffic_manager_auth_urls = ["ssl://control-plane-1-host:9711"]
-
-        [[apim.throttling.url_group]]
-        traffic_manager_urls = ["tcp://control-plane-2-host:9611"]
-        traffic_manager_auth_urls = ["ssl://control-plane-2-host:9711"]
+        event_listening_endpoints = ["tcp://control-plane-1-host:5672", "tcp://control-plane-2-host:5672"]
+        
         ```
 
     === "Single Control Plane"
@@ -90,16 +84,14 @@ Follow the steps given below to configure the Key Manager nodes to communicate w
         password = "${admin.password}"
         'header.X-WSO2-KEY-MANAGER' = "default"
 
-        # Traffic Manager configurations
-        [apim.throttling]
+        # Eventhub configurations
+        [apim.event_hub]
+        enable = true
         username= "$ref{super_admin.username}"
         password= "$ref{super_admin.password}"
         service_url = "https://control-plane-host:9443/services/"
-        throttle_decision_endpoints = ["tcp://control-plane-host:5672"]
+        event_listening_endpoints = ["tcp://control-plane-host:5672"]
 
-        [[apim.throttling.url_group]]
-        traffic_manager_urls=["tcp://control-plane-host:9611"]
-        traffic_manager_auth_urls=["ssl://control-plane-host:9711"]
         ```
 
 3. If required, encrypt the Auth Keys (access tokens, client secrets, and authorization codes), see [Encrypting OAuth Keys](../../../../design/api-security/oauth2/encrypting-oauth2-tokens).
@@ -169,20 +161,14 @@ Follow the steps given below to configure the Key Manager nodes to communicate w
     password = "${admin.password}"
     'header.X-WSO2-KEY-MANAGER' = "default"
 
-    # Traffic Manager configurations
-    [apim.throttling]
+    # Eventhub configurations
+    [apim.event_hub]
+    enable = true
     username= "$ref{super_admin.username}"
     password= "$ref{super_admin.password}"
     service_url = "https://[control-plane-LB-host]/services/"
-    throttle_decision_endpoints = ["tcp://control-plane-1-host:5672", "tcp://control-plane-2-host:5672"]
+    event_listening_endpoints = ["tcp://control-plane-1-host:5672", "tcp://control-plane-2-host:5672"]
 
-    [[apim.throttling.url_group]]
-    traffic_manager_urls = ["tcp://control-plane-1-host:9611"]
-    traffic_manager_auth_urls = ["ssl://control-plane-1-host:9711"]
-
-    [[apim.throttling.url_group]]
-    traffic_manager_urls = ["tcp://control-plane-2-host:9611"]
-    traffic_manager_auth_urls = ["ssl://control-plane-2-host:9711"]
     ```
 
 === "Single Node"
@@ -242,16 +228,13 @@ Follow the steps given below to configure the Key Manager nodes to communicate w
     password = "${admin.password}"
     'header.X-WSO2-KEY-MANAGER' = "default"
 
-    # Traffic Manager configurations
-    [apim.throttling]
+    # Eventhub configurations
+    [apim.event_hub]
+    enable = true
     username= "$ref{super_admin.username}"
     password= "$ref{super_admin.password}"
-    service_url = "https://cp.wso2.com:9443/services/"
-    throttle_decision_endpoints = ["tcp://cp.wso2.com:5672"]
-
-    [[apim.throttling.url_group]]
-    traffic_manager_urls=["tcp://cp.wso2.com:9611"]
-    traffic_manager_auth_urls=["ssl://cp.wso2.com:9711"]
+    service_url = "https://control-plane-host:9443/services/"
+    event_listening_endpoints = ["tcp://control-plane-host:5672"]
 
     ```
 
