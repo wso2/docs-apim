@@ -16,8 +16,8 @@
 # under the License.
 
 # Project information
-site_name: WSO2 API Manager Documentation 4.3.0
-site_description: Documentation for WSO2 API Manager 4.3.0
+site_name: WSO2 API Manager Documentation 4.4.0
+site_description: Documentation for WSO2 API Manager 4.4.0
 site_author: WSO2
 site_url: https://apim.docs.wso2.com/en/latest/
 
@@ -1120,7 +1120,7 @@ extra:
         helm_chart:
             version: 1.2.0-1
             git_tag: v1.2.0.1
-    site_version: 4.3.0
+    site_version: 4.4.0
     # base_path: http://localhost:8000/en/latest
     base_path: https://apim.docs.wso2.com/en/latest
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
