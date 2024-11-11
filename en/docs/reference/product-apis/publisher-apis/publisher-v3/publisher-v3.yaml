@@ -8661,10 +8661,10 @@ components:
           description: Timestamp of API Creation.
         lastUpdatedTimestamp:
           type: string
-          description: Timestamp, when the API is last updated.
+          description: Time the API is last updated in Timestamp format.
         lastUpdatedTime:
           type: string
-          description: Timestamp the API is last updated.
+          description: Time the API is last updated in Date Time format.
           x-otherScopes:
             - apim:api_publish
             - apim:api_manage
@@ -9322,8 +9322,10 @@ components:
           type: string
         lastUpdatedTimestamp:
           type: string
+          description: Time the API is last updated in Timestamp format.
         lastUpdatedTime:
           type: string
+          description: Time the API is last updated in Date Time format.
         gatewayVendor:
           title: field to identify gateway vendor
           type: string
