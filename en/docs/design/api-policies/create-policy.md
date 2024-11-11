@@ -5,6 +5,12 @@ Listed below are two ways of creating a new policy. Depending on whether you nee
 * Creating a **Common Policy**
 * Creating an **API Specific Policy**
 
+!!! warning
+    When creating custom policies, please note that certain mediators cannot be used within these policies as they are not supported by the API Gateway. Specifically, the following mediators are not supported:
+
+    - `Call` mediator in non-blocking mode
+    - `Send` mediator
+
 ## Creating a Common Policy
 
 A common policy is a globally maintained policy and you can easily utilize this policy at the operation level of any desired API. Note that these policies are not bound to any API and they are merely templates that you can easily use. Now let’s see how you can create such a policy. Follow the instructions below to create a new common policy.
