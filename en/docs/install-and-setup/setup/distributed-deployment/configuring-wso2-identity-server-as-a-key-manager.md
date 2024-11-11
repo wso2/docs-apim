@@ -241,7 +241,9 @@ Follow the instructions below to set up and configure the databases for the WSO2
 
 6. If you wish to encrypt the OAuth2 Keys (access tokens, client secrets, and authorization codes) follow the steps given in [Encrypting OAuth Keys](https://is.docs.wso2.com/en/5.10.0/learn/testing-oidc-encrypted-id-token-with-is/#enable-id-token-encryption), which is in the WSO2 Identity Server 5.10.0 documentation, and apply the relevant configurations in the `<IS_HOME>/repository/conf/deployment.toml` file to enable the feature.
 
-7. Add the below configuration in the `<IS_HOME>/repository/conf/deployment.toml` file to disable group and role separation in WSO2 Identity Server.
+7. If you are using the existing keystore and truststore (with self signed certificate) shipped by default with the product distributions, replace the keystore in `<IS_HOME>/repository/resources/security/wso2carbon.jks` and trustore in `<IS_HOME>/repository/resources/security/client-truststore.jks` with the `<APIM_HOME>/repository/resources/security/wso2carbon.jks` and  `<APIM_HOME>/repository/resources/security/client-truststore.jks` respectively. Make sure to follow this step before starting either of the servers for the first time. (Please note that in a production environment, it is not recommended to use the default keystores. Instead, it is recommended to [create new keystores]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/) with new keys and certificates.)
+
+8. Add the below configuration in the `<IS_HOME>/repository/conf/deployment.toml` file to disable group and role separation in WSO2 Identity Server.
     ``` toml
     [authorization_manager.properties]
     GroupAndRoleSeparationEnabled = false
