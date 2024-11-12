@@ -151,6 +151,10 @@ Similarly, add the Identity Server as an identity provider configurations in `ht
 
 ## Configuring WSO2 API Manager apps as SAML 2.0 SSO service providers
 
+!!! note
+    The Single Sign-On (SSO) with OpenID Connect (OIDC) is enabled by default in the portals of WSO2 API Manager, eliminating the need for additional configuration.</br>
+    Configure SAML SSO with WSO2 Identity Server (WSO2 IS) only if you have specific requirements, such as integrating API Manager portals into an existing SAML SSO setup. This is applicable when you have other applications using SSO through WSO2 IS and SAML, and you need to include the API Manager portals as part of the same SAML SSO group. 
+
 1.  Sign in to the WSO2 API Management Console UI (`https://localhost:9443/carbon)`.
 
 2.  List the service providers, and click **Edit** on the relevant application for the Publisher, Developer Portal, or Admin Portal.
