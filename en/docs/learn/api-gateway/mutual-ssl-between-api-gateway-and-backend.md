@@ -85,7 +85,7 @@ To enable dynamic loading of this configuration, add the below configurations to
 
 ``` toml
 [transport.passthru_https.sender.ssl_profile]
-file_path = "repository/deployment/server/mutual_ssl_profiles.xml"
+file_path = "repository/deployment/server/sslprofiles.xml"
 interval = 3600000
 
 [transport.passthru_https.sender.parameters]
