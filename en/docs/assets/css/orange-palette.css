@@ -31,8 +31,8 @@ body {
     --md-logo: transparent url(../img/logo.svg) no-repeat left top;
     --md-header-options-color: #ff7043;
     --md-homepage-h3-color: #d5ac8d;
-    --md-section03-bg-color: #23272f;
-    --md-section05-bg-color: #23272f;
+    --md-section02-bg-color: #23272f;
+    --md-section04-bg-color: #23272f;
     --md-typeset-td-bg-color: #23272f;
 }
 /* colors for the light theme */
@@ -45,8 +45,8 @@ body {
     --md-typeset-a-color: var(--md-primary-fg-color);
     --md-logo: transparent url(../img/logo-for-light.svg) no-repeat left top;
     --md-homepage-h3-color: #333;
-    --md-section03-bg-color: #EBEBEB;
-    --md-section05-bg-color: #ebebeb;
+    --md-section02-bg-color: #EBEBEB;
+    --md-section04-bg-color: #ebebeb;
     --md-nav-list-text-color: #424242;
     --md-footer-bg-color: #f5f5f5;
     --md-footer-text-color: #424242;
@@ -93,12 +93,12 @@ body {
     color: var(--md-homepage-h3-color);
 }
 
-.section03 {
-    background: var(--md-section03-bg-color);
+.section02 {
+    background: var(--md-section02-bg-color);
 }
 
-.section05 {
-    background: var(--md-section05-bg-color);
+.section04 {
+    background: var(--md-section04-bg-color);
 }
 
 .md-typeset__td {
