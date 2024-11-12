@@ -124,7 +124,6 @@ html .md-footer-meta.md-typeset a {
     left: 0;
     right: 100%;
     bottom: 0;
-    background: #2098D1;
     height: 4px;
     -webkit-transition-property: right;
     transition-property: right;
@@ -138,34 +137,34 @@ html .md-footer-meta.md-typeset a {
     right: 0;
 }
 
-.section03 {
+.section02 {
     margin: 0 -75px;
     padding: 70px 60px;
     display: flex;
     flex-direction: column;
 }
 
-.section03 h3 {
+.section02 h3 {
     margin-top: 0;
 }
 
-.section03 .linkSet2:hover a {
+.section02 .linkSet2:hover a {
     text-decoration: underline;
     text-decoration-style: wavy;
     text-decoration-color: #3f51b5;
     animation: wavy-slide 3s linear infinite;
 }
 
-.section03 .linkSet2 p {
+.section02 .linkSet2 p {
     margin: 1em 0;
 }
 
-.section04 {
+.section03 {
     padding: 20px 0 10px 0;
 }
 
-.section05 {
-    margin: 0 -75px;
+.section04 {
+    margin: 0 -60px;
     padding: 45px 60px;
 }
 
@@ -289,13 +288,17 @@ html .md-footer-meta.md-typeset a {
         margin-top: -50px;
     }
 
-    .section03 {
+    .section02 {
         flex-direction: row;
     }
 
     .leftContent {
         text-align: left;
         max-height: 100%;
+    }
+
+    .leftContent h3 {
+        margin: 1rem 0;
     }
 
     .linkSet2 {
