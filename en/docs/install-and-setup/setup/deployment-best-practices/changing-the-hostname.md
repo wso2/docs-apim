@@ -1,6 +1,6 @@
 # Changing the Hostname
 
-By default, WSO2 products identify the hostname of the current machine through the Java API. However, it is recommended to configure the hostname by setting the hostname parameter in the `deployment.toml` file of each runtime (API-M or Micro Integrator).
+By default, WSO2 products identify the hostname of the current machine through the Java API. However, it is recommended to configure the hostname by setting the hostname parameter in the `deployment.toml` file.
 
 ## Changing the API-M hostname
 
@@ -83,30 +83,3 @@ Follow the steps given below.
     When changing the hostname in `deployment.toml` prior to the initial startup of the server, the URLs and endpoints will be read from the file system and subsequently persisted in the database. This is applicable to most configurations in the Resident Identity Provider (IDP). Therefore, any changes made before the initial server startup can be performed via the `deployment.toml` file.
     
     However, if changes are required after the initial server startup, the Resident IDP configuration must be updated via the Management Console(`https://<host>:<port>/carbon`) UI.
-
-## Changing the Micro Integrator hostname
-
-Follow the steps given below.
-
-1.  Open the `<MI-HOME>/conf/deployment.toml` file 
-2.  Define the `hostname` attribute under server configuration as shown below.
-
-    === "Format"
-        ``` toml
-        [server]
-        hostname = "{hostname}"
-        ```
-
-    === "Format"
-        ``` toml
-        [server]
-        hostname="localhost"
-        ```
-
-To configure hostnames for WSDLs and endpoints, it is recommended to add the following parameter for the transport listener in the `deployment.toml` file.
-
-```toml
-[transport.http]
-listener.wsdl_epr_prefix="$ref{server.hostname}"
-```
-
