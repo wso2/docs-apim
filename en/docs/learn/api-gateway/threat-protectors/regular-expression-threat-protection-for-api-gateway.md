@@ -50,15 +50,19 @@ We recommend the following patterns for blacklisting.
         <tr class="even">
             <td>XPath Injection</td>
             <td>
-                <code>.*'.*|.*or.*|.*1=1.*|.*ALTER.*|.*ALTER TABLE.*|.*ALTER VIEW.*|</code><br />
+                <code>.*'.*|(?\u003C![\w\d])or(?![\w\d])|.*1=1.*|.*ALTER.*|.*ALTER TABLE.*|.*ALTER VIEW.*|</code><br />
                 <code>.*CREATE DATABASE.*|.*CREATE PROCEDURE.*|.*CREATE SCHEMA.*|</code><br />
                 <code>.*create table.*|.*CREATE VIEW.*|.*DELETE.*|.*DROP DATABASE.*|</code><br />
                 <code>.*DROP PROCEDURE.*|.*DROP.*|.*SELECT.*</code>
             </td>
         </tr>
         <tr class="odd">
-            <td>Javascript Exception</td>
-            <td><p><code>&lt;\s*script\b[^&gt;]*&gt;[^&lt;]+&lt;\s*/\s*script\s*&gt;</code></p></td>
+            <td>JavaScript Injection</td>
+            <td><p>
+                ```
+                &lt;\s*script\b[^&gt;]*&gt;[^&lt;]+&lt;\s*/\s*script\s*&gt;
+                ```
+            </p></td>
         </tr>
         <tr class="even">
             <td>XPath Expanded Syntax Injection</td>
