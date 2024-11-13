@@ -31,7 +31,7 @@ Each handler performs a specific task as mentioned in the table below. Note that
 
 ### Mediation extensions
 
-Mediation extensions are the custom mediation logic that can be executed in either the inflow or the outflow. For more details on how to configure mediation extensions, see [Adding Mediation Extensions]({{base_path}}/design/api-policies/attach-policy) .
+Mediation extensions enable you to define custom logic that can be executed during the inflow or outflow of API requests.  To learn more about mediation extensions, see [API Policy]({{base_path}}/design/api-policies/overview) .
 
 ### In sequence and out sequence
 
