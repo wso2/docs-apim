@@ -239,20 +239,6 @@ nav:
                 - Revision Deployment Workflow: deploy-and-publish/deploy-on-gateway/deploy-api/revision-deployment-workflow.md
             - API Gateway:
                 - Overview of the WSO2 API Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/overview-of-the-api-gateway.md
-                #- Publish APIs Overview: deploy-and-publish/deploy-on-gateway/publish-api-overview.md
-                #- Message Mediation:
-                    #- Specify a Mediation Flow Using a Policy: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/specifying-mediation-flow-based-on-policy.md
-                    #- Change the Default Mediation Flow of API Requests: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests.md
-                    #- Create and Upload Using Integration Studio: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/creating-and-uploading-using-integration-studio.md
-                    #- Add Dynamic Endpoints: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-dynamic-endpoints.md
-                    #- Remove Specific Request Headers From Response: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/removing-specific-request-headers-from-response.md
-                    #- Pass a Custom Authorization Token to the Backend: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/passing-a-custom-authorization-token-to-the-backend.md
-                    #- URL Mapping: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/mapping-the-parameters-of-your-backend-urls-with-the-api-publisher-urls.md
-                    #- Disable Message Chunking: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/disabling-message-chunking.md
-                    #- Transform API Message Payload: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/transforming-api-message-payload.md
-                    #- Add a Non-Blocking Send Operation: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-a-non-blocking-send-operation.md
-                    #- Add a Class Mediator:  deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-a-class-mediator.md
-                    #- Configure message builders and formatters: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/configuring-message-builders-formatters.md
                 - Gateway Policies: deploy-and-publish/deploy-on-gateway/api-gateway/gateway-policies.md
                 - Response Caching: deploy-and-publish/deploy-on-gateway/api-gateway/response-caching.md
                 - Threat Protectors:
@@ -746,7 +732,6 @@ plugins:
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/configure-a-third-party-key-manager.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager/'
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager/'
               'install-and-setup/deploying-wso2-api-manager/configuring-message-builders-formatters.md': 'https://apim.docs.wso2.com/en/4.4.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/configuring-message-builders-formatters/'
-              ##'install-and-setup/deploying-wso2-api-manager/configuring-rsync-for-deployment-synchronization.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-rsync/'
               'install-and-setup/deploying-wso2-api-manager/deploying-api-manager-with-kubernetes-or-openshift-resources.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources/'
               'install-and-setup/deploying-wso2-api-manager/production-deployment-guidelines.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/setup/deployment-best-practices/production-deployment-guidelines/'
               'install-and-setup/deploying-wso2-api-manager/security-guidelines-for-production-deployment.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/'
@@ -777,7 +762,6 @@ plugins:
               'getting-started/quick-start-guide.md': 'https://apim.docs.wso2.com/en/4.4.0/get-started/quick-start-guide/quick-start-guide/'
               'getting-started/about-this-release.md': 'https://apim.docs.wso2.com/en/4.4.0/get-started/about-this-release/'
               'get-started/quick-start-guide/quick-start-guide.md': 'https://apim.docs.wso2.com/en/4.4.0/get-started/api-manager-quick-start-guide/'
-              'get-started/quick-start-guide/integration-qsg.md': 'https://apim.docs.wso2.com/en/4.4.0/get-started/integration-quick-start-guide/'
               'get-started/quick-start-guide/streaming-qsg.md': 'https://apim.docs.wso2.com/en/4.4.0/get-started/streaming-quick-start-guide/'
               'learn/design-api/create-api/create-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.4.0/design/create-api/create-rest-api/create-a-rest-api/'
               'learn/design-api/create-api/create-a-rest-api-from-an-openapi-definition.md': 'https://apim.docs.wso2.com/en/4.4.0/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition/'
@@ -788,7 +772,6 @@ plugins:
               'learn/design-api/create-api/test-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.4.0/design/create-api/create-rest-api/test-a-rest-api/'
               'learn/api-gateway/overview-of-the-api-gateway.md': 'https://apim.docs.wso2.com/en/4.4.0/deploy-and-publish/deploy-on-gateway/api-gateway/overview-of-the-api-gateway/'
               'learn/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests.md': 'https://apim.docs.wso2.com/en/4.4.0/design/api-policies/attach-policy/'
-              'learn/api-gateway/message-mediation/creating-and-uploading-using-integration-studio.md': 'https://apim.docs.wso2.com/en/4.4.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/creating-and-uploading-using-integration-studio/'
               'learn/api-gateway/message-mediation/adding-dynamic-endpoints.md': 'https://apim.docs.wso2.com/en/4.4.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-dynamic-endpoints/'
               'learn/api-gateway/message-mediation/removing-specific-request-headers-from-response.md': 'https://apim.docs.wso2.com/en/4.4.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/removing-specific-request-headers-from-response/'
               'learn/api-gateway/message-mediation/passing-a-custom-authorization-token-to-the-backend.md': 'https://apim.docs.wso2.com/en/4.4.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/passing-a-custom-authorization-token-to-the-backend/'
@@ -1064,10 +1047,6 @@ plugins:
               'observe/api-manager-analytics/analytics-pages/analytics-pages-devices.md': 'https://apim.docs.wso2.com/en/4.4.0/api-analytics/viewing/analytics-pages-devices/'
               'observe/api-manager-analytics/analytics-pages/analytics-pages-alerts.md': 'https://apim.docs.wso2.com/en/4.4.0/api-analytics/viewing/analytics-pages-alerts/'
               'observe/api-manager-analytics/analytics-pages/analytics-pages-report.md': 'https://apim.docs.wso2.com/en/4.4.0/api-analytics/viewing/analytics-pages-report/'
-              #'observe/api-manager-analytics/analytics-usecases/finding-faulty-apis.md': 'https://apim.docs.wso2.com/en/4.4.0/api-analytics/viewing/usecases/finding-faulty-apis/'
-              #'observe/api-manager-analytics/analytics-qos.md': 'https://apim.docs.wso2.com/en/4.4.0/api-analytics/qos/'
-              #'observe/api-manager-analytics/querying-apim-analytics.md': 'https://apim.docs.wso2.com/en/4.4.0/api-analytics/analytics-api-guide/'
-              #'observe/api-manager-analytics/troubleshooting-analytics.md':
               'observe/api-manager-analytics/overview-of-api-analytics.md': 'https://apim.docs.wso2.com/en/4.4.0/api-analytics/getting-started-guide/'
               'get-started/architecture.md': 'https://apim.docs.wso2.com/en/4.4.0/get-started/apim-architecture/'
               'api-analytics/getting-started-guide.md': 'https://apim.docs.wso2.com/en/latest/api-analytics/choreo-analytics/getting-started-guide/'
@@ -1082,8 +1061,6 @@ plugins:
               'administer/logging-and-monitoring/monitoring/working-with-observability.md': 'https://apim.docs.wso2.com/en/4.4.0/observe/api-manager/monitoring-correlation-logs/'
               'administer/logging-and-monitoring/logging/monitoring-http-access-logs.md': 'https://apim.docs.wso2.com/en/4.4.0/observe/api-manager/monitoring-http-access-logs/'
               'administer/logging-and-monitoring/logging/monitoring-audit-logs.md': 'https://apim.docs.wso2.com/en/4.4.0/observe/api-manager/monitoring-audit-logs/'
-              'administer/logging-and-monitoring/monitoring/monitoring-with-opentracing.md': 'https://apim.docs.wso2.com/en/4.4.0/observe/api-manager/traces/monitoring-with-opentracing/'
-              'administer/logging-and-monitoring/monitoring/jmx-based-monitoring.md': 'https://apim.docs.wso2.com/en/4.4.0/observe/api-manager/metrics/jmx-based-monitoring/'
               'administer/logging-and-monitoring/logging/setting-up-logging.md': 'https://apim.docs.wso2.com/en/4.4.0/administer/logging-and-monitoring/logging/configuring-logging/'
               'api-analytics/viewing/view-overview-of-api-analytics.md': 'https://wso2.com/choreo/docs/monitoring-and-insights/usage-insights/#overview'
               'api-analytics/viewing/view-api-analytics-on-traffic.md': 'https://wso2.com/choreo/docs/monitoring-and-insights/usage-insights/#traffic'
