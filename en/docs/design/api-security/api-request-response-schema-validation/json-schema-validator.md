@@ -24,7 +24,7 @@ The following diagram illustrates the message flow when sending an invalid reque
 
 **Example:**
 
-The following is an invalid request based on the [Petstore API](https://github.com/OAI/OpenAPI-Specification/blob/master/examples/v2.0/json/petstore.json).
+The following is an invalid request based on the [Petstore API](https://github.com/OAI/learn.openapis.org/blob/main/examples/v2.0/json/petstore.json).
 
 ```
 curl -X POST "https://localhost:8243/rfrf/1.0.0/pet" -H "accept: */*" -H "Content-Type: application/json" -H "Authorization: Bearer c06e0cb0-af4a-3e5e-b8c3-99449ff7e3e5" -d "{\"id\":0,\"category\":{\"id\":0,\"name\":\"string\"},\"name\":\"doggie\",\"photoUrls\":[\"string\"],\"tags\":[{\"id\":0,\"name\":\"string\"}],\"status\":\"available\"}"
@@ -56,7 +56,7 @@ The following diagram illustrates the message flow when sending an invalid respo
 
 **Example**
 
-The following is a sample request from the client based on the [Petstore API](https://github.com/OAI/OpenAPI-Specification/blob/main/tests/v3.0/pass/petstore.yaml).
+The following is a sample request from the client based on the [Petstore API](https://github.com/OAI/learn.openapis.org/blob/main/examples/v2.0/json/petstore.json).
 
 ```
 curl -X GET "https://localhost:8243/PetstoreAPI/1.0.0/pets/1" -H "accept: application/xml" -H "Authorization: Bearer c06e0cb0-af4a-3e5e-b8c3-99449ff7e3e5"
