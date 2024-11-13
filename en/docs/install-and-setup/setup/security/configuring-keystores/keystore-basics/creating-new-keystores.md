@@ -120,7 +120,7 @@ First, you need to generate a certificate signing request (CSR) for your keysto
 2.  You must provide this CSR file to the CA. For testing purposes, try the [90 days trial SSL certificate from Comodo](https://www.comodo.com/e-commerce/ssl-certificates/free-ssl-certificate.php) .
 
     !!! Note
-        It is preferable to have a wildcard certificate or multiple domain certificates if you wish to have multiple subdomains like *[gateway.sampledomain.org](http://gateway.sampledomain.org/)* , *[publisher.sampledomain.org](http://publisher.sampledomain.org/)* , *[identity.sampledomain.org](http://identity.sampledomain.org/)* , etc., for the deployment. For such requirements, you must modify the CSR request by adding subject alternative names. Most of the SSL providers give instructions to generate the CSR in such cases.
+        It is preferable to have a wildcard certificate or multiple domain certificates if you wish to have multiple subdomains like <code>gateway.sampledomain.org</code>, <code>publisher.sampledomain.org</code> , <code> identity.sampledomain.org </code> , etc., for the deployment. For such requirements, you must modify the CSR request by adding subject alternative names. Most of the SSL providers give instructions to generate the CSR in such cases.
 
 3.  After accepting the request, a signed certificate is provided along with a root certificate and several intermediate certificates (depending on the CA) as a bundle (.zip file).
 
