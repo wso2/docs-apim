@@ -613,9 +613,7 @@ nav:
             - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md
     - Tutorials:
           - Tutorials Overview: tutorials/tutorials-overview.md
-          - Expose an Integration Service as a Managed API: tutorials/integration-tutorials/service-catalog-tutorial.md
           - Develop an Integration From a Managed API: tutorials/develop-an-integration-with-a-managed-api.md
-          - Expose an Integration SOAP Service as a Managed API: tutorials/integration-tutorials/service-catalog-tutorial-for-proxy-services.md
           - Scenario Tutorials:
             - Scenario Overview: tutorials/scenarios/scenario-overview.md
             - Scenario 1 - Create a REST API from an OpenAPI Definition: tutorials/scenarios/scenario1-create-rest-api.md
