@@ -8281,7 +8281,7 @@ components:
             - SINGLE
         audiences:
           type: array
-          description: The allowed audiences for the API for jwt validation. Accepted values are any String values
+          description: The allowed audiences for the API for jwt validation. Any string value is accepted.
           items:
             type: string
             example: [ "aud1","aud2","aud3" ]
