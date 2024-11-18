@@ -23,7 +23,7 @@ The APIs created in the API Publisher are visible to any user who signs in to th
 
     !!! note
         Please note that the roles that are added under 'Publisher Access Control' will be case-insensitive. Hence the roles you add here will be saved in lower-case by default.</br></br>
-        From the update level 4.1.0.64 onwards, to add the case-insensitive role validation for publisher access control, add the following system property in `<APIM_HOME>/bin/api-manager.sh` file : </br>
+        From the update level 4.0.0.145 onwards, to add the case-insensitive role validation for publisher access control, add the following system property in `<APIM_HOME>/bin/api-manager.sh` file : </br>
         <code>-DcaseSensitiveRoleValidation=true \</code>
 
 
