@@ -1712,7 +1712,12 @@ markdown_extensions:
           base_path: docs
     - attr_list
 plugins:
-    - search
+    - search:
+        indexing: "full"
+        separator: "[^\\w._-]+"
+        lang: ['en']
+        prebuild_index: true
+        ngram_length: 3
     - markdownextradata: {}
     - exclude:
           glob:
