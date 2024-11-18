@@ -682,7 +682,12 @@ markdown_extensions:
     - pymdownx.tabbed:
           alternate_style: true
 plugins:
-    - search
+    - search:
+        indexing: "full"
+        separator: "[^\\w._-]+"
+        lang: ['en']
+        prebuild_index: true
+        ngram_length: 3
     - markdownextradata: {}
     - exclude:
           glob:
