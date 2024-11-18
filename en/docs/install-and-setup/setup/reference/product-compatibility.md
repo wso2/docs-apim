@@ -1,14 +1,14 @@
 # Product Compatibility
 
-Given below are the compatibility details of the WSO2 API Manager (WSO2 API-M) 4.3.0 runtimes.
+Given below are the compatibility details of the WSO2 API Manager (WSO2 API-M) 4.4.0 runtimes.
 
 ## API-M runtime compatibility
 
-Given below is the tested compatibility of the API-M runtime of WSO2 API Manager 4.3.0.
+Given below is the tested compatibility of the API-M runtime of WSO2 API Manager 4.4.0.
 
 #### Tested Operating Systems
 
-As WSO2 API Manager is a Java application, you can generally run it on most operating systems. Listed below are the operating systems that have been tested with the API-M 4.3.0 runtime.
+As WSO2 API Manager is a Java application, you can generally run it on most operating systems. Listed below are the operating systems that have been tested with the API-M 4.4.0 runtime.
 
 |**Operating System**|**Versions**  |
 |--------------------|--------------|
@@ -43,7 +43,7 @@ The **WSO2 API-M** runtime is tested with the following databases:
 
 #### Tested WSO2 Products
 
-The following is a list of other WSO2 products that have been tested with WSO2 API Manager 4.3.0.
+The following is a list of other WSO2 products that have been tested with WSO2 API Manager 4.4.0.
 
 - [WSO2 Identity Server 7.0.0 and 6.1.0](https://wso2.com/identity-and-access-management/#)
 - [WSO2 API Platform For Kubernetes(APK) 1.2.0](https://wso2.com/api-platform-for-k8s)
