@@ -537,7 +537,10 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
 plugins:
-  - search
+  - search:
+        separator: "[^\\w._-]+"
+        lang: ['en']
+        prebuild_index: true
   - markdownextradata: {}
   - redirects:
       redirect_maps:
