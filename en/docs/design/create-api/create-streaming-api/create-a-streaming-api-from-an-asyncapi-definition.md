@@ -2,9 +2,9 @@
 
 [AsyncAPI specification](https://www.asyncapi.com/) is a format that describes streaming APIs. An API Creator can import an existing AsyncAPI definition to WSO2 API Manager to create a streaming API using any one of the following protocols.
 
-- [WebSocket](../../../../use-cases/streaming-usecase/create-streaming-api/create-a-websocket-streaming-api/#overview)
-- [WebSub (WebHooks)](../../../../use-cases/streaming-usecase/create-streaming-api/create-a-websub-streaming-api/#overview)
-- [Server Sent Events (SSE)](../../../../use-cases/streaming-usecase/create-streaming-api/create-a-sse-streaming-api/#overview)
+- [WebSocket](../../../../design/create-api/create-streaming-api/create-a-websocket-streaming-api/#overview)
+- [WebSub (WebHooks)](../../../../design/create-api/create-streaming-api/create-a-websub-streaming-api/#overview)
+- [Server Sent Events (SSE)](../../../../design/create-api/create-streaming-api/create-a-sse-streaming-api/#overview)
 
 The API Creator can import the existing AsyncAPI definition by either uploading a file or by providing an Async API URL.
 
