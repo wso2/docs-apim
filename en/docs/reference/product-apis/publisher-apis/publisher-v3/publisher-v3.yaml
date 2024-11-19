@@ -198,6 +198,8 @@ paths:
         - lang: Curl
           source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
           "https://127.0.0.1:9443/api/am/publisher/v3/apis"'
+      x-examples:
+        $ref: docs/examples/apis/apis_get.yaml
       operationId: getAllAPIs
 
     post:
@@ -263,6 +265,8 @@ paths:
         - lang: Curl
           source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
           -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/publisher/v3/apis"'
+      x-examples:
+        $ref: docs/examples/apis/apis_post.yaml
       operationId: createAPI
 
   ######################################################
@@ -324,6 +328,8 @@ paths:
         - lang: Curl
           source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
           "https://127.0.0.1:9443/api/am/publisher/v3/apis/7a2298c4-c905-403f-8fac-38c73301631f"'
+      x-examples:
+        $ref: docs/examples/apis/apis_id_get.yaml
       operationId: getAPI
 
     put:
@@ -1202,6 +1208,8 @@ paths:
         - lang: Curl
           source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
           "https://127.0.0.1:9443/api/am/publisher/v3/apis/copy-api?newVersion=2.0&defaultVersion=false&apiId=2fd14eb8-b828-4013-b448-0739d2e76bf7"'
+      x-examples:
+        $ref: docs/examples/apis/apis_copyapi.yaml#/post
       operationId: createNewAPIVersion
 
   /apis/change-lifecycle:
@@ -2227,6 +2235,8 @@ paths:
                 inlineAPIDefinition:
                   type: string
                   description: Inline content of the OpenAPI definition
+              required:
+                - additionalProperties
       responses:
         201:
           description: |
@@ -2265,6 +2275,8 @@ paths:
         - lang: Curl
           source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
           -F file=@openapi.json -F additionalProperties=@data.json "https://127.0.0.1:9443/api/am/publisher/v3/apis/import-openapi"'
+      x-examples:
+        $ref: docs/examples/apis/import_openapi_post.yaml
 
   /apis/import-wsdl:
     post:
@@ -3979,6 +3991,12 @@ paths:
           schema:
             type: boolean
             default: false
+        - name: gatewayEnvironment
+          in: query
+          description: |
+            Gateway environment of the exported APIs
+          schema:
+            type: string
       responses:
         200:
           description: |
@@ -5193,6 +5211,8 @@ paths:
         - lang: Curl
           source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
           "https://127.0.0.1:9443/api/am/publisher/v3/search?query=pizza"'
+      x-examples:
+        $ref: docs/examples/apis/search_get.yaml
       operationId: search
 
   ######################################################
@@ -8239,6 +8259,7 @@ components:
               display:
                 type: boolean
                 default: false
+            description: Map of custom properties of the API, which is used to indicate whether the property should be displayed in devportal
         version:
           type: string
           example: 1.0.0
@@ -8249,25 +8270,37 @@ components:
           example: admin
         type:
           type: string
+          description: Type of the API.
           example: HTTP
         audience:
           type: string
-          description: The audience of the API. Accepted values are PUBLIC, SINGLE
+          description: This is a deprecated property and will be removed in future versions.
           example: PUBLIC
           enum:
             - PUBLIC
             - SINGLE
+        audiences:
+          type: array
+          description: The allowed audiences for the API for jwt validation. Any string value is accepted.
+          items:
+            type: string
+            example: [ "aud1","aud2","aud3" ]
         lifeCycleStatus:
           type: string
+          description: Lifecycle status of the API.
           example: CREATED
         workflowStatus:
           type: string
+          description: Workflow status of the API.
           example: APPROVED
         hasThumbnail:
           type: boolean
+          description: The property indicates whether the API has a thumbnail.
           example: true
         securityScheme:
           type: array
+          description: The property describes the security schemes supported by the API.
+          example: ["oauth2"]
           items:
             type: string
         createdTime:
@@ -8278,9 +8311,11 @@ components:
           example : 2021-02-11 09:57:25
         gatewayVendor:
           type: string
+          description: The vendor of the gateway implementation.
           example: wso2
         advertiseOnly:
           type: boolean
+          description: The property indicates whether this is an advertise only API.
           example: true
     Topic:
       title: Topic object
@@ -8302,9 +8337,9 @@ components:
           type: string
           example: PizzaShackAPI
         mode:
-          maxLength: 20
+          maxLength: 32766
           type: string
-          example: Pizza
+          example: This is a simple API for Pizza Shack online pizza delivery store.
         description:
           maxLength: 32766
           type: string
@@ -8367,6 +8402,7 @@ components:
           example: admin
         lifeCycleStatus:
           type: string
+          description: Lifecycle status of the API.
           example: CREATED
           x-otherScopes:
             - apim:api_publish
@@ -8375,22 +8411,28 @@ components:
           $ref: '#/components/schemas/WSDLInfo'
         wsdlUrl:
           type: string
+          description: URL of the wsdl.
           readOnly: true
           example: /apimgt/applicationdata/wsdls/admin--soap1.wsdl
         responseCachingEnabled:
           type: boolean
+          description: Indicates whether the response caching is enabled for the API.
           example: true
         cacheTimeout:
           type: integer
-          example: 300
+          description: The cache time out for response cache of the API.
+          default: 300
         hasThumbnail:
           type: boolean
+          description: Indicates whether the API has a thumbnail
           example: false
         isDefaultVersion:
           type: boolean
+          description: Indicates whether this is the default version of the API.
           example: false
         isRevision:
           type: boolean
+          description: Indicates whether this API is a revision.
           example: false
         revisionedApiId:
           type: string
@@ -8422,11 +8464,17 @@ components:
             - ASYNC
         audience:
           type: string
-          description: The audience of the API. Accepted values are PUBLIC, SINGLE
+          description: The property is deprecated and will be removed from future versions.
           example: PUBLIC
           enum:
             - PUBLIC
             - SINGLE
+        audiences:
+          type: array
+          description: The allowed audiences for the API for jwt validation. Any string value is accepted.
+          items:
+            type: string
+            example: [ "aud1","aud2","aud3" ]
         transport:
           type: array
           description: |
@@ -8438,6 +8486,7 @@ components:
             type: string
         tags:
           type: array
+          description: Tags that are attached to the API.
           example:
             - pizza
             - food
@@ -8448,6 +8497,7 @@ components:
             - apim:api_manage
         policies:
           type: array
+          description: Business plans attached to the API.
           example:
             - Unlimited
           items:
@@ -8505,6 +8555,7 @@ components:
             - apim:api_manage
         visibleTenants:
           type: array
+          description: This is a deprecated property and will be removed from future versions.
           example: []
           items:
             type: string
@@ -8534,6 +8585,7 @@ components:
             - apim:api_manage
         subscriptionAvailableTenants:
           type: array
+          description: List of tenants allowed for subscription , if cross tenant subscription is enabled.
           example: []
           items:
             type: string
@@ -8564,6 +8616,7 @@ components:
               display:
                 type: boolean
                 default: false
+          description: Map of custom properties of the API, which is used to indicate whether the property should be displayed in devportal.
           x-otherScopes:
             - apim:api_publish
             - apim:api_manage
@@ -8588,27 +8641,36 @@ components:
           items:
             type: string
         businessInformation:
+          description: Business Informations of the API.
           allOf:
             - $ref: '#/components/schemas/APIBusinessInformation'
           x-otherScopes:
             - apim:api_publish
             - apim:api_manage
         corsConfiguration:
+          description: Cors Configurations of the API.
           $ref: '#/components/schemas/APICorsConfiguration'
         websubSubscriptionConfiguration:
           $ref: '#/components/schemas/WebsubSubscriptionConfiguration'
         workflowStatus:
           type: string
+          description: Workflow status of the API.
           example: APPROVED
         createdTime:
           type: string
+          description: Timestamp of API Creation.
+        lastUpdatedTimestamp:
+          type: string
+          description: Time the API is last updated in Timestamp format.
         lastUpdatedTime:
           type: string
+          description: Time the API is last updated in Date Time format.
           x-otherScopes:
             - apim:api_publish
             - apim:api_manage
         endpointConfig:
           type: object
+          description: Endpoint configurations of the API.
           properties: {}
           description: |
             Endpoint configuration of the API. This can be used to provide different types of endpoints including Simple REST Endpoints, Loadbalanced and Failover.
@@ -8771,6 +8833,7 @@ components:
               url: https://localhost:9443/am/sample/pizzashack/v3/api/
         endpointImplementationType:
           type: string
+          description: Implementation type of the API endpoint.
           example: INLINE
           default: ENDPOINT
           enum:
@@ -8779,6 +8842,7 @@ components:
             - MOCKED_OAS
         scopes:
           type: array
+          description: Scopes attached to the API.
           items:
             $ref: '#/components/schemas/APIScope'
         operations:
@@ -9055,6 +9119,12 @@ components:
         gatewayVendor:
           type: string
           example: wso2
+        audiences:
+          type: array
+          description: The audiences of the API product for jwt validation. Any string value is accepted.
+          items:
+            type: string
+            example: [ "aud1","aud2","aud3" ]
     APIProduct:
       title: API Product object
       required:
@@ -9224,6 +9294,7 @@ components:
             - SPECIFIC_TENANTS
         subscriptionAvailableTenants:
           type: array
+          description: List of tenants allowed for subscription , if cross tenant subscription is enabled.
           example: []
           items:
             type: string
@@ -9254,6 +9325,7 @@ components:
               display:
                 type: boolean
                 default: false
+            description: Map of custom properties of the API, which is used to indicate whether the property should be displayed in devportal
         monetization:
           $ref: '#/components/schemas/APIMonetizationInfo'
         businessInformation:
@@ -9262,8 +9334,12 @@ components:
           $ref: '#/components/schemas/APICorsConfiguration'
         createdTime:
           type: string
+        lastUpdatedTimestamp:
+          type: string
+          description: Time the API is last updated in Timestamp format.
         lastUpdatedTime:
           type: string
+          description: Time the API is last updated in Date Time format.
         gatewayVendor:
           title: field to identify gateway vendor
           type: string
@@ -9303,6 +9379,12 @@ components:
         workflowStatus:
           type: string
           example: APPROVED
+        audiences:
+          type: array
+          description: The audiences of the API for jwt validation. Any string value is accepted.
+          items:
+            type: string
+            example: [ "aud1","aud2","aud3" ]
     ProductAPI:
       title: ProductAPI
       required:
@@ -9504,18 +9586,25 @@ components:
             - FILE
         sourceUrl:
           type: string
+          description: The url of the document to be fetched, this is required to be passed when the sourceType is set to URL.
           readOnly: true
           example: ""
         fileName:
           type: string
+          description: The file name of the document, this is required to be passed when the sourceType is set to FILE.
           readOnly: true
           example: ""
+        inlineContent:
+          type: string
+          example: This is doc content. This can have many lines.
         otherTypeName:
           type: string
+          description: This property is used to mention the document type, when the "type" is set as "OTHER"
           readOnly: true
-          example: null
+          example: ""
         visibility:
           type: string
+          description: Visibility of the document.
           example: API_LEVEL
           enum:
             - OWNER_ONLY
@@ -9764,6 +9853,7 @@ components:
             - ON_HOLD
             - REJECTED
             - TIER_UPDATE_PENDING
+            - DELETE_PENDING
     ThrottlePolicy:
       title: Generic Throttling Policy
       required:
@@ -10190,9 +10280,15 @@ components:
         wsPort:
           type: integer
           example: 9099
+        wsHost:
+          type: string
+          example: mg.wso2.com
         wssPort:
           type: integer
           example: 8099
+        wssHost:
+          type: string
+          example: mg.wso2.com
         websubHttpPort:
           type: integer
           example: 9021
@@ -10462,6 +10558,9 @@ components:
           description: |
             If the provider value is not given user invoking the api will be used as the provider.
           example: admin
+        revisionID:
+          type: string
+          example: Revision 1
         usedResourceList:
           type: array
           description: |
@@ -11019,6 +11118,10 @@ components:
               example: /apis/01234567-0123-0123-0123-012345678901/thumbnail
             advertiseOnly:
               type: boolean
+              description: The property indicates whether this is an advertise only API.
+              example: true
+            hasThumbnail:
+              type: boolean
               example: true
     APIProductSearchResult:
       title: API Result
@@ -11051,6 +11154,9 @@ components:
             thumbnailUri:
               type: string
               example: /apis/01234567-0123-0123-0123-012345678901/thumbnail
+            hasThumbnail:
+              type: boolean
+              example: true
     APIMonetizationInfo:
       title: API monetization object
       required:
@@ -11096,12 +11202,15 @@ components:
                 - MARKDOWN
             sourceUrl:
               type: string
+              description: The source url of the document.
               example: ""
             otherTypeName:
               type: string
+              description: This property is used to mention the document type, when the "type" is set as "OTHER"
               example: ""
             visibility:
               type: string
+              description: Visibility of the document.
               example: API_LEVEL
               enum:
                 - OWNER_ONLY
@@ -11248,10 +11357,37 @@ components:
             Is Cross Tenant Subscriptions Enabled
           example: false
           default: false
+        defaultAdvancePolicy:
+          type: string
+          description: Default Advance Policy.
+        defaultSubscriptionPolicy:
+          type: string
+          description: Default Subscription Policy.
         authorizationHeader:
           type: string
           description: Authorization Header
           example: authorization
+        customProperties:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: |
+                    Custom property name
+                  example: Department
+                description:
+                  type: string
+                  description: Description of custom property
+                  example: Relevant Department
+                required:
+                  type: boolean
+                  example: false
+        isAPIPoliciesEnabled:
+          type: boolean
+          description: Is API level policy support feature enabled
+          example: false
     SecurityAuditAttribute:
       title: SecurityAuditAttributeDTO
       type: object
@@ -11616,6 +11752,9 @@ components:
         displayName:
           type: string
           example: Remove Header Policy
+        version:
+          type: string
+          example: v1
         description:
           type: string
           example: With this policy, user can add a new header to the request
