@@ -170,6 +170,7 @@ nav:
                 - Token Persistence: design/api-security/oauth2/token-persistence.md
                 - Encrypting OAuth2 Tokens: design/api-security/oauth2/encrypting-oauth2-tokens.md
                 - Hashing OAuth Keys: design/api-security/oauth2/hashing-oauth-keys.md
+                - Multiple Active Access Tokens: design/api-security/oauth2/multiple-active-access-tokens.md
                 - Provisioning Out-of-Band OAuth Clients: design/api-security/oauth2/provisioning-out-of-band-oauth-clients.md
                 - Securing OAuth Token with HMAC Validation: design/api-security/oauth2/securing-oauth-token-with-hmac-validation.md
             - Threat Protection:
@@ -1956,6 +1957,7 @@ plugins:
               'learn/api-security/oauth2/token-persistence.md': 'https://apim.docs.wso2.com/en/4.1.0/design/api-security/oauth2/token-persistence/'
               'learn/api-security/oauth2/encrypting-oauth2-tokens.md': 'https://apim.docs.wso2.com/en/4.1.0/design/api-security/oauth2/encrypting-oauth2-tokens/'
               'learn/api-security/oauth2/hashing-oauth-keys.md': 'https://apim.docs.wso2.com/en/4.1.0/design/api-security/oauth2/hashing-oauth-keys/'
+              'learn/api-security/oauth2/multiple-active-access-tokens.md': 'https://apim.docs.wso2.com/en/4.1.0/design/api-security/oauth2/multiple-active-access-tokens/'
               'learn/api-security/oauth2/provisioning-out-of-band-oauth-clients.md': 'https://apim.docs.wso2.com/en/4.1.0/design/api-security/oauth2/provisioning-out-of-band-oauth-clients/'
               'learn/api-security/oauth2/securing-oauth-token-with-hmac-validation.md': 'https://apim.docs.wso2.com/en/4.1.0/design/api-security/oauth2/securing-oauth-token-with-hmac-validation/'
               'learn/api-security/threat-protection/bot-detection.md': 'https://apim.docs.wso2.com/en/4.1.0/design/api-security/threat-protection/bot-detection/'
