@@ -8670,7 +8670,6 @@ components:
             - apim:api_manage
         endpointConfig:
           type: object
-          description: Endpoint configurations of the API.
           properties: {}
           description: |
             Endpoint configuration of the API. This can be used to provide different types of endpoints including Simple REST Endpoints, Loadbalanced and Failover.
