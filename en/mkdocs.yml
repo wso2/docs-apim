@@ -93,7 +93,7 @@ nav:
                 - Create a WebSub/WebHook API: design/create-api/create-streaming-api/create-a-websub-streaming-api.md
                 - Create a SSE API: design/create-api/create-streaming-api/create-a-sse-streaming-api.md
                 - Create a Streaming API from an AsyncAPI Definition: design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition.md
-                - Test a WebSub/WebHook API: design/create-api/create-streaming-api/test-a-websub-api.md
+                - Test a WebSub/WebHook API: design/create-api/create-streaming-api.md
             - Create an API Using a Service: design/create-api/create-an-api-using-a-service.md
             #- Build APIs in Integration Studio: design/create-api/api-integration-studio.md
             - AI APIs: design/create-api/create-ai-api/create-an-ai-api.md
@@ -309,6 +309,9 @@ nav:
         - User Account Management:
             - Recover Password: consume/user-account-management/recover-password.md
             - Change Password: consume/user-account-management/change-dev-portal-password.md
+    - Integrate:
+        - Develop Integrations:
+            - Publish Integrations to the API Manager: integrate/develop/working-with-service-catalog.md
     - Analytics:
         - API Analytics:
             - Choreo Based Analytics: 
@@ -753,7 +756,7 @@ plugins:
               'install-and-setup/install/installing-the-product/installing-the-binary/installing-as-a-windows-service.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/install/installing-the-product/installing-api-m-as-a-windows-service/'
               'install-and-setup/install/running-the-product.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/install/installing-the-product/running-the-api-m/'
               'design/create-api/create-a-streaming-api-from-an-asyncapi-definition.md': 'https://apim.docs.wso2.com/en/4.4.0/design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition/'
-              'design/create-api/test-a-websub-api.md': 'https://apim.docs.wso2.com/en/4.4.0/design/create-api/create-streaming-api/test-a-websub-api/'
+              'design/create-api/test-a-websub-api.md': 'https://apim.docs.wso2.com/en/4.4.0/design/create-api/create-streaming-api/'
               'design/create-api/create-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.4.0/design/create-api/create-rest-api/create-a-rest-api/'
               'design/create-api/create-a-rest-api-from-an-openapi-definition.md': 'https://apim.docs.wso2.com/en/4.4.0/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition/'
               'design/create-api/expose-a-soap-service-as-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.4.0/design/create-api/create-rest-api/expose-a-soap-service-as-a-rest-api/'

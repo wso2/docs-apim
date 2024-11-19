@@ -4,7 +4,7 @@
 
 A WebSub API, also known as a WebHook API, is a streaming API in WSO2 API Manager that is implemented based on the [WebSub](https://www.w3.org/TR/websub/) protocol specification. WebSubs only allows one-way communication, from a caller web app to a callee web app. After the API is created, it will provide you a call back URL, which you can register to any WebHook provider. Therefore, the user-facing API from API Manager will adhere to WebSub specification whereas the backend can be anything that could send events to this callback URL.
 
-You can create a WebSub API from scratch in WSO2 API-M and export the WebSub APIs that are created within WSO2 API-M as AsyncAPI definitions. Alternatively, you can also import [existing AsyncAPI definitions to create SSE APIs in WSO2 API-M](../../../../use-cases/streaming-usecase/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition).
+You can create a WebSub API from scratch in WSO2 API-M and export the WebSub APIs that are created within WSO2 API-M as AsyncAPI definitions. Alternatively, you can also import [existing AsyncAPI definitions to create SSE APIs in WSO2 API-M](../../../../design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition).
 
 This section will guide you through the process of creating a WebSub API from scratch in WSO2 API-M. After a WebSub API is created, you will be able to register it's URL as the callback URL for your WebHook provider and be able to receive events from them.
 
