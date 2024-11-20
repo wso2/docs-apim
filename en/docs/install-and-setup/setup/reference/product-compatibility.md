@@ -55,7 +55,7 @@ WSO2 API Manager and WSO2 API-M Analytics support the following DBMSs.
 <li>MySQL 5.7, 8</li>
 <li>Oracle 12c, 19c</li>
 <li>Microsoft SQL Server 2017, 2019, 2022</li>
-<li>PostgreSQL 10, 13.2</li>
+<li>PostgreSQL 10, 12.15, 13.2</li>
 </ul>
 </html>
 
