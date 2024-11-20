@@ -32,6 +32,12 @@ The configuration file used for wrapping Java Applications by YAJSW is `wrapper.
     wrapper.java.classpath.4 = ${carbon_home}/repository/components/plugins/commons-lang_2.6.0.wso2v1.jar 
     ```
 
+    Add the below line to prevent wso2carbon log file getting overridden at each service startup.
+
+    ``` bash
+    wrapper.java.additional.30 = -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+    ```
+
 !!! tip
     You may encounter the following issue when starting Windows Services when the file "java" or a "dll" used by Java cannot be found by YAJSW. 
 
