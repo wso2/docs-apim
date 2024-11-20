@@ -52,7 +52,7 @@ The **WSO2 API-M** runtime is tested with the following databases:
 </tr>
 <tr>
 <td>PostgreSQL</td>
-<td>10, 13.2</td>
+<td>10, 13.2, 15.3</td>
 </tr>
 </table>
 
