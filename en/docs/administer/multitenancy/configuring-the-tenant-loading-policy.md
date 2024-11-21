@@ -53,11 +53,14 @@ If you have Lazy loading enabled, you can configure the allowed tenant idle time
     
 #### Improved artifacts synchronization for Lazy loading
 
+!!! Note
+    This feature is available starting from update level **4.0.0.135** and onwards. 
+
 Starting with API Manager version 3.2.0, an in-memory artifacts synchronization mechanism has been introduced, replacing the file-based artifacts management used in earlier versions. This new approach leverages a database to manage artifacts more efficiently.
 
 Following are the key changes introduced by the above mechanism : 
 
-1. **Artefact Storage**
+1. **Artifact Storage**
         
     Artifacts are now stored in memory and synchronized via a database, moving away from the file-based system.</br>
 
