@@ -18,6 +18,7 @@ Now, see the instructions given below to configure the required tenant loading p
 
 -   [Configuring Lazy Loading](#configuring-lazy-loading)
     -   [Configuring the tenant unloading time (for Lazy Loading)](#configuring-the-tenant-unloading-time-for-lazy-loading)
+    -   [Improved artifacts synchronization for Lazy loading](#improved-artifacts-synchronization-for-lazy-loading)
 -   [Configuring Eager Loading](#configuring-eager-loading)
 
 ### Configuring Lazy Loading
@@ -49,6 +50,35 @@ If you have Lazy loading enabled, you can configure the allowed tenant idle time
         ```
 
     3.  Restart the server.
+    
+#### Improved artifacts synchronization for Lazy loading
+
+!!! Note
+    This feature is available starting from update level **4.0.0.135** and onwards. 
+
+Starting with API Manager version 3.2.0, an in-memory artifacts synchronization mechanism has been introduced, replacing the file-based artifacts management used in earlier versions. This new approach leverages a database to manage artifacts more efficiently.
+
+Following are the key changes introduced by the above mechanism : 
+
+1. **Artifact Storage**
+        
+    Artifacts are now stored in memory and synchronized via a database, moving away from the file-based system.</br>
+
+2. **Dynamic Tenant Unloading**
+     
+    When a tenant is unloaded, its API artifacts are also removed from memory. As a result, if a request is received during the tenant's unloading process, the initial request may fail until the tenant is fully loaded. Once loaded, the gateway can serve the APIs for that tenant seamlessly. 
+    </br></br>Recommended solution for this is to address this limitation and ensure smooth API requests during tenant unloading or loading, you should enable on-demand loading. Add the following configuration to your deployment.toml file:
+        
+        [apim.sync_runtime_artifacts.gateway]
+        gateway_labels = ["Default"]
+        enable_on_demand_loading = true
+    
+    For example, in a multi-tenancy scenario with lazy loading enabled, a user attempting to invoke a tenant's API for the first time after a server restart might encounter a 404 error. This occurs because the corresponding tenant data has not yet been loaded.
+    
+    When the mentioned configuration is enabled, the system synchronously verifies whether the API is deployed (i.e., the data is loaded). If the data is not loaded, it ensures the loading process is completed. As a result, subsequent requests will not return a 404 error due to resource unavailability.
+
+    By enabling on-demand loading, the system dynamically loads tenant-specific artifacts only when required, reducing the likelihood of request failures.
+
 
 ### Configuring Eager Loading
 
