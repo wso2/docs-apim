@@ -5,9 +5,19 @@ This section describes how to configure WSO2 Micro Integrator to connect with Or
 ## Starting WebLogic and WSO2 Micro Integrator
 
 1.  Download and set up [Oracle WebLogic Server](http://www.oracle.com/technetwork/middleware/weblogic/downloads/wls-main-097127.html).
-2.  Download and [start WSO2 Micro Integrator](https://docs.wso2.com/display/EI650/Running+the+Product) .
-3.  Wrap the WebLogic client jar and build a new OSGi bundle using the following [pom.xml](https://svn.wso2.org/repos/wso2/scratch/lasantha/weblogic-wrapper/pom.xml). The exporting of `javax.jms` package and `javax.xml.namespace` package of the client JAR should be prevented.
-4.  Copy the client libraries file (`wlfullclient.jar`) from the `WEBLOGIC_HOME/wlserver_XX/server/lib` directory to the `MI_HOME/dropins` directory.
+2.  Install Oracle JDK and set the `JAVA_HOME` environment variable.
+3.  Download and install WSO2 Micro Integrator.
+4.  Build the `wlfullclient.jar` file by executing the following command inside the `<WEBLOGIC_HOME>/wlserver_XX/server/lib` directory.
+```bash
+java -jar wljarbuilder.jar -profile wlfullclient
+```
+5. To wrap the WebLogic client jar and build a new OSGi bundle, download the [WebLogic Client Wrapper](https://github.com/user-attachments/files/17126089/WebLogicClientWrapper.zip). The exporting of `javax.jms` package and `javax.xml.namespace package` of the client JAR should be prevented.
+6. Copy the `wlfullclient.jar` from `<WEBLOGIC_HOME>/wlserver_XX/server/lib` to the `WEB_LOGIC_CLIENT_WRAPPER/lib` directory and run the following command to create the OSGI bundle.
+```bash
+mvn clean install
+```
+7. Copy the client bundle (`wlfullclient.jar`) from the `<WEBLOGIC_HOME>/target` directory to the `<MI_HOME>/dropins` directory.
+8. Start the WSO2 Micro Integrator.
 
 ## Configuring the WebLogic server
 
