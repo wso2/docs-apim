@@ -65,5 +65,15 @@ In order to disable self signup for a particular tenant, follow the steps below.
 
     ![Self registration disabled](../../../assets/img/learn/self-signup-disabled.png)
 
+!!! Note
+    To enable email verification, update the `repository/deployment/server/webapps/accountrecoveryendpoint/WEB-INF/web.xml` file by setting the `EnableEmailNotification` parameter to `true`:
+
+    ```xml
+    <context-param>
+        <param-name>EnableEmailNotification</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    ```
+
 !!! tip
     To engage your own signup process, see [Adding a User Signup Workflow]({{base_path}}/develop/customizations/adding-a-user-signup-workflow).
