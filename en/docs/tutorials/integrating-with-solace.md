@@ -4,6 +4,10 @@ WSO2 API Manager now supports integrating external third party Gateways and Brok
 
 ## Integrating the Solace Event Broker
 
+!!! warning "Notice"
+    This feature is currently not supported. WSO2 is actively working on resolving the issues. For the latest updates or inquiries, please contact [WSO2 Support](https://wso2.com/contact/).  
+
+
 1. Go to the [Solace PubHub+](https://solace.com/products/event-broker/) portal.
     
 2. Create a new account and configure a Solace Broker.
