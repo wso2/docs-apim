@@ -264,6 +264,14 @@ By default, WSO2 API Manager and WSO2 Identity Server comes with a JDBC User Sto
    type = "WSO2-IS"
 ```
 
+2. The token exchange grant type is enabled by default in WSO2 API-M 4.1.0 onwards. But the corresponding grant type is currently not supported by the WSO2 Identity Server. To disable the token exchange grant type, you need to modify the `[oauth.grant_type.token_exchange]` config in the `<APIM_HOME>/repository/conf/deployment.toml` file as follows.
+    ```toml
+    [oauth.grant_type.token_exchange]
+    enable = false
+    allow_refresh_tokens = true
+    iat_validity_period = "1h"
+    ```
+
 ## Step 6 - Optionally, configure High Availability (HA) for the Identity Server
 
 !!! warning
