@@ -116,3 +116,9 @@ Let's look at a scenario where a single access token generated for an applicatio
 20. Try Out the API with the same access token generated using the Global Key Manager which was used in Step 16.
 
 A Successful response indicates that the API of a tenant can be invoked using an access token generated for an application using the Global Key Manager. Note that the access token was generated in the super tenant’s Developer Portal, but an API in a different tenant was invoked using this access token
+
+!!! note
+    Access tokens generated via the global key manager using the client credentials grant type will not contain any scopes.
+
+    ??? note "Why?"
+        The global key manager operates within a separate tenant, and the applications created by the global key manager are located in this tenant. This tenant does not have visibility into the user base or roles of other tenants. Consequently, tokens issued through these applications using the client credentials grant cannot be used to validate scopes against user roles from other tenants.
