@@ -103,3 +103,8 @@ The following diagram shows how throttle policies are applied at different level
 [![rate limiting levels]({{base_path}}/assets/img/learn/throttling-levels.png)]({{base_path}}/assets/img/learn/throttling-levels.png)
 
 If [advanced rate limiting](#advanced-throttling-policies-api-publisher) policies are added and engaged to a specific API or API resource, it will also be applied here. i.e. Requests will be allowed/rejected based on the conditions specified in advanced rate limiting policies as well.
+
+!!!note
+    **Understanding Throttling Slippage**
+
+    The throttling solution in API Manager is designed in a fully asynchronous and distributed manner. While this architecture enhances scalability and responsiveness, it may lead to some degree of slippage beyond the defined throttle limits. Therefore, absolute precision cannot always be guaranteed due to factors such as network latency and the complexities of asynchronous processing.
