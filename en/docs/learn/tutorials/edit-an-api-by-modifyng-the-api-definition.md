@@ -205,5 +205,12 @@ In this tutorial, let's see how you can add interactive documentation to an API 
     ![]({{base_path}}/assets/img/learn/tutorials/pizza-shack-api-get-dev-portal.png)
     ![]({{base_path}}/assets/img/learn/tutorials/pizza-shack-api-put-dev-portal.png)
 
+!!! note
+    Starting from U2 update level 332, we have enhanced the Swagger/OpenAPI validation process. This improvement checks for missing elements such as `info` `info.title` or `info.version` in existing Swagger definitions and dynamically populates them using the API's metadata. Additionally, the new configuration enables an advanced validation step powered by the Swagger/OpenAPI parser library. These validations occur during the creation of a new API version and when updating an API
+
+    ```toml
+    [apim.swagger]
+    enable_advanced_validation = true
+    ```
 
 In this tutorial, you have seen how the integrated Swagger Editor can be used to design, describe, and document your API, so that the API consumers get a better understanding of the API's functionality.
