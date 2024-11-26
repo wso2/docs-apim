@@ -4,13 +4,11 @@ API Manager and Micro Integrator provide a wide range of installation options fo
 
 1. [Kubernetes(Helm)](#1-kubernetes-helm)
 2. [Docker/Docker Compose](#2-dockerdocker-compose)
-3. [Ansible](#3-ansible)
-4. [Puppet](#4-puppet)
-5. [AWS CloudFormation](#5-aws-cloudformation)
+3. [Puppet](#3-puppet)
 
 ## 1. Kubernetes (Helm)
 
-You can follow the guides available in [https://github.com/wso2/kubernetes-apim](https://github.com/wso2/kubernetes-apim/tree/4.3.x) in order to deploy API Manager and Micro Integrator Kubernetes and Helm artifacts.
+You can follow the guides available in [https://github.com/wso2/helm-apim](https://github.com/wso2/helm-apim/tree/4.3.x) in order to deploy API Manager Helm artifacts.
 
 ## 2. Docker/Docker Compose
 
