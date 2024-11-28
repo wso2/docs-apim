@@ -177,7 +177,7 @@ Follow the  instructions below to set up a MySQL database:
 !!! note
     If you are using MySQL with group replication, it is mandatory to have primary keys for all the tables.
 
-    You can use the following scripts when creating the respective tables instead of the ones provided in the DB scripts. (`<API-M_HOME>/dbscripts/mysql.sql` and `<API-M_HOME>/dbscripts/apimgt/mysql.sql`)
+    You can use the following scripts when creating the respective tables instead of the ones provided in the DB scripts. (`<API-M_HOME>/dbscripts/mysql.sql`, `<API-M_HOME>/dbscripts/apimgt/mysql.sql` and `<API-M_HOME>/dbscripts/mb-store/mysql-mb.sql`).
 
     ??? info "Creating tables"
         ```tab="SHARED_DB"
@@ -314,6 +314,25 @@ Follow the  instructions below to set up a MySQL database:
         );
         ```
 
+        ```tab="MB_STORE_DB"
+        CREATE TABLE IF NOT EXISTS MB_BINDING (
+                EXCHANGE_NAME VARCHAR(512) NOT NULL,
+                QUEUE_NAME VARCHAR(512) NOT NULL,
+                BINDING_DETAILS VARCHAR(2048) NOT NULL,
+                FOREIGN KEY (EXCHANGE_NAME) REFERENCES MB_EXCHANGE (EXCHANGE_NAME),
+                FOREIGN KEY (QUEUE_NAME) REFERENCES MB_QUEUE (QUEUE_NAME)
+                ON DELETE CASCADE,
+                PRIMARY KEY (EXCHANGE_NAME, QUEUE_NAME)
+        ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+        CREATE TABLE IF NOT EXISTS MB_DURABLE_SUBSCRIPTION (
+                SUBSCRIPTION_ID VARCHAR(512) NOT NULL, 
+                DESTINATION_IDENTIFIER VARCHAR(512) NOT NULL,
+                SUBSCRIPTION_DATA VARCHAR(2048) NOT NULL,
+                PRIMARY KEY (SUBSCRIPTION_ID)
+        ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+        ```
+
     If the tables are already created use the following scripts to update the existing tables in the respective databases.
 
     ??? info "Updating tables"
@@ -343,6 +362,12 @@ Follow the  instructions below to set up a MySQL database:
         ALTER TABLE CM_SP_PURPOSE_PII_CAT_ASSOC ADD COLUMN CM_SP_PURPOSE_PII_CAT_ASSOC_ID INTEGER NOT NULL AUTO_INCREMENT;
         
         ALTER TABLE CM_CONSENT_RECEIPT_PROPERTY ADD COLUMN CM_CONSENT_RECEIPT_PROPERTY_ID INTEGER NOT NULL AUTO_INCREMENT;
+        ```
+
+        ```tab="MB_STORE_DB"
+        ALTER TABLE MB_BINDING ADD PRIMARY KEY (EXCHANGE_NAME, QUEUE_NAME);
+
+        ALTER TABLE MB_DURABLE_SUBSCRIPTION ADD PRIMARY KEY (SUBSCRIPTION_ID);
         ```
 
 ## Changing the Carbon database to MySQL
