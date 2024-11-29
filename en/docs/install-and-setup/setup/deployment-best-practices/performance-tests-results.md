@@ -36,19 +36,19 @@ Two key performance metrics were used to measure the performance of each test.
     <td>Apache JMeter Client</td>
     <td>c5.large</td>
     <td>2</td>
-    <td>4</td>
+    <td>2</td>
   </tr>
   <tr>
     <td>Apache JMeter Server 01</td>
     <td>c5.xlarge</td>
     <td>4</td>
-    <td>8</td>
+    <td>4</td>
   </tr>
   <tr>
     <td>Apache JMeter Server 02</td>
     <td>c5.xlarge</td>
     <td>4</td>
-    <td>8</td>
+    <td>4</td>
   </tr>
   <tr>
     <td>MySQL</td>
@@ -60,13 +60,13 @@ Two key performance metrics were used to measure the performance of each test.
     <td>Netty HTTP Backend</td>
     <td>c5.xlarge</td>
     <td>4</td>
-    <td>8</td>
+    <td>4</td>
   </tr>
   <tr>
     <td>WSO2 API Manager</td>
     <td>c5.large</td>
     <td>2</td>
-    <td>4</td>
+    <td>2</td>
   </tr>
 </tbody>
 </table>
