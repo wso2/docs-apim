@@ -127,7 +127,7 @@ In this example, you copy the original payload to a property using the Enrich me
 ```
 <enrich>
       <source clone="false" type="body"/>
-      <target action="replace" type="property" property="ORGINAL_PAYLOAD"/>
+      <target action="replace" type="property" property="ORIGINAL_PAYLOAD"/>
 </enrich>
 ```
     
