@@ -827,6 +827,7 @@ nav:
                     - Migrate Common API Policies to Different Environments: install-and-setup/setup/api-controller/managing-common-api-policies/migrating-common-api-policies-to-different-environments.md
                 - Encrypt Secrets with apictl: install-and-setup/setup/api-controller/encrypting-secrets-with-ctl.md
                 - Enable Correlation Logs with apictl: install-and-setup/setup/api-controller/enabling-correlation-logs-with-apictl.md
+                - AI Related Operations with apictl: install-and-setup/setup/api-controller/ai-related-operations-with-apictl.md
                 - Advanced Topics:
                     - Create Custom Users to Perform apictl Operations: install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md
                     - Configure Environment Specific Parameters: install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters.md
