@@ -54,8 +54,7 @@ To configure APIM for Dynamic SSL Profiles for HTTPS transport Sender, you need 
     <profile>
     <servers>localhost:port</servers>
     <TrustStore>
-    <Location>repository/resources/security/client-truststore.jks
-    </Location>
+    <Location>repository/resources/security/client-truststore.jks</Location>
     <Type>JKS</Type>
     <Password>wso2carbon</Password>
     </TrustStore>
@@ -64,8 +63,7 @@ To configure APIM for Dynamic SSL Profiles for HTTPS transport Sender, you need 
     <profile>
         <servers>10.100.5.130:9444</servers>
         <TrustStore>
-        <Location>repository/resources/security/client-truststore.jks
-        </Location>
+        <Location>repository/resources/security/client-truststore.jks</Location>
         <Type>JKS</Type>
     <Password>wso2carbon</Password>
         </TrustStore>
@@ -87,7 +85,7 @@ To enable dynamic loading of this configuration, add the below configurations to
 
 ``` toml
 [transport.passthru_https.sender.ssl_profile]
-file_path = "repository/deployment/server/mutual_ssl_profiles.xml"
+file_path = "repository/deployment/server/sslprofiles.xml"
 interval = 3600000
 
 [transport.passthru_https.sender.parameters]
