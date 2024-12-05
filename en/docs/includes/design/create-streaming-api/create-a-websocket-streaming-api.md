@@ -172,7 +172,7 @@ The AsyncAPI definition of the streaming API, which you just created, appears.
 
 Click **Runtime** under the **API Configurations** section, select the required authentication type, and click **Save**.
 
-   <a href="../../../../assets/img/tutorials/streaming-api/websocket-api-runtime-configurations.png"><img src="../../../../assets/img/design/create-api/streaming-api/websocket-api-runtime-configurations.png" width="65%" alt="Runtime Configurations of WebSocket API"></a>
+   <a href="../../../../assets/img/tutorials/streaming-api/websocket-api-runtime-configurations.png"><img src="../../../../assets/img/tutorials/streaming-api/websocket-api-runtime-configurations.png" width="65%" alt="Runtime Configurations of WebSocket API"></a>
 
 Now, you have successfully created and configured a Streaming API. Next, let's [Publish your API](../../../../deploy-and-publish/publish-on-dev-portal/publish-an-api).
 

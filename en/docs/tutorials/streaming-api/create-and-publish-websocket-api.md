@@ -76,7 +76,7 @@ This will demonstrate a simple command line based chat room which has two channe
 5. Configure the runtime configurations.
     1. Click **Runtime** under the **API Configurations** section, select the required authentication type, and click **Save**.
 
-       <a href="{{base_path}}/assets/img/tutorials/streaming-api/websocket-api-runtime-configurations.png"><img src="{{base_path}}/assets/img/design/create-api/streaming-api/websocket-api-runtime-configurations.png" width="65%" alt="Runtime Configurations of WebSocket API"></a>
+       <a href="{{base_path}}/assets/img/tutorials/streaming-api/websocket-api-runtime-configurations.png"><img src="{{base_path}}/assets/img/tutorials/streaming-api/websocket-api-runtime-configurations.png" width="65%" alt="Runtime Configurations of WebSocket API"></a>
     
 6. Add topics to the WebSocket API.
 
@@ -179,21 +179,25 @@ Now, you have created and configured the WebSocket API successfully.
 
       2.  Invoke the API's `/notifications` topic using header by executing the following command.
         
-           ``` bash tab="WS-OAuth2"
-           wscat -c ws://localhost:9099/chats/1.0.0/notifications -H "Authorization: Bearer [accesstoken]" 
-           ```
+        === "WS-OAuth2"
+            ``` bash
+            wscat -c ws://localhost:9099/chats/1.0.0/notifications -H "Authorization: Bearer [accesstoken]" 
+            ```
 
-           ``` bash tab="WSS-OAuth2"
-           wscat -n -c wss://localhost:8099/chats/1.0.0/notifications -H "Authorization: Bearer [accesstoken]"
-           ```
+        === "WSS-OAuth2"
+            ``` bash
+            wscat -n -c wss://localhost:8099/chats/1.0.0/notifications -H "Authorization: Bearer [accesstoken]"
+            ```
 
-           ``` bash tab="WS-Api Key"
-           wscat -c ws://localhost:9099/chats/1.0.0/notifications -H "apikey: [API_key_value]" 
-           ```
+        === "WS-Api Key"
+            ``` bash
+            wscat -c ws://localhost:9099/chats/1.0.0/notifications -H "apikey: [API_key_value]" 
+            ```
 
-           ``` bash tab="WSS-Api Key"
-           wscat -n -c wss://localhost:8099/chats/1.0.0/notifications -H "apikey: [API_key_value]"
-           ```
+        === "WSS-Api Key"
+            ``` bash
+            wscat -n -c wss://localhost:8099/chats/1.0.0/notifications -H "apikey: [API_key_value]"
+            ```
           
           When the connection is successful, the WebSocket server will send: 
            ```bash
@@ -202,21 +206,25 @@ Now, you have created and configured the WebSocket API successfully.
 
       3.  In a separate terminal, invoke the API's `/rooms/{roomID}` topic using header by executing the following command.
 
-           ``` bash tab="WS-OAuth2"
-           wscat -c ws://localhost:9099/chats/1.0.0/rooms/room1 -H "Authorization: Bearer [accesstoken]" 
-           ```
+        === "WS-OAuth2"
+            ``` bash
+            wscat -c ws://localhost:9099/chats/1.0.0/rooms/room1 -H "Authorization: Bearer [accesstoken]" 
+            ```
 
-           ``` bash tab="WSS-OAuth2"
-           wscat -n -c wss://localhost:8099/chats/1.0.0/rooms/room1 -H "Authorization: Bearer [accesstoken]"
-           ```
+        === "WSS-OAuth2"
+            ``` bash
+            wscat -n -c wss://localhost:8099/chats/1.0.0/rooms/room1 -H "Authorization: Bearer [accesstoken]"
+            ```
 
-           ``` bash tab="WS-Api Key"
-           wscat -c ws://localhost:9099/chats/1.0.0/rooms/room1 -H "apikey: [API_key_value]" 
-           ```
+        === "WS-Api Key"
+            ``` bash
+            wscat -c ws://localhost:9099/chats/1.0.0/rooms/room1 -H "apikey: [API_key_value]" 
+            ```
 
-           ``` bash tab="WSS-Api Key"
-           wscat -n -c wss://localhost:8099/chats/1.0.0/rooms/room1 -H "apikey: [API_key_value]"
-           ```
+        === "WSS-Api Key"
+            ``` bash
+            wscat -n -c wss://localhost:8099/chats/1.0.0/rooms/room1 -H "apikey: [API_key_value]"
+            ```
 
           When the connection is successful, the WebSocket server will send:
            ```bash
@@ -231,21 +239,25 @@ Now, you have created and configured the WebSocket API successfully.
           
       4.  In another terminal, invoke the API's `/rooms/{roomID}` topic again. This denotes the second user, who will be connecting to `room1`.
       
-           ``` bash tab="WS-OAuth2"
-           wscat -c ws://localhost:9099/chats/1.0.0/rooms/room1 -H "Authorization: Bearer [accesstoken]" 
-           ```
+        === "WS-OAuth2"
+            ``` bash
+            wscat -c ws://localhost:9099/chats/1.0.0/rooms/room1 -H "Authorization: Bearer [accesstoken]" 
+            ```
 
-           ``` bash tab="WSS-OAuth2"
-           wscat -n -c wss://localhost:8099/chats/1.0.0/rooms/room1 -H "Authorization: Bearer [accesstoken]"
-           ```
+        === "WSS-OAuth2"
+            ``` bash
+            wscat -n -c wss://localhost:8099/chats/1.0.0/rooms/room1 -H "Authorization: Bearer [accesstoken]"
+            ```
 
-           ``` bash tab="WS-Api Key"
-           wscat -c ws://localhost:9099/chats/1.0.0/rooms/room1 -H "apikey: [API_key_value]" 
-           ```
+        === "WS-Api Key"
+            ``` bash
+            wscat -c ws://localhost:9099/chats/1.0.0/rooms/room1 -H "apikey: [API_key_value]" 
+            ```
 
-           ``` bash tab="WSS-Api Key"
-           wscat -n -c wss://localhost:8099/chats/1.0.0/rooms/room1 -H "apikey: [API_key_value]"
-           ```
+        === "WSS-Api Key"
+            ``` bash
+            wscat -n -c wss://localhost:8099/chats/1.0.0/rooms/room1 -H "apikey: [API_key_value]"
+            ```
           
           You will receive the message: `You joined room1!` in this terminal, along with the corresponding notification in the `notifications` terminal.
           
@@ -258,21 +270,25 @@ Now, you have created and configured the WebSocket API successfully.
               There are clients (especially browsers) that do not allow you to add headers to the WebSocket handshake. In such cases, you can send the access token or API Key for the WebSocket API invocation as a query parameter by using the commands below:
           </p>
           
-           ``` bash tab="WS-OAuth2"
-           wscat -c "ws://localhost:9099/chats/1.0.0/notifications?access_token=[accesstoken]" 
-           ```
+        === "WS-OAuth2"
+            ``` bash
+            wscat -c "ws://localhost:9099/chats/1.0.0/notifications?access_token=[accesstoken]" 
+            ```
   
-           ``` bash tab="WSS-OAuth2"
-           wscat -n -c "wss://localhost:8099/chats/1.0.0/notifications?access_token=[accesstoken]"
-           ```
+        === "WSS-OAuth2"
+            ``` bash
+            wscat -n -c "wss://localhost:8099/chats/1.0.0/notifications?access_token=[accesstoken]"
+            ```
 
-           ``` bash tab="WS-Api Key"
-           wscat -c "ws://localhost:9099/chats/1.0.0/notifications?apikey=[API_key_value]" 
-           ```
+        === "WS-Api Key"
+            ``` bash
+            wscat -c "ws://localhost:9099/chats/1.0.0/notifications?apikey=[API_key_value]" 
+            ```
 
-           ``` bash tab="WSS-Api Key"
-           wscat -n -c "wss://localhost:8099/chats/1.0.0/notifications?apikey=[API_key_value]"
-           ```
+        === "WSS-Api Key"
+            ``` bash
+            wscat -n -c "wss://localhost:8099/chats/1.0.0/notifications?apikey=[API_key_value]"
+            ```
 
           </div>
           </html>
