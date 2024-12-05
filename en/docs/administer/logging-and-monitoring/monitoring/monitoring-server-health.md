@@ -32,7 +32,7 @@ This section guides you through deploying the Carbon Health Check components in 
 
 5. Copy the webapp `api#health-check#v1.0.war`, which is found in the `<HEALTH_CHECK_HOME>/components/org.wso2.carbon.healthcheck.api.endpoint/target/` directory and paste it in the `<API-M_HOME>/repository/deployment/server/webapps` directory.
 
-6. Copy the `health-check.config.xml` configuration file found in the `<API_HOME>/features/org.wso2.carbon.healthcheck.server_1.0.0` directory to your `<PRODUCT_HOME>/repository/conf/` directory.
+6. Copy the `health-check-config.xml` configuration file found in the `<HEALTH_CHECK_HOME>/features/org.wso2.carbon.healthcheck.server.feature/resources` directory to your `<PRODUCT_HOME>/repository/conf/` directory.
 
 7. Correct the health check related configurations as indicated below in the `<API-M-HOME>/repository/conf/deployment.toml` file.
 
@@ -42,7 +42,7 @@ This section guides you through deploying the Carbon Health Check components in 
     [carbon_health_check.health_checker.data_source_health_checker.properties]
     'monitored.datasources' = "jdbc/WSO2CarbonDB,jdbc/WSO2AM_DB,jdbc/SHARED_DB"
     [carbon_health_check.health_checker.super_tenant_health_checker.properties]
-    {% raw %}{{'monitored.user.stores' = "primary" }}{% endraw %}
+    'monitored.user.stores' = "primary" 
     ```
 
 ### Step 2 - Configure the Health Checker global configurations
@@ -239,10 +239,6 @@ Follow the instructions below to add a custom Health Checker:
 
     [carbon_health_check.health_checker.data_source_health_checker.properties]
     'monitored.datasources' = "jdbc/WSO2CarbonDB,jdbc/WSO2AM_DB,jdbc/SHARED_DB"
-    
-    [carbon_health_check.health_checker.data_source_health_checker]
-    enable =false
-    order = 98
 
     [carbon_health_check.health_checker.super_tenant_health_checker.properties]
     'monitored.user.stores' = "primary" 
@@ -250,6 +246,7 @@ Follow the instructions below to add a custom Health Checker:
     [[health_checker]] 
     name = "customChecker" 
     order = "87"
+
     [health_checker.properties] 
     property1 = "property-1-value" 
     property2 = "property-2-value" 
