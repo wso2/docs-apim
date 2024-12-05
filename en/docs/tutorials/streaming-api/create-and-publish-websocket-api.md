@@ -73,7 +73,12 @@ This will demonstrate a simple command line based chat room which has two channe
 
      [![Overview of WebSocket API]({{base_path}}/assets/img/tutorials/streaming-api/websocket-api-overview.png)]({{base_path}}/assets/img/tutorials/streaming-api/websocket-api-overview.png)
 
-5. Add topics to the WebSocket API.
+5. Configure the runtime configurations.
+    1. Click **Runtime** under the **API Configurations** section, select the required authentication type, and click **Save**.
+
+       <a href="{{base_path}}/assets/img/tutorials/streaming-api/websocket-api-runtime-configurations.png"><img src="{{base_path}}/assets/img/tutorials/streaming-api/websocket-api-runtime-configurations.png" width="65%" alt="Runtime Configurations of WebSocket API"></a>
+    
+6. Add topics to the WebSocket API.
 
      1. Click **Topics** and navigate to the Topics page.
 
@@ -172,16 +177,26 @@ Now, you have created and configured the WebSocket API successfully.
            npm install -g wscat
            ```
 
-      2.  Invoke the API's `/notifications` topic with an authorization header by executing the following command.
+      2.  Invoke the API's `/notifications` topic using header by executing the following command.
         
-        === "WS"
+        === "WS-OAuth2"
             ``` bash
             wscat -c ws://localhost:9099/chats/1.0.0/notifications -H "Authorization: Bearer [accesstoken]" 
             ```
 
-        === "WSS"
+        === "WSS-OAuth2"
             ``` bash
             wscat -n -c wss://localhost:8099/chats/1.0.0/notifications -H "Authorization: Bearer [accesstoken]"
+            ```
+
+        === "WS-Api Key"
+            ``` bash
+            wscat -c ws://localhost:9099/chats/1.0.0/notifications -H "apikey: [API_key_value]" 
+            ```
+
+        === "WSS-Api Key"
+            ``` bash
+            wscat -n -c wss://localhost:8099/chats/1.0.0/notifications -H "apikey: [API_key_value]"
             ```
           
           When the connection is successful, the WebSocket server will send: 
@@ -189,16 +204,26 @@ Now, you have created and configured the WebSocket API successfully.
            Subscribed to notifications!
            ```
 
-      3.  In a separate terminal, invoke the API's `/rooms/{roomID}` topic with an authorization header by executing the following command.
+      3.  In a separate terminal, invoke the API's `/rooms/{roomID}` topic using header by executing the following command.
 
-        === "WS"
+        === "WS-OAuth2"
             ``` bash
             wscat -c ws://localhost:9099/chats/1.0.0/rooms/room1 -H "Authorization: Bearer [accesstoken]" 
             ```
 
-        === "WSS"
+        === "WSS-OAuth2"
             ``` bash
             wscat -n -c wss://localhost:8099/chats/1.0.0/rooms/room1 -H "Authorization: Bearer [accesstoken]"
+            ```
+
+        === "WS-Api Key"
+            ``` bash
+            wscat -c ws://localhost:9099/chats/1.0.0/rooms/room1 -H "apikey: [API_key_value]" 
+            ```
+
+        === "WSS-Api Key"
+            ``` bash
+            wscat -n -c wss://localhost:8099/chats/1.0.0/rooms/room1 -H "apikey: [API_key_value]"
             ```
 
           When the connection is successful, the WebSocket server will send:
@@ -214,14 +239,24 @@ Now, you have created and configured the WebSocket API successfully.
           
       4.  In another terminal, invoke the API's `/rooms/{roomID}` topic again. This denotes the second user, who will be connecting to `room1`.
       
-        === "WS"
+        === "WS-OAuth2"
             ``` bash
             wscat -c ws://localhost:9099/chats/1.0.0/rooms/room1 -H "Authorization: Bearer [accesstoken]" 
             ```
 
-        === "WSS"
+        === "WSS-OAuth2"
             ``` bash
             wscat -n -c wss://localhost:8099/chats/1.0.0/rooms/room1 -H "Authorization: Bearer [accesstoken]"
+            ```
+
+        === "WS-Api Key"
+            ``` bash
+            wscat -c ws://localhost:9099/chats/1.0.0/rooms/room1 -H "apikey: [API_key_value]" 
+            ```
+
+        === "WSS-Api Key"
+            ``` bash
+            wscat -n -c wss://localhost:8099/chats/1.0.0/rooms/room1 -H "apikey: [API_key_value]"
             ```
           
           You will receive the message: `You joined room1!` in this terminal, along with the corresponding notification in the `notifications` terminal.
@@ -232,27 +267,37 @@ Now, you have created and configured the WebSocket API successfully.
           <div class="admonition note">
           <p class="admonition-title">Note</p>
           <p>
-              There are clients (especially browsers) that do not allow you to add headers to the WebSocket handshake. In such cases, you can send the access token for the WebSocket API invocation as a query parameter named `access_token` by using the command below:
+              There are clients (especially browsers) that do not allow you to add headers to the WebSocket handshake. In such cases, you can send the access token or API Key for the WebSocket API invocation as a query parameter by using the commands below:
           </p>
-          </html>
-
-        === "WS"
+          
+        === "WS-OAuth2"
             ``` bash
             wscat -c "ws://localhost:9099/chats/1.0.0/notifications?access_token=[accesstoken]" 
             ```
   
-        === "WSS"
+        === "WSS-OAuth2"
             ``` bash
             wscat -n -c "wss://localhost:8099/chats/1.0.0/notifications?access_token=[accesstoken]"
             ```
 
+        === "WS-Api Key"
+            ``` bash
+            wscat -c "ws://localhost:9099/chats/1.0.0/notifications?apikey=[API_key_value]" 
+            ```
+
+        === "WSS-Api Key"
+            ``` bash
+            wscat -n -c "wss://localhost:8099/chats/1.0.0/notifications?apikey=[API_key_value]"
+            ```
+
           </div>
+          </html>
 
           <html>
           <div class="admonition note">
           <p class="admonition-title">Note</p>
           <p>
-          `BasicAuth` and `API Key` do not work for the security of WebSocket APIs.</p>
+          `BasicAuth` do not work for the security of WebSocket APIs.</p>
           </div></html>
 
 You have successfully created and published your first WebSocket API, subscribed to it, obtained an access token for testing, and tested your API with the access token.
