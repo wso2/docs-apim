@@ -139,6 +139,13 @@ HTTP PassThrough Transport is the default, non-blocking HTTP transport implement
 <td><p>A list of host names or IP addresses separated by '|'</p></td>
 <td><p></p></td>
 </tr>
+<tr class="even">
+<td><p>http.targetProxyHosts</p></td>
+<td><p>The list of hosts to which the HTTP traffic should be sent through the proxy.</p></td>
+<td><p>No</p></td>
+<td><p>A list of host names or IP addresses separated by '|'</p></td>
+<td><p></p></td>
+</tr>
 </tbody>
 </table>
 
