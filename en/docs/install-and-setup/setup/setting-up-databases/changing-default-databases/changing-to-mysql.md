@@ -1,6 +1,6 @@
 # Changing to MySQL
 
-By default, WSO2 API Manager uses the embedded H2 database as the database for storing user management and registry data. Given below are the  instructions you need to follow in order to use MySQL for this purpose.
+By default, WSO2 API Manager uses the embedded H2 database as the database for storing api management, user management and registry data. Given below are the  instructions you need to follow in order to use MySQL for this purpose.
 
 !!! info
     The  instructions involved in installing and configuring the databases are the same irrespective of whether you are using a single node (standalone) deployment, an active-active deployment, or a distributed deployment.
