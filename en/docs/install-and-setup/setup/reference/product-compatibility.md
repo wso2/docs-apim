@@ -2,6 +2,9 @@
 
 Given below are the compatibility details of the WSO2 API Manager (WSO2 API-M) 4.4.0 runtimes.
 
+!!! Note
+    Even though the tested operating systems are listed in compatibility sections for each product, ideally wso2 products relies on the tested versions of the JDK. Eg: Even though Micro Integrated is tested on Ubuntu 18.04 and JDK 17, It can be deployed on Ubuntu 20.04 with JDK 17, which is a tested JDK version.
+
 ## API-M runtime compatibility
 
 Given below is the tested compatibility of the API-M runtime of WSO2 API Manager 4.4.0.
