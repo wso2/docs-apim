@@ -60,7 +60,7 @@ Follow the instructions below to display a list of APIs or API Products in an en
                 When using the `apictl get apis -e dev` command, `-q` or `--query` optional flag can be used to 
                 search for APIs.
                 You can search in attributes by using a `:` modifier. Supported attribute modifiers are **name**, 
-                **version**, **provider**, **context**, **status**, **description**, **subcontext**, **doc**. You can also use multiple modifiers specified by multiple `-q` or `--query` flags in the same command. When using multiple modifiers, make sure to separate them with space. 
+                **version**, **provider**, **context**, **status**, **description**, **subcontext** and **doc**. You can also use multiple modifiers specified by multiple `-q` or `--query` flags in the same command. When using multiple modifiers, make sure to separate them with space. 
                 
                 **Examples:**
                    
