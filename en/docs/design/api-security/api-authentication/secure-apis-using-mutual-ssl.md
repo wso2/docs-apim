@@ -41,7 +41,7 @@ Follow the instructions below to change the header:
      certificate_header = "<Header Name>"
      # This property needs to be true if the MutualSSL connection is established between the load balancer and the Gateway.
      enable_client_validation = false
-     #This property needs to be true if the certificate should be decoded when it is passed from the load balancer to the Gateway.
+     # This property needs to be true if the certificate should be decoded when it is passed from the load balancer to the Gateway.
      client_certificate_encode = false
      # This property needs to be true if the certificate chain needed to be validated.
      enable_certificate_chain_validation = false
@@ -54,6 +54,9 @@ Follow the instructions below to change the header:
      client_certificate_encode = false
      enable_certificate_chain_validation = false
     ```
+
+!!! note
+     Please note that `enable_certificate_chain_validation` configuration is only available after API-M 4.0.0 U2 update level 271.
 
 3.  Start the Server.
 4.  Invoke the API  with the custom header.
