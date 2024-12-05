@@ -20,19 +20,21 @@ The instructions below explain how plain text passwords in configuration files c
 
      Use the `<alias>="[<actual_password>]"` format, under `[secrets]` as shown below. The most commonly used passwords in configuration files are listed in the example configuration.
 
-       ``` tab="Format"
-       [secrets]
-       <password_1_alias> = "[<password_1>]"
-       <password_2_alias> = "[<password_2>]"
-       ```
+    === "Format"
+        ``` toml
+        [secrets]
+        <password_1_alias> = "[<password_1>]"
+        <password_2_alias> = "[<password_2>]"
+        ```
        
-       ``` tab="Example"
-       [secrets]
-       admin_password = "[admin]"
-       keystore_password = "[wso2carbon]"
-       key_password = "[wso2carbon]"
-       truststore_password = "[wso2carbon]"
-       ```
+    === "Example"
+        ``` toml
+        [secrets]
+        admin_password = "[admin]"
+        keystore_password = "[wso2carbon]"
+        key_password = "[wso2carbon]"
+        truststore_password = "[wso2carbon]"
+        ```
     
 3.  Locate the configurations with the plain text passwords in the `<APIM_HOME>/repository/conf/deployment.toml` configuration file, and replace them with `$secret{<alias>}` in order to refer to the encrypted password instead of the plain text password. 
 
@@ -40,31 +42,33 @@ The instructions below explain how plain text passwords in configuration files c
 
     The sample configuration for the most commonly used passwords is given below.
    
-       ``` tab="Format"
-       [super_admin]
-       username="admin"
-       password="$secret{<admin_password_alias>}"
+    === "Format"
+          ``` toml
+          [super_admin]
+          username="admin"
+          password="$secret{<admin_password_alias>}"
+          
+          [keystore.tls]
+          password = "$secret{<keystore_password_alias>}" 
+          key_password = "$secret{<key_password_alias>}"  
+     
+          [truststore]                  
+          password = "$secret{<truststore_password>}"       
+          ```
        
-       [keystore.tls]
-       password = "$secret{<keystore_password_alias>}" 
-       key_password = "$secret{<key_password_alias>}"  
-   
-       [truststore]                  
-       password = "$secret{<truststore_password>}"       
-       ```
-       
-       ``` tab="Example"
-       [super_admin]
-       username="admin"
-       password="$secret{admin_password}"
-       
-       [keystore.tls]
-       password = "$secret{keystore_password}" 
-       key_password = "$secret{key_password}"  
-   
-       [truststore]                  
-       password = "$secret{truststore_password}"   
-       ``` 
+    === "Example"
+          ``` toml
+          [super_admin]
+          username="admin"
+          password="$secret{admin_password}"
+          
+          [keystore.tls]
+          password = "$secret{keystore_password}" 
+          key_password = "$secret{key_password}"  
+     
+          [truststore]                  
+          password = "$secret{truststore_password}"   
+          ``` 
        
     !!! Note
         You can also replace your passwords by referring values passed by environment variables and system properties. For instructions, see [Set Passwords using Environment Variables/System Properties]({{base_path}}/administer/product-security/logins-and-passwords/set-passwords-using-vars-and-sys-props)
@@ -142,25 +146,7 @@ Follow the instructions below to secure the endpoint's password that is given in
      * On Linux/Mac OS: `./api-manager.sh`
      * On Windows: `./api-manager.bat`
      
-After enabling the backend secure vault for backend credentials, the Basic Authentication header, which is written in the API Gateway configuration file, will be encrypted. If there were APIs that were already created and published before these instructions were performed, an update to the particular API would trigger the encryption process of the credentials. 
-
-Example:
-
-The following example depicts the same API when the endpoint password is not encrypted and encrypted:
-
-Here, the Basic authentication header is in base64 encoded format and can be decoded to get the actual credentials of the endpoint.
-
-``` xml
-<property name="Authorization" expression="fn:concat('Basic ', 'dGVzdDp0ZXN0MTIz')" scope="transport"/>
-```
-
-Here, the password is first looked up from the secret repository, and then set as a transport header.
-
-``` xml
-<property name="password" expression="wso2:vault-lookup('<api-identifier>')"/>
-<property name="unpw" expression="fn:concat('test',':',get-property('password'))"/>
-<property name="Authorization" expression="fn:concat('Basic ', base64Encode(get-property('unpw')))" scope="transport"/>
-```
+After enabling the backend secure vault for backend credentials, the Basic Authentication header, which is written in the API Gateway configuration file, will be encrypted. If there were APIs that were already created and published before these instructions were performed, an update to the particular API would trigger the encryption process of the credentials.
 
 ## Changing already encrypted passwords
 

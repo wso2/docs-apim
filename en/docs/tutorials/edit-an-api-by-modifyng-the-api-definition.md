@@ -23,7 +23,7 @@ In this tutorial, let's see how you can add interactive documentation to an API 
 
 3.  In the **Create an API** page, give an API name, a context a version and the endpoint as follows and click **Create**. 
 
-    <table><colgroup> <col/> <col/> <col/> </colgroup><tbody><tr><th colspan="2" >Field</th><th >Sample value</th></tr><tr><td colspan="2" class="confluenceTd">Name</td><td class="confluenceTd">PizzaShack</td></tr><tr><td colspan="2" class="confluenceTd">Version</td><td colspan="1" class="confluenceTd">1.0.0</td></tr><tr><td colspan="2" class="confluenceTd">Context</td><td class="confluenceTd"><div class="content-wrapper"><p><code>/pizzashack</code></p><div><div class="confluence-information-macro-body"></div><div class="confluence-information-macro confluence-information-macro-tip"><span class="aui-icon aui-icon-small aui-iconfont-approve confluence-information-macro-icon"></span><div class="confluence-information-macro-body"></div></div></div></div></td></tr><tr><td colspan="2" class="confluenceTd">Endpoint</td><td colspan="1" class="confluenceTd"><p><a class="external-link" href="https://localhost:9443/am/sample/pizzashack/v1/api" rel="nofollow">https://localhost:9443/am/sample/pizzashack/v1/api/</a></p><p>The endpoint that you add is automatically added as the production and sandbox endpoints.</p></td></tr></tbody></table>
+    <table><colgroup> <col/> <col/> <col/> </colgroup><tbody><tr><th colspan="2" >Field</th><th >Sample value</th></tr><tr><td colspan="2" class="confluenceTd">Name</td><td class="confluenceTd">PizzaShack</td></tr><tr><td colspan="2" class="confluenceTd">Version</td><td colspan="1" class="confluenceTd">1.0.0</td></tr><tr><td colspan="2" class="confluenceTd">Context</td><td class="confluenceTd"><div class="content-wrapper"><p><code>/pizzashack</code></p><div><div class="confluence-information-macro-body"></div><div class="confluence-information-macro confluence-information-macro-tip"><span class="aui-icon aui-icon-small aui-iconfont-approve confluence-information-macro-icon"></span><div class="confluence-information-macro-body"></div></div></div></div></td></tr><tr><td colspan="2" class="confluenceTd">Endpoint</td><td colspan="1" class="confluenceTd"><p>`https://localhost:9443/am/sample/pizzashack/v1/api`</p><p>The endpoint that you add is automatically added as the production and sandbox endpoints.</p></td></tr></tbody></table>
          
     ![create_an_API]({{base_path}}/assets/img/learn/tutorials/create-a-rest-api-pizzashack.png)
 
@@ -166,7 +166,7 @@ In this tutorial, let's see how you can add interactive documentation to an API 
                If you get an error after adding the API definition in the Swagger UI, first check the indentation of the code that you added, which defines the API, because Swagger throw errors if the indention is not correct.
                 ![]({{base_path}}/assets/img/learn/tutorials/rest-api-definition-pizzashack-indentation.png)
 
-7.  Add a summary and description for the GET method.
+6. Add a summary and description for the GET method.
 
     1.  Click **Edit Source** and add the following code, which defines a summary and description, to the GET method.
 
@@ -178,32 +178,24 @@ In this tutorial, let's see how you can add interactive documentation to an API 
         ![]({{base_path}}/assets/img/learn/tutorials/pizzashack-api-get-summary-and-descrption.png)
 
     2.  Click **Apply Changes**.
-        The summary and description of the GET method that you added is visible when you expand the GET method in the API Publisher.
-        ![]({{base_path}}/assets/img/learn/tutorials/pizza-shack-api-get-summary-and-description-updated.png)
+          The summary and description of the GET method that you added is visible when you expand the GET method in the API Publisher.
+          ![]({{base_path}}/assets/img/learn/tutorials/pizza-shack-api-get-summary-and-description-updated.png)
 
-8.  Change the title of the API.
+    !!! Important
+        Starting from WSO2 API Manager 4.x, the platform ensures that the `info.version` and `info.title` fields in the OpenAPI (Swagger) specification are automatically aligned with the version and title of the API that is published on the API Manager. This approach ensures that the version and title in the Swagger definition accurately correspond to the actual API deployed in the API Gateway.
 
-    1.  Click **Edit Source**, and add the following code in the Swagger UI.
-        This is the title that is visible to the consumers in the Developer Portal after the API is published.
 
-        ``` java
-        info:
-            title: PizzaShackAPI
-        ```
-
-        ![]({{base_path}}/assets/img/learn/tutorials/pizza-shack-api-change-api-title.png)
-        You can see how this change is reflected in the Developer Portal in step 12.
-
-    2.  Click **Apply Changes** and complete the API creation process.
-
-10. Complete the rest of the API creation process.
+7. Complete the rest of the API creation process.
     For more information, see step 7 onwards under [Create a REST API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/) section and Published in the [Publish an API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api/) section.
 
-11. Click **View in Developer Portal** and the API you just published appears.
-12. Click **Try Out**.
+8. Click **View in Developer Portal** and the API you just published appears.
+9. Click **Try Out**.
     Note that the changes that you made earlier now appear in the Developer Portal for consumers.
     ![]({{base_path}}/assets/img/learn/tutorials/pizza-shack-api-get-dev-portal.png)
     ![]({{base_path}}/assets/img/learn/tutorials/pizza-shack-api-put-dev-portal.png)
 
 
 In this tutorial, you have seen how the integrated Swagger Editor can be used to design, describe, and document your API, so that the API consumers get a better understanding of the API's functionality.
+
+!!! note
+    Vendor extension-related entries (such as `x-auth-type` and `x-throttling-tier`) cannot be modified directly through the Swagger Editor, as these are tightly integrated with WSO2’s internal functionalities.

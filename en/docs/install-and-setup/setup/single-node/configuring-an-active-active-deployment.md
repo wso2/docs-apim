@@ -115,7 +115,7 @@ API-M nodes. 
 
 Update the endpoints with your chosen hostname for Gateways as shown below. 
 In this case, let's use `gw.am.wso2.com` as the hostname.
-    ``` java
+    ``` toml
     [[apim.gateway.environment]]
     ...
     ws_endpoint = "ws://gw.am.wso2.com:9099"
@@ -128,75 +128,83 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
 
 1.  Configure the data publisher in the `apim.throttling.url_group` section which comes under the `apim.throttling.url_group` block in the `<API-M_HOME>/repository/conf/deployment.toml` file of both nodes.
     
-    1.  You need to update these configurations so that the Gateway can publish data to the Traffic Manager in its own node and the Traffic Manager in the other node, so that the same event is sent to both servers at the same time. 
+    1. You need to update these configurations so that the Gateway can publish data to the Traffic Manager in its own node and the Traffic Manager in the other node, so that the same event is sent to both servers at the same time. 
 
         The WSO2 Complex Event Processor (WSO2 CEP) component that lies within the Traffic Manager acts as the data receiver and processes the data to come up with Throttling decisions.
 
         Node1
 
-        ``` tab="Format"
-        [apim.throttling]
-        event_duplicate_url = ["tcp://<node2-hostname>:<node2-port>"]
+        === "Format"
+            ``` toml
+            [apim.throttling]
+            event_duplicate_url = ["tcp://<node2-hostname>:<node2-port>"]
+            throttle_decision_endpoints = ["tcp://<node1-hostname>:<node1-port>"]
 
-        [[apim.throttling.url_group]]
-        traffic_manager_urls = ["tcp://<node1-hostname>:<node1-port>"]
-        traffic_manager_auth_urls = ["ssl://<node1-hostname>:<node1-port>"]
-        type = "loadbalance"
+            [[apim.throttling.url_group]]
+            traffic_manager_urls = ["tcp://<node1-hostname>:<node1-port>"]
+            traffic_manager_auth_urls = ["ssl://<node1-hostname>:<node1-port>"]
+            type = "loadbalance"
 
-        [[apim.throttling.url_group]]
-        traffic_manager_urls = ["tcp://<node2-hostname>:<node2-port>"]
-        traffic_manager_auth_urls = ["ssl://<node2-hostname>:<node2-port>"]
-        type = "loadbalance"
-        ```
+            [[apim.throttling.url_group]]
+            traffic_manager_urls = ["tcp://<node2-hostname>:<node2-port>"]
+            traffic_manager_auth_urls = ["ssl://<node2-hostname>:<node2-port>"]
+            type = "loadbalance"
+            ```
 
-        ``` tab="Example"
-        [apim.throttling]
-        event_duplicate_url = ["tcp://127.0.0.1:5673"]
+        === "Example"
+            ``` toml
+            [apim.throttling]
+            event_duplicate_url = ["tcp://127.0.0.1:5673"]
+            throttle_decision_endpoints = ["tcp://localhost:5672"]
 
-        [[apim.throttling.url_group]]
-        traffic_manager_urls = ["tcp://127.0.0.1:9611"]
-        traffic_manager_auth_urls = ["ssl://127.0.0.1:9711"]
-        type = "loadbalance"
+            [[apim.throttling.url_group]]
+            traffic_manager_urls = ["tcp://127.0.0.1:9611"]
+            traffic_manager_auth_urls = ["ssl://127.0.0.1:9711"]
+            type = "loadbalance"
 
-        [[apim.throttling.url_group]]
-        traffic_manager_urls = ["tcp://127.0.0.1:9612"]
-        traffic_manager_auth_urls = ["ssl://127.0.0.1:9712"]
-        type = "loadbalance"
-        ```
+            [[apim.throttling.url_group]]
+            traffic_manager_urls = ["tcp://127.0.0.1:9612"]
+            traffic_manager_auth_urls = ["ssl://127.0.0.1:9712"]
+            type = "loadbalance"
+            ```
 
         Node2
         
-        ``` tab="Format"
-        [apim.throttling]
-        event_duplicate_url = ["tcp://<node1-hostname>:<node1-port>"]
+        === "Format"
+            ``` toml
+            [apim.throttling]
+            event_duplicate_url = ["tcp://<node1-hostname>:<node1-port>"]
+            throttle_decision_endpoints = ["tcp://<node2-hostname>:<node2-port>"]
 
-        [[apim.throttling.url_group]]
-        traffic_manager_urls = ["tcp://<node1-hostname>:<node1-port>"]
-        traffic_manager_auth_urls = ["ssl://<node1-hostname>:<node1-port>"]
-        type = "loadbalance"
+            [[apim.throttling.url_group]]
+            traffic_manager_urls = ["tcp://<node1-hostname>:<node1-port>"]
+            traffic_manager_auth_urls = ["ssl://<node1-hostname>:<node1-port>"]
+            type = "loadbalance"
 
-        [[apim.throttling.url_group]]
-        traffic_manager_urls = ["tcp://<node2-hostname>:<node2-port>"]
-        traffic_manager_auth_urls = ["ssl://<node2-hostname>:<node2-port>"]
-        type = "loadbalance"
-        ```
+            [[apim.throttling.url_group]]
+            traffic_manager_urls = ["tcp://<node2-hostname>:<node2-port>"]
+            traffic_manager_auth_urls = ["ssl://<node2-hostname>:<node2-port>"]
+            type = "loadbalance"
+            ```
 
-        ``` tab="Example"
-        [apim.throttling]
-        event_duplicate_url = ["tcp://127.0.0.1:5672"]
+        === "Example"
+            ``` toml
+            [apim.throttling]
+            event_duplicate_url = ["tcp://127.0.0.1:5672"]
+            throttle_decision_endpoints = ["tcp://localhost:5673"]
 
-        [[apim.throttling.url_group]]
-        traffic_manager_urls = ["tcp://127.0.0.1:9611"]
-        traffic_manager_auth_urls = ["ssl://127.0.0.1:9711"]
-        type = "loadbalance"
+            [[apim.throttling.url_group]]
+            traffic_manager_urls = ["tcp://127.0.0.1:9611"]
+            traffic_manager_auth_urls = ["ssl://127.0.0.1:9711"]
+            type = "loadbalance"
 
-        [[apim.throttling.url_group]]
-        traffic_manager_urls = ["tcp://127.0.0.1:9612"]
-        traffic_manager_auth_urls = ["ssl://127.0.0.1:9712"]
-        type = "loadbalance"
-        ```
-
-    2.  Save your changes.
+            [[apim.throttling.url_group]]
+            traffic_manager_urls = ["tcp://127.0.0.1:9612"]
+            traffic_manager_auth_urls = ["ssl://127.0.0.1:9712"]
+            type = "loadbalance"
+            ```
+    
+    2. Save your changes.
 
 {!includes/design/redis-counter-note.md!}
 
@@ -229,15 +237,17 @@ For more information on other production deployment guidelines, see [Production 
 
 Start the WSO2 API-M servers using the standard start-up script. For more information, see [Starting the server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server).
 
-```tab="Linux/Mac OS"
-cd <API-M_HOME>/bin/
-sh api-manager.sh
-```
+=== "Linux/Mac OS"
+    ```toml
+    cd <API-M_HOME>/bin/
+    sh api-manager.sh
+    ```
 
-```tab="Windows"
-cd <API-M_HOME>\bin\
-api-manager.bat --run 
-```
+=== "Windows"
+    ```toml
+    cd <API-M_HOME>\bin\
+    api-manager.bat --run 
+    ```
 
 !!! info
     If you want to deploy WSO2 API-M using a hybrid active-active deployment pattern, where WSO2 Identity Server is used 

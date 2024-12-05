@@ -280,7 +280,7 @@ the Call mediator response.
 
 ### Example 3 - Call mediator in blocking mode
 
-In the following sample configuration, the [Header Mediator]({{base_path}}/reference/mediators/header-Mediator) is used to add the action, the [PayloadFactory Mediator]({{base_path}}/reference/mediators/payloadFactory-Mediator) is used to store the the request message and the Call mediator is used to invoke a backend service. You will see that the payload of the request and header action are sent to the backend. After successful backend service invocation, you will see that the response of the service is retrieved by the Micro Integrator and sent to the client as the response using the [Respond Mediator]({{base_path}}/reference/mediators/respond-Mediator).
+In the following sample configuration, the [Header Mediator]({{base_path}}/reference/mediators/header-Mediator) is used to add the action, the [PayloadFactory Mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) is used to store the the request message and the Call mediator is used to invoke a backend service. You will see that the payload of the request and header action are sent to the backend. After successful backend service invocation, you will see that the response of the service is retrieved by the Micro Integrator and sent to the client as the response using the [Respond Mediator]({{base_path}}/reference/mediators/respond-Mediator).
 
 ```
 <target>

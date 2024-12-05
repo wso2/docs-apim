@@ -30,26 +30,28 @@ Let us check out the basic building blocks for creating a CI/CD pipeline with WS
      
      For more information, see [Installation Prerequisites]({{base_path}}/install-and-setup/install/installation-prerequisites/).
 
-2.  Download and setup apictl 4.2.2 version. 
+2.  Download and setup apictl 4.2.5 version. 
 
      For more information, see [Download and initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 
 3.  Add WSO2 API-M environments using the `add env` command.
 
     !!! example
-        ``` bash tab="Linux/Unix"
-        apictl add env dev \
-                    --apim https://localhost:9443 
+        === "Linux/Unix"
+            ``` bash
+            apictl add env dev \
+                        --apim https://localhost:9443 
 
-        apictl add env prod \
-                    --apim https://localhost:9444 
-        ```
+            apictl add env prod \
+                        --apim https://localhost:9444 
+            ```
 
-        ``` bash tab="Mac/Windows""
-        apictl add env dev --apim https://localhost:9443 
+        === "Mac/Windows"
+            ``` bash
+            apictl add env dev --apim https://localhost:9443 
 
-        apictl add env prod --apim https://localhost:9444 
-        ```    
+            apictl add env prod --apim https://localhost:9444 
+            ```    
 
     For more information, see [Add an environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#add-an-environment).
     
@@ -429,7 +431,7 @@ Run any of the following apictl commands to get keys for the API/API Product.
 
     !!! example
         ```bash
-        apictl get keys -n PizzaShackAPI -v 1.0.0 -e dev  -r admin -t https://localhost:8243/token
+        apictl get keys -n PizzaShackAPI -v 1.0.0 -e dev  -r admin -t https://localhost:9443/oauth2/token
         ```
     !!! info
         **Flags:**  

@@ -60,26 +60,28 @@ Follow the instructions below to change the type of the default datasource.
 
     Sample configuration is shown below:
 
-    ``` tab="Format"
-    type = "h2"
-    url = "jdbc:h2:tcp://localhost:9092/<DATABASE_LOCATION>"
-    username = "<USER_NAME>"
-    password = "<PASSWORD>"
-    ```
+    === "Format"
+        ``` toml
+        type = "h2"
+        url = "jdbc:h2:tcp://localhost:9092/<DATABASE_LOCATION>"
+        username = "<USER_NAME>"
+        password = "<PASSWORD>"
+        ```
 
-    ``` tab="Example"
-    [database.shared_db]
-    type = "h2"
-    url = "jdbc:h2:tcp://localhost:9092/~/shared_db"
-    username = "regadmin"
-    password = "regadmin"
+    === "Example"
+        ``` toml
+        [database.shared_db]
+        type = "h2"
+        url = "jdbc:h2:tcp://localhost:9092/~/shared_db"
+        username = "regadmin"
+        password = "regadmin"
 
-    [database.apim_db]
-    type = "h2"
-    url = "jdbc:h2:tcp://localhost:9092/~/apim_db"
-    username = "apimadmin"
-    password = "apimadmin"
-    ```
+        [database.apim_db]
+        type = "h2"
+        url = "jdbc:h2:tcp://localhost:9092/~/apim_db"
+        username = "apimadmin"
+        password = "apimadmin"
+        ```
 
 1.  You can update the configuration elements given below for your database connection.
 
@@ -97,34 +99,36 @@ Follow the instructions below to change the type of the default datasource.
 
     Sample configuration is shown below:
     
-    ``` tab="Format"
-    type = "h2"
-    url = "jdbc:h2:tcp://localhost:9092/<DATABASE_LOCATION>"
-    username = "<USER_NAME>"
-    password = "<PASSWORD>"
-    pool_options.<OPTION-1> = <VALUE-1>
-    pool_options.<OPTION-2> = <VALUE-2>
-    ...
-    ```
+    === "Format"
+        ``` toml
+        type = "h2"
+        url = "jdbc:h2:tcp://localhost:9092/<DATABASE_LOCATION>"
+        username = "<USER_NAME>"
+        password = "<PASSWORD>"
+        pool_options.<OPTION-1> = <VALUE-1>
+        pool_options.<OPTION-2> = <VALUE-2>
+        ...
+        ```
 
-    ``` tab="Example"
-    [database.shared_db]
-    type = "h2"
-    url = "jdbc:h2:tcp://localhost:9092/~/shared_db"
-    username = "regadmin"
-    password = "regadmin"
-    pool_options.maxActive = 100
-    pool_options.maxWait = 10000
-    pool_options.validationInterval = 10000
+    === "Example"
+        ``` toml
+        [database.shared_db]
+        type = "h2"
+        url = "jdbc:h2:tcp://localhost:9092/~/shared_db"
+        username = "regadmin"
+        password = "regadmin"
+        pool_options.maxActive = 100
+        pool_options.maxWait = 10000
+        pool_options.validationInterval = 10000
 
-    [database.apim_db]
-    type = "h2"
-    url = "jdbc:h2:tcp://localhost:9092/~/apim_db"
-    username = "apimadmin"
-    password = "apimadmin"
-    pool_options.maxActive = 50
-    pool_options.maxWait = 30000
-    ```
+        [database.apim_db]
+        type = "h2"
+        url = "jdbc:h2:tcp://localhost:9092/~/apim_db"
+        username = "apimadmin"
+        password = "apimadmin"
+        pool_options.maxActive = 50
+        pool_options.maxWait = 30000
+        ```
 
     !!! info
         For more information on other parameters that can be defined in the `<API-M_HOME>/repository/conf/deployment.toml` file, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).

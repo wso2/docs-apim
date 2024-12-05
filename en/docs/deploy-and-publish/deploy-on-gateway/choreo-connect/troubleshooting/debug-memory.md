@@ -14,13 +14,15 @@ Follow the steps below to take a heap dump of the Adapter.
 
 1. Log into the Adapter container's shell or in Kubernetes, port-forward the port `6060` from Adapter to localhost. This step is required because Adapter's `pprof` endpoints are only exposed via localhost for safety.
 
-    ```bash tab="Docker Compose"
-    docker-compose exec adapter sh
-    ```
+    === "Docker Compose"
+        ```bash
+        docker-compose exec adapter sh
+        ```
 
-    ```bash tab="Kubernetes"
-    kubectl port-forward choreo-connect-adapter 6060:6060
-    ```
+    === "Kubernetes"
+        ```bash
+        kubectl port-forward choreo-connect-adapter 6060:6060
+        ```
 
 1. Use the following command to get the heap dump into the 'heap.out' file.
 
@@ -55,78 +57,87 @@ The Router uses the Envoy Proxy as the core component that does the traffic rout
 
         <!-- Following docker image "wso2am/choreo-connect-router" contains envoy version in its tag, it should be updated per router envoy version update -->
 
-        ```Dockerfile tab="Format"
-        FROM <ROUTER_DOCKER_IMAGE_WITH_WSO2_UPDATES>
-        COPY --from=wso2am/choreo-connect-router:{{choreo_connect.version}}-debug-{{choreo_connect.envoy_version}} /usr/local/bin/envoy /usr/local/bin/envoy
-        ```
+        === "Format"
+            ```Dockerfile
+            FROM <ROUTER_DOCKER_IMAGE_WITH_WSO2_UPDATES>
+            COPY --from=wso2am/choreo-connect-router:{{choreo_connect.version}}-debug-{{choreo_connect.envoy_version}} /usr/local/bin/envoy /usr/local/bin/envoy
+            ```
 
-        ```Dockerfile tab="Sample Dockerfile"
-        FROM wso2/choreo-connect-router:{{choreo_connect.version}}.1 # for update level 1
-        COPY --from=wso2am/choreo-connect-router:{{choreo_connect.version}}-debug-{{choreo_connect.envoy_version}} /usr/local/bin/envoy /usr/local/bin/envoy
-        ```
+        === "Sample Dockerfile"
+            ```Dockerfile
+            FROM wso2/choreo-connect-router:{{choreo_connect.version}}.1 # for update level 1
+            COPY --from=wso2am/choreo-connect-router:{{choreo_connect.version}}-debug-{{choreo_connect.envoy_version}} /usr/local/bin/envoy /usr/local/bin/envoy
+            ```
 
     2. Build a Docker image and push it to a Docker registry that your Kubernetes cluster can pull it.
 
-        ```bash tab="Format"
-        docker build -t <DOCKER_REGISTRY>/<DEBUG_IMAGE_NAME>:<TAG> .
-        ```
+        === "Format"
+            ```bash
+            docker build -t <DOCKER_REGISTRY>/<DEBUG_IMAGE_NAME>:<TAG> .
+            ```
 
-        ```bash tab="Sample"
-        docker build -t sample.com/choreo-connect-router:{{choreo_connect.version}}.1-debug .
-        ```
+        === "Sample"
+            ```bash
+            docker build -t sample.com/choreo-connect-router:{{choreo_connect.version}}.1-debug .
+            ```
 
 ### Steps
 
 1.  Change the Router Docker image with the built ***Router Debug Image*** and mount a directory to `/var/log/envoy` to collect head profile data.
 
-    ```text tab="Docker Compose"
-    Create directory named "profile-data".
-    
-    mkdir profile-data
-    chmod 777 profile-data
-    
-    Update 'docker-compose.yaml' file as follows and start docker-compose setup.
+    === "Docker Compose"
+        ```text
+        Create directory named "profile-data".
+        
+        mkdir profile-data
+        chmod 777 profile-data
+        
+        Update 'docker-compose.yaml' file as follows and start docker-compose setup.
 
-    router:
-      image: <DOCKER_REGISTRY>/<DEBUG_IMAGE_NAME>:<TAG> # change image name
-      volumes:
-        - ./profile-data:/var/log/envoy # append this volume
-    ```
+        router:
+        image: <DOCKER_REGISTRY>/<DEBUG_IMAGE_NAME>:<TAG> # change image name
+        volumes:
+            - ./profile-data:/var/log/envoy # append this volume
+        ```
 
-    ```text tab="K8s YAML"
-    Update 'choreo-connect/choreo-connect-deployment.yaml' file as follows and apply it to the K8s cluster.
+    === "K8s YAML"
+        ```text
+        Update 'choreo-connect/choreo-connect-deployment.yaml' file as follows and apply it to the K8s cluster.
 
-    spec:
-      containers:
-        - name: choreo-connect-router
-          image: <DOCKER_REGISTRY>/<DEBUG_IMAGE_NAME>:<TAG>
-          volumeMounts:
-            - mountPath: /var/log/envoy
-              name: router-heap-profile-data
-      volumes:
-        - name: router-heap-profile-data
-          emptyDir: {}
+        spec:
+        containers:
+            - name: choreo-connect-router
+            image: <DOCKER_REGISTRY>/<DEBUG_IMAGE_NAME>:<TAG>
+            volumeMounts:
+                - mountPath: /var/log/envoy
+                name: router-heap-profile-data
+        volumes:
+            - name: router-heap-profile-data
+            emptyDir: {}
 
 
-    ```
+        ```
 
-    ```bash tab="K8s Helm"
-    helm upgrade --install <RELEASE_NAME> wso2/choreo-connect --version {{choreo_connect.helm_chart.version}} --namespace <NAMESPACE> \
-        --set wso2.deployment.gatewayRuntime.router.debug.heapProfile.mountEmptyDir=true \
-        --set wso2.deployment.gatewayRuntime.router.dockerRegistry=<DOCKER_REGISTRY> \
-        --set wso2.deployment.gatewayRuntime.router.imageName=<DEBUG_IMAGE_NAME> \
-        --set wso2.deployment.gatewayRuntime.router.imageTag=<TAG>
-    ```
+    === "K8s Helm"
+        ```bash
+        helm upgrade --install <RELEASE_NAME> wso2/choreo-connect --version {{choreo_connect.helm_chart.version}} --namespace <NAMESPACE> \
+            --set wso2.deployment.gatewayRuntime.router.debug.heapProfile.mountEmptyDir=true \
+            --set wso2.deployment.gatewayRuntime.router.dockerRegistry=<DOCKER_REGISTRY> \
+            --set wso2.deployment.gatewayRuntime.router.imageName=<DEBUG_IMAGE_NAME> \
+            --set wso2.deployment.gatewayRuntime.router.imageTag=<TAG>
+        ```
 
 2.  Expose the admin portal port (port 9000) to your local machine.
 
-    ```text tab="Docker Compose"
-    Already done in the default Docker Compose setup.
-    ```
+    === "Docker Compose"
+        ```text
+        Already done in the default Docker Compose setup.
+        ```
 
-    ```bash tab="Kubernetes (for both YAML and Helm)"
-    kubectl port-forward -n <NAMESPACE> svc/<K8S_ROUTER_SERVICE_NAME> 9000:9000
-    ```
+    === "Kubernetes (for both YAML and Helm)"
+        ```bash
+        kubectl port-forward -n <NAMESPACE> svc/<K8S_ROUTER_SERVICE_NAME> 9000:9000
+        ```
     
 3.  Start/Deploy Choreo Connect.
 
@@ -142,18 +153,20 @@ The Router uses the Envoy Proxy as the core component that does the traffic rout
 
 6.  Execute following commands to copy profile data and envoy binary to the directory `./profile-data` in you local machine.
 
-    ```bash tab="Docker Compose"
-    mkdir profile-data/lib
-    docker compose cp router:/usr/local/bin/envoy profile-data/lib/envoy
-    ```
+    === "Docker Compose"
+        ```bash
+        mkdir profile-data/lib
+        docker compose cp router:/usr/local/bin/envoy profile-data/lib/envoy
+        ```
 
-    ```bash tab="Kubernetes (for both YAML and Helm)"
-    export POD_NAME=<K8S_CHOREO_CONNECT_GATEWAY_RUNTIME_POD_NAME>
-    export NAMESPACE=<NAMESPACE>
+    === "Kubernetes (for both YAML and Helm)"
+        ```bash
+        export POD_NAME=<K8S_CHOREO_CONNECT_GATEWAY_RUNTIME_POD_NAME>
+        export NAMESPACE=<NAMESPACE>
 
-    kubectl cp -n $NAMESPACE $POD_NAME:/var/log/envoy profile-data -c choreo-connect-router
-    kubectl cp -n $NAMESPACE $POD_NAME:/usr/local/bin/envoy profile-data/lib/envoy -c choreo-connect-router
-    ```
+        kubectl cp -n $NAMESPACE $POD_NAME:/var/log/envoy profile-data -c choreo-connect-router
+        kubectl cp -n $NAMESPACE $POD_NAME:/usr/local/bin/envoy profile-data/lib/envoy -c choreo-connect-router
+        ```
 
 7.  Analyze the heap profile in the browser by running the following command.
     ```bash

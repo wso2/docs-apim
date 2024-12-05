@@ -26,7 +26,7 @@ The following diagram illustrates the message flow when sending an invalid reque
 
 The following is an invalid request based on the [Petstore API](https://github.com/OAI/OpenAPI-Specification/blob/master/examples/v2.0/json/petstore.json).
 
-```
+```bash
 curl -X POST "https://localhost:8243/rfrf/1.0.0/pet" -H "accept: */*" -H "Content-Type: application/json" -H "Authorization: Bearer c06e0cb0-af4a-3e5e-b8c3-99449ff7e3e5" -d "{\"id\":0,\"category\":{\"id\":0,\"name\":\"string\"},\"name\":\"doggie\",\"photoUrls\":[\"string\"],\"tags\":[{\"id\":0,\"name\":\"string\"}],\"status\":\"available\"}"
 ```
 
@@ -58,7 +58,7 @@ The following diagram illustrates the message flow when sending an invalid respo
 
 The following is a sample request from the client based on the [Petstore API](https://github.com/OAI/OpenAPI-Specification/blob/master/examples/v2.0/json/petstore.json).
 
-```
+```bash
 curl -X GET "https://localhost:8243/rfrf/1.0.0/pet/1" -H "accept: application/xml" -H "Authorization: Bearer c06e0cb0-af4a-3e5e-b8c3-99449ff7e3e5"
 ```
 

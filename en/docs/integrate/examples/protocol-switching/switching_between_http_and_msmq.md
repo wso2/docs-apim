@@ -6,46 +6,48 @@ In this example, stockquote requests are placed to the stockquote proxy service,
 
 ## Synapse configuration
 
-```xml tab='MSMQ Test proxy'
-<proxy xmlns="http://ws.apache.org/ns/synapse" name="msmqTest" transports="msmq" startOnLoad="true">
-    <target>
-        <inSequence>
-            <property name="OUT_ONLY" value="true"/>
-            <send>
-                <endpoint>
-                    <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
-                </endpoint>
-            </send>
-        </inSequence>
-        <outSequence>
-            <send/>
-        </outSequence>
-        <parameter name="transport.msmq.ContentType">application/xml</parameter>
-    </target>
-</proxy>
-```
+=== "MSMQ Test proxy"
+    ```xml
+    <proxy xmlns="http://ws.apache.org/ns/synapse" name="msmqTest" transports="msmq" startOnLoad="true">
+        <target>
+            <inSequence>
+                <property name="OUT_ONLY" value="true"/>
+                <send>
+                    <endpoint>
+                        <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+                    </endpoint>
+                </send>
+            </inSequence>
+            <outSequence>
+                <send/>
+            </outSequence>
+            <parameter name="transport.msmq.ContentType">application/xml</parameter>
+        </target>
+    </proxy>
+    ```
 
-```xml tab='StockQuote proxy'
-<proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="http" startOnLoad="true" trace="disable">
-     <description/>
-      <target>
-        <endpoint>
-          <address uri="msmq:DIRECT=OS:localhost\private$\msmqTest"/>
-        </endpoint>
-        <inSequence>
-           <property name="FORCE_SC_ACCEPTED"  value="true"  scope="axis2"  type="STRING"/>
-           <property name="OUT_ONLY" value="true" scope="default" type="STRING"/>
-        </inSequence>
-       <outSequence>
-          <log level="custom">
-              <property name="MESSAGE" value="OUT SEQENCE CALLED"/>
-          </log>
-           <send/>
-         </outSequence>
-      </target>
-      <publishWSDL uri="http://localhost:9000/services/SimpleStockQuoteService?wsdl"/>
- </proxy>
-```
+=== "StockQuote proxy"
+    ```xml
+    <proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="http" startOnLoad="true" trace="disable">
+        <description/>
+        <target>
+            <endpoint>
+            <address uri="msmq:DIRECT=OS:localhost\private$\msmqTest"/>
+            </endpoint>
+            <inSequence>
+            <property name="FORCE_SC_ACCEPTED"  value="true"  scope="axis2"  type="STRING"/>
+            <property name="OUT_ONLY" value="true" scope="default" type="STRING"/>
+            </inSequence>
+        <outSequence>
+            <log level="custom">
+                <property name="MESSAGE" value="OUT SEQENCE CALLED"/>
+            </log>
+            <send/>
+            </outSequence>
+        </target>
+        <publishWSDL uri="http://localhost:9000/services/SimpleStockQuoteService?wsdl"/>
+    </proxy>
+    ```
 
 <!--
 ## Build and run

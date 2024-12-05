@@ -27,7 +27,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 ## Creating the Integration Logic
 
 1. Right click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API. 
-    <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+    <img src="/assets/img/integrate/connectors/adding-an-api.jpg" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
 2. Provide the API name as File Connector and the API context as `/fileconnector`.
 
@@ -54,8 +54,8 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 9. Create the next API resource, which is `/read`. From this we are going to read the file content from a user specified location. 
 
-10. As described in step 3, drag and drop another API resource to the design view. Use the URL template as `/read`. The method will be POST. 
-    <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/apiResource.png" title="Adding an API resource" width="800" alt="Adding an API resource"/>
+10. As described in step 3, drag and drop another API resource to the design view. Use the URL template as `/read`. The method will be POST. <br>
+    <img src="{{base_path}}/assets/img/integrate/connectors/apiresource.jpg" title="Adding an API resource" width="800" alt="Adding an API resource"/>
 
 11. In this operation, the user sends the file location as the request payload. It will be written to the property as we did in step 10. 
     <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/filecon4.png" title="Adding property mediator" width="800" alt="Adding property mediator"/>
@@ -129,7 +129,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/filecon-3.x/fileconnector.zip">
+<a href="{{base_path}}/assets/attachments/connectors/fileconnector.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 

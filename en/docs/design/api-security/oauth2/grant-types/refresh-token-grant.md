@@ -26,7 +26,7 @@ The diagram below illustrates the refresh token grant flow.
 
 To use this grant type, you need a refresh token, using which you can get a new access token and a refresh token. This can be done by issuing a REST call to the Token API through a REST client like cURL, with the following parameters:
 
--   The Token API URL is [https://localhost:9443/oauth2/token](https://localhost:9443/oauth2/login) , assuming that both the client and the Gateway are running on the same server.
+-   The Token API URL is [https://localhost:9443/oauth2/token](https://localhost:9443/oauth2/token) , assuming that both the client and the Gateway are running on the same server.
 -   payload 
 ```
     "grant_type=refresh_token&refresh_token=<refresh-token>"
@@ -41,36 +41,38 @@ Replace `<base64(client-id:client-secret)>` as appropriate.
 
 For example, the following cURL command can be used to access the Token API.
 
-``` java tab="Format"
-curl -k -d "grant_type=refresh_token&refresh_token=<refresh-token>" -H "Authorization: Basic SVpzSWk2SERiQjVlOFZLZFpBblVpX2ZaM2Y4YTpHbTBiSjZvV1Y4ZkM1T1FMTGxDNmpzbEFDVzhh" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
-```
+=== "Format"
+    ``` java
+    curl -k -d "grant_type=refresh_token&refresh_token=<refresh-token>" -H "Authorization: Basic <base64Encode(clientId:clientSecret)>" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+    ```
 
-``` java tab="Example"
-curl -k -d "grant_type=refresh_token&refresh_token=3154090c-37f1-3268-90f9-8bd84daf135c" -H "Authorization: Basic UXk3RUZfVEtMbEVLWTlVRFpiWHVscVA4ZVVBYTpKSWN3VTlIX1hGUFdTcW1RQmllZ3lJUzRKazhh" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
-```
+=== "Example"
+    ``` java
+    curl -k -d "grant_type=refresh_token&refresh_token=bd63be3d-d37e-3689-9488-b9dbbe8d3f9e" -H "Authorization: Basic dTJRMGpDb2RhWklnRlZoZkxUY3VSNHJCX05ZYTpCWkVmaUZBd043NkJDUUxKTjFTcW5YaGxVcm9h" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+    ```
 
 You receive a response similar to the following:
 
-``` java
+``` json
 {
-    "scope":"default",
-    "token_type":"Bearer",
-    "expires_in":3600,
-    "refresh_token":"7ed6bae2b1d36c041787e8c8e2d6cbf8",
-    "access_token":"b7882d23f1f8257f4bc6cf4a20633ab1"
+   "access_token":"eyJ4NXQiOiJPREJtTVRVMFpqSmpPREprTkdZMVpUaG1ZamsyWVRZek56UmpZekl6TVRCbFlqRTBNV0prWTJJeE5qZzNPRGRqWVdRNVpXWmhOV0kwTkRBM1pqTTROUSIsImtpZCI6Ik9EQm1NVFUwWmpKak9ESmtOR1kxWlRobVlqazJZVFl6TnpSall6SXpNVEJsWWpFME1XSmtZMkl4TmpnM09EZGpZV1E1WldaaE5XSTBOREEzWmpNNE5RX1JTMjU2IiwidHlwIjoiYXQrand0IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI5Zjg1MGViNi04NGQ0LTQwZDItYmRhNi04ZWJmYWI2YTUxMWIiLCJhdXQiOiJBUFBMSUNBVElPTl9VU0VSIiwiYXVkIjoidTJRMGpDb2RhWklnRlZoZkxUY3VSNHJCX05ZYSIsIm5iZiI6MTcxMzE2Mjc4NCwiYXpwIjoidTJRMGpDb2RhWklnRlZoZkxUY3VSNHJCX05ZYSIsInNjb3BlIjoiZGVmYXVsdCIsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0Ojk1MDAvb2F1dGgyL3Rva2VuIiwiZXhwIjoxNzEzMTY2Mzg0LCJpYXQiOjE3MTMxNjI3ODQsImp0aSI6IjgzNTc2NDEwLTA4NGItNDg4Mi1hZGZlLTYyYjM4M2VjZWI0NCIsImNsaWVudF9pZCI6InUyUTBqQ29kYVpJZ0ZWaGZMVGN1UjRyQl9OWWEifQ.vg_YgUfGWqy6z_LFfJAv0MZtRax09b9MHtA-RA4OKkUISnqcgJiqcP7X4K2NE0sLiL7v3mihBS-gLRb6lH7L2b4nCWwAVD0XR3PVviEBfzeGgse2QTbx_kc7gP10UfqrqBg0-Cj4SHW4XXGXcHytg6n-txJmZwtPNnA3RZSPcIIJbna3iPtfndqLbAJntP45vL-ug_tUKfuW6pKlKcU5yTkEfeajNCr1miRcg4jEfG_fG_iVTYXo9hdR5yeW8l5iU4bDrd9M9UKXpyCsfszlGEBK71qCm2mq2HZOOxn1Cpx2JE6ekfVF85Y_amB-56wsh8HXj22FaZCgU-bCgpmWzw",
+   "refresh_token":"af018b89-8cda-3a01-8c48-c10eff0d1cef",
+   "scope":"default",
+   "token_type":"Bearer",
+   "expires_in":3600
 }
 ```
 
 The above REST response grants you a renewed access token along with a refresh token, which you can use the next time you renew the access token. A refresh token can be used only once. You can configure an expiration time for the refresh token by adding following configuration in the `<APIM_HOME>/repository/conf/deployment.toml` file.
 
-```
+``` toml
     [oauth.token_validation]
     refresh_token_validity = 3600
 ```
 
 ### Revoking a refresh token
 
-After issuing an access token and refresh token, a user or an admin can revoke it in case of theft or a security violation. You can do this by calling the Revoke API using a utility like cURL. The Revoke API's endpoint URL is <https://localhost:9443/oauth2/revoke>.
+After issuing an access token and refresh token, a user or an admin can revoke it in case of theft or a security violation. You can do this by calling the Revoke API using a utility like cURL. The Revoke API's endpoint URL is `https://localhost:9443/oauth2/revoke`.
 
 #### Option 1
 
@@ -80,36 +82,40 @@ The parameters required to invoke the following API are as follows:
 
 - <code>base64Encode(clientId:clientSecret)</code> - Use a base64 encoder to encode your client ID and client secret in the format - `<clientId>:<clientSecret>`. WSO2 does not recommend the use of online base64 encoders for this purpose.
 
-``` java tab="Format"
-curl -k -v -d "token=<refresh_token_to_be_revoked>" -H "Authorization: Basic <base64Encode(clientId:clientSecret)>" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/revoke
-```
+=== "Format"
+    ``` java
+    curl -k -v -d "token=<refresh_token_to_be_revoked>" -H "Authorization: Basic <base64Encode(clientId:clientSecret)>" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/revoke
+    ```
 
-``` java tab="Example"
-curl -k -v -d "token=c8e8eec2-0092-3ac6-b23f-ef7492f345a6" -H "Authorization: Basic OVRRNVJLZWFhVGZGeUpRSkRzam9aZmp4UkhjYTpDZnJ3ZXRual9ZOTdSSzFTZWlWQWx1aXdVVmth" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/revoke
-```
+=== "Example"
+    ``` java
+    curl -k -v -d "token=af018b89-8cda-3a01-8c48-c10eff0d1cef" -H "Authorization: Basic dTJRMGpDb2RhWklnRlZoZkxUY3VSNHJCX05ZYTpCWkVmaUZBd043NkJDUUxKTjFTcW5YaGxVcm9h" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/revoke
+    ```
 
 **Response**
 
 ```
-    > Host: localhost:8243
-    > User-Agent: curl/7.50.2
-    > Accept: */*
-    > Authorization: Basic YjNtTzdkQ2h3UHBfdTVHOFN6cVBzSDVTRnZRYTo4OG16bGFaejc2T2RlekJSNDBwcmZBa2ZNUjBh
-    > Content-Type: application/x-www-form-urlencoded
-    > Content-Length: 42
-    > 
-    < HTTP/1.1 200 OK
-    < X-Frame-Options: DENY
-    < RevokedRefreshToken: c8e8eec2-0092-3ac6-b23f-ef7492f345a6
-    < Cache-Control: no-store
-    < X-Content-Type-Options: nosniff
-    < AuthorizedUser: admin@carbon.super
-    < Pragma: no-cache
-    < RevokedAccessToken: c7febbd3-5f35-3727-ae5f-5a8492b04f93
-    < X-XSS-Protection: 1; mode=block
-    < Content-Type: text/html
-    < Date: Thu, 02 Nov 2017 12:57:58 GMT
-    < Transfer-Encoding: chunked
+> POST /oauth2/revoke HTTP/1.1
+> Host: localhost:9443
+> User-Agent: curl/8.4.0
+> Accept: */*
+> Authorization: Basic dTJRMGpDb2RhWklnRlZoZkxUY3VSNHJCX05ZYTpCWkVmaUZBd043NkJDUUxKTjFTcW5YaGxVcm9h
+> Content-Length: 42
+> Content-Type: application/x-www-form-urlencoded
+>
+< HTTP/1.1 200
+< X-WSO2-TraceId: e74786fd-f680-4ae3-b8fe-e1df5aa904a4
+< X-Frame-Options: DENY
+< X-Content-Type-Options: nosniff
+< Cache-Control: no-store
+< Pragma: no-cache
+< RevokedAccessToken: 83576410-084b-4882-adfe-62b383eceb44
+< RevokedRefreshToken: af018b89-8cda-3a01-8c48-c10eff0d1cef
+< AuthorizedUser: admin@carbon.super
+< Date: Mon, 15 Apr 2024 07:26:42 GMT
+< Content-Type: application/json
+< Content-Length: 0
+< Server: WSO2 Carbon Server
 ```
 
 #### Option 2
@@ -120,39 +126,42 @@ The parameters required to invoke the following API are as follows:
 
 - `base64Encode(clientId:clientSecret)` - Use a base64 encoder to encode your client ID and client secret in the format: `<clientId>:<clientSecret>`. WSO2 does not recommend the use of online base64 encoders for this purpose.
 
-- `token_type_hint -` This parameter is **optional**. If you do not specify this parameter, then WSO2 API Manager will search in both key spaces (access token and refresh token) and if it finds a matching token then it will be revoked. Therefore, if this parameter it not specified the token revocation process takes longer. However, if you specify this parameter then it will only searches in the respective token key space, hence the token revocation process is much faster.
+- `token_type_hint -` This parameter is **optional**. If you do not specify this parameter, then WSO2 API Manager will search in both key spaces (access token and refresh token) and if it finds a matching token then it will be revoked. Therefore, if this parameter is not specified the token revocation process takes longer. However, if you specify this parameter then it will only search in the respective token key space, hence the token revocation process is much faster.
 
-``` java tab="Format"
-curl -k -v -d "token=<refresh_token_to_be_revoked>&token_type_hint=<access_token_or_refresh_token>" -H "Authorization: Basic <base64 encoded (clientId:clientSecret)>" -H Content-Type: application/x-www-form-urlencoded https://localhost:9443/oauth2/revoke
-```
+=== "Format"
+    ``` java
+    curl -k -v -d "token=<refresh_token_to_be_revoked>&token_type_hint=<access_token_or_refresh_token>" -H "Authorization: Basic <base64 encoded (clientId:clientSecret)>" -H Content-Type: application/x-www-form-urlencoded https://localhost:9443/oauth2/revoke
+    ```
 
-``` java tab="Example"
-curl -k -v -d "token=4ed29669-a457-3f83-af1e-180cad271cca&token_type_hint=refresh_token" -H "Authorization: Basic OVRRNVJLZWFhVGZGeUpRSkRzam9aZmp4UkhjYTpDZnJ3ZXRual9ZOTdSSzFTZWlWQWx1aXdVVmth" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/revoke
-```
+=== "Example"
+    ``` java
+    curl -k -v -d "token=b6b5db36-9c1e-31dc-a3c2-283377736dd0&token_type_hint=refresh_token" -H "Authorization: Basic dTJRMGpDb2RhWklnRlZoZkxUY3VSNHJCX05ZYTpCWkVmaUZBd043NkJDUUxKTjFTcW5YaGxVcm9h" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/revoke
+    ```
 
 **Response**
 
 ```
-    > POST /revoke HTTP/1.1
-    > Host: localhost:8243
-    > User-Agent: curl/7.50.2
-    > Accept: */*
-    > Authorization: Basic YjNtTzdkQ2h3UHBfdTVHOFN6cVBzSDVTRnZRYTo4OG16bGFaejc2T2RlekJSNDBwcmZBa2ZNUjBh
-    > Content-Type: application/x-www-form-urlencoded
-    > Content-Length: 72
-    > 
-    < HTTP/1.1 200 OK
-    < X-Frame-Options: DENY
-    < RevokedRefreshToken: 4ed29669-a457-3f83-af1e-180cad271cca
-    < Cache-Control: no-store
-    < X-Content-Type-Options: nosniff
-    < AuthorizedUser: admin@carbon.super
-    < Pragma: no-cache
-    < RevokedAccessToken: 23562997-bbc7-353f-a650-16558b7147bc
-    < X-XSS-Protection: 1; mode=block
-    < Content-Type: text/html
-    < Date: Thu, 02 Nov 2017 12:59:41 GMT
-    < Transfer-Encoding: chunked
+> POST /oauth2/revoke HTTP/1.1
+> Host: localhost:9443
+> User-Agent: curl/8.4.0
+> Accept: */*
+> Authorization: Basic dTJRMGpDb2RhWklnRlZoZkxUY3VSNHJCX05ZYTpCWkVmaUZBd043NkJDUUxKTjFTcW5YaGxVcm9h
+> Content-Length: 72
+> Content-Type: application/x-www-form-urlencoded
+>
+< HTTP/1.1 200
+< X-WSO2-TraceId: b29c94ad-6d1c-435a-9423-f8a7ae2d8ddd
+< X-Frame-Options: DENY
+< X-Content-Type-Options: nosniff
+< Cache-Control: no-store
+< Pragma: no-cache
+< RevokedAccessToken: c120a072-b5a6-4dc7-9889-dda037011917
+< RevokedRefreshToken: b6b5db36-9c1e-31dc-a3c2-283377736dd0
+< AuthorizedUser: admin@carbon.super
+< Date: Mon, 15 Apr 2024 07:33:41 GMT
+< Content-Type: application/json
+< Content-Length: 0
+< Server: WSO2 Carbon Server
 ```
 
 !!! tip

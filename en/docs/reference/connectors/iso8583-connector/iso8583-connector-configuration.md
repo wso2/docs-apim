@@ -24,4 +24,4 @@ If you use the [sample Java server program](https://github.com/wso2-docs/CONNECT
 
 The ISO8583 connector uses the jpos library, which is a third party library that provides a high-performance bridge between card messages generated at point of sale terminals, ATMs, and internal systems across the entire financial messaging network. The jposdef.xml file has the field definitions of standard ISO8583 messages. According to the field definitions, each ISO8583 message in XML format coming from the REST client is packed and sent to the test server. Therefore, you need to create a file called jposdef.xml (with the contents given [here](https://github.com/wso2-extensions/esb-connector-iso8583/blob/master/src/main/resources/jposdef.xml)) in the <PRODUCT_HOME> directory.
  
-Now you have connected to the test server. For more information, see [ISO8583 Connector Example]({{base_path}}/reference/connectors/ISO8583-connector/ISO8583-connector-example/).
+Now you have connected to the test server. For more information, see [ISO8583 Connector Example]({{base_path}}/reference/connectors/iso8583-connector/iso8583-connector-example/).

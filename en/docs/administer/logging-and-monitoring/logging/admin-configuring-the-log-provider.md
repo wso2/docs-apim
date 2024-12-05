@@ -60,8 +60,8 @@ After implementing the above interfaces, update the `logging-config.xml` file st
         </logFileProviderConfig>
     </loggingConfig>
     ```
-        !!! note
-    The default "InMemoryLogProvider" uses the CarbonMemoryAppender. Therefore the log4j.properties file stored in &lt;PRODUCT\_HOME&gt;/repository/conf/ directory should be updated with the following log4j.appender.CARBON\_MEMORY property:
+    !!! note
+        The default "InMemoryLogProvider" uses the CarbonMemoryAppender. Therefore the log4j.properties file stored in &lt;PRODUCT\_HOME&gt;/repository/conf/ directory should be updated with the following log4j.appender.CARBON\_MEMORY property:
 
     ``` java
         log4j.appender.CARBON_MEMORY=org.wso2.carbon.logging.service.appender.CarbonMemoryAppender]

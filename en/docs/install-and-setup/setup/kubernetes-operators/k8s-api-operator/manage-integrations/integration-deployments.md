@@ -291,7 +291,7 @@ The API operator allows the use of any custom Docker image in a private registry
                 <code>your-registry-server</code>
             </td>
             <td>
-                The <a href="https://index.docker.io/v1/">private Docker registry FQDN</a> for DockerHub.
+                The private Docker registry FQDN for DockerHub.
             </td>
         </tr>
         <tr>

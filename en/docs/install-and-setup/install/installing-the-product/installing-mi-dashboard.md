@@ -9,7 +9,7 @@ Follow the steps given below to install the Micro Integrator (MI) Dashboard.
 
 !!! info
     To connect the MI servers with the dashboard, add the following configuration to the `deployment.toml` file (stored in the `<MI_HOME>/conf/` folder of each server instance.
-    ```
+    ```toml
     [dashboard_config]
     dashboard_url = "https://{hostname/ip}:{port}/dashboard/api/"
     heartbeat_interval = 5

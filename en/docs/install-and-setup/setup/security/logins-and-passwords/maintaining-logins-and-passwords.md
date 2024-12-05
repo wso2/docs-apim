@@ -43,7 +43,7 @@ Follow the instructions below to change the default admin password:
     ```
 
     ??? info "sample deployment.toml configs"
-        ```
+        ```toml
         [super_admin]
         username = "foo_admin"
         password = "<![CDATA[~^&*#`43d:3;]]>"
@@ -60,14 +60,7 @@ Follow the instructions below to change the default admin password:
     Therefore, if you need to change the admin password stored in the user store, you cannot simply change the credentials as above.
     To change the super admin password, you must use the **Change Password** option from the management console.
 
-    To change the password from Management Console (<https://localhost:9443/carbon>), follow the steps in [Changing a Password](https://docs.wso2.com/display/ADMIN44x/Changing+a+Password) corresponding to API Manager.
-
-## Recover a password
-
-Use the `<API-M_HOME>/bin/chpasswd.sh` script.
-
-!!! note
-    If you encountered an error similar to `ant: command not found`, Please install [Apache Ant](https://ant.apache.org/) before running the above script.
+    To change the password from Management Console (<https://localhost:9443/carbon>), follow the steps in [Changing a Password](https://wso2docs.atlassian.net/wiki/spaces/ADMIN44x/pages/6684791/Changing+a+Password) corresponding to API Manager.
 
 ## Setup an e-mail login
 
@@ -107,7 +100,7 @@ Use the `<API-M_HOME>/bin/chpasswd.sh` script.
     username_java_regex = '^[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}'
     username_java_script_regex = '^[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$'
         
-    [apim.devportal]  
+    [apim.devportal]
     enable_cross_tenant_subscriptions = true
     default_reserved_username = "apim_reserved_user"
     ```
@@ -154,7 +147,7 @@ Use the `<API-M_HOME>/bin/chpasswd.sh` script.
 3. Restart the server.
 
 ??? info "sample deployment.toml configs"
-    ```
+    ```toml
     [tenant_mgt]
     enable_email_domain= true
 

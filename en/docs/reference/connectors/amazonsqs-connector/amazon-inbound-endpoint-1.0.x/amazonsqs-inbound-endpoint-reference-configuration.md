@@ -93,21 +93,21 @@ The following configurations allow you to configure AmazonSQS Inbound Endpoint f
  <property name="SET_ROLLBACK_ONLY" value="true"/>
  ```
     
- ??? note "Sample fault sequence"
-        ```
-        <?xml version="1.0" encoding="UTF-8"?>
-        <sequence name="fault" xmlns="http://ws.apache.org/ns/synapse">
-            <property name="SET_ROLLBACK_ONLY" value="true"/>
-            <log level="custom">
-                <property name="Transaction Action" value="Rollbacked"/>
-            </log>
-            <log level="full">
-                <property name="MESSAGE" value="Executing default 'fault' sequence"/>
-                <property expression="get-property('ERROR_CODE')"
-                    name="ERROR_CODE" xmlns:ns="http://org.apache.synapse/xsd"/>
-                <property expression="get-property('ERROR_MESSAGE')"
-                    name="ERROR_MESSAGE" xmlns:ns="http://org.apache.synapse/xsd"/>
-            </log>
-            <drop/>
-        </sequence>
-        ```
+??? note "Sample fault sequence"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+      <sequence name="fault" xmlns="http://ws.apache.org/ns/synapse">
+        <property name="SET_ROLLBACK_ONLY" value="true"/>
+        <log level="custom">
+            <property name="Transaction Action" value="Rollbacked"/>
+        </log>
+        <log level="full">
+            <property name="MESSAGE" value="Executing default 'fault' sequence"/>
+            <property expression="get-property('ERROR_CODE')"
+                name="ERROR_CODE" xmlns:ns="http://org.apache.synapse/xsd"/>
+            <property expression="get-property('ERROR_MESSAGE')"
+                name="ERROR_MESSAGE" xmlns:ns="http://org.apache.synapse/xsd"/>
+        </log>
+        <drop/>
+      </sequence>
+    ```

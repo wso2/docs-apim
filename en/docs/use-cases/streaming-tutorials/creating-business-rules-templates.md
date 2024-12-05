@@ -99,7 +99,7 @@ To create a business rule from scratch, follow the procedure below:
 
 5. Click **Input** to expand the **Input** section. Then select the rule template from which the source and input configurations for the business rule must be selected.
 
-    ![Input Section]({{base_path}}/assets/img/streaming/working-with-business-rules/Select-Input.png)
+    ![Input Section]({{base_path}}/assets/img/streaming/working-with-business-rules/select-input.png)
 
     This displays the list of available sources and the exposed attributes of the selected template as shown below.
 
@@ -695,7 +695,7 @@ There are two permission levels for a business rules application:
 This section covers how to configure Business Rules Manager permissions.
 
 !!!tip "Before you begin:"
-    Before configuring Business Rules Manager permissions, the user roles to be assigned permissions must be already defined in the user store with the required user IDs. For detailed instructions, see [User Management](https://docs.wso2.com/display/SP440/User+Management).
+    Before configuring Business Rules Manager permissions, the user roles to be assigned permissions must be already defined in the user store with the required user IDs. For detailed instructions, see [User Management](https://wso2docs.atlassian.net/wiki/spaces/SP4xx/pages/29130933/User+Guide).
 
 
 You need to define the roles related to the Business Rules Manager under the `wso2.business.rules.manager` component namespace in the `<SI_TOOLING_HOME>/conf/server/deployment.yaml` file.

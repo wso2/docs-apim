@@ -5,7 +5,6 @@
 Please refer to the links below for more use cases. 
 
 * [Android Topic Messaging](https://firebase.google.com/docs/cloud-messaging/android/topic-messaging)
-* [Android Firebase Push Notifications with Topic Message Subscription](https://inducesmile.com/android/android-firebase-push-notification-with-topic-message-subscription/)
 * [Android Firebase Push Notifications video](https://www.youtube.com/watch?v=aG2JC8c9EK0)
 
 

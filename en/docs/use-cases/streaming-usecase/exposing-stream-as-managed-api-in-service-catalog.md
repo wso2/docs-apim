@@ -122,14 +122,16 @@ Let's deploy the `AsyncAPIDef` Siddhi application, which is the Streaming backen
 
      After the Siddhi application is successfully deployed, the following log messages appear in the Streaming Integrator and API Manager server logs to indicate that the AsyncAPI definition is successfully published in the Service Catalog.
 
-    ```bash tab="Streaming Integrator server logs"
-    Siddhi App AsyncAPIDef deployed successfully
-    Async API: SweetProdApp-1.0.0 uploaded to the service catalogue
-    ```
+    === "Streaming Integrator server logs"
+        ```bash
+        Siddhi App AsyncAPIDef deployed successfully
+        Async API: SweetProdApp-1.0.0 uploaded to the service catalogue
+        ```
 
-    ```bash tab="API Manager server logs"
-    CommonUtil Creation of folder is successful. Directory Name : SweetProdApp-1.0.0`
-    ```
+    === "API Manager server logs"
+        ```bash
+        CommonUtil Creation of folder is successful. Directory Name : SweetProdApp-1.0.0`
+        ```
   
 ## Step 6 - View the service catalog entry in API Manager
 

@@ -9,7 +9,7 @@ Follow the instructions below to add additional headers when testing a REST API 
 
     **CORS configurations in deployment.toml**
 
-    ``` java
+    ``` toml
         [apim.cors]
         enable = true
         allow_origins = "*"

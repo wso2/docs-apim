@@ -21,7 +21,7 @@ You can integrate WSO2 Identity Server with WSO2 API Manager and use your social
 
     ![Setup facebook login product]({{base_path}}/assets/img/learn/web-facebook-login-app.png)
 
-6.  Add the `serverURL` of WSO2 Identity Server (which is configured with `offset` = 1) <https://localhost:9444/> and click **Save** and **Continue** .
+6.  Add the `serverURL` of WSO2 Identity Server (which is configured with `offset` = 1) `https://localhost:9444/` and click **Save** and **Continue** .
 
     !!! info
         If you have changed the hostname of identity server use that instead of `localhost`.
@@ -33,7 +33,7 @@ You can integrate WSO2 Identity Server with WSO2 API Manager and use your social
 7.  Go to **Set Up the Facebook SDK for JavaScript** and click **Next** until the steps are complete.
 8.  Click **Settings** and select **Basic**. You can find your `App ID` and the `App Secret` as shown in the image below.
 
-    ![Facebook App Id]({{base_path}}/assets/img/learn/appId-facebook.png)
+    ![Facebook App Id](/assets/img/learn/appid-facebook.png)
 
 9.  Select a **Category** for you application.
 
@@ -68,7 +68,7 @@ Let's see how to configure WSO2 Identity Server to work with Facebook for user a
 
     | Identity provider Name | Alias                                 |
     |------------------------|---------------------------------------|
-    | facebook               | <https://localhost:9444/oauth2/token> |
+    | facebook               | `https://localhost:9444/oauth2/token`|
 
     !!! note
         To authenticate the user with **Facebook** which is an external system, we have to configure the federated authenticator. For more details, see [Federated Authetication](https://is.docs.wso2.com/en/5.10.0/get-started/quick-start-guide/#federated-authentication).
@@ -135,7 +135,7 @@ For more information, see [Permissions Reference - Facebook Login.](https://deve
 To federate logging in to the Publisher and Developer Portal with Facebook, you need to configure the service provider with the Facebook Identity Provider.
 
 !!! note
-        You have to allow the usage of email addresses as usernames, to use email addresses. For instructions, see [Setting up an e-mail login](/administer/product-security/General/logins-and-passwords/maintaining-logins-and-passwords/#setting-up-an-e-mail-login).
+        You have to allow the usage of email addresses as usernames, to use email addresses. For instructions, see [Setting up an e-mail login]({{base_path}}/install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords/#setup-an-e-mail-login).
 
 
 1.  Go to the **Management Console** of WSO2 Identity Server (`https://localhost:9444/carbon`) and click on **Service Providers**.

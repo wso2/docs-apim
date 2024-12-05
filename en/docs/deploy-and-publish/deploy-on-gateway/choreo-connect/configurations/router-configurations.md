@@ -43,7 +43,8 @@ See the example .toml file given below.
                 <label class="tab-selector" for="_tab_2"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[router]
+```toml
+[router]
   listenerHost = "0.0.0.0"
   listenerPort = 9090
   securedListenerHost = "0.0.0.0"
@@ -52,7 +53,8 @@ See the example .toml file given below.
   enforcerResponseTimeoutInSeconds = 20
   systemHost = "localhost"
   useRemoteAddress = false
-</code></pre>
+  perConnectionBufferLimitBytes = 1048576
+```
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -215,6 +217,33 @@ See the example .toml file given below.
                                     </div>
                                     <div class="param-description">
                                         <p>If configured as true, the Router appends the immediate downstream IP address to the x-forward-for header.</p>
+
+                                        <div class="admonition attention">
+                                        <p class="admonition-title">Update Level 5</p>
+                                        <p>This feature is available only as an update, after Update level 1.1.0.5 (released on 15 Aug 2022) and further. For more information regarding Choreo Connect updates, see <a href="https://apim.docs.wso2.com/en/4.1.0/deploy-and-publish/deploy-on-gateway/choreo-connect/update-choreo-connect/">here</a>.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>perConnectionBufferLimitBytes</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>1048576</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The buffer limit per connection in Bytes. Default value is 1 MiB</p>
+                                    </div>
+                                    <div class="admonition attention">
+                                        <p class="admonition-title">Update Level 4</p>
+                                        <p>This feature is available only as an update, after Update level 1.2.0.4 (released on 21 Nov 2023) and further. For more information regarding Choreo Connect updates, see <a href="https://apim.docs.wso2.com/en/4.2.0/deploy-and-publish/deploy-on-gateway/choreo-connect/update-choreo-connect/">here</a>.</p>
                                     </div>
                                 </div>
                             </div>
@@ -240,12 +269,13 @@ See the example .toml file given below.
                 <label class="tab-selector" for="_tab_3"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[router.connectionTimeout]
+```toml
+[router.connectionTimeout]
   requestTimeoutInSeconds = 0
   requestHeadersTimeoutInSeconds = 0 
   streamIdleTimeoutInSeconds = 300
   idleTimeoutInSeconds = 3600
-</code></pre>
+```
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -357,11 +387,12 @@ See the example .toml file given below.
                 <label class="tab-selector" for="_tab_4"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[router.upstream.timeouts]
+```toml
+[router.upstream.timeouts]
   routeTimeoutInSeconds = 60
   maxRouteTimeoutInSeconds = 60
   routeIdleTimeoutInSeconds = 300
-</code></pre>
+```
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -454,11 +485,13 @@ See the example .toml file given below.
                 <label class="tab-selector" for="_tab_5"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[router.upstream.health]
+```toml
+[router.upstream.health]
   timeout = 1
   interval = 10
   unhealthyThreshold = 2
-  healthyThreshold = 2</code></pre>
+  healthyThreshold = 2
+```
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -570,9 +603,11 @@ See the example .toml file given below.
                 <label class="tab-selector" for="_tab_6"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[adapter.keystore]
+```toml
+[adapter.keystore]
   certPath = "/home/wso2/security/keystore/mg.pem"
-  keyPath = "/home/wso2/security/keystore/mg.key"</code></pre>
+  keyPath = "/home/wso2/security/keystore/mg.key"
+```
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -646,14 +681,15 @@ See the example .toml file given below.
                 <label class="tab-selector" for="_tab_7"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[router.cors]
+```toml
+[router.cors]
 enabled = true
 allowOrigins = ["*"]
 allowMethods = ["GET","PUT","POST","DELETE","PATCH","OPTIONS"]
 allowHeaders = ["authorization","Access-Control-Allow-Origin","Content-Type","SOAPAction","apikey", "testKey", "Internal-Key"]
 exposeHeaders = []
 allowCredentials = false
-</code></pre>
+```
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -805,11 +841,12 @@ allowCredentials = false
                 <label class="tab-selector" for="_tab_8"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[router.upstream.retry]
+```toml
+[router.upstream.retry]
   maxRetryCount = 5
   baseIntervalInMillis = 25
   statusCodes = [ 504 ]
-</code></pre>
+```
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -902,7 +939,8 @@ allowCredentials = false
                 <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[router.upstream.tls]
+```toml
+[router.upstream.tls]
   minimumProtocolVersion = "TLS1_1"
   maximumProtocolVersion = "TLS1_2"
   ciphers = "ECDHE-ECDSA-AES128-GCM-SHA256, ECDHE-RSA-AES128-GCM-SHA256, ECDHE-ECDSA-AES128-SHA, ECDHE-RSA-AES128-SHA, AES128-GCM-SHA256, AES128-SHA, ECDHE-ECDSA-AES256-GCM-SHA384, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-ECDSA-AES256-SHA, ECDHE-RSA-AES256-SHA, AES256-GCM-SHA384, AES256-SHA"
@@ -910,7 +948,7 @@ allowCredentials = false
   trustedCertPath = "/etc/ssl/certs/ca-certificates.crt"
   verifyHostName = true
   disableSslVerification = false
-</code></pre>
+```
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -1068,11 +1106,12 @@ allowCredentials = false
                 <label class="tab-selector" for="_tab_10"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[router.downstream.tls]
+```toml
+[router.downstream.tls]
   # the default client ca-certificates
   trustedCertPath = "/etc/ssl/certs/ca-certificates.crt"
   mTLSAPIsEnabled = false
-</code></pre>
+```
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -1148,12 +1187,13 @@ allowCredentials = false
                 <label class="tab-selector" for="_tab_11"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[router.payloadPassingToEnforcer]
+```toml
+[router.payloadPassingToEnforcer]
   passRequestPayload = true
   maxRequestBytes = 10240
   allowPartialMessage = false
   packAsBytes = true
-</code></pre>
+```
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -1267,7 +1307,8 @@ allowCredentials = false
                 <label class="tab-selector" for="_tab_12"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[router.filters]
+```toml
+[router.filters]
   [router.filters.compression]
     enabled = true
     library = "gzip"
@@ -1286,7 +1327,7 @@ allowCredentials = false
     compressionLevel = 9
     compressionStrategy = "defaultStrategy"
     chunkSize = 4096
-</code></pre>
+```
                     </div>
                 </div>
                 <div class="doc-wrapper">

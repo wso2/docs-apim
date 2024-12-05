@@ -5,44 +5,48 @@ This sample demonstrates the basic functionality of a [message store]({{base_pat
 
 Following are the artifact configurations that we can use to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
-```xml tab='Proxy Service'
-<proxy xmlns="http://ws.apache.org/ns/synapse" name="SampleProxy" transports="http" startOnLoad="true" trace="disable">
-    <description/>
-    <target>
-        <inSequence>
-            <log level="full"/>
-            <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2"/>
-            <store messageStore="MyStore" sequence="onStoreSequence"/>
-        </inSequence>
-        <faultSequence>
-            <sequence key="OnError"/>
-        </faultSequence>
-    </target>
-</proxy>
-```
+=== "Proxy Service"
+    ```xml
+    <proxy xmlns="http://ws.apache.org/ns/synapse" name="SampleProxy" transports="http" startOnLoad="true" trace="disable">
+        <description/>
+        <target>
+            <inSequence>
+                <log level="full"/>
+                <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2"/>
+                <store messageStore="MyStore" sequence="onStoreSequence"/>
+            </inSequence>
+            <faultSequence>
+                <sequence key="OnError"/>
+            </faultSequence>
+        </target>
+    </proxy>
+    ```
 
-```xml tab='On Store Sequence'
-<sequence xmlns="http://ws.apache.org/ns/synapse" name="onStoreSequence">
-    <log>
-        <property name="On-Store" value="Storing message"/>
-    </log>
-</sequence>
-```
+=== "On Store Sequence"
+    ```xml
+    <sequence xmlns="http://ws.apache.org/ns/synapse" name="onStoreSequence">
+        <log>
+            <property name="On-Store" value="Storing message"/>
+        </log>
+    </sequence>
+    ```
 
-```xml tab='Message Store'
-<messageStore xmlns="http://ws.apache.org/ns/synapse" name="MyStore" />
-```
+=== "Message Store"
+    ```xml
+    <messageStore xmlns="http://ws.apache.org/ns/synapse" name="MyStore" />
+    ```
 
-```xml tab='OnError Sequence'
-<sequence xmlns="http://ws.apache.org/ns/synapse" name="OnError">
-    <log level="full">
-        <property name="MESSAGE" value="Executing default 'fault' sequence"/>
-        <property name="ERROR_CODE" expression="get-property('ERROR_CODE')"/>
-        <property name="ERROR_MESSAGE" expression="get-property('ERROR_MESSAGE')"/>
-    </log>
-    <drop/>
-</sequence>
-```
+=== "OnError Sequence"
+    ```xml
+    <sequence xmlns="http://ws.apache.org/ns/synapse" name="OnError">
+        <log level="full">
+            <property name="MESSAGE" value="Executing default 'fault' sequence"/>
+            <property name="ERROR_CODE" expression="get-property('ERROR_CODE')"/>
+            <property name="ERROR_MESSAGE" expression="get-property('ERROR_MESSAGE')"/>
+        </log>
+        <drop/>
+    </sequence>
+    ```
 
 ## Build and run
 

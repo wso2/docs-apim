@@ -37,7 +37,7 @@ Listed below are the main properties that are required when [creating a proxy se
       <ul>
         <li>Enter the URL of the endpoint.</li>
         <li>If you have a <a href="{{base_path}}/integrate/develop/creating-artifacts/creating-endpoints">predefined <b>Endpoint</b></a> artifact in WSO2 Integration Studio, provide the name of the artifact.</li>
-        <li>If you have a predefined <b>Endpoint</b> artifact that is saved in the <a href="{{base_path}}/concepts/registry-concepts">registry</a>, provide the link to the artifact.</li>
+        <li>If you have a predefined <b>Endpoint</b> artifact that is saved in the <a href="{{base_path}}/integrate/integration-key-concepts/#registry">registry</a>, provide the link to the artifact.</li>
       </ul>
       See <a href="{{base_path}}/reference/synapse-properties/endpoint-properties">Endpoint Properties</a> for the complete list of properties you can define for the Endpoint artifact.
     </td>
@@ -184,7 +184,7 @@ The following properties are required when [creating a transformer proxy service
     - [VFS properties]({{base_path}}/reference/synapse-properties/transport-parameters/vfs-transport-parameters)
     - [Fix properties]({{base_path}}/reference/synapse-properties/transport-parameters/fix-transport-parameters)
 
-- You can also configure the following service-level property to expose an [Inbound Endpoint]({{base_path}}/concepts/message-entry-points/#inbound-endpoints) through a proxy service:
+  - You can also configure the following service-level property to expose an [Inbound Endpoint]({{base_path}}/reference/synapse-properties/inbound-endpoints/about-inbound-endpoints) through a proxy service:
   <table>
      <tr>
         <th>Service Parameter</th>

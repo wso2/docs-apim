@@ -204,7 +204,7 @@ Now the exported CApp can be deployed in the integration runtime so that we can 
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/MSAzureStorageConnector.zip">
+<a href="/assets/attachments/connectors/MSAzureStorageConnector.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
@@ -335,4 +335,4 @@ Invoke the API as shown below using the curl command. Curl Application can be do
 
 ## What's next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
+* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/integrate/develop/deploy-artifacts/).

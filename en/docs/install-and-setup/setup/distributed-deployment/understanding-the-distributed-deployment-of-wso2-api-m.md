@@ -120,12 +120,12 @@ Listed below are the five components in the API-M server. When you run the recom
             Traffic Manager
         </td>
         <td>
-            Used to make a decision on throttling. It also works as an event hub for broadcasting controller events such as throttling events, block conditions, revoke token retrieval events, API events, API policy events, application events, application policy events, application keys events, subscription events, and subscription policy events.
+            Responsible for making rate limiting decisions.
         </td>
     </tr>
     <tr>
         <td>
-            Publisher
+            Publisher Portal
         </td>
         <td>
             Enables API providers to easily publish their APIs, share documentation, provision API keys, and gather feedback on API features, quality, and usage.

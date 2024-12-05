@@ -73,10 +73,10 @@ In this section, let's learn the different ways in which you can connect a Siddh
 
 In Streaming Integrator Tooling, open a new file and start creating a new  Siddhi Application named `StockManagementApp`.
 
-    ```
-    @App:name("StockManagementApp")
-    @App:description("Managing Raw Materials")
-    ```
+  ```
+  @App:name("StockManagementApp")
+  @App:description("Managing Raw Materials")
+  ```
     
 Now let's connect to the data stores (i.e., databases) you previously created to the Siddhi application. There are three methods in which this can be done. To learn them, let's connect each of the three databases in a different method.
       

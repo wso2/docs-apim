@@ -5,7 +5,7 @@ WSO2 introduces [WSO2 Updates](https://updates.docs.wso2.com/en/latest/) , which
 ##WSO2 in-place updates
 The WSO2 in-place updates tool allows you to update your currently used product by fetching updates from the server and merging all configurations and files. The tool also gives backup and restore capability.
 
-For more information, see [Using WSO2 In-Place Updates](https://docs.wso2.com/display/updates100/Using+WSO2+In-Place+Updates)
+For more information, see [Using WSO2 In-Place Updates](https://wso2docs.atlassian.net/wiki/spaces/updates100/pages/37388299/Using+WSO2+In-Place+Updates)
 
 !!! note
     WSO2 recommends all users to shift to the new WSO2 Updates 2.0 model to alleviate from future updates challenges. For more information, see [WUM/In-place updates decommission plan](https://updates.docs.wso2.com/en/latest/updates/wum-decommission/).

@@ -47,7 +47,7 @@ Once started, you can observe the following log in Micro Integrator.
 
 You can view the API entry in the API Manager by visiting the following URL. Log on as jill@railco.com.
 
-[https://localhost:9443/publisher/service-catalog](https://localhost:9443/publisher/service-catalog)
+`https://localhost:9443/publisher/service-catalog`
 
 <img src="{{base_path}}/assets/img/tutorials/scenarios/service_catalog_view.png" alt="Service Catalog View" title="Service Catalog View" width="60%" />
 
@@ -57,7 +57,7 @@ You can view the API entry in the API Manager by visiting the following URL. Log
 
 In this setup, the API is already deployed from the Publisher and you can view it in the Developer Portal. 
 
-1. Go to [https://localhost:9443/devportal/](https://localhost:9443/devportal/) Developer Portal and select **RailCo** tenant domain. This will redirect you to RailCo’s Developer Portal.
+1. Go to `https://localhost:9443/devportal/` Developer Portal and select **RailCo** tenant domain. This will redirect you to RailCo’s Developer Portal.
 2. Sign in with a RailCo tenant, Developer Portal user. Use user as `tom@railco.com` and password as `user123`.
 3. Click on TelecomMetricsAPI and go to Subscribe tab and subscribe using the Default application and generate the access token.
 4. Once you generate an access token, you can try out the following Curl Request.

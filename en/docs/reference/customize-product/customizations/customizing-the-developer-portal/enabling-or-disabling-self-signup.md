@@ -52,6 +52,15 @@ In a multi-tenanted API Manager setup, self-signup to the Developer Portal works
             "SignUpRoles":["Internal/subscriber"]
        }
     ```
+!!! Note
+    To enable email verification, update the `repository/deployment/server/webapps/accountrecoveryendpoint/WEB-INF/web.xml` file by setting the `EnableEmailNotification` parameter to `true`:
+
+    ```xml
+    <context-param>
+        <param-name>EnableEmailNotification</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    ```
 
 !!! tip
     To engage your own signup process, see [Adding a User Signup Workflow]({{base_path}}/develop/customizations/adding-a-user-signup-workflow).

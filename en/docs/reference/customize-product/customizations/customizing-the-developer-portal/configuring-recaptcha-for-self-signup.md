@@ -33,7 +33,7 @@ You can either configure the recaptcha for a tenant, or configure it globally.
 7.  You have now successfully configured reCaptcha for the self
     registration flow. Start the WSO2 API Manager and log in to the
     **My Account** using the following link:
-    <https://localhost:9443/myaccount>
+    `https://localhost:9443/myaccount`
 
     !!! tip
         If you have changed the port offset or modified the hostname, change the port or

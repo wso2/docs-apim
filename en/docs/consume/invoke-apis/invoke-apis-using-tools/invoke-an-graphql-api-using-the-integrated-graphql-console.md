@@ -142,13 +142,13 @@ Follow the instructios below to invoke a **GraphQL Subscription operation** usin
 
 3.  While keeping the Developer Portal web browser page opened, separately open a terminal and directly invoke the backend API’s `createReview` mutation operation by executing the following command.
 
-     ```
+     ``` bash
      curl -X POST "http://localhost:8080/graphql" -H  "accept: application/json" -H  "Content-Type: application/json" -d '{"query":"mutation {createReview(episode: JEDI, review: { stars: 3, commentary: \"Excellent\"}) { stars   episode   commentary }}","variables":null}' -k
      ```
 
      When the mutation is successful, the GraphQL API will send the following message as a response:
 
-     ```
+     ```json
      {"data":{"createReview":{"stars":3,"episode":"JEDI","commentary":"Excellent"}}}
      ```
 

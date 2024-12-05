@@ -353,11 +353,11 @@ Follow the steps below to create the task and schedule it.
     ```xml
     <task class="org.apache.synapse.startup.tasks.MessageInjector" group="synapse.simple.quartz" name="PrintStockQuoteScheduledTask" xmlns="http://ws.apache.org/ns/synapse">
                 <trigger count="1" interval="5" />
-                <property name="to" value="http://localhost:9000/soap/SimpleStockQuoteService" xmlns:task="http://www.wso2.org/products/wso2commons/tasks" />
+                <property name="to" value= `http://localhost:9000/soap/SimpleStockQuoteService` />
                 <property name="stockFile" value="/Users/praneesha/Desktop/stockfile.txt" xmlns:task="http://www.wso2.org/products/wso2commons/tasks" />
                 <property name="synapseEnvironment" value="" xmlns:task="http://www.wso2.org/products/wso2commons/tasks" />
     </task>
-    ```
+    ``` 
     The task properties will change according to the custom implementation. Therefore, you need to enter values for your custom properties. This sets the below properties.
 
     <table>
@@ -370,7 +370,7 @@ Follow the steps below to create the task and schedule it.
     <tbody>
     <tr class="odd">
     <td>to</td>
-    <td><a href="http://localhost:9000/soap/SimpleStockQuoteService">http://localhost:9000/soap/SimpleStockQuoteService</a></td>
+    <td>`http://localhost:9000/soap/SimpleStockQuoteService`</td>
     </tr>
     <tr class="even">
     <td><pre><code>stockFile</code></pre></td>
@@ -392,7 +392,7 @@ The below is the complete source configuration of the Task (i.e., the `PrintStoc
 <?xml version="1.0" encoding="UTF-8"?>
 <task class="org.apache.synapse.startup.tasks.MessageInjector" group="synapse.simple.quartz" name="PrintStockQuoteScheduledTask" xmlns="http://ws.apache.org/ns/synapse">
         <trigger interval="3" />
-        <property name="to" value="http://localhost:9000/soap/SimpleStockQuoteService" xmlns:task="http://www.wso2.org/products/wso2commons/tasks" />
+        <property name="to" value=`http://localhost:9000/soap/SimpleStockQuoteService` xmlns:task="http://www.wso2.org/products/wso2commons/tasks" />
         <property name="stockFile" value="/Users/praneesha/Desktop/stockfile.txt" xmlns:task="http://www.wso2.org/products/wso2commons/tasks" />
 </task>
 ```
@@ -405,7 +405,19 @@ Deploy the Task.
 
 ### Starting the back-end service
 
-Download the backend service from [GitHub](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/stockquote-deployable-jar-2.2.2.jar) and run it.
+1. Download the [back-end service](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zip).
+2. Extract the downloaded zip file.
+3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
+4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
+
+    === "On MacOS/Linux"   
+          ```bash
+          sh axis2server.sh
+          ```
+    === "On Windows"               
+          ```bash
+          axis2server.bat
+          ```
 
 ### Creating the text file
 

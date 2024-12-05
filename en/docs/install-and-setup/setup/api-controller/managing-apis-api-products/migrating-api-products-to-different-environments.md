@@ -18,24 +18,24 @@
 1.  Log in to the WSO2 API-M in the exporting environment by following steps in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).  
     
     !!! tip
-        If you are already logged-in and your logged-in credentials and keys are already available in the `<USER_HOME>/.wso2apictl/keys.json` file, you can skip this step. 
+        If you are already logged-in and your logged-in credentials and keys or the access-token are (is) already available in the `<USER_HOME>/.wso2apictl/keys.json` file, you can skip this step. 
 
     !!! info
-        If you skip step 1 and if no keys exist for the environment in the `<USER_HOME>/.wso2apictl/keys.json` file, you will be prompt to log in to the environment when running the next command.
+        If you skip step 1 and if no keys or a token exist(s) for the environment in the `<USER_HOME>/.wso2apictl/keys.json` file, you will be prompt to log in to the environment when running the next command.
 
 2.  Run any of the following apictl commands to export an API Product as a `.zip` archive.  
 
     -   **Command**
      
         ```go
-        apictl export api-product -n <API Product-name> --rev <revision-number> -r <provider> -e <environment>  
+        apictl export api-product -n <API Product-name> -v <version> --rev <revision-number> -r <provider> -e <environment>  
         ``` 
         ```go
-        apictl export api-product --name <API Product-name> --provider <provider> --environment <environment>  
+        apictl export api-product --name <API Product-name> --version <version> --provider <provider> --environment <environment>  
         ```
 
         ```go
-        apictl export api-product -n <API Product-name> --rev <revision-number> -r <provider> -e <environment> --preserve-status=<preserve-status> --format <export-format>  
+        apictl export api-product -n <API Product-name> -v <version> --rev <revision-number> -r <provider> -e <environment> --preserve-status=<preserve-status> --format <export-format>  
         ``` 
 
         !!! info
@@ -43,6 +43,7 @@
             
             -    Required :  
                 `--name` or `-n` : Name of the API Product to be exported      
+                `--version` or `-v` : Version of the API to be exported  
                 `--environment` or `-e` : Environment from which the API Product should be exported  
             -    Optional :   
                 `--rev` : Revision Number of the API Product. If not provided, working copy of the API Product will be exported.     
@@ -53,23 +54,28 @@
             
         !!! example
             ```go
-            apictl export api-product -n LeasingAPIProduct -e dev 
+            apictl export api-product -n LeasingAPIProduct -v 1.0.0 -e dev 
             ```
             ```go
-            apictl export api-product -n CreditAPIProduct --rev 2 -r admin -e production --preserve-status=true --format JSON 
+            apictl export api-product -n CreditAPIProduct -v 1.0.0 --rev 2 -r admin -e production --preserve-status=true --format JSON 
             ```            
 
+            !!!note
+                API product versioning is only available after WSO2 API Manager U2 update level 55 and apictl version 4.2.3 onwards. If you are using a prior version do not use `--version`, `-v` flags. 
+                  
     -   **Response**
 
-        ``` bash tab="Response Format"
-        Successfully exported API Product!
-        Find the exported API Product at <USER_HOME>/.wso2apictl/exported/api-products/<envrionment-name>/<API Product-name>_1.0.0.zip
-        ```
+        === "Response Format"
+            ``` bash
+            Successfully exported API Product!
+            Find the exported API Product at <USER_HOME>/.wso2apictl/exported/api-products/<envrionment-name>/<API Product-name>_1.0.0.zip
+            ```
 
-        ``` bash tab="Example Response"
-        Successfully exported API Product!
-        Find the exported API Product at /Users/kim/.wso2apictl/exported/api-products/dev/LeasingAPIProduct_1.0.0.zip
-        ```
+        === "Example Response"
+            ``` bash
+            Successfully exported API Product!
+            Find the exported API Product at /Users/kim/.wso2apictl/exported/api-products/dev/LeasingAPIProduct_1.0.0.zip
+            ```
 
 The exported ZIP file has the following structure:
 
@@ -121,7 +127,7 @@ The structure of an exported API Product ZIP file is explained below:
         </tr>
         <tr class="even">
             <td><code>api_product_meta.yaml</code></td>
-            <td>The meta-information file of the source artifact (This includes the name and the version of the API Product. Since currently we do not have the version support for API Products, the version will be always 1.0.0).</td>
+            <td>The meta-information file of the source artifact (This includes the name and the version of the API Product.).</td>
         </tr>
         <tr class="odd">
             <td><code>deployment_environments.yaml</code></td>
@@ -226,10 +232,10 @@ mentioned gateway environments. If the **deployment environments are not provide
 1.  Log in to the WSO2 API-M in the importing environment by following steps in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).
     
     !!! tip
-        If you are already logged-in and your logged-in credentials and keys are already available in the `<USER_HOME>/.wso2apictl/keys.json` file, you can skip this step. 
+        If you are already logged-in and your logged-in credentials and keys or the access-token are (is) already available in the `<USER_HOME>/.wso2apictl/keys.json` file, you can skip this step. 
 
     !!! info
-        If you skip step 1 and if no keys exist for the environment in the `<USER_HOME>/.wso2apictl/keys.json` file, you will be prompt to log in to the environment when running the next command.
+        If you skip step 1 and if no keys or a token exist(s) for the environment in the `<USER_HOME>/.wso2apictl/keys.json` file, you will be prompt to log in to the environment when running the next command.
 
 2.  Run any of the following apictl commands to import an API Product.
 

@@ -99,7 +99,7 @@ First, enable the API state change workflow.
 
 3.  Go to the `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` resource, disable the Simple Workflow Executor and enable WS Workflow Executor.
 
-    ```
+    ``` xml
     <WorkFlowExtensions>
         ....
         <!-- Publisher related workflows -->
@@ -202,8 +202,8 @@ The elements of the above configuration are explained below.
     Create a user with exclusive **apim:apiworkflow** scope permissions when setting a `DCREndPointUser.` Please avoid using super admin credentials. If super admin credentials are used, the created OAuth application will have all the permissions related to scopes in the other REST APIs. Follow the instructions below to create a user with the **apim:apiworkflow** scope permissions:
 
     1.  Sign in to  APIM management console (`https://<Server Host>:9443/carbon`) and create a role named `workflowCallbackRole`. Set the create and publisher or subscriber permissions to this role.
-    2.  Go to **Resources** and click **Browse**. 
-    3. Go to `/_system/config/apimgt/applicationdata/tenant-conf.json` and update the role related to ‘apim:api\_workflow’ scope with the newly created role.
+    2. Sign in to  APIM Admin console (`https://<Server Host>:9443/admin`) and go to **Settings** --> **Advanced**.
+    3. Update the role related to ‘apim:api\_workflow’ scope with the newly created role.
 
         ``` java
         ...
@@ -214,8 +214,8 @@ The elements of the above configuration are explained below.
         ...
         ```
 
-    3.  Assign this role to a user.
-    4.  Update `<DCREndPointUser>` and `<DCREndPointPassword>` with this user's credentials.
+    4.  Assign this role to a user.
+    5.  Update `<DCREndPointUser>` and `<DCREndPointPassword>` with this user's credentials.
 
     For more details on how to create users and roles see [managing users and roles]({{base_path}}/administer/product-administration/managing-users-and-roles/admin-managing-users-roles-and-permissions).
 

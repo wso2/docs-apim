@@ -5,24 +5,25 @@ The HL7 inbound protocol is an alternative to the HL7 transport. The HL7 inbou
 
 ## Syntax
 
-``` java tab='HL7'
-<inboundEndpoint xmlns="http://ws.apache.org/ns/synapse"
-                    name="InboundHL7"
-                    sequence="main"
-                    onError="fault"
-                    protocol="hl7"
-                    suspend="false">
-    <parameters>
-         <parameter name="inbound.hl7.Port">20000</parameter>
-         <parameter name="inbound.hl7.AutoAck">true</parameter>
-         <parameter name="inbound.hl7.ValidateMessage">true</parameter>
-         <parameter name="inbound.hl7.TimeOut">10000</parameter>
-         <parameter name="inbound.hl7.CharSet">UTF-8</parameter>
-         <parameter name="inbound.hl7.BuildInvalidMessages">false</parameter>
-         <parameter name="inbound.hl7.PassThroughInvalidMessages">false</parameter>  
-    </parameters>
-</inboundEndpoint>
-```
+=== "HL7"
+      ``` java
+      <inboundEndpoint xmlns="http://ws.apache.org/ns/synapse"
+                        name="InboundHL7"
+                        sequence="main"
+                        onError="fault"
+                        protocol="hl7"
+                        suspend="false">
+         <parameters>
+               <parameter name="inbound.hl7.Port">20000</parameter>
+               <parameter name="inbound.hl7.AutoAck">true</parameter>
+               <parameter name="inbound.hl7.ValidateMessage">true</parameter>
+               <parameter name="inbound.hl7.TimeOut">10000</parameter>
+               <parameter name="inbound.hl7.CharSet">UTF-8</parameter>
+               <parameter name="inbound.hl7.BuildInvalidMessages">false</parameter>
+               <parameter name="inbound.hl7.PassThroughInvalidMessages">false</parameter>  
+         </parameters>
+      </inboundEndpoint>
+      ```
 
 ## Properties
 

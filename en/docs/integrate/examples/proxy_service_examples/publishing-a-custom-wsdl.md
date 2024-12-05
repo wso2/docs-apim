@@ -1,10 +1,10 @@
 # Publishing a Custom WSDL
 When you create a proxy service, a default WSDL is automatically
 generated. You can access this WSDL by suffixing the service URL
-with ?wsdl. See the example given below, where the proxy service name is
-'sample_service' and IP is localhost:
+with `?wsdl`. See the example given below, where the proxy service name is
+`sample_service` and IP is `localhost`:
 
-[http://localhost:8290/services/sample_service?wsdl](http://localhost:8290/services/Logging?wsdl)
+`http://localhost:8290/services/sample_service?wsdl`
 
 However, this default WSDL only shows the `mediate`
 operation. This can be a limitation because your proxy service may be
@@ -37,7 +37,7 @@ Following is a sample proxy service configuration that we can used to implement 
 ## Build and run
 
 The wsdl file `sample_proxy_1.wsdl` can be downloaded from  [sample_proxy_1.wsdl](https://github.com/wso2-docs/WSO2_EI/blob/master/samples-protocol-switching/sample_proxy_1.wsdl). 
-The wsdl URI needs to be updated with the path to the sample_proxy_1.wsdl file
+The wsdl URI needs to be updated with the path to the sample_proxy_1.wsdl file.
 
 Set up the back-end service:
 
@@ -46,13 +46,15 @@ Set up the back-end service:
 3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
 4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
    
-      ```bash tab='On MacOS/Linux/CentOS'
-      sh axis2server.sh
-      ```
+    === "On MacOS/Linux/CentOS"
+         ```bash
+         sh axis2server.sh
+         ```
           
-      ```bash tab='On Windows'
-      axis2server.bat
-      ```
+    === "On Windows"
+         ```bash
+         axis2server.bat
+         ```
 
 Create the artifacts:
 

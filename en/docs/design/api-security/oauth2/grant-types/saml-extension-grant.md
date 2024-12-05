@@ -50,7 +50,7 @@ A sequence diagram explaining the above flow would be as follows:
     -   A valid consumer key and consumer secret. Initially, these keys must be generated in the API Developer Portal clicking the **Generate Keys** button on the **Production Keys** tab of the application.
     -   A running API Gateway instance.
     -   If the Key Manager is on a different server than the API Gateway, change the server URL (host and ports) of the Key Manager as mentioned below, in the `<API-M_HOME>/repository/conf/deployment.toml` file.
-    ```
+    ```toml
     [apim.key_manager]
     configuration.ServerURL = "<key-manager-server-url>"
     ```
@@ -75,7 +75,7 @@ In this example, **WSO2 Identity Server 5.7.0** is used as the IdP to get a SAML
 3.  Provide the following values to configure the IdP:
     -   Under **Basic Information**
         -   **Identity Provider Name** : Enter a unique name for the IdP.
-        -   **Identity Provider Public Certificate** : The certificate used to sign the SAML assertion. Export the public certificate of WSO2 IS and import it here. For more information, see [Exporting the public certificate](https://docs.wso2.com/display/IS570/Enabling+SSO+for+Management+Console+using+OpenSSO+as+the+IDP#EnablingSSOforManagementConsoleusingOpenSSOastheIDP-Exportthepubliccertificate) in the WSO2 Identity Server documentation.
+        -   **Identity Provider Public Certificate** : The certificate used to sign the SAML assertion. Export the public certificate of WSO2 IS and import it here. For more information, see [Exporting the public certificate](https://wso2docs.atlassian.net/wiki/spaces/IS570/pages/38176686/Enabling+SSO+for+Management+Console+using+OpenSSO+as+the+IDP) in the WSO2 Identity Server documentation.
 
             Alternatively, you can create a self-signed certificate and then export it as a `.cer` file using the following commands:
 
@@ -139,13 +139,15 @@ Here's an example consumer key and secret combination:
 
 3.  Go to the extracted folder using the command line and execute the following command. We assume that both the client and the API Gateway run on the same server. Therefore, the Token API URL is `https://localhost:9443/oauth2/token`
 
-    ``` java tab="Format"
-    java -jar SAML2AssertionCreator.jar <Identity_Provider_Entity_Id> <saml-subject> <saml-recipient> <saml-audience> <Identity_Provider_JKS_file> <Identity_Provider_JKS_password> <Identity_Provider_certificate_alias> <Identity_Provider_private_key_password>
-    ```  
+    === "Format"
+        ``` java
+        java -jar SAML2AssertionCreator.jar <Identity_Provider_Entity_Id> <saml-subject> <saml-recipient> <saml-audience> <Identity_Provider_JKS_file> <Identity_Provider_JKS_password> <Identity_Provider_certificate_alias> <Identity_Provider_private_key_password>
+        ```  
     
-    ``` java tab="Example"
-    java -jar SAML2AssertionCreator.jar TestSP admin https://localhost:9443/oauth2/token https://localhost:9443/oauth2/token <APIM-Home>/repository/resources/security/wso2carbon.jks wso2carbon wso2carbon wso2carbon
-    ```
+    === "Example"
+        ``` java
+        java -jar SAML2AssertionCreator.jar TestSP admin https://localhost:9443/oauth2/token https://localhost:9443/oauth2/token <APIM-Home>/repository/resources/security/wso2carbon.jks wso2carbon wso2carbon wso2carbon
+        ```
 
     The arguments are as follows:
 

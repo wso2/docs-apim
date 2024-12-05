@@ -55,7 +55,7 @@ Let's create a simple Siddhi application that reads data from an XML file, does 
     !!! tip
         Here, a sample Siddhi application is provided to minimize the time spent following this guide. However, WSO2 recommends that you use the Streaming Integration Tooling that offers features such as syntax checking, event simulation for testing purposes, reformatting code, the option to design applications in a graphical interface or by writing code, and many more. For more information on designing Siddhi applications, see [Streaming Integrator Tooling Overview]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview).
 
-    ```
+    ```java
     @App:name('ManageProductionStats')
 
     @App:description('Receive events via an xml file located in a given directory and write sum of the amount to websocket server as a json event')
@@ -136,14 +136,15 @@ Start the API Manager runtime:
 
      Open a terminal, navigate to the `<API-M_HOME>/bin` directory and execute the relevant command. 
 
+    === "On MacOS/Linux"
+          ```bash
+          ./api-manager.sh -DportOffset=1
+          ```
   
-     ```bash tab="On MacOS/Linux"
-     ./api-manager.sh -DportOffset=1
-     ```
-  
-     ```bash tab="On Windows"
-     api-manager.bat -DportOffset=1
-     ```
+    === "On Windows"
+          ```bash
+          api-manager.bat -DportOffset=1
+          ```
 
 #### Step 1.2 - Start WSO2 Streaming Integrator 
 
@@ -238,13 +239,15 @@ Follow the instructions below to publish the AsyncAPI definition to the service 
 
      After the Siddhi application is successfully deployed, the following log messages appear in the Streaming Integrator and API Manager server logs to indicate that the AsyncAPI definition is successfully published in the Service Catalog.
 
-    ```bash tab="Streaming Integrator server logs"
-    Siddhi App ManageProductionStats deployed successfully
-    ```
+    === "Streaming Integrator server logs"
+        ```bash
+        Siddhi App ManageProductionStats deployed successfully
+        ```
 
-    ```bash tab="API Manager server logs"
-    CommonUtil Creation of folder is successful. Directory Name : SweetProdApp-1.0.0
-    ```
+    === "API Manager server logs"
+        ```bash
+        CommonUtil Creation of folder is successful. Directory Name : SweetProdApp-1.0.0
+        ```
 
 #### Step 1.5 - Access the streaming service
 

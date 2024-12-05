@@ -505,7 +505,7 @@ in your WSO2 product.
     directory.
 2.  Add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file to use our custom
     implementation for user store management.
-    ``` xml
+    ``` toml
     [user_store]
     class="com.wso2.custom.usermgt.CustomUserStoreManager"
     ```

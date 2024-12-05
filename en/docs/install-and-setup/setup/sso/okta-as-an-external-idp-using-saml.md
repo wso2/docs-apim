@@ -9,7 +9,7 @@ Before you begin, make sure you do the following.
 1. Create an account in [https://developer.okta.com/](https://developer.okta.com/)
 2. Download WSO2 API Manager 4.1.0 distribution from [https://wso2.com/api-management/](https://wso2.com/api-management/)
 3. Unzip the distribution and open the `deployment.toml` file located in `<APIM_HOME>/repository/conf/`. Add the following configuration
-    ```
+    ```toml
     [tenant_mgt]
     enable_email_domain= true
     ```
@@ -56,15 +56,14 @@ Before you begin, make sure you do the following.
 
     1.  Navigate to **Users** -> **Profile Editor** and click the pencil icon to edit the default profile.
 
-        [![Edit the default profile in the Profile Editor]({{base_path}}/assets/img/learn/okta-add-new-attribute.png)]({{base_path}}/assets/img/learn/okta-add-new-attribute.png)
+        [![Edit the default profile in the Profile Editor]({{base_path}}/assets/img/learn/profile-editor.png)]({{base_path}}/assets/img/learn/profile-editor.png)
 
     2.  Click **Add Attribute** to add new user attributes.
-    
         [![Add new attribute]({{base_path}}/assets/img/learn/okta-add-new-attribute-add.png)]({{base_path}}/assets/img/learn/okta-add-new-attribute-add.png) 
 
 9.  Enter the user attributes shown in the image below. Click **Save**.
 
-    [![Add new attributes]({{base_path}}/assets/img/learn/okta-add-new-attribute-details.png)]({{base_path}}/assets/img/learn/okta-add-new-attribute-details.png) 
+    [![Add new attributes]({{base_path}}/assets/img/learn/okta-add-new-attribute-details.png)](/assets/img/learn/okta-add-new-attribute-details.png) 
 
 10.   Follow the steps below to edit the user profile.
 
@@ -74,7 +73,7 @@ Before you begin, make sure you do the following.
     
     2.  Click **Edit** to change the profile details.
         
-        <a href="{{base_path}}/assets/img/learn/okta-profile-edit2.png"><img src="{{base_path}}/assets/img/learn/okta-profile-edit2.png" width="600" height="400"/></a>
+        <a href="{{base_path}}/assets/img/learn/okta-profile-edit2.png"><img src="{{base_path}}/assets/img/learn/okta-profile-edit2.png"" width="600" height="400"/></a>
 
     3.  Add the **Role**. This will be used in the API Manager to map an internal role to the provisioned user.
         
@@ -96,13 +95,11 @@ Before you begin, make sure you do the following.
 
     3. Assign the following permissions to the role and save the role.
 
-        <a href="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions3.png"><img src="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions3.png" width=25%/></a>
-        <br/>
-        <br/>
-        <a href="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions2.png"><img src="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions2.png" width=25%/></a>
-        <br/>
-        <br/>
-        <a href="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions1.png"><img src="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions1.png" width=25%/></a>
+        [![](/assets/img/learn/okta-apim-add-role-permissions3.png)](/assets/img/learn/okta-apim-add-role-permissions3.png)
+        
+        [![](/assets/img/learn/okta-apim-add-role-permissions2.png)](/assets/img/learn/okta-apim-add-role-permissions2.png)
+        
+        [![](/assets/img/learn/okta-apim-add-role-permissions1.png)](/assets/img/learn/okta-apim-add-role-permissions1.png)
 
 3. Log in to `https://localhost:9443/admin`. 
 
@@ -112,10 +109,10 @@ Before you begin, make sure you do the following.
 
     2. Update the following scopes with the `okta_role`.
 
-        [![]({{base_path}}/assets/img/learn/okta-apim-role-scope-mapping-edit1.png)]({{base_path}}/assets/img/learn/okta-apim-role-scope-mapping-edit1.png)
+       [![]({{base_path}}/assets/img/learn/okta-apim-role-scope-mapping-edit1.png)]({{base_path}}/assets/img/learn/okta-apim-role-scope-mapping-edit1.png)
         <br/>
         <br/>
-        [![]({{base_path}}/assets/img/learn/okta-apim-role-scope-mapping-edit2.png)]({{base_path}}/assets/img/learn/okta-apim-role-scope-mapping-edit2.png)
+       [![]({{base_path}}/assets/img/learn/okta-apim-role-scope-mapping-edit3.png)]({{base_path}}/assets/img/learn/okta-apim-role-scope-mapping-edit2.png)
         <br/>
         <br/>
         [![]({{base_path}}/assets/img/learn/okta-apim-role-scope-mapping-edit3.png)]({{base_path}}/assets/img/learn/okta-apim-role-scope-mapping-edit3.png)

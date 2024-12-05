@@ -18,7 +18,7 @@ If an attacker uses random tokens to send API requests, API Manager will try to 
 Add the following configuration to the `<APIM_HOME>/repository/conf/deployment.toml` in order to enable Keyed-Hash Message Authentication Code (HMAC) validation via the HMAC OAuth handler.
 
 
-```
+```toml
 [oauth.extensions]
 token_generator="com.sample.lahiru.wso2.hmac.oauth"
 ```
@@ -54,7 +54,7 @@ You can engage this handler by adding following entry before **\#foreach($handle
 ```
 
 !!! info
-Refer [Writing Custom Handlers](https://docs.wso2.com/display/AM210/Writing+Custom+Handlers) for understanding how to develop and engage WSO2 API handler extensions. Find the code for APIM handler in GitHub in [oauth-hmac-extension](https://github.com/lahirus/oauth-hmac-extension/blob/master/src/main/java/com/sample/lahiru/wso2/hmac/handler/HMACTokenValidatorHandler.java) .
+    Refer [Writing Custom Handlers](https://wso2docs.atlassian.net/wiki/spaces/AM210/pages/32735677/Writing+Custom+Handlers) for understanding how to develop and engage WSO2 API handler extensions. Find the code for APIM handler in GitHub in [oauth-hmac-extension](https://github.com/lahirus/oauth-hmac-extension/blob/master/src/main/java/com/sample/lahiru/wso2/hmac/handler/HMACTokenValidatorHandler.java).
 
 
 This custom handler verifies the HMAC of the token before it tries to authenticate using default authentication handler, which will be an expensive operation usually. It will also make sure the token is not expired. These verification will avoid any API calls to WSO2 API Manager, in case of the token is expired or HMAC is invalid.

@@ -207,7 +207,7 @@ Follow the instructions below to configure WSO2 Micro Integrator JMS transport w
 
 Install JBoss EAP server and create a message queue within the server.
 
-1.  Download JBoss EAP Server 7.0.0 from [JBoss EAP Downloads](http://developers.redhat.com/products/eap/download/) and run the JBoss EAP installer as described [here](https://access.redhat.com/documentation/en/red-hat-jboss-enterprise-application-platform/version-7.0/installation-guide/#running_the_jboss_eap_installer).
+1.  Download JBoss EAP Server 7.0.0 from [JBoss EAP Downloads](http://developers.redhat.com/products/eap/download/) and run the JBoss EAP installer as described [here](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/installation_guide/preparing_for_installation).
 2.  Execute one of the following commands in command prompt to create a new application user.  
     -   On Windows:
         `<EAP_HOME>\bin\add-user.bat -a -u 'SampleUser' -p 'SamplePwd1!' -g 'guest'`
@@ -261,7 +261,7 @@ Now you have configured the JBoss EAP Server. The next section describes how to 
     !!! Note
         After copying the `jboss-client.jar` file from the `EAP_HOME/bin/client` directory to the `MI_HOME/lib` directory, be sure to remove the `javax.jms` package from the `jboss-client.jar` file.
 
-        [![delete package]({{base_path}}/assets/img/integrate/broker-configs/hornetq/delete-package.jpg)]({{base_path}}/assets/img/assets/img/integrate/broker-configs/hornetq/delete-package.jpg)
+        [![delete package]({{base_path}}/assets/img/integrate/broker-configs/hornetq/delete-package.jpg)]({{base_path}}/assets/img/integrate/broker-configs/hornetq/delete-package.jpg)
 
 Now you have configured WSO2 Micro Integrator with HornetQ embedded in a JBoss EAP server.
 

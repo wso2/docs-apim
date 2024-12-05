@@ -1,13 +1,13 @@
-[transport.passthru_https]
+[passthru_http]
 http.socket.timeout = "3m"
 worker_pool_size_core = 300
 worker_pool_size_max = 400
 worker_pool_queue_length = -1
 io_buffer_size = 16384
 http.max.connection.per.host.port = 32767
-http.user.agent.preserve = false
+'http.user.agent.preserve' = false
 preserve_http_server_name = true
-http.headers.preserve = ["Content-Type"]
+'http.headers.preserve' = ["Content-Type"]
 disable_connection_keepalive = false
 max_open_connections = -1
 force_xml_validation = false

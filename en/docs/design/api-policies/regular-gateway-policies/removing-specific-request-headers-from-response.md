@@ -5,14 +5,16 @@ Web services may contain response headers with sensitive information. The follow
 To remove request headers from responses for per API or globally, add the name of the header to be removed as a property in your custom `out` sequence.
   
 !!! example
-    ``` bash tab="Template"
-    <property name="<name of the header to be removed>" scope="transport" action="remove"/>
-    ```
+    === "Template"
+        ``` bash
+        <property name="<name of the header to be removed>" scope="transport" action="remove"/>
+        ```
 
-    ``` bash tab="Sample"
-    <property name="CustomTransportHeader" scope="transport" action="remove"/>
-    ```
-Check out [Changing the Default Mediation Flow of API Requests]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests) to learn on how to
+    === "Sample"
+        ``` bash
+        <property name="CustomTransportHeader" scope="transport" action="remove"/>
+        ```
+Check out [Changing the Default Mediation Flow of API Requests]({{base_path}}/design/api-policies/attach-policy/) to learn on how to
 add the above mediation policy per API or globally.
 
 ## Handling Error Responses
@@ -24,34 +26,38 @@ To handle error responses, follow the instructions below.
     
     !!! example
 
-        ``` bash tab="Template"
-        <property name="<name of the header to be removed>" scope="transport" action="remove"/>
-        <send/>
-        ```
+        === "Template"
+            ``` bash
+            <property name="<name of the header to be removed>" scope="transport" action="remove"/>
+            <send/>
+            ```
 
-        ``` bash tab="Sample"
-        <property name="Accept" scope="transport" action="remove"/>
-        <property name="X-JWT-Assertion" scope="transport" action="remove"/>
-        <property name="Cookie" scope="transport" action="remove"/> 
-        <send/>
-        ```
+        === "Sample"
+            ``` bash
+            <property name="Accept" scope="transport" action="remove"/>
+            <property name="X-JWT-Assertion" scope="transport" action="remove"/>
+            <property name="Cookie" scope="transport" action="remove"/> 
+            <send/>
+            ```
 
 4.  To address the scenario where an error occurs during execution of API requests, open the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences/fault.xml` file.
 5.  Add the name of the header to be removed as a property property, just before the beginning of `CORS Request Handler` sequence, as shown below.
 
     !!! example
 
-        ``` bash tab="Template"
-        <property name="<name of the header to be removed>" scope="transport" action="remove"/>
-        <sequence key="_cors_request_handler_"/>
-        ```
+        === "Template"
+            ``` bash
+            <property name="<name of the header to be removed>" scope="transport" action="remove"/>
+            <sequence key="_cors_request_handler_"/>
+            ```
 
-        ``` bash tab="Sample"
-        <property name="Accept" scope="transport" action="remove"/>
-        <property name="X-JWT-Assertion" scope="transport" action="remove"/>
-        <property name="Cookie" scope="transport" action="remove"/>
-        <sequence key="_cors_request_handler_"/>
-        ```
+        === "Sample"
+            ``` bash
+            <property name="Accept" scope="transport" action="remove"/>
+            <property name="X-JWT-Assertion" scope="transport" action="remove"/>
+            <property name="Cookie" scope="transport" action="remove"/>
+            <sequence key="_cors_request_handler_"/>
+            ```
           
 
 !!! note

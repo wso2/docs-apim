@@ -6,7 +6,7 @@ An API's gateway configuration file(Synapse configuration) content contains API 
 
 ## Engaging a custom handler based on API Properties
 
-In API Manager, you can implement and engage custom handlers to customize the default mediation flow of API requests. See [Writing a custom handler]() for more information. The [API properties]({base_path}/learn/design-api/create-api/adding-custom-properties-to-apis/) can be used to conditionally engage these custom handlers for APIs.
+In API Manager, you can implement and engage custom handlers to customize the default mediation flow of API requests. See [Writing a custom handler]() for more information. The [API properties]({{base_path}}/design/create-api/adding-custom-properties-to-apis/) can be used to conditionally engage these custom handlers for APIs.
 
 Following steps illustrate how you can enable a custom handler for a selected set of APIs which are having a particular property value. 
 
@@ -70,11 +70,11 @@ Following steps illustrate how you can enable a custom handler for a selected se
     
     !!!Info
     
-        If you are using a [distributed API Manager deployment]({base_path}/install-and-setup/deploying-wso2-api-manager/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m/) (i.e., Publisher, Devportal, Gateway and Key Manager components are running on separate JVMs), edit the template in the Publisher node. 
+        If you are using a [distributed API Manager deployment]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m) (i.e., Publisher, Devportal, Gateway and Key Manager components are running on separate JVMs), edit the template in the Publisher node. 
      
  3. Save the changes.
  
- 4. Add `custom_authentication=true` as an [additional property]({base_path}/learn/design-api/create-api/adding-custom-properties-to-apis/) for those APIs which you need to enable the custom handler.
+ 4. Add `custom_authentication=true` as an [additional property]({{base_path}}/design/create-api/adding-custom-properties-to-apis/) for those APIs which you need to enable the custom handler.
  
     <a href="{{base_path}}/assets/img/develop/extensions/custom_properties.png" ><img src="{{base_path}}/assets/img/develop/extensions/custom_properties.png" alt="Add Custom Property" 
            title="Add Custom Property" width="80%" /></a>

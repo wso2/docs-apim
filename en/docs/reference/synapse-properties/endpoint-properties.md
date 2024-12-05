@@ -17,15 +17,17 @@ A named endpoint can be any one of the [listed endpoints](#list-of-endpoints). Y
 
 Indirect endpoints are endpoint configurations that refer [named endpoints](#named-endpoints) using a key. The <code>key</code> attribute calls the [named endpoint](#named-endpoints) at runtime and delegates the message sending to the called endpoint.
 
-``` xml tab='Actual Endpoint'
-<endpoint name="address">
-   <address uri="http://localhost:9000/services/SimpleStockQuoteService" format="soap11"/>
-</endpoint>
-```
+=== "Actual Endpoint"
+    ``` xml
+    <endpoint name="address">
+    <address uri="http://localhost:9000/services/SimpleStockQuoteService" format="soap11"/>
+    </endpoint>
+    ```
 
-``` xml tab='Indirect Endpoint'
-<endpoint key="address">
-```
+=== "Indirect Endpoint"
+    ``` xml
+    <endpoint key="address">
+    ```
 
 Indirect endpoints are useful when the actual endpoints are stored in the registry.
 
@@ -113,107 +115,112 @@ See the topics given below for the list of properties that can be configured for
 
 ## Sample Endpoint Syntax
 
-``` java tab='Address Endpoint'
-<address uri="endpoint address" [format="soap11|soap12|pox|rest|get"] [optimize="mtom|swa"]
-        [encoding="charset encoding"]
-        [statistics="enable|disable"] [trace="enable|disable"]>
+=== "Address Endpoint"
+    ``` java
+    <address uri="endpoint address" [format="soap11|soap12|pox|rest|get"] [optimize="mtom|swa"]
+            [encoding="charset encoding"]
+            [statistics="enable|disable"] [trace="enable|disable"]>
 
-    <enableSec [policy="key"]/>?
-    <enableAddressing [version="final|submission"] [separateListener="true|false"]/>?
+        <enableSec [policy="key"]/>?
+        <enableAddressing [version="final|submission"] [separateListener="true|false"]/>?
 
-    <timeout>
-        <duration>timeout duration in milliseconds</duration>
-        <responseAction>discard|fault</responseAction>
-    </timeout>?
+        <timeout>
+            <duration>timeout duration in milliseconds</duration>
+            <responseAction>discard|fault</responseAction>
+        </timeout>?
 
-    <markForSuspension>
-        [<errorCodes>xxx,yyy</errorCodes>]
-        <retriesBeforeSuspension>m</retriesBeforeSuspension>
-        <retryDelay>d</retryDelay>
-    </markForSuspension>
+        <markForSuspension>
+            [<errorCodes>xxx,yyy</errorCodes>]
+            <retriesBeforeSuspension>m</retriesBeforeSuspension>
+            <retryDelay>d</retryDelay>
+        </markForSuspension>
 
-    <suspendOnFailure>
-        [<errorCodes>xxx,yyy</errorCodes>]
-        <initialDuration>n</initialDuration>
-        <progressionFactor>r</progressionFactor>
-        <maximumDuration>l</maximumDuration>
-    </suspendOnFailure>
-</address>
-```
+        <suspendOnFailure>
+            [<errorCodes>xxx,yyy</errorCodes>]
+            <initialDuration>n</initialDuration>
+            <progressionFactor>r</progressionFactor>
+            <maximumDuration>l</maximumDuration>
+        </suspendOnFailure>
+    </address>
+    ```
 
-``` java tab='Default Endpoint'
-<default [format="soap11|soap12|pox|get"] [optimize="mtom|swa"]
-         [encoding="charset encoding"]
-         [statistics="enable|disable"] [trace="enable|disable"]>
+=== "Default Endpoint"
+    ``` java
+    <default [format="soap11|soap12|pox|get"] [optimize="mtom|swa"]
+            [encoding="charset encoding"]
+            [statistics="enable|disable"] [trace="enable|disable"]>
 
-    <enableRM [policy="key"]/>?
-    <enableSec [policy="key"]/>?
-    <enableAddressing [version="final|submission"] [separateListener="true|false"]/>?
-
-    <timeout>
-        <duration>timeout duration in milliseconds</duration>
-        <action>discard|fault</action>
-    </timeout>?
-
-    <markForSuspension>
-        [<errorCodes>xxx,yyy</errorCodes>]
-        <retriesBeforeSuspension>m</retriesBeforeSuspension>
-        <retryDelay>d</retryDelay>
-    </markForSuspension>
-
-    <suspendOnFailure>
-        [<errorCodes>xxx,yyy</errorCodes>]
-        <initialDuration>n</initialDuration>
-        <progressionFactor>r</progressionFactor>
-        <maximumDuration>l</maximumDuration>
-    </suspendOnFailure>
-</default>
-```
-
-``` java tab='Load Balance Endpoint'
-<session type="http|simpleClientSession"/>?
-<loadBalance [policy="roundRobin"] [algorithm="impl of org.apache.synapse.endpoints.algorithms.LoadbalanceAlgorithm"]
-            [failover="true|false"]>
-  <endpoint .../>+
-  <member hostName="host" [httpPort="port"] [httpsPort="port2"]>+
-</loadBalance>
-```
-
-``` java tab='WSDL Endpoint'
-<wsdl [uri="wsdl-uri"] service="qname" port/endpoint="qname">
-        <wsdl:definition>...</wsdl:definition>?
-        <wsdl20:description>...</wsdl20:description>?
         <enableRM [policy="key"]/>?
         <enableSec [policy="key"]/>?
-        <enableAddressing/>?
+        <enableAddressing [version="final|submission"] [separateListener="true|false"]/>?
 
-    <timeout>
-        <duration>timeout duration in milliseconds</duration>
-        <action>discard|fault</action>
-    </timeout>?
+        <timeout>
+            <duration>timeout duration in milliseconds</duration>
+            <action>discard|fault</action>
+        </timeout>?
 
-    <markForSuspension>
-        [<errorCodes>xxx,yyy</errorCodes>]
-        <retriesBeforeSuspension>m</retriesBeforeSuspension>
-        <retryDelay>d</retryDelay>
-    </markForSuspension>
+        <markForSuspension>
+            [<errorCodes>xxx,yyy</errorCodes>]
+            <retriesBeforeSuspension>m</retriesBeforeSuspension>
+            <retryDelay>d</retryDelay>
+        </markForSuspension>
 
-    <suspendOnFailure>
-        [<errorCodes>xxx,yyy</errorCodes>]
-        <initialDuration>n</initialDuration>
-        <progressionFactor>r</progressionFactor>
-        <maximumDuration>l</maximumDuration>
-    </suspendOnFailure>
-</wsdl>
-```
+        <suspendOnFailure>
+            [<errorCodes>xxx,yyy</errorCodes>]
+            <initialDuration>n</initialDuration>
+            <progressionFactor>r</progressionFactor>
+            <maximumDuration>l</maximumDuration>
+        </suspendOnFailure>
+    </default>
+    ```
 
-``` java tab='Dynamic Load Balancing'
-<dynamicLoadbalance [policy="roundRobin"] [failover="true|false"]>
-    <membershipHandler class="impl of org.apache.synapse.core.LoadBalanceMembershipHandler">
-        <property name="name" value="value"/>
-    </membershipHandler>
-</dynamicLoadbalance>
-```
+=== "Load Balance Endpoint"
+    ``` java
+    <session type="http|simpleClientSession"/>?
+    <loadBalance [policy="roundRobin"] [algorithm="impl of org.apache.synapse.endpoints.algorithms.LoadbalanceAlgorithm"]
+                [failover="true|false"]>
+    <endpoint .../>+
+    <member hostName="host" [httpPort="port"] [httpsPort="port2"]>+
+    </loadBalance>
+    ```
+
+=== "WSDL Endpoint"
+    ``` java
+    <wsdl [uri="wsdl-uri"] service="qname" port/endpoint="qname">
+            <wsdl:definition>...</wsdl:definition>?
+            <wsdl20:description>...</wsdl20:description>?
+            <enableRM [policy="key"]/>?
+            <enableSec [policy="key"]/>?
+            <enableAddressing/>?
+
+        <timeout>
+            <duration>timeout duration in milliseconds</duration>
+            <action>discard|fault</action>
+        </timeout>?
+
+        <markForSuspension>
+            [<errorCodes>xxx,yyy</errorCodes>]
+            <retriesBeforeSuspension>m</retriesBeforeSuspension>
+            <retryDelay>d</retryDelay>
+        </markForSuspension>
+
+        <suspendOnFailure>
+            [<errorCodes>xxx,yyy</errorCodes>]
+            <initialDuration>n</initialDuration>
+            <progressionFactor>r</progressionFactor>
+            <maximumDuration>l</maximumDuration>
+        </suspendOnFailure>
+    </wsdl>
+    ```
+
+=== "Dynamic Load Balancing"
+    ``` java
+    <dynamicLoadbalance [policy="roundRobin"] [failover="true|false"]>
+        <membershipHandler class="impl of org.apache.synapse.core.LoadBalanceMembershipHandler">
+            <property name="name" value="value"/>
+        </membershipHandler>
+    </dynamicLoadbalance>
+    ```
 -->
 
 ### Basic Properties
@@ -967,7 +974,7 @@ The `timeout` element contains the following parameters that are used to conside
                <li><b>Discard</b>:  If this is selected, the responses which arrive after the endpoint has timed out will be discarded.</li>
                <li><b>Fault</b>: If this is selected, a fault sequence is triggered when the endpoint is timed out.</li>
             </ul>
-            <b>Note</b>: You can specify a value that is 1 millisecond less than the time duration you specify for the endpoint time out for the <code>synapse.timeout_handler_interval</code> property in the <code>MI_Home/conf/ei.toml</code> file. This would minimise the number of late responses from the backend.
+            <b>Note</b>: You can specify a value that is 1 millisecond less than the time duration you specify for the endpoint time out for the <code>'synapse.timeout_handler_interval'</code> property under <code>[synapse_properties]</code> in the <code>MI_Home/conf/deployment.toml</code> file. This would minimise the number of late responses from the backend.
             </ul>
          </td>
       </tr>

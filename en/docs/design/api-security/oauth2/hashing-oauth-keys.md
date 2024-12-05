@@ -9,7 +9,7 @@ Follow the instructions below to set up OAuth token hashing.
 
 2. Open the `<API-M_HOME>/repository/conf/deployment.toml` file, uncomment the following configuration and set the `enable_token_hashing` value to be `true`.  
 
-    ``` 
+    ```toml
     [apim.oauth_config]
     enable_token_hashing = true
     ```

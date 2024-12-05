@@ -31,7 +31,7 @@ particular transaction.
 For an example that demonstrates how the [transaction
 mediator]({{base_path}}/reference/mediators/transaction-mediator/) can
 be used to manage distributed transactions , see [Transaction Mediator
-Example](https://docs.wso2.com/display/EI650/Transaction+Mediator+Example).
+Example](https://wso2docs.atlassian.net/wiki/spaces/EI650/pages/35554191/Transaction+Mediator+Example).
 
 ### Java Message Service (JMS) transactions
 
@@ -42,7 +42,7 @@ WSO2 Micro Integrator (WSO2 MI) also supports JMS transactions.
 !!! Note
     In WSO2 MI, JMS transactions only work with either the Callout mediator or the Call mediator in blocking mode.
 
-The [JMS transport](https://docs.wso2.com/display/EI650/JMS+Transport)
+The [JMS transport](https://wso2docs.atlassian.net/wiki/spaces/EI650/pages/35553935/JMS+Transport)
 shipped with WSO2 MI supports both local and distributed JMS
 transactions. You can use local transactions to group messages
 received in a JMS queue. Local transactions are not supported for
@@ -93,7 +93,7 @@ The sample scenario can be depicted as follows:
     `           <MI_HOME>/conf/deployment.toml          ` file. By default the session is not transacted. In order to 
     make it transacted, we set the session_transaction parameter to true .
     
-    ```
+    ```toml
     [[transport.jms.listener]]
     name = "myTopicConnectionFactory"
     parameter.initial_naming_factory = "org.apache.activemq.jndi.ActiveMQInitialContextFactory"
@@ -200,13 +200,15 @@ The sample scenario can be depicted as follows:
     * Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
     * Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
    
-      ```bash tab='On MacOS/Linux/CentOS'
-      sh axis2server.sh
-      ```
+        === "On MacOS/Linux/CentOS"
+            ```bash
+            sh axis2server.sh
+            ```
           
-      ```bash tab='On Windows'
-      axis2server.bat
-      ```
+        === "On Windows"
+            ```bash
+            axis2server.bat
+            ```
             
     You now have a running WSO2 MI instance, ActiveMQ instance and a
     sample back-end service to simulate the sample scenario.
@@ -285,7 +287,7 @@ entire transaction should be rolled back.
 1.  Create the `             JMSListenerProxy            ` proxy service
     in WSO2 MI with the following configuration:
 
-    ```
+    ```xml
         <proxy xmlns="http://ws.apache.org/ns/synapse"
                name="JMSListenerProxy"
                transports="https http jms"

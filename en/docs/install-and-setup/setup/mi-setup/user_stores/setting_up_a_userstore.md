@@ -130,7 +130,7 @@ pool_options.testOnBorrow = true
 !!! note "Before you begin"
 	[Disable the file-based user store](#disabling-the-file-based-user-store).
 
-If you are already using a JDBC user store (database) with another WSO2 product ([WSO2 API Manager](https://wso2.com/api-management/), [WSO2 Identity Server](https://wso2.com/identity-and-access-management/), or an instance of [WSO2 Enterprise Integrator 6.x.x](https://wso2.com/enterprise-integrator/6.6.0)), you can connect the same database to the Micro Integrator of EI 7.1. Alternatively, you can create a new RDBMS user store and connect it to the Micro Integrator.
+If you are already using a JDBC user store (database) with another WSO2 product ([WSO2 API Manager](https://wso2.com/api-management/), [WSO2 Identity Server](https://wso2.com/identity-and-access-management/), or an instance of [WSO2 Enterprise Integrator 6.x.x](https://wso2docs.atlassian.net/wiki/spaces/EI660/overview)), you can connect the same database to the Micro Integrator of EI 7.1. Alternatively, you can create a new RDBMS user store and connect it to the Micro Integrator.
 
 1.	To set up a new RDBMS, select the preferred RDBMS type and follow the instructions. 
 
@@ -149,65 +149,70 @@ If you are already using a JDBC user store (database) with another WSO2 product 
 	1.	Open the `deployment.toml` file (stored in the `<MI_HOME>/conf` directory).
 	2.	Add the relevant configurations for your RDBMS type.
 
-		```toml tab='MySQL'
-		[[datasource]]
-		id = "WSO2CarbonDB"
-		url= "jdbc:mysql://localhost:3306/userdb"
-		username="root"
-		password="root"
-		driver="com.mysql.jdbc.Driver"
-		pool_options.maxActive=50
-		pool_options.maxWait = 60000
-		pool_options.testOnBorrow = true
-		```
+		=== "MySQL"
+			```toml'
+			[[datasource]]
+			id = "WSO2CarbonDB"
+			url= "jdbc:mysql://localhost:3306/userdb"
+			username="root"
+			password="root"
+			driver="com.mysql.jdbc.Driver"
+			pool_options.maxActive=50
+			pool_options.maxWait = 60000
+			pool_options.testOnBorrow = true
+			```
 
-		```toml tab='MSSQL'
-		[[datasource]]
-		id = "WSO2CarbonDB"
-		url= "jdbc:sqlserver://<IP>:1433;databaseName=userdb;SendStringParametersAsUnicode=false"
-		username="root"
-		password="root"
-		driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-		pool_options.maxActive=50
-		pool_options.maxWait = 60000
-		pool_options.testOnBorrow = true
-		```
+		=== "MSSQL"
+			```toml
+			[[datasource]]
+			id = "WSO2CarbonDB"
+			url= "jdbc:sqlserver://<IP>:1433;databaseName=userdb;SendStringParametersAsUnicode=false"
+			username="root"
+			password="root"
+			driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+			pool_options.maxActive=50
+			pool_options.maxWait = 60000
+			pool_options.testOnBorrow = true
+			```
 
-		```toml tab='Oracle'
-		[[datasource]]
-		id = "WSO2CarbonDB"
-		url= "jdbc:oracle:thin:@SERVER_NAME:PORT/SID"
-		username="root"
-		password="root"
-		driver="oracle.jdbc.OracleDriver"
-		pool_options.maxActive=50
-		pool_options.maxWait = 60000
-		pool_options.testOnBorrow = true
-		```
+		=== "Oracle"
+			```toml
+			[[datasource]]
+			id = "WSO2CarbonDB"
+			url= "jdbc:oracle:thin:@SERVER_NAME:PORT/SID"
+			username="root"
+			password="root"
+			driver="oracle.jdbc.OracleDriver"
+			pool_options.maxActive=50
+			pool_options.maxWait = 60000
+			pool_options.testOnBorrow = true
+			```
 
-		```toml tab='PostgreSQL'
-		[[datasource]]
-		id = "WSO2CarbonDB"
-		url= "jdbc:postgresql://localhost:5432/userdb"
-		username="root"
-		password="root"
-		driver="org.postgresql.Driver"
-		pool_options.maxActive=50
-		pool_options.maxWait = 60000
-		pool_options.testOnBorrow = true
-		```
+		=== "PostgreSQL"
+			```toml
+			[[datasource]]
+			id = "WSO2CarbonDB"
+			url= "jdbc:postgresql://localhost:5432/userdb"
+			username="root"
+			password="root"
+			driver="org.postgresql.Driver"
+			pool_options.maxActive=50
+			pool_options.maxWait = 60000
+			pool_options.testOnBorrow = true
+			```
 
-		```toml tab='IBM DB'
-		[[datasource]]
-		id = "WSO2CarbonDB"
-		url="jdbc:db2://SERVER_NAME:PORT/userdb"
-		username="root"
-		password="root"
-		driver="com.ibm.db2.jcc.DB2Driver"
-		pool_options.maxActive=50
-		pool_options.maxWait = 60000
-		pool_options.testOnBorrow = true
-		```
+		=== "IBM DB"
+			```toml
+			[[datasource]]
+			id = "WSO2CarbonDB"
+			url="jdbc:db2://SERVER_NAME:PORT/userdb"
+			username="root"
+			password="root"
+			driver="com.ibm.db2.jcc.DB2Driver"
+			pool_options.maxActive=50
+			pool_options.maxWait = 60000
+			pool_options.testOnBorrow = true
+			```
 
 		Parameters used above are explained below.
 

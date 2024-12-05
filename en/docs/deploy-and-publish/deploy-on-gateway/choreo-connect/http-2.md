@@ -111,11 +111,11 @@ $ curl --cacert ./backend.crt <--http2> or <--http2-prior-knowledge> https://loc
 
 Clients can initiate HTTP connections with Choreo Connect Router using HTTP/1.1 call or HTTP/1.1 call to switch protocol to HTTP/2 (if upstream does not support HTTP/2 then fallback to HTTP/1.1) or direct HTTP/2 call (with prior knowledge). It is the default configuration that is called `AUTO`. If you want only a specific HTTP version to work with, you can add the following configuration to the `config.toml` file that is located in the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf` or `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect-with-apim/conf` directory. 
 
-```yaml
+```toml
 [router]
   listenerCodecType = "HTTP2"
 ```
-You can set this confuration to `AUTO`, `HTTP1`, or `HTTP2`.
+You can set this configuration to `AUTO`, `HTTP1`, or `HTTP2`.
 
 ## Upstream configuration
 
@@ -133,41 +133,47 @@ Choreo Connect Router to endpoint connections are initiated only with HTTP/2 pri
 
 [![Choreo h2 h2 connection]({{base_path}}/assets/img/deploy/http2/choreo-h2-h2-connection.png)]({{base_path}}/assets/img/deploy/http2/choreo-h2-h2-connection.png)
 
-```toml tab="config.toml"
-[router]
-  listenerCodecType = "AUTO" or "HTTP2"
-# Default value will be "AUTO"
-```
+=== "config.toml"
+    ```toml
+    [router]
+      listenerCodecType = "AUTO" or "HTTP2"
+    # Default value will be "AUTO"
+    ```
 
-```toml tab="Swagger yaml"
-x-wso2-http2-backend-enabled: true
-```
+=== "Swagger yaml"
+    ```yaml
+    x-wso2-http2-backend-enabled: true
+    ```
 
 #### The client supports HTTP 2.0 but the backend does not support HTTP 2.0
 
 [![Choreo h2 h1 connection]({{base_path}}/assets/img/deploy/http2/choreo-h2-h1-connection.png)]({{base_path}}/assets/img/deploy/http2/choreo-h2-h1-connection.png)
 
-```toml tab="config.toml"
-[router]
-  listenerCodecType = "AUTO" or "HTTP2"
-# Default value will be "AUTO"
-```
+=== "config.toml"
+    ```toml
+    [router]
+      listenerCodecType = "AUTO" or "HTTP2"
+    # Default value will be "AUTO"
+    ```
 
-```toml tab="Swagger yaml"
-# No need to add API level configuration
-```
+=== "Swagger yaml"
+    ```yaml
+    # No need to add API level configuration
+    ```
 
 
-#### The client does not support HTTP/2 but the backend suppports HTTP 2.0
+#### The client does not support HTTP/2 but the backend supports HTTP 2.0
 
 [![Choreo h1 h2 connection]({{base_path}}/assets/img/deploy/http2/choreo-h1-h2-connection.png)]({{base_path}}/assets/img/deploy/http2/choreo-h1-h2-connection.png)
 
-```toml tab="config.toml"
-[router]
-  listenerCodecType = "AUTO" or "HTTP1"
-# Default value will be "AUTO"
-```
+=== "config.toml"
+    ```toml
+    [router]
+      listenerCodecType = "AUTO" or "HTTP1"
+    # Default value will be "AUTO"
+    ```
 
-```toml tab="Swagger yaml"
-x-wso2-http2-backend-enabled: true
-```
+=== "Swagger yaml"
+    ```yaml
+    x-wso2-http2-backend-enabled: true
+    ```

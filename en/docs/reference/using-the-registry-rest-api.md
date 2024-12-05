@@ -8,12 +8,14 @@
 
      For an example, you can use the following cURL command to get the content of the `app-tiers.xml` file, in the following registry path `_system/governance/apimgt/applicationdata`
     
-    ``` java tab="Format"
-    curl -X GET -H "Authorization: Basic <base64_encoded_username:password>=" -H "Content-Type: application/json" -H "Cache-Control: no-cache" "https://<hostname>:<port>/resource/1.0.0/artifact/_system/governance/apimgt/applicationdata/app-tiers.xml" -k
-    ```
+    === "Format"
+          ``` java
+          curl -X GET -H "Authorization: Basic <base64_encoded_username:password>=" -H "Content-Type: application/json" -H "Cache-Control: no-cache" "https://<hostname>:<port>/resource/1.0.0/artifact/_system/governance/apimgt/applicationdata/app-tiers.xml" -k
+          ```
 
-    ``` java tab="Sample"
-    curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -H "Cache-Control: no-cache" "https://localhost:9443/resource/1.0.0/artifact/_system/governance/apimgt/applicationdata/app-tiers.xml" -k
-    ```
+    === "Sample"
+          ``` java
+          curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -H "Cache-Control: no-cache" "https://localhost:9443/resource/1.0.0/artifact/_system/governance/apimgt/applicationdata/app-tiers.xml" -k
+          ```
 
     For a complete reference of the available REST API operations, go to [Resources with REST API](https://docs.wso2.com/display/Governance540/Resources+with+REST+API).

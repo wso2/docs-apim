@@ -22,7 +22,7 @@ This involves configuring the network firewall for opening the ports used by WSO
 
 ## Setting up databases
 
-If you are integrating data stores in your Streaming Integration flows, you need to set up databases. For information about supported database types and how to configure data sources for them, see [Configuring Datasources]({{base_path}}/install-and-setup/setup/si-setup/configuring-data-sources.).
+If you are integrating data stores in your Streaming Integration flows, you need to set up databases. For information about supported database types and how to configure data sources for them, see [Configuring Datasources]({{base_path}}/install-and-setup/setup/si-setup/configuring-data-sources).
 
 ## Configuring Transports
 
@@ -38,7 +38,7 @@ If you want to allow business users with limited coding knowledge to write busin
 
 ## Monitoring the Streaming Integrator
 
-To monitor the performance of your Streaming Integrator setup, configure WSO2 SI to publish its statistics in Dashboards as described in [Configuring Grafana Dashboards]({{base_path}}/install-and-setup/setup/si-setup/setting-up-grafana-dashboards).
+To monitor the performance of your Streaming Integrator setup, configure WSO2 SI to publish its statistics in Dashboards as described in [Configuring Grafana Dashboards]({{base_path}}/https://observe/streaming-integrator/setting-up-si-statistics-dashboards/)
 
 
 

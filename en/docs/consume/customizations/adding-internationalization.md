@@ -163,7 +163,7 @@ Follow the instructions below to change the direction of the UI:
     
      Add the following configuration to change the page direction to RTL (Right To Left).  
 
-     !!! note
+    !!! note
          If you have already done customizations to the default theme, make sure to merge the following with the existing changes carefully.
 
     ```js

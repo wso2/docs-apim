@@ -41,36 +41,39 @@ Following is a sample REST API configuration that we can used to implement this 
 
 Create the sequence for client to backend mediation, sequence for the backend to client mediation, and a proxy service as to call the sequences.
 
-```xml tab='Sequence (Backend Mediation)'
-<sequence name="dispatchSeq" xmlns="http://ws.apache.org/ns/synapse">
-    <property name="OUT_ONLY" value="true"/>
-    <property name="FORCE_SC_ACCEPTED" scope="axis2" type="STRING" value="true"/>
-    <property name="websocket.accept.contentType" scope="axis2" value="text/xml"/>
-     <send>
-        <endpoint>
-             <address uri="ws://localhost:8082/websocket"/>
-        </endpoint>
-    </send>
-</sequence>
-```
+=== "Sequence (Backend Mediation)"
+    ```xml
+    <sequence name="dispatchSeq" xmlns="http://ws.apache.org/ns/synapse">
+        <property name="OUT_ONLY" value="true"/>
+        <property name="FORCE_SC_ACCEPTED" scope="axis2" type="STRING" value="true"/>
+        <property name="websocket.accept.contentType" scope="axis2" value="text/xml"/>
+        <send>
+            <endpoint>
+                <address uri="ws://localhost:8082/websocket"/>
+            </endpoint>
+        </send>
+    </sequence>
+    ```
 
-```xml tab='Sequence (Backend to Client Mediation)'
-<sequence name="outDispatchSeq" xmlns="http://ws.apache.org/ns/synapse">
-   <log level="full"/>
-</sequence>
-```
+=== "Sequence (Backend to Client Mediation)"
+    ```xml
+    <sequence name="outDispatchSeq" xmlns="http://ws.apache.org/ns/synapse">
+    <log level="full"/>
+    </sequence>
+    ```
 
-```xml tab='Proxy Service'
-<proxy xmlns="http://ws.apache.org/ns/synapse"
-                   name="websocketProxy1"
-                   transports="http,https"
-                   statistics="disable"
-                   trace="disable"
-                   startOnLoad="true">
-    <target inSequence="dispatchSeq" faultSequence="outDispatchSeq"/>
-    <description/>
-</proxy>
-```
+=== "Proxy Service"
+    ```xml
+    <proxy xmlns="http://ws.apache.org/ns/synapse"
+                    name="websocketProxy1"
+                    transports="http,https"
+                    statistics="disable"
+                    trace="disable"
+                    startOnLoad="true">
+        <target inSequence="dispatchSeq" faultSequence="outDispatchSeq"/>
+        <description/>
+    </proxy>
+    ```
 
 ### Build and run
 

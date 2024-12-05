@@ -79,13 +79,15 @@ There are two ways to manually offset the [default ports](#default-ports).
 
 -   Pass the port offset to the server during startup.
 
-    ```bash tab='On MacOS/Linux/Centos'
-    ./micro-integrator.sh -DportOffset=3
-    ```
+    === "On MacOS/Linux/Centos"
+		```bash
+		./micro-integrator.sh -DportOffset=3
+		```
 
-    ```bash tab='On Windows'
-    micro-integrator.bat -DportOffset=3
-    ```
+    === "On Windows"
+		```bash
+		micro-integrator.bat -DportOffset=3
+		```
 
 -   Open the `deployment.toml` file (stored in the `MI_HOME/conf` folder) and add the port offset as follows:
 
@@ -156,24 +158,26 @@ If required, you can manually change the HTTP/HTTPS ports in the <code>deploymen
 !!! Note
     	With the default internal port offset, the effective port will be <code>https_port + 1</code>.
 
-```yaml tab='HTTPS Port'
-wso2.transport.http:            
-listenerConfigurations:
--
-	id: "msf4j-https"
-	host: "0.0.0.0"
-	port: https_port
-	scheme: https
-```
+=== "HTTPS Port"
+	```yaml
+	wso2.transport.http:            
+	listenerConfigurations:
+	-
+		id: "msf4j-https"
+		host: "0.0.0.0"
+		port: https_port
+		scheme: https
+	```
 
-```yaml tab='HTTP Port'
-wso2.transport.http:
-listenerConfigurations:
--
-  id: "default"
-  host: "0.0.0.0"
-  port: http_port
-```
+=== "HTTP Port"
+	```yaml
+	wso2.transport.http:
+	listenerConfigurations:
+	-
+	id: "default"
+	host: "0.0.0.0"
+	port: http_port
+	```
 
 ## Random ports
 

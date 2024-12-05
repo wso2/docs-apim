@@ -71,13 +71,15 @@ the **`Authorization`** header.
 
     !!! example
 
-        ``` bash tab="Template"
-        curl -H "Authorization: Bearer <access token>" -H "Custom: Bearer 1234" <API URL>
-        ```
+        === "Template"
+            ``` bash
+            curl -H "Authorization: Bearer <access token>" -H "Custom: Bearer 1234" <API URL>
+            ```
 
-        ``` bash tab="Sample"
-        curl -k -H "Authorization: Bearer 2e25097b2b3fbbfb44f5642fa8a495a1" -H "Custom: Bearer 1234" https://localhost:8243/testcustomheader/1.0.0
-        ```
+        === "Sample"
+            ``` bash
+            curl -k -H "Authorization: Bearer 2e25097b2b3fbbfb44f5642fa8a495a1" -H "Custom: Bearer 1234" https://localhost:8243/testcustomheader/1.0.0
+            ```
 
     !!! info
         -   **<access token&gt;** is the token that you got in step 20.

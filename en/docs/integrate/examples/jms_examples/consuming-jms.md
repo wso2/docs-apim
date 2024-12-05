@@ -94,13 +94,15 @@ https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zi
 3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
 4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
    
-      ```bash tab='On MacOS/Linux/CentOS'
-      sh axis2server.sh
-      ```
+    === "On MacOS/Linux/CentOS"
+        ```bash
+        sh axis2server.sh
+        ```
           
-      ```bash tab='On Windows'
-      axis2server.bat
-      ```
+    === "On Windows"
+        ```bash
+        axis2server.bat
+        ```
 
 You now have a running WSO2 Micro Integrator instance, ActiveMQ instance, and a sample back-end service to simulate the sample scenario.
 Add a message in the `JMStoHTTPStockQuoteProxy` queue with the following XML payload using [ActiveMQ Web Console](https://activemq.apache.org/web-console.html).
@@ -207,7 +209,7 @@ Create the artifacts:
 
 Set up the broker:
 
-1.  [Configure a broker]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transport#configuring-the-jms-transport) with your Micro Integrator instance. Let's use Active MQ for this example.
+1.  [Configure a broker]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-jms-transport) with your Micro Integrator instance. Let's use Active MQ for this example.
 2.  Start the broker.
 3.  Start the Micro Integrator (after starting the broker).
 
@@ -219,13 +221,15 @@ https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zi
 3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
 4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
    
-      ```bash tab='On MacOS/Linux/CentOS'
-      sh axis2server.sh
-      ```
+    === "On MacOS/Linux/CentOS"
+        ```bash
+        sh axis2server.sh
+        ```
           
-      ```bash tab='On Windows'
-      axis2server.bat
-      ```
+    === "On Windows"
+        ```bash
+        axis2server.bat
+        ```
             
 You now have a running WSO2 MI instance, an ActiveMQ instance, and a sample back-end service to simulate the sample scenario. Add a message in `JMStoHTTPStockQuoteProxy1` queue with the following XML payload using the [ActiveMQ Web Console](https://activemq.apache.org/web-console.html). You can view the responses from the back-end service in the `ResponseQueue`. 
 

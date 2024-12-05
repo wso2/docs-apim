@@ -42,7 +42,7 @@ Now follow the steps below to add configurations to the `insertEmployeeBulkRecor
     
 1. Initialize the connector.
     
-    1. Follow these steps to [generate the Access Tokens for Salesforce](salesforcebulk-connector-configuration/) and obtain the Client Id, Client Secret, Access Token, and Refresh Token.
+    1. Follow these steps to [generate the Access Tokens for Salesforce]({{base_path}}/includes/reference/connectors/salesforce-connectors/sf-access-token-generation/) and obtain the Client Id, Client Secret, Access Token, and Refresh Token.
     
     2. Navigate into the **Palette** pane and select the graphical operations icons listed under **Salesforcebulk Connector** section. Then drag and drop the `init` operation into the Design pane.
         
@@ -268,7 +268,7 @@ Now follow the steps below to add configurations to the `insertEmployeeBulkRecor
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/salesforcebulk.zip">
+<a href="/assets/attachments/connectors/salesforcebulk-connector.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 

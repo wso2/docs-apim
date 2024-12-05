@@ -89,12 +89,12 @@ Follow the instructions below to configure WSO2 API Gateway and Choreo Connect f
     1. Copy the JAR file to the `<API-M_HOME>/repository/components/lib` directory.
     2. Open the `<API-M_HOME>/repository/conf/deployment.toml` file in a text editor and modify the `apim.analytics` section as follows:
        
-         ```
-         [apim.analytics]
-         enable = true
-         properties."publisher.reporter.class" = "<FullyQualifiedClassNameOfMetricReporterImplClass>"
-         logger.reporter.level = "INFO"
-         ```
+    ```toml
+    [apim.analytics]
+    enable = true
+    properties."publisher.reporter.class" = "<FullyQualifiedClassNameOfMetricReporterImplClass>"
+    logger.reporter.level = "INFO"
+    ```
 
     3. Open the `<API-M_HOME>/repository/conf/log4j2.properties` file in a text editor and do the following modifications.
 
@@ -116,15 +116,15 @@ Follow the instructions below to configure WSO2 API Gateway and Choreo Connect f
     1. Copy the JAR file to the `choreo-connect-1.0.0/docker-compose/resources/enforcer/dropins` directory.
     2. Open the `choreo-connect-1.0.0/docker-compose/choreo-connect-with-apim/conf/config.toml` file in a text editor and modify the `analytics` section as follows:
 
-         ```
-          [analytics]
-              enabled = true
-              [analytics.enforcer]
-              [analytics.enforcer.configProperties]
-                  authURL = "$env{analytics_authURL}"
-                  authToken = "$env{analytics_authToken}"
-                  "publisher.reporter.class" = "org.wso2.am.analytics.publisher.sample.reporter.CustomReporter"
-        ```
+    ```toml
+        [analytics]
+        enabled = true
+        [analytics.enforcer]
+        [analytics.enforcer.configProperties]
+            authURL = "$env{analytics_authURL}"
+            authToken = "$env{analytics_authToken}"
+            "publisher.reporter.class" = "org.wso2.am.analytics.publisher.sample.reporter.CustomReporter"
+    ```
 
     3. Open the `choreo-connect-1.0.0/docker-compose/choreo-connect-with-apim/conf/log4j2.properties` file in a text editor and do the following modifications.
 
@@ -228,7 +228,7 @@ This section will guide you through the steps required to visualize the publishe
              - /home/wso2/logs/enforcer_analytics.log
          ```
 
-2. [Set up assets]((https://www.elastic.co/guide/en/beats/filebeat/7.13/filebeat-installation-configuration.html#setup-assets)). 
+2. [Set up assets](https://www.elastic.co/guide/en/beats/filebeat/7.13/filebeat-installation-configuration.html#setup-assets). 
          
     !!! tip
         In case of a failure with the above command, run the following command to set up assets.
@@ -245,11 +245,11 @@ Filebeat comes with pre-built Kibana dashboards and UIs for visualizing log data
 
 #### Step 3.2.1 - Configure the visualization
 
-     [Launch Kibana and discover](https://www.elastic.co/guide/en/beats/filebeat/7.13/filebeat-installation-configuration.html#view-data) log data.
+[Launch Kibana and discover](https://www.elastic.co/guide/en/beats/filebeat/7.13/filebeat-installation-configuration.html#view-data) log data.
 
-     Once you have followed and completed the above steps successfully, you will be able to visualize log data as follows.
+Once you have followed and completed the above steps successfully, you will be able to visualize log data as follows.
 
-     [![Logs listed in kibana]({{base_path}}/assets/img/analytics/samples/logs-listed-in-kibana.png)]({{base_path}}/assets/img/analytics/samples/logs-listed-in-kibana.png)
+[![Logs listed in kibana]({{base_path}}/assets/img/analytics/samples/logs-listed-in-kibana.png)]({{base_path}}/assets/img/analytics/samples/logs-listed-in-kibana.png)
 
 #### Step 3.2.2 - Filter total analytics traffic
 

@@ -100,6 +100,7 @@ In order to use the Microsoft Azure Storage connector, you need to download the 
  - [azure-storage-common-12.22.0.jar](https://mvnrepository.com/artifact/com.azure/azure-storage-common/12.22.0)
  - [azure-json-1.0.1.jar](https://mvnrepository.com/artifact/com.azure/azure-json/1.0.1)
  - [azure-core-http-netty-1.13.5.jar](https://mvnrepository.com/artifact/com.azure/azure-core-http-netty/1.13.5)
+ - [azure-core-1.41.0.jar](https://mvnrepository.com/artifact/com.azure/azure-core/1.41.0)
  - [msal4j-1.13.8.jar](https://mvnrepository.com/artifact/com.microsoft.azure/msal4j/1.13.8)
  - [content-type-2.2.jar](https://mvnrepository.com/artifact/com.nimbusds/content-type/2.2)
  - [netty-resolver-dns-4.1.95.Final.jar](https://mvnrepository.com/artifact/io.netty/netty-resolver-dns/4.1.95.Final)

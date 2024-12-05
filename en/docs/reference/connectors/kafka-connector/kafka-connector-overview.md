@@ -10,11 +10,12 @@ To see the Kafka Connector, navigate to the [connector store](https://store.wso2
 
 ## Compatibility
 
-| Connector Version | Supported product versions |
-| ------------- |-------------|
-| 3.1.0    | APIM 4.0.0, EI 7.1.0, EI 7.0.x EI 6.6.0 |
-| 3.0.0    | APIM 4.0.0, EI 7.1.0, EI 7.0.x EI 6.6.0 |
-| 2.0.9    | APIM 4.0.0, EI 7.1.0, EI 7.0.x EI 6.6.0 EI 6.5.0 |
+| Connector Version | Supported product versions                       |
+|-------------------|--------------------------------------------------|
+| 3.2.0             | MI 4.2.0, MI 4.1.0, MI 4.0.0                     |
+| 3.1.0             | APIM 4.0.0, EI 7.1.0, EI 7.0.x EI 6.6.0          |
+| 3.0.0             | APIM 4.0.0, EI 7.1.0, EI 7.0.x EI 6.6.0          |
+| 2.0.9             | APIM 4.0.0, EI 7.1.0, EI 7.0.x EI 6.6.0 EI 6.5.0 |
 
 For older versions, see the details in the connector store.
 

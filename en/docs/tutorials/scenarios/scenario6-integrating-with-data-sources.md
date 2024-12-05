@@ -28,7 +28,7 @@ Once developed, you can expose the data via API manager for secure access. For s
 
 To invoke the API from API Manager,
 
-1. Go to [https://localhost:9443/devportal/](https://localhost:9443/devportal/) Developer Portal and select **RailCo** tenant domain. This will redirect you to RailCo’s Developer Portal.
+1. Go to `https://localhost:9443/devportal/` Developer Portal and select **RailCo** tenant domain. This will redirect you to RailCo’s Developer Portal.
 2. Sign in with a RailCo tenant, Developer Portal user. Use user as `tom@railco.com` and password as `user123`.
 3. Click on RailCoEmployeeAPI and click subscribe using a policy and generate the access token.
 4. After that you can try out the CRUD operations on the EmployeeAPI.

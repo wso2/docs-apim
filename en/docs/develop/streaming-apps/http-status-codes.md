@@ -10,7 +10,7 @@ When REST API requests are sent to carry out various actions, various HTTP statu
 <td>Code Summary</td>
 <td> Description</td>
 </tr>
-<tr> 200</td>
+<td>200</td>
 <td>Ok</td>
 <td>HTTP request was successful. The output corresponding to the HTTP request will be returned. Generally used as a response to successful <code>GET</code> and <code>PUT</code> REST API HTTP methods.</td>
 </tr>

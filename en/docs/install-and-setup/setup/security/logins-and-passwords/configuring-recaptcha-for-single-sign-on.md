@@ -28,7 +28,7 @@ attacks, by configuring reCaptcha.
         Select this option to prompt reCaptcha only after the number of maximum failed attempts has been exceeded. 
     
         If this option is selected, enter a value for the **Max failed attempts for reCaptcha** field as well. For example, if you enter 3, reCaptcha will be re-enabled after 3 failed attempts.  
-        ![configure-captcha-for-sso]({{base_path}}/assets/img/learn/api-security/recaptcha/recaptcha-sso.png)
+        ![configure-captcha-for-sso]({{base_path}}/assets/img/learn/api-security/recaptcha/reCAPTCHA-for-SSO.png)
         
         Note the following when selecting this option:
         

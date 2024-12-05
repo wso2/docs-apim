@@ -154,7 +154,7 @@ below.
 
 2.  Click the **Event Simulator** icon in the left pane of the editor.
 
-    ![Event Simulator Icon]({{base_path}}/assets/img/streaming/testing-siddhi-applications/event-simulation_Icon.png)
+    ![Event Simulator Icon]({{base_path}}/assets/img/streaming/testing-siddhi-applications/event-simulation-icon.png)
 
 3.  In the event simulation left panel that opens, click on the **Feed Simulation** tab.
 
@@ -236,9 +236,9 @@ To simulate multiple events from a database, follow the procedure below:
 
     ![Welcome Page]({{base_path}}/assets/img/streaming/creating-siddhi-applications/welcome-page.png)
      
-2.  Click the **Event Simulator** icon in the left pane of the editor.
+2.  Click the **Event Simulator** icon in the left pane of the editor.11
 
-    ![Event Simulator Icon]({{base_path}}/assets/img/streaming/testing-siddhi-applications/event-simulation_Icon.png)
+    <a href="{{base_path}}/assets/img/streaming/testing-siddhi-applications/event-simulation-icon.png"><img src="{{base_path}}/assets/img/streaming/testing-siddhi-applications/event-simulation-icon.png" alt="Event Simulator"></a>
 
 3.  Click the **Feed** tab to open the **Feed Simulation** panel.
 

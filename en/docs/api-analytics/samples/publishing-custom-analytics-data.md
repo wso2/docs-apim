@@ -104,7 +104,7 @@ This section will cover the steps required to configure WSO2 API-M Gateway for t
 
     Edit the `apim.analytics` configurations in the `deployment.toml` file located inside `wso2am-4.2.0/repository/conf` with the following configuration.
 
-```code
+```toml
         [apim.analytics]
         enable = true
         properties."publisher.custom.data.provider.class" = "<FullyQualifiedClassNameOfAnalyticsCustomDataProviderImplClass>"

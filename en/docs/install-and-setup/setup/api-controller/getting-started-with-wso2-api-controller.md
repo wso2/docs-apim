@@ -6,13 +6,13 @@
 
 1.  Download **apictl** based on your preferred platform (i.e., Mac, Windows, Linux).
 
-    - [For Mac with Intel Chip](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.2/apictl-4.2.2-darwin-amd64.tar.gz)
-    - [For Mac with Apple Silicon](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.2/apictl-4.2.2-darwin-arm64.tar.gz)
-    - [For Linux 32-bit](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.2/apictl-4.2.2-linux-i586.tar.gz)
-    - [For Linux 64-bit with AMD processor](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.2/apictl-4.2.2-linux-amd64.tar.gz)
-    - [For Linux 64-bit with ARM processor](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.2/apictl-4.2.2-linux-arm64.tar.gz)
-    - [For Windows 32-bit](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.2/apictl-4.2.2-windows-i586.zip)
-    - [For Windows 64-bit](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.2/apictl-4.2.2-windows-x64.zip)
+    - [For Mac with Intel Chip](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.5/apictl-4.2.5-darwin-amd64.tar.gz)
+    - [For Mac with Apple Silicon](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.5/apictl-4.2.5-darwin-arm64.tar.gz)
+    - [For Linux 32-bit](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.5/apictl-4.2.5-linux-i586.tar.gz)
+    - [For Linux 64-bit with AMD processor](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.5/apictl-4.2.5-linux-amd64.tar.gz)
+    - [For Linux 64-bit with ARM processor](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.5/apictl-4.2.5-linux-arm64.tar.gz)
+    - [For Windows 32-bit](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.5/apictl-4.2.5-windows-i586.zip)
+    - [For Windows 64-bit](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.5/apictl-4.2.5-windows-x64.zip)
 
 2.  Extract the downloaded archive of the apictl to the desired location.
 3.  Navigate to the working directory where the executable apictl resides.
@@ -31,13 +31,15 @@
     !!! Tip
         If you want to change the default location for the .wso2apictl directory, set an environment variable (**APICTL_CONFIG_DIR**) as follows with the path for the desired location.
 
-        ```go tab="Linux/Mac"
-        export APICTL_CONFIG_DIR="/home/wso2user/CLI"
-        ```
+        === "Linux/Mac"
+            ```go
+            export APICTL_CONFIG_DIR="/home/wso2user/CLI"
+            ```
 
-        ```go tab="Windows"
-        set APICTL_CONFIG_DIR=C:\Users\wso2user\CLI
-        ```
+        === "Windows"
+            ```go
+            set APICTL_CONFIG_DIR=C:\Users\wso2user\CLI
+            ```
 
 
     !!! Tip    
@@ -71,8 +73,8 @@ Run the following apictl command to check the version.
 -   **Response**
 
     ```bash
-    Version: 4.2.2
-    Build Date: 2023-09-12 06:59:52 UTC
+    Version: 4.2.5
+    Build Date: 2024-05-29 12:05:41 UTC
     ```
 
 !!!note
@@ -105,47 +107,51 @@ You can set proxy related `HTTP_PROXY`, `HTTPS_PROXY`, `http_proxy`, and `https_
 
 -   **Formats**
 
-    ``` bash tab="Without Basic Authentication"
-    export HTTP_PROXY="http://<host-name>:<port>"
+    === "Without Basic Authentication"
+        ``` bash
+        export HTTP_PROXY="http://<host-name>:<port>"
 
-    export HTTPS_PROXY="https://<host-name>:<port>"
+        export HTTPS_PROXY="https://<host-name>:<port>"
 
-    export http_proxy="http://<host-name>:<port>"
+        export http_proxy="http://<host-name>:<port>"
 
-    export https_proxy="https://<host-name>:<port>"
-    ```
+        export https_proxy="https://<host-name>:<port>"
+        ```
 
-    ``` bash tab="With Basic Authentication"
-    export HTTP_PROXY="http://<username>:<password>@<host-name>:<port>"
+    === "With Basic Authentication"
+        ``` bash
+        export HTTP_PROXY="http://<username>:<password>@<host-name>:<port>"
 
-    export HTTPS_PROXY="https://<username>:<password>@<host-name>:<port>"
+        export HTTPS_PROXY="https://<username>:<password>@<host-name>:<port>"
 
-    export http_proxy="http://<username>:<password>@<host-name>:<port>"
+        export http_proxy="http://<username>:<password>@<host-name>:<port>"
 
-    export https_proxy="https://<username>:<password>@<host-name>:<port>"
-    ```
+        export https_proxy="https://<username>:<password>@<host-name>:<port>"
+        ```
 
 -   **Examples**
 
-    ``` bash tab="Without Basic Authentication"
-    export HTTP_PROXY="http://localhost:3128"
+    === "Without Basic Authentication"
+        ``` bash
+        export HTTP_PROXY="http://localhost:3128"
 
-    export HTTPS_PROXY="https://localhost:3128"
+        export HTTPS_PROXY="https://localhost:3128"
 
-    export http_proxy="http://localhost:3128"
+        export http_proxy="http://localhost:3128"
 
-    export https_proxy="https://localhost:3128"
-    ```
+        export https_proxy="https://localhost:3128"
+        ```
 
-    ``` bash tab="With Basic Authentication"
-    export HTTP_PROXY="http://testuser:password@localhost:3128"
+    === "With Basic Authentication"
+        ``` bash
+        export HTTP_PROXY="http://testuser:password@localhost:3128"
 
-    export HTTPS_PROXY="https://testuser:password@localhost:3128"
+        export HTTPS_PROXY="https://testuser:password@localhost:3128"
 
-    export http_proxy="http://testuser:password@localhost:3128"
+        export http_proxy="http://testuser:password@localhost:3128"
 
-    export https_proxy="https://testuser:password@localhost:3128"
-    ```
+        export https_proxy="https://testuser:password@localhost:3128"
+        ```
 
 ## Add an environment
         
@@ -155,26 +161,28 @@ You can add environments by either manually editing the `<USER_HOME>/.wso2apictl
 apictl add env <environment-name>
 ```
 
-1.  Make sure that the WSO2 API Manager (WSO2 API-M) 4.2.0 version is started and that the 4.2.2 version of apictl is set up.     
+1.  Make sure that the WSO2 API Manager (WSO2 API-M) 4.2.0 version is started and that the 4.2.5 version of apictl is set up.     
 For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
 2.  Run the following apictl command to add an environment.
 
     -   **Command**
 
-        ``` bash tab="Linux/Unix"
-        apictl add env <environment-name> \
-                       --registration <client-registration-endpoint> \
-                       --apim <API-Manager-endpoint> \
-                       --token <token-endpoint> \
-                       --admin <admin-REST-API-endpoint> \
-                       --publisher <publisher-portal-endpoint> \
-                       --devportal <developer-portal-endpoint> \
-                       --mi <mi-management-endpoint>
-        ```
+        === "Linux/Unix"
+            ``` bash
+            apictl add env <environment-name> \
+                        --registration <client-registration-endpoint> \
+                        --apim <API-Manager-endpoint> \
+                        --token <token-endpoint> \
+                        --admin <admin-REST-API-endpoint> \
+                        --publisher <publisher-portal-endpoint> \
+                        --devportal <developer-portal-endpoint> \
+                        --mi <mi-management-endpoint>
+            ```
 
-        ``` bash tab="Mac/Windows"
-        apictl add env <environment-name> --registration <client-registration-endpoint> --apim <API-Manager-endpoint> --token <token-endpoint> --admin <admin-REST-API-endpoint> --publisher <publisher-portal-endpoint> --devportal <developer-portal-endpoint> --mi <mi-management-endpoint>
-        ```
+        === "Mac/Windows"
+            ``` bash
+            apictl add env <environment-name> --registration <client-registration-endpoint> --apim <API-Manager-endpoint> --token <token-endpoint> --admin <admin-REST-API-endpoint> --publisher <publisher-portal-endpoint> --devportal <developer-portal-endpoint> --mi <mi-management-endpoint>
+            ```
 
         !!! info
             **Flags:**  
@@ -211,90 +219,102 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
 
         !!! example
 
-            ``` bash tab="Linux/Unix"
-            apictl add env dev \
-                        --apim https://localhost:9443 
-            ``` 
+            === "Linux/Unix"
+                ``` bash
+                apictl add env dev \
+                            --apim https://localhost:9443 
+                ``` 
 
-            ``` bash tab="Mac/Windows"
-            apictl add env dev --apim https://localhost:9443 
-            ```               
+            === "Mac/Windows"
+                ``` bash
+                apictl add env dev --apim https://localhost:9443 
+                ```               
 
     -   Adding a WSO2 API-M to an environment using `--registration`, `--publisher`, `--devportal`, `--admin` flags
 
         !!! example
 
-            ``` bash tab="Linux/Unix"
-            apictl add env production \
-                        --registration https://idp.com:9444 \
-                        --admin https://apim.com:9444 \
-                        --publisher https://apim.com:9444 \
-                        --devportal https://apps.com:9444 \
-                        --token https://gw.com:8244/token                        
-            ```
+            === "Linux/Unix"
+                ``` bash
+                apictl add env production \
+                            --registration https://idp.com:9444 \
+                            --admin https://apim.com:9444 \
+                            --publisher https://apim.com:9444 \
+                            --devportal https://apps.com:9444 \
+                            --token https://apim.com:9444/oauth2/token                        
+                ```
 
-            ``` bash tab="Mac/Windows"
-            apictl add env production --registration https://idp.com:9444  --admin https://apim.com:9444 --publisher https://apim.com:9444 --devportal https://apps.com:9444 --token https://gw.com:8244/token
-            ```  
+            === "Linux/Unix"
+                ``` bash
+                apictl add env production --registration https://idp.com:9444  --admin https://apim.com:9444 --publisher https://apim.com:9444 --devportal https://apps.com:9444 --token https://apim.com:9444/oauth2/token
+                ```  
 
     -   Adding a WSO2 API-M to an environment using some of the `--registration`, `--publisher`, `--devportal`, `--admin` flags along with `--apim` flag
 
         !!! example
 
-            ``` bash tab="Linux/Unix"
-            apictl add env production \
-                        --registration https://idp.com:9444 \
-                        --apim https://apim.com:9444 \
-                        --token https://gw.com:8244/token
-            ```
+            === "Linux/Unix"
+                ``` bash
+                apictl add env production \
+                            --registration https://idp.com:9444 \
+                            --apim https://apim.com:9444 \
+                            --token https://apim.com:9444/oauth2/token
+                ```
 
-            ``` bash tab="Mac/Windows"
-            apictl add env production --registration https://idp.com:9444 --apim https://apim.com:9444 --token https://gw.com:8244/token
-            ```  
+            === "Mac/Windows"
+                ``` bash
+                apictl add env production --registration https://idp.com:9444 --apim https://apim.com:9444 --token https://apim.com:9444/oauth2/token
+                ```  
 
     -   Adding a WSO2 MI to an environment using `--mi` flag
 
         !!! example
 
-            ``` bash tab="Linux/Unix"
-            apictl add env dev \
-                        --mi https://localhost:9164
-            ```
+            === "Linux/Unix"
+                ``` bash
+                apictl add env dev \
+                            --mi https://localhost:9164
+                ```
 
-            ``` bash tab="Mac/Windows"
-            apictl add env dev --mi https://localhost:9164
-            ```
+            === "Mac/Windows"
+                ``` bash
+                apictl add env dev --mi https://localhost:9164
+                ```
 
     -   Adding both WSO2 API-M and WSO2 MI to an environment
 
         !!! example
 
-            ``` bash tab="Linux/Unix"
-            apictl add env test \
-                        --apim https://localhost:9443 \
-                        --mi https://localhost:9164
-            ```
+            === "Linux/Unix"
+                ``` bash
+                apictl add env test \
+                            --apim https://localhost:9443 \
+                            --mi https://localhost:9164
+                ```
 
-            ``` bash tab="Mac/Windows"
-            apictl add env test --apim https://localhost:9443 --mi https://localhost:9164
-            ```
+            === "Mac/Windows"
+                ``` bash
+                apictl add env test --apim https://localhost:9443 --mi https://localhost:9164
+                ```
 
         !!!note
             `apictl add-env` command has been deprecated from apictl 4.0.0 onwards. Instead, use `apictl add env` as shown above. 
 
     -   **Response**
     
-        ``` bash tab="Response Format"
-        Successfully added environment '<environment-name>'
-        ```
+        === "Response Format"
+            ``` bash
+            Successfully added environment '<environment-name>'
+            ```
 
-        ``` bash tab="Example Response"
-        Successfully added environment 'production'
-        ```
+        === "Example Response"
+            ``` bash
+            Successfully added environment 'production'
+            ```
 
 ## Remove an environment
 
-1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.2 version of apictl is set up.  
+1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.5 version of apictl is set up.  
 For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
 2.  Run the following apictl command to remove an environment.
 
@@ -311,19 +331,21 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
 
     -   **Response**
 
-        ``` bash tab="Response Format"
-        Successfully removed environment '<environment-name>'
-        Execute 'apictl add env --help' to see how to add a new environment
-        ```
+        === "Response Format"
+            ``` bash
+            Successfully removed environment '<environment-name>'
+            Execute 'apictl add env --help' to see how to add a new environment
+            ```
 
-        ``` bash tab="Example Response"
-        Successfully removed environment 'production'
-        Execute 'apictl add env --help' to see how to add a new environment
-        ```
+        === "Example Response"
+            ``` bash
+            Successfully removed environment 'production'
+            Execute 'apictl add env --help' to see how to add a new environment
+            ```
 
 ## Get environments
 
-1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.2 version of apictl is set up.    
+1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.5 version of apictl is set up.    
 For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
 2.  Run the following apictl command to list the environments.  
 
@@ -341,18 +363,20 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
 
     -   **Response**
 
-        ``` bash tab="Response Format"
-        NAME                  API MANAGER ENDPOINT      REGISTRATION ENDPOINT      TOKEN ENDPOINT     PUBLISHER ENDPOINT       DEVPORTAL ENDPOINT       ADMIN ENDPOINT          MI MANAGEMENT ENDPOINT
-        <environment-name>    <APIM-endpoint>           <registration-endpoint>    <token-endpoint>   <Publisher-endpoint>     <DevPortal-endpoint>     <admmin-endpoint>       <mi-management-endpoint>
-        ```
+        === "Response Format"
+            ``` bash
+            NAME                  API MANAGER ENDPOINT      REGISTRATION ENDPOINT      TOKEN ENDPOINT     PUBLISHER ENDPOINT       DEVPORTAL ENDPOINT       ADMIN ENDPOINT          MI MANAGEMENT ENDPOINT
+            <environment-name>    <APIM-endpoint>           <registration-endpoint>    <token-endpoint>   <Publisher-endpoint>     <DevPortal-endpoint>     <admmin-endpoint>       <mi-management-endpoint>
+            ```
 
-        ```bash tab="Example Response"
-        NAME         API MANAGER ENDPOINT     REGISTRATION ENDPOINT    TOKEN ENDPOINT                  PUBLISHER ENDPOINT       DEVPORTAL ENDPOINT       ADMIN ENDPOINT             MI MANAGEMENT ENDPOINT
-        dev          https://localhost:9443   https://localhost:9443   https://localhost:8243/token    https://localhost:9443   https://localhost:9443   https://localhost:9443
-        production   https://localhost:9444   https://localhost:9444   https://localhost:8244/token    https://localhost:9444   https://localhost:9444   https://localhost:9444     https://localhost:9164
-        dev-mi                                                                                                                                                                      https://localhost:9164
+        === "Example Response"
+            ```bash
+            NAME         API MANAGER ENDPOINT     REGISTRATION ENDPOINT    TOKEN ENDPOINT                  PUBLISHER ENDPOINT       DEVPORTAL ENDPOINT       ADMIN ENDPOINT             MI MANAGEMENT ENDPOINT
+            dev          https://localhost:9443   https://localhost:9443   https://localhost:9443/oauth2/token    https://localhost:9443   https://localhost:9443   https://localhost:9443
+            production   https://localhost:9444   https://localhost:9444   https://localhost:9443/oauth2/token    https://localhost:9444   https://localhost:9444   https://localhost:9444     https://localhost:9164
+            dev-mi                                                                                                                                                                      https://localhost:9164
 
-        ```
+            ```
 
         !!!note
             Output of the `get envs` command can be formatted with Go Templates. For more information on formatting the get commands, see [Formatting the outputs of get commands]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command).
@@ -364,7 +388,7 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
 
 After adding an environment, you can log in to the WSO2 API-M instance in that environment using credentials.
 
-1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.2 version of apictl is set up.   
+1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.5 version of apictl is set up.   
 For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
 2.  Run any of the following apictl commands to log in to the environment.
 
@@ -382,9 +406,16 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
         apictl login <environment-name> -u <username> -p <password> 
         ``` 
 
+        ```go
+        apictl login <environment-name> --token <access-token>
+        ```
+
         !!! tip
             If you run `apictl login <environment-name>` you are prompted to provide both the username and the password.
             If you run `apictl login <environment-name> --username <username>`, you are prompted to provide the password.
+
+        !!! tip
+            If you want to pass the access token directly as `apictl login <environment-name> --token <access-token>`, you can generate a personal access token providing the required scopes, see [Minimal permissions and scopes required to perform apictl operations]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations)  
 
         !!! info
             **Flags:**  
@@ -393,6 +424,7 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
                 `--username` or `-u` : Username for login  
                 `--password` or `-p` : Password for login     
                 `--password-stdin` : Get password from stdin  
+                `--token` : Personal access token
 
         !!! example
             ```bash
@@ -401,20 +433,24 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
             ```bash
             apictl login dev -u admin -p admin 
             ```
-            
             ```bash
             apictl login dev --username admin --password admin 
+            ```
+            ```bash
+            apictl login dev --token 45ab5790-aa3f-3ebb-882b-37b81f585976 
             ```
                  
     -   **Response**
 
-        ``` bash tab="Response Format"
-        Logged into '<environment-name>' environment 
-        ```
+        === "Response Format"
+            ``` bash
+            Logged into '<environment-name>' environment 
+            ```
 
-        ```bash tab="Example Response"
-        Logged into dev environment
-        ```
+        === "Example Response"
+            ```bash
+            Logged into dev environment
+            ```
 
     !!! warning
         Using -`-password` in apictl is not secure. You can use `--password-stdin` instead. For example,
@@ -424,7 +460,7 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
 
 ## Logout from an environment
 
-1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.2 version of apictl is set up.   
+1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.5 version of apictl is set up.   
 For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
 
 2.  Run the following command to log out from the current session of the WSO2 API-M environment.
@@ -501,13 +537,15 @@ Run the following apictl command to change the default location of the export di
 
     !!! example
 
-        ```go tab="Linux/Mac"
-        apictl set --export-directory /home/user/exported-apis
-        ```
+        === "Linux/Mac"
+            ```go
+            apictl set --export-directory /home/user/exported-apis
+            ```
 
-        ```go tab="Windows"
-        apictl set --export-directoty C:\Documents\exported
-        ```
+        === "Windows"
+            ```go
+            apictl set --export-directoty C:\Documents\exported
+            ```
         
     !!! info
         **Flags:** 

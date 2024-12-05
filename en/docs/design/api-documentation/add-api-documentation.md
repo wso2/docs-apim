@@ -91,7 +91,7 @@ Follow the instructions below to add documentation to an API:
         <tr class="even">
         <td>Source</td>
         <td>URL<br />
-        <a href="http://www.dummyforum.com" class="uri">http://www.dummyforum.com</a></td>
+        <`http://www.dummyforum.com`</td>
         </tr>
         </tbody>
         </table>
@@ -144,49 +144,57 @@ Follow the instructions below to add documentation to an API:
 
     2.  Enter the following information.
 
-        |         |                                                                                                                                                                                                                                                                                                                              |
+        |         |                                                                                                                                                                                                                                                                                                                            |
         |---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-        | Name    | APIManagerSamples                                                                                                                                                                                                                                                                                                          |
-        | Summary | API Manager Samples                                                                                                                                                                                                                                                                                                          |
-        | Type    | Samples & SDK                                                                                                                                                                                                                                                                                                                |
-        | Source  | You can provide only these file formats.(`.pdf`, `.doc`, `.txt` ) of any size. For example, use the sample PDF file [here]({{base_path}}/assets/attachments/learn/api-docs-sample.pdf). |
+        | Name    | APIManagerSamples                                                                                                                                                                                                                                                                                                        |
+        | Summary | API Manager Samples                                                                                                                                                                                                                                                                                                        |
+        | Type    | Samples & SDK                                                                                                                                                                                                                                                                                                              |
+        | Source  | You can provide any of the allowed file formats. Use the sample PDF [here]({{base_path}}/assets/attachments/learn/api-docs-sample.pdf). |
 
-        [![Add file based API documentation]({{base_path}}/assets/img/learn/add-docs-pdf-file.png)]({{base_path}}/assets/img/learn/add-docs-pdf-file.png)
+!!! Note
+    The API Manager allows to configure the types of files that can be uploaded as documentation using below configuration. By default, the allowed file types include pdf, txt, doc, docx, xls, xlsx, odt, ods, json, yaml, and md.
+    
+    ```
+    [apim.publisher]
+    supported_document_types = "pdf, txt, doc"
+    ```
 
-    3.  Click **Add Document**.
-        
-    ### Add Markdown documentation
+[![Add file based API documentation]({{base_path}}/assets/img/learn/add-docs-pdf-file.png)]({{base_path}}/assets/img/learn/add-docs-pdf-file.png)
 
-    1.  Click **Documents** and click **Add New Document**.
-        
-         [![Add new document option]({{base_path}}/assets/img/learn/add-docs-documents.png)]({{base_path}}/assets/img/learn/add-docs-documents.png)
+3.  Click **Add Document**.
+    
+### Add Markdown documentation
 
-    2.  Enter the following details to create Markdown documentation and click **Add Document**.
+1.  Click **Documents** and click **Add New Document**.
+    
+     [![Add new document option]({{base_path}}/assets/img/learn/add-docs-documents.png)]({{base_path}}/assets/img/learn/add-docs-documents.png)
 
-        |         |                                      |
-        |---------|--------------------------------------|
-        | Name    | PizzaShackAPIDocumentation                    |
-        | Summary | This is the official documentation for the PizzaShack API |
-        | Type    | How To                               |
-        | Source  | Markdown                              |
+2.  Enter the following details to create Markdown documentation and click **Add Document**.
 
-        [![Add Markdown based API documentation]({{base_path}}/assets/img/learn/add-docs-markdown.png)]({{base_path}}/assets/img/learn/add-docs-markdown.png)
+    |         |                                      |
+    |---------|--------------------------------------|
+    | Name    | PizzaShackAPIDocumentation                    |
+    | Summary | This is the official documentation for the PizzaShack API |
+    | Type    | How To                               |
+    | Source  | Markdown                              |
 
-    3.  Click **Add Content** to open an embedded editor.
+    [![Add Markdown based API documentation]({{base_path}}/assets/img/learn/add-docs-markdown.png)]({{base_path}}/assets/img/learn/add-docs-markdown.png)
 
-        [![Add content for Markdown documentation]({{base_path}}/assets/img/learn/add-docs-markdown-add-content.png){: style="width:80%"}]({{base_path}}/assets/img/learn/add-docs-markdown-add-content.png)
+3.  Click **Add Content** to open an embedded editor.
 
-    4.  Edit the document content using the embedded markdown editor and click **Update Content**.
-        
-         [![Update content for Markdown documentation]({{base_path}}/assets/img/learn/add-docs-markdown-editor.png)]({{base_path}}/assets/img/learn/add-docs-markdown-editor.png)
-         
-         The API's **Documents** tab opens.
-         
-         [![APIs documentation tab with added documentation]({{base_path}}/assets/img/learn/add-docs-markdown-view.png)]({{base_path}}/assets/img/learn/add-docs-markdown-view.png)
+    [![Add content for Markdown documentation]({{base_path}}/assets/img/learn/add-docs-markdown-add-content.png){: style="width:80%"}]({{base_path}}/assets/img/learn/add-docs-markdown-add-content.png)
 
-     You have now added four type of documents to the API: in-line, URL, file, and markdown.
+4.  Edit the document content using the embedded markdown editor and click **Update Content**.
+    
+     [![Update content for Markdown documentation]({{base_path}}/assets/img/learn/add-docs-markdown-editor.png)]({{base_path}}/assets/img/learn/add-docs-markdown-editor.png)
      
-     [![APIs documentation tab with a list of the added documentation]({{base_path}}/assets/img/learn/add-docs-all.png)]({{base_path}}/assets/img/learn/add-docs-all.png)
+     The API's **Documents** tab opens.
+     
+     [![APIs documentation tab with added documentation]({{base_path}}/assets/img/learn/add-docs-markdown-view.png)]({{base_path}}/assets/img/learn/add-docs-markdown-view.png)
+
+ You have now added four type of documents to the API: in-line, URL, file, and markdown.
+ 
+ [![APIs documentation tab with a list of the added documentation]({{base_path}}/assets/img/learn/add-docs-all.png)]({{base_path}}/assets/img/learn/add-docs-all.png)
 
 4. Sign in to the WSO2 Developer Portal and click on the `PizzaShackAPI` version 1.0.0 API.
     
@@ -202,10 +210,10 @@ Follow the instructions below to add documentation to an API:
 
      As a subscriber, you can read the documentation and learn about the API.
 
-     !!! note
-     For REST APIs, generated document will be listed as `Default`
+    !!! note
+          For REST APIs, generated document will be listed as `Default`
 
-     [![View API related documentation]({{base_path}}/assets/img/learn/view-docs-api.png)]({{base_path}}/assets/img/learn/view-docs-api.png)
+          [![View API related documentation]({{base_path}}/assets/img/learn/view-docs-api.png)]({{base_path}}/assets/img/learn/view-docs-api.png)
 
 You have created documentation using the API Publisher and viewed the documentation as a subscriber in the Developer Portal.
 

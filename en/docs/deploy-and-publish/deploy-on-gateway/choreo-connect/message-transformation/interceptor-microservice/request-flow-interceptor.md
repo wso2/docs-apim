@@ -10,41 +10,43 @@ In this section, you can find the content of the request to/response from the in
 
 Following is the request received from the Choreo Connect Router when you enable the request interceptor.
 
-``` json tab="Format"
-{
-    "requestHeaders": {
-        "<header1_from_client>": "<value>",
-        "<header2_from_client>": "<value>"
-    },
-    "requestTrailers": {
-        "<trailer1_from_client>": "<value>",
-        "<trailer2_from_client>": "<value>"
-    },
-    "requestBody": "<BASE64_encoded_client_request_body>",
-    "invocationContext": {
-        ...
+=== "Format"
+    ``` json
+    {
+        "requestHeaders": {
+            "<header1_from_client>": "<value>",
+            "<header2_from_client>": "<value>"
+        },
+        "requestTrailers": {
+            "<trailer1_from_client>": "<value>",
+            "<trailer2_from_client>": "<value>"
+        },
+        "requestBody": "<BASE64_encoded_client_request_body>",
+        "invocationContext": {
+            ...
+        }
     }
-}
-```
+    ```
 
-``` json tab="Sample"
-{
-    "requestHeaders": {
-        "content-type": "application/xml",
-        "content-length": "40",
-        "header1-from-client": "value1",
-        "header2-from-client": "value2"
-    },
-    "requestTrailers": {
-        "trailer1-from-client": "value1",
-        "trailer2-from-client": "value2"
-    },
-    "requestBody": "PGhlbGxvPndvcmxkPC9oZWxsbz4K",
-    "invocationContext": {
-        ...
+=== "Sample"
+    ``` json
+    {
+        "requestHeaders": {
+            "content-type": "application/xml",
+            "content-length": "40",
+            "header1-from-client": "value1",
+            "header2-from-client": "value2"
+        },
+        "requestTrailers": {
+            "trailer1-from-client": "value1",
+            "trailer2-from-client": "value2"
+        },
+        "requestBody": "PGhlbGxvPndvcmxkPC9oZWxsbz4K",
+        "invocationContext": {
+            ...
+        }
     }
-}
-```
+    ```
 
 The `requestHeaders`, `requestTrailers` and `requestBody` fields in the above request to the interceptor service
 provide the request headers, trailers and **base64 encoded** request body from the client. The `invocationContext`
@@ -56,77 +58,79 @@ You can customize the request body in the open API definition according to your 
 
 Following is the response that the interceptor service should respond to the Choreo Connect Router when you enable the request interceptor.
 
-``` json tab="Format"
-{
-    "directRespond": <true|false>,
-    "responseCode": <HTTP_code_for_direct_response>,
-    "dynamicEndpoint": {
-        "endpointName": "<dynamic_endpoint_name>"
-    },
-    "headersToAdd": {
-        "<header_key_1>": "<value_1>",
-        "<header_key_2>": "<value_2>"
-    },
-    "headersToRemove": [
-        "<header_key_1>",
-        "<header_key_2>"
-    ],
-    "headersToReplace": {
-        "<header_key_1>": "<value_1>",
-        "<header_key_2>": "<value_2>"
-    },
-    "trailersToAdd": {
-        "<trailer_key_1>": "<value_1>",
-        "<trailer_key_2>": "<value_2>"
-    },
-    "trailersToRemove": [
-        "<trailer_key_1>",
-        "<trailer_key_2>"
-    ],
-    "trailersToReplace": {
-        "<trailer_key_1>": "<value_1>",
-        "<trailer_key_2>": "<value_2>"
-    },
-    "interceptorContext": {
-        "<arbitrary_key_1>": "<value_1>",
-        "<arbitrary_key_2>": "<value_2>"
-    },
-    "body": "<BASE64_encoded_body>"
-}
-```
+=== "Format"
+    ``` json
+    {
+        "directRespond": <true|false>,
+        "responseCode": <HTTP_code_for_direct_response>,
+        "dynamicEndpoint": {
+            "endpointName": "<dynamic_endpoint_name>"
+        },
+        "headersToAdd": {
+            "<header_key_1>": "<value_1>",
+            "<header_key_2>": "<value_2>"
+        },
+        "headersToRemove": [
+            "<header_key_1>",
+            "<header_key_2>"
+        ],
+        "headersToReplace": {
+            "<header_key_1>": "<value_1>",
+            "<header_key_2>": "<value_2>"
+        },
+        "trailersToAdd": {
+            "<trailer_key_1>": "<value_1>",
+            "<trailer_key_2>": "<value_2>"
+        },
+        "trailersToRemove": [
+            "<trailer_key_1>",
+            "<trailer_key_2>"
+        ],
+        "trailersToReplace": {
+            "<trailer_key_1>": "<value_1>",
+            "<trailer_key_2>": "<value_2>"
+        },
+        "interceptorContext": {
+            "<arbitrary_key_1>": "<value_1>",
+            "<arbitrary_key_2>": "<value_2>"
+        },
+        "body": "<BASE64_encoded_body>"
+    }
+    ```
 
-``` json tab="Sample"
-{
-    "directRespond": false,
-    "responseCode": 200,
-    "dynamicEndpoint": {
-        "endpointName": "my-dynamic-endpoint"
-    },
-    "headersToAdd": {
-        "content-type": "application/json",
-        "new-header": "value"
-    },
-    "headersToRemove": [
-        "invalid-header"
-    ],
-    "headersToReplace": {
-        "outdated-header": "updated value"
-    },
-    "trailersToAdd": {
-        "new-trailer": "value"
-    },
-    "trailersToRemove": [
-        "invalid-trailer"
-    ],
-    "trailersToReplace": {
-        "outdated-trailer": "update value"
-    },
-    "interceptorContext": {
-        "foo": "bar"
-    },
-    "body": "eyJIZWxsbyI6IldvcmxkIn0K"
-}
-```
+=== "Sample"
+    ``` json
+    {
+        "directRespond": false,
+        "responseCode": 200,
+        "dynamicEndpoint": {
+            "endpointName": "my-dynamic-endpoint"
+        },
+        "headersToAdd": {
+            "content-type": "application/json",
+            "new-header": "value"
+        },
+        "headersToRemove": [
+            "invalid-header"
+        ],
+        "headersToReplace": {
+            "outdated-header": "updated value"
+        },
+        "trailersToAdd": {
+            "new-trailer": "value"
+        },
+        "trailersToRemove": [
+            "invalid-trailer"
+        ],
+        "trailersToReplace": {
+            "outdated-trailer": "update value"
+        },
+        "interceptorContext": {
+            "foo": "bar"
+        },
+        "body": "eyJIZWxsbyI6IldvcmxkIn0K"
+    }
+    ```
 
 Interceptor can instruct the Choreo-Connect Router what should be done with the above response.
 
@@ -178,27 +182,29 @@ Then, you can include the "Dynamic Endpoint" name in the interceptor response.
 
     Example:
 
-    ``` yaml tab="Valid endpoints"
-    x-wso2-production-endpoints:
+    === "Valid endpoints"
+        ``` yaml
+        x-wso2-production-endpoints:
+            urls:
+            - https://abc.com:2380/v2
+        x-wso2-endpoints:
+        - myEndpoint1:
         urls:
-        - https://abc.com:2380/v2
-    x-wso2-endpoints:
-    - myEndpoint1:
-      urls:
-        - https://dev.abc.com:8443/v2
-          type: loadbalance
-    ```
+            - https://dev.abc.com:8443/v2
+            type: loadbalance
+        ```
 
-    ``` yaml tab="Invalid endpoints"
-    x-wso2-production-endpoints:
+    === "Invalid endpoints"
+        ``` yaml
+        x-wso2-production-endpoints:
+            urls:
+            - https://abc.com:2380/v2
+        x-wso2-endpoints:
+        - myEndpoint1:
         urls:
-        - https://abc.com:2380/v2
-    x-wso2-endpoints:
-    - myEndpoint1:
-      urls:
-        - https://dev.abc.com:8443/api-v3 # different base path
-          type: loadbalance
-    ```
+            - https://dev.abc.com:8443/api-v3 # different base path
+            type: loadbalance
+        ```
 
 Following is a sample endpoint definition in the Open API Specification.
 

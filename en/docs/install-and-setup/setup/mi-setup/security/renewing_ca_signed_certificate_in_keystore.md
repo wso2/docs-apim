@@ -97,7 +97,7 @@ below to generate a CSR:
     openssl x509 -x509toreq -in <cert_name.crt> -out <CSR.csr> -signkey <private_key.key>
     ```
 
-Once you generate the CSR, you need to submit the CSR to your certificate authority to get a new CA-signed certificate. For testing purposes you can go to <http://www.getacert.com/signacert.html> and submit your CSR to obtain a new CA-signed certificate for free.
+Once you generate the CSR, you need to submit the CSR to your certificate authority to get a new CA-signed certificate. For testing purposes you can go to <https://getacert.com/signacert.html> and submit your CSR to obtain a new CA-signed certificate for free.
 
 After you obtain a new certificate, you have to import the new certificate to a keystore if you are using a java keystore.
 

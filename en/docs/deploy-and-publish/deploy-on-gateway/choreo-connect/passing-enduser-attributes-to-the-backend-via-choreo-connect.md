@@ -212,16 +212,18 @@ Backend JWTs can be signed with RSA to ensure their validity when being sent bet
 
 The JWKS endpoint is:
 
-``` java tab="Format"
-"https://<hostname>:<port>/.wellknown/jwks"
-```
+=== "Format"
+    ``` java
+    "https://<hostname>:<port>/.wellknown/jwks"
+    ```
 
 
-``` java tab="Example"
-"https://localhost:9095/.wellknown/jwks"
-```
+=== "Example"
+    ``` java
+    "https://localhost:9095/.wellknown/jwks"
+    ```
 
-The public keys can be recieved from this endpoint with a <code>GET</code> or <code>POST</code> request.
+The public keys can be received from this endpoint with a <code>GET</code> or <code>POST</code> request.
 
 
 ### Sample JWKS response

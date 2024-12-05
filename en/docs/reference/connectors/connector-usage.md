@@ -105,11 +105,11 @@ The following are some other ways to externalize connection initialization param
 
 There are no special requirements when deploying the integration runtime with artifacts that has connectors. However, the following facts need to be considered. 
 
-To seamlessly refresh tokens, use a registry location that is visible to all [cluster members]({{base_path}}/install-and-setup/deployment/deploying_wso2_ei/) (for example, config registry mounted). Here the refresh token value should be passed as a connector parameter. For detailed information on how this can be done for the relevant connectors, see the relevant documentation.
+To seamlessly refresh tokens, use a registry location that is visible to all [cluster members]({{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei/) (for example, config registry mounted). Here the refresh token value should be passed as a connector parameter. For detailed information on how this can be done for the relevant connectors, see the relevant documentation.
 
 ## Performance tuning and monitoring
 
-SaaS connectors use HTTP/HTTPS protocol to communicate. They use the WSO2 mediation engine itself. Hence [HTTP protocol related tunings]({{base_path}}/install-and-setup/performance_tuning/http_transport_tuning/) are applied. 
+SaaS connectors use HTTP/HTTPS protocol to communicate. They use the WSO2 mediation engine itself. Hence [HTTP protocol related tunings]({{base_path}}/install-and-setup/setup/mi-setup/performance_tuning/http_transport_tuning) are applied. 
 
 Technology connectors use protocols that are custom. Thus their tuning needs to be done at the connector itself. All connection related tunings are present in the form you get when you create a new connection for the connector. For the older connectors, configurations will be present in the `init` operation. 
 

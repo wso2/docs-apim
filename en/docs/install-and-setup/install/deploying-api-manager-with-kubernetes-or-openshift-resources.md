@@ -31,13 +31,13 @@ Follow the instructions below to use Kubernetes (K8s) and Helm resources for con
 
     ``` 
     git clone https://github.com/wso2/kubernetes-apim.git
-    git checkout tags/v4.0.0.1
+    git checkout tags/v4.2.0.2
     ```
 
 2.  Provide the necessary configurations.
 
     !!! note
-        The default product configurations for deployment of WSO2 API Manager are available [here](https://github.com/wso2/kubernetes-apim/tree/v4.0.0.1/simple/am-single/templates) folder. Change the configurations, as necessary.
+        The default product configurations for deployment of WSO2 API Manager are available [here](https://github.com/wso2/kubernetes-apim/tree/v4.2.0.2/simple/am-single/templates) folder. Change the configurations, as necessary.
 
     Open the `<HELM_HOME>/am-single/values.yaml` and provide the following values for WSO2 Subscription Configurations.
     
@@ -93,10 +93,10 @@ Follow the instructions below to use Kubernetes (K8s) and Helm resources for con
     3.  Try navigating to `https://<RELEASE_NAME>-am/carbon`, `https://<RELEASE_NAME>-am/publisher` and `https://<RELEASE_NAME>-am/devportal` from your favorite browser.
     
 !!! note
-    You can read the [README guide](https://github.com/wso2/kubernetes-apim/blob/v4.0.0.1/simple/am-single/README.md) of WSO2 API Manager Git repository for further details on other dependencies and configurations.
+    You can read the [README guide](https://github.com/wso2/kubernetes-apim/blob/v4.2.0.2/simple/am-single/README.md) of WSO2 API Manager Git repository for further details on other dependencies and configurations.
 
 For more information, see the deployment configurations with regard to the [Advanced Deployment Patterns]({{base_path}}/install-and-setup/setup/deployment-overview/).
 
-- [Standard HA Deployment](https://github.com/wso2/kubernetes-apim/blob/v4.0.0.1/advanced/am-pattern-1/README.md)
-- [Standard HA Deployment with Multitenancy](https://github.com/wso2/kubernetes-apim/blob/v4.0.0.1/advanced/am-pattern-2/README.md)
-- [Simple Scalable Deployment](https://github.com/wso2/kubernetes-apim/blob/v4.0.0.1/advanced/am-pattern-3/README.md)
+- [Standard HA Deployment](https://github.com/wso2/kubernetes-apim/blob/v4.2.0.2/advanced/am-pattern-1/README.md)
+- [Standard HA Deployment with Multitenancy](https://github.com/wso2/kubernetes-apim/blob/v4.2.0.2/advanced/am-pattern-2/README.md)
+- [Simple Scalable Deployment](https://github.com/wso2/kubernetes-apim/blob/v4.2.0.2/advanced/am-pattern-3/README.md)

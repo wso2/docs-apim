@@ -47,11 +47,11 @@ Let's use the Star Wars sample backend server as the backend for the GraphQL API
        <div class="admonition note">
        <p class="admonition-title">Note</p>
        <ul><li>
-       <p>You need to define the SDL Schema based on the [GraphQL schema design best practices](https://leapgraph.com/graphql-schema-design-best-practices).</p></li>
+       <p>You need to define the SDL Schema based on the [GraphQL schema design best practices](https://graphql.org/learn/best-practices/).</p></li>
        <li>The file extension can be either `.graphql`, `.txt`, or `.json`. </li><li> The file name can be any name, which is based on your preference.</li></ul>
        </div>
 
-      [![Import a GraphQL schema by adding a file](../../assets/img/learn/import-graphql-schema-via-file.png){: style="width:80%"}](../../assets/img/learn/import-graphql-schema-via-file.png)
+     [![Import a GraphQL schema by adding a file](../../assets/img/learn/import-graphql-schema-via-file.png){: style="width:80%"}](../../assets/img/learn/import-graphql-schema-via-file.png)
 
 4. Enter the GraphQL API related details and click **Create**.
     
@@ -100,9 +100,7 @@ Let's use the Star Wars sample backend server as the backend for the GraphQL API
          <p>Endpoint</p>
       </td>
       <td>
-         <a href="http://localhost:8080/graphql" target="_blank">http://localhost:8080/graphql</a>
-                <div class="admonition note">
-      <p class="admonition-title">Note</p>
+         <p>http://localhost:8080/graphql</p>
       <p>
       <ul>
       <li>
@@ -155,7 +153,7 @@ Let's use the Star Wars sample backend server as the backend for the GraphQL API
                    <div class="admonition note">
                    <p class="admonition-title">Note</p>
                    <p> 
-                   <ul><li>The role that you enter <b>should be a valid role that already exists in WSO2 API Manager</b>. Make sure to assign the role to the user. </li><li>For more information, see <a href="../../administer/managing-users-and-roles/managing-users/">Adding Users</a> and <a href="../../administer/managing-users-and-roles/managing-user-roles/">Adding User Roles</a>.</li></ul>
+                   <ul><li>The role that you enter <b>should be a valid role that already exists in WSO2 API Manager</b>. Make sure to assign the role to the user. </li><li>For more information, see <a href="https://apim.docs.wso2.com/en/latest/administer/managing-users-and-roles/managing-users">Adding Users</a> and <a href="https://apim.docs.wso2.com/en/latest/administer/managing-users-and-roles/managing-user-roles">Adding User Roles</a>.</li></ul>
                    </p>
                    </div>
                   

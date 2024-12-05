@@ -114,12 +114,12 @@ You can create a GraphQL API in WSO2 API-M Publisher Portal by following the ste
              <p>Endpoint</p>
           </td>
           <td>
-             <a href="http://hostName:8080/graphql" target="_blank">http://hostName:8080/graphql</a>
+             <code>`http://hostName:8080/graphql`</code>
           </td>
           </tr>
           </table>
 
-       [![Add GraphQL API details]({{base_path}}/assets/img/learn/create-graphql-api-details.png){: style="width:75%"}](../../assets/img/learn/create-graphql-api-details.png)
+       [![Add GraphQL API details]({{base_path}}/assets/img/learn/create-graphql-api-details.png)]({{base_path}}/assets/img/learn/create-graphql-api-details.png)
 
 5. Click `Create` button.
 
@@ -230,13 +230,15 @@ apictl mg add env dev --adapter https://localhost:9843
 
 You can use the following command to log in to the above Choreo Connect cluster (log in to the Choreo Connect adapter). When you log in, an access token will be retrieved from Choreo Connect and it will be saved in the apictl.
 
-``` bash tab="Format"
-apictl mg login dev -u <username> -p <password> -k
-```
+=== "Format"
+    ``` bash
+    apictl mg login dev -u <username> -p <password> -k
+    ```
 
-``` bash tab="Example"
-apictl mg login dev -u admin -p admin -k
-```
+=== "Example"
+    ``` bash
+    apictl mg login dev -u admin -p admin -k
+    ```
 
 ### Step 4 - Deploy the API
 
@@ -252,15 +254,17 @@ After exposing the GraphQL API via Choreo Connect, you can invoke an API with a 
 
 Let's use the following command to generate a JWT to access the API, and set it to the variable `TOKEN`. 
 
-``` tab="Format"
-TOKEN=$(curl -X POST "https://<hostname>:<port>/testkey" -d "scope=<scope values>" -H "Authorization: Basic base64(username:password)" -k -v)
+=== "Format"
+    ```bash
+    TOKEN=$(curl -X POST "https://<hostname>:<port>/testkey" -d "scope=<scope values>" -H "Authorization: Basic base64(username:password)" -k -v)
 
-```
+    ```
 
-``` tab="Example"
-TOKEN=$(curl -X POST "https://localhost:9095/testkey" -d "" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -v)
+=== "Example"
+    ```bash
+    TOKEN=$(curl -X POST "https://localhost:9095/testkey" -d "" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -v)
 
-```
+    ```
 
 
 ### Step 6 - Invoke the API
@@ -274,14 +278,17 @@ TOKEN=$(curl -X POST "https://localhost:9095/testkey" -d "" -H "Authorization: B
 
 - Invoke the API using the following cURL command structure.
 
-    ```bash tab="Format"
-    curl -X POST "<Docker-hostname>:<Docker-port>/<API-context>/<API-version>" -H "Authorization: Bearer $TOKEN" -d "<query>" -H "Content-Type: application/json" -k 
-    ```
+    === "Format"
+        ```bash
+        curl -X POST "<Docker-hostname>:<Docker-port>/<API-context>/<API-version>" -H "Authorization: Bearer $TOKEN" -d "<query>" -H "Content-Type: application/json" -k 
+        ```
 
-    ```bash tab="Example"
-    curl -X POST "https://localhost:9095/starwars/1.0.0" -H "Authorization: Bearer $TOKEN" -d '{"query":"query MyQuery { allDroids { appearsIn } }","variables":null}' -H "Content-Type: application/json" -k 
-    ```
+    === "Example"
+        ```bash
+        curl -X POST "https://localhost:9095/starwars/1.0.0" -H "Authorization: Bearer $TOKEN" -d '{"query":"query MyQuery { allDroids { appearsIn } }","variables":null}' -H "Content-Type: application/json" -k 
+        ```
 
-    ```bash tab="Response"
-    {"data":{"allDroids":[{"appearsIn":["NEWHOPE","EMPIRE","JEDI"]},{"appearsIn":["NEWHOPE","EMPIRE","JEDI"]}]}}
-    ```
+    === "Response"
+        ```bash
+        {"data":{"allDroids":[{"appearsIn":["NEWHOPE","EMPIRE","JEDI"]},{"appearsIn":["NEWHOPE","EMPIRE","JEDI"]}]}}
+        ```

@@ -64,9 +64,7 @@ This section describes the error codes for endpoint failures. For more informati
 
 | **Error Code** | **Detail**                                    |
 |----------------|-----------------------------------------------|
-| 303000         | Load Balance endpoint is not ready to connect |
-| 303000         | Recipient List Endpoint is not ready          |
-| 303000         | Failover endpoint is not ready to connect     |
+| 303000         | <ul><li>Load Balance endpoint is not ready to connect</li><li>Recipient List Endpoint is not ready</li><li>Failover endpoint is not ready to connect</li></ul> |
 | 303001         | Address Endpoint is not ready to connect      |
 | 303002         | WSDL Address is not ready to connect          |
 
@@ -98,6 +96,12 @@ This section describes the error codes for endpoint failures. For more informati
 | 401000         | Callout operation failed (from the Callout mediator)                                            |
 | 401001         | Blocking call operation failed (from the Call mediator when you have enabled blocking in it).   |
 | 401002         | Blocking sender operation failed (from the Call mediator when you have enabled blocking in it). |
+
+### XML / JSON parsing errors
+
+| **Error Code** | **Detail**                   |
+|----------------|------------------------------|
+| 601000         | Malform XML or JSON received |
 
 ## Custom Error Codes
 

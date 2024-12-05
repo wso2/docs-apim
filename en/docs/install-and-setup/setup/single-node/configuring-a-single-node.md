@@ -68,7 +68,7 @@ hostname when you configure environments in the `<API-M_HOME>/repository/conf/de
 
 Update the endpoints with your chosen hostname for Gateway as shown below. 
 In this case, let's use `gw.am.wso2.com` as the hostname.
-    ``` java
+    ``` toml
     [[apim.gateway.environment]]
     name = "Default"
     type = "hybrid"
@@ -89,7 +89,7 @@ Update the DevPortal URL with your chosen hostname to expose the portals. This i
 `View in Dev Portal` link in Publisher portal.  
 
 In this case, let's use `api.am.wso2.com` as the hostname:
-    ```java
+    ```toml
     [apim.devportal]
     url = "https://api.am.wso2.com/devportal"
     ```
@@ -98,7 +98,7 @@ In this case, let's use `api.am.wso2.com` as the hostname:
 
 API Manager Analytics is delivered via the API Manager Analytics cloud solution. You need to configure the API Manager Gateway to publish analytics data into the cloud.
 
-See the instructions on [configuring the API Gateway]({{base_path}}/api-analytics/gateways/configure-synapse-gateway) with the cloud-based analytics solution.
+See the instructions on [configuring the API Gateway]({{base_path}}/includes/analytics/configure-synapse-gateway) with the cloud-based analytics solution.
 
 ## Step 7 - Configure Production Hardening
 
@@ -117,12 +117,14 @@ If you want to deploy WSO2 API-M using a hybrid single node deployment, where WS
 
 Start the WSO2 API-M servers using the standard start-up script. For more information, see [Starting the server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server).
 
-```tab="Linux/Mac OS"
-cd <API-M_HOME>/bin/
-sh api-manager.sh
-```
+=== "Linux/Mac OS"
+    ```bash
+    cd <API-M_HOME>/bin/
+    sh api-manager.sh
+    ```
 
-```tab="Windows"
-cd <API-M_HOME>\bin\
-api-manager.bat --run 
-```
+=== "Windows"
+    ```bash
+    cd <API-M_HOME>\bin\
+    api-manager.bat --run 
+    ```

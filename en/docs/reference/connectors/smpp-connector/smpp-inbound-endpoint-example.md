@@ -4,7 +4,7 @@ The SMPP inbound endpoint allows you to consume messages from SMSC. The WSO2 SMP
 
 ## What you'll build
 
-This scenario demonstrates how the SMPP inbound endpoint works as an message consumer. In this scenario, you should have a connectivity with SMSC (Short Message service center) via SMPP protocol. For this we are using **SMSC simulator** to accomplish the required requirements. Please refer the [Setting up the SMPP Connector]({{base_path}}/reference/connectors/smpp-connector/smpp-connector-configuration/) documentation for more information.
+This scenario demonstrates how the SMPP inbound endpoint works as an message consumer. In this scenario, you should have a connectivity with SMSC (Short Message service center) via SMPP protocol. For this we are using **SMSC simulator** to accomplish the required requirements. Please refer the [Setting up the SMPP Connector]({{base_path}}/reference/connectors/smpp-connector/smpp-connector-configuration) documentation for more information.
 
 The SMPP inbound endpoint is listening to the Short Message service center for consuming messages using defined port number in the Inbound Endpoint configurations. If SMSC generates some message by itself or user injects SMS messages to the SMSC, the WSO2 SMPP Inbound Endpoint will receive and notify. Then just log the SMS message content. In your own scenarios, you can inject that message into the mediation flow for getting the required output.
 
@@ -114,7 +114,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 1. Navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for `SMPP Connector`. Click on `SMPP Inbound Endpoint` and download the .jar file by clicking on `Download Inbound Endpoint`. Copy this .jar file into **<PRODUCT-HOME>/lib** folder. 
 
-2. Download  [jsmpp-2.1.0-RELEASE.jar](http://central.maven.org/maven2/com/googlecode/jsmpp/jsmpp/2.1.0-RELEASE/) and [asyncretry-jdk7-0.0.6.jar](https://mvnrepository.com/artifact/com.nurkiewicz.asyncretry/asyncretry-jdk7/0.0.6) copy inside **<PRODUCT-HOME>/lib** folder.
+2. Download  [jsmpp-2.1.0-RELEASE.jar](https://mvnrepository.com/artifact/com.googlecode.jsmpp/jsmpp/2.1.0-RELEASE/) and [asyncretry-jdk7-0.0.6.jar](https://mvnrepository.com/artifact/com.nurkiewicz.asyncretry/asyncretry-jdk7/0.0.6) copy inside **<PRODUCT-HOME>/lib** folder.
    
 3. Copy the exported carbon application to the **<PRODUCT-HOME>/repository/deployment/server/carbonapps** folder. 
 
@@ -126,14 +126,14 @@ You can download the ZIP file and extract the contents to get the project code.
    
    **Sample request**
    
-     ```
+   ```
      curl -v POST -d '{"sourceAddress":"16111", "message":"Hi! This is the first test SMS message.","distinationAddress":"071XXXXXXX"}' "http://172.17.0.1:8290/send" -H "Content-Type:application/json"
-     ```
+   ```
    SMPP Inbound Endpoint will consume message from the SMSC.
    
    **Expected response**
    
-     ```
+   ```
      [2020-05-18 10:56:05,495]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - MessageId = 0, SourceAddress = null, DataCoding = 0, ScheduleDeliveryTime = null, SequenceNumber = 7, ServiceType = null
      [2020-05-18 10:56:05,506]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - To: , MessageID: urn:uuid:F767BC9689D3D2221B1589779565430, Direction: request, Envelope: <?xml version='1.0' encoding='utf-8'?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Body><text xmlns="http://ws.apache.org/commons/ns/payload">Hi! This is the first test SMS message.</text></soapenv:Body></soapenv:Envelope>
-     ```
+   ```

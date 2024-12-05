@@ -42,33 +42,35 @@ To configure a Streaming Integrator node to use specific rules templates, follow
     ```
    
     !!! tip
-       If required, you can enter a specific rule template under multiple nodes as shown below. Before doing so, ensure the you have selected **Many** for the **Instance Count** field of the template. For more information, see [Creating a Business Rules Template]({{base_path}}/use-cases/streaming-tutorials/creating-business-rules-templates/creating-business-rules-templates/#creating-a-business-rules-template).<br/><br/>
-       ```yaml
-        deployment_configs:
-            - <NODE1_HOST_NAME>:<NODE1_PORT>:
-                - ruleTemplate1_UUID
-                - ruleTemplate2_UUID
-                - ruleTemplate3_UUID
-              <NODE2_HOST_NAME>:<NODE2_PORT>:
-                - ruleTemplate1_UUID
-                - ruleTemplate3_UUID
-              <NODE3_HOST_NAME>:<NODE3_PORT>:
-                - ruleTemplate2_UUID
-                - ruleTemplate3_UUID
-                - ruleTemplate4_UUID
-       ```<br/><br/>
-       e.g.,
-       ```yaml
-        deployment_configs:
-            - localhost:9090:
-                - sweet-production-kpi-analysis
-                - stock-exchange-input
-                - stock-exchange-output
-              10.100.40.169:9090:
-                - identifying-continuous-production-decrease
-                - sweet-production-kpi-analysis
-       ```<br/><br/>
-       In the above example, the `sweet-production-kpi-analysis` UUID is configured under two Streaming Integrator nodes. Therefore, if you derive a business rule from the `sweet-production-kpi-analysis` template, the Siddhi applications created from it are deployed in both the nodes.
+        If required, you can enter a specific rule template under multiple nodes as shown below. Before doing so, ensure the you have selected **Many** for the **Instance Count** field of the template. For more information, see [Creating a Business Rules Template]({{base_path}}/use-cases/streaming-tutorials/creating-business-rules-templates/#creating-a-business-rules-template).<br/><br/>
+        ```yaml
+          deployment_configs:
+              - <NODE1_HOST_NAME>:<NODE1_PORT>:
+                  - ruleTemplate1_UUID
+                  - ruleTemplate2_UUID
+                  - ruleTemplate3_UUID
+                <NODE2_HOST_NAME>:<NODE2_PORT>:
+                  - ruleTemplate1_UUID
+                  - ruleTemplate3_UUID
+                <NODE3_HOST_NAME>:<NODE3_PORT>:
+                  - ruleTemplate2_UUID
+                  - ruleTemplate3_UUID
+                  - ruleTemplate4_UUID
+        ```
+        <br/><br/>
+        e.g.,
+        ```yaml
+          deployment_configs:
+              - localhost:9090:
+                  - sweet-production-kpi-analysis
+                  - stock-exchange-input
+                  - stock-exchange-output
+                10.100.40.169:9090:
+                  - identifying-continuous-production-decrease
+                  - sweet-production-kpi-analysis
+        ```
+        <br/><br/>
+        In the above example, the `sweet-production-kpi-analysis` UUID is configured under two Streaming Integrator nodes. Therefore, if you derive a business rule from the `sweet-production-kpi-analysis` template, the Siddhi applications created from it are deployed in both the nodes.
        
 4. Specify the username and password that are common for all the Streaming Integrator nodes.
 

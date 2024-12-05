@@ -155,7 +155,7 @@ Do the following to set this up.
 1. Copy the following external .jar files to the `MI_HOME/lib` directory.
     - [geronimo-jms_2.0_spec-1.0-alpha-2.jar](https://mvnrepository.com/artifact/org.apache.geronimo.specs/geronimo-jms_2.0_spec/1.0-alpha-2)
     - [netty-transport-native-epoll-4.0.40.Final.jar](https://mvnrepository.com/artifact/io.netty/netty-transport-native-epoll/4.0.40.Final)
-    - [proton-j-0.27.1.jar](https://mvnrepositor`y.com/artifact/org.apache.qpid/proton-j/0.27.1)
+    - [proton-j-0.27.1.jar](https://mvnrepository.com/artifact/org.apache.qpid/proton-j/0.27.1)
     - [Qpid-jms-client-0.32.0.jar](https://mvnrepository.com/artifact/org.apache.qpid/qpid-jms-client/0.32.0)
 
 2. If you want the Micro Integrator to receive messages from an Azure Service Bus instance, or to send messages to an Azure Service Bus instance, you need to update the deployment.toml file with the relevant connection parameters.

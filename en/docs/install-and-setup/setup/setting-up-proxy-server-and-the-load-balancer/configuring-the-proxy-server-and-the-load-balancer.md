@@ -106,7 +106,7 @@ Carry out the following steps to configure the load balancer to front multiple 
         nginx -V
         ```
 
-    2.  Update the `ngnix.conf` file with the required NGINX configuration given below. If not, you can create a file with the `.conf` suffix and copy it to the `<NGINX_HOME>/conf.d` directory.
+    2.  Update the `nginx.conf` file with the required NGINX configuration given below. If not, you can create a file with the `.conf` suffix and copy it to the `<NGINX_HOME>/conf.d` directory.
 
 !!! note
     -   All ports are default ports assuming no port offsets are used.
@@ -147,252 +147,257 @@ Carry out the following steps to configure the load balancer to front multiple 
 
 
 !!! configurations
-    ```tab="Single node"
-    upstream sslapi.am.wso2.com {
-        server {node-ip-address}:9443;
-    }
-    
-    upstream sslgw.am.wso2.com {
-        server {node-ip-address}:8243;
-    }
-    
-    server {
-        listen 80;
-        server_name api.am.wso2.com;
-        rewrite ^/(.*) https://api.am.wso2.com/$1 permanent;
-    
-    }
-    
-    server {
-        listen 443 ssl;
-        server_name api.am.wso2.com;
-        proxy_set_header X-Forwarded-Port 443;
-        ssl_certificate /etc/nginx/ssl/{cert_name};
-        ssl_certificate_key /etc/nginx/ssl/{key_name};
-        location / {
-                proxy_set_header X-Forwarded-Host $host;
-                proxy_set_header X-Forwarded-Server $host;
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                proxy_set_header Host $http_host;
-                proxy_read_timeout 5m;
-                proxy_send_timeout 5m;
-                proxy_pass https://sslapi.am.wso2.com;
-            }
-    
-            access_log /etc/nginx/log/am/https/access.log;
-            error_log /etc/nginx/log/am/https/error.log;
-    }
-    
-    server {
-        listen 443 ssl;
-        server_name gw.am.wso2.com;
-        proxy_set_header X-Forwarded-Port 443;
-        ssl_certificate /etc/nginx/ssl/{cert_name};
-        ssl_certificate_key /etc/nginx/ssl/{key_name};
-        location / {
-                proxy_set_header X-Forwarded-Host $host;
-                proxy_set_header X-Forwarded-Server $host;
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                proxy_set_header Host $http_host;
-                proxy_read_timeout 5m;
-                proxy_send_timeout 5m;
-                proxy_pass https://sslgw.am.wso2.com;
-            }
-    
-            access_log /etc/nginx/log/gw/https/access.log;
-            error_log /etc/nginx/log/gw/https/error.log;
-    }
-    ```
+    === "Single node"
+        ```
+        upstream sslapi.am.wso2.com {
+            server {node-ip-address}:9443;
+        }
+        
+        upstream sslgw.am.wso2.com {
+            server {node-ip-address}:8243;
+        }
+        
+        server {
+            listen 80;
+            server_name api.am.wso2.com;
+            rewrite ^/(.*) https://api.am.wso2.com/$1 permanent;
+        
+        }
+        
+        server {
+            listen 443 ssl;
+            server_name api.am.wso2.com;
+            proxy_set_header X-Forwarded-Port 443;
+            ssl_certificate /etc/nginx/ssl/{cert_name};
+            ssl_certificate_key /etc/nginx/ssl/{key_name};
+            location / {
+                    proxy_set_header X-Forwarded-Host $host;
+                    proxy_set_header X-Forwarded-Server $host;
+                    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                    proxy_set_header Host $http_host;
+                    proxy_read_timeout 5m;
+                    proxy_send_timeout 5m;
+                    proxy_pass https://sslapi.am.wso2.com;
+                }
+        
+                access_log /etc/nginx/log/am/https/access.log;
+                error_log /etc/nginx/log/am/https/error.log;
+        }
+        
+        server {
+            listen 443 ssl;
+            server_name gw.am.wso2.com;
+            proxy_set_header X-Forwarded-Port 443;
+            ssl_certificate /etc/nginx/ssl/{cert_name};
+            ssl_certificate_key /etc/nginx/ssl/{key_name};
+            location / {
+                    proxy_set_header X-Forwarded-Host $host;
+                    proxy_set_header X-Forwarded-Server $host;
+                    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                    proxy_set_header Host $http_host;
+                    proxy_read_timeout 5m;
+                    proxy_send_timeout 5m;
+                    proxy_pass https://sslgw.am.wso2.com;
+                }
+        
+                access_log /etc/nginx/log/gw/https/access.log;
+                error_log /etc/nginx/log/gw/https/error.log;
+        }
+        ```
 
-    ```tab="Active-Active"
-    upstream sslapi.am.wso2.com {
-        server {node-1-ip-address}:9443;
-        server {node-2-ip-address}:9443;
-        #ip_hash;
-        sticky learn create=$upstream_cookie_jsessionid
-            lookup=$cookie_jsessionid
-        zone=client_sessions:1m;
-    }
-    
-    upstream sslgw.am.wso2.com {
-        server {node-1-ip-address}:8243;
-        server {node-2-ip-address}:8243;
-    }
-    
-    server {
-        listen 80;
-        server_name api.am.wso2.com;
-        rewrite ^/(.*) https://api.am.wso2.com/$1 permanent;
-    }
-    
-    server {
-        listen 443 ssl;
-        server_name api.am.wso2.com;
-        proxy_set_header X-Forwarded-Port 443;
-        ssl_certificate /etc/nginx/ssl/{cert_name};
-        ssl_certificate_key /etc/nginx/ssl/{key_name};
-        location / {
-                proxy_set_header X-Forwarded-Host $host;
-                proxy_set_header X-Forwarded-Server $host;
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                proxy_set_header Host $http_host;
-                proxy_read_timeout 5m;
-                proxy_send_timeout 5m;
-                proxy_pass https://sslapi.am.wso2.com;
-            }
-    
-            access_log /etc/nginx/log/am/https/access.log;
-            error_log /etc/nginx/log/am/https/error.log;
-    }
-    
-    server {
-        listen 443 ssl;
-        server_name gw.am.wso2.com;
-        proxy_set_header X-Forwarded-Port 443;
-        ssl_certificate /etc/nginx/ssl/{cert_name};
-        ssl_certificate_key /etc/nginx/ssl/{key_name};
-        location / {
-                proxy_set_header X-Forwarded-Host $host;
-                proxy_set_header X-Forwarded-Server $host;
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                proxy_set_header Host $http_host;
-                proxy_read_timeout 5m;
-                proxy_send_timeout 5m;
-                proxy_pass https://sslgw.am.wso2.com;
-            }
-    
-            access_log /etc/nginx/log/gw/https/access.log;
-            error_log /etc/nginx/log/gw/https/error.log;
-    }
-    ```
+    === "Active-Active"
+        ```
+        upstream sslapi.am.wso2.com {
+            server {node-1-ip-address}:9443;
+            server {node-2-ip-address}:9443;
+            #ip_hash;
+            sticky learn create=$upstream_cookie_jsessionid
+                lookup=$cookie_jsessionid
+            zone=client_sessions:1m;
+        }
+        
+        upstream sslgw.am.wso2.com {
+            server {node-1-ip-address}:8243;
+            server {node-2-ip-address}:8243;
+        }
+        
+        server {
+            listen 80;
+            server_name api.am.wso2.com;
+            rewrite ^/(.*) https://api.am.wso2.com/$1 permanent;
+        }
+        
+        server {
+            listen 443 ssl;
+            server_name api.am.wso2.com;
+            proxy_set_header X-Forwarded-Port 443;
+            ssl_certificate /etc/nginx/ssl/{cert_name};
+            ssl_certificate_key /etc/nginx/ssl/{key_name};
+            location / {
+                    proxy_set_header X-Forwarded-Host $host;
+                    proxy_set_header X-Forwarded-Server $host;
+                    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                    proxy_set_header Host $http_host;
+                    proxy_read_timeout 5m;
+                    proxy_send_timeout 5m;
+                    proxy_pass https://sslapi.am.wso2.com;
+                }
+        
+                access_log /etc/nginx/log/am/https/access.log;
+                error_log /etc/nginx/log/am/https/error.log;
+        }
+        
+        server {
+            listen 443 ssl;
+            server_name gw.am.wso2.com;
+            proxy_set_header X-Forwarded-Port 443;
+            ssl_certificate /etc/nginx/ssl/{cert_name};
+            ssl_certificate_key /etc/nginx/ssl/{key_name};
+            location / {
+                    proxy_set_header X-Forwarded-Host $host;
+                    proxy_set_header X-Forwarded-Server $host;
+                    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                    proxy_set_header Host $http_host;
+                    proxy_read_timeout 5m;
+                    proxy_send_timeout 5m;
+                    proxy_pass https://sslgw.am.wso2.com;
+                }
+        
+                access_log /etc/nginx/log/gw/https/access.log;
+                error_log /etc/nginx/log/gw/https/error.log;
+        }
+        ```
 
-    ```tab="HA for Gateway"
-    upstream gw.am.wso2.com {
-        server {gw-1-ip-address}:9443;
-        server {gw-2-ip-address}:9443 backup;
-    }
-    
-    upstream sslgw.am.wso2.com {
-        server {gw-1-ip-address}:8243;
-        server {gw-2-ip-address}:8243;
-    }
-    
-    server {
-        listen 80;
-        server_name gw.am.wso2.com;
-        rewrite ^/(.*) https://gw.am.wso2.com/$1 permanent;
-    }
-    
-    server {
-        listen 443 ssl;
-        server_name gwm.am.wso2.com;
-        proxy_set_header X-Forwarded-Port 443;
-        ssl_certificate /etc/nginx/ssl/{cert_name};
-        ssl_certificate_key /etc/nginx/ssl/{key_name};
-        location / {
-                proxy_set_header X-Forwarded-Host $host;
-                proxy_set_header X-Forwarded-Server $host;
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                proxy_set_header Host $http_host;
-                proxy_read_timeout 5m;
-                proxy_send_timeout 5m;
-                proxy_pass https://gw.am.wso2.com;
-            }
-    
-            access_log /etc/nginx/log/gwm/https/access.log;
-            error_log /etc/nginx/log/gwm/https/error.log;
-    }
-    
-    server {
-        listen 443 ssl;
-        server_name gw.am.wso2.com;
-        proxy_set_header X-Forwarded-Port 443;
-        ssl_certificate /etc/nginx/ssl/{cert_name};
-        ssl_certificate_key /etc/nginx/ssl/{key_name};
-        location / {
-                proxy_set_header X-Forwarded-Host $host;
-                proxy_set_header X-Forwarded-Server $host;
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                proxy_set_header Host $http_host;
-                proxy_read_timeout 5m;
-                proxy_send_timeout 5m;
-                proxy_pass https://sslgw.am.wso2.com;
-            }
-    
-            access_log /etc/nginx/log/gw/https/access.log;
-            error_log /etc/nginx/log/gw/https/error.log;
-    }
-    ```
+    === "HA for Gateway"
+        ```
+        upstream gw.am.wso2.com {
+            server {gw-1-ip-address}:9443;
+            server {gw-2-ip-address}:9443 backup;
+        }
+        
+        upstream sslgw.am.wso2.com {
+            server {gw-1-ip-address}:8243;
+            server {gw-2-ip-address}:8243;
+        }
+        
+        server {
+            listen 80;
+            server_name gw.am.wso2.com;
+            rewrite ^/(.*) https://gw.am.wso2.com/$1 permanent;
+        }
+        
+        server {
+            listen 443 ssl;
+            server_name gwm.am.wso2.com;
+            proxy_set_header X-Forwarded-Port 443;
+            ssl_certificate /etc/nginx/ssl/{cert_name};
+            ssl_certificate_key /etc/nginx/ssl/{key_name};
+            location / {
+                    proxy_set_header X-Forwarded-Host $host;
+                    proxy_set_header X-Forwarded-Server $host;
+                    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                    proxy_set_header Host $http_host;
+                    proxy_read_timeout 5m;
+                    proxy_send_timeout 5m;
+                    proxy_pass https://gw.am.wso2.com;
+                }
+        
+                access_log /etc/nginx/log/gwm/https/access.log;
+                error_log /etc/nginx/log/gwm/https/error.log;
+        }
+        
+        server {
+            listen 443 ssl;
+            server_name gw.am.wso2.com;
+            proxy_set_header X-Forwarded-Port 443;
+            ssl_certificate /etc/nginx/ssl/{cert_name};
+            ssl_certificate_key /etc/nginx/ssl/{key_name};
+            location / {
+                    proxy_set_header X-Forwarded-Host $host;
+                    proxy_set_header X-Forwarded-Server $host;
+                    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                    proxy_set_header Host $http_host;
+                    proxy_read_timeout 5m;
+                    proxy_send_timeout 5m;
+                    proxy_pass https://sslgw.am.wso2.com;
+                }
+        
+                access_log /etc/nginx/log/gw/https/access.log;
+                error_log /etc/nginx/log/gw/https/error.log;
+        }
+        ```
 
-    ```tab="HA for Control Plane"
-    upstream cp.am.wso2.com {
-        server {cp-1-ip-address}:9443;
-        server {cp-2-ip-address}:9443;
-        #ip_hash;
-        sticky learn create=$upstream_cookie_jsessionid
-            lookup=$cookie_jsessionid
-        zone=client_sessions:1m;
-    }
-    
-    server {
-        listen 80;
-        server_name cp.am.wso2.com;
-        rewrite ^/(.*) https://cp.am.wso2.com/$1 permanent;
-    }
-    
-    server {
-        listen 443 ssl;
-        server_name cp.am.wso2.com;
-        proxy_set_header X-Forwarded-Port 443;
-        ssl_certificate /etc/nginx/ssl/{cert_name};
-        ssl_certificate_key /etc/nginx/ssl/{key_name};
-        location / {
-                proxy_set_header X-Forwarded-Host $host;
-                proxy_set_header X-Forwarded-Server $host;
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                proxy_set_header Host $http_host;
-                proxy_read_timeout 5m;
-                proxy_send_timeout 5m;
-                proxy_pass https://cp.am.wso2.com;
-            }
-    
-            access_log /etc/nginx/log/publisher/https/access.log;
-            error_log /etc/nginx/log/publisher/https/error.log;
-    }
-    ```
+    === "HA for Control Plane"
+        ```
+        upstream cp.am.wso2.com {
+            server {cp-1-ip-address}:9443;
+            server {cp-2-ip-address}:9443;
+            #ip_hash;
+            sticky learn create=$upstream_cookie_jsessionid
+                lookup=$cookie_jsessionid
+            zone=client_sessions:1m;
+        }
+        
+        server {
+            listen 80;
+            server_name cp.am.wso2.com;
+            rewrite ^/(.*) https://cp.am.wso2.com/$1 permanent;
+        }
+        
+        server {
+            listen 443 ssl;
+            server_name cp.am.wso2.com;
+            proxy_set_header X-Forwarded-Port 443;
+            ssl_certificate /etc/nginx/ssl/{cert_name};
+            ssl_certificate_key /etc/nginx/ssl/{key_name};
+            location / {
+                    proxy_set_header X-Forwarded-Host $host;
+                    proxy_set_header X-Forwarded-Server $host;
+                    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                    proxy_set_header Host $http_host;
+                    proxy_read_timeout 5m;
+                    proxy_send_timeout 5m;
+                    proxy_pass https://cp.am.wso2.com;
+                }
+        
+                access_log /etc/nginx/log/publisher/https/access.log;
+                error_log /etc/nginx/log/publisher/https/error.log;
+        }
+        ```
 
-    ```tab="HA for Traffic Manager"
-    upstream tm.am.wso2.com {
-    server {tm-1-ip-address}:9443;
-    server {tm-2-ip-address}:9443  backup;
-    }
-                                
-    server {
-        listen 80;
-        server_name tm.am.wso2.com;
-        rewrite ^/(.*) https://tm.am.wso2.com/$1 permanent;
-    }
+    === "HA for Traffic Manager"
+        ```
+        upstream tm.am.wso2.com {
+        server {tm-1-ip-address}:9443;
+        server {tm-2-ip-address}:9443  backup;
+        }
+                                    
+        server {
+            listen 80;
+            server_name tm.am.wso2.com;
+            rewrite ^/(.*) https://tm.am.wso2.com/$1 permanent;
+        }
 
-    server {
-        listen 443 ssl;
-        server_name tm.am.wso2.com;
-        proxy_set_header X-Forwarded-Port 443;
-        ssl_certificate /etc/nginx/ssl/{cert_name};
-        ssl_certificate_key /etc/nginx/ssl/{key_name};
-        location / {
-                proxy_set_header X-Forwarded-Host $host;
-                proxy_set_header X-Forwarded-Server $host;
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                proxy_set_header Host $http_host;
-                proxy_read_timeout 5m;
-                proxy_send_timeout 5m;
-                proxy_pass https://tm.am.wso2.com;
-            }
+        server {
+            listen 443 ssl;
+            server_name tm.am.wso2.com;
+            proxy_set_header X-Forwarded-Port 443;
+            ssl_certificate /etc/nginx/ssl/{cert_name};
+            ssl_certificate_key /etc/nginx/ssl/{key_name};
+            location / {
+                    proxy_set_header X-Forwarded-Host $host;
+                    proxy_set_header X-Forwarded-Server $host;
+                    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                    proxy_set_header Host $http_host;
+                    proxy_read_timeout 5m;
+                    proxy_send_timeout 5m;
+                    proxy_pass https://tm.am.wso2.com;
+                }
 
-            access_log /etc/nginx/log/tm/https/access.log;
-            error_log /etc/nginx/log/tm/https/error.log;
-    
-    ```
+                access_log /etc/nginx/log/tm/https/access.log;
+                error_log /etc/nginx/log/tm/https/error.log;
+        
+        ```
 
 The ports and URLs that are used internally by API Manager are given below:
 
@@ -421,7 +426,7 @@ When using a load balancer, you need to configure the proxy host and the port to
 
 To do that add the following to the `<API-M_HOME>/repository/conf/deployment.toml` file as shown below.
 
-```java
+```toml
 [transport.https.properties]
 proxyPort = 443
 [server]
@@ -430,7 +435,7 @@ hostname = "<loadbalancer_hostname>""
 
 !!!note 
     When using a load balancer with the '9443' port, you only need to update the hostname of the load balancer in the `<API-M_HOME>/repository/conf/deployment.toml` file. An example is shown below.
-    ```java
+    ```toml
     [server]
     hostname = "<loadbalancer_hostname>"
     ```

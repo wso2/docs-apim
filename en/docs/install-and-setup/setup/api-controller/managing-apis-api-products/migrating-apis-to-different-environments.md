@@ -18,10 +18,10 @@
 1.  Log in to the WSO2 API-M in the exporting environment by following steps in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).  
     
     !!! tip
-        If you are already logged-in and your logged-in credentials and keys are already available in the `<USER_HOME>/.wso2apictl/keys.json` file, you can skip this step. 
+        If you are already logged-in and your logged-in credentials and keys or the access-token are (is) already available in the `<USER_HOME>/.wso2apictl/keys.json` file, you can skip this step. 
 
     !!! info
-        If you skip step 1 and if no keys exist for the environment in the `<USER_HOME>/.wso2apictl/keys.json` file, you will be prompt to log in to the environment when running the next command.
+        If you skip step 1 and if no keys or a token exist(s) for the environment in the `<USER_HOME>/.wso2apictl/keys.json` file, you will be prompt to log in to the environment when running the next command.
 
 2.  Run any of the following apictl commands to export an API as a `.zip` archive.  
 
@@ -65,15 +65,17 @@
 
     -   **Response**
 
-        ``` bash tab="Response Format"
-        Successfully exported API!
-        Find the exported API at <USER_HOME>/.wso2apictl/exported/apis/<envrionment-name>/<API-name>_<version>.zip
-        ```
+        === "Response Format"
+            ``` bash
+            Successfully exported API!
+            Find the exported API at <USER_HOME>/.wso2apictl/exported/apis/<envrionment-name>/<API-name>_<version>.zip
+            ```
 
-        ``` bash tab="Example Response"
-        Successfully exported API!
-        Find the exported API at /Users/kim/.wso2apictl/exported/apis/dev/PhoneVerification_1.0.0.zip
-        ```
+        === "Example Response"
+            ``` bash
+            Successfully exported API!
+            Find the exported API at /Users/kim/.wso2apictl/exported/apis/dev/PhoneVerification_1.0.0.zip
+            ```
 
 The exported ZIP file has the following structure:
 
@@ -354,27 +356,29 @@ You can use the below command to export all the APIs belong to the currently log
 
 - **Response**
 
-    ``` go tab="Response Format"
-    Exporting APIs for the migration...
-    Cleaning all the previously exported APIs of the given target tenant, in the given environment if any, and prepare to export APIs from beginning
-    Batch of <number-of-APIs> APIs exported successfully..!
+    === "Response Format"
+        ``` go
+        Exporting APIs for the migration...
+        Cleaning all the previously exported APIs of the given target tenant, in the given environment if any, and prepare to export APIs from beginning
+        Batch of <number-of-APIs> APIs exported successfully..!
 
-    Total number of APIs exported: <number-of-APIs>
-    API export path: <USER_HOME>/.wso2apictl/exported/migration/<environment-name>/tenant-default/apis
+        Total number of APIs exported: <number-of-APIs>
+        API export path: <USER_HOME>/.wso2apictl/exported/migration/<environment-name>/tenant-default/apis
 
-    Command: export apis execution completed !
-    ```
+        Command: export apis execution completed !
+        ```
 
-    ``` go tab="Example Response"
-    Exporting APIs for the migration...
-    Cleaning all the previously exported APIs of the given target tenant, in the given environment if any, and prepare to export APIs from beginning
-    Batch of 5 APIs exported successfully..!
+    === "Example Response"
+        ``` go
+        Exporting APIs for the migration...
+        Cleaning all the previously exported APIs of the given target tenant, in the given environment if any, and prepare to export APIs from beginning
+        Batch of 5 APIs exported successfully..!
 
-    Total number of APIs exported: 5
-    API export path: /Users/kim/.wso2apictl/exported/migration/<environment-name>/tenant-default/apis
+        Total number of APIs exported: 5
+        API export path: /Users/kim/.wso2apictl/exported/migration/<environment-name>/tenant-default/apis
 
-    Command: export apis execution completed !
-    ```
+        Command: export apis execution completed !
+        ```
 
 ### Import an API
 
@@ -386,10 +390,10 @@ mentioned gateway environments. If the **deployment environments are not provide
 1.  Log in to the WSO2 API-M in the importing environment by following steps in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).
     
     !!! tip
-        If you are already logged-in and your logged-in credentials and keys are already available in the `<USER_HOME>/.wso2apictl/keys.json` file, you can skip this step. 
+        If you are already logged-in and your logged-in credentials and keys or the access-token are (is) already available in the `<USER_HOME>/.wso2apictl/keys.json` file, you can skip this step. 
 
     !!! info
-        If you skip step 1 and if no keys exist for the environment in the `<USER_HOME>/.wso2apictl/keys.json` file, you will be prompt to log in to the environment when running the next command.
+        If you skip step 1 and if no keys or a token exist(s) for the environment in the `<USER_HOME>/.wso2apictl/keys.json` file, you will be prompt to log in to the environment when running the next command.
 
 2.  Run any of the following apictl commands to import an API.
 

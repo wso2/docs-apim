@@ -16,15 +16,17 @@ Follow the steps below to add a certificate to an endpoint:
 
 -  Modify default certificate loading time by adding the following configuration to `<API-M_HOME>/repository/conf/deployment.toml` file.
 
-    ``` tab="Format"
-    [transport.passthru_https.sender.ssl_profile]
-    interval = "<time in milliseconds>"
-    ```
+    === "Format"
+        ```toml
+        [transport.passthru_https.sender.ssl_profile]
+        interval = "<time in milliseconds>"
+        ```
       
-    ``` tab="Example"
-    [transport.passthru_https.sender.ssl_profile]
-    interval = 600000
-    ```
+    === "Example"
+        ```toml
+        [transport.passthru_https.sender.ssl_profile]
+        interval = 600000
+        ```
     
     | Configuration Parameter        | Description|
     |-------------|---------------------------------------------------|
@@ -32,69 +34,73 @@ Follow the steps below to add a certificate to an endpoint:
 
 - If you are using a different default truststore/keystore configuration and defined it in the `[transport.passthru_https.sender]` or `[keystore.primary]` sections within the `deployment.toml` file, make sure to modify the keystore and truststore configurations for **default SSL profile** in  `<API-M_HOME>/repository/conf/deployment.toml` as follows.
 
-    ``` tab="Format"
-    [keystore.tls]
-    file_name = "<Keystore file location>"
-    type = "<Keystore type>"
-    password = "<Keystore password>"
-    key_password = "<Private Key password>"
+    === "Format"
+        ```toml
+        [keystore.tls]
+        file_name = "<Keystore file location>"
+        type = "<Keystore type>"
+        password = "<Keystore password>"
+        key_password = "<Private Key password>"
 
-    [truststore]
-    file_name = "<Truststore file location>"
-    type = "<Truststore type>"
-    password = "<Truststore password>"
-    ```
+        [truststore]
+        file_name = "<Truststore file location>"
+        type = "<Truststore type>"
+        password = "<Truststore password>"
+        ```
     
-    ``` tab="Example"
-    [keystore.tls]
-    file_name = "wso2carbon.jks"
-    type = "JKS"
-    password = "wso2carbon"
-    key_password = "wso2carbon"
+    === "Example"
+        ```toml
+        [keystore.tls]
+        file_name = "wso2carbon.jks"
+        type = "JKS"
+        password = "wso2carbon"
+        key_password = "wso2carbon"
 
-    [truststore]
-    file_name = "client-truststore.jks"
-    type = "JKS"
-    password = "wso2carbon"
-    ```
+        [truststore]
+        file_name = "client-truststore.jks"
+        type = "JKS"
+        password = "wso2carbon"
+        ```
 
 - If you are using a separate keystore and truststore pair (per custom SSL profile) for each endpoint domain, add the configuration for each **custom SSL profile** in  `<API-M_HOME>/repository/conf/deployment.toml` as follows.
 
-    ``` tab="Format"
-    [[keystore.ssl_profile.custom]]
-    servers = "<Endpoint hostname>"
-    [keystore.ssl_profile.custom.keystore]
-    location = "<Keystore file location>"
-    type = "<Keystore type>"
-    password = "<Keystore password>"
-    key_password = "<Private Key password>"
-    [keystore.ssl_profile.custom.truststore]
-    location = "<Truststore file location>"
-    type = "<Truststore type>"
-    password = "<Truststore password>"
-    ```
+    === "Format"
+        ```toml
+        [[keystore.ssl_profile.custom]]
+        servers = "<Endpoint hostname>"
+        [keystore.ssl_profile.custom.keystore]
+        location = "<Keystore file location>"
+        type = "<Keystore type>"
+        password = "<Keystore password>"
+        key_password = "<Private Key password>"
+        [keystore.ssl_profile.custom.truststore]
+        location = "<Truststore file location>"
+        type = "<Truststore type>"
+        password = "<Truststore password>"
+        ```
     
-    ``` tab="Example"
-    [[keystore.ssl_profile.custom]]
-    servers = "localhost:8000"
-    keystore.location = "/home/user/custom.jks"
-    keystore.type = "JKS"
-    keystore.password = "wso2carbon"
-    keystore.key_password = "wso2carbon"
-    truststore.location = "/home/user/custom-truststore.jks"
-    truststore.type = "JKS"
-    truststore.password = "wso2carbon"
+    === "Example"
+        ```toml
+        [[keystore.ssl_profile.custom]]
+        servers = "localhost:8000"
+        keystore.location = "/home/user/custom.jks"
+        keystore.type = "JKS"
+        keystore.password = "wso2carbon"
+        keystore.key_password = "wso2carbon"
+        truststore.location = "/home/user/custom-truststore.jks"
+        truststore.type = "JKS"
+        truststore.password = "wso2carbon"
 
-    [[keystore.ssl_profile.custom]]
-    servers = "foo.com"
-    keystore.location = "/home/user/foo.jks"
-    keystore.type = "JKS"
-    keystore.password = "password"
-    keystore.key_password = "password"
-    truststore.location = "/home/user/customfoo-truststore.jks"
-    truststore.type = "JKS"
-    truststore.password = "password"
-    ```
+        [[keystore.ssl_profile.custom]]
+        servers = "foo.com"
+        keystore.location = "/home/user/foo.jks"
+        keystore.type = "JKS"
+        keystore.password = "password"
+        keystore.key_password = "password"
+        truststore.location = "/home/user/customfoo-truststore.jks"
+        truststore.type = "JKS"
+        truststore.password = "password"
+        ```
 
      <html>
      <div class="admonition note">

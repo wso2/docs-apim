@@ -117,39 +117,41 @@ The default message builder or message formatter for a given content type can be
 
 2. You can specify a message builder or message formatter class for a given default content type by adding the following configuration.
 
-    ```toml tab='Format'
-    [message_builder]
-    <content_type>="<message_builder_class>"
+    === "Format"
+        ```toml
+        [message_builder]
+        <content_type>="<message_builder_class>"
+        
+        [message_formatter]
+        <content_type>="<message_formatter_class>"    
+        ```
     
-    [message_formatter]
-    <content_type>="<message_formatter_class>"    
-    ```
-    
-    ```toml tab='Example'
-    [message_builder]    
-    application_xml = "org.apache.axis2.builder.ApplicationXMLBuilder"
-    form_urlencoded = "org.apache.synapse.commons.builders.XFormURLEncodedBuilder"
-    multipart_form_data = "org.apache.axis2.builder.MultipartFormDataBuilder"
-    text_plain = "org.apache.axis2.format.PlainTextBuilder"
-    application_json = "org.wso2.micro.integrator.core.json.JsonStreamBuilder"
-    json_badgerfish = "org.apache.axis2.json.JSONBadgerfishOMBuilder"
-    text_javascript = "org.apache.axis2.json.JSONBuilder"
-    octet_stream = "org.wso2.carbon.relay.BinaryRelayBuilder"
-    application_binary = "org.apache.axis2.format.BinaryBuilder"
-    
-    [message_formatter]
-    form_urlencoded = "org.apache.synapse.commons.formatters.XFormURLEncodedFormatter"
-    multipart_form_data = "org.apache.axis2.transport.http.MultipartFormDataFormatter"
-    application_xml = "org.apache.axis2.transport.http.ApplicationXMLFormatter"
-    text_xml = "org.apache.axis2.transport.http.SOAPMessageFormatter"
-    soap_xml = "org.apache.axis2.transport.http.SOAPMessageFormatter"
-    text_plain = "org.apache.axis2.format.PlainTextFormatter"
-    application_json = "org.wso2.micro.integrator.core.json.JsonStreamFormatter"
-    json_badgerfish = "org.apache.axis2.json.JSONBadgerfishMessageFormatter"
-    text_javascript = "org.apache.axis2.json.JSONMessageFormatter"
-    octet_stream = "org.wso2.carbon.relay.ExpandingMessageFormatter"
-    application_binary = "org.apache.axis2.format.BinaryFormatter"
-    ```
+    === "Example"
+        ```toml
+        [message_builder]
+        application_xml = "org.apache.axis2.builder.ApplicationXMLBuilder"
+        form_urlencoded = "org.apache.synapse.commons.builders.XFormURLEncodedBuilder"
+        multipart_form_data = "org.apache.axis2.builder.MultipartFormDataBuilder"
+        text_plain = "org.apache.axis2.format.PlainTextBuilder"
+        application_json = "org.wso2.micro.integrator.core.json.JsonStreamBuilder"
+        json_badgerfish = "org.apache.axis2.json.JSONBadgerfishOMBuilder"
+        text_javascript = "org.apache.axis2.json.JSONBuilder"
+        octet_stream = "org.wso2.carbon.relay.BinaryRelayBuilder"
+        application_binary = "org.apache.axis2.format.BinaryBuilder"
+        
+        [message_formatter]
+        form_urlencoded = "org.apache.synapse.commons.formatters.XFormURLEncodedFormatter"
+        multipart_form_data = "org.apache.axis2.transport.http.MultipartFormDataFormatter"
+        application_xml = "org.apache.axis2.transport.http.ApplicationXMLFormatter"
+        text_xml = "org.apache.axis2.transport.http.SOAPMessageFormatter"
+        soap_xml = "org.apache.axis2.transport.http.SOAPMessageFormatter"
+        text_plain = "org.apache.axis2.format.PlainTextFormatter"
+        application_json = "org.wso2.micro.integrator.core.json.JsonStreamFormatter"
+        json_badgerfish = "org.apache.axis2.json.JSONBadgerfishMessageFormatter"
+        text_javascript = "org.apache.axis2.json.JSONMessageFormatter"
+        octet_stream = "org.wso2.carbon.relay.ExpandingMessageFormatter"
+        application_binary = "org.apache.axis2.format.BinaryFormatter"
+        ```
 
 3. Save the changes and [restart the server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server) to get the changes applied.
 
@@ -160,22 +162,24 @@ In addition to default message formatters and builders, you can implement your o
 
 To enable the custom message builder or formatter, add the following configuration in the `<API-M_HOME>/repository/conf/deployment.toml` file, specifying the message builder/formatter class names against the content type.
 
-```toml tab='Format'
-[[custom_message_builders]]
-content_type = "<content_type>"
-class="<message_builder_class>"
+=== "Format"
+    ```toml
+    [[custom_message_builders]]
+    content_type = "<content_type>"
+    class="<message_builder_class>"
 
-[[custom_message_formatters]]
-content_type = "<content_type>"
-class="<message_formatter_class>"
-```
+    [[custom_message_formatters]]
+    content_type = "<content_type>"
+    class="<message_formatter_class>"
+    ```
 
-```toml tab='Example'
-[[custom_message_builders]]
-content_type = "text/xml"
-class="org.test.builder.http.CustomMessageBuilderForTextXml"
+=== "Example"
+    ```toml
+    [[custom_message_builders]]
+    content_type = "text/xml"
+    class="org.test.builder.http.CustomMessageBuilderForTextXml"
 
-[[custom_message_formatters]]
-content_type = "text/xml"
-class="org.test.builder.http.CustomMessageFormatterForTextXml"
-```
+    [[custom_message_formatters]]
+    content_type = "text/xml"
+    class="org.test.builder.http.CustomMessageFormatterForTextXml"
+    ```

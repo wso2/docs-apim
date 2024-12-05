@@ -50,15 +50,19 @@ We recommend the following patterns for denying requests.
         <tr class="even">
             <td>XPath Injection</td>
             <td>
-                <code>.*'.*|.*or.*|.*1=1.*|.*ALTER.*|.*ALTER TABLE.*|.*ALTER VIEW.*|</code><br />
+                <code>.*'.*|(?\u003C![\w\d])or(?![\w\d])|.*1=1.*|.*ALTER.*|.*ALTER TABLE.*|.*ALTER VIEW.*|</code><br />
                 <code>.*CREATE DATABASE.*|.*CREATE PROCEDURE.*|.*CREATE SCHEMA.*|</code><br />
                 <code>.*create table.*|.*CREATE VIEW.*|.*DELETE.*|.*DROP DATABASE.*|</code><br />
                 <code>.*DROP PROCEDURE.*|.*DROP.*|.*SELECT.*</code>
             </td>
         </tr>
         <tr class="odd">
-            <td>JavaScript Exception</td>
-            <td><p><code>&lt;\s*script\b[^&gt;]*&gt;[^&lt;]+&lt;\s*/\s*script\s*&gt;</code></p></td>
+            <td>JavaScript Injection</td>
+            <td><p>
+                ```
+                &lt;\s*script\b[^&gt;]*&gt;[^&lt;]+&lt;\s*/\s*script\s*&gt;
+                ```
+            </p></td>
         </tr>
         <tr class="even">
             <td>XPath Expanded Syntax Injection</td>
@@ -121,27 +125,29 @@ The regex\_policy sequence is given below.
 You can test this feature by sending an SQL injection attack with the XML message body. The sample request and response 
 is given below.
 
-``` xml tab="Message"
-<?xml version="1.0" encoding="UTF-8"?>
-<breakfast_menu>
-    <food>
-        <name>Homestyle Breakfast</name>
-        <price>drop table</price>
-        <description>
-            Two eggs, bacon or sausage, toast, and our ever-popular hash browns
-        </description>
-        <calories>950</calories>
-    </food>
-</breakfast_menu>
-```
+=== "Message"
+    ``` xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <breakfast_menu>
+        <food>
+            <name>Homestyle Breakfast</name>
+            <price>drop table</price>
+            <description>
+                Two eggs, bacon or sausage, toast, and our ever-popular hash browns
+            </description>
+            <calories>950</calories>
+        </food>
+    </breakfast_menu>
+    ```
 
-``` xml tab="Response"
-<am:fault xmlns:am="http://wso2.org/apimanager">
-    <am:code>400</am:code>
-    <am:message>Bad Request</am:message>
-    <am:description>SQL-Injection Threat detected in Payload</am:description>
-</am:fault>
-```
+=== "Response"
+    ``` xml
+    <am:fault xmlns:am="http://wso2.org/apimanager">
+        <am:code>400</am:code>
+        <am:message>Bad Request</am:message>
+        <am:description>SQL-Injection Threat detected in Payload</am:description>
+    </am:fault>
+    ```
 
 !!! warning
     **Performance impact**  

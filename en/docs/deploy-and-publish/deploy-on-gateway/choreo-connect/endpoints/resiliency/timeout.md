@@ -15,21 +15,23 @@ Timeouts can be defined at two levels.
 
 You can define the Endpoint Level Upstream Timeout in the `x-wso2-production-endpoint` and/or `x-wso2-sandbox-endpoint` OpenAPI extension of the API's OpenAPI definition, based on the endpoint type (i.e., production or sandbox), when [deploying an API **via the apictl (CLI Tool)**]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-rest-api-in-choreo-connect/#choreo-connect-as-a-standalone-gateway/).
 
-``` bash tab="Production Endpoint"
-x-wso2-production-endpoints:
-    urls:
-      - https://localhost:2380/v3
-    advanceEndpointConfig:
-      timeoutInMillis: 7000
-```
+=== "Production Endpoint"
+    ``` bash
+    x-wso2-production-endpoints:
+        urls:
+          - https://localhost:2380/v3
+        advanceEndpointConfig:
+          timeoutInMillis: 7000
+    ```
 
-``` bash tab="Sandbox Endpoint"
-x-wso2-sandbox-endpoints:
-    urls:
-      - https://localhost:2380/v3
-    advanceEndpointConfig:
-      timeoutInMillis: 7000
-```
+=== "Sandbox Endpoint"
+    ``` bash
+    x-wso2-sandbox-endpoints:
+        urls:
+          - https://localhost:2380/v3
+        advanceEndpointConfig:
+          timeoutInMillis: 7000
+    ```
 
 | **Field** | **Description** |
 |-------|-------------|
@@ -74,7 +76,7 @@ Follow the instructions below to define Global Level Timeouts:
     !!! note
         These timeouts are applied for all the APIs that are deployed in Choreo Connect. Out of the above list of timeouts, only the Route Timeout can be defined at the Endpoint Level if required. If the Endpoint Level Upstream Timeouts and Global Level Timeouts are not defined, the default values available for the Global Level Timeouts are applied.
 
-``` 
+``` toml
 [router]
 clusterTimeoutInSeconds = 20
 

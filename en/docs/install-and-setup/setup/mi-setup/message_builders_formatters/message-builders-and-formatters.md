@@ -24,41 +24,43 @@ messageType property before your mediators in the configuration:
 
 Listed below are the default message builders and formatters that are enabled for WSO2 Micro Integrator by default:
 
-```toml tab='Default Message Builders'
-application_xml = "org.apache.axis2.builder.ApplicationXMLBuilder"
-form_urlencoded = "org.apache.synapse.commons.builders.XFormURLEncodedBuilder"
-multipart_form_data = "org.apache.axis2.builder.MultipartFormDataBuilder"
-text_plain = "org.apache.axis2.format.PlainTextBuilder"
-application_json = "org.wso2.micro.integrator.core.json.JsonStreamBuilder"
-json_badgerfish = "org.apache.axis2.json.JSONBadgerfishOMBuilder"
-text_javascript = "org.apache.axis2.json.JSONBuilder"
-octet_stream = "org.wso2.carbon.relay.BinaryRelayBuilder"
-application_binary = "org.apache.axis2.format.BinaryBuilder"
-```
+=== "Default Message Builders"
+    ```toml
+    application_xml = "org.apache.axis2.builder.ApplicationXMLBuilder"
+    form_urlencoded = "org.apache.synapse.commons.builders.XFormURLEncodedBuilder"
+    multipart_form_data = "org.apache.axis2.builder.MultipartFormDataBuilder"
+    text_plain = "org.apache.axis2.format.PlainTextBuilder"
+    application_json = "org.wso2.micro.integrator.core.json.JsonStreamBuilder"
+    json_badgerfish = "org.apache.axis2.json.JSONBadgerfishOMBuilder"
+    text_javascript = "org.apache.axis2.json.JSONBuilder"
+    octet_stream = "org.wso2.carbon.relay.BinaryRelayBuilder"
+    application_binary = "org.apache.axis2.format.BinaryBuilder"
+    ```
 
-```toml tab='Default Message Formatters'
-form_urlencoded = "org.apache.synapse.commons.formatters.XFormURLEncodedFormatter"
-multipart_form_data = "org.apache.axis2.transport.http.MultipartFormDataFormatter"
-application_xml = "org.apache.axis2.transport.http.ApplicationXMLFormatter"
-text_xml = "org.apache.axis2.transport.http.SOAPMessageFormatter"
-soap_xml = "org.apache.axis2.transport.http.SOAPMessageFormatter"
-text_plain = "org.apache.axis2.format.PlainTextFormatter"
-application_json = "org.wso2.micro.integrator.core.json.JsonStreamFormatter"
-json_badgerfish = "org.apache.axis2.json.JSONBadgerfishMessageFormatter"
-text_javascript = "org.apache.axis2.json.JSONMessageFormatter"
-octet_stream = "org.wso2.carbon.relay.ExpandingMessageFormatter"
-application_binary = "org.apache.axis2.format.BinaryFormatter"
-```
+=== "Default Message Formatters"
+    ```toml
+    form_urlencoded = "org.apache.synapse.commons.formatters.XFormURLEncodedFormatter"
+    multipart_form_data = "org.apache.axis2.transport.http.MultipartFormDataFormatter"
+    application_xml = "org.apache.axis2.transport.http.ApplicationXMLFormatter"
+    text_xml = "org.apache.axis2.transport.http.SOAPMessageFormatter"
+    soap_xml = "org.apache.axis2.transport.http.SOAPMessageFormatter"
+    text_plain = "org.apache.axis2.format.PlainTextFormatter"
+    application_json = "org.wso2.micro.integrator.core.json.JsonStreamFormatter"
+    json_badgerfish = "org.apache.axis2.json.JSONBadgerfishMessageFormatter"
+    text_javascript = "org.apache.axis2.json.JSONMessageFormatter"
+    octet_stream = "org.wso2.carbon.relay.ExpandingMessageFormatter"
+    application_binary = "org.apache.axis2.format.BinaryFormatter"
+    ```
 
 ## Configuring message builders/formatters
 
 ### Handling message relay
 
-If you want to enable message relay, so that messages of a specific content type are not built or formatted but simply pass through the Micro Integrator, you can specify the message relay builder (for the required content types) in the deployment.toml file (stored in the `MI_HOME/conf` directory) as shown below.
+If you want to enable message relay, so that messages of a specific content type are not built or formatted but simply pass through the Micro Integrator, you can specify the message relay builder (for the required content types) in the `deployment.toml` file (stored in the `<MI_HOME>/conf` directory) as shown below.
 
 ```toml
 [[custom_message_formatters]]
-class = "org.wso2.carbon.relay.BinaryRelayBuilder"
+class = "org.wso2.carbon.relay.ExpandingMessageFormatter"
 content_type = "application/json/badgerfish"
 
 [[custom_message_builders]]
@@ -70,7 +72,7 @@ See [Configuring Message Relay]({{base_path}}/install-and-setup/setup/mi-setup/m
 
 ### Handling messages with no content type
 
-To ensure that messages with no content type are handled gracefully, add the following to the deployment.toml file (stored in the `MI_HOME/conf` directory).
+To ensure that messages with no content type are handled gracefully, add the following to the `deployment.toml` file (stored in the `<MI_HOME>/conf` directory).
 
 ```toml
 [[custom_message_builders]]
@@ -81,8 +83,9 @@ class="org.wso2.carbon.relay.BinaryRelayBuilder"
 content_type = "empty/content"
 class="org.wso2.carbon.relay.ExpandingMessageFormatter"
 
-[transport]
-default_content_type = "empty/content"
+[[transport.parameters]]
+name = "DEFAULT_REQUEST_CONTENT_TYPE"
+value = "empty/content"
 ```
 
 ### Handling text/csv messages
@@ -131,7 +134,7 @@ com.ctc.wstx.outputInvalidCharHandler.char=\u0020
 
 ### Validating JSON messages
 
-If you want the JSON builder to validate JSON messages that are received by the Micro Integrator, the following property should be added to the deployment.toml file. This validation ensures that erroneous JSON messages are rejected by the Micro Integrator.
+If you want the JSON builder to validate JSON messages that are received by the Micro Integrator, the following property should be added to the `deployment.toml` file. This validation ensures that erroneous JSON messages are rejected by the Micro Integrator.
 
 ```toml
 [[transport.http]]
@@ -213,10 +216,10 @@ processed in the WSO2 Micro Integrator mediation flow.
     ```
 
 2.  Create a JAR file of this class and add it into the classpath of the
-    Axis2 installation, i.e., the `MI_HOME/lib`
+    Axis2 installation, i.e., the `<MI_HOME>/lib`
     folder.
 3.  To enable your custom message builder for content type text/xml, add
-    the following line in the deployment.toml file:
+    the following line in the `deployment.toml` file:
 
     ```toml
     [[custom_message_builders]]

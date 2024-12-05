@@ -9,7 +9,7 @@ However, **WSO2 API Controller (apictl)** allows you to create and deploy APIs w
 
 Follow the instructions below to display a list of APIs or API Products in an environment using apictl:
 
-1.  Make sure that the WSO2 API Manager (WSO2 API-M) 4.2.0 version is started and that the 4.2.2 version of apictl is set up.   
+1.  Make sure that the WSO2 API Manager (WSO2 API-M) 4.2.0 version is started and that the 4.2.5 version of apictl is set up.   
      For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 3.  Run the corresponding apictl command below to get (list) APIs or API Products in an environment.
@@ -117,10 +117,13 @@ Follow the instructions below to display a list of APIs or API Products in an en
         -   **Response**
 
             ```go
-            ID                                     NAME                CONTEXT              STATUS              PROVIDER
-            b39e08d7-caa9-40d0-a430-b8e840dd7c31   LeasingAPIProduct   /leasingapiproduct   PUBLISHED           admin
-            ab422af2-b19e-4e6a-a34b-8f45c50db0d5   CreditAPIProduct    /creditapiproduct    PUBLISHED           Alice
+            ID                                     NAME                  VERSION        CONTEXT              STATUS              PROVIDER
+            b39e08d7-caa9-40d0-a430-b8e840dd7c31   LeasingAPIProduct     1.0.0          /leasingapiproduct   PUBLISHED           admin
+            ab422af2-b19e-4e6a-a34b-8f45c50db0d5   CreditAPIProduct      2.1.0          /creditapiproduct    PUBLISHED           Alice
             ```
+
+            !!!note
+                API product versioning is only available after WSO2 API Manager U2 update level 55 and apictl version 4.2.3 onwards.
 
             !!!note
                 `apictl list api-products` command has been deprecated from apictl 4.0.0 onwards. Instead use `apictl get api-products` as shown above.
@@ -129,7 +132,7 @@ Follow the instructions below to display a list of APIs or API Products in an en
 
 Follow the instructions below to display a list of revisions created for an API or API Product in an environment using apictl:
 
-1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.2 version of apictl is set up.   
+1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.5 version of apictl is set up.   
      For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 3.  Run the corresponding apictl command below to get (list) revisions for the required API or API Product in an
@@ -186,20 +189,21 @@ Follow the instructions below to display a list of revisions created for an API 
 
         -   **Command**
             ``` bash
-            apictl get api-product-revisions -n <API-Product-name> -e <environment> 
+            apictl get api-product-revisions -n <API-Product-name> -v <version> -e <environment> 
             ```
             ``` bash
-            apictl get api-product-revisions --name <API-Product-name> --environment <environment>
+            apictl get api-product-revisions --name <API-Product-name> --version <version> --environment <environment>
             ```
             ``` bash
-            apictl get api-product-revisions --name <API-Product-name> --provider <provider> --environment <environment> --query <deployment-search-query>
+            apictl get api-product-revisions --name <API-Product-name> --version <version> --provider <provider> --environment <environment> --query <deployment-search-query>
             ```
 
             !!! info
                 **Flags:**  
                 
                 -   Required :  
-                    `--name` or `-n` : Name of the API Product to get the revisions   
+                    `--name` or `-n` : Name of the API Product to get the revisions 
+                    `--version` or `-v` : Version of the API Product to get the revisions    
                     `--environment` or `-e` : Environment to be searched  
                 -   Optional :  
                     `--provider` or `-r` : Provider of the API Product
@@ -208,14 +212,18 @@ Follow the instructions below to display a list of revisions created for an API 
 
             !!! example
                 ```bash
-                apictl get api-product-revisions -n ShopProduct -e dev 
+                apictl get api-product-revisions -n ShopProduct -v 1.0.0 -e dev 
                 ```
                 ```bash
-                apictl get api-product-revisions --name MediaProduct --environment production
+                apictl get api-product-revisions --name MediaProduct --version 1.0.0 --environment production
                 ```    
                 ```go
-                apictl get api-product-revisions -n PizzaProduct -q deployed:true -e dev 
+                apictl get api-product-revisions -n PizzaProduct -v 1.0.0 -q deployed:true -e dev 
                 ```  
+
+            !!!note
+                API product versioning is only available after WSO2 API Manager U2 update level 55 and apictl version 4.2.3 onwards. If you are using a prior version do not use `--version`, `-v` flags. 
+
 
         -   **Response**
 
@@ -238,7 +246,7 @@ Follow the instructions below to display a list of revisions created for an API 
 
 Follow the instructions below to delete an API or Application in an environment using apictl:
 
-1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.2 version of apictl is set up.   
+1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.5 version of apictl is set up.   
 For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 3.  Run the corresponding apictl command below to delete an API or an API Product in an environment.
@@ -287,13 +295,13 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
 
         -   **Command**
             ``` bash
-            apictl delete api-product -n <API Product name> -e <environment> 
+            apictl delete api-product -n <API Product name> -v <API Product version> -e <environment> 
             ```
             ``` bash
-            apictl delete api-product --name <API Product name> --environment <environment> 
+            apictl delete api-product --name <API Product name> --version <API Product version> --environment <environment> 
             ```
             ``` bash
-            apictl delete api-product --name <API Product name> --environment <environment> --provider <API Product provider> 
+            apictl delete api-product --name <API Product name> --version <API Product version> --environment <environment> --provider <API Product provider> 
             ```
 
             !!! info
@@ -302,19 +310,23 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
                 -   Required :  
                     `--environment` or `-e` : Environment from which the API Product should be deleted  
                     `--name` or `-n` : Name of the API Product to be deleted   
+                    `--version` or `-v` : Version of the API Product to be deleted  
                 -   Optional :  
                     `--provider` or `-r` : Provider of the API Product to be deleted  
 
             !!! example
                 ```bash
-                apictl delete api-product -n LeasingAPIProduct -e dev 
+                apictl delete api-product -n LeasingAPIProduct -v 1.0.0 -e dev 
                 ```
                 ```bash
-                apictl delete api-product --name LeasingAPIProduct -environment production 
+                apictl delete api-product --name LeasingAPIProduct --version 1.0.0 -environment production 
                 ```    
                 ```go
-                apictl delete api-product --name LeasingAPIProduct --environment production --provider Alice 
+                apictl delete api-product --name LeasingAPIProduct --version 1.0.0 --environment production --provider Alice 
                 ```  
+
+            !!!note
+                API product versioning is only available after WSO2 API Manager U2 update level 55 and apictl version 4.2.3 onwards. If you are using a prior version do not use `--version`, `-v` flags. 
 
         -   **Response**
 
@@ -326,7 +338,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
 
 Follow the instructions below to change the status of an API or API Product in an environment using apictl:
 
-1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.2 version of apictl is set up.   
+1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.5 version of apictl is set up.   
 For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 3.  Run the corresponding apictl command below to change the status of an API or API Product in an environment.
@@ -349,9 +361,9 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
                 
                 -   Required :  
                     `--environment` or `-e` : The environment that the command is executed on  
-                    `--name` or `-n` : The name of the respective API
-                    `--version` or `-v` : The version of the respective API
-                    `--action` or `-a` : The action to be taken to change the status of the API
+                    `--name` or `-n` : The name of the respective API   
+                    `--version` or `-v` : The version of the respective API   
+                    `--action` or `-a` : The action to be taken to change the status of the API   
                 -   Optional :  
                     `--provider` or `-r` : The provider of the respective API  
 
@@ -376,13 +388,13 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
 
         -   **Command**
             ``` bash
-            apictl change-status api-product -a <Action> -n <API name> -e <environment> 
+            apictl change-status api-product -a <Action> -n <API Product name> -v <API Product version> -e <environment> 
             ```
             ``` bash
-            apictl change-status api-product --action <Action> --name <API name> --environment <environment> 
+            apictl change-status api-product --action <Action> --name <API name> --version <API Product version> --environment <environment> 
             ```
             ``` bash
-            apictl change-status api-product --action <Action> --name <API name> --environment <environment> --provider <API provider> 
+            apictl change-status api-product --action <Action> --name <API name> --version <API Product version> --environment <environment> --provider <API provider> 
             ```
 
             !!! info
@@ -390,21 +402,25 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
                 
                 -   Required :  
                     `--environment` or `-e` : The environment that the command is executed on  
-                    `--name` or `-n` : The name of the respective API Product
+                    `--name` or `-n` : The name of the respective API Product   
+                    `--version` or `-v` : The version of the respective API Product   
                     `--action` or `-a` : The action to be taken to change the status of the API Product
                 -   Optional :  
                     `--provider` or `-r` : The provider of the respective API Product 
 
             !!! example
                 ```bash
-                apictl change-status api-product -a Publish -n PizzaShackAPIProduct -e dev 
+                apictl change-status api-product -a Publish -n PizzaShackAPIProduct -v 1.0.0 -e dev 
                 ```
                 ```bash
-                apictl change-status api-product --action "Publish" --name PizzaShackAPIProduct --environment production 
+                apictl change-status api-product --action "Publish" --name PizzaShackAPIProduct --version 1.0.0 --environment production 
                 ```    
                 ```go
-                apictl change-status api-product --action "Demote to Created" --name PizzaShackAPIProduct --environment production --provider Alice 
+                apictl change-status api-product --action "Demote to Created" --name PizzaShackAPIProduct --version 1.0.0 --environment production --provider Alice 
                 ```  
+
+            !!!note
+                API product versioning is only available after WSO2 API Manager U2 update level 55 and apictl version 4.2.3 onwards. If you are using a prior version do not use `--version`, `-v` flags. 
 
         -   **Response**
 
@@ -420,7 +436,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
 
 Follow the instructions below to undeploy a revision of an API from a selected gateway environment using apictl:
 
-1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.2 version of apictl is set up.   
+1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.5 version of apictl is set up.   
 For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 3.  Run the corresponding apictl command below to undeploy the revision from a gateway environment.
@@ -471,13 +487,13 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
     
         -   **Command**
                 ``` bash
-                apictl undeploy api-product -n <API Product name> --rev <Revision number> -e <environment>
+                apictl undeploy api-product -n <API Product name> -v <API Product version> --rev <Revision number> -e <environment>
                 ```
                 ``` bash
-                apictl undeploy api-product -n <API Product name> --rev <Revision number> -g <gateway environment> -e <environment> 
+                apictl undeploy api-product -n <API Product name> -v <API Product version> --rev <Revision number> -g <gateway environment> -e <environment> 
                 ```
                 ``` bash
-                apictl undeploy api-product --name <API Product name> --rev <Revision number> --environment <environment> --provider <API Product provider>   
+                apictl undeploy api-product --name <API Product name> --version <API Product version> --rev <Revision number> --environment <environment> --provider <API Product provider>   
                 ```
     
             !!! info
@@ -486,6 +502,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
                 -   Required :  
                     `--environment` or `-e` : The environment that the command is executed on   
                     `--name` or `-n` : The name of the respective API Product    
+                    `--version` or `-v` : The version of the respective API Product  
                     `--rev`  : Revision number of the respective API Product   
                 -   Optional :  
                     `--provider` or `-r` : The provider of the respective API Product    
@@ -493,15 +510,18 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
            
             !!! example
                 ```bash
-                apictl undeploy api-product -n LeasingAPIProduct --rev 1 -e dev 
+                apictl undeploy api-product -n LeasingAPIProduct -v 1.0.0 --rev 1 -e dev 
                 ```
                 ```bash
-                apictl undeploy api-product -n PizzaProduct --rev 2 -g Label1 -g Label2 -g Label3 -e production 
+                apictl undeploy api-product -n PizzaProduct -v 1.0.0  --rev 2 -g Label1 -g Label2 -g Label3 -e production 
                 ```    
                 ```go
-                apictl undeploy api-product --name ShopProduct --provider Alice --rev 3 --gateway-env Label1 --gateway-env Default  -environment production 
+                apictl undeploy api-product --name ShopProduct --version 1.0.0 --provider Alice --rev 3 --gateway-env Label1 --gateway-env Default  -environment production 
                 ```  
-         
+
+            !!!note
+                API product versioning is only available after WSO2 API Manager U2 update level 55 and apictl version 4.2.3 onwards. If you are using a prior version do not use `--version`, `-v` flags. 
+
             -   **Response**
         
                 ```go
@@ -517,7 +537,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
 
 Follow the instructions below to get the logging details of APIs or an API in an environment using apictl:
 
-1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.2 version of apictl is set up.   
+1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.5 version of apictl is set up.   
 For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 3.  Run the corresponding apictl command below to get the logging details of APIs or an API in an environment.
@@ -583,7 +603,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
 
 Follow the instructions below to add/change/remove the log level of an API in an environment using apictl:
 
-1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.2 version of apictl is set up.   
+1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.5 version of apictl is set up.   
 For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 3.  Run the corresponding apictl command below to set the log level of an API in an environment.

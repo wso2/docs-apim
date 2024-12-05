@@ -26,23 +26,27 @@ The following section describes the flow involved in exchanging a Kerberos ticke
     
     Format 1 :
     
-    ``` java tab="Format"
-    curl -v -X POST -H "Authorization: Basic <base64-encoded(client-id:client-secret)>" -k -d "grant_type=kerberos&kerberos_realm=<kerberos-realm>&kerberos_token=<kerberos-token>&scope=<scope>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
-    ``` 
+    === "Format"
+        ``` java
+        curl -v -X POST -H "Authorization: Basic <base64-encoded(client-id:client-secret)>" -k -d "grant_type=kerberos&kerberos_realm=<kerberos-realm>&kerberos_token=<kerberos-token>&scope=<scope>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+        ``` 
     
-    ``` java tab="Example"
-    curl -v -X POST -H "Authorization: Basic <base64-encoded(client-id:client-secret)>" -k -d "grant_type=kerberos&kerberos_realm=example.com&kerberos_token=YII1...&scope=my_scope" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
-    ```   
+    === "Example"
+        ``` java
+        curl -v -X POST -H "Authorization: Basic <base64-encoded(client-id:client-secret)>" -k -d "grant_type=kerberos&kerberos_realm=example.com&kerberos_token=YII1...&scope=my_scope" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+        ```   
 
     Format 2 :
 
-    ``` java tab="Format"
-    curl -u <client-id>:<client-secret> -k -d "grant_type=kerberos&kerberos_realm=<kerberos-realm>&kerberos_token=<kerberos-token>&scope=<scope>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
-    ```
+    === "Format"
+        ``` java
+        curl -u <client-id>:<client-secret> -k -d "grant_type=kerberos&kerberos_realm=<kerberos-realm>&kerberos_token=<kerberos-token>&scope=<scope>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+        ```
     
-    ``` java tab="Example"
-    curl -u <client-id>:<client-secret> -k -d "grant_type=kerberos&kerberos_realm=example.com&kerberos_token=YII1...&scope=my_scope" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
-    ```  
+    === "Example"
+        ``` java
+        curl -u <client-id>:<client-secret> -k -d "grant_type=kerberos&kerberos_realm=example.com&kerberos_token=YII1...&scope=my_scope" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+        ```  
 
     **cURL Response**
 
@@ -125,7 +129,7 @@ Follow the instructions below to configure Kerberos Grant using the Identity Se
                 [![Register new OAuth app]({{base_path}}/assets/img/learn/register-new-oauth-app.png)]({{base_path}}/assets/img/learn/register-new-oauth-app.png)
             3.  Click **Add**. The following information is added to your
                 service provider.
-                [![OAuth SP clientid clientsecret]({{base_path}}/assets/img/learn/learnoauth-sp-clientid-clientsecret.png)]({{base_path}}/assets/img/learn/oauth-sp-clientid-clientsecret.png)
+                [![OAuth SP clientid clientsecret]({{base_path}}/assets/img/learn/oauth-sp-clientid-clientsecret.png)]({{base_path}}/assets/img/learn/oauth-sp-clientid-clientsecret.png)
 
                 -   **OAuth Client Key** - This is the client key of the
                     service provider, which will be checked for
@@ -164,7 +168,7 @@ Follow the instructions below to configure Kerberos Grant using the Identity Se
         -   **Identity Provider Name** :
             [example.com](http://example.com)
 
-        -   **Alias** : <https://192.168.53.12:9443/oauth/token>
+        -   **Alias** : `https://192.168.53.12:9443/oauth/token`
 
         [![add-new-idp]({{base_path}}/assets/img/learn/add-new-idp.png)]({{base_path}}/assets/img/learn/add-new-idp.png)
 

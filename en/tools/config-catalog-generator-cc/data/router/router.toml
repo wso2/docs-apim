@@ -7,3 +7,4 @@
   enforcerResponseTimeoutInSeconds = 20
   systemHost = "localhost"
   useRemoteAddress = false
+  perConnectionBufferLimitBytes = 1048576

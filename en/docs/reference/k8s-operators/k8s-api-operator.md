@@ -191,53 +191,57 @@ data:
 Configure credentials related to API Manager and API Microgateway using K8s secrets as below. The input values should
 be Base64 encoded.
 
-```yaml tab="API-M Secret"
-apiVersion: v1
-kind: Secret
-metadata:
-    name: apim-secret
-type: Opaque
-data:
-    # Base64 encoded username, password, and, cert secret name for API Manager
-    username: YWRtaW4=
-    password: YWRtaW4=
-    cert_security: YXBpbS1jZXJ0LXNlY3JldA==
-``` 
+=== "API-M Secret"
+    ```yaml
+    apiVersion: v1
+    kind: Secret
+    metadata:
+        name: apim-secret
+    type: Opaque
+    data:
+        # Base64 encoded username, password, and, cert secret name for API Manager
+        username: YWRtaW4=
+        password: YWRtaW4=
+        cert_security: YXBpbS1jZXJ0LXNlY3JldA==
+    ``` 
 
-```yaml tab="API-M Cert Secret"
-apiVersion: v1
-kind: Secret
-metadata:
-    name: apim-cert-secret
-data:
-    # Base64 encoded public cert of API Manager instance
-    apim.pem: <BASE 64 ENCODED PUBLIC CERT>
-type: Opaque
-``` 
+=== ""API-M Cert Secret""
+    ```yaml
+    apiVersion: v1
+    kind: Secret
+    metadata:
+        name: apim-cert-secret
+    data:
+        # Base64 encoded public cert of API Manager instance
+        apim.pem: <BASE 64 ENCODED PUBLIC CERT>
+    type: Opaque
+    ``` 
 
-```yaml tab="Choreo Connect Secret"
-apiVersion: v1
-kind: Secret
-metadata:
-    name: envoymgw-adapter-secret
-type: Opaque
-data:
-    # Base64 encoded username and password for Envoy MGW Adapter
-    username: YWRtaW4=
-    password: YWRtaW4=
-    mgwCertSecretName: ZW52b3ltZ3ctY2VydC1zZWNyZXQ=
-``` 
+=== "Choreo Connect Secret"
+    ```yaml
+    apiVersion: v1
+    kind: Secret
+    metadata:
+        name: envoymgw-adapter-secret
+    type: Opaque
+    data:
+        # Base64 encoded username and password for Envoy MGW Adapter
+        username: YWRtaW4=
+        password: YWRtaW4=
+        mgwCertSecretName: ZW52b3ltZ3ctY2VydC1zZWNyZXQ=
+    ``` 
 
-```yaml tab="Choreo Connect Cert Secret"
-apiVersion: v1
-kind: Secret
-metadata:
-    name: envoymgw-cert-secret
-data:
-    # Base64 encoded public cert of Microgateway Adapter
-    adapter.pem: <BASE 64 ENCODED PUBLIC CERT>
-type: Opaque
-``` 
+=== "Choreo Connect Cert Secret"
+    ```yaml
+    apiVersion: v1
+    kind: Secret
+    metadata:
+        name: envoymgw-cert-secret
+    data:
+        # Base64 encoded public cert of Microgateway Adapter
+        adapter.pem: <BASE 64 ENCODED PUBLIC CERT>
+    type: Opaque
+    ``` 
   
 ### Integration Controller
 

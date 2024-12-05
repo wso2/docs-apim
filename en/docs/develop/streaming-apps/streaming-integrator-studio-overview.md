@@ -247,7 +247,7 @@ The **Tools** menu provides access to the following tools that are shipped with 
             !!!info
                 Note that only mapping errors can be corrected before replaying.
 
-            ![Correct and Replay Event]({{base_path}}/assets/img/streaming/handling-requests/correct-and-replay-event.png)
+            ![Correct and Replay Event]({{base_path}}/assets/img/streaming/streaming-integrator-studio-overview/correct-and-replay-event.png)
 
     - **Discard events**: To discard all the erroneous events for the selected Siddhi application, click **Discard All**. To discard a specific erroneous event, click **Discard** for the relevant event.
 
@@ -320,7 +320,7 @@ Simulation can be carried out in two ways:
 -   Single Simulation
 -   Feed Simulation
 
-For detailed information about event simulation, see [Simulating Events](_Simulating_Events_).
+For detailed information about event simulation, see [Simulating Events]({{base_path}}/develop/streaming-apps/testing-a-siddhi-application/#simulating-events).
 
 ### Output Console
 

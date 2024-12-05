@@ -1,12 +1,5 @@
 #Configuring a Read-Write Active Directory User Store
 
-!!! info
-    The default User Store
-
-    The primary user store that is configured by default in the `user-mgt.xml` file is a JDBC user store, which reads/writes into the internal database of the product server. By default, the internal database is H2 for all WSO2 products excluding WSO2 Identity Server.
-    
-    Note that the RDBMS used in the default configuration can remain as the database used for storing Authorization information.
-
 Follow the given steps to configure an external Active Directory as the primary user store:
 
 -   [Step 1: Setting up the external AD user store manager](#step-1-setting-up-the-external-ad-user-store-manager)
@@ -17,64 +10,64 @@ Follow the given steps to configure an external Active Directory as the primary 
 
 !!! info
 
--   Navigate to `<PRODUCT_HOME>/repository/conf` directory to open `deployment.toml` file and do user_store_properties configurations. Following is the sample read-write active directory user store configurations:
- ```toml
- [user_store.properties]
- TenantManager="org.wso2.carbon.user.core.tenant.CommonHybridLDAPTenantManager"
- ConnectionURL="ldaps://10.100.1.102:639"
- ConnectionName="CN=admin,CN=Users,DC=WSO2,DC=Com"
- ConnectionPassword="A1b2c3d4"           
- AnonymousBind="false"
- UserSearchBase="CN=Users,DC=WSO2,DC=Com"
- UserEntryObjectClass="user"
- UserNameAttribute="cn"
- UserNameSearchFilter="(&amp;(objectClass=user)(cn=?))"
- UserNameListFilter="(&amp;(objectClass=user)(!(sn=Service)))"           
- ReadGroups="true"
- WriteGroups="true"
- GroupSearchBase="CN=Users,DC=WSO2,DC=Com"
- GroupEntryObjectClass="group"
- GroupNameAttribute="cn"
- GroupNameSearchFilter="(&amp;(objectClass=group)(cn=?))"
- GroupNameListFilter="(objectcategory=group)"
- MembershipAttribute="member"
- MemberOfAttribute="memberOf"
- BackLinksEnabled="true"
- Referral="follow"
- UsernameJavaRegEx="[a-zA-Z0-9._\\-|//]{3,30}$"
- UsernameJavaScriptRegEx="^[\\S]{3,30}$"
- UsernameJavaRegExViolationErrorMsg="Username pattern policy violated"
- PasswordJavaRegEx="^[\\S]{5,30}$"
- PasswordJavaScriptRegEx="^[\\S]{5,30}$"
- PasswordJavaRegExViolationErrorMsg="Password length should be within 5 to 30 characters"
- RolenameJavaRegEx="[a-zA-Z0-9._\\-|//]{3,30}$"
- RolenameJavaScriptRegEx="^[\\S]{3,30}$"
- SCIMEnabled="false"
- IsBulkImportSupported="false"
- EmptyRolesAllowed="true"
- PasswordHashMethod="PLAIN_TEXT"
- MultiAttributeSeparator=","
- isADLDSRole="false"
- userAccountControl="512"
- MaxUserNameListLength="100"    
- MaxRoleNameListLength="100"                    
- MembershipAttributeRange="1500"
- kdcEnabled="false"
- defaultRealmName="WSO2.ORG"
- UserRolesCacheEnabled="true"
- ConnectionPoolingEnabled="false"
- LDAPConnectionTimeout="5000"
- StartTLSEnabled="false"
- ConnectionRetryDelay="120000"
- ```
- 
--   The `class` attribute for an external AD is `org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager`.
-```toml
-[user_store]
-class="org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager"
-type = "active_directory"
-base_dn = "cn=Users,dc=wso2,dc=org"
-```
+    -   Navigate to `<PRODUCT_HOME>/repository/conf` directory to open `deployment.toml` file and do user_store_properties configurations. Following is the sample read-write active directory user store configurations:
+    ```toml
+    [user_store.properties]
+    TenantManager="org.wso2.carbon.user.core.tenant.CommonHybridLDAPTenantManager"
+    ConnectionURL="ldaps://10.100.1.102:639"
+    ConnectionName="CN=admin,CN=Users,DC=WSO2,DC=Com"
+    ConnectionPassword="A1b2c3d4"           
+    AnonymousBind="false"
+    UserSearchBase="CN=Users,DC=WSO2,DC=Com"
+    UserEntryObjectClass="user"
+    UserNameAttribute="cn"
+    UserNameSearchFilter="(&amp;(objectClass=user)(cn=?))"
+    UserNameListFilter="(&amp;(objectClass=user)(!(sn=Service)))"           
+    ReadGroups="true"
+    WriteGroups="true"
+    GroupSearchBase="CN=Users,DC=WSO2,DC=Com"
+    GroupEntryObjectClass="group"
+    GroupNameAttribute="cn"
+    GroupNameSearchFilter="(&amp;(objectClass=group)(cn=?))"
+    GroupNameListFilter="(objectcategory=group)"
+    MembershipAttribute="member"
+    MemberOfAttribute="memberOf"
+    BackLinksEnabled="true"
+    Referral="follow"
+    UsernameJavaRegEx="[a-zA-Z0-9._\\-|//]{3,30}$"
+    UsernameJavaScriptRegEx="^[\\S]{3,30}$"
+    UsernameJavaRegExViolationErrorMsg="Username pattern policy violated"
+    PasswordJavaRegEx="^[\\S]{5,30}$"
+    PasswordJavaScriptRegEx="^[\\S]{5,30}$"
+    PasswordJavaRegExViolationErrorMsg="Password length should be within 5 to 30 characters"
+    RolenameJavaRegEx="[a-zA-Z0-9._\\-|//]{3,30}$"
+    RolenameJavaScriptRegEx="^[\\S]{3,30}$"
+    SCIMEnabled="false"
+    IsBulkImportSupported="false"
+    EmptyRolesAllowed="true"
+    PasswordHashMethod="PLAIN_TEXT"
+    MultiAttributeSeparator=","
+    isADLDSRole="false"
+    userAccountControl="512"
+    MaxUserNameListLength="100"    
+    MaxRoleNameListLength="100"                    
+    MembershipAttributeRange="1500"
+    kdcEnabled="false"
+    defaultRealmName="WSO2.ORG"
+    UserRolesCacheEnabled="true"
+    ConnectionPoolingEnabled="false"
+    LDAPConnectionTimeout="5000"
+    StartTLSEnabled="false"
+    ConnectionRetryDelay="120000"
+    ```
+    
+    -   The `class` attribute for an external AD is `org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager`.
+    ```toml
+    [user_store]
+    class="org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager"
+    type = "active_directory"
+    base_dn = "cn=Users,dc=wso2,dc=org"
+    ```
 
 !!! note
     Note that these configurations will automatically applied to the `user-mgt.xml` file so you do not need to edit it.
@@ -145,8 +138,7 @@ Given below is a sample configuration for the external read/write user store in 
 
         Although using the user store manager does not depend on this property, you must consider enabling this if there are any performance issues in your production environment. Enabling this property affects the performance when the user logs in. This depends on the users, roles and permission stats.
 
-    -   If you are using `ldaps` (secured LDAP) to connect to the Active Directory as shown in the example below, you need to import the certificate of Active Directory to the `client-truststore.jks` of the WSO2 product. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see [Using Asymmetric Encryption]({{base_path}}/install-and-setup/setup/security/creating_keystores) .
-
+    -   If you are using `ldaps` (secured LDAP) to connect to the Active Directory as shown in the example below, you need to import the certificate of Active Directory to the `client-truststore.jks` of the WSO2 product. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see [Using Asymmetric Encryption]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores)
         ``` toml
         ConnectionURL="ldaps://10.100.1.100:636"
         ```
@@ -201,14 +193,14 @@ Given below is a sample configuration for the external read/write user store in 
         
 ### Step 2: Updating the system administrator
 
-The **admin** user is the super tenant that will be able to manage all other users, roles and permissions in the system by using the management console of the product. Therefore, the user that should have admin permissions is required to be stored in the user store when you start the system for the first time. Since the Active Directory user store can be written to, you have the option of creating a new admin user in the user store when you start the system for the first time. Alternatively, you can also use a user ID that already exists in the user store. For more information on setting up the [system administrator]({{base_path}}/administer/managing-users-and-roles/configuring-the-system-administrator) and the [authorization manager]({{base_path}}/administer/managing-users-and-roles/configuring-the-authorization-manager) .
+The **admin** user is the super tenant that will be able to manage all other users, roles and permissions in the system by using the management console of the product. Therefore, the user that should have admin permissions is required to be stored in the user store when you start the system for the first time. Since the Active Directory user store can be written to, you have the option of creating a new admin user in the user store when you start the system for the first time. Alternatively, you can also use a user ID that already exists in the user store. For more information on setting up the [system administrator]({{base_path}}/administer/managing-users-and-roles/managing-user-stores/configuring-the-system-administrator) and the [authorization manager]({{base_path}}//administer/managing-users-and-roles/managing-user-stores/configuring-the-authorization-manager) .
 
 -   These two alternative configurations can be done as explained below.
 
 <!-- -->
 
 -   Find a valid user that already resides in the user store. For example, say a valid username is AdminSOA. Update the `[super_admin]` section of your configuration as shown below. You do not have to update the password element as it is already set in the user store.
-        ``` 
+        ``` toml
         [super_admin]
         username = "AdminSOA"
         admin_role = "admin"
@@ -216,7 +208,7 @@ The **admin** user is the super tenant that will be able to manage all other use
         ```
 
 -   If the user store can be written to, you can add the super tenant user to the user store. Therefore, create_admin_account should be set to true as shown below.
-        ``` 
+        ``` toml
         [super_admin]
         username = "admin"
         admin_role = "admin"

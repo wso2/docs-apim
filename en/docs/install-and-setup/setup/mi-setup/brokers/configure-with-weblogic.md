@@ -12,7 +12,7 @@ This section describes how to configure WSO2 Micro Integrator to connect with Or
 ## Configuring the WebLogic server
 
 Configure the required connection factories and queues in WebLogic. An entry for a JMS queue would look like the following. The configuration
-files can be found inside the `WEBLOGIC_HOME/user_projects/domains/<DOMAIN_NAME>/config/jms` file. Alternatively you can configure using the WebLogic web console, which can be accessed through [http://localhost:7001](http://localhost:7001/) with default configurations.
+files can be found inside the `WEBLOGIC_HOME/user_projects/domains/<DOMAIN_NAME>/config/jms` file. Alternatively you can configure using the WebLogic web console, which can be accessed through `http://localhost:7001` with default configurations.
 
 ```xml
 <queue name="wso2MessageQueue">

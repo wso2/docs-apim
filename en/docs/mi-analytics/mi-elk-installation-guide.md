@@ -194,7 +194,7 @@ inbound_endpoint_analytics.enabled = true
 
 ### Creating Log Appender
 
-Open the `<MI_HOME>/repository/conf` directory and edit the `log4j2.properties` file following the instructions given below.
+Open the `<MI_HOME>/conf` directory and edit the `log4j2.properties` file following the instructions given below.
 
 1. Add `ELK_ANALYTICS_APPENDER` to the appenders list.
 

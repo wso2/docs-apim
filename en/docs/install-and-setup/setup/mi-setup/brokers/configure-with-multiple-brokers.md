@@ -8,7 +8,7 @@ The following example illustrates how to configure WSO2 Micro Integrator to list
 both ActiveMQ and WSO2 MB messages.
 
 1.  Download ActiveMQ (version 5.8.0 or later) from the [Apache ActiveMQ](http://activemq.apache.org/) site. 
-2.  Download the WSO2 Message Broker from the [WSO2 Message Broker](https://wso2.com/products/message-broker/) site.
+2.  Download the WSO2 Message Broker from the [WSO2 Message Broker](https://ei.docs.wso2.com/en/latest/micro-integrator/setup/brokers/configure-with-WSO2-MB/) site.
 3.  Copy the following client libraries from `AMQ_HOME/lib` directory to `MI_HOME/lib` directory.  
     -   `            activemq-broker-5.8.0.jar           `
     -   `            activemq-client-5.8.0.jar           `
@@ -109,23 +109,25 @@ WSO2 MB proxy service can be configured as follows to read messages from WSO2 MB
 WSO2 Micro Integrator can be configured as described below to work with two ActiveMQ brokers. In this example, port 61616 is used for one
 ActiveMQ instance and port 61617 is used for another ActiveMQ instance.
 
-```toml tab='ActiveMQ Broker 1'
-[[transport.jms.listener]]
-name = "jms1"
-parameter.initial_naming_factory = "org.apache.activemq.artemis.jndi.ActiveMQInitialContextFactory"
-parameter.provider_url = "tcp://localhost:61616"
-parameter.connection_factory_name = "TopicConnectionFactory"
-parameter.connection_factory_type = "topic"
-```
+=== "ActiveMQ Broker 1"
+    ```toml
+    [[transport.jms.listener]]
+    name = "jms1"
+    parameter.initial_naming_factory = "org.apache.activemq.artemis.jndi.ActiveMQInitialContextFactory"
+    parameter.provider_url = "tcp://localhost:61616"
+    parameter.connection_factory_name = "TopicConnectionFactory"
+    parameter.connection_factory_type = "topic"
+    ```
 
-```toml tab='ActiveMQ Broker 2'
-[[transport.jms.listener]]
-name = "jms2"
-parameter.initial_naming_factory = "org.apache.activemq.artemis.jndi.ActiveMQInitialContextFactory"
-parameter.provider_url = "tcp://localhost:61617"
-parameter.connection_factory_name = "TopicConnectionFactory"
-parameter.connection_factory_type = "topic"
-```
+=== "ActiveMQ Broker 2"
+    ```toml
+    [[transport.jms.listener]]
+    name = "jms2"
+    parameter.initial_naming_factory = "org.apache.activemq.artemis.jndi.ActiveMQInitialContextFactory"
+    parameter.provider_url = "tcp://localhost:61617"
+    parameter.connection_factory_name = "TopicConnectionFactory"
+    parameter.connection_factory_type = "topic"
+    ```
 
 !!! Note 
     The name of the transport receivers as well as the ports are different in the two configurations.

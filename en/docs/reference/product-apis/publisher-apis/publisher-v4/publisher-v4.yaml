@@ -86,6 +86,10 @@ info:
     "expires_in": 3600
     }
     ```
+
+    Note that in a distributed deployment or IS as KM separated environment to invoke RESTful APIs (product APIs), users must generate tokens through API-M Control Plane's token endpoint.
+    The tokens generated using third party key managers, are to manage end-user authentication when accessing APIs.
+    
     Now you have a valid access token, which you can use to invoke an API.
     Navigate through the API descriptions to find the required API, obtain an access token as described above and invoke the API with the authentication header.
     If you use a different authentication mechanism, this process may change.
@@ -7677,7 +7681,7 @@ paths:
       x-code-samples:
         - lang: Curl
           source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-            -H "Content-Type: multipart/form-data" -F policySpecFile=@setHeader.yaml -F policyDefinitionFile=@setHeader.j2
+            -H "Content-Type: multipart/form-data" -F policySpecFile=@setHeader.yaml -F synapsePolicyDefinitionFile=@setHeader.j2
             "https://127.0.0.1:9443/api/am/publisher/v4/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/operation-policies"'
 
 
@@ -12061,8 +12065,6 @@ components:
       in: query
       description: |
         **API ID** consisting of the **UUID** of the API.
-        The combination of the provider of the API, name of the API and the version is also accepted as a valid API I.
-        Should be formatted as **provider-name-version**.
       required: true
       schema:
         type: string

@@ -310,7 +310,7 @@ To create a Amazon RDS (Relational Database Service) for the purpose of persisti
 
         4. Under **Settings**, enter details as instructed within the user interface.
 
-            ![RD Instance Settings]({{base_path}}/assets/img/streaming/si-as-minimum-ha-cluster-in-aws-ecs/RD-instance-settings.png)
+            ![RD Instance Settings]({{base_path}}/assets/img/streaming/si-as-minimum-ha-cluster-in-aws-ecs/rd-instance-settings.png)
 
         5. Under **Connectivity**, expand the **Additional connectivity configuration**. Under **Publicly accessible**, select **Yes**. This allows you to connect and create the database, and then check on the database values later.
 

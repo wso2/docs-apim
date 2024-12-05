@@ -64,4 +64,4 @@ See the links given below for descriptions of properties for each processor type
 
 ## Tutorials
 
--	See the tutorial on [using message stores and processors]({{base_path}}/integrate/tutorials/storing-and-forwarding-messages)
+-	See the tutorial on [using message stores and processors]({{base_path}}/tutorials/integration-tutorials/storing-and-forwarding-messages)

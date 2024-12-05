@@ -44,8 +44,8 @@ To understand how the Streaming Integrator can transform streaming data from one
     define stream OutputStream(flight string, passengers int);
     ```
    
-   !!! info
-       You can replace `Users/foo` with a path to a preferred location in your machine.
+    !!! info
+        You can replace `Users/foo` with a path to a preferred location in your machine.
    
    The above stream generates output events with values for the `flight` and `passengers` attributes. The connected sink annotation of the `file` type specifies that output events generated in the stream are published to the `Users/foo/output.json` file in JSON format.
    

@@ -13,9 +13,10 @@ As WSO2 API Manager is a Java application, you can generally run it on most oper
 |**Operating System**|**Versions**  |
 |--------------------|--------------|
 |Windows             | 2016         |
-|Ubuntu              | 18.04, 20.04 |
-|Red Hat Enterprise Linux   | 7.0   |
+|Ubuntu              | 18.04, 20.04, 22.04 |
+|Red Hat Enterprise Linux   | 7.0, 8.7, 9.3   |
 |CentOS              | 7.4, 7.5     |
+|Rockyise Linux   | 9.3   |
 
 #### Tested JDKs
 
@@ -33,12 +34,13 @@ The **WSO2 API-M** runtime has been tested with the following JDKs:
 
 The **WSO2 API-M** runtime is tested with the following databases:
 
-|**DBMS**     |**Versions**|
-|--------------|-----------|
-|MySQL         | 5.7, 8    |
-|Oracle        | 12c release 2, 19c  |
-|Microsoft SQL Server| 2017|
-|PostgreSQL            |10 |
+|**DBMS**     | **Versions**       |
+|--------------|--------------------|
+|MySQL         | 5.7, 8             |
+|Oracle        | 12c release 2, 19c |
+|Oracle RAC           | 19c                |
+|Microsoft SQL Server| 2017, 2019, 2022   |
+|PostgreSQL            | 10, 12.15, 14.2           |
 
 !!! warning
     When creating the database related to apim_db with MySQL 8.0, add **character set latin1** to avoid the MySQL Linux ERROR 1071 (42000).
@@ -113,7 +115,7 @@ The **Micro Integrator** runtime is tested with the following databases:
 |--------------|-----------|
 |MySQL         | 5.7, 8    |
 |Oracle        | 12c release 2, 19c  |
-|Microsoft SQL Server| 2017|
+|Microsoft SQL Server| 2017 |
 |PostgreSQL            |10 |
 
 ## Streaming Integrator compatibility

@@ -17,7 +17,7 @@ This application demonstrates how to configure WSO2 Streaming Integrator Tooling
     2. Execute the following command to install the Mosquitto broker package.
         ```bash
         sudo apt-get install mosquitto
-        ````
+        ```
     3. Install Mosquitto developer libraries to develop MQTT clients.
         ```bash
         sudo apt-get install libmosquitto-dev

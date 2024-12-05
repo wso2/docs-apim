@@ -15,7 +15,7 @@ First, enable the API subscription workflow for **Approval Workflow Executor.**
 
 2.  Go to the `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` resource, disable the Simple Workflow Executor and enable WS Workflow Executor.
 
-     ``` 
+     ``` xml
      <WorkFlowExtensions>
         ...
         <!--SubscriptionCreation executor="org.wso2.carbon.apimgt.impl.workflow.SubscriptionCreationSimpleWorkflowExecutor"/-->

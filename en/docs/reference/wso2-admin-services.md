@@ -12,7 +12,7 @@ There can be instances where you want to call back-end web services directly. Fo
 
 ## Discovering the admin services
 
-By default, the WSDLs of admin services are hidden from consumers. Follow the instructions below to discover the WSDLs of the admin services using the [OSGi](https://www.osgi.org/developer/) console.
+By default, the WSDLs of admin services are hidden from consumers. Follow the instructions below to discover the WSDLs of the admin services using the [OSGi](https://docs.osgi.org/reference/) console.
 
 1. Add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
@@ -24,13 +24,15 @@ By default, the WSDLs of admin services are hidden from consumers. Follow the in
 
 2. Navigate to the `<API-M_HOME>/bin/` directory and start WSO2 API Manager as follows:
 
-    ``` shell tab="Linux"
-    sh api-manager.sh -DosgiConsole
-    ```
+    === "Linux"
+        ``` shell
+        sh api-manager.sh -DosgiConsole
+        ```
 
-    ``` shell tab="Windows"
-    api-manager.bat -DosgiConsole
-    ```
+    === "Windows"
+        ``` shell
+        api-manager.bat -DosgiConsole
+        ```
 
 3.  When the server starts, press the Enter/Return key several times to get the OSGi shell in the console.
 

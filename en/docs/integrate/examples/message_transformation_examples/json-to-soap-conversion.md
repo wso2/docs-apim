@@ -80,13 +80,15 @@ Set up the back-end service:
 3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
 4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
    
-      ```bash tab='On MacOS/Linux/CentOS'
-      sh axis2server.sh
-      ```
+    === "On MacOS/Linux/CentOS"
+        ```bash
+        sh axis2server.sh
+        ```
           
-      ```bash tab='On Windows'
-      axis2server.bat
-      ```
+    === "On Windows"
+        ```bash
+        axis2server.bat
+        ```
 
 Invoke the REST API:
 
@@ -137,54 +139,56 @@ Let's convert JSON messages to SOAP using the [XSLT mediator]({{base_path}}/refe
 Following are the synapse configurations for implementing this scenario. 
 See the instructions on how to [build and run](#build-and-run-example-2) this example.
 
-```xml tab='REST Api'
-<?xml version="1.0" encoding="UTF-8"?>
-<api context="/stockorder_api" name="Convert_JSON_To_Soap_Using_XSLT" xmlns="http://ws.apache.org/ns/synapse">
-    <resource methods="POST GET">
-        <inSequence>
-            <log level="full"/>
-            <xslt key="in_transform"/>
-            <header name="Action" scope="default" value="urn:getQuote"/>
-            <enrich>
-                <source clone="true" xmlns:m0="http://services.samples" xpath="//m0:getQuote"/>
-                <target type="body"/>
-            </enrich>
-            <call>
-                <endpoint>
-                    <address format="soap11" uri="http://localhost:9000/services/SimpleStockQuoteService">
-                        <suspendOnFailure>
-                            <initialDuration>-1</initialDuration>
-                            <progressionFactor>1</progressionFactor>
-                        </suspendOnFailure>
-                        <markForSuspension>
-                            <retriesBeforeSuspension>0</retriesBeforeSuspension>
-                        </markForSuspension>
-                    </address>
-                </endpoint>
-            </call>
-            <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
-            <respond/>
-        </inSequence>
-        <outSequence/>
-        <faultSequence/>
-    </resource>
-</api>
-```
+=== "REST Api"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <api context="/stockorder_api" name="Convert_JSON_To_Soap_Using_XSLT" xmlns="http://ws.apache.org/ns/synapse">
+        <resource methods="POST GET">
+            <inSequence>
+                <log level="full"/>
+                <xslt key="in_transform"/>
+                <header name="Action" scope="default" value="urn:getQuote"/>
+                <enrich>
+                    <source clone="true" xmlns:m0="http://services.samples" xpath="//m0:getQuote"/>
+                    <target type="body"/>
+                </enrich>
+                <call>
+                    <endpoint>
+                        <address format="soap11" uri="http://localhost:9000/services/SimpleStockQuoteService">
+                            <suspendOnFailure>
+                                <initialDuration>-1</initialDuration>
+                                <progressionFactor>1</progressionFactor>
+                            </suspendOnFailure>
+                            <markForSuspension>
+                                <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                            </markForSuspension>
+                        </address>
+                    </endpoint>
+                </call>
+                <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
+                <respond/>
+            </inSequence>
+            <outSequence/>
+            <faultSequence/>
+        </resource>
+    </api>
+    ```
 
-```xml tab='Local Entry - In Transform XSLT'
-<?xml version="1.0" encoding="UTF-8"?>
-<localEntry key="in_transform" xmlns="http://ws.apache.org/ns/synapse">
-    <xsl:stylesheet exclude-result-prefixes="m0 fn" version="2.0" xmlns:fn="http://www.w3.org/2005/02/xpath-functions" xmlns:m0="http://services.samples" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-        <xsl:output indent="yes" method="xml" omit-xml-declaration="yes"/>
-        <xsl:template match="*">
-            <xsl:element name="{local-name()}" namespace="http://services.samples">
-                <xsl:copy-of select="attribute::*"/>
-                <xsl:apply-templates/>
-            </xsl:element>
-        </xsl:template>
-    </xsl:stylesheet>
-</localEntry>
-```
+=== "Local Entry - In Transform XSLT"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <localEntry key="in_transform" xmlns="http://ws.apache.org/ns/synapse">
+        <xsl:stylesheet exclude-result-prefixes="m0 fn" version="2.0" xmlns:fn="http://www.w3.org/2005/02/xpath-functions" xmlns:m0="http://services.samples" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+            <xsl:output indent="yes" method="xml" omit-xml-declaration="yes"/>
+            <xsl:template match="*">
+                <xsl:element name="{local-name()}" namespace="http://services.samples">
+                    <xsl:copy-of select="attribute::*"/>
+                    <xsl:apply-templates/>
+                </xsl:element>
+            </xsl:template>
+        </xsl:stylesheet>
+    </localEntry>
+    ```
 
 ### Build and run (example 2)
 
@@ -194,7 +198,7 @@ Create the artifacts:
 2. [Create an ESB Config project]({{base_path}}/integrate/develop/create-integration-project/#esb-config-project).
 3. [Create the REST API]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api) with the configurations given above.
 4. [Create a local entry]({{base_path}}/integrate/develop/creating-artifacts/registry/creating-local-registry-entries) named **in_transform** with the above XSLT configuration.
-5. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-and-run) in your Micro Integrator.
+5. [Deploy the artifacts]({{base_path}}/integrate/develop/using-remote-micro-integrator/) in your Micro Integrator.
 
 Set up the back-end service:
 
@@ -203,13 +207,15 @@ Set up the back-end service:
 3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
 4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
    
-      ```bash tab='On MacOS/Linux/CentOS'
-      sh axis2server.sh
-      ```
+    === "On MacOS/Linux/CentOS"
+        ```bash
+        sh axis2server.sh
+        ```
           
-      ```bash tab='On Windows'
-      axis2server.bat
-      ```
+    === "On Windows"
+        ```bash
+        axis2server.bat
+        ```
 
 Invoke the REST API:
 

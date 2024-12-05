@@ -18,7 +18,7 @@ Before you begin, make sure you do the following.
      2. Open the `deployment.toml` file, which is located in the `<API-M_HOME>/repository/conf/` directory. 
      3. Add the following configuration.
 
-        ```
+        ```toml
         [tenant_mgt]
         enable_email_domain= true
         ```
@@ -534,7 +534,7 @@ Before you begin, make sure you do the following.
         
         Add the following to the `<API-M_HOME>/repository/conf/deployment.toml` file and restart the server.
 
-        ```
+        ```toml
         [authentication.framework.extensions]
         provisioning_handler = "org.wso2.carbon.identity.application.authentication.framework.handler.provisioning.impl.SystemRolesRetainedProvisionHandler"
         ```

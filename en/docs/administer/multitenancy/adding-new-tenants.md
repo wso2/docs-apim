@@ -51,8 +51,8 @@ You can invoke these operations using a SOAP client like SOAP UI as follows:
             api-manager.bat
     ```
 
-        !!! tip
-    Get the list of available admin services
+    !!! tip
+        Get the list of available admin services
 
     If you want to discover the admin services that are exposed by your product:
 
@@ -84,11 +84,11 @@ You can invoke these operations using a SOAP client like SOAP UI as follows:
     This assumes that you are running the SOAP UI client from the same machine as the product instance. Note that there are several operations shown in the SOAP UI after importing the WSDL file:
 
     ![]({{base_path}}/assets/attachments/126562777/126562782.png)
-        !!! warning
-    Before invoking an operation:
+    !!! warning
+            Before invoking an operation:
 
-    -   Be sure to set the admin user's credentials for authorization in the SOAP UI.
-    -   Note that it is **not recommended** to delete tenants.
+            -   Be sure to set the admin user's credentials for authorization in the SOAP UI.
+            -   Note that it is **not recommended** to delete tenants.
 
 
 4.  Click on the operation to open the request view. For example, to activate a tenant use the `activateTenant` operation.

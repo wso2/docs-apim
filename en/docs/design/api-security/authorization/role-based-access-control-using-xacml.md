@@ -30,7 +30,7 @@ Based on the requirement, a single API is exposed to add or retrieve order info
         By default, in API Manager JDBCUserStore is enabled. When you are moving to the ReadWriteLDAPUserStore, make sure you have commented the configuration of JDBCUserStore and keep only one user store configuration `<API-M_HOME>/repository/conf/user-mgt.xml` in both nodes.
 
     !!! tip
-        In an actual deployment, both these servers can [share the user store]({{base_path}}/reference/customize-product/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso.md#sharing-the-user-store) of your organization.
+        In an actual deployment, both these servers can share the user store of your organization.
 
 2.  Start the WSO2 API Manager server and log in to the Management Console. Create user information with the following permission structure.
 
@@ -118,7 +118,7 @@ Based on the requirement, a single API is exposed to add or retrieve order info
 
     ![]({{base_path}}/assets/attachments/103334839/103334831.png)
 
-11. Download the [entitlement-1.0-SNAPSHOT.jar](https://docs.wso2.com/download/attachments/57743363/entitlement-1.0-SNAPSHOT.jar?version=1&modificationDate=1515491619000&api=v2) and add it to the `<API-M_HOME>/repository/components/lib` directory. This JAR file contains the `APIEntitlementCallbackHandler` class which passes the username, HTTP verb and the resource path to the XACML entitlement server. If you want to view the source code of the JAR, go [here](https://github.com/nadeesha5814/XACML-APIManager) .
+11. Download the [entitlement-1.0-SNAPSHOT.jar](https://github.com/nadeesha5814/XACML-APIManager/blob/master/target/entitlement-1.0-SNAPSHOT.jar) and add it to the `<API-M_HOME>/repository/components/lib` directory. This JAR file contains the `APIEntitlementCallbackHandler` class which passes the username, HTTP verb and the resource path to the XACML entitlement server. If you want to view the source code of the JAR, go [here](https://github.com/nadeesha5814/XACML-APIManager) .
 
 12. Restart the server once the JAR file is added.
 
@@ -129,7 +129,7 @@ Based on the requirement, a single API is exposed to add or retrieve order info
     ```
 
     !!! note
-        The **Entitlement Mediator** intercepts requests and evaluates the actions performed by a user against an [eXtensible Access Control Markup Language (XACML)](http://en.wikipedia.org/wiki/XACML) policy. Here, WSO2 Identity Server is used as the XACML Policy Decision Point (PDP) where the policy is set, and WSO2 API Manager serves as the XACML Policy Enforcement Point (PEP) where the policy is enforced. Refer [Entitlement Mediator](https://docs.wso2.com/display/ESB500/Entitlement+Mediator) for more information on parameters and usage of this mediator.
+        The **Entitlement Mediator** intercepts requests and evaluates the actions performed by a user against an [eXtensible Access Control Markup Language (XACML)](http://en.wikipedia.org/wiki/XACML) policy. Here, WSO2 Identity Server is used as the XACML Policy Decision Point (PDP) where the policy is set, and WSO2 API Manager serves as the XACML Policy Enforcement Point (PEP) where the policy is enforced. Refer [Entitlement Mediator](https://wso2docs.atlassian.net/wiki/spaces/ESB500/pages/51413335/Entitlement+Mediator) for more information on parameters and usage of this mediator.
 
     !!! info
         The attributes in the &lt;entitlementService&gt; element above should be modified according to the services' endpoint configuration as follows.

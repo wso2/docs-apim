@@ -28,23 +28,27 @@ Follow the steps given below to start the server.
 
     -   To start the server:
 
-        ```bash tab="On MacOS/Linux"
-        sh api-manager.sh
-        ```
+        === "On MacOS/Linux"
+            ```bash
+            sh api-manager.sh
+            ```
 
-        ```bash tab="On Windows"
-        api-manager.bat --run
-        ```
+        === "On Windows"
+            ```bash
+            api-manager.bat --run
+            ```
 
     -   To start the server in background mode:
 
-        ```bash tab="On macOS/Linux"
-        sh api-manager.sh start
-        ```
+        === "On macOS/Linux"
+            ```bash
+            sh api-manager.sh start
+            ```
 
-        ```bash tab="On Windows"
-        api-manager.bat --start
-        ```
+        === "On Windows"
+            ```bash
+            api-manager.bat --start
+            ```
 
 When the server starts successfully, the following log is printed: `"WSO2 Carbon started in 'n' seconds"`
 
@@ -59,7 +63,7 @@ Note that the server is running on `localhost` by default. You can use these URL
 !!! Info  
     To change the default hostname/port and to secure the API-M portals, see the following topics:
 
-    - [Changing the API-M hostname]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m)
+    - [Changing the API-M hostname]({{base_path}}/install-and-setup/setup/deployment-best-practices/changing-the-hostname/#changing-the-api-m-hostname)
     - [Changing the default API-M ports]({{base_path}}/install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset/#changing-the-default-api-m-ports)
     - [Securing API-M Web Portals]({{base_path}}/install-and-setup/setup/security/securing-api-m-web-portals)
 
@@ -80,13 +84,15 @@ To sign in to each web portal:
 -   To stop the API-M server standalone application, go to the terminal and press <i>Ctrl+C</i>.
 -   To stop the API-M server in background mode:
 
-    ```bash tab="On macOS/Linux"
-    sh api-manager.sh stop
-    ```
+    === "On macOS/Linux"
+        ```bash
+        sh api-manager.sh stop
+        ```
 
-    ```bash tab="On Windows"
-    api-manager.bat --stop
-    ```
+    === "On Windows"
+        ```bash
+        api-manager.bat --stop
+        ```
 
 !!! Tip
     For additional options, you can use with the startup commands, add `-help` after the start-up command as shown below.

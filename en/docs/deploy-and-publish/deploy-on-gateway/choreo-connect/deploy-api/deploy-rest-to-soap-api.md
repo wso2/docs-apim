@@ -51,7 +51,7 @@ For more information refer to [Creating an Integration Project]({{base_path}}/in
 
 1. In the left hand side project explorer panel, expand the created project `PhoneVerification`.
 2. Right click on `PhoneVerfificationConfigs` and select **New->REST API**.
-3. Select the **Import API Artifact** option and provide file having [this synapse configuration](https://raw.githubusercontent.com/wso2/product-microgateway/rest-to-soap-cc/samples/rest-to-soap-conversion/PhoneVerification/PhoneVerificationConfigs/src/main/synapse-config/api/PhoneVerify.xml).
+3. Select the **Import API Artifact** option and provide file having [this synapse configuration](https://github.com/wso2/product-microgateway/blob/main/samples/rest-to-soap-conversion/PhoneVerification/PhoneVerificationConfigs/src/main/synapse-config/api/PhoneVerify.xml).
 
 !!! Note
     If you want to design your API from scratch, select **Create New API Artifact** option in the above step and create it using Integration Studio. For more information on this refer documentation on [Creating a REST API]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api/).
@@ -70,13 +70,15 @@ You can use the following steps to configure the **Micro Integrator** to update 
     - Open the `PhoneVerify_metadata.yaml` file located in `PhoneVerification/PhoneVerificationConfigs/src/main/resources/metadata/PhoneVerify_metadata.yaml` using the project explorer.
     - Change the `serviceUrl` as follows.
 
-        ```url tab="Linux"
-        http://172.17.0.1:8290/phoneverify
-        ```
+        === "Linux"
+            ```url
+            http://172.17.0.1:8290/phoneverify
+            ```
 
-        ```url tab="MacOS/Windows"
-        http://host.docker.internal:8290/phoneverify
-        ```
+        === "MacOS/Windows"
+            ```url
+            http://host.docker.internal:8290/phoneverify
+            ```
 
         !!! Note
             `serviceUrl` is used to access service you created on Micro Integrator. When you create the API on API Manager, this `serviceUrl` will be used as the endpoint for your service.
@@ -106,13 +108,15 @@ This step will show you how to Update the swagger definition to change some impo
 1. Open the file in `PhoneVerification/PhoneVerificationConfigs/src/main/resources/metadata/PhoneVerify_swagger.yaml`.
 2. Change the URL under `servers` section as follows.
 
-    ```url tab="Linux"
-    http://172.17.0.1:8290/phoneverify
-    ```
+    === "Linux"
+        ```url
+        http://172.17.0.1:8290/phoneverify
+        ```
 
-    ```url tab="MacOS/Windows"
-    http://host.docker.internal:8290/phoneverify
-    ```
+    === "MacOS/Windows"
+        ```url
+        http://host.docker.internal:8290/phoneverify
+        ```
 
 ### Step 5 - Deploy the Artifacts in Micro Integrator
 

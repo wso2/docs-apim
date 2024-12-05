@@ -2,7 +2,7 @@
 
 WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premise, and hybrid architectures to drive your digital transformation strategy. It comes with a cloud-native, standards-based messaging engine, and an integration framework for integrating APIs, services, data, SaaS, proprietary, and legacy systems and it can also serve streaming-based integrations. The product comes with command-line and developer tools that enable easy design, development, and testing.
 
-**WSO2 API Manager 4.2.0** is the latest **WSO2 API Manager release** and is the successor of **WSO2 API Manager 4.1.0**.
+**WSO2 API Manager 4.2.0** is the successor of **WSO2 API Manager 4.1.0**.
 
 For more information on WSO2 API Manager, see the [overview]({{base_path}}/getting-started/overview/).
 
@@ -70,7 +70,7 @@ These features are deprecated and will be removed from subsequent versions of WS
 
      Synchronous Data Retrieval Mode in Gateway Runtime Artifact Synchronization was configurable by setting the value of `data_retrieval_mode` to `sync` (`data_retrieval_mode = "sync"`). 
      
-     ```
+     ``` toml
      [apim.sync_runtime_artifacts.gateway]
      data_retrieval_mode = "sync"
      ```

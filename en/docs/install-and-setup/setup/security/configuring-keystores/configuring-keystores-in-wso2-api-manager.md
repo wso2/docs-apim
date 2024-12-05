@@ -25,6 +25,31 @@ The `wso2carbon.jks` keystore file, which is shipped with all WSO2 products, is 
     file_name = "modified-client-truststore.jks"
     password= "modified_password"
     ```
+!!! Important
+    When the key password and the key store password are changed, it is mandatory to update following configurations in the deployment.toml to avoid keystore related errors.
+
+    ```toml
+    [keystore.tls]
+    file_name =  "wso2carbon.jks"
+    type =  "JKS"
+    password =  "<password1>"
+    alias =  "wso2carbon"
+    key_password =  "<password1>"
+
+    [keystore.primary]
+    file_name =  "wso2carbon.jks"
+    type =  "JKS"
+    password =  "<password1>"
+    alias =  "wso2carbon"
+    key_password =  "<password1>"
+
+    [keystore.internal]
+    file_name =  "wso2carbon.jks"
+    type =  "JKS"
+    password =  "<password1>"
+    alias =  "wso2carbon"
+    key_password =  "<password1>"
+    ```
 
 ## Configuring the Primary Keystore
 
@@ -100,6 +125,30 @@ key_password =  "passwd12#"
     alias =  "mydomain"
     key_password =  "passwd12#"
     ```
+## Configuring Custom Keystores
+
+You can also configure and use a custom Keystore in API Manager to sign the API Keys. Given below is a sample TOML configuration to configure a custom Keystore in the API Manager server. For more information, see [Configuration Catalog]({{base_path}}/reference/config-catalog/).
+
+To configure custom keystores, add the following to the `<API-M_HOME>/repository/conf/deployment.toml` file.
+
+```
+[custom_keystore.APIKeyKeyStore]
+file_name = "apikeysigner.jks"
+type = "JKS"
+password = "wso2carbon"
+alias = "apikeysigner"
+key_password = "wso2carbon"
+```
+
+If you have generated a custom Keystore and you need to use it to sign the API Keys, it is required to configure the following TOML configurations to define which Keystore and certs should be used. Given below is a sample TOML configuration that refers to a custom Keystore named `APIKeyKeyStore` and the cert with the alias `apikeysigner`.
+
+To configure a custom keystore to use and sign the API keys in the Devportal node, add the following to the `<API-M_HOME>/repository/conf/deployment.toml` file.
+
+```
+[apim.devportal] 
+api_key_keystore = "APIKeyKeyStore" 
+api_key_alias = "<custom-alias>"
+```
 
 ## Recommendations for setting up keystores
 

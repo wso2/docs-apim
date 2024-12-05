@@ -5,44 +5,49 @@ This example demonstrates a use case where security policies are applied to the 
 
 Following are the artifact configurations that we can use to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
-```xml tab='Proxy Service'
-<proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="https http" startOnLoad="true" trace="disable">
-          <description />
-    <target>
-       <inSequence>
-          <property name="OUT_ONLY" value="true" />
-          <store messageStore="MSG_STORE" />
-       </inSequence>
-       <outSequence>
-          <send />
-       </outSequence>
-    </target>
- </proxy>
-```
+=== "Proxy Service"
+      ```xml
+      <proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="https http" startOnLoad="true" trace="disable">
+               <description />
+         <target>
+            <inSequence>
+               <property name="OUT_ONLY" value="true" />
+               <store messageStore="MSG_STORE" />
+            </inSequence>
+            <outSequence>
+               <send />
+            </outSequence>
+         </target>
+      </proxy>
+      ```
 
-```xml tab='Local Registry Entry'
-<localEntry xmlns="http://ws.apache.org/ns/synapse" key="sec_policy" src="file:/path/to/policy1.xml" />
-```
+=== "Local Registry Entry"
+      ```xml
+      <localEntry xmlns="http://ws.apache.org/ns/synapse" key="sec_policy" src="file:/path/to/policy1.xml" />
+      ```
 
-```xml tab='Endpoint'
-<endpoint xmlns="http://ws.apache.org/ns/synapse" name="SecureStockQuoteService">
-    <address uri="http://localhost:9000/services/SecureStockQuoteService">
-       <enableSec policy="sec_policy" />
-    </address>
- </endpoint>
-```
+=== "Endpoint"
+      ```xml
+      <endpoint xmlns="http://ws.apache.org/ns/synapse" name="SecureStockQuoteService">
+         <address uri="http://localhost:9000/services/SecureStockQuoteService">
+            <enableSec policy="sec_policy" />
+         </address>
+      </endpoint>
+      ```
 
-```xml tab='Message Store'
-<messageStore xmlns="http://ws.apache.org/ns/synapse" name="MSG_STORE" />
-```
+=== "Message Store"
+      ```xml
+      <messageStore xmlns="http://ws.apache.org/ns/synapse" name="MSG_STORE" />
+      ```
 
-```xml tab='Message Processor'
-<messageProcessor xmlns="http://ws.apache.org/ns/synapse" class="org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor" name="SecureForwardingProcessor" targetEndpoint="SecureStockQuoteService" messageStore="MSG_STORE">
-          <parameter name="client.retry.interval">1000</parameter>
-          <parameter name="interval">1000</parameter>
-          <parameter name="is.active">true</parameter>
-</messageProcessor>
-```
+=== "Message Processor"
+      ```xml
+      <messageProcessor xmlns="http://ws.apache.org/ns/synapse" class="org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor" name="SecureForwardingProcessor" targetEndpoint="SecureStockQuoteService" messageStore="MSG_STORE">
+               <parameter name="client.retry.interval">1000</parameter>
+               <parameter name="interval">1000</parameter>
+               <parameter name="is.active">true</parameter>
+      </messageProcessor>
+      ```
 
 ## Build and run
 

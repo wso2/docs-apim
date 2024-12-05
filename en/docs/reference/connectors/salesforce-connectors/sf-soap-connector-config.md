@@ -24,7 +24,7 @@ Follow the steps below to import the Salesforce certificate into the integration
      <img src="{{base_path}}/assets/img/integrate/connectors/salesforcesoap-certificste-and-key-management.png" title="salesforcesoap-certificste-and-key-management" width="90%" alt="salesforcesoap-certificste-and-key-management"/>  
     
 3. Export the certificate to the file system.
-4. Import the certificate to the integration runtime's client keystore using the following [command]({{base_path}}/install-and-setup/security/importing_ssl_certificate/).
+4. Import the certificate to the integration runtime's client keystore using the following [command]({{base_path}}/install-and-setup/setup/mi-setup/security/importing_ssl_certificate/#importing-ssl-certificates-to-a-keystore).
 
     ```
     keytool -importcert -file <certificate file> -keystore <PRODUCT_HOME>/repository/resources/security/client-truststore.jks -alias "Salesforce"
@@ -41,7 +41,7 @@ Follow the steps below to import the Salesforce certificate into the integration
      </salesforce.init>
     ```
 
-> **Note**: Secure Vault is supported for [encrypting passwords]({{base_path}}/install-and-setup/security/encrypting_plain_text/). See, Working with Passwords on integrating and using Secure Vault.
+> **Note**: Secure Vault is supported for [encrypting passwords]({{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text). See, Working with Passwords on integrating and using Secure Vault.
 
 ## Re-using Salesforce configurations
 

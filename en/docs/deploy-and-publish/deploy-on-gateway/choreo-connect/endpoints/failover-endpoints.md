@@ -57,64 +57,69 @@ In this approach you can define failover endpoints in API level as well as in re
 
 The following configuration demonstrates how to define failover endpoints for API level in an OpenAPI definition file.
 
-``` yaml tab="Format"
-openapi: <version>
-...
-x-wso2-production-endpoints:
-  urls:
-  -  <URL1>
-  -  <URL2>
-  type: failover
-...
-```
+=== "Format"
+    ``` yaml
+    openapi: <version>
+    ...
+    x-wso2-production-endpoints:
+      urls:
+      -  <URL1>
+      -  <URL2>
+      type: failover
+    ...
+    ```
 
-``` yaml tab="Example"
-...
-x-wso2-production-endpoints:
-  urls:
-    - http://localhost:2380/v2
-    - http://localhost:2381/v2
-  type: failover
-...
-```
+=== "Example"
+    ``` yaml
+    ...
+    x-wso2-production-endpoints:
+      urls:
+        - http://localhost:2380/v2
+        - http://localhost:2381/v2
+      type: failover
+    ...
+    ```
 
 ### Failover Endpoints at Resource Level
 
 The following configuration demonstrates how to define failover endpoints for resource level in an OpenAPI definition file.
 
-``` yaml tab="Format"
-openapi: <version>
-...
-paths:
-  "/<path>":
-    <operation>:
-  x-wso2-production-endpoints:
-    urls:
-    - <URL1>
-    - <URL2>
-  type: failover
-```
-
-``` yaml tab="Example"
-paths:
-  "/pet/findByStatus":
-    get:
-      responses:
-        '200':
-          description: OK
+=== "Format"
+    ``` yaml
+    openapi: <version>
     ...
-    x-wso2-production-endpoints:
-      urls:
-        - http://localhost:2380/v1
-        - http://localhost:2380/v1
+    paths:
+      "/<path>":
+        <operation>:
+      x-wso2-production-endpoints:
+        urls:
+        - <URL1>
+        - <URL2>
       type: failover
-  "/pet/{petId}":
-    get:
-      responses:
-        '200':
-          description: OK
-...
-```
+    ```
+
+=== "Example"
+    ``` yaml
+    paths:
+      "/pet/findByStatus":
+        get:
+          responses:
+            '200':
+              description: OK
+        ...
+        x-wso2-production-endpoints:
+          urls:
+            - http://localhost:2380/v1
+            - http://localhost:2380/v1
+          type: failover
+      "/pet/{petId}":
+        get:
+          responses:
+            '200':
+              description: OK
+    ...
+    ```
+
 !!! warning
     The endpoint URLs that you provide as failover endpoints should have the same base path as in the `x-wso2-production-endpoints`.
     If you define some other base path, it will not result in the expected behaviour.

@@ -187,7 +187,7 @@ The following is a sample available in the component.xml file.
 
 ### Operation
 
-An operation of an integration connector is implemented using a [synapse template](https://docs.wso2.com/display/EI611/Sequence+Template) as mentioned before.
+An operation of an integration connector is implemented using a [synapse template](https://wso2docs.atlassian.net/wiki/spaces/EI611/pages/10650004/Sequence+Template) as mentioned before.
 A typical template configuration for an operation would look like below.
 
 ```xml
@@ -785,7 +785,7 @@ Connection timeout is an environment dependent configuration. Developers may def
 **Handle errors meaningfully. Use ERROR CODES**
 Sometimes it is required to handle errors within the connector. Sometimes it is required to let the calling template handle the error. Sometimes it is required to forward the error message back to the connector operation invoker as it is. It is good to analyze use cases, and then design which errors need to be handled at which instance. However, it is a good practice to define and use error codes. 
 
-Please read the [WSO2 Error Code guide]({{base_path}}/reference/error_handling/). 
+Please read the [WSO2 Error Code guide]({{base_path}}/troubleshooting/error-handling/#error-codes). 
 
 **Write test cases**
 

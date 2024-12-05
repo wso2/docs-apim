@@ -80,13 +80,15 @@ Shown below is an example of Correlation log entries corresponding to the round 
 
 The pattern/format of a Correlation log is shown below along with an example log entry.
 
-```bash tab="Log Pattern"
-Time Stamp|Correlation ID|Thread name|Duration|Call type|Connection name|Method type|Connection URL|HTTP state
-```
+=== "Log Pattern"
+    ```bash
+    Time Stamp|Correlation ID|Thread name|Duration|Call type|Connection name|Method type|Connection URL|HTTP state
+    ```
 
-```bash tab="Example Log"
-2021-10-26 17:34:40,464|de461a83-fc74-4660-93ed-1b609ecfac23|HTTP-Listener I/O dispatcher-3|535|HTTP|http-incoming-3|GET|/api/querydoctor/surgery|ROUND-TRIP LATENCY
-```
+=== "Example Log"
+    ```bash
+    2021-10-26 17:34:40,464|de461a83-fc74-4660-93ed-1b609ecfac23|HTTP-Listener I/O dispatcher-3|535|HTTP|http-incoming-3|GET|/api/querydoctor/surgery|ROUND-TRIP LATENCY
+    ```
 
 The detail recorded in a log entry is described below.
 

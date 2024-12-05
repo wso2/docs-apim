@@ -4,7 +4,7 @@ When an API call hits the API Gateway, the Gateway carries out security checks t
 
 The default cache size of any type of cache in a WSO2 product is 10,000 elements/records. Cache eviction occurs from the 10001st element. All caches in WSO2 products can be configured using the `<PRODUCT_HOME>/repository/conf/deployment.toml` file. In case you have not defined a value for default cache timeout under server configurations, the `defaultCacheTimeout` of 15 minutes will be applied which comes by default.
 
-``` java
+``` toml
 [server]
 default_cache_timeout = 15
 ```
@@ -20,14 +20,7 @@ These configurations apply globally to all caches. You can override these values
 
 ## API Gateway cache
 
-When caching is enabled at the Gateway and a request hits the Gateway, it first populates the cached entry for a given token. If a cache entry does not exist in the cache, it calls the Key Manager server. This process is carried out using Web service calls. After the Key Manager server returns the validation information, it gets stored in the Gateway. As the API Gateway issues a Web service call to the Key Manager server only, if it does not have a cache entry, this method reduces the number of Web service calls to the Key Manager server. Therefore, it is faster than the alternative method.
-
-By default, the API Gateway cache is enabled. This can be disabled by modifying the following attribute in the `<PRODUCT_HOME>/repository/conf/deployment.toml` file.
-
-```
-[apim.cache.gateway_token]
-enable = false
-```
+When caching is enabled at the Gateway and a request hits the Gateway, it first populates the cached entry for a given token. If a cache entry does not exist in the cache, for **JWT tokens**, gateway self validates the JWT and store it in the Gateway. If a cache entry does not exist in the cache, for **opaque tokens**, it calls the Key Manager server. This process is carried out using web service calls. After the Key Manager server returns the validation information, it gets stored in the Gateway. 
 
 ### Clearing the API Gateway cache
 
@@ -37,7 +30,7 @@ This feature is enabled by default and token revocation events are published by 
 
 If you need to change the default behavior, you can implement the `org.wso2.carbon.apimgt.notification.TokenRevocationNotifier` interface and plug new implementation using the following configuration in the `deployment.toml` file.
 
-```
+```toml
 [apim.token.revocation]
 notifier_impl="org.wso2.carbon.apimgt.notification.TokenRevocationNotifier"
 ```
@@ -56,7 +49,7 @@ Note that if you update an API, the resource cache gets invalidated and the chan
 
 By default, the resource cache is enabled.  This can be disabled by modifying the following attribute in the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
-```
+```toml
 [apim.cache.resource]
 enable = false
 ```
@@ -81,9 +74,9 @@ For information on how to enable JWT claims caching, see [JWT claims Caching]({{
 
 ### Publisher-roles cache
 
-This indicates whether the role cache needs to be enabled in the Publisher. It is disabled by default. If this is disabled, for all API publisher calls, there will be a call to the Key Manager. It expires in 15 minutes by default. It is highly recommended to enable this cache. However, if the system is in a state where the role addition and deletion happen seamlessly, the caching will not happen as expected.
+This indicates whether the role cache needs to be enabled in the Publisher. It is enabled by default. If this is disabled, for all API publisher calls, there will be a call to the Key Manager. It expires in 15 minutes by default. It is highly recommended to keep this cache enabled. However, if the system is in a state where the role addition and deletion happen seamlessly, the caching will not happen as expected.
 
-```
+```toml
 [apim.cache.publisher_roles]
 enable = true
 ```
@@ -96,7 +89,7 @@ The Developer Portal has several caches to reduce the page load times and increa
 
 This cache saves the API's tags after they have been retrieved from the Registry. If your APIs and associated tags change frequently, it is recommended to configure a smaller cache refresh time (in milliseconds). This cache is disabled by default. To enable it, uncomment the following element in the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
-``` java
+``` toml
 [apim.cache.tags]
 expiry_time = "2m"
 ```
@@ -105,7 +98,7 @@ expiry_time = "2m"
 
 This cache saves the five most recently added APIs. It is disabled by default. If you have multiple API modifications during a short time period, it is recommended to not enable this cache. To enable it, uncomment the following section in the `<API-M_HOME>/repository/conf/deployment.toml` file and set enable to `true`.
 
-``` java
+``` toml
 [apim.cache.recent_apis]
 enable = true
 ```
@@ -114,7 +107,7 @@ enable = true
 
 This specifies whether scopes are taken from the cache or not. It is disabled by default. If you are modifying application subscriptions frequently, modifying the user roles frequently, or updating the subscribed APIs frequently, it is recommended to not enable this cache. To enable it, uncomment the following section in the `<API-M_HOME>/repository/conf/deployment.toml` file and set enable to `true`.
 
-``` java
+``` toml
 [apim.cache.scopes]
 enable = true
 ```

@@ -45,7 +45,7 @@ To configure the **Apache ActiveMQ** message broker, follow the steps below:
 1. Install [Apache ActiveMQ JMS](http://activemq.apache.org/).
 
     !!!info
-        This guide uses ActiveMQ versions 5.7.0 - 5.9.0. If you want to use a later version, for instructions on the necessary changes to the configuration steps, go to [Apache ActiveMQ Documentation](http://activemq.apache.org/activemq-580-release.html).
+        This guide uses ActiveMQ versions 5.7.0 - 5.9.0. If you want to use a later version, for instructions on the necessary changes to the configuration steps, go to [Apache ActiveMQ Documentation](https://activemq.apache.org/activemq-5008000-release).
     
 
 2. Download the `activemq-client-5.x.x.jar` from [here](https://activemq.apache.org/components/classic/download/).
@@ -101,7 +101,7 @@ To configure the **Apache ActiveMQ** message broker, follow the steps below:
 
 To configure the **MQTT** message broker, follow the steps below:
 
-1. Download the `org.eclipse.paho.client.mqttv3-1.1.1.jar` file from [here](https://www.eclipse.org/paho/downloads.php).
+1. Download the `org.eclipse.paho.client.mqttv3-1.1.1.jar` file from [here](https://eclipse.dev/paho/index.php?page=downloads.php).
 
 2. Place the file you downloaded in the `<SI_TOOLING_HOME>/lib` directory.
 

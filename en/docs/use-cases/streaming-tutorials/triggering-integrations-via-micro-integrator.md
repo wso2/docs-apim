@@ -8,7 +8,7 @@ To understand this, consider a scenario where the Streaming Integrator receives 
 
 ## Before you begin
 
-- [Start WSO2 Streaming Integrator server]({{base_path}}/setup/installing-si#starting-the-si-server).
+- [Start WSO2 Streaming Integrator server]({{base_path}}/install-and-setup/install/installing-the-product/installing-si).
 
 - [Start Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview#starting-streaming-integrator-tooling).
 
@@ -19,7 +19,7 @@ To understand this, consider a scenario where the Streaming Integrator receives 
     - **For Windows**     : `extension-installer.bat install grpc`
     - **For Linux/MacOS** : `./extension-installer.sh install grpc`
     
-   Then restart WSO2 Streaming Integrator for the installation to be effective. For detailed instructions to install a Siddhi extension, see [Downloading and Installing Siddhi Extensions]({{base_path}}/streaming/connectors/installing-siddhi-extensions).
+   Then restart WSO2 Streaming Integrator for the installation to be effective. For detailed instructions to install a Siddhi extension, see [Downloading and Installing Siddhi Extensions]({{base_path}}/reference/streaming-connectors/downloading-and-installing-siddhi-extensions).
 
 
 ## Step 1: Configure the Streaming Integrator
@@ -86,35 +86,35 @@ Let's design a Siddhi application that triggers an integration flow and deploy i
 
     a. To calculate the average per minute, add a Siddhi query named `CalculateAverageProductionPerMinute` as follows:
 
-        ```
+       ```
         @info(name = 'CalculateAverageProductionPerMinute')
         from InputStream#window.timeBatch(1 min)
         select avg(amount) as avgAmount, symbol
         group by symbol
         insert into AVGStream;
-        ```
+       ```
 
      This query applies a time batch window to the `InputStream` stream so that events within each minute is considered a separate subset to be calculations in the query are applied. The minutes are considered in a tumbling manner because it is a batch window. Then the `avg()` function is applied to the `amount` attribute of the input stream to derive the average production amount. The results are then inserted into an inferred stream named `AVGStream`.
 
     b. To filter events from the `AVGStream` stream where the average production is greater then 100, add a query named `FilterExcessProduction` as follows.
 
-        ```
-        @info(name = 'FilterExcessProduction')
-        from AVGStream[avgAmount > 100]
-        select symbol, avgAmount
-        insert into FooStream;
-        ```
+       ```
+       @info(name = 'FilterExcessProduction')
+       from AVGStream[avgAmount > 100]
+       select symbol, avgAmount
+       insert into FooStream;
+       ```
 
       Here, the `avgAmount > 100` filter is applied to filter only events that report an average production amount greater than 100. The filtered events are inserted into the `FooStream` stream.
 
     c. To select all the responses from the Micro Integrator to be logged, add a new query named `LogResponseEvents`
 
-        ```
-        @info(name = 'LogResponseEvents')
-        from BarStream
-        select *
-        insert into LogStream;
-        ```
+       ```
+       @info(name = 'LogResponseEvents')
+       from BarStream
+       select *
+       insert into LogStream;
+       ```
 
       The responses received from the Micro Integrator are directed to the `BarStream` input stream. This query gets them all these events from the `BarStream` stream and inserts them into the `LogStream` stream that is connected to a `log` stream so that they can be published as logs in the terminal.
 

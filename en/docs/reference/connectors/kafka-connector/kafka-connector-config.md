@@ -7,7 +7,10 @@ The following operations allow you to work with the Kafka Connector. Click an op
 To use the Kafka connector, add the `<kafkaTransport.init>` element in your configuration before carrying out any other Kafka operations. This can be with or without security depending on your requirements.
 
 ??? note "kafkaTransport.init"
-    You can configure the kafkaTransport.init operation to setup your Kafka producer with or without security.
+    You can configure the `kafkaTransport.init` operation to setup your Kafka producer with or without security.
+
+    **Non-Secured Connection Parameters**
+
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -15,7 +18,7 @@ To use the Kafka connector, add the `<kafkaTransport.init>` element in your conf
             <th>Required</th>
         </tr>
         <tr>
-            <td>name</td>
+            <td>connectionName</td>
             <td>Unique name to identify the connection.</td>
             <td>Yes</td>
         </tr>
@@ -70,31 +73,6 @@ To use the Kafka connector, add the `<kafkaTransport.init>` element in your conf
             <td>Optional</td>
         </tr>
         <tr>
-            <td>sslKeyPassword</td>
-            <td>The password of the private key in the keystore file. Setting this for the client is optional.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>sslKeystoreLocation</td>
-            <td>The location of the key store file. Setting this for the client is optional. Set this when you want to have two-way authentication for the client.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>sslKeystorePassword</td>
-            <td>The store password for the keystore file. Setting this for the client is optional. Set it only if ssl.keystore.location is configured.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>sslTruststoreLocation</td>
-            <td>The location of the trust store file.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>sslTruststorePassword</td>
-            <td>The password for the trust store file.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
             <td>batchSize</td>
             <td>Specify how many records the producer should batch together when multiple records are sent to the same partition.</td>
             <td>Optional</td>
@@ -140,16 +118,6 @@ To use the Kafka connector, add the `<kafkaTransport.init>` element in your conf
             <td>Optional</td>
         </tr>
         <tr>
-            <td>saslJaasConfig</td>
-            <td>JAAS login context parameters for SASL connections in the format used by JAAS configuration files.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>saslKerberosServiceName</td>
-            <td>The Kerberos principal name that Kafka runs as.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
             <td>securityProtocol</td>
             <td>The protocol used to communicate with brokers.</td>
             <td>Optional</td>
@@ -157,31 +125,6 @@ To use the Kafka connector, add the `<kafkaTransport.init>` element in your conf
         <tr>
             <td>sendBufferBytes</td>
             <td>The size of the TCP send buffer (SO_SNDBUF) to use when sending data.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>sslEnabledProtocols</td>
-            <td>The list of protocols enabled for SSL connections.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>sslKeystoreType</td>
-            <td>The format of the keystore file. Setting this for the client is optional.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>sslProtocol</td>
-            <td>The SSL protocol used to generate the SSLContext.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>sslProvider</td>
-            <td>The name of the security provider used for SSL connections. The default value is the default security provider of the JVM.</td>
-            <td>Optional</td>
-        </tr>
-        <tr>
-            <td>sslTruststoreType</td>
-            <td>The format of the trust store file.</td>
             <td>Optional</td>
         </tr>
         <tr>
@@ -235,6 +178,143 @@ To use the Kafka connector, add the `<kafkaTransport.init>` element in your conf
             <td>Optional</td>
         </tr>
         <tr>
+            <td>poolingEnabled</td>
+            <td>Indicates whether or not connection pooling is enabled. Set to 'true' if pooling is enabled and 'false' otherwise.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>maxActiveConnections</td>
+            <td>Maximum number of active connections in the pool.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>maxIdleConnections</td>
+            <td>Maximum number of idle connections in the pool.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>maxWaitTime</td>
+            <td>Maximum number of idle connections in the pool.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>minEvictionTime</td>
+            <td>The minimum amount of time an object may remain idle in the pool before it is eligible for eviction.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>evictionCheckInterval</td>
+            <td>The number of milliseconds between runs of the object evictor.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>exhaustedAction</td>
+            <td>The behavior of the pool when the pool is exhausted (WHEN_EXHAUSTED_FAIL/WHEN_EXHAUSTED_BLOCK/WHEN_EXHAUSTED_GROW).</td>
+            <td>Optional</td>
+        </tr>
+    </table>
+
+    The following non-secured connection parameters are available in the Kafka Connector from v3.1.6 onwards.
+
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>enableIdempotence</td>
+            <td>When set to <code>true</code>, the producer will ensure that exactly one copy of each message is written in the stream. If <code>false</code>, producer retries due to broker failures, etc. May write duplicates of the retried message in the stream.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>messageSendMaxRetries</td>
+            <td>This property will cause the producer to automatically retry a failed send request.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>reconnectBackoffMax</td>
+            <td>The maximum amount of time in milliseconds to wait when reconnecting to a broker that has repeatedly failed to connect.</td>
+            <td>Optional</td>
+        </tr>
+    </table>
+
+    In addition to the above-mentioned non-secured connection parameters, the following secured connection parameters are also available.
+
+    **Secured Connection Parameters**
+
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>sslKeyPassword</td>
+            <td>The password of the private key in the keystore file. Setting this for the client is optional.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>sslKeystoreLocation</td>
+            <td>The location of the key store file. Setting this for the client is optional. Set this when you want to have two-way authentication for the client.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>sslKeystorePassword</td>
+            <td>The store password for the keystore file. Setting this for the client is optional. Set it only if ssl.keystore.location is configured.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>sslTruststoreLocation</td>
+            <td>The location of the trust store file.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>sslTruststorePassword</td>
+            <td>The password for the trust store file.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>saslJaasConfig</td>
+            <td>JAAS login context parameters for SASL connections in the format used by JAAS configuration files.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>saslKerberosServiceName</td>
+            <td>The Kerberos principal name that Kafka runs as.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>saslMechanism</td>
+            <td>The mechanism used for SASL.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>sslEnabledProtocols</td>
+            <td>The list of protocols enabled for SSL connections.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>sslKeystoreType</td>
+            <td>The format of the keystore file. Setting this for the client is optional.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>sslProtocol</td>
+            <td>The SSL protocol used to generate the SSLContext.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>sslProvider</td>
+            <td>The name of the security provider used for SSL connections. The default value is the default security provider of the JVM.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>sslTruststoreType</td>
+            <td>The format of the trust store file.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
             <td>saslKerberosKinitCmd</td>
             <td>The kerberos kinit command path.</td>
             <td>Optional</td>
@@ -279,39 +359,49 @@ To use the Kafka connector, add the `<kafkaTransport.init>` element in your conf
             <td>The algorithm used by the trust manager factory for SSL connections. The default value is the trust manager factory algorithm configured for the Java Virtual Machine.</td>
             <td>Optional</td>
         </tr>
+    </table>
+
+    The following secured connection parameters are available in the Kafka Connector from v3.1.6 onwards.
+
+    <table>
         <tr>
-            <td>poolingEnabled</td>
-            <td>Indicates whether or not connection pooling is enabled. Set to 'true' if pooling is enabled and 'false' otherwise.</td>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>saslOauthbearerTokenEndpoint</td>
+            <td>The URL for the OAuth/OIDC identity provider.</td>
             <td>Optional</td>
         </tr>
         <tr>
-            <td>maxActiveConnections</td>
-            <td>Maximum number of active connections in the pool.</td>
+            <td>saslLoginCallbackHandlerClass</td>
+            <td>The fully qualified name of a SASL login callback handler class that implements the <code>AuthenticateCallbackHandler</code> interface.</td>
             <td>Optional</td>
         </tr>
         <tr>
-            <td>maxIdleConnections</td>
-            <td>Maximum number of idle connections in the pool.</td>
+            <td>saslOauthbearerScopeClaimName</td>
+            <td>The override name of the scope claim.</td>
             <td>Optional</td>
         </tr>
         <tr>
-            <td>maxWaitTime</td>
-            <td>Maximum number of idle connections in the pool.</td>
+            <td>saslLoginConnectTimeout</td>
+            <td>The duration, in milliseconds, for HTTPS connect timeout.</td>
             <td>Optional</td>
         </tr>
         <tr>
-            <td>minEvictionTime</td>
-            <td>The minimum amount of time an object may remain idle in the pool before it is eligible for eviction.</td>
+            <td>saslLoginReadTimeout</td>
+            <td>The duration, in milliseconds, for HTTPS read timeout.</td>
             <td>Optional</td>
         </tr>
         <tr>
-            <td>evictionCheckInterval</td>
-            <td>The number of milliseconds between runs of the object evictor.</td>
+            <td>saslLoginRetryBackoff</td>
+            <td>The duration, in milliseconds, to wait between HTTPS call attempts.</td>
             <td>Optional</td>
         </tr>
         <tr>
-            <td>exhaustedAction</td>
-            <td>The behavior of the pool when the pool is exhausted (WHEN_EXHAUSTED_FAIL/WHEN_EXHAUSTED_BLOCK/WHEN_EXHAUSTED_GROW).</td>
+            <td>saslLoginRetryBackoffMax</td>
+            <td>The maximum duration, in milliseconds, for HTTPS call attempts.</td>
             <td>Optional</td>
         </tr>
     </table>

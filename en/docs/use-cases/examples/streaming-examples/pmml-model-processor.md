@@ -5,7 +5,7 @@ This application demonstrates how to configure a pretrained PMML model to predic
 
 ## Prerequisites:
 1. Download siddhi-gpl-execution-pmml-x.x.x.jar from the following link and copy the jar to  {WSO2SIHome}/lib
- http://maven.wso2.org/nexus/content/repositories/wso2gpl/org/wso2/extension/siddhi/gpl/execution/pmml/siddhi-gpl-execution-pmml/
+http://maven.wso2.org/nexus/content/repositories/wso2gpl/org/wso2/extension/siddhi/gpl/execution/pmml/siddhi-gpl-execution-pmml/
 2. Save this sample.
 3. If there is no syntax error, the following message is shown on the console:
     - Siddhi App PmmlModelProcessor successfully deployed.

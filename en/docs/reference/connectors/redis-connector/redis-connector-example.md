@@ -156,8 +156,8 @@ Create a resource that sets up Redis hash map and sets a specific field in a has
    
    Navigate into the **Palette** pane and select the graphical operations icons listed under **Redis Connector** section. Then drag and drop the `hDel` operation into the Design pane. The `hDel` operation deletes one or more hash fields
         
-      - **redisKey** : The name of the key where the hash is stored.
-      - **redisFields** : The fields that you want to delete.
+   - **redisKey** : The name of the key where the hash is storedddd.
+   - **redisFields** : The fields that you want to delete.
       
       <img src="{{base_path}}/assets/img/integrate/connectors/redis-hdell-drag-and-drop.png" title="Drag and drop hDell operation" width="500" alt="Drag and drop hDell operation"/>
    
@@ -165,8 +165,8 @@ Create a resource that sets up Redis hash map and sets a specific field in a has
                
 Now you can switch into the Source view and check the XML configuration files of the created API and sequences. 
     
-  ??? note "StockQuoteAPI.xml"
-      ```
+??? note "StockQuoteAPI.xml"
+    ```xml
         <?xml version="1.0" encoding="UTF-8"?>
         <api context="/stockquote" name="StockQuoteAPI" xmlns="http://ws.apache.org/ns/synapse">
             <resource methods="GET" uri-template="/getstockquote/{symbol}">
@@ -256,7 +256,7 @@ Now you can switch into the Source view and check the XML configuration files of
                 <faultSequence/>
             </resource>
         </api>
-        ```
+    ```
 ## Get the project
 
 You can download the ZIP file and extract the contents to get the project code.
@@ -279,13 +279,13 @@ Invoke the API as shown below using the curl command. Curl Application can be do
  
    **Sample request 1**
 
-    ```
+```
      curl -v GET "http://localhost:8290/stockquote/view/WSO2" -H "Content-Type:application/json"    
-    ```
+```
 
    **Expected Response**
     
-     ```json
+```json
      {
          "Envelope": {
              "Body": {
@@ -307,17 +307,17 @@ Invoke the API as shown below using the curl command. Curl Application can be do
              }
          }
      }
-     ```
+```
      
    **Sample request 2**
      
-     ```
+```
       curl -v GET "http://localhost:8290/stockquote/view/IBM" -H "Content-Type:application/json"    
-     ```
+```
      
    **Expected Response**
          
-     ```json
+```json
      {
          "Envelope": {
              "Body": {
@@ -340,73 +340,73 @@ Invoke the API as shown below using the curl command. Curl Application can be do
          }
      }      
         
-     ```
+```
    **Inserted hash map can check using `redis-cli`**  
    
      Log in to the `redis-cli` and execute `HGETALL StockVolume` command to retrieve inserted hash map details.
    
-     ```
+```
      127.0.0.1:6379> HGETALL StockVolume
      1) "IBM"
      2) "7791"
      3) "WSO2"
      4) "7791"
      127.0.0.1:6379>
-     ```
+```
 2. Retrieve all stock volume details from the Redis server.
  
    **Sample request**
 
-    ```
+```
      curl -v GET "http://localhost:8290/stockquote/getstockvolumedetails" -H "Content-Type:application/json"    
-    ```
+```
 
    **Expected Response**
     
-     ```json
+```json
      {
          "output": "{IBM=7791, WSO2=7791}"
      }
-     ```
+```
 3. Remove stock volume details.
  
    **Sample request 1**
 
-    ```
+```
      curl -v POST -d {"redisFields":"WSO2"}  "http://localhost:8290/stockquote/deletestockvolumedetails" -H "Content-Type:application/json"    
-    ```
+```
 
    **Expected Response**
     
-     ```json
+```json
      {
          "output": 1
      }
-     ```
+```
      
    **Sample request 2 : Check the remaining stock volume details**
     
    **Sample request**
    
-     ```
+```
        curl -v GET "http://localhost:8290/stockquote/getstockvolumedetails" -H "Content-Type:application/json"    
-     ```
+```
    
    **Expected Response**
        
-     ```json
+```json
      {
           "output": "{IBM=7791}"
      }
-     ``` 
+``` 
       
    **Inserted list can retrieve using `redis-cli`**  
    
      Log in to the `redis-cli` and execute `HGETALL StockVolume` command to retrieve list length.
    
-     ```
+```
      127.0.0.1:6379> HGETALL StockVolume
      1) "IBM"
      2) "7791"
      127.0.0.1:6379>
-     ```     
+```     

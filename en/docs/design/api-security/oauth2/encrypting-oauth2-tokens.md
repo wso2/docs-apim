@@ -13,7 +13,7 @@ Follow the steps below to enable OAuth2 token encryption
 1.  Stop the API Manager server if it is already running.
 2.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file, uncomment the following configuration and set the `enable_token_encryption` value to be `true`.   
 
-    ``` 
+    ```toml
     [apim.oauth_config]
     enable_token_encryption = true
     ```
@@ -21,7 +21,7 @@ Follow the steps below to enable OAuth2 token encryption
     !!! Note
         By default, WSO2 API Manager uses `RSA/ECB/OAEPwithSHA1andMGF1Padding` algorithm for token encryption. If you want to change the algorithm, please add following configuration to deployment.toml, specifying the preferred algorithm.
     
-        ```
+        ```toml
         [system.parameter]
         "org.wso2.CipherTransformation" = "<Algorithm>"
         ```
@@ -33,6 +33,6 @@ Follow the steps below to enable OAuth2 token encryption
     !!! tip
 
         -   If you use a [Distributed API Manager setup]({{base_path}}/install-and-setup/deploying-wso2-api-manager/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m) , the changes must be made on both the Developer Portal and Key Manager nodes.
-        -   If you use WSO2 Identity Server [(WSO2 IS) as the Key Manager setup]({{base_path}}/install-and-setup/deploying-wso2-api-manager/ThirdPartyKeyManager/configuring-wso2-identity-server-as-a-key-manager/) , you need to make changes in both WSO2 IS and WSO2 API Manager.
+        -   If you use WSO2 Identity Server [(WSO2 IS) as the Key Manager setup]({{base_path}}/install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager) , you need to make changes in both WSO2 IS and WSO2 API Manager.
 
 

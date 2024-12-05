@@ -1,5 +1,7 @@
 # Accessing a Windows Share using VFS
-This example demonstrates how the [VFS transport]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/configuring-the-vfs-transport) in WSO2 Micro Integrator can be used to access a windows share.
+
+This example demonstrates how the [VFS transport]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports) in WSO2 Micro Integrator can be used to access a windows share.
+
 
 ## Synapse configuration
 
@@ -7,12 +9,12 @@ Following are the integration artifacts (proxy service) that we can used to impl
 
 ```xml
 <proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="vfs">
-    <parameter name="transport.vfs.FileURI">smb://host/test/in</parameter> 
+    <parameter name="transport.vfs.FileURI">vfs:smb://host/test/in</parameter> 
     <parameter name="transport.vfs.ContentType">text/xml</parameter>
     <parameter name="transport.vfs.FileNamePattern">.*\.xml</parameter>
     <parameter name="transport.PollInterval">15</parameter>
-    <parameter name="transport.vfs.MoveAfterProcess">smb://host/test/original</parameter> 
-    <parameter name="transport.vfs.MoveAfterFailure">smb://host/test/failed</parameter>
+    <parameter name="transport.vfs.MoveAfterProcess">vfs:smb://host/test/original</parameter> 
+    <parameter name="transport.vfs.MoveAfterFailure">vfs:smb://host/test/failed</parameter>
     <parameter name="transport.vfs.ActionAfterProcess">MOVE</parameter>
     <parameter name="transport.vfs.ActionAfterFailure">MOVE</parameter>
 
@@ -69,13 +71,15 @@ To test this sample, the following files and directories should be created:
     - Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
     - Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
        
-        ```bash tab='On MacOS/Linux/CentOS'
-        sh axis2server.sh
-        ```
+        === "On MacOS/Linux/CentOS"
+            ```bash
+            sh axis2server.sh
+            ```
           
-        ```bash tab='On Windows'
-        axis2server.bat
-        ```
+        === "On Windows"
+            ```bash
+            axis2server.bat
+            ```
     
 5.  Create the `test.xml` file shown below and copy it to the location specified by `transport.vfs.FileURI` in the configuration (i.e., the **in** directory). This contains a simple stock quote request in XML/SOAP format.
 
@@ -101,7 +105,7 @@ When the sample is executed, the VFS transport listener picks the file from the 
 Windows share URI format for SMB v2/3 use cases is shown below.
 
 ```
-smb2://[username]:[password]@[hostname]:[port]/[absolute-path
+vfs:smb2://[username]:[password]@[hostname]:[port]/[absolute-path]
 ```
 You can use the proxy given below to test the SMB2 functionality.
 
@@ -120,18 +124,18 @@ You can use the proxy given below to test the SMB2 functionality.
          <property name="OUT_ONLY" value="true"/>
          <send>
             <endpoint>
-               <address uri="smb2://username:password@/host/SMBFileShare/out"/>
+               <address uri="vfs:smb2://username:password@host/SMBFileShare/out"/>
             </endpoint>
          </send>
       </inSequence>
    </target>
    <parameter name="transport.PollInterval">15</parameter>
-   <parameter name="transport.vfs.FileURI">smb2://username:password@/host/SMBFileShare/in</parameter>
+   <parameter name="transport.vfs.FileURI">vfs:smb2://username:password@host/SMBFileShare/in</parameter>
    <parameter name="transport.vfs.ContentType">text/plain</parameter>
    <parameter name="transport.vfs.ActionAfterProcess">MOVE</parameter>
-   <parameter name="transport.vfs.MoveAfterFailure">smb2://username:password@/host/SMBFileShare/fail</parameter>
+   <parameter name="transport.vfs.MoveAfterFailure">vfs:smb2://username:password@host/SMBFileShare/fail</parameter>
    <parameter name="transport.vfs.ActionAfterFailure">MOVE</parameter>
    <parameter name="transport.vfs.FileNamePattern">.*\.txt</parameter>
-   <parameter name="transport.vfs.MoveAfterProcess">smb2://username:password@/host/SMBFileShare/original</parameter>
+   <parameter name="transport.vfs.MoveAfterProcess">vfs:smb2://username:password@host/SMBFileShare/original</parameter>
 </proxy>
 ```

@@ -1,7 +1,62 @@
 # Generate REST API from SOAP Backend
 
-!!! Warning "Deprecated feature"
-    Note that this feature is deprecated in WSO2 API Manager 4.1.0. The support for this feature will be removed from subsequent versions of WSO2 API Manager.
+!!! Warning "Limitations"
+    APIM supports only a limited set of capabilities with this feature. If you want to process complex WSDL/XML schema please refer [WSO2 Integration Studio documentation](https://apim.docs.wso2.com/en/4.2.0/integrate/develop/creating-artifacts/creating-an-api/).
+
+    This feature has the following known limitations.
+
+    <details>
+        <summary>Unsupported / partially supported component types</summary>
+
+    - **<xs:choice\>**
+    - **<xs:annotation\>**
+    - **<xs:attribute\>** (Attribute type is always string. Default or fixed values are not supported. Attributes cannot be defined as optional or required)
+    - **<xs:restriction\>** (Only the base type is considered. No other elements added)
+    - **<xs:complexType\>** (Deeply nested complex types do not generate the correct mapping)
+    - **<xs:complexContent\>** (Has limitations with nested extensions)
+    - **<xs:simpleContent\>** (Has limitations with nested extensions)
+    - **<xs:all\>** (maxOccurs is not taken into consideration)
+    - **<xs:group\>**
+    - **<xs:attributeGroup\>**
+    - **<xs:any\>**
+    - **<xs:anyAttribute\>**
+    - **<xs:enumaration\>**
+    - **<xs:alternative\>**
+    - **<xs:assert\>**
+    - **<xs:key\>**
+    - **<xs:keyref\>**
+    - **<xs:list\>** (Item types are not defined)
+    - **<xs:unique\>**
+    - **<xs:appinfo\>**
+    - **<xs:documentation\>**
+    - **<xs:union\>**
+    - **minOccurs** (This attribute is ignored)
+    - **maxOccurs** (Only considers the unbounded case for arrays)
+    - **substitutionGroup** (This attribute is ignored)
+    - **Mixed Content** (This is ignored)
+
+    </details>
+
+    <details>
+        <summary>Supported primitive or derived datatypes</summary>
+
+    - string
+    - time (treated as a string)
+    - boolean
+    - int
+    - nonNegativeInteger
+    - integer
+    - positiveInteger
+    - double
+    - float
+    - long
+    - date
+    - dateTime
+    - decimal
+    - anyType
+    - base64Binary (treated as a string with byte format)
+
+    </details>
 
 This feature allows users to expose their legacy SOAP backends as REST APIs through WSO2 API Manager. 
 WSO2 API Manager supports WSDL 1.1 based SOAP backends.
@@ -89,4 +144,3 @@ Follow the instructions below to generate REST APIs in WSO2 API Manager for an e
      ```
 
     The incoming JSON message parameters are stored using properties. A payload factory mediator is used to generate the SOAP payload required for the backend.
-

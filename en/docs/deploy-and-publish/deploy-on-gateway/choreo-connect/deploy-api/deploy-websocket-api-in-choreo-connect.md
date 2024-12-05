@@ -102,7 +102,7 @@ After creating the API and making the necessary changes, click **Download API** 
 
 2. Invoke the API using the following command.
 
-    ```
-    wscat -c 'ws://localhost:9090/websocket/1.0.0/notification -H "Authorization:Bearer $TOKEN"
+    ```bash
+    wscat -c 'ws://localhost:9090/websocket/1.0.0/notification' -H "Authorization:Bearer $TOKEN"
     ```
 

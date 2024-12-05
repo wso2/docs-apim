@@ -3,8 +3,8 @@
 The WSO2 Micro Integrator supports standard XPath functions and variables through its underlying XPath engine. It supports XPath 1.0 by default where as the support for XPath 2.0 can be introduced by adding the following property in <MI_HOME>/conf/deployment.toml.
 
 ```toml
-[mediation]
-synapse.enable_xpath_dom_failover=true
+[synapse_properties]
+'synapse.xpath.dom.failover.enabled'=true
 ```
 
 The Micro Integrator also provides custom XPath functions and variables for accessing message properties.
@@ -200,7 +200,7 @@ Syntax:
 
 #### file scope
 
-You can retrieve properties defined in the `file.properties` configuration file using the following syntax.
+You can retrieve properties defined in the `file.properties` configuration file using the following syntax. Properties in the file are reloaded periodically according to the time interval defined by the `file.properties.sync.interval` system property in seconds. If this interval is not defined, changes to the properties will not be reloaded automatically during runtime.
 
 Syntax:  
 `get-property('file', String propertyName)`
@@ -216,7 +216,7 @@ given property with the `         operation        ` scope only exists
 in a single request and can be accessed by a single resource. The
 properties in this scope are passed to the error handler when the
 `         FORCE_ERROR_ON_SOAP_FAULT        ` property is set to
-`         true        ` . See `FORCE_ERROR_ON_SOAP_FAULT` section in [Generic Properties]({{base_path}}/reference/mediators/property-reference/generic-Properties) for more information.
+`         true        ` . See `FORCE_ERROR_ON_SOAP_FAULT` section in [Generic Properties]({{base_path}}/reference/mediators/property-reference/generic-properties/) for more information.
 
 Syntax:  
 `         get-property('operation', String propertyName)        `
@@ -244,7 +244,7 @@ The SOAP 1.1 or 1.2 body element. For example, the expression **$body//getQuote*
 
 **Example of $body usage**:
 
-1.  Deploy the following proxy service using instructions in [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service).  
+1.  Deploy the following proxy service using instructions in [Creating a Proxy Service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service).  
       
     Note the property, `           <property xmlns:m0="                                                  http://services.samples                                               " name="stockprop" expression="$body//m0:getQuote"/>          ` in the configuration. It is used to log the first `           <m0:getQuote>          ` element of the request SOAP body.
 
@@ -437,7 +437,7 @@ name="stockerrorprop" expression="$ctx:ERROR\_MESSAGE"/\> is equivalent
 to \<property name="stockerrorprop"
 expression="get-property('ERROR\_MESSAGE')"/\>.  
   
-Similarly, you can use $ctx prefix with [Generic Properties]({{base_path}}/reference/property-reference/generic-Properties) .
+Similarly, you can use $ctx prefix with [Generic Properties]({{base_path}}/reference/mediators/property-reference/generic-properties/) .
 
 ### $trp
 
@@ -492,8 +492,7 @@ In this example, the property definition, \<property name="stockprop"
 expression="$trp:Content-Type"/\> is equivalent to \<property
 name="stockprop"
 expression="get-property('transport','Content-Type')"/\>. Similarly, you
-can use $trp prefix with [HTTP Transport
-Properties](_HTTP_Transport_Properties_) .
+can use $trp prefix with [HTTP Transport Properties]({{base_path}}/reference/mediators/property-reference/http-transport-properties) .
 
 ### $url
 
@@ -501,7 +500,7 @@ The prefix used to get the URI element of a request URL.
 
 **Example of $url usage:**
 
-1.  Create a REST API with the following configuration using instructions given in page [Working with APIs]({{base_path}}/develop/creating-artifacts/creating-an-api).
+1.  Create a REST API with the following configuration using instructions given in page [Working with APIs]({{base_path}}/develop/creating-artifacts/creating-an-api.md).
 
     ``` xml
     <api xmlns="http://ws.apache.org/ns/synapse" name="Editing" context="/editing">
@@ -534,7 +533,7 @@ The prefix used to get the URI element of a request URL.
 
 The prefix used to refer to a particular parameter value passed
 externally by an invoker such as the [Call Template
-Mediator](_Call_Template_Mediator_) .
+Mediator]({{base_path}}/reference/mediators/call-template-mediator/) .
 
 **Example of $func usage:**
 
@@ -595,7 +594,7 @@ Prefix used to get a SOAP 1.1 or 1.2 envelope level element. For example, to get
 
 **Example of $env usage:**
 
-1.  Create an API with the following configuration. For information on how to create an API, see [Working with APIs]({{base_path}}/develop/creating-artifacts/creating-an-api).
+1.  Create an API with the following configuration. For information on how to create an API, see [Working with APIs]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api.md).
 
     ``` xml
     <api context="/soapEnvelopeTest" name="SoapEnvelopeTest">
@@ -621,7 +620,7 @@ Prefix used to get a SOAP 1.1 or 1.2 envelope level element. For example, to get
     </api>
     ```
 
-2.  Send a post request to the API you created (i.e., <http://localhost:8280/soapEnvelopeTest)>, with the following json payload using a rest client.
+2.  Send a post request to the API you created (i.e., `http://localhost:8280/soapEnvelopeTest`), with the following json payload using a rest client.
 
     ``` xml
     {"content":{ "paramA": "ValueA", "paramB": "valueB" }}

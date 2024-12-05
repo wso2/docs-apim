@@ -59,7 +59,7 @@ WSO2 Carbon supports the following method for sharing resources among tenants:
 
 Lazy loading is a design pattern used specifically in cloud deployments to prolong the initialization of an object or artifact until it is requested by a tenant or an internal process. In WSO2 products based on Carbon 4.4.0 or later versions, you have the option of setting the required tenant loading policy by enabling either **Lazy Loading** or **Eager Loading** of tenants. Additionally, you can separately control the loading policy for web applications and axis2 services deployed in your tenants using the **GhostDeployment** setting.
 
-See [Configuring the Tenant Loading Policy](https://docs.wso2.com/display/ADMIN44x/Configuring+the+Tenant+Loading+Policy) for more information.
+See [Configuring the Tenant Loading Policy](https://wso2docs.atlassian.net/wiki/spaces/ADMIN44x/pages/6684769/Configuring+the+Tenant+Loading+Policy) for more information.
 
 ### Restrictions
 

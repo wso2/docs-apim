@@ -149,3 +149,11 @@ the attached OpenAPI definition (a.k.a Swagger definition) files]({{base_path}}/
 
      For more information on how to subscribe to an API, see [Subscribe to an API]({{base_path}}/consume/manage-subscription/subscribe-to-an-api/).
     
+
+     <html>
+      <div class="admonition note">
+      <p class="admonition-title">Note</p>
+      
+      <ul><li><p>API product versioning is available after WSO2 API Manager U2 update level 55 onwards. If you are using the latest U2 update level please refer [Create a New API Version]({{base_path}}/design/api-versioning/create-a-new-api-version/).</p></li></ul>
+      </div> 
+     </html>

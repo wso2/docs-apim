@@ -3,7 +3,7 @@
 The **Enrich Mediator** can process a message based on a given source configuration and then perform the specified action on the message by using the target configuration. It gets an `         OMElement        ` using the configuration specified in the source and then modifies the message by putting it on the current message using the configuration in the target.
 
 !!! Info
-    The Enrich mediator is a [content-aware]({{base_path}}/concepts/message-processing-units/#classification-of-mediators) mediator.
+    The Enrich mediator is a [content-aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
 
 ## Syntax
 
@@ -127,7 +127,7 @@ In this example, you copy the original payload to a property using the Enrich me
 ```
 <enrich>
       <source clone="false" type="body"/>
-      <target action="replace" type="property" property="ORGINAL_PAYLOAD"/>
+      <target action="replace" type="property" property="ORIGINAL_PAYLOAD"/>
 </enrich>
 ```
     

@@ -15,75 +15,77 @@ When we invoke the back-end service, the publisher is invoked and sends the mess
 
 Shown below are the synapse artifacts that are used to define this use case. See the instructions on how to [build and run](#build-and-run) this example.
 
-```xml tab="Proxy Service (Publisher)"
-<proxy name="StockQuoteProxy" transports="http" startOnLoad="true" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-  <target>
-    <endpoint>
-      <address uri="jms:/SimpleStockQuoteService?transport.jms.ConnectionFactoryJNDIName=TopicConnectionFactory&amp;java.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory&amp;java.naming.provider.url=tcp://localhost:61616&amp;transport.jms.DestinationType=topic"/>
-    </endpoint>
-    <inSequence>
-        <property name="OUT_ONLY" value="true"/>
-        <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2"/>
-    </inSequence>
-    <outSequence>
-      <send/>
-    </outSequence>
-  </target>
-</proxy>
+=== "Proxy Service (Publisher)"
+    ```xml
+    <proxy name="StockQuoteProxy" transports="http" startOnLoad="true" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+      <target>
+        <endpoint>
+          <address uri="jms:/SimpleStockQuoteService?transport.jms.ConnectionFactoryJNDIName=TopicConnectionFactory&amp;java.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory&amp;java.naming.provider.url=tcp://localhost:61616&amp;transport.jms.DestinationType=topic"/>
+        </endpoint>
+        <inSequence>
+            <property name="OUT_ONLY" value="true"/>
+            <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2"/>
+        </inSequence>
+        <outSequence>
+          <send/>
+        </outSequence>
+      </target>
+    </proxy>
+    ```
 
-```
+=== "Proxy Service (Subscriber 1)"
+    ```xml
+    <proxy name="SimpleStockQuoteService1" transports="jms" startOnLoad="true" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+          <target>
+            <inSequence>
+              <property name="OUT_ONLY" value="true"/>
+              <log level="custom">
+                <property name="Subscriber1" value="I am Subscriber1"/>
+              </log>
+              <drop/>
+            </inSequence>
+            <outSequence>
+              <send/>
+            </outSequence>
+          </target>
+      <parameter name="transport.jms.ContentType">
+          <rules>
+            <jmsProperty>contentType</jmsProperty>
+            <default>application/xml</default>
+          </rules>
+      </parameter>
+      <parameter name="transport.jms.ConnectionFactory">myTopicConnectionFactory</parameter>
+      <parameter name="transport.jms.DestinationType">topic</parameter>
+      <parameter name="transport.jms.Destination">SimpleStockQuoteService</parameter>
+    </proxy>
+    ```
 
-```xml tab="Proxy Service (Subscriber 1)"
-<proxy name="SimpleStockQuoteService1" transports="jms" startOnLoad="true" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+=== "Proxy Service (Subscriber 2)"
+    ```xml
+    <proxy name="SimpleStockQuoteService2" transports="jms" startOnLoad="true" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
       <target>
         <inSequence>
           <property name="OUT_ONLY" value="true"/>
           <log level="custom">
-            <property name="Subscriber1" value="I am Subscriber1"/>
+            <property name="Subscriber2" value="I am Subscriber2"/>
           </log>
           <drop/>
         </inSequence>
         <outSequence>
-           <send/>
+          <send/>
         </outSequence>
       </target>
-  <parameter name="transport.jms.ContentType">
-      <rules>
-        <jmsProperty>contentType</jmsProperty>
-        <default>application/xml</default>
-      </rules>
-  </parameter>
-  <parameter name="transport.jms.ConnectionFactory">myTopicConnectionFactory</parameter>
-  <parameter name="transport.jms.DestinationType">topic</parameter>
-  <parameter name="transport.jms.Destination">SimpleStockQuoteService</parameter>
-</proxy>
-```
-
-```xml tab="Proxy Service (Subscriber 2)"
-<proxy name="SimpleStockQuoteService2" transports="jms" startOnLoad="true" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-  <target>
-    <inSequence>
-      <property name="OUT_ONLY" value="true"/>
-      <log level="custom">
-        <property name="Subscriber2" value="I am Subscriber2"/>
-      </log>
-      <drop/>
-    </inSequence>
-    <outSequence>
-      <send/>
-    </outSequence>
-  </target>
-  <parameter name="transport.jms.ContentType">
-    <rules>
-      <jmsProperty>contentType</jmsProperty>
-      <default>application/xml</default>
-    </rules>
-  </parameter>
-  <parameter name="transport.jms.ConnectionFactory">myTopicConnectionFactory</parameter>
-  <parameter name="transport.jms.DestinationType">topic</parameter>
-  <parameter name="transport.jms.Destination">SimpleStockQuoteService</parameter>
-</proxy>
-```
+      <parameter name="transport.jms.ContentType">
+        <rules>
+          <jmsProperty>contentType</jmsProperty>
+          <default>application/xml</default>
+        </rules>
+      </parameter>
+      <parameter name="transport.jms.ConnectionFactory">myTopicConnectionFactory</parameter>
+      <parameter name="transport.jms.DestinationType">topic</parameter>
+      <parameter name="transport.jms.Destination">SimpleStockQuoteService</parameter>
+    </proxy>
+    ```
 
 See the descriptions of the above configurations:
 
@@ -131,7 +133,7 @@ Create the artifacts:
 
 Set up the broker:
 
-1.  [Configure a broker]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transport#configuring-the-jms-transport) with your Micro Integrator instance. Let's use Active MQ for this example.
+1.  [Configure a broker]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-jms-transport) with your Micro Integrator instance. Let's use Active MQ for this example.
 2.  Start the broker.
 3.  Start the Micro Integrator (after starting the broker).
 

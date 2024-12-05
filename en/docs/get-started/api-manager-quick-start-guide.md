@@ -6,7 +6,7 @@ This section is a step-by-step guide to create, publish, and invoke an API using
 
 Follow the instructions below to start WSO2 APIM-M.
 
-1. Install [Oracle Java SE Development Kit (JDK)](http://java.sun.com/javase/downloads/index.jsp) version 17 and set the `JAVA_HOME` environment variable.
+1. Install [Oracle Java SE Development Kit (JDK)](http://java.sun.com/javase/downloads/#java17) version 17 and set the `JAVA_HOME` environment variable.
      
      For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/).
 
@@ -16,6 +16,20 @@ Follow the instructions below to start WSO2 APIM-M.
 
      - `api-manager.bat --run` (for Windows)
      - `sh api-manager.sh` (for Linux)
+
+   !!! note
+
+        In Windows, you may be confronted by the following error:
+
+        ```
+        System may be unstable: HTTPS ListeningIOReactor encountered a checked exception : Address already in use: bind java.net.BindException: Address already in use: bind
+        ```
+
+         This can be fixed by adding the following to <API-M_HOME>/repository/conf/deployment.toml
+
+        ```
+        [keystore.listener_profile]
+        bind_address = "0.0.0.0:0:0:0:0"
 
 ### What you'll build
 
@@ -37,7 +51,7 @@ Follow the instructions below to create and publish an API via the Publisher Por
 
 1. Navigate to the Publisher Portal.
    
-     [https://localhost:9443/publisher](https://localhost:9443/publisher)
+     `https://localhost:9443/publisher`
      
 2. Sign in with **`admin/admin`** as the credentials.
                                                  
@@ -108,7 +122,7 @@ Follow the instructions below to subscribe to the API and generate the keys via 
 
 1. Navigate to the Developer Portal.
 
-     [https://localhost:9443/devportal](https://localhost:9443/devportal)
+     `https://localhost:9443/devportal`
     
      The published `HelloWorld` API is listed in the Developer Portal as shown below.
 
@@ -195,7 +209,7 @@ Follow the instructions below to invoke the previously created API with the gene
 
     [![Paste the access token]({{base_path}}/assets/img/get_started/test-api.png)]({{base_path}}/assets/img/get_started/test-api.png)
 
-3. **If this is the first time you are using the API test console** from your browser,  open a new tab and navigate to the [https://localhost:8243/](https://localhost:8243/) URL.
+3. **If this is the first time you are using the API test console** from your browser,  open a new tab and navigate to the `https://localhost:8243/` URL.
 
      This will prompt your browser to accept the certificate used by the API Gateway. This is required because by default the API Gateway uses a self-signed certificate that is not trusted by web browsers.
     
@@ -345,11 +359,11 @@ Follow the instructions below to publish an API via WSO2 API Controller.
 
 2. Browse the Publisher and the Developer Portals to view the API details.
 
-     - Publisher - [https://localhost:9443/publisher](https://localhost:9443/publisher)
+     - Publisher - `https://localhost:9443/publisher`
 
          [![API in the Publisher]({{base_path}}/assets/img/get_started/qsg-publisher.png)]({{base_path}}/assets/img/get_started/qsg-publisher.png)
 
-     - Developer Portals - [https://localhost:9443/devportal](https://localhost:9443/devportal)
+     - Developer Portals - `https://localhost:9443/devportal`
 
          [![API in the Developer Portal]({{base_path}}/assets/img/get_started/qsg-devportal.png)]({{base_path}}/assets/img/get_started/qsg-devportal.png)
 

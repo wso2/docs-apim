@@ -1,30 +1,20 @@
 # Configuring a Read-Only LDAP User Store
 
-User management functionality is provided by default in all WSO2 Carbon-based products and is configured in the `deployment.toml` file found in the `<API-M_HOME>/repository/conf/` directory and the changes will be automatically applied to `user-mgt.xml` file in `<API-M_HOME>/repository/conf/` directory as well. This file is shipped with user store manager configurations for all possible user store types (JDBC, read-only LDAP/Active Directory, read-write LDAP and read-write Active directory). The instructions given below explains how to configure a read-only LDAP as the primary user store for the WSO2 server.
-
-!!! info
-        The default User Store
-
-        The primary user store that is configured by default in the user-mgt.xml file is a JDBC user store, which reads/writes into the internal database of the product server. By default, the internal database is H2 for all WSO2 products excluding the Identity Server.
-        
-        
-        Note that the RDBMS used in the default configuration can remain as the database used for storing Authorization information.
-
 Follow the given steps to configure a read-only LDAP/AD as the primary user store:
 
--   [Step 1: Setting up the read-only LDAP/AD user store manager](#ConfiguringaRead-OnlyLDAPUserStore-Step1:Settinguptheread-onlyLDAP/ADuserstoremanager)
--   [Step 2: Updating the system administrator](#ConfiguringaRead-OnlyLDAPUserStore-UpdatingthesystemadministratorStep2:Updatingthesystemadministrator)
--   [Step 3: Starting the server](#ConfiguringaRead-OnlyLDAPUserStore-Step3:Startingtheserver)
+-   [Step 1: Setting up the read-only LDAP/AD user store manager](#step-1-setting-up-the-read-only-ldapad-user-store-manager)
+-   [Step 2: Updating the system administrator](#step-2-updating-the-system-administrator)
+-   [Step 3: Starting the server](#step-3-starting-the-server)
 
 ### Step 1: Setting up the read-only LDAP/AD user store manager
 
 !!! info
-     API Manager is compatible with multiple user store. In WSO2 Identity Server, the embedded user store is LDAP. Instead of using the embedded user store, you can set your own user store as the primary user store.
+     API Manager is compatible with multiple user stores. Instead of using the embedded user store, you can set your own user store as the primary user store.
 Before you begin
 
 -   Navigate to `<API-M_HOME>/repository/conf` directory to open `deployment.toml` file and do user_store_properties configurations according to the LDAP user store provider. Following is the sample read-only user store configurations:
-    ```
-    [user_store.properties] 
+    ```toml
+    [user_store.properties]
     TenantManager="org.wso2.carbon.user.core.tenant.CommonHybridLDAPTenantManager"
     ConnectionURL="ldap://localhost:10390"
     ConnectionName="uid=admin,ou=system"
@@ -71,7 +61,7 @@ Before you begin
     ```
 
 -   The `class` attribute for a read-only LDAP/Active Directory is `org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager`.
-    ```
+    ```toml
     [user_store]
     class="org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager"
     type = "read_only_ldap"
@@ -234,7 +224,7 @@ The configuration for the external read-only user store in the user-mgt.xml file
 
 The **admin** user is the super tenant that will be able to manage all other users, roles and permissions in the system by using the management console of the product. Therefore, the user that should have admin permissions is required to be stored in the user store when you start the system for the first time. By default, the system will create an admin user in the LDAP that has admin permissions. But this cannot be done it the LDAP user store is read-only. Hence that capability should be disabled as follows:
 
-``` 
+``` toml
 [super_admin]
 username = "admin"
 admin_role = "admin"
@@ -247,7 +237,7 @@ create_admin_account = false
 
 
 If the user store can be written to, you can add the super tenant user to the user store. Therefore, create_admin_account should be set to true as shown below.
-``` 
+``` toml
 [super_admin]
 username = "admin"
 admin_role = "admin"

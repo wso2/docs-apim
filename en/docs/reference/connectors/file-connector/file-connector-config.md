@@ -15,32 +15,36 @@ The File connector can be used to deal with two types of file systems:
     
 There are different connection configurations that can be used for the above protocols. They contain a common set of configurations and some additional configurations specific to the protocol.
 
-<img src="{{base_path}}/img/connectors/filecon-reference-22.png" title="types of file connections" width="800" alt="types of file connections"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/filecon-reference-22.png" title="types of file connections" width="800" alt="types of file connections"/>
 
 
 !!! Note
     The File connector internally uses the [Apache VFS Library](https://commons.apache.org/proper/commons-vfs/). According to the selected connection type, the following VFS connection URLs will be generated.
 
-    ```bash tab='Local File'
-    [file://] absolute-path
-    file:///home/someuser/somedir
-    file:///C:/Documents and Settings
-    ```
+    === "Local File"
+        ```bash
+        [file://] absolute-path
+        file:///home/someuser/somedir
+        file:///C:/Documents and Settings
+        ```
 
-    ```bash tab='FTP'
-    ftp://[ username[: password]@] hostname[: port][ relative-path]
-    ftp://myusername:mypassword@somehost/pub/downloads/somefile.tgz
-    ```
+    === "FTP"
+        ```bash
+        ftp://[ username[: password]@] hostname[: port][ relative-path]
+        ftp://myusername:mypassword@somehost/pub/downloads/somefile.tgz
+        ```
 
-    ```bash tab='FTPS'
-    ftps://[ username[: password]@] hostname[: port][ absolute-path]
-    ftps://myusername:mypassword@somehost/pub/downloads/somefile.tgz
-    ``` 
+    === "FTPS"
+        ```bash
+        ftps://[ username[: password]@] hostname[: port][ absolute-path]
+        ftps://myusername:mypassword@somehost/pub/downloads/somefile.tgz
+        ``` 
 
-    ```bash tab='SFTP'
-    sftp://[ username[: password]@] hostname[: port][ relative-path]
-    sftp://myusername:mypassword@somehost/pub/downloads/somefile.tgz
-    ```
+    === "SFTP"
+        ```bash
+        sftp://[ username[: password]@] hostname[: port][ relative-path]
+        sftp://myusername:mypassword@somehost/pub/downloads/somefile.tgz
+        ```
 
 !!! Tip
     There are instances where errors occur when using .csv files and the output is encoded. To overcome this, add the following configuration to the `<PRODUCT_HOME>/repository/conf/deployment.toml` file.
@@ -265,7 +269,7 @@ There are different connection configurations that can be used for the above pro
             String
         </td>
         <td>
-            User name used to connect with the file server.
+            The username used to connect with the file server. If the username contains special characters, you will need to use the URL encoded value.
         </td>
         <td>
             -
@@ -285,7 +289,7 @@ There are different connection configurations that can be used for the above pro
             String
         </td>
         <td>
-            Password to connect with the file server.
+            The password to connect with the file server. If the password contains special characters, you will need to use the URL encoded value.
         </td>
         <td>
             -
@@ -1061,6 +1065,46 @@ The following operations allow you to work with the File Connector version 4. Cl
                 No
             </td>
         </tr>
+        <tr>
+            <td>
+                Max Retries	
+            </td>
+            <td>
+                maxRetries
+            </td>
+            <td>
+                Integer
+            </td>
+            <td>
+                The maximum number of retries to be done in case of a failure.
+            </td>
+            <td>
+                0
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Retry Interval	
+            </td>
+            <td>
+                retryDelay
+            </td>
+            <td>
+                Integer
+            </td>
+            <td>
+                The time interval between retries in milliseconds.
+            </td>
+            <td>
+                0
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
     </table>
 
     **Response**
@@ -1084,7 +1128,7 @@ The following operations allow you to work with the File Connector version 4. Cl
 ??? note "move"
     Moves the file or folder specified by the source path to the target directory. The source can be a file or a folder. If it is a folder, the moving is recursive.
     
-    The move operation can only move a file/folder within the same server. For example, you can move a file/folder from one local location to another local location, or from one remote location to another remote location on the same server. You cannot use the move operation to move a file/folder between different servers. If you want to move a file/folder from a local location to a remote location or vice versa, use the <b>copy</b> operation followed by <b>delete</b> operation.
+    The move operation can only move a file/folder within the same server. For example, you can move a file/folder from one local location to another local location, or from one remote location to another remote location on the same server. You cannot use the move operation to move a file/folder between different servers. 
 
     <table>
         <tr>
@@ -1695,6 +1739,46 @@ The following operations allow you to work with the File Connector version 4. Cl
                 No
             </td>
         </tr>
+        <tr>
+            <td>
+                Max Retries	
+            </td>
+            <td>
+                maxRetries
+            </td>
+            <td>
+                Integer
+            </td>
+            <td>
+                The maximum number of retries to be done in case of a failure.
+            </td>
+            <td>
+                0
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Retry Interval	
+            </td>
+            <td>
+                retryDelay
+            </td>
+            <td>
+                Integer
+            </td>
+            <td>
+                The time interval between retries in milliseconds.
+            </td>
+            <td>
+                0
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
     </table>
 
     **Response**
@@ -1907,6 +1991,46 @@ The following operations allow you to work with the File Connector version 4. Cl
             </td>
             <td>
                 All files.
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Max Retries	
+            </td>
+            <td>
+                maxRetries
+            </td>
+            <td>
+                Integer
+            </td>
+            <td>
+                The maximum number of retries to be done in case of a failure.
+            </td>
+            <td>
+                0
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Retry Interval	
+            </td>
+            <td>
+                retryDelay
+            </td>
+            <td>
+                Integer
+            </td>
+            <td>
+                The time interval between retries in milliseconds.
+            </td>
+            <td>
+                0
             </td>
             <td>
                 No
@@ -2379,6 +2503,46 @@ The following operations allow you to work with the File Connector version 4. Cl
             </td>
             <td>
                 Hierarchical
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Max Retries	
+            </td>
+            <td>
+                maxRetries
+            </td>
+            <td>
+                Integer
+            </td>
+            <td>
+                The maximum number of retries to be done in case of a failure.
+            </td>
+            <td>
+                0
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Retry Interval	
+            </td>
+            <td>
+                retryDelay
+            </td>
+            <td>
+                Integer
+            </td>
+            <td>
+                The time interval between retries in milliseconds.
+            </td>
+            <td>
+                0
             </td>
             <td>
                 No
@@ -2905,6 +3069,46 @@ The following operations allow you to work with the File Connector version 4. Cl
             </td>
             <td>
                 true
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Max Retries	
+            </td>
+            <td>
+                maxRetries
+            </td>
+            <td>
+                Integer
+            </td>
+            <td>
+                The maximum number of retries to be done in case of a failure.
+            </td>
+            <td>
+                0
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Retry Interval	
+            </td>
+            <td>
+                retryDelay
+            </td>
+            <td>
+                Integer
+            </td>
+            <td>
+                The time interval between retries in milliseconds.
+            </td>
+            <td>
+                0
             </td>
             <td>
                 No

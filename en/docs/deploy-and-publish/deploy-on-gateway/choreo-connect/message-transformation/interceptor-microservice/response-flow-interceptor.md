@@ -10,65 +10,67 @@ In this section, you can find the content of the request to/response from the in
 
 Following is the request received from the Choreo Connect Router when you enable the response interceptor.
 
-``` json tab="Format"
-{
-    "requestHeaders": {
-        "<header1_from_client>": "<value>",
-        "<header2_from_client>": "<value>"
-    },
-    "requestTrailers": {
-        "<trailer1_from_client>": "<value>",
-        "<trailer2_from_client>": "<value>"
-    },
-    "requestBody": "<BASE64_encoded_client_request_body>",
-    "responseCode": <response_code_from_backend>,
-    "responseHeaders": {
-        "<header1_from_backend>": "<value>",
-        "<header2_from_backend>": "<value>"
-    },
-    "responseTrailers": {
-        "<trailer1_from_backend>": "<value>",
-        "<trailer2_from_backend>": "<value>"
-    },
-    "responseBody": "<BASE64_encoded_backend_response_body>",
-    "interceptorContext": {
-        "<key_1>": "<value_1>",
-        "<key_2>": "<value_2>"
-    },
-    "invocationContext": {
-        ...
+=== "Format"
+    ``` json
+    {
+        "requestHeaders": {
+            "<header1_from_client>": "<value>",
+            "<header2_from_client>": "<value>"
+        },
+        "requestTrailers": {
+            "<trailer1_from_client>": "<value>",
+            "<trailer2_from_client>": "<value>"
+        },
+        "requestBody": "<BASE64_encoded_client_request_body>",
+        "responseCode": <response_code_from_backend>,
+        "responseHeaders": {
+            "<header1_from_backend>": "<value>",
+            "<header2_from_backend>": "<value>"
+        },
+        "responseTrailers": {
+            "<trailer1_from_backend>": "<value>",
+            "<trailer2_from_backend>": "<value>"
+        },
+        "responseBody": "<BASE64_encoded_backend_response_body>",
+        "interceptorContext": {
+            "<key_1>": "<value_1>",
+            "<key_2>": "<value_2>"
+        },
+        "invocationContext": {
+            ...
+        }
     }
-}
-```
+    ```
 
-``` json tab="Sample"
-{
-    "requestHeaders": {
+=== "Sample"
+    ``` json
+    {
+        "requestHeaders": {
+            "content-type": "application/xml",
+            "content-length": "40",
+            "header1-from-client": "value1",
+            "header2-from-client": "value2"
+        },
+        "requestTrailers": {
+            "trailer1-from-client": "value1",
+            "trailer2-from-client": "value2"
+        },
+        "requestBody": "PGhlbGxvPndvcmxkPC9oZWxsbz4K",
+        "responseCode": 200,
+        "responseHeaders": {
         "content-type": "application/xml",
-        "content-length": "40",
-        "header1-from-client": "value1",
-        "header2-from-client": "value2"
+        "content-length": "140"
     },
-    "requestTrailers": {
-        "trailer1-from-client": "value1",
-        "trailer2-from-client": "value2"
-    },
-    "requestBody": "PGhlbGxvPndvcmxkPC9oZWxsbz4K",
-    "responseCode": 200,
-    "responseHeaders": {
-       "content-type": "application/xml",
-       "content-length": "140"
-   },
-   "responseTrailers": {},
-   "responseBody": "eyJIZWxsbyI6IldvcmxkIn0K44545487faedfasdfasdfasdfasdfasdadasdf",
-   "interceptorContext": {
-        "foo": "bar"
-    },
-    "invocationContext": {
-        ...
+    "responseTrailers": {},
+    "responseBody": "eyJIZWxsbyI6IldvcmxkIn0K44545487faedfasdfasdfasdfasdfasdadasdf",
+    "interceptorContext": {
+            "foo": "bar"
+        },
+        "invocationContext": {
+            ...
+        }
     }
-}
-```
+    ```
 
 The `requestHeaders`, `requestTrailers` and `requestBody` fields in the above request to the interceptor service
 provide the request headers, trailers and **base64 encoded** request body from the client. The `invocationContext`
@@ -85,62 +87,64 @@ You can customize the request body in the open API definition according to your 
 
 The following is the response that interceptor service should respond to the Choreo Connect Router when you enable the response interceptor.
 
-``` json tab="Format"
-{
-    "responseCode": <HTTP_status_code>,
-    "headersToAdd": {
-        "<header_key_1>": "<value_1>",
-        "<header_key_2>": "<value_2>"
-    },
-    "headersToRemove": [
-        "<header_key_1>",
-        "<header_key_2>"
-    ],
-    "headersToReplace": {
-        "<header_key_1>": "<value_1>",
-        "<header_key_2>": "<value_2>"
-    },
-    "trailersToAdd": {
-        "<trailer_key_1>": "<value_1>",
-        "<trailer_key_2>": "<value_2>"
-    },
-    "trailersToRemove": [
-        "<trailer_key_1>",
-        "<trailer_key_2>"
-    ],
-    "trailersToReplace": {
-        "<trailer_key_1>": "<value_1>",
-        "<trailer_key_2>": "<value_2>"
-    },
-    "body": "<BASE64_encoded_body>"
-}
-```
+=== "Format"
+    ``` json
+    {
+        "responseCode": <HTTP_status_code>,
+        "headersToAdd": {
+            "<header_key_1>": "<value_1>",
+            "<header_key_2>": "<value_2>"
+        },
+        "headersToRemove": [
+            "<header_key_1>",
+            "<header_key_2>"
+        ],
+        "headersToReplace": {
+            "<header_key_1>": "<value_1>",
+            "<header_key_2>": "<value_2>"
+        },
+        "trailersToAdd": {
+            "<trailer_key_1>": "<value_1>",
+            "<trailer_key_2>": "<value_2>"
+        },
+        "trailersToRemove": [
+            "<trailer_key_1>",
+            "<trailer_key_2>"
+        ],
+        "trailersToReplace": {
+            "<trailer_key_1>": "<value_1>",
+            "<trailer_key_2>": "<value_2>"
+        },
+        "body": "<BASE64_encoded_body>"
+    }
+    ```
 
-``` json tab="Sample"
-{
-    "responseCode": 200,
-    "headersToAdd": {
-        "content-type": "application/json",
-        "new-header": "value"
-    },
-    "headersToRemove": [
-        "invalid-header"
-    ],
-    "headersToReplace": {
-        "outdated-header": "updated value"
-    },
-    "trailersToAdd": {
-        "new-trailer": "value"
-    },
-    "trailersToRemove": [
-        "invalid-trailer"
-    ],
-    "trailersToReplace": {
-        "outdated-trailer": "update value"
-    },
-    "body": "eyJIZWxsbyI6IldvcmxkIn0K"
-}
-```
+=== "Sample"
+    ``` json
+    {
+        "responseCode": 200,
+        "headersToAdd": {
+            "content-type": "application/json",
+            "new-header": "value"
+        },
+        "headersToRemove": [
+            "invalid-header"
+        ],
+        "headersToReplace": {
+            "outdated-header": "updated value"
+        },
+        "trailersToAdd": {
+            "new-trailer": "value"
+        },
+        "trailersToRemove": [
+            "invalid-trailer"
+        ],
+        "trailersToReplace": {
+            "outdated-trailer": "update value"
+        },
+        "body": "eyJIZWxsbyI6IldvcmxkIn0K"
+    }
+    ```
 
 Interceptor can instruct the Choreo-Connect Router what should be done with the above response.
 

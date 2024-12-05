@@ -107,7 +107,7 @@ Learn about the main integration capabilities of the Micro Integrator of WSO2 AP
 <div>
     <div class="content">
         <!-- card -->
-        <div class="card" onclick="location.href='{{base_path}}/integrate/integration-use-case/message-routing-overview';">
+        <div class="card col-md-3" onclick="location.href='{{base_path}}/integrate/integration-use-case/message-routing-overview';">
             <div class="line"></div>
             <div class="card-content" >
                 <p class="title">Message Routing</p>
@@ -384,9 +384,9 @@ Learn how to implement various integration use cases, deploy them in the Micro I
     <tr>
         <td><b>Message Routing</b> 
             <ul>
-                <li><a href="{{base_path}}/integrate/examples/routing-examples/routing_based_on_headers">Routing Based on Message Headers</a></li>
-                <li><a href="{{base_path}}/integrate/examples/routing-examples/routing_based_on_payloads">Routing Based on Message Payload</a></li>
-                <li><a href="{{base_path}}/integrate/examples/routing-examples/splitting_aggregating_messages">Splitting Messages and Aggregating Responses</a></li>
+                <li><a href="{{base_path}}/integrate/examples/routing_examples/routing_based_on_headers">Routing Based on Message Headers</a></li>
+                <li><a href="{{base_path}}/integrate/examples/routing_examples/routing_based_on_payloads">Routing Based on Message Payload</a></li>
+                <li><a href="{{base_path}}/integrate/examples/routing_examples/splitting_aggregating_messages">Splitting Messages and Aggregating Responses</a></li>
             </ul>
         </td>
     </tr>
@@ -493,9 +493,9 @@ Learn how to implement various integration use cases, deploy them in the Micro I
                         <li><a href="{{base_path}}/integrate/examples/rest_api_examples/publishing-a-swagger-api">Publishing a Custom Swagger Document</a></li>
                         <li>Handling Special Cases
                             <ul>
-                                <li><a href="{{base_path}}/integrate/examples/rest_api_examples/using-get-with-a-body">Using GET with a Message Body</a></li>
-                                <li><a href="{{base_path}}/integrate/examples/rest_api_examples/using-post-with-no-body">Using POST with Empty Message Body</a></li>
-                                <li><a href="{{base_path}}/integrate/examples/rest_api_examples/using-post-with-query-param">Using POST with Query Parameters</a></li>
+                                <li><a href="{{base_path}}/integrate/examples/rest_api_examples/special-cases/#get-request-with-a-message-body">Using GET with a Message Body</a></li>
+                                <li><a href="{{base_path}}/integrate/examples/rest_api_examples/special-cases/#using-post-with-an-empty-body">Using POST with Empty Message Body</a></li>
+                                <li><a href="{{base_path}}/integrate/examples/rest_api_examples/special-cases/#using-post-with-query-parameters">Using POST with Query Parameters</a></li>
                             </ul>
                         </li>
                     </ul>

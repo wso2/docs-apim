@@ -24,13 +24,13 @@ To open the design view of the Streaming Integrator Tooling:
 To add a Siddhi component to the Siddhi application that you are creating/editing in the design view, click on the 
 relevant icon in the left pane, and then drag and drop it to the grid as demonstrated in the example below.
 
-![Dragging and dropping Siddhi components]({{base_path}}/assets/img/streaming/working-with-the design-view/drag-and-drop-siddhi-component.gif)
+[![Dragging and dropping Siddhi components]({{base_path}}/assets/img/streaming/working-with-the design-view/Drag-And-Drop-Siddhi-Component.gif)]({{base_path}}/assets/img/streaming/working-with-the design-view/Drag-And-Drop-Siddhi-Component.gif)
 
 Once you add a Siddhi component, you can configure it as required. To
 configure a Siddhi component, click the settings icon on the component.
 This opens a form with parameters related to the relevant component.
 
-![Configure Siddhi component settings]({{base_path}}/assets/img/streaming/working-with-the design-view/configure-siddhi-component-in-design-view.png)
+[![Configure Siddhi component settings]({{base_path}}/assets/img/streaming/working-with-the design-view/Configure-Siddhi-Component-In-Design-View.png)]({{base_path}}/assets/img/streaming/working-with-the design-view/Configure-Siddhi-Component-In-Design-View.png)
 
 The following is the complete list of Siddhi components that you can add
 to the grid of the design view when you create a Siddhi application.
@@ -59,7 +59,7 @@ to the grid of the design view when you create a Siddhi application.
                <p><strong>Stream Name</strong> <strong>:</strong> A unique name for the stream. This should be specified in title caps, and without spaces (e.g., <code>ProductionDataStream</code> ).</p>
                <p><strong>Attributes</strong> : Attributes of streams are specified as name and type pairs in the <strong>Attributes</strong> table.</p>
                <p>If you want to generate the the stream from a file or a database, click <strong>Generate Stream</strong>. However, note that you need to create the relevant file or set up the database and the tables beforehand.</p>
-               <p><img src="{{base_path}}/assets/img/streaming/working-with-the design-view/generate-stream.png"/></p>
+               <p><img src="{{base_path}}/assets/img/streaming/working-with-the design-view/Generate-Stream.png"/></p>
                <p>The <strong>Generate Stream</strong> form opens as follows</p>
                <p><img src="{{base_path}}/assets/img/streaming/working-with-the design-view/generate-stream-form.png"/></p>
                <p>To generate the stream from a file:
@@ -248,7 +248,10 @@ to the grid of the design view when you create a Siddhi application.
          <td>
             <div class="content-wrapper">
                <p>To configure the sink, click the settings icon on the sink component you added to the grid.<br /></p>
-               !!! info  To access the form in which you can configure a sink, you must first connect the sink as the target object to a stream component.
+               <div class="admonition info">
+               <p class="admonition-title">Info</p> 
+               <p>To access the form in which you can configure a sink, you must first connect the sink as the target object to a stream component.</p>
+               </div>
                <ul>
                   <li><strong>Sink Type</strong> : This specifies the transport via which the sink publishes processed events. The value should be entered in lower case (e.g., <code>log</code> ).<br /></li>
                   <li><strong>Map Type</strong> : This specifies the format in which you want to publish the events (e.g., <code>passThrough</code> ). The other parameters displayed for the map depends on the map type selected. If you want to add more configurations to the mapping, click <strong>Customized Options</strong> and set the required properties and key value pairs.</li>
@@ -311,8 +314,8 @@ to the grid of the design view when you create a Siddhi application.
             <p>To configure the table, click the settings icon on the table component you added to the grid.</p>
             <p><strong>Name</strong> <strong>:</strong> This field specifies unique name for the table. This should be specified in title caps, and without spaces (e.g., <code>              ProductionDataTable             </code> ).</p>
             <p><strong>Attributes</strong> : Attributes of tables are specified as name and type pairs in the <strong>Attributes</strong> table. To add a new attribute, click <strong>+Attribute</strong>.</p>
-            <p><strong>Store Type</strong> : This specifies the specific database type in which you want to stopre data or whether the data is to be stored in-memory. Once the store type is selected, select an option to indicate whether the datastore needs to be defined inline, whether you want to use a datasource defined in the <code>              &lt;SP_HOME&gt;/conf/worker/deployment.yaml             </code> file, or connected to a JNDI resource. For more information, see <a href="https://docs.wso2.com/display/SP440/Defining+Tables+for+Physical+Stores">Defining Tables for Physical Stores</a>. The other parameters configured under <strong>Store Type</strong> depend on the store type you select.</p>
-            <p><strong>Annotations</strong> : This section allows you to specify the table attributes you want to use as the primary key and indexes via the <code>              @primarykey             </code> and <code>              @index             </code> annotations. For more information, see <a href="https://docs.wso2.com/display/SP440/Defining+Data+Tables">Defining Data Tables</a>. If you want to add any other custom annotations to your table definition, click <strong>+Annotation</strong> to define them.</p>
+            <p><strong>Store Type</strong> : This specifies the specific database type in which you want to stopre data or whether the data is to be stored in-memory. Once the store type is selected, select an option to indicate whether the datastore needs to be defined inline, whether you want to use a datasource defined in the <code>              &lt;SP_HOME&gt;/conf/worker/deployment.yaml             </code> file, or connected to a JNDI resource. For more information, see <a href="https://wso2docs.atlassian.net/wiki/spaces/SP440/pages/16056704/Defining+Tables+for+Physical+Stores">Defining Tables for Physical Stores</a>. The other parameters configured under <strong>Store Type</strong> depend on the store type you select.</p>
+            <p><strong>Annotations</strong> : This section allows you to specify the table attributes you want to use as the primary key and indexes via the <code>              @primarykey             </code> and <code>              @index             </code> annotations. For more information, see <a href="https://wso2docs.atlassian.net/wiki/spaces/SP440/pages/16056703/Defining+Data+Tables">Defining Data Tables</a>. If you want to add any other custom annotations to your table definition, click <strong>+Annotation</strong> to define them.</p>
          </td>
       </tr>
       <tr class="even">
@@ -523,7 +526,7 @@ to the grid of the design view when you create a Siddhi application.
                      <ul>
                         <li><strong>start</strong> : Select this to trigger events when the Streaming Integrator server has started.</li>
                         <li><strong>every</strong> : Select this to specify a time interval at which events should be triggered.</li>
-                        <li><strong>cron-expression</strong> : Select this to enter a cron expression based on which the events can be triggered. For more information about cron expressions, see the <a href="http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html</a>.</li>
+                        <li><strong>cron-expression</strong> : Select this to enter a cron expression based on which the events can be triggered. For more information about cron expressions, see the <a href="http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html"</a>.</li>
                      </ul>
                   </li>
                </ul>
@@ -535,7 +538,7 @@ to the grid of the design view when you create a Siddhi application.
          <td>
             <div class="content-wrapper">
                <p><br /></p>
-               <img src="{{base_path}}/assets/img/streaming/working-with-the design-view/Trigger_Configuration_Form.png"/>
+               <img src="{{base_path}}/assets/img/streaming/working-with-the design-view/trigger-configuration-form.png"/>
                <p>The details entered in the above orm creates a trigger definition as follows:</p>
                <div class="code panel pdl" style="border-width: 1px;">
                   <div class="codeContent panelContent pdl">
@@ -583,8 +586,10 @@ to the grid of the design view when you create a Siddhi application.
          <td>
             <div class="content-wrapper">
                <p>Incremental aggregation allows you to obtain aggregates in an incremental manner for a specified set of time periods. For more information, see <a href="https://siddhi-io.github.io/siddhi/documentation/siddhi-4.x/query-guide-4.x/#incremental-aggregation">Siddhi Query Guide - Incremental Aggregation</a>.</p>
-               !!! tip
-               Before you add an aggregation, make sure that you have already added the stream with the events to which the aggregation is applied is already defined.
+               <div class="admonition tip">
+               <p class="admonition-title">Tip</p> 
+               <p>Before you add an aggregation, make sure that you have already added the stream with the events to which the aggregation is applied is already defined.</p>
+               </div>
             </div>
          </td>
       </tr>
@@ -594,7 +599,7 @@ to the grid of the design view when you create a Siddhi application.
             <div class="content-wrapper">
                <p>To configure the aggregation, <a href="#WorkingwiththeDesignView-Settings">click the settings icon</a> on the aggregation component you added to the grid, and update the following information.</p>
                <ul>
-                  <li><strong>Aggregation Meta Information</strong> : In this section, define a unique name for the aggregation in the <strong>Name</strong> field, and specify the stream from which the input information is taken to perform the aggregations. You can also select the optional annotations you want to use in the aggregation definition by selecting the relevant check boxes. For more information about configuring the annotations once you select them, see <a href="https://docs.wso2.com/display/SP440/Incremental+Analysis#IncrementalAnalysis-annotation">Incremental Analysis</a>.</li>
+                  <li><strong>Aggregation Meta Information</strong> : In this section, define a unique name for the aggregation in the <strong>Name</strong> field, and specify the stream from which the input information is taken to perform the aggregations. You can also select the optional annotations you want to use in the aggregation definition by selecting the relevant check boxes. For more information about configuring the annotations once you select them, see <a href="https://wso2docs.atlassian.net/wiki/spaces/SP440/pages/16056712/Incremental+Analysis">Incremental Analysis</a>.</li>
                   <li><strong>Projection</strong> : This section specifies the attributes to be included in the aggregation query. In the <strong>Select</strong> field, you can select <strong>All</strong> attributes to perform the aggregation for all the attributes of the stream specified under <strong>Input</strong> , or select <strong>User Defined Attributes</strong> to select specific attributes. If you select <strong>User Defined Attributes</strong> , you can add attributes to be selected to be inserted into the output stream. Here, you can enter the names of specific attributes in the input stream, or enter expressions to convert input stream attribute values as required to generate output events. You can also specify the attribute(s) by which you want to group the output.</li>
                   <li><strong>Aggregation Criteria</strong> : Here, you can specify the time values based on which the aggregates are calculated.</li>
                </ul>
@@ -701,13 +706,15 @@ to the grid of the design view when you create a Siddhi application.
          <td>Description</td>
          <td>
             <div class="content-wrapper">
-               !!! tip
+               <div class="admonition tip">
+               <p class="admonition-title">Tip</p> 
                <p>Before you add a projection query:</p>
                <p>You need to add and configure the following:</p>
                <ul>
                   <li>The input stream with the events to be processed by the query.</li>
                   <li>The output stream to which the events processed by the query are directed.</li>
                </ul>
+               </div>
                <p>This icon represents a query to project the events in an input stream to an output stream. This invoves selectng the attributes to be included in the output, renaming attributes, introducing constant values, and using mathematical and/or logical expressions. For more information, see <a href="https://siddhi-io.github.io/siddhi/documentation/siddhi-4.x/query-guide-4.x/#query-projection">Siddhi Query Guide - Query Projection</a>.</p>
             </div>
          </td>
@@ -787,13 +794,15 @@ to the grid of the design view when you create a Siddhi application.
 <tr class="even">
 <td>Description</td>
 <td><div class="content-wrapper">
-!!! tip
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>Before you add a filter query:</p>
 <p>You need to add and configure the following:</p>
 <ul>
 <li>The input stream with the events to be processed by the query.</li>
 <li>The output stream to which the events processed by the query are directed.</li>
 </ul>
+</div>
 
 <p>A filter query filters information in an input stream based on a given condition. For more information, see <a href="https://siddhi-io.github.io/siddhi/documentation/siddhi-4.x/query-guide-4.x/#filter">Siddhi Query Guide - Filters</a>.</p>
 </div></td>
@@ -804,9 +813,12 @@ to the grid of the design view when you create a Siddhi application.
 <p>Once you connect the query to an input stream (source) and an output stream (target), you can configure it. To configure the filter query, <a href="#WorkingwiththeDesignView-Settings">click the settings icon</a> on the filter query component you added to the grid, and update the following information.</p>
 <ul>
 <li><p>By default, the <strong>Stream Handler</strong> check box is selected, and a stream handler of the <code>filter</code> type is available under it to indicate that the query is a filter. Expand this stream handler, and enter the condition based on which the information needs to be filtered.</p>
-<p>!!! info</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
 <p>A Siddhi application can have multiple stream handlers. To add another stream handler, click the <strong>+ Stream Handler</strong>. Multiple functions, filters and windows can be defined within the same form as stream handlers.</p>
-</p></li>
+</p>
+</div>
+</li>
 <li><strong>Projection</strong> : This section specifies the attributes to be included in the output. In the <strong>Select</strong> field, you can select <strong>All Attributes</strong> to select all the attributes of the events, or select <strong>User Defined Attributes</strong> to select specific attributes from the input stream. If you select <strong>User Defined Attributes</strong> , you can add attributes to be selected to be inserted into the output stream. Here, you can enter the names of specific attributes in the input stream, or enter expressions to convert input stream attribute values as required to generate output events. You can also specify the attribute(s) by which you want to group the output.</li>
 <li><strong>Output</strong> : This section specifies the action to be performed on the output event. The fields to be configured in this section are as follows:
 <ul>
@@ -867,13 +879,15 @@ to the grid of the design view when you create a Siddhi application.
          <td>Description</td>
          <td>
             <div class="content-wrapper">
-               !!! tip
+               <div class="admonition tip">
+               <p class="admonition-title">Tip</p>
                <p>Before you add a window query:</p>
                <p>You need to add and configure the following:</p>
                <ul>
                   <li>The input stream with the events to be processed by the query.</li>
                   <li>The output stream to which the events processed by the query are directed.</li>
                </ul>
+               </div>
                <p>Window queries include a window to select a subset of events to be processed based on a specific criterion. For more information, see <a href="https://siddhi-io.github.io/siddhi/documentation/siddhi-4.x/query-guide-4.x/#defined-window">Siddhi Query Guide - (Defined) Window</a>.</p>
             </div>
          </td>
@@ -886,9 +900,11 @@ to the grid of the design view when you create a Siddhi application.
                <ul>
                   <li>
                      <p>By default, the <strong>Stream Handler</strong> check box is selected, and a stream handler of the <code>window</code> type is available under it to indicate that the query is a filter. Expand this stream handler, and enter details to determine the window including the window type and the basis on which the subset of events considered by the window is determined (i.e., based on the window type selected).</p>
-                     <p>!!! info</p>
+                     <div class="admonition info">
+                     <p class="admonition-title">Info</p>
                      <p>A Siddhi application can have multiple stream handlers. To add another stream handler, click the <strong>+ Stream Handler</strong>. Multiple functions, filters and windows can be defined within the same form as stream handlers.</p>
                      </p>
+                     </div>
                   </li>
                   <li><strong>Projection</strong> : This section specifies the attributes to be included in the output. In the <strong>Select</strong> field, you can select <strong>All Attributes</strong> to select all the attributes of the events, or select <strong>User Defined Attributes</strong> to select specific attributes from the input stream. If you select <strong>User Defined Attributes</strong> , you can add attributes to be selected to be inserted into the output stream. Here, you can enter the names of specific attributes in the input stream, or enter expressions to convert input stream attribute values as required to generate output events. You can also specify the attribute(s) by which you want to group the output.</li>
                   <li>
@@ -925,8 +941,10 @@ to the grid of the design view when you create a Siddhi application.
          <td>Source</td>
          <td>
             <div class="content-wrapper">
-               !!! info
+               <div class="admonition info">
+               <p class="admonition-title">Info</p>
                <p>A window query can have only one source at a given time.</p>
+               </div>
                <ul>
                   <li>Streams</li>
                   <li>Tables</li>
@@ -971,7 +989,7 @@ to the grid of the design view when you create a Siddhi application.
             <div class="content-wrapper">
                <p>Once you connect two Siddhi components to the join query as sources and another Siddhi component as the target, you can configure the join query. To configure the join query, <a href="#WorkingwiththeDesignView-Settings">click the settings icon</a> on the join query component you added to the grid and update the following information.</p>
                <ul>
-                  <li><strong>Query Meta Information</strong> : In this section, enter a unique name for the query and any annotations that you want to include in the query. The <code>                @dist               </code> annotation is supported by default to use the query in a fully distributed deployment if required (for more information, see <a href="https://docs.wso2.com/display/SP440/Converting+to+a+Distributed+Streaming+Application">Converting to a Distributed Streaming Application</a> ). You can also add customized annotations.<br /></li>
+                  <li><strong>Query Meta Information</strong> : In this section, enter a unique name for the query and any annotations that you want to include in the query. The <code>                @dist               </code> annotation is supported by default to use the query in a fully distributed deployment if required (for more information, see <a href="https://wso2docs.atlassian.net/wiki/spaces/SP440/pages/16056710/Converting+to+a+Distributed+Streaming+Application">Converting to a Distributed Streaming Application</a> ). You can also add customized annotations.<br /></li>
                   <li><strong>Input</strong> : Here, you can specify the input sources, the references, the join type, join condition, and stream handlers for the left source and right source of the join. For a detailed explanation of the join concept, see <a href="https://siddhi-io.github.io/siddhi/documentation/siddhi-4.x/query-guide-4.x/#join-stream">Siddhi Query Guide - Joins</a>.</li>
                   <li><strong>Projection</strong> : This section specifies the attributes to be included in the output. In the <strong>Select</strong> field, you can select <strong>All Attributes</strong> to select all the attributes of the events, or select <strong>User Defined Attributes</strong> to select specific attributes from the input stream. If you select <strong>User Defined Attributes</strong> , you can add attributes to be selected to be inserted into the output stream. Here, you can enter the names of specific attributes in the input stream, or enter expressions to convert input stream attribute values as required to generate output events. You can also specify the attribute(s) by which you want to group the output.</li>
                   <li>
@@ -1012,8 +1030,10 @@ to the grid of the design view when you create a Siddhi application.
          <td>Source</td>
          <td>
             <div class="content-wrapper">
-               !!! info
-               A join query must always be connected to two sources, and at least one of them must be a defined stream/trigger/window.
+               <div class="admonition info">
+               <p class="admonition-title">Info</p>
+               <p>A join query must always be connected to two sources, and at least one of them must be a defined stream/trigger/window.</p>
+               </div>
                <ul>
                   <li>Streams</li>
                   <li>Tables</li>
@@ -1027,8 +1047,10 @@ to the grid of the design view when you create a Siddhi application.
          <td>Target</td>
          <td>
             <div class="content-wrapper">
-               !!! info
-               A join query must always be connected to a single target.
+               <div class="admonition info">
+               <p class="admonition-title">Info</p>
+               <p>A join query must always be connected to a single target.</p>
+               </div>
                <ul>
                   <li>Streams</li>
                   <li>Tables</li>
@@ -1060,13 +1082,15 @@ to the grid of the design view when you create a Siddhi application.
          <td>Description</td>
          <td>
             <div class="content-wrapper">
-               !!! tip
+               <div class="admonition tip">
+               <p class="admonition-title">Tip</p>
                <p>Before you add a pattern query:</p>
                <p>You need to add and configure the following:</p>
                <ul>
                   <li>The input stream with the events to be processed by the query.</li>
                   <li>The output stream to which the events processed by the query are directed.</li>
                </ul>
+               </div>
                <p>A pattern query detects patterns in events that arrive overtime. For more information, see <a href="https://siddhi-io.github.io/siddhi/documentation/siddhi-4.x/query-guide-4.x/#pattern">Siddhi Query Guide - Patterns</a>.</p>
             </div>
          </td>
@@ -1157,13 +1181,15 @@ to the grid of the design view when you create a Siddhi application.
          <td>Description</td>
          <td>
             <div class="content-wrapper">
-               !!! tip
+               <div class="admonition tip">
+               <p class="admonition-title">Tip</p>
                <p>Before you add a sequence query:</p>
                <p>You need to add and configure the following:</p>
                <ul>
                   <li>The input stream with the events to be processed by the query.</li>
                   <li>The output stream to which the events processed by the query are directed.</li>
                </ul>
+               </div>
                <p>A sequence query detects sequences in event occurrences over time. For more information, see <a href="https://siddhi-io.github.io/siddhi/documentation/siddhi-4.x/query-guide-4.x/#sequence">Siddhi Query Guide - Sequence</a>.</p>
             </div>
          </td>
@@ -1253,9 +1279,11 @@ to the grid of the design view when you create a Siddhi application.
          <td>Description</td>
          <td>
             <div class="content-wrapper">
-               !!! tip
+               <div class="admonition tip">
+               <p class="admonition-title">Tip</p>
                <p>Before you add a partition:</p>
                <p>You need to add the stream to be partitioned.</p>
+               </div>
                <p>Partitions divide streams and queries into isolated groups in order to process them in parallel and in isolation. For more information, see <a href="https://siddhi-io.github.io/siddhi/documentation/siddhi-4.x/query-guide-4.x/#partition">Siddhi Query Guide - Partition</a>.</p>
             </div>
          </td>
@@ -1312,7 +1340,7 @@ connections between Siddhi components. A connection is defined by
 drawing an arrow from one component to another by dragging the cursor as
 demonstrated below.
 
-![Connecting Siddhi components]({{base_path}}/assets/img/streaming/working-with-the design-view/connect-siddhi-components.gif)
+![Connecting Siddhi components]({{base_path}}/assets/img/streaming/working-with-the design-view/Connect-Siddhi-Components.gif)
 
 ## Saving and running Siddhi applications
 

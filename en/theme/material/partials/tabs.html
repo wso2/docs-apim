@@ -9,12 +9,6 @@
         {% include "partials/tabs-item.html" %}
       {% endfor %}
     </ul>
-    <div class="quick_links">
-        {% if page.edit_url %}
-        <a href="{{ page.edit_url }}" target="blank" id="editIcon" title="{{ lang.t('edit.link.title') }}"
-           title="Edit this page" class="md-icon md-content__icon nav_link edit_link"></a>
-        {% endif %}
-    </div>
     <a href="#" title="Report Issues" class="feedbackBtn" 
         onclick=window.open("https://github.com/"+"{{config.repo_name}}"+"/issues/new?title=Doc%20Feedback:&body=Location%20:%20"+window.location.href); >
         Report Issues</a>

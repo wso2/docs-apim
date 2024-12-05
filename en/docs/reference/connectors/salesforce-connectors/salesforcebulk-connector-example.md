@@ -42,7 +42,7 @@ Now follow the steps below to add configurations to the `insertEmployeeBulkRecor
     
 1. Initialize the connector.
     
-    1. Follow these steps to [generate the Access Tokens for Salesforce]({{base_path}}/reference/connectors/salesforce-connectors/salesforcebulk-connector-configuration/) and obtain the Client Id, Client Secret, Access Token, and Refresh Token.
+    1. Follow these steps to [generate the Access Tokens for Salesforce]({{base_path}}/includes/reference/connectors/salesforce-connectors/sf-access-token-generation) and obtain the Client Id, Client Secret, Access Token, and Refresh Token.
     
     2. Navigate into the **Palette** pane and select the graphical operations icons listed under **Salesforcebulk Connector** section. Then drag and drop the `init` operation into the Design pane.
         
@@ -193,8 +193,8 @@ Now follow the steps below to add configurations to the `insertEmployeeBulkRecor
            
 Now you can switch into the Source view and check the XML configuration files of the created API and sequences. 
 
-  ??? note "create.xml"
-            ```
+??? note "create.xml"
+    ```xml
               <?xml version="1.0" encoding="UTF-8"?>
                      <api context="/salesforce" name="Salesforcebulk-API" xmlns="http://ws.apache.org/ns/synapse">
                          <resource methods="POST" url-mapping="/insertEmployeeBulkRecords">
@@ -262,7 +262,7 @@ Now you can switch into the Source view and check the XML configuration files of
                              <faultSequence/>
                          </resource>
                      </api>
-            ```    
+    ```    
 ## Get the project
 
 You can download the ZIP file and extract the contents to get the project code.
@@ -288,11 +288,11 @@ Invoke the API as shown below using the curl command. Curl application can be do
  
    **Sample request**
 
-    `curl -v POST -d <inserRecord><object>Account</object><source>/home/kasun/Documents/SFbulk.csv</source></inserRecord> "http://localhost:8290/salesforce/insertEmployeeBulkRecords" -H "Content-Type:application/xml"`
+    curl -v POST -d <inserRecord><object>Account</object><source>/home/kasun/Documents/SFbulk.csv</source></inserRecord> "http://localhost:8290/salesforce/insertEmployeeBulkRecords" -H "Content-Type:application/xml"
 
    **Expected Response**
     
-    ```xml
+```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <batchInfo
        xmlns="http://www.force.com/2009/06/asyncapi/dataload">
@@ -307,17 +307,17 @@ Invoke the API as shown below using the curl command. Curl application can be do
         <apiActiveProcessingTime>2</apiActiveProcessingTime>
         <apexProcessingTime>0</apexProcessingTime>
     </batchInfo>
-    ```
+```
 
 2. Get status of the inserted employee details.
  
    **Sample request**
 
-    `curl -v POST -d <getBatchStatus><jobId>7502x000002yp73AAA</jobId><batchId>7512x000002ywWrAAI</batchId></getBatchStatus> "http://localhost:8290/resources/getStatusOfBatch" -H "Content-Type:application/xml"`
+    curl -v POST -d <getBatchStatus><jobId>7502x000002yp73AAA</jobId><batchId>7512x000002ywWrAAI</batchId></getBatchStatus> "http://localhost:8290/resources/getStatusOfBatch" -H "Content-Type:application/xml"
 
    **Expected Response**
     
-    ```xml
+```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <batchInfo
        xmlns="http://www.force.com/2009/06/asyncapi/dataload">
@@ -333,7 +333,7 @@ Invoke the API as shown below using the curl command. Curl application can be do
         <apiActiveProcessingTime>3</apiActiveProcessingTime>
         <apexProcessingTime>0</apexProcessingTime>
     </batchInfo>
-    ```
+```
 ## What's Next
 
 * To customize this example for your own scenario, see [Salesforce bulk Connector Configuration]({{base_path}}/reference/connectors/salesforce-connectors/salesforcebulk-reference/) documentation for all operation details of the connector.

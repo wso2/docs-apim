@@ -86,7 +86,7 @@ The parameters available to [configure the Sequence Template]({{base_path}}/inte
         </td>
         <td>
             Set this parameter to 'true' if a value is required to be passed for the configuration.</br></br>
-            When this parameter is 'true', if a value is not passed from a Call Template mediator as shown below, the Micro Integrator will first check for a <a href="#defaultValue">defaultvalue</a>. If a <a href="#defaultValue">defaultValue</a> does not exist, the 'onError' sequence of the <a href="{{base_path}}/reference/synapse-properties/template-properties/call-Template-Mediator">Call Template mediator</a> will be called.</br></br>
+            When this parameter is 'true', if a value is not passed from a Call Template mediator as shown below, the Micro Integrator will first check for a <a href="#defaultValue">defaultvalue</a>. If a <a href="#defaultValue">defaultValue</a> does not exist, the 'onError' sequence of the <a href="{{base_path}}/reference/mediators/call-mediator/">Call Template mediator</a> will be called.</br></br>
             If an empty value is passed in the Call Template mediator, the empty value will be used instead of using the default value.</br></br>
             See the <a href="{{base_path}}/integrate/examples/template_examples/using-sequence-templates/">example use cases</a> for details.
         </td>

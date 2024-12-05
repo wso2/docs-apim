@@ -79,6 +79,9 @@ Follow the instructions below to set up an Oracle database.
 
 ### Creating the datasource connection to Oracle
 
+!!! note
+    It is recommended to utilize the UTC zone for all database operations as it does not observe daylight savings time (DST). If a database server is hosted in a time zone that is affected by DST, not using UTC could potentially lead to data inconsistencies and errors such as OAuth code/access token generation outages. To avoid such risks, it is crucial to ensure that all timestamps and time-related data within the database are represented in UTC format.
+
 A datasource is used to establish the connection to a database. By default, `WSO2_SHARED_DB` and `WSO2AM_DB` datasource are configured in the `deployment.toml` file for the purpose of connecting to the default H2 databases.
 
 After setting up the Oracle database to replace the default H2 database, either change the default configurations of the `WSO2_SHARED_DB` and `WSO2AM_DB` datasource, or configure a new datasource to point it to the new database as explained below.
@@ -99,32 +102,34 @@ Follow the instructions below to change the type of the default datasource.
     
     Sample configuration is shown below:
     
-    ``` tab="Format"
-    type = "oracle"
-    url = "jdbc:oracle:thin:<DB_host>:1521:<sid>"
-    username = "<USER_NAME>"
-    password = "<PASSWORD>"
-    driver = "oracle.jdbc.driver.OracleDriver"
-    validationQuery = "SELECT 1 FROM DUAL"
-    ```
+    === "Format"
+        ``` toml
+        type = "oracle"
+        url = "jdbc:oracle:thin:<DB_host>:1521:<sid>"
+        username = "<USER_NAME>"
+        password = "<PASSWORD>"
+        driver = "oracle.jdbc.driver.OracleDriver"
+        validationQuery = "SELECT 1 FROM DUAL"
+        ```
     
-    ``` tab="Example"
-    [database.shared_db]
-    type = "oracle"
-    url = "jdbc:oracle:thin:@localhost:1521/orcl1"
-    username = "sharedadmin"
-    password = "sharedadmin"
-    driver = "oracle.jdbc.driver.OracleDriver"
-    validationQuery = "SELECT 1 FROM DUAL"
-    
-    [database.apim_db]
-    type = "oracle"
-    url = "jdbc:oracle:thin:@localhost:1521/orcl2"
-    username = "apimadmin"
-    password = "apimadmin"
-    driver = "oracle.jdbc.driver.OracleDriver"
-    validationQuery = "SELECT 1 FROM DUAL"
-    ```
+    === "Example"
+        ``` toml
+        [database.shared_db]
+        type = "oracle"
+        url = "jdbc:oracle:thin:@localhost:1521/orcl1"
+        username = "sharedadmin"
+        password = "sharedadmin"
+        driver = "oracle.jdbc.driver.OracleDriver"
+        validationQuery = "SELECT 1 FROM DUAL"
+        
+        [database.apim_db]
+        type = "oracle"
+        url = "jdbc:oracle:thin:@localhost:1521/orcl2"
+        username = "apimadmin"
+        password = "apimadmin"
+        driver = "oracle.jdbc.driver.OracleDriver"
+        validationQuery = "SELECT 1 FROM DUAL"
+        ```
 
     !!! important "Configuring the 'url'"
         Note that you can use `service_name` instead of the `sid` to configure the `url`. A sample is given below.
@@ -147,40 +152,42 @@ Follow the instructions below to change the type of the default datasource.
     
     Sample configuration is shown below:
     
-    ``` tab="Format"
-    type = "oracle"
-    url = "jdbc:oracle:thin:<DB_host>:1521:<sid>"
-    username = "<USER_NAME>"
-    password = "<PASSWORD>"
-    driver = "oracle.jdbc.driver.OracleDriver"
-    validationQuery = "SELECT 1 FROM DUAL"
-    pool_options.<OPTION-1> = <VALUE-1>
-    pool_options.<OPTION-2> = <VALUE-2>
-    ...
-    ```
+    === "Format"
+        ``` toml
+        type = "oracle"
+        url = "jdbc:oracle:thin:<DB_host>:1521:<sid>"
+        username = "<USER_NAME>"
+        password = "<PASSWORD>"
+        driver = "oracle.jdbc.driver.OracleDriver"
+        validationQuery = "SELECT 1 FROM DUAL"
+        pool_options.<OPTION-1> = <VALUE-1>
+        pool_options.<OPTION-2> = <VALUE-2>
+        ...
+        ```
     
-    ``` tab="Example"
-    [database.shared_db]
-    type = "oracle"
-    url = "jdbc:oracle:thin:@localhost:1521/orcl1"
-    username = "sharedadmin"
-    password = "sharedadmin"
-    driver = "oracle.jdbc.driver.OracleDriver"
-    validationQuery = "SELECT 1 FROM DUAL"
-    pool_options.maxActive = 100
-    pool_options.maxWait = 10000
-    pool_options.validationInterval = 10000
-    
-    [database.apim_db]
-    type = "oracle"
-    url = "jdbc:oracle:thin:@localhost:1521/orcl2"
-    username = "apimadmin"
-    password = "apimadmin"
-    driver = "oracle.jdbc.driver.OracleDriver"
-    validationQuery = "SELECT 1 FROM DUAL"
-    pool_options.maxActive = 50
-    pool_options.maxWait = 30000
-    ```
+    === "Example"
+        ``` toml
+        [database.shared_db]
+        type = "oracle"
+        url = "jdbc:oracle:thin:@localhost:1521/orcl1"
+        username = "sharedadmin"
+        password = "sharedadmin"
+        driver = "oracle.jdbc.driver.OracleDriver"
+        validationQuery = "SELECT 1 FROM DUAL"
+        pool_options.maxActive = 100
+        pool_options.maxWait = 10000
+        pool_options.validationInterval = 10000
+        
+        [database.apim_db]
+        type = "oracle"
+        url = "jdbc:oracle:thin:@localhost:1521/orcl2"
+        username = "apimadmin"
+        password = "apimadmin"
+        driver = "oracle.jdbc.driver.OracleDriver"
+        validationQuery = "SELECT 1 FROM DUAL"
+        pool_options.maxActive = 50
+        pool_options.maxWait = 30000
+        ```
 
     !!! important "Configuring the 'url'"
         Note that you can use `service_name` instead of the `sid` to configure the `url`. A sample is given below.
@@ -204,12 +211,13 @@ Follow the instructions below to change the type of the default datasource.
         - Create tables in the carbon database (`WSO2CARBON_DB`) using the script `<API-M_HOME>/dbscripts/oracle.sql`.
         -   Open the `<API-M_HOME>/repository/conf/deployment.toml` configuration file. Locate the `[database.local]` configuration element and update the URL pointing to your Oracle database, the username, and password required to access the database and the Oracle driver details similarly as explained before.
         
-        ``` tab="Example"
-        [database.local]
-        type = "oracle"
-        url = "jdbc:oracle:thin:@localhost:1521/orcl"
-        username = "carbonadmin"
-        password = "carbonadmin"
-        driver = "oracle.jdbc.driver.OracleDriver"
-        validationQuery = "SELECT 1 FROM DUAL"
-        ```
+        === "Example"
+            ``` toml
+            [database.local]
+            type = "oracle"
+            url = "jdbc:oracle:thin:@localhost:1521/orcl"
+            username = "carbonadmin"
+            password = "carbonadmin"
+            driver = "oracle.jdbc.driver.OracleDriver"
+            validationQuery = "SELECT 1 FROM DUAL"
+            ```

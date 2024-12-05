@@ -22,7 +22,7 @@ To configure analytics,
 1. Sign up to [https://console.choreo.dev/login/](https://console.choreo.dev/login/).
 2. Go to [https://console.choreo.dev/user-settings/onpremkeys](https://console.choreo.dev/user-settings/onpremkeys) and generate a key
 3. Open the `/dockerfiles/conf/apim/repository/conf/deployment.toml` file and update the `[apim.analytics]` configuration similar to the following.
-    ```
+    ```toml
     [apim.analytics]
     enable = true
     config_endpoint = "https://analytics-event-auth.choreo.dev/auth/v1"

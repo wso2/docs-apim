@@ -102,60 +102,63 @@ Listed below are the default log destinations (appenders) used by the root logge
 
 -   `CARBON_CONSOLE`: This is the consoleAppender that prints logs to the server's console. These logs are printed to the `wso2carbon.log` file and the `wso2error.log` file through the two appenders given below.
 
-    ```xml tab='CARBON_CONSOLE'
-    # CARBON_CONSOLE is set to be a ConsoleAppender using a PatternLayout.
-    appender.CARBON_CONSOLE.type = Console
-    appender.CARBON_CONSOLE.name = CARBON_CONSOLE
-    appender.CARBON_CONSOLE.layout.type = PatternLayout
-    appender.CARBON_CONSOLE.layout.pattern = [%d] %5p {% raw %}{%c{1}}{% endraw %} - %m%ex%n
-    appender.CARBON_CONSOLE.filter.threshold.type = ThresholdFilter
-    appender.CARBON_CONSOLE.filter.threshold.level = DEBUG
-    ```
+    === "CARBON_CONSOLE"
+         ```xml
+         # CARBON_CONSOLE is set to be a ConsoleAppender using a PatternLayout.
+         appender.CARBON_CONSOLE.type = Console
+         appender.CARBON_CONSOLE.name = CARBON_CONSOLE
+         appender.CARBON_CONSOLE.layout.type = PatternLayout
+         appender.CARBON_CONSOLE.layout.pattern = [%d] %5p {% raw %}{%c{1}}{% endraw %} - %m%ex%n
+         appender.CARBON_CONSOLE.filter.threshold.type = ThresholdFilter
+         appender.CARBON_CONSOLE.filter.threshold.level = DEBUG
+         ```
     
 -   `CARBON_LOGFILE`: This is a RollingFile appender that generates management logs of the server. Logs are printed to the `<MI_HOME>/repository/logs/wso2carbon.log`.
 
-    ```xml tab='CARBON_LOGFILE'
-    # CARBON_LOGFILE is set to be a DailyRollingFileAppender using a PatternLayout.
-    appender.CARBON_LOGFILE.type = RollingFile
-    appender.CARBON_LOGFILE.name = CARBON_LOGFILE
-    appender.CARBON_LOGFILE.fileName = ${sys:carbon.home}/repository/logs/wso2carbon.log
-    appender.CARBON_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/wso2carbon-%d{MM-dd-yyyy}.log
-    appender.CARBON_LOGFILE.layout.type = PatternLayout
-    appender.CARBON_LOGFILE.layout.pattern = [%d] %5p {% raw %}{%c}{% endraw %} - %m%ex%n
-    appender.CARBON_LOGFILE.policies.type = Policies
-    appender.CARBON_LOGFILE.policies.time.type = TimeBasedTriggeringPolicy
-    appender.CARBON_LOGFILE.policies.time.interval = 1
-    appender.CARBON_LOGFILE.policies.time.modulate = true
-    appender.CARBON_LOGFILE.policies.size.type = SizeBasedTriggeringPolicy
-    appender.CARBON_LOGFILE.policies.size.size=10MB
-    appender.CARBON_LOGFILE.strategy.type = DefaultRolloverStrategy
-    appender.CARBON_LOGFILE.strategy.max = 20
-    appender.CARBON_LOGFILE.filter.threshold.type = ThresholdFilter
-    appender.CARBON_LOGFILE.filter.threshold.level = DEBUG
-    ```
+    === "CARBON_LOGFILE"
+         ```xml
+         # CARBON_LOGFILE is set to be a DailyRollingFileAppender using a PatternLayout.
+         appender.CARBON_LOGFILE.type = RollingFile
+         appender.CARBON_LOGFILE.name = CARBON_LOGFILE
+         appender.CARBON_LOGFILE.fileName = ${sys:carbon.home}/repository/logs/wso2carbon.log
+         appender.CARBON_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/wso2carbon-%d{MM-dd-yyyy}.log
+         appender.CARBON_LOGFILE.layout.type = PatternLayout
+         appender.CARBON_LOGFILE.layout.pattern = [%d] %5p {% raw %}{%c}{% endraw %} - %m%ex%n
+         appender.CARBON_LOGFILE.policies.type = Policies
+         appender.CARBON_LOGFILE.policies.time.type = TimeBasedTriggeringPolicy
+         appender.CARBON_LOGFILE.policies.time.interval = 1
+         appender.CARBON_LOGFILE.policies.time.modulate = true
+         appender.CARBON_LOGFILE.policies.size.type = SizeBasedTriggeringPolicy
+         appender.CARBON_LOGFILE.policies.size.size=10MB
+         appender.CARBON_LOGFILE.strategy.type = DefaultRolloverStrategy
+         appender.CARBON_LOGFILE.strategy.max = 20
+         appender.CARBON_LOGFILE.filter.threshold.type = ThresholdFilter
+         appender.CARBON_LOGFILE.filter.threshold.level = DEBUG
+         ```
 
 -   `ERROR_LOGFILE`: This is a RollingFile appender that print the error logs to the `<MI_HOME>/repository/logs/wso2error.log` file.
 
 
-    ```xml tab='ERROR_LOGFILE'
-    # Appender config to SERVICE_APPENDER
-    appender.ERROR_LOGFILE.type = RollingFile
-    appender.ERROR_LOGFILE.name = ERROR_LOGFILE
-    appender.ERROR_LOGFILE.fileName = ${sys:carbon.home}/repository/logs/wso2error.log
-    appender.ERROR_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/wso2error-%d{MM-dd-yyyy}.log
-    appender.ERROR_LOGFILE.layout.type = PatternLayout
-    appender.ERROR_LOGFILE.layout.pattern = [%d] %5p {% raw %}{%c}{% endraw %} - %m%ex%n
-    appender.ERROR_LOGFILE.policies.type = Policies
-    appender.ERROR_LOGFILE.policies.time.type = TimeBasedTriggeringPolicy
-    appender.ERROR_LOGFILE.policies.time.interval = 1
-    appender.ERROR_LOGFILE.policies.time.modulate = true
-    appender.ERROR_LOGFILE.policies.size.type = SizeBasedTriggeringPolicy
-    appender.ERROR_LOGFILE.policies.size.size=10MB
-    appender.ERROR_LOGFILE.strategy.type = DefaultRolloverStrategy
-    appender.ERROR_LOGFILE.strategy.max = 20
-    appender.ERROR_LOGFILE.filter.threshold.type = ThresholdFilter
-    appender.ERROR_LOGFILE.filter.threshold.level = WARN
-    ```
+    === "ERROR_LOGFILE"
+         ```xml
+         # Appender config to SERVICE_APPENDER
+         appender.ERROR_LOGFILE.type = RollingFile
+         appender.ERROR_LOGFILE.name = ERROR_LOGFILE
+         appender.ERROR_LOGFILE.fileName = ${sys:carbon.home}/repository/logs/wso2error.log
+         appender.ERROR_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/wso2error-%d{MM-dd-yyyy}.log
+         appender.ERROR_LOGFILE.layout.type = PatternLayout
+         appender.ERROR_LOGFILE.layout.pattern = [%d] %5p {% raw %}{%c}{% endraw %} - %m%ex%n
+         appender.ERROR_LOGFILE.policies.type = Policies
+         appender.ERROR_LOGFILE.policies.time.type = TimeBasedTriggeringPolicy
+         appender.ERROR_LOGFILE.policies.time.interval = 1
+         appender.ERROR_LOGFILE.policies.time.modulate = true
+         appender.ERROR_LOGFILE.policies.size.type = SizeBasedTriggeringPolicy
+         appender.ERROR_LOGFILE.policies.size.size=10MB
+         appender.ERROR_LOGFILE.strategy.type = DefaultRolloverStrategy
+         appender.ERROR_LOGFILE.strategy.max = 20
+         appender.ERROR_LOGFILE.filter.threshold.type = ThresholdFilter
+         appender.ERROR_LOGFILE.filter.threshold.level = WARN
+         ```
 
 ### Service Logs
 
@@ -170,27 +173,29 @@ This logger generates logs for services deployed in the Micro Integrator. It ref
 
     See the instructions on [monitoring per-service logs]({{base_path}}/integrate/develop/monitoring-service-level-logs).
 
-```xml tab='SERVICE_LOGGER'
-logger.SERVICE_LOGGER.name= SERVICE_LOGGER
-logger.SERVICE_LOGGER.level = INFO
-logger.SERVICE_LOGGER.appenderRef.SERVICE_LOGFILE.ref = SERVICE_LOGFILE
-logger.SERVICE_LOGGER.additivity = false
-```
+=== "SERVICE_LOGGER"
+      ```xml
+      logger.SERVICE_LOGGER.name= SERVICE_LOGGER
+      logger.SERVICE_LOGGER.level = INFO
+      logger.SERVICE_LOGGER.appenderRef.SERVICE_LOGFILE.ref = SERVICE_LOGFILE
+      logger.SERVICE_LOGGER.additivity = false
+      ```
 
-```xml tab='APPENDER'
-# Appender config to SERVICE_LOGFILE
-appender.SERVICE_LOGFILE.type = RollingFile
-appender.SERVICE_LOGFILE.name = SERVICE_LOGFILE
-appender.SERVICE_LOGFILE.fileName = ${sys:carbon.home}/repository/logs/wso2-mi-service.log
-appender.SERVICE_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/wso2-mi-service-%d{MM-dd-yyyy}.log
-appender.SERVICE_LOGFILE.layout.type = PatternLayout
-appender.SERVICE_LOGFILE.layout.pattern = [%d] %5p {% raw %}{%c}{% endraw %} - %m%ex%n
-appender.SERVICE_LOGFILE.policies.type = Policies
-appender.SERVICE_LOGFILE.policies.size.type = SizeBasedTriggeringPolicy
-appender.SERVICE_LOGFILE.policies.size.size=10MB
-appender.SERVICE_LOGFILE.strategy.type = DefaultRolloverStrategy
-appender.SERVICE_LOGFILE.strategy.max = 20
-```
+=== "APPENDER"
+      ```xml
+      # Appender config to SERVICE_LOGFILE
+      appender.SERVICE_LOGFILE.type = RollingFile
+      appender.SERVICE_LOGFILE.name = SERVICE_LOGFILE
+      appender.SERVICE_LOGFILE.fileName = ${sys:carbon.home}/repository/logs/wso2-mi-service.log
+      appender.SERVICE_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/wso2-mi-service-%d{MM-dd-yyyy}.log
+      appender.SERVICE_LOGFILE.layout.type = PatternLayout
+      appender.SERVICE_LOGFILE.layout.pattern = [%d] %5p {% raw %}{%c}{% endraw %} - %m%ex%n
+      appender.SERVICE_LOGFILE.policies.type = Policies
+      appender.SERVICE_LOGFILE.policies.size.type = SizeBasedTriggeringPolicy
+      appender.SERVICE_LOGFILE.policies.size.size=10MB
+      appender.SERVICE_LOGFILE.strategy.type = DefaultRolloverStrategy
+      appender.SERVICE_LOGFILE.strategy.max = 20
+      ```
 
 ### API Logs
 
@@ -203,60 +208,64 @@ This logger generates logs for APIs deployed in the Micro Integrator. It refers 
     logger.API_LOG.name=API_LOGGER.TestAPI
     ```
 
-    See the instructions on [monitoring per-API logs]({{base_path}}/install-and-setup/setup/mi-setup/observability/logs/enabling-logs-for-api).
+    See the instructions on [monitoring per-API logs]({{base_path}}/integrate/develop/monitoring-api-level-logs/).
 
-```xml tab='API_LOGGER'
-logger.API_LOGGER.name= API_LOGGER
-logger.API_LOGGER.level = INFO
-logger.API_LOGGER.appenderRef.SERVICE_LOGFILE.ref = API_LOGFILE
-logger.API_LOGGER.additivity = false
-```
+=== "API_LOGGER"
+      ```xml
+      logger.API_LOGGER.name= API_LOGGER
+      logger.API_LOGGER.level = INFO
+      logger.API_LOGGER.appenderRef.SERVICE_LOGFILE.ref = API_LOGFILE
+      logger.API_LOGGER.additivity = false
+      ```
 
-```xml tab='APPENDER'
-# Appender config to API_APPENDER
-appender.API_LOGFILE.type = RollingFile
-appender.API_LOGFILE.name = API_LOGFILE
-appender.API_LOGFILE.fileName = ${sys:carbon.home}/repository/logs/wso2-mi-api.log
-appender.API_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/wso2-mi-api-%d{MM-dd-yyyy}.log
-appender.API_LOGFILE.layout.type = PatternLayout
-appender.API_LOGFILE.layout.pattern = [%d] %5p {% raw %}{%c}{% endraw %} - %m%ex%n
-appender.API_LOGFILE.policies.type = Policies
-appender.API_LOGFILE.policies.size.type = SizeBasedTriggeringPolicy
-appender.API_LOGFILE.policies.size.size=10MB
-appender.API_LOGFILE.strategy.type = DefaultRolloverStrategy
-appender.API_LOGFILE.strategy.max = 20
-```
+=== "APPENDER"
+      ```xml
+      # Appender config to API_APPENDER
+      appender.API_LOGFILE.type = RollingFile
+      appender.API_LOGFILE.name = API_LOGFILE
+      appender.API_LOGFILE.fileName = ${sys:carbon.home}/repository/logs/wso2-mi-api.log
+      appender.API_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/wso2-mi-api-%d{MM-dd-yyyy}.log
+      appender.API_LOGFILE.layout.type = PatternLayout
+      appender.API_LOGFILE.layout.pattern = [%d] %5p {% raw %}{%c}{% endraw %} - %m%ex%n
+      appender.API_LOGFILE.policies.type = Policies
+      appender.API_LOGFILE.policies.size.type = SizeBasedTriggeringPolicy
+      appender.API_LOGFILE.policies.size.size=10MB
+      appender.API_LOGFILE.strategy.type = DefaultRolloverStrategy
+      appender.API_LOGFILE.strategy.max = 20
+      ```
 
 ### Audit Logs
 
 This is a `RollingFile` appender that writes logs to the `<MI_HOME>/repository/logs/audit.log` file. By default, the `AUDIT_LOG` logger is configured to write logs using this appender.
 
-```xml tab='AUDIT_LOGGER'
-logger.AUDIT_LOG.name = AUDIT_LOG
-logger.AUDIT_LOG.level = INFO
-logger.AUDIT_LOG.appenderRef.AUDIT_LOGFILE.ref = AUDIT_LOGFILE
-logger.AUDIT_LOG.additivity = false
-```
+=== "AUDIT_LOGGER"
+      ```xml
+      logger.AUDIT_LOG.name = AUDIT_LOG
+      logger.AUDIT_LOG.level = INFO
+      logger.AUDIT_LOG.appenderRef.AUDIT_LOGFILE.ref = AUDIT_LOGFILE
+      logger.AUDIT_LOG.additivity = false
+      ```
 
-```xml tab='APPENDER'
-# Appender config to AUDIT_LOGFILE
-appender.AUDIT_LOGFILE.type = RollingFile
-appender.AUDIT_LOGFILE.name = AUDIT_LOGFILE
-appender.AUDIT_LOGFILE.fileName = ${sys:carbon.home}/repository/logs/audit.log
-appender.AUDIT_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/audit-%d{MM-dd-yyyy}.log
-appender.AUDIT_LOGFILE.layout.type = PatternLayout
-appender.AUDIT_LOGFILE.layout.pattern = [%d] %5p {% raw %}{%c}{% endraw %} - %m%ex%n
-appender.AUDIT_LOGFILE.policies.type = Policies
-appender.AUDIT_LOGFILE.policies.time.type = TimeBasedTriggeringPolicy
-appender.AUDIT_LOGFILE.policies.time.interval = 1
-appender.AUDIT_LOGFILE.policies.time.modulate = true
-appender.AUDIT_LOGFILE.policies.size.type = SizeBasedTriggeringPolicy
-appender.AUDIT_LOGFILE.policies.size.size=10MB
-appender.AUDIT_LOGFILE.strategy.type = DefaultRolloverStrategy
-appender.AUDIT_LOGFILE.strategy.max = 20
-appender.AUDIT_LOGFILE.filter.threshold.type = ThresholdFilter
-appender.AUDIT_LOGFILE.filter.threshold.level = INFO
-```
+=== "APPENDER"
+      ```xml
+      # Appender config to AUDIT_LOGFILE
+      appender.AUDIT_LOGFILE.type = RollingFile
+      appender.AUDIT_LOGFILE.name = AUDIT_LOGFILE
+      appender.AUDIT_LOGFILE.fileName = ${sys:carbon.home}/repository/logs/audit.log
+      appender.AUDIT_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/audit-%d{MM-dd-yyyy}.log
+      appender.AUDIT_LOGFILE.layout.type = PatternLayout
+      appender.AUDIT_LOGFILE.layout.pattern = [%d] %5p {% raw %}{%c}{% endraw %} - %m%ex%n
+      appender.AUDIT_LOGFILE.policies.type = Policies
+      appender.AUDIT_LOGFILE.policies.time.type = TimeBasedTriggeringPolicy
+      appender.AUDIT_LOGFILE.policies.time.interval = 1
+      appender.AUDIT_LOGFILE.policies.time.modulate = true
+      appender.AUDIT_LOGFILE.policies.size.type = SizeBasedTriggeringPolicy
+      appender.AUDIT_LOGFILE.policies.size.size=10MB
+      appender.AUDIT_LOGFILE.strategy.type = DefaultRolloverStrategy
+      appender.AUDIT_LOGFILE.strategy.max = 20
+      appender.AUDIT_LOGFILE.filter.threshold.type = ThresholdFilter
+      appender.AUDIT_LOGFILE.filter.threshold.level = INFO
+      ```
 
 ### Correlations Logs
 
@@ -268,32 +277,34 @@ This logger generates correlation logs for monitoring individual HTTP requests f
     exceeds 10MB, a new log file is created. If required, you can change
     this file size.
 
-```xml tab='correlation'
-logger.correlation.name = correlation
-logger.correlation.level = INFO
-logger.correlation.appenderRef.CORRELATION.ref = CORRELATION
-logger.correlation.additivity = false
-```
+=== "correlation"
+      ```xml
+      logger.correlation.name = correlation
+      logger.correlation.level = INFO
+      logger.correlation.appenderRef.CORRELATION.ref = CORRELATION
+      logger.correlation.additivity = false
+      ```
 
-```xml tab='APPENDER'
-# Appender config to put correlation Log.
-appender.CORRELATION.type = RollingFile
-appender.CORRELATION.name = CORRELATION
-appender.CORRELATION.fileName =${sys:carbon.home}/repository/logs/correlation.log
-appender.CORRELATION.filePattern =${sys:carbon.home}/repository/logs/correlation-%d{MM-dd-yyyy}.log
-appender.CORRELATION.layout.type = PatternLayout
-appender.CORRELATION.layout.pattern = %d{yyyy-MM-dd HH:mm:ss,SSS}|%X{Correlation-ID}|%t|%m%n
-appender.CORRELATION.policies.type = Policies
-appender.CORRELATION.policies.time.type = TimeBasedTriggeringPolicy
-appender.CORRELATION.policies.time.interval = 1
-appender.CORRELATION.policies.time.modulate = true
-appender.CORRELATION.policies.size.type = SizeBasedTriggeringPolicy
-appender.CORRELATION.policies.size.size=10MB
-appender.CORRELATION.strategy.type = DefaultRolloverStrategy
-appender.CORRELATION.strategy.max = 20
-appender.CORRELATION.filter.threshold.type = ThresholdFilter
-appender.CORRELATION.filter.threshold.level = INFO
-```
+=== "APPENDER"
+      ```xml
+      # Appender config to put correlation Log.
+      appender.CORRELATION.type = RollingFile
+      appender.CORRELATION.name = CORRELATION
+      appender.CORRELATION.fileName =${sys:carbon.home}/repository/logs/correlation.log
+      appender.CORRELATION.filePattern =${sys:carbon.home}/repository/logs/correlation-%d{MM-dd-yyyy}.log
+      appender.CORRELATION.layout.type = PatternLayout
+      appender.CORRELATION.layout.pattern = %d{yyyy-MM-dd HH:mm:ss,SSS}|%X{Correlation-ID}|%t|%m%n
+      appender.CORRELATION.policies.type = Policies
+      appender.CORRELATION.policies.time.type = TimeBasedTriggeringPolicy
+      appender.CORRELATION.policies.time.interval = 1
+      appender.CORRELATION.policies.time.modulate = true
+      appender.CORRELATION.policies.size.type = SizeBasedTriggeringPolicy
+      appender.CORRELATION.policies.size.size=10MB
+      appender.CORRELATION.strategy.type = DefaultRolloverStrategy
+      appender.CORRELATION.strategy.max = 20
+      appender.CORRELATION.filter.threshold.type = ThresholdFilter
+      appender.CORRELATION.filter.threshold.level = INFO
+      ```
 
 <b>Additional configurations</b>:
 
@@ -310,29 +321,31 @@ Once you have configured this logger, see the instructions on [monitoring correl
 
 This is a `RollingFile` appender that writes logs to the `<MI_HOME>/repository/logs/wso2carbon-trace-messages.log` file. By default, the `trace.messages` logger is configured to write logs using this appender.
 
-```xml tab='trace-messages'
-logger.trace-messages.name = trace.messages
-logger.trace-messages.level = TRACE
-logger.trace-messages.appenderRef.CARBON_TRACE_LOGFILE.ref = CARBON_TRACE_LOGFILE
-```
+=== "trace-messages"
+      ```xml
+      logger.trace-messages.name = trace.messages
+      logger.trace-messages.level = TRACE
+      logger.trace-messages.appenderRef.CARBON_TRACE_LOGFILE.ref = CARBON_TRACE_LOGFILE
+      ```
 
-```xml tab='APPENDER'
-# Appender config to CARBON_TRACE_LOGFILE
-appender.CARBON_TRACE_LOGFILE.type = RollingFile
-appender.CARBON_TRACE_LOGFILE.name = CARBON_TRACE_LOGFILE
-appender.CARBON_TRACE_LOGFILE.fileName = ${sys:carbon.home}/repository/logs/wso2carbon-trace-messages.log
-appender.CARBON_TRACE_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/wso2carbon-trace-messages-%d{MM-dd-yyyy}.log
-appender.CARBON_TRACE_LOGFILE.layout.type = PatternLayout
-appender.CARBON_TRACE_LOGFILE.layout.pattern = [%d] %5p {% raw %}{%c}{% endraw %} - %m%ex%n
-appender.CARBON_TRACE_LOGFILE.policies.type = Policies
-appender.CARBON_TRACE_LOGFILE.policies.time.type = TimeBasedTriggeringPolicy
-appender.CARBON_TRACE_LOGFILE.policies.time.interval = 1
-appender.CARBON_TRACE_LOGFILE.policies.time.modulate = true
-appender.CARBON_TRACE_LOGFILE.policies.size.type = SizeBasedTriggeringPolicy
-appender.CARBON_TRACE_LOGFILE.policies.size.size=10MB
-appender.CARBON_TRACE_LOGFILE.strategy.type = DefaultRolloverStrategy
-appender.CARBON_TRACE_LOGFILE.strategy.max = 20
-```
+=== "APPENDER"
+      ```xml
+      # Appender config to CARBON_TRACE_LOGFILE
+      appender.CARBON_TRACE_LOGFILE.type = RollingFile
+      appender.CARBON_TRACE_LOGFILE.name = CARBON_TRACE_LOGFILE
+      appender.CARBON_TRACE_LOGFILE.fileName = ${sys:carbon.home}/repository/logs/wso2carbon-trace-messages.log
+      appender.CARBON_TRACE_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/wso2carbon-trace-messages-%d{MM-dd-yyyy}.log
+      appender.CARBON_TRACE_LOGFILE.layout.type = PatternLayout
+      appender.CARBON_TRACE_LOGFILE.layout.pattern = [%d] %5p {% raw %}{%c}{% endraw %} - %m%ex%n
+      appender.CARBON_TRACE_LOGFILE.policies.type = Policies
+      appender.CARBON_TRACE_LOGFILE.policies.time.type = TimeBasedTriggeringPolicy
+      appender.CARBON_TRACE_LOGFILE.policies.time.interval = 1
+      appender.CARBON_TRACE_LOGFILE.policies.time.modulate = true
+      appender.CARBON_TRACE_LOGFILE.policies.size.type = SizeBasedTriggeringPolicy
+      appender.CARBON_TRACE_LOGFILE.policies.size.size=10MB
+      appender.CARBON_TRACE_LOGFILE.strategy.type = DefaultRolloverStrategy
+      appender.CARBON_TRACE_LOGFILE.strategy.max = 20
+      ```
 
 ### Wire Logs and Header Logs
 
@@ -346,28 +359,32 @@ These logs are disabled by default by setting the log level to `OFF`. You can en
     !!! Tip
         The Passthrough HTTP transport is the main transport that handles HTTP/HTTPS messages in the Micro Integrator.
 
-    ```xml tab='Synapse HTTP Headers'
-    # The following loggers are used to log HTTP headers and messages.
-    logger.synapse-transport-http-headers.name=org.apache.synapse.transport.http.headers
-    logger.synapse-transport-http-headers.level=OFF
-    ```
+    === "Synapse HTTP Headers"
+         ```xml
+         # The following loggers are used to log HTTP headers and messages.
+         logger.synapse-transport-http-headers.name=org.apache.synapse.transport.http.headers
+         logger.synapse-transport-http-headers.level=OFF
+         ```
 
-    ```xml tab='Synapse Wire Logs'
-    logger.synapse-transport-http-wire.name=org.apache.synapse.transport.http.wire
-    logger.synapse-transport-http-wire.level=OFF
-    ```
+    === "Synapse Wire Logs"
+         ```xml
+         logger.synapse-transport-http-wire.name=org.apache.synapse.transport.http.wire
+         logger.synapse-transport-http-wire.level=OFF
+         ```
 
 -   The following loggers configure wire logs for the Callout mediator/MessageProcessor.
 
-    ```xml tab='Client Headers'
-    logger.httpclient-wire-header.name=httpclient.wire.header
-    logger.httpclient-wire-header.level=OFF
-    ```
+    === "Client Headers"
+         ```xml
+         logger.httpclient-wire-header.name=httpclient.wire.header
+         logger.httpclient-wire-header.level=OFF
+         ```
 
-    ```xml tab='Client Wire Content'
-    logger.httpclient-wire-content.name=httpclient.wire.content
-    logger.httpclient-wire-content.level=OFF
-    ```
+    === "Client Wire Content"
+         ```xml
+         logger.httpclient-wire-content.name=httpclient.wire.content
+         logger.httpclient-wire-content.level=OFF
+         ```
 
 See the instructions on [using wire logs to debug]({{base_path}}/integrate/develop/using-wire-logs) your integration solution during development.
 

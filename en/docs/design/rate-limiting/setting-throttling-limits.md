@@ -10,6 +10,11 @@ You can define Rate Limiting at the API, application, resource and subscription 
 
 **Example** : Lets say two users are subscribed to an API using the Gold subscription, which allows 20 requests per minute. They both use the application App1 for this subscription, which again has a Rate Limiting tier set to 20 requests per minute. All resource level Rate Limiting tiers are unlimited. In this scenario, although both users are eligible for 20 requests per minute access to the API, each ideally has a limit of only 10 requests per minute. This is due to the application-level limitation of 20 requests per minute.
 
+<div class="admonition info">
+    <p class="admonition-title">Note</p>
+    <p>Throttling is based on real-time clock intervals. For example, if an API permits 10 requests per minute and the first request is made at the 30th second, you can make up to 10 requests until the end of that minute. When the next minute starts, the limit resets, allowing another 10 requests. This means you could make up to 20 requests within what feels like a single minute to the user. This method ensures the request limit is applied per calendar minute, which may not align with user-perceived time intervals.</p>
+</div>
+
 ## Different levels of Rate Limiting
 
 It is possible to throttle requests for each tier based on the request count per unit time or the amount of data (bandwidth) transferred through the Gateway per unit time. You can configure this via the Admin Portal. For more information, see [Adding New Rate Limiting Policies]({{base_path}}/design/rate-limiting/adding-new-throttling-policies/).
@@ -150,3 +155,22 @@ It is also possible to specify a bandwidth per unit time instead of a number of 
             x-wso2-throttling-tier: 20kPerMin
     ```
 </div>
+
+
+#### Changing the Default Tiers
+
+Users can change the default tiers by appending the following config to the advanced Configurations in Admin portal.
+
+1. Log in to the API Manager's Admin Portal ( `https://localhost:9443/admin` ) and go to the **Settings &gt; Advanced** menu.
+
+   ![](../../assets/img/design/rate-limiting/change-default-tiers-menu.png)
+
+2. Append the following configurations to the **Advanced Configurations** as required.
+
+    ```
+         "DefaultAPILevelTier":"<Tier Name>",
+         "DefaultApplicationLevelTier" : "<Tier Name>",
+         "DefaultSubscriptionLevelTier" : "<Tier Name> "
+    ```
+
+   ![](../../assets/img/design/rate-limiting/add-default-tier-configurations.png)

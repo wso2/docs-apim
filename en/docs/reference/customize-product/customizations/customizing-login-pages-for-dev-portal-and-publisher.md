@@ -52,7 +52,7 @@ Usually WSO2 API Manager displays a default login page for all the SAML SSO serv
 
 7.  When attempting to login with SAML from WSO2 Identity Server in Publisher and Developer Portal, you can see the following default page located at `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/login.jsp          `
 
-    ![Identity Server Login Page]({{base_path}}/assets/img/learn/identity-server-login-page.png) For instructions on configuring WSO2 Identity Server as an identity provider, see [Configuring Identity Server as IDP for SSO](/administer/product-security/saml2-sso/configuring-identity-server-as-idp-for-sso/) .
+    ![Identity Server Login Page]({{base_path}}/assets/img/learn/identity-server-login-page.png) For instructions on configuring WSO2 Identity Server as an identity provider, see [Configuring Identity Server as IDP for SSO](/reference/customize-product/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso) .
 
 #### Configuring the login page
 
@@ -94,7 +94,7 @@ When a request comes to the default login page, you can see several parameters b
 
 -   **sessionDataKey** : This is an identifier used by the Identity Server to maintain state information related to this particular request by the service provider.
 
--   **relyingParty** : This is the value we gave for the "Issuer" field when we registered the SAML2 SSO service provider (e.g., [travelocity.com](http://travelocity.com) ). This value is used to display different login pages to different service providers.
+-   **relyingParty** : This is the value we gave for the "Issuer" field when we registered the SAML2 SSO service provider (e.g., `http://travelocity.com` ). This value is used to display different login pages to different service providers.
 
 When customizing the pages, ensure that the following is applied.
 
@@ -173,23 +173,24 @@ Follow the steps below to customize them.
     
     For example, if you want to customize the header, footer and title sections of the login and signup pages of WSO2 API Manager, change or edit the **headerTitle**, **pageTitle** and **footerText** in the following lines in `header.jsp` file with your content. If you are doing this, please make sure to add the `product-title.jsp` file to the extensions folder along with the `header.jsp` file.
 
-    ``` tab="Example"
-        String headerTitle = "API Manager";
-        String pageTitle = "WSO2 API Manager";
-        String footerText = "WSO2 API Manager";
-        String faviconSrc = "libs/theme/assets/images/favicon.ico";
-        String logoSrc = null;
-        String logoHeight = "50";
-        String logoWidth = "50";
-        String logoAltText = "";
-        File customCSSFile = null;
-        String customCSS = "";
-        String tenantThemeDirectoryName = "";
-        boolean showCookiePolicy = true;
-        boolean showPrivacyPolicy = true;
-        String cookiePolicyText = null;
-        String privacyPolicyText = null;
-    ```
+    === "Example"
+        ``` 
+            String headerTitle = "API Manager";
+            String pageTitle = "WSO2 API Manager";
+            String footerText = "WSO2 API Manager";
+            String faviconSrc = "libs/theme/assets/images/favicon.ico";
+            String logoSrc = null;
+            String logoHeight = "50";
+            String logoWidth = "50";
+            String logoAltText = "";
+            File customCSSFile = null;
+            String customCSS = "";
+            String tenantThemeDirectoryName = "";
+            boolean showCookiePolicy = true;
+            boolean showPrivacyPolicy = true;
+            String cookiePolicyText = null;
+            String privacyPolicyText = null;
+        ```
 
 4. The changes will be applied during the **API Manager server startup**.
 

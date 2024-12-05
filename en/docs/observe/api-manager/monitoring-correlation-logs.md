@@ -26,13 +26,15 @@ Enabling observability at the server startup is simple in API Manager. All you n
 !!! tip
     Alternatively, you can enable observability at the time of starting the WSO2 API-M server as follows:
     
-    ```java tab="Linux/Mac OS"
-    sh api-manager.sh -DenableCorrelationLogs=true start
-    ```
+    === "Linux/Mac OS"
+        ```java
+        sh api-manager.sh -DenableCorrelationLogs=true start
+        ```
 
-    ```java tab="Windows"
-    api-manager.bat --run -DenableCorrelationLogs=true start
-    ```
+    === "Windows"
+        ```java
+        api-manager.bat --run -DenableCorrelationLogs=true start
+        ```
 
 !!! note
     When observability is enabled in WSO2 API Manager, a separate log file named `correlation.log` is created in the `<API-M_HOME>/repository/logs` directory.
@@ -46,57 +48,61 @@ For more instructions, see [WSO2 Devops API v0]({{base_path}}/reference/product-
    
     Correlation logs can be configured at a component level granularity using the devops API. 
 
-    ```bash tab="Sample Request"
-    curl -X PUT 'https://localhost:9443/api/am/devops/v0/config/correlation' \
-        -H 'accept: application/json' \
-        -H 'Content-Type: application/json' \
-        -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
-        -d '{"components":[{
-            "name":"http",
-            "enabled":"true"},
-            {
-            "name":"ldap",
-            "enabled":"false"},
-            {
-            "name":"jdbc",
-            "enabled":"false"},
-            {
-            "name":"synapse",
-            "enabled":"true"},
-            {
-            "name":"method-calls",
-            "enabled":"false"}]}' -k
-    ```
+    === "Sample Request"
+        ```bash
+        curl -X PUT 'https://localhost:9443/api/am/devops/v0/config/correlation' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{"components":[{
+                "name":"http",
+                "enabled":"true"},
+                {
+                "name":"ldap",
+                "enabled":"false"},
+                {
+                "name":"jdbc",
+                "enabled":"false"},
+                {
+                "name":"synapse",
+                "enabled":"true"},
+                {
+                "name":"method-calls",
+                "enabled":"false"}]}' -k
+        ```
     
-    ```bash tab="Sample Response"
-    {"components":[
-    {"name":"http",
-     "enabled":"true",
-     "properties":[]},
-    {"name":"ldap",
-     "enabled":"false",
-     "properties":[]},
-    {"name":"jdbc",
-     "enabled":"false",
-     "properties":[]},
-    {"name":"synapse",
-     "enabled":"true",
-     "properties":[]},
-    {"name":"method-calls",
-     "enabled":"false",
-     "properties":[]}]
-    }
-    ```
+    === "Sample Response"
+        ```json
+        {"components":[
+        {"name":"http",
+        "enabled":"true",
+        "properties":[]},
+        {"name":"ldap",
+        "enabled":"false",
+        "properties":[]},
+        {"name":"jdbc",
+        "enabled":"false",
+        "properties":[]},
+        {"name":"synapse",
+        "enabled":"true",
+        "properties":[]},
+        {"name":"method-calls",
+        "enabled":"false",
+        "properties":[]}]
+        }
+        ```
    
 2. Get correlation log configurations.
     
-    ```bash tab="Sample Request"
-    curl -X GET 'https://localhost:9443/api/am/devops/v0/config/correlation/' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -k
-    ```
+    === "Sample Request"
+        ```bash
+        curl -X GET 'https://localhost:9443/api/am/devops/v0/config/correlation/' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -k
+        ```
     
-    ```bash tab="Sample Response"
-    {"components":[{"name":"http","enabled":"false","properties":[]},{"name":"jdbc","enabled":"false","properties":[{"name":"deniedThreads","value":["MessageDeliveryTaskThreadPool","HumanTaskServer","BPELServer","CarbonDeploymentSchedulerThread"]}]},{"name":"ldap","enabled":"false","properties":[]},{"name":"synapse","enabled":"false","properties":[]},{"name":"method-calls","enabled":"false","properties":[]}]}
-    ```
+    === "Sample Response"
+        ```bash
+        {"components":[{"name":"http","enabled":"false","properties":[]},{"name":"jdbc","enabled":"false","properties":[{"name":"deniedThreads","value":["MessageDeliveryTaskThreadPool","HumanTaskServer","BPELServer","CarbonDeploymentSchedulerThread"]}]},{"name":"ldap","enabled":"false","properties":[]},{"name":"synapse","enabled":"false","properties":[]},{"name":"method-calls","enabled":"false","properties":[]}]}
+        ```
 
 !!! note
     When correlation logs are enabled using the system property, the DevOps API will not be able to disable the correlation logs. 
@@ -111,13 +117,15 @@ When Correlation logging is enabled, API Manager logs the time taken to execute 
 
 In API Manager, by default, the important methods are marked with the `@MethodStats` annotation, and this annotation can be found at both the method level and the class level. All the methods of the respective class are included for logging for the classes that have the latter mentioned annotation. The format of a method log entry is as follows:
 
-``` tab="Format"
-timestamp | correlationID | threadName | duration | callType | className | methodName | methodArguments
-```
+=== "Format"
+    ```
+    timestamp | correlationID | threadName | duration | callType | className | methodName | methodArguments
+    ```
 
-``` tab="Example"
-2021-11-28 10:10:56,293|a783f7c3-647f-4d10-9b72-106faa01bba8|PassThroughMessageProcessor-3|0|METHOD|org.wso2.carbon.apimgt.gateway.handlers.security.CORSRequestHandler|handleRequest|[messageContext]
-```
+=== "Example"
+    ```
+    2021-11-28 10:10:56,293|a783f7c3-647f-4d10-9b72-106faa01bba8|PassThroughMessageProcessor-3|0|METHOD|org.wso2.carbon.apimgt.gateway.handlers.security.CORSRequestHandler|handleRequest|[messageContext]
+    ```
 
 
 ??? "Click here for more details on the Method Call Log entry"
@@ -195,13 +203,15 @@ You can enable Correlation logs in WSO2 API-M to track the complete round trip o
 
 All external calls done by the API Manager are logged via this category. Note that this does not include DB calls. This is done via a Synapse Global Handler that logs the important information of the external calls. The format for a Synapse global handler level external call log entry is as follows:
 
-``` tab="Format"
-timestamp | CorrelationID | threadName | duration(BE latency) | callType | apiName | apiMethod | apiContext | apiResourcePath | authHeader | orgIdHeader | SrcIdHeader | applIdHeader | uuIdHeader | requestSize | responseSize | apiResponseStatusCode | applicationName | consumerKey | responseTime
-```
+=== "Format"
+    ```
+    timestamp | CorrelationID | threadName | duration(BE latency) | callType | apiName | apiMethod | apiContext | apiResourcePath | authHeader | orgIdHeader | SrcIdHeader | applIdHeader | uuIdHeader | requestSize | responseSize | apiResponseStatusCode | applicationName | consumerKey | responseTime
+    ```
 
-``` tab="Example"
-2021-11-28` `10:10:56,316|a783f7c3-647f-4d10-9b72-106faa01bba8|PassThroughMessageProcessor-4|20|HTTP|admin--PizzaShackAPI:v1.0.0|GET|/pizzashack/1.0.0/menu|pizzashack/1.0.0/menu|null|null|null|null|null|71|2238|200|DefaultApplication|AwlPOz2aDf2i1gZFWgITEgf4oPsa|21
-```
+=== "Example"
+    ```
+    2021-11-28` `10:10:56,316|a783f7c3-647f-4d10-9b72-106faa01bba8|PassThroughMessageProcessor-4|20|HTTP|admin--PizzaShackAPI:v1.0.0|GET|/pizzashack/1.0.0/menu|pizzashack/1.0.0/menu|null|null|null|null|null|71|2238|200|DefaultApplication|AwlPOz2aDf2i1gZFWgITEgf4oPsa|21
+    ```
 
 ??? "Click here for more details on the Synapse Global Handler Level External Call Log entry"
     <table>
@@ -352,13 +362,15 @@ timestamp | CorrelationID | threadName | duration(BE latency) | callType | apiNa
 
 In contrast to the information provided by the Synapse global handler level, the PassThrough transport level gives certain additional data such as, the Synapse internal state of the request. The format for a Synapse PassThrough Transport Level External Call Log entry is as follows:
 
-``` tab="Format"
-timestamp|correlationID|threadName|duration|callType|connectionName|methodType|connectionURL|httpState
-```
+=== "Format"
+    ```
+    timestamp|correlationID|threadName|duration|callType|connectionName|methodType|connectionURL|httpState
+    ```
 
-``` tab="Example"
-2021-11-28` `10:10:56,314|a783f7c3-647f-4d10-9b72-106faa01bba8|HTTPS-Sender I/O dispatcher-1|1|HTTP State Transition|http-outgoing-1|GET|https://localhost:9443/am/sample/pizzashack/v1/api/menu|RESPONSE_DONE
-```
+=== "Example"
+    ```
+    2021-11-28` `10:10:56,314|a783f7c3-647f-4d10-9b72-106faa01bba8|HTTPS-Sender I/O dispatcher-1|1|HTTP State Transition|http-outgoing-1|GET|https://localhost:9443/am/sample/pizzashack/v1/api/menu|RESPONSE_DONE
+    ```
 
 ??? "Click here for more details on the Synapse PassThrough Transport Level External Call Log Entry"
     <table>
@@ -453,13 +465,15 @@ The database call logging for observability includes two types of DB calls, name
 
 #### JDBC call logs
 
-``` tab="Format"
-timestamp | correlationID | threadID | duration | callType | startTime | methodName | query | connectionUrl
-```
+=== "Format"
+    ```
+    timestamp | correlationID | threadID | duration | callType | startTime | methodName | query | connectionUrl
+    ```
 
-``` tab="Example"
-2021-11-28` `10:10:43,202|a783f7c3-647f-4d10-9b72-106faa01bba8|PassThroughMessageProcessor-1|0|jdbc|1543380043202|executeQuery|SELECT REG_NAME, REG_VALUE FROM REG_PROPERTY P, REG_RESOURCE_PROPERTY RP WHERE P.REG_ID=RP.REG_PROPERTY_ID AND RP.REG_VERSION=? AND P.REG_TENANT_ID=RP.REG_TENANT_ID AND RP.REG_TENANT_ID=?|jdbc:h2:repository/database/WSO2CARBON_DB
-```
+=== "Example"
+    ```
+    2021-11-28` `10:10:43,202|a783f7c3-647f-4d10-9b72-106faa01bba8|PassThroughMessageProcessor-1|0|jdbc|1543380043202|executeQuery|SELECT REG_NAME, REG_VALUE FROM REG_PROPERTY P, REG_RESOURCE_PROPERTY RP WHERE P.REG_ID=RP.REG_PROPERTY_ID AND RP.REG_VERSION=? AND P.REG_TENANT_ID=RP.REG_TENANT_ID AND RP.REG_TENANT_ID=?|jdbc:h2:repository/database/WSO2CARBON_DB
+    ```
 
 ??? "Click here for more details on the JDBC call log entry"
     <table>
@@ -537,13 +551,15 @@ timestamp | correlationID | threadID | duration | callType | startTime | methodN
 
 #### LDAP call logs
 
-``` tab="Format"
-timestamp | correlationID | threadID | duration | callType | startTime | methodName | providerUrl | principal | argsLengeth | args
-```
+=== "Format"
+    ```
+    timestamp | correlationID | threadID | duration | callType | startTime | methodName | providerUrl | principal | argsLengeth | args
+    ```
 
-``` tab="Example"
-2021-11-0514:05:18,599|86b56b19-7872-4e2f-84f3-5a14f92e18c1|http-nio-9443-exec-8|200|ldap|1541406918591|search|ldap://localhost:10389|uid=admin,ou=system|3| uid=admin,ou=Users,dc=WSO2,dc=ORG,(&(objectClass=person)(uid=admin)),javax.naming.directory.SearchControls@548e9a48
-```
+=== "Example"
+    ```
+    2021-11-0514:05:18,599|86b56b19-7872-4e2f-84f3-5a14f92e18c1|http-nio-9443-exec-8|200|ldap|1541406918591|search|ldap://localhost:10389|uid=admin,ou=system|3| uid=admin,ou=Users,dc=WSO2,dc=ORG,(&(objectClass=person)(uid=admin)),javax.naming.directory.SearchControls@548e9a48
+    ```
 
 ??? "Click here for more details on the LDAP call log entry."
     <table>
@@ -811,15 +827,17 @@ Currently, when using method logging, it only logs special methods that are susp
 
 In order to configure the logging of all methods, add the following configuration as a system property to the APIM startup script. This will log all methods executed in the given package.
 
-``` java tab="Format"
--DlogAllMethods=<package_name>
-```
+=== "Format"
+    ``` java
+    -DlogAllMethods=<package_name>
+    ```
 
-``` tab="Example"
-For example, let's consider that you need to log all the methods for the gateway package.
+=== "Example"
+    ```
+    For example, let's consider that you need to log all the methods for the gateway package.
 
--DlogAllMethods=org.wso2.carbon.apimgt.gateway
-```
+    -DlogAllMethods=org.wso2.carbon.apimgt.gateway
+    ```
 
 !!! note
     Make sure to add it before `org.wso2.carbon.bootstrap.Bootstrap $*`.
@@ -832,15 +850,17 @@ In order to enable denying of threads:
 
 - Add the following configuration as a system property to the API Manager startup script.
 
-    ``` tab="Format"
-    -Dorg.wso2.CorrelationLogInterceptor.BlacklistedThreads=<threadName1>,<threadName2> 
-    ```
+    === "Format"
+        ```
+        -Dorg.wso2.CorrelationLogInterceptor.BlacklistedThreads=<threadName1>,<threadName2> 
+        ```
 
-    ``` tab="Example"
-    For example, let's assume you need to blacklist threads: `pool-10-thread-1` and `metrics-jdbc-reporter-1-thread-1`    
+    === "Example"
+        ```
+        For example, let's assume you need to blacklist threads: `pool-10-thread-1` and `metrics-jdbc-reporter-1-thread-1`    
 
-    -Dorg.wso2.CorrelationLogInterceptor.BlacklistedThreads=pool-10-thread-1,metrics-jdbc-reporter-1-thread-1
-    ```
+        -Dorg.wso2.CorrelationLogInterceptor.BlacklistedThreads=pool-10-thread-1,metrics-jdbc-reporter-1-thread-1
+        ```
 
     !!! note
         Make sure to add it before `org.wso2.carbon.bootstrap.Bootstrap $*`.
@@ -849,55 +869,60 @@ In order to enable denying of threads:
 
 - Use the DevOps API to update the denied threads for the JDBC component.
 
-    ```bash tab="Sample Request"
-    curl -X PUT 'https://localhost:9443/api/am/devops/v0/config/correlation' \
-        -H 'accept: application/json' \
-        -H 'Content-Type: application/json' \
-        -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
-        -d '{"components":[{
-            "name":"http",
-            "enabled":"false"},
-            {
-            "name":"ldap",
-            "enabled":"false"},
-            {
-            "name":"jdbc",
-            "enabled":"true",
-            "properties":[{
-            "name":"deniedThreads",
-            "value":["MessageDeliveryTaskThreadPool","HumanTaskServer","BPELServer","CarbonDeploymentSchedulerThread"]}]},
-            {
-            "name":"synapse",
-            "enabled":"false"},
-            {
-            "name":"method-calls",
-            "enabled":"false"}]}' -k
-    ```
+    === "Sample Request"
+        ```bash
+        curl -X PUT 'https://localhost:9443/api/am/devops/v0/config/correlation' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{"components":[{
+                "name":"http",
+                "enabled":"false"},
+                {
+                "name":"ldap",
+                "enabled":"false"},
+                {
+                "name":"jdbc",
+                "enabled":"true",
+                "properties":[{
+                "name":"deniedThreads",
+                "value":["MessageDeliveryTaskThreadPool","HumanTaskServer","BPELServer","CarbonDeploymentSchedulerThread"]}]},
+                {
+                "name":"synapse",
+                "enabled":"false"},
+                {
+                "name":"method-calls",
+                "enabled":"false"}]}' -k
+        ```
     
-    ```bash tab="Sample Response"
-    {"components":[
-    {"name":"http",
-     "enabled":"false",
-     "properties":[]},
-    {"name":"ldap",
-     "enabled":"false",
-     "properties":[]},
-    {"name":"jdbc",
-     "enabled":"true",
-     "properties":[{
-       "name":"deniedThreads",
-       "value":["MessageDeliveryTaskThreadPool","HumanTaskServer","BPELServer","CarbonDeploymentSchedulerThread"]}]},
-    {"name":"synapse",
-     "enabled":"false",
-     "properties":[]},
-    {"name":"method-calls",
-     "enabled":"false",
-     "properties":[]}]
-    }
-    ```
+    === "Sample Response"
+        ```json
+        {"components":[
+        {"name":"http",
+        "enabled":"false",
+        "properties":[]},
+        {"name":"ldap",
+        "enabled":"false",
+        "properties":[]},
+        {"name":"jdbc",
+        "enabled":"true",
+        "properties":[{
+        "name":"deniedThreads",
+        "value":["MessageDeliveryTaskThreadPool","HumanTaskServer","BPELServer","CarbonDeploymentSchedulerThread"]}]},
+        {"name":"synapse",
+        "enabled":"false",
+        "properties":[]},
+        {"name":"method-calls",
+        "enabled":"false",
+        "properties":[]}]
+        }
+        ```
 
     !!! note
         If the correlation logs are enabled using the system property, DevOps API will not be able to change the denied threads of the JDBC component. 
+
+    !!! Limitation
+        Thread denying is currently supported only for JDBC type logs. HTTP and METHOD level logs cannot be blocked using this option.
 
 
 If the above configuration is not added, by default, the `MessageDeliveryTaskThreadPool` thread will be denied as it is found to print a considerable amount of messages for API-M instances. However, if the above configuration is added, the default value will be overridden. 

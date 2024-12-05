@@ -17,7 +17,7 @@ Data Mapper mediator finds the configuration files from the Registry and configu
 
 !!! Info
     The Data Mapper mediator is a [content-aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
-    If you are running JDK 17 or later NashornJS is not provided by JDK and you need to manually add org.openjdk.nashorn.nashorn-core version 15.3 (https://mvnrepository.com/artifact/org.openjdk.nashorn/nashorn-core/15.3) and org.ow2.asm.asm-util verion 9.3 jars (https://mvnrepository.com/artifact/org.ow2.asm/asm-util/9.2) to <MI_HOME>/wso2/lib directory
+    If you are running JDK 17 or later NashornJS is not provided by JDK and you need to manually add org.openjdk.nashorn.nashorn-core version 15.3 (https://mvnrepository.com/artifact/org.openjdk.nashorn/nashorn-core/15.3) and org.ow2.asm.asm-util verion 9.3 jars (https://mvnrepository.com/artifact/org.ow2.asm/asm-util/9.2) to `<MI_HOME>/lib` directory
 
 ## Syntax
 

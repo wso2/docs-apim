@@ -62,7 +62,7 @@ Following are the additional parameters you can set when [adding a message sampl
             <p>Quartz Configuration File Path ( <code>quartz.conf             </code> )</p>
          </td>
          <td>
-            <p>Quartz configuration file path. This properties file contains the Quartz configuration parameters for fine tuning the Quartz engine. More details of the configuration can be found at <a href="http://quartz-scheduler.org/documentation/quartz-2.x/configuration/ConfigMain">http://quartz-scheduler.org/documentation/quartz-2.x/configuration/ConfigMain</a> .
+            <p>Quartz configuration file path. This properties file contains the Quartz configuration parameters for fine tuning the Quartz engine. More details of the configuration can be found at <a href="http://www.quartz-scheduler.org/documentation/quartz-2.3.0/configuration/">http://www.quartz-scheduler.org/documentation/quartz-2.3.0/configuration/</a> .
             </p>
          </td>
       </tr>

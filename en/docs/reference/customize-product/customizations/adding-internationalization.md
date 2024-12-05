@@ -161,7 +161,7 @@ Follow the instructions below to change the direction of the UI:
     
      Add the following configuration to change the page direction to RTL (Right To Left).  
 
-     !!! note
+    !!! note
          If you have already done customizations to the default theme, make sure to merge the following with the existing changes carefully.
 
     ```json
@@ -182,7 +182,7 @@ Follow the instructions below to change the direction of the UI:
     ```
 
     !!! tip
-    Learn more about [Tenant theming]({{base_path}}/consume/customizations/customizing-the-developer-portal/overriding-developer-portal-theme/#uploading-via-the-admin-portal-tenants-only).
+    Learn more about [Tenant theming]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/overriding-developer-portal-theme/#uploading-devportal-theme-via-the-admin-portal-tenants-only).
 
 
 ## Enabling the language switch

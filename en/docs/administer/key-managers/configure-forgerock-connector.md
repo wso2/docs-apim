@@ -72,7 +72,7 @@ Follow the instructions given below to configure the ForgeRock Authorization Ser
     [![ForgeRock create OAuth Provider]({{base_path}}/assets/img/administer/forgerock-create-oauth-provider.png)]({{base_path}}/assets/img/administer/forgerock-create-oauth-provider.png)
 
 5. Navigate to **Root Realm** -> **Services** add Oauth2 provider as a new service as follows,
-    [![ForgeRock add OAuth Provider]({{base_path}}/assets/img/administer/forgerock-add-oauth-provider.png)]({{base_path}}/assets/img/administer/forgerock-create-add-provider.png)
+    [![ForgeRock add OAuth Provider]({{base_path}}/assets/img/administer/forgerock-create-oauth-provider.png)]({{base_path}}/assets/img/administer/forgerock-create-oauth-provider.png)
 
 
 6. Configure the scopes and the signing algorithm of the created OAuth 2.0 Provider using the following values.

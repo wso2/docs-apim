@@ -10,7 +10,7 @@ JMX is enabled in WSO2 products by default, which ensures that the JMX server st
 
 The default JMX ports (RMIRegistryPort and the RMIServerPort) can be changed by adding the below configuration into `<API-M_HOME>/repository/conf/deployment.toml` file as shown below. Following are the default values and you can update them as required.
 
-````
+````toml
  [monitoring.jmx]
  rmi_registry_port = 9999
  rmi_server_port = 11111
@@ -20,7 +20,7 @@ The default JMX ports (RMIRegistryPort and the RMIServerPort) can be changed by 
 
 You can disable the JMX server for your product by adding the `rmi_server_start` property with value `false` into the `<API-M_HOME>/repository/conf/deployment.toml` file as shown below.
 
-````
+````toml
  [monitoring.jmx]
  rmi_server_start=false
 ````
@@ -30,15 +30,17 @@ You can disable the JMX server for your product by adding the `rmi_server_start`
 You can enable JMX for a datasource by adding the `jmx_enable` property with value `true` into the
 `<API-M_HOME>/repository/conf/deployment.toml` file as shown below.
 
-``` tab="Enable in Shared DB"
-[database.shared_db]
-jmx_enable = "true"
-```
+=== "Enable in Shared DB"
+    ```toml
+    [database.shared_db]
+    jmx_enable = "true"
+    ```
 
-``` tab="Enable in APIM DB"
-[database.am_db]
-jmx_enable = "true"
-```
+=== "Enable in APIM DB"
+    ``` toml
+    [database.am_db]
+    jmx_enable = "true"
+    ```
 
 ## Monitoring a WSO2 product with JConsole
 
@@ -181,12 +183,12 @@ Operations available in the **Statistics** MBean:
 | **getMaxServiceResponseTime** (p1:string)                                   | The p1 parameter is the service name. You can get the maximum response time of this service since deployment.                                                                                                       |
 | **getMinServiceResponseTime** (p1:string)                                   | The p1 parameter is the service name. You can get the minimum response time of this service since deployment.                                                                                                       |
 | **getAvgServiceResponseTime** (p1:string)                                   | The p1 parameter is the service name. You can get the average response time of this service since deployment.                                                                                                       |
-| **getOperationRequestCount** ( p1:string, [p2:string](http://p2string/) )    | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the total number of requests received by this operation since the time its service was deployed using this operation.    |
-| **getOperationResponseCount** ( p1:string, [p2:string](http://p2string/) )   | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the total number of responses sent by this operation since the time its service was deployed using this operation.       |
-| **getOperationFaultCount** ( p1:string, [p2:string](http://p2string/) )      | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the total number of fault responses sent by this operation since the time its service was deployed using this operation. |
-| **getMaxOperationResponseTime** ( p1:string, [p2:string](http://p2string/) ) | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the maximum response time of this operation since deployment.                                                             |
-| **getMinOperationResponseTime** ( p1:string, [p2:string](http://p2string/) ) | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the minimum response time of this operation since deployment.                                                             |
-| **getAvgOperationResponseTime** ( p1:string, [p2:string](http://p2string/) ) | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the average response time of this operation since deployment.                                                             |
+| **getOperationRequestCount** ( p1:string, `http://p2string/` )    | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the total number of requests received by this operation since the time its service was deployed using this operation.    |
+| **getOperationResponseCount** ( p1:string, `http://p2string/` )   | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the total number of responses sent by this operation since the time its service was deployed using this operation.       |
+| **getOperationFaultCount** ( p1:string, `http://p2string/` )      | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the total number of fault responses sent by this operation since the time its service was deployed using this operation. |
+| **getMaxOperationResponseTime** ( p1:string, [p2:string] `http://p2string/` ) | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the maximum response time of this operation since deployment.                                                             |
+| **getMinOperationResponseTime** ( p1:string, [p2:string] `http://p2string/` ) | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the minimum response time of this operation since deployment.                                                             |
+| **getAvgOperationResponseTime** ( p1:string, [p2:string] `http://p2string/` ) | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the average response time of this operation since deployment.                                                             |
 
 [![Statistics mbean]({{base_path}}/assets/img/administer/statistics-mbean.png)]({{base_path}}/assets/img/administer/statistics-mbean.png)
 

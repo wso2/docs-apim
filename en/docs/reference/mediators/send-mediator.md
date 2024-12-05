@@ -149,8 +149,8 @@ In this example, the Send mediator in a proxy service using the [VFS
 transport]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-vfs-transport) is
 transferring a file to a VFS endpoint. VFS is a non-blocking transport
 by default, which means a new thread is spawned for each outgoing
-message. The [Property mediator](_Property_Mediator_) added before the
-Send mediator removes the [ClientAPINonBlocking](_Generic_Properties_)
+message. The [Property mediator]({{base_path}}/reference/mediators/property-mediator) added before the
+Send mediator removes the [ClientAPINonBlocking]({{base_path}}/reference/mediators/property-reference/generic-properties)
 property from the message to perform the mediation in a single thread.
 This is required when the file being transferred is large and you want
 to avoid out-of-memory failures.

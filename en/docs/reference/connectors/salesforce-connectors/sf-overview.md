@@ -12,7 +12,7 @@ To see the available Salesforce connectors, navigate to the [connector store](ht
 
 The Salesforce connector allows you to work with records in Salesforce. You can use the Salesforce connector to create, query, retrieve, update, and delete records in your organization's Salesforce data. This is typically used when sending XML requests. The connector uses the [Salesforce SOAP API](http://www.salesforce.com/us/developer/docs/api/) to interact with Salesforce. The Salesforce streaming inbound endpoint allows you to perform various Salesforce streaming data through the integration runtime of WSO2.
 
-* **[Configuring Salesforce Connector Operations](https://docs.wso2.com/display/ESBCONNECTORS/Configuring+Salesforce+Connector+Operations)**: Includes an overview of the connector and links to associated documentation.
+* **[Configuring Salesforce Connector Operations](https://wso2docs.atlassian.net/wiki/spaces/ESBCONNECTORS/pages/50861838/Configuring+Salesforce+Connector+Operations)**: Includes an overview of the connector and links to associated documentation.
 
 ### Salesforce REST Connector
 
@@ -22,7 +22,7 @@ The **Salesforce REST Connector** uses the [Salesforce REST API](https://develop
 
 * **[Salesforce Rest API Connector Example]({{base_path}}/reference/connectors/salesforce-connectors/sf-rest-connector-example/)**: This example explains how to use the Salesforce client to connect with the Salesforce instance and perform the **create** and **retrieve** operations.
 
-* **[Salesforce Rest API Connector Reference]({{base_path}}/reference/connectors/salesforce-connectors/sf-rest-connector-config/)**: This documentation provides a reference guide for the Salesforce REST API operations.
+* **[Salesforce Rest API Connector Reference]({{base_path}}/reference/connectors/salesforce-connectors/sf-rest-connector-config-v2/)**: This documentation provides a reference guide for the Salesforce REST API operations.
   
 The following table lists out compatibility information for Salesforce REST Connector.
 
@@ -58,15 +58,15 @@ The Salesforce Wave Analytics Connector allows you to work with records in Sales
 
 ### Salesforce Desk Connector
 
-The Salesforce Desk connector allows you to access the [Salesforce Desk REST API](http://dev.desk.com/API/using-the-api/#general) from an integration sequence. Salesforce Desk is a customer service application that helps small businesses to provide exceptional, multi-channel customer service. 
+The Salesforce Desk connector allows you to access the Salesforce Desk REST API from an integration sequence. Salesforce Desk is a customer service application that helps small businesses to provide exceptional, multi-channel customer service. 
 
-* **[Salesforce Desk Connector documentation](https://docs.wso2.com/display/ESBCONNECTORS/Salesforce+Desk+Connector)**: Includes an overview of the connector and links to associated documentation.
+* **[Salesforce Desk Connector documentation](https://wso2docs.atlassian.net/wiki/spaces/ESBCONNECTORS/pages/50861401/Salesforce+Desk+Connector)**: Includes an overview of the connector and links to associated documentation.
 
 ### Pardot
 
 The Pardot connector allows you to access the Pardot REST API through the WSO2 integration runtime. Pardot, B2B marketing automation by Salesforce, offers a marketing automation solution that allows marketing and sales departments to create, deploy, and manage online marketing campaigns.
 
-* **[Pardot Connector documentation](https://docs.wso2.com/display/ESBCONNECTORS/Pardot+Connector)**: Includes an overview of the connector and links to associated documentation.
+* **[Pardot Connector documentation](https://wso2docs.atlassian.net/wiki/spaces/ESBCONNECTORS/pages/50862350/Pardot+Connector)**: Includes an overview of the connector and links to associated documentation.
 
 ## How to contribute
 

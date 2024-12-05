@@ -35,6 +35,17 @@ Follow the steps below to set up the Microsoft SQL database and users.
 1.  Click **New Database** from the **Database** menu and specify all the options to create a new database.
 1.  Click **New Login** from the **Logins** menu, and specify all the necessary options.
 
+### Eliminate concurrency issues in tables
+
+To utilize the Snapshot Isolation level by transactions, run the following command.
+```sh
+ALTER DATABASE <DATABASE_NAME>  SET ALLOW_SNAPSHOT_ISOLATION ON
+```
+To enable the use of snapshot isolation for the READ COMMITTED isolation level, run the following command.
+```sh
+ALTER DATABASE <DATABASE_NAME> SET READ_COMMITTED_SNAPSHOT ON WITH ROLLBACK IMMEDIATE
+```
+
 #### Grant permissions
 
 Assign newly created users the required grants/permissions to log in and create tables, to insert, index, select, update, and delete data in tables in the newly created database. These are the minimum set of SQL server permissions.
@@ -95,6 +106,9 @@ pip install mssql-cli
 
 ### Creating the datasource connection to MSSQL
 
+!!! note
+    It is recommended to utilize the UTC zone for all database operations as it does not observe daylight savings time (DST). If a database server is hosted in a time zone that is affected by DST, not using UTC could potentially lead to data inconsistencies and errors such as OAuth code/access token generation outages. To avoid such risks, it is crucial to ensure that all timestamps and time-related data within the database are represented in UTC format.
+
 A datasource is used to establish a connection to a database. By default, the `SHARED_DB` and `AM_DB` datasources are configured in the `deployment.toml` file for the purpose of connecting to the default H2 databases.
 
 After setting up the MSSQL database to replace the default H2 database, either change the default configurations of the `SHARED_DB` and `AM_DB` datasource, or configure a new datasource to point it to the new database as explained below.
@@ -118,32 +132,34 @@ Follow the steps below to change the type of the default datasource.
 
     Sample configuration is shown below:
 
-    ``` tab="Format"
-    type = "mssql"
-    url = "jdbc:sqlserver://localhost:1433;databaseName=<DATABASE_NAME>;SendStringParametersAsUnicode=false"
-    username = "<USER_NAME>"
-    password = "<PASSWORD>"
-    driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
-    validationQuery = "SELECT 1"
-    ```
+    === "Format"
+        ``` toml
+        type = "mssql"
+        url = "jdbc:sqlserver://localhost:1433;databaseName=<DATABASE_NAME>;SendStringParametersAsUnicode=false"
+        username = "<USER_NAME>"
+        password = "<PASSWORD>"
+        driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+        validationQuery = "SELECT 1"
+        ```
 
-    ``` tab="Example"
-    [database.shared_db]
-    type = "mssql"
-    url = "jdbc:sqlserver://localhost:1433;databaseName=shared_db;SendStringParametersAsUnicode=false"
-    username = "sharedadmin"
-    password = "sharedadmin"
-    driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
-    validationQuery = "SELECT 1"
+    === "Example"
+        ``` toml
+        [database.shared_db]
+        type = "mssql"
+        url = "jdbc:sqlserver://localhost:1433;databaseName=shared_db;SendStringParametersAsUnicode=false"
+        username = "sharedadmin"
+        password = "sharedadmin"
+        driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+        validationQuery = "SELECT 1"
 
-    [database.apim_db]
-    type = "mssql"
-    url = "jdbc:sqlserver://localhost:1433;databaseName=apim_db;SendStringParametersAsUnicode=false"
-    username = "apimadmin"
-    password = "apimadmin"
-    driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
-    validationQuery = "SELECT 1"
-    ```
+        [database.apim_db]
+        type = "mssql"
+        url = "jdbc:sqlserver://localhost:1433;databaseName=apim_db;SendStringParametersAsUnicode=false"
+        username = "apimadmin"
+        password = "apimadmin"
+        driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+        validationQuery = "SELECT 1"
+        ```
     
     !!! warning
         Set <strong><code>SendStringParametersAsUnicode</code></strong> to 'false' in order to overcome a limitation in the Microsoft SQL client driver. Without this parameter, the database driver will erroneously convert <code>VARCHAR</code> data into <code>NVARCHAR</code> and lower the database's performance.
@@ -163,40 +179,42 @@ Follow the steps below to change the type of the default datasource.
 
     Sample configuration is shown below:
     
-    ``` tab="Format"
-    type = "mssql"
-    url = "jdbc:sqlserver://localhost:1433;databaseName=<DATABASE_NAME>;SendStringParametersAsUnicode=false"
-    username = "<USER_NAME>"
-    password = "<PASSWORD>"
-    driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
-    validationQuery = "SELECT 1"
-    pool_options.<OPTION-1> = <VALUE-1>
-    pool_options.<OPTION-2> = <VALUE-2>
-    ...
-    ```
+    === "Format"
+        ``` toml
+        type = "mssql"
+        url = "jdbc:sqlserver://localhost:1433;databaseName=<DATABASE_NAME>;SendStringParametersAsUnicode=false"
+        username = "<USER_NAME>"
+        password = "<PASSWORD>"
+        driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+        validationQuery = "SELECT 1"
+        pool_options.<OPTION-1> = <VALUE-1>
+        pool_options.<OPTION-2> = <VALUE-2>
+        ...
+        ```
     
-    ``` tab="Example"
-    [database.shared_db]
-    type = "mssql"
-    url = "jdbc:sqlserver://localhost:1433;databaseName=shared_db;SendStringParametersAsUnicode=false"
-    username = "sharedadmin"
-    password = "sharedadmin"
-    driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
-    validationQuery = "SELECT 1"
-    pool_options.maxActive = 100
-    pool_options.maxWait = 10000
-    pool_options.validationInterval = 10000
-    
-    [database.apim_db]
-    type = "mssql"
-    url = "jdbc:sqlserver://localhost:1433;databaseName=apim_db;SendStringParametersAsUnicode=false"
-    username = "apimadmin"
-    password = "apimadmin"
-    driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
-    validationQuery = "SELECT 1"
-    pool_options.maxActive = 50
-    pool_options.maxWait = 30000
-    ```
+    === "Example"
+        ``` toml
+        [database.shared_db]
+        type = "mssql"
+        url = "jdbc:sqlserver://localhost:1433;databaseName=shared_db;SendStringParametersAsUnicode=false"
+        username = "sharedadmin"
+        password = "sharedadmin"
+        driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+        validationQuery = "SELECT 1"
+        pool_options.maxActive = 100
+        pool_options.maxWait = 10000
+        pool_options.validationInterval = 10000
+        
+        [database.apim_db]
+        type = "mssql"
+        url = "jdbc:sqlserver://localhost:1433;databaseName=apim_db;SendStringParametersAsUnicode=false"
+        username = "apimadmin"
+        password = "apimadmin"
+        driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+        validationQuery = "SELECT 1"
+        pool_options.maxActive = 50
+        pool_options.maxWait = 30000
+        ```
 
     !!! info
         For more information on other parameters that can be defined in the `<API-M_HOME>/repository/conf/deployment.toml` file, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
@@ -214,12 +232,13 @@ Follow the steps below to change the type of the default datasource.
         - Create tables in the carbon database (`WSO2CARBON_DB`) using the script `<API-M_HOME>/dbscripts/mssql.sql`.
         -   Open the `<API-M_HOME>/repository/conf/deployment.toml` configuration file. Locate the `[database.local]` configuration element and update the URL pointing to your MSSQL database, the username, and password required to access the database and the MSSQL driver details similarly as explained before.
         
-        ``` tab="Example"
-        [database.local]
-        type = "mssql"
-        url = "jdbc:sqlserver://localhost:1433;databaseName=carbon_db;SendStringParametersAsUnicode=false"
-        username = "carbonadmin"
-        password = "carbonadmin"
-        driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
-        validationQuery = "SELECT 1"
-        ```
+        === "Example"
+            ``` toml
+            [database.local]
+            type = "mssql"
+            url = "jdbc:sqlserver://localhost:1433;databaseName=carbon_db;SendStringParametersAsUnicode=false"
+            username = "carbonadmin"
+            password = "carbonadmin"
+            driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+            validationQuery = "SELECT 1"
+            ```

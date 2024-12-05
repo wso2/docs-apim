@@ -8,7 +8,7 @@ Micro Integrator does not need to work on the full message but can work on [mess
 like request URLs or transport headers instead. With Message Relay, the
 Micro Integrator can achieve a very high throughput.
 
-See also [PassThrough Transport]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/#configuring-the-httphttps-transport).
+See also [PassThrough Transport](https://apim.docs.wso2.com/en/4.1.0/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-httphttps-transport).
 
 ## Configuring Message Relay
 
@@ -55,17 +55,19 @@ json_badgerfish = "org.wso2.carbon.relay.ExpandingMessageFormatter"
 
 If you want the Micro Integrator to receive messages of the `image/png` content type, add the following to the deployment.toml file:
 
-```toml tab='Message Builder'
-[[custom_message_builders]]
-class = "org.wso2.carbon.relay.BinaryRelayBuilder"
-content_type = "image/png"
-```
+=== "Message Builder"
+    ```toml
+    [[custom_message_builders]]
+    class = "org.wso2.carbon.relay.BinaryRelayBuilder"
+    content_type = "image/png"
+    ```
 
-```toml tab='Message Formatter'
-[[custom_message_formatters]]
-class = "org.wso2.carbon.relay.ExpandingMessageFormatter"
-content_type = "image/png"
-```
+=== "Message Formatter"
+    ```toml
+    [[custom_message_formatters]]
+    class = "org.wso2.carbon.relay.ExpandingMessageFormatter"
+    content_type = "image/png"
+    ```
 
 ## Message Relay Module Policy
 

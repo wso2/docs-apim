@@ -13,15 +13,17 @@ If you enable backend JWT generation in the Gateway, each API request will carry
 
 When the request goes through the Gateway, the backend JWT is appended as a transport header to the outgoing message. The backend service fetches the JWT and retrieves the required information about the user, application, or token.
 
-## Sample JWT
+## Sample backend JWT
 
-The following is an example of a JWT:
+The following is an example of a backend JWT:
 
-``` java
+``` json
 {
-    "typ":"JWT",
-    "alg":"NONE"
-    }{
+    "typ": "JWT",
+    "alg": "RS256",
+    "x5t": "ODE3Y2ZhMTBjMDM4ZTBmMjAyYzliYTI2YjRhYTZlOGIyZmUxNWE3YQ==",
+}
+{
     "iss":"wso2.org/products/am",
     "exp":1345183492181,
     "http://wso2.org/claims/subscriber":"admin",
@@ -30,12 +32,16 @@ The following is an example of a JWT:
     "http://wso2.org/claims/version":"1.0.0",
     "http://wso2.org/claims/tier":"Silver",
     "http://wso2.org/claims/enduser":"sumedha"
-    }
+}
 ```
 
 The above JSON Web Token (JWT) contains the following information.
 
-**JWT Header :** The header section declares that the encoded object is a JWT access token and the JWT is in plain text, that is not signed using any encryption algorithm.
+**JWT Header :** 
+
+- `"typ"` - Declares that the encoded object is a JWT access token
+- `"alg"` - This defines the specific algorithm intended for use with the key
+- `"x5t"` - Thumbprint of the x.509 cert (SHA-1 thumbprint)
 
 **JWT Claims set :**
 

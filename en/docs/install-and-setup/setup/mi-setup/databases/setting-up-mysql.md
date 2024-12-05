@@ -50,23 +50,26 @@ You can run the scripts on one database instance or set up separate instances fo
 
 Create the databases and then create the DB tables by pointing to the relevant MySQL script in the `<MI_HOME>/dbscripts/mysql` directory.
 
-```bash tab='Cluster Coordination DB'
-mysql> create database clusterdb;
-mysql> use clusterdb;
-mysql> source <MI_HOME>/dbscripts/mysql/mysql_cluster.sql;
-```
+=== "Cluster Coordination DB"
+	```bash
+	mysql> create database clusterdb;
+	mysql> use clusterdb;
+	mysql> source <MI_HOME>/dbscripts/mysql/mysql_cluster.sql;
+	```
 
-```bash tab='User Store DB'
-mysql> create database userdb;
-mysql> use userdb;
-mysql> source <MI_HOME>/dbscripts/mysql/mysql_user.sql;
-```
+=== "User Store DB"
+	```bash
+	mysql> create database userdb;
+	mysql> use userdb;
+	mysql> source <MI_HOME>/dbscripts/mysql/mysql_user.sql;
+	```
 
-```bash tab='Transaction Counter DB'
-mysql> create database transactiondb;
-mysql> use transactiondb;
-mysql> source <MI_HOME>/dbscripts/mysql/mysql_transaction_count.sql;
-```
+=== "Transaction Counter DB"
+	```bash
+	mysql> create database transactiondb;
+	mysql> use transactiondb;
+	mysql> source <MI_HOME>/dbscripts/mysql/mysql_transaction_count.sql;
+	```
 
 !!! Info
 	**About using MySQL in different operating systems**
@@ -83,46 +86,49 @@ mysql> source <MI_HOME>/dbscripts/mysql/mysql_transaction_count.sql;
 
 Open the `deployment.toml` file in the `<MI_HOME>/conf` directory and add the following sections to create the connection between the Micro Integrator and the relevant database. Note that you need separate configurations corresponding to the separate databases (`clusterdb`, `userdb`, and `transactiondb`).
 
-```toml tab='Cluster Coordination Connection'
-[[datasource]]
-id = "WSO2_COORDINATION_DB"
-url= "jdbc:mysql://localhost:3306/clusterdb"
-username="root"
-password="root"
-driver="com.mysql.jdbc.Driver"
-pool_options.maxActive=50
-pool_options.maxWait = 60000
-pool_options.testOnBorrow = true
-```
+=== "Cluster Coordination Connection"
+	```toml
+	[[datasource]]
+	id = "WSO2_COORDINATION_DB"
+	url= "jdbc:mysql://localhost:3306/clusterdb"
+	username="root"
+	password="root"
+	driver="com.mysql.jdbc.Driver"
+	pool_options.maxActive=50
+	pool_options.maxWait = 60000
+	pool_options.testOnBorrow = true
+	```
 
-```toml tab='User Store DB Connection'
-[[datasource]]
-id = "WSO2CarbonDB"
-url= "jdbc:mysql://localhost:3306/userdb"
-username="root"
-password="root"
-driver="com.mysql.jdbc.Driver"
-pool_options.maxActive=50
-pool_options.maxWait = 60000
-pool_options.testOnBorrow = true
-```
+=== "User Store DB Connection"
+	```toml
+	[[datasource]]
+	id = "WSO2CarbonDB"
+	url= "jdbc:mysql://localhost:3306/userdb"
+	username="root"
+	password="root"
+	driver="com.mysql.jdbc.Driver"
+	pool_options.maxActive=50
+	pool_options.maxWait = 60000
+	pool_options.testOnBorrow = true
+	```
 
-```toml tab='Transaction Counter DB Connection'
-[[datasource]]
-id = "WSO2_TRANSACTION_DB"
-url= "jdbc:mysql://localhost:3306/transactiondb"
-username="root"
-password="root"
-driver="com.mysql.jdbc.Driver"
-pool_options.maxActive=50
-pool_options.maxWait = 60000
-pool_options.testOnBorrow = true
+=== "Transaction Counter DB Connection"
+	```toml
+	[[datasource]]
+	id = "WSO2_TRANSACTION_DB"
+	url= "jdbc:mysql://localhost:3306/transactiondb"
+	username="root"
+	password="root"
+	driver="com.mysql.jdbc.Driver"
+	pool_options.maxActive=50
+	pool_options.maxWait = 60000
+	pool_options.testOnBorrow = true
 
-[transaction_counter]
-enable = true
-data_source = "WSO2_TRANSACTION_DB"
-update_interval = 2
-```
+	[transaction_counter]
+	enable = true
+	data_source = "WSO2_TRANSACTION_DB"
+	update_interval = 2
+	```
 
     !!! info
         If you are using MySQL version - 8.0.x, you should add the driver name in the configuration as:

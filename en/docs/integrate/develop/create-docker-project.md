@@ -79,7 +79,7 @@ Follow the steps given below.
                         If your repository is in <b>Docker Hub</b>, use the <b>docker_user_name/repository_name</b> format.
                     </li>
                     <li>
-                        If you are using any other repository, use the <b>repository_url/repository_user_name/repository_name</b> forrmat.
+                        If you are using any other repository, use the <b>repository_url/repository_user_name/repository_name</b> format.
                     </li>
                 </ul> 
                 If required, you can update this information later when you build the Docker image or when you push the image to the relevant repository.

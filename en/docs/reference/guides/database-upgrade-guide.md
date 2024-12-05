@@ -12,8 +12,8 @@ The following are the specific prerequisites you must complete before an upgrade
 
 -   Stop all the Carbon servers connected to the database before running the migration scripts.
 
-        !!! note
-    Note that the upgrade should be done during a period when there is low traffic on the system.
+    !!! note
+        Note that the upgrade should be done during a period when there is low traffic on the system.
 
 
 #### Limitations

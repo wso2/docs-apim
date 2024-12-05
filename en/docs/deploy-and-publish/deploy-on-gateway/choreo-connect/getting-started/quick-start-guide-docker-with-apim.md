@@ -59,7 +59,7 @@ Let's start Choreo Connect with a WSO2 API Manager instance which will be acting
 
 1. Navigate to the Publisher Portal.
 
-    [https://apim:9444/publisher/](https://apim:9444/publisher/)
+    `https://apim:9444/publisher/`
 
 2. Sign in with **`admin/admin`** as the credentials.
 
@@ -119,7 +119,7 @@ You can follow the next few steps to get an idea about API Subscriptions, Applic
 
 1. Navigate to the Developer Portal and select the newly created API.
 
-    [https://apim:9444/devportal/](https://apim:9444/devportal/)
+    `https://apim:9444/devportal/`
 
 2. Navigate to the **Subscriptions** page. 
 
@@ -150,7 +150,7 @@ Follow the instructions below to invoke the previously created API with the gene
 
     [![Paste the access token]({{base_path}}/assets/img/deploy/mgw/invoke-api.png)]({{base_path}}/assets/img/deploy/mgw/invoke-api.png)
 
-3. **If this is the first time you are using the API test console** from your browser, open a new tab and navigate to the [https://localhost:9095/](https://localhost:9095/) URL.
+3. **If this is the first time you are using the API test console** from your browser, open a new tab and navigate to the `https://localhost:9095/` URL.
 
      This will prompt your browser to accept the certificate used by Choreo Connect. This is required because, by default, Choreo Connect uses a self-signed certificate that is not trusted by web browsers.
     

@@ -19,7 +19,7 @@ Follow the instructions below to enable CORS response headers globally. Once thi
 2.  Locate the following configuration and set the `enable` attribute to `true` with the required CORS headers in the response. 
      After this configuration is applied in the API Gateway, it will affect all the API calls served by the Gateway.
 
-    ``` java
+    ``` toml
     [apim.cors]
     enable = true
     allow_origins = "*"
@@ -92,9 +92,3 @@ Follow the instructions below to enable CORS response headers globally. Once thi
 
 
 You have successfully enabled CORS for a specific API.
-
-## Enabling CORS for OAuth Token related Endpoints
-
-Enabling CORS configuration via the `api-manager.xml` file is valid for APIs created via the WSO2 API manager Publisher application. Since **API-M 4.0.0** token related endpoints are not proxied you can enable CORS for OAuth token related Endpoints ( **/authorize, /revoke, /token, /userinfo** ) by following the respective Identity Provider documentation.
-
-For WSO2 Identity Server you may refer [CORS documentation](https://is.docs.wso2.com/en/latest/learn/cors/).

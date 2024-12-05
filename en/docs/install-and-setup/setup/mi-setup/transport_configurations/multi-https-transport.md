@@ -28,7 +28,7 @@ Dynamic SSL profiles for the Multi-HTTPS **transport sender**:
         You can configure the file path for the `senderprofiles.xml` file as required.
 
     ```xml
-    <parameter name="customSSLProfiles">
+    <parameter xmlns:svns="http://org.wso2.securevault/configuration" name="customSSLProfiles">
         <profile>
             <servers>localhost:8244,hostname:8245</servers>
             <KeyStore>
@@ -45,6 +45,9 @@ Dynamic SSL profiles for the Multi-HTTPS **transport sender**:
         </profile>
     </parameter>
     ```
+
+    !!! Note
+        Note that the `xmlns:svns="http://org.wso2.securevault/configuration"` namespace has to be added in the SSL profile configuration to work with secure vault.
 
     The SSL profile will be applied to each request that is sent to the
     destination server specified within the
@@ -88,7 +91,7 @@ Multi-HTTPS transport receiver) as a custom transport receiver.
      
      ssl_profile.file_path= "conf/sslprofiles/listenerprofiles.xml"
      ssl_profile.read_interval = 600000
-     ```
+    ```
      
 3.   Create the `listenerprofiles.xml` file in the `MI_HOME/conf/sslprofiles` directory and add the following 
      configurations:
@@ -97,7 +100,7 @@ Multi-HTTPS transport receiver) as a custom transport receiver.
         You can configure the file path for the `listenerprofiles.xml` file as required.
 
     ```xml
-    <parameter name="SSLProfiles">
+    <parameter xmlns:svns="http://org.wso2.securevault/configuration" name="SSLProfiles">
     <profile>
             <bindAddress>hostname</bindAddress>
             <KeyStore>
@@ -115,6 +118,9 @@ Multi-HTTPS transport receiver) as a custom transport receiver.
         </profile>
     </parameter>
     ```
+
+    !!! Note
+        Note that the `xmlns:svns="http://org.wso2.securevault/configuration"` namespace has to be added in the SSL profile configuration to work with secure vault.
 
     The SSL profile will be applied to each request that is received at
     the IP specified within the `           <bindAddress>          `

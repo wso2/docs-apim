@@ -105,10 +105,10 @@ The complete results can be found [here](https://github.com/wso2/micro-integrato
 #### Throughput (requests/sec) vs. concurrent users
 The following results compare the throughput against the number of concurrent users for different message sizes.
 
-![Throughput]({{base_path}}/assets/img/setup-and-install/performance-test-results/mi/catplot-throughput-2G-0ms.png)
+![Throughput]({{base_path}}/assets/img/setup-and-install/performance-test-results/mi/catplot-average-response-time-2g-0ms.png)
 
 #### Average response time (ms) vs. concurrent users
 The following results compare the average response time of the Micro Integrator server against the number of users for different message sizes.
 
-![Response Time]({{base_path}}/assets/img/setup-and-install/performance-test-results/mi/catplot-average-response-time-2G-0ms.png)
+![Response Time]({{base_path}}/assets/img/setup-and-install/performance-test-results/mi/catplot-average-response-time-2g-0ms.png)
 

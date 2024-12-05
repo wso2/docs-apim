@@ -2,6 +2,7 @@
 
 WSO2 API Manager admins can add new rate limiting policies and define extra properties to the rate limiting policies. To get started, click on the level of rate limiting that you want to add a new policy to:
 
+- [Adding New Rate Limiting Policies](#adding-new-rate-limiting-policies)
   - [Adding a new advanced rate limiting policy](#adding-a-new-advanced-rate-limiting-policy)
   - [Adding a new application-level rate limiting tier](#adding-a-new-application-level-rate-limiting-tier)
   - [Adding a new subscription-level rate limiting tier](#adding-a-new-subscription-level-rate-limiting-tier)
@@ -76,7 +77,7 @@ You can add advanced rate limiting policies to both APIs and resources.
     
     [![Add advanced policy page]({{base_path}}/assets/img/learn/new-header-condition-regex.png){:style="width:45%"}]({{base_path}}/assets/img/learn/new-header-condition-regex.png)
 
-    [![Add advanced policy page]({{base_path}}/assets/img/learn/new-jwt-condition-regex.png){:style="width:45%"}]({{base_path}}/assets/img/learn/anew-jwt-condition-regex.png)
+    [![Add advanced policy page]({{base_path}}/assets/img/learn/new-jwt-condition-regex.png){:style="width:45%"}]({{base_path}}/assets/img/learn/new-jwt-condition-regex.png)
 
     <div class="admonition info">
     <p class="admonition-title">Note</p>
@@ -88,8 +89,8 @@ You can add advanced rate limiting policies to both APIs and resources.
 
     <ul>
         <li> "iss" - The issuer of the JWT</li>
-        <li>" <http://wso2.org/claims/apicontext> " - Context of the API </li>
-        <li>" <http://wso2.org/claims/version> " - API version </li>
+        <li>" `http://wso2.org/claims/apicontext` - Context of the API </li>
+        <li>" `http://wso2.org/claims/version` - API version </li>
    </ul>
  
     
@@ -144,6 +145,10 @@ You have added a new application-level rate limiting policy.
      <p>
     When you are adding a new Subscription level rate limiting tier, you will see the existing list of subscription tiers in the **Subscription Tier List**. In this list, you will find a tier named **Unauthenticated**, which has a request quota of 500. This is the subscription tier, which is automatically applied when the authentication type of your resources is **'None'.** That is when you can invoke APIs without tokens. And this tier is not visible in the rate limiting tier list of the application. </p>
     </div>
+
+    !!! note
+          It is not recommended to modify the default Unlimited subscription tier. If required, you can create a separate subscription tier to represent the existing Unlimited tier and do the modifications accordingly.
+          
 
 4.  Fill in the details required by this form and click **Save** once you are done.
 

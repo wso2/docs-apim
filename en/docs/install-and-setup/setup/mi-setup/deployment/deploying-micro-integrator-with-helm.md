@@ -27,7 +27,7 @@ Check out the Helm Resources for the WSO2 Micro Integrator Git repository.
 
     ```bash
     git clone https://github.com/wso2/kubernetes-mi.git
-    git checkout tags/v4.0.0.1
+    git checkout tags/v4.2.0.1
     ```
 
 This creates a local copy of [`wso2/kubernetes-mi`](https://github.com/wso2/kubernetes-mi/), which includes all the Helm Resources for WSO2 Micro Integrator.
@@ -38,10 +38,10 @@ Let's refer to the root folder of the local copy as `<KUBERNETES_HOME>`.
 
 Follow the steps given below to configure how your Micro Integrator deployment should be set up.
 
-1.  Open the `values.yaml` file in the `<KUBERNETES_HOME>/helm/micro-integrator folder of your local copy.
+1.  Open the `values.yaml` file in the `<KUBERNETES_HOME>/helm/micro-integrator` folder of your local copy.
 
     !!! Info
-        Before you do any changes, go through the [default configurations](https://github.com/wso2/kubernetes-mi/tree/v4.0.0.1/helm/micro-integrator) in this file.
+        Before you do any changes, go through the [default configurations](https://github.com/wso2/kubernetes-mi/tree/v4.2.0.1/helm/micro-integrator) in this file.
 
 2.  Use the following guidelines to update the deployment configurations:
 
@@ -64,7 +64,7 @@ Follow the steps given below to configure how your Micro Integrator deployment s
 
         ```yaml
         imageName: "wso2mi"
-        imageTag: "4.0.0"
+        imageTag: "4.2.0"
         ```
 
         When you have a custom Docker image with integrations, uncomment the `dockerRegistry` parameter and the details of your custom image.
@@ -75,7 +75,7 @@ Follow the steps given below to configure how your Micro Integrator deployment s
         imageTag: "<custom_image_tag>"
         ```
 
-    -   You can update [other configurations](https://github.com/wso2/kubernetes-mi/blob/v4.0.0.1/helm/micro-integrator/README.md) as required.
+    -   You can update [other configurations](https://github.com/wso2/kubernetes-mi/blob/v4.2.0.1/helm/micro-integrator/README.md) as required.
 
 3.  Save the `values.yaml` file.
 
@@ -83,7 +83,7 @@ Follow the steps given below to configure how your Micro Integrator deployment s
 
 Once you have set up your Helm resources locally, follow the instructions given below to set up the deployment.
 
-1.  Open a terminal and navigate to the `<KUBERNETES_HOME>/helm/micro-integrator folder.
+1.  Open a terminal and navigate to the `<KUBERNETES_HOME>/helm/micro-integrator` folder.
 2.  Execute the command that is relevant to your Helm version.
 
     !!! Tip
@@ -92,13 +92,13 @@ Once you have set up your Helm resources locally, follow the instructions given 
     -   Using **Helm v2**
         
         ```bash
-        helm install --name <RELEASE_NAME> wso2/micro-integrator --version 4.0.0-1 --namespace <NAMESPACE>
+        helm install --name <RELEASE_NAME> wso2/micro-integrator --version 4.2.0-1 --namespace <NAMESPACE>
         ```
 
     -   Using **Helm v3**
         
         ```bash
-        helm install <RELEASE_NAME> wso2/micro-integrator --version 4.0.0-1 --namespace <NAMESPACE> --create-namespace
+        helm install <RELEASE_NAME> wso2/micro-integrator --version 4.2.0-1 --namespace <NAMESPACE> --create-namespace
         ```
         
 #### Update configurations during deployment
@@ -164,6 +164,6 @@ Go to your Kubernetes cluster from your terminal and follow the steps given belo
 
 Note that these instructions are for setting up a standalone deployment of the Micro Integrator. To set up one of the recommended deployment patterns, see the following topics:
 
-- Using Helm Resources for a [Standard HA Deployment of WSO2 API Manager](https://github.com/wso2/kubernetes-apim/blob/4.0.x/advanced/am-pattern-1/README.md)
-- Using Helm Resources for a [Standard HA Deployment of WSO2 API Manager with Multitenancy](https://github.com/wso2/kubernetes-apim/blob/4.0.x/advanced/am-pattern-2/README.md)
-- Using Helm Resources for a [Simple Scalable Deployment of WSO2 API Manager with Multitenancy](https://github.com/wso2/kubernetes-apim/blob/4.0.x/advanced/am-pattern-3/README.md)
+- Using Helm Resources for a [Standard HA Deployment of WSO2 API Manager](https://github.com/wso2/kubernetes-apim/blob/4.2.x/advanced/am-pattern-1/README.md)
+- Using Helm Resources for a [Standard HA Deployment of WSO2 API Manager with Multitenancy](https://github.com/wso2/kubernetes-apim/blob/4.2.x/advanced/am-pattern-2/README.md)
+- Using Helm Resources for a [Simple Scalable Deployment of WSO2 API Manager with Multitenancy](https://github.com/wso2/kubernetes-apim/blob/4.2.x/advanced/am-pattern-3/README.md)

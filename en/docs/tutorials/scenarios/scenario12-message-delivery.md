@@ -14,7 +14,7 @@ This will be implemented with Message Store and Message Processor in Micro Integ
 
 <img src="{{base_path}}/assets/img/tutorials/scenario-tutorials/scenario12.png" alt="Guaranteed Message Delivery" title="Guaranteed Message Delivery" width="60%" />
 
-If you look at the `docker-compose.yml` file, you can see that ``CATERING_SERVICE_EP`` is defined as ‘<code>[http://www.urldoesnotexist.com](http://www.urldoesnotexist.com)</code>’ under mi-runtime service. If you send a request to this endpoint, it will fail and the message will be stored in the Message Store database.
+If you look at the `docker-compose.yml` file, you can see that ``CATERING_SERVICE_EP`` is defined as ‘<code>`http://www.urldoesnotexist.com`</code>’ under mi-runtime service. If you send a request to this endpoint, it will fail and the message will be stored in the Message Store database.
 
 ## Step 1: Invoke the API
 

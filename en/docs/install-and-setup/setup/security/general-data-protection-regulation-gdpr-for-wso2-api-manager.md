@@ -182,13 +182,15 @@ The default configurations are set up as follows:
      
      Define the following in the `properties` section of the `config.json` file as shown below:
 
-    ``` java tab="Format"
-    "<key>": "<value>"
-    ```
+    === "Format"
+        ``` java
+        "<key>": "<value>"
+        ```
 
-    ``` java tab="Example"
-    "identity": "WSO2_CARBON_DB"
-    ```
+    === "Example"
+        ``` java
+        "identity": "WSO2_CARBON_DB"
+        ```
          
     - `<key>` - Define the name of the directory in which the database scripts reside. By default, the database scripts reside in the sub-folders that are available in the `<API-M_HOME>/repository/components/tools/forget-me/conf/sql` *(Relevant to API-M)* and `<TOOL_HOME>/conf/sql` *(Relevant to the standalone Forget-Me Tool)* directories. 
     

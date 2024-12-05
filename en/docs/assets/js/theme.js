@@ -45,11 +45,11 @@
                 jsonTreeInput.style.display = 'none';
             } catch (e) {
                 console.error(e);
-            } 
+            }
         }
-        
+
     }
-    
+
 })();
 
 /*
@@ -62,8 +62,8 @@ function indexInParent(node) {
     var children = node.parentNode.childNodes;
     var num = 0;
     for (var i=0; i < children.length; i++) {
-         if (children[i]==node) return num;
-         if (children[i].nodeType==1) num++;
+        if (children[i]==node) return num;
+        if (children[i].nodeType==1) num++;
     }
     return -1;
 }
@@ -89,13 +89,13 @@ for (var i = 0; i < dropdowns.length; i++) {
     };
 };
 
-/* 
+/*
  * Reading versions
  */
 var pageHeader = document.getElementById('page-header');
 var docSetLang = pageHeader.getAttribute('data-lang');
 
-(window.location.pathname.split('/')[1] !== docSetLang) ? 
+(window.location.pathname.split('/')[1] !== docSetLang) ?
     docSetLang = '' :
     docSetLang = docSetLang + '/';
 
@@ -103,9 +103,10 @@ var docSetUrl = window.location.origin + '/' + docSetLang;
 var request = new XMLHttpRequest();
 
 request.open('GET', docSetUrl +
-             'versions/assets/versions.json', true);
+    'versions/assets/versions.json', true);
 
 request.onload = function() {
+  
   if (request.status >= 200 && request.status < 400) {
 
       var data = JSON.parse(request.responseText);
@@ -122,77 +123,78 @@ request.onload = function() {
               if(versionData) {
                   var liElem = document.createElement('li');
                   var docLinkType = data.all[key].doc.split(':')[0];
-                  var target = '_self';
-                  var url = data.all[key].doc;
+                
 
-                  if ((docLinkType == 'https') || (docLinkType == 'http')) {
-                      target = '_blank'
-                  }
-                  else {
-                      url = docSetUrl + url;
-                  }
+                    var currentPath= window.location.pathname;
+                      // Find the index of '/en/'
+                    var pathWithoutEn = currentPath.substring(4,currentPath.length);
+                    var pathWithoutVersion = pathWithoutEn.substring(pathWithoutEn.indexOf("/"), pathWithoutEn.length)
+
+                    url = docSetUrl + key+ pathWithoutVersion;
+                  
 
                   liElem.className = 'md-tabs__item mb-tabs__dropdown';
-                  liElem.innerHTML =  '<a href="' + url + '" target="' + 
-                      target + '">' + key + '</a>';
+                  liElem.innerHTML =  '<a href="'+ url+'">' + key + '</a>';
 
                   dropdown.insertBefore(liElem, dropdown.firstChild);
-              }
-          });
+              
+            }
+        });
 
           document.getElementById('show-all-versions-link')
               .setAttribute('href', docSetUrl + 'versions');
       }
       
-      /* 
-       * Appending versions to the version tables in versions page
-       */
-      if (checkVersionsPage){
-          var previousVersions = [];
 
-          Object.keys(data.all).forEach(function(key, index){
-              if ((key !== data.current) && (key !== data['pre-release'])) {
-                  var docLinkType = data.all[key].doc.split(':')[0];
-                  var target = '_self';
+        /*
+         * Appending versions to the version tables in versions page
+         */
+        if (checkVersionsPage){
+            var previousVersions = [];
 
-                  if ((docLinkType == 'https') || (docLinkType == 'http')) {
-                      target = '_blank'
-                  }
+            Object.keys(data.all).forEach(function(key, index){
+                if ((key !== data.current) && (key !== data['pre-release'])) {
+                    var docLinkType = data.all[key].doc.split(':')[0];
+                    var target = '_self';
 
-                  previousVersions.push('<tr>' +
-                    '<th>' + key + '</th>' +
+                    if ((docLinkType == 'https') || (docLinkType == 'http')) {
+                        target = '_blank'
+                    }
+
+                    previousVersions.push('<tr>' +
+                        '<th>' + key + '</th>' +
                         '<td>' +
-                            '<a href="' + data.all[key].doc + '" target="' + 
-                                target + '">Documentation</a>' +
+                        '<a href="' + data.all[key].doc + '" target="' +
+                        target + '">Documentation</a>' +
                         '</td>' +
                         '<td>' +
-                            '<a href="' + data.all[key].notes + '" target="' + 
-                                target + '">Release Notes</a>' +
+                        '<a href="' + data.all[key].notes + '" target="' +
+                        target + '">Release Notes</a>' +
                         '</td>' +
-                    '</tr>');
-              }
-          });
+                        '</tr>');
+                }
+            });
 
-          // Past releases update
-          document.getElementById('previous-versions').innerHTML = 
-                  previousVersions.join(' ');
+            // Past releases update
+            document.getElementById('previous-versions').innerHTML =
+                previousVersions.join(' ');
 
-          // Current released version update
-          document.getElementById('current-version-number').innerHTML = 
-                  data.current;
-          document.getElementById('current-version-documentation-link')
-                  .setAttribute('href', docSetUrl + data.all[data.current].doc);
-          document.getElementById('current-version-release-notes-link')
-                  .setAttribute('href', docSetUrl + data.all[data.current].notes);
-        
-          // Pre-release version update
-          document.getElementById('pre-release-version-documentation-link')
-              .setAttribute('href', docSetUrl + 'next/');
-      }
-      
-  } else {
-      console.error("We reached our target server, but it returned an error");
-  }
+            // Current released version update
+            document.getElementById('current-version-number').innerHTML =
+                data.current;
+            document.getElementById('current-version-documentation-link')
+                .setAttribute('href', docSetUrl + data.all[data.current].doc);
+            document.getElementById('current-version-release-notes-link')
+                .setAttribute('href', docSetUrl + data.all[data.current].notes);
+
+            // Pre-release version update
+            document.getElementById('pre-release-version-documentation-link')
+                .setAttribute('href', docSetUrl + 'next/');
+        }
+
+    } else {
+        console.error("We reached our target server, but it returned an error");
+    }
 };
 
 request.onerror = function() {
@@ -205,63 +207,6 @@ request.send();
  * Initialize highlightjs 
  */
 hljs.initHighlightingOnLoad();
-
-/*
- * Handle TOC toggle
- */
-var tocBtn = document.querySelector('.md-sidebar.md-sidebar--secondary #tocToggleBtn');
-var tocClass = document.getElementsByTagName('main')[0];
-
-if (tocBtn) {
-    tocBtn.onclick = function () {
-        event.preventDefault();
-        tocClass.classList.toggle('hide-toc');
-        if (tocBtn.innerHTML === "keyboard_arrow_right") {
-            tocBtn.innerHTML = "keyboard_arrow_left";
-        } else {
-            tocBtn.innerHTML = "keyboard_arrow_right";
-        }
-    };
-}
-
-/*
- * TOC position highlight on scroll
- */
-var observeeList = document.querySelectorAll(".md-sidebar__inner > .md-nav--secondary .md-nav__link");
-var listElems = document.querySelectorAll(".md-sidebar__inner > .md-nav--secondary > ul li");
-var config = { attributes: true, childList: true, subtree: true };
-
-var callback = function(mutationsList, observer) {
-    for(var mutation of mutationsList) {
-        if (mutation.type == 'attributes') {
-            mutation.target.parentNode.setAttribute(mutation.attributeName,
-                mutation.target.getAttribute(mutation.attributeName));
-            scrollerPosition(mutation);
-        }
-    }
-};
-
-var observer = new MutationObserver(callback);
-
-if (listElems.length > 0) {
-    listElems[0].classList.add('active');
-}
-
-for (var i = 0; i < observeeList.length; i++) {
-    var el = observeeList[i];
-
-    observer.observe(el, config);
-
-    el.onclick = function(e) {
-        listElems.forEach(function(elm) {
-            if (elm.classList) {
-                elm.classList.remove('active');
-            }
-        });
-
-        e.target.parentNode.classList.add('active');
-    }
-}
 
 function scrollerPosition(mutation) {
     var blurList = document.querySelectorAll(".md-sidebar__inner > .md-nav--secondary > ul li > .md-nav__link[data-md-state='blur']");

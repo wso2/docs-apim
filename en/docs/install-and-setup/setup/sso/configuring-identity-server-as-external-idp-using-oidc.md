@@ -17,13 +17,15 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
 
 -   Start the servers using the following commands:
 
-    ``` tab="On Windows"
-    wso2server.bat --run
-    ```
+    === "On Windows"
+        ``` bash
+        wso2server.bat --run
+        ```
 
-    ``` tab="On Linux/Mac OS"
-    sh wso2server.sh
-    ```
+    === "On Linux/Mac OS"
+        ``` bash
+        sh wso2server.sh
+        ```
 
 ## Configure the Identity Server
 
@@ -104,6 +106,20 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
 2. Click **Add Claims** for `openid` scope, click **Add OIDC Claim**, select `groups` claim from the dropdown and click on **Add**.
    [![Add groups claim to the OIDC scope]({{base_path}}/assets/img/setup-and-install/update-oidc-scope.png)]({{base_path}}/assets/img/setup-and-install/update-oidc-scope.png)
 
+!!! Info "If Group and Role Separation is Disabled on Identity Server"
+
+    If `GroupAndRoleSeparationEnabled` is set to `false` in the Identity Server, follow the steps below to configure the Identity Server:
+
+    1. Navigate to **Service Providers** -> **List** -> **Edit APIM Service Provider (SP)** -> **Claim Configurations**. Set `http://wso2.org/claims/role` as a mandatory claim.
+
+    2. Go to **Claims** -> **Add** -> **Add External Claim**. Use the following values:
+         - **Dialect URI**: `http://wso2.org/oidc/claim`
+         - **External Claim URI**: `role`
+         - **Mapped Local Claim**: `http://wso2.org/claims/role`
+
+    3. Access **OIDC Scopes** -> Select **openid** -> Click **Add Claims** -> Add the claim `role`.
+
+   
 ## Configure the API Manager
 
 ### Step - 1 Configure the Identity Provider
@@ -209,6 +225,10 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
         Also select **groups** as the **Role Claim URI**.
 
     [![Claim mapping for sso]({{base_path}}/assets/img/setup-and-install/claim-mapping-for-sso.png)]({{base_path}}/assets/img/setup-and-install/claim-mapping-for-sso.png)
+
+    !!! Info "If Group and Role Separation is Disabled on Identity Server"
+
+        If `GroupAndRoleSeparationEnabled` is set to `false` on Identity Server, set Identity Provider Claim URI to **role**, Local Claim URI to `http://wso2.org/claims/role` claim  and Role Claim URI to **role**
 
 ### Step - 2 Configure the Service Provider
 

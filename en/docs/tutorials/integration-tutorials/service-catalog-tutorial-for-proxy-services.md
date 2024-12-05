@@ -39,7 +39,7 @@ Follow the instructions given in this section to create and configure the requir
 6. Create a **Proxy Service** artifact.
 
     1.  In the project explorer, right-click **ProxyServiceSampleConfigs** and click **New -> Proxy Service**.
-    2.  Follow the [Using a Simple Proxy Service]({{base_path}}/integrate/examples/proxy_service_examples/introduction-to-proxy-services.md) to create the StockQuoteProxy Proxy Service.
+    2.  Follow the [Using a Simple Proxy Service]({{base_path}}/integrate/examples/proxy_service_examples/introduction-to-proxy-services) to create the StockQuoteProxy Proxy Service.
     3.  Enter the details given below to create a new Proxy Service.
         <table>
         <tr>
@@ -385,13 +385,15 @@ Now, let's assume you are an API consumer who wants to use the API. As a consume
     3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
     4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
     
-        ```bash tab='On MacOS/Linux/CentOS'
-        sh axis2server.sh
-        ```
+        === "On MacOS/Linux/CentOS"
+            ```bash
+            sh axis2server.sh
+            ```
     
-        ```bash tab='On Windows'
-        axis2server.bat
-        ```
+        === "On Windows"
+            ```bash
+            axis2server.bat
+            ```
 
 **Generate access token**
 

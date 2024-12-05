@@ -87,6 +87,10 @@ info:
     "expires_in": 3600
     }
     ```
+
+    Note that in a distributed deployment or IS as KM separated environment to invoke RESTful APIs (product APIs), users must generate tokens through API-M Control Plane's token endpoint.
+    The tokens generated using third party key managers, are to manage end-user authentication when accessing APIs.
+    
     Now you have a valid access token, which you can use to invoke an API.
     Navigate through the API descriptions to find the required API, obtain an access token as described above and invoke the API with the authentication header.
     If you use a different authentication mechanism, this process may change.

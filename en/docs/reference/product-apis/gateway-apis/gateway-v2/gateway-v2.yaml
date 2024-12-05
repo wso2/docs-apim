@@ -176,7 +176,7 @@ paths:
         - OAuth2Security: []
       x-code-samples:
         - lang: Curl
-          source: 'curl -k "https://localhost:9443/api/am/gateway/v2/server-startup-healthcheck" -H "Authorization: Basic YWRtaW46YWRtaW4="'
+          source: 'curl -k "https://localhost:9443/api/am/gateway/v2/server-startup-healthcheck"'
 
   /api-artifact:
 

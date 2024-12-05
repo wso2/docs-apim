@@ -8,9 +8,8 @@ This scenario demonstrates how the AmazonSQS inbound endpoint works as a message
 
 The Amazon SQS queue will receive messages from a third party system, while the integration runtime will keep listening to the messages from that queue. First you need to create a **Queue** inside the **Simple Queue Service** and send a message to the created Queue. The WSO2 AmazonSQS Inbound Endpoint will receive the message and notify. If you are extending this sample scenario, you can perform any kind of mediation using the [mediators]({{base_path}}/reference/mediators/about-mediators/).
 
-Following diagram shows the overall solution we are going to build. The Simple Queue Service will receive messages from the outside, while the AmazonSQS inbound endpoint will consume messages based on the updates.
+The Simple Queue Service will receive messages from the outside, while the AmazonSQS inbound endpoint will consume messages based on the updates.
 
-<img src="{{base_path}}/assets/img/integrate/connectors/amazon-sqs-inboundep-example.png" title="AmazonSQS Inbound Endpoint" width="800" alt="AmazonSQS Inbound Endpoint"/>
 
 ## Configure inbound endpoint using WSO2 Integration Studio
 

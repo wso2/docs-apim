@@ -11,6 +11,9 @@ See [Creating a Proxy Service]({{base_path}}/integrate/develop/creating-artifact
 
 ## Service-Level Parameters
 
+!!! Note
+    If the username or password contains special characters, you will need to use the URL encoded values when defining the File URIs in VFS transport.
+
 <table>
    <thead>
       <tr>
@@ -220,10 +223,6 @@ See [Creating a Proxy Service]({{base_path}}/integrate/develop/creating-artifact
          <td>The interval in milliseconds between two file processes. Specify a positive integer, such as <code>10</code></td>
       </tr>
       <tr>
-         <td>transport.vfs.ClusterAware</td>
-         <td>Whether VFS coordination support is enabled in a clustered deployment or not. By default, this setting is set to <code>false</code>.</td>
-      </tr>
-      <tr>
          <td>transport.vfs.FileSizeLimit</td>
          <td>Only file sizes that are less than or equal to the defined limit are processed. Specify the file size in bytes. The default value is <code>-1</code>(unlimited file size).</td>
       </tr>
@@ -251,22 +250,6 @@ See [Creating a Proxy Service]({{base_path}}/integrate/develop/creating-artifact
             Whether hostnames should be resolved at the time of deployment or whether it is necessary to resolve hostnames dynamically at runtime. By default hostnames are resolved at the time of deployment. If you want to resolve hostnames at runtime, set this parameter to <code>true</code>.
             <b>Note</b>: Resolving hostnames at runtime is only possible for the Server Message Block (SMB) protocol. </br>
             By default, this setting is <code>false</code>.
-         </td>
-      </tr>
-      <tr>
-         <td>
-            transport.vfs.DistributedLock
-         </td>
-         <td>
-            This applies only in cluster deployments. Set to <code>true</code> if you need to avoid multiple servers trying to process the same file simultaneously.
-         </td>
-      </tr>
-      <tr>
-         <td>
-          transport.vfs.DistributedTimeout
-         </td>
-         <td>
-            The timeout period in seconds for the distributed lock. Specify a positive integer, such as <code>10</code>.
          </td>
       </tr>
       <tr>
@@ -321,6 +304,11 @@ See [Creating a Proxy Service]({{base_path}}/integrate/develop/creating-artifact
       </tr>
    </tbody>
 </table>
+
+!!! Note
+
+    If you require cluster coordination for file polling, please use the File Inbound Endpoint.
+
 
 The following service-level parameters are required for Inbound Endpoints.
 
@@ -408,7 +396,7 @@ When you use the [transport.vfs.FileURI](#vfs-transport-file_url) parameter, you
       </tr>
       <tr>
          <td>vfs.ssl.keystore</td>
-         <td>Private key store to use for mutual SSL. Your keystore must be signed by a certificate authority. For more information, see <a href="index">http://docs.oracle.com/cd/E19509-01/820-3503/ggfen/index.html</a>. Possible value: String (Path of keystore).</td>
+         <td>Private key store to use for mutual SSL. Your keystore must be signed by a certificate authority. For more information, [see Oracle page](http://docs.oracle.com/cd/E19509-01/820-3503/ggfen/index.html). Possible value: String (Path of keystore).</td>
       </tr>
       <tr>
          <td>vfs.ssl.kspassword</td>
@@ -448,6 +436,39 @@ When you use the [transport.vfs.FileURI](#vfs-transport-file_url) parameter, you
             When this parameter is set to <code>true</code>, the newly created file will have the same last-modified timestamp as the original file. The default setting is <code>true</code>.
          </td>
       </tr>
+      <tr>
+         <td>
+           timeout
+         </td>
+         <td>
+            The connection timeout in milliseconds. Possible value: <code>1000</code>. The default value is <code>5000</code>.
+         </td>
+      </tr>
+      <tr>
+         <td>
+           sftpPathFromRoot
+         </td>
+         <td>
+            <div class="content-wrapper">
+               When you need to access the absolute path of the URL, you can define the URL with <code>sftpPathFromRoot</code> as shown below. Also, note that <a href="#vfs-transport-avoid_permissions">transport.vfs.AvoidPermissionCheck</a> is a mandatory parameter for this URL when SFTP is used.
+               <div class="code panel pdl" style="border-width: 1px;">
+                  <div class="codeContent panelContent pdl">
+                     <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
+                        <pre class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1"></a>&lt;parameter name=<span class="st">&quot;transport.vfs.FileURI&quot;</span>&gt;sftp:<span class="co">//[ username[: password]@] hostname[: port][ absolute-path]?sftpPathFromRoot=true;transport.vfs.AvoidPermissionCheck=true&lt;/parameter&gt;</span></span></code></pre>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </td>
+      </tr>
+      <tr>
+         <td>
+           transport.vfs.IsMounted
+         </td>
+         <td>
+           When a file read/write location is a bind mount volume, this property needs to be set to <code>true</code>.
+         </td>
+      </tr>         
    </tbody>
 </table>
 

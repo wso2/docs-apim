@@ -20,7 +20,7 @@ Detailed steps on how to configure Keycloak can be found in [WSO2 Documentation]
 
 1. Download Keycloak Server from [https://www.keycloak.org/downloads](https://www.keycloak.org/downloads). At the time of writing this tutorial, keycloak 12.0.4 was used for this.
 2. Extract it to your local setup and navigate to `<keycloak>/bin` and run `./standalone.sh` to start the server.
-3. Go To [http://localhost:8080/](http://localhost:8080/). If this is the first time, create an initial admin user from the form given in this page.
+3. Go To `http://localhost:8080/`. If this is the first time, create an initial admin user from the form given in this page.
 4. Run the following command. Replace admin username and password. This will run a script on keycloak to generate application on keycloak.
 
     ```
@@ -48,7 +48,7 @@ client secret:  221f10b7-d169-45e0-851e-e1b017052162
 
 Now let's configure the connection between API-M and Keycloak.
 
-1. Log on to Admin Portal [https://localhost:9443/admin/](https://localhost:9443/admin/) using RailCo admin user. Use `admin@railco.com` and `admin` as the password.
+1. Log on to Admin Portal `https://localhost:9443/admin/` using RailCo admin user. Use `admin@railco.com` and `admin` as the password.
 2. Go to **Key Managers** and select **Add Keymanagers**
 3. Provide a suitable name and display name.
 4. Select **Key Manager Type** as **Keycloak** from the dropdown menu.
@@ -64,7 +64,7 @@ Now the Key Manager is configured.
 
 Let’s invoke an API using a token generated from Keycloak.
 
-1. Log on to Railco tenant domain’s Developer Portal [https://localhost:9443/devportal/](https://localhost:9443/devportal/) using tom@railco.com and password _user123_.
+1. Log on to Railco tenant domain’s Developer Portal `https://localhost:9443/devportal/` using tom@railco.com and password _user123_.
 2. Go to the **Applications** page and select **KeyCloakAPP**. This application is already subscribed to the **RailCoTrainAPI**. 
 3. Select **Production Keys → OAuth2 Tokens** . You will see a tab for **Keycloak**
     

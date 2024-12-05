@@ -5,51 +5,55 @@ This example demonstrates the usage of the message sampling processor.
 
 Following are the artifact configurations that we can use to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
-```xml tab='Send Sequence'
-<sequence xmlns="http://ws.apache.org/ns/synapse" name="send_seq">
-    <send>
-        <endpoint>
-            <address uri="http://localhost:9000/services/SimpleStockQuoteService">
-                <suspendOnFailure>
-                <errorCodes>-1</errorCodes>
-                <progressionFactor>1.0</progressionFactor>
-                </suspendOnFailure>
-            </address>
-        </endpoint>
-    </send>
-</sequence>           
-```
+=== "Send Sequence"
+    ```xml
+    <sequence xmlns="http://ws.apache.org/ns/synapse" name="send_seq">
+        <send>
+            <endpoint>
+                <address uri="http://localhost:9000/services/SimpleStockQuoteService">
+                    <suspendOnFailure>
+                    <errorCodes>-1</errorCodes>
+                    <progressionFactor>1.0</progressionFactor>
+                    </suspendOnFailure>
+                </address>
+            </endpoint>
+        </send>
+    </sequence>           
+    ```
 
-```xml tab='Proxy Service'
-<proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="https http" startOnLoad="true" trace="disable">
-          <description />
-    <target>
-       <inSequence>
-            <log level="full"/>
-            <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2"/>
-            <property name="OUT_ONLY" value="true"/>
-            <store messageStore="MyStore"/>
-        </inSequence>
-        <outSequence>
-             <send />
-        </outSequence>
-    </target>
-</proxy>
-```
+=== "Proxy Service"
+    ```xml
+    <proxy xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteProxy" transports="https http" startOnLoad="true" trace="disable">
+            <description />
+        <target>
+        <inSequence>
+                <log level="full"/>
+                <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2"/>
+                <property name="OUT_ONLY" value="true"/>
+                <store messageStore="MyStore"/>
+            </inSequence>
+            <outSequence>
+                <send />
+            </outSequence>
+        </target>
+    </proxy>
+    ```
 
-```xml tab='Message Store'
-<messageStore xmlns="http://ws.apache.org/ns/synapse" name="MyStore"/>
-```
+=== "Message Store"
+    ```xml
+    <messageStore xmlns="http://ws.apache.org/ns/synapse" name="MyStore"/>
+    ```
 
-```xml tab='Message Processor'
-<messageProcessor xmlns="http://ws.apache.org/ns/synapse"
-     class="org.apache.synapse.message.processor.impl.sampler.SamplingProcessor"
-     name="SamplingProcessor" messageStore="MyStore">
-    <parameter name="interval">20000</parameter>
-    <parameter name="sequence">send_seq</parameter>
-    <parameter name="is.active">true</parameter>
-</messageProcessor> 
-```
+=== "Message Processor"
+    ```xml
+    <messageProcessor xmlns="http://ws.apache.org/ns/synapse"
+        class="org.apache.synapse.message.processor.impl.sampler.SamplingProcessor"
+        name="SamplingProcessor" messageStore="MyStore">
+        <parameter name="interval">20000</parameter>
+        <parameter name="sequence">send_seq</parameter>
+        <parameter name="is.active">true</parameter>
+    </messageProcessor> 
+    ```
 
 ## Build and run
 
@@ -69,13 +73,15 @@ Set up the back-end service:
 3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
 4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
    
-      ```bash tab='On MacOS/Linux/CentOS'
-      sh axis2server.sh
-      ```
+    === "On MacOS/Linux/CentOS"
+        ```bash
+        sh axis2server.sh
+        ```
           
-      ```bash tab='On Windows'
-      axis2server.bat
-      ```
+    === "On Windows"
+        ```bash
+        axis2server.bat
+        ```
 
 Send the following request to invoke the service:
 

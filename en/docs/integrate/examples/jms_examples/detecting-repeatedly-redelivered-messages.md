@@ -14,75 +14,82 @@ Given below are the synapse configurations that are required for mediating the a
 
 See the instructions on how to [build and run](#build-and-run) this example.
 
-```xml tab="Inbound Endpoint"
-<inboundEndpoint name="jms_inbound" onError="fault" protocol="jms" sequence="request" suspend="false">
-    <parameters>
-       <parameter name="interval">1000</parameter>
-       <parameter name="transport.jms.Destination">queue/mySampleQueue</parameter>
-       <parameter name="transport.jms.CacheLevel">1</parameter>
-       <parameter name="transport.jms.ConnectionFactoryJNDIName">QueueConnectionFactory</parameter>
-       <parameter name="sequential">true</parameter>
-       <parameter name="java.naming.factory.initial">org.jnp.interfaces.NamingContextFactory</parameter>
-       <parameter name="java.naming.provider.url">jnp://localhost:1099</parameter>
-       <parameter name="transport.jms.SessionAcknowledgement">AUTO_ACKNOWLEDGE</parameter>
-       <parameter name="transport.jms.SessionTransacted">false</parameter>
-    </parameters>
-</inboundEndpoint>
-```
+=== "Inbound Endpoint"
+    ```xml
+    <inboundEndpoint name="jms_inbound" onError="fault" protocol="jms" sequence="request" suspend="false">
+        <parameters>
+        <parameter name="interval">1000</parameter>
+        <parameter name="transport.jms.Destination">queue/mySampleQueue</parameter>
+        <parameter name="transport.jms.CacheLevel">1</parameter>
+        <parameter name="transport.jms.ConnectionFactoryJNDIName">QueueConnectionFactory</parameter>
+        <parameter name="sequential">true</parameter>
+        <parameter name="java.naming.factory.initial">org.jnp.interfaces.NamingContextFactory</parameter>
+        <parameter name="java.naming.provider.url">jnp://localhost:1099</parameter>
+        <parameter name="transport.jms.SessionAcknowledgement">AUTO_ACKNOWLEDGE</parameter>
+        <parameter name="transport.jms.SessionTransacted">false</parameter>
+        </parameters>
+    </inboundEndpoint>
+    ```
 
-```xml tab="Sequence (Request)"
-<sequence name="request" onError="fault">
-    <log level="full"/>
-    <filter regex="1" source="get-property('default','jms.message.delivery.count')" xmlns:ns="http://org.apache.synapse/xsd">
-        <then>
-            <log>
-                 <property name="DeliveryCounter" value="1"/>
-            </log>
-        </then>
-         <else>
-            <store messageStore="JMS-Redelivered-Store"/>
-            <log>
-                <property name="DeliveryCounter" value="more than 1"/>
-            </log>
-         </else>
-    </filter>
-    <drop/>
-</sequence>
-```
+=== "Sequence (Request)"
+    ```xml
+    <sequence name="request" onError="fault">
+        <log level="full"/>
+        <filter regex="1" source="get-property('default','jms.message.delivery.count')" xmlns:ns="http://org.apache.synapse/xsd">
+            <then>
+                <log>
+                    <property name="DeliveryCounter" value="1"/>
+                </log>
+            </then>
+            <else>
+                <store messageStore="JMS-Redelivered-Store"/>
+                <log>
+                    <property name="DeliveryCounter" value="more than 1"/>
+                </log>
+            </else>
+        </filter>
+        <drop/>
+    </sequence>
+    ```
 
-```xml tab="Registry Artifact"
-<registry provider="org.wso2.micro.integrator.registry.MicroIntegratorRegistry">
-    <parameter name="cachableDuration">15000</parameter>
-</registry>
-```
+=== "Registry Artifact"
+    ```xml
+    <registry provider="org.wso2.micro.integrator.registry.MicroIntegratorRegistry">
+        <parameter name="cachableDuration">15000</parameter>
+    </registry>
+    ```
 
-```xml tab="Task Manager"
-<taskManager provider="org.wso2.micro.integrator.mediation.ntask.NTaskTaskManager">
-    <parameter name="cachableDuration">15000</parameter>
-</taskManager>
-```
+=== "Task Manager"
+    ```xml
+    <taskManager provider="org.wso2.micro.integrator.mediation.ntask.NTaskTaskManager">
+        <parameter name="cachableDuration">15000</parameter>
+    </taskManager>
+    ```
 
-```xml tab="Sequence (Main)"
-<sequence name="main">
-    <log level="full"/>
-    <drop/>
-</sequence>
-```
+=== "Sequence (Main)"
+    ```xml
+    <sequence name="main">
+        <log level="full"/>
+        <drop/>
+    </sequence>
+    ```
 
-```xml tab="Sequence (Fault)"
-<sequence name="fault">
-    <log level="full">
-        <property name="MESSAGE" value="Executing default &quot;fault&quot; sequence"/>
-        <property expression="get-property('ERROR_CODE')" name="ERROR_CODE"/>
-        <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
-    </log>
-    <drop/>
-</sequence>
-```
+=== "Sequence (Fault)"
+    ```xml
+    <sequence name="fault">
+        <log level="full">
+            <property name="MESSAGE" value="Executing default &quot;fault&quot; sequence"/>
+            <property expression="get-property('ERROR_CODE')" name="ERROR_CODE"/>
+            <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
+        </log>
+        <drop/>
+    </sequence>
+    ```
 
-```xml tab="Message Store"
-<messageStore name="JMS-Redelivered-Store"/>
-```
+=== "Message Store"
+    ```xml
+    <messageStore name="JMS-Redelivered-Store"/>
+    ```
 
 See the descriptions of the above configurations:
 
@@ -110,7 +117,7 @@ Create the artifacts:
 
 Set up the broker:
 
-1.  [Configure a broker]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transport#configuring-the-jms-transport) with your Micro Integrator instance. Let's use HornetQ for this example.
+1.  [Configure a broker]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-jms-transport) with your Micro Integrator instance. Let's use HornetQ for this example.
 2.  Start HornetQ with the following command:             
     -   On **Windows**: HORNETQ_HOME\bin\run.bat --run
     -   On **MacOS/Linux/Solaris**: sh HORNETQ_HOME/bin/run.sh

@@ -19,7 +19,7 @@
 site_name: WSO2 API Manager Documentation 4.2.0
 site_description: Documentation for WSO2 API Manager
 site_author: WSO2
-site_url: https://apim.docs.wso2.com/en/latest/
+site_url: https://apim.docs.wso2.com/en/4.2.0/
 
 # Repository
 repo_name: wso2/docs-apim
@@ -35,13 +35,35 @@ theme:
     name: material
     custom_dir: theme/material
     palette:
-        primary: deep-orange
-        accent: deep-orange
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
     logo: images/logo.svg
     favicon: images/favicon.png
-    highlightjs: true
-    feature:
-        tabs: true
+    features:
+        - content.code.copy
+        - navigation.tabs
+        - navigation.tabs.sticky
+        - content.action.edit
+        - content.action.view
+        - navigation.top
+        - toc.follow
     language: 'en'
 #Breaks build if there's a warning
 strict: false
@@ -172,6 +194,7 @@ nav:
                 - Token Persistence: design/api-security/oauth2/token-persistence.md
                 - Encrypting OAuth2 Tokens: design/api-security/oauth2/encrypting-oauth2-tokens.md
                 - Hashing OAuth Keys: design/api-security/oauth2/hashing-oauth-keys.md
+                - Multiple Active Access Tokens: design/api-security/oauth2/multiple-active-access-tokens.md
                 - Provisioning Out-of-Band OAuth Clients: design/api-security/oauth2/provisioning-out-of-band-oauth-clients.md
                 - Securing OAuth Token with HMAC Validation: design/api-security/oauth2/securing-oauth-token-with-hmac-validation.md
             - Threat Protection:
@@ -210,6 +233,7 @@ nav:
             - Add an API State Change Workflow: design/advanced-topics/adding-an-api-state-change-workflow.md
             - Block Subscription to an API: design/advanced-topics/block-subscription-to-an-api.md
             - Validate API Definitions with Linters: design/advanced-topics/validate-api-definitions-with-linters.md
+            - API Governance CLI Tool: design/advanced-topics/api-governance-cli-tool.md
     - Deploy and Publish APIs:
         - Deploy on Gateway:
             - Deploy APIs in the API Gateway vs Choreo Connect: deploy-and-publish/deploy-on-gateway/deploying-apis-in-api-gateway-vs-choreo-connect.md
@@ -355,6 +379,7 @@ nav:
                 - Service Mesh Integration: deploy-and-publish/deploy-on-gateway/choreo-connect/service-mesh/istio.md
                 - Observability:
                     - Distributed Tracing: deploy-and-publish/deploy-on-gateway/choreo-connect/observability/distributed-tracing.md
+                    - Prometheus Metric Support: deploy-and-publish/deploy-on-gateway/choreo-connect/observability/prometheus-metric-support.md
                 - Analytics:
                       - Configure Analytics with Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-analytics.md
                       - Publish Custom Attributes with Analytics: deploy-and-publish/deploy-on-gateway/choreo-connect/analytics/publish-custom-analytics-attributes.md
@@ -369,8 +394,7 @@ nav:
                       - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/performance-tests/performance-test-results-overview-cc.md
                       - Router with One CPU: deploy-and-publish/deploy-on-gateway/choreo-connect/performance-tests/router-with-one-cpu-for-rest-api.md
                       - Router with Two CPU: deploy-and-publish/deploy-on-gateway/choreo-connect/performance-tests/router-with-two-cpu-for-rest-api.md
-                - Migrate from Ballerina API Microgateway to Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/migration-guide-from-ballerina-api-microgateway.md
-                - Migrate from Ballerina API Microgateway to Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/migration-guide-from-ballerina-api-microgateway.md
+                #- Migrate from Ballerina API Microgateway to Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/migration-guide-from-ballerina-api-microgateway.md
                 - Troubleshooting:
                     - Enable Debug Logs: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/adding-debug-logs.md
                     - Error Handling: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/error-handling.md
@@ -1011,6 +1035,8 @@ nav:
                         - employeeSSOAccounts: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/employeessoaccounts.md
                         - employeeWorkAssignmentManagers: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/employeeworkassignmentmanagers.md
                         - userPayAdjustmentCodeGroups: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/userpayadjustmentcodegroups.md
+            - CSV Module:
+                - 'CSV Module': 'reference/connectors/csv-module/csv-module-config.md'
             - DB Event Listener Inbound Endpoint:
                 - Database Event Listener Overview: reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-overview.md
                 - Database Event Listener Example: reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-example.md
@@ -1068,7 +1094,7 @@ nav:
                 - Kafka Overview: reference/connectors/kafka-connector/kafka-connector-overview.md
                 - Set up Kafka: reference/connectors/kafka-connector/setting-up-kafka.md
                 - Enable Security for Kafka: reference/connectors/kafka-connector/enabling-security-for-kafka.md
-                - 3.1.x:
+                - 3.1.x and later:
                     - Kafka Example: reference/connectors/kafka-connector/kafka-connector-producer-example.md
                     - Kafka Avro Message Example: reference/connectors/kafka-connector/kafka-connector-avro-producer-example.md
                     - Kafka Connector Reference: reference/connectors/kafka-connector/kafka-connector-config.md
@@ -1076,6 +1102,7 @@ nav:
                     - Kafka Example: reference/connectors/kafka-connector/kafka-connector-producer-example.md
                     - Kafka Connector Reference: reference/connectors/kafka-connector/3.0.x/kafka-connector-config.md
                 - Kafka Inbound Endpoint Example: reference/connectors/kafka-connector/kafka-inbound-endpoint-example.md
+                - Kafka Inbound Endpoint Reference: reference/connectors/kafka-connector/kafka-inbound-endpoint-config.md
             - LDAP Connector:
                 - LDAP Overview: reference/connectors/ldap-connector/ldap-connector-overview.md
                 - Set up an LDAP Server: reference/connectors/ldap-connector/setting-up-ldap.md
@@ -1110,8 +1137,12 @@ nav:
                 - Salesforce Overview: reference/connectors/salesforce-connectors/sf-overview.md
                 - Salesforce Access Token Generation: includes/reference/connectors/salesforce-connectors/sf-access-token-generation.md
                 - Set up the PushTopic in Salesforce: reference/connectors/salesforce-connectors/sf-inbound-endpoint-configuration.md
-                - Salesforce REST API Example: reference/connectors/salesforce-connectors/sf-rest-connector-example.md
-                - Salesforce REST API Reference: reference/connectors/salesforce-connectors/sf-rest-connector-config.md
+                - Salesforce REST Connector:
+                    - Salesforce REST Connector Example: reference/connectors/salesforce-connectors/sf-rest-connector-example.md
+                    - 2.0.x:
+                        - Salesforce REST Connector Reference: reference/connectors/salesforce-connectors/sf-rest-connector-config-v2.md
+                    - 1.x.x:
+                        - Salesforce REST Connector Reference: reference/connectors/salesforce-connectors/sf-rest-connector-config.md
                 - Salesforce Inbound Endpoint Example: reference/connectors/salesforce-connectors/sf-inbound-endpoint-example.md
                 - Salesforce Inbound Endpoint Reference: reference/connectors/salesforce-connectors/sf-inbound-endpoint-reference-configuration.md
                 - Salesforce Bulk Configuration: reference/connectors/salesforcebulk-connector/salesforcebulk-connector-configuration.md
@@ -1314,6 +1345,7 @@ nav:
                 - Add internationalization: reference/customize-product/customizations/adding-internationalization.md
                 - Define Custom Linter Rules: reference/customize-product/customizations/define-custom-linters.md
                 - Advanced UI Customization: reference/customize-product/customizations/advanced-ui-customization.md
+                - Modify Workflow Approval Task Limit: reference/customize-product/customizations/modify-workflow-approval-task-limit.md
             - Admin Services: reference/wso2-admin-services.md
             - Work with the Source Code: reference/working-with-the-source-code.md
             - Java Documentation: reference/java-documentation.md
@@ -1385,6 +1417,7 @@ nav:
             - Configure PingFederate as A Key Manager: administer/key-managers/configure-pingfederate-connector.md
             - Configure ForgeRock as a Key Manager: administer/key-managers/configure-forgerock-connector.md
             - Configure a Custom Key Manager: administer/key-managers/configure-custom-connector.md
+            - Configure the Global Key Manager: administer/key-managers/configure-global-key-manager.md
         - Advanced Configurations: administer/advanced-configurations.md
     - Install and Setup:
         - Install and Setup Overview: install-and-setup/install-and-setup-overview.md
@@ -1399,6 +1432,7 @@ nav:
                 - Install MI: install-and-setup/install/installing-the-product/installing-mi.md
                 - Run the MI Runtime: install-and-setup/install/installing-the-product/running-the-mi.md
                 - Run the MI as a Windows Service: install-and-setup/install/installing-the-product/installing-mi-as-a-windows-service.md
+                - Run the MI in Automation Mode: install-and-setup/install/running-the-mi-in-automation-mode.md
             - Install the MI Dashboard:
                 - Install the MI Dashboard: install-and-setup/install/installing-the-product/installing-mi-dashboard.md
                 - Run the MI Dashboard: install-and-setup/install/installing-the-product/running-the-mi-dashboard.md
@@ -1426,7 +1460,6 @@ nav:
                         - Change to MSSQL: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mssql.md
                         - Change to PostgreSQL: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-postgresql.md
                         - Change to Oracle: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-oracle.md
-                        - Change to MariaDB: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mariadb.md
                         - Change to IBM DB2: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-ibm-db2.md
                         - Change to Oracle RAC: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-oracle-rac.md
                     - Manage Data Growth and Improving Performance: install-and-setup/setup/setting-up-databases/managing-data-growth-and-improving-performance.md
@@ -1442,6 +1475,7 @@ nav:
                             - Work with Encrypted Passwords: install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords.md
                             - Set Up ReCaptcha: install-and-setup/setup/security/logins-and-passwords/setting-up-recaptcha.md
                             - Configure reCaptcha for Single Sign On : install-and-setup/setup/security/logins-and-passwords/configuring-recaptcha-for-single-sign-on.md
+                            - Intergrate with HashiCorp Vault : install-and-setup/setup/security/logins-and-passwords/harshicrop-vault-extension.md
                     - Configure Keystores:
                         - Configure Keystores in API Manager: install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager.md
                         - Keystore Basics:
@@ -1471,6 +1505,7 @@ nav:
                     - Change the Default Transport: install-and-setup/setup/advance-configurations/changing-the-default-transport.md
                     - Configure Caching: install-and-setup/setup/advance-configurations/configuring-caching.md
                     - Customize the Management Console: install-and-setup/setup/advance-configurations/customizing-the-management-console.md
+                    - Configure the Crypto Provider: install-and-setup/setup/advance-configurations/configuring-the-crypto-provider.md
             - Set up Micro Integrator:
                 - Update WSO2 Micro Integrator: install-and-setup/setup/mi-setup/updating-mi.md
                 - Data Stores:
@@ -1554,6 +1589,10 @@ nav:
                     - Configure a Distributed API-M Deployment: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
                     - Configure a Distributed API-M Deployment with Traffic Manager Separation: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-tm-separated.md
                     - Run the API-M Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
+                - Multi-DC Deployment:
+                    - Multi-DC Deployment Patterns Overview: install-and-setup/setup/multi-dc-deployment/multi-dc-deployment-patterns-overview.md
+                    - Configure Multi-DC Deployment - Pattern 1: install-and-setup/setup/multi-dc-deployment/configuring-multi-dc-deployment-pattern-1.md
+                    - Configure Multi-DC Deployment - Pattern 2: install-and-setup/setup/multi-dc-deployment/configuring-multi-dc-deployment-pattern-2.md
             - Deploy the Micro Integrator:
                 - Configure a Micro Integrator Cluster: install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei.md
                 - Deployment Synchronization: install-and-setup/setup/mi-setup/deployment/deployment_synchronization.md
@@ -1734,7 +1773,8 @@ markdown_extensions:
     - pymdownx.critic
     - pymdownx.details
     - pymdownx.emoji:
-          emoji_generator: !!python/name:pymdownx.emoji.to_svg
+          emoji_index: !!python/name:materialx.emoji.twemoji
+          emoji_generator: !!python/name:materialx.emoji.to_svg
     - pymdownx.inlinehilite
     - pymdownx.keys
     - pymdownx.mark
@@ -1746,8 +1786,15 @@ markdown_extensions:
     - pymdownx.snippets:
           base_path: docs
     - attr_list
+    - pymdownx.tabbed:
+          alternate_style: true
 plugins:
-    - search
+    - search:
+        indexing: "full"
+        separator: "[^\\w._-]+"
+        lang: ['en']
+        prebuild_index: true
+        ngram_length: 3
     - markdownextradata: {}
     - exclude:
           glob:
@@ -1942,6 +1989,7 @@ plugins:
               'learn/api-security/oauth2/token-persistence.md': 'https://apim.docs.wso2.com/en/4.2.0/design/api-security/oauth2/token-persistence/'
               'learn/api-security/oauth2/encrypting-oauth2-tokens.md': 'https://apim.docs.wso2.com/en/4.2.0/design/api-security/oauth2/encrypting-oauth2-tokens/'
               'learn/api-security/oauth2/hashing-oauth-keys.md': 'https://apim.docs.wso2.com/en/4.2.0/design/api-security/oauth2/hashing-oauth-keys/'
+              'learn/api-security/oauth2/multiple-active-access-tokens.md': 'https://apim.docs.wso2.com/en/4.2.0/design/api-security/oauth2/multiple-active-access-tokens/'
               'learn/api-security/oauth2/provisioning-out-of-band-oauth-clients.md': 'https://apim.docs.wso2.com/en/4.2.0/design/api-security/oauth2/provisioning-out-of-band-oauth-clients/'
               'learn/api-security/oauth2/securing-oauth-token-with-hmac-validation.md': 'https://apim.docs.wso2.com/en/4.2.0/design/api-security/oauth2/securing-oauth-token-with-hmac-validation/'
               'learn/api-security/threat-protection/bot-detection.md': 'https://apim.docs.wso2.com/en/4.2.0/design/api-security/threat-protection/bot-detection/'
@@ -2211,14 +2259,13 @@ plugins:
     # Extra
 extra_css:
     - assets/lib/highlightjs/default.min.css
+    - assets/css/orange-palette.css
     - assets/css/theme.css
     - assets/lib/json-formatter/json-formatter.css
 extra_javascript:
     - assets/lib/json-formatter/json-formatter.umd.js
     - assets/lib/highlightjs/highlight.min.js
     - assets/js/theme.js
-    - assets/lib/backtotop/js/util.js
-    - assets/lib/backtotop/js/main.js
 extra:
     social:
         - type: github
@@ -2234,6 +2281,6 @@ extra:
             version: 1.2.0-1
             git_tag: v1.2.0.1
     site_version: 4.2.0
-    #base_path: http://localhost:8000
+#    base_path: http://localhost:8000/en/4.2.0
     base_path: https://apim.docs.wso2.com/en/4.2.0
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1

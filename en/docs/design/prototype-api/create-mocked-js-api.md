@@ -45,7 +45,7 @@ Follow the instructions below to add a mock implementation to the API:
      The example response defined in the OpenAPI definition is set as the mock response payload. You can modify the generated inline scripts as required. 
 
     ??? note "Click here to view the inline Mock Implementation script."
-        ``` 
+        ```json
          responses[200]["application/json"] = {              // Mock response payload stored as a variable
            "id" : 10,
            "name" : "doggie",
@@ -78,7 +78,7 @@ Follow the instructions below to add a mock implementation to the API:
      [![Modified inline script]({{base_path}}/assets/img/learn/create-api-prototype-generated-script-modified.png)]({{base_path}}/assets/img/learn/create-api-prototype-generated-script-modified.png)
    
     ??? note "Click here to view the modified inline Mock Implementation script."
-        ```
+        ```json
          // **GENERATED CODE** //
 
          var responseCode = mc.getProperty('query.param.responseCode');
@@ -226,6 +226,70 @@ The following table lists down the `mc.` methods that you can use to invoke func
 | Yes     | `getProperty(name)`                  | This gets a property from the current message context.                                                                                                         |
 | No      | `setProperty(key, value)`            | This is used to set a property in the current message context. The previously set property values are replaced by this method.                                 |
 
+## Restricting Access to Java Classes and Methods
+
+Java Classes and Methods are visible to the script by default. For example, `var myArrayList = new java.util.ArrayList();` would instantiate a Java Arraylist, and `var hashmapConstructors = c.getClassLoader().loadClass("java.util.HashMap").getDeclaredConstructors();` would get a list of constructors of Java HashMap via reflection. Usage of classes or methods in such manner can be restricted by using the following synapse properties:
+- `limit_java_class_access_in_scripts` - Limits access to classes.
+- `limit_java_native_object_access_in_scripts` - Limits access to native objects/methods.
+
+Both of the above can be configured either in a _Block Listing_ approach (selectively blocking) or an _Allow Listing_ approach (selectively allowing). The configurations should be present under `synapse_properties` in the `deployment.toml`.
+
+### Limiting Access to Java Classes
+
+| **Synapse Property**                                | **Description**                                                                                                                                                                                                                                | **Example Values**                           |
+|-----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------|
+| `limit_java_class_access_in_scripts.enable`         | Enable limiting access to Java classes.                                                                                                                                                                                                        | `true`/`false`                               |
+| `limit_java_class_access_in_scripts.class_prefixes` | Prefixes of Java class names, as comma separated values. Java Classes used in the script - having names beginning with these values will be selectively allowed/blocked, based on the provided `limit_java_class_access_in_scripts.list_type`. | `java.util,java.lang`                        |
+| `limit_java_class_access_in_scripts.list_type`      | Type of the list, provided under `limit_java_class_access_in_scripts.class_prefixes`. Possible values are:<br/> - `ALLOW_LIST`: Selectively allow<br/> - `BLOCK_LIST`: Selectively block                                                       | `ALLOW_LIST`/`BLOCK_LIST` |
+
+Prefixes of Java class names should be provided in `limit_java_class_access_in_scripts.class_prefixes`, as comma separated values. Each class that is used in the script will be compared against these prefixes.
+
+```toml
+[synapse_properties]
+'limit_java_class_access_in_scripts.enable'=true
+'limit_java_class_access_in_scripts.list_type' = "ALLOW_LIST"
+'limit_java_class_access_in_scripts.class_prefixes' = "java.util"
+```
+The above configuration uses an Allow Listing approach. This would only allow using the classes of which - the name starts with `java.util`, within the script. Usage of any other classes would result in an error as shown below:
+
+**Script Content:**
+```js
+print(java.lang.Math.pow(3, 2));
+```
+**Output during API Execution:**
+```
+ERROR - ScriptMediator {api:Mock:v1.0.0} The script engine returned an error executing the inlined js script function mediate
+com.sun.phobos.script.util.ExtendedScriptException: org.mozilla.javascript.EcmaError: TypeError: Cannot call property pow in object [JavaPackage java.lang.Math]. It is not a function, it is "object". (<Unknown Source>#3) in <Unknown Source> at line number 3
+```
+
+### Limiting Access to Java Methods/Native Objects
+
+| **Synapse Property**                                      | **Description**                                                                                                                                                                                                                               | **Example Values**        |
+|-----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
+| `limit_java_native_object_access_in_scripts.enable`       | Enable limiting access to Java methods/native objects.                                                                                                                                                                                        | `true`/`false`            |
+| `limit_java_native_object_access_in_scripts.object_names` | Names of Java methods/native objects, as comma separated values. Java Methods/native objects used in the script having these names will be selectively allowed/blocked, based on the provided `limit_java_class_access_in_scripts.list_type`. | `getClassLoader,getClass`         |
+| `limit_java_native_object_access_in_scripts.list_type`    | Type of the list, provided under `limit_java_class_access_in_scripts.class_prefixes`. Possible values are:<br/> - `ALLOW_LIST`: Selectively allow<br/> - `BLOCK_LIST`: Selectively block                                                      | `ALLOW_LIST`/`BLOCK_LIST` |
+
+Java Method/Native Object names should be provided in `limit_java_native_object_access_in_scripts.object_names`, as comma separated values. Each Java method that is used in the script will be compared against these values.
+
+```toml
+[synapse_properties]
+'limit_java_native_object_access_in_scripts.enable'=true
+'limit_java_native_object_access_in_scripts.list_type' = "BLOCK_LIST" # Or "ALLOW_LIST"
+'limit_java_native_object_access_in_scripts.object_names' = "getClassLoader" # Comma separated values
+```
+The above configuration uses a Block Listing approach. This would not allow the usage of `getClassLoader()` method within the script.
+
+**Script Content:**
+```js
+var hashmapConstructors = c.getClassLoader().loadClass("java.util.HashMap").getDeclaredConstructors()
+```
+
+**Output during API Execution:**
+```
+ERROR - ScriptMediator {api:Mock:v1.0.0} The script engine returned an error executing the inlined js script function mediate
+com.sun.phobos.script.util.ExtendedScriptException: org.mozilla.javascript.EcmaError: TypeError: Cannot find function getClassLoader in object class javax.script.SimpleScriptContext. (<Unknown Source>#21) in <Unknown Source> at line number 21
+```
 
 ## See Also
 

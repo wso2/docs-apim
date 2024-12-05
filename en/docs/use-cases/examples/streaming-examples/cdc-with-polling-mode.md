@@ -92,5 +92,5 @@ The insert operation is logged in the Streaming Integrator console as shown belo
     from insertSweetProductionStream
     select name, amount
     insert into logStream;
-        ```
+    ```
 

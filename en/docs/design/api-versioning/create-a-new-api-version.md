@@ -10,6 +10,10 @@ A prototype can be used for testing, without a subscription, along with the publ
     The example here uses the PizzaShack API, which you created in the
     [Create a REST API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/) section and Published in the [Publish an API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api/) section.
 
+!!! note
+    API product versioning is available after WSO2 API Manager 4.2.0 U2 update level 55 onwards.
+    If you are using the latest U2 update level please refer this documentation as API product versioning is similar to API versioning.
+
 Follow the instructions below to create a new version of an existing API:
 
 1.  Sign in to the WSO2 API Publisher.

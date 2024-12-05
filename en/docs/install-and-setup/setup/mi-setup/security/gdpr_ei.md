@@ -133,12 +133,12 @@ Let's look at how to anonymize the username value in log files.
     `           TOOL_HOME/conf/log-config/          `
     directory).
 
-    ```xml
+   ```xml
     <pattern key="pattern3">
         <detectPattern>(.)*(USER_NAME)(.)*${username}(.)*</detectPattern>
         <replacePattern>${username}</replacePattern>
     </pattern>
-    ```
+   ```
 
 3.  Update the `           config.json          ` file (stored in the
     `           TOOL_HOME/conf/          `

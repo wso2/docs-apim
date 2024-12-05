@@ -100,7 +100,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 15. You can find the complete API XML configuration below. You can go to the source view and copy paste the following config.
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <api context="/mongodbconnector" name="MongodbConnector" xmlns="http://ws.apache.org/ns/synapse">
     <resource methods="POST" uri-template="/insertmany">
@@ -135,7 +135,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/mongodbconnector.zip">
+<a href="{{base_path}}/assets/attachments/connectors/MongodbConnector.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
@@ -146,7 +146,7 @@ Follow these steps to deploy the exported CApp to the integration runtime.
 {!includes/reference/connectors/deploy-capp.md!}
 
 ??? note "Click here for instructions on removing the iterative mongodb server logs"
-Add the configuration below to **remove** the iterative `org.mongodb.driver.cluster` server logs;
+    Add the configuration below to **remove** the iterative `org.mongodb.driver.cluster` server logs;
 
     1.  Add the following logger to the `log4j2.properties` file in the `<PRODUCT_HOME>/conf` folder.
 
@@ -213,7 +213,7 @@ Add the configuration below to **remove** the iterative `org.mongodb.driver.clus
 ### Find Operation
 
 !!! Note
-In order to find documents by ObjectId, the find query payload should be in the following format:
+    In order to find documents by ObjectId, the find query payload should be in the following format:
 
     ```json
     {

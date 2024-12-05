@@ -103,7 +103,7 @@ To handle this situation, WSO2 API Manager has a recovery flow for token persist
 !!! tip
     If the client application is not designed to handle the `CONN_APP_KEY` constraint violation using scopes, you can avoid the situation described above and avoid any invalid tokens by using synchronous token persistence. To do this, add following configuration in the `<APIM_HOME>/repository/conf/deployment.toml` to **set the `poolsize` property to 0**.
 
-    ```
+    ```toml
         [session_data]
         persistence.persistence_pool_size = 0
     ``` 

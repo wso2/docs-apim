@@ -4,20 +4,20 @@ The Salesforce REST Connector allows you to work with records in Salesforce, a w
 
 ## What you'll build
 
-This example explains how to use the Salesforce client to connect with the Salesforce instance and perform the 
+This example explains how to use the Salesforce client to connect with the Salesforce instance and perform the
 following operations:
 
 * Create an account.
 
-     The user sends the request payload that includes sObjects (any object that can be stored in the Lightning platform database), to create a new Account object in Salesforce. This request is sent to the integration runtime by invoking the Salesforce connector API. 
+  The user sends the request payload that includes sObjects (any object that can be stored in the Lightning platform database), to create a new Account object in Salesforce. This request is sent to the integration runtime by invoking the Salesforce connector API.
 
 * Execute a SOQL query to retrieve the Account Name and ID in all the existing accounts.
 
-     In this example use the Salesforce Object Query Language (SOQL) to search stored Salesforce data for specific information which is created under `sObjects`. 
+  In this example use the Salesforce Object Query Language (SOQL) to search stored Salesforce data for specific information which is created under `sObjects`.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/salesforce.png" title="Using Salesforce Rest Connector" width="800" alt="Using Salesforce Rest Connector"/>
 
-The user calls the Salesforce REST API. It invokes the **create** sequence and creates a new account in Salesforce. Then through the **retrieve** sequence, it displays all the existing account details to the user. 
+The user calls the Salesforce REST API. It invokes the **create** sequence and creates a new account in Salesforce. Then through the **retrieve** sequence, it displays all the existing account details to the user.
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
@@ -27,180 +27,132 @@ Connectors can be added to integration flows in [WSO2 Integration Studio](https:
 
 ### Import the connector
 
-Follow these steps to set up the Integration Project and the Connector Exporter Project. 
+Follow these steps to set up the Integration Project and the Connector Exporter Project.
 
-{!includes/reference/connectors/importing-connector-to-integration-studio.md!} 
+{!includes/reference/connectors/importing-connector-to-integration-studio.md!}
 
 ### Add integration logic
 
-First create an API, which will be where we configure the integration logic. Right click on the created Integration Project and select, **New** -> **Rest API** to create the REST API. Specify the API name as `salesforcerest` and API context as `/salesforcerest`.
-    
-<img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.jpg" title="Adding a Rest API" alt="Adding a Rest API"/>
+1. First create an API, which will be where we configure the integration logic. Right click on the created Integration Project and select, **New** -> **Rest API** to create the REST API. Specify the API name as `salesforcerest` and API context as `/salesforcerest`.
+   <img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.jpg" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
-#### Configure a sequence for the create operation
+2. Now, we will add the relevant Salesforce REST operations to create an account and retrieve data. 
 
-Create the sequence needed to create Salesforce object. We will create two defined sequences called `create.xml` and  `retrieve.xml` to create an account and retrieve data. Right click on the created Integration Project and select, -> **New** -> **Sequence** to create the Sequence. 
-  
-<img src="{{base_path}}/assets/img/integrate/connectors/add-sequence.jpg" title="Adding a Sequnce" width="500" alt="Adding a Sequnce"/>
+3. Navigate into the Palette pane and select the graphical operations icons listed under Salesforcerest Connector section. Then, drag and drop the 'create' operation into the Design pane.
+   <img src="{{base_path}}/assets/img/integrate/connectors/salesforcerest-connector-1.png" title="Adding the create operation." width="800" alt="Adding the create operation."/>
 
-Now follow the steps below to add configurations to the sequence.
+4. Now, when you select the `create` operation on the canvas, the properties window will appear. Create a connection from the properties window by clicking on the '+' icon as shown below.
+   <img src="{{base_path}}/assets/img/integrate/connectors/salesforcerest-connector-2.png" title="Adding the connection." width="800" alt="Adding the connection."/>
+   
+    In the pop-up window, following parameters must be provided. See the [Salesforce REST Connector reference page]({{base_path}}/reference/connectors/salesforce-connectors/sf-rest-connector-config-v2) for more information.<br/>
     
-1. Initialize the connector.
+    - Connection Name - A Unique name for the Salesforce REST connection.
+    - Connection Type - Type of the connection which specifies the protocol to be used.
+    - Access Token - The access token to authenticate your API calls.
+    - API Version - The version of the Salesforce API.
+    - Host Name - SalesforceOAuth endpoint when issuing authentication requests in your application.
+    - Refresh Token - The refresh token that you received to refresh the API access token.
+    - Refresh Token Endpoint - The endpoint of the refresh token that you invoke to refresh the API access token.
+    - Client Secret - The consumer secret of the connected application that you created.
+    - Client ID - The consumer key of the connected application that you created.
+    - API URL - The instance URL for your organization.
+    - Timeout - Timeout duration of the API request.
+    - Username - The username for the salesforce.
+    - Password - The password for Salesforce (need to append the password with security key).
+    - Blocking - Set to true to perform the blocking invocations to Salesforce.
     
-    1. Follow these steps to [generate the Access Tokens for Salesforce]({{base_path}}/reference/connectors/salesforce-connectors/sf-access-token-generation/) and obtain the Client Id, Client Secret, Access Token, and Refresh Token.
+    Following values can be provided to connect to Salesforce. <br/>
     
-    2. Navigate into the **Palette** pane and select the graphical operations icons listed under **Salesforce Connector** section. Then drag and drop the `init` operation into the Design pane.
-        
-        <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-drag-and-drop-init.png" title="Drag and drop init operation" width="500" alt="Drag and drop init operation"/>
-        
-    3. Add the property values into the `init` operation as shown bellow. Replace the `clientSecret`, `clientId`, `accessToken`, `refreshToken` with obtained values from above steps.
+    - Connection Name - SALESFORCEREST_CONNECTION_1
+    - Connection Type - Init Saleforcerest Connection
+    - Access Token - &lt;your_salesforce_access_token&gt;
+    - API Version - v59.0.
+    - Host Name - https://login.salesforce.com
+    - Refresh Token - &lt;your_salesforce_refresh_token&gt;
+    - Refresh Token Endpoint - &lt;your_salesforce_refresh_token_endpoint&gt;
+    - Client Secret - &lt;your_salesforce_client_secret&gt;
+    - Client ID - &lt;your_salesforce_client_id&gt;
+    - API URL - https://&lt;your_salesforce_instance_name&gt;.salesforce.com
+    - Timeout - 30000
+    - Username - &lt;your_salesforce_username&gt;
+    - Password - &lt;your_salesforce_password&gt;
+    - Blocking - false
       
-        - **clientSecret** : Value of your client secret given when you registered your application with Salesforce.
-        - **clientId** : Value of your client ID given when you registered your application with Salesforce.
-        - **accessToken** : Value of the access token to access the API via request.
-        - **refreshToken** : Value of the refresh token.
-       
-        <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-api-init-operation-sequnce1.png" title="Add values to the init operation" width="800" alt="Add values to the init operation"/>
-    
-     
-2. Set up the created operation.
+    <img src="{{base_path}}/assets/img/integrate/connectors/salesforcerest-connector-3.png" title="Connection parameters." width="600" alt="Connection parameters."/>
 
-    1. Setup the `create` sequence configurations. In this operation we are going to create a `sObjects` in the Salesforce account. An `SObject` represents a specific table in the database that you can discretely query. It describes the individual metadata for the specified object. Please find the `create` operation parameters listed here.
-       
+5. After the connection is successfully created, select the created connection as 'Connection' from the drop down in the properties window. 
+    
+    <img src="{{base_path}}/assets/img/integrate/connectors/salesforcerest-connector-4.png" title="Selecting the connection." width="800" alt="Selecting the connection."/>
+   
+6. Set up the create operation.
+
+    1. By using this `create` operation we are going to create an `sObject` in the Salesforce account. An `sObject` represents a specific table in the database that you can discretely query. It describes the individual metadata for the specified object. Please find the `create` operation parameters listed here.
+
         - **sObjectName** : Name of the sObject that you need to create in Salesforce.
         - **fieldAndValue** : The field and value you need to store in the created Salesforce sObject.
-        
-        While invoking the API, the above two parameters values come as a user input.
-    
-    2. Navigate into the **Palette** pane and select the graphical operations icons listed under **Salesforce Connector** section. Then drag and drop the `create` operation into the Design pane.
-    
-        <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-drag-and-drop-create.png" title="Drag and drop create operation" width="500" alt="Drag and drop create operations"/>
-    
-    3. To get the input values in to the API we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator/). Navigate into the **Palette** pane and select the graphical mediators icons listed under **Mediators** section. Then drag and drop the `Property` mediators into the Design pane as shown bellow.
-    
-        <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-api-drag-and-drop-property-mediator.png" title="Add property mediators" width="800" alt="Add property mediators"/>
 
-        The parameters available for configuring the Property mediator are as follows:
-    
-        > **Note**: That the properties should be add to the pallet before create the operation.
-    
-    4. Add the property mediator to capture the `sObjectName` value.The sObjectName type can be used to retrieve the metadata for the Account object using the GET method, or create a new Account object using the POST method. In this example we are going to create a new Account object using the POST method.
-   
-        - **name** : sObjectName
-        - **expression** : json-eval($.sObject)
-        - **type** : STRING
-   
-        <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-api-property-mediator-property1-value1.png" title="Add values to capture sObjectName value" width="600" alt="Add values to capture sObjectName value"/>
-    
-    5. Add the property mediator to capture the `fieldAndValue` values. The fieldAndValue contains object fields and values that user need to store.
-   
-        - **name** : fieldAndValue
-        - **expression** : json-eval($.fieldAndValue)
-        - **type** : STRING
-     
-        <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-api-property-mediator-property2-value2.png" title="Add values to capture fieldAndValue value" width="600" alt="Add values to capture fieldAndValue value"/>  
-    
-#### Configure a sequence for the retrieve operation
+    2. While invoking the API, the above two parameters values come as a user input. You can provide the expressions as below in the properties window to obtain respective values from the JSON request payload.
 
-Create the sequence to retrieve the Salesforce objects created.
+        - sObject Name - json-eval($.sObjectName)
+        - Field and Value - json-eval($.fieldAndValue)
+          
+         <img src="{{base_path}}/assets/img/integrate/connectors/salesforcerest-connector-6.png" title="Configure create operation." width="800" alt="Configure create operation."/>
 
-1. Initialize the connector.
-    
-    You can use the generated tokens to initialize the connector. Please follow the steps  given in 2.1 for setting up the `init` operation to the `retrive.xml` sequence. 
-    
-2. Set up the retrieve operation.
 
-    1. To retrieve data from the created objects in the Salesforce account, you need to add the `query` operation to the `retrieve` sequence. 
-    
+7. Set up the retrieve operation.
+
+    1. To retrieve data from the created objects in the Salesforce account, you need to add the `query` operation next to the `create` operation. Please find the `query` operation parameters listed here.
+
         - **queryString** :  This variable contains specified SOQL query. In this sample this SOQL query executes to retrieve `id` and `name` from created `Account`. If the query results are too large, the response contains the first batch of results.
 
-    2. Navigate into the **Palette** pane and select the graphical operations icons listed under **Salesforce Connector** section. Then drag and drop the `query` operations into the Design pane.      
-    
-        <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-drag-and-drop-query.png" title="Add query operation to retrive sequnce" width="500" alt="Add query operation to retrive sequnce"/> 
-    
-    3. Select the query operation and add `id, name from Account` query to the properties section shown as bellow.
-    
-        <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-api-retrive-query-operation-sequnce1.png" title="Add query to the query operation in retrive sequnce" width="800" alt="Add query to the query operation in retrive sequnce"/>
-    
-#### Configuring the API
+    2. Navigate into the **Palette** pane and select the graphical operations icons listed under **Salesforce Connector** section. Then drag and drop the `query` operation into the Design pane.
+        <img src="{{base_path}}/assets/img/integrate/connectors/salesforcerest-connector-5.png" title="Add query operation." width="800" alt="Add query operation."/>
 
-1. Configure the `salesforcerest API` using the created `create` and `retrive` sequences.
- 
-    Now you can select the API that we created initially. Navigate into the **Palette** pane and select the graphical operations icons listed under **Defined Sequences** section. Drag and drop the created `create` and `retrive` sequences to the Design pane.
-    
-    <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-drag-and-drop-sequencestothe-designpane.png" title="Drag and drop sequences to the Design view" width="500" alt="Drag and drop sequences to the Design view"/> 
- 
-2. Get a response from the user.
-    
-    When you invoking the created API the request of the message is going through the `create` and `retrive` sequences. Finally pass to the the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/). In here the Respond Mediator stops the processing on the current message and sends the message back to the client as a response.            
-    
-    1. Drag and drop **respond mediator** to the **Design view**. 
-    
-        <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-drag-and-drop-respond-mediator.png" title="Add Respond mediator" width="800" alt="Add Respond mediator"/> 
+    3. Select the query operation and add the `Connection` and `id, name from Account` query string to the properties section shown as bellow.
+        <img src="{{base_path}}/assets/img/integrate/connectors/salesforcerest-connector-7.png" title="Configure query operation." width="800" alt="Configure query operation."/>
 
-    2. Once you have setup the sequences and API, you can see the `salesforcerest` API as shown below.
-    
-        <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-api-design-view.png" title="API Design view" width="600" alt="API Design view"/>
-       
-3.  Now you can switch into the Source view and check the XML configuration files of the created API and sequences. 
+8. Finally, drag and drop the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to send the message back to the client as a response.
+   <img src="{{base_path}}/assets/img/integrate/connectors/salesforcerest-connector-8.png" title="Add respond mediator." width="800" alt="Add respond mediator."/>
 
-    ??? note "create.xml"
-        ```
-        <?xml version="1.0" encoding="UTF-8"?>
-        <sequence name="create" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-            <property expression="json-eval($.sObject)" name="sObject" scope="default" type="STRING"/>
-            <property expression="json-eval($.fieldAndValue)" name="fieldAndValue" scope="default" type="STRING"/>
-            <salesforcerest.init>
-                <accessToken></accessToken>
-                <apiVersion>v44.0</apiVersion>
-                <hostName>https://login.salesforce.com</hostName>
-                <refreshToken></refreshToken>
-                <clientSecret></clientSecret>
-                <clientId></clientId>
-                <apiUrl>https://ap16.salesforce.com</apiUrl>
-                <registryPath>connectors/SalesforceRest</registryPath>
-            </salesforcerest.init>
-            <salesforcerest.create>
-                <sObjectName>{$ctx:sObject}</sObjectName>
-                <fieldAndValue>{$ctx:fieldAndValue}</fieldAndValue>
-            </salesforcerest.create>
-        </sequence>
-        ```
-
-    ??? note "retrieve.xml"   
-        ```
-        <?xml version="1.0" encoding="UTF-8"?>
-        <sequence name="retrieve" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-            <salesforcerest.init>
-                <accessToken></accessToken>
-                <apiVersion>v44.0</apiVersion>
-                <hostName>https://login.salesforce.com</hostName>
-                <refreshToken></refreshToken>
-                <clientSecret></clientSecret>
-                <clientId></clientId>
-                <apiUrl>https://ap16.salesforce.com</apiUrl>
-                <registryPath>connectors/SalesforceRest</registryPath>
-            </salesforcerest.init>
-            <salesforcerest.query>
-                <queryString>select id, name from Account</queryString>
-            </salesforcerest.query>
-        </sequence>
-        ```
-
+9. Now, you can switch into the Source view and check the complete XML configuration files of the created API and the Local Entry.
+   
     ??? note "salesforcerest.xml"
         ```
         <?xml version="1.0" encoding="UTF-8"?>
         <api context="/salesforcerest" name="salesforcerest" xmlns="http://ws.apache.org/ns/synapse">
             <resource methods="POST">
                 <inSequence>
-                    <sequence key="create"/>
-                    <sequence key="retrieve"/>
+                    <salesforcerest.create configKey="SALESFORCEREST_CONNECTION_1">
+                        <sObjectName>{json-eval($.sObjectName)}</sObjectName>
+                        <fieldAndValue>{json-eval($.fieldAndValue)}</fieldAndValue>
+                    </salesforcerest.create>
+                    <salesforcerest.query configKey="SALESFORCEREST_CONNECTION_1">
+                        <queryString>id, name from Account</queryString>
+                    </salesforcerest.query>
                     <respond/>
                 </inSequence>
                 <outSequence/>
                 <faultSequence/>
             </resource>
         </api>
+        ```
+
+    ??? note "SALESFORCEREST_CONNECTION_1.xml"   
+        ```
+        <?xml version="1.0" encoding="UTF-8"?>
+        <localEntry key="SALESFORCEREST_CONNECTION_1" xmlns="http://ws.apache.org/ns/synapse">
+            <salesforcerest.init>
+                <hostName>https://login.salesforce.com</hostName>
+                <connectionType>init</connectionType>
+                <timeout>3000</timeout>
+                <apiVersion>v59.0</apiVersion>
+                <apiUrl>https://xxxx.salesforce.com</apiUrl>
+                <clientSecret>xxxx</clientSecret>
+                <clientId>xxxx</clientId>
+                <name>SALESFORCEREST_CONNECTION_1</name>
+                <refreshToken>xxxx</refreshToken>
+            </salesforcerest.init>
+        </localEntry>
         ```
 
 ## Get the project
@@ -212,24 +164,24 @@ You can download the ZIP file and extract the contents to get the project code.
 </a>
 
 !!! tip
-    You may need to update the value of the access token and make other such changes before deploying and running this project.
+    You may need to update the value of the access token/refresh token and make other such changes before deploying and running this project.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the integration runtime. 
+Follow these steps to deploy the exported CApp in the integration runtime.
 
 {!includes/reference/connectors/deploy-capp.md!}
 
 ## Testing
-Save a file called data.json with the following payload. 
+Save a file called data.json with the following payload.
 
 ```json
 {
-	"sObject":"Account",
+	"sObjectName":"Account",
 	"fieldAndValue": {
-    "name": "Engineers",
-    "description":"This Account belongs to WSO2"
-  }
+        "name": "Engineers",
+        "description":"This Account belongs to WSO2"
+    }
 }
 ```
 
@@ -244,4 +196,4 @@ You will get a set of account names and the respective IDs as the output.
 
 ## What's Next
 
-* To customize this example for your own scenario, see [Salesforce REST Connector Configuration]({{base_path}}/reference/connectorssalesforce-connectors/sf-rest-connector-config/) documentation for all operation details of the connector.
+* To customize this example for your own scenario, see [Salesforce REST Connector Configuration]({{base_path}}/reference/connectors/salesforce-connectors/sf-rest-connector-config-v2) documentation for all operation details of the connector.

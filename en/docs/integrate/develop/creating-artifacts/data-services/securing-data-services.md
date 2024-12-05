@@ -19,8 +19,8 @@ module:
 1.  Right click on the [Integration project]({{base_path}}/integrate/develop/create-integration-project) 
     and go to **New → Registry Resource**. 
     
-    !!! Tip Alternatively, you can go to **File → New → Others** and 
-    select **Registry Resources** from the opening wizard.
+    !!! Tip 
+        Alternatively, you can go to **File → New → Others** and select **Registry Resources** from the opening wizard.
 
 2.  Enter a name for the module and click **Next** .
 3.  Enter the Maven information about the module and click **Finish** .

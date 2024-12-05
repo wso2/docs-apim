@@ -61,65 +61,70 @@ When the nodes in the cluster need to communicate with each other, the Micro Int
 
 2.  Open the `deployment.toml` file and see that the configurations are updated as shown below.
 
-    ```toml tab='MySQL'
-    [[datasource]]
-    id = "WSO2_COORDINATION_DB"
-    url= "jdbc:mysql://localhost:3306/clusterdb"
-    username="root"
-    password="root"
-    driver="com.mysql.jdbc.Driver"
-    pool_options.maxActive=50
-    pool_options.maxWait = 60000
-    pool_options.testOnBorrow = true
-    ```
+    === "MySQL"
+        ```toml
+        [[datasource]]
+        id = "WSO2_COORDINATION_DB"
+        url= "jdbc:mysql://localhost:3306/clusterdb"
+        username="root"
+        password="root"
+        driver="com.mysql.jdbc.Driver"
+        pool_options.maxActive=50
+        pool_options.maxWait = 60000
+        pool_options.testOnBorrow = true
+        ```
 
-    ```toml tab='MSSQL'
-    [[datasource]]
-    id = "WSO2_COORDINATION_DB"
-    url= "jdbc:sqlserver://<IP>:1433;databaseName=clusterdb;SendStringParametersAsUnicode=false"
-    username="root"
-    password="root"
-    driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-    pool_options.maxActive=50
-    pool_options.maxWait = 60000
-    pool_options.testOnBorrow = true
-    ```
+    === "MSSQL"
+        ```toml
+        [[datasource]]
+        id = "WSO2_COORDINATION_DB"
+        url= "jdbc:sqlserver://<IP>:1433;databaseName=clusterdb;SendStringParametersAsUnicode=false"
+        username="root"
+        password="root"
+        driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+        pool_options.maxActive=50
+        pool_options.maxWait = 60000
+        pool_options.testOnBorrow = true
+        ```
 
-    ```toml tab='Oracle'
-    [[datasource]]
-    id = "WSO2_COORDINATION_DB"
-    url= "jdbc:oracle:thin:@SERVER_NAME:PORT/SID"
-    username="root"
-    password="root"
-    driver="oracle.jdbc.OracleDriver"
-    pool_options.maxActive=50
-    pool_options.maxWait = 60000
-    pool_options.testOnBorrow = true
-    ```
+    === "Oracle"
+        ```toml
+        [[datasource]]
+        id = "WSO2_COORDINATION_DB"
+        url= "jdbc:oracle:thin:@SERVER_NAME:PORT/SID"
+        username="root"
+        password="root"
+        driver="oracle.jdbc.OracleDriver"
+        pool_options.maxActive=50
+        pool_options.maxWait = 60000
+        pool_options.testOnBorrow = true
+        ```
 
-    ```toml tab='PostgreSQL'
-    [[datasource]]
-    id = "WSO2_COORDINATION_DB"
-    url= "jdbc:postgresql://localhost:5432/clusterdb"
-    username="root"
-    password="root"
-    driver="org.postgresql.Driver"
-    pool_options.maxActive=50
-    pool_options.maxWait = 60000
-    pool_options.testOnBorrow = true
-    ```
+    === "PostgreSQL"
+        ```toml
+        [[datasource]]
+        id = "WSO2_COORDINATION_DB"
+        url= "jdbc:postgresql://localhost:5432/clusterdb"
+        username="root"
+        password="root"
+        driver="org.postgresql.Driver"
+        pool_options.maxActive=50
+        pool_options.maxWait = 60000
+        pool_options.testOnBorrow = true
+        ```
 
-    ```toml tab='IBM DB'
-    [[datasource]]
-    id = "WSO2_COORDINATION_DB"
-    url="jdbc:db2://SERVER_NAME:PORT/clusterdb"
-    username="root"
-    password="root"
-    driver="com.ibm.db2.jcc.DB2Driver"
-    pool_options.maxActive=50
-    pool_options.maxWait = 60000
-    pool_options.testOnBorrow = true
-    ```
+    === "IBM DB"
+        ```toml
+        [[datasource]]
+        id = "WSO2_COORDINATION_DB"
+        url="jdbc:db2://SERVER_NAME:PORT/clusterdb"
+        username="root"
+        password="root"
+        driver="com.ibm.db2.jcc.DB2Driver"
+        pool_options.maxActive=50
+        pool_options.maxWait = 60000
+        pool_options.testOnBorrow = true
+        ```
     
 !!! Note
     RDBMS-based coordination needs the system time of each node to be synchronized. Having them not synchronized will lead to unexpected behavior. Please refer [EI_1758](https://github.com/wso2/docs-ei/issues/1758) for one of the possible issues.
@@ -269,13 +274,15 @@ Ensure that you have taken into account the respective security hardening factor
 
 Start one server in the cluster by executing the server startup script from the `MI_HOME>/bin` folder.
 
-```bash tab='On Linux/MacOS/Centos'
-sh micro-integrator.sh
-```
+=== "On Linux/MacOS/Centos"
+    ```bash
+    sh micro-integrator.sh
+    ```
 
-```bash tab='On Windows'
-micro-integrator.bat
-```
+=== "On Windows"
+    ```bash
+    micro-integrator.bat
+    ```
 
 When you start one server, you can observe the following logs indicating that it joined the cluster.
 

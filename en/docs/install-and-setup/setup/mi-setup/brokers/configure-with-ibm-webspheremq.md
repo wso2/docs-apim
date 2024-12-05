@@ -9,7 +9,7 @@ following topics cover the configuration steps.
 ## Prerequisites
 
 -   Download and install WSO2 Micro Integrator. 
--   WebSphere MQ is installed and the latest fix pack applied (see the [IBM documentation](http://publib.boulder.ibm.com/infocenter/sametime/v8r0/index.jsp?topic=/com.ibm.help.sametime.advanced.doc/stv_inst_mq_appl_win_t.html). The fix pack can be obtained from <http://www-01.ibm.com/software/integration/wmq>). These instructions are tested on [IBM WebSphere MQ version 8.0.0.4](http://www-01.ibm.com/support/docview.wss?uid=swg24040022).
+-   WebSphere MQ is installed and the latest fix pack applied (see the [IBM documentation](https://www.ibm.com/docs/en). The fix pack can be obtained from <http://www-01.ibm.com/software/integration/wmq>). These instructions are tested on [IBM WebSphere MQ version 8.0.0.4](http://www-01.ibm.com/support/docview.wss?uid=swg24040022).
 
 ### Creating queue manager, queue and channel in IBM WebSphere MQ
 
@@ -203,7 +203,7 @@ Follow the instructions below to build and install IBM WebSphere MQ client JAR f
         If you are using IBM MQ docker container, you can find these libraries in inside the `/opt/mqm/java/lib` directory. You can use `docker cp` command to copy jar files from the docker container.
    
     !!! Note
-        If you are using IBM MQ 8 with Mutual SSL enabled, you need to download the [wmq-client-8.0.0.zip]({{base_path}}/assets/img/integrate/broker-configs/IBM-websphere-mq/119130333.zip)
+        If you are using IBM MQ 8 with Mutual SSL enabled, you need to download the [wmq-client-8.0.0.zip](/assets/img/integrate/broker-configs/wmq-client-8.0.0.zip)
         file and follow the instructions in the readme.txt file.
 
     -   `             com.ibm.mq.allclient.jar            `
@@ -289,7 +289,7 @@ Follow the instructions below to build and install IBM WebSphere MQ client JAR f
 6.  Remove any existing IBM MQ client JAR files from the `MI_HOME/dropins` directory and the `MI_HOME/lib` directory.
 7.  Copy the `<wmq-client>/target/wmq-client-8.0.0.4.jar`
     file to the `MI_HOME/dropins` directory.
-8.  Download the [`jta.jar` file from the maven repository](http://central.maven.org/maven2/javax/transaction/jta/1.1/jta-1.1.jar), and copy it to the `MI_HOME/lib` directory.
+8.  Download the [`jta.jar` file from the maven repository](https://repo1.maven.org/maven2/javax/transaction/jta/1.1/jta-1.1.jar), and copy it to the `MI_HOME/lib` directory.
 9. [Regenerate the `.bindings` file](#ConfigurewithIBMWebSphereMQ-generate) with the `Provider Version : 8` property (if 
 you already generated one before), and replace the existing `.bindings` file (if you have one) with the new `
 .bindings` file you generated.

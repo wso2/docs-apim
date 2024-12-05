@@ -90,8 +90,16 @@ To deploy your custom synapse handler in WSO2 Micro Integrator, bundle the artif
 
 To engage the deployed Synapse handler, you need to add the following configuration to the `deployment.toml` file.
 
-```toml
-[synapse_handlers]
-<handlerName>.enabled = true
-<handlerName>.class = "<packageName>.<handlerName>"
-```
+=== "Format"
+    ```toml
+    [synapse_handlers.<custom_handler_name>]
+    enabled = true
+    class = "<packageName>.<handlerName>"
+    ```
+=== "Example"
+    ```toml
+    [synapse_handlers.custom_handler]
+    enabled=true
+    class="org.wso2.carbon.apimgt.gateway.handlers.custom.customer_handler"
+    ```
+

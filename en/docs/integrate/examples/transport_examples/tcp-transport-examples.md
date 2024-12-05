@@ -100,13 +100,15 @@ https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zi
 * Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
 * Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
    
-      ```bash tab='On MacOS/Linux/CentOS'
-      sh axis2server.sh
-      ```
+    === "On MacOS/Linux/CentOS"
+         ```bash
+         sh axis2server.sh
+         ```
           
-      ```bash tab='On Windows'
-      axis2server.bat
-      ```
+    === "On Windows"
+         ```bash
+         axis2server.bat
+         ```
 
 Send the following message via TCP to the TCP listener port.
 ```xml
@@ -186,13 +188,15 @@ https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zi
 * Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
 * Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
    
-      ```bash tab='On MacOS/Linux/CentOS'
-      sh axis2server.sh
-      ```
+    === "On MacOS/Linux/CentOS"
+         ```bash
+         sh axis2server.sh
+         ```
           
-      ```bash tab='On Windows'
-      axis2server.bat
-      ```
+    === "On Windows"
+         ```bash
+         axis2server.bat
+         ```
 
 Send the following message via TCP to the TCP listener port.
 ```xml
@@ -272,13 +276,15 @@ https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zi
 * Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
 * Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
    
-      ```bash tab='On MacOS/Linux/CentOS'
-      sh axis2server.sh
-      ```
+    === "On MacOS/Linux/CentOS"
+         ```bash
+         sh axis2server.sh
+         ```
           
-      ```bash tab='On Windows'
-      axis2server.bat
-      ```
+    === "On Windows"
+         ```bash
+         axis2server.bat
+         ```
 
 Send the following message via TCP to the TCP listener port.
 ```xml

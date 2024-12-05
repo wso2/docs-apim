@@ -114,33 +114,35 @@ Follow the instructions below to configure the Redis server with WSO2 API Manage
 
 2. Add the following configurations to the `deployment.toml` file.
 
-    ```toml tab='Format'
-    [apim.redis_config]
-    host = "<Redis-host>"
-    port = "<Redis-Port>"
-    user = "<Redis-User-Name>"
-    password = "<Redis-Password>"
-    gateway_id = "<ID Of the Gateway Node>"
+    === "Format"
+        ```toml
+        [apim.redis_config]
+        host = "<Redis-host>"
+        port = "<Redis-Port>"
+        user = "<Redis-User-Name>"
+        password = "<Redis-Password>"
+        gateway_id = "<ID Of the Gateway Node>"
 
-    [throttle_properties]
-    'throttling.distributed.counter.type' = "<counter type>"
-    'throttling.sync-async_hybrid_mode.enable' = <enable/disable the hybrid Mode>
-    'throttling.local_quota_buffer_percentage' = <local quota buffer value>
-    ```
+        [throttle_properties]
+        'throttling.distributed.counter.type' = "<counter type>"
+        'throttling.sync-async_hybrid_mode.enable' = <enable/disable the hybrid Mode>
+        'throttling.local_quota_buffer_percentage' = <local quota buffer value>
+        ```
    
-    ```toml tab='Exmaple'
-    [apim.redis_config]
-    host = "localhost"
-    port = 6379
-    user = "root"
-    password = "root"
-    gateway_id = "gw1"
-    
-    [throttle_properties]
-    'throttling.distributed.counter.type' = "redis"
-    'throttling.sync-async_hybrid_mode.enable' = true
-    'throttling.local_quota_buffer_percentage' = 30
-    ```
+    === "Exmaple"
+        ```toml
+        [apim.redis_config]
+        host = "localhost"
+        port = 6379
+        user = "root"
+        password = "root"
+        gateway_id = "gw1"
+        
+        [throttle_properties]
+        'throttling.distributed.counter.type' = "redis"
+        'throttling.sync-async_hybrid_mode.enable' = true
+        'throttling.local_quota_buffer_percentage' = 30
+        ```
 
 Please note that the above set of configurations are the minimum required configurations to enable the hybrid mode. For advanced configurations, please refer the below tables.
 
@@ -152,7 +154,7 @@ Please note that the above set of configurations are the minimum required config
 | port                       | Port of the Redis server.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Mandatory              | 6379              | N/A               |
 | user                       | Username of the Redis server. <br/>If the Redis server is configured in NOAUTH mode, this is not required. This depends on the Redis server. In Azure Cache for Redis by default 'user' is not required and only the password (access key) is required.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Optional               | root              | N/A               |
 | password                   | Password of the Redis server. If the Redis server is configured in NOAUTH mode, this is not required.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Optional               | root              | N/A               |
-| gateway_id                 | ID of the gateway node. This is used to identify the gateway node, hence should be a unique  value for each gateway node.<br/> **TIP:** In [WSO2 APIM K8s Helm charts]({{base_path}}/design/install-and-setup/install/installation-options/#1-kubernetes-helm), you can use the {NODE_IP} environment which is derived from podIP variable, hence it differs from node to node. i.e. `gateway_id = "$env{NODE_IP}"`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Mandatory              | gw1               | N/A               |
+| gateway_id                 | ID of the gateway node. This is used to identify the gateway node, hence should be a unique  value for each gateway node.<br/> **TIP:** In [WSO2 APIM K8s Helm charts]({{base_path}}/install-and-setup/install/installation-options/#1-kubernetes-helm), you can use the {NODE_IP} environment which is derived from podIP variable, hence it differs from node to node. i.e. `gateway_id = "$env{NODE_IP}"`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Mandatory              | gw1               | N/A               |
 | min_gateway_count          | This is used to define the minimum number of gateway nodes in the cluster if required. <br/><br/> Gateway count of the cluster is calculated by each of the gateway nodes using the redis server and this gateway count is used to calculate the local quota of API requests in the throttling calculations. Local quota is inversely proportional to the gateway count determined. So, at certain point of time, when the gateway count is much low, the local quota value calculated will be much higher. Local quota value has some impact on the api request processing latency and throttling accuracy too, hence it is important to have control over it. <br/> This minimum gateway count definition will ensure, the considered gateway count will not be less than this value. So if this minimum gateway count is defined, the local quota of API requests will be always less than a particular value. | Optional               | 3                 | 1                 |
 | key_lock_retrieval_timeout | This timeout value defines the timeout value (in ms) that the gateway will wait to acquire the required lock in Redis. <br/>This lock is required for gateways to perform syncing of throttle parameters in-between gateway nodes and the Redis server. Optimal default value observed for this is 50ms, and this can be tuned based on the deployment. Higher this value, higher the throttling accuracy, but lower the latency.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Optional               | 50                | 50                |
 

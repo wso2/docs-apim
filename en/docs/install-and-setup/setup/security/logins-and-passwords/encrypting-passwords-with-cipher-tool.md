@@ -28,8 +28,8 @@ Follow the steps given below to have passwords encrypted using the automated pro
 
 1.  The first step is to update the `cipher-tool.properties` file and the `cipher-text.properties` file with information of the passwords that you want to encrypt.
 
-        !!! info
-    By default, the `cipher-tool.properties` and `cipher-text.properties` files that are shipped with your product will contain information on the most common passwords that require encryption. If a required password is missing in the default files, you can **add them manually** .
+    !!! info
+        By default, the `cipher-tool.properties` and `cipher-text.properties` files that are shipped with your product will contain information on the most common passwords that require encryption. If a required password is missing in the default files, you can **add them manually** .
 
 
     Follow the steps given below.
@@ -40,14 +40,14 @@ Follow the steps given below to have passwords encrypted using the automated pro
                 <alias>=<file_name>//<xpath>,<true/false>
         ```
 
-                !!! info
-        **Important!**
+        !!! info
+            **Important!**
 
-        -   The `<alias>` should be the same value that is hard-coded in the relevant Carbon component.
-        -   The `<file_path>` specifies the path to the XML file that contains the password. This can be the relative file path, or the absolute file path (starting from `<PRODUCT_HOME>` ).
+            -   The `<alias>` should be the same value that is hard-coded in the relevant Carbon component.
+            -   The `<file_path>` specifies the path to the XML file that contains the password. This can be the relative file path, or the absolute file path (starting from `<PRODUCT_HOME>` ).
 
-        -   The `<xpath>` specifies the XPath to the XML **element** / **attribute** / **tag** that should be encrypted. See the examples given below.
-        -   The flag that follows the XPath should be set to 'false' if you are encrypting the value of an **XML element,** or the value of an **XML attribute's tag.** The flag should be 'true' if you are encrypting the **tag** of an **XML attribute** . See the examples given below.
+            -   The `<xpath>` specifies the XPath to the XML **element** / **attribute** / **tag** that should be encrypted. See the examples given below.
+            -   The flag that follows the XPath should be set to 'false' if you are encrypting the value of an **XML element,** or the value of an **XML attribute's tag.** The flag should be 'true' if you are encrypting the **tag** of an **XML attribute** . See the examples given below.
 
         -   When using Secure Vault, as you use the password aliases in the `<PRODUCT_HOME>/repository/conf/carbon.xml` file, make sure to define these aliases in the following files, which are in the `<PRODUCT_HOME>/repository/conf/security` directory as follows:
 
@@ -87,8 +87,7 @@ Follow the steps given below to have passwords encrypted using the automated pro
             ```
 
 
-        **
-        Example 1:** Consider the admin user's password in the `user-mgt.xml` file shown below.
+        **Example 1:** Consider the admin user's password in the `user-mgt.xml` file shown below.
 
         ``` java
                 <UserManager>
@@ -133,8 +132,8 @@ Follow the steps given below to have passwords encrypted using the automated pro
                             UserManager.Configuration.Property.ConnectionPassword=repository/conf/user-mgt.xml//UserManager/Realm/UserStoreManager/Property[@name='ConnectionPassword'],false
             ```
 
-                !!! note
-        If you are trying the above example, be sure that only the relevant user store manager is enabled in the `user-mgt.xml` file.
+            !!! note
+                If you are trying the above example, be sure that only the relevant user store manager is enabled in the `user-mgt.xml` file.
 
 
         **Example 3:** Consider the keystore password specified in the `catalina-server.xml` file shown below.
@@ -188,8 +187,8 @@ Follow the steps given below to have passwords encrypted using the automated pro
 
 4.  The following message will be prompted:  "\[Please Enter Primary KeyStore Password of Carbon Server :\]". Enter the keystore password (which is "wso2carbon" for the default [keystore](https://docs.wso2.com/display/ADMIN44x/Using+Asymmetric+Encryption) ) and proceed. If the script execution is successful, you will see the following message: "Secret Configurations are written to the property file successfully".
 
-        !!! note
-    If you are using the cipher tool for the first time, the - `Dconfigure` command will first initialize the tool for your product. The tool will then start encrypting the plain text passwords you specified in the `cipher-text.properties` file.
+    !!! note
+        If you are using the cipher tool for the first time, the - `Dconfigure` command will first initialize the tool for your product. The tool will then start encrypting the plain text passwords you specified in the `cipher-text.properties` file.
 
     Shown below is an example of an alias and the corresponding plaintext password (in square brackets) in the `cipher-text.properties` file:
 
@@ -252,8 +251,8 @@ Since we cannot use the [automated process](#EncryptingPasswordswithCipherTool-a
         Enter Plain Text Value :admin
     ```
 
-        !!! info
-    Note that in certain configuration files, the password that requires encryption may not be specified as a single value as it is in the log4j.properties file. For example, the jndi.properties file used in WSO2 ESB contains the password in the connection URL. In such cases, you need to encrypt the entire connection URL as explained [here](#EncryptingPasswordswithCipherTool-encrypting_jndi) .
+    !!! info
+        Note that in certain configuration files, the password that requires encryption may not be specified as a single value as it is in the log4j.properties file. For example, the jndi.properties file used in WSO2 ESB contains the password in the connection URL. In such cases, you need to encrypt the entire connection URL as explained [here](#EncryptingPasswordswithCipherTool-encrypting_jndi) .
 
 
 7.  You will receive the encrypted value. For example:
@@ -285,8 +284,8 @@ Since we cannot use the [automated process](#EncryptingPasswordswithCipherTool-a
 
 11. If you are encrypting a password in the `<PRODUCT_HOME>/repository/conf/identity/EndpointConfig.properties` file, you need to add the encrypted values of the keys in the `EndpointConfig.properties` file itself.
 
-        !!! note
-    This step is **only applicable** if you are encrypting a password in the `EndpointConfig.properties` file.
+    !!! note
+        This step is **only applicable** if you are encrypting a password in the `EndpointConfig.properties` file.
 
 
     For example, if you have encrypted values for the following keys.
@@ -322,13 +321,13 @@ queue.MyQueue = example.MyQueue
 topic.MyTopic = example.MyTopic
 ```
 !!! note
-***NOTE! Please note that the following instructions are currently under review!***
+    ***NOTE! Please note that the following instructions are currently under review!***
 
-If you have special characters in the passwords on your `jndi.properties` file, note the following:
+    If you have special characters in the passwords on your `jndi.properties` file, note the following:
 
--   It is not possible to use the `@` symbol in the username or password.
--   It is also not possible to use the percentage (%) sign in the password. When building the connection URL, the URL is parsed. This parsing exception happens because the percentage (%) sign acts as the escape character in URL parsing. If using the percentage (%) sign in the connection string is required, use the respective encoding character for the percentage (%) sign in the connection string. For example, if you need to pass `adm%in` as the password, then the `%` symbol should be encoded with its respective URL encoding character. Therefore, you have to send it as `adm%25in` .
-    For a list of possible URL parsing patterns, see [URL encoding reference](http://www.w3schools.com/tags/ref_urlencode.asp) .
+    -   It is not possible to use the `@` symbol in the username or password.
+    -   It is also not possible to use the percentage (%) sign in the password. When building the connection URL, the URL is parsed. This parsing exception happens because the percentage (%) sign acts as the escape character in URL parsing. If using the percentage (%) sign in the connection string is required, use the respective encoding character for the percentage (%) sign in the connection string. For example, if you need to pass `adm%in` as the password, then the `%` symbol should be encoded with its respective URL encoding character. Therefore, you have to send it as `adm%25in` .
+        For a list of possible URL parsing patterns, see [URL encoding reference](http://www.w3schools.com/tags/ref_urlencode.asp) .
 
 
 ### Changing encrypted passwords
@@ -358,6 +357,6 @@ To change any password which we have encrypted already, follow the below steps:
 7.  The system will then prompt you (twice) to enter the new password. Enter your new password.
 
 !!! info
-If you have encrypted passwords as explained above, note that these passwords have to be decrypted again for the server to be usable. That is, the passwords have to be resolved by a system administrator during server startup. The [Resolving Passwords](https://docs.wso2.com/display/ADMIN44x/Resolving+Encrypted+Passwords) topic explains how encrypted passwords are resolved.
+    If you have encrypted passwords as explained above, note that these passwords have to be decrypted again for the server to be usable. That is, the passwords have to be resolved by a system administrator during server startup. The [Resolving Passwords](https://docs.wso2.com/display/ADMIN44x/Resolving+Encrypted+Passwords) topic explains how encrypted passwords are resolved.
 
 

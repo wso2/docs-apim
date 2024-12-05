@@ -1,6 +1,6 @@
 # Migrating from WSO2 Stream Processor
 
-WSO2 Streaming Integrator (WSO2 SI) performs all functions that are also performed by [WSO2 Stream Processor](https://docs.wso2.com/display/SP440/Stream+Processor+Documentation) (WSO2 SP). It also has additional features to trigger integration flows in order to take action in response to results derived after analyzing data.
+WSO2 Streaming Integrator (WSO2 SI) performs all functions that are also performed by [WSO2 Stream Processor](https://wso2docs.atlassian.net/wiki/spaces/SP440/overview) (WSO2 SP). It also has additional features to trigger integration flows in order to take action in response to results derived after analyzing data.
 
 If you are currently using WSO2 Stream Processor to carry out any streaming integration/stream processing activities and want to carry them out in the Streaming Integrator, you can migrate your setup as follows:
 

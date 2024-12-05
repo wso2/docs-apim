@@ -20,7 +20,7 @@ For a list of all default ports available, see [Default Ports of WSO2 Products](
 
 ### What are the technologies used underneath WSO2 API Manager?
 
-The API Manager is built on top of [WSO2 Carbon](https://wso2.com/products/carbon/), an OSGi based components framework for SOA. For more details, see [API Manager components]({{base_path}}/getting-started/key-concepts/).
+The API Manager is built on top of [WSO2 Carbon](https://wso2.com/library/articles/2012/03/carbon-context-its-usages-wso2-products/), an OSGi based components framework for SOA. For more details, see [API Manager components]({{base_path}}/getting-started/key-concepts/).
 
 ### Can I get involved in API-M development activities?
 
@@ -52,11 +52,11 @@ Yes, you can configure the API Manager with multiple user stores. For more detai
 
 ### Can I extend the management console UI to add custom UIs?
 
-Yes, you can extend the management console (default URL is <https://localhost:9443/carbon>) easily by writing a custom UI component and simply deploying the OSGi bundle.
+Yes, you can extend the management console (default URL is `https://localhost:9443/carbon`) easily by writing a custom UI component and simply deploying the OSGi bundle.
 
 ### I don't want some of the features that come with WSO2 API Manager. Can I remove them?
 
-Yes, you can do this using the **Features** menu under the **Configure** menu of the management console (default URL is <https://localhost:9443/carbon>).
+Yes, you can do this using the **Features** menu under the **Configure** menu of the management console (default URL is `https://localhost:9443/carbon`).
 
 ### How can I change the memory allocation for the API Manager?
 
@@ -138,7 +138,7 @@ HttpsProtocols = "TLSv1,TLSv1.1,TLSv1.2"
 
 ### How can I extend the default API Manager server by installing new features?
 
-See [Working with Features](https://docs.wso2.com/display/ADMIN44x/Working+with+Features) in the WSO2 Admin Guide.
+See [Working with Features](https://wso2docs.atlassian.net/wiki/spaces/ADMIN44x/pages/6684734/Working+with+Features) in the WSO2 Admin Guide.
 
 ### How can I preserve the CDATA element tag in API responses?
 
@@ -193,7 +193,7 @@ To disable the self signup capability, open the API-M management console and cli
 
 ### Is there a way to lock a user's account after a certain number of failed login attempts to the Developer Portal ?
 
-If your identity provider is WSO2 Identity Server, this facility comes out of the box. If not, install the **Account Recovery and Credentials Management** feature (available under the User Management category) to the API Manager and configure it. For more information, see [User Account Locking and Account Disabling](https://is.docs.wso2.com/en/5.10.0/learn/user-account-locking-and-account-disabling/) in the Identity Server documentation. For more information on installing features, see [Working with features](https://docs.wso2.com/display/ADMIN44x/Installing+Features+using+pom+Files) in the Admin Guide.
+If your identity provider is WSO2 Identity Server, this facility comes out of the box. If not, install the **Account Recovery and Credentials Management** feature (available under the User Management category) to the API Manager and configure it. For more information, see [User Account Locking and Account Disabling](https://is.docs.wso2.com/en/5.10.0/learn/user-account-locking-and-account-disabling/) in the Identity Server documentation. For more information on installing features, see [Working with features](https://wso2docs.atlassian.net/wiki/spaces/ADMIN44x/pages/6684734/Working+with+Features#WorkingwithFeatures-pom_approachInstallingfeaturesusingpomfiles) in the Admin Guide.
 
 ### How do I change the default admin password?
 
@@ -228,10 +228,6 @@ You can verify whether the password change is applied correctly by checking the 
 </APIKeyManager>
 ```
 Go to the **Resources &gt; Browse** menu in the management console to open the registry and update the credentials in the `/_system/governance/apimgt/applicationdata/sign-up-config.xml` registry location.
-
-### How can I recover the admin password used to log in to the management console?
-
-Use the `<API-M_HOME>/bin/chpasswd.sh` script.
 
 ### How can I manage session timeouts for the management console?
 

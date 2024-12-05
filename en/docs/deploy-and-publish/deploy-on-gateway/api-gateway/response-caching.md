@@ -1,6 +1,6 @@
 #Response caching
 
-The API Manager uses [WSO2 ESB's cache mediator](https://docs.wso2.com/display/EI650/Cache+Mediator) to cache response messages for each API. Caching improves performance, because the backend server does not have to process the same data for a request multiple times. You need to set an appropriate timeout period to offset the risk of stale data in the cache.
+The API Manager uses [WSO2 ESB's cache mediator](https://wso2docs.atlassian.net/wiki/spaces/EI650/pages/35554177/Cache+Mediator) to cache response messages for each API. Caching improves performance, because the backend server does not have to process the same data for a request multiple times. You need to set an appropriate timeout period to offset the risk of stale data in the cache.
 
 ##Enabling Response Caching for an API
 
@@ -72,7 +72,7 @@ Follow the instructions below to enable the stream builders in the API gateway:
 1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file.
 2.  Add following configuration.
 
-    ``` java
+    ``` toml
         [message_builder]
         json = "org.apache.synapse.commons.json.JsonStreamBuilder"
     ```

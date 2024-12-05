@@ -134,10 +134,10 @@ In the [previous authentication example](#authentication-plain-text), the user n
 
 ### Authorization
 
-The WSO2 MB runtime allows user-based authorization as seen in the example on WSO2 MB Authentication. To set up users, follow the instructions in the [Admin Guide](https://docs.wso2.com/display/ADMIN44x/Managing+Users%2C+Roles+and+Permissions).
+The WSO2 MB runtime allows user-based authorization as seen in the example on WSO2 MB Authentication. To set up users, follow the instructions in the [Admin Guide](https://wso2docs.atlassian.net/wiki/spaces/ADMIN44x/pages/6684787/Managing+Users+Roles+and+Permissions).
   
 The WSO2 MB runtime allows role-based authorization for topics, where public/subscribe access can be assigned to user groups. For more
-information on setting up role-based authorization for topics, see [Managing Topics and Subscriptions](http://docs.wso2.org/message-broker/Managing+Topics+and+Subscriptions).
+information on setting up role-based authorization for topics, see [Managing Topics and Subscriptions](https://wso2docs.atlassian.net/wiki/spaces/MB220/pages/46202972/Managing+Topics+and+Subscriptions).
 
 ### Integrity
 

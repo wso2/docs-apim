@@ -65,13 +65,15 @@ In the product startup scripts (integrator.sh and integrator.bat file), which ar
 
 If you are using a custom configuration file, instead of the `file.properties` file, you need to configure the particular file path in the product startup script as shown below.
 
-```bash tab='On Linux/MacOs'
--Dproperties.file.path=/home/user/ei_configs/dev/dev.properties
-```
+=== "On Linux/MacOs"
+    ```bash
+    -Dproperties.file.path=/home/user/ei_configs/dev/dev.properties
+    ```
 
-```bash tab='On Windows'
--Dproperties.file.path="%CONFIG_DIR%\dev\dev.properties
-```
+=== "On Windows"
+    ```bash
+    -Dproperties.file.path="%CONFIG_DIR%\dev\dev.properties
+    ```
 
 ## Supported Parameters
 
@@ -124,24 +126,23 @@ Listed below are the Endpoint parameters that can be dynamically injected.
 
 In the following example, the endpoint URL is configured as a dynamic value.
 
-```xml tab='Using Environment Variables'
-<?xml version="1.0" encoding="UTF-8"?>
-<endpoint xmlns="http://ws.apache.org/ns/synapse" name="JSON_EP">
-  <address uri="$SYSTEM:VAR"/>
-</endpoint>
-```
+=== "Using Environment Variables"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint xmlns="http://ws.apache.org/ns/synapse" name="JSON_EP">
+    <address uri="$SYSTEM:VAR"/>
+    </endpoint>
+    ```
 
-```xml tab='Using a File'
-<?xml version="1.0" encoding="UTF-8"?>
-<endpoint xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteEndPoint">
-  <address uri="$FILE:stockQuoteEP"/>
-</endpoint>
-```
+=== "Using a File"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <endpoint xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteEndPoint">
+    <address uri="$FILE:stockQuoteEP"/>
+    </endpoint>
+    ```
 
 ### Data service parameters
-
-!!! Tip
-    Note that you cannot inject parameters to data service using a file. You can only use environment variables.
 
 Listed below are the data service parameters that can be dynamically injected.
 
@@ -154,38 +155,144 @@ Listed below are the data service parameters that can be dynamically injected.
 
 In the following example, parameters are configured as dynamic values in the data service.
 
-```xml tab='Inline Datasource'
-<data name="DataServiceSample" serviceGroup="" serviceNamespace="">
-    <description/>
-    <config id="SourceSample">
-        <property name="org.wso2.ws.dataservice.user">$SYSTEM:uname</property>
-        <property name="org.wso2.ws.dataservice.password">$SYSTEM:pass</property>
-        <property name="org.wso2.ws.dataservice.protocol">$SYSTEM:url1</property>
-        <property name="org.wso2.ws.dataservice.driver">$SYSTEM:driver1</property>
-    </config>
-    <query>
-    --------------------
-    </query>
-    <operation>
-    --------------------
-    </operation>
-</data>
-```
+=== "Inline Datasource (Using Environment Variables)"
+    ```xml
+    <data name="DataServiceSample" serviceGroup="" serviceNamespace="">
+        <description/>
+        <config id="SourceSample">
+            <property name="org.wso2.ws.dataservice.user">$SYSTEM:uname</property>
+            <property name="org.wso2.ws.dataservice.password">$SYSTEM:pass</property>
+            <property name="org.wso2.ws.dataservice.protocol">$SYSTEM:url1</property>
+            <property name="org.wso2.ws.dataservice.driver">$SYSTEM:driver1</property>
+        </config>
+        <query>
+        --------------------
+        </query>
+        <operation>
+        --------------------
+        </operation>
+    </data>
+    ```
 
-```xml tab='External Datasource'
-<datasource>
-    <name>MySQLConnection</name>
-    <description>MySQL Connection</description>
-    <definition type="RDBMS">
-        <configuration>
-            <driverClassName>$SYSTEM:driver1</driverClassName>
+=== "External Datasource (Using Environment Variables)"
+    ```xml
+    <datasource>
+        <name>MySQLConnection</name>
+        <description>MySQL Connection</description>
+        <definition type="RDBMS">
+            <configuration>
+                <driverClassName>$SYSTEM:driver1</driverClassName>
+                <url>$SYSTEM:url1</url>
+                <username>$SYSTEM:uname</username>
+                <password>$SYSTEM:pass</password>
+            </configuration>
+        </definition>
+    </datasource>
+    ```
+
+=== "Inline Datasource (Using a File)"
+    ```xml
+    <data name="DataServiceSample" serviceGroup="" serviceNamespace="">
+        <description/>
+        <config id="SourceSample">
+            <property name="org.wso2.ws.dataservice.user">$FILE:uname</property>
+            <property name="org.wso2.ws.dataservice.password">$FILE:pass</property>
+            <property name="org.wso2.ws.dataservice.protocol">$FILE:url1</property>
+            <property name="org.wso2.ws.dataservice.driver">$FILE:driver1</property>
+        </config>
+        <query>
+        --------------------
+        </query>
+        <operation>
+        --------------------
+        </operation>
+    </data>
+    ```
+
+=== "External Datasource (Using a File)"
+    ```xml
+    <datasource>
+        <name>MySQLConnection</name>
+        <description>MySQL Connection</description>
+        <definition type="RDBMS">
+            <configuration>
+                <driverClassName>$FILE:driver1</driverClassName>
+                <url>$FILE:url1</url>
+                <username>$FILE:uname</username>
+                <password>$FILE:pass</password>
+            </configuration>
+        </definition>
+    </datasource>
+    ```
+
+### DB Report and DB Lookup mediator parameters
+
+Listed below are the DB Report and DB Lookup mediator parameters that can be dynamically injected.
+
+-   `Driver`
+-   `URL`
+-   `Username`
+-   `Password`
+  
+#### Example
+
+In the following example, parameters are configured as dynamic values in the DB Report and DB Lookup mediators.
+
+=== "DB Report (Using Environment Variables)"
+    ```xml
+    <dbreport>
+        <connection>
+            <pool>
+            <driver>$SYSTEM:driver1</driver>
             <url>$SYSTEM:url1</url>
-            <username>$SYSTEM:uname</username>
+            <user>$SYSTEM:uname</user>
             <password>$SYSTEM:pass</password>
-        </configuration>
-    </definition>
-</datasource>
-```
+            </pool>
+        </connection>
+    </dbreport>
+    ```
+
+=== "DB Lookup (Using Environment Variables)"
+    ```xml
+    <dblookup>
+        <connection>
+            <pool>
+            <driver>$SYSTEM:driver1</driver>
+            <url>$SYSTEM:url1</url>
+            <user>$SYSTEM:uname</user>
+            <password>$SYSTEM:pass</password>
+            </pool>
+        </connection>
+    </dblookup>
+    ```
+
+=== "DB Report (Using a File)"
+    ```xml
+    <dbreport>
+        <connection>
+            <pool>
+            <driver>$FILE:driver1</driver>
+            <url>$FILE:url1</url>
+            <user>$FILE:uname</user>
+            <password>$FILE:pass</password>
+            </pool>
+        </connection>
+    </dbreport>
+    ```
+
+=== "DB Lookup (Using a File)"
+    ```xml
+    <dblookup>
+        <connection>
+            <pool>
+            <driver>$FILE:driver1</driver>
+            <url>$FILE:url1</url>
+            <user>$FILE:uname</user>
+            <password>$FILE:pass</password>
+            </pool>
+        </connection>
+    </dblookup>
+    ```
 
 ### Scheduled Task parameters
 
@@ -193,31 +300,33 @@ The <b>pinned servers</b> parameter can be dynamically injected to a scheduled t
 
 #### Example
 
-```xml tab='Using Environment Variables'
-<?xml version="1.0" encoding="UTF-8"?>
-<task class="org.apache.synapse.startup.tasks.MessageInjector" group="synapse.simple.quartz" name="ProxytestInject" pinnedServers="$SYSTEM:pinned" xmlns="http://ws.apache.org/ns/synapse">
-    <trigger count="5" interval="10"/>
-    <property name="injectTo" value="proxy" xmlns:task="http://www.wso2.org/products/wso2commons/tasks"/>
-    <property name="proxyName" value="testProxy" xmlns:task="http://www.wso2.org/products/wso2commons/tasks"/>
-    <property name="soapAction" value="mediate" xmlns:task="http://www.wso2.org/products/wso2commons/tasks"/>
-    <property name="message" xmlns:task="http://www.wso2.org/products/wso2commons/tasks">
-        ----------
-    </property>
-</task>
-```
+=== "Using Environment Variables"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <task class="org.apache.synapse.startup.tasks.MessageInjector" group="synapse.simple.quartz" name="ProxytestInject" pinnedServers="$SYSTEM:pinned" xmlns="http://ws.apache.org/ns/synapse">
+        <trigger count="5" interval="10"/>
+        <property name="injectTo" value="proxy" xmlns:task="http://www.wso2.org/products/wso2commons/tasks"/>
+        <property name="proxyName" value="testProxy" xmlns:task="http://www.wso2.org/products/wso2commons/tasks"/>
+        <property name="soapAction" value="mediate" xmlns:task="http://www.wso2.org/products/wso2commons/tasks"/>
+        <property name="message" xmlns:task="http://www.wso2.org/products/wso2commons/tasks">
+            ----------
+        </property>
+    </task>
+    ```
 
-```xml tab='Using a File'
-<?xml version="1.0" encoding="UTF-8"?>
-<task class="org.apache.synapse.startup.tasks.MessageInjector" group="synapse.simple.quartz" name="ProxytestInject" pinnedServers="$FILE:pinned" xmlns="http://ws.apache.org/ns/synapse">
-    <trigger count="5" interval="10"/>
-    <property name="injectTo" value="proxy" xmlns:task="http://www.wso2.org/products/wso2commons/tasks"/>
-    <property name="proxyName" value="testProxy" xmlns:task="http://www.wso2.org/products/wso2commons/tasks"/>
-    <property name="soapAction" value="mediate" xmlns:task="http://www.wso2.org/products/wso2commons/tasks"/>
-    <property name="message" xmlns:task="http://www.wso2.org/products/wso2commons/tasks">
-        ----------
-    </property>
-</task>
-```
+=== "Using a File"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <task class="org.apache.synapse.startup.tasks.MessageInjector" group="synapse.simple.quartz" name="ProxytestInject" pinnedServers="$FILE:pinned" xmlns="http://ws.apache.org/ns/synapse">
+        <trigger count="5" interval="10"/>
+        <property name="injectTo" value="proxy" xmlns:task="http://www.wso2.org/products/wso2commons/tasks"/>
+        <property name="proxyName" value="testProxy" xmlns:task="http://www.wso2.org/products/wso2commons/tasks"/>
+        <property name="soapAction" value="mediate" xmlns:task="http://www.wso2.org/products/wso2commons/tasks"/>
+        <property name="message" xmlns:task="http://www.wso2.org/products/wso2commons/tasks">
+            ----------
+        </property>
+    </task>
+    ```
 
 ### Inbound Endpoint parameters
 
@@ -239,55 +348,57 @@ See the list of inbound endpoint parameters that can be dynamically injected.
 
 In the following example, JMS transport parameters in an inbound endpoint are configured as dynamic values.
 
-```xml tab='Using Environment Variables'
-<?xml version="1.0" encoding="UTF-8"?>
-<inboundEndpoint name="jms" onError="fault" protocol="jms" sequence="LogMsgSeq" suspend="false" xmlns="http://ws.apache.org/ns/synapse">
-    <parameters>
-        <parameter name="interval">15000</parameter>
-        <parameter name="sequential">true</parameter>
-        <parameter name="coordination">true</parameter>
-        <parameter name="transport.jms.Destination">myq</parameter>
-        <parameter name="transport.jms.CacheLevel">3</parameter>
-        <parameter name="transport.jms.ConnectionFactoryJNDIName">$SYSTEM:jmsconfac</parameter>
-        <parameter name="java.naming.factory.initial">org.apache.activemq.jndi.ActiveMQInitialContextFactory</parameter>
-        <parameter name="java.naming.provider.url">$SYSTEM:jmsurl</parameter>
-        <parameter name="transport.jms.UserName">$SYSTEM:jmsuname</parameter>
-        <parameter name="transport.jms.SessionAcknowledgement">AUTO_ACKNOWLEDGE</parameter>
-        <parameter name="transport.jms.Password">$SYSTEM:jmspass</parameter>
-        <parameter name="transport.jms.SessionTransacted">false</parameter>
-        <parameter name="transport.jms.ConnectionFactoryType">queue</parameter>
-        <parameter name="transport.jms.ContentType">application/xml</parameter>
-        <parameter name="transport.jms.SharedSubscription">false</parameter>
-        <parameter name="pinnedServers">$SYSTEM:pinned</parameter>
-        <parameter name="transport.jms.ResetConnectionOnPollingSuspension">false</parameter>
-    </parameters>
-</inboundEndpoint>
-```
+=== "Using Environment Variables"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <inboundEndpoint name="jms" onError="fault" protocol="jms" sequence="LogMsgSeq" suspend="false" xmlns="http://ws.apache.org/ns/synapse">
+        <parameters>
+            <parameter name="interval">15000</parameter>
+            <parameter name="sequential">true</parameter>
+            <parameter name="coordination">true</parameter>
+            <parameter name="transport.jms.Destination">myq</parameter>
+            <parameter name="transport.jms.CacheLevel">3</parameter>
+            <parameter name="transport.jms.ConnectionFactoryJNDIName">$SYSTEM:jmsconfac</parameter>
+            <parameter name="java.naming.factory.initial">org.apache.activemq.jndi.ActiveMQInitialContextFactory</parameter>
+            <parameter name="java.naming.provider.url">$SYSTEM:jmsurl</parameter>
+            <parameter name="transport.jms.UserName">$SYSTEM:jmsuname</parameter>
+            <parameter name="transport.jms.SessionAcknowledgement">AUTO_ACKNOWLEDGE</parameter>
+            <parameter name="transport.jms.Password">$SYSTEM:jmspass</parameter>
+            <parameter name="transport.jms.SessionTransacted">false</parameter>
+            <parameter name="transport.jms.ConnectionFactoryType">queue</parameter>
+            <parameter name="transport.jms.ContentType">application/xml</parameter>
+            <parameter name="transport.jms.SharedSubscription">false</parameter>
+            <parameter name="pinnedServers">$SYSTEM:pinned</parameter>
+            <parameter name="transport.jms.ResetConnectionOnPollingSuspension">false</parameter>
+        </parameters>
+    </inboundEndpoint>
+    ```
 
-```xml tab='Using a File'
-<?xml version="1.0" encoding="UTF-8"?>
-<inboundEndpoint name="jms" onError="fault" protocol="jms" sequence="LogMsgSeq" suspend="false" xmlns="http://ws.apache.org/ns/synapse">
-    <parameters>
-        <parameter name="interval">15000</parameter>
-        <parameter name="sequential">true</parameter>
-        <parameter name="coordination">true</parameter>
-        <parameter name="transport.jms.Destination">myq</parameter>
-        <parameter name="transport.jms.CacheLevel">3</parameter>
-        <parameter name="transport.jms.ConnectionFactoryJNDIName">$FILE:jmsconfac</parameter>
-        <parameter name="java.naming.factory.initial">org.apache.activemq.jndi.ActiveMQInitialContextFactory</parameter>
-        <parameter name="java.naming.provider.url">$FILE:jmsurl</parameter>
-        <parameter name="transport.jms.UserName">$FILE:jmsuname</parameter>
-        <parameter name="transport.jms.SessionAcknowledgement">AUTO_ACKNOWLEDGE</parameter>
-        <parameter name="transport.jms.Password">$FILE:jmspass</parameter>
-        <parameter name="transport.jms.SessionTransacted">false</parameter>
-        <parameter name="transport.jms.ConnectionFactoryType">queue</parameter>
-        <parameter name="transport.jms.ContentType">application/xml</parameter>
-        <parameter name="transport.jms.SharedSubscription">false</parameter>
-        <parameter name="pinnedServers">$FILE:pinned</parameter>
-        <parameter name="transport.jms.ResetConnectionOnPollingSuspension">false</parameter>
-    </parameters>
-</inboundEndpoint>
-```
+=== "Using a File"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <inboundEndpoint name="jms" onError="fault" protocol="jms" sequence="LogMsgSeq" suspend="false" xmlns="http://ws.apache.org/ns/synapse">
+        <parameters>
+            <parameter name="interval">15000</parameter>
+            <parameter name="sequential">true</parameter>
+            <parameter name="coordination">true</parameter>
+            <parameter name="transport.jms.Destination">myq</parameter>
+            <parameter name="transport.jms.CacheLevel">3</parameter>
+            <parameter name="transport.jms.ConnectionFactoryJNDIName">$FILE:jmsconfac</parameter>
+            <parameter name="java.naming.factory.initial">org.apache.activemq.jndi.ActiveMQInitialContextFactory</parameter>
+            <parameter name="java.naming.provider.url">$FILE:jmsurl</parameter>
+            <parameter name="transport.jms.UserName">$FILE:jmsuname</parameter>
+            <parameter name="transport.jms.SessionAcknowledgement">AUTO_ACKNOWLEDGE</parameter>
+            <parameter name="transport.jms.Password">$FILE:jmspass</parameter>
+            <parameter name="transport.jms.SessionTransacted">false</parameter>
+            <parameter name="transport.jms.ConnectionFactoryType">queue</parameter>
+            <parameter name="transport.jms.ContentType">application/xml</parameter>
+            <parameter name="transport.jms.SharedSubscription">false</parameter>
+            <parameter name="pinnedServers">$FILE:pinned</parameter>
+            <parameter name="transport.jms.ResetConnectionOnPollingSuspension">false</parameter>
+        </parameters>
+    </inboundEndpoint>
+    ```
 
 ### Proxy Service parameters
 
@@ -304,53 +415,55 @@ The <b>pinned servers</b> parameter as well as all the service-level <b>transpor
 
 In the following example, JMS transport parameters are dynamically injected to the proxy service.
 
-```xml tab='Using Environment Variables'
-<?xml version="1.0" encoding="UTF-8"?>
-<proxy name="JmsListner" pinnedServers="localhost" startOnLoad="true" transports="http https jms" xmlns="http://ws.apache.org/ns/synapse">
-    <target>
-        <inSequence>
-            -------------
-            <drop/>
-        </inSequence>
-        <outSequence/>
-        <faultSequence/>
-    </target>
-    <parameter name="transport.jms.SessionAcknowledgement">AUTO_ACKNOWLEDGE</parameter>
-    <parameter name="transport.jms.Destination">myq</parameter>
-    <parameter name="transport.jms.ConnectionFactoryType">queue</parameter>
-    <parameter name="transport.jms.ContentType">application/xml</parameter>
-    <parameter name="java.naming.factory.initial">org.apache.activemq.jndi.ActiveMQInitialContextFactory</parameter>
-    <parameter name="java.naming.provider.url">$SYSTEM:jmsurl</parameter>
-    <parameter name="transport.jms.SessionTransacted">false</parameter>
-    <parameter name="transport.jms.ConnectionFactoryJNDIName">$SYSTEM:jmsconfac</parameter>
-    <parameter name="transport.jms.UserName">$SYSTEM:jmsuname</parameter>
-    <parameter name="transport.jms.Password">$SYSTEM:jmspass</parameter>
-</proxy>
-```
+=== "Using Environment Variables"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="JmsListner" pinnedServers="localhost" startOnLoad="true" transports="http https jms" xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+                -------------
+                <drop/>
+            </inSequence>
+            <outSequence/>
+            <faultSequence/>
+        </target>
+        <parameter name="transport.jms.SessionAcknowledgement">AUTO_ACKNOWLEDGE</parameter>
+        <parameter name="transport.jms.Destination">myq</parameter>
+        <parameter name="transport.jms.ConnectionFactoryType">queue</parameter>
+        <parameter name="transport.jms.ContentType">application/xml</parameter>
+        <parameter name="java.naming.factory.initial">org.apache.activemq.jndi.ActiveMQInitialContextFactory</parameter>
+        <parameter name="java.naming.provider.url">$SYSTEM:jmsurl</parameter>
+        <parameter name="transport.jms.SessionTransacted">false</parameter>
+        <parameter name="transport.jms.ConnectionFactoryJNDIName">$SYSTEM:jmsconfac</parameter>
+        <parameter name="transport.jms.UserName">$SYSTEM:jmsuname</parameter>
+        <parameter name="transport.jms.Password">$SYSTEM:jmspass</parameter>
+    </proxy>
+    ```
 
-```xml tab='Using a File'
-<?xml version="1.0" encoding="UTF-8"?>
-<proxy name="JmsListner" pinnedServers="localhost" startOnLoad="true" transports="http https jms" xmlns="http://ws.apache.org/ns/synapse">
-    <target>
-        <inSequence>
-            -------------
-            <drop/>
-        </inSequence>
-        <outSequence/>
-        <faultSequence/>
-    </target>
-    <parameter name="transport.jms.SessionAcknowledgement">AUTO_ACKNOWLEDGE</parameter>
-    <parameter name="transport.jms.Destination">myq</parameter>
-    <parameter name="transport.jms.ConnectionFactoryType">queue</parameter>
-    <parameter name="transport.jms.ContentType">application/xml</parameter>
-    <parameter name="java.naming.factory.initial">org.apache.activemq.jndi.ActiveMQInitialContextFactory</parameter>
-    <parameter name="java.naming.provider.url">$FILE:jmsurl</parameter>
-    <parameter name="transport.jms.SessionTransacted">false</parameter>
-    <parameter name="transport.jms.ConnectionFactoryJNDIName">$FILE:jmsconfac</parameter>
-    <parameter name="transport.jms.UserName">$FILE:jmsuname</parameter>
-    <parameter name="transport.jms.Password">$FILE:jmspass</parameter>
-</proxy>
-```
+=== "Using a File"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <proxy name="JmsListner" pinnedServers="localhost" startOnLoad="true" transports="http https jms" xmlns="http://ws.apache.org/ns/synapse">
+        <target>
+            <inSequence>
+                -------------
+                <drop/>
+            </inSequence>
+            <outSequence/>
+            <faultSequence/>
+        </target>
+        <parameter name="transport.jms.SessionAcknowledgement">AUTO_ACKNOWLEDGE</parameter>
+        <parameter name="transport.jms.Destination">myq</parameter>
+        <parameter name="transport.jms.ConnectionFactoryType">queue</parameter>
+        <parameter name="transport.jms.ContentType">application/xml</parameter>
+        <parameter name="java.naming.factory.initial">org.apache.activemq.jndi.ActiveMQInitialContextFactory</parameter>
+        <parameter name="java.naming.provider.url">$FILE:jmsurl</parameter>
+        <parameter name="transport.jms.SessionTransacted">false</parameter>
+        <parameter name="transport.jms.ConnectionFactoryJNDIName">$FILE:jmsconfac</parameter>
+        <parameter name="transport.jms.UserName">$FILE:jmsuname</parameter>
+        <parameter name="transport.jms.Password">$FILE:jmspass</parameter>
+    </proxy>
+    ```
 
 ### Message Store parameters
 
@@ -427,34 +540,36 @@ Listed below are the message store parameters that can be dynamically injected.
 
 In the following example, the parameters in the RabbitMQ message store are configured as dynamic values.
 
-```xml tab='Using Environment Variables'
-<?xml version="1.0" encoding="UTF-8"?>
-<messageStore class="org.apache.synapse.message.store.impl.rabbitmq.RabbitMQStore" name="InboundStore" xmlns="http://ws.apache.org/ns/synapse">
-    <parameter name="store.rabbitmq.host.name">$SYSTEM:rabbithost</parameter>
-    <parameter name="store.producer.guaranteed.delivery.enable">false</parameter>
-    <parameter name="store.rabbitmq.host.port">$SYSTEM:rabbitport</parameter>
-    <parameter name="store.rabbitmq.route.key"/>
-    <parameter name="store.rabbitmq.username">$SYSTEM:rabbitname</parameter>
-    <parameter name="store.rabbitmq.virtual.host"/>
-    <parameter name="rabbitmq.connection.ssl.enabled">false</parameter>
-    <parameter name="store.rabbitmq.exchange.name">exchange3</parameter>
-    <parameter name="store.rabbitmq.queue.name">queue3</parameter>
-    <parameter name="store.rabbitmq.password">$SYSTEM:rabbitpass</parameter>
-</messageStore>
-```
+=== "Using Environment Variables"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <messageStore class="org.apache.synapse.message.store.impl.rabbitmq.RabbitMQStore" name="InboundStore" xmlns="http://ws.apache.org/ns/synapse">
+        <parameter name="store.rabbitmq.host.name">$SYSTEM:rabbithost</parameter>
+        <parameter name="store.producer.guaranteed.delivery.enable">false</parameter>
+        <parameter name="store.rabbitmq.host.port">$SYSTEM:rabbitport</parameter>
+        <parameter name="store.rabbitmq.route.key"/>
+        <parameter name="store.rabbitmq.username">$SYSTEM:rabbitname</parameter>
+        <parameter name="store.rabbitmq.virtual.host"/>
+        <parameter name="rabbitmq.connection.ssl.enabled">false</parameter>
+        <parameter name="store.rabbitmq.exchange.name">exchange3</parameter>
+        <parameter name="store.rabbitmq.queue.name">queue3</parameter>
+        <parameter name="store.rabbitmq.password">$SYSTEM:rabbitpass</parameter>
+    </messageStore>
+    ```
 
-```xml tab='Using a File'
-<?xml version="1.0" encoding="UTF-8"?>
-<messageStore class="org.apache.synapse.message.store.impl.rabbitmq.RabbitMQStore" name="InboundStore" xmlns="http://ws.apache.org/ns/synapse">
-    <parameter name="store.rabbitmq.host.name">$FILE:rabbithost</parameter>
-    <parameter name="store.producer.guaranteed.delivery.enable">false</parameter>
-    <parameter name="store.rabbitmq.host.port">$FILE:rabbitport</parameter>
-    <parameter name="store.rabbitmq.route.key"/>
-    <parameter name="store.rabbitmq.username">$FILE:rabbitname</parameter>
-    <parameter name="store.rabbitmq.virtual.host"/>
-    <parameter name="rabbitmq.connection.ssl.enabled">false</parameter>
-    <parameter name="store.rabbitmq.exchange.name">exchange3</parameter>
-    <parameter name="store.rabbitmq.queue.name">queue3</parameter>
-    <parameter name="store.rabbitmq.password">$FILE:rabbitpass</parameter>
-</messageStore>
-```
+=== "Using a File"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <messageStore class="org.apache.synapse.message.store.impl.rabbitmq.RabbitMQStore" name="InboundStore" xmlns="http://ws.apache.org/ns/synapse">
+        <parameter name="store.rabbitmq.host.name">$FILE:rabbithost</parameter>
+        <parameter name="store.producer.guaranteed.delivery.enable">false</parameter>
+        <parameter name="store.rabbitmq.host.port">$FILE:rabbitport</parameter>
+        <parameter name="store.rabbitmq.route.key"/>
+        <parameter name="store.rabbitmq.username">$FILE:rabbitname</parameter>
+        <parameter name="store.rabbitmq.virtual.host"/>
+        <parameter name="rabbitmq.connection.ssl.enabled">false</parameter>
+        <parameter name="store.rabbitmq.exchange.name">exchange3</parameter>
+        <parameter name="store.rabbitmq.queue.name">queue3</parameter>
+        <parameter name="store.rabbitmq.password">$FILE:rabbitpass</parameter>
+    </messageStore>
+    ```

@@ -1,4 +1,4 @@
-# WSO2 API Manager Documentation
+# WSO2 API Manager Documentation - Staging
 
 [![slack](https://img.shields.io/badge/slack-wso2--apim-blueviolet)](https://join.slack.com/t/wso2-apim/shared_invite/enQtNzEzMzk5Njc5MzM0LTgwODI3NmQ1MjI0ZDQyMGNmZGI4ZjdkZmI1ZWZmMjNkY2E0NmY3ZmExYjkxYThjNzNkOTU2NWJmYzM4YzZiOWU?)
 [![StackOverflow](https://img.shields.io/badge/stackoverflow-wso2am-orange)](https://stackoverflow.com/tags/wso2-am/)
@@ -102,6 +102,16 @@ Follow the steps below to clone the API-M documentation GitHub repository and to
       ```shell
       $ pip3 install -r requirements.txt
       ```
+
+   > **NOTE:**
+   >
+   > If you were confronted with the following error:
+   >
+   > `error: externally-managed-environment`
+   >
+   > Run the above command with the following flag appended:
+   >
+   > `--break-system-packages`
 
 ### Step 4 - Run MkDocs
 1. Run the following command to start the server and view the site on your local server.

@@ -26,7 +26,7 @@ To export one or more Siddhi applications as a Docker image, follow the procedur
 
     As a result, the following wizard opens.
 
-    ![Export Siddhi App for Docker image dialog]({{base_path}}/assets/img/streaming/exporting-siddhi-applications/export-docker-1.png)
+    ![Export Siddhi App for Docker image dialog]({{base_path}}/assets/img/streaming/exporting-siddhi-applications/export-k8s-1.png)
 
 4. In **Step 1: Select Siddhi Apps**, select one or more Siddhi applications to be included in the Docker image.
 

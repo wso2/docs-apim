@@ -108,21 +108,29 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
      
         Add the full qualified class name of the monetization implementation in the `<API-M_HOME>/repository/conf/deployment.toml` file as follows. The configuration for our sample implementation is provided in the example tab below.
 
-        ``` json tab="Format"
-        [apim.monetization]
-        monetization_impl = "<monetization-implementation>"
-        ```
+        === "Format"
+            ``` toml
+            [apim.monetization]
+            monetization_impl = "<monetization-implementation>"
+            ```
 
-        ``` json tab="Example"
-        [apim.monetization]
-        monetization_impl = "org.wso2.apim.monetization.impl.StripeMonetizationImpl"
-        ```
+        === "Example"
+            ``` toml
+            [apim.monetization]
+            monetization_impl = "org.wso2.apim.monetization.impl.StripeMonetizationImpl"
+            ```
 
 2.  Configure the database.
   
     1. Download and add the database related connector JAR into the`<APIM_HOME/repository/components/lib` directory. 
         
-        As a MySQL database is used for this example scenario, download and copy the [MySQL connector JAR](https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.36) into the `<APIM_HOME/repository/components/lib` directory.
+        As a MySQL database is used for this example scenario, download and copy the [MySQL connector JAR](https://downloads.mysql.com/archives/c-j/) into the `<APIM_HOME/repository/components/lib` directory.
+
+        !!! tip
+            Look for the compatible MySQL Connector version based on the MySQL version being used.
+
+            - For MySQL version 8.0.x, the compatible MySQL Connector version is **8.0.x**.    
+            - For MySQL version 8.4.x, the compatible MySQL Connector version is **8.4.x**.
 
     2. Configure the WSO2 API Manager related datasource.  
         
@@ -149,304 +157,136 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
          
          Execute the MySQL script in this example scenario.
     
-        ``` java tab="MySQL"
-        CREATE TABLE IF NOT EXISTS AM_MONETIZATION (
-            API_ID INTEGER NOT NULL,
-            TIER_NAME VARCHAR(512),
-            STRIPE_PRODUCT_ID VARCHAR(512),
-            STRIPE_PLAN_ID VARCHAR(512),
-            FOREIGN KEY (API_ID) REFERENCES AM_API (API_ID) ON DELETE CASCADE
-        ) ENGINE=InnoDB;
+        === "MySQL"
+            ``` java
+            CREATE TABLE IF NOT EXISTS AM_MONETIZATION (
+                API_ID INTEGER NOT NULL,
+                TIER_NAME VARCHAR(512),
+                STRIPE_PRODUCT_ID VARCHAR(512),
+                STRIPE_PLAN_ID VARCHAR(512),
+                FOREIGN KEY (API_ID) REFERENCES AM_API (API_ID) ON DELETE CASCADE
+            ) ENGINE=InnoDB;
 
 
-        CREATE TABLE IF NOT EXISTS AM_POLICY_PLAN_MAPPING (
-                POLICY_UUID VARCHAR(256),
-                PRODUCT_ID VARCHAR(512),
-                PLAN_ID VARCHAR(512),
-                FOREIGN KEY (POLICY_UUID) REFERENCES AM_POLICY_SUBSCRIPTION(UUID)
-        ) ENGINE=InnoDB;
+            CREATE TABLE IF NOT EXISTS AM_POLICY_PLAN_MAPPING (
+                    POLICY_UUID VARCHAR(256),
+                    PRODUCT_ID VARCHAR(512),
+                    PLAN_ID VARCHAR(512),
+                    FOREIGN KEY (POLICY_UUID) REFERENCES AM_POLICY_SUBSCRIPTION(UUID)
+            ) ENGINE=InnoDB;
 
 
-        CREATE TABLE IF NOT EXISTS AM_MONETIZATION_PLATFORM_CUSTOMERS (
-            ID INTEGER NOT NULL AUTO_INCREMENT,
-            SUBSCRIBER_ID INTEGER NOT NULL,
-            TENANT_ID INTEGER NOT NULL,
-            CUSTOMER_ID VARCHAR(256) NOT NULL,    
-            PRIMARY KEY (ID),
-            FOREIGN KEY (SUBSCRIBER_ID) REFERENCES AM_SUBSCRIBER(SUBSCRIBER_ID) ON DELETE CASCADE
-        ) ENGINE=InnoDB;
+            CREATE TABLE IF NOT EXISTS AM_MONETIZATION_PLATFORM_CUSTOMERS (
+                ID INTEGER NOT NULL AUTO_INCREMENT,
+                SUBSCRIBER_ID INTEGER NOT NULL,
+                TENANT_ID INTEGER NOT NULL,
+                CUSTOMER_ID VARCHAR(256) NOT NULL,    
+                PRIMARY KEY (ID),
+                FOREIGN KEY (SUBSCRIBER_ID) REFERENCES AM_SUBSCRIBER(SUBSCRIBER_ID) ON DELETE CASCADE
+            ) ENGINE=InnoDB;
 
 
-        CREATE TABLE IF NOT EXISTS AM_MONETIZATION_SHARED_CUSTOMERS (
-            ID INTEGER NOT NULL AUTO_INCREMENT,
-            APPLICATION_ID INTEGER NOT NULL,
-            API_PROVIDER VARCHAR(256) NOT NULL,
-            TENANT_ID INTEGER NOT NULL,
-            SHARED_CUSTOMER_ID VARCHAR(256) NOT NULL,
-            PARENT_CUSTOMER_ID INTEGER NOT NULL,    
-            PRIMARY KEY (ID),
-            FOREIGN KEY (APPLICATION_ID) REFERENCES AM_APPLICATION(APPLICATION_ID) ON DELETE CASCADE,
-            FOREIGN KEY (PARENT_CUSTOMER_ID) REFERENCES AM_MONETIZATION_PLATFORM_CUSTOMERS(ID) ON DELETE CASCADE
-        )ENGINE=INNODB;
+            CREATE TABLE IF NOT EXISTS AM_MONETIZATION_SHARED_CUSTOMERS (
+                ID INTEGER NOT NULL AUTO_INCREMENT,
+                APPLICATION_ID INTEGER NOT NULL,
+                API_PROVIDER VARCHAR(256) NOT NULL,
+                TENANT_ID INTEGER NOT NULL,
+                SHARED_CUSTOMER_ID VARCHAR(256) NOT NULL,
+                PARENT_CUSTOMER_ID INTEGER NOT NULL,    
+                PRIMARY KEY (ID),
+                FOREIGN KEY (APPLICATION_ID) REFERENCES AM_APPLICATION(APPLICATION_ID) ON DELETE CASCADE,
+                FOREIGN KEY (PARENT_CUSTOMER_ID) REFERENCES AM_MONETIZATION_PLATFORM_CUSTOMERS(ID) ON DELETE CASCADE
+            )ENGINE=INNODB;
 
 
-        CREATE TABLE IF NOT EXISTS AM_MONETIZATION_SUBSCRIPTIONS (
-            ID INTEGER NOT NULL AUTO_INCREMENT,
-            SUBSCRIBED_APPLICATION_ID INTEGER NOT NULL,
-            SUBSCRIBED_API_ID INTEGER NOT NULL,
-            TENANT_ID INTEGER NOT NULL,
-            SUBSCRIPTION_ID VARCHAR(256) NOT NULL,
-            SHARED_CUSTOMER_ID INTEGER NOT NULL,    
-            PRIMARY KEY (ID),
-            FOREIGN KEY (SUBSCRIBED_APPLICATION_ID) REFERENCES AM_APPLICATION(APPLICATION_ID) ON DELETE CASCADE,
-            FOREIGN KEY (SUBSCRIBED_API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE,
-            FOREIGN KEY (SHARED_CUSTOMER_ID) REFERENCES AM_MONETIZATION_SHARED_CUSTOMERS(ID) ON DELETE CASCADE
-        )ENGINE INNODB;
-        ```
+            CREATE TABLE IF NOT EXISTS AM_MONETIZATION_SUBSCRIPTIONS (
+                ID INTEGER NOT NULL AUTO_INCREMENT,
+                SUBSCRIBED_APPLICATION_ID INTEGER NOT NULL,
+                SUBSCRIBED_API_ID INTEGER NOT NULL,
+                TENANT_ID INTEGER NOT NULL,
+                SUBSCRIPTION_ID VARCHAR(256) NOT NULL,
+                SHARED_CUSTOMER_ID INTEGER NOT NULL,    
+                PRIMARY KEY (ID),
+                FOREIGN KEY (SUBSCRIBED_APPLICATION_ID) REFERENCES AM_APPLICATION(APPLICATION_ID) ON DELETE CASCADE,
+                FOREIGN KEY (SUBSCRIBED_API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE,
+                FOREIGN KEY (SHARED_CUSTOMER_ID) REFERENCES AM_MONETIZATION_SHARED_CUSTOMERS(ID) ON DELETE CASCADE
+            )ENGINE INNODB;
+            ```
 
-        ``` java tab="DB2"
-        CREATE TABLE IF NOT EXISTS AM_MONETIZATION (
-            API_ID INTEGER NOT NULL,
-            TIER_NAME VARCHAR(512),
-            STRIPE_PRODUCT_ID VARCHAR(512),
-            STRIPE_PLAN_ID VARCHAR(512),
-            FOREIGN KEY (API_ID) REFERENCES AM_API (API_ID) ON DELETE CASCADE
-        )/
+        === "DB2"
+            ``` java
+            CREATE TABLE IF NOT EXISTS AM_MONETIZATION (
+                API_ID INTEGER NOT NULL,
+                TIER_NAME VARCHAR(512),
+                STRIPE_PRODUCT_ID VARCHAR(512),
+                STRIPE_PLAN_ID VARCHAR(512),
+                FOREIGN KEY (API_ID) REFERENCES AM_API (API_ID) ON DELETE CASCADE
+            )/
 
-        CREATE TABLE IF NOT EXISTS AM_POLICY_PLAN_MAPPING (
-                POLICY_UUID VARCHAR(256),
-                PRODUCT_ID VARCHAR(512),
-                PLAN_ID VARCHAR(512),
-                FOREIGN KEY (POLICY_UUID) REFERENCES AM_POLICY_SUBSCRIPTION(UUID)
-        )/
+            CREATE TABLE IF NOT EXISTS AM_POLICY_PLAN_MAPPING (
+                    POLICY_UUID VARCHAR(256),
+                    PRODUCT_ID VARCHAR(512),
+                    PLAN_ID VARCHAR(512),
+                    FOREIGN KEY (POLICY_UUID) REFERENCES AM_POLICY_SUBSCRIPTION(UUID)
+            )/
 
-        CREATE TABLE IF NOT EXISTS AM_MONETIZATION_PLATFORM_CUSTOMERS (
-            ID INTEGER NOT NULL AUTO_INCREMENT,
-            SUBSCRIBER_ID INTEGER NOT NULL,
-            TENANT_ID INTEGER NOT NULL,
-            CUSTOMER_ID VARCHAR(256) NOT NULL,    
-            PRIMARY KEY (ID),
-            FOREIGN KEY (SUBSCRIBER_ID) REFERENCES AM_SUBSCRIBER(SUBSCRIBER_ID) ON DELETE CASCADE
-        )/
+            CREATE TABLE IF NOT EXISTS AM_MONETIZATION_PLATFORM_CUSTOMERS (
+                ID INTEGER NOT NULL AUTO_INCREMENT,
+                SUBSCRIBER_ID INTEGER NOT NULL,
+                TENANT_ID INTEGER NOT NULL,
+                CUSTOMER_ID VARCHAR(256) NOT NULL,    
+                PRIMARY KEY (ID),
+                FOREIGN KEY (SUBSCRIBER_ID) REFERENCES AM_SUBSCRIBER(SUBSCRIBER_ID) ON DELETE CASCADE
+            )/
 
-        CREATE TABLE IF NOT EXISTS AM_MONETIZATION_SHARED_CUSTOMERS (
-            ID INTEGER NOT NULL AUTO_INCREMENT,
-            APPLICATION_ID INTEGER NOT NULL,
-            API_PROVIDER VARCHAR(256) NOT NULL,
-            TENANT_ID INTEGER NOT NULL,
-            SHARED_CUSTOMER_ID VARCHAR(256) NOT NULL,
-            PARENT_CUSTOMER_ID INTEGER NOT NULL,    
-            PRIMARY KEY (ID),
-            FOREIGN KEY (APPLICATION_ID) REFERENCES AM_APPLICATION(APPLICATION_ID) ON DELETE CASCADE,
-            FOREIGN KEY (PARENT_CUSTOMER_ID) REFERENCES AM_MONETIZATION_PLATFORM_CUSTOMERS(ID) ON DELETE CASCADE
-        )/
+            CREATE TABLE IF NOT EXISTS AM_MONETIZATION_SHARED_CUSTOMERS (
+                ID INTEGER NOT NULL AUTO_INCREMENT,
+                APPLICATION_ID INTEGER NOT NULL,
+                API_PROVIDER VARCHAR(256) NOT NULL,
+                TENANT_ID INTEGER NOT NULL,
+                SHARED_CUSTOMER_ID VARCHAR(256) NOT NULL,
+                PARENT_CUSTOMER_ID INTEGER NOT NULL,    
+                PRIMARY KEY (ID),
+                FOREIGN KEY (APPLICATION_ID) REFERENCES AM_APPLICATION(APPLICATION_ID) ON DELETE CASCADE,
+                FOREIGN KEY (PARENT_CUSTOMER_ID) REFERENCES AM_MONETIZATION_PLATFORM_CUSTOMERS(ID) ON DELETE CASCADE
+            )/
 
-        CREATE TABLE IF NOT EXISTS AM_MONETIZATION_SUBSCRIPTIONS (
-            ID INTEGER NOT NULL AUTO_INCREMENT,
-            SUBSCRIBED_APPLICATION_ID INTEGER NOT NULL,
-            SUBSCRIBED_API_ID INTEGER NOT NULL,
-            TENANT_ID INTEGER NOT NULL,
-            SUBSCRIPTION_ID VARCHAR(256) NOT NULL,
-            SHARED_CUSTOMER_ID INTEGER NOT NULL,    
-            PRIMARY KEY (ID),
-            FOREIGN KEY (SUBSCRIBED_APPLICATION_ID) REFERENCES AM_APPLICATION(APPLICATION_ID) ON DELETE CASCADE,
-            FOREIGN KEY (SUBSCRIBED_API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE,
-            FOREIGN KEY (SHARED_CUSTOMER_ID) REFERENCES AM_MONETIZATION_SHARED_CUSTOMERS(ID) ON DELETE CASCADE
-        )/
-        ```
+            CREATE TABLE IF NOT EXISTS AM_MONETIZATION_SUBSCRIPTIONS (
+                ID INTEGER NOT NULL AUTO_INCREMENT,
+                SUBSCRIBED_APPLICATION_ID INTEGER NOT NULL,
+                SUBSCRIBED_API_ID INTEGER NOT NULL,
+                TENANT_ID INTEGER NOT NULL,
+                SUBSCRIPTION_ID VARCHAR(256) NOT NULL,
+                SHARED_CUSTOMER_ID INTEGER NOT NULL,    
+                PRIMARY KEY (ID),
+                FOREIGN KEY (SUBSCRIBED_APPLICATION_ID) REFERENCES AM_APPLICATION(APPLICATION_ID) ON DELETE CASCADE,
+                FOREIGN KEY (SUBSCRIBED_API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE,
+                FOREIGN KEY (SHARED_CUSTOMER_ID) REFERENCES AM_MONETIZATION_SHARED_CUSTOMERS(ID) ON DELETE CASCADE
+            )/
+            ```
 
-        ``` java tab="MSSQL"
-        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_MONETIZATION]') AND TYPE IN (N'U'))
-        CREATE TABLE AM_MONETIZATION (
-            API_ID INTEGER NOT NULL,
-            TIER_NAME VARCHAR(512),
-            STRIPE_PRODUCT_ID VARCHAR(512),
-            STRIPE_PLAN_ID VARCHAR(512),
-            FOREIGN KEY (API_ID) REFERENCES AM_API (API_ID) ON DELETE CASCADE
-        );
-
-        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_POLICY_PLAN_MAPPING]') AND TYPE IN (N'U'))
-        CREATE TABLE AM_POLICY_PLAN_MAPPING (
-                POLICY_UUID VARCHAR(256),
-                PRODUCT_ID VARCHAR(512),
-                PLAN_ID VARCHAR(512),
-                FOREIGN KEY (POLICY_UUID) REFERENCES AM_POLICY_SUBSCRIPTION(UUID)
-
-        );
-
-        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_MONETIZATION_PLATFORM_CUSTOMERS]') AND TYPE IN (N'U'))
-        CREATE TABLE AM_MONETIZATION_PLATFORM_CUSTOMERS (
-            ID INTEGER NOT NULL AUTO_INCREMENT,
-            SUBSCRIBER_ID INTEGER NOT NULL,
-            TENANT_ID INTEGER NOT NULL,
-            CUSTOMER_ID VARCHAR(256) NOT NULL,    
-            PRIMARY KEY (ID),
-            FOREIGN KEY (SUBSCRIBER_ID) REFERENCES AM_SUBSCRIBER(SUBSCRIBER_ID) ON DELETE CASCADE
-        );
-
-        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_MONETIZATION_SHARED_CUSTOMERS]') AND TYPE IN (N'U'))
-        CREATE TABLE AM_MONETIZATION_SHARED_CUSTOMERS (
-            ID INTEGER NOT NULL AUTO_INCREMENT,
-            APPLICATION_ID INTEGER NOT NULL,
-            API_PROVIDER VARCHAR(256) NOT NULL,
-            TENANT_ID INTEGER NOT NULL,
-            SHARED_CUSTOMER_ID VARCHAR(256) NOT NULL,
-            PARENT_CUSTOMER_ID INTEGER NOT NULL,    
-            PRIMARY KEY (ID),
-            FOREIGN KEY (APPLICATION_ID) REFERENCES AM_APPLICATION(APPLICATION_ID) ON DELETE CASCADE,
-            FOREIGN KEY (PARENT_CUSTOMER_ID) REFERENCES AM_MONETIZATION_PLATFORM_CUSTOMERS(ID) ON DELETE CASCADE
-        );
-
-        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_MONETIZATION_SUBSCRIPTIONS]') AND TYPE IN (N'U'))
-        CREATE TABLE AM_MONETIZATION_SUBSCRIPTIONS (
-            ID INTEGER NOT NULL AUTO_INCREMENT,
-            SUBSCRIBED_APPLICATION_ID INTEGER NOT NULL,
-            SUBSCRIBED_API_ID INTEGER NOT NULL,
-            TENANT_ID INTEGER NOT NULL,
-            SUBSCRIPTION_ID VARCHAR(256) NOT NULL,
-            SHARED_CUSTOMER_ID INTEGER NOT NULL,    
-            PRIMARY KEY (ID),
-            FOREIGN KEY (SUBSCRIBED_APPLICATION_ID) REFERENCES AM_APPLICATION(APPLICATION_ID) ON DELETE CASCADE,
-            FOREIGN KEY (SUBSCRIBED_API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE,
-            FOREIGN KEY (SHARED_CUSTOMER_ID) REFERENCES AM_MONETIZATION_SHARED_CUSTOMERS(ID) ON DELETE CASCADE
-        );
-        ```
-
-        ``` java tab="Oracle"
-        CREATE TABLE AM_MONETIZATION (
-            API_ID INTEGER NOT NULL,
-            TIER_NAME VARCHAR(512),
-            STRIPE_PRODUCT_ID VARCHAR(512),
-            STRIPE_PLAN_ID VARCHAR(512),
-            FOREIGN KEY (API_ID) REFERENCES AM_API (API_ID) ON DELETE CASCADE
-        )
-        /
-
-        CREATE TABLE AM_POLICY_PLAN_MAPPING (
-                POLICY_UUID VARCHAR(256),
-                PRODUCT_ID VARCHAR(512),
-                PLAN_ID VARCHAR(512),
-                FOREIGN KEY (POLICY_UUID) REFERENCES AM_POLICY_SUBSCRIPTION(UUID)
-        )
-        /
-
-        CREATE TABLE AM_MONETIZATION_PLATFORM_CUSTOMERS (
-            ID INTEGER NOT NULL AUTO_INCREMENT,
-            SUBSCRIBER_ID INTEGER NOT NULL,
-            TENANT_ID INTEGER NOT NULL,
-            CUSTOMER_ID VARCHAR(256) NOT NULL,    
-            PRIMARY KEY (ID),
-            FOREIGN KEY (SUBSCRIBER_ID) REFERENCES AM_SUBSCRIBER(SUBSCRIBER_ID) ON DELETE CASCADE
-        )
-        /
-
-        CREATE TABLE AM_MONETIZATION_SHARED_CUSTOMERS (
-            ID INTEGER NOT NULL AUTO_INCREMENT,
-            APPLICATION_ID INTEGER NOT NULL,
-            API_PROVIDER VARCHAR(256) NOT NULL,
-            TENANT_ID INTEGER NOT NULL,
-            SHARED_CUSTOMER_ID VARCHAR(256) NOT NULL,
-            PARENT_CUSTOMER_ID INTEGER NOT NULL,    
-            PRIMARY KEY (ID),
-            FOREIGN KEY (APPLICATION_ID) REFERENCES AM_APPLICATION(APPLICATION_ID) ON DELETE CASCADE,
-            FOREIGN KEY (PARENT_CUSTOMER_ID) REFERENCES AM_MONETIZATION_PLATFORM_CUSTOMERS(ID) ON DELETE CASCADE
-        )
-        /
-
-        CREATE TABLE AM_MONETIZATION_SUBSCRIPTIONS (
-            ID INTEGER NOT NULL AUTO_INCREMENT,
-            SUBSCRIBED_APPLICATION_ID INTEGER NOT NULL,
-            SUBSCRIBED_API_ID INTEGER NOT NULL,
-            TENANT_ID INTEGER NOT NULL,
-            SUBSCRIPTION_ID VARCHAR(256) NOT NULL,
-            SHARED_CUSTOMER_ID INTEGER NOT NULL,    
-            PRIMARY KEY (ID),
-            FOREIGN KEY (SUBSCRIBED_APPLICATION_ID) REFERENCES AM_APPLICATION(APPLICATION_ID) ON DELETE CASCADE,
-            FOREIGN KEY (SUBSCRIBED_API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE,
-            FOREIGN KEY (SHARED_CUSTOMER_ID) REFERENCES AM_MONETIZATION_SHARED_CUSTOMERS(ID) ON DELETE CASCADE
-        )
-        /
-        ```
-
-        ``` java tab="Oracle Rac"
-        CREATE TABLE AM_MONETIZATION (
-            API_ID INTEGER NOT NULL,
-            TIER_NAME VARCHAR(512),
-            STRIPE_PRODUCT_ID VARCHAR(512),
-            STRIPE_PLAN_ID VARCHAR(512),
-            FOREIGN KEY (API_ID) REFERENCES AM_API (API_ID) ON DELETE CASCADE
-        )
-        /
-
-        CREATE TABLE AM_POLICY_PLAN_MAPPING (
-                POLICY_UUID VARCHAR(256),
-                PRODUCT_ID VARCHAR(512),
-                PLAN_ID VARCHAR(512),
-                FOREIGN KEY (POLICY_UUID) REFERENCES AM_POLICY_SUBSCRIPTION(UUID)
-        )
-        /
-
-        CREATE TABLE AM_MONETIZATION_PLATFORM_CUSTOMERS (
-            ID INTEGER NOT NULL AUTO_INCREMENT,
-            SUBSCRIBER_ID INTEGER NOT NULL,
-            TENANT_ID INTEGER NOT NULL,
-            CUSTOMER_ID VARCHAR(256) NOT NULL,    
-            PRIMARY KEY (ID),
-            FOREIGN KEY (SUBSCRIBER_ID) REFERENCES AM_SUBSCRIBER(SUBSCRIBER_ID) ON DELETE CASCADE
-        )
-        /
-
-        CREATE TABLE AM_MONETIZATION_SHARED_CUSTOMERS (
-            ID INTEGER NOT NULL AUTO_INCREMENT,
-            APPLICATION_ID INTEGER NOT NULL,
-            API_PROVIDER VARCHAR(256) NOT NULL,
-            TENANT_ID INTEGER NOT NULL,
-            SHARED_CUSTOMER_ID VARCHAR(256) NOT NULL,
-            PARENT_CUSTOMER_ID INTEGER NOT NULL,    
-            PRIMARY KEY (ID),
-            FOREIGN KEY (APPLICATION_ID) REFERENCES AM_APPLICATION(APPLICATION_ID) ON DELETE CASCADE,
-            FOREIGN KEY (PARENT_CUSTOMER_ID) REFERENCES AM_MONETIZATION_PLATFORM_CUSTOMERS(ID) ON DELETE CASCADE
-        )
-        /
-
-        CREATE TABLE AM_MONETIZATION_SUBSCRIPTIONS (
-            ID INTEGER NOT NULL AUTO_INCREMENT,
-            SUBSCRIBED_APPLICATION_ID INTEGER NOT NULL,
-            SUBSCRIBED_API_ID INTEGER NOT NULL,
-            TENANT_ID INTEGER NOT NULL,
-            SUBSCRIPTION_ID VARCHAR(256) NOT NULL,
-            SHARED_CUSTOMER_ID INTEGER NOT NULL,    
-            PRIMARY KEY (ID),
-            FOREIGN KEY (SUBSCRIBED_APPLICATION_ID) REFERENCES AM_APPLICATION(APPLICATION_ID) ON DELETE CASCADE,
-            FOREIGN KEY (SUBSCRIBED_API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE,
-            FOREIGN KEY (SHARED_CUSTOMER_ID) REFERENCES AM_MONETIZATION_SHARED_CUSTOMERS(ID) ON DELETE CASCADE
-        )
-        /
-        ```
-
-        ``` java tab="Postgre"
-            CREATE SEQUENCE AM_MONETIZATION START WITH 1 INCREMENT BY 1;
-            CREATE TABLE IF NOT EXISTS AM_POLICY_SUBSCRIPTION (
+        === "MSSQL"
+            ``` java
+            IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_MONETIZATION]') AND TYPE IN (N'U'))
+            CREATE TABLE AM_MONETIZATION (
                 API_ID INTEGER NOT NULL,
                 TIER_NAME VARCHAR(512),
                 STRIPE_PRODUCT_ID VARCHAR(512),
                 STRIPE_PLAN_ID VARCHAR(512),
                 FOREIGN KEY (API_ID) REFERENCES AM_API (API_ID) ON DELETE CASCADE
             );
-        
-            CREATE SEQUENCE AM_POLICY_PLAN_MAPPING START WITH 1 INCREMENT BY 1;
-            CREATE TABLE IF NOT EXISTS AM_POLICY_SUBSCRIPTION (
-                    POLICY_ID INTEGER DEFAULT NEXTVAL('AM_POLICY_PLAN_MAPPING'),
+
+            IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_POLICY_PLAN_MAPPING]') AND TYPE IN (N'U'))
+            CREATE TABLE AM_POLICY_PLAN_MAPPING (
                     POLICY_UUID VARCHAR(256),
                     PRODUCT_ID VARCHAR(512),
                     PLAN_ID VARCHAR(512),
                     FOREIGN KEY (POLICY_UUID) REFERENCES AM_POLICY_SUBSCRIPTION(UUID)
-        
+
             );
-        
-            CREATE SEQUENCE AM_MONETIZATION_PLATFORM_CUSTOMERS START WITH 1 INCREMENT BY 1;
-            CREATE TABLE IF NOT EXISTS AM_POLICY_SUBSCRIPTION (
-                        POLICY_ID INTEGER DEFAULT NEXTVAL('AM_MONETIZATION_PLATFORM_CUSTOMERS'),
+
+            IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_MONETIZATION_PLATFORM_CUSTOMERS]') AND TYPE IN (N'U'))
+            CREATE TABLE AM_MONETIZATION_PLATFORM_CUSTOMERS (
                 ID INTEGER NOT NULL AUTO_INCREMENT,
                 SUBSCRIBER_ID INTEGER NOT NULL,
                 TENANT_ID INTEGER NOT NULL,
@@ -454,10 +294,9 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
                 PRIMARY KEY (ID),
                 FOREIGN KEY (SUBSCRIBER_ID) REFERENCES AM_SUBSCRIBER(SUBSCRIBER_ID) ON DELETE CASCADE
             );
-        
-            CREATE SEQUENCE AM_MONETIZATION_SHARED_CUSTOMERS START WITH 1 INCREMENT BY 1;
-            CREATE TABLE IF NOT EXISTS AM_POLICY_SUBSCRIPTION (
-                        POLICY_ID INTEGER DEFAULT NEXTVAL('AM_MONETIZATION_SHARED_CUSTOMERS'),
+
+            IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_MONETIZATION_SHARED_CUSTOMERS]') AND TYPE IN (N'U'))
+            CREATE TABLE AM_MONETIZATION_SHARED_CUSTOMERS (
                 ID INTEGER NOT NULL AUTO_INCREMENT,
                 APPLICATION_ID INTEGER NOT NULL,
                 API_PROVIDER VARCHAR(256) NOT NULL,
@@ -468,10 +307,9 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
                 FOREIGN KEY (APPLICATION_ID) REFERENCES AM_APPLICATION(APPLICATION_ID) ON DELETE CASCADE,
                 FOREIGN KEY (PARENT_CUSTOMER_ID) REFERENCES AM_MONETIZATION_PLATFORM_CUSTOMERS(ID) ON DELETE CASCADE
             );
-        
-            CREATE SEQUENCE AM_MONETIZATION_SUBSCRIPTIONS START WITH 1 INCREMENT BY 1;
-            CREATE TABLE IF NOT EXISTS AM_POLICY_SUBSCRIPTION (
-                        POLICY_ID INTEGER DEFAULT NEXTVAL('AM_MONETIZATION_SUBSCRIPTIONS'),
+
+            IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_MONETIZATION_SUBSCRIPTIONS]') AND TYPE IN (N'U'))
+            CREATE TABLE AM_MONETIZATION_SUBSCRIPTIONS (
                 ID INTEGER NOT NULL AUTO_INCREMENT,
                 SUBSCRIBED_APPLICATION_ID INTEGER NOT NULL,
                 SUBSCRIBED_API_ID INTEGER NOT NULL,
@@ -483,27 +321,205 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
                 FOREIGN KEY (SUBSCRIBED_API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE,
                 FOREIGN KEY (SHARED_CUSTOMER_ID) REFERENCES AM_MONETIZATION_SHARED_CUSTOMERS(ID) ON DELETE CASCADE
             );
-        ```
+            ```
+
+        === "Oracle"
+            ``` java
+            CREATE TABLE AM_MONETIZATION (
+                API_ID INTEGER NOT NULL,
+                TIER_NAME VARCHAR(512),
+                STRIPE_PRODUCT_ID VARCHAR(512),
+                STRIPE_PLAN_ID VARCHAR(512),
+                FOREIGN KEY (API_ID) REFERENCES AM_API (API_ID) ON DELETE CASCADE
+            )
+            /
+
+            CREATE TABLE AM_POLICY_PLAN_MAPPING (
+                    POLICY_UUID VARCHAR(256),
+                    PRODUCT_ID VARCHAR(512),
+                    PLAN_ID VARCHAR(512),
+                    FOREIGN KEY (POLICY_UUID) REFERENCES AM_POLICY_SUBSCRIPTION(UUID)
+            )
+            /
+
+            CREATE TABLE AM_MONETIZATION_PLATFORM_CUSTOMERS (
+                ID INTEGER NOT NULL AUTO_INCREMENT,
+                SUBSCRIBER_ID INTEGER NOT NULL,
+                TENANT_ID INTEGER NOT NULL,
+                CUSTOMER_ID VARCHAR(256) NOT NULL,    
+                PRIMARY KEY (ID),
+                FOREIGN KEY (SUBSCRIBER_ID) REFERENCES AM_SUBSCRIBER(SUBSCRIBER_ID) ON DELETE CASCADE
+            )
+            /
+
+            CREATE TABLE AM_MONETIZATION_SHARED_CUSTOMERS (
+                ID INTEGER NOT NULL AUTO_INCREMENT,
+                APPLICATION_ID INTEGER NOT NULL,
+                API_PROVIDER VARCHAR(256) NOT NULL,
+                TENANT_ID INTEGER NOT NULL,
+                SHARED_CUSTOMER_ID VARCHAR(256) NOT NULL,
+                PARENT_CUSTOMER_ID INTEGER NOT NULL,    
+                PRIMARY KEY (ID),
+                FOREIGN KEY (APPLICATION_ID) REFERENCES AM_APPLICATION(APPLICATION_ID) ON DELETE CASCADE,
+                FOREIGN KEY (PARENT_CUSTOMER_ID) REFERENCES AM_MONETIZATION_PLATFORM_CUSTOMERS(ID) ON DELETE CASCADE
+            )
+            /
+
+            CREATE TABLE AM_MONETIZATION_SUBSCRIPTIONS (
+                ID INTEGER NOT NULL AUTO_INCREMENT,
+                SUBSCRIBED_APPLICATION_ID INTEGER NOT NULL,
+                SUBSCRIBED_API_ID INTEGER NOT NULL,
+                TENANT_ID INTEGER NOT NULL,
+                SUBSCRIPTION_ID VARCHAR(256) NOT NULL,
+                SHARED_CUSTOMER_ID INTEGER NOT NULL,    
+                PRIMARY KEY (ID),
+                FOREIGN KEY (SUBSCRIBED_APPLICATION_ID) REFERENCES AM_APPLICATION(APPLICATION_ID) ON DELETE CASCADE,
+                FOREIGN KEY (SUBSCRIBED_API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE,
+                FOREIGN KEY (SHARED_CUSTOMER_ID) REFERENCES AM_MONETIZATION_SHARED_CUSTOMERS(ID) ON DELETE CASCADE
+            )
+            /
+            ```
+
+        === "Oracle Rac"
+            ``` java
+            CREATE TABLE AM_MONETIZATION (
+                API_ID INTEGER NOT NULL,
+                TIER_NAME VARCHAR(512),
+                STRIPE_PRODUCT_ID VARCHAR(512),
+                STRIPE_PLAN_ID VARCHAR(512),
+                FOREIGN KEY (API_ID) REFERENCES AM_API (API_ID) ON DELETE CASCADE
+            )
+            /
+
+            CREATE TABLE AM_POLICY_PLAN_MAPPING (
+                    POLICY_UUID VARCHAR(256),
+                    PRODUCT_ID VARCHAR(512),
+                    PLAN_ID VARCHAR(512),
+                    FOREIGN KEY (POLICY_UUID) REFERENCES AM_POLICY_SUBSCRIPTION(UUID)
+            )
+            /
+
+            CREATE TABLE AM_MONETIZATION_PLATFORM_CUSTOMERS (
+                ID INTEGER NOT NULL AUTO_INCREMENT,
+                SUBSCRIBER_ID INTEGER NOT NULL,
+                TENANT_ID INTEGER NOT NULL,
+                CUSTOMER_ID VARCHAR(256) NOT NULL,    
+                PRIMARY KEY (ID),
+                FOREIGN KEY (SUBSCRIBER_ID) REFERENCES AM_SUBSCRIBER(SUBSCRIBER_ID) ON DELETE CASCADE
+            )
+            /
+
+            CREATE TABLE AM_MONETIZATION_SHARED_CUSTOMERS (
+                ID INTEGER NOT NULL AUTO_INCREMENT,
+                APPLICATION_ID INTEGER NOT NULL,
+                API_PROVIDER VARCHAR(256) NOT NULL,
+                TENANT_ID INTEGER NOT NULL,
+                SHARED_CUSTOMER_ID VARCHAR(256) NOT NULL,
+                PARENT_CUSTOMER_ID INTEGER NOT NULL,    
+                PRIMARY KEY (ID),
+                FOREIGN KEY (APPLICATION_ID) REFERENCES AM_APPLICATION(APPLICATION_ID) ON DELETE CASCADE,
+                FOREIGN KEY (PARENT_CUSTOMER_ID) REFERENCES AM_MONETIZATION_PLATFORM_CUSTOMERS(ID) ON DELETE CASCADE
+            )
+            /
+
+            CREATE TABLE AM_MONETIZATION_SUBSCRIPTIONS (
+                ID INTEGER NOT NULL AUTO_INCREMENT,
+                SUBSCRIBED_APPLICATION_ID INTEGER NOT NULL,
+                SUBSCRIBED_API_ID INTEGER NOT NULL,
+                TENANT_ID INTEGER NOT NULL,
+                SUBSCRIPTION_ID VARCHAR(256) NOT NULL,
+                SHARED_CUSTOMER_ID INTEGER NOT NULL,    
+                PRIMARY KEY (ID),
+                FOREIGN KEY (SUBSCRIBED_APPLICATION_ID) REFERENCES AM_APPLICATION(APPLICATION_ID) ON DELETE CASCADE,
+                FOREIGN KEY (SUBSCRIBED_API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE,
+                FOREIGN KEY (SHARED_CUSTOMER_ID) REFERENCES AM_MONETIZATION_SHARED_CUSTOMERS(ID) ON DELETE CASCADE
+            )
+            /
+            ```
+
+        === "Postgre"
+            ``` java
+                CREATE SEQUENCE AM_MONETIZATION START WITH 1 INCREMENT BY 1;
+                CREATE TABLE IF NOT EXISTS AM_POLICY_SUBSCRIPTION (
+                    API_ID INTEGER NOT NULL,
+                    TIER_NAME VARCHAR(512),
+                    STRIPE_PRODUCT_ID VARCHAR(512),
+                    STRIPE_PLAN_ID VARCHAR(512),
+                    FOREIGN KEY (API_ID) REFERENCES AM_API (API_ID) ON DELETE CASCADE
+                );
+            
+                CREATE SEQUENCE AM_POLICY_PLAN_MAPPING START WITH 1 INCREMENT BY 1;
+                CREATE TABLE IF NOT EXISTS AM_POLICY_SUBSCRIPTION (
+                        POLICY_ID INTEGER DEFAULT NEXTVAL('AM_POLICY_PLAN_MAPPING'),
+                        POLICY_UUID VARCHAR(256),
+                        PRODUCT_ID VARCHAR(512),
+                        PLAN_ID VARCHAR(512),
+                        FOREIGN KEY (POLICY_UUID) REFERENCES AM_POLICY_SUBSCRIPTION(UUID)
+            
+                );
+            
+                CREATE SEQUENCE AM_MONETIZATION_PLATFORM_CUSTOMERS START WITH 1 INCREMENT BY 1;
+                CREATE TABLE IF NOT EXISTS AM_POLICY_SUBSCRIPTION (
+                            POLICY_ID INTEGER DEFAULT NEXTVAL('AM_MONETIZATION_PLATFORM_CUSTOMERS'),
+                    ID INTEGER NOT NULL AUTO_INCREMENT,
+                    SUBSCRIBER_ID INTEGER NOT NULL,
+                    TENANT_ID INTEGER NOT NULL,
+                    CUSTOMER_ID VARCHAR(256) NOT NULL,    
+                    PRIMARY KEY (ID),
+                    FOREIGN KEY (SUBSCRIBER_ID) REFERENCES AM_SUBSCRIBER(SUBSCRIBER_ID) ON DELETE CASCADE
+                );
+            
+                CREATE SEQUENCE AM_MONETIZATION_SHARED_CUSTOMERS START WITH 1 INCREMENT BY 1;
+                CREATE TABLE IF NOT EXISTS AM_POLICY_SUBSCRIPTION (
+                            POLICY_ID INTEGER DEFAULT NEXTVAL('AM_MONETIZATION_SHARED_CUSTOMERS'),
+                    ID INTEGER NOT NULL AUTO_INCREMENT,
+                    APPLICATION_ID INTEGER NOT NULL,
+                    API_PROVIDER VARCHAR(256) NOT NULL,
+                    TENANT_ID INTEGER NOT NULL,
+                    SHARED_CUSTOMER_ID VARCHAR(256) NOT NULL,
+                    PARENT_CUSTOMER_ID INTEGER NOT NULL,    
+                    PRIMARY KEY (ID),
+                    FOREIGN KEY (APPLICATION_ID) REFERENCES AM_APPLICATION(APPLICATION_ID) ON DELETE CASCADE,
+                    FOREIGN KEY (PARENT_CUSTOMER_ID) REFERENCES AM_MONETIZATION_PLATFORM_CUSTOMERS(ID) ON DELETE CASCADE
+                );
+            
+                CREATE SEQUENCE AM_MONETIZATION_SUBSCRIPTIONS START WITH 1 INCREMENT BY 1;
+                CREATE TABLE IF NOT EXISTS AM_POLICY_SUBSCRIPTION (
+                            POLICY_ID INTEGER DEFAULT NEXTVAL('AM_MONETIZATION_SUBSCRIPTIONS'),
+                    ID INTEGER NOT NULL AUTO_INCREMENT,
+                    SUBSCRIBED_APPLICATION_ID INTEGER NOT NULL,
+                    SUBSCRIBED_API_ID INTEGER NOT NULL,
+                    TENANT_ID INTEGER NOT NULL,
+                    SUBSCRIPTION_ID VARCHAR(256) NOT NULL,
+                    SHARED_CUSTOMER_ID INTEGER NOT NULL,    
+                    PRIMARY KEY (ID),
+                    FOREIGN KEY (SUBSCRIBED_APPLICATION_ID) REFERENCES AM_APPLICATION(APPLICATION_ID) ON DELETE CASCADE,
+                    FOREIGN KEY (SUBSCRIBED_API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE,
+                    FOREIGN KEY (SHARED_CUSTOMER_ID) REFERENCES AM_MONETIZATION_SHARED_CUSTOMERS(ID) ON DELETE CASCADE
+                );
+            ```
 
 3. Configure the additional monetization properties that are specific to the billing engine in WSO2 API Manager.    
 
       Add the following configuration in the `<API-M_HOME>/repository/conf/deployment.toml` file.
       
-      ``` java tab="Format"
-      [[apim.monetization.additional_attributes]]
-      name = "<Name of the attribute>"
-      display_name = "<Displayed name of the Attribute>"
-      required = "<mandatory or not>"
-      description = "<Description about the attribute>"
-      ```
+    === "Format"
+        ``` toml
+        [[apim.monetization.additional_attributes]]
+        name = "<Name of the attribute>"
+        display_name = "<Displayed name of the Attribute>"
+        required = "<mandatory or not>"
+        description = "<Description about the attribute>"
+        ```
   
-      ``` java tab="Example"
-      [[apim.monetization.additional_attributes]]
-      name = "ConnectedAccountKey"
-      display_name = "ConnectedAccountKey"
-      required = "true"
-      description = "connected account of the publisher"
-      ```
+    === "Example"
+        ``` toml
+        [[apim.monetization.additional_attributes]]
+        name = "ConnectedAccountKey"
+        display_name = "ConnectedAccountKey"
+        required = "true"
+        description = "connected account of the publisher"
+        ```
            
       The name property has to be identical to `ConnectedAccountKey`, which is defined in the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin/blob/master/src/main/java/org.wso2.apim.monetization/impl/StripeMonetizationImpl.java). However, you can add perferred values for the other properties.
  
@@ -518,14 +534,16 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
                                                                                                                           
     1. Enable analytics.
     
-        ``` java tab="Format"
+    === "Format"
+        ``` toml
          [apim.analytics]
          enable = <true/false>
          config_endpoint = "<Choeo config endpoint>"
          auth_token = "xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
         ```
      
-        ``` java tab="Example"
+    === "Example"
+        ``` toml
          [apim.analytics]
          enable = true
          config_endpoint = "https://analytics-event-auth.choreo.dev/auth/v1"
@@ -535,7 +553,8 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
     2. Create a new application on Choreo devportal and subscribe to the Insight API. To subscribe to the Insight API, follow this [documentation](https://wso2.com/choreo/docs/insights/programmatic-access-choreo-insights-api/).
     3. Define the Insight API endpoint, analytics access token, Choreo token endpoint URL, and consumer key/ secret pair of the Insight application you created in step 2 under the monetization configuration. 
     
-         ``` java tab="Format"
+    === "Format"
+         ``` toml
          [apim.monetization]
          analytics_query_api_endpoint = "<Endpoint of the Insight API>"
          analytics_access_token = "<Analytics on prem key>"
@@ -544,7 +563,8 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
          choreo_insight_app_consumer_secret = "<Consumer secret of the subscribed application>"
          ```
 
-         ``` java tab="Example"
+    === "Example"
+         ``` toml
          [apim.monetization]
          analytics_query_api_endpoint = "https://choreocontrolplane.choreo.dev/93tu/insights/1.0.0/query-api"
          analytics_access_token = "xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
@@ -561,21 +581,23 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
 
     3. Add the following configuration to the Advanced Configurations.  
 
-        ``` json tab="Format"
+    === "Format"
+        ``` json
         "MonetizationInfo": {
             "<key-value-pair>"
         }
         ```
 
-        ``` json tab="Example"
+    === "Example"
+        ``` json
         "MonetizationInfo": {
             "BillingEnginePlatformAccountKey": "sk_test_wBMSreyjGQoczL9uIw6YPYRq00kcHcQqDi"
         }
         ```
 
-        * `<key-value-pair>` - The key-value pair varies based on your monetization interface. There can be multiple key-value pairs.
+    * `<key-value-pair>` - The key-value pair varies based on your monetization interface. There can be multiple key-value pairs.
 
-        * `sk_test_wBMSreyjGQoczL9uIw6YPYRq00kcHcQqDi` - This is the [secret key that corresponds to the Tenant Admin's Stripe account](#tenantSK).
+    * `sk_test_wBMSreyjGQoczL9uIw6YPYRq00kcHcQqDi` - This is the [secret key that corresponds to the Tenant Admin's Stripe account](#tenantSK).
 
 6.  Configure the workflows.
 
@@ -598,12 +620,14 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
 
      3.  Edit the workflow executors in the `workflow-extensions.xml` file.
 
-         ``` xml tab="Format"
+    === "Format"
+         ``` xml
          <SubscriptionCreation executor="<billing-engine-related-SubscriptionCreationWorkflowExecutor>"/>
          <SubscriptionDeletion executor="<billing-engine-related-StripeSubscriptionDeletionWorkflowExecutor>"/> 
          ```
 
-         ``` xml tab="Example"
+    === "Example"
+         ``` xml
          <SubscriptionCreation executor="org.wso2.apim.monetization.impl.workflow.StripeSubscriptionCreationWorkflowExecutor"/>
          <SubscriptionDeletion executor="org.wso2.apim.monetization.impl.workflow.StripeSubscriptionDeletionWorkflowExecutor"/>
          ```            
@@ -646,11 +670,17 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
     `https://<hostname>:9443/publisher`
 
 2.  Click on the API that you wish to monetize.  
+
+3.  Click **Subscriptions** to see the available business plans including the one you recently created.
+![Select business plan]({{base_path}}/assets/img/learn/select-business-plan.png)
+
+4.  Select the subscription policy you created and click **save**.
+
     ![Enable monetization]({{base_path}}/assets/img/learn/enable-monetization.png)
 
-3.  Click **Monetization** to navigate to the Monetization configurations.
+5.  Click **Monetization** to navigate to the Monetization configurations.
 
-4.  Enter the connect ID as the connected account key and click
+6.  Enter the connect ID as the connected account key and click
     **Save**.  
 
     When using Stripe as the billing engine, you need to enter the [connect ID](#connectID), which is the ID that indicates the link between the Tenant Admin and the API Publisher Stripe accounts.
@@ -837,17 +867,17 @@ Note that the following is a sample configuration that uses ELK 8.0.0 and Elasti
 
 To enable ELK-based analytics in WSO2 API Manager and configure the Elasticsearch host, port, and authentication details, add the following configuration changes to the `deployment.toml` file:
 
-```
+```toml
 [apim.analytics]
 enable = true
 type = "ELK"
 
 [apim.monetization]
 monetization_impl = "org.wso2.apim.monetization.impl.StripeMonetizationImpl"
-analytics_host = <hostname-of-elk-node>
-analytics_port = <port-of-elk-node>
+analytics_host = <hostname-of-elastic-instance>
+analytics_port = <port-of-elastic-instance>
 analytics_username = <elastic-username>
 analytics_password = <elastic-password>
 ```
 
-Note that you will need to replace `<hostname-of-elk-node>`, `<port-of-elk-node>`, `<elastic-username>`, and `<elastic-password>` with the appropriate values for your Elasticsearch instance.
+Note that you will need to replace `<hostname-of-elastic-instance>`, `<port-of-elastic-instance>`, `<elastic-username>`, and `<elastic-password>` with the appropriate values for your Elasticsearch instance.

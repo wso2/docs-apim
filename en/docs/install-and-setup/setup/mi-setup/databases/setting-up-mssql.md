@@ -32,7 +32,7 @@ You can run the scripts on one database instance or set up separate instances fo
 	</tr>
 	<tr>
 		<td>mssql_cluster.sql</td>
-		<td>This script creates the database tables that are required for <a href='{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei#cluster-coordination'>cluster coordination</a> (i.e., coordinating the server nodes in your VM deployment).This is only applicable if you have stateful integration artifacts deployed in a clustered setup.
+		<td>This script creates the database tables that are required for <a href='{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei#cluster-coordination'>cluster coordination</a> (i.e., coordinating the server nodes in your VM deployment).This is only applicable if you have stateful integration artifacts deployed in a clustered setup.
 		</td>
 	</tr>
 	<tr>
@@ -65,45 +65,48 @@ server permissions.
 
 Open the `deployment.toml` file in the `<MI_HOME>/conf` directory and add the following sections to create the connection between the Micro Integrator and the relevant database. Note that you need separate configurations corresponding to the separate databases (`clusterdb`, `userdb`, and `transactiondb`).
 
-```toml tab='Cluster DB Connection'
-[[datasource]]
-id = "WSO2_COORDINATION_DB"
-url= "jdbc:sqlserver://<IP>:1433;databaseName=clusterdb;SendStringParametersAsUnicode=false"
-username="root"
-password="root"
-driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-pool_options.maxActive=50
-pool_options.maxWait = 60000
-pool_options.testOnBorrow = true
-```
+=== "Cluster DB Connection"
+	```toml
+	[[datasource]]
+	id = "WSO2_COORDINATION_DB"
+	url= "jdbc:sqlserver://<IP>:1433;databaseName=clusterdb;SendStringParametersAsUnicode=false"
+	username="root"
+	password="root"
+	driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+	pool_options.maxActive=50
+	pool_options.maxWait = 60000
+	pool_options.testOnBorrow = true
+	```
 
-```toml tab='User DB Connection'
-[[datasource]]
-id = "WSO2CarbonDB"
-url= "jdbc:sqlserver://<IP>:1433;databaseName=userdb;SendStringParametersAsUnicode=false"
-username="root"
-password="root"
-driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-pool_options.maxActive=50
-pool_options.maxWait = 60000
-pool_options.testOnBorrow = true
-```
+=== "User DB Connection"
+	```toml
+	[[datasource]]
+	id = "WSO2CarbonDB"
+	url= "jdbc:sqlserver://<IP>:1433;databaseName=userdb;SendStringParametersAsUnicode=false"
+	username="root"
+	password="root"
+	driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+	pool_options.maxActive=50
+	pool_options.maxWait = 60000
+	pool_options.testOnBorrow = true
+	```
 
-```toml tab='Transaction Counter DB Connection'
-[[datasource]]
-id = "WSO2_TRANSACTION_DB"
-url= "jdbc:sqlserver://<IP>:1433;databaseName=transactiondb;SendStringParametersAsUnicode=false"
-username="root"
-password="root"
-driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-pool_options.maxActive=50
-pool_options.maxWait = 60000
-pool_options.testOnBorrow = true
-[transaction_counter]
-enable = true
-data_source = "WSO2_TRANSACTION_DB"
-update_interval = 2
-```
+=== "Transaction Counter DB Connection"
+	```toml
+	[[datasource]]
+	id = "WSO2_TRANSACTION_DB"
+	url= "jdbc:sqlserver://<IP>:1433;databaseName=transactiondb;SendStringParametersAsUnicode=false"
+	username="root"
+	password="root"
+	driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+	pool_options.maxActive=50
+	pool_options.maxWait = 60000
+	pool_options.testOnBorrow = true
+	[transaction_counter]
+	enable = true
+	data_source = "WSO2_TRANSACTION_DB"
+	update_interval = 2
+	```
 
 {!includes/integration/pull-content-user-store-db-id.md!}
 

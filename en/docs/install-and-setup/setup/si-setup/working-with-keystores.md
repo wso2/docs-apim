@@ -184,8 +184,7 @@ Now we have a `.jks` file. This keystore (`.jks` file) can be used to generate a
 
 3. After accepting the request, a signed certificate is provided along with several intermediate certificates (depending on the CA) as a bundle (.zip file).
 
-    !!!info "The following is a sample certificate by the CA (Comodo)
-
+    !!!info "The following is a sample certificate by the CA (Comodo)"
         ```text
         The Root certificate of the CA: AddTrustExternalCARoot.crt
         Intermediate certificates:  COMODORSAAddTrustCA.crt , COMODORSADomainValidationSecureServerCA.crt

@@ -2259,7 +2259,7 @@ The following operations allow you to work with users in Twitter. To be authoriz
     ``` 
 
 ??? note "blockUser"
-    The twitter.blockUser method blocks a specified user. See the [related API documentation](https://developer.twitter.com/en/docs/twitter-api/users/blocks/api-reference/post-users-user_id-blocking) for more information.
+    The twitter.blockUser method blocks a specified user. 
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -2451,7 +2451,7 @@ The following operations allow you to work with users in Twitter. To be authoriz
     ``` 
 
 ??? note "unblockUser"
-    The twitter.unblockUser method unblocks a specified user. See the [related API documentation](https://developer.twitter.com/en/docs/twitter-api/users/blocks/api-reference/delete-users-user_id-blocking) for more information.
+    The twitter.unblockUser method unblocks a specified user.
     <table>
         <tr>
             <th>Parameter Name</th>

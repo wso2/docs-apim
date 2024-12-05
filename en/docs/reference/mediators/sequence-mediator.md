@@ -77,7 +77,7 @@ In this example, the following sequence named `         StoreSend        ` is sa
 </sequence>
 ```
 
-The Sequence mediator configuration can be as follows to invoke the `StoreSend` sequence after using a [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadFactory-Mediator) to transform the contents of the request.
+The Sequence mediator configuration can be as follows to invoke the `StoreSend` sequence after using a [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator/) to transform the contents of the request.
 
 ``` 
 <inSequence xmlns="http://ws.apache.org/ns/synapse">

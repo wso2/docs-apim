@@ -132,7 +132,7 @@ When registering a third-party Identity Provider as a Key Manager in the Admin P
 
 1. Sign in to the Admin Portal using the following URL: `https://<hostname>:9443/admin`
 
-      !!! tip
+    !!! tip
           For example, this URL can be `https://localhost:9443/admin` and you can use `admin` as the username and password to access the Admin Portal.
 
 2. Add a new Key Manager.
@@ -439,7 +439,7 @@ When registering a third-party Identity Provider as a Key Manager in the Admin P
 
 1. Sign in to the Developer Portal using the following URL: `https://<hostname>:9443/devportal`
 
-      !!! tip
+    !!! tip
           This can be `https://localhost:9443/devportal` and you can use “admin” as the username and password to access the Developer Portal.
 
 2. Click **Applications**.
@@ -461,4 +461,4 @@ When registering a third-party Identity Provider as a Key Manager in the Admin P
     !!! tip
         If you want to generate the tokens with scopes, make sure that those scopes are defined in the Authorization Server.
 
-6. You can now use the generated token to [invoke an API]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console).
+6. You can now use the generated token to [invoke an API]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/include-additional-headers-in-the-api-console/).

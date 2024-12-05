@@ -18,6 +18,9 @@ downloaded the archive, extract it. `<IS_HOME>` refers to the root folder of the
 It is assumed that you have already downloaded WSO2 API Manager.
 `<APIM_HOME>` refers to the root folder of the unzipped WSO2 API-M pack.
 
+!!! note
+    If you have a WSO2 subscription, it is recommended to update both APIM and IS to the latest available U2 versions to prevent any compatibility issues between the two products.
+
 ## Step 2 - Optionally, configure port offset for WSO2 IS
 
 !!! note
@@ -25,7 +28,7 @@ It is assumed that you have already downloaded WSO2 API Manager.
 
 Open the `<IS_HOME>/repository/conf/deployment.toml` file and change the offset to 1 by applying the following configuration as follows:
 
-``` yaml
+``` toml
 [server]
 offset = 1
 ```
@@ -59,23 +62,23 @@ Follow the instructions below to set up and configure the databases for the WSO2
 
      You need to define the following configuration in the `<IS_HOME>/repository/conf/deployment.toml` file. Sample configurations for MySQL have been provided.
   
-    ``` tab="Format"
-     
-     [database.shared_db]
-     type = "mysql"
-     url = "jdbc:mysql://<database-host>:3306/<WSO2_SHARED_DB>"
-     username = "<db_username>"
-     password = "<db_password>"
-    ```
+    === "Format"
+        ``` toml
+        [database.shared_db]
+        type = "mysql"
+        url = "jdbc:mysql://<database-host>:3306/<WSO2_SHARED_DB>"
+        username = "<db_username>"
+        password = "<db_password>"
+        ```
     
-    ``` tab="Example"
-    
-     [database.shared_db]
-     type = "mysql"
-     url = "jdbc:mysql://localhost:3306/shared_db"
-     username = "umadmin"
-     password = "umadmin"
-    ```
+    === "Example"
+        ``` toml
+        [database.shared_db]
+        type = "mysql"
+        url = "jdbc:mysql://localhost:3306/shared_db"
+        username = "umadmin"
+        password = "umadmin"
+        ```
 
 3. **If multi-tenancy is used**, you need to share the `WSO2AM_DB` with the Identity Server.
     
@@ -84,63 +87,67 @@ Follow the instructions below to set up and configure the databases for the WSO2
     !!! note
         **If you are using Identity Server in an HA setup and not using multi-tenancy**, create an identity database and share the `[database.identity_db]` db between the two IS nodes.
 
-    ``` tab="Format"
-     [database.identity_db]
-     type = "mysql"
-     url = "jdbc:mysql://<database-host>:3306/<WSO2AM_DB>?useSSL=false"
-     username = "wso2carbon"
-     password = "wso2carbon"
-    ```
+    === "Format"
+        ``` toml
+        [database.identity_db]
+        type = "mysql"
+        url = "jdbc:mysql://<database-host>:3306/<WSO2AM_DB>?useSSL=false"
+        username = "wso2carbon"
+        password = "wso2carbon"
+        ```
 
-    ``` tab="Example"
-     [database.identity_db]
-     type = "mysql"
-     url = "jdbc:mysql://localhost:3306/apim_db?useSSL=false"
-     username = "wso2carbon"
-     password = "wso2carbon"
-    ```
+    === "Example"
+        ``` toml
+        [database.identity_db]
+        type = "mysql"
+        url = "jdbc:mysql://localhost:3306/apim_db?useSSL=false"
+        username = "wso2carbon"
+        password = "wso2carbon"
+        ```
 
 4. Share `WSO2_SHARED_DB` with WSO2 API-M.
 
      Define the same datasource configurations that were mentioned in <a href="#step3-2">step 3.2</a> for `WSO2_SHARED_DB` in the `<APIM_HOME>/repository/conf/deployment.toml` file.
 
-     ``` tab="Format"
-     [database.shared_db]
-     type = "mysql"
-     url = "jdbc:mysql://<database-host>:3306/<WSO2_SHARED_DB>"
-     username = "<db_username>"
-     password = "<db_password>"
-     ```
+    === "Format"
+        ``` toml
+        [database.shared_db]
+        type = "mysql"
+        url = "jdbc:mysql://<database-host>:3306/<WSO2_SHARED_DB>"
+        username = "<db_username>"
+        password = "<db_password>"
+        ```
 
-     ``` tab="Example"
-     [database.shared_db]
-     type = "mysql"
-     url = "jdbc:mysql://localhost:3306/shared_db"
-     username = "umadmin"
-     password = "umadmin"
-     ```
+    === "Example"
+        ``` toml
+        [database.shared_db]
+        type = "mysql"
+        url = "jdbc:mysql://localhost:3306/shared_db"
+        username = "umadmin"
+        password = "umadmin"
+        ```
 
 5.  Share `WSO2AM-DB` with WSO2 API-M.
 
      Define the datasource configurations for `WSO2AM-DB` in the `<APIM_HOME>/repository/conf/deployment.toml` file. 
 
-     ``` tab="Format"
+    === "Format"
+        ``` toml
+        [database.apim_db]
+        type = "mysql"
+        url = "jdbc:mysql://<database-host>:3306/<WSO2AM_DB>"
+        username = "<db_username>"
+        password = "<db_password>"
+        ```
 
-     [database.apim_db]
-     type = "mysql"
-     url = "jdbc:mysql://<database-host>:3306/<WSO2AM_DB>"
-     username = "<db_username>"
-     password = "<db_password>"
-     ```
-
-     ``` tab="Example"
-
-     [database.apim_db]
-     type = "mysql"
-     url = "jdbc:mysql://localhost:3306/apim_db"
-     username = "amadmin"
-     password = "amadmin"
-     ```
+    === "Example"
+        ``` toml
+        [database.apim_db]
+        type = "mysql"
+        url = "jdbc:mysql://localhost:3306/apim_db"
+        username = "amadmin"
+        password = "amadmin"
+        ```
 
 ## Step 4 - Configure WSO2 IS with WSO2 API-M
 
@@ -157,7 +164,7 @@ Follow the instructions below to set up and configure the databases for the WSO2
 
      Add the following configuration in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
-    ```
+    ```toml
     [[event_listener]]
     id = "token_revocation"
     type = "org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
@@ -219,26 +226,26 @@ Follow the instructions below to set up and configure the databases for the WSO2
 
 5. Configure the event listener endpoint to publish controller events to the Control Plane.
 
-    ``` tab="Format"
+    === "Format"
+        ``` toml
+        [event_listener.properties]
+        notification_endpoint = "https://<control-plane-host>:<control-plane-https-port>/internal/data/v1/notify"
+        username = "${admin.username}"
+        password = "${admin.password}"
+        'header.X-WSO2-KEY-MANAGER' = "WSO2-IS"
+        ```
 
-    [event_listener.properties]
-    notification_endpoint = "https://<control-plane-host>:<control-plane-https-port>/internal/data/v1/notify"
-    username = "${admin.username}"
-    password = "${admin.password}"
-    'header.X-WSO2-KEY-MANAGER' = "WSO2-IS"
-    ```
-
-    ``` tab="Example"
-
-    [event_listener.properties]
-    notification_endpoint = "https://<cp.wso2.com>:9443/internal/data/v1/notify"
-    username = "${admin.username}"
-    password = "${admin.password}"
-    'header.X-WSO2-KEY-MANAGER' = "WSO2-IS"
-    ```
+    === "Example"
+        ``` toml
+        [event_listener.properties]
+        notification_endpoint = "https://<cp.wso2.com>:9443/internal/data/v1/notify"
+        username = "${admin.username}"
+        password = "${admin.password}"
+        'header.X-WSO2-KEY-MANAGER' = "WSO2-IS"
+        ```
 
 6. Add the following configuration in the `<IS_HOME>/repository/conf/deployment.toml` file to change the default encryption type and remove the `keystore.primary` configuration.
-    ```
+    ```toml
     [keystore]
     userstore_password_encryption = "InternalKeyStore"
     
@@ -252,21 +259,29 @@ Follow the instructions below to set up and configure the databases for the WSO2
 
 8. If you are using the existing keystore and truststore (with self signed certificate) shipped by default with the product distributions, replace the keystore in `<IS_HOME>/repository/resources/security/wso2carbon.jks` and trustore in `<IS_HOME>/repository/resources/security/client-truststore.jks` with the ``<APIM_HOME>/repository/resources/security/wso2carbon.jks` and  `<APIM_HOME>/repository/resources/security/client-truststore.jks` respectively. Make sure to follow this step before starting either of the servers for the first time. (Please note that in a production environment, it is not recommended to use the default keystores. Instead, it is recommended to [create new keystores]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/) with new keys and certificates.)
 
+9. Add the below configuration in the `<IS_HOME>/repository/conf/deployment.toml` file to disable group and role separation in WSO2 Identity Server.
+    ``` toml
+    [authorization_manager.properties]
+    GroupAndRoleSeparationEnabled = false
+    ```
+   
+    !!! Note
+        This configuration is required to disable group and role separation in the WSO2 Identity Server since this is enabled by default. 
+
 ## Step 5 - Configure WSO2 API-M with the WSO2 IS
 
 1. By default, WSO2 API Manager and WSO2 Identity Server come with a JDBC User Store as the primary userstore. If you wish to use any other type of user store (e.g., LDAP, Active Directory, etc.) in WSO2 IS, it has to be configured in the API Manager nodes. For more information, see [Configuring the Primary User Store]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store/) and apply the relevant configs to plug in a new user store.
   
     Add below configuration in `<APIM_HOME>/repository/conf/deployment.toml`
   
-    ```java
-       [apim.key_manager]
-       service_url = "https://localhost:9444/services/"
-       type = "WSO2-IS"
-     
+    ``` toml
+   [apim.key_manager]
+   service_url = "https://localhost:9444/services/"
+   type = "WSO2-IS"
     ```
    
 2. The token exchange grant type is enabled by default in WSO2 API-M 4.1.0 onwards. But the corresponding grant type is currently not supported by the WSO2 Identity Server. You need to modify the `[oauth.grant_type.token_exchange]` config in the `<APIM_HOME>/repository/conf/deployment.toml` file as follows.
-    ```
+    ```toml
     [oauth.grant_type.token_exchange]
     enable = false
     allow_refresh_tokens = true
@@ -308,6 +323,14 @@ Start WSO2 Identity Server for the changes to take effect. For more information,
         The reason for this is that the default certificates that come with the WSO2 servers are created for `localhost`. Therefore, when WSO2 API Manager boots up, it makes an HTTP call to a webapp that is in the Key Manager (throttle data at `KM_URL/internal/data/v1/keyTemplates`). Thereafter, WSO2 API Manager decides the URL of the Key Manager based on the URL that is configured in the `deployment.toml`, which is `localhost`.
 
         To overcome this issue, you need to create self-signed certificates for WSO2 API-M and WSO2 IS hostnames. Then [import the public certificates]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-3-importing-certificates-to-the-truststore) of WSO2 API-M to the `trust-store.jks` of WSO2 IS and vice versa. This should resolve the SSL handshake failure.
+
+    !!! Note
+        In a IS as KM separated environment to invoke RESTful APIs (product APIs), users must generate tokens through API-M Control Plane's token endpoint.
+        The tokens generated using third party key managers, are to manage end-user authentication when accessing APIs.
+
+    !!! Important
+
+        When WSO2 Identity Server (IS) is configured as the resident key manager, the IS acts as the default key manager component. This key manager component authenticates users when they are using OAuth2 authentication and not basic authentication. Hence for users who exist in a secondary user store within the key manager component, basic authentication will not work. Therefore if basic authentication should be used, the user needs to be added to the Control Plane (CP) component of the APIM server for authentication.
 
 Follow the instructions below to configure the other WSO2 API-M components, namely the Publisher, Developer Portal, Traffic Manager, and Gateway:
 

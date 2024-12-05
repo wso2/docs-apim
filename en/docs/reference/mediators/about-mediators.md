@@ -21,13 +21,13 @@ Mediators are classified as follows based on whether or not they access the mess
   <tr>
     <td><b>Content-Aware</b> mediators</td>
     <td>
-      These mediators always access the message content when mediating messages (e.g., <a href="..{{base_path}}/reference/mediators/enrich-Mediator">Enrich</a> mediator).
+      These mediators always access the message content when mediating messages (e.g., <a href="{{base_path}}/reference/mediators/enrich-Mediator">Enrich</a> mediator).
     </td>
   </tr>
   <tr>
     <td><b>Content-Unaware</b> mediators</td>
     <td>
-      These mediators never access the message content when mediating messages (e.g., <a href="..{{base_path}}/reference/mediators/send-Mediator">Send</a> mediator).
+      These mediators never access the message content when mediating messages (e.g., <a href="{{base_path}}/reference/mediators/send-Mediator">Send</a> mediator).
     </td>
   </tr>
   <tr>
@@ -52,7 +52,7 @@ WSO2 Micro Integrator includes a comprehensive library of mediators that provide
 
 **Transform Mediators**
 
-[XSLT]({{base_path}}/reference/mediators/xslt-mediator) | [FastXSLT]({{base_path}}/reference/mediators/fastxslt-mediator) | [URLRewrite]({{base_path}}/reference/mediators/urlrewrite-mediator) | [XQuery]({{base_path}}/reference/mediators/xquery-mediator) | [Header]({{base_path}}/reference/mediators/header-mediator) | [Fault]({{base_path}}/reference/mediators/fault-mediator) | [PayloadFactory]({{base_path}}/reference/mediators/payloadfactory-mediator) | [JSONTransform](json-transform-mediator) |
+[XSLT]({{base_path}}/reference/mediators/xslt-mediator) | [FastXSLT]({{base_path}}/reference/mediators/fastxslt-mediator) | [URLRewrite]({{base_path}}/reference/mediators/urlrewrite-mediator) | [XQuery]({{base_path}}/reference/mediators/xquery-mediator) | [Header]({{base_path}}/reference/mediators/header-mediator) | [Fault]({{base_path}}/reference/mediators/fault-mediator) | [PayloadFactory]({{base_path}}/reference/mediators/payloadfactory-mediator) | [JSONTransform]({{base_path}}/reference/mediators/json-transform-mediator) |
 
 **Advanced Mediators**
 

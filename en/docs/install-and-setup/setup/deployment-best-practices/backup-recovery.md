@@ -21,4 +21,4 @@ We also recommend the following:
 The following steps include how to recover your setup using the backups:
 
 1. Recover the hot-deployment artifacts by replacing the MI_HOME/repository directory with the backed up copy.
-2. To recover the databases, follow the recovery strategy recommended by the databases you are using. For information on supported and tested databases, see [Tested Database Management Systems](https://docs.wso2.com/display/compatibility/Tested+DBMSs).
+2. To recover the databases, follow the recovery strategy recommended by the databases you are using. For information on supported and tested databases, see [Tested Database Management Systems](https://wso2docs.atlassian.net/wiki/spaces/compatibility/pages/20578309/Tested+DBMSs ).

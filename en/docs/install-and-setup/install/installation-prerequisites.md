@@ -93,36 +93,40 @@ Three WSO2 product instances can be run in 1 EC2 Extra-Large instance. Based on 
 </tr>
   <tr>
     <td>
-      <b>Docker</b>
+      <b>Centralized (ESB Style) Deployment</b>
     </td>
     <td>
       <ul>
         <li>
-          <code>~512</code> MB heap size for one Micro Integrator instance. This is generally sufficient for processing typical SOAP messages. However, the requirements vary with larger message sizes and the number of messages processed concurrently.
+          Minimum 2 core (compute units) (1.0-1.2 GHz Opteron/Xeon processor).
         </li>
         <li>
-          1 GB memory for a Docker container.
+          2 GB RAM.
         </li>
         <li>
-          Minimum 0.5 core per Micro Integrator Docker instance.
+          <code>~512</code> MB heap size. This is generally sufficient for processing smaller messages. However, the requirements vary with larger message sizes and the number of messages processed concurrently.
         </li>
       </ul>
     </td>
   </tr>
   <tr>
     <td>
-      <b>Virtual Machine (VM)/Physical</b>
+      <b>Decentralized (Microservices Style) Deployment</b>
     </td>
     <td>
       <ul>
-        <li>
-          Minimum 0.5 core (1.0-1.2 GHz Opteron/Xeon processor).
+      <li>
+          Minimum 0.5 core (compute units) per Micro Integrator instance.
+          <div class="admonition note">
+          <p class="admonition-title">Note</p>
+          <p>Micro Integrator can run on a minimum of 0.5 cores per instance, suitable for lightweight integrations. For more complex integrations, it is recommended to allocate a minimum of 2 cores per instance.</p>
+          </div>  
         </li>
         <li>
-          1 GB RAM for JVM.
+          1 GB memory for the container/pod.
         </li>
         <li>
-          <code>~512</code> MB heap size. This is generally sufficient for processing typical SOAP messages. However, the requirements vary with larger message sizes and the number of messages processed concurrently.
+          <code>~512</code> MB heap size for one Micro Integrator instance. This is generally sufficient for processing smaller messages. However, the requirements vary with larger message sizes and the number of messages processed concurrently.
         </li>
       </ul>
     </td>

@@ -258,7 +258,7 @@ To deploy the API Manager runtime, see the topics given below.
     </tr>
     <tr>
         <th>
-            <a href="{{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-wso2am-operator">Deploy API-M on Kubernetes using the Operator</a>
+            <a href="{{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/configuration-overview">Deploy API-M on Kubernetes using the Operator</a>
         </th>
         <td>
             Explains how the WSO2 API Manager Kubernetes operator deploys the API Manager component in Kubernetes.
@@ -385,50 +385,52 @@ See the topics given below to manage APIs, API products, Apps, etc. in the API-M
 
 ### Upgrading
 
-To upgrade to the current API Manager component from a previous version, see the topics given below.
+To upgrade to the current API Manager component from a previous version, refer the [upgrading WSO2 API Manager]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager) page  .
 
+<!---
 <table>
     <tr>
         <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-320-to-400">Upgrading from WSO2 API-M 3.2.0 to WSO2 API-M 4.0.0</a>
+            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager">Upgrading from WSO2 API-M 3.2.0 to WSO2 API-M 4.0.0</a>
         </td>
     </tr>
     <tr>
         <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-310-to-400">Upgrading from WSO2 API-M 3.1.0 to WSO2 API-M 4.0.0</a>
+            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager">Upgrading from WSO2 API-M 3.1.0 to WSO2 API-M 4.0.0</a>
         </td>
     </tr>
     <tr>
         <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-400">Upgrading from WSO2 API-M 3.0.0 to WSO2 API-M 4.0.0</a>
+            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager">Upgrading from WSO2 API-M 3.0.0 to WSO2 API-M 4.0.0</a>
         </td>
     </tr>
     <tr>
         <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-400">Upgrading from WSO2 API-M 2.6.0 to WSO2 API-M 4.0.0</a>
+            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager">Upgrading from WSO2 API-M 2.6.0 to WSO2 API-M 4.0.0</a>
         </td>
     </tr>
     <tr>
         <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-400">Upgrading from WSO2 API-M 2.5.0 to WSO2 API-M 4.0.0</a>
+            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager">Upgrading from WSO2 API-M 2.5.0 to WSO2 API-M 4.0.0</a>
         </td>
     </tr>
     <tr>
         <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-220-to-400">Upgrading from WSO2 API-M 2.2.0 to WSO2 API-M 4.0.0</a>
+            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager">Upgrading from WSO2 API-M 2.2.0 to WSO2 API-M 4.0.0</a>
         </td>
     </tr>
     <tr>
         <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-210-to-400">Upgrading from WSO2 API-M 2.1.0 to WSO2 API-M 4.0.0</a>
+            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager">Upgrading from WSO2 API-M 2.1.0 to WSO2 API-M 4.0.0</a>
         </td>
     </tr>
     <tr>
         <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-200-to-400">Upgrading from WSO2 API-M 2.0.0 to WSO2 API-M 4.0.0</a>
+            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager">Upgrading from WSO2 API-M 2.0.0 to WSO2 API-M 4.0.0</a>
         </td>
     </tr>
-</table>
+#</table>
+-->
 
 ## Micro Integrator
 
@@ -510,7 +512,7 @@ To set up and configure the Micro Integrator runtime, see the topics given below
                 <a href="{{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore">Configuring a User Store</a>
             </li>
             <li>
-                <a href="{{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-MySQL">Setting up a MySQL Database</a>
+                <a href="{{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-mysql">Setting up a MySQL Database</a>
             </li>
             <li>
                 <a href="{{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-MSSQL">Setting up a MSSQL Database</a>
@@ -519,7 +521,7 @@ To set up and configure the Micro Integrator runtime, see the topics given below
                 <a href="{{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-Oracle">Setting up a Oracle Database</a>
             </li>
             <li>
-                <a href="{{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-PostgreSQL">Setting up a Postgre SQL Database</a>
+                <a href="{{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-postgresql">Setting up a Postgre SQL Database</a>
             </li>
             <li>
                 <a href="{{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-IBM-DB2">Setting up a IBM Database</a>
@@ -577,7 +579,7 @@ To set up and configure the Micro Integrator runtime, see the topics given below
                 <a href="{{base_path}}/install-and-setup/setup/mi-setup/security/securing_management_api">Securing the Management API</a>
             </li>
             <li>
-                <a href="{{base_path}}/install-and-setup/setup/mi-setup/customizing_error_pages">Customizing Error Messages</a>
+                <a href="{{base_path}}/troubleshooting/error-handling/#custom-error-message">Customizing Error Messages</a>
             </li>                                                           
         </ul>
     </td>
@@ -598,7 +600,7 @@ To set up and configure the Micro Integrator runtime, see the topics given below
             <a href="{{base_path}}/install-and-setup/setup/mi-setup/performance_tuning/jdbc_tuning">Tuning JDBC Configurations</a>
         </li>
         <li>
-            <a href="{{base_path}}/install-and-setup/setup/mi-setup/performance_tuning/http_transport_tuninge">Tuning the HTTP Transport</a>
+            <a href="{{base_path}}/install-and-setup/setup/mi-setup/performance_tuning/http_transport_tuning">Tuning the HTTP Transport</a>
         </li>
         <li>
             <a href="{{base_path}}/install-and-setup/setup/mi-setup/performance_tuning/jms_transport_tuning">Tuning the JMS Transport</a>
@@ -624,10 +626,10 @@ To set up and configure the Micro Integrator runtime, see the topics given below
             <a>AMQP (RabbitMQ)</a>
         </li>
             <li>
-                <a href="{{base_path}}/install-and-setup/setup/mi-setup/brokers/deploy-rabbitMQ">Deploying RabbitMQ</a>
+                <a href="{{base_path}}/install-and-setup/setup/mi-setup/brokers/deploy-rabbitmq">Deploying RabbitMQ</a>
             </li>
             <li>
-                <a href="{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-rabbitMQ">Connecting to RabbitMQ</a>
+                <a href="{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-rabbitmq">Connecting to RabbitMQ</a>
             </li>                
         <li>
             <a>JMS</a>
@@ -788,7 +790,7 @@ To implement continuous integration and continuous deployment pipelines for inte
 <table>
     <tr>
         <th>
-            <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/mi-cicd-overview">CI/CD for Integrations - Overview</a>
+            <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/integration-cicd-overview">CI/CD for Integrations - Overview</a>
         </th>
         <td>
             Find out about the methods of implementing CI/CD for integrations in the Micro Integrator.
@@ -840,47 +842,47 @@ The Micro integrator of WSO2 Enterprise Integrator is the predecessor of the Mic
 <table>
     <tr>
         <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-7.1.x">Upgrading from WSO2 EI 7.1.x to WSO2 API-M 4.0.0</a>
+            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/#get-started">Upgrading from WSO2 EI 7.1.x to WSO2 API-M 4.0.0</a>
         </td>
     </tr>
     <tr>
         <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-7.0.x">Upgrading from WSO2 EI 7.0.x to WSO2 API-M 4.0.0</a>
+             <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/#get-started">Upgrading from WSO2 EI 7.0.x to WSO2 API-M 4.0.0</a>
         </td>
     </tr>
     <tr>
         <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.6.x">Upgrading from WSO2 EI 6.6.x to WSO2 API-M 4.0.0</a>
+            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/#get-started">Upgrading from WSO2 EI 6.6.x to WSO2 API-M 4.0.0</a>
         </td>
     </tr>
     <tr>
         <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.5.x">Migrating from WSO2 EI 6.5.x to WSO2 API-M 4.0.0</a>
+            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/#get-started">Migrating from WSO2 EI 6.5.x to WSO2 API-M 4.0.0</a>
         </td>
     </tr>
     <tr>
         <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.4.x">Migrating from WSO2 EI 6.4.x to WSO2 API-M 4.0.0</a>
+            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/#get-started">Migrating from WSO2 EI 6.4.x to WSO2 API-M 4.0.0</a>
         </td>
     </tr>
     <tr>
         <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.3.x">Migrating from WSO2 EI 6.3.x to WSO2 API-M 4.0.0</a>
+            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/#get-started">Migrating from WSO2 EI 6.3.x to WSO2 API-M 4.0.0</a>
         </td>
     </tr>
     <tr>
         <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.2.x">Migrating from WSO2 EI 6.2.x to WSO2 API-M 4.0.0</a>
+            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/#get-started">Migrating from WSO2 EI 6.2.x to WSO2 API-M 4.0.0</a>
         </td>
     </tr>
     <tr>
         <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.1.1">Migrating from WSO2 EI 6.1.1 to WSO2 API-M 4.0.0</a>
+            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/#get-started">Migrating from WSO2 EI 6.1.1 to WSO2 API-M 4.0.0</a>
         </td>
     </tr>
     <tr>
         <td>
-            <a href="{{base_path}}/install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.1.0">Migrating from WSO2 EI 6.1.0 to WSO2 API-M 4.0.0</a>
+            <a href="{{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/#get-started">Migrating from WSO2 EI 6.1.0 to WSO2 API-M 4.0.0</a>
         </td>
     </tr>
 </table>
@@ -920,7 +922,7 @@ To install and run the Streaming Integrator, see the following topics.
     </tr>
     <tr>
         <th>
-            <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-si-as-a-windows-service">Running the Streaming Integrator as a Windows Service</a>
+            <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-si-as-windows-service">Running the Streaming Integrator as a Windows Service</a>
         </th>
         <td>
             Explains how to install and run the Streaming Integrator as a Windows service.

@@ -40,33 +40,36 @@ Following are the integration artifacts that we can used to implement this scena
     
 -   Mediation sequences:
 
-    ```xml tab='Fault Sequence'
-    <sequence xmlns="http://ws.apache.org/ns/synapse" name="fault">
-        <log level="custom">
-            <property name="text" value="An unexpected error occured"/>
-            <property name="message" expression="get-property('ERROR_MESSAGE')"/>
-        </log>
-        <drop/>
-    </sequence>
-    ```
+    === "Fault Sequence"
+        ```xml
+        <sequence xmlns="http://ws.apache.org/ns/synapse" name="fault">
+            <log level="custom">
+                <property name="text" value="An unexpected error occured"/>
+                <property name="message" expression="get-property('ERROR_MESSAGE')"/>
+            </log>
+            <drop/>
+        </sequence>
+        ```
 
-    ```xml tab='Error Handling Sequence with Logs'
-    <sequence xmlns="http://ws.apache.org/ns/synapse" name="sunErrorHandler">
-        <log level="custom">
-            <property name="text" value="An unexpected error occured for stock SUN"/>
-            <property name="message" expression="get-property('ERROR_MESSAGE')"/>
-        </log>
-        <drop/>
-    </sequence>
-    ```
+    === "Error Handling Sequence with Logs"
+        ```xml
+        <sequence xmlns="http://ws.apache.org/ns/synapse" name="sunErrorHandler">
+            <log level="custom">
+                <property name="text" value="An unexpected error occured for stock SUN"/>
+                <property name="message" expression="get-property('ERROR_MESSAGE')"/>
+            </log>
+            <drop/>
+        </sequence>
+        ```
 
-    ```xml tab='Error Handling Sequence'
-    <sequence xmlns="http://ws.apache.org/ns/synapse" name="sunSequence" onError="sunErrorHandler">
-        <send>
-            <endpoint key="sunPort"/>
-        </send>
-    </sequence>
-    ```
+    === "Error Handling Sequence"
+        ```xml
+        <sequence xmlns="http://ws.apache.org/ns/synapse" name="sunSequence" onError="sunErrorHandler">
+            <send>
+                <endpoint key="sunPort"/>
+            </send>
+        </sequence>
+        ```
 
 Note how the `ERROR_MESSAGE` property is being used to get the error message text. Within the fault sequence, you can access these property values using
 the `get-property` XPath function. The following log mediator logs the actual error message:
@@ -126,13 +129,15 @@ Set up the back-end service:
 3. Open a terminal, navigate to the `axis2Server/bin/` directory inside the extracted folder.
 4. Execute the following command to start the axis2server with the SimpleStockQuote back-end service:
    
-      ```bash tab='On MacOS/Linux/CentOS'
-      sh axis2server.sh
-      ```
+    === "On MacOS/Linux/CentOS"
+        ```bash
+        sh axis2server.sh
+        ```
           
-      ```bash tab='On Windows'
-      axis2server.bat
-      ```
+    === "On Windows"
+        ```bash
+        axis2server.bat
+        ```
 
 Send a request to invoke the proxy service:
 ```xml

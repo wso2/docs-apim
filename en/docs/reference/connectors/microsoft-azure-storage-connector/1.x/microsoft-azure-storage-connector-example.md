@@ -24,7 +24,7 @@ All seven operations are exposed via an API. The API with the context `/resource
 * `/deletecontainer` : Remove created container in the Microsoft Azure Storage account.
 * `/listmetadata` : Retrieve the metadata from a file (blob) stored in the Microsoft Azure Storage container.
 
-For more information about these operations, please refer to the [Microsoft Azure Storage connector reference guide]({{base_path}}/reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-reference/).
+For more information about these operations, please refer to the [Microsoft Azure Storage connector reference guide]({{base_path}}/reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-reference).
 
 > **Note**: Before invoking the API, you need to create a **Storage Account** in **Microsoft Azure Storage account**. See [Azure Storage Configuration]({{base_path}}/reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-configuration/) documentation for more information.
 

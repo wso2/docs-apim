@@ -34,17 +34,20 @@ To add a new certificate to a Choreo Connect component, the PEM formatted certif
 
 2.  Add the certificate to the relevant component's resource folder.
 
-    ``` tab="adapter"
-    <CHOREO-CONNECT_HOME>/docker-compose/resources/adapter/security/truststore
-    ```
+    === "adapter"
+        ```
+        <CHOREO-CONNECT_HOME>/docker-compose/resources/adapter/security/truststore
+        ```
 
-    ``` tab="enforcer"
-    <CHOREO-CONNECT_HOME>/docker-compose/resources/enforcer/security/truststore
-    ```
+    === "enforcer"
+        ```
+        <CHOREO-CONNECT_HOME>/docker-compose/resources/enforcer/security/truststore
+        ```
 
-    ``` tab="router"
-    <CHOREO-CONNECT_HOME>/docker-compose/resources/router/security/truststore
-    ```
+    === "router"
+        ```
+        <CHOREO-CONNECT_HOME>/docker-compose/resources/router/security/truststore
+        ```
         
 3.  Restart the component.
    
@@ -55,20 +58,23 @@ To add a new certificate to a Choreo Connect component, the PEM formatted certif
 
     The certificate locations are configured as a volume mount for each component container in the `docker-compose.yaml` file as given below.
 
-    ``` tab="adapter"
-    volumes:
-            - ../resources/adapter/security:/home/wso2/security
-    ```
+    === "adapter"
+        ```yaml
+        volumes:
+                - ../resources/adapter/security:/home/wso2/security
+        ```
 
-    ``` tab="enforcer"
-    volumes:
-            - ../resources/enforcer/security:/home/wso2/security
-    ```
+    === "enforcer"
+        ```yaml
+        volumes:
+                - ../resources/enforcer/security:/home/wso2/security
+        ```
 
-    ``` tab="router"
-    volumes:
-            - ../resources/router/security:/home/wso2/security
-    ```
+    === "router"
+        ```yaml
+        volumes:
+                - ../resources/router/security:/home/wso2/security
+        ```
 
     This mounts both the key store and truststore locations to the container.
 
@@ -76,6 +82,10 @@ To add a new certificate to a Choreo Connect component, the PEM formatted certif
 ## Changing the private certificate of a component
 
 Follow the instructions below to change the private certificate of a component:
+
+!!! info
+
+    When generating certificates, it's important to ensure that the extendedKeyUsage includes serverAuth and clientAuth. Failure to do so may result in connectivity issues between choreo-connect components.
 
 1. Generate a new key pair for the component.
    

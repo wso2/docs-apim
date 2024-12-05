@@ -42,38 +42,40 @@ The syntax of the DB Report mediator changes depending on whether you connect to
 -   **Data source**
     The syntax of the DBLookup mediator further differs based on whether the connection to the database is made using an external datasource or a Carbon datasource. Click on the relevant tab to view the required syntax.
 
-    ``` java tab='External Datasource'
-    <dbreport>
-       <connection>
-          <pool>
-            <dsName/>
-            <icClass/>
-            <url/>
-            <user/>
-            <password/>
-            <property name="name" value="value"/>*
-          </pool>
-       </connection>
-       <statement>
-          <sql>select something from table where something_else = ?</sql>
-          <parameter [value="" | expression=""] type="CHAR|VARCHAR|LONGVARCHAR|NUMERIC|DECIMAL|BIT|TINYINT|SMALLINT|INTEGER|BIGINT|REAL|FLOAT|DOUBLE|DATE|TIME|TIMESTAMP"/>*
-       </statement>+
-    </dbreport>
-    ```
+    === "External Datasource"
+        ``` java
+        <dbreport>
+        <connection>
+            <pool>
+                <dsName/>
+                <icClass/>
+                <url/>
+                <user/>
+                <password/>
+                <property name="name" value="value"/>*
+            </pool>
+        </connection>
+        <statement>
+            <sql>select something from table where something_else = ?</sql>
+            <parameter [value="" | expression=""] type="CHAR|VARCHAR|LONGVARCHAR|NUMERIC|DECIMAL|BIT|TINYINT|SMALLINT|INTEGER|BIGINT|REAL|FLOAT|DOUBLE|DATE|TIME|TIMESTAMP"/>*
+        </statement>+
+        </dbreport>
+        ```
 
-    ``` java tab='Carbon Datasource'
-    <dbreport>
-       <connection>
-          <pool>
-            <dsName/>
-          </pool>
-       </connection>
-       <statement>
-          <sql>select something from table where something_else = ?</sql>
-          <parameter [value="" | expression=""] type="CHAR|VARCHAR|LONGVARCHAR|NUMERIC|DECIMAL|BIT|TINYINT|SMALLINT|INTEGER|BIGINT|REAL|FLOAT|DOUBLE|DATE|TIME|TIMESTAMP"/>*
-       </statement>+
-    </dbreport>
-    ```
+    === "Carbon Datasource"
+        ``` java
+        <dbreport>
+        <connection>
+            <pool>
+                <dsName/>
+            </pool>
+        </connection>
+        <statement>
+            <sql>select something from table where something_else = ?</sql>
+            <parameter [value="" | expression=""] type="CHAR|VARCHAR|LONGVARCHAR|NUMERIC|DECIMAL|BIT|TINYINT|SMALLINT|INTEGER|BIGINT|REAL|FLOAT|DOUBLE|DATE|TIME|TIMESTAMP"/>*
+        </statement>+
+        </dbreport>
+        ```
 
 ## Configurations
 
@@ -86,7 +88,7 @@ The parameters available to configure the DB Report mediator are as follows.
 
 !!! Info
     When specifying the DB connection using a connection pool, other than specifying parameter values inline, you can also specify following parameter values of the connection information (i.e. Driver, URL, User and password) as registry entries. The advantage of specifying a parameter value as a registry entry is that the same connection information configurations can be used in different environments simply by changing the registry entry value. To do this, give the registry path within the `key` attribute as shown in the example below.
-    ```
+    ```xml
     <dblookup xmlns="http://ws.apache.org/ns/synapse">
     <connection>
         <pool>
@@ -97,7 +99,7 @@ The parameters available to configure the DB Report mediator are as follows.
         </pool>
     </connection>
     </dblookup>
-  ```
+    ```
 
 <table>
 <thead>

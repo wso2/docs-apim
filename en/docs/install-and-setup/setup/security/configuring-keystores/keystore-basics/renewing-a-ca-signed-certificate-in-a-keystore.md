@@ -77,7 +77,7 @@ Depending on the type of keystore you have, follow one of the steps below to gen
     ```
 
 Once you generate the CSR, you need to submit the CSR to your certificate authority to get a new CA-signed certificate.
-For testing purposes you can go to <http://www.getacert.com/signacert.html> and submit your CSR to obtain a new CA-signed certificate for free.
+For testing purposes you can go to <https://getacert.com/selfsignedcert.html> and submit your CSR to obtain a new CA-signed certificate for free.
 
 After you obtain a new certificate, you have to import the new certificate to a keystore if you are using a java keystore.
 

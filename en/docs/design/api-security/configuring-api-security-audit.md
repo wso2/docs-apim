@@ -8,7 +8,7 @@ WSO2 API-M has partnered with [42Crunch](https://42crunch.com/), the only enterp
 
 ### Step 1.1 - Obtain API token and collection ID
 
-Follow the instructions below to obtain the API token and collection ID from 42Crunch:
+Follow the instructions below to obtain the API token and collection ID from 42Crunch.
 
 1. Navigate to the [42Crunch platform](https://platform.42crunch.com) and register or sign in.
 
@@ -16,34 +16,32 @@ Follow the instructions below to obtain the API token and collection ID from 42C
 
      [![API token settings menu]({{base_path}}/assets/img/learn/api-token-settings-menu.png)]({{base_path}}/assets/img/learn/api-token-settings-menu.png)
 
-3. Click **API Tokens** and click **Create New Token**.
+3. Click **API Tokens** and click **Create new token**.
 
      [![API token create button]({{base_path}}/assets/img/learn/api-token-create-button.png)]({{base_path}}/assets/img/learn/api-token-create-button.png)
 
-4. Upgrade the account to access the **API token** type
+4. You might have to upgrade the account to access the **API token** type if it is not available.
 
-     [![API token create modal]({{base_path}}/assets/img/learn/api-token-create-modal.png)]({{base_path}}/assets/img/learn/api-token-create-modal.png)
-
-6. Enter a name for the token and select **API Contract Security Audit** as the token access right. 
+5. When working with API Audit, you only need to select the **API Security Audit** permission.
 
      When working with API Audit, you only need to select the **API Contract Security Audit** permission.
 
      [![API token dialog box]({{base_path}}/assets/img/learn/api-token-dialog-box.png)]({{base_path}}/assets/img/learn/api-token-dialog-box.png)
 
-7. Click **Generate Token**.
+6. Click **Generate Token**.
 
     !!! note 
         The generated API Token can be viewed only once. Make sure to copy it and save it in a safe place for future reference.
 
      [![API token copy generated]({{base_path}}/assets/img/learn/api-token-copy-generated.png)]({{base_path}}/assets/img/learn/api-token-copy-generated.png)
 
-8. Click either **API Collections** in the left navigation bar or click **+ New Collection** at the bottom of the left navigation to create a collection.
+7. Click either **API Collections** in the left navigation bar or click **+ New Collection** at the bottom of the left navigation to create a collection.
 
      A Collection in this context is a folder hosted on 42Crunch containing all the APIs that are to be audited.
 
      [![create new collection]({{base_path}}/assets/img/learn/collection-create-new.png)]({{base_path}}/assets/img/learn/collection-create-new.png)
 
-9. Copy the Collection ID from the URL of the browser as highlighted below and save it in a safe place for reference.
+8. Copy the Collection ID from the URL of the browser as highlighted below and save it in a safe place for reference.
 
      [![copy collection id]({{base_path}}/assets/img/learn/collection-copy-id.png)]({{base_path}}/assets/img/learn/collection-copy-id.png)
 
@@ -53,55 +51,61 @@ You need to add the API Token and Collection ID properties inside the configurat
 
 #### Enable Audit API for all tenants
 
-1.  Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file. 
+1. Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file. 
 
-2.  Add the following configuration to the file and save the changes.
+2. Add the following configuration to the file and save the changes.
 
-     ``` bash tab="Format"
+    === "Format"
+        ``` toml
         [security_audit]
         api_token="{api-token}"
         collection_id="{collection-id}"
         global=true
-     ```
+        base_url="{base_url_of_the_platform}"
+        ```
 
-     ``` bash tab="Example"
+    === "Example"
+        ``` toml
         [security_audit]
         api_token="c21404ea-p13x-1swq-013a-pur90605uiwl"
         collection_id="a5213vyo-6tre-560u-p04h-p0inb98i0gt1"
         global=true
-     ```
+        base_url="https://platform.42crunch.com/api/v1/apis"
+        ```
 
     !!! tip
         Set the **global** property to **false** to disable the feature for all other tenants except the super tenant.
 
-3.  Restart the WSO2 API Manager server.
+3. Restart the WSO2 API Manager server.
 
 #### Enable Audit API for a single tenant
 
 !!! tip
-    For more information on creating a tenant, see [Managing Tenants]({{base_path}}/administer/product-administration/multitenancy/introduction-to-multitenancy/).
+    For more information on creating a tenant, see [Managing Tenants]({{base_path}}/administer/multitenancy/introduction-to-multitenancy/).
 
-1.  Navigate to the Admin Console [https://localhost:9443/admin](https://localhost:9443/admin) and sign in with your tenant credentials.
+1.  Navigate to the Admin Console `https://localhost:9443/admin` and sign in with your tenant credentials.
 
 2.  Go to **Settings > Advanced**.
 
 3.  Add the following configuration to the JSON file and save it.
 
-    ``` bash tab="Format"
+    === "Format"
+        ``` bash
         SecurityAuditConfig: {
             "apiToken": "{api-token}",
             "collectionId": "{collection-id}",
             "overrideGlobal": true
         }
-    ```
+        ```
 
-    ``` bash tab="Example"
+    === "Example"
+        ``` bash
         SecurityAuditConfig: {
             "apiToken": "c21404ea-p13x-1swq-013a-pur90605uiwl",
             "collectionId": "a5213vyo-6tre-560u-p04h-p0inb98i0gt1",
             "overrideGlobal": true
         }
-    ```
+        ```
 
      [![advanced conf properties]({{base_path}}/assets/img/learn/advanced-config.png)]({{base_path}}/assets/img/learn/advanced-config.png)
 
@@ -115,7 +119,7 @@ You need to add the API Token and Collection ID properties inside the configurat
 
 1.  Navigate to the API Publisher.
 
-     [https://localhost:9443/publisher](https://localhost:9443/publisher)
+     `https://localhost:9443/publisher`
 
 2.  Click on the API that you need to audit.
 
@@ -133,7 +137,6 @@ You need to add the API Token and Collection ID properties inside the configurat
 
      For more information on the details provided in the report, see [Audit report sections](#auditreports)
 
-<a href="auditreports"></a>
 
 ## Audit report sections
 

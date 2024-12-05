@@ -9,31 +9,33 @@ Mosquitto server as the Message Broker.
 
 Following are the integration artifacts that we can used to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.
 
-```xml tab='Inbound Endpoint'
-<?xml version="1.0" encoding="UTF-8"?>
-<inboundEndpoint name="SampleInbound" onError="fault" protocol="mqtt" sequence="TestIn" statistics="enable" suspend="false" trace="enable" xmlns="http://ws.apache.org/ns/synapse">
-    <parameters>
-        <parameter name="sequential">true</parameter>
-        <parameter name="mqtt.connection.factory">mqttConFactory</parameter>
-        <parameter name="mqtt.server.host.name">localhost</parameter>
-        <parameter name="mqtt.server.port">1883</parameter>
-        <parameter name="mqtt.topic.name">esb.test</parameter>
-        <parameter name="content.type">application/xml</parameter>
-        <parameter name="mqtt.subscription.qos">0</parameter>
-        <parameter name="mqtt.session.clean">false</parameter>
-        <parameter name="mqtt.ssl.enable">false</parameter>
-        <parameter name="mqtt.reconnection.interval">1000</parameter>
-    </parameters>
-</inboundEndpoint>
-```
+=== "Inbound Endpoint"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <inboundEndpoint name="SampleInbound" onError="fault" protocol="mqtt" sequence="TestIn" statistics="enable" suspend="false" trace="enable" xmlns="http://ws.apache.org/ns/synapse">
+        <parameters>
+            <parameter name="sequential">true</parameter>
+            <parameter name="mqtt.connection.factory">mqttConFactory</parameter>
+            <parameter name="mqtt.server.host.name">localhost</parameter>
+            <parameter name="mqtt.server.port">1883</parameter>
+            <parameter name="mqtt.topic.name">esb.test</parameter>
+            <parameter name="content.type">application/xml</parameter>
+            <parameter name="mqtt.subscription.qos">0</parameter>
+            <parameter name="mqtt.session.clean">false</parameter>
+            <parameter name="mqtt.ssl.enable">false</parameter>
+            <parameter name="mqtt.reconnection.interval">1000</parameter>
+        </parameters>
+    </inboundEndpoint>
+    ```
 
-```xml tab='Sequence'
-<?xml version="1.0" encoding="UTF-8"?>
-<sequence name="TestIn" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-   <log level="full"/>
-   <drop/>
-</sequence>
-```
+=== "Sequence"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <sequence name="TestIn" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <log level="full"/>
+    <drop/>
+    </sequence>
+    ```
 
 ## Build and run
 
@@ -46,7 +48,7 @@ Create the artifacts:
 Set up the MQTT server:
 
 1.  Install Mosquitto. (This sample is tested for [Mosquitto1.6.7 version](https://mosquitto.org/download/)). The Mosquitto server will run automatically in the background.
-2.  Download [MQTT client library](http://repo.spring.io/plugins-release/org/eclipse/paho/mqtt-client/0.4.0/) (i.e. `          mqtt-client-0.4.0.jar         ` ) and add it to the `MI_TOOLING_HOME/Contents/Eclipse/runtime/microesb/lib/` directory.
+2.  Download [MQTT client library](https://repo.spring.io/plugins-release/org/eclipse/paho/mqtt-client/0.4.0/mqtt-client-0.4.0.jar) with required credentials. (i.e. `          mqtt-client-0.4.0.jar         ` ) and add it to the `MI_TOOLING_HOME/Contents/Eclipse/runtime/microesb/lib/` directory.
 
 [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 

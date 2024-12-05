@@ -6,6 +6,9 @@
     
      [![Enable mutual SSL](https://apim.docs.wso2.com/en/4.1.0/assets/img/learn/enable-mutual-ssl.png)](https://apim.docs.wso2.com/en/4.1.0/assets/img/learn/enable-mutual-ssl.png)
 
+    !!! note
+          HTTP transport will be disabled for an API if it has Mutual SSL enabled.
+
 4.  Click **Add Certificate** to upload a new client certificate.
     
     !!! note

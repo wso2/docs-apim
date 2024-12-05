@@ -81,7 +81,7 @@ To perform **GraphQL Query Depth Limitation**:
 
 Enter the following sample query. Then click on execute button as follows.
 
-   ```
+   ```query
     query{
       character(id:1000){
         id

@@ -5,32 +5,34 @@ The WebSocket Inbound protocol is based on the <a href="http://tools.ietf.org/ht
 
 ## Syntax
 
-```xml tab='Websocket'
-<inboundEndpoint name="WebSocketListenerEP" onError="fault" protocol="ws" sequence="TestIn" suspend="false" xmlns="http://ws.apache.org/ns/synapse">
-  <parameters>
-     <parameter name="inbound.ws.port">9091</parameter>
-     <parameter name="ws.outflow.dispatch.sequence">TestOut</parameter> 
-     <parameter name="ws.client.side.broadcast.level">0</parameter>
-     <parameter name="ws.outflow.dispatch.fault.sequence">fault</parameter>
-  </parameters> 
-</inboundEndpoint>
-```
+=== "Websocket"
+    ```xml
+    <inboundEndpoint name="WebSocketListenerEP" onError="fault" protocol="ws" sequence="TestIn" suspend="false" xmlns="http://ws.apache.org/ns/synapse">
+      <parameters>
+        <parameter name="inbound.ws.port">9091</parameter>
+        <parameter name="ws.outflow.dispatch.sequence">TestOut</parameter> 
+        <parameter name="ws.client.side.broadcast.level">0</parameter>
+        <parameter name="ws.outflow.dispatch.fault.sequence">fault</parameter>
+      </parameters> 
+    </inboundEndpoint>
+    ```
 
-```xml tab='Secure Websocket'
-<inboundEndpoint name="SecureWebSocketEP" onError="fault" protocol="wss" sequence="TestIn" suspend="false" xmlns="http://ws.apache.org/ns/synapse">
-  <parameters>
-     <parameter name="inbound.ws.port">9091</parameter>
-     <parameter name="ws.client.side.broadcast.level">0</parameter>
-     <parameter name="ws.outflow.dispatch.sequence">TestOut</parameter>
-     <parameter name="ws.outflow.dispatch.fault.sequence">fault</parameter>
-     <parameter name="wss.ssl.key.store.file">repository/resources/security/wso2carbon.jks</parameter>
-     <parameter name="wss.ssl.key.store.pass">wso2carbon</parameter>
-     <parameter name="wss.ssl.trust.store.file">repository/resources/security/client-truststore.jks</parameter>
-     <parameter name="wss.ssl.trust.store.pass">wso2carbon</parameter>
-     <parameter name="wss.ssl.cert.pass">wso2</parameter>
-   </parameters>
-</inboundEndpoint>
-```
+=== "Secure Websocket"
+    ```xml
+    <inboundEndpoint name="SecureWebSocketEP" onError="fault" protocol="wss" sequence="TestIn" suspend="false" xmlns="http://ws.apache.org/ns/synapse">
+      <parameters>
+        <parameter name="inbound.ws.port">9091</parameter>
+        <parameter name="ws.client.side.broadcast.level">0</parameter>
+        <parameter name="ws.outflow.dispatch.sequence">TestOut</parameter>
+        <parameter name="ws.outflow.dispatch.fault.sequence">fault</parameter>
+        <parameter name="wss.ssl.key.store.file">repository/resources/security/wso2carbon.jks</parameter>
+        <parameter name="wss.ssl.key.store.pass">wso2carbon</parameter>
+        <parameter name="wss.ssl.trust.store.file">repository/resources/security/client-truststore.jks</parameter>
+        <parameter name="wss.ssl.trust.store.pass">wso2carbon</parameter>
+        <parameter name="wss.ssl.cert.pass">wso2</parameter>
+      </parameters>
+    </inboundEndpoint>
+    ```
 
 ## Properties
 

@@ -25,7 +25,7 @@ After the custom properties have been added, you can [search for APIs using cust
       
       `https://<localhost>:9443/publisher`
 
-2.  [Create a new API]({{base_path}}/design-api/create-api/create-a-rest-api/) or edit an existing API.
+2.  [Create a new API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api) or edit an existing API.
 
 3.  Click **Properties** and click **ADD NEW PROPERTY**.
 
@@ -51,9 +51,15 @@ Use the [existing REST API]({{base_path}}/develop/product-apis/restful-apis/) to
 
 You can use the following format to search for an API using the custom properties:
 
-`<property_name>:<property_value>        `
+ - If Developer Portal visibility is enabled
 
-For example, if you want to search for the **environment** property with a specific value (e.g., preprod) in the Publisher, you can search as shown below:
+      `<property_name>__display:<property_value>`
+
+ - If Developer Portal visibility is disabled
+
+      `<property_name>:<property_value>`
+
+For example, if you want to search for the environment property with a specific value (e.g., preprod) and if the Developer Portal visibility is enabled for that property, you can search the API in the Publisher Portal, as shown below:
 
 [![Publisher search option]({{base_path}}/assets/img/learn/search-apis-with-custom-properties.png)]({{base_path}}/assets/img/learn/search-apis-with-custom-properties.png)
 

@@ -58,64 +58,68 @@ In this approach you can define load balanced endpoints in API level as well as 
 
 Below section demonstrates how to define load balanced endpoints for API level in an OpenAPI definition file.
 
-``` yaml tab="Format"
-openapi: <version>
-...
-x-wso2-production-endpoints:
-  urls:
-    - <URL1>
-    - <URL2>
-  type: load_balance
-...
-```
+=== "Format"
+    ``` yaml
+    openapi: <version>
+    ...
+    x-wso2-production-endpoints:
+      urls:
+        - <URL1>
+        - <URL2>
+      type: load_balance
+    ...
+    ```
 
-``` yaml tab="Example"
-...
-x-wso2-production-endpoints:
-  urls:
-    - http://localhost:2380/v2
-    - http://localhost:2381/v2
-  type: load_balance
-...
-```
+=== "Example"
+    ``` yaml
+    ...
+    x-wso2-production-endpoints:
+      urls:
+        - http://localhost:2380/v2
+        - http://localhost:2381/v2
+      type: load_balance
+    ...
+    ```
 
 ### Load Balanced Endpoints In Resource Level
 
 Below section demonstrates how to define load balanced endpoints for resource level in an OpenAPI definition file.
 
-``` yaml tab="Format"
-openapi: <version>
-...
-paths:
-  "/<path>":
-    <operation>:
-    x-wso2-production-endpoints:
-    urls:
-      - <URL1>
-      - <URL2>
-    type: load_balance
-```
-
-``` yaml tab="Example"
-paths:
-  "/pet/findByStatus":
-    get:
-      responses:
-        '200':
-          description: OK
+=== "Format"
+    ``` yaml
+    openapi: <version>
     ...
-    x-wso2-production-endpoints:
-    urls:
-      - http://localhost:2380/v1
-      - http://localhost:2380/v1
-    type: load_balance
-  "/pet/{petId}":
-    get:
-      responses:
-        '200':
-          description: OK
-...
-```
+    paths:
+      "/<path>":
+        <operation>:
+        x-wso2-production-endpoints:
+        urls:
+          - <URL1>
+          - <URL2>
+        type: load_balance
+    ```
+
+=== "Example"
+    ``` yaml
+    paths:
+      "/pet/findByStatus":
+        get:
+          responses:
+            '200':
+              description: OK
+        ...
+        x-wso2-production-endpoints:
+        urls:
+          - http://localhost:2380/v1
+          - http://localhost:2380/v1
+        type: load_balance
+      "/pet/{petId}":
+        get:
+          responses:
+            '200':
+              description: OK
+    ...
+    ```
 
 !!! warning
     The endpoint URLs that you provide as load balance endpoints should have the same base path as in the `x-wso2-production-endpoints`.
