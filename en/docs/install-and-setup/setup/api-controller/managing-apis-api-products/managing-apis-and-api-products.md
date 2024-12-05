@@ -60,15 +60,13 @@ Follow the instructions below to display a list of APIs or API Products in an en
                 When using the `apictl get apis -e dev` command, `-q` or `--query` optional flag can be used to 
                 search for APIs.
                 You can search in attributes by using a `:` modifier. Supported attribute modifiers are **name**, 
-                **version**, **provider**, **context**, **status**, **description**, **subcontext**, **doc** and 
-                **label**.  You can also use multiple modifiers specified by multiple `-q` or `--query` flags in the same command. When using multiple modifiers, make sure to separate them with space. 
+                **version**, **provider**, **context**, **status**, **description**, **subcontext** and **doc**. You can also use multiple modifiers specified by multiple `-q` or `--query` flags in the same command. When using multiple modifiers, make sure to separate them with space. 
                 
                 **Examples:**
                    
                 -  `provider:wso2` will match an API if the provider of the API contains `wso2`.
                 -  `'provider:"wso2"'` will match an API if the provider of the API is exactly `wso2`.
                 -  `status:PUBLISHED` will match an API if the API is in PUBLISHED state.
-                -  `label:external` will match an API if it contains a Microgateway label called "external".
                 -  `name:pizzashack version:v1` will match an API if the name of the API is pizzashack and version is v1.
                 
                 If no advanced attribute modifier has been specified, the API names containing the search term will 
