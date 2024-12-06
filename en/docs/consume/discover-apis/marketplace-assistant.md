@@ -7,34 +7,47 @@ The Marketplace Assistant is a powerful tool provided by API Manager, utilizing 
 Follow the steps below to get started with the Marketplace Assistant:
 
 !!! tip
-    If you've previously registered your environment for the [API Chat]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/test-apis-with-apichat), you can skip Step 1 by utilizing the same credentials for the Marketplace Assistant. Otherwise, complete Step 1 to register your on-premise environment.
+    If you've previously registered your environment for the [API Chat]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/test-apis-with-apichat), you can skip Step 1 and 2 by utilizing the same credentials for the Marketplace Assistant. Otherwise, complete Step 1 to register your on-premise environment.
 
-## Step 1 - Sign in to Choreo
+## Step 1 - Sign in to AI Subscription Portal
 
-1. Navigate to Choreo using the URL: <a href="https://console.choreo.dev">https://console.choreo.dev</a>.
+!!! warning
+        Information in the AI Subscription Portal will be stored in the United States.
 
-2. Sign-in to Choreo.
+1. Navigate to the AI Subscription Portal using the following URL: <a href="https://ai-subscriptions.wso2.com">https://ai-subscriptions.wso2.com</a>.
 
-   [![Choreo sign-in options]({{base_path}}/assets/img/observe/sign-in-choreo.png)]({{base_path}}/assets/img/observe/sign-in-choreo.png)
+2. Register for an Account.
 
-## Step 2 - Register your environment
+   [![AI Subscription Portal]({{base_path}}/assets/img/observe/ai-subscription-portal.png)]({{base_path}}/assets/img/observe/ai-subscription-portal.png)
 
-Follow the instructions below to register your on-premise environment:
+   - Click **Register**.
+   - Enter a valid email address and click **Register**.
+   - Check your email inbox and click **Complete Account Creation**.
+   - Provide an organization name (make a note of this, as it will be required for every login) and create a secure password.
 
-1. Click the **Settings** on the bottom left corner.
+3. Login to the AI Subscription Portal.
 
-      [![Settings Menu]({{base_path}}/assets/img/observe/settings-menu.png)]({{base_path}}/assets/img/observe/settings-menu.png)
+   - Click **Sign In** and enter your organization name.
+   - Enter your email address and password.
 
-2. If you are a member of multiple organizations, select the appropriate organization from the top left-hand corner.
+## Step 2 - Create a key by subscribing
 
-3. Select the **On-prem Keys** tab and click **Generate Key**.
+1. On the main landing page, click **New Subscription**.
 
-      [![On-prem Key]({{base_path}}/assets/img/observe/on-prem-key.png)]({{base_path}}/assets/img/observe/on-prem-key.png)
+      [![AI Subscription Portal Initial Dashboard]({{base_path}}/assets/img/observe/ai-subscription-portal-2.png)]({{base_path}}/assets/img/observe/ai-subscription-portal-2.png)
 
-4. Enter a suitable name for your environment (e.g., dev).
+2. Select **wso2am** as the product, enter an appropriate name, and create the subscription.
 
-5. Click **Generate**.
-6. Copy the key that was generated before closing the dialog box.
+    !!! info
+        Users can create multiple subscriptions for different on-premises environments and manage them through the portal.
+
+    !!! warning
+        Do not use the same key for different environments or products. Each key is used to differentiate environments when accessing AI services.
+
+    [![AI Subscription Portal Dashboard]({{base_path}}/assets/img/observe/ai-subscription-portal-3.png)]({{base_path}}/assets/img/observe/ai-subscription-portal-3.png)
+
+    !!! warning
+        Users can revoke and regenerate keys for any subscription, as well as delete subscriptions. Please perform these actions with caution, as they will immediately invalidate any existing keys in use.
 
 ## Step 3 - Configure API Manager
 
@@ -47,8 +60,9 @@ To enable the Marketplace Assistant and populate the vector database, the API Ma
       ```toml
       [apim.ai]
       enable = true
-      endpoint = "https://dev-tools.wso2.com/apim-ai-service"
-      token = "<use token that you generated>"
+      endpoint = "https://dev-tools.wso2.com/apim-ai-service/v2"
+      key = "<use key that you generated>"
+      token_endpoint = "https://api.asgardeo.io/t/wso2devtools/oauth2/token"
       ```
 
 2. Restart the API Manager.
