@@ -1,7 +1,7 @@
-# AI Related operations with apictl
+# AI related operations with apictl
 
-To ensure that the Marketplace Assistant is fully informed about all published APIs and API Products, it is essential to update the vector database with the current APIs.
-**WSO2 API Controller (apictl)** allows you to update the vector Database with the current APIs.
+To ensure that the Marketplace Assistant is fully informed about all published APIs and API Products, it is essential to update the vector database.
+You can use the **WSO2 API Controller (apictl)** to keep the vector database upto date.
 
 First you have to download and intialize the apictl.
 
@@ -12,7 +12,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
 
 ### Set token as a config variable
 
-Set the Token (Which is generated for AI features) as a config.
+Using the token which was generated for Marketplace Assistant set the ai-token as shown below.
 
   - **Command**
 
@@ -113,7 +113,9 @@ Run the following command to upload all the APIs to the vector database from the
 ### Upload API Products to vector database.
 
 Run the following command to upload all the API Products to the vector database from the currently logged-in user's tenant within a specified environment.
+
   - **Command**
+
     ```bash
     apictl ai upload api-products -e "<environment>"
     ```
@@ -123,14 +125,17 @@ Run the following command to upload all the API Products to the vector database 
     ```bash
     apictl ai upload api-products --token "<use token that you generated>" --endpoint "<endpoint of ai service>" -e "<environment>"
     ```
+
     !!! info
         **Flags:**
+
           -   Required :  
               `--environment` or `-e` : Environment to be searched
           -   Optional :  
               `--token` : On prem key of AI services  
               `--endpoint` : Endpoint url of AI services  
               `--all` : Upload both APIs and API Products.  
+
     !!! example
           ```bash
           apictl ai upload api-products -e dev
