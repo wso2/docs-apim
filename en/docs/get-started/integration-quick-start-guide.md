@@ -28,7 +28,7 @@ Most healthcare centers have a system that is used to make doctor appointments. 
 <a href="{{base_path}}/assets/img/integrate/quick-start-guide/mi-quick-start-guide.png"><img src="{{base_path}}/assets/img/integrate/quick-start-guide/mi-quick-start-guide.png" width="1600" height="600"></a>
 
 
-!!! Tip
+    !!! Tip
     You may export `<mi-qsg-home>/HealthcareIntegrationProject` to Integration Studio to view the project structure.
 
 In the above scenario, the following takes place:
