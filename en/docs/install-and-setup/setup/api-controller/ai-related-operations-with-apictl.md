@@ -40,7 +40,7 @@ Run the following command to delete all the APIs and API Products from the vecto
 
     !!! info
         **Flags:**  
-
+        
           -  Required :  
               `--environment` or `-e` : Environment to be searched
           -  Optional :  
@@ -119,9 +119,11 @@ Run the following command to upload all the API Products to the vector database 
     ```bash
     apictl ai upload api-products -e "<environment>"
     ```
+
     ```bash
     apictl ai upload api-products -e "<environment>" --all
     ```
+
     ```bash
     apictl ai upload api-products --token "<use token that you generated>" --endpoint "<endpoint of ai service>" -e "<environment>"
     ```
@@ -140,17 +142,23 @@ Run the following command to upload all the API Products to the vector database 
           ```bash
           apictl ai upload api-products -e dev
           ```
+
           ```bash
           apictl ai upload api-products -e dev --all
           ```
+
           ```bash
           apictl ai upload api-products --token 2fdca1b6-6a28-4aea-add6-77c97033bdb9 artifacts -e dev
           ```
+
           ```bash
           apictl ai upload api-products --token 2fdca1b6-6a28-4aea-add6-77c97033bdb9 artifacts --endpoint https://dev-tools.wso2.com/apim-ai-service -e dev
           ```
     !!! note
           - Note that if you have already set the token to the config variable, you dont have to use the --token flag
+
 This process can be repeated for all tenants.
+
 If you intend to use the same access token across different deployments, you can continue using it without generating a new one each time.
+
 This process ensures that the Marketplace Assistant is up-to-date with all published APIs, enhancing its ability to provide accurate and relevant assistance.
