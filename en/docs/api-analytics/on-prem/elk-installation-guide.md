@@ -194,12 +194,12 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
     
 #### Step 1.3 - Enabling Operation Policies in Analytics Event
 
-Operation and API Policies of the APIs/API Products are loaded to the Analytics Event by enabling the following property. This can be either provide as an argument or configured in the start up scripts on the server startup.
+Operation and API Policies of the APIs/API Products are loaded to the Analytics Event by enabling the following property. This can either be provided as an argument at the server startup or configured in the startup scripts.
 
     - Linux/Mac OS
     
         ```toml tab="Format"
-        ./api-manager.sh -DoperationPolicyEnableWithAnalyticsEvent=<enable/disable>
+        ./api-manager.sh -DoperationPolicyEnableWithAnalyticsEvent=<true/false>
         ```
         
         ```toml tab="Example"
@@ -209,7 +209,7 @@ Operation and API Policies of the APIs/API Products are loaded to the Analytics 
     - Windows
     
         ```toml tab="Format"
-        api-manager.bat -DoperationPolicyEnableWithAnalyticsEvent=<enable/disable>
+        api-manager.bat -DoperationPolicyEnableWithAnalyticsEvent=<true/false>
         ```
         
         ```toml tab="Example"
