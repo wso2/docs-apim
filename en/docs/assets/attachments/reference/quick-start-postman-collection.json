@@ -1,0 +1,1180 @@
+{
+	"info": {
+		"_postman_id": "9d891cfc-a5a8-4cce-8a5f-97fd82236f54",
+		"name": "API Manager 4.4.0 Quick Start",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28719432"
+	},
+	"item": [
+		{
+			"name": "Authenticaction",
+			"item": [
+				{
+					"name": "Register DCR App",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"var clientId = response.clientId;",
+									"var clientSecret = response.clientSecret;",
+									"pm.collectionVariables.set(\"dcrClientId\", clientId);",
+									"pm.collectionVariables.set(\"dcrClientSecret\", clientSecret);",
+									"",
+									"var base64EncodedCredentials = btoa(clientId + \":\" + clientSecret);",
+									"pm.collectionVariables.set(\"base64EncodedDCRCredentials\", base64EncodedCredentials);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic YWRtaW46YWRtaW4=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n  \"callbackUrl\":\"www.google.lk\",\n  \"clientName\":\"quickstart\",\n  \"owner\":\"admin\",\n  \"grantType\":\"client_credentials password refresh_token\",\n  \"saasApp\":true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:9443/client-registration/v0.17/register",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "9443",
+							"path": [
+								"client-registration",
+								"v0.17",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Access Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"access-token\", response.access_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedDCRCredentials}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "apim:api_view apim:api_create apim:api_publish apim:subscribe",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{tokenEndpoint}}",
+							"host": [
+								"{{tokenEndpoint}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Publish and Invoke a REST API",
+			"item": [
+				{
+					"name": "Add API",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"apiId\", response.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"PizzaShackAPI\",\"description\":\"This is a simple API for Pizza Shack online pizza delivery store.\",\"context\":\"/pizza\",\"version\":\"1.0.0\",\"provider\":\"admin\",\"lifeCycleStatus\":\"PUBLISHED\",\"wsdlInfo\":null,\"wsdlUrl\":null,\"responseCachingEnabled\":false,\"cacheTimeout\":300,\"hasThumbnail\":false,\"isDefaultVersion\":false,\"isRevision\":false,\"revisionedApiId\":null,\"revisionId\":0,\"enableSchemaValidation\":false,\"type\":\"HTTP\",\"transport\":[\"http\",\"https\"],\"tags\":[\"pizza\"],\"policies\":[\"Unlimited\"],\"apiThrottlingPolicy\":null,\"authorizationHeader\":\"Authorization\",\"securityScheme\":[\"oauth2\",\"oauth_basic_auth_api_key_mandatory\"],\"maxTps\":null,\"visibility\":\"PUBLIC\",\"visibleRoles\":[],\"visibleTenants\":[],\"mediationPolicies\":[],\"subscriptionAvailability\":\"CURRENT_TENANT\",\"subscriptionAvailableTenants\":[],\"additionalProperties\":[],\"monetization\":null,\"accessControl\":\"NONE\",\"accessControlRoles\":[],\"businessInformation\":{\"businessOwner\":\"Jane Roe\",\"businessOwnerEmail\":\"marketing@pizzashack.com\",\"technicalOwner\":\"John Doe\",\"technicalOwnerEmail\":\"architecture@pizzashack.com\"},\"corsConfiguration\":{\"corsConfigurationEnabled\":false,\"accessControlAllowOrigins\":[\"*\"],\"accessControlAllowCredentials\":false,\"accessControlAllowHeaders\":[\"authorization\",\"Access-Control-Allow-Origin\",\"Content-Type\",\"SOAPAction\",\"apikey\",\"Internal-Key\"],\"accessControlAllowMethods\":[\"GET\",\"PUT\",\"POST\",\"DELETE\",\"PATCH\",\"OPTIONS\"]},\"websubSubscriptionConfiguration\":{\"enable\":false,\"secret\":\"\",\"signingAlgorithm\":\"SHA1\",\"signatureHeader\":\"x-hub-signature\"},\"workflowStatus\":null,\"createdTime\":\"2022-02-08 13:41:20.996\",\"lastUpdatedTime\":\"2022-02-08 13:41:21.79\",\"endpointConfig\":{\"endpoint_type\":\"http\",\"sandbox_endpoints\":{\"url\":\"https://localhost:9443/am/sample/pizzashack/v1/api/\"},\"production_endpoints\":{\"url\":\"https://localhost:9443/am/sample/pizzashack/v1/api/\"}},\"endpointImplementationType\":\"ENDPOINT\",\"scopes\":[],\"operations\":[{\"id\":\"\",\"target\":\"/order\",\"verb\":\"POST\",\"authType\":\"Application & Application User\",\"throttlingPolicy\":\"Unlimited\",\"scopes\":[],\"usedProductIds\":[],\"amznResourceName\":null,\"amznResourceTimeout\":null,\"payloadSchema\":null,\"uriMapping\":null},{\"id\":\"\",\"target\":\"/menu\",\"verb\":\"GET\",\"authType\":\"Application & Application User\",\"throttlingPolicy\":\"Unlimited\",\"scopes\":[],\"usedProductIds\":[],\"amznResourceName\":null,\"amznResourceTimeout\":null,\"payloadSchema\":null,\"uriMapping\":null},{\"id\":\"\",\"target\":\"/order/{orderId}\",\"verb\":\"GET\",\"authType\":\"Application & Application User\",\"throttlingPolicy\":\"Unlimited\",\"scopes\":[],\"usedProductIds\":[],\"amznResourceName\":null,\"amznResourceTimeout\":null,\"payloadSchema\":null,\"uriMapping\":null},{\"id\":\"\",\"target\":\"/order/{orderId}\",\"verb\":\"PUT\",\"authType\":\"Application & Application User\",\"throttlingPolicy\":\"Unlimited\",\"scopes\":[],\"usedProductIds\":[],\"amznResourceName\":null,\"amznResourceTimeout\":null,\"payloadSchema\":null,\"uriMapping\":null},{\"id\":\"\",\"target\":\"/order/{orderId}\",\"verb\":\"DELETE\",\"authType\":\"Application & Application User\",\"throttlingPolicy\":\"Unlimited\",\"scopes\":[],\"usedProductIds\":[],\"amznResourceName\":null,\"amznResourceTimeout\":null,\"payloadSchema\":null,\"uriMapping\":null}],\"threatProtectionPolicies\":null,\"categories\":[],\"keyManagers\":[\"all\"],\"serviceInfo\":null,\"advertiseInfo\":{\"advertised\":false,\"originalDevPortalUrl\":null,\"apiOwner\":\"admin\",\"vendor\":\"WSO2\"}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{serverURL}}{{publisherBasePath}}/apis",
+							"host": [
+								"{{serverURL}}{{publisherBasePath}}"
+							],
+							"path": [
+								"apis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get API",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{serverURL}}{{publisherBasePath}}/apis/{{apiId}}",
+							"host": [
+								"{{serverURL}}{{publisherBasePath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create API Revision",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"revisionId\", response.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"description\": \"removed a post resource\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{serverURL}}{{publisherBasePath}}/apis/{{apiId}}/revisions",
+							"host": [
+								"{{serverURL}}{{publisherBasePath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"revisions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deploy Revision",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"name\": \"Default\",\n        \"vhost\": \"localhost\",\n        \"displayOnDevportal\": true\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{serverURL}}{{publisherBasePath}}/apis/{{apiId}}/deploy-revision?revisionId={{revisionId}}",
+							"host": [
+								"{{serverURL}}{{publisherBasePath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"deploy-revision"
+							],
+							"query": [
+								{
+									"key": "revisionId",
+									"value": "{{revisionId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Publish API",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{serverURL}}{{publisherBasePath}}/apis/change-lifecycle?action=Publish&apiId={{apiId}}",
+							"host": [
+								"{{serverURL}}{{publisherBasePath}}"
+							],
+							"path": [
+								"apis",
+								"change-lifecycle"
+							],
+							"query": [
+								{
+									"key": "action",
+									"value": "Publish"
+								},
+								{
+									"key": "apiId",
+									"value": "{{apiId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Application",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"applicationId\", response.applicationId);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"PizzaApp\",\n\"throttlingPolicy\": \"Unlimited\",\n\"description\": \"Sample pizza shack application\",\n\"tokenType\": \"JWT\",\n\"status\": \"APPROVED\",\n\"owner\": \"admin\",\n\"hashEnabled\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{serverURL}}{{devportalBasePath}}/applications",
+							"host": [
+								"{{serverURL}}{{devportalBasePath}}"
+							],
+							"path": [
+								"applications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Subscription",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"subscriptionId\", response.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64(username:password)}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"applicationId\": \"{{applicationId}}\",\n  \"apiId\": \"{{apiId}}\",\n  \"throttlingPolicy\": \"Unlimited\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{serverURL}}{{devportalBasePath}}/subscriptions",
+							"host": [
+								"{{serverURL}}{{devportalBasePath}}"
+							],
+							"path": [
+								"subscriptions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Keys",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"applicationAccessToken\", response.token.accessToken);",
+									"pm.collectionVariables.set(\"consumerKey\", response.consumerKey);",
+									"pm.collectionVariables.set(\"consumerSecret\", response.consumerSecret);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"keyType\": \"PRODUCTION\",\n    \"keyManager\": \"Resident Key Manager\",\n    \"grantTypesToBeSupported\": \n[\"refresh_token\", \"urn:ietf:params:oauth:grant-type:saml2-bearer\", \"password\", \"client_credentials\"],\n    \"scopes\": [\n    \"am_application_scope\",\n    \"default\"\n    ],\n    \"validityTime\": 3600\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{serverURL}}{{devportalBasePath}}/applications/{{applicationId}}/generate-keys",
+							"host": [
+								"{{serverURL}}{{devportalBasePath}}"
+							],
+							"path": [
+								"applications",
+								"{{applicationId}}",
+								"generate-keys"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Access Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"applicationAccessToken\", response.accessToken);"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"",
+									"",
+									"var access_token = pm.collectionVariables.get(\"access-token\");",
+									"var url = pm.collectionVariables.get(\"serverURL\").concat(pm.collectionVariables.get(\"devportalBasePath\")).concat(\"/applications/\").concat(pm.collectionVariables.get(\"applicationId\")).concat(\"/oauth-keys\");",
+									"pm.collectionVariables.set(\"test\", url);",
+									"",
+									"var temp = \"'\"",
+									"var getRequest = {",
+									" url: url,",
+									" method: 'GET',",
+									" header: {",
+									"   'Authorization': 'Bearer '.concat(access_token)",
+									" }",
+									"};",
+									" ",
+									"pm.sendRequest(getRequest, (error, response) => {",
+									" if (error == null) {",
+									"     if (response == null) {",
+									"       //use existing key mapping Id",
+									"     } else {",
+									"         pm.collectionVariables.set(\"keyMappingId\", response.json().list[0].keyMappingId);",
+									"     }",
+									" }",
+									"});",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"consumerSecret\" : \"{{consumerSecret}}\",\n    \"validityPeriod\": 3600\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{serverURL}}{{devportalBasePath}}/applications/{{applicationId}}/oauth-keys/{{keyMappingId}}/generate-token",
+							"host": [
+								"{{serverURL}}{{devportalBasePath}}"
+							],
+							"path": [
+								"applications",
+								"{{applicationId}}",
+								"oauth-keys",
+								"{{keyMappingId}}",
+								"generate-token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Invoke API",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{applicationAccessToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:8243/pizza/1.0.0/menu",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8243",
+							"path": [
+								"pizza",
+								"1.0.0",
+								"menu"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create and Invoke an API Product",
+			"item": [
+				{
+					"name": "Add API Product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"apiProductId\", response.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"PizzaShackAPIProduct\",\"context\":\"/pizzaproduct\",\"description\":null,\"provider\":\"admin\",\"hasThumbnail\":null,\"state\":\"PUBLISHED\",\"enableSchemaValidation\":false,\"isRevision\":false,\"revisionedApiProductId\":null,\"revisionId\":0,\"responseCachingEnabled\":false,\"cacheTimeout\":300,\"visibility\":\"PUBLIC\",\"visibleRoles\":[],\"visibleTenants\":[],\"accessControl\":\"NONE\",\"accessControlRoles\":[],\"apiType\":null,\"transport\":[\"http\",\"https\"],\"tags\":[],\"policies\":[\"Unlimited\"],\"apiThrottlingPolicy\":null,\"authorizationHeader\":\"Authorization\",\"securityScheme\":[\"oauth2\",\"oauth_basic_auth_api_key_mandatory\"],\"subscriptionAvailability\":\"ALL_TENANTS\",\"subscriptionAvailableTenants\":[],\"additionalProperties\":[],\"monetization\":null,\"businessInformation\":{\"businessOwner\":null,\"businessOwnerEmail\":null,\"technicalOwner\":null,\"technicalOwnerEmail\":null},\"corsConfiguration\":{\"corsConfigurationEnabled\":false,\"accessControlAllowOrigins\":[\"*\"],\"accessControlAllowCredentials\":false,\"accessControlAllowHeaders\":[\"authorization\",\"Access-Control-Allow-Origin\",\"Content-Type\",\"SOAPAction\",\"apikey\",\"Internal-Key\"],\"accessControlAllowMethods\":[\"GET\",\"PUT\",\"POST\",\"DELETE\",\"PATCH\",\"OPTIONS\"]},\"createdTime\":\"2022-02-08 14:44:40.626\",\"lastUpdatedTime\":\"2022-02-08 14:44:40.727\",\"apis\":[{\"name\":\"PizzaShackAPI\",\"apiId\": \"{{apiId}}\",\"version\":\"1.0.0\",\"operations\":[{\"id\":\"\",\"target\":\"/order\",\"verb\":\"POST\",\"authType\":\"Application & Application User\",\"throttlingPolicy\":\"Unlimited\",\"scopes\":[],\"usedProductIds\":[],\"amznResourceName\":null,\"amznResourceTimeout\":null,\"payloadSchema\":null,\"uriMapping\":null},{\"id\":\"\",\"target\":\"/menu\",\"verb\":\"GET\",\"authType\":\"Application & Application User\",\"throttlingPolicy\":\"Unlimited\",\"scopes\":[],\"usedProductIds\":[],\"amznResourceName\":null,\"amznResourceTimeout\":null,\"payloadSchema\":null,\"uriMapping\":null},{\"id\":\"\",\"target\":\"/order/{orderId}\",\"verb\":\"GET\",\"authType\":\"Application & Application User\",\"throttlingPolicy\":\"Unlimited\",\"scopes\":[],\"usedProductIds\":[],\"amznResourceName\":null,\"amznResourceTimeout\":null,\"payloadSchema\":null,\"uriMapping\":null},{\"id\":\"\",\"target\":\"/order/{orderId}\",\"verb\":\"PUT\",\"authType\":\"Application & Application User\",\"throttlingPolicy\":\"Unlimited\",\"scopes\":[],\"usedProductIds\":[],\"amznResourceName\":null,\"amznResourceTimeout\":null,\"payloadSchema\":null,\"uriMapping\":null},{\"id\":\"\",\"target\":\"/order/{orderId}\",\"verb\":\"DELETE\",\"authType\":\"Application & Application User\",\"throttlingPolicy\":\"Unlimited\",\"scopes\":[],\"usedProductIds\":[],\"amznResourceName\":null,\"amznResourceTimeout\":null,\"payloadSchema\":null,\"uriMapping\":null}]}],\"scopes\":[],\"categories\":[]}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{serverURL}}{{publisherBasePath}}/api-products",
+							"host": [
+								"{{serverURL}}{{publisherBasePath}}"
+							],
+							"path": [
+								"api-products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get API Product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{serverURL}}{{publisherBasePath}}/api-products/{{apiProductId}}",
+							"host": [
+								"{{serverURL}}{{publisherBasePath}}"
+							],
+							"path": [
+								"api-products",
+								"{{apiProductId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create API Product Revision",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"revisionId\", response.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"description\": \"removed a post resource\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{serverURL}}{{publisherBasePath}}/api-products/{{apiProductId}}/revisions",
+							"host": [
+								"{{serverURL}}{{publisherBasePath}}"
+							],
+							"path": [
+								"api-products",
+								"{{apiProductId}}",
+								"revisions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deploy Revision",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"name\": \"Default\",\n        \"vhost\": \"localhost\",\n        \"displayOnDevportal\": true\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{serverURL}}{{publisherBasePath}}/api-products/{{apiProductId}}/deploy-revision?revisionId={{revisionId}}",
+							"host": [
+								"{{serverURL}}{{publisherBasePath}}"
+							],
+							"path": [
+								"api-products",
+								"{{apiProductId}}",
+								"deploy-revision"
+							],
+							"query": [
+								{
+									"key": "revisionId",
+									"value": "{{revisionId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Application",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"productApplicationId\", response.applicationId);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"PizzaProductApp\",\n\"throttlingPolicy\": \"Unlimited\",\n\"description\": \"Sample pizza shack application\",\n\"tokenType\": \"JWT\",\n\"status\": \"APPROVED\",\n\"owner\": \"admin\",\n\"hashEnabled\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{serverURL}}{{devportalBasePath}}/applications",
+							"host": [
+								"{{serverURL}}{{devportalBasePath}}"
+							],
+							"path": [
+								"applications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Subscription",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"productSubscriptionId\", response.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"applicationId\": \"{{productApplicationId}}\",\n  \"apiId\": \"{{apiProductId}}\",\n  \"throttlingPolicy\": \"Unlimited\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{serverURL}}{{devportalBasePath}}/subscriptions",
+							"host": [
+								"{{serverURL}}{{devportalBasePath}}"
+							],
+							"path": [
+								"subscriptions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Keys",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"productApplicationAccessToken\", response.token.accessToken);",
+									"pm.collectionVariables.set(\"productAppConsumerKey\", response.consumerKey);",
+									"pm.collectionVariables.set(\"productAppConsumerSecret\", response.consumerSecret);",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"keyType\": \"PRODUCTION\",\n    \"keyManager\": \"Resident Key Manager\",\n    \"grantTypesToBeSupported\": \n[\"refresh_token\", \"urn:ietf:params:oauth:grant-type:saml2-bearer\", \"password\", \"client_credentials\"],\n    \"scopes\": [\n    \"am_application_scope\",\n    \"default\"\n    ],\n    \"validityTime\": 3600\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{serverURL}}{{devportalBasePath}}/applications/{{productApplicationId}}/generate-keys",
+							"host": [
+								"{{serverURL}}{{devportalBasePath}}"
+							],
+							"path": [
+								"applications",
+								"{{productApplicationId}}",
+								"generate-keys"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Access Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"productApplicationAccessToken\", response.accessToken);"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var access_token = pm.collectionVariables.get(\"access-token\");",
+									"var url = pm.collectionVariables.get(\"serverURL\").concat(pm.collectionVariables.get(\"devportalBasePath\")).concat(\"/applications/\").concat(pm.collectionVariables.get(\"productApplicationId\")).concat(\"/oauth-keys\");",
+									"pm.collectionVariables.set(\"test\", url);",
+									"",
+									"var getRequest = {",
+									" url: url,",
+									" method: 'GET',",
+									" header: {",
+									"   'Authorization': 'Bearer '.concat(access_token)",
+									" }",
+									"};",
+									" ",
+									"pm.sendRequest(getRequest, (error, response) => {",
+									" if (error == null) {",
+									"     if (response == null) {",
+									"       //use existing key mapping Id",
+									"     } else {",
+									"         pm.collectionVariables.set(\"productKeyMappingId\", response.json().list[0].keyMappingId);",
+									"     }",
+									" }",
+									"});",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"consumerSecret\" : \"{{productAppConsumerSecret}}\",\n    \"validityPeriod\": 3600\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{serverURL}}{{devportalBasePath}}/applications/{{productApplicationId}}/oauth-keys/{{productKeyMappingId}}/generate-token",
+							"host": [
+								"{{serverURL}}{{devportalBasePath}}"
+							],
+							"path": [
+								"applications",
+								"{{productApplicationId}}",
+								"oauth-keys",
+								"{{productKeyMappingId}}",
+								"generate-token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Invoke API Product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{productApplicationAccessToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:8243/pizzaproduct/menu",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8243",
+							"path": [
+								"pizzaproduct",
+								"menu"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "serverURL",
+			"value": "https://localhost:9443"
+		},
+		{
+			"key": "publisherBasePath",
+			"value": "/api/am/publisher/v2"
+		},
+		{
+			"key": "base64(username:password)",
+			"value": "YWRtaW46YWRtaW4="
+		},
+		{
+			"key": "apiId",
+			"value": "d2312417-bf3e-4126-902f-a799d1a022aa"
+		},
+		{
+			"key": "devportalBasePath",
+			"value": "/api/am/devportal/v2"
+		},
+		{
+			"key": "applicationId",
+			"value": "abd36359-4fd3-4d0e-89ca-ef12ff9644c0"
+		},
+		{
+			"key": "subscriptionId",
+			"value": ""
+		},
+		{
+			"key": "applicationAccessToken",
+			"value": "eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZyIsImtpZCI6Ik16WXhNbUZrT0dZd01XSTBaV05tTkRjeE5HWXdZbU00WlRBM01XSTJOREF6WkdRek5HTTBaR1JsTmpKa09ERmtaRFJpT1RGa01XRmhNelUyWkdWbE5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJhZG1pbkBjYXJib24uc3VwZXIiLCJhdWQiOiJTV0dEZWYwV3diZ2tnWjMxdENYUml3S0JUdElhIiwibmJmIjoxNTk5NDcwMjIzLCJhenAiOiJTV0dEZWYwV3diZ2tnWjMxdENYUml3S0JUdElhIiwic2NvcGUiOiJhbV9hcHBsaWNhdGlvbl9zY29wZSBkZWZhdWx0IiwiaXNzIjoiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQzXC9vYXV0aDJcL3Rva2VuIiwiZXhwIjoxNTk5NDczODIzLCJpYXQiOjE1OTk0NzAyMjMsImp0aSI6IjRhYTBiYTg3LTNjMDgtNGMxMy04MTQ5LTdiYzk3ZWMzZjBhYSJ9.FpvOd1DFQhd5tFNaoDCeyR8RLm0oydEn8q_De7l4_Q2w3ZnZIstgn-SY4hII7eQqq6oeGpZdZbpK0fISi5BHQiQ_QMx6b_jpVHf1OGnJAkFOz1exGp5_gFGuhKUAFpYCA29OZOUNx22ZWaWbPeQVqbgkZcEY79LpNJYHz5e0zR2vAnlKY4hbIN6IqvXAwPOBkMFn4WIvGnn7Lb-9WYwd-XzWp78OHrPsfBqCygQjVPBxS6rea9ihoHQOmPMJPmQ_e3Y6cCVmto6ZdrMAbL6dQwsCGAGHrbDPj3iTFj9TwuUJnEiJD0A6RPTaCZMBGpCZTaw0p3gNqJ02X80HEo1IoA"
+		},
+		{
+			"key": "consumerKey",
+			"value": "SWGDef0WwbgkgZ31tCXRiwKBTtIa"
+		},
+		{
+			"key": "consumerSecret",
+			"value": "4YYVjB9w73WWOpjskAVPks75_64a"
+		},
+		{
+			"key": "base64EncodedDCRCredentials",
+			"value": ""
+		},
+		{
+			"key": "dcrClientId",
+			"value": ""
+		},
+		{
+			"key": "dcrClientSecret",
+			"value": ""
+		},
+		{
+			"key": "tokenEndpoint",
+			"value": "https://localhost:9443/oauth2/token"
+		},
+		{
+			"key": "access-token",
+			"value": ""
+		},
+		{
+			"key": "apiProductId",
+			"value": ""
+		},
+		{
+			"key": "productApplicationId",
+			"value": ""
+		},
+		{
+			"key": "productSubscriptionId",
+			"value": ""
+		},
+		{
+			"key": "productAppConsumerKey",
+			"value": ""
+		},
+		{
+			"key": "productAppConsumerSecret",
+			"value": ""
+		},
+		{
+			"key": "productApplicationAccessToken",
+			"value": ""
+		},
+		{
+			"key": "keyMappingId",
+			"value": ""
+		},
+		{
+			"key": "productKeyMappingId",
+			"value": ""
+		},
+		{
+			"key": "test",
+			"value": ""
+		},
+		{
+			"key": "revisionId",
+			"value": ""
+		}
+	]
+}

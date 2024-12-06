@@ -35,7 +35,7 @@ The following are Advanced Endpoint Configurations that you can configure for bo
                     <p>If you want to configure the suspension of an endpoint, you can use the <b>Endpoint Suspension State</b> section to define the error codes, maximum suspension time, and suspension factors.</p>
                     <ul><li>
                     <p><strong>Error Codes:</strong> The error codes that are associated with suspended endpoints. If the backend endpoint receives the selected error codes, the endpoint will be marked as
-                    suspended. Specify the <a href="({{base_path}}/troubleshooting/error-handling/#transport-error-codes">transport error codes</a> to define when the endpoint suspension should be triggered. You can select a single error code or multiple error codes.</p>
+                    suspended. Specify the <a href="{{base_path}}/troubleshooting/error-handling/#transport-error-codes">transport error codes</a> to define when the endpoint suspension should be triggered. You can select a single error code or multiple error codes.</p>
                     </li><li>
                     <p><strong>Initial duration:</strong> The time duration for which the endpoint will be suspended when one or more suspend error codes are received from the endpoint for the first time.</p>
                         <div class="admonition note">
@@ -54,7 +54,7 @@ The following are Advanced Endpoint Configurations that you can configure for bo
             <td><p>You can define configurations related to retries, error codes, and delays in terms of endpoint timeouts in the <b>Endpoint Timeout State</b> section.</p>
             <ul><li>
             <p><strong>Error Codes:</strong> You can select a single error code or multiple error codes that you need to associate with endpoint timeouts. If these error codes are received from the endpoint, the request will be subjected to a timeout.</p></li><li>
-            <p><strong>Retries Before Suspension:</strong> The number of retries that are performed by the Gateway when any of the selected error codes are received before the endpoint timeout takes place.</p></li><li>
+            <p><strong>Retries Before Suspension:</strong>If the Gateway receives an error code that matches one of the selected codes, it will retry the request up to the specified number of times. If the endpoint continues to fail after the defined number of retries, it will then be marked as suspended.</p></li><li>
             <p><strong>Retry Delay:</strong> The delay between retries in milliseconds.</p></li></ul></td>
         </tr>
         <tr class="odd">

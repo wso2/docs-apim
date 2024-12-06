@@ -56,28 +56,13 @@ template: templates/single-column.html
                 It allows API developers to design, publish, and manage the lifecycle of APIs and API product 
                 managers to create API products from one or more APIs.
             </p>
-            </br>
-            <h2>Download</h2>
+            <h3>Download</h3>
             <a href="https://wso2.com/api-manager/#">
                 <img src="{{base_path}}/assets/img/get_started/download-apim.png" title="Download WSO2 API Manager" width="35%" alt="Download WSO2 API Manager"/>
             </a>
-        </div>
-        <div class="md-main .md-content " style="float:right; width: 55%; align:right;  flex-shrink: 0;min-width: 40%; max-height: 100%; max-width:50%; margin-left:10px; margin-top:20px">
-        <iframe width="800" height="300" src="https://www.youtube.com/embed/nr1cFyxVdDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-    </div>
-    <!--<div class="leftContent">
-        <h2>Download</h2>
-        <a href="https://wso2.com/api-manager/#">
-            <img src="{{base_path}}/assets/img/get_started/download-apim.png" title="Download WSO2 API Manager" width="18%" alt="Download WSO2 API Manager"/>
-        </a>
-    </div>
-    </br>-->
-    </br>
-    </br>
-    <div class="section02">
-        <h3>Quick Start Guide</h3>
-        <div class="linkWrapper">
+            </br>
+            <h3>Quick Start Guide</h3>
+            <div class="linkWrapper">
             <div class="linkSet2" onclick="location.href='{{base_path}}/get-started/api-manager-quick-start-guide';">
                 <img src="{{base_path}}/assets/img/home/landing-page/design-and-implement-apis.svg" title="Design and Implement APIs" width="75" alt="Design and Implement APIs"/>
                 <h4>Design and implement APIs</h4>
@@ -85,46 +70,38 @@ template: templates/single-column.html
                     Create, publish, and consume an API in 5 minutes. Let's get started by running a simple use case.
                 </p>
             </div>
-            <div class="linkSet2 middle" onclick="location.href='{{base_path}}/get-started/quick-start-guide/integration-qsg';">
-                <img src="{{base_path}}/assets/img/home/landing-page/write-your-first-integration-service.svg" title="Integration Service" width="75" alt="Integration Service"/>
-                <h4>Write your first Integration Service</h4>
-                <p>
-                    Create an integration service and expose it as a managed API. Let's get started by running a simple use case. 
-                </p>
-            </div>
-            <div class="linkSet2 last" onclick="location.href='{{base_path}}/get-started/streaming-quick-start-guide';">
-                <img src="{{base_path}}/assets/img/home/landing-page/write-a-streaming-integration.svg" title="Streaming Integration" width="75" alt="Streaming Integration"/>
-                <h4>Write a Streaming Integration</h4>
-                <p>
-                    Create and deploy a Siddhi application in 5 minutes and expose it as a Streaming API. Let's get started by running a simple use case.
-                </p>
-            </div>
+        </div>
+        </div>
+        <div class="md-main .md-content " style="float:right; width: 55%; align:right;  flex-shrink: 0;min-width: 40%; max-height: 100%; max-width:50%; margin-left:10px; margin-top:100px">
+        <iframe width="800" height="300" src="https://www.youtube.com/embed/nr1cFyxVdDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
-    <div class="section03">
+    </br>
+    </br>
+    <div class="section02">
         <div class="linkSet2" onclick="location.href='{{base_path}}/get-started/overview';">
             <h3>Overview</h3>
             <p>
                 Introduces WSO2 API Manager and quickly describes what it can do.
             </p>
-            <a href='{{base_path}}/get-started/overview'><h4>Read a Short Overview</h4></a>
+            <h4>Read a Short Overview</h4>
         </div>
         <div class="linkSet2 middle" onclick="location.href='{{base_path}}/get-started/key-concepts';">
             <h3>Concepts</h3>
             <p>
                 The key concepts of WSO2 API Manager give you a brief introduction to the terminology and make it easy for you to understand the API management domain.
             </p>
-            <a href='{{base_path}}/get-started/key-concepts'><h4>Understand the Concepts</h4></a>
+            <h4>Understand the Concepts</h4>
         </div>
         <div class="linkSet2 last" onclick="location.href='{{base_path}}/get-started/apim-architecture';">
             <h3>Architecture</h3>
             <p>
                 The WSO2 API Manager consists of a management plane, a data plane, and a control plane, along with multiple developer-friendly tools to help you work with the various components.
             </p>
-            <a href='{{base_path}}/get-started/architecture'><h4>View Architecture</h4></a>
+            <h4>View Architecture</h4>
         </div>
     </div>
-    <div class="section04">
+    <div class="section03">
         <h3>APIM Scenarios</h3>
         <div class="linkWrapper">
             <div class="linkSet2" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario1-create-rest-api';">
@@ -242,7 +219,7 @@ template: templates/single-column.html
             </div>
         </div>
     </div>
-    <div class="section05">
+    <div class="section04">
         <h3>Deployment</h3>
         <div class="linkWrapper">
             <div class="linkSet2" onclick="location.href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying';">
@@ -251,20 +228,6 @@ template: templates/single-column.html
                     See the instructions on setting up the API-M runtime for your selected deployment pattern. 
                 </p>
                 <a href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying'><h4>Deploy the API Manager Runtime</h4></a>
-            </div>
-            <div class="linkSet2 middle" onclick="location.href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying_1';">
-                <img src="{{base_path}}/assets/img/home/proxies.svg" alt="Proxies">
-                <p>
-                    See the instructions on setting up the Micro Integrator runtime for your selected deployment pattern.
-                </p>
-                <a href='https://mi.docs.wso2.com/en/4.2.0/install-and-setup/install-and-setup-overview/#deploy'><h4>Deploy the Micro Integrator Runtime</h4></a>
-            </div>
-            <div class="linkSet2 last" onclick="location.href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying_1';">
-                <img src="{{base_path}}/assets/img/home/streaming.svg" alt="Streaming">
-                <p>
-                    See the instructions on setting up the Streaming Integrator runtime for your selected deployment pattern.
-                </p>
-                <a href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying_1'><h4>Deploy the Streaming Integrator Runtime</h4></a>
             </div>
         </div>
     </div>

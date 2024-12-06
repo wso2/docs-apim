@@ -18,9 +18,10 @@ You can search for APIs in the API Publisher or Developer Portal in the followin
 <tbody>
 <tr class="even">
 <td>Unified search</td>
-<td><p>As this is the default option, simply enter any attribute value 
-of the API and search.</p>
-<p>For example, PizzaShackAPI will search for PizzaShackAPI in API name, context, version, documents, etc.</p>
+<td>
+  <p>This is the default option. Simply enter any attribute value from the API, its documentation, or definition, and search.</p>
+  <p>For example, entering <strong>Pizza</strong> will search for the term <strong>Pizza</strong> across the API name, context, version, documents, and definition of all APIs.</p>
+</td>
 </td>
 </tr>
 <tr class="odd">

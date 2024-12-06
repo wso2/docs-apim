@@ -21,7 +21,7 @@ appender.CARBON_LOGFILE.name = CARBON_LOGFILE
 appender.CARBON_LOGFILE.fileName = ${sys:carbon.home}/repository/logs/wso2carbon.log
 appender.CARBON_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/wso2carbon-%d{MM-dd-yyyy}.log
 appender.CARBON_LOGFILE.layout.type = PatternLayout
-appender.CARBON_LOGFILE.layout.pattern = TID: [%tenantId] [%appName] [%d] %5p {% raw %}{%c}{% endraw %} - %m%ex%n
+appender.CARBON_LOGFILE.layout.pattern = TID: [%X{tenantIDForLogs}] [%appName] [%d] %5p {% raw %}{%c}{% endraw %} - %m%ex%n
 appender.CARBON_LOGFILE.policies.type = Policies
 appender.CARBON_LOGFILE.policies.time.type = TimeBasedTriggeringPolicy
 appender.CARBON_LOGFILE.policies.time.interval = 1
@@ -188,8 +188,8 @@ The following is a sample Gateway Wire Log for an API request.
 
 ### Enabling the Gateway Wire Logs
 
-1.  Open the `<API-M_HOME>/repository/conf/log4j2.properties` file.
-2.  Locate the `synapse-wire` logger, which is already defined in the default `log4j2.properties` file.
+1. Open the `<API-M_HOME>/repository/conf/log4j2.properties` file.
+2. Locate the `synapse-wire` logger, which is already defined in the default `log4j2.properties` file.
 
      ``` 
      logger.synapse-wire.name = org.apache.synapse.transport.http.wire
@@ -203,7 +203,7 @@ The following is a sample Gateway Wire Log for an API request.
      logger.synapse-headers.level = DEBUG
      ```
  
-3.  Append the `synapse-wire` logger name to the `loggers` configuration which is a comma separated list of all the active loggers. 
+3. Append the `synapse-wire` logger name to the `loggers` configuration which is a comma separated list of all the active loggers. 
 
      ```
      loggers = synapse-wire, trace-messages, org-apache-coyote,com-hazelcast
@@ -215,7 +215,10 @@ The following is a sample Gateway Wire Log for an API request.
      loggers = synapse-headers, trace-messages, org-apache-coyote,com-hazelcast
      ```
 
-4.  Observe the logs for incoming and outgoing traffic in the `<API-M_HOME>/repository/logs/wso2carbon.log` file.
+4. Observe the logs for incoming and outgoing traffic in the `<API-M_HOME>/repository/logs/wso2carbon.log` file.
+
+!!! Limitation
+    If synapse-wire logs are enabled during high load, outgoing traffic between the gateway and the backend will not be printed in the `wso2carbon.log` file. This happens when the backend connection is keep alive. As we are maintaining connections in a connection pool, the same connections will be reused in keep alive mode irrespective of the changes done in the `log4j2.properties` file.
 
 ## HTTP Access Logs
 

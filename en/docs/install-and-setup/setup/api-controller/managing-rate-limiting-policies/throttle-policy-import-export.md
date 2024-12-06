@@ -20,30 +20,27 @@ Follow the instructions below to display a list of rate limiting API Policies in
 
     - **Command**
         ```bash
-        apictl get policies rate-limiting -e <environment-name> -q  <query>
+        apictl get policies rate-limiting -e <environment-name> -q <query>
         ```
 
         ``` bash
         apictl get policies rate-limiting --environment <environment> -q <query>
         ```
 
-        ``` bash
-        apictl get policies rate-limiting --environment <environment> -q <query> --all 
-        ```
-
         !!! Info
-            **Flags**
-            `-q, --query` - This allows the user to filter out rate limiting policies by type
-            `-e, --environment string` - Environment to be searched
-            `--format string` - Pretty-print rate limiting policies using Go Templates. Use `{% raw %}"{{ jsonPretty . }}"{% endraw %}` to list all fields
-            `-h, --help` - Help for rate-limiting
+            **Flags:**
+            
+            - `-q` or `--query` - This allows the user to filter out rate limiting policies by type   
+            - `-e` or `--environment` - Environment to be searched 
+            - `--format` - Pretty-print rate limiting policies using Go Templates. Use `{% raw %}"{{ jsonPretty . }}"{% endraw %}` to list all fields  
+            - `-h` or `--help` - Help for rate-limiting
 
         !!! example
             ```bash
-            apictl get policies  rate-limiting  -e prod  -q type:sub
+            apictl get policies rate-limiting -e prod -q type:sub
             ```
 
-## Delete a rate limiting policies from an environment
+## Delete rate limiting policies from an environment
 
 Follow the instructions below to delete a rate limiting policy in an environment using apictl:
 
@@ -54,41 +51,37 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
 
     -   **Command**
         ``` bash
-        apictl delete policy rate-limiting -n <rate limiting policy name> -v <rate limiting policy version> -e <environment>
+        apictl delete policy rate-limiting -n <rate limiting policy name> -e <environment> -t <type of rate limiting policy>
         ```
         ``` bash
-        apictl delete policy rate-limiting --name <rate limiting name> --version <rate limiting policy version> --environment <environment> 
+        apictl delete policy rate-limiting --name <rate limiting name> --environment <environment> --type <type of rate limiting policy>
         ```
 
         !!! info
             **Flags:**  
                 
             -   Required :  
-                `-e, --environment string` - Environment from which the Throttling Policy should be deleted
-                `-h, --help` - Help for rate-limiting
-                `-n, --name string` - Name of the Throttling Policy to be deleted
-                `-t, --type string` - Type of the Throttling Policies to be exported (sub,app,custom,advanced)  
+                `-e, --environment string` - Environment from which the Throttling Policy should be deleted     
+                `-h, --help` - Help for rate-limiting   
+                `-n, --name string` - Name of the Throttling Policy to be deleted   
+                `-t, --type string` - Type of the Throttling Policies to be exported (sub, app, custom, advanced) 
 
-            !!! example
-                ```bash
-                apictl delete policy rate-limiting -n Gold -e dev --type sub 
-                ```
-                
-                ```bash
-                apictl delete policy rate-limiting -n AppPolicy -e prod --type app
-                ```
+        !!! example
+            ```bash
+            apictl delete policy rate-limiting -n Gold -e dev --type sub 
+            ```
+            
+            ```bash
+            apictl delete policy rate-limiting -n AppPolicy -e prod --type app
+            ```
 
-                ```bash
-                apictl delete policy rate-limiting -n TestPolicy -e dev --type advanced 
-                ```
-                
-                ```bash
-                apictl delete policy rate-limiting -n CustomPolicy -e prod --type custom 
-                ```
-
-            !!! Note 
-                All the 2 flags (--name (-n) and --environment (-e)) are mandatory.
-
+            ```bash
+            apictl delete policy rate-limiting -n TestPolicy -e dev --type advanced 
+            ```
+            
+            ```bash
+            apictl delete policy rate-limiting -n CustomPolicy -e prod --type custom 
+            ```
 
 ## Export/Import rate limiting policies
 

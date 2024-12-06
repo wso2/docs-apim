@@ -76,8 +76,8 @@ Now let’s initialize the source repository. This will be done from the develop
 1. Clone the source repository. Navigate to the repository folder.
 
     ```
-    $ git clone https://github.com/chamilaadhi/poc-cicd-source-repo.git
-    $ cd poc-cicd-source-repo
+    git clone https://github.com/chamilaadhi/poc-cicd-source-repo.git
+    cd poc-cicd-source-repo
     ```
 
 2. Execute the following command.
@@ -116,8 +116,8 @@ Deployment repository will be used to gather configurations for each deployment.
     Try uploading a sample resource. An example is given below.
 
     ```
-    $ touch resource.txt
-    $ curl -u repouser:<password> -X PUT https://xxxx.jfrog.io/artifactory/myrepo/ -T resource.txt
+    touch resource.txt
+    curl -u repouser:<password> -X PUT https://xxxx.jfrog.io/artifactory/myrepo/ -T resource.txt
     ```
 
     Access the repository URL to see the resource.
@@ -138,7 +138,7 @@ Deployment repository will be used to gather configurations for each deployment.
 
 ### Step 4 - Setup API-M instances
 
-Download the WSO2 API Manager 4.2.0 [here]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl) and start the instance. Set this in a separate instance as the `dev` instance. 
+Download the WSO2 API Manager [here]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl) and start the instance. Set this in a separate instance as the `dev` instance. 
 
 ### Step 5 - Configure Jenkins Jobs
 
@@ -224,8 +224,8 @@ The artifact deployment job will listen to any new updates in the Artifactory re
 
 3. To test whether the webhook between Artifactory and the Jenkins job is working, you could execute the same upload test we did under Setup JFrog Artifactory section
   ```
-  $ touch resource.txt
-  $ curl -u repouser:<password> -X PUT https://xxxxx.jfrog.io/artifactory/myrepo/ -T resource.txt
+  touch resource.txt
+  curl -u repouser:<password> -X PUT https://xxxxx.jfrog.io/artifactory/myrepo/ -T resource.txt
   ```
 
 If the configuration is working, this will trigger a new build.

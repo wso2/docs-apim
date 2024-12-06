@@ -1,21 +1,22 @@
 # Product Compatibility
 
-Given below are the compatibility details of the WSO2 API Manager (WSO2 API-M) 4.3.0 runtimes.
+Given below are the compatibility details of the WSO2 API Manager (WSO2 API-M) 4.4.0 runtimes.
+
+!!! Note
+    Even though the tested operating systems are listed in compatibility sections for each product, ideally WSO2 products relies on the tested versions of the JDK.
 
 ## API-M runtime compatibility
 
-Given below is the tested compatibility of the API-M runtime of WSO2 API Manager 4.3.0.
+Given below is the tested compatibility of the API-M runtime of WSO2 API Manager 4.4.0.
 
 #### Tested Operating Systems
 
-As WSO2 API Manager is a Java application, you can generally run it on most operating systems. Listed below are the operating systems that have been tested with the API-M 4.3.0 runtime.
+As WSO2 API Manager is a Java application, you can generally run it on most operating systems. Listed below are the operating systems that have been tested with the API-M 4.4.0 runtime.
 
 |**Operating System**|**Versions**  |
 |--------------------|--------------|
-|Windows             | 2016         |
-|Ubuntu              | 18.04, 20.04 |
-|Red Hat Enterprise Linux   | 7.0, 8.7, 9.3   |
-|CentOS              | 7.4, 7.5     |
+|Windows             | 2021         |
+|Ubuntu              | 22.04 |
 |Rocky Linux              | 9.3    |
 
 #### Tested JDKs
@@ -24,22 +25,18 @@ The **WSO2 API-M** runtime has been tested with the following JDKs:
 
 |**JDKS**            |**Versions**|
 |--------------------|-----------|
-|CorrettoJDK         | 11, 17    |
-|AdoptOpenJDK        | 11, 17    |
-|OpenJDK             | 11, 17    |
-|Oracle JDK          | 11, 17    |
 |Temurin OpenJDK     | 11, 17, 21    |
 
 #### Tested DBMSs
 
 The **WSO2 API-M** runtime is tested with the following databases:
 
-|**DBMS**     |**Versions**|
-|--------------|-----------|
-|MySQL         | 5.7, 8    |
-|Oracle        | 12c release 2, 19c, 23c  |
-|Microsoft SQL Server| 2017, 2019, 2022 |
-|PostgreSQL            | 15.3, 16.2 |
+|**DBMS**     | **Versions**            |
+|--------------|-------------------------|
+|MySQL         | 5.7, 8, 8.4                  |
+|Oracle        | 19c, 23c |
+|Microsoft SQL Server| 2019, 2022        |
+|PostgreSQL            | 16.2, 17       |
 
 !!! warning
     When creating the database related to apim_db with MySQL 8.0, add **character set latin1** to avoid the MySQL Linux ERROR 1071 (42000).
@@ -49,10 +46,10 @@ The **WSO2 API-M** runtime is tested with the following databases:
 
 #### Tested WSO2 Products
 
-The following is a list of other WSO2 products that have been tested with WSO2 API Manager 4.3.0.
+The following is a list of other WSO2 products that have been tested with WSO2 API Manager 4.4.0.
 
-- [WSO2 Identity Server 6.0.0 and 6.1.0](https://wso2.com/identity-and-access-management/#)
-- [WSO2 API Platform For Kubernetes(APK) 1.1.0](https://wso2.com/api-platform-for-k8s)
+- [WSO2 Identity Server 7.0.0 and 6.1.0](https://wso2.com/identity-and-access-management/#)
+- [WSO2 API Platform For Kubernetes(APK) 1.2.0](https://wso2.com/api-platform-for-k8s)
 
 #### Compatible WSO2 Identity Servers (as Key Manager)
 
@@ -68,58 +65,26 @@ The following is a list of other WSO2 products that have been tested with WSO2 A
 </thead>
 <tbody>
 <tr class="even">
-<td>API-M 4.3.0 GA</td>
-<td>GA or update for WSO2 IS-6.0.0/WSO2 IS-6.1.0</td>
+<td>API-M 4.4.0 GA</td>
+<td>
+GA or update for:
+<ul>
+<li>WSO2 IS-6.0.0/WSO2 IS-6.1.0</li>
+<li>WSO2 IS-7.0.0 (Tenancy is not compatible)</li>
+</ul>
+</td>
 </tr>
 <tr class="even">
-<td>API-M-4.3.0 update</td>
-<td>GA or updated for WSO2 IS-6.0.0/WSO2 IS-6.1.0</td>
+<td>API-M-4.4.0 update</td>
+<td>GA or update for:
+<ul>
+<li>WSO2 IS-6.0.0/WSO2 IS-6.1.0</li>
+<li>WSO2 IS-7.0.0 (tenancy is not compatible)</li>
+<div class="admonition note">
+      <p class="admonition-title">Note</p>
+      <p>Role based authorization for WSO2 IS 7.x is supported from WSO2 IS 7.0.0.65 onwards</p>
+</div>
+</ul>
 </tr>
 </tbody>
 </table>
-
-## Streaming Integrator compatibility
-
-Given below is the tested compatibility of the Streaming Integrator version 4.2.0.
-
-#### Tested Operating Systems
-
-The **Streaming Integrator** runtime is tested with the following operating systems:
-
-|**Operating System**|**Versions**|
-|--------------------|-----------|
-|Windows             | 7<br/>10  |
-|Ubuntu              |16.04<br/>17.04<br/>18.04|
-|MacOS High Sierra   | |
-
-#### Tested JDKs
-
-The **Streaming Integrator** runtime is tested with the following JDKS:
-
-|**JDK**             |**Version**    |
-|--------------------|---------------|
-|Oracle JDK          | 11, 17        |
-|OpenJDK             | 11, 17        |
-
-#### Tested DBMSs
-
-The **Streaming Integrator** runtime is tested with the following databases:
-
-|**DBMS**            |**Version**|
-|--------------------|-----------|
-|H2                  |1.4.187    |
-|MySQL               |5.7        |
-|Microsoft SQL Server|2017       |
-|Oracle              |11.2.0.2-x |
-|PostgreSQL          |9.6        |
-
-#### Known Incompatibilities
-
-Given below are the OS and JDK incompatibilities that WSO2 has come across while testing the Streaming Integrator runtime.
-
-|**Operating System**|**Operating System Version**|**JDK Version**|
-|--------------------|----------------------------|---------------|
-|macOS High Sierra   |10.13.1 (17B1003)           |JDK1.8.0_20<br/>JDK1.8.0_144<br/>JDK1.8.0_152<br/>JDK1.8.0_162|
-|macOS High Sierra   |10.13.2                     |JDK1.8.0_144<br/>JDK1.8.0_152|
-|Ubuntu              |14.04                       |JDK1.8.0_151<br/>JDK1.8.0_152<br/>JDK1.8.0_161|
-|Ubuntu              |16.04                       |JDK1.8.0_151<br/>JDK1.8.0_152<br/>JDK1.8.0_161<br/>JDK1.8.0_162|

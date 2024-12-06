@@ -1,4 +1,4 @@
-#   Copyright (c) 2024, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+#   Copyright (c) 2024, WSO2 LLC. (http://www.wso2.org) All Rights Reserved.
 #
 #   Licensed under the Apache License, Version 2.0 (the "License");
 #   you may not use this file except in compliance with the License.
@@ -12,7 +12,6 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 ################################################################################
-
 openapi: 3.0.1
 info:
   title: WSO2 API Manager - Admin
@@ -60,11 +59,10 @@ info:
     "jsonAppAttribute": "{}",
     "tokenType": null
     }
-
+    ```
     Note that in a distributed deployment or IS as KM separated environment to invoke RESTful APIs (product APIs), users must generate tokens through API-M Control Plane's token endpoint.
     The tokens generated using third party key managers, are to manage end-user authentication when accessing APIs.
     
-    ```
     Next you must use the above client id and secret to obtain the access token.
     We will be using the password grant type for this, you can use any grant type you desire.
     You also need to add the proper **scope** when getting the access token. All possible scopes for Admin REST API can be viewed in **OAuth2 Security** section
@@ -96,12 +94,17 @@ info:
     If you use a different authentication mechanism, this process may change.
 
     # Try out in Postman
-    If you want to try-out the embedded postman collection with "Run in Postman" option, please follow the guidelines listed below.
+    If you want to try-out the Postman collection, please follow the guidelines listed below.
+    * Download and import the following collection to Postman.
     * All of the OAuth2 secured endpoints have been configured with an Authorization Bearer header with a parameterized access token. Before invoking any REST API resource make sure you run the `Register DCR Application` and `Generate Access Token` requests to fetch an access token with all required scopes.
     * Make sure you have an API Manager instance up and running.
     * Update the `basepath` parameter to match the hostname and port of the APIM instance.
-
-    [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/17491134-b263aa69-7494-4fc5-90fa-daa2f63880ae)
+     
+     <a href="../../../../../assets/attachments/reference/admin-v4.2-postman-collection.json"
+     download="WSO2 API Manager 4.4.0 Admin REST API.postman_collection.json"
+     style="display: inline-block; padding: 10px 15px; color: white; background-color: #ef5b25; text-align: center; text-decoration: none; border-radius: 5px;font-weight: bold;">
+     Download Postman Collection
+     </a>
   contact:
     name: WSO2
     url: https://wso2.com/api-manager/
@@ -109,7 +112,7 @@ info:
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: v4.1
+  version: v4.2
 servers:
   - url: https://apis.wso2.com/api/am/admin/v4
 paths:
@@ -1228,7 +1231,7 @@ paths:
               example:
                 type: rate-limiting policy
                 subtype: application
-                version: v4.1.0
+                version: v4.4.0
                 data:
                   policyId: cd828243-a0db-430c-97e9-9e41fd865d48
                   policyName: 50PerMin
@@ -1332,6 +1335,18 @@ paths:
         Retrieves all existing deny policies.
       parameters:
         - $ref: '#/components/parameters/Accept'
+        - name: query
+          in: query
+          description: |
+            **Search condition**.
+            You can search in attributes by using **"conditionType:"** modifier and **"conditionValue:"** modifier.
+            Eg.
+            The entry "conditionType:API" will result in a match with blocking conditions only if the conditionType is "API". Similarly, "conditionValue:test/1.0.0" will result in a match with blocking conditions only if the conditionValue is "test/1.0.0".
+            When you use "conditionType:API & conditionValue:test/1.0.0" as a combination, it will result in a match with blocking conditions only if both the conditionType is "API" and the conditionValue is "test/1.0.0".
+            If query attribute is provided, this returns the blocking conditions that match the specified attributes.
+            Please note that you need to use encoded URL (URL encoding) if you are using a client which does not support URL encoding (such as curl)
+          schema:
+            type: string
       responses:
         200:
           description: |
@@ -1701,6 +1716,171 @@ paths:
         - lang: Curl
           source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
           "https://127.0.0.1:9443/api/am/admin/v4/applications/0a043c2b-ee75-4ef3-9e1c-fc2610ccfa8b/change-owner?owner=admin"'
+
+  ######################################################
+  # LLM Providers resource APIs
+  ######################################################
+  /llm-providers:
+    get:
+      tags:
+        - LLMProviders
+      summary: Get all LLM providers
+      description: |
+        Get all LLM providers
+      responses:
+        200:
+          description: |
+            OK.
+            LLM providers returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LLMProviderSummaryResponseList'
+      security:
+        - OAuth2Security:
+            - apim:admin
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          "https://127.0.0.1:9443/api/am/admin/v4/llm-providers"'
+      operationId: getLLMProviders
+
+    post:
+      tags:
+        - LLMProviders
+      summary: Add a LLM provider
+      description: |
+        Add a new LLM provider
+      requestBody:
+        description: |
+          LLM provider object that should to be added
+        content:
+          multipart/form-data:
+            schema:
+              required:
+                - name
+                - apiVersion
+                - configurations
+                - apiDefinition
+              $ref: '#/components/schemas/LLMProviderRequest'
+        required: true
+      responses:
+        201:
+          description: |
+            Created.
+            Successful response with the newly created LLM provider as entity in the body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LLMProviderResponse'
+        400:
+          $ref: '#/components/responses/BadRequest'
+      security:
+        - OAuth2Security:
+            - apim:admin
+            - apim:llm_provider_manage
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/llm-providers"'
+      operationId: addLLMProvider
+
+  ######################################################
+  # The "Individual LLM Provider" resource APIs
+  ######################################################
+  /llm-providers/{llmProviderId}:
+    put:
+      tags:
+        - LLMProvider
+      summary: Update an LLM provider
+      description: |
+        Update a LLM provider by LLMProviderId
+      parameters:
+        - $ref: '#/components/parameters/llmProviderId'
+      requestBody:
+        description: |
+          LLM Provider object with updated information
+        content:
+          multipart/form-data:
+            schema:
+              required:
+                - apiDefinition
+              $ref: '#/components/schemas/LLMProviderRequest'
+        required: true
+      responses:
+        200:
+          description: |
+            OK.
+            LLM Provider updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LLMProviderResponse'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        404:
+          $ref: '#/components/responses/NotFound'
+      security:
+        - OAuth2Security:
+            - apim:admin
+            - apim:llm_provider_manage
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/llm-providers/a2f1e643-9b2a-4f58-bd7a-8c2d3f1e9d6f"'
+      operationId: updateLLMProvider
+
+    delete:
+      tags:
+        - LLMProvider
+      summary: Delete a LLM Provider
+      description: |
+        Delete a LLM Provider by llmProviderId
+      parameters:
+        - $ref: '#/components/parameters/llmProviderId'
+      responses:
+        200:
+          description: |
+            OK.
+            LLM provider successfully deleted.
+          content: { }
+        404:
+          $ref: '#/components/responses/NotFound'
+      security:
+        - OAuth2Security:
+            - apim:admin
+            - apim:llm_provider_manage
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          "https://127.0.0.1:9443/api/am/admin/v4/llm-providers/a2f1e643-9b2a-4f58-bd7a-8c2d3f1e9d6f"'
+      operationId: deleteLLMProvider
+
+    get:
+      tags:
+        - LLMProvider
+      summary: Get LLM Provider
+      description: |
+        Get a LLM Provider
+      parameters:
+        - $ref: '#/components/parameters/llmProviderId'
+      responses:
+        200:
+          description: |
+            OK.
+            OpenAPI specification
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LLMProviderResponse'
+      security:
+        - OAuth2Security:
+            - apim:admin
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          "https://127.0.0.1:9443/api/am/admin/v4/llm-providers/a2f1e643-9b2a-4f58-bd7a-8c2d3f1e9d6f"'
+      operationId: getLLMProvider
 
   ######################################################
   # The "Environment" resource API
@@ -3179,6 +3359,177 @@ paths:
           description: |
             OK.
             Key Manager successfully deleted.
+          content: { }
+        404:
+          $ref: '#/components/responses/NotFound'
+      security:
+        - OAuth2Security:
+            - apim:admin
+            - apim:admin_operations
+      x-code-samples:
+        - lang: Shell
+          source: 'curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          "https://127.0.0.1:9443/api/am/admin/v2/global-key-managers/8d263942-a6df-4cc2-a804-7a2525501450"'
+
+  ######################################################
+  # The "Global Key Manager Collection" resource API
+  ######################################################
+  /global-key-managers:
+    get:
+      tags:
+        - Global Key Manager (Collection)
+      summary: Get all Global Key managers
+      description: |
+        Get all Global Key managers
+      responses:
+        200:
+          description: |
+            OK.
+            KeyManagers returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeyManagerList'
+      security:
+        - OAuth2Security:
+            - apim:admin
+            - apim:admin_operations
+            - apim:keymanagers_manage
+      x-code-samples:
+        - lang: Shell
+          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          "https://127.0.0.1:9443/api/am/admin/v2/global-key-managers"'
+
+    post:
+      tags:
+        - Global Key Manager (Collection)
+      summary: Add a new Global Key Manager
+      description: |
+        Add a new Global Key Manager
+      requestBody:
+        description: |
+          Key Manager object that should to be added
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KeyManager'
+        required: true
+      responses:
+        201:
+          description: |
+            Created.
+            Successful response with the newly created object as entity in the body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeyManager'
+        400:
+          $ref: '#/components/responses/BadRequest'
+      security:
+        - OAuth2Security:
+            - apim:admin
+            - apim:admin_operations
+            - apim:keymanagers_manage
+      x-code-samples:
+        - lang: Shell
+          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          -H "Content-Type: application/json" -d @data.json 
+          "https://127.0.0.1:9443/api/am/admin/v2/global-key-managers"'
+
+  ######################################################
+  # The "Global Individual KeyManager" resource APIs
+  ######################################################
+  /global-key-managers/{keyManagerId}:
+    get:
+      tags:
+        - Global Key Manager (Individual)
+      summary: Get a Global Key Manager Configuration
+      description: |
+        Retrieve a single Global Key Manager Configuration. We should provide the Id of the KeyManager as a path 
+        parameter.
+      parameters:
+        - $ref: '#/components/parameters/keyManagerId'
+      responses:
+        200:
+          description: |
+            OK.
+            KeyManager Configuration returned
+          headers:
+            Content-Type:
+              description: |
+                The content type of the body.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeyManager'
+        404:
+          $ref: '#/components/responses/NotFound'
+        406:
+          $ref: '#/components/responses/NotAcceptable'
+      security:
+        - OAuth2Security:
+            - apim:admin
+            - apim:admin_operations
+            - apim:keymanagers_manage
+      x-code-samples:
+        - lang: Shell
+          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          "https://127.0.0.1:9443/api/am/admin/v3/key-managers/8d263942-a6df-4cc2-a804-7a2525501450"'
+
+    put:
+      tags:
+        - Global Key Manager (Individual)
+      summary: Update a Global Key Manager
+      description: |
+        Update a Global Key Manager by keyManager id
+      parameters:
+        - $ref: '#/components/parameters/keyManagerId'
+      requestBody:
+        description: |
+          Key Manager object with updated information
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KeyManager'
+        required: true
+      responses:
+        200:
+          description: |
+            OK.
+            Label updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeyManager'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        404:
+          $ref: '#/components/responses/NotFound'
+      security:
+        - OAuth2Security:
+            - apim:admin
+            - apim:admin_operations
+            - apim:keymanagers_manage
+      x-code-samples:
+        - lang: Shell
+          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v3/key-managers/8d263942-a6df-4cc2-a804-7a2525501450"'
+
+    delete:
+      tags:
+        - Global Key Manager (Individual)
+      summary: Delete a Global Key Manager
+      description: |
+        Delete a Global Key Manager by keyManager id
+      parameters:
+        - $ref: '#/components/parameters/keyManagerId'
+      responses:
+        200:
+          description: |
+            OK.
+            Key Manager successfully deleted.
           content: {}
         404:
           $ref: '#/components/responses/NotFound'
@@ -3231,6 +3582,224 @@ paths:
           source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
           -F "type=WSO2-IS" "https://127.0.0.1:9443/api/am/admin/v4/key-managers/discover"'
 
+  /key-managers/{keyManagerId}/api-usages:
+    get:
+      tags:
+        - Key Manager (Individual)
+      summary: Retrieve Key Manager Usages (APIs)
+      description: |
+        Retrieves a list of APIs that are specifically utilizing the Key Manager identified by the provided ID.
+        The Key Manager ID should be provided as a path parameter.
+      parameters:
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/keyManagerId'
+      responses:
+        200:
+          description: |
+            OK.
+            KeyManager API usages returned.
+          headers:
+            Content-Type:
+              description: |
+                The content type of the body.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeyManagerAPIUsages'
+        404:
+          $ref: '#/components/responses/NotFound'
+        406:
+          $ref: '#/components/responses/NotAcceptable'
+      security:
+        - OAuth2Security:
+            - apim:admin
+            - apim:admin_operations
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+            "https://127.0.0.1:9443/api/am/admin/v4/key-managers/8d263942-a6df-4cc2-a804-7a2525501450/api-usages"'
+
+  /key-managers/{keyManagerId}/app-usages:
+    get:
+      tags:
+        - Key Manager (Individual)
+      summary: Retrieve Key Manager Usages (Appilcations)
+      description: |
+        Retrieves a list of Applications that are specifically utilizing the Key Manager identified by the provided ID.
+        The Key Manager ID should be provided as a path parameter.
+      parameters:
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/keyManagerId'
+      responses:
+        200:
+          description: |
+            OK.
+            KeyManager application usages returned.
+          headers:
+            Content-Type:
+              description: |
+                The content type of the body.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeyManagerAppUsages'
+        404:
+          $ref: '#/components/responses/NotFound'
+        406:
+          $ref: '#/components/responses/NotAcceptable'
+      security:
+        - OAuth2Security:
+            - apim:admin
+            - apim:admin_operations
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+            "https://127.0.0.1:9443/api/am/admin/v4/key-managers/8d263942-a6df-4cc2-a804-7a2525501450/app-usages"'
+
+  ######################################################
+  # The "API Collection" resource APIs
+  ######################################################
+  /apis:
+    get:
+      tags:
+        - APIs
+      summary: |
+        Retrieve/Search APIs
+      description: |
+        This operation provides you a list of available APIs qualifying under a given search condition.
+        Each retrieved API is represented with a minimal amount of attributes. If you want to get complete details of an API, you need to use **Get details of an API** operation.
+      parameters:
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+        - name: query
+          in: query
+          description: |
+            **Search and get all apis in admin portal**.
+
+            You can search by proving a keyword.
+          schema:
+            type: string
+        - $ref: '#/components/parameters/If-None-Match'
+      responses:
+        200:
+          description: |
+            OK.
+            List of qualifying APIs is returned.
+          headers:
+            ETag:
+              description: |
+                Entity Tag of the response resource. Used by caches, or in conditional requests (Will be supported in future).
+              schema:
+                type: string
+            Content-Type:
+              description: The content type of the body.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResultList'
+        304:
+          description: |
+            Not Modified.
+            Empty body because the client has already the latest version of the requested resource (Will be supported in future).
+          content: {}
+        406:
+          $ref: '#/components/responses/NotAcceptable'
+      security:
+        - OAuth2Security:
+            - apim:admin
+            - apim:api_provider_change
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          "https://127.0.0.1:9443/api/am/publisher/v4/apis"'
+      operationId: getAllAPIs
+  ######################################################
+  # Change Api Provider
+  ######################################################
+  /apis/{apiId}/change-provider:
+    post:
+      tags:
+        - Api Provider Change
+      summary: Update the api provider
+      description: |
+        Update the api provider
+      operationId: providerNamePost
+      parameters:
+        - name: provider
+          in: query
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/apiId'
+      responses:
+        200:
+          description: |
+            OK.
+            Api Provider updated.
+          headers:
+            Content-Type:
+              description: |
+                The content type of the body.
+              schema:
+                type: string
+        400:
+          $ref: '#/components/responses/BadRequest'
+        404:
+          $ref: '#/components/responses/NotFound'
+      security:
+        - OAuth2Security:
+            - apim:admin
+            - apim:api_provider_change
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+              -H "Content-Type: application/json" "https://127.0.0.1:9443/api/am/admin/v4/provider/admin/apis/33662a62-8db1-4d75-af08-afd63c6bd0b4/change-provider?provider=user1"'
+  ######################################################
+  # The "Transaction Count" resource API
+  ######################################################
+  /transaction-count:
+    get:
+      tags:
+        - "Transaction Records"
+      summary: "Get transaction count"
+      description: "This endpoint retrieves the transaction count based on various filter parameters."
+      parameters:
+        - name: "startTime"
+          in: "query"
+          description: "Start time for the transaction count retrieval"
+          required: true
+          schema:
+            type: "string"
+        - name: "endTime"
+          in: "query"
+          description: "End time for the transaction count retrieval"
+          required: true
+          schema:
+            type: "string"
+      responses:
+        200:
+          description: "Transaction count retrieved successfully"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TransactionCount"
+        default:
+          description: "Unexpected error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+      security:
+        - OAuth2Security:
+            - apim:admin
 components:
   schemas:
     Error:
@@ -3750,20 +4319,24 @@ components:
         type:
           type: string
           description: |
-            Type of the throttling limit. Allowed values are "REQUESTCOUNTLIMIT" and "BANDWIDTHLIMIT".
-            Please see schemas of "RequestCountLimit" and "BandwidthLimit" throttling limit types in
-            Definitions section.
+            Type of the throttling limit. Allowed values are "REQUESTCOUNTLIMIT", "BANDWIDTHLIMIT", "EVENTCOUNTLIMIT"
+            and "AIAPIQUOTALIMIT".
+            Please see schemas of "RequestCountLimit", "BandwidthLimit", "EventCountLimit" and "AIAPIQuotaLimit" 
+            throttling limit types in Definitions section.
           example: REQUESTCOUNTLIMIT
           enum:
             - REQUESTCOUNTLIMIT
             - BANDWIDTHLIMIT
             - EVENTCOUNTLIMIT
+            - AIAPIQUOTALIMIT
         requestCount:
           $ref: '#/components/schemas/RequestCountLimit'
         bandwidth:
           $ref: '#/components/schemas/BandwidthLimit'
         eventCount:
           $ref: '#/components/schemas/EventCountLimit'
+        aiApiQuota:
+          $ref: '#/components/schemas/AIAPIQuotaLimit'
     BurstLimit:
       title: Burst Limit object
       type: object
@@ -3826,6 +4399,34 @@ components:
               description: Maximum number of requests allowed
               format: int64
               example: 30
+    AIAPIQuotaLimit:
+      title: AI API Quota Limit object
+      allOf:
+        - $ref: '#/components/schemas/ThrottleLimitBase'
+        - required:
+            - requestCount
+          type: object
+          properties:
+            requestCount:
+              type: integer
+              description: Maximum number of requests allowed
+              format: int64
+              example: 300
+            totalTokenCount:
+              type: integer
+              description: Maximum number of total tokens allowed
+              format: int64
+              example: 800
+            promptTokenCount:
+              type: integer
+              description: Maximum number of prompt tokens allowed
+              format: int64
+              example: 400
+            completionTokenCount:
+              type: integer
+              description: Maximum number of completion tokens allowed
+              format: int64
+              example: 500
     EventCountLimit:
       title: Event Count Limit object
       allOf:
@@ -4074,6 +4675,14 @@ components:
         provider:
           type: string
           example: wso2
+        type:
+          type: string
+          default: hybrid
+          example: hybrid
+        gatewayType:
+          type: string
+          example: Regular
+          default: Regular
         description:
           maxLength: 1023
           type: string
@@ -4108,6 +4717,100 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Environment'
+    LLMProviderRequest:
+      title: LLMProvider
+      type: object
+      properties:
+        name:
+          maxLength: 255
+          minLength: 1
+          type: string
+          example: OpenAI
+        apiVersion:
+          maxLength: 255
+          minLength: 1
+          type: string
+          example: 1.0.0
+        description:
+          maxLength: 1023
+          type: string
+          example: OpenAI LLM
+        configurations:
+          type: string
+          description: LLM Provider configurations
+        apiDefinition:
+          type: string
+          description: OpenAPI specification
+          format: binary
+    LLMProviderResponse:
+      title: LLMProviderResponse
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          example: ece92bdc-e1e6-325c-b6f4-656208a041e9
+        name:
+          maxLength: 255
+          minLength: 1
+          type: string
+          example: OpenAI
+        apiVersion:
+          maxLength: 255
+          minLength: 1
+          type: string
+          example: 1.0.0
+        builtInSupport:
+          type: boolean
+          description: Is built-in support
+        description:
+          maxLength: 1023
+          type: string
+          example: OpenAI LLM
+        configurations:
+          type: string
+          description: LLM Provider configurations
+        apiDefinition:
+          type: string
+          description: OpenAPI specification
+    LLMProviderSummaryResponse:
+      title: LLMProviderSummaryResponse
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          example: ece92bdc-e1e6-325c-b6f4-656208a041e9
+        name:
+          maxLength: 255
+          minLength: 1
+          type: string
+          example: open-ai
+        apiVersion:
+          maxLength: 255
+          minLength: 1
+          type: string
+          example: 1.0.0
+        builtInSupport:
+          type: boolean
+          description: Is built-in support
+        description:
+          maxLength: 1023
+          type: string
+          example: OpenAI LLM Provider
+    LLMProviderSummaryResponseList:
+      title: LLMProviderSummaryResponseList
+      type: object
+      properties:
+        count:
+          type: integer
+          description: |
+            Number of LLM Providers returned.
+          example: 1
+        list:
+          type: array
+          items:
+            $ref: '#/components/schemas/LLMProviderSummaryResponse'
     VHost:
       title: Virtual Host
       required:
@@ -4316,6 +5019,13 @@ components:
           type: array
           items:
             type: string
+        gatewayTypes:
+          type: array
+          items:
+            type: string
+        IsJWTEnabledForLoginTokens:
+          type: boolean
+          default: false
         keyManagerConfiguration:
           type: array
           items:
@@ -4344,6 +5054,10 @@ components:
         analyticsEnabled:
           type: boolean
           description: To determine whether analytics is enabled or not
+          example: false
+        transactionCounterEnable:
+          type: boolean
+          description: To determine whether the transaction counter is enabled or not
           example: false
     ScopeList:
       title: Scope Role Mapping List
@@ -4537,6 +5251,9 @@ components:
         enabled:
           type: boolean
           example: true
+        global:
+          type: boolean
+          example: true
         additionalProperties:
           type: object
           properties: {}
@@ -4606,6 +5323,12 @@ components:
         enabled:
           type: boolean
           example: true
+        isGlobal:
+          type: boolean
+          example: true
+        isUsed:
+          type: boolean
+          example: true
         tokenType:
           type: string
           description: The type of the tokens to be used (exchanged or without exchanged).
@@ -4663,6 +5386,109 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/KeyManagerInfo'
+
+    KeyManagerAppUsages:
+      title: Key Manager Application Usages.
+      required:
+        - applicationCount
+        - applications
+      type: object
+      properties:
+        applicationCount:
+          type: integer
+          description: The total count of applications.
+        applications:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApplicationInfoKeyManager'
+
+    ApplicationInfoKeyManager:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the application.
+        uuid:
+          type: string
+          description: The UUID of the application.
+        organizationId:
+          type: string
+          nullable: true
+          description: The ID of the organization to which the application belongs.
+        owner:
+          type: string
+          description: The owner of the application.
+        organization:
+          type: string
+          description: The organization of the application.
+      required:
+        - name
+        - uuid
+        - owner
+        - organization
+
+    KeyManagerAPIUsages:
+      title: Key Manager API Usages.
+      required:
+        - apiCount
+        - apis
+      type: object
+      properties:
+        apiCount:
+          type: integer
+          description: The total count of APIs.
+        apis:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIInfoKeyManager'
+
+    APIInfoKeyManager:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The ID of the API.
+        type:
+          type: string
+          description: The type of the entry (e.g., "API").
+        name:
+          type: string
+          description: The name of the API.
+        transportType:
+          type: string
+          description: The transport type of the API.
+        description:
+          type: string
+          nullable: true
+          description: The description of the API.
+        context:
+          type: string
+          description: The context of the API.
+        version:
+          type: string
+          description: The version of the API.
+        provider:
+          type: string
+          description: The provider of the API.
+        status:
+          type: string
+          description: The status of the API.
+        thumbnailUri:
+          type: string
+          nullable: true
+          description: The URI of the thumbnail of the API.
+        advertiseOnly:
+          type: boolean
+          description: Indicates if the API is advertised only.
+        keyManagerEntry:
+          type: string
+          description: The key manager entry related to the API.
+      required:
+        - id
+        - name
+        - version
+        - provider
+
     ClaimMappingEntry:
       title: Claim Mapping Configuration
       type: object
@@ -4957,6 +5783,61 @@ components:
             Link to the previous subset of resources qualified.
             Empty if current subset is the first subset returned.
             example: ""
+    PaginationApis:
+      title: Pagination
+      type: object
+      properties:
+        offset:
+          type: integer
+          example: 0
+        limit:
+          type: integer
+          example: 1
+        total:
+          type: integer
+          example: 10
+        next:
+          type: string
+          description: |
+            Link to the next subset of resources qualified.
+            Empty if no more resources are to be returned.
+        previous:
+          type: string
+          description: |
+            Link to the previous subset of resources qualified.
+            Empty if current subset is the first subset returned.
+    SearchResultList:
+      title: Unified Search Result List
+      type: object
+      properties:
+        apis:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiResult'
+        count:
+          type: integer
+          description: |
+            Number of results returned.
+          example: 1
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    ApiResult:
+      type: object
+      properties:
+        provider:
+          type: string
+        name:
+          type: string
+        version:
+          type: string
+        id:
+          type: string
+    TransactionCount:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 120
   responses:
     BadRequest:
       description: Bad Request. Invalid request or validation error.
@@ -5150,6 +6031,14 @@ components:
       required: true
       schema:
         type: string
+    llmProviderId:
+      name: llmProviderId
+      in: path
+      description: |
+        LLM Provider UUID
+      required: true
+      schema:
+        type: string
     policyId:
       name: policyId
       in: path
@@ -5256,6 +6145,14 @@ components:
       required: true
       schema:
         type: string
+    apiId:
+      name: apiId
+      in: path
+      description: |
+        **API ID** consisting of the **UUID** of the API.
+      required: true
+      schema:
+        type: string
   securitySchemes:
     OAuth2Security:
       type: oauth2
@@ -5297,3 +6194,5 @@ components:
             apim:role_manage: Manage system roles
             apim:admin_application_view: View Applications
             apim:keymanagers_manage: Manage Key Managers
+            apim:api_provider_change: Retrieve and manage applications
+            apim:llm_provider_manage: Manage LLM Providers

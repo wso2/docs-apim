@@ -26,10 +26,10 @@ You can export an application in the Developer Portal and download it as a zippe
 1.  Log in to the WSO2 API-M in the exporting environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).  
     
     !!! tip
-        If you are already logged-in and your logged-in credentials and the keys are already available in the `<USER_HOME>/.wso2apictl/keys.json` file, you can skip this step. 
+        If you are already logged-in and your logged-in credentials and the keys or the access-token are (is) already available in the `<USER_HOME>/.wso2apictl/keys.json` file, you can skip this step. 
 
     !!! info
-        If you skip step 1 and if no keys exist for the environment in the `<USER_HOME>/.wso2apictl/keys.json` file, you will be prompt to log in to the environment when running the next command.
+        If you skip step 1 and if no keys or a token exist(s) for the environment in the `<USER_HOME>/.wso2apictl/keys.json` file, you will be prompt to log in to the environment when running the next command.
 
 2.  Run any of the following apictl commands to export an existing application as a `.zip` archive.
 
@@ -120,10 +120,10 @@ You can import an application to your environment as a zipped application. When 
 1.  Log in to the WSO2 API-M in the importing environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).  
     
     !!! tip
-        If you are already logged-in and your logged-in credentials and the keys already are available in the `<USER_HOME>/.wso2apictl/keys.json` file, you can skip this step. 
+        If you are already logged-in and your logged-in credentials and the keys or the access-token are (is) already available in the `<USER_HOME>/.wso2apictl/keys.json` file, you can skip this step. 
 
     !!! info
-        If you skip step 1 and if no keys exist for the environment in the `<USER_HOME>/.wso2apictl/keys.json` file, you will be prompt to log in to the environment when running the next command.
+        If you skip step 1 and if no keys or a token exist(s) for the environment in the `<USER_HOME>/.wso2apictl/keys.json` file, you will be prompt to log in to the environment when running the next command.
 
 2.  Run any of the following apictl commands to import an existing application as a `.zip` archive.
 

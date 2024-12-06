@@ -62,7 +62,7 @@ Two key performance metrics were used to measure the performance of each test.
     <td>Apache JMeter Client</td>
     <td>c5.large</td>
     <td>2</td>
-    <td>4</td>
+    <td>2</td>
   </tr>
   <tr>
     <td>Apache JMeter Server 01</td>
@@ -86,7 +86,7 @@ Two key performance metrics were used to measure the performance of each test.
     <td>WSO2 API Manager</td>
     <td>c5.large</td>
     <td>2</td>
-    <td>4</td>
+    <td>2</td>
   </tr>
 </tbody>
 </table>
@@ -106,7 +106,7 @@ All scripts used to run the performance tests and analyze results are in the fol
 
 ## Results
 
-The complete results can be found [here](https://github.com/wso2/performance-apim/blob/performance-test-447-2024-03-12_05-54-54/performance/benchmarks/summary.md).
+The complete results can be found [here](https://github.com/wso2/performance-apim/blob/performance-test-470-2024-10-24_05-16-34/performance/benchmarks/summary.csv).
 
 The following graph depicts the throughput changes based on the number of concurrent users for different GraphQL queries.
 
@@ -132,7 +132,7 @@ The following graph depicts the average response time changes based on the numbe
 
 Let’s look at the 90th, 95th, and 99th response time percentiles. It is useful to measure the percentage of requests that exceeded the response time value for a given percentile. A percentile can be used to determine the percentage of requests completed below the particular response time value.
 
-For example, when there are 100 concurrent users, the 90th response time percentile for Query 1 is 76ms. This means that 10% of the requests have taken more than 76ms to respond. Similarly, the 99th response time percentile for Query 1 is 132ms, which means that 99% of the requests have been completed within 132ms.
+For example, when there are 100 concurrent users, the 90th response time percentile for Query 1 is 73ms. This means that 10% of the requests have taken more than 73ms to respond. Similarly, the 99th response time percentile for Query 1 is 130ms, which means that 99% of the requests have been completed within 130ms.
 
 The figure below represents the percentile values for Query 1.
 
