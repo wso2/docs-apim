@@ -112,7 +112,7 @@ There are a few potential reasons for this
 
 2. You may have configured the marketplace assistant after publishing those APIs.
 
-    APIs are only published to the vector database if the Al features are enabled and the token is configured. If you published the API before configuring the assistant, it might not be in the database, and the assistant wouldn't be aware of it. Re-publishing the API and trying again could resolve this. If you have numerous APIs, there's an option to upload them using the WSO2 API Controller
+    APIs are only published to the vector database if the AI features are enabled and the token is configured. If you published the API before configuring the assistant, it might not be in the database, and the assistant wouldn't be aware of it. Re-publishing the API and trying again could resolve this. If you have numerous APIs, there's an option to upload them using the WSO2 API Controller
 
 3. If you've published the API and are still receiving the above response, there could be two reasons:
 
