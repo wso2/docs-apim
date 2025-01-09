@@ -16,7 +16,7 @@ The user can replace the expected content types with the Message Relay builder a
 messages through WSO2 Micro Integrator without building them.
 
 !!! Warning 
-    Content cannot be altered once the binary relay is enabled. Therefore, if you are enabling the binary relay, content-aware
+    Content cannot be altered once the binary relay is enabled. Therefore, if you are enabling the binary relay, content-aware mediators should not be used.
 
 ### Message Relay Builder and Formatter Class Names
 
