@@ -804,6 +804,7 @@ nav:
                 - Correlation Logs: observe/api-manager/monitoring-correlation-logs.md
                 - HTTP Access Logs: observe/api-manager/monitoring-http-access-logs.md
                 - Audit Logs: observe/api-manager/monitoring-audit-logs.md
+                - Websocket Logs : observe/api-manager/monitoring-websocket-logs.md
             - Traces:
                 - OpenTracing: observe/api-manager/traces/monitoring-with-opentracing.md
             - Metrics:
