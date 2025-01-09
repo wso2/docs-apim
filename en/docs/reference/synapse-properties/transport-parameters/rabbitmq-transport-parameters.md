@@ -115,6 +115,12 @@ present. If set to <code>false</code>, the Micro Integrator will assume that a q
             You can increase the connection pool size to improve the performance of the RabbitMQ sender and listener. The default connection pool size is 20.
          </td>
       </tr>
+      <tr>
+         <td>rabbitmq.publisher.confirms.enabled</td>
+         <td>
+            Enables support for RabbitMQ publisher confirms.
+         </td>
+      </tr>
    </tbody>
 </table>
 
