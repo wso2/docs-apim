@@ -317,3 +317,29 @@ INFO - LogMediator To: /services/XSLTProxy.XSLTProxyHttpSoap11Endpoint, WSAction
     <root xmlns="http://ws.apache.org/ns/synapse"><![CDATA[<abc xmlns="">testabc</abc>]]></root>
 </soapenv:Body></soapenv:Envelope>
 ```
+
+!!! info "Optimize the XSLT mediator"
+
+    In real-world scenarios, you might encounter use cases where you pre-process before doing the XSLT message transformation using the XSLT mediator. In such use cases, you have to use the XSLT mediator instead of the FastXSLT mediator. You can specify the source, properties, features, or resources with the XSLT mediator, but the downside with the XSLT mediator is that it does not perform well when the message size is larger.
+    
+    It is possible to tune the XSLT mediator configuration to perform better for large message sizes. In the XSLT mediator, the following two parameters control the memory usage of the server. These two parameters can be configured in the `<MI_HOME>/conf/synapse.properties` file.
+    
+    ```toml
+    synapse.temp_data.chunk.size=3072
+    synapse.temp_data.chunk.threshold=8
+    ```
+    
+    These parameters decide when to write to the file system when the message size is large. The default values for the parameters allow WSO2 MI to process messages of size 3072*8 = 24K with the XSLT mediator without writing to the file system. This means that there is no performance drop in the XSLT mediator when the message size is less than 24K, but when the message size is larger than that, you see clear performance degradation.
+    
+    You can improve the performance of the XSLT mediator by allowing the use of more memory when processing large messages with the XSLT mediator.
+    
+    For example, if you know that your message size is going to be less than 512K (such as 16384 * 32), you can set the values of the above parameters as follows:
+    
+    ```toml
+    synapse.temp_data.chunk.size=16384
+    synapse.temp_data.chunk.threshold=32
+    ```
+    
+    Then the XSLT transformation happens in memory without writing data to disk. Therefore, performance is increased.
+
+    If the input or transformed message size exceeds the value of `<synapse.temp_data.chunk.size>`, the XSLT Mediator creates temporary files at `<MI_HOME>/tmp`. These files are not manually deleted by the Micro Integrator. The lifecycle of these files is managed by Java's Garbage Collector (GC). When no references to the temporary files remain, they will be expected to be deleted as part of the `java.lang.Object.finalize()` method.
