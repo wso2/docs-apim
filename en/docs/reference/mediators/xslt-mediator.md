@@ -325,8 +325,9 @@ INFO - LogMediator To: /services/XSLTProxy.XSLTProxyHttpSoap11Endpoint, WSAction
     It is possible to tune the XSLT mediator configuration to perform better for large message sizes. In the XSLT mediator, the following two parameters control the memory usage of the server. These two parameters can be configured in the `<MI_HOME>/conf/synapse.properties` file.
     
     ```toml
-    synapse.temp_data.chunk.size=3072
-    synapse.temp_data.chunk.threshold=8
+    [synapse_properties]
+    'synapse.temp_data_chunk_size'=3072
+    'synapse.temp_data.chunk.threshold'=8
     ```
     
     These parameters decide when to write to the file system when the message size is large. The default values for the parameters allow WSO2 MI to process messages of size 3072*8 = 24K with the XSLT mediator without writing to the file system. This means that there is no performance drop in the XSLT mediator when the message size is less than 24K, but when the message size is larger than that, you see clear performance degradation.
@@ -336,8 +337,9 @@ INFO - LogMediator To: /services/XSLTProxy.XSLTProxyHttpSoap11Endpoint, WSAction
     For example, if you know that your message size is going to be less than 512K (such as 16384 * 32), you can set the values of the above parameters as follows:
     
     ```toml
-    synapse.temp_data.chunk.size=16384
-    synapse.temp_data.chunk.threshold=32
+    [synapse_properties]    
+    'synapse.temp_data_chunk_size'=16384
+    'synapse.temp_data.chunk.threshold'=32
     ```
     
     Then the XSLT transformation happens in memory without writing data to disk. Therefore, performance is increased.
