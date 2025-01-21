@@ -344,4 +344,4 @@ INFO - LogMediator To: /services/XSLTProxy.XSLTProxyHttpSoap11Endpoint, WSAction
     
     Then the XSLT transformation happens in memory without writing data to disk. Therefore, performance is increased.
 
-    If the input or transformed message size exceeds the value of `<synapse.temp_data.chunk.size>`, the XSLT Mediator creates temporary files at `<MI_HOME>/tmp`. These files are not explicitly deleted by the Micro Integrator. The lifecycle of these files is managed by Java's Garbage Collector (GC). When no references to the temporary files remain, they will be expected to be deleted as part of the `java.lang.Object.finalize()` method.
+    If the input or transformed message size exceeds the value of `<synapse.temp_data_chunk_size>`, the XSLT Mediator creates temporary files at `<MI_HOME>/tmp`. These files are not explicitly deleted by the Micro Integrator. The lifecycle of these files is managed by Java's Garbage Collector (GC). When no references to the temporary files remain, they will be expected to be deleted as part of the `java.lang.Object.finalize()` method.
