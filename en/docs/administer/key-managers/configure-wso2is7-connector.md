@@ -98,10 +98,40 @@ Follow the steps given below to configure WSO2 IS 7.x as a Key Manager component
 8. Under **Certificates** section, select **JWKS**. Enter `https://localhost:9444/oauth2/jwks` as the **URL**. 
 9. Under **Connector Configurations**, provide the following values:
 
-    | Configuration                                           | Value                                                |
-    |---------------------------------------------------------|------------------------------------------------------|
-    | Username                                                | `admin`                                              |
-    | Password                                                | `admin`                                              |
-    | WSO2 Identity Server 7 API Resource Management Endpoint | `https://localhost:9444/api/server/v1/api-resources` |
-    | WSO2 Identity Server 7 Roles Endpoint                   | `https://localhost:9444/scim2/v2/Roles`              |
+    | Configuration                                           | Value                                                               |
+    |---------------------------------------------------------|---------------------------------------------------------------------|
+    | Username                                                | `admin`                                                             |
+    | Password                                                | `admin`                                                             |
+    | WSO2 Identity Server 7 API Resource Management Endpoint | `https://localhost:9444/api/server/v1/api-resources`                |
+    | WSO2 Identity Server 7 Roles Endpoint                   | `https://localhost:9444/scim2/v2/Roles`                             |
+    | Create roles in WSO2 Identity Server 7                  | Enable this if you need to create roles in WSO2 Identity Server 7.  |
+
+!!! Note
+    **Create roles in WSO2 Identity Server 7** option is supported only from WSO2 API Manager 4.4.0.5 update level onwards.
+
+## Role Creation in WSO2 Identity Server 7.x
+
+!!! Note
+    Enabling role creation according to this convention is supported from WSO2 API Manager 4.4.0.5 and WSO2 Identity Server 7.0.0.81 update levels onwards.
+
+By default, roles are **not** created in WSO2 Identity Server 7.x, and it is assumed that the roles will be manually created by the user in WSO2 Identity Server 7.x. 
+
+You can enable role creation in WSO2 Identity Server 7.x by enabling the **Create roles in WSO2 Identity Server 7** option in the **Connector Configurations** section. 
+
+The following property should be enabled in WSO2 Identity Server 7.x, to be able to create `system_primary_<roleName>` roles.
+
+```toml
+[role_mgt]
+allow_system_prefix_for_role = true
+```
+
+When enabled, the following naming conventions are followed when creating/accessing roles in WSO2 IS 7.x, corresponding to the types of WSO2 APIM roles.
+
+    | Type of role in WSO2 API Manager             | Naming convention in WSO2 IS 7.x                           |
+    |----------------------------------------------|------------------------------------------------------------|
+    | _PRIMARY_ roles (eg: `manager`)              | `system_primary_<roleName>` (eg: `system_primary_manager`) |
+    | _Internal_ roles (eg: `Internal/publisher`)  | `<roleName>` (eg: `publisher`)                             |
+
+    !!! Note
+        **_Application_ roles** are not used.
 
