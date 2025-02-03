@@ -1,6 +1,6 @@
 # Request Flow Interceptor
 
-Intercept the request to the backend and update headers, trailer and body before reaching the backend.
+Intercept the request to the backend and update path, headers, trailer and body before reaching the backend.
 
 ## Request and Response for Interceptor
 
@@ -94,7 +94,8 @@ Following is the response that the interceptor service should respond to the Cho
             "<arbitrary_key_1>": "<value_1>",
             "<arbitrary_key_2>": "<value_2>"
         },
-        "body": "<BASE64_encoded_body>"
+        "body": "<BASE64_encoded_body>",
+        "pathToRewrite": "<rewritten_path>"
     }
     ```
 
@@ -128,7 +129,8 @@ Following is the response that the interceptor service should respond to the Cho
         "interceptorContext": {
             "foo": "bar"
         },
-        "body": "eyJIZWxsbyI6IldvcmxkIn0K"
+        "body": "eyJIZWxsbyI6IldvcmxkIn0K",
+        "pathToRewrite": "/hello/1.0.0/test?foo=bar"
     }
     ```
 
@@ -143,6 +145,10 @@ Interceptor can instruct the Choreo-Connect Router what should be done with the 
 | [headers\|trailers]ToReplace | **Sets** the new value for existing headers/trailers, or **adds** the headers/trailers if it does not already exist.                                                                                                                                      |
 | interceptorContext           | Refer [Interceptor Context]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/interceptor-microservice/interceptor-context-and-invocation-context/#interceptor-context) for details.                      |
 | body                         | **Sets** the body with **base64** decoding the provided value. If the value is `null` (i.e. `{"body": null}`) or the key "body" is not defined (i.e. `{}`), body is not updated. If the value is empty (i.e. `{"body": ""}`), **sets** the body as empty. |
+| pathToRewrite                | **Rewrites** the request path with the provided value. 
+
+!!! attention "Update Level 15"
+    The pathToRewrite field is available only as an update, after Update level 1.2.0.15 (released on 03 February 2025) and further. For more information regarding Choreo Connect updates, see [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/update-choreo-connect/).
 
 <!-- The content of the below warning is same as the info notice in the file
 deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/defining-interceptors-in-an-open-api-definition.md -->
