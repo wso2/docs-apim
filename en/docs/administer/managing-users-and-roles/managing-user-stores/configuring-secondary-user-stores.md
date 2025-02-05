@@ -69,6 +69,9 @@ There are two approaches to configure a secondary user store. It can be configur
 
     !!! note
         Make sure that you do not enter `federated` as the domain name as the term is reserved for federated users.
+    
+    !!! note
+        If you are configuring a `UniqueIDReadOnlyLDAPUserStoreManager`, ensure that the **Enable Group Unique Id** attribute remains unchecked. Additionally, the **Group Id Attribute** setting will not be effective. This is because API Manager does not support group and role separation.
 
 6. Ensure that all the mandatory fields are filled and a valid domain name is given and click **Add**.
 
