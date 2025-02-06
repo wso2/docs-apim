@@ -16,15 +16,15 @@
 # under the License.
 
 # Project information
-site_name: WSO2 API Manager Documentation 4.4.0
-site_description: Documentation for WSO2 API Manager 4.4.0
+site_name: WSO2 API Manager Documentation 4.5.0
+site_description: Documentation for WSO2 API Manager 4.5.0
 site_author: WSO2
-site_url: https://apim.docs.wso2.com/en/latest/
+site_url: https://apim.docs.wso2.com/en/4.5.0/
 
 # Repository
 repo_name: wso2/docs-apim
 repo_url: https://github.com/wso2/docs-apim
-edit_uri: https://github.com/wso2/docs-apim/edit/master/en/docs/
+edit_uri: https://github.com/wso2/docs-apim/edit/4.5.0/en/docs/
 dev_addr: localhost:8000
 
 # Copyright
@@ -1107,7 +1107,7 @@ extra:
         helm_chart:
             version: 1.2.0-1
             git_tag: v1.2.0.1
-    site_version: 4.4.0
+    site_version: 4.5.0
     # base_path: http://localhost:8000/en/latest
-    base_path: https://apim.docs.wso2.com/en/latest
+    base_path: https://apim.docs.wso2.com/en/4.5.0
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
