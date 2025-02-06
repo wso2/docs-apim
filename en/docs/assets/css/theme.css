@@ -1344,6 +1344,14 @@ html .md-typeset .superfences-tabs>label:hover {
     margin-top: 0;
 }
 
+.beta-badge {
+    display: inline-block;
+    background: #ffd600;
+    font-size: 14px;
+    padding: 5px;
+    line-height: 1;
+}
+
 @media only screen and (min-width: 60em) {
     .md-content {
         margin-right: 12.1rem;
