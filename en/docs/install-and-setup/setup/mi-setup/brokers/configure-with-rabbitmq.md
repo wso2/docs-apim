@@ -98,3 +98,29 @@ parameter.username = "guest"
 parameter.password = "guest"
 ```
 When configuring the proxy service, be sure to add the following connection factory parameter in the address URI: `rabbitmq.connection.factory=CachedRabbitMQConnectionFactory`.
+
+
+## Configure proxy-level throttling
+
+!!! Note
+    Proxy-level throttling is available from U2 level 4.1.0.111.
+
+To enable throttling for the RabbitMQ proxy service listener, you can add the following configuration to the proxy service:
+
+```toml
+    <parameter name="rabbitmq.proxy.throttle.enabled">true</parameter>
+    <parameter name="rabbitmq.proxy.throttle.mode">fixed-interval</parameter>
+    <parameter name="rabbitmq.proxy.throttle.timeUnit">minute</parameter>
+    <parameter name="rabbitmq.proxy.throttle.count">60</parameter>
+```
+
+!!! Note
+    Allowed parameters for `rabbitmq.proxy.throttle.mode` : fixed-interval, batch
+
+    Allowed parameters for `rabbitmq.proxy.throttle.timeUnit` : minute, hour, day
+
+When enabling throttling for the RabbitMQ proxy service listener, to ensure that the message consumer retrieves only one message at a time from the RabbitMQ queue, you can add the following properties to the proxy service. This will avoid potential data loss if the server is restarted.
+```toml
+    <parameter name="rabbitmq.channel.consumer.qos">1</parameter>
+    <parameter name="rabbitmq.queue.auto.ack">false</parameter>
+```
