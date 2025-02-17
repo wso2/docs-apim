@@ -45,5 +45,3 @@ Given below are the API-M nodes you can have in a distributed deployment.
 <a href="{{base_path}}/assets/img/setup-and-install/deployment-tm.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-tm.png" width="100%"></a>
 
 {!includes/deploy/steps-to-deploy-apim-in-a-distributed-setup-with-tm-separation.md!}
-
-For more information on starting API-M profiles, see [API-M Profiles]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles).
