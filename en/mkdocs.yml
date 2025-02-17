@@ -149,7 +149,8 @@ nav:
                 - Add a Class Mediator: design/api-policies/regular-gateway-policies/adding-a-class-mediator.md
                 - Configure Message Builders and Formatters: design/api-policies/regular-gateway-policies/configuring-message-builders-formatters.md
                 - JWT claim based access validator: design/api-policies/regular-gateway-policies/jwt-claim-based-access-validator.md
-            - Revoke One Time Tokens Policy: design/api-policies/revoke-one-time-tokens-policy.md
+                - Revoke One Time Tokens Policy: design/api-policies/regular-gateway-policies/revoke-one-time-tokens-policy.md
+                - AI Policies: design/api-policies/regular-gateway-policies/ai-policies.md
         - API Security:
             - Authentication:
                 - Overview: design/api-security/api-authentication/api-authentication-overview.md
