@@ -119,7 +119,9 @@ Make sure to start instance 1 first before starting the other two instances.
 
     <a href="{{base_path}}/assets/img/learn/api-revisions-mutiple-gateways.png"><img src="{{base_path}}/assets/img/learn/api-revisions-mutiple-gateways.png" title="API Revisions Multiple Gateways" width="80%" alt="API Revisions Multiple Gateways"/></a>
     
-    Note that the two Gateway environments are listed there
+    Note that the two Gateway environments are listed there. Here you have the option to view the visibility permissions set for each Gateway environment. Click on the permission type to view the allowed/denied roles.
+
+    <a href="{{base_path}}/assets/img/learn/api-gateway-visibility-permissions.png"><img src="{{base_path}}/assets/img/learn/api-gateway-visibility-permissions.png" title="API Gateway Visibility Permissions" width="80%" alt="API Gateway Visibility Permissions"/></a>
 
     <a href="{{base_path}}/assets/img/learn/multiple-gateways-revision-dialog.png"><img src="{{base_path}}/assets/img/learn/multiple-gateways-revision-dialog.png" title="Multiple Gateways Dialog" width="40%" alt="Multiple Gateways Dialog"/></a>
 
