@@ -62,10 +62,6 @@ Yes, you can do this using the **Features** menu under the **Configure** menu of
 
 The memory allocation settings are stored in the `<API-M_HOME>/bin/api-manager.sh` file.
 
-### How do I start up only selected components of the API Manager?
-
-Even though the API Manager bundles all components together, you can select which component(s) you want to start by using the `-Dprofile` command at product startup. For more information, see [Product Profiles]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles/).
-
 ------------------------------------------------------------------------
 
 ## Deployment
