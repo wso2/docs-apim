@@ -1266,6 +1266,9 @@ nav:
                 - Masking Sensitive Information in Logs: administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs.md
         - Manage Streaming Integrator:
             - Manage Dashboards: observe/streaming-integrator/managing-dashboards.md
+        - Multiple Gateways:
+              - Configure a Gateway: administer/multiple-gateways/configure-gateway.md
+              - Configure Gateway Visibility: administer/multiple-gateways/configure-gateway-visibility.md
         - Key Managers:
             - Overview: administer/key-managers/overview.md
             - Configure WSO2 IS as a Key Manager: administer/key-managers/configure-wso2is-connector.md
