@@ -67,7 +67,7 @@ The overview page of the newly created API appears.
 
     [![API Key Configurations]({{base_path}}/assets/img/learn/ai-api-auth.png){: style="width:90%"}]({{base_path}}/assets/img/learn/ai-api-auth.png)
 
-3. Click **Save**.
+3. Fill out the primary endpoints section by selecting a primary production endpoint and/or a primary sandbox endpoint. Then, click **Save**.
 
 Now, you have successfully created an AI API. Next, [deploy the API]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/), [test the API]({{base_path}}/design/create-api/create-rest-api/test-a-rest-api/), and finally [publish the API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api).
 
@@ -75,11 +75,10 @@ Now, you have successfully created an AI API. Next, [deploy the API]({{base_path
 
 Learn more on the concepts that you need to know when creating a REST API:
 
-<!-- -   [Endpoints]({{base_path}}/design/endpoints/endpoint-types/) -->
 -   [API Security]({{base_path}}/design/api-security/api-authentication/secure-apis-using-oauth2-tokens/)
 -   [Rate Limiting for AI APIs]({{base_path}}/design/rate-limiting/rate-limiting-for-ai-apis/)
 -   [Life Cycle Management]({{base_path}}/design/lifecycle-management/api-lifecycle/)
-<!-- -   [API Monetization]({{base_path}}/design/api-monetization/monetizing-an-api/) -->
 -   [API Visibility]({{base_path}}/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/)
+-   [AI Policies]({{base_path}}/design/api-policies/regular-gateway-policies/ai-policies)
 -   [API Documentation]({{base_path}}/design/api-documentation/add-api-documentation/)
 -   [Custom Properties]({{base_path}}/design/create-api/adding-custom-properties-to-apis/)
