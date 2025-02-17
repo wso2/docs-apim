@@ -659,5 +659,3 @@ Once you have successfully configured all the API-M nodes in the deployment, you
         cd <API-M_HOME>\bin\
         api-manager.bat --run -Dprofile=control-plane
         ```
-
-For more information on starting API-M profiles, see [API-M Profiles]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles).
